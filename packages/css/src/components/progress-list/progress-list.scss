@@ -105,14 +105,12 @@
 
   background-color: var(--ams-progress-list-step-shape-background-color);
   block-size: var(--ams-progress-list-step-shape-block-size);
-  border-color: var(--ams-progress-list-step-shape-border-color);
-  border-style: var(--ams-progress-list-step-shape-border-style);
-  border-width: var(--ams-progress-list-step-shape-border-width);
+  border: var(--ams-progress-list-step-shape-border-width) var(--ams-progress-list-step-shape-border-style)
+    var(--ams-progress-list-step-shape-border-color);
 
   // Outline is used to create space between the shape and the connector.
-  outline-color: var(--ams-progress-list-step-shape-outline-color);
-  outline-style: var(--ams-progress-list-step-shape-outline-style);
-  outline-width: var(--ams-progress-list-step-shape-outline-width);
+  outline: var(--ams-progress-list-step-shape-outline-width) var(--ams-progress-list-step-shape-outline-style)
+    var(--ams-progress-list-step-shape-outline-color);
   z-index: 2;
 
   .ams-progress-list__step--completed & {
@@ -141,14 +139,14 @@
 
   background-color: var(--ams-progress-list-step-sub-steps-step-shape-background-color);
   block-size: var(--ams-progress-list-step-sub-steps-step-shape-block-size);
-  border-color: var(--ams-progress-list-step-sub-steps-step-shape-border-color);
-  border-style: var(--ams-progress-list-step-sub-steps-step-shape-border-style);
-  border-width: var(--ams-progress-list-step-sub-steps-step-shape-border-width);
+  border: var(--ams-progress-list-step-sub-steps-step-shape-border-width)
+    var(--ams-progress-list-step-sub-steps-step-shape-border-style)
+    var(--ams-progress-list-step-sub-steps-step-shape-border-color);
 
   // Outline is used to create space between the shape and the connector.
-  outline-color: var(--ams-progress-list-step-sub-steps-step-shape-outline-color);
-  outline-style: var(--ams-progress-list-step-sub-steps-step-shape-outline-style);
-  outline-width: var(--ams-progress-list-step-sub-steps-step-shape-outline-width);
+  outline: var(--ams-progress-list-step-sub-steps-step-shape-outline-width)
+    var(--ams-progress-list-step-sub-steps-step-shape-outline-style)
+    var(--ams-progress-list-step-sub-steps-step-shape-outline-color);
   z-index: 2;
 
   .ams-progress-list__sub-step--completed & {
@@ -167,9 +165,9 @@
 .ams-progress-list__connector {
   @include connector;
 
-  border-inline-color: var(--ams-progress-list-step-connector-border-inline-color);
-  border-inline-style: var(--ams-progress-list-step-connector-border-inline-style);
-  border-inline-width: var(--ams-progress-list-step-connector-border-inline-width);
+  border: var(--ams-progress-list-step-connector-border-inline-width)
+    var(--ams-progress-list-step-connector-border-inline-style)
+    var(--ams-progress-list-step-connector-border-inline-color);
 
   .ams-progress-list--heading-2 & {
     margin-block-start: var(--ams-progress-list-heading-2-step-marker-margin-block-start);
@@ -203,9 +201,9 @@
   @include connector;
 
   background-color: var(--ams-progress-list-step-sub-steps-step-connector-background-color);
-  border-inline-color: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-color);
-  border-inline-style: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-style);
-  border-inline-width: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-width);
+  border: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-width)
+    var(--ams-progress-list-step-sub-steps-step-connector-border-inline-style)
+    var(--ams-progress-list-step-sub-steps-step-connector-border-inline-color);
   margin-block-start: var(--ams-progress-list-step-sub-steps-step-connector-margin-block-start);
 
   .ams-progress-list__sub-step--completed & {
