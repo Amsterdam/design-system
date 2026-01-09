@@ -15,7 +15,7 @@ export type ImageSliderThumbnailsProps = {
   currentSlideId: number
   goToNextSlide: () => void
   goToPreviousSlide: () => void
-  goToSlideId: (id: number) => void
+  goToSlideById: (id: number) => void
   imageLabel?: string
   thumbnails: ImageSliderImageProps[]
 } & HTMLAttributes<HTMLElement>
@@ -24,7 +24,7 @@ export const ImageSliderThumbnails = ({
   currentSlideId,
   goToNextSlide,
   goToPreviousSlide,
-  goToSlideId,
+  goToSlideById,
   imageLabel,
   thumbnails,
 }: ImageSliderThumbnailsProps) => {
@@ -64,7 +64,7 @@ export const ImageSliderThumbnails = ({
             generateAspectRatioClass(aspectRatio),
           )}
           key={`${alt}-${index}`}
-          onClick={() => goToSlideId(index)}
+          onClick={() => goToSlideById(index)}
           role="tab"
           style={{ backgroundImage: `url(${src})` }}
           tabIndex={currentSlideId === index ? 0 : -1}

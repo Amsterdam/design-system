@@ -7,7 +7,7 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 
 import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 
 import type { ImageProps } from '../Image/Image'
 
@@ -47,105 +47,87 @@ export const ImageSlider = forwardRef(
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const [currentSlideId, setCurrentSlideId] = useState(0)
-    const [isAtStart, setIsAtStart] = useState(true)
-    const [isAtEnd, setIsAtEnd] = useState(false)
-    const targetRef = useRef<HTMLDivElement>(null)
-    const observerRef = useRef<IntersectionObserver | null>(null)
 
-    const inView = useCallback((observations: IntersectionObserverEntry[]) => {
-      const images = Array.from(targetRef.current?.children || [])
+    const scrollerRef = useRef<HTMLDivElement>(null)
 
-      observations.forEach((observation) => {
-        if (observation.isIntersecting) {
-          setCurrentSlideId(images.indexOf(observation.target as HTMLElement))
-        }
-      })
-    }, [])
+    const isAtStart = currentSlideId === 0
+    const isAtEnd = currentSlideId === images.length - 1
 
-    const updateControls = useCallback(() => {
-      const sliderScrollerElement = targetRef.current
-      if (!sliderScrollerElement) return
+    // Navigation functions
+    const goToSlide = (element: HTMLElement) => {
+      const scrollerElement = scrollerRef.current
+      if (!scrollerElement || !element) return
 
-      const { firstElementChild: firstElement, lastElementChild: lastElement } = sliderScrollerElement as HTMLDivElement
-
-      setIsAtStart(firstElement === sliderScrollerElement?.children[currentSlideId])
-      setIsAtEnd(lastElement === sliderScrollerElement?.children[currentSlideId])
-    }, [currentSlideId])
-
-    useEffect(() => {
-      if (!targetRef.current) return undefined
-
-      const observerOptions = {
-        root: targetRef.current,
-        threshold: 0.6,
-      }
-
-      observerRef.current = new IntersectionObserver(inView, observerOptions)
-      const observer = observerRef.current
-
-      const slides = Array.from(targetRef.current.children)
-      slides.forEach((slide) => observer.observe(slide))
-
-      targetRef.current.addEventListener('scrollend', synchronise)
-
-      updateControls()
-
-      return () => {
-        slides.forEach((slide) => observer.unobserve(slide))
-        targetRef.current?.removeEventListener('scrollend', synchronise)
-      }
-    }, [inView, updateControls])
-
-    const synchronise = useCallback(() => updateControls(), [updateControls])
-
-    const goToSlide = useCallback((element: HTMLElement) => {
-      const sliderScrollerElement = targetRef.current
-      if (!sliderScrollerElement || !element) return
-
-      sliderScrollerElement.scrollTo({
+      scrollerElement.scrollTo({
         left: element.offsetLeft,
       })
-    }, [])
+    }
 
-    const goToSlideId = useCallback(
-      (id: number) => {
-        const element = targetRef.current?.children[id] as HTMLElement | null
-        if (element) goToSlide(element)
-      },
-      [goToSlide],
-    )
+    const goToSlideById = (id: number) => {
+      const element = scrollerRef.current?.children[id] as HTMLElement | null
+      if (element) goToSlide(element)
+    }
 
     const goToNextSlide = () => {
-      const element = targetRef.current?.children[currentSlideId]
+      const element = scrollerRef.current?.children[currentSlideId]
       const nextElement = element?.nextElementSibling as HTMLElement | null
 
       if (nextElement) goToSlide(nextElement)
     }
 
     const goToPreviousSlide = () => {
-      const element = targetRef.current?.children[currentSlideId]
+      const element = scrollerRef.current?.children[currentSlideId]
       const previousElement = element?.previousElementSibling as HTMLElement | null
 
       if (previousElement) goToSlide(previousElement)
     }
 
     useEffect(() => {
-      const handleResize = () => {
-        const sliderScrollerElement = targetRef.current
-        const currentSlideElement = targetRef.current?.children[currentSlideId] as HTMLElement | null
+      if (!scrollerRef.current) return undefined
 
-        if (!sliderScrollerElement || !currentSlideElement) return
+      const handleIntersection = (observations: IntersectionObserverEntry[]) => {
+        const images = Array.from(scrollerRef.current?.children || [])
 
-        const expectedScrollLeft = currentSlideElement.offsetLeft
-
-        if (Math.abs(sliderScrollerElement.scrollLeft - expectedScrollLeft) < 1) return
-
-        goToSlide(currentSlideElement)
+        observations.forEach((observation) => {
+          if (observation.isIntersecting) {
+            setCurrentSlideId(images.indexOf(observation.target as HTMLElement))
+          }
+        })
       }
 
-      window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
-    }, [currentSlideId, goToSlide])
+      const observerOptions = {
+        root: scrollerRef.current,
+        threshold: 0.6,
+      }
+
+      const observer = new IntersectionObserver(handleIntersection, observerOptions)
+
+      const slides = Array.from(scrollerRef.current.children)
+      slides.forEach((slide) => observer.observe(slide))
+
+      return () => {
+        slides.forEach((slide) => observer.unobserve(slide))
+      }
+    }, [])
+
+    const handleWindowResize = () => {
+      const scrollerElement = scrollerRef.current
+      const currentSlideElement = scrollerRef.current?.children[currentSlideId] as HTMLElement | null
+
+      if (!scrollerElement || !currentSlideElement) return
+
+      const expectedScrollLeft = currentSlideElement.offsetLeft
+
+      if (Math.abs(scrollerElement.scrollLeft - expectedScrollLeft) < 1) return
+
+      goToSlide(currentSlideElement)
+    }
+
+    useEffect(() => {
+      window.addEventListener('resize', handleWindowResize)
+
+      return () => window.removeEventListener('resize', handleWindowResize)
+    }, [handleWindowResize])
 
     return (
       <div
@@ -164,7 +146,7 @@ export const ImageSlider = forwardRef(
             </ImageSliderControl>
           </div>
         )}
-        <div aria-live="polite" className="ams-image-slider__scroller" ref={targetRef} role="group" tabIndex={0}>
+        <div aria-live="polite" className="ams-image-slider__scroller" ref={scrollerRef} role="group" tabIndex={0}>
           {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
             <div
               aria-hidden={index !== currentSlideId ? true : undefined}
@@ -183,7 +165,7 @@ export const ImageSlider = forwardRef(
           currentSlideId={currentSlideId}
           goToNextSlide={goToNextSlide}
           goToPreviousSlide={goToPreviousSlide}
-          goToSlideId={goToSlideId}
+          goToSlideById={goToSlideById}
           imageLabel={imageLabel}
           thumbnails={images}
         />
