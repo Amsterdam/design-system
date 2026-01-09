@@ -60,8 +60,7 @@
   display: flex;
 }
 
-// Indicator
-// The indicator acts as the layout container for the marker and connector.
+// Indicator: Layout container for the marker and connector.
 
 .ams-progress-list__indicator {
   @include layout-indicator;
@@ -79,8 +78,7 @@
   }
 }
 
-// Marker
-// Marker acts as the layout container for the shape.
+// Marker: Layout container for the shape.
 
 .ams-progress-list__marker {
   display: flex;
@@ -100,8 +98,7 @@
   }
 }
 
-// Shape
-// Shape is the visual circle inside marker which is used to center the shape with the heading.
+// Shape: Visual circle inside marker.
 
 .ams-progress-list__marker-shape {
   @include circular-marker;
@@ -226,7 +223,7 @@
 // Content
 
 .ams-progress-list__content {
-  /* Ensure content can shrink to fit the container */
+  // Ensure content can shrink to fit the container
   flex: auto;
   min-inline-size: 0;
 }
