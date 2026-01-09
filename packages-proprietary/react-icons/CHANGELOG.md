@@ -6,9 +6,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v1.1.1...design-system-react-icons-v2.0.0) (2026-01-09)
 
 
-### ⚠ BREAKING CHANGES
+### Deprecations
 
-* Use correct spelling for LinkedIn icon SVG ([#2357](https://github.com/Amsterdam/design-system/issues/2357))
+The following icons will be removed in release 4.0.0:
+
+- `Bell` and `BellFill`, use `Notification` and `NotificationFill` instead.
+- `PersonCircle` and `PersonCircleFill`, use `UserAccount` and `UserAccountFill` instead.
+- `TrashBin` and `TrashBinFill`, use `Delete` and `DeleteFill` instead.
 
 ### Features
 
