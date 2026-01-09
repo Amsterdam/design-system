@@ -13,7 +13,6 @@ import type { ImageProps } from '../Image/Image'
 import { Image } from '../Image/Image'
 import { ImageSliderContext } from './ImageSliderContext'
 import { ImageSliderControls } from './ImageSliderControls'
-import { ImageSliderItem } from './ImageSliderItem'
 import { ImageSliderScroller } from './ImageSliderScroller'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 
@@ -176,11 +175,18 @@ export const ImageSlider = forwardRef(
             />
           )}
           <ImageSliderScroller aria-live="polite" ref={targetRef} role="group" tabIndex={0}>
-            {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
-              <ImageSliderItem key={index} slideId={index}>
-                <Image alt={alt} aspectRatio={aspectRatio} sizes={sizes} src={src} srcSet={srcSet} />
-              </ImageSliderItem>
-            ))}
+            {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => {
+              const isInView = index === currentSlideId
+              return (
+                <div
+                  aria-hidden={!isInView ? true : undefined}
+                  className={clsx('ams-image-slider__item', isInView && 'ams-image-slider__item--in-view')} // TODO: remove unused class
+                  key={index} // TODO: replace with unique id
+                >
+                  <Image alt={alt} aspectRatio={aspectRatio} sizes={sizes} src={src} srcSet={srcSet} />
+                </div>
+              )
+            })}
           </ImageSliderScroller>
           <ImageSliderThumbnails imageLabel={imageLabel} thumbnails={images} />
         </div>
