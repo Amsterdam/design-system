@@ -6,10 +6,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [3.0.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v2.2.0...design-system-tokens-v3.0.0) (2026-01-09)
 
 
-### ⚠ BREAKING CHANGES
+### Deprecations
 
-* **Field, Field Set:** Change spacing between elements ([#2358](https://github.com/Amsterdam/design-system/issues/2358))
-* **Page Header:** Add vertical space to Mega Menu in Spacious Mode ([#2298](https://github.com/Amsterdam/design-system/issues/2298))
+The following tokens will be removed in release 5.0.0:
+
+- `ams.field-set.legend.margin-block-end`
+-  `ams.field.gap`
 
 ### Features
 
