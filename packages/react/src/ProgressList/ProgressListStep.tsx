@@ -13,33 +13,42 @@ import { Icon } from '../Icon'
 import ProgressListContext from './ProgressListContext'
 
 export type ProgressListStepProps = {
+  hasSubSteps?: boolean
   heading: string
   status?: 'current' | 'completed'
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const ProgressListStep = forwardRef(
-  ({ children, className, heading, status, ...restProps }: ProgressListStepProps, ref: ForwardedRef<HTMLLIElement>) => {
+  (
+    { children, className, hasSubSteps, heading, status, ...restProps }: ProgressListStepProps,
+    ref: ForwardedRef<HTMLLIElement>,
+  ) => {
     const { headingLevel } = useContext(ProgressListContext)
 
     return (
       <li
         aria-current={status === 'current' ? 'step' : undefined}
-        className={clsx('ams-progress-list__step', status && `ams-progress-list__step--${status}`, className)}
+        className={clsx(
+          className,
+          'ams-progress-list__step',
+          hasSubSteps && 'ams-progress-list__step--has-sub-steps',
+          status && `ams-progress-list__step--${status}`,
+        )}
         ref={ref}
         {...restProps}
       >
         <div className="ams-progress-list__indicator">
           <div className="ams-progress-list__marker">
             <span className="ams-progress-list__marker-shape">
-              {status === 'current' && (
-                <Icon className="ams-progress-list__marker-icon" square svg={ArrowForwardIcon} />
-              )}
+              {status === 'current' && <Icon color="inverse" svg={ArrowForwardIcon} />}
             </span>
           </div>
           <span className="ams-progress-list__connector" />
         </div>
         <div className="ams-progress-list__content">
-          <Heading level={headingLevel}>{heading}</Heading>
+          <Heading className="ams-progress-list__heading" level={headingLevel}>
+            {heading}
+          </Heading>
           <div className="ams-progress-list__body">{children}</div>
         </div>
       </li>
