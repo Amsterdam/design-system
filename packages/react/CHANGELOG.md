@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.2.0...design-system-react-v3.0.0) (2026-01-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Page Footer:** Automatically render visually hidden heading before menu ([#2359](https://github.com/Amsterdam/design-system/issues/2359))
+
+### Features
+
+* **Logo, Page Header:** Allow custom branding ([#2323](https://github.com/Amsterdam/design-system/issues/2323)) ([e3c5bdf](https://github.com/Amsterdam/design-system/commit/e3c5bdf74458f414ccb052bf6f3fee1fccf7ed07))
+* **Page Footer:** Automatically render visually hidden heading before menu ([#2359](https://github.com/Amsterdam/design-system/issues/2359)) ([9019a78](https://github.com/Amsterdam/design-system/commit/9019a7891b7b2e31d9faab238317c34753bf7870))
+* **Page Header:** Add visually hidden description to menu button, hide menu button when CSS does not load ([#2340](https://github.com/Amsterdam/design-system/issues/2340)) ([f19ef3a](https://github.com/Amsterdam/design-system/commit/f19ef3a646ce18447a5f34382acd1eab5f7b82bb))
+* **Page Header:** Hide duplicate content of ‘narrow window only Grid Cell’ until CSS loads ([#2305](https://github.com/Amsterdam/design-system/issues/2305)) ([991252d](https://github.com/Amsterdam/design-system/commit/991252dc02e98012e278bae8c9376d2c8060c948))
+* **Paragraph:** Distinguish large and small variants without CSS ([#2315](https://github.com/Amsterdam/design-system/issues/2315)) ([c3bb5f7](https://github.com/Amsterdam/design-system/commit/c3bb5f74b1ffb8895b825a64f2fef704129b5e12))
+
 ## [2.2.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.1.0...design-system-react-v2.2.0) (2025-11-21)
 
 
