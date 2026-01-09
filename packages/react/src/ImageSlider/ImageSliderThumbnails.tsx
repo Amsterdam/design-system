@@ -6,22 +6,35 @@
 import type { ForwardedRef, HTMLAttributes, KeyboardEvent } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef, useCallback, useContext, useMemo } from 'react'
+import { forwardRef, useCallback, useMemo } from 'react'
 
 import type { ImageSliderImageProps } from './ImageSlider'
 
 import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
-import { ImageSliderContext } from './ImageSliderContext'
 
 export type ImageSliderThumbnailsProps = {
+  currentSlideId: number
+  goToNextSlide: () => void
+  goToPreviousSlide: () => void
+  goToSlideId: (id: number) => void
   imageLabel?: string
   thumbnails: ImageSliderImageProps[]
 } & HTMLAttributes<HTMLElement>
 
 export const ImageSliderThumbnails = forwardRef(
-  ({ className, imageLabel, thumbnails, ...restProps }: ImageSliderThumbnailsProps, ref: ForwardedRef<HTMLElement>) => {
-    const { currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId } = useContext(ImageSliderContext)
-
+  (
+    {
+      className,
+      currentSlideId,
+      goToNextSlide,
+      goToPreviousSlide,
+      goToSlideId,
+      imageLabel,
+      thumbnails,
+      ...restProps
+    }: ImageSliderThumbnailsProps,
+    ref: ForwardedRef<HTMLElement>,
+  ) => {
     const handleKeyDown = useCallback(
       (event: KeyboardEvent<HTMLElement>) => {
         const element = event.currentTarget.children[currentSlideId]
