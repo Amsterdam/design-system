@@ -4,8 +4,6 @@
  */
 
 @use "../../common/breakpoint" as *;
-@use "../../common/hyphenation" as *;
-@use "../../common/text-rendering" as *;
 
 @mixin reset-ol {
   list-style: none;
@@ -35,8 +33,6 @@
 }
 
 .ams-progress-list {
-  @include hyphenation;
-  @include text-rendering;
   @include reset-ol;
 }
 
