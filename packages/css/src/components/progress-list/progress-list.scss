@@ -70,7 +70,7 @@
   @include layout-indicator;
 
   margin-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-margin-inline-end);
-  margin-inline-start: calc(-1 * var(--ams-progress-list-step-gap) - var(--ams-progress-list-step-shape-inline-size));
+  margin-inline-start: calc(-1 * var(--ams-progress-list-step-gap) - var(--ams-progress-list-step-shape-block-size));
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     margin-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-medium-margin-inline-end);
@@ -132,7 +132,7 @@
   block-size: var(--ams-progress-list-step-sub-steps-step-marker-block-size);
   display: grid;
   grid-area: 1/1;
-  inline-size: var(--ams-progress-list-step-shape-inline-size);
+  inline-size: var(--ams-progress-list-step-sub-steps-step-marker-inline-size);
   place-items: center;
 }
 

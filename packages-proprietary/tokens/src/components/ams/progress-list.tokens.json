@@ -50,9 +50,6 @@
           "block-size": {
             "value": "1.5rem"
           },
-          "inline-size": {
-            "value": "1.5rem"
-          },
           "background-color": {
             "value": "{ams.color.background}"
           },
@@ -110,13 +107,16 @@
                   "value": "{ams.space.l}"
                 },
                 "margin-inline-start": {
-                  "value": "calc(-1 * {ams.progress-list.step.medium.gap} - {ams.progress-list.step.shape.inline-size})"
+                  "value": "calc(-1 * {ams.progress-list.step.medium.gap} - {ams.progress-list.step.shape.block-size})"
                 }
               }
             },
             "marker": {
               "block-size": {
                 "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})"
+              },
+              "inline-size": {
+                "value": "{ams.progress-list.step.shape.block-size}"
               }
             },
             "shape": {
