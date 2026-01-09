@@ -158,13 +158,13 @@
               "border-inline-width": {
                 "value": "1px"
               },
-              "last-step": {
+              "margin-block-start": {
+                "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height} / 2)"
+              },
+              "last-child": {
                 "border-inline-color": {
                   "value": "{ams.color.background}"
                 }
-              },
-              "margin-block-start": {
-                "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height} / 2)"
               }
             },
             "body": {
