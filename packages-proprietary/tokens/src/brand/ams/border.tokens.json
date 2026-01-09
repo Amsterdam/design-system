@@ -2,10 +2,34 @@
   "ams": {
     "border": {
       "width": {
-        "s": { "value": "0.0625rem" },
-        "m": { "value": "0.125rem" },
-        "l": { "value": "0.1875rem" },
-        "xl": { "value": "0.25rem" }
+        "s": {
+          "$value": {
+            "value": 0.0625,
+            "unit": "rem"
+          },
+          "$type": "dimension"
+        },
+        "m": {
+          "$value": {
+            "value": 0.125,
+            "unit": "rem"
+          },
+          "$type": "dimension"
+        },
+        "l": {
+          "$value": {
+            "value": 0.1875,
+            "unit": "rem"
+          },
+          "$type": "dimension"
+        },
+        "xl": {
+          "$value": {
+            "value": 0.25,
+            "unit": "rem"
+          },
+          "$type": "dimension"
+        }
       }
     }
   }

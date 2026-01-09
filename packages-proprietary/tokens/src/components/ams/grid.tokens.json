@@ -1,26 +1,62 @@
 {
   "ams": {
     "grid": {
-      "column-count": { "value": "4" },
-      "column-gap": { "value": "{ams.space.xl}" },
-      "padding-block": {
-        "l": { "value": "{ams.space.l}" },
-        "xl": { "value": "{ams.space.xl}" },
-        "2xl": { "value": "{ams.space.2xl}" }
+      "column-count": {
+        "$value": "4"
       },
-      "padding-inline": { "value": "{ams.space.l}" },
+      "column-gap": {
+        "$value": "{ams.space.xl}",
+        "$type": "dimension"
+      },
+      "padding-block": {
+        "l": {
+          "$value": "{ams.space.l}",
+          "$type": "dimension"
+        },
+        "xl": {
+          "$value": "{ams.space.xl}",
+          "$type": "dimension"
+        },
+        "2xl": {
+          "$value": "{ams.space.2xl}",
+          "$type": "dimension"
+        }
+      },
+      "padding-inline": {
+        "$value": "{ams.space.l}",
+        "$type": "dimension"
+      },
       "row-gap": {
-        "l": { "value": "{ams.space.l}" },
-        "xl": { "value": "{ams.space.xl}" },
-        "2xl": { "value": "{ams.space.2xl}" }
+        "l": {
+          "$value": "{ams.space.l}",
+          "$type": "dimension"
+        },
+        "xl": {
+          "$value": "{ams.space.xl}",
+          "$type": "dimension"
+        },
+        "2xl": {
+          "$value": "{ams.space.2xl}",
+          "$type": "dimension"
+        }
       },
       "medium": {
-        "column-count": { "value": "8" },
-        "padding-inline": { "value": "{ams.space.xl}" }
+        "column-count": {
+          "$value": "8"
+        },
+        "padding-inline": {
+          "$value": "{ams.space.xl}",
+          "$type": "dimension"
+        }
       },
       "wide": {
-        "column-count": { "value": "12" },
-        "padding-inline": { "value": "{ams.space.2xl}" }
+        "column-count": {
+          "$value": "12"
+        },
+        "padding-inline": {
+          "$value": "{ams.space.2xl}",
+          "$type": "dimension"
+        }
       }
     }
   }

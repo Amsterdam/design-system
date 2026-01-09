@@ -1,30 +1,88 @@
 {
   "ams": {
     "links": {
-      "color": { "value": "{ams.color.interactive.default}" },
-      "text-decoration-thickness": { "comment": "2px", "value": "0.125rem" },
-      "text-underline-offset": { "comment": "2.5px", "value": "0.15625rem" },
+      "color": {
+        "$value": "{ams.color.interactive.default}",
+        "$type": "color"
+      },
+      "text-decoration-thickness": {
+        "$value": {
+          "value": 0.125,
+          "unit": "rem"
+        },
+        "$type": "dimension",
+        "$extension": {
+          "amsterdam.designsystem.hint": "2px"
+        }
+      },
+      "text-underline-offset": {
+        "$value": {
+          "value": 0.15625,
+          "unit": "rem"
+        },
+        "$type": "dimension",
+        "$extension": {
+          "amsterdam.designsystem.hint": "2.5px"
+        }
+      },
       "hover": {
-        "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-thickness": { "comment": "3px", "value": "0.1875rem" },
-        "text-underline-offset": { "comment": "1.5px", "value": "0.09375rem" }
+        "color": {
+          "$value": "{ams.color.interactive.hover}",
+          "$type": "color"
+        },
+        "text-decoration-thickness": {
+          "$value": {
+            "value": 0.1875,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$extension": {
+            "amsterdam.designsystem.hint": "3px"
+          }
+        },
+        "text-underline-offset": {
+          "$value": {
+            "value": 0.09375,
+            "unit": "rem"
+          },
+          "$type": "dimension",
+          "$extension": {
+            "amsterdam.designsystem.hint": "1.5px"
+          }
+        }
       },
       "subtle": {
-        "text-decoration-line": { "value": "none" },
+        "text-decoration-line": {
+          "$value": "none"
+        },
         "hover": {
-          "text-decoration-line": { "value": "underline" }
+          "text-decoration-line": {
+            "$value": "underline"
+          }
         }
       },
       "contrast": {
-        "color": { "value": "{ams.color.interactive.contrast}" },
+        "color": {
+          "$value": "{ams.color.interactive.contrast}",
+          "$type": "color"
+        },
         "hover": {
-          "color": { "value": "{ams.color.interactive.contrast}" }
+          "color": {
+            "$value": "{ams.color.interactive.contrast}",
+            "$type": "color"
+          }
         }
       },
       "inverse": {
-        "color": { "value": "{ams.color.interactive.inverse}" },
+        "color": {
+          "$value": "{ams.color.interactive.inverse}",
+          "$type": "color"
+        },
         "hover": {
-          "color": { "value": "{ams.color.interactive.inverse}" }
+          "color": {
+            "$value": "{ams.color.interactive.inverse}",
+            "$type": "color"
+          }
         }
       }
     }

@@ -2,11 +2,26 @@
   "ams": {
     "row": {
       "gap": {
-        "x-small": { "value": "{ams.space.xs}" },
-        "small": { "value": "{ams.space.s}" },
-        "medium": { "value": "{ams.space.m}" },
-        "large": { "value": "{ams.space.l}" },
-        "x-large": { "value": "{ams.space.xl}" }
+        "x-small": {
+          "$value": "{ams.space.xs}",
+          "$type": "dimension"
+        },
+        "small": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension"
+        },
+        "medium": {
+          "$value": "{ams.space.m}",
+          "$type": "dimension"
+        },
+        "large": {
+          "$value": "{ams.space.l}",
+          "$type": "dimension"
+        },
+        "x-large": {
+          "$value": "{ams.space.xl}",
+          "$type": "dimension"
+        }
       }
     }
   }

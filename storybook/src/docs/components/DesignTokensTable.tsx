@@ -2,7 +2,7 @@ import './design-tokens-table.css'
 import { Code } from './Code'
 
 type TokenValue = {
-  value: string
+  $value: string
 }
 
 type DesignTokens = {
@@ -14,19 +14,27 @@ type TokenEntry = {
   value: string
 }
 
-const flattenTokens = (tokens: DesignTokens, parentPath: string[] = []): TokenEntry[] => {
+const flattenTokens = (tokens: DesignTokens | TokenValue, parentPath: string[] = []): TokenEntry[] => {
+  if ('$value' in tokens) {
+    return []
+  }
+
   return Object.entries(tokens).flatMap(([key, value]) => {
     const currentToken = [...parentPath, key]
 
-    if ('value' in value) {
-      if (typeof value.value !== 'string') {
-        return []
-      }
+    // Check if the value is a token object with a $value property
+    if ('$value' in value && typeof value.$value === 'string') {
+      // Return a flat token with CSS variable format (--ams-)
+      return [{ path: '--' + currentToken.join('-'), value: value.$value }]
+    }
 
-      return [{ path: '--' + currentToken.join('-'), value: value.value }]
-    } else {
+    // Flatten nested objects
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
       return flattenTokens(value, currentToken)
     }
+
+    // Return empty when there are no more nested objects left
+    return []
   })
 }
 

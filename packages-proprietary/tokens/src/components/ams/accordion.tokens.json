@@ -1,16 +1,38 @@
 {
   "ams": {
     "accordion": {
-      "gap": { "value": "{ams.space.s}" },
+      "gap": {
+        "$value": "{ams.space.s}",
+        "$type": "dimension"
+      },
       "button": {
-        "color": { "value": "{ams.color.interactive.default}" },
-        "cursor": { "value": "{ams.cursor.interactive}" },
-        "gap": { "value": "{ams.space.s}" },
-        "outline-offset": { "value": "{ams.focus.outline-offset}" },
-        "padding-block": { "value": "{ams.space.s}" },
-        "padding-inline": { "value": "0" },
+        "color": {
+          "$value": "{ams.color.interactive.default}",
+          "$type": "color"
+        },
+        "cursor": {
+          "$value": "{ams.cursor.interactive}"
+        },
+        "gap": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension"
+        },
+        "outline-offset": {
+          "$value": "{ams.focus.outline-offset}",
+          "$type": "dimension"
+        },
+        "padding-block": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension"
+        },
+        "padding-inline": {
+          "$value": "0"
+        },
         "hover": {
-          "color": { "value": "{ams.color.interactive.hover}" }
+          "color": {
+            "$value": "{ams.color.interactive.hover}",
+            "$type": "color"
+          }
         }
       }
     }

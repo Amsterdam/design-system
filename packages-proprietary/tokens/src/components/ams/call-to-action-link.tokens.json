@@ -1,23 +1,67 @@
 {
   "ams": {
     "call-to-action-link": {
-      "background-color": { "value": "#00a03c" },
-      "color": { "value": "{ams.color.text.inverse}" },
-      "font-family": { "value": "{ams.typography.font-family}" },
-      "font-size": { "value": "{ams.typography.body-text.font-size}" },
-      "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
-      "line-height": { "value": "{ams.typography.body-text.line-height}" },
-      "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "padding-block": { "value": "{ams.space.xs}" },
-      "padding-inline": { "value": "{ams.space.m}" },
-      "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
-      "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
+      "background-color": {
+        "$value": "#00a03c",
+        "$type": "color"
+      },
+      "color": {
+        "$value": "{ams.color.text.inverse}",
+        "$type": "color"
+      },
+      "font-family": {
+        "$value": "{ams.typography.font-family}",
+        "$type": "fontFamily"
+      },
+      "font-size": {
+        "$value": "{ams.typography.body-text.font-size}",
+        "$extensions": {
+          "amsterdam.designsystem.type": "fontSize"
+        }
+      },
+      "font-weight": {
+        "$value": "{ams.typography.body-text.font-weight}",
+        "$type": "fontWeight"
+      },
+      "line-height": {
+        "$value": "{ams.typography.body-text.line-height}",
+        "$extensions": {
+          "amsterdam.designsystem.type": "lineHeight"
+        }
+      },
+      "outline-offset": {
+        "$value": "{ams.focus.outline-offset}",
+        "$type": "dimension"
+      },
+      "padding-block": {
+        "$value": "{ams.space.xs}",
+        "$type": "dimension"
+      },
+      "padding-inline": {
+        "$value": "{ams.space.m}",
+        "$type": "dimension"
+      },
+      "text-decoration-thickness": {
+        "$value": "{ams.links.text-decoration-thickness}",
+        "$type": "dimension"
+      },
+      "text-underline-offset": {
+        "$value": "{ams.links.text-underline-offset}",
+        "$type": "dimension"
+      },
       "hover": {
-        "background-color": { "value": "#007c2e" },
-        "text-decoration-thickness": {
-          "value": "{ams.links.hover.text-decoration-thickness}"
+        "background-color": {
+          "$value": "#007c2e",
+          "$type": "color"
         },
-        "text-underline-offset": { "value": "{ams.links.hover.text-underline-offset}" }
+        "text-decoration-thickness": {
+          "$value": "{ams.links.hover.text-decoration-thickness}",
+          "$type": "dimension"
+        },
+        "text-underline-offset": {
+          "$value": "{ams.links.hover.text-underline-offset}",
+          "$type": "dimension"
+        }
       }
     }
   }

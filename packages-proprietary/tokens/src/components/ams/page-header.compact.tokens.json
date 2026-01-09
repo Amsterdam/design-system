@@ -2,11 +2,23 @@
   "ams": {
     "page-header": {
       "brand-name": {
-        "font-size": { "value": "{ams.typography.heading.2.font-size}" },
-        "line-height": { "value": "{ams.typography.heading.2.line-height}" }
+        "font-size": {
+          "$value": "{ams.typography.heading.2.font-size}",
+          "$extensions": {
+            "amsterdam.designsystem.type": "fontSize"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.typography.heading.2.line-height}",
+          "$extensions": {
+            "amsterdam.designsystem.type": "lineHeight"
+          }
+        }
       },
       "mega-menu": {
-        "padding-block": { "value": "0" }
+        "padding-block": {
+          "$value": "0"
+        }
       }
     }
   }

@@ -2,26 +2,57 @@
   "ams": {
     "card": {
       "heading": {
-        "margin-block-end": { "value": "{ams.space.xs}" }
-      },
-      "heading-group": {
-        "gap": { "value": "{ams.space.xs}" },
-        "margin-block-end": { "value": "{ams.space.xs}" }
-      },
-      "image": {
-        "margin-block-end": { "value": "{ams.space.s}" }
-      },
-      "link": {
-        "color": { "value": "{ams.links.color}" },
-        "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
-        "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
-        "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
-        "hover": {
-          "color": { "value": "{ams.links.hover.color}" },
-          "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
+        "margin-block-end": {
+          "$value": "{ams.space.xs}",
+          "$type": "dimension"
         }
       },
-      "outline-offset": { "value": "{ams.focus.outline-offset}" }
+      "heading-group": {
+        "gap": {
+          "$value": "{ams.space.xs}",
+          "$type": "dimension"
+        },
+        "margin-block-end": {
+          "$value": "{ams.space.xs}",
+          "$type": "dimension"
+        }
+      },
+      "image": {
+        "margin-block-end": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension"
+        }
+      },
+      "link": {
+        "color": {
+          "$value": "{ams.links.color}",
+          "$type": "color"
+        },
+        "text-decoration-line": {
+          "$value": "{ams.links.subtle.text-decoration-line}"
+        },
+        "text-decoration-thickness": {
+          "$value": "{ams.links.text-decoration-thickness}",
+          "$type": "dimension"
+        },
+        "text-underline-offset": {
+          "$value": "{ams.links.text-underline-offset}",
+          "$type": "dimension"
+        },
+        "hover": {
+          "color": {
+            "$value": "{ams.links.hover.color}",
+            "$type": "color"
+          },
+          "text-decoration-line": {
+            "$value": "{ams.links.subtle.hover.text-decoration-line}"
+          }
+        }
+      },
+      "outline-offset": {
+        "$value": "{ams.focus.outline-offset}",
+        "$type": "dimension"
+      }
     }
   }
 }

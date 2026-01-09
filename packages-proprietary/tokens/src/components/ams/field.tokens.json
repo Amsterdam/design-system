@@ -1,10 +1,19 @@
 {
   "ams": {
     "field": {
-      "gap": { "value": "{ams.space.s}" },
+      "gap": {
+        "$value": "{ams.space.s}",
+        "$type": "dimension"
+      },
       "invalid": {
-        "border-inline-start": { "value": "{ams.border.width.l} solid {ams.color.feedback.error}" },
-        "padding-inline-start": { "value": "{ams.space.m}" }
+        "border-inline-start": {
+          "$value": "{ams.border.width.l} solid {ams.color.feedback.error}",
+          "$type": "color"
+        },
+        "padding-inline-start": {
+          "$value": "{ams.space.m}",
+          "$type": "dimension"
+        }
       }
     }
   }

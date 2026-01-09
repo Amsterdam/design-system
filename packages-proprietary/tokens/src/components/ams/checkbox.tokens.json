@@ -1,87 +1,196 @@
 {
   "ams": {
     "checkbox": {
-      "color": { "value": "{ams.color.text.default}" },
-      "cursor": { "value": "{ams.cursor.interactive}" },
-      "font-family": { "value": "{ams.typography.font-family}" },
-      "font-size": { "value": "{ams.typography.body-text.font-size}" },
-      "font-weight": { "value": "{ams.typography.body-text.font-weight}" },
-      "gap": { "value": "{ams.space.s}" },
-      "line-height": { "value": "{ams.typography.body-text.line-height}" },
-      "outline-offset": { "value": "{ams.focus.outline-offset}" },
-      "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
-      "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
+      "color": {
+        "$value": "{ams.color.text.default}",
+        "$type": "color"
+      },
+      "cursor": {
+        "$value": "{ams.cursor.interactive}"
+      },
+      "font-family": {
+        "$value": "{ams.typography.font-family}",
+        "$type": "fontFamily"
+      },
+      "font-size": {
+        "$value": "{ams.typography.body-text.font-size}",
+        "$extensions": {
+          "amsterdam.designsystem.type": "fontSize"
+        }
+      },
+      "font-weight": {
+        "$value": "{ams.typography.body-text.font-weight}",
+        "$type": "fontWeight"
+      },
+      "gap": {
+        "$value": "{ams.space.s}",
+        "$type": "dimension"
+      },
+      "line-height": {
+        "$value": "{ams.typography.body-text.line-height}",
+        "$extensions": {
+          "amsterdam.designsystem.type": "lineHeight"
+        }
+      },
+      "outline-offset": {
+        "$value": "{ams.focus.outline-offset}",
+        "$type": "dimension"
+      },
+      "text-decoration-thickness": {
+        "$value": "{ams.links.text-decoration-thickness}",
+        "$type": "dimension"
+      },
+      "text-underline-offset": {
+        "$value": "{ams.links.text-underline-offset}",
+        "$type": "dimension"
+      },
       "disabled": {
-        "cursor": { "value": "{ams.cursor.disabled}" },
-        "color": { "value": "{ams.color.interactive.disabled}" }
+        "cursor": {
+          "$value": "{ams.cursor.disabled}"
+        },
+        "color": {
+          "$value": "{ams.color.interactive.disabled}",
+          "$type": "color"
+        }
       },
       "hover": {
-        "color": { "value": "{ams.color.interactive.hover}" },
-        "text-decoration-line": { "value": "{ams.links.subtle.hover.text-decoration-line}" }
+        "color": {
+          "$value": "{ams.color.interactive.hover}",
+          "$type": "color"
+        },
+        "text-decoration-line": {
+          "$value": "{ams.links.subtle.hover.text-decoration-line}"
+        }
       },
       "checked-indicator": {
-        "stroke": { "value": "{ams.color.interactive.inverse}" }
+        "stroke": {
+          "$value": "{ams.color.interactive.inverse}",
+          "$type": "color"
+        }
       },
       "hover-indicator": {
         "hover": {
-          "stroke": { "value": "{ams.color.interactive.hover}" }
+          "stroke": {
+            "$value": "{ams.color.interactive.hover}",
+            "$type": "color"
+          }
         },
         "invalid": {
           "hover": {
-            "stroke": { "value": "{ams.color.interactive.invalid.hover}" }
+            "stroke": {
+              "$value": "{ams.color.interactive.invalid.hover}",
+              "$type": "color"
+            }
           }
         }
       },
       "icon-container": {
-        "block-size": { "value": "calc({ams.checkbox.font-size} * {ams.checkbox.line-height})" },
-        "inline-size": { "value": "{ams.checkbox.font-size}" }
+        "block-size": {
+          "$value": "calc({ams.checkbox.font-size} * {ams.checkbox.line-height})",
+          "$type": "dimension"
+        },
+        "inline-size": {
+          "$value": "{ams.checkbox.font-size}",
+          "$type": "dimension"
+        }
       },
       "indeterminate-indicator": {
-        "stroke": { "value": "{ams.color.interactive.inverse}" }
+        "stroke": {
+          "$value": "{ams.color.interactive.inverse}",
+          "$type": "color"
+        }
       },
       "rectangle": {
-        "fill": { "value": "{ams.color.background}" },
-        "stroke": { "value": "{ams.color.interactive.default}" },
+        "fill": {
+          "$value": "{ams.color.background}",
+          "$type": "color"
+        },
+        "stroke": {
+          "$value": "{ams.color.interactive.default}",
+          "$type": "color"
+        },
         "checked": {
-          "fill": { "value": "{ams.color.interactive.default}" },
+          "fill": {
+            "$value": "{ams.color.interactive.default}",
+            "$type": "color"
+          },
           "disabled": {
-            "fill": { "value": "{ams.color.interactive.disabled}" }
+            "fill": {
+              "$value": "{ams.color.interactive.disabled}",
+              "$type": "color"
+            }
           },
           "hover": {
-            "fill": { "value": "{ams.color.interactive.hover}" }
+            "fill": {
+              "$value": "{ams.color.interactive.hover}",
+              "$type": "color"
+            }
           },
           "invalid": {
-            "fill": { "value": "{ams.color.interactive.invalid.default}" },
+            "fill": {
+              "$value": "{ams.color.interactive.invalid.default}",
+              "$type": "color"
+            },
             "hover": {
-              "fill": { "value": "{ams.color.interactive.invalid.hover}" }
+              "fill": {
+                "$value": "{ams.color.interactive.invalid.hover}",
+                "$type": "color"
+              }
             }
           }
         },
         "disabled": {
-          "stroke": { "value": "{ams.color.interactive.disabled}" }
+          "stroke": {
+            "$value": "{ams.color.interactive.disabled}",
+            "$type": "color"
+          }
         },
         "hover": {
-          "stroke": { "value": "{ams.color.interactive.hover}" }
+          "stroke": {
+            "$value": "{ams.color.interactive.hover}",
+            "$type": "color"
+          }
         },
         "indeterminate": {
-          "fill": { "value": "{ams.color.interactive.default}" },
+          "fill": {
+            "$value": "{ams.color.interactive.default}",
+            "$type": "color"
+          },
           "disabled": {
-            "fill": { "value": "{ams.color.interactive.disabled}" }
+            "fill": {
+              "$value": "{ams.color.interactive.disabled}",
+              "$type": "color"
+            }
           },
           "hover": {
-            "fill": { "value": "{ams.color.interactive.hover}" }
+            "fill": {
+              "$value": "{ams.color.interactive.hover}",
+              "$type": "color"
+            }
           },
           "invalid": {
-            "fill": { "value": "{ams.color.interactive.invalid.default}" },
+            "fill": {
+              "$value": "{ams.color.interactive.invalid.default}",
+              "$type": "color"
+            },
             "hover": {
-              "fill": { "value": "{ams.color.interactive.invalid.hover}" }
+              "fill": {
+                "$value": "{ams.color.interactive.invalid.hover}",
+                "$type": "color"
+              }
             }
           }
         },
         "invalid": {
-          "stroke": { "value": "{ams.color.interactive.invalid.default}" },
+          "stroke": {
+            "$value": "{ams.color.interactive.invalid.default}",
+            "$type": "color"
+          },
           "hover": {
-            "stroke": { "value": "{ams.color.interactive.invalid.hover}" }
+            "stroke": {
+              "$value": "{ams.color.interactive.invalid.hover}",
+              "$type": "color"
+            }
           }
         }
       }
