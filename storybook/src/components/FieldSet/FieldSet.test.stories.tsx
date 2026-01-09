@@ -22,6 +22,7 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   args: {
     children: (
+      // We add a label to prevent Chromatic from raising an accessibility error.
       <div>
         <label htmlFor="input-a1">Voornaam</label>
         <input id="input-a1" value="Yassine" />
