@@ -48,6 +48,11 @@
 
 .ams-progress-list__step {
   display: flex;
+  gap: var(--ams-progress-list-step-gap);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    gap: var(--ams-progress-list-step-medium-gap);
+  }
 }
 
 .ams-progress-list__sub-step {
@@ -59,20 +64,12 @@
 
 .ams-progress-list__indicator {
   @include layout-indicator;
-
-  padding-inline: var(--ams-progress-list-step-indicator-padding-inline);
-
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    padding-inline: var(--ams-progress-list-step-indicator-medium-padding-inline);
-  }
 }
 
 .ams-progress-list-sub-step__indicator {
   @include layout-indicator;
 
-  margin-inline-start: calc(
-    -1 * var(--ams-progress-list-step-indicator-padding-inline) - var(--ams-progress-list-step-shape-inline-size)
-  );
+  margin-inline-start: calc(-1 * var(--ams-progress-list-step-gap) - var(--ams-progress-list-step-shape-inline-size));
   padding-inline-end: var(--ams-progress-list-step-sub-steps-step-indicator-padding-inline-end);
 
   @media screen and (min-width: $ams-breakpoint-medium) {

@@ -38,14 +38,12 @@
         }
       },
       "step": {
-        "indicator": {
-          "padding-inline": {
-            "value": "{ams.space.m}"
-          },
-          "medium": {
-            "padding-inline": {
-              "value": "{ams.space.l}"
-            }
+        "gap": {
+          "value": "{ams.space.m}"
+        },
+        "medium": {
+          "gap": {
+            "value": "{ams.space.l}"
           }
         },
         "shape": {
@@ -117,7 +115,7 @@
                   "value": "{ams.space.l}"
                 },
                 "margin-inline-start": {
-                  "value": "calc(-1 * var(--ams-progress-list-step-indicator-medium-padding-inline) - var(--ams-progress-list-step-shape-inline-size))"
+                  "value": "calc(-1 * {ams.progress-list.step.medium.gap} - {ams.progress-list.step.shape.inline-size})"
                 }
               }
             },
