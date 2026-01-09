@@ -7,7 +7,7 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 
 import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
 
 import type { ImageProps } from '../Image/Image'
 
@@ -62,14 +62,6 @@ export const ImageSlider = forwardRef(
       })
     }, [])
 
-    const observerOptions = useMemo(
-      () => ({
-        root: targetRef.current,
-        threshold: 0.6,
-      }),
-      [],
-    )
-
     const updateControls = useCallback(() => {
       const sliderScrollerElement = targetRef.current
       if (!sliderScrollerElement) return
@@ -81,25 +73,28 @@ export const ImageSlider = forwardRef(
     }, [currentSlideId])
 
     useEffect(() => {
-      if (targetRef.current) {
-        observerRef.current = new IntersectionObserver(inView, observerOptions)
-        const observer = observerRef.current
+      if (!targetRef.current) return undefined
 
-        const slides = Array.from(targetRef.current.children)
-        slides.forEach((slide) => observer.observe(slide))
-
-        targetRef.current.addEventListener('scrollend', synchronise)
-
-        updateControls()
-
-        return () => {
-          slides.forEach((slide) => observer.unobserve(slide))
-          targetRef.current?.removeEventListener('scrollend', synchronise)
-        }
+      const observerOptions = {
+        root: targetRef.current,
+        threshold: 0.6,
       }
 
-      return undefined
-    }, [inView, observerOptions, updateControls])
+      observerRef.current = new IntersectionObserver(inView, observerOptions)
+      const observer = observerRef.current
+
+      const slides = Array.from(targetRef.current.children)
+      slides.forEach((slide) => observer.observe(slide))
+
+      targetRef.current.addEventListener('scrollend', synchronise)
+
+      updateControls()
+
+      return () => {
+        slides.forEach((slide) => observer.unobserve(slide))
+        targetRef.current?.removeEventListener('scrollend', synchronise)
+      }
+    }, [inView, updateControls])
 
     const synchronise = useCallback(() => updateControls(), [updateControls])
 
@@ -120,19 +115,19 @@ export const ImageSlider = forwardRef(
       [goToSlide],
     )
 
-    const goToNextSlide = useCallback(() => {
+    const goToNextSlide = () => {
       const element = targetRef.current?.children[currentSlideId]
       const nextElement = element?.nextElementSibling as HTMLElement | null
 
       if (nextElement) goToSlide(nextElement)
-    }, [currentSlideId, goToSlide])
+    }
 
-    const goToPreviousSlide = useCallback(() => {
+    const goToPreviousSlide = () => {
       const element = targetRef.current?.children[currentSlideId]
       const previousElement = element?.previousElementSibling as HTMLElement | null
 
       if (previousElement) goToSlide(previousElement)
-    }, [currentSlideId, goToSlide])
+    }
 
     useEffect(() => {
       const handleResize = () => {
