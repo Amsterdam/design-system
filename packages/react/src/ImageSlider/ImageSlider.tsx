@@ -157,7 +157,6 @@ export const ImageSlider = forwardRef(
         aria-roledescription="carousel"
         className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
         ref={ref}
-        tabIndex={-1}
       >
         {controls && (
           <ImageSliderControls
