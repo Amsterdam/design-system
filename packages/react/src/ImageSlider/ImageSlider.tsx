@@ -56,7 +56,7 @@ export const ImageSlider = forwardRef(
     // Navigation functions
     const goToSlide = (element: HTMLElement) => {
       const scrollerElement = scrollerRef.current
-      if (!scrollerElement || !element) return
+      if (!scrollerElement) return
 
       scrollerElement.scrollTo({
         left: element.offsetLeft,
