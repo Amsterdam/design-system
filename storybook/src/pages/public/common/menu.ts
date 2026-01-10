@@ -29,4 +29,39 @@ export const pageHeaderMenuLinks: PageHeaderMenuLink[] = [
 
 type MegaMenuLink = string
 
-export const megaMenuLinks: MegaMenuLink[] = ['Afval', 'Bestuur en organisatie', 'Gemeentebelastingen', '…']
+export const megaMenuLinkLists: MegaMenuLink[][] = [
+  [
+    'Afval',
+    'Belastingen',
+    'Bestuur en organisatie',
+    'Bouw- en verkeersprojecten',
+    'Burgerzaken',
+    'Jeugdhulp',
+    'Leefomgeving',
+    'Ondernemen',
+    'Onderwijs',
+    'Parkeren',
+  ],
+  [
+    'Sport',
+    'Stadsdelen',
+    'Subsidies',
+    'Vergunningen en ontheffingen',
+    'Verkeer en vervoer',
+    'Verkiezingen',
+    'Werk aan de weg',
+    'Werk en inkomen',
+    'Wonen, bouwen en verbouwen',
+    'Zorg en ondersteuning',
+  ],
+  [
+    'Nieuws',
+    'Nieuwsbrieven',
+    'Bijeenkomsten en activiteiten',
+    'Social media, krant en tv',
+    'Evenementen en herdenkingen',
+    'Bekendmakingen',
+    'Vacatures',
+    'Contact',
+  ],
+]

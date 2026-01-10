@@ -5,7 +5,7 @@
 
 import { Grid, Heading, LinkList, PageHeader } from '@amsterdam/design-system-react'
 
-import { megaMenuLinks, pageHeaderMenuLinks } from './menu'
+import { megaMenuLinkLists, pageHeaderMenuLinks } from './menu'
 
 export const AppHeader = () => (
   <PageHeader
@@ -34,18 +34,22 @@ export const AppHeader = () => (
             ))}
         </LinkList>
       </PageHeader.GridCellNarrowWindowOnly>
-      <Grid.Cell span="all">
+      <Grid.Cell span="all" style={{ marginBlockEnd: 'calc(var(--ams-space-xl) * -1)' }}>
         <Heading className="ams-mb-s" level={2}>
           Alle onderwerpen
         </Heading>
-        <LinkList>
-          {megaMenuLinks.map((label) => (
-            <LinkList.Link href="#" key={label}>
-              {label}
-            </LinkList.Link>
-          ))}
-        </LinkList>
       </Grid.Cell>
+      {megaMenuLinkLists.map((list, index) => (
+        <Grid.Cell key={index} span={4}>
+          <LinkList>
+            {list.map((label) => (
+              <LinkList.Link href="#" key={label}>
+                {label}
+              </LinkList.Link>
+            ))}
+          </LinkList>
+        </Grid.Cell>
+      ))}
     </Grid>
   </PageHeader>
 )
