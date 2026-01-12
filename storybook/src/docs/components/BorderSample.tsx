@@ -3,12 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { CSSProperties, HTMLAttributes, PropsWithChildren } from 'react'
+import type { CSSProperties } from 'react'
 
 import './border-sample.css'
 import { formatTokenValue } from '../../_common/formatTokenValue'
-
-export type DivProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 type BorderSampleProps = {
   style?: string
