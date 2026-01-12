@@ -9,7 +9,7 @@
   grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
 }
 
-.ams-docs-color-swatch {
+.ams-docs-color-palette-swatch {
   display: grid;
   gap: 0.125rem;
   grid-template-columns: repeat(4, 1fr);
@@ -25,23 +25,23 @@
   }
 }
 
-.ams-docs-color-tile {
+.ams-docs-color-palette-tile {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
 }
 
-.ams-docs-color-name,
-.ams-docs-color-level {
+.ams-docs-color-palette-name,
+.ams-docs-color-palette-level {
   font-size: 14px !important;
   text-align: center;
 }
 
-.ams-docs-color-name {
+.ams-docs-color-palette-name {
   font-weight: 800;
 }
 
-.ams-docs-color-sample {
+.ams-docs-color-palette-sample {
   block-size: 4rem;
 
   /* We allow non-baseline CSS in Storybook. */
