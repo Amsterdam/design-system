@@ -66,8 +66,8 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
       <Code>{value}</Code>
     </td>
     <td>
-      {type === 'borderStyle' && <BorderSample borderInlineStartStyle={value} />}
-      {type === 'borderWidth' && <BorderSample borderInlineStartWidth={value} />}
+      {type === 'borderStyle' && <BorderSample style={value} />}
+      {type === 'borderWidth' && <BorderSample width={value} />}
     </td>
   </tr>
 )

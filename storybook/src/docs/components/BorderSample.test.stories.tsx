@@ -11,8 +11,8 @@ import { BorderSample } from './BorderSample'
 const meta = {
   title: 'Components/Storybook/Border Sample',
   args: {
-    borderInlineStartStyle: 'solid',
-    borderInlineStartWidth: 'var(--ams-border-width-m)',
+    style: 'solid',
+    width: 'var(--ams-border-width-m)',
   },
 } satisfies Meta<typeof BorderSample>
 

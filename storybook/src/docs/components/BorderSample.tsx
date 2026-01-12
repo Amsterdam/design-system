@@ -11,20 +11,20 @@ import { formatTokenValue } from '../../_common/formatTokenValue'
 export type DivProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 type BorderSampleProps = {
-  borderInlineStartStyle?: string
-  borderInlineStartWidth?: string
+  style?: string
+  width?: string
 }
 
-export const BorderSample = ({ borderInlineStartStyle, borderInlineStartWidth }: BorderSampleProps) => {
+export const BorderSample = ({ style, width }: BorderSampleProps) => {
   return (
     <div
       className="ams-docs-border-sample"
       style={{
-        ...(borderInlineStartStyle && {
+        ...(style && {
           // borderInlineStartStyle is a strict CSS property, we need to cast it to CSSProperties
-          borderInlineStartStyle: formatTokenValue<CSSProperties['borderInlineStartStyle']>(borderInlineStartStyle),
+          borderInlineStartStyle: formatTokenValue<CSSProperties['borderInlineStartStyle']>(style),
         }),
-        ...(borderInlineStartWidth && { borderInlineStartWidth: formatTokenValue(borderInlineStartWidth) }),
+        ...(width && { borderInlineStartWidth: formatTokenValue(width) }),
       }}
     />
   )
