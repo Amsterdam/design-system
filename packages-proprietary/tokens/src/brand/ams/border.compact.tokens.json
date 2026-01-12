@@ -7,28 +7,36 @@
             "value": 0.0625,
             "unit": "rem"
           },
-          "$type": "dimension"
+          "$extensions": {
+            "amsterdam.designsystem.type": "borderWidth"
+          }
         },
         "m": {
           "$value": {
             "value": 0.0625,
             "unit": "rem"
           },
-          "$type": "dimension"
+          "$extensions": {
+            "amsterdam.designsystem.type": "borderWidth"
+          }
         },
         "l": {
           "$value": {
             "value": 0.125,
             "unit": "rem"
           },
-          "$type": "dimension"
+          "$extensions": {
+            "amsterdam.designsystem.type": "borderWidth"
+          }
         },
         "xl": {
           "$value": {
             "value": 0.1875,
             "unit": "rem"
           },
-          "$type": "dimension"
+          "$extensions": {
+            "amsterdam.designsystem.type": "borderWidth"
+          }
         }
       }
     }
