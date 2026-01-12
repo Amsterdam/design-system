@@ -75,7 +75,7 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
     <td>
       {type === 'borderStyle' && <BorderSample style={value} />}
       {type === 'borderWidth' && <BorderSample width={value} />}
-	  {name.includes('color') && <ColorSample color={value} />}
+	  {type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}
     </td>
   </tr>
 )
