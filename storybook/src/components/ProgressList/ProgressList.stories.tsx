@@ -28,11 +28,11 @@ const meta = {
         <UnorderedList>{unorderedList1}</UnorderedList>
       </ProgressList.Step>,
       <ProgressList.Step heading="2026" key={1} status="current">
-        <Paragraph className="ams-mb-m">{paragraphs[1]}</Paragraph>
+        <Paragraph className="ams-mb-m">{paragraphs[0]}</Paragraph>
         <UnorderedList>{unorderedList2}</UnorderedList>
       </ProgressList.Step>,
       <ProgressList.Step heading="2027" key={2}>
-        <Paragraph>{paragraphs[2]}</Paragraph>
+        <Paragraph>{paragraphs[1]}</Paragraph>
       </ProgressList.Step>,
     ],
     headingLevel: 3,
@@ -52,21 +52,21 @@ export const WithSubSteps: Story = {
         <UnorderedList>{unorderedList1}</UnorderedList>
       </ProgressList.Step>,
       <ProgressList.Step hasSubSteps heading="2026" key={1} status="current">
-        <Paragraph>{paragraphs[1]}</Paragraph>
+        <Paragraph>{paragraphs[0]}</Paragraph>
         <ProgressList.SubSteps>
           <ProgressList.SubStep status="completed">
-            <Paragraph>{paragraphs[2]}</Paragraph>
+            <Paragraph>{paragraphs[1]}</Paragraph>
           </ProgressList.SubStep>
           <ProgressList.SubStep status="current">
-            <Paragraph>{paragraphs[3]}</Paragraph>
+            <Paragraph>{paragraphs[2]}</Paragraph>
           </ProgressList.SubStep>
           <ProgressList.SubStep>
-            <Paragraph>{paragraphs[4]}</Paragraph>
+            <Paragraph>{paragraphs[3]}</Paragraph>
           </ProgressList.SubStep>
         </ProgressList.SubSteps>
       </ProgressList.Step>,
       <ProgressList.Step heading="2027" key={2}>
-        <Paragraph>{paragraphs[5]}</Paragraph>
+        <Paragraph>{paragraphs[4]}</Paragraph>
       </ProgressList.Step>,
     ],
   },
