@@ -10,7 +10,10 @@
         "$type": "color"
       },
       "border-style": {
-        "$value": "solid"
+        "$value": "solid",
+        "$extensions": {
+          "amsterdam.designsystem.type": "borderStyle"
+        }
       },
       "border-width": {
         "$value": "{ams.border.width.m}",
