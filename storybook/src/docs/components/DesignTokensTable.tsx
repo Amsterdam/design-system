@@ -6,7 +6,7 @@ type TokenValue = {
     'amsterdam.designsystem.type'?: string
   }
   $type?: string
-  $value: string
+  $value: string | { unit: string; value: number }
 }
 
 type DesignTokens = {
@@ -30,7 +30,15 @@ const flattenTokens = (tokens: DesignTokens, scope: string[] = []): TokenEntry[]
     // Case 1: It is a valid token
     if (isTokenValue(node)) {
       const { $extensions, $type, $value } = node
-      const normalizedValue = typeof $value === 'string' ? $value : JSON.stringify($value)
+
+      // Combine unit and value into a single string e.g. "1rem"
+      let normalizedValue = ''
+
+      if (typeof $value === 'string') {
+        normalizedValue = $value
+      } else if (typeof $value === 'object' && $value !== null && 'value' in $value && 'unit' in $value) {
+        normalizedValue = `${$value.value}${$value.unit}`
+      }
 
       return [
         {
