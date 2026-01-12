@@ -10,6 +10,5 @@ type ColorSampleProps = {
   color: string
 }
 
-export const ColorSample = ({ color }: ColorSampleProps) => {
-  return color ? <div className="ams-docs-color-sample" style={{ backgroundColor: formatTokenValue(color) }} /> : null
-}
+export const ColorSample = ({ color }: ColorSampleProps) =>
+  color ? <div className="ams-docs-color-sample" style={{ backgroundColor: formatTokenValue(color) }} /> : null
