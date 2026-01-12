@@ -10,7 +10,10 @@
         "$type": "color"
       },
       "border-style": {
-        "$value": "dashed"
+        "$value": "dashed",
+        "$extensions": {
+          "amsterdam.designsystem.type": "borderStyle"
+        }
       },
       "border-width": {
         "$value": "{ams.inputs.border-width}",
@@ -76,7 +79,10 @@
           "$type": "color"
         },
         "border-style": {
-          "$value": "{ams.button.border-style}"
+          "$value": "{ams.button.border-style}",
+          "$extensions": {
+            "amsterdam.designsystem.type": "borderStyle"
+          }
         },
         "border-width": {
           "$value": "{ams.button.border-width}",
