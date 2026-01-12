@@ -13,17 +13,15 @@ type BorderSampleProps = {
   width?: string
 }
 
-export const BorderSample = ({ style, width }: BorderSampleProps) => {
-  return (
-    <div
-      className="ams-docs-border-sample"
-      style={{
-        ...(style && {
-          // borderInlineStartStyle is a strict CSS property, we need to cast it to CSSProperties
-          borderInlineStartStyle: formatTokenValue<CSSProperties['borderInlineStartStyle']>(style),
-        }),
-        ...(width && { borderInlineStartWidth: formatTokenValue(width) }),
-      }}
-    />
-  )
-}
+export const BorderSample = ({ style, width }: BorderSampleProps) => (
+  <div
+    className="ams-docs-border-sample"
+    style={{
+      ...(style && {
+        // borderInlineStartStyle is a strict CSS property, we need to cast it to CSSProperties
+        borderInlineStartStyle: formatTokenValue<CSSProperties['borderInlineStartStyle']>(style),
+      }),
+      ...(width && { borderInlineStartWidth: formatTokenValue(width) }),
+    }}
+  />
+)
