@@ -2,6 +2,7 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 import { ColorPalette } from "../../docs/components/ColorPalette";
+import { ColorSample } from "../../docs/components/ColorSample";
 import { InlineColorSample } from "../../styles/InlineColorSample";
 
 <Meta title="Brand/Design Tokens/Colour" />
@@ -70,67 +71,67 @@ Please reach out to us if you require a different colour token.
 
 These are the potential foreground colours for text.
 
-| CSS variable                      | Colour      | Example                                                                                                                                             |
-| :-------------------------------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `var(--ams-color-text)`           | neutral-100 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-text)' }} />                                              |
-| `var(--ams-color-text-secondary)` | neutral-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-text-secondary)' }} />                                    |
-| `var(--ams-color-text-inverse)`   | neutral-0   | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-text-inverse)' }} /> |
+| CSS variable                      | Colour      | Example                                                 |
+| :-------------------------------- | :---------- | :------------------------------------------------------ |
+| `var(--ams-color-text)`           | neutral-100 | <ColorSample color='var(--ams-color-text)' />           |
+| `var(--ams-color-text-secondary)` | neutral-60  | <ColorSample color='var(--ams-color-text-secondary)' /> |
+| `var(--ams-color-text-inverse)`   | neutral-0   | <ColorSample color='var(--ams-color-text-inverse)' />   |
 
 ### Background
 
 We have one background colour for the page and various components.
 
-| CSS variable                  | Colour    | Example                                                                                                                                           |
-| :---------------------------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `var(--ams-color-background)` | neutral-0 | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background)' }} /> |
+| CSS variable                  | Colour    | Example                                             |
+| :---------------------------- | :-------- | :-------------------------------------------------- |
+| `var(--ams-color-background)` | neutral-0 | <ColorSample color='var(--ams-color-background)' /> |
 
 ### Feedback
 
 Use these colours for positive and negative feedback, warnings, and messages that need attention.
 Interactive elements in an invalid state use the 'invalid interactive' token, not the 'error feedback' token.
 
-| CSS variable                        | Colour    | Example                                                                                                            |
-| :---------------------------------- | :-------- | :----------------------------------------------------------------------------------------------------------------- |
-| `var(--ams-color-feedback-error)`   | red-60    | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-feedback-error)' }} />   |
-| `var(--ams-color-feedback-info)`    | azure-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-feedback-info)' }} />    |
-| `var(--ams-color-feedback-success)` | green-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-feedback-success)' }} /> |
-| `var(--ams-color-feedback-warning)` | orange-60 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-feedback-warning)' }} /> |
+| CSS variable                        | Colour    | Example                                                   |
+| :---------------------------------- | :-------- | :-------------------------------------------------------- |
+| `var(--ams-color-feedback-error)`   | red-60    | <ColorSample color='var(--ams-color-feedback-error)' />   |
+| `var(--ams-color-feedback-info)`    | azure-60  | <ColorSample color='var(--ams-color-feedback-info)' />    |
+| `var(--ams-color-feedback-success)` | green-60  | <ColorSample color='var(--ams-color-feedback-success)' /> |
+| `var(--ams-color-feedback-warning)` | orange-60 | <ColorSample color='var(--ams-color-feedback-warning)' /> |
 
 ### Interactive
 
 These colours show elements that the user can interact with, like links, buttons, and form controls.
 
-| CSS variable                                 | Colour      | Example                                                                                                                                                    |
-| :------------------------------------------- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `var(--ams-color-interactive)`               | blue-60     | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive)' }} />                                              |
-| `var(--ams-color-interactive-hover)`         | blue-80     | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-hover)' }} />                                        |
-| `var(--ams-color-interactive-contrast)`      | neutral-100 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-contrast)' }} />                                     |
-| `var(--ams-color-interactive-disabled)`      | neutral-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-disabled)' }} />                                     |
-| `var(--ams-color-interactive-invalid)`       | red-60      | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-invalid)' }} />                                      |
-| `var(--ams-color-interactive-invalid-hover)` | red-80      | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-interactive-invalid-hover)' }} />                                |
-| `var(--ams-color-interactive-inverse)`       | neutral-0   | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-interactive-inverse)' }} /> |
+| CSS variable                                 | Colour      | Example                                                            |
+| :------------------------------------------- | :---------- | :----------------------------------------------------------------- |
+| `var(--ams-color-interactive)`               | blue-60     | <ColorSample color='var(--ams-color-interactive)' />               |
+| `var(--ams-color-interactive-hover)`         | blue-80     | <ColorSample color='var(--ams-color-interactive-hover)' />         |
+| `var(--ams-color-interactive-contrast)`      | neutral-100 | <ColorSample color='var(--ams-color-interactive-contrast)' />      |
+| `var(--ams-color-interactive-disabled)`      | neutral-60  | <ColorSample color='var(--ams-color-interactive-disabled)' />      |
+| `var(--ams-color-interactive-invalid)`       | red-60      | <ColorSample color='var(--ams-color-interactive-invalid)' />       |
+| `var(--ams-color-interactive-invalid-hover)` | red-80      | <ColorSample color='var(--ams-color-interactive-invalid-hover)' /> |
+| `var(--ams-color-interactive-inverse)`       | neutral-0   | <ColorSample color='var(--ams-color-interactive-inverse)' />       |
 
 ### Highlight
 
 Components can use these colours to stand out.
 
-| CSS variable                         | Colour     | Example                                                                                                             |
-| :----------------------------------- | :--------- | :------------------------------------------------------------------------------------------------------------------ |
-| `var(--ams-color-highlight-azure)`   | azure-60   | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-highlight-azure)' }} />   |
-| `var(--ams-color-highlight-green)`   | green-60   | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-highlight-green)' }} />   |
-| `var(--ams-color-highlight-lime)`    | lime-60    | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-highlight-lime)' }} />    |
-| `var(--ams-color-highlight-magenta)` | magenta-60 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-highlight-magenta)' }} /> |
-| `var(--ams-color-highlight-orange)`  | orange-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-highlight-orange)' }} />  |
-| `var(--ams-color-highlight-purple)`  | purple-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-highlight-purple)' }} />  |
-| `var(--ams-color-highlight-yellow)`  | yellow-60  | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-highlight-yellow)' }} />  |
+| CSS variable                         | Colour     | Example                                                    |
+| :----------------------------------- | :--------- | :--------------------------------------------------------- |
+| `var(--ams-color-highlight-azure)`   | azure-60   | <ColorSample color='var(--ams-color-highlight-azure)' />   |
+| `var(--ams-color-highlight-green)`   | green-60   | <ColorSample color='var(--ams-color-highlight-green)' />   |
+| `var(--ams-color-highlight-lime)`    | lime-60    | <ColorSample color='var(--ams-color-highlight-lime)' />    |
+| `var(--ams-color-highlight-magenta)` | magenta-60 | <ColorSample color='var(--ams-color-highlight-magenta)' /> |
+| `var(--ams-color-highlight-orange)`  | orange-60  | <ColorSample color='var(--ams-color-highlight-orange)' />  |
+| `var(--ams-color-highlight-purple)`  | purple-60  | <ColorSample color='var(--ams-color-highlight-purple)' />  |
+| `var(--ams-color-highlight-yellow)`  | yellow-60  | <ColorSample color='var(--ams-color-highlight-yellow)' />  |
 
 ### Separator
 
 This colour is used to separate components or space.
 
-| CSS variable                 | Colour     | Example                                                                                                     |
-| :--------------------------- | :--------- | :---------------------------------------------------------------------------------------------------------- |
-| `var(--ams-color-separator)` | neutral-20 | <div className="ams-docs-token-example--color" style={{ backgroundColor: 'var(--ams-color-separator)' }} /> |
+| CSS variable                 | Colour     | Example                                            |
+| :--------------------------- | :--------- | :------------------------------------------------- |
+| `var(--ams-color-separator)` | neutral-20 | <ColorSample color='var(--ams-color-separator)' /> |
 
 ## Pairing foreground with background colours
 

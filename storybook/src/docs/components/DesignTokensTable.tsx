@@ -1,7 +1,8 @@
 import { BorderSample } from './BorderSample'
 import { Code } from './Code'
+import { ColorSample } from './ColorSample'
 
-type TokenValue = {
+type Token = {
   $extensions?: {
     'amsterdam.designsystem.type'?: string
   }
@@ -9,8 +10,8 @@ type TokenValue = {
   $value: string | { unit: string; value: number }
 }
 
-type DesignTokens = {
-  [key: string]: TokenValue | DesignTokens
+type Tokens = {
+  [key: string]: Token | Tokens
 }
 
 type TokenEntry = {
@@ -19,12 +20,11 @@ type TokenEntry = {
   value: string
 }
 
-const isTokenValue = (value: unknown): value is TokenValue => {
-  return typeof value === 'object' && value !== null && '$value' in value
-}
+const isTokenValue = (value: unknown): value is Token =>
+  typeof value === 'object' && value !== null && '$value' in value
 
-const flattenTokens = (tokens: DesignTokens, scope: string[] = []): TokenEntry[] => {
-  return Object.entries(tokens).flatMap(([key, node]) => {
+const flattenTokens = (tokens: Tokens, scope: string[] = []): TokenEntry[] =>
+  Object.entries(tokens).flatMap(([key, node]) => {
     const currentPath = [...scope, key]
 
     // Case 1: It is a valid token
@@ -51,13 +51,12 @@ const flattenTokens = (tokens: DesignTokens, scope: string[] = []): TokenEntry[]
 
     // Case 2: It is a nested group of tokens
     if (typeof node === 'object' && node !== null && !Array.isArray(node)) {
-      return flattenTokens(node as DesignTokens, currentPath)
+      return flattenTokens(node as Tokens, currentPath)
     }
 
     // Case 3: Invalid or empty group
     return []
   })
-}
 
 type DesignTokensTableRowProps = {
   name: string
@@ -76,13 +75,14 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
     <td>
       {type === 'borderStyle' && <BorderSample style={value} />}
       {type === 'borderWidth' && <BorderSample width={value} />}
+      {type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}
     </td>
   </tr>
 )
 
 DesignTokensTableRow.displayName = 'DesignTokensTable.Row'
 
-const DesignTokensTableRoot = ({ tokens }: { tokens: DesignTokens }) => {
+const DesignTokensTableRoot = ({ tokens }: { tokens: Tokens }) => {
   const flatTokens = flattenTokens(tokens)
 
   return (
