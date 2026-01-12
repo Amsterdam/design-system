@@ -19,12 +19,11 @@ type TokenEntry = {
   value: string
 }
 
-const isTokenValue = (value: unknown): value is TokenValue => {
-  return typeof value === 'object' && value !== null && '$value' in value
-}
+const isTokenValue = (value: unknown): value is TokenValue =>
+  typeof value === 'object' && value !== null && '$value' in value
 
-const flattenTokens = (tokens: DesignTokens, scope: string[] = []): TokenEntry[] => {
-  return Object.entries(tokens).flatMap(([key, node]) => {
+const flattenTokens = (tokens: DesignTokens, scope: string[] = []): TokenEntry[] =>
+  Object.entries(tokens).flatMap(([key, node]) => {
     const currentPath = [...scope, key]
 
     // Case 1: It is a valid token
@@ -57,7 +56,6 @@ const flattenTokens = (tokens: DesignTokens, scope: string[] = []): TokenEntry[]
     // Case 3: Invalid or empty group
     return []
   })
-}
 
 type DesignTokensTableRowProps = {
   name: string
