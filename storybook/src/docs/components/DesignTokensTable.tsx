@@ -1,7 +1,7 @@
 import { BorderSample } from './BorderSample'
 import { Code } from './Code'
 
-type TokenValue = {
+type Token = {
   $extensions?: {
     'amsterdam.designsystem.type'?: string
   }
@@ -9,8 +9,8 @@ type TokenValue = {
   $value: string | { unit: string; value: number }
 }
 
-type DesignTokens = {
-  [key: string]: TokenValue | DesignTokens
+type Tokens = {
+  [key: string]: Token | Tokens
 }
 
 type TokenEntry = {
@@ -19,10 +19,10 @@ type TokenEntry = {
   value: string
 }
 
-const isTokenValue = (value: unknown): value is TokenValue =>
+const isTokenValue = (value: unknown): value is Token =>
   typeof value === 'object' && value !== null && '$value' in value
 
-const flattenTokens = (tokens: DesignTokens, scope: string[] = []): TokenEntry[] =>
+const flattenTokens = (tokens: Tokens, scope: string[] = []): TokenEntry[] =>
   Object.entries(tokens).flatMap(([key, node]) => {
     const currentPath = [...scope, key]
 
@@ -50,7 +50,7 @@ const flattenTokens = (tokens: DesignTokens, scope: string[] = []): TokenEntry[]
 
     // Case 2: It is a nested group of tokens
     if (typeof node === 'object' && node !== null && !Array.isArray(node)) {
-      return flattenTokens(node as DesignTokens, currentPath)
+      return flattenTokens(node as Tokens, currentPath)
     }
 
     // Case 3: Invalid or empty group
@@ -80,7 +80,7 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
 
 DesignTokensTableRow.displayName = 'DesignTokensTable.Row'
 
-const DesignTokensTableRoot = ({ tokens }: { tokens: DesignTokens }) => {
+const DesignTokensTableRoot = ({ tokens }: { tokens: Tokens }) => {
   const flatTokens = flattenTokens(tokens)
 
   return (
