@@ -9,7 +9,7 @@ import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { BorderSample } from './BorderSample'
 
 const meta = {
-  title: 'Components/Storybook/Border Sample',
+  title: 'Components/Docs/Border Sample',
   args: {
     style: 'solid',
     width: 'var(--ams-border-width-m)',
