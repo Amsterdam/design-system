@@ -1,7 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Meta } from "@storybook/addon-docs/blocks";
+
 import { BorderSample } from "../../docs/components/BorderSample";
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
+
+import bordersCompact from "../../../../packages-proprietary/tokens/src/brand/ams/border.compact.tokens.json";
+import bordersSpacious from "../../../../packages-proprietary/tokens/src/brand/ams/border.tokens.json";
 
 <Meta title="Brand/Design Tokens/Border" />
 
@@ -20,20 +25,10 @@ We use a limited set of border widths for consistency.
 The default border is 2 pixels thick.
 One thinner and two thicker options are available.
 
-| CSS variable                 |     Value | Value (px) | Example                                             |
-| :--------------------------- | --------: | :--------: | :-------------------------------------------------- |
-| `var(--ams-border-width-s)`  | 0.0625rem |     1      | <BorderSample width="var(--ams-border-width-s)" />  |
-| `var(--ams-border-width-m)`  |  0.125rem |     2      | <BorderSample width="var(--ams-border-width-m)" />  |
-| `var(--ams-border-width-l)`  | 0.1875rem |     3      | <BorderSample width="var(--ams-border-width-l)" />  |
-| `var(--ams-border-width-xl)` |   0.25rem |     4      | <BorderSample width="var(--ams-border-width-xl)" /> |
+<DesignTokensTable tokens={bordersSpacious} />
 
 ### Compact Mode
 
 All borders are a pixel thinner in [Compact Mode](/docs/docs-developer-guide-modes--docs), except for the small width.
 
-| CSS variable                 |     Value | Value (px) | Example                                             |
-| :--------------------------- | --------: | :--------: | :-------------------------------------------------- |
-| `var(--ams-border-width-s)`  | 0.0625rem |     1      | <BorderSample width="var(--ams-border-width-s)" />  |
-| `var(--ams-border-width-m)`  | 0.0625rem |     1      | <BorderSample width="var(--ams-border-width-m)" />  |
-| `var(--ams-border-width-l)`  |  0.125rem |     2      | <BorderSample width="var(--ams-border-width-l)" />  |
-| `var(--ams-border-width-xl)` | 0.1875rem |     3      | <BorderSample width="var(--ams-border-width-xl)" /> |
+<DesignTokensTable tokens={bordersCompact} />
