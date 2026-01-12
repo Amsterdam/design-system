@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { formatTokenValue } from '../../_common/formatTokenValue'
 import './color-sample.css'
 
 type ColorSampleProps = {
@@ -10,8 +11,5 @@ type ColorSampleProps = {
 }
 
 export const ColorSample = ({ color }: ColorSampleProps) => {
-  const isVariable = color.includes('{')
-  const colorProp = isVariable ? `var(--${color.replace(/[{}]/g, '').replace(/\./g, '-')})` : color
-
-  return color ? <div className="ams-docs-color-sample" style={{ backgroundColor: colorProp }} /> : null
+  return color ? <div className="ams-docs-color-sample" style={{ backgroundColor: formatTokenValue(color) }} /> : null
 }
