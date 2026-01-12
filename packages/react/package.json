@@ -61,14 +61,14 @@
     "next": "16.1.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "rollup": "4.54.0",
+    "rollup": "4.55.1",
     "rollup-plugin-dts": "6.3.0",
     "rollup-plugin-filesize": "10.0.0",
     "rollup-plugin-node-externals": "8.1.2",
     "rollup-plugin-node-polyfills": "0.2.1",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-typescript2": "0.36.0",
-    "sass": "1.97.1"
+    "sass": "1.97.2"
   },
   "peerDependencies": {
     "@amsterdam/design-system-css": "workspace:*",
