@@ -6,7 +6,7 @@
 import type { CSSProperties, HTMLAttributes, PropsWithChildren } from 'react'
 
 import './border-sample.css'
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import { formatTokenValue } from '../../_common/formatTokenValue'
 
 export type DivProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
