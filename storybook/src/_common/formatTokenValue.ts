@@ -12,11 +12,10 @@
  */
 
 export function formatTokenValue<Type = string>(value: string): Type {
-  if (!value.includes('{')) {
-    return value as unknown as Type
+  if (value.includes('{')) {
+    const cssVar = value.replace(/[{}]/g, '').replace(/\./g, '-')
+    return `var(--${cssVar})` as unknown as Type
   }
 
-  const cssVar = value.replace(/[{}]/g, '').replace(/\./g, '-')
-
-  return `var(--${cssVar})` as unknown as Type
+  return value as unknown as Type
 }
