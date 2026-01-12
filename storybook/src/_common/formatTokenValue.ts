@@ -5,10 +5,10 @@
  * @returns CSS custom property if value is a variable reference, otherwise the original value
  *
  * @example
- * formatToken("{border.width.sm}") // "var(--border-width-sm)"
- * formatToken("{spacing.md}")      // "var(--spacing-md)"
- * formatToken("2px")               // "2px"
- * formatToken("1rem")              // "1rem"
+ * formatTokenValue("{border.width.sm}") // "var(--border-width-sm)"
+ * formatTokenValue("{spacing.md}")      // "var(--spacing-md)"
+ * formatTokenValue("2px")               // "2px"
+ * formatTokenValue("1rem")              // "1rem"
  */
 
 export function formatTokenValue<Type = string>(value: string): Type {
