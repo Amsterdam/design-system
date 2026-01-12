@@ -12,7 +12,7 @@ const meta = {
   title: 'Components/Docs/Border Sample',
   args: {
     style: 'solid',
-    width: 'var(--ams-border-width-m)',
+    width: '2px',
   },
 } satisfies Meta<typeof BorderSample>
 
