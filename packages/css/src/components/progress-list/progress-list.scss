@@ -93,7 +93,7 @@
     border-color: var(--ams-progress-list-step-completed-marker-shape-border-color);
   }
 
-  .ams-progress-list__step[aria-current] & {
+  .ams-progress-list__step--current & {
     background-color: var(--ams-progress-list-step-current-marker-shape-background-color);
     border-color: var(--ams-progress-list-step-current-marker-shape-border-color);
   }
@@ -209,7 +209,7 @@
     border-color: var(--ams-progress-list-substeps-step-completed-marker-shape-border-color);
   }
 
-  .ams-progress-list-substeps__step[aria-current] & {
+  .ams-progress-list-substeps__step--current & {
     background-color: var(--ams-progress-list-substeps-step-current-marker-shape-background-color);
     border-color: var(--ams-progress-list-substeps-step-current-marker-shape-border-color);
   }
