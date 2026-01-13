@@ -52,7 +52,7 @@ export const ProgressListStep = forwardRef(
           <Heading className="ams-progress-list__heading" level={headingLevel}>
             {heading}
           </Heading>
-          <div className="ams-progress-list__body">{children}</div>
+          {children}
         </div>
       </li>
     )

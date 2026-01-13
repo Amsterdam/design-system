@@ -141,20 +141,16 @@
 .ams-progress-list__content {
   flex: auto;
   min-inline-size: 0; /* Ensure content can shrink to fit container */
+
+  .ams-progress-list__step:not(:last-child, .ams-progress-list__step--has-substeps) & {
+    margin-block-end: var(--ams-progress-list-step-content-margin-block-end);
+  }
 }
 
 /* Heading */
 
 .ams-progress-list__heading {
   margin-block-end: var(--ams-progress-list-step-heading-margin-block-end);
-}
-
-/* Body */
-
-.ams-progress-list__body {
-  .ams-progress-list__step:not(:last-child, .ams-progress-list__step--has-substeps) & {
-    margin-block-end: var(--ams-progress-list-step-body-margin-block-end);
-  }
 }
 
 /* Substeps is its own block in BEM and has the same elements as above */
@@ -241,10 +237,12 @@
   }
 }
 
-.ams-progress-list-substeps__body {
-  margin-block-end: var(--ams-progress-list-substeps-step-body-margin-block-end);
+.ams-progress-list-substeps__content {
+  .ams-progress-list-substeps__step:not(:last-child) & {
+    margin-block-end: var(--ams-progress-list-substeps-step-content-margin-block-end);
+  }
 
-  .ams-progress-list-substeps__step:last-of-type & {
-    margin-block-end: var(--ams-progress-list-substeps-step-body-margin-block-end);
+  .ams-progress-list-substeps__step:last-child & {
+    margin-block-end: var(--ams-progress-list-substeps-last-child-content-margin-block-end);
   }
 }
