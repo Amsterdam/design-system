@@ -7,7 +7,10 @@
       },
       "column-gap": {
         "$value": "{ams.space.l}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "font-family": {
         "$value": "{ams.typography.font-family}",
@@ -27,7 +30,10 @@
       },
       "row-gap": {
         "$value": "{ams.space.s}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "inverse": {
         "color": {

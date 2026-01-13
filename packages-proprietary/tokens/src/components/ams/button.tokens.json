@@ -38,7 +38,10 @@
       },
       "gap": {
         "$value": "{ams.space.s}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",

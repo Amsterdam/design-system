@@ -21,7 +21,10 @@
       },
       "gap": {
         "$value": "{ams.space.s}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
@@ -77,7 +80,10 @@
       "ordered-list": {
         "gap": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "list-style-type": {
           "$value": "lower-alpha"
