@@ -164,7 +164,7 @@
 
   * + & {
     /* Add white space if there is content preceding substeps */
-    margin-block-start: var(--ams-progress-list-substeps-margin-block-start);
+    padding-block-start: var(--ams-progress-list-substeps-padding-block-start);
   }
 }
 

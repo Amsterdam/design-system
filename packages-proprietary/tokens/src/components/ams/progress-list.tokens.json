@@ -137,7 +137,7 @@
         }
       },
       "substeps": {
-        "margin-block-start": {
+        "padding-block-start": {
           "value": "{ams.space.m}"
         },
         "step": {
