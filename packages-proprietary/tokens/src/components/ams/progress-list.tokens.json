@@ -46,30 +46,32 @@
             "value": "{ams.space.l}"
           }
         },
-        "shape": {
-          "block-size": {
-            "value": "1.5rem"
-          },
-          "background-color": {
-            "value": "{ams.color.background}"
-          },
-          "border-color": {
-            "value": "{ams.color.progress.upcoming}"
-          },
-          "border-style": {
-            "value": "solid"
-          },
-          "border-width": {
-            "value": "{ams.border.width.m}"
-          },
-          "outline-color": {
-            "value": "{ams.color.background}"
-          },
-          "outline-style": {
-            "value": "solid"
-          },
-          "outline-width": {
-            "value": "{ams.border.width.m}"
+        "marker": {
+          "shape": {
+            "block-size": {
+              "value": "1.5rem"
+            },
+            "background-color": {
+              "value": "{ams.color.background}"
+            },
+            "border-color": {
+              "value": "{ams.color.progress.upcoming}"
+            },
+            "border-style": {
+              "value": "solid"
+            },
+            "border-width": {
+              "value": "{ams.border.width.m}"
+            },
+            "outline-color": {
+              "value": "{ams.color.background}"
+            },
+            "outline-style": {
+              "value": "solid"
+            },
+            "outline-width": {
+              "value": "{ams.border.width.m}"
+            }
           }
         },
         "connector": {
@@ -94,12 +96,14 @@
           }
         },
         "completed": {
-          "shape": {
-            "background-color": {
-              "value": "{ams.color.progress.completed}"
-            },
-            "border-color": {
-              "value": "{ams.color.progress.completed}"
+          "marker": {
+            "shape": {
+              "background-color": {
+                "value": "{ams.color.progress.completed}"
+              },
+              "border-color": {
+                "value": "{ams.color.progress.completed}"
+              }
             }
           },
           "connector": {
@@ -115,12 +119,14 @@
           }
         },
         "current": {
-          "shape": {
-            "background-color": {
-              "value": "{ams.color.progress.current}"
-            },
-            "border-color": {
-              "value": "{ams.color.progress.current}"
+          "marker": {
+            "shape": {
+              "background-color": {
+                "value": "{ams.color.progress.current}"
+              },
+              "border-color": {
+                "value": "{ams.color.progress.current}"
+              }
             }
           },
           "connector": {
@@ -144,7 +150,7 @@
                 "value": "{ams.space.l}"
               },
               "margin-inline-start": {
-                "value": "calc(-1 * {ams.progress-list.step.medium.gap} - {ams.progress-list.step.shape.block-size})"
+                "value": "calc(-1 * {ams.progress-list.step.medium.gap} - {ams.progress-list.step.marker.shape.block-size})"
               }
             }
           },
@@ -153,33 +159,33 @@
               "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})"
             },
             "inline-size": {
-              "value": "{ams.progress-list.step.shape.block-size}"
-            }
-          },
-          "shape": {
-            "block-size": {
-              "value": "0.75rem"
+              "value": "{ams.progress-list.step.marker.shape.block-size}"
             },
-            "background-color": {
-              "value": "{ams.color.background}"
-            },
-            "border-color": {
-              "value": "{ams.color.progress.upcoming}"
-            },
-            "border-style": {
-              "value": "solid"
-            },
-            "border-width": {
-              "value": "{ams.border.width.m}"
-            },
-            "outline-color": {
-              "value": "{ams.color.background}"
-            },
-            "outline-style": {
-              "value": "solid"
-            },
-            "outline-width": {
-              "value": "{ams.border.width.m}"
+            "shape": {
+              "block-size": {
+                "value": "0.75rem"
+              },
+              "background-color": {
+                "value": "{ams.color.background}"
+              },
+              "border-color": {
+                "value": "{ams.color.progress.upcoming}"
+              },
+              "border-style": {
+                "value": "solid"
+              },
+              "border-width": {
+                "value": "{ams.border.width.m}"
+              },
+              "outline-color": {
+                "value": "{ams.color.background}"
+              },
+              "outline-style": {
+                "value": "solid"
+              },
+              "outline-width": {
+                "value": "{ams.border.width.m}"
+              }
             }
           },
           "connector": {
@@ -210,12 +216,14 @@
             }
           },
           "completed": {
-            "shape": {
-              "background-color": {
-                "value": "{ams.color.progress.completed}"
-              },
-              "border-color": {
-                "value": "{ams.color.progress.completed}"
+            "marker": {
+              "shape": {
+                "background-color": {
+                  "value": "{ams.color.progress.completed}"
+                },
+                "border-color": {
+                  "value": "{ams.color.progress.completed}"
+                }
               }
             },
             "connector": {
@@ -231,12 +239,14 @@
             }
           },
           "current": {
-            "shape": {
-              "background-color": {
-                "value": "{ams.color.progress.current}"
-              },
-              "border-color": {
-                "value": "{ams.color.progress.current}"
+            "marker": {
+              "shape": {
+                "background-color": {
+                  "value": "{ams.color.progress.current}"
+                },
+                "border-color": {
+                  "value": "{ams.color.progress.current}"
+                }
               }
             }
           }

@@ -71,7 +71,9 @@
   @include indicator;
 
   margin-inline-end: var(--ams-progress-list-substeps-step-indicator-margin-inline-end);
-  margin-inline-start: calc(-1 * var(--ams-progress-list-step-gap) - var(--ams-progress-list-step-shape-block-size));
+  margin-inline-start: calc(
+    -1 * var(--ams-progress-list-step-gap) - var(--ams-progress-list-step-marker-shape-block-size)
+  );
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     margin-inline-end: var(--ams-progress-list-substeps-step-indicator-medium-margin-inline-end);
@@ -104,23 +106,23 @@
 .ams-progress-list__marker-shape {
   @include marker;
 
-  background-color: var(--ams-progress-list-step-shape-background-color);
-  block-size: var(--ams-progress-list-step-shape-block-size);
-  border: var(--ams-progress-list-step-shape-border-width) var(--ams-progress-list-step-shape-border-style)
-    var(--ams-progress-list-step-shape-border-color);
+  background-color: var(--ams-progress-list-step-marker-shape-background-color);
+  block-size: var(--ams-progress-list-step-marker-shape-block-size);
+  border: var(--ams-progress-list-step-marker-shape-border-width)
+    var(--ams-progress-list-step-marker-shape-border-style) var(--ams-progress-list-step-marker-shape-border-color);
 
   // Outline is used to create space between the shape and the connector.
-  outline: var(--ams-progress-list-step-shape-outline-width) var(--ams-progress-list-step-shape-outline-style)
-    var(--ams-progress-list-step-shape-outline-color);
+  outline: var(--ams-progress-list-step-marker-shape-outline-width)
+    var(--ams-progress-list-step-marker-shape-outline-style) var(--ams-progress-list-step-marker-shape-outline-color);
 
   .ams-progress-list__step--completed & {
-    background-color: var(--ams-progress-list-step-completed-shape-background-color);
-    border-color: var(--ams-progress-list-step-completed-shape-border-color);
+    background-color: var(--ams-progress-list-step-completed-marker-shape-background-color);
+    border-color: var(--ams-progress-list-step-completed-marker-shape-border-color);
   }
 
   .ams-progress-list__step[aria-current] & {
-    background-color: var(--ams-progress-list-step-current-shape-background-color);
-    border-color: var(--ams-progress-list-step-current-shape-border-color);
+    background-color: var(--ams-progress-list-step-current-marker-shape-background-color);
+    border-color: var(--ams-progress-list-step-current-marker-shape-border-color);
   }
 }
 
@@ -137,24 +139,25 @@
 .ams-progress-list-substeps__marker-shape {
   @include marker;
 
-  background-color: var(--ams-progress-list-substeps-step-shape-background-color);
-  block-size: var(--ams-progress-list-substeps-step-shape-block-size);
-  border: var(--ams-progress-list-substeps-step-shape-border-width)
-    var(--ams-progress-list-substeps-step-shape-border-style) var(--ams-progress-list-substeps-step-shape-border-color);
+  background-color: var(--ams-progress-list-substeps-step-marker-shape-background-color);
+  block-size: var(--ams-progress-list-substeps-step-marker-shape-block-size);
+  border: var(--ams-progress-list-substeps-step-marker-shape-border-width)
+    var(--ams-progress-list-substeps-step-marker-shape-border-style)
+    var(--ams-progress-list-substeps-step-marker-shape-border-color);
 
   // Outline is used to create space between the shape and the connector.
-  outline: var(--ams-progress-list-substeps-step-shape-outline-width)
-    var(--ams-progress-list-substeps-step-shape-outline-style)
-    var(--ams-progress-list-substeps-step-shape-outline-color);
+  outline: var(--ams-progress-list-substeps-step-marker-shape-outline-width)
+    var(--ams-progress-list-substeps-step-marker-shape-outline-style)
+    var(--ams-progress-list-substeps-step-marker-shape-outline-color);
 
   .ams-progress-list-substeps__step--completed & {
-    background-color: var(--ams-progress-list-substeps-step-completed-shape-background-color);
-    border-color: var(--ams-progress-list-substeps-step-completed-shape-border-color);
+    background-color: var(--ams-progress-list-substeps-step-completed-marker-shape-background-color);
+    border-color: var(--ams-progress-list-substeps-step-completed-marker-shape-border-color);
   }
 
   .ams-progress-list-substeps__step[aria-current] & {
-    background-color: var(--ams-progress-list-substeps-step-current-shape-background-color);
-    border-color: var(--ams-progress-list-substeps-step-current-shape-border-color);
+    background-color: var(--ams-progress-list-substeps-step-current-marker-shape-background-color);
+    border-color: var(--ams-progress-list-substeps-step-current-marker-shape-border-color);
   }
 }
 
