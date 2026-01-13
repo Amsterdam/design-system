@@ -4,7 +4,10 @@
       "heading": {
         "margin-block-end": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       },
       "heading-group": {
@@ -17,13 +20,19 @@
         },
         "margin-block-end": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       },
       "image": {
         "margin-block-end": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       },
       "link": {

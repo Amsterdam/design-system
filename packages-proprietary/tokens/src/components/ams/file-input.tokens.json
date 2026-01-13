@@ -114,7 +114,10 @@
         },
         "margin-inline-end": {
           "$value": "{ams.space.m}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "padding-block": {
           "$value": "{ams.button.padding-block}",

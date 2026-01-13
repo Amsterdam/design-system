@@ -61,10 +61,11 @@
             "value": 2.25,
             "unit": "rem"
           },
+          "$type": "dimension",
           "$extension": {
-            "amsterdam.designsystem.hint": "Divide your total indentation width over margin and padding to position the marker."
-          },
-          "$type": "dimension"
+            "amsterdam.designsystem.hint": "Divide your total indentation width over margin and padding to position the marker.",
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "padding-inline-start": {
           "$value": {
@@ -109,10 +110,11 @@
               "value": 1.5,
               "unit": "rem"
             },
+            "$type": "dimension",
             "$extension": {
-              "amsterdam.designsystem.hint": "Indent less than the parent to start-align the child\u2019s marker with the parent text."
-            },
-            "$type": "dimension"
+              "amsterdam.designsystem.hint": "Indent less than the parent to start-align the child\u2019s marker with the parent text.",
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           },
           "padding-inline-start": {
             "$value": {
