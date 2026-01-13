@@ -11,11 +11,17 @@
         },
         "padding-block": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "padding-inline": {
           "$value": "{ams.grid.padding-inline}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "row-gap": {
           "$value": "{ams.space.xs}",
@@ -27,13 +33,19 @@
         "medium": {
           "padding-inline": {
             "$value": "{ams.grid.medium.padding-inline}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           }
         },
         "wide": {
           "padding-inline": {
             "$value": "{ams.grid.wide.padding-inline}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           }
         },
         "link": {

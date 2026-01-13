@@ -54,7 +54,10 @@
         },
         "padding-inline-start": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       },
       "narrow": {

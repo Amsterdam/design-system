@@ -52,11 +52,17 @@
       },
       "padding-block": {
         "$value": "{ams.space.s}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "padding-inline": {
         "$value": "{ams.space.m}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "disabled": {
         "cursor": {
@@ -66,11 +72,17 @@
       "icon-only": {
         "padding-block": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "padding-inline": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       },
       "primary": {

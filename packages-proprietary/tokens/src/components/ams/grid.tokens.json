@@ -14,20 +14,32 @@
       "padding-block": {
         "l": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "xl": {
           "$value": "{ams.space.xl}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "2xl": {
           "$value": "{ams.space.2xl}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       },
       "padding-inline": {
         "$value": "{ams.space.l}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "row-gap": {
         "l": {
@@ -58,7 +70,10 @@
         },
         "padding-inline": {
           "$value": "{ams.space.xl}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       },
       "wide": {
@@ -67,7 +82,10 @@
         },
         "padding-inline": {
           "$value": "{ams.space.2xl}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       }
     }

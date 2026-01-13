@@ -73,7 +73,8 @@
             "unit": "rem"
           },
           "$extension": {
-            "amsterdam.designsystem.hint": "The total level 1 indentation for Amsterdam is 40 pixels, or 2.5rem."
+            "amsterdam.designsystem.hint": "The total level 1 indentation for Amsterdam is 40 pixels, or 2.5rem.",
+            "amsterdam.designsystem.subtype": "spacingSample"
           },
           "$type": "dimension"
         }
@@ -92,11 +93,17 @@
         },
         "padding-block-end": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "padding-block-start": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "item": {
           "margin-inline-start": {
@@ -115,7 +122,8 @@
               "unit": "rem"
             },
             "$extension": {
-              "amsterdam.designsystem.hint": "The total level >=2 indentation for Amsterdam is 28 pixels, or 1.75rem."
+              "amsterdam.designsystem.hint": "The total level >=2 indentation for Amsterdam is 28 pixels, or 1.75rem.",
+              "amsterdam.designsystem.subtype": "spacingSample"
             },
             "$type": "dimension"
           }

@@ -47,7 +47,10 @@
       },
       "min-block-size": {
         "$value": "calc({ams.typography.body-text.line-height} * 1em + 2 * {ams.text-area.padding-block})",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "outline-offset": {
         "$value": "{ams.inputs.outline-offset}",
@@ -58,11 +61,17 @@
       },
       "padding-block": {
         "$value": "{ams.inputs.padding-block}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "padding-inline": {
         "$value": "{ams.inputs.padding-inline}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "disabled": {
         "color": {

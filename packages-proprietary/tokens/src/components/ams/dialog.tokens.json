@@ -69,55 +69,89 @@
         },
         "padding-block": {
           "$value": "{ams.space.l} 0",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "padding-inline": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "medium": {
           "padding-block": {
             "$value": "{ams.space.xl} 0",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           },
           "padding-inline": {
             "$value": "{ams.space.xl}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           }
         }
       },
       "body": {
         "padding-block": {
-          "$value": "0"
+          "$value": "0",
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "padding-inline": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "medium": {
           "padding-inline": {
             "$value": "{ams.space.xl}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           }
         }
       },
       "footer": {
         "padding-block": {
           "$value": "0 {ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "padding-inline": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "medium": {
           "padding-block": {
             "$value": "0 {ams.space.xl}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           },
           "padding-inline": {
             "$value": "{ams.space.xl}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           }
         }
       }
