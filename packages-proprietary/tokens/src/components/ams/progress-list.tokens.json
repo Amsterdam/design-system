@@ -196,7 +196,7 @@
             "current": {
               "shape": {
                 "background-color": {
-                  "value": "{ams.color.progress.completed}"
+                  "value": "{ams.color.progress.current}"
                 },
                 "border-color": {
                   "value": "{ams.color.progress.current}"
@@ -229,7 +229,7 @@
         "current": {
           "shape": {
             "background-color": {
-              "value": "{ams.color.progress.completed}"
+              "value": "{ams.color.progress.current}"
             },
             "border-color": {
               "value": "{ams.color.progress.current}"
