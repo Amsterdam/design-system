@@ -9,13 +9,13 @@ import { forwardRef } from 'react'
 
 import type { ProgressListStepProps } from './ProgressListStep'
 
-export type ProgressListSubStepProps = {
+export type ProgressListSubstepProps = {
   /** The current progress state of the substep. */
   status?: ProgressListStepProps['status']
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export const ProgressListSubStep = forwardRef(
-  ({ children, className, status, ...restProps }: ProgressListSubStepProps, ref: ForwardedRef<HTMLLIElement>) => {
+export const ProgressListSubstep = forwardRef(
+  ({ children, className, status, ...restProps }: ProgressListSubstepProps, ref: ForwardedRef<HTMLLIElement>) => {
     return (
       <li
         aria-current={status === 'current' ? 'step' : undefined}
@@ -39,4 +39,4 @@ export const ProgressListSubStep = forwardRef(
   },
 )
 
-ProgressListSubStep.displayName = 'ProgressList.SubStep'
+ProgressListSubstep.displayName = 'ProgressList.Substep'

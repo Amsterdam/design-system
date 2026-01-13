@@ -8,14 +8,14 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type ProgressListSubStepsProps = {} & PropsWithChildren<HTMLAttributes<HTMLOListElement>>
+export type ProgressListSubstepsProps = {} & PropsWithChildren<HTMLAttributes<HTMLOListElement>>
 
-export const ProgressListSubSteps = forwardRef(
-  ({ children, className, ...restProps }: ProgressListSubStepsProps, ref: ForwardedRef<HTMLOListElement>) => (
+export const ProgressListSubsteps = forwardRef(
+  ({ children, className, ...restProps }: ProgressListSubstepsProps, ref: ForwardedRef<HTMLOListElement>) => (
     <ol {...restProps} className={clsx('ams-progress-list-substeps', className)} ref={ref}>
       {children}
     </ol>
   ),
 )
 
-ProgressListSubSteps.displayName = 'ProgressList.SubSteps'
+ProgressListSubsteps.displayName = 'ProgressList.Substeps'

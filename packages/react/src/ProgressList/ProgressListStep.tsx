@@ -14,7 +14,7 @@ import ProgressListContext from './ProgressListContext'
 
 export type ProgressListStepProps = {
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
-  hasSubSteps?: boolean
+  hasSubsteps?: boolean
   /** The heading text for this step. */
   heading: string
   /** The current progress state of the step. */
@@ -23,7 +23,7 @@ export type ProgressListStepProps = {
 
 export const ProgressListStep = forwardRef(
   (
-    { children, className, hasSubSteps, heading, status, ...restProps }: ProgressListStepProps,
+    { children, className, hasSubsteps, heading, status, ...restProps }: ProgressListStepProps,
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     const { headingLevel } = useContext(ProgressListContext)
@@ -34,7 +34,7 @@ export const ProgressListStep = forwardRef(
         className={clsx(
           className,
           'ams-progress-list__step',
-          hasSubSteps && 'ams-progress-list__step--has-substeps',
+          hasSubsteps && 'ams-progress-list__step--has-substeps',
           status && `ams-progress-list__step--${status}`,
         )}
         ref={ref}

@@ -114,10 +114,10 @@ describe('Progress List Step', () => {
     expect(step).not.toHaveAttribute('aria-current')
   })
 
-  it('adds has-substeps modifier when hasSubSteps is true', () => {
+  it('adds has-substeps modifier when hasSubsteps is true', () => {
     const { container } = render(
       <ProgressList headingLevel={3}>
-        <ProgressList.Step hasSubSteps heading="Test Step">
+        <ProgressList.Step hasSubsteps heading="Test Step">
           Content
         </ProgressList.Step>
       </ProgressList>,
@@ -128,7 +128,7 @@ describe('Progress List Step', () => {
     expect(step).toHaveClass('ams-progress-list__step--has-substeps')
   })
 
-  it('does not add has-substeps modifier when hasSubSteps is not set', () => {
+  it('does not add has-substeps modifier when hasSubsteps is not set', () => {
     const { container } = render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step">Content</ProgressList.Step>

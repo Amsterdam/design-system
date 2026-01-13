@@ -12,8 +12,8 @@ import type { HeadingProps } from '../Heading'
 
 import ProgressListContext from './ProgressListContext'
 import { ProgressListStep } from './ProgressListStep'
-import { ProgressListSubStep } from './ProgressListSubStep'
-import { ProgressListSubSteps } from './ProgressListSubSteps'
+import { ProgressListSubstep } from './ProgressListSubstep'
+import { ProgressListSubsteps } from './ProgressListSubsteps'
 
 export type ProgressListProps = {
   /**
@@ -42,7 +42,8 @@ const ProgressListRoot = forwardRef(
 
 export const ProgressList = Object.assign(ProgressListRoot, {
   Step: ProgressListStep,
-  SubStep: ProgressListSubStep,
-  SubSteps: ProgressListSubSteps,
+  Substep: ProgressListSubstep,
+  Substeps: ProgressListSubsteps,
 })
+
 ProgressListRoot.displayName = 'ProgressList'

@@ -42,23 +42,23 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const WithSubSteps: Story = {
+export const WithSubsteps: Story = {
   args: {
     children: [
-      <ProgressList.Step hasSubSteps heading="2026" key={1} status="current">
+      <ProgressList.Step hasSubsteps heading="2026" key={1} status="current">
         <Paragraph>{paragraphs[0]}</Paragraph>
-        <ProgressList.SubSteps>
-          <ProgressList.SubStep status="completed">
+        <ProgressList.Substeps>
+          <ProgressList.Substep status="completed">
             <Paragraph>{paragraphs[1]}</Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep status="current">
+          </ProgressList.Substep>
+          <ProgressList.Substep status="current">
             <Paragraph className="ams-mb-m">{paragraphs[2]}</Paragraph>
             <Paragraph>{paragraphs[3]}</Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>{paragraphs[4]}</Paragraph>
-          </ProgressList.SubStep>
-        </ProgressList.SubSteps>
+          </ProgressList.Substep>
+        </ProgressList.Substeps>
       </ProgressList.Step>,
       <ProgressList.Step heading="2027" key={2}>
         <Paragraph>{paragraphs[5]}</Paragraph>
@@ -107,60 +107,60 @@ export const ConstructionProject: Story = {
           <UnorderedList.Item>24 april 2024: gemeenteraad akkoord met aangepaste opgave</UnorderedList.Item>
         </UnorderedList>
       </ProgressList.Step>,
-      <ProgressList.Step hasSubSteps heading="Mei 2024 – 2028" key={4} status="current">
-        <ProgressList.SubSteps>
-          <ProgressList.SubStep status="current">
+      <ProgressList.Step hasSubsteps heading="Mei 2024 – 2028" key={4} status="current">
+        <ProgressList.Substeps>
+          <ProgressList.Substep status="current">
             <Paragraph>
               Mei 2024 – zomer 2025: herinrichting kruispunt Admiraal de Ruijterweg/Jan Evertsenstraat
             </Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>Mei 2024 – oktober 2025: herinrichting kruispunt Marnixstraat/ Rozengracht</Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>September 2024 – februari 2025: aanbrengen verbeteringen de De Clercqstraat</Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>
               September 2024 – eind 2025: herstellen brug 135 over de Bilderdijkgracht (met verwijderen hulpbrug)
             </Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>September 2024 – zomer 2026: herstellen brug 167 over de Singelgracht</Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>Oktober 2024 – in 2028: vernieuwen brug over de Lijnbaansgracht en stukje Rozengracht</Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>Begin 2025 – voorjaar 2026: aanbrengen verbeteringen Jan Evertsenstraat</Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>
               Begin 2025 – eind 2025: herstellen brug over de Admiralengracht (met verwijderen hulpbrug)
             </Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>
               Februari 2025 – zomer 2026: herstellen bruggen over het Singel (brug 8), de Herengracht (brug 22),
               Keizersgracht (brug 106) en Prinsengracht (brug 63)
             </Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>Februari 2025 – najaar 2026: aanbrengen verbeteringen Raadhuisstraat</Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>Februari 2025 – voorjaar 2026: aanbrengen verbeteringen Rozengracht</Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>Oktober 2025 – voorjaar 2027: herinrichting Westermarkt</Paragraph>
-          </ProgressList.SubStep>
-          <ProgressList.SubStep>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
             <Paragraph>
               In 2027: verwijderen hulpbruggen naast de bruggen over het Singel (brug 8), de Herengracht (brug 22),
               Keizersgracht (brug 106) en Prinsengracht (brug 63)
             </Paragraph>
-          </ProgressList.SubStep>
-        </ProgressList.SubSteps>
+          </ProgressList.Substep>
+        </ProgressList.Substeps>
       </ProgressList.Step>,
     ],
   },

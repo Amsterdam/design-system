@@ -9,9 +9,9 @@ import { createRef } from 'react'
 import { ProgressList } from './ProgressList'
 import '@testing-library/jest-dom'
 
-describe('Progress List Sub Steps', () => {
+describe('Progress List Substeps', () => {
   it('renders', () => {
-    const { container } = render(<ProgressList.SubSteps>Content</ProgressList.SubSteps>)
+    const { container } = render(<ProgressList.Substeps>Content</ProgressList.Substeps>)
 
     const subSteps = container.querySelector('.ams-progress-list-substeps')
 
@@ -20,7 +20,7 @@ describe('Progress List Sub Steps', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<ProgressList.SubSteps>Content</ProgressList.SubSteps>)
+    const { container } = render(<ProgressList.Substeps>Content</ProgressList.Substeps>)
 
     const subSteps = container.querySelector('.ams-progress-list-substeps')
 
@@ -28,7 +28,7 @@ describe('Progress List Sub Steps', () => {
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<ProgressList.SubSteps className="extra">Content</ProgressList.SubSteps>)
+    const { container } = render(<ProgressList.Substeps className="extra">Content</ProgressList.Substeps>)
 
     const subSteps = container.querySelector('.ams-progress-list-substeps')
 
@@ -38,7 +38,7 @@ describe('Progress List Sub Steps', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLOListElement>()
 
-    const { container } = render(<ProgressList.SubSteps ref={ref}>Content</ProgressList.SubSteps>)
+    const { container } = render(<ProgressList.Substeps ref={ref}>Content</ProgressList.Substeps>)
 
     const subSteps = container.querySelector('.ams-progress-list-substeps')
 

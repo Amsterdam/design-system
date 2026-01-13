@@ -80,10 +80,10 @@ describe('Progress List', () => {
   it('supports composition using subcomponents', () => {
     render(
       <ProgressList headingLevel={3}>
-        <ProgressList.Step hasSubSteps heading="Step">
-          <ProgressList.SubSteps>
-            <ProgressList.SubStep>Substep</ProgressList.SubStep>
-          </ProgressList.SubSteps>
+        <ProgressList.Step hasSubsteps heading="Step">
+          <ProgressList.Substeps>
+            <ProgressList.Substep>Substep</ProgressList.Substep>
+          </ProgressList.Substeps>
         </ProgressList.Step>
       </ProgressList>,
     )
