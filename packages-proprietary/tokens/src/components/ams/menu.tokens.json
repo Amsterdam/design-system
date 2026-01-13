@@ -53,7 +53,10 @@
         },
         "gap": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
@@ -90,14 +93,20 @@
         "wide": {
           "gap": {
             "$value": "{ams.space.xs}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           }
         }
       },
       "list": {
         "gap": {
           "$value": "{ams.space.m}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       }
     }

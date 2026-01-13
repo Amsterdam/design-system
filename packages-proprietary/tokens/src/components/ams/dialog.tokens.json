@@ -23,7 +23,10 @@
       },
       "gap": {
         "$value": "{ams.space.m}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "inline-size": {
         "$value": "calc(100% - 2 * {ams.space.l})",
@@ -59,7 +62,10 @@
       "header": {
         "gap": {
           "$value": "{ams.space.m}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "padding-block": {
           "$value": "{ams.space.l} 0",

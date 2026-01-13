@@ -10,7 +10,10 @@
       "heading-group": {
         "gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "margin-block-end": {
           "$value": "{ams.space.xs}",

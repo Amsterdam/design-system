@@ -31,7 +31,10 @@
       "logo-link": {
         "column-gap": {
           "$value": "{ams.space.m}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
@@ -85,11 +88,17 @@
       "menu": {
         "column-gap": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "row-gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "item": {
           "color": {
@@ -98,7 +107,10 @@
           },
           "column-gap": {
             "$value": "{ams.space.xs}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           },
           "font-family": {
             "$value": "{ams.typography.font-family}",
@@ -138,7 +150,10 @@
         "link": {
           "gap": {
             "$value": "{ams.space.xs}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           },
           "text-decoration-line": {
             "$value": "{ams.links.subtle.text-decoration-line}"
@@ -161,11 +176,17 @@
       "navigation": {
         "column-gap": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "row-gap": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       }
     }

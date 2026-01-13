@@ -4,7 +4,10 @@
       "menu": {
         "column-gap": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "padding-block": {
           "$value": "{ams.space.l}",
@@ -16,7 +19,10 @@
         },
         "row-gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "medium": {
           "padding-inline": {
