@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { ProgressList } from './ProgressList'
@@ -11,26 +11,26 @@ import '@testing-library/jest-dom'
 
 describe('Progress List', () => {
   it('renders', () => {
-    const { container } = render(<ProgressList headingLevel={3} />)
+    render(<ProgressList headingLevel={3} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<ProgressList headingLevel={3} />)
+    render(<ProgressList headingLevel={3} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(component).toHaveClass('ams-progress-list')
   })
 
   it('applies the correct heading level modifier class', () => {
-    const { container } = render(<ProgressList headingLevel={4} />)
+    render(<ProgressList headingLevel={4} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(component).toHaveClass('ams-progress-list--heading-4')
   })
@@ -60,9 +60,9 @@ describe('Progress List', () => {
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<ProgressList className="extra" headingLevel={3} />)
+    render(<ProgressList className="extra" headingLevel={3} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(component).toHaveClass('ams-progress-list extra')
   })
@@ -70,10 +70,37 @@ describe('Progress List', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLOListElement>()
 
-    const { container } = render(<ProgressList headingLevel={3} ref={ref} />)
+    render(<ProgressList headingLevel={3} ref={ref} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('list')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('supports composition using subcomponents', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step hasSubSteps heading="Step">
+          <ProgressList.SubSteps>
+            <ProgressList.SubStep>Substep</ProgressList.SubStep>
+          </ProgressList.SubSteps>
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const [mainList, subStepsList] = screen.getAllByRole('list')
+
+    expect(mainList).toHaveClass('ams-progress-list')
+    expect(subStepsList).toHaveClass('ams-progress-list-substeps')
+
+    // Main step is the only list item directly under the main list.
+    const [mainStep] = within(mainList).getAllByRole('listitem')
+
+    expect(mainStep).toHaveClass('ams-progress-list__step ams-progress-list__step--has-substeps')
+
+    // Substeps are listitems under the substeps list.
+    const [subStep] = within(subStepsList).getAllByRole('listitem')
+
+    expect(subStep).toHaveClass('ams-progress-list-substeps__step')
   })
 })
