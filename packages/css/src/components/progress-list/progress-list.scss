@@ -164,7 +164,7 @@
 .ams-progress-list__connector {
   @include connector;
 
-  border: var(--ams-progress-list-step-connector-border-inline-width)
+  border-inline: var(--ams-progress-list-step-connector-border-inline-width)
     var(--ams-progress-list-step-connector-border-inline-style)
     var(--ams-progress-list-step-connector-border-inline-color);
 
@@ -191,7 +191,7 @@
     border-inline-style: solid;
   }
 
-  .ams-progress-list > .ams-progress-list__step:last-child:not(.ams-progress-list__step--has-sub-steps) & {
+  .ams-progress-list > :last-child:not(.ams-progress-list__step--has-sub-steps) & {
     display: none;
   }
 }
@@ -199,6 +199,7 @@
 .ams-progress-list-sub-step__connector {
   @include connector;
 
+  /* Covers the underlying connector of the parent step to prevent it from shining through. */
   background-color: var(--ams-progress-list-step-sub-steps-step-connector-background-color);
   border: var(--ams-progress-list-step-sub-steps-step-connector-border-inline-width)
     var(--ams-progress-list-step-sub-steps-step-connector-border-inline-style)
@@ -220,9 +221,8 @@
 // Content
 
 .ams-progress-list__content {
-  // Ensure content can shrink to fit the container
   flex: auto;
-  min-inline-size: 0;
+  min-inline-size: 0; /* Ensure content can shrink to fit the container */
 }
 
 // Heading
