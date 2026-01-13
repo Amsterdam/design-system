@@ -38,7 +38,10 @@
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       },
       "brand-name": {
@@ -134,7 +137,10 @@
           },
           "outline-offset": {
             "$value": "{ams.focus.outline-offset}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           },
           "padding-block": {
             "$value": "{ams.space.xs}",
@@ -164,7 +170,10 @@
           },
           "text-underline-offset": {
             "$value": "{ams.links.text-underline-offset}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           },
           "hover": {
             "text-decoration-line": {

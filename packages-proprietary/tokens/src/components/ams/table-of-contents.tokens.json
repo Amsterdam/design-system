@@ -35,7 +35,10 @@
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "text-decoration-line": {
           "$value": "{ams.links.subtle.text-decoration-line}"
@@ -46,7 +49,10 @@
         },
         "text-underline-offset": {
           "$value": "{ams.links.text-underline-offset}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "hover": {
           "color": {

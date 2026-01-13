@@ -10,7 +10,10 @@
         "text-underline-offset": {
           "$deprecated": "Use `ams.standalone-link.text-underline-offset` instead",
           "$value": "{ams.links.hover.text-underline-offset}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       },
       "with-icon": {

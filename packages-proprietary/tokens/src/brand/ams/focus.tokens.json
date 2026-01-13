@@ -6,7 +6,10 @@
           "value": 0.25,
           "unit": "rem"
         },
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       }
     }
   }

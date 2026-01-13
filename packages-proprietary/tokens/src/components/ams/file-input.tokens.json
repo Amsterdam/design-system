@@ -50,7 +50,10 @@
       },
       "outline-offset": {
         "$value": "{ams.inputs.outline-offset}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "spacingSample"
+        }
       },
       "padding-block": {
         "$value": "{ams.space.m}",

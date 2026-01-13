@@ -22,7 +22,8 @@
         },
         "$type": "dimension",
         "$extension": {
-          "amsterdam.designsystem.hint": "2.5px"
+          "amsterdam.designsystem.hint": "2.5px",
+          "amsterdam.designsystem.subtype": "spacingSample"
         }
       },
       "hover": {
@@ -47,7 +48,8 @@
           },
           "$type": "dimension",
           "$extension": {
-            "amsterdam.designsystem.hint": "1.5px"
+            "amsterdam.designsystem.hint": "1.5px",
+            "amsterdam.designsystem.subtype": "spacingSample"
           }
         }
       },
