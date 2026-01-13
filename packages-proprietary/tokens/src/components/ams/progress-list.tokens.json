@@ -93,7 +93,7 @@
             "value": "{ams.space.l}"
           }
         },
-        "sub-steps": {
+        "substeps": {
           "margin-block-start": {
             "value": "{ams.space.m}"
           },

@@ -34,7 +34,7 @@ export const ProgressListStep = forwardRef(
         className={clsx(
           className,
           'ams-progress-list__step',
-          hasSubSteps && 'ams-progress-list__step--has-sub-steps',
+          hasSubSteps && 'ams-progress-list__step--has-substeps',
           status && `ams-progress-list__step--${status}`,
         )}
         ref={ref}
