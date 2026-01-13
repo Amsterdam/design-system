@@ -37,7 +37,7 @@
   @include reset-ol;
 }
 
-.ams-progress-list__substeps {
+.ams-progress-list-substeps {
   @include reset-ol;
 
   * + & {
@@ -57,7 +57,7 @@
   }
 }
 
-.ams-progress-list__substep {
+.ams-progress-list-substeps__step {
   display: flex;
 }
 
@@ -67,7 +67,7 @@
   @include indicator;
 }
 
-.ams-progress-list-substep__indicator {
+.ams-progress-list-substeps__indicator {
   @include indicator;
 
   margin-inline-end: var(--ams-progress-list-step-substeps-step-indicator-margin-inline-end);
@@ -126,7 +126,7 @@
 
 // Substep Marker
 
-.ams-progress-list-substep__marker {
+.ams-progress-list-substeps__marker {
   block-size: var(--ams-progress-list-step-substeps-step-marker-block-size);
   display: grid;
   grid-area: 1/1;
@@ -134,7 +134,7 @@
   place-items: center;
 }
 
-.ams-progress-list-substep__marker-shape {
+.ams-progress-list-substeps__marker-shape {
   @include marker;
 
   background-color: var(--ams-progress-list-step-substeps-step-shape-background-color);
@@ -148,12 +148,12 @@
     var(--ams-progress-list-step-substeps-step-shape-outline-style)
     var(--ams-progress-list-step-substeps-step-shape-outline-color);
 
-  .ams-progress-list__substep--completed & {
+  .ams-progress-list-substeps__step--completed & {
     background-color: var(--ams-progress-list-step-substeps-step-completed-shape-background-color);
     border-color: var(--ams-progress-list-step-substeps-step-completed-shape-border-color);
   }
 
-  .ams-progress-list__substep[aria-current] & {
+  .ams-progress-list-substeps__step[aria-current] & {
     background-color: var(--ams-progress-list-step-substeps-step-current-shape-background-color);
     border-color: var(--ams-progress-list-step-substeps-step-current-shape-border-color);
   }
@@ -196,7 +196,7 @@
   }
 }
 
-.ams-progress-list-substep__connector {
+.ams-progress-list-substeps__connector {
   @include connector;
 
   /* Covers the underlying connector of the parent step to prevent it from shining through. */
@@ -206,14 +206,14 @@
     var(--ams-progress-list-step-substeps-step-connector-border-inline-color);
   margin-block-start: var(--ams-progress-list-step-substeps-step-connector-margin-block-start);
 
-  .ams-progress-list__substep--completed & {
+  .ams-progress-list-substeps__step--completed & {
     background-color: var(--ams-progress-list-step-substeps-step-completed-connector-background-color);
     border-inline-color: var(--ams-progress-list-step-substeps-step-completed-connector-border-inline-color);
     border-inline-style: var(--ams-progress-list-step-substeps-step-completed-connector-border-inline-style);
   }
 
   // Hide the connector when it belongs to the last substep of the last main step
-  .ams-progress-list__step:last-child .ams-progress-list__substep:last-child & {
+  .ams-progress-list__step:last-child .ams-progress-list-substeps__step:last-child & {
     border-inline-color: var(--ams-progress-list-step-substeps-step-connector-last-child-border-inline-color);
   }
 }
@@ -239,10 +239,10 @@
   }
 }
 
-.ams-progress-list-substep__body {
+.ams-progress-list-substeps__body {
   margin-block-end: var(--ams-progress-list-step-substeps-step-body-margin-block-end);
 
-  .ams-progress-list__substep:last-of-type & {
+  .ams-progress-list-substeps__step:last-of-type & {
     margin-block-end: var(--ams-progress-list-step-substeps-step-body-margin-block-end);
   }
 }

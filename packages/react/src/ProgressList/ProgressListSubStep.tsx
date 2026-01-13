@@ -19,17 +19,21 @@ export const ProgressListSubStep = forwardRef(
     return (
       <li
         aria-current={status === 'current' ? 'step' : undefined}
-        className={clsx('ams-progress-list__substep', status && `ams-progress-list__substep--${status}`, className)}
+        className={clsx(
+          'ams-progress-list-substeps__step',
+          status && `ams-progress-list-substeps__step--${status}`,
+          className,
+        )}
         ref={ref}
         {...restProps}
       >
-        <div className="ams-progress-list-substep__indicator">
-          <div className="ams-progress-list-substep__marker">
-            <span className="ams-progress-list-substep__marker-shape" />
+        <div className="ams-progress-list-substeps__indicator">
+          <div className="ams-progress-list-substeps__marker">
+            <span className="ams-progress-list-substeps__marker-shape" />
           </div>
-          <span className="ams-progress-list-substep__connector" />
+          <span className="ams-progress-list-substeps__connector" />
         </div>
-        <div className="ams-progress-list-substep__body">{children}</div>
+        <div className="ams-progress-list-substeps__body">{children}</div>
       </li>
     )
   },

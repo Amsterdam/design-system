@@ -12,7 +12,7 @@ export type ProgressListSubStepsProps = {} & PropsWithChildren<HTMLAttributes<HT
 
 export const ProgressListSubSteps = forwardRef(
   ({ children, className, ...restProps }: ProgressListSubStepsProps, ref: ForwardedRef<HTMLOListElement>) => (
-    <ol {...restProps} className={clsx('ams-progress-list__substeps', className)} ref={ref}>
+    <ol {...restProps} className={clsx('ams-progress-list-substeps', className)} ref={ref}>
       {children}
     </ol>
   ),

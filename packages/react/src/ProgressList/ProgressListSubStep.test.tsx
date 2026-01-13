@@ -13,7 +13,7 @@ describe('Progress List Sub Step', () => {
   it('renders', () => {
     const { container } = render(<ProgressListSubStep>Content</ProgressListSubStep>)
 
-    const subStep = container.querySelector('.ams-progress-list__substep')
+    const subStep = container.querySelector('.ams-progress-list-substeps__step')
 
     expect(subStep).toBeInTheDocument()
     expect(subStep).toBeVisible()
@@ -22,15 +22,15 @@ describe('Progress List Sub Step', () => {
   it('renders a design system BEM class name', () => {
     const { container } = render(<ProgressListSubStep>Content</ProgressListSubStep>)
 
-    const subStep = container.querySelector('.ams-progress-list__substep')
+    const subStep = container.querySelector('.ams-progress-list-substeps__step')
 
-    expect(subStep).toHaveClass('ams-progress-list__substep')
+    expect(subStep).toHaveClass('ams-progress-list-substeps__step')
   })
 
   it('renders the marker', () => {
     const { container } = render(<ProgressListSubStep>Content</ProgressListSubStep>)
 
-    const marker = container.querySelector('.ams-progress-list-substep__marker')
+    const marker = container.querySelector('.ams-progress-list-substeps__marker')
 
     expect(marker).toBeInTheDocument()
   })
@@ -38,7 +38,7 @@ describe('Progress List Sub Step', () => {
   it('renders the connector', () => {
     const { container } = render(<ProgressListSubStep>Content</ProgressListSubStep>)
 
-    const connector = container.querySelector('.ams-progress-list-substep__connector')
+    const connector = container.querySelector('.ams-progress-list-substeps__connector')
 
     expect(connector).toBeInTheDocument()
   })
@@ -46,31 +46,31 @@ describe('Progress List Sub Step', () => {
   it('renders an extra class name', () => {
     const { container } = render(<ProgressListSubStep className="extra">Content</ProgressListSubStep>)
 
-    const subStep = container.querySelector('.ams-progress-list__substep')
+    const subStep = container.querySelector('.ams-progress-list-substeps__step')
 
-    expect(subStep).toHaveClass('ams-progress-list__substep extra')
+    expect(subStep).toHaveClass('ams-progress-list-substeps__step extra')
   })
 
   it('renders the current status class name', () => {
     const { container } = render(<ProgressListSubStep status="current">Content</ProgressListSubStep>)
 
-    const subStep = container.querySelector('.ams-progress-list__substep')
+    const subStep = container.querySelector('.ams-progress-list-substeps__step')
 
-    expect(subStep).toHaveClass('ams-progress-list__substep--current')
+    expect(subStep).toHaveClass('ams-progress-list-substeps__step--current')
   })
 
   it('renders the completed status class name', () => {
     const { container } = render(<ProgressListSubStep status="completed">Content</ProgressListSubStep>)
 
-    const subStep = container.querySelector('.ams-progress-list__substep')
+    const subStep = container.querySelector('.ams-progress-list-substeps__step')
 
-    expect(subStep).toHaveClass('ams-progress-list__substep--completed')
+    expect(subStep).toHaveClass('ams-progress-list-substeps__step--completed')
   })
 
   it('renders aria-current attribute when status is current', () => {
     const { container } = render(<ProgressListSubStep status="current">Content</ProgressListSubStep>)
 
-    const subStep = container.querySelector('.ams-progress-list__substep')
+    const subStep = container.querySelector('.ams-progress-list-substeps__step')
 
     expect(subStep).toHaveAttribute('aria-current', 'step')
   })
@@ -78,7 +78,7 @@ describe('Progress List Sub Step', () => {
   it('does not render aria-current attribute when status is completed', () => {
     const { container } = render(<ProgressListSubStep status="completed">Content</ProgressListSubStep>)
 
-    const subStep = container.querySelector('.ams-progress-list__substep')
+    const subStep = container.querySelector('.ams-progress-list-substeps__step')
 
     expect(subStep).not.toHaveAttribute('aria-current')
   })
@@ -88,7 +88,7 @@ describe('Progress List Sub Step', () => {
 
     const { container } = render(<ProgressListSubStep ref={ref}>Content</ProgressListSubStep>)
 
-    const subStep = container.querySelector('.ams-progress-list__substep')
+    const subStep = container.querySelector('.ams-progress-list-substeps__step')
 
     expect(ref.current).toBe(subStep)
   })

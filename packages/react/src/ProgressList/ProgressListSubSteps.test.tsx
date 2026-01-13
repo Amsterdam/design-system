@@ -13,7 +13,7 @@ describe('Progress List Sub Steps', () => {
   it('renders', () => {
     const { container } = render(<ProgressListSubSteps>Content</ProgressListSubSteps>)
 
-    const subSteps = container.querySelector('.ams-progress-list__substeps')
+    const subSteps = container.querySelector('.ams-progress-list-substeps')
 
     expect(subSteps).toBeInTheDocument()
     expect(subSteps).toBeVisible()
@@ -22,17 +22,17 @@ describe('Progress List Sub Steps', () => {
   it('renders a design system BEM class name', () => {
     const { container } = render(<ProgressListSubSteps>Content</ProgressListSubSteps>)
 
-    const subSteps = container.querySelector('.ams-progress-list__substeps')
+    const subSteps = container.querySelector('.ams-progress-list-substeps')
 
-    expect(subSteps).toHaveClass('ams-progress-list__substeps')
+    expect(subSteps).toHaveClass('ams-progress-list-substeps')
   })
 
   it('renders an extra class name', () => {
     const { container } = render(<ProgressListSubSteps className="extra">Content</ProgressListSubSteps>)
 
-    const subSteps = container.querySelector('.ams-progress-list__substeps')
+    const subSteps = container.querySelector('.ams-progress-list-substeps')
 
-    expect(subSteps).toHaveClass('ams-progress-list__substeps extra')
+    expect(subSteps).toHaveClass('ams-progress-list-substeps extra')
   })
 
   it('supports ForwardRef in React', () => {
@@ -40,7 +40,7 @@ describe('Progress List Sub Steps', () => {
 
     const { container } = render(<ProgressListSubSteps ref={ref}>Content</ProgressListSubSteps>)
 
-    const subSteps = container.querySelector('.ams-progress-list__substeps')
+    const subSteps = container.querySelector('.ams-progress-list-substeps')
 
     expect(ref.current).toBe(subSteps)
   })
