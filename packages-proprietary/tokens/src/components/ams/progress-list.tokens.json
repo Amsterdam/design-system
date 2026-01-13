@@ -41,11 +41,6 @@
         "gap": {
           "value": "{ams.space.m}"
         },
-        "medium": {
-          "gap": {
-            "value": "{ams.space.l}"
-          }
-        },
         "marker": {
           "shape": {
             "block-size": {
@@ -144,14 +139,6 @@
           "indicator": {
             "margin-inline-end": {
               "value": "{ams.space.m}"
-            },
-            "medium": {
-              "margin-inline-end": {
-                "value": "{ams.space.l}"
-              },
-              "margin-inline-start": {
-                "value": "calc(-1 * {ams.progress-list.step.medium.gap} - {ams.progress-list.step.marker.shape.block-size})"
-              }
             }
           },
           "marker": {
@@ -255,6 +242,23 @@
           "content": {
             "margin-block-end": {
               "value": "{ams.space.l}"
+            }
+          }
+        }
+      },
+      "medium": {
+        "step": {
+          "gap": {
+            "value": "{ams.space.l}"
+          }
+        },
+        "substeps": {
+          "step-indicator": {
+            "margin-inline-end": {
+              "value": "{ams.space.l}"
+            },
+            "margin-inline-start": {
+              "value": "calc(-1 * {ams.progress-list.medium.step.gap} - {ams.progress-list.step.marker.shape.block-size})"
             }
           }
         }
