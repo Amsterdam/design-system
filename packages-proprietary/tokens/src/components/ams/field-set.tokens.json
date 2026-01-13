@@ -8,7 +8,10 @@
         },
         "padding-inline-start": {
           "$value": "{ams.space.m}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         }
       },
       "legend": {

@@ -75,11 +75,17 @@
         "list": {
           "padding-block-start": {
             "$value": "{ams.space.s}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           },
           "padding-inline-start": {
             "$value": "{ams.space.l}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "spacingSample"
+            }
           }
         }
       }

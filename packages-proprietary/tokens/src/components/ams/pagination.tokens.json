@@ -42,7 +42,10 @@
         },
         "padding-inline": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "spacingSample"
+          }
         },
         "text-decoration-line": {
           "$value": "{ams.links.subtle.text-decoration-line}"
