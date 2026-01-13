@@ -13,8 +13,11 @@ import { Icon } from '../Icon'
 import ProgressListContext from './ProgressListContext'
 
 export type ProgressListStepProps = {
+  /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
   hasSubSteps?: boolean
+  /** The heading text for this step. */
   heading: string
+  /** The current progress state of the step. */
   status?: 'current' | 'completed'
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 

@@ -16,6 +16,10 @@ import { ProgressListSubStep } from './ProgressListSubStep'
 import { ProgressListSubSteps } from './ProgressListSubSteps'
 
 export type ProgressListProps = {
+  /**
+   * The hierarchical level of this Progress List’s Headings within the document.
+   * There is no default value; determine the correct level for this instance.
+   */
   headingLevel: Exclude<HeadingProps['level'], 1>
 } & PropsWithChildren<HTMLAttributes<HTMLOListElement>>
 
