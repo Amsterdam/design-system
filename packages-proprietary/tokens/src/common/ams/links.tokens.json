@@ -21,7 +21,7 @@
           "unit": "rem"
         },
         "$type": "dimension",
-        "$extension": {
+        "$extensions": {
           "amsterdam.designsystem.hint": "2.5px",
           "amsterdam.designsystem.subtype": "spacingSample"
         }
@@ -37,7 +37,7 @@
             "unit": "rem"
           },
           "$type": "dimension",
-          "$extension": {
+          "$extensions": {
             "amsterdam.designsystem.hint": "3px"
           }
         },
@@ -47,7 +47,7 @@
             "unit": "rem"
           },
           "$type": "dimension",
-          "$extension": {
+          "$extensions": {
             "amsterdam.designsystem.hint": "1.5px",
             "amsterdam.designsystem.subtype": "spacingSample"
           }

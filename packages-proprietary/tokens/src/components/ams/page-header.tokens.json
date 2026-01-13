@@ -15,7 +15,7 @@
       "padding-inline": {
         "$value": "{ams.grid.padding-inline}",
         "$type": "dimension",
-        "$extension": {
+        "$extensions": {
           "amsterdam.designsystem.hint": "Must be the Grid inline padding, to make sure Header and Grid line up.",
           "amsterdam.designsystem.subtype": "spacingSample"
         }
