@@ -115,7 +115,7 @@
 
   .ams-progress-list__step--completed & {
     background-color: var(--ams-progress-list-step-completed-shape-background-color);
-    border: var(--ams-progress-list-step-completed-shape-border);
+    border-color: var(--ams-progress-list-step-completed-shape-border-color);
   }
 
   .ams-progress-list__step[aria-current] & {
@@ -150,7 +150,7 @@
 
   .ams-progress-list__sub-step--completed & {
     background-color: var(--ams-progress-list-step-sub-steps-step-completed-shape-background-color);
-    border: var(--ams-progress-list-step-sub-steps-step-completed-shape-border);
+    border-color: var(--ams-progress-list-step-sub-steps-step-completed-shape-border-color);
   }
 
   .ams-progress-list__sub-step[aria-current] & {
