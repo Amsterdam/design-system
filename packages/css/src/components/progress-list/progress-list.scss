@@ -37,16 +37,7 @@
   @include reset-ol;
 }
 
-.ams-progress-list-substeps {
-  @include reset-ol;
-
-  * + & {
-    // Add white space if there is content preceding the sub steps
-    margin-block-start: var(--ams-progress-list-substeps-margin-block-start);
-  }
-}
-
-// Step and substep
+/* Step */
 
 .ams-progress-list__step {
   display: flex;
@@ -57,35 +48,17 @@
   }
 }
 
-.ams-progress-list-substeps__step {
-  display: flex;
-}
-
-// Indicator: Layout container for the marker and connector.
+/* Indicator: layout container for marker and connector */
 
 .ams-progress-list__indicator {
   @include indicator;
 }
 
-.ams-progress-list-substeps__indicator {
-  @include indicator;
-
-  margin-inline-end: var(--ams-progress-list-substeps-step-indicator-margin-inline-end);
-  margin-inline-start: calc(
-    -1 * var(--ams-progress-list-step-gap) - var(--ams-progress-list-step-marker-shape-block-size)
-  );
-
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    margin-inline-end: var(--ams-progress-list-substeps-step-indicator-medium-margin-inline-end);
-    margin-inline-start: var(--ams-progress-list-substeps-step-indicator-medium-margin-inline-start);
-  }
-}
-
-// Marker: Layout container for the shape.
+/* Marker: layout container for shape */
 
 .ams-progress-list__marker {
   display: flex;
-  grid-area: 1 / 1; // Overlaps the marker and connector.
+  grid-area: 1 / 1; /* Overlaps marker and connector */
   place-items: center;
 
   .ams-progress-list--heading-2 & {
@@ -101,7 +74,7 @@
   }
 }
 
-// Shape: Visual circle inside marker.
+/* Shape: visual circle in marker */
 
 .ams-progress-list__marker-shape {
   @include marker;
@@ -111,7 +84,7 @@
   border: var(--ams-progress-list-step-marker-shape-border-width)
     var(--ams-progress-list-step-marker-shape-border-style) var(--ams-progress-list-step-marker-shape-border-color);
 
-  // Outline is used to create space between the shape and the connector.
+  /* Outline adds space between shape and connector */
   outline: var(--ams-progress-list-step-marker-shape-outline-width)
     var(--ams-progress-list-step-marker-shape-outline-style) var(--ams-progress-list-step-marker-shape-outline-color);
 
@@ -126,42 +99,7 @@
   }
 }
 
-// Substep Marker
-
-.ams-progress-list-substeps__marker {
-  block-size: var(--ams-progress-list-substeps-step-marker-block-size);
-  display: grid;
-  grid-area: 1/1;
-  inline-size: var(--ams-progress-list-substeps-step-marker-inline-size);
-  place-items: center;
-}
-
-.ams-progress-list-substeps__marker-shape {
-  @include marker;
-
-  background-color: var(--ams-progress-list-substeps-step-marker-shape-background-color);
-  block-size: var(--ams-progress-list-substeps-step-marker-shape-block-size);
-  border: var(--ams-progress-list-substeps-step-marker-shape-border-width)
-    var(--ams-progress-list-substeps-step-marker-shape-border-style)
-    var(--ams-progress-list-substeps-step-marker-shape-border-color);
-
-  // Outline is used to create space between the shape and the connector.
-  outline: var(--ams-progress-list-substeps-step-marker-shape-outline-width)
-    var(--ams-progress-list-substeps-step-marker-shape-outline-style)
-    var(--ams-progress-list-substeps-step-marker-shape-outline-color);
-
-  .ams-progress-list-substeps__step--completed & {
-    background-color: var(--ams-progress-list-substeps-step-completed-marker-shape-background-color);
-    border-color: var(--ams-progress-list-substeps-step-completed-marker-shape-border-color);
-  }
-
-  .ams-progress-list-substeps__step[aria-current] & {
-    background-color: var(--ams-progress-list-substeps-step-current-marker-shape-background-color);
-    border-color: var(--ams-progress-list-substeps-step-current-marker-shape-border-color);
-  }
-}
-
-// Connector
+/* Connector */
 
 .ams-progress-list__connector {
   @include connector;
@@ -198,10 +136,93 @@
   }
 }
 
+/* Content */
+
+.ams-progress-list__content {
+  flex: auto;
+  min-inline-size: 0; /* Ensure content can shrink to fit container */
+}
+
+/* Heading */
+
+.ams-progress-list__heading {
+  margin-block-end: var(--ams-progress-list-step-heading-margin-block-end);
+}
+
+/* Body */
+
+.ams-progress-list__body {
+  .ams-progress-list__step:not(:last-child, .ams-progress-list__step--has-substeps) & {
+    margin-block-end: var(--ams-progress-list-step-body-margin-block-end);
+  }
+}
+
+/* Substeps is its own block in BEM and has the same elements as above */
+
+.ams-progress-list-substeps {
+  @include reset-ol;
+
+  * + & {
+    /* Add white space if there is content preceding substeps */
+    margin-block-start: var(--ams-progress-list-substeps-margin-block-start);
+  }
+}
+
+.ams-progress-list-substeps__step {
+  display: flex;
+}
+
+.ams-progress-list-substeps__indicator {
+  @include indicator;
+
+  margin-inline-end: var(--ams-progress-list-substeps-step-indicator-margin-inline-end);
+  margin-inline-start: calc(
+    -1 * var(--ams-progress-list-step-gap) - var(--ams-progress-list-step-marker-shape-block-size)
+  );
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    margin-inline-end: var(--ams-progress-list-substeps-step-indicator-medium-margin-inline-end);
+    margin-inline-start: var(--ams-progress-list-substeps-step-indicator-medium-margin-inline-start);
+  }
+}
+
+.ams-progress-list-substeps__marker {
+  block-size: var(--ams-progress-list-substeps-step-marker-block-size);
+  display: grid;
+  grid-area: 1/1;
+  inline-size: var(--ams-progress-list-substeps-step-marker-inline-size);
+  place-items: center;
+}
+
+.ams-progress-list-substeps__marker-shape {
+  @include marker;
+
+  background-color: var(--ams-progress-list-substeps-step-marker-shape-background-color);
+  block-size: var(--ams-progress-list-substeps-step-marker-shape-block-size);
+  border: var(--ams-progress-list-substeps-step-marker-shape-border-width)
+    var(--ams-progress-list-substeps-step-marker-shape-border-style)
+    var(--ams-progress-list-substeps-step-marker-shape-border-color);
+
+  /* Outline is used to create space between shape and connector */
+  outline: var(--ams-progress-list-substeps-step-marker-shape-outline-width)
+    var(--ams-progress-list-substeps-step-marker-shape-outline-style)
+    var(--ams-progress-list-substeps-step-marker-shape-outline-color);
+
+  .ams-progress-list-substeps__step--completed & {
+    background-color: var(--ams-progress-list-substeps-step-completed-marker-shape-background-color);
+    border-color: var(--ams-progress-list-substeps-step-completed-marker-shape-border-color);
+  }
+
+  .ams-progress-list-substeps__step[aria-current] & {
+    background-color: var(--ams-progress-list-substeps-step-current-marker-shape-background-color);
+    border-color: var(--ams-progress-list-substeps-step-current-marker-shape-border-color);
+  }
+}
+
 .ams-progress-list-substeps__connector {
   @include connector;
 
-  /* Covers the underlying connector of the parent step to prevent it from shining through. */
+  /* Cover underlying connector of parent step to prevent it from shining through. */
   background-color: var(--ams-progress-list-substeps-step-connector-background-color);
   border: var(--ams-progress-list-substeps-step-connector-border-inline-width)
     var(--ams-progress-list-substeps-step-connector-border-inline-style)
@@ -214,30 +235,9 @@
     border-inline-style: var(--ams-progress-list-substeps-step-completed-connector-border-inline-style);
   }
 
-  // Hide the connector when it belongs to the last substep of the last main step
+  /* Hide connector when it belongs to last substep of last main step */
   .ams-progress-list__step:last-child .ams-progress-list-substeps__step:last-child & {
     border-inline-color: var(--ams-progress-list-substeps-step-connector-last-child-border-inline-color);
-  }
-}
-
-// Content
-
-.ams-progress-list__content {
-  flex: auto;
-  min-inline-size: 0; /* Ensure content can shrink to fit the container */
-}
-
-// Heading
-
-.ams-progress-list__heading {
-  margin-block-end: var(--ams-progress-list-step-heading-margin-block-end);
-}
-
-// Body
-
-.ams-progress-list__body {
-  .ams-progress-list__step:not(:last-child, .ams-progress-list__step--has-substeps) & {
-    margin-block-end: var(--ams-progress-list-step-body-margin-block-end);
   }
 }
 
