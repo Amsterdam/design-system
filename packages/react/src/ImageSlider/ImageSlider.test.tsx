@@ -12,20 +12,15 @@ import type { ImageSliderImageProps } from './ImageSlider'
 import { ImageSlider } from './ImageSlider'
 import '@testing-library/jest-dom'
 
-const observe = jest.fn()
-const unobserve = jest.fn()
-const disconnect = jest.fn()
-const takeRecords = jest.fn()
-
 // Mock implementation of IntersectionObserver
 window.IntersectionObserver = jest.fn(() => ({
-  disconnect,
-  observe,
+  disconnect: jest.fn(),
+  observe: jest.fn(),
   root: null,
   rootMargin: '',
-  takeRecords,
+  takeRecords: jest.fn(),
   thresholds: [],
-  unobserve,
+  unobserve: jest.fn(),
 }))
 
 const scrollTo = jest.fn()

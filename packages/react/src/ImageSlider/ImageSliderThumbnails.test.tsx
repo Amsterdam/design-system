@@ -4,31 +4,30 @@
  */
 
 import { render } from '@testing-library/react'
-import { createRef } from 'react'
+import userEvent from '@testing-library/user-event'
 
 import type { ImageSliderImageProps } from './ImageSlider'
 
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import '@testing-library/jest-dom'
 
-describe('Image Slider Thumbnails', () => {
-  const thumbnails: ImageSliderImageProps[] = [
-    {
-      alt: 'This is gallery image 1',
-      src: 'https://picsum.photos/id/122/1280/720',
-    },
-    {
-      alt: 'This is gallery image 2',
-      src: 'https://picsum.photos/id/101/1280/720',
-    },
-    {
-      alt: 'This is gallery image 3',
-      src: 'https://picsum.photos/id/153/1280/720',
-    },
-  ]
+const thumbnails: ImageSliderImageProps[] = [
+  { alt: 'One', src: 'https://picsum.photos/id/122/320/180' },
+  { alt: 'Two', src: 'https://picsum.photos/id/101/320/180' },
+  { alt: 'Three', src: 'https://picsum.photos/id/153/320/180' },
+]
 
+const defaultProps = {
+  currentSlideId: 0,
+  goToNextSlide: jest.fn(),
+  goToPreviousSlide: jest.fn(),
+  goToSlideById: jest.fn(),
+  thumbnails: thumbnails,
+}
+
+describe('Image Slider Thumbnails', () => {
   it('renders', () => {
-    const { container } = render(<ImageSliderThumbnails thumbnails={thumbnails} />)
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} />)
 
     const component = container.querySelector(':only-child')
 
@@ -37,7 +36,7 @@ describe('Image Slider Thumbnails', () => {
   })
 
   it('renders thumbnails', () => {
-    const { container } = render(<ImageSliderThumbnails thumbnails={thumbnails} />)
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} />)
 
     const thumbs = container.querySelectorAll('.ams-image-slider__thumbnail')
 
@@ -45,28 +44,100 @@ describe('Image Slider Thumbnails', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<ImageSliderThumbnails thumbnails={thumbnails} />)
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-image-slider__thumbnails')
   })
 
-  it('renders an extra class name', () => {
-    const { container } = render(<ImageSliderThumbnails className="extra" thumbnails={thumbnails} />)
+  it('calls goToNextSlide on ArrowRight keydown', async () => {
+    const goToNextSlide = jest.fn()
 
-    const component = container.querySelector(':only-child')
+    const user = userEvent.setup()
 
-    expect(component).toHaveClass('ams-image-slider__thumbnails extra')
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} goToNextSlide={goToNextSlide} />)
+
+    const component = container.querySelector(':only-child') as HTMLElement
+
+    const firstThumbnail = component.children[0] as HTMLElement
+    firstThumbnail.focus()
+
+    await user.keyboard('{ArrowRight}')
+
+    expect(goToNextSlide).toHaveBeenCalled()
   })
 
-  it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
+  it('does not call goToNextSlide on ArrowRight keydown when at end', async () => {
+    const goToNextSlide = jest.fn()
 
-    const { container } = render(<ImageSliderThumbnails ref={ref} thumbnails={thumbnails} />)
+    const user = userEvent.setup()
 
-    const component = container.querySelector(':only-child')
+    const { container } = render(
+      <ImageSliderThumbnails {...defaultProps} currentSlideId={thumbnails.length - 1} goToNextSlide={goToNextSlide} />,
+    )
 
-    expect(ref.current).toBe(component)
+    const component = container.querySelector(':only-child') as HTMLElement
+
+    const lastThumbnail = component.children[thumbnails.length - 1] as HTMLElement
+    lastThumbnail.focus()
+
+    await user.keyboard('{ArrowRight}')
+
+    expect(goToNextSlide).not.toHaveBeenCalled()
+  })
+
+  it('calls goToPreviousSlide on ArrowLeft keydown', async () => {
+    const goToPreviousSlide = jest.fn()
+
+    const user = userEvent.setup()
+
+    const { container } = render(
+      <ImageSliderThumbnails {...defaultProps} currentSlideId={1} goToPreviousSlide={goToPreviousSlide} />,
+    )
+
+    const component = container.querySelector(':only-child') as HTMLElement
+
+    const secondThumbnail = component.children[1] as HTMLElement
+    secondThumbnail.focus()
+
+    await user.keyboard('{ArrowLeft}')
+
+    expect(goToPreviousSlide).toHaveBeenCalled()
+  })
+
+  it('does not call goToPreviousSlide on ArrowLeft keydown when at start', async () => {
+    const goToPreviousSlide = jest.fn()
+
+    const user = userEvent.setup()
+
+    const { container } = render(
+      <ImageSliderThumbnails {...defaultProps} currentSlideId={0} goToPreviousSlide={goToPreviousSlide} />,
+    )
+
+    const component = container.querySelector(':only-child') as HTMLElement
+
+    const firstThumbnail = component.children[0] as HTMLElement
+    firstThumbnail.focus()
+
+    await user.keyboard('{ArrowLeft}')
+
+    expect(goToPreviousSlide).not.toHaveBeenCalled()
+  })
+
+  it('calls goToSlideById on thumbnail click', async () => {
+    const goToSlideById = jest.fn()
+
+    const user = userEvent.setup()
+
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} goToSlideById={goToSlideById} />)
+
+    const component = container.querySelector(':only-child') as HTMLElement
+
+    const secondThumbnail = component.children[1] as HTMLElement
+
+    await user.click(secondThumbnail)
+
+    expect(goToSlideById).toHaveBeenCalledWith(1)
   })
 })
