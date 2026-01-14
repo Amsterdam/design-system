@@ -270,7 +270,7 @@ export const ProjectPage = () => (
               De Lee Millerbrug is in 2026 klaar. De Annemie Wolffbrug zou eind 2025 volledig in gebruik worden genomen.
               Dit is echter uitgesteld tot 2026. De tram rijdt halverwege 2026 over de bruggen richting Strandeiland. We
               werken ook hard aan Robin Wood. Het gebouw wordt bijna volledig van hout. In Robin Wood komen 165
-              woningen, horeca en een vestiging van de Openbare Bibliotheek Amsterdam . De Torteltuin is ook in aanbouw.
+              woningen, horeca en een vestiging van de Openbare Bibliotheek Amsterdam. De Torteltuin is ook in aanbouw.
               Er komen 40 woningen, waarvan 12 sociale huur en 28 middeldure huur. De oplevering is in 2028. Op kavel
               12.01 komt het nieuwe gebouw Akropolis, met daarin 31 woningen: 8 sociale huur en 23 middeldure huur. De
               Zuidoever is een speciale natuuroever. Het biedt leefplekken voor diverse dieren en planten, zoals padden,
