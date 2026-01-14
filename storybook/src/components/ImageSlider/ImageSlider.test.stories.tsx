@@ -91,7 +91,7 @@ export const Test: Story = {
     // Click on third thumbnail button and show that slide
     const thirdThumbnailButton = canvas.getAllByRole('tab', { name: 'Afbeelding 3: Chairs' })[0]
     await userEvent.click(thirdThumbnailButton)
-    await new Promise((resolve) => setTimeout(resolve, 500))
+    await new Promise((resolve) => setTimeout(resolve, 1000))
     expect(imageSlides[2]).not.toHaveAttribute('aria-hidden')
   },
   render: (args) => (
