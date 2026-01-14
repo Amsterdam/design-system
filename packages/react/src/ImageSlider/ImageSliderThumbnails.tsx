@@ -7,7 +7,7 @@ import type { HTMLAttributes, KeyboardEvent } from 'react'
 
 import { clsx } from 'clsx'
 
-import type { ImageSliderImageProps } from './ImageSlider'
+import type { ImageSliderProps } from './ImageSlider'
 
 import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
 
@@ -17,7 +17,7 @@ export type ImageSliderThumbnailsProps = {
   goToPreviousSlide: () => void
   goToSlideById: (id: number) => void
   imageLabel?: string
-  thumbnails: ImageSliderImageProps[]
+  thumbnails: ImageSliderProps['images']
 } & HTMLAttributes<HTMLElement>
 
 export const ImageSliderThumbnails = ({

@@ -7,7 +7,7 @@ import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 
-import type { ImageSliderImageProps } from './ImageSlider'
+import type { ImageSliderProps } from './ImageSlider'
 
 import { ImageSlider } from './ImageSlider'
 import '@testing-library/jest-dom'
@@ -28,7 +28,7 @@ const scrollTo = jest.fn()
 // Mock scrollTo
 Element.prototype.scrollTo = scrollTo
 
-const images: ImageSliderImageProps[] = [
+const images: ImageSliderProps['images'] = [
   { alt: 'One', src: 'https://picsum.photos/id/122/320/180' },
   { alt: 'Two', src: 'https://picsum.photos/id/101/320/180' },
   { alt: 'Three', src: 'https://picsum.photos/id/153/320/180' },

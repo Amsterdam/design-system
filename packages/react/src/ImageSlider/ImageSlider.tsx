@@ -15,15 +15,13 @@ import { Image } from '../Image/Image'
 import { ImageSliderControl } from './ImageSliderControl'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 
-export type ImageSliderImageProps = ImageProps
-
 export type ImageSliderProps = {
   /** Display buttons to navigate to the previous or next image. */
   controls?: boolean
   /** Label for the image if you need to translate the alt text. */
   imageLabel?: string
   /** The set of images to display. */
-  images: ImageSliderImageProps[]
+  images: ImageProps[]
   /** The label for the ‘next’ button */
   nextLabel?: string
   /** The label for the ‘previous’ button */

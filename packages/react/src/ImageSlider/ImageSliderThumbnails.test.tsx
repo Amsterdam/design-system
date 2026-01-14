@@ -6,12 +6,12 @@
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import type { ImageSliderImageProps } from './ImageSlider'
+import type { ImageSliderProps } from './ImageSlider'
 
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import '@testing-library/jest-dom'
 
-const thumbnails: ImageSliderImageProps[] = [
+const thumbnails: ImageSliderProps['images'] = [
   { alt: 'One', src: 'https://picsum.photos/id/122/320/180' },
   { alt: 'Two', src: 'https://picsum.photos/id/101/320/180' },
   { alt: 'Three', src: 'https://picsum.photos/id/153/320/180' },
