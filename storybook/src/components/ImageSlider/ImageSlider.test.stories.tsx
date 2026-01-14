@@ -56,16 +56,28 @@ export const Test: Story = {
       return
     }
 
+    // Click on next button to end of slides and test if aria-hidden is set correctly
     for (const [idx, imageSlide] of imageSlides.entries()) {
       if (idx === 0) {
         expect(imageSlide).not.toHaveAttribute('aria-hidden')
+        // Check that all other slides have aria-hidden
+        for (let i = 1; i < imageSlides.length; i++) {
+          expect(imageSlides[i]).toHaveAttribute('aria-hidden', 'true')
+        }
       } else {
         await userEvent.click(nextButton)
         await new Promise((resolve) => setTimeout(resolve, 500))
         expect(imageSlide).not.toHaveAttribute('aria-hidden')
+        // Check that all other slides have aria-hidden
+        for (let i = 0; i < imageSlides.length; i++) {
+          if (i !== idx) {
+            expect(imageSlides[i]).toHaveAttribute('aria-hidden', 'true')
+          }
+        }
       }
     }
 
+    // Click on previous button back to start of slides and test if aria-hidden is set correctly
     for (const [idx, imageSlide] of imageSlides.reverse().entries()) {
       if (idx === 0) {
         expect(imageSlide).not.toHaveAttribute('aria-hidden')
@@ -75,6 +87,12 @@ export const Test: Story = {
         expect(imageSlide).not.toHaveAttribute('aria-hidden')
       }
     }
+
+    // Click on third thumbnail button and show that slide
+    const thirdThumbnailButton = canvas.getAllByRole('tab', { name: 'Afbeelding 3: Chairs' })[0]
+    await userEvent.click(thirdThumbnailButton)
+    await new Promise((resolve) => setTimeout(resolve, 500))
+    expect(imageSlides[2]).not.toHaveAttribute('aria-hidden')
   },
   render: (args) => (
     <>

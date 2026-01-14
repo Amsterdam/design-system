@@ -34,9 +34,10 @@ const images: ImageSliderImageProps[] = [
   { alt: 'Three', src: 'https://picsum.photos/id/153/320/180' },
 ]
 
-// We can't easily test whether aria-hidden is set correctly, because this depends a functional IntersectionObserver
-// We can't easily test the previous button, because it is disabled at the start, and it is not possible to change that
-// TODO: interaction test?
+// All functionality that relies on IntersectionObserver, like setting aria-hidden and showing an image
+// by clicking on the thumbnail button, cannot be properly tested here because IntersectionObserver is not implemented in JSDom.
+// These tests are covered in Storybook interaction tests: storybook/src/components/ImageSlider/ImageSlider.test.stories.tsx
+// The window resize functionality is currently not tested anywhere, because this is difficult in both environments.
 
 describe('Image Slider', () => {
   it('renders', () => {
