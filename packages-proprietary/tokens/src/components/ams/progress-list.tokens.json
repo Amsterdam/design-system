@@ -10,10 +10,6 @@
             "margin-block-start": {
               "value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)"
             }
-          },
-          "shape": {
-            "block-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" },
-            "inline-size": { "value": "calc({ams.typography.heading.2.font-size} / 1.25)" }
           }
         }
       },
@@ -26,10 +22,6 @@
             "margin-block-start": {
               "value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)"
             }
-          },
-          "shape": {
-            "block-size": { "value": "{ams.typography.heading.3.font-size}" },
-            "inline-size": { "value": "{ams.typography.heading.3.font-size}" }
           }
         }
       },
@@ -42,59 +34,229 @@
             "margin-block-start": {
               "value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)"
             }
-          },
-          "shape": {
-            "block-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" },
-            "inline-size": { "value": "calc({ams.typography.heading.4.font-size} * 1.25)" }
           }
         }
       },
       "step": {
-        "indicator": {
-          "padding-inline": {
-            "value": "{ams.space.m}"
+        "gap": {
+          "value": "{ams.space.m}"
+        },
+        "marker": {
+          "shape": {
+            "block-size": {
+              "value": "1.5rem"
+            },
+            "background-color": {
+              "value": "{ams.color.background}"
+            },
+            "border-color": {
+              "value": "{ams.color.progress.upcoming}"
+            },
+            "border-style": {
+              "value": "solid"
+            },
+            "border-width": {
+              "value": "{ams.border.width.m}"
+            },
+            "outline-color": {
+              "value": "{ams.color.background}"
+            },
+            "outline-style": {
+              "value": "solid"
+            },
+            "outline-width": {
+              "value": "{ams.border.width.m}"
+            }
+          }
+        },
+        "connector": {
+          "border-inline-color": {
+            "value": "{ams.color.progress.upcoming}"
           },
-          "medium": {
-            "padding-inline": {
+          "border-inline-style": {
+            "value": "dashed"
+          },
+          "border-inline-width": {
+            "value": "1px"
+          }
+        },
+        "heading": {
+          "margin-block-end": {
+            "value": "{ams.space.s}"
+          }
+        },
+        "content": {
+          "margin-block-end": {
+            "value": "{ams.space.l}"
+          }
+        },
+        "completed": {
+          "marker": {
+            "shape": {
+              "background-color": {
+                "value": "{ams.color.progress.completed}"
+              },
+              "border-color": {
+                "value": "{ams.color.progress.completed}"
+              }
+            }
+          },
+          "connector": {
+            "background-color": {
+              "value": "{ams.color.progress.completed}"
+            },
+            "border-inline-color": {
+              "value": "{ams.color.progress.completed}"
+            },
+            "border-inline-style": {
+              "value": "solid"
+            }
+          }
+        },
+        "current": {
+          "marker": {
+            "shape": {
+              "background-color": {
+                "value": "{ams.color.progress.current}"
+              },
+              "border-color": {
+                "value": "{ams.color.progress.current}"
+              }
+            }
+          },
+          "connector": {
+            "border-inline-color": {
+              "value": "{ams.color.progress.current}"
+            }
+          }
+        }
+      },
+      "substeps": {
+        "padding-block-start": {
+          "value": "{ams.space.m}"
+        },
+        "step": {
+          "indicator": {
+            "margin-inline-end": {
+              "value": "{ams.space.m}"
+            }
+          },
+          "marker": {
+            "block-size": {
+              "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})"
+            },
+            "inline-size": {
+              "value": "{ams.progress-list.step.marker.shape.block-size}"
+            },
+            "shape": {
+              "block-size": {
+                "value": "0.75rem"
+              },
+              "background-color": {
+                "value": "{ams.color.background}"
+              },
+              "border-color": {
+                "value": "{ams.color.progress.upcoming}"
+              },
+              "border-style": {
+                "value": "solid"
+              },
+              "border-width": {
+                "value": "{ams.border.width.m}"
+              },
+              "outline-color": {
+                "value": "{ams.color.background}"
+              },
+              "outline-style": {
+                "value": "solid"
+              },
+              "outline-width": {
+                "value": "{ams.border.width.m}"
+              }
+            }
+          },
+          "connector": {
+            "background-color": {
+              "value": "{ams.color.background}"
+            },
+            "border-inline-color": {
+              "value": "{ams.color.progress.upcoming}"
+            },
+            "border-inline-style": {
+              "value": "dashed"
+            },
+            "border-inline-width": {
+              "value": "1px"
+            },
+            "margin-block-start": {
+              "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height} / 2)"
+            },
+            "last-child": {
+              "border-inline-color": {
+                "value": "{ams.color.background}"
+              }
+            }
+          },
+          "content": {
+            "margin-block-end": {
+              "value": "{ams.space.m}"
+            }
+          },
+          "completed": {
+            "marker": {
+              "shape": {
+                "background-color": {
+                  "value": "{ams.color.progress.completed}"
+                },
+                "border-color": {
+                  "value": "{ams.color.progress.completed}"
+                }
+              }
+            },
+            "connector": {
+              "background-color": {
+                "value": "{ams.color.progress.completed}"
+              },
+              "border-inline-color": {
+                "value": "{ams.color.progress.completed}"
+              },
+              "border-inline-style": {
+                "value": "solid"
+              }
+            }
+          },
+          "current": {
+            "marker": {
+              "shape": {
+                "background-color": {
+                  "value": "{ams.color.progress.current}"
+                },
+                "border-color": {
+                  "value": "{ams.color.progress.current}"
+                }
+              }
+            }
+          }
+        },
+        "last-child": {
+          "content": {
+            "margin-block-end": {
               "value": "{ams.space.l}"
             }
           }
         },
-        "marker": {
-          "background-color": { "value": "{ams.color.background}" },
-          "border-color": { "value": "{ams.color.progress.upcoming}" },
-          "border-style": { "value": "solid" },
-          "border-width": { "value": "{ams.border.width.m}" }
-        },
-        "connector": {
-          "border-inline-color": { "value": "{ams.color.progress.upcoming}" },
-          "border-inline-style": { "value": "dashed" },
-          "border-inline-width": { "value": "calc({ams.border.width.m} / 2)" }
-        },
-        "body": {
-          "padding-block-end": { "value": "{ams.space.l}" },
-          "padding-block-start": { "value": "{ams.space.s}" }
-        },
-        "completed": {
-          "marker": {
-            "background-color": { "value": "{ams.color.progress.completed}" },
-            "border": { "value": "none" }
-          },
-          "connector": {
-            "border-inline-color": { "value": "{ams.color.progress.completed}" },
-            "border-inline-style": { "value": "solid" }
+        "medium": {
+          "step-indicator": {
+            "margin-inline-end": {
+              "value": "{ams.space.l}"
+            }
           }
-        },
-        "current": {
-          "indicator": {
-            "background-color": { "value": "{ams.color.progress.current}" }
-          },
-          "marker": {
-            "background-color": { "value": "{ams.color.background}" },
-            "border-color": { "value": "{ams.color.progress.current}" }
-          },
-          "connector": {
-            "border-inline-color": { "value": "{ams.color.progress.current}" }
+        }
+      },
+      "medium": {
+        "step": {
+          "gap": {
+            "value": "{ams.space.l}"
           }
         }
       }

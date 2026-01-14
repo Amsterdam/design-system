@@ -12,8 +12,14 @@ import type { HeadingProps } from '../Heading'
 
 import ProgressListContext from './ProgressListContext'
 import { ProgressListStep } from './ProgressListStep'
+import { ProgressListSubstep } from './ProgressListSubstep'
+import { ProgressListSubsteps } from './ProgressListSubsteps'
 
 export type ProgressListProps = {
+  /**
+   * The hierarchical level of this Progress List’s Headings within the document.
+   * There is no default value; determine the correct level for this instance.
+   */
   headingLevel: Exclude<HeadingProps['level'], 1>
 } & PropsWithChildren<HTMLAttributes<HTMLOListElement>>
 
@@ -34,5 +40,10 @@ const ProgressListRoot = forwardRef(
   ),
 )
 
-export const ProgressList = Object.assign(ProgressListRoot, { Step: ProgressListStep })
+export const ProgressList = Object.assign(ProgressListRoot, {
+  Step: ProgressListStep,
+  Substep: ProgressListSubstep,
+  Substeps: ProgressListSubsteps,
+})
+
 ProgressListRoot.displayName = 'ProgressList'
