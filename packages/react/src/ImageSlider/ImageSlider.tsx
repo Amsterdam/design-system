@@ -131,7 +131,12 @@ export const ImageSlider = forwardRef(
       <div
         {...restProps}
         aria-roledescription="carousel"
-        className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
+        className={clsx(
+          'ams-image-slider',
+          // The 'ams-image-slider--controls' class is @deprecated and will be removed in a future release.
+          controls && 'ams-image-slider--controls',
+          className,
+        )}
         ref={ref}
       >
         {controls && (
