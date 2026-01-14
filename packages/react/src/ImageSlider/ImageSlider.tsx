@@ -106,6 +106,7 @@ export const ImageSlider = forwardRef(
       return () => observer.disconnect()
     }, [])
 
+    // Keep current slide in view on window resize
     const handleWindowResize = () => {
       const scrollerElement = scrollerRef.current
       const currentSlideElement = scrollerRef.current?.children[currentSlideId] as HTMLElement | null
