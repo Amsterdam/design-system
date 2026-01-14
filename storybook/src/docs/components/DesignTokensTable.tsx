@@ -1,6 +1,7 @@
 import { BorderSample } from './BorderSample'
 import { Code } from './Code'
 import { ColorSample } from './ColorSample'
+import { TypographySample } from './TypographySample'
 
 type Token = {
   $extensions?: {
@@ -76,6 +77,10 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
       {type === 'borderStyle' && <BorderSample style={value} />}
       {type === 'borderWidth' && <BorderSample width={value} />}
       {type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}
+      {type === 'fontFamily' && <TypographySample fontFamily={value} />}
+      {type === 'fontSize' && <TypographySample fontSize={value} />}
+      {type === 'fontWeight' && <TypographySample fontWeight={value} />}
+      {type === 'lineHeight' && <TypographySample lineHeight={value} />}
     </td>
   </tr>
 )
