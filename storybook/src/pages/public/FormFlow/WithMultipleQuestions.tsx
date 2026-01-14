@@ -24,7 +24,7 @@ export const WithMultipleQuestions = () => (
     {/* Keep the Page Header as simple as possible, to avoid distractions and to prevent users from accidentally navigating away from the form flow. */}
     <PageHeader className="ams-mb-xl" />
     {/* The back link is in its own Grid, because it should be outside of the main section. */}
-    <Grid className="ams-mb-s">
+    <Grid className="ams-mb-xl">
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         {/*
          * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
@@ -76,7 +76,6 @@ export const WithMultipleQuestions = () => (
             <TextInput
               autoComplete="email"
               autoCorrect="off"
-              className="ams-mb-m"
               id="email-input"
               name="email"
               size={30} // Based on this recommendation: https://design-system.service.gov.uk/patterns/email-addresses/#help-users-to-enter-a-valid-email-address
@@ -84,13 +83,12 @@ export const WithMultipleQuestions = () => (
               type="email"
             />
           </Field>
-          <Field className="ams-mb-l">
+          <Field className="ams-mb-xl">
             <Label htmlFor="tel-input" optional>
               Telefoonnummer
             </Label>
             <TextInput
               autoComplete="tel"
-              className="ams-mb-m"
               id="tel-input"
               name="phone"
               size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
