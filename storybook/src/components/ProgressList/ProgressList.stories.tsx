@@ -45,7 +45,7 @@ export const Default: Story = {}
 export const WithSubsteps: Story = {
   args: {
     children: [
-      <ProgressList.Step hasSubsteps heading="2026" key={1} status="completed">
+      <ProgressList.Step heading="2026" key={1} status="completed">
         <Paragraph>{paragraphs[0]}</Paragraph>
       </ProgressList.Step>,
       <ProgressList.Step hasSubsteps heading="2027" key={2} status="current">
