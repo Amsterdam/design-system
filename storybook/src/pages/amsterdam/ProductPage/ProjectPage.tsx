@@ -342,7 +342,7 @@ export const ProjectPage = () => (
       </Grid>
     </Spotlight>
     <Grid paddingVertical="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Image alt="" src="https://picsum.photos/1280/720" />
       </Grid.Cell>
     </Grid>
