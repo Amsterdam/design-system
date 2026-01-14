@@ -27,22 +27,13 @@ window.IntersectionObserver = jest.fn(() => ({
   unobserve,
 }))
 
-describe('Image Slider', () => {
-  const images: ImageSliderImageProps[] = [
-    {
-      alt: 'Bridge',
-      src: 'https://picsum.photos/id/122/320/180',
-    },
-    {
-      alt: 'Bunker',
-      src: 'https://picsum.photos/id/101/320/180',
-    },
-    {
-      alt: 'Chairs',
-      src: 'https://picsum.photos/id/153/320/180',
-    },
-  ]
+const images: ImageSliderImageProps[] = [
+  { alt: 'One', src: 'https://picsum.photos/id/122/320/180' },
+  { alt: 'Two', src: 'https://picsum.photos/id/101/320/180' },
+  { alt: 'Three', src: 'https://picsum.photos/id/153/320/180' },
+]
 
+describe('Image Slider', () => {
   it('renders', () => {
     const { container } = render(<ImageSlider images={images} />)
 
@@ -50,6 +41,22 @@ describe('Image Slider', () => {
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
+  })
+
+  it('shows the first image by default', () => {
+    const { getByAltText } = render(<ImageSlider images={images} />)
+
+    const firstImage = getByAltText('One') as HTMLImageElement
+    const secondImage = getByAltText('Two') as HTMLImageElement
+    const thirdImage = getByAltText('Three') as HTMLImageElement
+
+    expect(firstImage).not.toHaveAttribute('aria-hidden', 'true')
+    expect(secondImage).toHaveAttribute('aria-hidden', 'true')
+    expect(thirdImage).toHaveAttribute('aria-hidden', 'true')
+
+    expect(firstImage.src).toBe('https://picsum.photos/id/122/320/180')
+    expect(secondImage.src).toBe('https://picsum.photos/id/101/320/180')
+    expect(thirdImage.src).toBe('https://picsum.photos/id/153/320/180')
   })
 
   it('renders slides', () => {

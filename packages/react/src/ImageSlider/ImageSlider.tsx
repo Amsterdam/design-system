@@ -151,17 +151,20 @@ export const ImageSlider = forwardRef(
         )}
         <div aria-live="polite" className="ams-image-slider__scroller" ref={scrollerRef} role="group" tabIndex={0}>
           {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
-            <div
+            <Image
+              alt={alt}
               aria-hidden={index !== currentSlideId ? true : undefined}
+              aspectRatio={aspectRatio}
               className={clsx(
                 'ams-image-slider__item',
                 // The 'ams-image-slider__item--in-view' class is @deprecated and will be removed in a future release.
                 index === currentSlideId && 'ams-image-slider__item--in-view',
               )}
               key={`${alt}-${index}`}
-            >
-              <Image alt={alt} aspectRatio={aspectRatio} sizes={sizes} src={src} srcSet={srcSet} />
-            </div>
+              sizes={sizes}
+              src={src}
+              srcSet={srcSet}
+            />
           ))}
         </div>
         <ImageSliderThumbnails
