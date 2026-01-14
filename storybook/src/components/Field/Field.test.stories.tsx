@@ -5,6 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { Label } from '@amsterdam/design-system-react'
 import { Field } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '../../_common/renderComponentVariants'
@@ -22,10 +23,11 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   args: {
     children: [
-      <label htmlFor="input2" key={1}>
+      // We use Label because `<label>` is inline and wouldn’t get the margin we want to test.
+      <Label htmlFor="input-a1" key={1}>
         Wat is uw achternaam?
-      </label>,
-      <input id="input2" key={2} value="Dijkstra" />,
+      </Label>,
+      <input id="input-a1" key={2} value="Dijkstra" />,
     ],
   },
   render: (args) =>
