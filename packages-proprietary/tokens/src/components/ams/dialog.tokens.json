@@ -24,6 +24,9 @@
           "nl.amsterdam.type": "borderWidth"
         }
       },
+      "box-shadow": {
+        "$value": "initial"
+      },
       "gap": {
         "$value": "{ams.space.m}",
         "$type": "dimension",
