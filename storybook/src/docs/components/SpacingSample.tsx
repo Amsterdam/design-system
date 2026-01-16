@@ -18,7 +18,7 @@ type SpacingSampleProps = {
 
 export const SpacingSample = ({ className, spacing }: SpacingSampleProps) => (
   <div
-    className={clsx('ams-docs-spacing-sample', className)}
+    className={clsx('ams-docs-spacing-sample', 'sb-unstyled', className)}
     style={{
       ...(spacing && { inlineSize: formatTokenValue(spacing) }),
     }}
