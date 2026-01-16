@@ -16,5 +16,5 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: () => <SpaceSample value="1em" />,
+  render: () => <SpaceSample value="16px" />,
 }
