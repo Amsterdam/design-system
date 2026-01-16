@@ -52,6 +52,8 @@ export const ImageSlider = forwardRef(
     }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
+    if (images.length === 0) return null
+
     const [currentSlideId, setCurrentSlideId] = useState(0)
 
     const scrollerRef = useRef<HTMLDivElement>(null)

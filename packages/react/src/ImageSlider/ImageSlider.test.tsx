@@ -144,4 +144,10 @@ describe('Image Slider', () => {
 
     expect(container.querySelector('.ams-image-slider__thumbnails')).toBeInTheDocument()
   })
+
+  it('does not render anything if there are no images', () => {
+    const { container } = render(<ImageSlider images={[]} />)
+
+    expect(container).toBeEmptyDOMElement()
+  })
 })
