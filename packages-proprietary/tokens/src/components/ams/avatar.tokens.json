@@ -50,11 +50,17 @@
       },
       "padding-block": {
         "$value": "{ams.space.xs}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "padding-inline": {
         "$value": "{ams.space.xs}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "forced-colors": {
         "border-width": {

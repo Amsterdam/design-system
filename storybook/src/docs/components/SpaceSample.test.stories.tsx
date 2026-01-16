@@ -5,17 +5,16 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { ColorSample } from './ColorSample'
+import { SpaceSample } from './SpaceSample'
 
 const meta = {
-  title: 'Components/Docs/Color Sample',
-} satisfies Meta<typeof ColorSample>
+  title: 'Components/Storybook/Spacing Sample',
+} satisfies Meta<typeof SpaceSample>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: () => <ColorSample value="hotpink" />,
-  tags: ['!dev', '!autodocs'],
+  render: () => <SpaceSample value="16px" />,
 }

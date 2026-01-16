@@ -7,35 +7,51 @@
       },
       "padding-block": {
         "$value": "{ams.space.l}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "padding-inline": {
         "$value": "{ams.grid.padding-inline}",
         "$type": "dimension",
-        "$extension": {
-          "amsterdam.designsystem.hint": "Must be the Grid inline padding, to make sure Header and Grid line up."
+        "$extensions": {
+          "amsterdam.designsystem.hint": "Must be the Grid inline padding, to make sure Header and Grid line up.",
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "medium": {
         "padding-inline": {
           "$value": "{ams.grid.medium.padding-inline}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         }
       },
       "wide": {
         "padding-inline": {
           "$value": "{ams.grid.wide.padding-inline}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         }
       },
       "logo-link": {
         "column-gap": {
           "$value": "{ams.space.m}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         }
       },
       "brand-name": {
@@ -66,7 +82,10 @@
       "mega-menu": {
         "padding-block": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "button": {
           "cursor": {
@@ -85,11 +104,17 @@
       "menu": {
         "column-gap": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "row-gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "item": {
           "color": {
@@ -98,7 +123,10 @@
           },
           "column-gap": {
             "$value": "{ams.space.xs}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           },
           "font-family": {
             "$value": "{ams.typography.font-family}",
@@ -122,11 +150,17 @@
           },
           "outline-offset": {
             "$value": "{ams.focus.outline-offset}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           },
           "padding-block": {
             "$value": "{ams.space.xs}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           },
           "hover": {
             "color": {
@@ -138,7 +172,10 @@
         "link": {
           "gap": {
             "$value": "{ams.space.xs}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           },
           "text-decoration-line": {
             "$value": "{ams.links.subtle.text-decoration-line}"
@@ -149,7 +186,10 @@
           },
           "text-underline-offset": {
             "$value": "{ams.links.text-underline-offset}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           },
           "hover": {
             "text-decoration-line": {
@@ -161,11 +201,17 @@
       "navigation": {
         "column-gap": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "row-gap": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         }
       }
     }

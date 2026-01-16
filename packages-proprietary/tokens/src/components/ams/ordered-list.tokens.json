@@ -21,7 +21,10 @@
       },
       "gap": {
         "$value": "{ams.space.s}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
@@ -58,18 +61,20 @@
             "value": 2.25,
             "unit": "rem"
           },
-          "$extension": {
-            "amsterdam.designsystem.hint": "Divide your total indentation width over margin and padding to position the marker."
-          },
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.hint": "Divide your total indentation width over margin and padding to position the marker.",
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "padding-inline-start": {
           "$value": {
             "value": 0.25,
             "unit": "rem"
           },
-          "$extension": {
-            "amsterdam.designsystem.hint": "The total level 1 indentation for Amsterdam is 40 pixels, or 2.5rem."
+          "$extensions": {
+            "amsterdam.designsystem.hint": "The total level 1 indentation for Amsterdam is 40 pixels, or 2.5rem.",
+            "amsterdam.designsystem.subtype": "space"
           },
           "$type": "dimension"
         }
@@ -77,18 +82,27 @@
       "ordered-list": {
         "gap": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "list-style-type": {
           "$value": "lower-alpha"
         },
         "padding-block-end": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "padding-block-start": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "item": {
           "margin-inline-start": {
@@ -96,18 +110,20 @@
               "value": 1.5,
               "unit": "rem"
             },
-            "$extension": {
-              "amsterdam.designsystem.hint": "Indent less than the parent to start-align the child\u2019s marker with the parent text."
-            },
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.hint": "Indent less than the parent to start-align the child\u2019s marker with the parent text.",
+              "amsterdam.designsystem.subtype": "space"
+            }
           },
           "padding-inline-start": {
             "$value": {
               "value": 0.25,
               "unit": "rem"
             },
-            "$extension": {
-              "amsterdam.designsystem.hint": "The total level >=2 indentation for Amsterdam is 28 pixels, or 1.75rem."
+            "$extensions": {
+              "amsterdam.designsystem.hint": "The total level >=2 indentation for Amsterdam is 28 pixels, or 1.75rem.",
+              "amsterdam.designsystem.subtype": "space"
             },
             "$type": "dimension"
           }

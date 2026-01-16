@@ -8,7 +8,10 @@
         },
         "padding-inline-start": {
           "$value": "{ams.space.m}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         }
       },
       "legend": {
@@ -38,7 +41,10 @@
         },
         "margin-block-end": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "text-wrap": {
           "$value": "{ams.typography.heading.text-wrap}"

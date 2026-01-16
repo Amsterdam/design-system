@@ -53,15 +53,24 @@
       },
       "outline-offset": {
         "$value": "{ams.inputs.outline-offset}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "padding-block": {
         "$value": "{ams.inputs.padding-block}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "padding-inline": {
         "$value": "{ams.inputs.padding-inline} calc(2 * {ams.inputs.padding-inline} + 1em)",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "disabled": {
         "background-image": {

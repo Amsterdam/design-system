@@ -17,7 +17,11 @@
       },
       "mega-menu": {
         "padding-block": {
-          "$value": "0"
+          "$value": "0",
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         }
       }
     }
