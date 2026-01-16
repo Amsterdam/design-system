@@ -33,7 +33,7 @@ export const TypographySample = ({
   lineHeight,
 }: TypographySampleProps) => (
   <span
-    className={clsx('ams-docs-font-design-token', compact && 'ams-theme--compact', 'sb-unstyled')}
+    className={clsx('ams-docs-typography-sample', compact && 'ams-theme--compact', 'sb-unstyled')}
     style={{
       ...(fontSize && { fontSize: formatTokenValue(fontSize) }),
       ...(fontWeight && { fontWeight: formatTokenValue(fontWeight) }),
