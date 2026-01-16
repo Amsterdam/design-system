@@ -79,7 +79,6 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
     <td>
       {type === 'borderStyle' && <BorderSample style={value} />}
       {type === 'borderWidth' && <BorderSample width={value} />}
-      {type === 'color' && value !== 'currentColor' && <ColorSample color={value} />}
       {type === 'color' && value !== 'currentColor' && <ColorSample value={value} />}
       {type === 'fontFamily' && <TypographySample fontFamily={value} />}
       {type === 'fontSize' && <TypographySample fontSize={value} />}
