@@ -7,16 +7,16 @@ import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 
-import './spacing-sample.css'
+import './space-sample.css'
 import { formatTokenValue } from '../../_common/formatTokenValue'
 
 export type DivProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-type SpacingSampleProps = {
+type SpaceSampleProps = {
   spacing?: string
 } & HTMLAttributes<HTMLDivElement>
 
-export const SpacingSample = ({ className, spacing }: SpacingSampleProps) => (
+export const SpaceSample = ({ className, spacing }: SpaceSampleProps) => (
   <div
     className={clsx('ams-docs-spacing-sample', 'sb-unstyled', className)}
     style={{
