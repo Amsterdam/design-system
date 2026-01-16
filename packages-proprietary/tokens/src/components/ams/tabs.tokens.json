@@ -5,7 +5,7 @@
         "$value": "{ams.space.m}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "spacingSample"
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "list": {
@@ -45,21 +45,21 @@
           "$value": "calc({ams.focus.outline-offset} * -1)",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "padding-block": {
           "$value": "{ams.space.s}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "padding-inline": {
           "$value": "{ams.space.m}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "hover": {

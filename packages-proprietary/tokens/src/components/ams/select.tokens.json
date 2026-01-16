@@ -55,21 +55,21 @@
         "$value": "{ams.inputs.outline-offset}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "spacingSample"
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "padding-block": {
         "$value": "{ams.inputs.padding-block}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "spacingSample"
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "padding-inline": {
         "$value": "{ams.inputs.padding-inline} calc(2 * {ams.inputs.padding-inline} + 1em)",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "spacingSample"
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "disabled": {

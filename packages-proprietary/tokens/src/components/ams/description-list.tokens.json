@@ -9,7 +9,7 @@
         "$value": "{ams.space.l}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "spacingSample"
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "font-family": {
@@ -32,7 +32,7 @@
         "$value": "{ams.space.s}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "spacingSample"
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "inverse": {
@@ -56,7 +56,7 @@
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         }
       },

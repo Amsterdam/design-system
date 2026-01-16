@@ -6,35 +6,35 @@
           "$value": "{ams.space.xs}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "small": {
           "$value": "{ams.space.s}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "medium": {
           "$value": "{ams.space.m}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "large": {
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "x-large": {
           "$value": "{ams.space.xl}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         }
       }

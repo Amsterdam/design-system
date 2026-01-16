@@ -26,7 +26,7 @@
             "$type": "dimension",
             "$extensions": {
               "amsterdam.designsystem.hint": "Must be the Grid inline padding, to make sure Skip Link and Grid line up.",
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             }
           }
         }

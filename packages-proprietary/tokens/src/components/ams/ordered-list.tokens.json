@@ -23,7 +23,7 @@
         "$value": "{ams.space.s}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "spacingSample"
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "line-height": {
@@ -64,7 +64,7 @@
           "$type": "dimension",
           "$extensions": {
             "amsterdam.designsystem.hint": "Divide your total indentation width over margin and padding to position the marker.",
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "padding-inline-start": {
@@ -74,7 +74,7 @@
           },
           "$extensions": {
             "amsterdam.designsystem.hint": "The total level 1 indentation for Amsterdam is 40 pixels, or 2.5rem.",
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           },
           "$type": "dimension"
         }
@@ -84,7 +84,7 @@
           "$value": "{ams.space.s}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "list-style-type": {
@@ -94,14 +94,14 @@
           "$value": "{ams.space.s}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "padding-block-start": {
           "$value": "{ams.space.s}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "item": {
@@ -113,7 +113,7 @@
             "$type": "dimension",
             "$extensions": {
               "amsterdam.designsystem.hint": "Indent less than the parent to start-align the child\u2019s marker with the parent text.",
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             }
           },
           "padding-inline-start": {
@@ -123,7 +123,7 @@
             },
             "$extensions": {
               "amsterdam.designsystem.hint": "The total level >=2 indentation for Amsterdam is 28 pixels, or 1.75rem.",
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             },
             "$type": "dimension"
           }

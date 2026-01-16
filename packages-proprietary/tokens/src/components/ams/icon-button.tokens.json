@@ -12,7 +12,7 @@
         "$value": "{ams.focus.outline-offset}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "spacingSample"
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "hover": {

@@ -27,7 +27,7 @@
         "$value": "{ams.focus.outline-offset}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "spacingSample"
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "text-decoration-thickness": {
@@ -38,7 +38,7 @@
         "$value": "{ams.links.text-underline-offset}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "spacingSample"
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "hover": {
@@ -54,7 +54,7 @@
           "$value": "{ams.links.hover.text-underline-offset}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         }
       },

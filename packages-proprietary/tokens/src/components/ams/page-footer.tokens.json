@@ -6,28 +6,28 @@
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "padding-block": {
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "padding-inline": {
           "$value": "{ams.grid.padding-inline}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "row-gap": {
           "$value": "{ams.space.xs}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "medium": {
@@ -35,7 +35,7 @@
             "$value": "{ams.grid.medium.padding-inline}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             }
           }
         },
@@ -44,7 +44,7 @@
             "$value": "{ams.grid.wide.padding-inline}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             }
           }
         },
@@ -77,7 +77,7 @@
             "$value": "{ams.focus.outline-offset}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             }
           },
           "text-decoration-line": {
@@ -91,7 +91,7 @@
             "$value": "{ams.links.text-underline-offset}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             }
           },
           "hover": {

@@ -25,7 +25,7 @@
         "$value": "{ams.space.m}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "spacingSample"
+          "amsterdam.designsystem.subtype": "space"
         }
       },
       "inline-size": {
@@ -64,21 +64,21 @@
           "$value": "{ams.space.m}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "padding-block": {
           "$value": "{ams.space.l} 0",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "padding-inline": {
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "medium": {
@@ -86,14 +86,14 @@
             "$value": "{ams.space.xl} 0",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             }
           },
           "padding-inline": {
             "$value": "{ams.space.xl}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             }
           }
         }
@@ -103,14 +103,14 @@
           "$value": "0",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "padding-inline": {
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "medium": {
@@ -118,7 +118,7 @@
             "$value": "{ams.space.xl}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             }
           }
         }
@@ -128,14 +128,14 @@
           "$value": "0 {ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "padding-inline": {
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "spacingSample"
+            "amsterdam.designsystem.subtype": "space"
           }
         },
         "medium": {
@@ -143,14 +143,14 @@
             "$value": "0 {ams.space.xl}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             }
           },
           "padding-inline": {
             "$value": "{ams.space.xl}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "spacingSample"
+              "amsterdam.designsystem.subtype": "space"
             }
           }
         }
