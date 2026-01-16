@@ -42,4 +42,14 @@ describe('setCurrentSlideIdToVisibleSlide', () => {
 
     expect(result).toBeUndefined()
   })
+
+  it('returns undefined if ref.current is null', () => {
+    const setCurrentSlideId = jest.fn()
+    const ref = { current: null } as unknown as RefObject<HTMLDivElement>
+    const observations = [{ isIntersecting: true, target: {} } as IntersectionObserverEntry]
+
+    const result = setCurrentSlideIdToVisibleSlide({ observations, ref, setCurrentSlideId })
+
+    expect(result).toBeUndefined()
+  })
 })
