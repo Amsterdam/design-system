@@ -1,3 +1,4 @@
+export { debounce } from './debounce'
 export { scrollToCurrentSlideOnResize } from './scrollToCurrentSlideOnResize'
 export { scrollToNextSlide } from './scrollToNextSlide'
 export { scrollToPreviousSlide } from './scrollToPreviousSlide'

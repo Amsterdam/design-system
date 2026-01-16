@@ -15,6 +15,7 @@ import { Image } from '../Image/Image'
 import { ImageSliderControl } from './ImageSliderControl'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import {
+  debounce,
   scrollToCurrentSlideOnResize,
   scrollToNextSlide,
   scrollToPreviousSlide,
@@ -81,7 +82,10 @@ export const ImageSlider = forwardRef(
     }, [])
 
     useEffect(() => {
-      const handleResize = () => scrollToCurrentSlideOnResize({ currentSlideId, ref: scrollerRef, scrollToSlide })
+      const handleResize = debounce(
+        () => scrollToCurrentSlideOnResize({ currentSlideId, ref: scrollerRef, scrollToSlide }),
+        100,
+      )
 
       window.addEventListener('resize', handleResize)
 
