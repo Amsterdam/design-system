@@ -79,7 +79,6 @@
 
 @mixin reset-button {
   border: none;
-  border-radius: 0; // Reset rounded borders on iOS devices
   padding-block: 0;
   padding-inline: 0;
 }
