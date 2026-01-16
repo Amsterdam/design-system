@@ -12,8 +12,8 @@ export type ProgressListContextValue = {
 }
 
 const defaultValues: ProgressListContextValue = {
-  // Level 2 is set here, but it is never used.
-  // headingLevel is a required prop in ProgressList, which always overwrites it.
+  // Default value for type safety.
+  // The actual value is always provided via ProgressList's required headingLevel prop.
   headingLevel: 2,
 }
 

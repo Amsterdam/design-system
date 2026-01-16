@@ -8,7 +8,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type ProgressListSubstepsProps = {} & PropsWithChildren<HTMLAttributes<HTMLOListElement>>
+export type ProgressListSubstepsProps = PropsWithChildren<HTMLAttributes<HTMLOListElement>>
 
 export const ProgressListSubsteps = forwardRef(
   ({ children, className, ...restProps }: ProgressListSubstepsProps, ref: ForwardedRef<HTMLOListElement>) => (

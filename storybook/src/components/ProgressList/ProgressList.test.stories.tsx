@@ -35,7 +35,7 @@ const meta = {
           Uw eigen buurt schoonhouden? U kunt meehelpen door alleen of samen met uw buren een afvalcontainer te
           adopteren. Bekijk hier hoe het werkt en hoe u zich aanmeldt als containeradoptant.
         </p>
-        <ol>{exampleUnorderedList}</ol>
+        <ul>{exampleUnorderedList}</ul>
       </ProgressList.Step>,
       <ProgressList.Step hasSubsteps heading="2027" key={2}>
         <p>
