@@ -14,6 +14,14 @@ import type { ImageProps } from '../Image/Image'
 import { Image } from '../Image/Image'
 import { ImageSliderControl } from './ImageSliderControl'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
+import {
+  scrollToCurrentSlideOnResize,
+  scrollToNextSlide,
+  scrollToPreviousSlide,
+  scrollToSlide,
+  scrollToSlideById,
+  setCurrentSlideIdToVisibleSlide,
+} from './utils'
 
 export type ImageSliderProps = {
   /** Display buttons to navigate to the previous or next image. */
@@ -51,54 +59,18 @@ export const ImageSlider = forwardRef(
     const isAtStart = currentSlideId === 0
     const isAtEnd = currentSlideId === images.length - 1
 
-    // Navigation functions
-    const goToSlide = (element: HTMLElement) => {
-      const scrollerElement = scrollerRef.current
-      if (!scrollerElement) return
-
-      scrollerElement.scrollTo({
-        left: element.offsetLeft,
-      })
-    }
-
-    const goToSlideById = (id: number) => {
-      const element = scrollerRef.current?.children[id] as HTMLElement | null
-      if (element) goToSlide(element)
-    }
-
-    const goToNextSlide = () => {
-      const element = scrollerRef.current?.children[currentSlideId]
-      const nextElement = element?.nextElementSibling as HTMLElement | null
-
-      if (nextElement) goToSlide(nextElement)
-    }
-
-    const goToPreviousSlide = () => {
-      const element = scrollerRef.current?.children[currentSlideId]
-      const previousElement = element?.previousElementSibling as HTMLElement | null
-
-      if (previousElement) goToSlide(previousElement)
-    }
-
     useEffect(() => {
       if (!scrollerRef.current) return undefined
-
-      const handleIntersection = (observations: IntersectionObserverEntry[]) => {
-        const images = Array.from(scrollerRef.current?.children || [])
-
-        observations.forEach((observation) => {
-          if (observation.isIntersecting) {
-            setCurrentSlideId(images.indexOf(observation.target as HTMLElement))
-          }
-        })
-      }
 
       const observerOptions = {
         root: scrollerRef.current,
         threshold: 0.6,
       }
 
-      const observer = new IntersectionObserver(handleIntersection, observerOptions)
+      const observer = new IntersectionObserver(
+        (observations) => setCurrentSlideIdToVisibleSlide({ observations, ref: scrollerRef, setCurrentSlideId }),
+        observerOptions,
+      )
 
       const slides = Array.from(scrollerRef.current.children)
       slides.forEach((slide) => observer.observe(slide))
@@ -106,25 +78,13 @@ export const ImageSlider = forwardRef(
       return () => observer.disconnect()
     }, [])
 
-    // Keep current slide in view on window resize
-    const handleWindowResize = () => {
-      const scrollerElement = scrollerRef.current
-      const currentSlideElement = scrollerRef.current?.children[currentSlideId] as HTMLElement | null
-
-      if (!scrollerElement || !currentSlideElement) return
-
-      const expectedScrollLeft = currentSlideElement.offsetLeft
-
-      if (Math.abs(scrollerElement.scrollLeft - expectedScrollLeft) < 1) return
-
-      goToSlide(currentSlideElement)
-    }
-
     useEffect(() => {
-      window.addEventListener('resize', handleWindowResize)
+      const handleResize = () => scrollToCurrentSlideOnResize({ currentSlideId, ref: scrollerRef, scrollToSlide })
 
-      return () => window.removeEventListener('resize', handleWindowResize)
-    }, [handleWindowResize])
+      window.addEventListener('resize', handleResize)
+
+      return () => window.removeEventListener('resize', handleResize)
+    }, [currentSlideId])
 
     return (
       <div
@@ -140,10 +100,20 @@ export const ImageSlider = forwardRef(
       >
         {controls && (
           <div className="ams-image-slider__controls">
-            <ImageSliderControl disabled={isAtStart} icon={ChevronBackwardIcon} iconOnly onClick={goToPreviousSlide}>
+            <ImageSliderControl
+              disabled={isAtStart}
+              icon={ChevronBackwardIcon}
+              iconOnly
+              onClick={() => scrollToPreviousSlide(currentSlideId, scrollerRef)}
+            >
               {previousLabel}
             </ImageSliderControl>
-            <ImageSliderControl disabled={isAtEnd} icon={ChevronForwardIcon} iconOnly onClick={goToNextSlide}>
+            <ImageSliderControl
+              disabled={isAtEnd}
+              icon={ChevronForwardIcon}
+              iconOnly
+              onClick={() => scrollToNextSlide(currentSlideId, scrollerRef)}
+            >
               {nextLabel}
             </ImageSliderControl>
           </div>
@@ -168,10 +138,10 @@ export const ImageSlider = forwardRef(
         </div>
         <ImageSliderThumbnails
           currentSlideId={currentSlideId}
-          goToNextSlide={goToNextSlide}
-          goToPreviousSlide={goToPreviousSlide}
-          goToSlideById={goToSlideById}
           imageLabel={imageLabel}
+          scrollToNextSlide={() => scrollToNextSlide(currentSlideId, scrollerRef)}
+          scrollToPreviousSlide={() => scrollToPreviousSlide(currentSlideId, scrollerRef)}
+          scrollToSlideById={(id) => scrollToSlideById(id, scrollerRef)}
           thumbnails={images}
         />
       </div>

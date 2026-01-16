@@ -1,0 +1,6 @@
+export { scrollToCurrentSlideOnResize } from './scrollToCurrentSlideOnResize'
+export { scrollToNextSlide } from './scrollToNextSlide'
+export { scrollToPreviousSlide } from './scrollToPreviousSlide'
+export { scrollToSlide } from './scrollToSlide'
+export { scrollToSlideById } from './scrollToSlideById'
+export { setCurrentSlideIdToVisibleSlide } from './setCurrentSlideIdToVisibleSlide'

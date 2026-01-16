@@ -13,19 +13,19 @@ import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
 
 export type ImageSliderThumbnailsProps = {
   currentSlideId: number
-  goToNextSlide: () => void
-  goToPreviousSlide: () => void
-  goToSlideById: (id: number) => void
   imageLabel?: string
+  scrollToNextSlide: () => void
+  scrollToPreviousSlide: () => void
+  scrollToSlideById: (id: number) => void
   thumbnails: ImageSliderProps['images']
 } & HTMLAttributes<HTMLElement>
 
 export const ImageSliderThumbnails = ({
   currentSlideId,
-  goToNextSlide,
-  goToPreviousSlide,
-  goToSlideById,
   imageLabel,
+  scrollToNextSlide,
+  scrollToPreviousSlide,
+  scrollToSlideById,
   thumbnails,
 }: ImageSliderThumbnailsProps) => {
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
@@ -36,7 +36,7 @@ export const ImageSliderThumbnails = ({
 
       if (nextElement) {
         nextElement.focus()
-        goToNextSlide()
+        scrollToNextSlide()
       }
     }
 
@@ -45,7 +45,7 @@ export const ImageSliderThumbnails = ({
 
       if (previousElement) {
         previousElement.focus()
-        goToPreviousSlide()
+        scrollToPreviousSlide()
       }
     }
   }
@@ -64,7 +64,7 @@ export const ImageSliderThumbnails = ({
             generateAspectRatioClass(aspectRatio),
           )}
           key={`${alt}-${index}`}
-          onClick={() => goToSlideById(index)}
+          onClick={() => scrollToSlideById(index)}
           role="tab"
           style={{ backgroundImage: `url(${src})` }}
           tabIndex={currentSlideId === index ? 0 : -1}
