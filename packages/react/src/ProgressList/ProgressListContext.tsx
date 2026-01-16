@@ -13,7 +13,7 @@ export type ProgressListContextValue = {
 
 const defaultValues: ProgressListContextValue = {
   // Default value for type safety.
-  // The actual value is always provided via ProgressList's required headingLevel prop.
+  // The actual value is always provided via ProgressList’s required headingLevel prop.
   headingLevel: 2,
 }
 

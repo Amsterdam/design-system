@@ -13,8 +13,8 @@ export type AccordionContextValue = {
 }
 
 const defaultValues: AccordionContextValue = {
-  // Level 2 is set here, but it is never used.
-  // headingLevel is a required prop in Accordion, which always overwrites it.
+  // Default value for type safety.
+  // The actual value is always provided via Accordion’s required headingLevel prop.
   headingLevel: 2,
 }
 
