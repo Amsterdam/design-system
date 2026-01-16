@@ -50,7 +50,7 @@ export const ProjectPage = () => (
         </Heading>
         <Paragraph className="ams-mb-m">
           Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van{' '}
-          <Link href="https://www.amsterdam.nl/projecten/ijburg/">IJburg</Link>. Er komen zo’n 1.500 tot 1.700 woningen,
+          <Link href="#">IJburg</Link>. Er komen zo’n 1.500 tot 1.700 woningen,
           waarvan 60 tot 70 procent zelfbouw.
         </Paragraph>
         <Paragraph className="ams-mb-m">
@@ -114,7 +114,7 @@ export const ProjectPage = () => (
             <ProgressList.Substeps>
               <ProgressList.Substep status="completed">
                 <Paragraph>
-                  Opening <Link href="https://www.mkcdeschatkaart.nl/">basisschool en kinderdagverblijf</Link>, zomer
+                  Opening <Link href="#">basisschool en kinderdagverblijf</Link>, zomer
                   2023.
                 </Paragraph>
               </ProgressList.Substep>
@@ -124,14 +124,14 @@ export const ProjectPage = () => (
               <ProgressList.Substep status="completed">
                 <Paragraph>
                   Start bouw{' '}
-                  <Link href="https://www.amsterdam.nl/projecten/ijburg/nieuwe-bruggen/">Annemie Wolffbrug</Link> tussen
+                  <Link href="#">Annemie Wolffbrug</Link> tussen
                   Haveneiland met Centrumeiland.
                 </Paragraph>
               </ProgressList.Substep>
               <ProgressList.Substep status="completed">
                 <Paragraph>
                   Voorbereiding en start bouw{' '}
-                  <Link href="https://www.amsterdam.nl/projecten/ijburg/nieuwe-bruggen/">Lee Millerbrug</Link> met
+                  <Link href="#">Lee Millerbrug</Link> met
                   brugpaviljoens tussen Centrumeiland en Strandeiland.
                 </Paragraph>
               </ProgressList.Substep>

@@ -1,7 +1,5 @@
 <!-- @license CC0-1.0 -->
 
-Here is a concise, tightened version:
-
 # Progress List
 
 Displays the progress of a sequence of steps, with optional additional details per step.
