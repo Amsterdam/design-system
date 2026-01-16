@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
 
