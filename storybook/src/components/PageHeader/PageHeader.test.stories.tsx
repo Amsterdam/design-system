@@ -84,4 +84,5 @@ export const Test: Story = {
       ))}
     </>
   ),
+  tags: ['!dev', '!autodocs'],
 }
