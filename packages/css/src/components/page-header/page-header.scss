@@ -138,7 +138,8 @@
 }
 
 .ams-page-header__menu-link {
-  display: inline-block;
+  display: inline-flex;
+  gap: var(--ams-page-header-menu-link-gap);
   text-decoration-line: var(--ams-page-header-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-page-header-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-page-header-menu-link-text-underline-offset);
@@ -148,6 +149,10 @@
   &:hover {
     text-decoration-line: var(--ams-page-header-menu-link-hover-text-decoration-line);
   }
+}
+
+.ams-page-header__mega-menu-button-item {
+  display: initial; // Override the `hidden` attribute; the mega menu list item is only shown when CSS loads.
 }
 
 .ams-page-header__mega-menu-button-item--hide-on-wide-window {
@@ -199,46 +204,39 @@
   visibility: hidden;
 }
 
-.ams-page-header__menu-icon {
-  line {
-    stroke: currentColor;
-    stroke-width: 3px;
-    transform-origin: center;
-    transition:
-      translate 0.1s ease-in-out,
-      rotate 0.2s ease-in-out,
-      opacity 0.1s ease-in-out;
+.ams-page-header__menu-icon-top,
+.ams-page-header__menu-icon-middle,
+.ams-page-header__menu-icon-bottom {
+  transform-origin: center;
+  transition:
+    opacity 0.1s ease-in-out,
+    rotate 0.2s ease-in-out,
+    translate 0.1s ease-in-out;
 
-    @media (prefers-reduced-motion) {
-      transition: none;
-    }
-  }
-
-  .ams-page-header__menu-icon-top {
-    translate: 0 -7px;
-  }
-
-  .ams-page-header__menu-icon-bottom {
-    translate: 0 7px;
+  @media (prefers-reduced-motion) {
+    transition: none;
   }
 }
 
 .ams-page-header__menu-icon--open {
   .ams-page-header__menu-icon-top {
     rotate: 45deg;
-    translate: 0;
+    translate: -4px 4px;
   }
+
   .ams-page-header__menu-icon-middle {
     opacity: 0%;
   }
+
   .ams-page-header__menu-icon-bottom {
     rotate: -45deg;
-    translate: 0;
+    translate: -4px -4px;
   }
 }
 
 .ams-page-header__mega-menu {
   inline-size: 100%;
+  padding-block: var(--ams-page-header-mega-menu-padding-block);
   pointer-events: auto; // Set pointer events back to auto to allow the mega menu to be activated
 
   // Remove inline padding from Grids that are used in the mega menu.
@@ -253,6 +251,8 @@
 }
 
 .ams-page-header__grid-cell-narrow-window-only {
+  display: initial; // Override the `hidden` attribute; this cell duplicates the non-fixed links in the Page Header Menu.
+
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: none;
   }

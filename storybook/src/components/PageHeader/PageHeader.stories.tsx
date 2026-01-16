@@ -4,9 +4,14 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { CSSProperties } from 'react'
 
 import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
+import { LogInIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
+
+import ExampleLogo from '../Logo/ExampleLogo'
+import { collapsibleMenuItems, headerMenuItems } from './content'
 
 const meta = {
   title: 'Components/Containers/Page Header',
@@ -15,32 +20,13 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+export type PageHeaderStory = StoryObj<typeof meta>
 
-const defaultStoryLinks = [
-  [
-    { href: '#', label: 'Kaart' },
-    { href: '#', label: 'Panoramabeelden' },
-    { href: '#', label: 'Tabellen' },
-    { href: '#', label: 'Catalogus (Beta)' },
-    { href: '#', label: 'Kaarten' },
-    { href: '#', label: 'Datacatalogus' },
-  ],
-  [
-    { href: '#', label: 'Over de organisatie' },
-    { href: '#', label: 'Over het dataplatform' },
-  ],
-  [
-    { href: '#', label: 'Help' },
-    { href: '#', label: 'Contact' },
-  ],
-]
-
-export const Default: Story = {
+export const Default: PageHeaderStory = {
   args: {
     brandName: 'Data Amsterdam',
     children: (
-      <Grid paddingVertical="large">
+      <Grid>
         <PageHeader.GridCellNarrowWindowOnly span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">
@@ -53,7 +39,7 @@ export const Default: Story = {
             Onderdelen
           </Heading>
           <LinkList>
-            {defaultStoryLinks[0].map(({ href, label }) => (
+            {collapsibleMenuItems[0].map(({ href, label }) => (
               <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
@@ -65,7 +51,7 @@ export const Default: Story = {
             Over ons
           </Heading>
           <LinkList>
-            {defaultStoryLinks[1].map(({ href, label }) => (
+            {collapsibleMenuItems[1].map(({ href, label }) => (
               <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
@@ -77,7 +63,7 @@ export const Default: Story = {
             Help
           </Heading>
           <LinkList>
-            {defaultStoryLinks[2].map(({ href, label }) => (
+            {collapsibleMenuItems[2].map(({ href, label }) => (
               <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
@@ -90,17 +76,17 @@ export const Default: Story = {
       <PageHeader.MenuLink href="#" key={1} lang="en">
         English
       </PageHeader.MenuLink>,
-      <PageHeader.MenuLink fixed href="#" key={2}>
+      <PageHeader.MenuLink fixed href="#" icon={SearchIcon} key={2}>
         Zoeken
       </PageHeader.MenuLink>,
     ],
   },
 }
 
-export const WithMovingLinks: Story = {
+export const WithMovingLinks: PageHeaderStory = {
   args: {
     children: (
-      <Grid gapVertical="large" paddingVertical="large">
+      <Grid>
         <PageHeader.GridCellNarrowWindowOnly span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">
@@ -119,28 +105,21 @@ export const WithMovingLinks: Story = {
       <PageHeader.MenuLink href="#" key={1} lang="en">
         English
       </PageHeader.MenuLink>,
-      <PageHeader.MenuLink fixed href="#" key={2}>
+      <PageHeader.MenuLink fixed href="#" icon={SearchIcon} key={2}>
         Zoeken
       </PageHeader.MenuLink>,
     ],
   },
 }
 
-const WithoutMenuButtonOnWideWindowStoryLinks = [
-  { href: '#', label: 'Stad' },
-  { href: '#', label: 'Techniek' },
-  { href: '#', label: 'Historie' },
-  { href: '#', label: 'Duurzaamheid' },
-]
-
-export const WithoutMenuButtonOnWideWindow: Story = {
+export const WithoutMenuButtonOnWideWindow: PageHeaderStory = {
   args: {
     brandName: 'Aan de Amsterdamse grachten',
     children: (
-      <Grid paddingVertical="large">
+      <Grid>
         <Grid.Cell span="all">
           <LinkList>
-            {WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
+            {headerMenuItems.map(({ href, label }) => (
               <LinkList.Link href={href} key={label}>
                 {label}
               </LinkList.Link>
@@ -150,12 +129,12 @@ export const WithoutMenuButtonOnWideWindow: Story = {
       </Grid>
     ),
     menuItems: [
-      ...WithoutMenuButtonOnWideWindowStoryLinks.map(({ href, label }) => (
+      ...headerMenuItems.map(({ href, label }) => (
         <PageHeader.MenuLink href={href} key={label}>
           {label}
         </PageHeader.MenuLink>
       )),
-      <PageHeader.MenuLink fixed href="#" key="Zoeken">
+      <PageHeader.MenuLink fixed href="#" icon={SearchIcon} key="Zoeken">
         Zoeken
       </PageHeader.MenuLink>,
     ],
@@ -163,18 +142,18 @@ export const WithoutMenuButtonOnWideWindow: Story = {
   },
 }
 
-export const WithoutMenuButton: Story = {
+export const WithoutMenuButton: PageHeaderStory = {
   args: {
     brandName: 'Mijn Amsterdam',
     menuItems: (
-      <PageHeader.MenuLink fixed href="#">
+      <PageHeader.MenuLink fixed href="#" icon={LogInIcon}>
         Inloggen
       </PageHeader.MenuLink>
     ),
   },
 }
 
-export const WithCustomLogoLink: Story = {
+export const WithCustomLogoLink: PageHeaderStory = {
   args: {
     logoAccessibleName: 'Gemeentelijke Gezondheidsdienst Amsterdam logo',
     logoBrand: 'ggd-amsterdam',
@@ -183,10 +162,10 @@ export const WithCustomLogoLink: Story = {
   },
 }
 
-export const WithCustomTexts: Story = {
+export const WithCustomTexts: PageHeaderStory = {
   args: {
     children: (
-      <Grid paddingVertical="large">
+      <Grid>
         <Grid.Cell span="all">
           <LinkList>
             <LinkList.Link href="#" lang="en">
@@ -197,6 +176,22 @@ export const WithCustomTexts: Story = {
       </Grid>
     ),
     menuButtonText: 'Alle onderwerpen',
+    menuButtonTextForHide: 'Verberg onderwerpen menu',
+    menuButtonTextForShow: 'Laat onderwerpen menu zien',
     navigationLabel: 'Navigatie',
+  },
+}
+
+export const WithCustomLogo: PageHeaderStory = {
+  args: {
+    brandName: 'Voorbeeld',
+    logoBrand: {
+      label: 'Gemeente logo',
+      svg: ExampleLogo,
+    },
+    style: {
+      '--ams-logo-block-size': 'clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem)',
+      '--ams-logo-min-block-size': '1.125rem',
+    } as CSSProperties,
   },
 }

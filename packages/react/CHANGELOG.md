@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.2.0...design-system-react-v3.0.0) (2026-01-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Page Footer:** Automatically render visually hidden heading before menu ([#2359](https://github.com/Amsterdam/design-system/issues/2359))
+  * Although this does not change the technical API, it may make the semantics of your website incorrect.
+**How to update**: Remove the explicit visually hidden Heading before the Page Footer Menu. This now gets rendered by the component.
+
+### Features
+
+* **Logo, Page Header:** Allow custom branding ([#2323](https://github.com/Amsterdam/design-system/issues/2323)) ([e3c5bdf](https://github.com/Amsterdam/design-system/commit/e3c5bdf74458f414ccb052bf6f3fee1fccf7ed07))
+* **Page Footer:** Automatically render visually hidden heading before menu ([#2359](https://github.com/Amsterdam/design-system/issues/2359)) ([9019a78](https://github.com/Amsterdam/design-system/commit/9019a7891b7b2e31d9faab238317c34753bf7870))
+* **Page Header:** Add visually hidden description to menu button, hide menu button when CSS does not load ([#2340](https://github.com/Amsterdam/design-system/issues/2340)) ([f19ef3a](https://github.com/Amsterdam/design-system/commit/f19ef3a646ce18447a5f34382acd1eab5f7b82bb))
+* **Page Header:** Hide duplicate content of ‘narrow window only Grid Cell’ until CSS loads ([#2305](https://github.com/Amsterdam/design-system/issues/2305)) ([991252d](https://github.com/Amsterdam/design-system/commit/991252dc02e98012e278bae8c9376d2c8060c948))
+* **Paragraph:** Distinguish large and small variants without CSS ([#2315](https://github.com/Amsterdam/design-system/issues/2315)) ([c3bb5f7](https://github.com/Amsterdam/design-system/commit/c3bb5f74b1ffb8895b825a64f2fef704129b5e12))
+
+## [2.2.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.1.0...design-system-react-v2.2.0) (2025-11-21)
+
+
+### Features
+
+* **Label, Field Set:** Add a lighter variant to Label and Legend to clarify form hierarchy in nested Field Sets ([#2291](https://github.com/Amsterdam/design-system/issues/2291)) ([3bcc039](https://github.com/Amsterdam/design-system/commit/3bcc03901cbe1b37183d774b26367a914e3bda79))
+* **Page Header:** Allow adding an icon to a menu item ([#2285](https://github.com/Amsterdam/design-system/issues/2285)) ([15a830b](https://github.com/Amsterdam/design-system/commit/15a830b6068bb98c405da0013e90ac6697b20f5b))
+* **Page:** Add support for a layout with a Menu ([#2263](https://github.com/Amsterdam/design-system/issues/2263)) ([51a289f](https://github.com/Amsterdam/design-system/commit/51a289fe3012981fff1bfc223a0689b9be3760a7))
+
+
+### Bug Fixes
+
+* **Avatar:** Prevent a rendering issue in Safari from distorting the image ([#2286](https://github.com/Amsterdam/design-system/issues/2286)) ([42bccd4](https://github.com/Amsterdam/design-system/commit/42bccd478f11995cf98f9115badfb66ecc7c8c08))
+* **Image:** Allow users to override default width value ([#2295](https://github.com/Amsterdam/design-system/issues/2295)) ([e461108](https://github.com/Amsterdam/design-system/commit/e461108d91d8ed62f1554864c95961f2e238c7b0))
+* **Page Header:** Use correct icon for menu button ([#2284](https://github.com/Amsterdam/design-system/issues/2284)) ([f76dec6](https://github.com/Amsterdam/design-system/commit/f76dec61800de00e2c1d3f516cb6ac36420af116))
+
 ## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.0.2...design-system-react-v2.1.0) (2025-10-31)
 
 

@@ -18,6 +18,12 @@ export const argTypes = {
   children: {
     table: { disable: true },
   },
+  className: {
+    table: { disable: true },
+  },
+  style: {
+    table: { disable: true },
+  },
 }
 
 // Wrap in Page, set language to Dutch for Canvas and Stories
@@ -80,7 +86,7 @@ export const parameters = {
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
         'Utilities',
         'Pages',
-        ['Introduction', 'Guidelines', 'Amsterdam.nl', ['Home Page'], 'Internal', ['Introduction']],
+        ['Introduction', 'Public', ['Introduction', 'Home Page'], 'Internal', ['Introduction', 'Home Page']],
       ],
     },
   },

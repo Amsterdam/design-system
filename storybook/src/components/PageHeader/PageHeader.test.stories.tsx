@@ -5,11 +5,15 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { LogInIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
+import { logoBrands } from '@amsterdam/design-system-react/src/Logo/Logo'
 import { expect } from 'storybook/test'
 
-import { renderComponentVariants } from '../../_common/renderComponentVariants'
+import type { PageHeaderStory } from './PageHeader.stories'
+
 import { default as pageHeaderMeta } from './PageHeader.stories'
+import * as PageHeaderStories from './PageHeader.stories'
 
 const meta = {
   ...pageHeaderMeta,
@@ -19,6 +23,8 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
+
+const pageHeaderStories = PageHeaderStories as Record<string, PageHeaderStory>
 
 export const Test: Story = {
   args: {
@@ -47,12 +53,35 @@ export const Test: Story = {
   },
   render: (args) => (
     <>
+      {/* Interaction test */}
       <PageHeader data-testid="interaction-test" {...args}>
         <ul>
           <li data-testid="children">English</li>
         </ul>
       </PageHeader>
-      {renderComponentVariants(PageHeader, { args })}
+
+      {/* All public stories, sorted by key for deterministic order */}
+      {Object.keys(pageHeaderStories)
+        .filter((key) => key !== '__namedExportsOrder') // This gets added by babel-plugin-named-exports-order
+        .sort()
+        .map((key) => {
+          const story = pageHeaderStories[key]
+          return story ? <PageHeader key={key} {...story.args} /> : null
+        })}
+
+      {/* All logo brands */}
+      {logoBrands.map((brand) => (
+        <PageHeader
+          brandName="Voorbeeld"
+          key={brand}
+          logoBrand={brand}
+          menuItems={
+            <PageHeader.MenuLink fixed href="#" icon={LogInIcon}>
+              Inloggen
+            </PageHeader.MenuLink>
+          }
+        />
+      ))}
     </>
   ),
   tags: ['!dev', '!autodocs'],

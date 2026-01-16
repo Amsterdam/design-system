@@ -22,12 +22,12 @@ export type ImageProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image--docs Image docs at Amsterdam Design System}
  */
 export const Image = forwardRef(
-  ({ aspectRatio, className, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
+  ({ aspectRatio, className, width, ...restProps }: ImageProps, ref: ForwardedRef<HTMLImageElement>) => (
     <img
       {...restProps}
       className={clsx('ams-image', generateAspectRatioClass(aspectRatio), className)}
       ref={ref}
-      width={600} // Fixed width for when CSS does not load. Gets overridden by CSS.
+      width={width ?? 600} // Fixed width for when CSS does not load. Gets overridden by CSS.
     />
   ),
 )

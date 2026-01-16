@@ -8,7 +8,7 @@ It is the lightweight variant for navigation.
 ## Guidelines
 
 - Use a link in the following cases:
-  - To navigate to another page within the website or application
+  - To navigate to another page within the website
   - To navigate to another website (see [External links](#external-links))
   - To navigate to an element on the same page
   - To link to emails or phone numbers (start the link with `mailto:` or `tel:`)

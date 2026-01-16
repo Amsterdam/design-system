@@ -153,7 +153,7 @@ describe('Page Header', () => {
   it('renders a menu button', () => {
     render(<PageHeader>Test</PageHeader>)
 
-    const component = screen.getByRole('button', { name: 'Menu' })
+    const component = screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' })
 
     expect(component).toHaveClass('ams-page-header__mega-menu-button')
   })
@@ -169,15 +169,15 @@ describe('Page Header', () => {
   it('renders a custom menu button text', () => {
     render(<PageHeader menuButtonText="Custom button text">Test</PageHeader>)
 
-    const component = screen.getByRole('button', { name: 'Custom button text' })
+    const component = screen.getAllByText('Custom button text')
 
-    expect(component).toBeInTheDocument()
+    expect(component[0]).toBeInTheDocument()
   })
 
   it('renders the correct class when noMenuButtonOnWideWindow is true', () => {
     render(<PageHeader noMenuButtonOnWideWindow>Test</PageHeader>)
 
-    const component = screen.getByRole('listitem')
+    const component = screen.getByRole('listitem', { hidden: true })
 
     expect(component).toHaveClass('ams-page-header__mega-menu-button-item--hide-on-wide-window')
   })
@@ -191,7 +191,7 @@ describe('Page Header', () => {
 
     expect(closedMegaMenu).toBeInTheDocument()
 
-    const menuButton = screen.getByRole('button', { name: 'Menu' })
+    const menuButton = screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' })
 
     await user.click(menuButton)
 
@@ -199,6 +199,42 @@ describe('Page Header', () => {
 
     expect(openMegaMenu).toBeInTheDocument()
     expect(openMegaMenu).not.toHaveClass('ams-page-header__mega-menu--closed')
+  })
+
+  it('updates the menu button text for screen readers when the menu is opened and closed', async () => {
+    const user = userEvent.setup()
+
+    render(<PageHeader>Test</PageHeader>)
+
+    const menuButton = screen.getByRole('button', { hidden: true })
+
+    expect(menuButton).toHaveTextContent('Laat navigatiemenu zien')
+
+    await user.click(menuButton)
+
+    expect(menuButton).toHaveTextContent('Verberg navigatiemenu')
+
+    await user.click(menuButton)
+
+    expect(menuButton).toHaveTextContent('Laat navigatiemenu zien')
+  })
+
+  it('renders custom texts for screen readers on the menu button', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <PageHeader menuButtonTextForHide="Custom hide text" menuButtonTextForShow="Custom show text">
+        Test
+      </PageHeader>,
+    )
+
+    const menuButton = screen.getByRole('button', { hidden: true })
+
+    expect(menuButton).toHaveTextContent('Custom show text')
+
+    await user.click(menuButton)
+
+    expect(menuButton).toHaveTextContent('Custom hide text')
   })
 
   it.skip('closes the mega menu when it is open and the screen width passes the breakpoint', () => {

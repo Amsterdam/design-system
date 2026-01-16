@@ -25,6 +25,7 @@
         "text-wrap": { "value": "{ams.typography.heading.text-wrap}" }
       },
       "mega-menu": {
+        "padding-block": { "value": "{ams.space.l}" },
         "button": {
           "cursor": { "value": "{ams.cursor.interactive}" },
           "label": {
@@ -51,6 +52,7 @@
           }
         },
         "link": {
+          "gap": { "value": "{ams.space.xs}" },
           "text-decoration-line": { "value": "{ams.links.subtle.text-decoration-line}" },
           "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
           "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
@@ -61,7 +63,7 @@
       },
       "navigation": {
         "column-gap": { "value": "{ams.space.l}" },
-        "row-gap": { "value": "{ams.space.s}" }
+        "row-gap": { "value": "{ams.space.l}" }
       }
     }
   }

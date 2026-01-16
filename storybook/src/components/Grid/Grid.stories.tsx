@@ -16,12 +16,7 @@ const meta = {
   args: {
     paddingVertical: 'x-large',
   },
-  argTypes: {
-    className: {
-      table: { disable: true },
-    },
-    ...gridGapAndPaddingArgTypes,
-  },
+  argTypes: gridGapAndPaddingArgTypes,
   parameters: {
     layout: 'fullscreen',
   },

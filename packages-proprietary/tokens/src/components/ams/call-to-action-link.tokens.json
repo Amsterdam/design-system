@@ -1,7 +1,7 @@
 {
   "ams": {
     "call-to-action-link": {
-      "background-color": { "value": "#00a03c" },
+      "background-color": { "value": "#00893c" },
       "color": { "value": "{ams.color.text.inverse}" },
       "font-family": { "value": "{ams.typography.font-family}" },
       "font-size": { "value": "{ams.typography.body-text.font-size}" },
@@ -13,7 +13,7 @@
       "text-decoration-thickness": { "value": "{ams.links.text-decoration-thickness}" },
       "text-underline-offset": { "value": "{ams.links.text-underline-offset}" },
       "hover": {
-        "background-color": { "value": "#007c2e" },
+        "background-color": { "value": "#10552b" },
         "text-decoration-thickness": {
           "value": "{ams.links.hover.text-decoration-thickness}"
         },

@@ -7,7 +7,7 @@ Use it to apply the visual design of the City of Amsterdam to your HTML elements
 
 ## Introduction
 
-We publish our components’ stylesheets as a separate package to help replicating them in other libraries, platforms, or Saas-applications.
+We publish our components’ stylesheets as a separate package to help replicating them in other libraries, platforms, or SaaS applications.
 The classes are a contract between the component’s definition and its implementations and they facilitate ongoing upgrades.
 
 Our [React components](https://www.npmjs.com/package/@amsterdam/design-system-react) use these classes in the HTML they render.
@@ -65,9 +65,9 @@ Although it is not a typical use case, the stylesheet can be included in an HTML
 </html>
 ```
 
-### Compact mode
+### Compact Mode
 
-[Load the compact tokens](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/README.md) to use the compact appearance of the design system, e.g. for applications.
+[Load the compact tokens](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/README.md) to use the compact appearance of the design system, e.g. for internal websites with a high information density.
 They override the spacious ones; the stylesheets can remain unchanged.
 
 ### Global styles

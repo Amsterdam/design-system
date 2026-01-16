@@ -16,9 +16,6 @@ const meta = {
     lang: 'nl', // Mimic what we do in preview.tsx, where the decorator doesn’t render a Page for stories of Page.
   },
   argTypes: {
-    className: {
-      table: { disable: true },
-    },
     lang: {
       table: { disable: true }, // It’s best practice to set this attribute on the `html` element, so let’s not highlight it here.
     },
@@ -53,9 +50,6 @@ export const Default: Story = {
         <PageBody />
       </main>,
       <PageFooter key="footer">
-        <Heading className="ams-visually-hidden" level={2}>
-          Over deze website
-        </Heading>
         <PageFooter.Spotlight>
           <Grid paddingVertical="x-large">
             <Grid.Cell span="all">
@@ -101,9 +95,6 @@ export const WithMenu: Story = {
         {children}
       </main>
       <PageFooter className="ams-page__area--footer">
-        <Heading className="ams-visually-hidden" level={2}>
-          Over deze website
-        </Heading>
         <PageFooter.Menu>
           <PageFooter.MenuLink href="/">Page Footer Menu</PageFooter.MenuLink>
         </PageFooter.Menu>
