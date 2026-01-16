@@ -9,13 +9,13 @@ import './color-sample.css'
 import { formatTokenValue } from '../../_common/formatTokenValue'
 
 type ColorSampleProps = {
-  color: string
+  value: string
 }
 
-export const ColorSample = ({ color }: ColorSampleProps) =>
-  color ? (
+export const ColorSample = ({ value }: ColorSampleProps) =>
+  value ? (
     <div
       className={clsx('ams-docs-color-sample', 'sb-unstyled')}
-      style={{ backgroundColor: formatTokenValue(color) }}
+      style={{ backgroundColor: formatTokenValue(value) }}
     />
   ) : null

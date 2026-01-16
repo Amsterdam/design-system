@@ -16,6 +16,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: () => <ColorSample color="hotpink" />,
+  render: () => <ColorSample value="hotpink" />,
   tags: ['!dev', '!autodocs'],
 }
