@@ -52,19 +52,19 @@ export const WithSubsteps: Story = {
         <Paragraph>{paragraphs[1]}</Paragraph>
         <ProgressList.Substeps>
           <ProgressList.Substep status="completed">
-            <Paragraph>februari: De Clercqstraat en Jan Evertsenstraat</Paragraph>
+            <Paragraph>Februari: De Clercqstraat en Jan Evertsenstraat</Paragraph>
           </ProgressList.Substep>
           <ProgressList.Substep status="completed">
-            <Paragraph>april: Kruispunt Admiraal de Ruijterweg-Jan Evertsenstraat</Paragraph>
+            <Paragraph>April: Kruispunt Admiraal de Ruijterweg-Jan Evertsenstraat</Paragraph>
           </ProgressList.Substep>
           <ProgressList.Substep status="current">
-            <Paragraph>juni: Raadhuisstraat, Westermarkt en Rozengracht</Paragraph>
+            <Paragraph>Juni: Raadhuisstraat, Westermarkt en Rozengracht</Paragraph>
           </ProgressList.Substep>
           <ProgressList.Substep>
-            <Paragraph>augustus: Kruispunt Marnixstraat-Rozengracht</Paragraph>
+            <Paragraph>Augustus: Kruispunt Marnixstraat-Rozengracht</Paragraph>
           </ProgressList.Substep>
           <ProgressList.Substep>
-            <Paragraph>oktober: Nieuwezijds Voorburgwal</Paragraph>
+            <Paragraph>Oktober: Nieuwezijds Voorburgwal</Paragraph>
           </ProgressList.Substep>
         </ProgressList.Substeps>
       </ProgressList.Step>,

@@ -11,5 +11,4 @@ Displays the progress of a sequence of steps, with optional additional details p
   Steps without a status are considered _upcoming_.
 - Maintain a correct chronological order.
   Only one step may be _current_; preceding steps must be _completed_.
-- Use the Progress List only on a white background.
-  This is a limitation of the current implementation.
+- Progress List must only be used on a white background.
