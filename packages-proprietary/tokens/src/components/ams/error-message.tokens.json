@@ -21,7 +21,10 @@
       },
       "gap": {
         "$value": "{ams.space.xs}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",

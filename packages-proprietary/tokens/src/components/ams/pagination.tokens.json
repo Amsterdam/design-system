@@ -28,15 +28,24 @@
         },
         "gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "padding-inline": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "text-decoration-line": {
           "$value": "{ams.links.subtle.text-decoration-line}"
@@ -47,7 +56,10 @@
         },
         "text-underline-offset": {
           "$value": "{ams.links.text-underline-offset}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "current": {
           "font-weight": {

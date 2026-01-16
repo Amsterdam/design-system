@@ -23,7 +23,10 @@
       },
       "gap": {
         "$value": "{ams.space.m}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "inline-size": {
         "$value": "calc(100% - 2 * {ams.space.l})",
@@ -59,59 +62,96 @@
       "header": {
         "gap": {
           "$value": "{ams.space.m}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "padding-block": {
           "$value": "{ams.space.l} 0",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "padding-inline": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "medium": {
           "padding-block": {
             "$value": "{ams.space.xl} 0",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           },
           "padding-inline": {
             "$value": "{ams.space.xl}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           }
         }
       },
       "body": {
         "padding-block": {
-          "$value": "0"
+          "$value": "0",
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "padding-inline": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "medium": {
           "padding-inline": {
             "$value": "{ams.space.xl}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           }
         }
       },
       "footer": {
         "padding-block": {
           "$value": "0 {ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "padding-inline": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "medium": {
           "padding-block": {
             "$value": "0 {ams.space.xl}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           },
           "padding-inline": {
             "$value": "{ams.space.xl}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           }
         }
       }

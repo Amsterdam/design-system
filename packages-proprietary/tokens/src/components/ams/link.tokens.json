@@ -25,7 +25,10 @@
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "text-decoration-thickness": {
         "$value": "{ams.links.text-decoration-thickness}",
@@ -33,7 +36,10 @@
       },
       "text-underline-offset": {
         "$value": "{ams.links.text-underline-offset}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "hover": {
         "color": {
@@ -46,7 +52,10 @@
         },
         "text-underline-offset": {
           "$value": "{ams.links.hover.text-underline-offset}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         }
       },
       "contrast": {

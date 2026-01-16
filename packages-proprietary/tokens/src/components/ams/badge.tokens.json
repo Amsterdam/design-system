@@ -31,7 +31,10 @@
       },
       "padding-inline": {
         "$value": "{ams.space.xs}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "azure": {
         "background-color": {

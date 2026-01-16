@@ -31,15 +31,24 @@
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "padding-block": {
         "$value": "{ams.space.xs}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "padding-inline": {
         "$value": "{ams.space.m}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "text-decoration-thickness": {
         "$value": "{ams.links.text-decoration-thickness}",
@@ -47,7 +56,10 @@
       },
       "text-underline-offset": {
         "$value": "{ams.links.text-underline-offset}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "hover": {
         "background-color": {
@@ -60,7 +72,10 @@
         },
         "text-underline-offset": {
           "$value": "{ams.links.hover.text-underline-offset}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         }
       }
     }

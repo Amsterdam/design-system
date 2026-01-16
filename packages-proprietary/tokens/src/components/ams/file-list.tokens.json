@@ -3,11 +3,17 @@
     "file-list": {
       "gap": {
         "$value": "{ams.space.m}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "padding-block": {
         "$value": "{ams.space.m}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "file": {
         "font-family": {
@@ -26,7 +32,10 @@
         },
         "gap": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "line-height": {
           "$value": "{ams.typography.body-text.small.line-height}",

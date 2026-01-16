@@ -3,7 +3,10 @@
     "field": {
       "gap": {
         "$value": "{ams.space.s}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "invalid": {
         "border-inline-start": {
@@ -12,7 +15,10 @@
         },
         "padding-inline-start": {
           "$value": "{ams.space.m}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         }
       }
     }

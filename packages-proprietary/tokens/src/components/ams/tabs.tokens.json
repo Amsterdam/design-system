@@ -3,7 +3,10 @@
     "tabs": {
       "gap": {
         "$value": "{ams.space.m}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       },
       "list": {
         "box-shadow": {
@@ -40,15 +43,24 @@
         },
         "outline-offset": {
           "$value": "calc({ams.focus.outline-offset} * -1)",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "padding-block": {
           "$value": "{ams.space.s}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "padding-inline": {
           "$value": "{ams.space.m}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "hover": {
           "box-shadow": {

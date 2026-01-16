@@ -3,7 +3,10 @@
     "invalid-form-alert": {
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
       }
     }
   }

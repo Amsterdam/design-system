@@ -4,30 +4,48 @@
       "menu": {
         "column-gap": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "padding-block": {
           "$value": "{ams.space.l}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "padding-inline": {
           "$value": "{ams.grid.padding-inline}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "row-gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "medium": {
           "padding-inline": {
             "$value": "{ams.grid.medium.padding-inline}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           }
         },
         "wide": {
           "padding-inline": {
             "$value": "{ams.grid.wide.padding-inline}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           }
         },
         "link": {
@@ -57,7 +75,10 @@
           },
           "outline-offset": {
             "$value": "{ams.focus.outline-offset}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           },
           "text-decoration-line": {
             "$value": "{ams.links.subtle.text-decoration-line}"
@@ -68,7 +89,10 @@
           },
           "text-underline-offset": {
             "$value": "{ams.links.text-underline-offset}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           },
           "hover": {
             "color": {
