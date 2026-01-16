@@ -21,8 +21,7 @@
       },
       "invalid": {
         "border-inline-start": {
-          "$value": "{ams.border.width.l} solid {ams.color.feedback.error}",
-          "$type": "color"
+          "$value": "{ams.border.width.l} solid {ams.color.feedback.error}"
         },
         "padding-inline-start": {
           "$value": "{ams.space.m}",

@@ -33,8 +33,7 @@
       },
       "cell": {
         "border-block-end": {
-          "$value": "{ams.border.width.s} solid {ams.color.separator}",
-          "$type": "color"
+          "$value": "{ams.border.width.s} solid {ams.color.separator}"
         },
         "padding-block": {
           "$value": "{ams.space.s}",
