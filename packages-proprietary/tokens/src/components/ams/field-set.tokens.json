@@ -2,15 +2,39 @@
   "ams": {
     "field-set": {
       "child": {
-        "margin-block-end": { "$value": "{ams.space.xs}" },
+        "margin-block-end": {
+          "$value": "{ams.space.xs}",
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
+        },
         "before-error-message": {
-          "margin-block-end": { "$value": "{ams.space.s}" }
+          "margin-block-end": {
+            "$value": "{ams.space.s}",
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
+          }
         },
         "before-field-or-field-set": {
-          "margin-block-end": { "$value": "{ams.space.m}" }
+          "margin-block-end": {
+            "$value": "{ams.space.m}",
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
+          }
         },
         "between-fields-and-field-sets": {
-          "margin-block-end": { "$value": "{ams.space.l}" }
+          "margin-block-end": {
+            "$value": "{ams.space.l}",
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
+          }
         }
       },
       "invalid": {

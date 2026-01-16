@@ -2,9 +2,21 @@
   "ams": {
     "field": {
       "child": {
-        "margin-block-end": { "$value": "{ams.space.xs}" },
+        "margin-block-end": {
+          "$value": "{ams.space.xs}",
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
+        },
         "before-error-message": {
-          "margin-block-end": { "$value": "{ams.space.s}" }
+          "margin-block-end": {
+            "$value": "{ams.space.s}",
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
+          }
         }
       },
       "invalid": {
