@@ -10,8 +10,6 @@ import { clsx } from 'clsx'
 import './space-sample.css'
 import { formatTokenValue } from '../../_common/formatTokenValue'
 
-export type DivProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
-
 type SpaceSampleProps = {
   value?: string
 } & HTMLAttributes<HTMLDivElement>
