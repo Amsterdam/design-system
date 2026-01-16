@@ -2,7 +2,7 @@
   "ams": {
     "call-to-action-link": {
       "background-color": {
-        "$value": "#00a03c",
+        "$value": "#00893c",
         "$type": "color"
       },
       "color": {
@@ -63,7 +63,7 @@
       },
       "hover": {
         "background-color": {
-          "$value": "#007c2e",
+          "$value": "#10552b",
           "$type": "color"
         },
         "text-decoration-thickness": {

@@ -1,5 +1,5 @@
 {
-  "version": "2.2.0",
+  "version": "3.0.0",
   "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
   "description": "All design tokens from the Amsterdam Design System. Use it to apply its visual design to your website or application.",
   "homepage": "https://designsystem.amsterdam",
@@ -30,6 +30,6 @@
   "devDependencies": {
     "change-case": "5.4.4",
     "chokidar-cli": "3.0.0",
-    "style-dictionary": "5.1.1"
+    "style-dictionary": "5.1.3"
   }
 }

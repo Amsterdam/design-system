@@ -4,8 +4,11 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { CSSProperties } from 'react'
 
 import { Logo } from '@amsterdam/design-system-react/src'
+
+import ExampleLogo from './ExampleLogo'
 
 const meta = {
   title: 'Components/Media/Logo',
@@ -45,5 +48,18 @@ export const VgaVerzekeringen: Story = {
 export const MuseumWeesp: Story = {
   args: {
     brand: 'museum-weesp',
+  },
+}
+
+export const Custom: Story = {
+  args: {
+    brand: {
+      label: 'Gemeente logo',
+      svg: ExampleLogo,
+    },
+    style: {
+      '--ams-logo-block-size': '1.5rem',
+      '--ams-logo-min-block-size': '1.5rem',
+    } as CSSProperties,
   },
 }

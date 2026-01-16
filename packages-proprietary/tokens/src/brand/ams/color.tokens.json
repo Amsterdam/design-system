@@ -15,7 +15,7 @@
           "$type": "color"
         },
         "success": {
-          "$value": "#00a03c",
+          "$value": "#00893c",
           "$type": "color"
         },
         "warning": {
@@ -29,7 +29,7 @@
           "$type": "color"
         },
         "green": {
-          "$value": "#00a03c",
+          "$value": "#00893c",
           "$type": "color"
         },
         "lime": {
@@ -55,7 +55,7 @@
       },
       "interactive": {
         "contrast": {
-          "$value": "#181818",
+          "$value": "#202020",
           "$type": "color"
         },
         "default": {
@@ -91,7 +91,7 @@
       },
       "text": {
         "default": {
-          "$value": "#181818",
+          "$value": "#202020",
           "$type": "color"
         },
         "inverse": {

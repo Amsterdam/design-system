@@ -1,6 +1,18 @@
 {
   "ams": {
     "field-set": {
+      "child": {
+        "margin-block-end": { "$value": "{ams.space.xs}" },
+        "before-error-message": {
+          "margin-block-end": { "$value": "{ams.space.s}" }
+        },
+        "before-field-or-field-set": {
+          "margin-block-end": { "$value": "{ams.space.m}" }
+        },
+        "between-fields-and-field-sets": {
+          "margin-block-end": { "$value": "{ams.space.l}" }
+        }
+      },
       "invalid": {
         "border-inline-start": {
           "$value": "{ams.border.width.l} solid {ams.color.feedback.error}",
@@ -37,13 +49,6 @@
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
             "amsterdam.designsystem.type": "lineHeight"
-          }
-        },
-        "margin-block-end": {
-          "$value": "{ams.space.s}",
-          "$type": "dimension",
-          "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
           }
         },
         "text-wrap": {

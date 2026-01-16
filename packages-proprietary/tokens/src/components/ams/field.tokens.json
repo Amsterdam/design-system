@@ -1,11 +1,10 @@
 {
   "ams": {
     "field": {
-      "gap": {
-        "$value": "{ams.space.s}",
-        "$type": "dimension",
-        "$extensions": {
-          "amsterdam.designsystem.subtype": "space"
+      "child": {
+        "margin-block-end": { "$value": "{ams.space.xs}" },
+        "before-error-message": {
+          "margin-block-end": { "$value": "{ams.space.s}" }
         }
       },
       "invalid": {

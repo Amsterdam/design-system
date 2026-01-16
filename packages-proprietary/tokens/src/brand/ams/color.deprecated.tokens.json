@@ -4,7 +4,7 @@
       "interactive": {
         "secondary": {
           "$deprecated": "Use `currentColor` instead",
-          "$value": "#181818",
+          "$value": "#202020",
           "$type": "color"
         }
       }
