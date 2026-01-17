@@ -23,9 +23,6 @@ export type ProgressListProps = {
   headingLevel: Exclude<HeadingProps['level'], 1>
 } & PropsWithChildren<HTMLAttributes<HTMLOListElement>>
 
-/**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-progress-list--docs Progress List docs at Amsterdam Design System}
- */
 const ProgressListRoot = forwardRef(
   ({ children, className, headingLevel, ...restProps }: ProgressListProps, ref: ForwardedRef<HTMLOListElement>) => (
     <ProgressListContext.Provider value={{ headingLevel: headingLevel }}>
@@ -40,6 +37,9 @@ const ProgressListRoot = forwardRef(
   ),
 )
 
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-progress-list--docs Progress List docs at Amsterdam Design System}
+ */
 export const ProgressList = Object.assign(ProgressListRoot, {
   Step: ProgressListStep,
   Substep: ProgressListSubstep,
