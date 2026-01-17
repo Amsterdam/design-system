@@ -18,6 +18,4 @@ const defaultValues: AccordionContextValue = {
   headingLevel: 2,
 }
 
-const AccordionContext = createContext(defaultValues)
-
-export default AccordionContext
+export const AccordionContext = createContext(defaultValues)

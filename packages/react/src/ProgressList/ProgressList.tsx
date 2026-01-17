@@ -10,7 +10,7 @@ import { forwardRef } from 'react'
 
 import type { HeadingProps } from '../Heading'
 
-import ProgressListContext from './ProgressListContext'
+import { ProgressListContext } from './ProgressListContext'
 import { ProgressListStep } from './ProgressListStep'
 import { ProgressListSubstep } from './ProgressListSubstep'
 import { ProgressListSubsteps } from './ProgressListSubsteps'

@@ -10,7 +10,7 @@ import { forwardRef, useContext } from 'react'
 
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
-import ProgressListContext from './ProgressListContext'
+import { ProgressListContext } from './ProgressListContext'
 
 export type ProgressListStepProps = {
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */

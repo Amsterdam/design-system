@@ -17,6 +17,4 @@ const defaultValues: ProgressListContextValue = {
   headingLevel: 2,
 }
 
-const ProgressListContext = createContext(defaultValues)
-
-export default ProgressListContext
+export const ProgressListContext = createContext(defaultValues)
