@@ -41,6 +41,11 @@
         "gap": {
           "value": "{ams.space.m}"
         },
+        "medium": {
+          "gap": {
+            "value": "{ams.space.l}"
+          }
+        },
         "marker": {
           "shape": {
             "block-size": {
@@ -139,6 +144,11 @@
           "indicator": {
             "margin-inline-end": {
               "value": "{ams.space.m}"
+            },
+            "medium": {
+              "margin-inline-end": {
+                "value": "{ams.space.l}"
+              }
             }
           },
           "marker": {
@@ -243,20 +253,6 @@
             "margin-block-end": {
               "value": "{ams.space.l}"
             }
-          }
-        },
-        "medium": {
-          "step-indicator": {
-            "margin-inline-end": {
-              "value": "{ams.space.l}"
-            }
-          }
-        }
-      },
-      "medium": {
-        "step": {
-          "gap": {
-            "value": "{ams.space.l}"
           }
         }
       }

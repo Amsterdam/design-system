@@ -44,7 +44,7 @@
   gap: var(--ams-progress-list-step-gap);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    gap: var(--ams-progress-list-medium-step-gap);
+    gap: var(--ams-progress-list-step-medium-gap);
   }
 }
 
@@ -177,9 +177,9 @@
   );
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    margin-inline-end: var(--ams-progress-list-substeps-medium-step-indicator-margin-inline-end);
+    margin-inline-end: var(--ams-progress-list-substeps-step-indicator-medium-margin-inline-end);
     margin-inline-start: calc(
-      -1 * var(--ams-progress-list-medium-step-gap) - var(--ams-progress-list-step-marker-shape-block-size)
+      -1 * var(--ams-progress-list-step-medium-gap) - var(--ams-progress-list-step-marker-shape-block-size)
     );
   }
 }
