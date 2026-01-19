@@ -13,26 +13,26 @@ describe('Progress List', () => {
   it('renders', () => {
     render(<ProgressList headingLevel={3} />)
 
-    const component = screen.getByRole('list')
+    const list = screen.getByRole('list')
 
-    expect(component).toBeInTheDocument()
-    expect(component).toBeVisible()
+    expect(list).toBeInTheDocument()
+    expect(list).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
     render(<ProgressList headingLevel={3} />)
 
-    const component = screen.getByRole('list')
+    const list = screen.getByRole('list')
 
-    expect(component).toHaveClass('ams-progress-list')
+    expect(list).toHaveClass('ams-progress-list')
   })
 
   it('applies the correct heading level modifier class', () => {
     render(<ProgressList headingLevel={4} />)
 
-    const component = screen.getByRole('list')
+    const list = screen.getByRole('list')
 
-    expect(component).toHaveClass('ams-progress-list--heading-4')
+    expect(list).toHaveClass('ams-progress-list--heading-4')
   })
 
   it('renders the allowed levels correctly', () => {
@@ -62,9 +62,9 @@ describe('Progress List', () => {
   it('renders an extra class name', () => {
     render(<ProgressList className="extra" headingLevel={3} />)
 
-    const component = screen.getByRole('list')
+    const list = screen.getByRole('list')
 
-    expect(component).toHaveClass('ams-progress-list extra')
+    expect(list).toHaveClass('ams-progress-list extra')
   })
 
   it('supports ForwardRef in React', () => {
@@ -72,9 +72,9 @@ describe('Progress List', () => {
 
     render(<ProgressList headingLevel={3} ref={ref} />)
 
-    const component = screen.getByRole('list')
+    const list = screen.getByRole('list')
 
-    expect(ref.current).toBe(component)
+    expect(ref.current).toBe(list)
   })
 
   it('supports composition using subcomponents', () => {

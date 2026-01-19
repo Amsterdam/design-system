@@ -11,26 +11,26 @@ import '@testing-library/jest-dom'
 
 describe('Progress List Step', () => {
   it('renders', () => {
-    const { container } = render(
+    render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
       </ProgressList>,
     )
 
-    const step = container.querySelector('.ams-progress-list__step')
+    const step = screen.getByRole('listitem')
 
     expect(step).toBeInTheDocument()
     expect(step).toBeVisible()
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(
+    render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
       </ProgressList>,
     )
 
-    const step = container.querySelector('.ams-progress-list__step')
+    const step = screen.getByRole('listitem')
 
     expect(step).toHaveClass('ams-progress-list__step')
   })
@@ -72,7 +72,7 @@ describe('Progress List Step', () => {
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(
+    render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step className="extra" heading="Test Step">
           Content
@@ -80,13 +80,13 @@ describe('Progress List Step', () => {
       </ProgressList>,
     )
 
-    const step = container.querySelector('.ams-progress-list__step')
+    const step = screen.getByRole('listitem')
 
     expect(step).toHaveClass('ams-progress-list__step extra')
   })
 
-  it('sets aria-current and current modifier when status is current', () => {
-    const { container } = render(
+  it('sets aria-current and current class when status is current', () => {
+    render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step" status="current">
           Content
@@ -94,14 +94,14 @@ describe('Progress List Step', () => {
       </ProgressList>,
     )
 
-    const step = container.querySelector('.ams-progress-list__step')
+    const step = screen.getByRole('listitem')
 
     expect(step).toHaveAttribute('aria-current', 'step')
     expect(step).toHaveClass('ams-progress-list__step--current')
   })
 
-  it('adds completed modifier and does not set aria-current when status is completed', () => {
-    const { container } = render(
+  it('adds completed class and does not set aria-current when status is completed', () => {
+    render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step" status="completed">
           Content
@@ -109,14 +109,14 @@ describe('Progress List Step', () => {
       </ProgressList>,
     )
 
-    const step = container.querySelector('.ams-progress-list__step')
+    const step = screen.getByRole('listitem')
 
     expect(step).toHaveClass('ams-progress-list__step--completed')
     expect(step).not.toHaveAttribute('aria-current')
   })
 
-  it('adds has-substeps modifier when hasSubsteps is true', () => {
-    const { container } = render(
+  it('adds has-substeps class when hasSubsteps is true', () => {
+    render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step hasSubsteps heading="Test Step">
           Content
@@ -124,19 +124,19 @@ describe('Progress List Step', () => {
       </ProgressList>,
     )
 
-    const step = container.querySelector('.ams-progress-list__step')
+    const step = screen.getByRole('listitem')
 
     expect(step).toHaveClass('ams-progress-list__step--has-substeps')
   })
 
   it('does not add has-substeps modifier when hasSubsteps is not set', () => {
-    const { container } = render(
+    render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
       </ProgressList>,
     )
 
-    const step = container.querySelector('.ams-progress-list__step')
+    const step = screen.getByRole('listitem')
 
     expect(step).not.toHaveClass('ams-progress-list__step--has-substeps')
   })
@@ -183,7 +183,7 @@ describe('Progress List Step', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLLIElement>()
 
-    const { container } = render(
+    render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step" ref={ref}>
           Content
@@ -191,7 +191,7 @@ describe('Progress List Step', () => {
       </ProgressList>,
     )
 
-    const step = container.querySelector('.ams-progress-list__step')
+    const step = screen.getByRole('listitem')
 
     expect(ref.current).toBe(step)
   })
