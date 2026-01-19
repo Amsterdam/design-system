@@ -17,7 +17,7 @@ type BorderSampleProps = {
 
 export const BorderSample = ({ style, width }: BorderSampleProps) => (
   <div
-    className={clsx('ams-docs-border-sample', 'sb-unstyled')}
+    className={clsx('_ams-border-sample', 'sb-unstyled')}
     style={{
       ...(style && {
         // borderInlineStartStyle is a strict CSS property, we need to cast it to CSSProperties

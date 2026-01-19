@@ -14,8 +14,5 @@ type ColorSampleProps = {
 
 export const ColorSample = ({ value }: ColorSampleProps) =>
   value ? (
-    <div
-      className={clsx('ams-docs-color-sample', 'sb-unstyled')}
-      style={{ backgroundColor: formatTokenValue(value) }}
-    />
+    <div className={clsx('_ams-color-sample', 'sb-unstyled')} style={{ backgroundColor: formatTokenValue(value) }} />
   ) : null

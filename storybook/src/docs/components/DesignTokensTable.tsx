@@ -95,9 +95,9 @@ const DesignTokensTableRoot = ({ tokens }: { tokens: Tokens }) => {
   const flatTokens = flattenTokens(tokens)
 
   return (
-    <div className="ams-storybook-design-tokens-table">
+    <div className="_ams-design-tokens-table">
       <table>
-        <thead className="ams-storybook-design-tokens-table--header">
+        <thead className="_ams-design-tokens-table--header">
           <tr>
             <th>CSS variable</th>
             <th>Value</th>
