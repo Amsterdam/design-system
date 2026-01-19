@@ -57,9 +57,9 @@
     "@eslint/js": "9.39.2",
     "@eslint/json": "0.14.0",
     "@eslint/markdown": "7.5.1",
-    "@typescript-eslint/eslint-plugin": "8.52.0",
-    "@typescript-eslint/parser": "8.52.0",
-    "baseline-browser-mapping": "2.9.14",
+    "@typescript-eslint/eslint-plugin": "8.53.0",
+    "@typescript-eslint/parser": "8.53.0",
+    "baseline-browser-mapping": "2.9.15",
     "eslint": "9.39.2",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-baseline-js": "0.4.2",
@@ -75,16 +75,16 @@
     "npm-check-updates": "19.3.1",
     "npm-package-json-lint": "9.1.0",
     "plop": "4.0.4",
-    "prettier": "3.7.4",
+    "prettier": "3.8.0",
     "rimraf": "6.1.2",
     "stylelint": "16.26.1",
     "stylelint-config-standard-scss": "16.0.0",
     "stylelint-order": "7.0.1",
-    "stylelint-plugin-use-baseline": "1.1.5",
+    "stylelint-plugin-use-baseline": "1.2.0",
     "stylelint-use-logical": "2.1.2",
     "stylelint-value-no-unknown-custom-properties": "6.1.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.52.0"
+    "typescript-eslint": "8.53.0"
   },
   "pnpm": {
     "ignoredBuiltDependencies": [
