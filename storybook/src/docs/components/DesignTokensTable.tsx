@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { BorderSample } from './BorderSample'
 import { Code } from './Code'
 import { ColorSample } from './ColorSample'
