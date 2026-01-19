@@ -10,7 +10,7 @@ import { ProjectPage } from './ProjectPage'
 
 const meta = {
   ...commonMeta,
-  title: 'Pages/Amsterdam.nl/Project Page',
+  title: 'Pages/Public/Project Page',
   component: ProjectPage,
 } satisfies Meta<typeof ProjectPage>
 
