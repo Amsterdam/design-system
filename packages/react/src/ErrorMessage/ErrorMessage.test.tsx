@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { ErrorMessage } from './ErrorMessage'
 import '@testing-library/jest-dom'
 
-describe('Error message', () => {
+describe('Error Message', () => {
   it('renders', () => {
     render(<ErrorMessage />)
 

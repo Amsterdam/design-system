@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { CardHeadingGroup } from './CardHeadingGroup'
 import '@testing-library/jest-dom'
 
-describe('Card heading group', () => {
+describe('Card Heading Group', () => {
   it('renders', () => {
     const { container } = render(<CardHeadingGroup tagline="test" />)
 

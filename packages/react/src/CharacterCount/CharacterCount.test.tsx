@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { CharacterCount } from './CharacterCount'
 import '@testing-library/jest-dom'
 
-describe('Character count', () => {
+describe('Character Count', () => {
   it('renders', () => {
     render(<CharacterCount length={10} maxLength={100} />)
 
