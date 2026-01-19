@@ -3,12 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { HTMLAttributes } from 'react'
+
+import { clsx } from 'clsx'
+
+import './design-tokens-table.css'
 import { BorderSample } from './BorderSample'
 import { Code } from './Code'
 import { ColorSample } from './ColorSample'
 import { SpaceSample } from './SpaceSample'
 import { TypographySample } from './TypographySample'
-import './design-tokens-table.css'
 
 type Token = {
   $extensions?: {
@@ -97,11 +101,15 @@ const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) 
 
 DesignTokensTableRow.displayName = 'DesignTokensTable.Row'
 
-const DesignTokensTableRoot = ({ tokens }: { tokens: Tokens }) => {
+type DesignTokensTableRootProps = {
+  tokens: Tokens
+} & HTMLAttributes<HTMLDivElement>
+
+const DesignTokensTableRoot = ({ className, tokens }: DesignTokensTableRootProps) => {
   const flatTokens = flattenTokens(tokens)
 
   return (
-    <div className="_ams-design-tokens-table">
+    <div className={clsx('_ams-design-tokens-table', className)}>
       <table>
         <thead className="_ams-design-tokens-table__header">
           <tr>

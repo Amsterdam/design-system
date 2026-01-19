@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { HTMLAttributes } from 'react'
+
 import { clsx } from 'clsx'
 
 import './typography-sample.css'
@@ -23,9 +25,10 @@ type TypographySampleProps = {
   fontWeight?: string
   /** The line height to use in the example. */
   lineHeight?: string
-}
+} & HTMLAttributes<HTMLDivElement>
 
 export const TypographySample = ({
+  className,
   compact,
   fontFamily,
   fontSize,
@@ -33,7 +36,7 @@ export const TypographySample = ({
   lineHeight,
 }: TypographySampleProps) => (
   <span
-    className={clsx('_ams-typography-sample', compact && 'ams-theme--compact', 'sb-unstyled')}
+    className={clsx('_ams-typography-sample', compact && 'ams-theme--compact', className, 'sb-unstyled')}
     style={{
       ...(fontSize && { fontSize: formatTokenValue(fontSize) }),
       ...(fontWeight && { fontWeight: formatTokenValue(fontWeight) }),
