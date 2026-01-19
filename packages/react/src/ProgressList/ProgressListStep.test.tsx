@@ -69,6 +69,7 @@ describe('Progress List Step', () => {
     const heading = screen.getByRole('heading', { level: 3, name: 'My Step Heading' })
 
     expect(heading).toBeInTheDocument()
+    expect(heading).toHaveClass('ams-progress-list__heading')
   })
 
   it('renders an extra class name', () => {
