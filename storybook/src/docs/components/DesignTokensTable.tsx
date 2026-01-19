@@ -8,6 +8,7 @@ import { Code } from './Code'
 import { ColorSample } from './ColorSample'
 import { SpaceSample } from './SpaceSample'
 import { TypographySample } from './TypographySample'
+import './design-tokens-table.css'
 
 type Token = {
   $extensions?: {
