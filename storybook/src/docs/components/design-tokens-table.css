@@ -7,6 +7,6 @@
   overflow-x: auto;
 }
 
-._ams-design-tokens-table--header th {
+._ams-design-tokens-table__header th {
   text-align: start;
 }

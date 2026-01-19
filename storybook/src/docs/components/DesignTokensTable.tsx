@@ -103,7 +103,7 @@ const DesignTokensTableRoot = ({ tokens }: { tokens: Tokens }) => {
   return (
     <div className="_ams-design-tokens-table">
       <table>
-        <thead className="_ams-design-tokens-table--header">
+        <thead className="_ams-design-tokens-table__header">
           <tr>
             <th>CSS variable</th>
             <th>Value</th>
