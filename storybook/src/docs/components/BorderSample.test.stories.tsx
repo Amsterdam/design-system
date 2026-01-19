@@ -5,15 +5,10 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { BorderSample } from './BorderSample'
 
 const meta = {
   title: 'Components/Docs/Border Sample',
-  args: {
-    style: 'solid',
-    width: '2px',
-  },
 } satisfies Meta<typeof BorderSample>
 
 export default meta
@@ -21,9 +16,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args) =>
-    renderComponentVariants(BorderSample, {
-      args,
-    }),
+  render: () => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
+      <BorderSample style="dashed" />
+      <BorderSample width="4px" />
+    </div>
+  ),
   tags: ['!dev', '!autodocs'],
 }

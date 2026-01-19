@@ -24,5 +24,5 @@ export const Test: Story = {
       <TypographySample lineHeight="1.5" />
     </div>
   ),
-  tags: ['!autodocs', '!dev'],
+  tags: ['!dev', '!autodocs'],
 }

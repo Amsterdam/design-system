@@ -5,17 +5,17 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { SpaceSample } from './SpaceSample'
+import { DesignTokensTable } from './DesignTokensTable'
 
 const meta = {
-  title: 'Components/Docs/Space Sample',
-} satisfies Meta<typeof SpaceSample>
+  title: 'Components/Docs/Design Tokens Table',
+} satisfies Meta<typeof DesignTokensTable>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: () => <SpaceSample value="16px" />,
+  render: () => <DesignTokensTable tokens={{ name: { $value: 'value' } }} />,
   tags: ['!dev', '!autodocs'],
 }

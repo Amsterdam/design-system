@@ -9,7 +9,7 @@ import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { Code } from './Code'
 
 const meta = {
-  title: 'Components/Storybook/Code',
+  title: 'Components/Docs/Code',
   args: {
     children: ['var(--ams-color-text)'],
   },
