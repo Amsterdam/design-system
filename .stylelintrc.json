@@ -121,5 +121,16 @@
         "camelCaseSvgKeywords": true
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["storybook/src/**/*.css", "storybook/src/**/*.scss"],
+      "rules": {
+        "custom-property-pattern": "^_?(ams|_ams)-[a-z0-9-]+$",
+        "keyframes-name-pattern": "^_?(ams|_ams)-[a-z0-9-]+$",
+        "scss/percent-placeholder-pattern": "^_?(ams|_ams)-[a-z0-9-]+$",
+        "selector-class-pattern": "^_?(ams|_ams)-[a-z0-9-]+$"
+      }
+    }
+  ]
 }
