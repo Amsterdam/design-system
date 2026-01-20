@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { TableOfContents } from './TableOfContents'
 import '@testing-library/jest-dom'
 
-describe('Table of contents', () => {
+describe('Table Of Contents', () => {
   it('renders', () => {
     const { container } = render(<TableOfContents />)
 
