@@ -10,7 +10,7 @@ import { createRef, useState } from 'react'
 import { TextInput, textInputTypes } from './TextInput'
 import '@testing-library/jest-dom'
 
-describe('Text input', () => {
+describe('Text Input', () => {
   it('renders', () => {
     render(<TextInput />)
 

@@ -10,7 +10,7 @@ import { Table } from './Table'
 import { TableCaption } from './TableCaption'
 import '@testing-library/jest-dom'
 
-describe('Table caption', () => {
+describe('Table Caption', () => {
   it('renders', () => {
     render(
       <Table>
