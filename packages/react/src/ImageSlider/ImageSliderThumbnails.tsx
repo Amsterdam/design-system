@@ -59,7 +59,7 @@ export const ImageSliderThumbnails = ({
             currentSlideId === index && 'ams-image-slider__thumbnail--in-view',
             generateAspectRatioClass(aspectRatio),
           )}
-          key={`${alt}-${index}`}
+          key={`${index}-${src}`}
           onClick={() => scrollToSlide(index)}
           role="tab"
           style={{ backgroundImage: `url(${src})` }}

@@ -124,7 +124,7 @@ export const ImageSlider = forwardRef(
                 // The 'ams-image-slider__item--in-view' class is @deprecated and will be removed in a future release.
                 index === currentSlideId && 'ams-image-slider__item--in-view',
               )}
-              key={`${alt}-${index}`}
+              key={`${index}-${src}`}
               sizes={sizes}
               src={src}
               srcSet={srcSet}
