@@ -7,7 +7,7 @@ import { createContext } from 'react'
 
 import type { ProgressListProps } from './ProgressList'
 
-export type ProgressListContextValue = {
+type ProgressListContextValue = {
   headingLevel: ProgressListProps['headingLevel']
 }
 
