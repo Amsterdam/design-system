@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { CSSProperties } from 'react'
 
 import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
-import { LogInIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
+import { LogInIcon, PlusIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
 
 import ExampleLogo from '../Logo/ExampleLogo'
@@ -179,6 +179,13 @@ export const WithCustomTexts: PageHeaderStory = {
     menuButtonTextForHide: 'Verberg onderwerpen menu',
     menuButtonTextForShow: 'Laat onderwerpen menu zien',
     navigationLabel: 'Navigatie',
+  },
+}
+
+export const WithCustomMenuButtonIcon: PageHeaderStory = {
+  args: {
+    children: 'Test',
+    menuButtonIcon: PlusIcon,
   },
 }
 
