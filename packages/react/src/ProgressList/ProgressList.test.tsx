@@ -17,6 +17,7 @@ describe('Progress List', () => {
 
     expect(list).toBeInTheDocument()
     expect(list).toBeVisible()
+    expect(list.tagName).toBe('OL')
   })
 
   it('renders a design system BEM class name', () => {
