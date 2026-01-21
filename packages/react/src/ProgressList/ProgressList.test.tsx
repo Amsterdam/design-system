@@ -6,7 +6,7 @@
 import { render, screen, within } from '@testing-library/react'
 import { createRef } from 'react'
 
-import { ProgressList } from './ProgressList'
+import { ProgressList, progressListHeadingSizes } from './ProgressList'
 import '@testing-library/jest-dom'
 
 describe('Progress List', () => {
@@ -27,36 +27,26 @@ describe('Progress List', () => {
     expect(list).toHaveClass('ams-progress-list')
   })
 
-  it('applies the correct heading level modifier class', () => {
-    render(<ProgressList headingLevel={4} />)
+  progressListHeadingSizes.forEach((level) => {
+    it(`adds the class for heading level ${level}`, () => {
+      render(<ProgressList headingLevel={level} />)
 
-    const list = screen.getByRole('list')
+      const list = screen.getByRole('list')
 
-    expect(list).toHaveClass('ams-progress-list--heading-4')
-  })
+      expect(list).toHaveClass(`ams-progress-list--heading-${level}`)
+    })
 
-  it('renders the allowed levels correctly', () => {
-    render(
-      <>
-        <ProgressList headingLevel={2}>
-          <ProgressList.Step heading="Heading 2"></ProgressList.Step>
-        </ProgressList>
-        <ProgressList headingLevel={3}>
-          <ProgressList.Step heading="Heading 3"></ProgressList.Step>
-        </ProgressList>
-        <ProgressList headingLevel={4}>
-          <ProgressList.Step heading="Heading 4" />
-        </ProgressList>
-      </>,
-    )
+    it(`renders the heading with level ${level}`, () => {
+      render(
+        <ProgressList headingLevel={level}>
+          <ProgressList.Step heading={`Heading ${level}`}></ProgressList.Step>
+        </ProgressList>,
+      )
 
-    const h2 = screen.getByRole('heading', { level: 2, name: 'Heading 2' })
-    const h3 = screen.getByRole('heading', { level: 3, name: 'Heading 3' })
-    const h4 = screen.getByRole('heading', { level: 4, name: 'Heading 4' })
+      const heading = screen.getByRole('heading', { level, name: `Heading ${level}` })
 
-    expect(h2).toBeInTheDocument()
-    expect(h3).toBeInTheDocument()
-    expect(h4).toBeInTheDocument()
+      expect(heading).toBeInTheDocument()
+    })
   })
 
   it('renders an extra class name', () => {

@@ -8,19 +8,21 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { HeadingProps } from '../Heading'
-
+import { headingSizes } from '../Heading/Heading'
 import { ProgressListContext } from './ProgressListContext'
 import { ProgressListStep } from './ProgressListStep'
 import { ProgressListSubstep } from './ProgressListSubstep'
 import { ProgressListSubsteps } from './ProgressListSubsteps'
+
+export const progressListHeadingSizes = headingSizes.filter((size) => size !== 1)
+type ProgressListHeadingSize = (typeof progressListHeadingSizes)[number]
 
 export type ProgressListProps = {
   /**
    * The hierarchical level of this Progress List’s Headings within the document.
    * There is no default value; determine the correct level for this instance.
    */
-  headingLevel: Exclude<HeadingProps['level'], 1>
+  headingLevel: ProgressListHeadingSize
 } & PropsWithChildren<HTMLAttributes<HTMLOListElement>>
 
 const ProgressListRoot = forwardRef(
