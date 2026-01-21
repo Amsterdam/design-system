@@ -17,7 +17,7 @@ const thumbnails: ImageSliderProps['images'] = [
   { alt: 'Three', src: 'https://picsum.photos/id/153/320/180' },
 ]
 
-const defaultProps = { currentSlideId: 0, scrollToSlideById: jest.fn(), thumbnails: thumbnails }
+const defaultProps = { currentSlideId: 0, scrollToSlide: jest.fn(), thumbnails: thumbnails }
 
 describe('Image Slider Thumbnails', () => {
   it('renders', () => {
@@ -45,12 +45,12 @@ describe('Image Slider Thumbnails', () => {
     expect(component).toHaveClass('ams-image-slider__thumbnails')
   })
 
-  it('calls scrollToSlideById on ArrowRight keydown', async () => {
-    const scrollToSlideById = jest.fn()
+  it('calls scrollToSlide on ArrowRight keydown', async () => {
+    const scrollToSlide = jest.fn()
 
     const user = userEvent.setup()
 
-    const { container } = render(<ImageSliderThumbnails {...defaultProps} scrollToSlideById={scrollToSlideById} />)
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} scrollToSlide={scrollToSlide} />)
 
     const component = container.querySelector(':only-child') as HTMLElement
 
@@ -59,20 +59,16 @@ describe('Image Slider Thumbnails', () => {
 
     await user.keyboard('{ArrowRight}')
 
-    expect(scrollToSlideById).toHaveBeenCalledWith(1)
+    expect(scrollToSlide).toHaveBeenCalledWith(1)
   })
 
-  it('does not call scrollToSlideById on ArrowRight keydown when at end', async () => {
-    const scrollToSlideById = jest.fn()
+  it('does not call scrollToSlide on ArrowRight keydown when at end', async () => {
+    const scrollToSlide = jest.fn()
 
     const user = userEvent.setup()
 
     const { container } = render(
-      <ImageSliderThumbnails
-        {...defaultProps}
-        currentSlideId={thumbnails.length - 1}
-        scrollToSlideById={scrollToSlideById}
-      />,
+      <ImageSliderThumbnails {...defaultProps} currentSlideId={thumbnails.length - 1} scrollToSlide={scrollToSlide} />,
     )
 
     const component = container.querySelector(':only-child') as HTMLElement
@@ -82,16 +78,16 @@ describe('Image Slider Thumbnails', () => {
 
     await user.keyboard('{ArrowRight}')
 
-    expect(scrollToSlideById).not.toHaveBeenCalled()
+    expect(scrollToSlide).not.toHaveBeenCalled()
   })
 
-  it('calls scrollToSlideById on ArrowLeft keydown', async () => {
-    const scrollToSlideById = jest.fn()
+  it('calls scrollToSlide on ArrowLeft keydown', async () => {
+    const scrollToSlide = jest.fn()
 
     const user = userEvent.setup()
 
     const { container } = render(
-      <ImageSliderThumbnails {...defaultProps} currentSlideId={1} scrollToSlideById={scrollToSlideById} />,
+      <ImageSliderThumbnails {...defaultProps} currentSlideId={1} scrollToSlide={scrollToSlide} />,
     )
 
     const component = container.querySelector(':only-child') as HTMLElement
@@ -101,16 +97,16 @@ describe('Image Slider Thumbnails', () => {
 
     await user.keyboard('{ArrowLeft}')
 
-    expect(scrollToSlideById).toHaveBeenCalledWith(0)
+    expect(scrollToSlide).toHaveBeenCalledWith(0)
   })
 
-  it('does not call scrollToSlideById on ArrowLeft keydown when at start', async () => {
-    const scrollToSlideById = jest.fn()
+  it('does not call scrollToSlide on ArrowLeft keydown when at start', async () => {
+    const scrollToSlide = jest.fn()
 
     const user = userEvent.setup()
 
     const { container } = render(
-      <ImageSliderThumbnails {...defaultProps} currentSlideId={0} scrollToSlideById={scrollToSlideById} />,
+      <ImageSliderThumbnails {...defaultProps} currentSlideId={0} scrollToSlide={scrollToSlide} />,
     )
 
     const component = container.querySelector(':only-child') as HTMLElement
@@ -120,15 +116,15 @@ describe('Image Slider Thumbnails', () => {
 
     await user.keyboard('{ArrowLeft}')
 
-    expect(scrollToSlideById).not.toHaveBeenCalled()
+    expect(scrollToSlide).not.toHaveBeenCalled()
   })
 
-  it('calls scrollToSlideById on thumbnail click', async () => {
-    const scrollToSlideById = jest.fn()
+  it('calls scrollToSlide on thumbnail click', async () => {
+    const scrollToSlide = jest.fn()
 
     const user = userEvent.setup()
 
-    const { container } = render(<ImageSliderThumbnails {...defaultProps} scrollToSlideById={scrollToSlideById} />)
+    const { container } = render(<ImageSliderThumbnails {...defaultProps} scrollToSlide={scrollToSlide} />)
 
     const component = container.querySelector(':only-child') as HTMLElement
 
@@ -136,6 +132,6 @@ describe('Image Slider Thumbnails', () => {
 
     await user.click(secondThumbnail)
 
-    expect(scrollToSlideById).toHaveBeenCalledWith(1)
+    expect(scrollToSlide).toHaveBeenCalledWith(1)
   })
 })

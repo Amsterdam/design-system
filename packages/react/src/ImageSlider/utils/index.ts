@@ -1,4 +1,4 @@
 export { debounce } from './debounce'
 export { scrollToCurrentSlideOnResize } from './scrollToCurrentSlideOnResize'
-export { scrollToSlideById } from './scrollToSlideById'
+export { scrollToSlide } from './scrollToSlide'
 export { setCurrentSlideIdToVisibleSlide } from './setCurrentSlideIdToVisibleSlide'

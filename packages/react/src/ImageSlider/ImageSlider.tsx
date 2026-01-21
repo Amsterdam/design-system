@@ -14,7 +14,7 @@ import type { ImageProps } from '../Image/Image'
 import { Image } from '../Image/Image'
 import { ImageSliderControl } from './ImageSliderControl'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
-import { debounce, scrollToCurrentSlideOnResize, scrollToSlideById, setCurrentSlideIdToVisibleSlide } from './utils'
+import { debounce, scrollToCurrentSlideOnResize, scrollToSlide, setCurrentSlideIdToVisibleSlide } from './utils'
 
 export type ImageSliderProps = {
   /** Display buttons to navigate to the previous or next image. */
@@ -99,7 +99,7 @@ export const ImageSlider = forwardRef(
               disabled={isAtStart}
               icon={ChevronBackwardIcon}
               iconOnly
-              onClick={() => scrollToSlideById(currentSlideId - 1, scrollerRef)}
+              onClick={() => scrollToSlide(currentSlideId - 1, scrollerRef)}
             >
               {previousLabel}
             </ImageSliderControl>
@@ -107,7 +107,7 @@ export const ImageSlider = forwardRef(
               disabled={isAtEnd}
               icon={ChevronForwardIcon}
               iconOnly
-              onClick={() => scrollToSlideById(currentSlideId + 1, scrollerRef)}
+              onClick={() => scrollToSlide(currentSlideId + 1, scrollerRef)}
             >
               {nextLabel}
             </ImageSliderControl>
@@ -134,7 +134,7 @@ export const ImageSlider = forwardRef(
         <ImageSliderThumbnails
           currentSlideId={currentSlideId}
           imageLabel={imageLabel}
-          scrollToSlideById={(id) => scrollToSlideById(id, scrollerRef)}
+          scrollToSlide={(id) => scrollToSlide(id, scrollerRef)}
           thumbnails={images}
         />
       </div>

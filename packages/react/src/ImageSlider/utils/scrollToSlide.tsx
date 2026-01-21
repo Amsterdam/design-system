@@ -1,6 +1,6 @@
 import type { RefObject } from 'react'
 
-export const scrollToSlideById = (id: number, ref: RefObject<HTMLDivElement>) => {
+export const scrollToSlide = (id: number, ref: RefObject<HTMLDivElement>) => {
   const element = ref.current?.children[id] as HTMLElement | null
   const scrollerElement = ref.current
 

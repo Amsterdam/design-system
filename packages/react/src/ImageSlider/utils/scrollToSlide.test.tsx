@@ -1,8 +1,8 @@
 import type { RefObject } from 'react'
 
-import { scrollToSlideById } from './scrollToSlideById'
+import { scrollToSlide } from './scrollToSlide'
 
-describe('scrollToSlideById', () => {
+describe('scrollToSlide', () => {
   it('scrolls the scroller to the element offsetLeft', () => {
     const scrollToMock = jest.fn()
 
@@ -11,7 +11,7 @@ describe('scrollToSlideById', () => {
       current: { children: [element], scrollTo: scrollToMock as unknown },
     } as unknown as RefObject<HTMLDivElement>
 
-    scrollToSlideById(0, ref)
+    scrollToSlide(0, ref)
 
     expect(scrollToMock).toHaveBeenCalledWith({ left: 42 })
   })
@@ -19,7 +19,7 @@ describe('scrollToSlideById', () => {
   it('returns undefined if there is no scrollerElement', () => {
     const ref = { current: null } as RefObject<HTMLDivElement>
 
-    const result = scrollToSlideById(0, ref)
+    const result = scrollToSlide(0, ref)
 
     expect(result).toBeUndefined()
   })
@@ -31,7 +31,7 @@ describe('scrollToSlideById', () => {
       current: { children: [], scrollTo: scrollToMock as unknown },
     } as unknown as RefObject<HTMLDivElement>
 
-    const result = scrollToSlideById(0, ref)
+    const result = scrollToSlide(0, ref)
 
     expect(result).toBeUndefined()
   })
