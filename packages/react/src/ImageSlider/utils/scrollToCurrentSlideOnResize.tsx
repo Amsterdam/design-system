@@ -1,12 +1,13 @@
 import type { RefObject } from 'react'
 
+import { scrollToSlideById } from './scrollToSlideById'
+
 type Args = {
   currentSlideId: number
   ref: RefObject<HTMLDivElement>
-  scrollToSlide: (element: HTMLElement, ref: RefObject<HTMLDivElement>) => void
 }
 
-export const scrollToCurrentSlideOnResize = ({ currentSlideId, ref, scrollToSlide }: Args) => {
+export const scrollToCurrentSlideOnResize = ({ currentSlideId, ref }: Args) => {
   const scrollerElement = ref.current
   const currentSlideElement = ref.current?.children[currentSlideId] as HTMLElement | null
 
@@ -16,5 +17,5 @@ export const scrollToCurrentSlideOnResize = ({ currentSlideId, ref, scrollToSlid
 
   if (Math.abs(scrollerElement.scrollLeft - expectedScrollLeft) < 1) return
 
-  scrollToSlide(currentSlideElement, ref)
+  scrollToSlideById(currentSlideId, ref)
 }

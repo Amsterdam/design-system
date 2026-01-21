@@ -1,9 +1,12 @@
 import type { RefObject } from 'react'
 
-import { scrollToSlide } from './scrollToSlide'
-
 export const scrollToSlideById = (id: number, ref: RefObject<HTMLDivElement>) => {
   const element = ref.current?.children[id] as HTMLElement | null
+  const scrollerElement = ref.current
 
-  if (element) scrollToSlide(element, ref)
+  if (!element || !scrollerElement) return
+
+  scrollerElement.scrollTo({
+    left: element.offsetLeft,
+  })
 }

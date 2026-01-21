@@ -14,8 +14,6 @@ import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
 export type ImageSliderThumbnailsProps = {
   currentSlideId: number
   imageLabel?: string
-  scrollToNextSlide: () => void
-  scrollToPreviousSlide: () => void
   scrollToSlideById: (id: number) => void
   thumbnails: ImageSliderProps['images']
 } & HTMLAttributes<HTMLElement>
@@ -23,8 +21,6 @@ export type ImageSliderThumbnailsProps = {
 export const ImageSliderThumbnails = ({
   currentSlideId,
   imageLabel,
-  scrollToNextSlide,
-  scrollToPreviousSlide,
   scrollToSlideById,
   thumbnails,
 }: ImageSliderThumbnailsProps) => {
@@ -36,7 +32,7 @@ export const ImageSliderThumbnails = ({
 
       if (nextElement) {
         nextElement.focus()
-        scrollToNextSlide()
+        scrollToSlideById(currentSlideId + 1)
       }
     }
 
@@ -45,7 +41,7 @@ export const ImageSliderThumbnails = ({
 
       if (previousElement) {
         previousElement.focus()
-        scrollToPreviousSlide()
+        scrollToSlideById(currentSlideId - 1)
       }
     }
   }
