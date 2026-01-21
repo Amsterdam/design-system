@@ -40,7 +40,7 @@ describe('Progress List', () => {
     it(`renders the heading with level ${level}`, () => {
       render(
         <ProgressList headingLevel={level}>
-          <ProgressList.Step heading={`Heading ${level}`}></ProgressList.Step>
+          <ProgressList.Step heading={`Heading ${level}`} />
         </ProgressList>,
       )
 
