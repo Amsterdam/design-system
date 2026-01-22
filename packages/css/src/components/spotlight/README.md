@@ -12,6 +12,8 @@ Emphasizes a section on a page through a distinctive background colour.
   The design system does not prescribe a meaning to any of these colours.
   The default is purple.
 - Select [the correct colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) for text and links against the background you choose.
+- By default, a Spotlight renders a `<div>` element in HTML.
+  Use the `as` prop to make your markup more semantic.
 
 ## Relevant WCAG requirements
 

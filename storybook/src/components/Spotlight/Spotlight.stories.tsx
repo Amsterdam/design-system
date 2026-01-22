@@ -42,9 +42,3 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
-
-export const ImproveSemantics: Story = {
-  args: {
-    as: 'section',
-  },
-}
