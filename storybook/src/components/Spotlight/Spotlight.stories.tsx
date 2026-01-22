@@ -46,22 +46,30 @@ export const Default: Story = {
 
 export const HighlightContent: Story = {
   args: {
-    children: (
-      <Grid paddingVertical="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
-          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
-            Steun geven aan een partij
-          </Heading>
-          <Paragraph className="ams-mb-m" color="inverse">
-            Van 19 januari tot en met 2 februari kunt u uw steun geven aan een partij voor de gemeenteraad of een
-            stadsdeel- of bestuurscommissie. Dit doet u met een ondersteuningsverklaring.
-          </Paragraph>
-          <StandaloneLink color="inverse" href="#">
-            Ondersteuningsverklaring inleveren
-          </StandaloneLink>
-        </Grid.Cell>
-      </Grid>
-    ),
     color: 'green',
+  },
+  render: ({ color }) => {
+    const lightBackgroundColors = ['lime', 'orange', 'yellow']
+    const textColor = lightBackgroundColors.includes(color!) ? undefined : 'inverse'
+    const linkColor = lightBackgroundColors.includes(color!) ? 'contrast' : 'inverse'
+
+    return (
+      <Spotlight color={color}>
+        <Grid paddingVertical="x-large">
+          <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
+            <Heading className="ams-mb-s" color={textColor} level={2} size="level-3">
+              Steun geven aan een partij
+            </Heading>
+            <Paragraph className="ams-mb-m" color={textColor}>
+              Van 19 januari tot en met 2 februari kunt u uw steun geven aan een partij voor de gemeenteraad of een
+              stadsdeel- of bestuurscommissie. Dit doet u met een ondersteuningsverklaring.
+            </Paragraph>
+            <StandaloneLink color={linkColor} href="#">
+              Ondersteuningsverklaring inleveren
+            </StandaloneLink>
+          </Grid.Cell>
+        </Grid>
+      </Spotlight>
+    )
   },
 }
