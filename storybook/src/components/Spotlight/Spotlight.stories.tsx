@@ -24,6 +24,13 @@ const meta = {
       options: [undefined, ...spotlightColors],
     },
   },
+} satisfies Meta<typeof Spotlight>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
   render: ({ as, color }) => (
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="x-large">
@@ -35,10 +42,4 @@ const meta = {
       </Grid>
     </Spotlight>
   ),
-} satisfies Meta<typeof Spotlight>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {}
+}
