@@ -1,0 +1,10 @@
+{
+  "ams": {
+    "color": {
+      "background": {
+        "default": { "value": "#ffffff" },
+        "page": { "value": "#e8e8e8" }
+      }
+    }
+  }
+}
