@@ -241,7 +241,7 @@
   /* Add white space below all substeps except for the last. Our value for this token is medium space. */
   margin-block-end: var(--ams-progress-list-substeps-step-content-margin-block-end);
 
-  /* Add white space below the last substep. Our value for this token is medium space. */
+  /* Add white space below the last substep. Our value for this token is large space. */
   .ams-progress-list-substeps__step:last-child & {
     margin-block-end: var(--ams-progress-list-substeps-last-child-content-margin-block-end);
   }
