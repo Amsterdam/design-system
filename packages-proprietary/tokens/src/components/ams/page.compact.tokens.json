@@ -1,0 +1,7 @@
+{
+  "ams": {
+    "page": {
+      "background-color": { "value": "{ams.color.background.page}" }
+    }
+  }
+}
