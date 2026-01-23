@@ -240,7 +240,7 @@
 }
 
 .ams-progress-list-substeps__content {
-  .ams-progress-list-substeps__step:not(:last-child) & {
+  .ams-progress-list-substeps__step & {
     margin-block-end: var(--ams-progress-list-substeps-step-content-margin-block-end);
   }
 
