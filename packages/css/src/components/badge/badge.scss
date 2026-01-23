@@ -9,10 +9,11 @@
 .ams-badge {
   background-color: var(--ams-badge-background-color);
   color: var(--ams-badge-color);
-  display: inline-block;
+  display: inline-flex;
   font-family: var(--ams-badge-font-family);
   font-size: var(--ams-badge-font-size);
   font-weight: var(--ams-badge-font-weight);
+  gap: var(--ams-badge-gap);
   line-height: var(--ams-badge-line-height);
   padding-inline: var(--ams-badge-padding-inline);
 
