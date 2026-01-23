@@ -3,86 +3,70 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, KeyboardEvent } from 'react'
+import type { HTMLAttributes, KeyboardEvent } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef, useCallback, useContext, useMemo } from 'react'
 
-import type { ImageSliderImageProps } from './ImageSlider'
+import type { ImageSliderProps } from './ImageSlider'
 
 import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
-import { ImageSliderContext } from './ImageSliderContext'
 
 export type ImageSliderThumbnailsProps = {
+  currentSlideId: number
   imageLabel?: string
-  thumbnails: ImageSliderImageProps[]
+  scrollToSlide: (id: number) => void
+  thumbnails: ImageSliderProps['images']
 } & HTMLAttributes<HTMLElement>
 
-export const ImageSliderThumbnails = forwardRef(
-  ({ className, imageLabel, thumbnails, ...restProps }: ImageSliderThumbnailsProps, ref: ForwardedRef<HTMLElement>) => {
-    const { currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId } = useContext(ImageSliderContext)
+export const ImageSliderThumbnails = ({
+  currentSlideId,
+  imageLabel,
+  scrollToSlide,
+  thumbnails,
+}: ImageSliderThumbnailsProps) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    const element = event.currentTarget.children[currentSlideId]
 
-    const handleKeyDown = useCallback(
-      (event: KeyboardEvent<HTMLElement>) => {
-        const element = event.currentTarget.children[currentSlideId]
+    if (event.key === 'ArrowRight') {
+      const nextElement = element?.nextElementSibling as HTMLElement | null
 
-        if (event.key === 'ArrowRight') {
-          const nextElement = element?.nextElementSibling as HTMLElement | null
+      if (nextElement) {
+        nextElement.focus()
+        scrollToSlide(currentSlideId + 1)
+      }
+    }
 
-          if (nextElement) {
-            nextElement.focus()
-            goToNextSlide()
-          }
-        }
+    if (event.key === 'ArrowLeft') {
+      const previousElement = element?.previousElementSibling as HTMLElement | null
 
-        if (event.key === 'ArrowLeft') {
-          const previousElement = element?.previousElementSibling as HTMLElement | null
+      if (previousElement) {
+        previousElement.focus()
+        scrollToSlide(currentSlideId - 1)
+      }
+    }
+  }
 
-          if (previousElement) {
-            previousElement.focus()
-            goToPreviousSlide()
-          }
-        }
-      },
-      [currentSlideId, goToNextSlide, goToPreviousSlide],
-    )
-
-    const renderThumbnails = useMemo(
-      () =>
-        thumbnails.map(({ alt, aspectRatio, src }, index) => (
-          <button
-            aria-label={`${imageLabel} ${index + 1}: ${alt}`}
-            aria-posinset={index + 1}
-            aria-selected={currentSlideId === index ? 'true' : 'false'}
-            aria-setsize={thumbnails.length}
-            className={clsx(
-              'ams-image-slider__thumbnail',
-              currentSlideId === index && 'ams-image-slider__thumbnail--in-view',
-              generateAspectRatioClass(aspectRatio),
-            )}
-            key={index}
-            onClick={() => goToSlideId(index)}
-            role="tab"
-            style={{ backgroundImage: `url(${src})` }}
-            tabIndex={currentSlideId === index ? 0 : -1}
-            type="button"
-          />
-        )),
-      [currentSlideId, goToSlideId, imageLabel, thumbnails],
-    )
-
-    return (
-      <nav
-        {...restProps}
-        className={clsx('ams-image-slider__thumbnails', className)}
-        onKeyDown={handleKeyDown}
-        ref={ref}
-        role="tablist"
-      >
-        {renderThumbnails}
-      </nav>
-    )
-  },
-)
-
-ImageSliderThumbnails.displayName = 'ImageSlider.Thumbnails'
+  return (
+    <nav className="ams-image-slider__thumbnails" onKeyDown={handleKeyDown} role="tablist">
+      {thumbnails.map(({ alt, aspectRatio, src }, index) => (
+        <button
+          aria-label={`${imageLabel} ${index + 1}: ${alt}`}
+          aria-posinset={index + 1}
+          aria-selected={currentSlideId === index ? 'true' : 'false'}
+          aria-setsize={thumbnails.length}
+          className={clsx(
+            'ams-image-slider__thumbnail',
+            currentSlideId === index && 'ams-image-slider__thumbnail--in-view',
+            generateAspectRatioClass(aspectRatio),
+          )}
+          key={`${index}-${src}`}
+          onClick={() => scrollToSlide(index)}
+          role="tab"
+          style={{ backgroundImage: `url(${src})` }}
+          tabIndex={currentSlideId === index ? 0 : -1}
+          type="button"
+        />
+      ))}
+    </nav>
+  )
+}
