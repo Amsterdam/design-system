@@ -17,6 +17,7 @@ describe('Progress List Substeps', () => {
 
     expect(substeps).toBeInTheDocument()
     expect(substeps).toBeVisible()
+    expect(substeps.tagName).toBe('OL')
   })
 
   it('renders a design system BEM class name', () => {
