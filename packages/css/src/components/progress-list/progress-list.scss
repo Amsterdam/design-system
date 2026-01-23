@@ -131,6 +131,7 @@
     border-inline-style: solid;
   }
 
+  /* Hide connector for last step, unless it has substeps. */
   .ams-progress-list > :last-child:not(.ams-progress-list__step--has-substeps) & {
     display: none;
   }
@@ -142,6 +143,7 @@
   flex: auto;
   min-inline-size: 0; /* Ensure content can shrink to fit container */
 
+  /* Add white space below all but the last step and steps with substeps. */
   .ams-progress-list__step:not(:last-child, .ams-progress-list__step--has-substeps) & {
     margin-block-end: var(--ams-progress-list-step-content-margin-block-end);
   }
@@ -233,17 +235,19 @@
     border-inline-style: var(--ams-progress-list-substeps-step-completed-connector-border-inline-style);
   }
 
-  /* Hide connector when it belongs to last substep of last main step */
+  /* Hide connector when it belongs to the last substep of last main step. Our value for this token is white. */
   .ams-progress-list__step:last-child .ams-progress-list-substeps__step:last-child & {
     border-inline-color: var(--ams-progress-list-substeps-step-connector-last-child-border-inline-color);
   }
 }
 
 .ams-progress-list-substeps__content {
+  /* Add white space below all substeps except for the last. Our value for this token is medium space. */
   .ams-progress-list-substeps__step & {
     margin-block-end: var(--ams-progress-list-substeps-step-content-margin-block-end);
   }
 
+  /* Add white space below the last substep. Our value for this token is medium space. */
   .ams-progress-list-substeps__step:last-child & {
     margin-block-end: var(--ams-progress-list-substeps-last-child-content-margin-block-end);
   }
