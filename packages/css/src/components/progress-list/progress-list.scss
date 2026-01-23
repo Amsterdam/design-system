@@ -27,7 +27,6 @@
 }
 
 @mixin connector {
-  align-self: stretch;
   block-size: 100%;
   grid-area: 1 / 1;
   z-index: 1;
