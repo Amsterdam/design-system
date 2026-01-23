@@ -40,7 +40,7 @@
         "stroke": { "value": "{ams.color.interactive.inverse}" }
       },
       "rectangle": {
-        "fill": { "value": "{ams.color.background}" },
+        "fill": { "value": "{ams.color.background.default}" },
         "stroke": { "value": "{ams.color.interactive.default}" },
         "checked": {
           "fill": { "value": "{ams.color.interactive.default}" },

@@ -1,7 +1,7 @@
 {
   "ams": {
     "dialog": {
-      "background-color": { "value": "{ams.color.background}" },
+      "background-color": { "value": "{ams.color.background.default}" },
       "border-color": { "value": "{ams.dialog.background-color}" },
       "border-style": { "value": "solid" },
       "border-width": { "value": "{ams.border.width.m}" },

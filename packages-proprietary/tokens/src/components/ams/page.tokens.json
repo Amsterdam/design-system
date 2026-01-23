@@ -1,7 +1,7 @@
 {
   "ams": {
     "page": {
-      "background-color": { "value": "{ams.color.background}" },
+      "background-color": { "value": "{ams.color.background.default}" },
       "max-inline-size": { "value": "90rem" },
       "with-menu": {
         "max-inline-size": { "value": "120rem" },

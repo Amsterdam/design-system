@@ -1,7 +1,9 @@
 {
   "ams": {
     "color": {
-      "background": { "value": "#ffffff" },
+      "background": {
+        "default": { "value": "#ffffff" }
+      },
       "feedback": {
         "error": { "value": "#ec0000" },
         "info": { "value": "#009de6" },
