@@ -20,6 +20,19 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+const SLIDE_TRANSITION_WAIT = 500
+const THUMBNAIL_TRANSITION_WAIT = 1000
+
+function expectOnlySlideVisible(slides: Element[], visibleIdx: number) {
+  slides.forEach((slide, idx) => {
+    if (idx === visibleIdx) {
+      expect(slide).not.toHaveAttribute('aria-hidden')
+    } else {
+      expect(slide).toHaveAttribute('aria-hidden', 'true')
+    }
+  })
+}
+
 export const Test: Story = {
   args: {
     images: [
@@ -46,35 +59,35 @@ export const Test: Story = {
     ],
   },
   play: async ({ canvas, userEvent }) => {
-    const imageSlidesContainer = canvas.queryAllByRole('group')[0]?.children
-    const imageSlides = Array.from(imageSlidesContainer ?? [])
-    const buttons = canvas.queryAllByRole('button')
-    const previousButton = buttons[0]
-    const nextButton = buttons[1]
+    const slidesContainer = canvas.queryAllByRole('group')[0]?.children
+    const slides = Array.from(slidesContainer ?? [])
+    const [previousButton, nextButton] = canvas.queryAllByRole('button')
 
     if (!nextButton || !previousButton) {
       return
     }
 
-    for (const [idx, imageSlide] of imageSlides.entries()) {
-      if (idx === 0) {
-        expect(imageSlide).not.toHaveAttribute('aria-hidden')
-      } else {
+    // Click on next button to end of slides and test if aria-hidden is set correctly
+    for (let i = 0; i < slides.length; i++) {
+      if (i > 0) {
         await userEvent.click(nextButton)
-        await new Promise((resolve) => setTimeout(resolve, 500))
-        expect(imageSlide).not.toHaveAttribute('aria-hidden')
+        await new Promise((resolve) => setTimeout(resolve, SLIDE_TRANSITION_WAIT))
       }
+      expectOnlySlideVisible(slides, i)
     }
 
-    for (const [idx, imageSlide] of imageSlides.reverse().entries()) {
-      if (idx === 0) {
-        expect(imageSlide).not.toHaveAttribute('aria-hidden')
-      } else {
-        await userEvent.click(previousButton)
-        await new Promise((resolve) => setTimeout(resolve, 500))
-        expect(imageSlide).not.toHaveAttribute('aria-hidden')
-      }
+    // Click on previous button back to start of slides and test if aria-hidden is set correctly
+    for (let i = slides.length - 1; i > 0; i--) {
+      await userEvent.click(previousButton)
+      await new Promise((resolve) => setTimeout(resolve, SLIDE_TRANSITION_WAIT))
+      expectOnlySlideVisible(slides, i - 1)
     }
+
+    // Click on third thumbnail button and show that slide
+    const thirdThumbnailButton = canvas.getAllByRole('tab', { name: 'Afbeelding 3: Chairs' })[0]
+    await userEvent.click(thirdThumbnailButton)
+    await new Promise((resolve) => setTimeout(resolve, THUMBNAIL_TRANSITION_WAIT))
+    expectOnlySlideVisible(slides, 2)
   },
   render: (args) => (
     <>

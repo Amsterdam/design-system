@@ -8,17 +8,11 @@
 .ams-image-slider {
   display: grid;
   gap: var(--ams-image-slider-gap);
-  grid-template-rows: 1fr auto;
 }
 
 .ams-image-slider__item {
   scroll-snap-align: center;
   scroll-snap-stop: always;
-
-  /** temporary fix for covering the entire gallery */
-  .ams-image {
-    inline-size: 100%;
-  }
 }
 
 .ams-image-slider__scroller {
@@ -76,12 +70,10 @@
   display: grid;
   gap: var(--ams-image-slider-thumbnails-gap);
   grid-template-columns: repeat(5, 1fr);
-  max-inline-size: 100%;
 }
 
 @mixin reset-button {
   border: none;
-  border-radius: 0; // Reset rounded borders on iOS devices
   padding-block: 0;
   padding-inline: 0;
 }
@@ -94,8 +86,6 @@
   cursor: var(--ams-image-slider-thumbnails-thumbnail-cursor);
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
   outline-offset: var(--ams-button-outline-offset);
-  position: relative;
-  scroll-snap-align: start;
 
   @include reset-button;
 
