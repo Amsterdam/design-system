@@ -182,13 +182,6 @@ export const WithCustomTexts: PageHeaderStory = {
   },
 }
 
-export const WithCustomMenuButtonIcon: PageHeaderStory = {
-  args: {
-    children: 'Test',
-    menuButtonIcon: PlusIcon,
-  },
-}
-
 export const WithCustomLogo: PageHeaderStory = {
   args: {
     brandName: 'Voorbeeld',
@@ -200,5 +193,12 @@ export const WithCustomLogo: PageHeaderStory = {
       '--ams-logo-block-size': 'clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem)',
       '--ams-logo-min-block-size': '1.125rem',
     } as CSSProperties,
+  },
+}
+
+export const WithCustomMenuButtonIcon: PageHeaderStory = {
+  args: {
+    children: 'Test',
+    menuButtonIcon: PlusIcon,
   },
 }
