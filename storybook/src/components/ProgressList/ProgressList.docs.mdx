@@ -1,0 +1,23 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import * as ProgressListStories from "./ProgressList.stories.tsx";
+import README from "../../../../packages/css/src/components/progress-list/README.md?raw";
+
+<Meta of={ProgressListStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+### With substeps
+
+<Canvas of={ProgressListStories.WithSubsteps} />
+
+### Construction project
+
+<Canvas of={ProgressListStories.ConstructionProject} />
