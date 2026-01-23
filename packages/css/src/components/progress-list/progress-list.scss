@@ -121,7 +121,6 @@
   }
 
   .ams-progress-list__step--completed & {
-    background-color: var(--ams-progress-list-step-completed-connector-background-color);
     border-inline-color: var(--ams-progress-list-step-completed-connector-border-inline-color);
     border-inline-style: var(--ams-progress-list-step-completed-connector-border-inline-style);
   }
@@ -222,7 +221,7 @@
 .ams-progress-list-substeps__connector {
   @include connector;
 
-  /* Cover underlying connector of parent step to prevent it from shining through. */
+  /* Cover underlying connector of parent step to prevent it from shining through. Our value for this token is white. */
   background-color: var(--ams-progress-list-substeps-step-connector-background-color);
   border: var(--ams-progress-list-substeps-step-connector-border-inline-width)
     var(--ams-progress-list-substeps-step-connector-border-inline-style)
@@ -230,7 +229,6 @@
   margin-block-start: var(--ams-progress-list-substeps-step-connector-margin-block-start);
 
   .ams-progress-list-substeps__step--completed & {
-    background-color: var(--ams-progress-list-substeps-step-completed-connector-background-color);
     border-inline-color: var(--ams-progress-list-substeps-step-completed-connector-border-inline-color);
     border-inline-style: var(--ams-progress-list-substeps-step-completed-connector-border-inline-style);
   }

@@ -107,9 +107,6 @@
             }
           },
           "connector": {
-            "background-color": {
-              "value": "{ams.color.progress.completed}"
-            },
             "border-inline-color": {
               "value": "{ams.color.progress.completed}"
             },
@@ -224,9 +221,6 @@
               }
             },
             "connector": {
-              "background-color": {
-                "value": "{ams.color.progress.completed}"
-              },
               "border-inline-color": {
                 "value": "{ams.color.progress.completed}"
               },
