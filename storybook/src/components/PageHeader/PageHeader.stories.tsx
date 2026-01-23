@@ -4,7 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { CSSProperties } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 
 import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { LogInIcon, PlusIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
@@ -21,6 +21,18 @@ const meta = {
 export default meta
 
 export type PageHeaderStory = StoryObj<typeof meta>
+
+const CollapsibleMenuWithOneLink: ReactNode = (
+  <Grid>
+    <Grid.Cell span="all">
+      <LinkList>
+        <LinkList.Link href="#" lang="en">
+          English
+        </LinkList.Link>
+      </LinkList>
+    </Grid.Cell>
+  </Grid>
+)
 
 export const Default: PageHeaderStory = {
   args: {
@@ -164,17 +176,7 @@ export const WithCustomLogoLink: PageHeaderStory = {
 
 export const WithCustomTexts: PageHeaderStory = {
   args: {
-    children: (
-      <Grid>
-        <Grid.Cell span="all">
-          <LinkList>
-            <LinkList.Link href="#" lang="en">
-              English
-            </LinkList.Link>
-          </LinkList>
-        </Grid.Cell>
-      </Grid>
-    ),
+    children: CollapsibleMenuWithOneLink,
     menuButtonText: 'Alle onderwerpen',
     menuButtonTextForHide: 'Verberg onderwerpen menu',
     menuButtonTextForShow: 'Laat onderwerpen menu zien',
@@ -198,7 +200,8 @@ export const WithCustomLogo: PageHeaderStory = {
 
 export const WithCustomMenuButtonIcon: PageHeaderStory = {
   args: {
-    children: 'Test',
+    ...WithCustomLogo.args,
+    children: CollapsibleMenuWithOneLink,
     menuButtonIcon: PlusIcon,
   },
 }
