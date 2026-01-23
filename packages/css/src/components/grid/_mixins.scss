@@ -77,6 +77,12 @@
   padding-block: var(--ams-grid-padding-block-2xl);
 }
 
+// Cell
+
+@mixin ams-grid__cell {
+  background-color: var(--ams-grid-cell-background-color);
+}
+
 @mixin ams-grid__cell--span-all {
   grid-column: 1 / -1;
 }
