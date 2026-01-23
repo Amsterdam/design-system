@@ -14,3 +14,7 @@
   inset-block-start: 0.125rem;
   position: relative;
 }
+
+.ams-inline-color-sample--white {
+  box-shadow: inset 0 0 0 0.0625rem rgb(0 0 0 / 12.5%);
+}
