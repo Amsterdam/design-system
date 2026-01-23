@@ -6,7 +6,7 @@
 import { Grid, Heading } from '@amsterdam/design-system-react'
 
 export const HomePage = () => (
-  <Grid paddingBottom="x-large" paddingTop="large">
+  <Grid paddingVertical="x-large">
     <Grid.Cell span="all">
       <Heading level={1}>Titel van de pagina</Heading>
     </Grid.Cell>

@@ -35,7 +35,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const PageBody = () => (
-  <Grid paddingBottom="x-large">
+  <Grid paddingVertical="x-large">
     <Grid.Cell span="all">
       <Heading level={1}>Page Body</Heading>
     </Grid.Cell>
