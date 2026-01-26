@@ -16,4 +16,9 @@ import README from "../../../../packages/css/src/components/progress-list/README
 
 ### With substeps
 
+A step may contain a list of substeps.
+They are visually subordinate to their parent step: their indicators are smaller, and they do not display a heading.
+
+Don’t forget to set the `hasSubsteps` prop on the parent step.
+
 <Canvas of={ProgressListStories.WithSubsteps} />
