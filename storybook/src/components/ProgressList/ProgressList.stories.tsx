@@ -45,23 +45,31 @@ export const Default: Story = {}
 export const WithSubsteps: Story = {
   args: {
     children: [
-      <ProgressList.Step hasSubsteps heading="2026" key={1} status="current">
+      <ProgressList.Step heading="2026" key={1} status="completed">
         <Paragraph>{paragraphs[0]}</Paragraph>
+      </ProgressList.Step>,
+      <ProgressList.Step hasSubsteps heading="2027" key={2} status="current">
+        <Paragraph>{paragraphs[1]}</Paragraph>
         <ProgressList.Substeps>
           <ProgressList.Substep status="completed">
-            <Paragraph>{paragraphs[1]}</Paragraph>
+            <Paragraph>Februari: De Clercqstraat en Jan Evertsenstraat</Paragraph>
+          </ProgressList.Substep>
+          <ProgressList.Substep status="completed">
+            <Paragraph>April: Kruispunt Admiraal de Ruijterweg-Jan Evertsenstraat</Paragraph>
           </ProgressList.Substep>
           <ProgressList.Substep status="current">
-            <Paragraph className="ams-mb-m">{paragraphs[2]}</Paragraph>
-            <Paragraph>{paragraphs[3]}</Paragraph>
+            <Paragraph>Juni: Raadhuisstraat, Westermarkt en Rozengracht</Paragraph>
           </ProgressList.Substep>
           <ProgressList.Substep>
-            <Paragraph>{paragraphs[4]}</Paragraph>
+            <Paragraph>Augustus: Kruispunt Marnixstraat-Rozengracht</Paragraph>
+          </ProgressList.Substep>
+          <ProgressList.Substep>
+            <Paragraph>Oktober: Nieuwezijds Voorburgwal</Paragraph>
           </ProgressList.Substep>
         </ProgressList.Substeps>
       </ProgressList.Step>,
-      <ProgressList.Step heading="2027" key={2}>
-        <Paragraph>{paragraphs[5]}</Paragraph>
+      <ProgressList.Step heading="2028" key={3}>
+        <Paragraph>{paragraphs[2]}</Paragraph>
       </ProgressList.Step>,
     ],
   },
