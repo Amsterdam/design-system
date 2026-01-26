@@ -30,6 +30,6 @@
   "devDependencies": {
     "change-case": "5.4.4",
     "chokidar-cli": "3.0.0",
-    "style-dictionary": "5.1.4"
+    "style-dictionary": "5.2.0"
   }
 }
