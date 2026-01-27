@@ -9,7 +9,7 @@
   --ams-docs-lightblue: rgb(0 130 229 / 25%);
 }
 
-.ams-docs-figure {
+._ams-figure {
   display: flex;
   gap: 0.25rem;
   margin-block: 0;
@@ -18,25 +18,24 @@
   padding-inline: 0;
 }
 
-.ams-docs-image,
-.ams-docs-figure > img {
+._ams-figure > img {
   display: block;
   max-inline-size: 100%;
   outline: 0.0625rem dashed #e8e8e8;
 }
 
-.ams-docs-figure > figcaption {
+._ams-figure > figcaption {
   text-align: center;
 }
 
-.ams-docs-gallery {
+._ams-figure-set {
   align-items: flex-end;
   display: flex;
   gap: 2rem;
   margin-block: 1.5rem;
 }
 
-.ams-docs-gallery .ams-docs-figure {
+._ams-figure-set ._ams-figure {
   align-items: center;
   display: flex;
   flex-direction: column;
