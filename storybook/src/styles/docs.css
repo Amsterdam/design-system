@@ -43,16 +43,6 @@
   margin-inline: 0;
 }
 
-.ams-docs-card {
-  border: 0.0625rem solid hotpink;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  inline-size: 50%;
-  padding-block: 0.5rem;
-  padding-inline: 0.5rem;
-}
-
 ._ams-page-background--dark,
 ._ams-page-background--light {
   margin-block: -1rem;
@@ -125,14 +115,6 @@
 
 ._ams-item--highlight {
   background-color: var(--_ams-color-lightblue);
-}
-
-[class*="ams-docs-token-example--"] {
-  block-size: 1rem;
-}
-
-[class*="ams-docs-token-example--space"] {
-  background-color: var(--_ams-color-pink);
 }
 
 ._ams-resize-horizontal {
