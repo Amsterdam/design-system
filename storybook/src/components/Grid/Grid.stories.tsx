@@ -9,6 +9,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Grid } from '@amsterdam/design-system-react/src'
 
 import { gridGapAndPaddingArgTypes } from '../../common'
+import { GridColumnsGuide } from '../../docs/components/GridColumnsGuide'
 
 const meta = {
   title: 'Components/Layout/Grid',
@@ -40,19 +41,11 @@ const cellMeta = {
 type Story = StoryObj<typeof meta>
 type CellStory = StoryObj<typeof cellMeta>
 
-const BackgroundGrid = () => (
-  <Grid className="_ams-grid-columns-guide">
-    {Array.from(Array(12).keys()).map((i) => (
-      <Grid.Cell className="_ams-grid-columns-guide__cell" key={i} />
-    ))}
-  </Grid>
-)
-
 const StoryTemplate: Story = {
   decorators: [
     (Story) => (
       <>
-        <BackgroundGrid />
+        <GridColumnsGuide />
         <Story />
       </>
     ),
@@ -63,7 +56,7 @@ const CellStoryTemplate: CellStory = {
   decorators: [
     (Story) => (
       <>
-        <BackgroundGrid />
+        <GridColumnsGuide />
         <Grid paddingVertical="x-large">
           <Story />
         </Grid>

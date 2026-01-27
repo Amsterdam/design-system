@@ -105,36 +105,6 @@
   min-block-size: 6rem;
 }
 
-._ams-grid-columns-guide {
-  block-size: 100vh;
-  border-inline: thin solid var(--ams-docs-grey);
-  inset-block: 0;
-  inset-inline: 0;
-  position: absolute;
-
-  /* stylelint-disable selector-max-id */
-  #storybook-docs & {
-    block-size: 100%;
-  }
-  /* stylelint-enable selector-max-id */
-}
-
-._ams-grid-columns-guide__cell {
-  background-color: var(--ams-docs-grey);
-}
-
-@media screen and (width < 37.5rem) {
-  ._ams-grid-columns-guide__cell:nth-child(n + 5) {
-    display: none;
-  }
-}
-
-@media screen and (width < 72.5rem) {
-  ._ams-grid-columns-guide__cell:nth-child(n + 9) {
-    display: none;
-  }
-}
-
 .ams-docs-item {
   background-color: var(--ams-docs-pink);
   border: thin dashed var(--ams-docs-grey);
