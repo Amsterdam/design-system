@@ -135,7 +135,7 @@
   background-color: var(--ams-docs-pink);
 }
 
-.ams-resize-horizontal {
+._ams-resize-horizontal {
   outline: 1px dashed var(--ams-docs-pink);
   overflow: auto;
   padding-block-end: 1rem;
