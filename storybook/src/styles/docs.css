@@ -105,7 +105,7 @@
   min-block-size: 6rem;
 }
 
-.ams-docs-grid {
+._ams-grid-columns-guide {
   block-size: 100vh;
   border-inline: thin solid var(--ams-docs-grey);
   inset-block: 0;
@@ -119,18 +119,18 @@
   /* stylelint-enable selector-max-id */
 }
 
-.ams-docs-grid__cell {
+._ams-grid-columns-guide__cell {
   background-color: var(--ams-docs-grey);
 }
 
 @media screen and (width < 37.5rem) {
-  .ams-docs-grid__cell:nth-child(n + 5) {
+  ._ams-grid-columns-guide__cell:nth-child(n + 5) {
     display: none;
   }
 }
 
 @media screen and (width < 72.5rem) {
-  .ams-docs-grid__cell:nth-child(n + 9) {
+  ._ams-grid-columns-guide__cell:nth-child(n + 9) {
     display: none;
   }
 }
@@ -153,7 +153,7 @@
     block-size: 3rem;
   }
 
-  .ams-docs-grid + .ams-grid > & {
+  ._ams-grid-columns-guide + .ams-grid > & {
     min-block-size: 3rem;
   }
 }
