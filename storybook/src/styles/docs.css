@@ -32,7 +32,7 @@
   align-items: flex-end;
   display: flex;
   gap: 2rem;
-  margin-block: 1.5rem;
+  margin-block: 1.5rem !important;
 }
 
 ._ams-figure-set ._ams-figure {
