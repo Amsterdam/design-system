@@ -6,7 +6,7 @@
 ._ams-grid-columns-guide {
   block-size: 100vh;
   /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
-  border-inline: thin solid var(--ams-docs-grey);
+  border-inline: thin solid var(--_ams-color-grey);
   inset-block: 0;
   inset-inline: 0;
   position: absolute;
@@ -19,7 +19,7 @@
 
 ._ams-grid-columns-guide__cell {
   /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
-  background-color: var(--ams-docs-grey);
+  background-color: var(--_ams-color-grey);
 }
 
 @media screen and (width < 37.5rem) {

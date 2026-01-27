@@ -4,9 +4,9 @@
  */
 
 :root {
-  --ams-docs-grey: rgb(0 0 0 / 6.25%);
-  --ams-docs-pink: rgb(229 0 130 / 25%);
-  --ams-docs-lightblue: rgb(0 130 229 / 25%);
+  --_ams-color-grey: rgb(0 0 0 / 6.25%);
+  --_ams-color-pink: rgb(229 0 130 / 25%);
+  --_ams-color-lightblue: rgb(0 130 229 / 25%);
 }
 
 ._ams-figure {
@@ -82,12 +82,12 @@
 ._ams-row {
   background: repeating-linear-gradient(
     135deg,
-    var(--ams-docs-grey),
-    var(--ams-docs-grey) 0.5rem,
+    var(--_ams-color-grey),
+    var(--_ams-color-grey) 0.5rem,
     white 0.5rem,
     white 1rem
   );
-  border: thin solid var(--ams-docs-grey);
+  border: thin solid var(--_ams-color-grey);
 }
 
 ._ams-column {
@@ -105,8 +105,8 @@
 }
 
 ._ams-item {
-  background-color: var(--ams-docs-pink);
-  border: thin dashed var(--ams-docs-grey);
+  background-color: var(--_ams-color-pink);
+  border: thin dashed var(--_ams-color-grey);
 
   ._ams-column > & {
     block-size: 3rem;
@@ -124,7 +124,7 @@
 }
 
 ._ams-item--highlight {
-  background-color: var(--ams-docs-lightblue);
+  background-color: var(--_ams-color-lightblue);
 }
 
 [class*="ams-docs-token-example--"] {
@@ -132,11 +132,11 @@
 }
 
 [class*="ams-docs-token-example--space"] {
-  background-color: var(--ams-docs-pink);
+  background-color: var(--_ams-color-pink);
 }
 
 ._ams-resize-horizontal {
-  outline: 1px dashed var(--ams-docs-pink);
+  outline: 1px dashed var(--_ams-color-pink);
   overflow: auto;
   padding-block-end: 1rem;
 
