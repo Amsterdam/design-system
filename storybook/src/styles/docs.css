@@ -70,16 +70,16 @@
   background-color: #004699; /* Dark blue */
 }
 
-.ams-docs-column,
-.ams-docs-container,
-.ams-docs-item,
-.ams-docs-row {
+._ams-column,
+._ams-container,
+._ams-item,
+._ams-row {
   box-sizing: border-box;
 }
 
-.ams-docs-column,
-.ams-docs-container,
-.ams-docs-row {
+._ams-column,
+._ams-container,
+._ams-row {
   background: repeating-linear-gradient(
     135deg,
     var(--ams-docs-grey),
@@ -90,36 +90,32 @@
   border: thin solid var(--ams-docs-grey);
 }
 
-.ams-docs-column {
+._ams-column {
   max-inline-size: 16rem;
   min-block-size: 16rem;
 }
 
-.ams-docs-container {
+._ams-container {
   padding-block: var(--ams-space-m);
   padding-inline: var(--ams-space-m);
 }
 
-.ams-docs-row {
+._ams-row {
   min-block-size: 6rem;
 }
 
-.ams-docs-item {
+._ams-item {
   background-color: var(--ams-docs-pink);
   border: thin dashed var(--ams-docs-grey);
 
-  .ams-docs-column > & {
+  ._ams-column > & {
     block-size: 3rem;
     min-inline-size: 3rem;
   }
 
-  .ams-docs-row > & {
+  ._ams-row > & {
     inline-size: 8rem;
     min-block-size: 3rem;
-  }
-
-  .ams-docs-screen > & {
-    block-size: 3rem;
   }
 
   ._ams-grid-columns-guide + .ams-grid > & {
@@ -127,7 +123,7 @@
   }
 }
 
-.ams-docs-item--highlight {
+._ams-item--highlight {
   background-color: var(--ams-docs-lightblue);
 }
 
