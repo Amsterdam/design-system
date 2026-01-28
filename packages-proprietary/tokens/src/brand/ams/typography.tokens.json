@@ -6,7 +6,7 @@
         "$type": "fontFamily"
       },
       "hyphenate-limit-chars": {
-        "$value": "12 8 4"
+        "$value": "auto"
       },
       "body-text": {
         "font-size": {

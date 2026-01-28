@@ -85,6 +85,20 @@
           "$type": "color"
         }
       },
+      "progress": {
+        "current": {
+          "$value": "#00893c",
+          "$type": "color"
+        },
+        "completed": {
+          "$value": "#00893c",
+          "$type": "color"
+        },
+        "upcoming": {
+          "$value": "#767676",
+          "$type": "color"
+        }
+      },
       "separator": {
         "$value": "#d1d1d1",
         "$type": "color"

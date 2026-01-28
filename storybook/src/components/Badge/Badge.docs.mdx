@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 
 import * as BadgeStories from "./Badge.stories.tsx";
 import README from "../../../../packages/css/src/components/badge/README.md?raw";
@@ -15,6 +15,15 @@ import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 <Primary />
 
 <Controls />
+
+## Examples
+
+### With icon
+
+Include an icon when it provides meaning that isn’t obvious from the text alone, or when it helps with quick recognition.
+This may be helpful for statuses, alerts, or categories that users look over instead of reading.
+
+<Canvas of={BadgeStories.WithIcon} />
 
 ## Tokens
 
