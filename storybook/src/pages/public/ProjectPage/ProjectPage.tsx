@@ -6,7 +6,6 @@
 import type { AspectRatioProps } from '@amsterdam/design-system-react/dist/common/types'
 
 import {
-  Accordion,
   Breadcrumb,
   Grid,
   Heading,
@@ -257,22 +256,6 @@ export const ProjectPage = () => (
           Ontwikkeling Centrumeiland, herfst 2025
         </Heading>
         <Image alt="" className="ams-mb-m" src="https://picsum.photos/id/385/640/360" />
-        <Accordion className="ams-mb-l" headingLevel={3}>
-          <Accordion.Section label="Uitgeschreven tekst van video">
-            <Paragraph>
-              De Lee Millerbrug is in 2026 klaar. De Annemie Wolffbrug zou eind 2025 volledig in gebruik worden genomen.
-              Dit is echter uitgesteld tot 2026. De tram rijdt halverwege 2026 over de bruggen richting Strandeiland. We
-              werken ook hard aan Robin Wood. Het gebouw wordt bijna volledig van hout. In Robin Wood komen 165
-              woningen, horeca en een vestiging van de Openbare Bibliotheek Amsterdam. De Torteltuin is ook in aanbouw.
-              Er komen 40 woningen, waarvan 12 sociale huur en 28 middeldure huur. De oplevering is in 2028. Op kavel
-              12.01 komt het nieuwe gebouw Akropolis, met daarin 31 woningen: 8 sociale huur en 23 middeldure huur. De
-              Zuidoever is een speciale natuuroever. Het biedt leefplekken voor diverse dieren en planten, zoals padden,
-              vleermuizen, ringslangen en oeverzwaluwen. De Zuidoever is verboden terrein voor mensen en huisdieren. In
-              het gebouw Juf Nienke wordt in december een kinderdagverblijf geopend. De definitieve inrichting van
-              straten start dit jaar en loopt door tot in 2026.
-            </Paragraph>
-          </Accordion.Section>
-        </Accordion>
         <StandaloneLink href="#">Meer video’s</StandaloneLink>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
