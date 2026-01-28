@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as StandaloneLinkStories from "./StandaloneLink.stories.tsx";
 import README from "../../../../packages/css/src/components/standalone-link/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/standalone-link.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={StandaloneLinkStories} />
 
@@ -45,3 +49,7 @@ Use the inverse colour on an azure, blue, green, magenta or purple background.
 It will make the Standalone Link white.
 
 <Canvas of={StandaloneLinkStories.InverseColour} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

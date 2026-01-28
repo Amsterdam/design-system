@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as LinkStories from "./Link.stories.tsx";
 import README from "../../../../packages/css/src/components/link/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/link.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={LinkStories} />
 
@@ -32,3 +36,7 @@ Use the inverse colour on an azure, blue, green, magenta or purple background.
 It will make the Link white.
 
 <Canvas of={LinkStories.InverseColour} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

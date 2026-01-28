@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as SpotlightStories from "./Spotlight.stories.tsx";
 import README from "../../../../packages/css/src/components/spotlight/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/spotlight.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={SpotlightStories} />
 
@@ -44,3 +48,7 @@ By default, a Spotlight renders a `<div>` element in HTML.
 Use the `as` prop to make your markup more semantic.
 
 <Canvas of={SpotlightStories.ImproveSemantics} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

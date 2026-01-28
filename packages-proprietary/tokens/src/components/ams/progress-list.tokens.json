@@ -5,10 +5,10 @@
         "step": {
           "marker": {
             "block-size": {
-              "value": "calc({ams.typography.heading.2.font-size} * {ams.typography.heading.2.line-height})"
+              "$value": "calc({ams.typography.heading.2.font-size} * {ams.typography.heading.2.line-height})"
             },
             "margin-block-start": {
-              "value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)"
+              "$value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)"
             }
           }
         }
@@ -17,10 +17,10 @@
         "step": {
           "marker": {
             "block-size": {
-              "value": "calc({ams.typography.heading.3.font-size} * {ams.typography.heading.3.line-height})"
+              "$value": "calc({ams.typography.heading.3.font-size} * {ams.typography.heading.3.line-height})"
             },
             "margin-block-start": {
-              "value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)"
+              "$value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)"
             }
           }
         }
@@ -29,89 +29,137 @@
         "step": {
           "marker": {
             "block-size": {
-              "value": "calc({ams.typography.heading.4.font-size} * {ams.typography.heading.4.line-height})"
+              "$value": "calc({ams.typography.heading.4.font-size} * {ams.typography.heading.4.line-height})"
             },
             "margin-block-start": {
-              "value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)"
+              "$value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)"
             }
           }
         }
       },
       "step": {
         "gap": {
-          "value": "{ams.space.m}"
+          "$value": "{ams.space.m}",
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "medium": {
           "gap": {
-            "value": "{ams.space.l}"
+            "$value": "{ams.space.l}",
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           }
         },
         "marker": {
           "shape": {
             "block-size": {
-              "value": "1.5rem"
+              "$value": {
+                "value": 1.5,
+                "unit": "rem"
+              },
+              "$type": "dimension"
             },
             "background-color": {
-              "value": "{ams.color.background}"
+              "$value": "{ams.color.background}",
+              "$type": "color"
             },
             "border-color": {
-              "value": "{ams.color.progress.upcoming}"
+              "$value": "{ams.color.progress.upcoming}",
+              "$type": "color"
             },
             "border-style": {
-              "value": "solid"
+              "$value": "solid",
+              "$extensions": {
+                "amsterdam.designsystem.type": "borderStyle"
+              }
             },
             "border-width": {
-              "value": "{ams.border.width.m}"
+              "$value": "{ams.border.width.m}",
+              "$extensions": {
+                "amsterdam.designsystem.type": "borderWidth"
+              }
             },
             "outline-color": {
-              "value": "{ams.color.background}"
+              "$value": "{ams.color.background}",
+              "$type": "color"
             },
             "outline-style": {
-              "value": "solid"
+              "$value": "solid",
+              "$extensions": {
+                "amsterdam.designsystem.type": "borderStyle"
+              }
             },
             "outline-width": {
-              "value": "{ams.border.width.m}"
+              "$value": "{ams.border.width.m}",
+              "$extensions": {
+                "amsterdam.designsystem.type": "borderWidth"
+              }
             }
           }
         },
         "connector": {
           "border-inline-color": {
-            "value": "{ams.color.progress.upcoming}"
+            "$value": "{ams.color.progress.upcoming}",
+            "$type": "color"
           },
           "border-inline-style": {
-            "value": "dashed"
+            "$value": "dashed",
+            "$extensions": {
+              "amsterdam.designsystem.type": "borderStyle"
+            }
           },
           "border-inline-width": {
-            "value": "1px"
+            "$value": {
+              "value": 1,
+              "unit": "px"
+            }
           }
         },
         "heading": {
           "margin-block-end": {
-            "value": "{ams.space.s}"
+            "$value": "{ams.space.s}",
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           }
         },
         "content": {
           "margin-block-end": {
-            "value": "{ams.space.l}"
+            "$value": "{ams.space.l}",
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.subtype": "space"
+            }
           }
         },
         "completed": {
           "marker": {
             "shape": {
               "background-color": {
-                "value": "{ams.color.progress.completed}"
+                "$value": "{ams.color.progress.completed}",
+                "$type": "color"
               },
               "border-color": {
-                "value": "{ams.color.progress.completed}"
+                "$value": "{ams.color.progress.completed}",
+                "$type": "color"
               }
             }
           },
           "connector": {
             "border-inline-color": {
-              "value": "{ams.color.progress.completed}"
+              "$value": "{ams.color.progress.completed}",
+              "$type": "color"
             },
             "border-inline-style": {
-              "value": "solid"
+              "$value": "solid",
+              "$extensions": {
+                "amsterdam.designsystem.type": "borderStyle"
+              }
             }
           }
         },
@@ -119,113 +167,165 @@
           "marker": {
             "shape": {
               "background-color": {
-                "value": "{ams.color.progress.current}"
+                "$value": "{ams.color.progress.current}",
+                "$type": "color"
               },
               "border-color": {
-                "value": "{ams.color.progress.current}"
+                "$value": "{ams.color.progress.current}",
+                "$type": "color"
               }
             }
           },
           "connector": {
             "border-inline-color": {
-              "value": "{ams.color.progress.current}"
+              "$value": "{ams.color.progress.current}",
+              "$type": "color"
             }
           }
         }
       },
       "substeps": {
         "padding-block-start": {
-          "value": "{ams.space.m}"
+          "$value": "{ams.space.m}",
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
         },
         "step": {
           "indicator": {
             "margin-inline-end": {
-              "value": "{ams.space.m}"
+              "$value": "{ams.space.m}",
+              "$type": "dimension",
+              "$extensions": {
+                "amsterdam.designsystem.subtype": "space"
+              }
             },
             "medium": {
               "margin-inline-end": {
-                "value": "{ams.space.l}"
+                "$value": "{ams.space.l}",
+                "$type": "dimension",
+                "$extensions": {
+                  "amsterdam.designsystem.subtype": "space"
+                }
               }
             }
           },
           "marker": {
             "block-size": {
-              "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})"
+              "$value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})"
             },
             "inline-size": {
-              "value": "{ams.progress-list.step.marker.shape.block-size}"
+              "$value": "{ams.progress-list.step.marker.shape.block-size}"
             },
             "shape": {
               "block-size": {
-                "value": "0.75rem"
+                "$value": "0.75rem"
               },
               "background-color": {
-                "value": "{ams.color.background}"
+                "$value": "{ams.color.background}",
+                "$type": "color"
               },
               "border-color": {
-                "value": "{ams.color.progress.upcoming}"
+                "$value": "{ams.color.progress.upcoming}",
+                "$type": "color"
               },
               "border-style": {
-                "value": "solid"
+                "$value": "solid",
+                "$extensions": {
+                  "amsterdam.designsystem.type": "borderStyle"
+                }
               },
               "border-width": {
-                "value": "{ams.border.width.m}"
+                "$value": "{ams.border.width.m}",
+                "$extensions": {
+                  "amsterdam.designsystem.type": "borderWidth"
+                }
               },
               "outline-color": {
-                "value": "{ams.color.background}"
+                "$value": "{ams.color.background}",
+                "$type": "color"
               },
               "outline-style": {
-                "value": "solid"
+                "$value": "solid",
+                "$extensions": {
+                  "amsterdam.designsystem.type": "borderStyle"
+                }
               },
               "outline-width": {
-                "value": "{ams.border.width.m}"
+                "$value": "{ams.border.width.m}",
+                "$extensions": {
+                  "amsterdam.designsystem.type": "borderWidth"
+                }
               }
             }
           },
           "connector": {
             "background-color": {
-              "value": "{ams.color.background}"
+              "$value": "{ams.color.background}",
+              "$type": "color"
             },
             "border-inline-color": {
-              "value": "{ams.color.progress.upcoming}"
+              "$value": "{ams.color.progress.upcoming}",
+              "$type": "color"
             },
             "border-inline-style": {
-              "value": "dashed"
+              "$value": "dashed",
+              "$extensions": {
+                "amsterdam.designsystem.type": "borderStyle"
+              }
             },
             "border-inline-width": {
-              "value": "1px"
+              "$value": {
+                "value": 1,
+                "unit": "px"
+              },
+              "$extensions": {
+                "amsterdam.designsystem.type": "borderWidth"
+              }
             },
             "margin-block-start": {
-              "value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height} / 2)"
+              "$value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height} / 2)"
             },
             "last-child": {
               "border-inline-color": {
-                "value": "{ams.color.background}"
+                "$value": "{ams.color.background}",
+                "$type": "color"
               }
             }
           },
           "content": {
             "margin-block-end": {
-              "value": "{ams.space.m}"
+              "$value": "{ams.space.m}",
+              "$type": "dimension",
+              "$extensions": {
+                "amsterdam.designsystem.subtype": "space"
+              }
             }
           },
           "completed": {
             "marker": {
               "shape": {
                 "background-color": {
-                  "value": "{ams.color.progress.completed}"
+                  "$value": "{ams.color.progress.completed}",
+                  "$type": "color"
                 },
                 "border-color": {
-                  "value": "{ams.color.progress.completed}"
+                  "$value": "{ams.color.progress.completed}",
+                  "$type": "color"
                 }
               }
             },
             "connector": {
               "border-inline-color": {
-                "value": "{ams.color.progress.completed}"
+                "$value": "{ams.color.progress.completed}",
+                "$type": "color"
               },
               "border-inline-style": {
-                "value": "solid"
+                "$value": "solid",
+                "$extensions": {
+                  "amsterdam.designsystem.type": "borderStyle"
+                }
               }
             }
           },
@@ -233,10 +333,12 @@
             "marker": {
               "shape": {
                 "background-color": {
-                  "value": "{ams.color.progress.current}"
+                  "$value": "{ams.color.progress.current}",
+                  "$type": "color"
                 },
                 "border-color": {
-                  "value": "{ams.color.progress.current}"
+                  "$value": "{ams.color.progress.current}",
+                  "$type": "color"
                 }
               }
             }
@@ -245,7 +347,11 @@
         "last-child": {
           "content": {
             "margin-block-end": {
-              "value": "{ams.space.l}"
+              "$value": "{ams.space.l}",
+              "$type": "dimension",
+              "$extensions": {
+                "amsterdam.designsystem.subtype": "space"
+              }
             }
           }
         }

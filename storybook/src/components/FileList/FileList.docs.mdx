@@ -1,9 +1,13 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Markdown, Meta, Primary, Source } from "@storybook/addon-docs/blocks";
-import FileInputWithFileList from "./FileInputWithFileList?raw";
+import { Canvas, Controls, Markdown, Meta, Primary, Source } from "@storybook/addon-docs/blocks";
+
 import * as FileListStories from "./FileList.stories.tsx";
+import FileInputWithFileList from "./FileInputWithFileList?raw";
 import README from "../../../../packages/css/src/components/file-list/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/file-list.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={FileListStories} />
 
@@ -21,3 +25,7 @@ list of files and use `onDelete` when removing a file from the list.
 <Canvas of={FileListStories.WithInput} />
 
 <Source code={FileInputWithFileList} language="jsx" />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

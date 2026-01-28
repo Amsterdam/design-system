@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as DescriptionListStories from "./DescriptionList.stories.tsx";
 import README from "../../../../packages/css/src/components/description-list/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/description-list.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={DescriptionListStories} />
 
@@ -38,3 +42,7 @@ Use the inverse colour if the Description List sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
 <Canvas of={DescriptionListStories.InverseColour} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

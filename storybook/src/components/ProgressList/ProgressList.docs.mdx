@@ -3,6 +3,9 @@
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 import * as ProgressListStories from "./ProgressList.stories.tsx";
 import README from "../../../../packages/css/src/components/progress-list/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/progress-list.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={ProgressListStories} />
 
@@ -22,3 +25,7 @@ They are visually subordinate to their parent step: their indicators are smaller
 Don’t forget to set the `hasSubsteps` prop on the parent step.
 
 <Canvas of={ProgressListStories.WithSubsteps} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

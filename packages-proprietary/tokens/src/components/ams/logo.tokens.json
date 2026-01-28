@@ -1,16 +1,36 @@
 {
   "ams": {
     "logo": {
-      "block-size": { "value": "{ams.space.xl}" },
-      "min-block-size": { "value": "2.5rem" },
+      "block-size": {
+        "$value": "{ams.space.xl}",
+        "$extensions": {
+          "amsterdam.designsystem.type": "blockSize"
+        }
+      },
+      "min-block-size": {
+        "$value": {
+          "value": 2.5,
+          "unit": "rem"
+        },
+        "$type": "dimension"
+      },
       "emblem": {
-        "color": { "value": "#ec0000" }
+        "color": {
+          "$value": "#ec0000",
+          "$type": "color"
+        }
       },
       "subsite": {
-        "color": { "value": "{ams.color.text.default}" }
+        "color": {
+          "$value": "{ams.color.text.default}",
+          "$type": "color"
+        }
       },
       "title": {
-        "color": { "value": "#ec0000" }
+        "color": {
+          "$value": "#ec0000",
+          "$type": "color"
+        }
       }
     }
   }

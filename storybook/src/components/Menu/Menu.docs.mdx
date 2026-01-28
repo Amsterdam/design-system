@@ -1,9 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as MenuStories from "./Menu.stories.tsx";
 import README from "../../../../packages/css/src/components/menu/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/menu.tokens.json";
 
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 import { StatusBadge } from "../../docs/components/StatusBadge.tsx";
 
 <StatusBadge
@@ -35,3 +38,7 @@ Use the filled variant.
 <Canvas of={MenuStories.Link} />
 
 <Controls of={MenuStories.Link} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

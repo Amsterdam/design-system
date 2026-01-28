@@ -2,7 +2,11 @@
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 import * as AccordionStories from "./Accordion.stories.tsx";
+
 import README from "../../../../packages/css/src/components/accordion/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/accordion.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={AccordionStories} />
 
@@ -58,3 +62,7 @@ Currently (28-6-2023), the `details` element has some accessibility problems.
 NVDA does not read Chrome and Edge’s collapsed and expanded status correctly.
 That’s why we chose not to use this native element.
 If these problems are solved, we could do this.
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

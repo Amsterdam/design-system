@@ -1,14 +1,33 @@
 {
   "ams": {
     "page": {
-      "background-color": { "value": "{ams.color.background}" },
-      "max-inline-size": { "value": "90rem" },
+      "background-color": {
+        "$value": "{ams.color.background}",
+        "$type": "color"
+      },
+      "max-inline-size": {
+        "$value": {
+          "value": 90,
+          "unit": "rem"
+        },
+        "$type": "dimension"
+      },
       "with-menu": {
-        "max-inline-size": { "value": "120rem" },
+        "max-inline-size": {
+          "$value": {
+            "value": 120,
+            "unit": "rem"
+          },
+          "$type": "dimension"
+        },
         "area-skip-link": {
           "margin-inline-end": {
-            "value": "{ams.grid.padding-inline}",
-            "comment": "Must be the Grid inline padding, to make sure Skip Link and Grid line up"
+            "$value": "{ams.grid.padding-inline}",
+            "$type": "dimension",
+            "$extensions": {
+              "amsterdam.designsystem.hint": "Must be the Grid inline padding, to make sure Skip Link and Grid line up.",
+              "amsterdam.designsystem.subtype": "space"
+            }
           }
         }
       }

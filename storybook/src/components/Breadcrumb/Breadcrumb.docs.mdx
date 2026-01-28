@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as BreadcrumbStories from "./Breadcrumb.stories.tsx";
 import README from "../../../../packages/css/src/components/breadcrumb/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/breadcrumb.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={BreadcrumbStories} />
 
@@ -13,3 +17,7 @@ import README from "../../../../packages/css/src/components/breadcrumb/README.md
 ## Guidelines
 
 - A breadcrumb should not display more than 8 items.
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />
