@@ -3,10 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
+import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef, useEffect, useId, useImperativeHandle, useRef } from 'react'
+
+import type { IconProps } from '../Icon'
 
 import CheckboxIcon from './CheckboxIcon'
 
@@ -15,7 +17,7 @@ export type CheckboxProps = {
    * An icon to display instead of the default icon.
    * @default CheckboxIcon
    */
-  icon?: Function | ReactNode
+  icon?: IconProps['svg']
   /** Allows being neither checked nor unchecked. */
   indeterminate?: boolean
   /** Whether the value fails a validation rule. */
