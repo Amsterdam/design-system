@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v3.0.0...design-system-react-v3.1.0) (2026-01-28)
+
+
+### Features
+
+* **Badge:** Add option to include an icon ([#2385](https://github.com/Amsterdam/design-system/issues/2385)) ([698c776](https://github.com/Amsterdam/design-system/commit/698c7762f9bc0c844598e71c45165f472d03c185))
+* Introduce Progress List component ([#2373](https://github.com/Amsterdam/design-system/issues/2373)) ([7309159](https://github.com/Amsterdam/design-system/commit/730915911eb28dff40137ff15063cf33c21f26fc))
+* **Page Header:** Allow custom menu button icon ([#2386](https://github.com/Amsterdam/design-system/issues/2386)) ([fe6d49c](https://github.com/Amsterdam/design-system/commit/fe6d49c16f1a994b5745dce7b8336afa84bb84b8))
+
+
+### Bug Fixes
+
+* **deps:** bump @babel/runtime from 7.28.4 to 7.28.6 in the patch-and-minor-dependencies group ([#2382](https://github.com/Amsterdam/design-system/issues/2382)) ([8251959](https://github.com/Amsterdam/design-system/commit/82519590202960d85e216d314d17c87fcaec8201))
+* **Image Slider:** Refactor and add tests ([#2375](https://github.com/Amsterdam/design-system/issues/2375)) ([0d01f0b](https://github.com/Amsterdam/design-system/commit/0d01f0b83c7f3b4b44765b0a9ccfe8ba287bb8aa))
+
 ## [3.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.2.0...design-system-react-v3.0.0) (2026-01-09)
 
 
