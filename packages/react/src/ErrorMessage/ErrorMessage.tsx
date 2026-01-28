@@ -33,7 +33,7 @@ export const ErrorMessage = forwardRef(
   ) => (
     <p {...restProps} className={clsx('ams-error-message', className)} ref={ref}>
       <Icon svg={icon} />
-      <span className="ams-visually-hidden">{`${prefix}: `}</span>
+      {prefix && <span className="ams-visually-hidden">{`${prefix}: `}</span>}
       {children}
     </p>
   ),
