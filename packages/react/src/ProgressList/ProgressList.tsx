@@ -19,6 +19,16 @@ type ProgressListHeadingSize = (typeof progressListHeadingSizes)[number]
 
 export type ProgressListProps = {
   /**
+   * An accessible phrase that screen readers announce before a completed step heading.
+   * @default Klaar
+   */
+  completedAccessibleText?: string
+  /**
+   * An accessible phrase that screen readers announce before a current step heading.
+   * @default Bezig
+   */
+  currentAccessibleText?: string
+  /**
    * The hierarchical level of this Progress List’s Headings within the document.
    * There is no default value; determine the correct level for this instance.
    */
@@ -26,8 +36,18 @@ export type ProgressListProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLOListElement>>
 
 const ProgressListRoot = forwardRef(
-  ({ children, className, headingLevel, ...restProps }: ProgressListProps, ref: ForwardedRef<HTMLOListElement>) => (
-    <ProgressListContext.Provider value={{ headingLevel: headingLevel }}>
+  (
+    {
+      children,
+      className,
+      completedAccessibleText,
+      currentAccessibleText,
+      headingLevel,
+      ...restProps
+    }: ProgressListProps,
+    ref: ForwardedRef<HTMLOListElement>,
+  ) => (
+    <ProgressListContext.Provider value={{ completedAccessibleText, currentAccessibleText, headingLevel }}>
       <ol
         {...restProps}
         className={clsx('ams-progress-list', `ams-progress-list--heading-${headingLevel}`, className)}
