@@ -184,24 +184,18 @@ export const WithCustomTexts: PageHeaderStory = {
   },
 }
 
-export const WithCustomLogo: PageHeaderStory = {
+export const WithDifferentBranding: PageHeaderStory = {
   args: {
     brandName: 'Voorbeeld',
+    children: CollapsibleMenuWithOneLink,
     logoBrand: {
       label: 'Gemeente logo',
       svg: ExampleLogo,
     },
+    menuButtonIcon: PlusIcon,
     style: {
       '--ams-logo-block-size': 'clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem)',
       '--ams-logo-min-block-size': '1.125rem',
     } as CSSProperties,
-  },
-}
-
-export const WithCustomMenuButtonIcon: PageHeaderStory = {
-  args: {
-    ...WithCustomLogo.args,
-    children: CollapsibleMenuWithOneLink,
-    menuButtonIcon: PlusIcon,
   },
 }
