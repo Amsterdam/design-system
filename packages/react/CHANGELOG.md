@@ -15,7 +15,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **deps:** bump @babel/runtime from 7.28.4 to 7.28.6 in the patch-and-minor-dependencies group ([#2382](https://github.com/Amsterdam/design-system/issues/2382)) ([8251959](https://github.com/Amsterdam/design-system/commit/82519590202960d85e216d314d17c87fcaec8201))
 * **Image Slider:** Refactor and add tests ([#2375](https://github.com/Amsterdam/design-system/issues/2375)) ([0d01f0b](https://github.com/Amsterdam/design-system/commit/0d01f0b83c7f3b4b44765b0a9ccfe8ba287bb8aa))
 
 ## [3.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v2.2.0...design-system-react-v3.0.0) (2026-01-09)
