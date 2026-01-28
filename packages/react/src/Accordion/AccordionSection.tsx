@@ -13,7 +13,7 @@ import type { IconProps } from '../Icon/Icon'
 
 import { Heading } from '../Heading'
 import { Icon } from '../Icon/Icon'
-import AccordionContext from './AccordionContext'
+import { AccordionContext } from './AccordionContext'
 
 export type AccordionSectionProps = {
   /** Whether the content is displayed initially. */
