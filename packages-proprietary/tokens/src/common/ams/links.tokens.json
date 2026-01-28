@@ -11,7 +11,7 @@
           "unit": "rem"
         },
         "$type": "dimension",
-        "$extension": {
+        "$extensions": {
           "amsterdam.designsystem.hint": "2px"
         }
       },

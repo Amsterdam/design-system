@@ -25,7 +25,6 @@
             "value": 0.1875,
             "unit": "rem"
           },
-
           "$extensions": {
             "amsterdam.designsystem.type": "borderWidth"
           }
