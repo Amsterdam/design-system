@@ -20,8 +20,8 @@ export const AccessibleStatusText = ({ status }: AccessibleStatusTextProps) => {
 
   return (
     <span className="ams-visually-hidden">
-      {status === 'completed' && `${completedAccessibleText}: `}
-      {status === 'current' && `${currentAccessibleText}: `}
+      {status === 'completed' && completedAccessibleText && `${completedAccessibleText}: `}
+      {status === 'current' && currentAccessibleText && `${currentAccessibleText}: `}
     </span>
   )
 }
