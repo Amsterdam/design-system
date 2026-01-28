@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { FieldSet } from './FieldSet'
 import '@testing-library/jest-dom'
 
-describe('FieldSet', () => {
+describe('Field Set', () => {
   it('renders', () => {
     render(<FieldSet legend="Test" />)
 

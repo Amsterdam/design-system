@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { Accordion } from './Accordion'
 import '@testing-library/jest-dom'
 
-describe('Accordion section', () => {
+describe('Accordion Section', () => {
   const testLabel = 'Test title'
   const testContent = 'Test content'
 

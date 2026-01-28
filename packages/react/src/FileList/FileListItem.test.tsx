@@ -9,7 +9,7 @@ import '@testing-library/jest-dom'
 
 import { FileListItem } from './FileListItem'
 
-describe('FileListItem', () => {
+describe('File List Item', () => {
   const file = new File(['sample content'], 'sample.txt', { type: 'text/plain' })
   it('renders', () => {
     render(<FileListItem file={file} />)

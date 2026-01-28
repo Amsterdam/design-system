@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { CardLink } from './CardLink'
 import '@testing-library/jest-dom'
 
-describe('Card link', () => {
+describe('Card Link', () => {
   it('renders', () => {
     render(<CardLink href="/" />)
 

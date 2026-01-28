@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { OrderedList } from './OrderedList'
 import '@testing-library/jest-dom'
 
-describe('Ordered list', () => {
+describe('Ordered List', () => {
   it('renders an HTML ol element', () => {
     const { container } = render(<OrderedList />)
 

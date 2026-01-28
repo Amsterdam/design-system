@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { SearchField } from './SearchField'
 import '@testing-library/jest-dom'
 
-describe('Search field', () => {
+describe('Search Field', () => {
   it('renders the form', () => {
     render(<SearchField />)
 

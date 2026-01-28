@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { DateInput, dateInputTypes } from './DateInput'
 import '@testing-library/jest-dom'
 
-describe('Date input', () => {
+describe('Date Input', () => {
   it('renders', () => {
     const { container } = render(<DateInput />)
 

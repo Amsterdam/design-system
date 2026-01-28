@@ -10,7 +10,7 @@ import { Table } from './Table'
 import { TableBody } from './TableBody'
 import '@testing-library/jest-dom'
 
-describe('Table body', () => {
+describe('Table Body', () => {
   it('renders', () => {
     render(
       <Table>
