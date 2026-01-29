@@ -6,12 +6,16 @@ Emphasizes a section on a page through a distinctive background colour.
 
 ## Guidelines
 
-- Display the Spotlight at the entire width of the [Page](/docs/components-containers-page--docs) container; do not position it on the [Grid](/docs/components-layout-grid--docs).
-- Add a Grid with medium vertical padding inside the Spotlight to add whitespace around the content, even for a single element.
+- Use the entire width of the [Page](/docs/components-containers-page--docs) container.
+  Do not position it on the [Grid](/docs/components-layout-grid--docs).
+  Wrap the content in a Grid with extra large vertical padding.
 - Use any of the [highlight colours](/docs/brand-design-tokens-colour--docs) for the background.
   The design system does not prescribe a meaning to any of these colours.
   The default is purple.
-- Select [the correct colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) for text and links against the background you choose.
+  Select [the correct colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) for text and links against the background you choose.
+- Find a fitting setup for the [amount and width of columns](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
+- By default, a Spotlight renders a `<div>` element in HTML.
+  Use the `as` prop to make your markup more semantic.
 
 ## Relevant WCAG requirements
 
