@@ -2,6 +2,7 @@
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
+
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { ArrowForwardIcon } from '@amsterdam/design-system-react-icons'
@@ -10,6 +11,7 @@ import { forwardRef, useContext } from 'react'
 
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
+import { AccessibleStatusText } from './AccessibleStatusText'
 import { ProgressListContext } from './ProgressListContext'
 
 export type ProgressListStepProps = {
@@ -50,6 +52,7 @@ export const ProgressListStep = forwardRef(
         </div>
         <div className="ams-progress-list__content">
           <Heading className="ams-progress-list__heading" level={headingLevel}>
+            <AccessibleStatusText status={status} />
             {heading}
           </Heading>
           {children}
