@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as LabelStories from "./Label.stories.tsx";
 import README from "../../../../packages/css/src/components/label/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/label.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={LabelStories} />
 
@@ -41,3 +45,7 @@ Set `isPageHeading` to include an `h1` element to reflect this.
 When a Label is used in a Field inside a Field Set, use the `inFieldSet` prop to show it in a lighter style.
 
 <Canvas of={LabelStories.InAFieldSet} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

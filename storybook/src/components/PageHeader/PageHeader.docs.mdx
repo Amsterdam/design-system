@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as PageHeaderStories from "./PageHeader.stories.tsx";
 import README from "../../../../packages/css/src/components/page-header/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/page-header.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={PageHeaderStories} />
 
@@ -81,3 +85,7 @@ Set the appropriate values for the sizing tokens of [Logo](/docs/components-medi
 A different icon for the menu button must be an svg as well.
 
 <Canvas of={PageHeaderStories.WithDifferentBranding} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

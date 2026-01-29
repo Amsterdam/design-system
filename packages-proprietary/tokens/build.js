@@ -2,6 +2,22 @@ import { camelCase, kebabCase } from 'change-case'
 import StyleDictionary from 'style-dictionary'
 import { transformTypes } from 'style-dictionary/enums'
 
+// Transform DTCG dimension objects to CSS values
+// i.e. `{ value: 1, unit: 'rem' }` becomes `1rem`
+StyleDictionary.registerTransform({
+  filter: (token) => {
+    const value = token.$value ?? token.value
+    return value?.value !== null && value?.unit
+  },
+  name: 'dtcg/dimension',
+  transform: (token) => {
+    const value = token.$value ?? token.value
+    return `${value.value}${value.unit}`
+  },
+  transitive: true,
+  type: 'value',
+})
+
 // Remove last key if it is 'default' when transforming to kebab-case
 // i.e. `ams.color.default` becomes `--ams-color`
 StyleDictionary.registerTransform({
@@ -27,6 +43,7 @@ StyleDictionary.registerTransform({
 })
 
 const modes = ['compact']
+const sharedTransforms = ['dtcg/dimension']
 
 function generateSharedConfig(mode) {
   const name = mode || 'index'
@@ -43,8 +60,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transformGroup: 'css',
-      transforms: ['attribute/cti', 'name/customKebab', 'color/hsl-4'],
+      transforms: ['name/customKebab', ...sharedTransforms],
     },
     cssTheme: {
       buildPath: 'dist/',
@@ -58,7 +74,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: ['attribute/cti', 'name/customKebab', 'color/hsl-4'],
+      transforms: ['name/customKebab', ...sharedTransforms],
     },
     js: {
       buildPath: 'dist/',
@@ -68,7 +84,7 @@ function generateSharedConfig(mode) {
           format: 'javascript/es6',
         },
       ],
-      transforms: ['attribute/cti', 'name/customCamel', 'color/hsl-4'],
+      transforms: ['name/customCamel', ...sharedTransforms],
     },
     json: {
       buildPath: 'dist/',
@@ -78,7 +94,7 @@ function generateSharedConfig(mode) {
           format: 'json/nested',
         },
       ],
-      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4'],
+      transforms: ['name/camel', ...sharedTransforms],
     },
     scss: {
       buildPath: 'dist/',
@@ -91,7 +107,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: ['attribute/cti', 'name/customKebab', 'color/hsl-4'],
+      transforms: ['name/customKebab', ...sharedTransforms],
     },
     typescript: {
       buildPath: 'dist/',
@@ -101,8 +117,7 @@ function generateSharedConfig(mode) {
           format: 'typescript/module-declarations',
         },
       ],
-      transformGroup: 'js',
-      transforms: ['attribute/cti', 'name/camel', 'color/hsl-4'],
+      transforms: ['name/customCamel', ...sharedTransforms],
     },
   }
 }

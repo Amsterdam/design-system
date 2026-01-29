@@ -24,8 +24,8 @@ type ColorPaletteSwatchProps = PropsWithChildren<{
 }>
 
 const ColorPaletteSwatch = ({ children, name }: ColorPaletteSwatchProps) => (
-  <div className={clsx('ams-docs-color-swatch', `ams-docs-color-swatch--${name}`)}>
-    <span className="ams-docs-color-name">{name}</span>
+  <div className={clsx('ams-docs-color-palette-swatch', `ams-docs-color-palette-swatch--${name}`)}>
+    <span className="ams-docs-color-palette-name">{name}</span>
     {children}
   </div>
 )
@@ -39,9 +39,9 @@ type ColorPaletteTileProps = {
 
 const ColorPaletteTile = ({ color, level }: ColorPaletteTileProps) =>
   color && (
-    <div className={clsx('ams-docs-color-tile', `ams-docs-color-tile--${level}`)}>
-      <span className="ams-docs-color-level">{level}</span>
-      <div className="ams-docs-color-sample" style={{ backgroundColor: color }} title={color} />
+    <div className={clsx('ams-docs-color-palette-tile', `ams-docs-color-palette-tile--${level}`)}>
+      <span className="ams-docs-color-palette-level">{level}</span>
+      <div className="ams-docs-color-palette-sample" style={{ backgroundColor: color }} title={color} />
     </div>
   )
 

@@ -1,16 +1,54 @@
 {
   "ams": {
     "accordion": {
-      "gap": { "value": "{ams.space.s}" },
+      "gap": {
+        "$value": "{ams.space.s}",
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
+      },
       "button": {
-        "color": { "value": "{ams.color.interactive.default}" },
-        "cursor": { "value": "{ams.cursor.interactive}" },
-        "gap": { "value": "{ams.space.s}" },
-        "outline-offset": { "value": "{ams.focus.outline-offset}" },
-        "padding-block": { "value": "{ams.space.s}" },
-        "padding-inline": { "value": "0" },
+        "color": {
+          "$value": "{ams.color.interactive.default}",
+          "$type": "color"
+        },
+        "cursor": {
+          "$value": "{ams.cursor.interactive}"
+        },
+        "gap": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
+        },
+        "outline-offset": {
+          "$value": "{ams.focus.outline-offset}",
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
+        },
+        "padding-block": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
+        },
+        "padding-inline": {
+          "$value": "0",
+          "$type": "dimension",
+          "$extensions": {
+            "amsterdam.designsystem.subtype": "space"
+          }
+        },
         "hover": {
-          "color": { "value": "{ams.color.interactive.hover}" }
+          "color": {
+            "$value": "{ams.color.interactive.hover}",
+            "$type": "color"
+          }
         }
       }
     }

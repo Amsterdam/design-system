@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as ParagraphStories from "./Paragraph.stories.tsx";
 import README from "../../../../packages/css/src/components/paragraph/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/paragraph.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={ParagraphStories} />
 
@@ -43,3 +47,7 @@ This ensures the colour of the text provides enough contrast.
 Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/docs/components-media-icon--docs) to align body text with an icon.
 
 <Canvas of={ParagraphStories.WithIcon} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-.ams-docs-font-design-token {
+._ams-typography-sample {
   display: inline-block;
   font-family: var(--ams-typography-font-family);
   margin-block: 0;

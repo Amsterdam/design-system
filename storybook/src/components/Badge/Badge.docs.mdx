@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as BadgeStories from "./Badge.stories.tsx";
 import README from "../../../../packages/css/src/components/badge/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/badge.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={BadgeStories} />
 
@@ -20,3 +24,7 @@ Include an icon when it provides meaning that isn’t obvious from the text alon
 This may be helpful for statuses, alerts, or categories that users look over instead of reading.
 
 <Canvas of={BadgeStories.WithIcon} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

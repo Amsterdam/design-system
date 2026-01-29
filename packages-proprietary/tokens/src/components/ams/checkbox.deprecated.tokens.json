@@ -3,37 +3,53 @@
     "checkbox": {
       "hover": {
         "text-decoration-thickness": {
-          "comment": "Use `ams.checkbox.text-decoration-thickness` instead",
-          "value": "{ams.border.width.m}"
+          "$deprecated": "Use `ams.checkbox.text-decoration-thickness` instead",
+          "$value": "{ams.border.width.m}",
+          "$type": "dimension"
         }
       },
       "rectangle": {
         "checked": {
           "disabled": {
             "hover": {
-              "fill": { "value": "{ams.color.interactive.disabled}" }
+              "fill": {
+                "$value": "{ams.color.interactive.disabled}",
+                "$type": "color"
+              }
             }
           },
           "hover": {
             "disabled-invalid": {
-              "fill": { "value": "{ams.color.interactive.disabled}" }
+              "fill": {
+                "$value": "{ams.color.interactive.disabled}",
+                "$type": "color"
+              }
             }
           }
         },
         "hover": {
           "disabled-invalid": {
-            "stroke": { "value": "{ams.color.interactive.disabled}" }
+            "stroke": {
+              "$value": "{ams.color.interactive.disabled}",
+              "$type": "color"
+            }
           }
         },
         "indeterminate": {
           "disabled": {
             "hover": {
-              "fill": { "value": "{ams.color.interactive.disabled}" }
+              "fill": {
+                "$value": "{ams.color.interactive.disabled}",
+                "$type": "color"
+              }
             }
           },
           "hover": {
             "disabled-invalid": {
-              "fill": { "value": "{ams.color.interactive.disabled}" }
+              "fill": {
+                "$value": "{ams.color.interactive.disabled}",
+                "$type": "color"
+              }
             }
           }
         }

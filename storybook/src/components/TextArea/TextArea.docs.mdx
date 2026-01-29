@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as TextAreaStories from "./TextArea.stories.tsx";
 import README from "../../../../packages/css/src/components/text-area/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/text-area.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={TextAreaStories} />
 
@@ -51,3 +55,7 @@ If the Text Area can become invalid, add an Error Message and its `id` to the `a
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 <Canvas of={TextAreaStories.InAFieldWithValidation} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

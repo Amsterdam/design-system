@@ -1,7 +1,13 @@
 {
   "ams": {
     "action-group": {
-      "gap": { "value": "{ams.space.m}" }
+      "gap": {
+        "$value": "{ams.space.m}",
+        "$type": "dimension",
+        "$extensions": {
+          "amsterdam.designsystem.subtype": "space"
+        }
+      }
     }
   }
 }

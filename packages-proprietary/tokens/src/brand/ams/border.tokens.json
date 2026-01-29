@@ -2,10 +2,42 @@
   "ams": {
     "border": {
       "width": {
-        "s": { "value": "0.0625rem" },
-        "m": { "value": "0.125rem" },
-        "l": { "value": "0.1875rem" },
-        "xl": { "value": "0.25rem" }
+        "s": {
+          "$value": {
+            "value": 0.0625,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "amsterdam.designsystem.type": "borderWidth"
+          }
+        },
+        "m": {
+          "$value": {
+            "value": 0.125,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "amsterdam.designsystem.type": "borderWidth"
+          }
+        },
+        "l": {
+          "$value": {
+            "value": 0.1875,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "amsterdam.designsystem.type": "borderWidth"
+          }
+        },
+        "xl": {
+          "$value": {
+            "value": 0.25,
+            "unit": "rem"
+          },
+          "$extensions": {
+            "amsterdam.designsystem.type": "borderWidth"
+          }
+        }
       }
     }
   }

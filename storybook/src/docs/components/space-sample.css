@@ -1,0 +1,11 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-space-sample {
+  /* Color is defined in docs.css */
+  /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
+  background-color: var(--ams-docs-pink);
+  block-size: 1rem;
+}

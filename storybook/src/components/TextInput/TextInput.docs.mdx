@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as TextInputStories from "./TextInput.stories.tsx";
 import README from "../../../../packages/css/src/components/text-input/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/text-input.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={TextInputStories} />
 
@@ -175,3 +179,7 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 - Extensive [guidelines for all types of input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text) on Mozilla Developer Network.
 - At the same site, an overview of [autocompletion values](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete#token_list_tokens) which help enter personal details faster.
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />
