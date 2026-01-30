@@ -3,7 +3,9 @@
     "grid": {
       "padding-inline": { "value": "{ams.space.xl}" },
       "cell": {
-        "background-color": { "value": "{ams.color.background.default}" }
+        "background-color": { "value": "{ams.color.background.default}" },
+        "padding-block": { "value": "{ams.space.m}" },
+        "padding-inline": { "value": "{ams.space.m}" }
       }
     }
   }
