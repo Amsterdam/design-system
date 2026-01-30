@@ -8,6 +8,7 @@ import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes,
 import { clsx } from 'clsx'
 import { forwardRef, useEffect, useState } from 'react'
 
+import type { IconProps } from '../Icon'
 import type { LogoBrand } from '../Logo'
 import type { LogoBrandConfig } from '../Logo/Logo'
 
@@ -52,6 +53,8 @@ export type PageHeaderProps = {
   logoLinkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
   /** The accessible text for the link on the logo. */
   logoLinkTitle?: string
+  /** An icon to display instead of the default icon. */
+  menuButtonIcon?: IconProps['svg']
   /** The visible text for the menu button. */
   menuButtonText?: string
   /** The text for screen readers when the button hides the menu. */
@@ -77,6 +80,7 @@ const PageHeaderRoot = forwardRef(
       logoLink = '/',
       logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
       logoLinkTitle = `Ga naar de homepage${brandName ? ` van ${brandName}` : ''}`,
+      menuButtonIcon,
       menuButtonText = 'Menu',
       menuButtonTextForHide = 'Verberg navigatiemenu',
       menuButtonTextForShow = 'Laat navigatiemenu zien',
@@ -143,9 +147,11 @@ const PageHeaderRoot = forwardRef(
                     </span>
                     <Icon
                       svg={
-                        <PageHeaderMenuIcon
-                          className={clsx('ams-page-header__menu-icon', open && 'ams-page-header__menu-icon--open')}
-                        />
+                        menuButtonIcon ?? (
+                          <PageHeaderMenuIcon
+                            className={clsx('ams-page-header__menu-icon', open && 'ams-page-header__menu-icon--open')}
+                          />
+                        )
                       }
                     />
                   </button>

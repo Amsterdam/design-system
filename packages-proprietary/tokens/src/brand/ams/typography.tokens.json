@@ -2,7 +2,7 @@
   "ams": {
     "typography": {
       "font-family": { "value": "'Amsterdam Sans', Arial, sans-serif" },
-      "hyphenate-limit-chars": { "value": "12 8 4" },
+      "hyphenate-limit-chars": { "value": "auto" },
       "body-text": {
         "font-size": { "value": "clamp(1.125rem, 1.0893rem + 0.1786vw, 1.25rem)" },
         "font-weight": { "value": "400" },

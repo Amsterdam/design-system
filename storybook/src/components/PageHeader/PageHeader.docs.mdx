@@ -71,13 +71,13 @@ const LinkComponent = (props) => <NextLink {...props} />
 return <PageHeader logoLinkComponent={LinkComponent} />
 ```
 
-### With custom logo
+### With different branding
 
-Websites for the City of Amsterdam **must** use one of our own logos.
+Websites for the City of Amsterdam **must** use one of our own logos and our menu icon.
 
-Other organisations using this component can display their own brand by providing a label and a custom image.
-The label should be ‘name of the organisation + logo’.
-The image must be an svg.
+Other organisations using this component can provide elements to display their own brand.
+The image for the logo must be an svg, and its label should be ‘name of the organisation + logo’.
 Set the appropriate values for the sizing tokens of [Logo](/docs/components-media-logo--docs).
+A different icon for the menu button must be an svg as well.
 
-<Canvas of={PageHeaderStories.WithCustomLogo} />
+<Canvas of={PageHeaderStories.WithDifferentBranding} />
