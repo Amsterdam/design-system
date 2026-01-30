@@ -52,7 +52,7 @@
               "value": "1.5rem"
             },
             "background-color": {
-              "value": "{ams.color.background}"
+              "value": "{ams.color.background.default}"
             },
             "border-color": {
               "value": "{ams.color.progress.upcoming}"
@@ -64,7 +64,7 @@
               "value": "{ams.border.width.m}"
             },
             "outline-color": {
-              "value": "{ams.color.background}"
+              "value": "{ams.color.background.default}"
             },
             "outline-style": {
               "value": "solid"
@@ -160,7 +160,7 @@
                 "value": "0.75rem"
               },
               "background-color": {
-                "value": "{ams.color.background}"
+                "value": "{ams.color.background.default}"
               },
               "border-color": {
                 "value": "{ams.color.progress.upcoming}"
@@ -172,7 +172,7 @@
                 "value": "{ams.border.width.m}"
               },
               "outline-color": {
-                "value": "{ams.color.background}"
+                "value": "{ams.color.background.default}"
               },
               "outline-style": {
                 "value": "solid"
@@ -184,7 +184,7 @@
           },
           "connector": {
             "background-color": {
-              "value": "{ams.color.background}"
+              "value": "{ams.color.background.default}"
             },
             "border-inline-color": {
               "value": "{ams.color.progress.upcoming}"
@@ -200,7 +200,7 @@
             },
             "last-child": {
               "border-inline-color": {
-                "value": "{ams.color.background}"
+                "value": "{ams.color.background.default}"
               }
             }
           },
