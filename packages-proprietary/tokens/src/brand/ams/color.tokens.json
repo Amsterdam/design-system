@@ -2,8 +2,8 @@
   "ams": {
     "color": {
       "background": {
-        "default": { "value": "#ffffff" },
-        "page": { "value": "#ffffff" }
+        "canvas": { "value": "#ffffff" },
+        "default": { "value": "#ffffff" }
       },
       "feedback": {
         "error": { "value": "#ec0000" },

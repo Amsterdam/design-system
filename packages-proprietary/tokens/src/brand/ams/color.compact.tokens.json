@@ -2,8 +2,8 @@
   "ams": {
     "color": {
       "background": {
-        "default": { "value": "#ffffff" },
-        "page": { "value": "#e8e8e8" }
+        "canvas": { "value": "#e8e8e8" },
+        "default": { "value": "#ffffff" }
       }
     }
   }
