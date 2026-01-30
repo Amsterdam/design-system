@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { BreadcrumbLink } from './BreadcrumbLink'
 import '@testing-library/jest-dom'
 
-describe('Breadcrumb link', () => {
+describe('Breadcrumb Link', () => {
   it('renders', () => {
     render(<BreadcrumbLink href="/" />)
 

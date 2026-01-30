@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { CallToActionLink } from './CallToActionLink'
 import '@testing-library/jest-dom'
 
-describe('Call to Action Link', () => {
+describe('Call To Action Link', () => {
   it('renders with href attribute', () => {
     render(<CallToActionLink href="#" />)
 

@@ -10,7 +10,7 @@ import { createRef, useState } from 'react'
 import { TextArea } from './TextArea'
 import '@testing-library/jest-dom'
 
-describe('Text area', () => {
+describe('Text Area', () => {
   it('renders', () => {
     render(<TextArea />)
 

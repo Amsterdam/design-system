@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { TimeInput } from './TimeInput'
 import '@testing-library/jest-dom'
 
-describe('Time input', () => {
+describe('Time Input', () => {
   it('renders', () => {
     const { container } = render(<TimeInput />)
 

@@ -11,7 +11,7 @@ import { Label } from '../Label'
 import { PasswordInput } from './PasswordInput'
 import '@testing-library/jest-dom'
 
-describe('Password input', () => {
+describe('Password Input', () => {
   it('renders', () => {
     const { container } = render(<PasswordInput />)
 

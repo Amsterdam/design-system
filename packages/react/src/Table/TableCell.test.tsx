@@ -12,7 +12,7 @@ import { TableCell } from './TableCell'
 import { TableRow } from './TableRow'
 import '@testing-library/jest-dom'
 
-describe('Table cell', () => {
+describe('Table Cell', () => {
   it('renders', () => {
     render(
       <Table>
