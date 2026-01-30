@@ -21,6 +21,11 @@
       "wide": {
         "column-count": { "value": "12" },
         "padding-inline": { "value": "{ams.space.2xl}" }
+      },
+      "cell": {
+        "background-color": { "value": "initial" },
+        "padding-block": { "value": "initial" },
+        "padding-inline": { "value": "initial" }
       }
     }
   }

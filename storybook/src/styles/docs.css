@@ -119,7 +119,8 @@
   /* stylelint-enable selector-max-id */
 }
 
-.ams-docs-grid__cell {
+/* Increase specificity to override Grid Cell background in Compact Mode. */
+.ams-docs-grid__cell.ams-docs-grid__cell {
   background-color: var(--ams-docs-grey);
 }
 
@@ -152,10 +153,13 @@
   .ams-docs-screen > & {
     block-size: 3rem;
   }
+}
 
-  .ams-docs-grid + .ams-grid > & {
-    min-block-size: 3rem;
-  }
+/** Repeat declarations and increase specificity to override Grid Cell background in Compact Mode. */
+.ams-docs-grid + .ams-grid > .ams-docs-item {
+  background-color: var(--ams-docs-pink);
+  border: thin dashed var(--ams-docs-grey);
+  min-block-size: 3rem;
 }
 
 .ams-docs-item--highlight {

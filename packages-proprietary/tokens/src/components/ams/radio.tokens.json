@@ -43,7 +43,7 @@
         }
       },
       "circle": {
-        "fill": { "value": "{ams.color.background}" },
+        "fill": { "value": "{ams.color.background.default}" },
         "stroke": { "value": "{ams.color.interactive.default}" },
         "disabled": {
           "stroke": { "value": "{ams.color.interactive.disabled}" }

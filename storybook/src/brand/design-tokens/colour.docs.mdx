@@ -29,6 +29,7 @@ A light neutral colour is at level 20, white is at level 0, and black is at leve
   </ColorPalette.Swatch>
   <ColorPalette.Swatch name="neutral">
     <ColorPalette.Tile color="#ffffff" level="0" />
+    <ColorPalette.Tile color="#e8e8e8" level="10" />
     <ColorPalette.Tile color="#d1d1d1" level="20" />
     <ColorPalette.Tile color="#767676" level="60" />
     <ColorPalette.Tile color="#202020" level="100" />
@@ -78,11 +79,23 @@ These are the potential foreground colours for text.
 
 ### Background
 
-We have one background colour for the page and various components.
+We have two background colours.
+One for the page, the other for all other components.
 
-| CSS variable                  | Colour    | Example                                                                                                                                           |
-| :---------------------------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `var(--ams-color-background)` | neutral-0 | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background)' }} /> |
+| CSS variable                         | Colour    | Example                                                                                                                                           |
+| :----------------------------------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `var(--ams-color-background)`        | neutral-0 | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background)' }} /> |
+| `var(--ams-color-background-canvas)` | neutral-0 | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background)' }} /> |
+
+#### Compact Mode
+
+The background colour of pages is light grey in Compact Mode.
+Content sections have a white background again.
+This separates content sections more effectively than the limited amounts of whitespace in this context.
+
+| CSS variable                         | Colour     | Example                                                                                                                                                  |
+| :----------------------------------- | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `var(--ams-color-background-canvas)` | neutral-10 | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background-canvas)' }} /> |
 
 ### Feedback
 

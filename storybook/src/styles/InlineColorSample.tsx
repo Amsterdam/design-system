@@ -1,4 +1,5 @@
 import './inline-color-sample.css'
+import { clsx } from 'clsx'
 
 const colors = {
   azure: '#009de6',
@@ -9,6 +10,7 @@ const colors = {
   lime: '#bed200',
   magenta: '#e50082',
   neutral: '#767676',
+  'neutral-10': '#e8e8e8',
   'neutral-20': '#d1d1d1',
   orange: '#ff9100',
   purple: '#a00078',
@@ -19,5 +21,8 @@ const colors = {
 }
 
 export const InlineColorSample = ({ color }: { color: keyof typeof colors }) => (
-  <span className="ams-inline-color-sample" style={{ backgroundColor: `${colors[color]}` }} />
+  <span
+    className={clsx('ams-inline-color-sample', color === 'white' && 'ams-inline-color-sample--white')}
+    style={{ backgroundColor: `${colors[color]}` }}
+  />
 )

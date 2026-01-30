@@ -17,6 +17,7 @@ import README from "../../../../packages/css/src/components/grid/README.md?raw";
 The grey strokes in the examples on this page indicate the columns of the grid.
 The gaps between the columns are white – note that they can be wider than the columns.
 Pink boxes represent cells on the grid.
+In Compact Mode, the page background is light grey.
 
 ### Vertical padding
 
@@ -69,6 +70,21 @@ The starting position of a cell may also depend on the window width.
 Use the `start` prop with 3 values, e.g. `start={{ narrow: 2, medium: 4, wide: 6 }}`.
 
 <Canvas of={GridStories.StartPosition} />
+
+### Background in Compact Mode
+
+In Compact Mode, cells have a white background and padding to clearly set them apart.
+After all, the scarcer amounts of white space can’t fulfill that role.
+
+Cells can be made transparent, e.g. the one that contains the Breadcrumb Heading.
+This removes the padding as well.
+
+The ‘flush’ appearance remove only the padding, keeping the white background.
+This is useful for components that want to sit edge-to-edge inside the cell, like a Table.
+
+In Spacious Mode, cells are always transparent and without padding; this prop has no effect.
+
+<Canvas of={GridStories.BackgroundInCompactMode} />
 
 ### Improve semantics
 

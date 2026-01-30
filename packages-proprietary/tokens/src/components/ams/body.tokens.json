@@ -1,0 +1,9 @@
+{
+  "ams": {
+    "body": {
+      "background-color": {
+        "value": "{ams.color.background.canvas}"
+      }
+    }
+  }
+}

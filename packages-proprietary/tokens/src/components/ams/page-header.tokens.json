@@ -1,6 +1,7 @@
 {
   "ams": {
     "page-header": {
+      "background-color": { "value": "{ams.color.background.default}" },
       "font-family": { "value": "{ams.typography.font-family}" },
       "padding-block": { "value": "{ams.space.l}" },
       "padding-inline": {

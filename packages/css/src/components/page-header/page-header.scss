@@ -12,6 +12,7 @@
   * This keeps all navigation in one nav element and lets the menu wrap around the logo link section.
   * Display grid is used to let both logo link sections overlap.
   */
+  background-color: var(--ams-page-header-background-color);
   display: grid;
   font-family: var(--ams-page-header-font-family);
   padding-block: var(--ams-page-header-padding-block);
