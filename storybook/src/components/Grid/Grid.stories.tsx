@@ -6,6 +6,7 @@
 import type { GridCellProps } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { Paragraph } from '@amsterdam/design-system-react/src'
 import { Grid } from '@amsterdam/design-system-react/src'
 
 import { gridGapAndPaddingArgTypes } from '../../common'
@@ -124,6 +125,23 @@ export const StartPosition: CellStory = {
     className: 'ams-docs-item',
     span: 3,
     start: { narrow: 2, medium: 4, wide: 6 },
+  },
+}
+
+export const BackgroundInCompactMode: Story = {
+  ...StoryTemplate,
+  args: {
+    children: [
+      <Grid.Cell key={1} span={4}>
+        <Paragraph>Default</Paragraph>
+      </Grid.Cell>,
+      <Grid.Cell appearance="flush" key={2} span={4}>
+        <Paragraph>Flush</Paragraph>
+      </Grid.Cell>,
+      <Grid.Cell appearance="transparent" key={3} span={4}>
+        <Paragraph>Transparent</Paragraph>
+      </Grid.Cell>,
+    ],
   },
 }
 
