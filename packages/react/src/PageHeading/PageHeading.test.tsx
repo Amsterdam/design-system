@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { PageHeading } from './PageHeading'
 import '@testing-library/jest-dom'
 
-describe('Page Heading', () => {
+describe('PageHeading', () => {
   it('renders a heading role element', () => {
     render(<PageHeading>Breaking news</PageHeading>)
 

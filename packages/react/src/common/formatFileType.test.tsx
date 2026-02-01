@@ -5,7 +5,7 @@
 
 import { formatFileType } from './formatFileType'
 
-describe('Format File Type', () => {
+describe('formatFileType', () => {
   it('formats image types correctly', () => {
     expect(formatFileType('image/gif')).toBe('gif')
     expect(formatFileType('image/jpeg')).toBe('jpg')

@@ -10,7 +10,7 @@ import { createRef, useState } from 'react'
 import { SearchFieldInput } from './SearchFieldInput'
 import '@testing-library/jest-dom'
 
-describe('Search Field Input', () => {
+describe('SearchFieldInput', () => {
   it('renders', () => {
     render(<SearchFieldInput />)
 
