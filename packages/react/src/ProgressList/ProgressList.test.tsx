@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { ProgressList, progressListHeadingSizes } from './ProgressList'
 import '@testing-library/jest-dom'
 
-describe('Progress List', () => {
+describe('ProgressList', () => {
   it('renders', () => {
     render(<ProgressList headingLevel={3} />)
 

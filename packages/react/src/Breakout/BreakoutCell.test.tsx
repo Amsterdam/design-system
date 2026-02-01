@@ -12,7 +12,7 @@ import '@testing-library/jest-dom'
 import { Breakout } from './Breakout'
 import { breakoutCellTags } from './BreakoutCell'
 
-describe('Breakout Cell', () => {
+describe('BreakoutCell', () => {
   it('renders', () => {
     const { container } = render(<Breakout.Cell />)
 

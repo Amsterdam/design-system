@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { FigureCaption } from './FigureCaption'
 import '@testing-library/jest-dom'
 
-describe('Figure Caption', () => {
+describe('FigureCaption', () => {
   it('renders', () => {
     const { container } = render(<FigureCaption />)
 

@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { PageHeaderGridCellNarrowWindowOnly } from './PageHeaderGridCellNarrowWindowOnly'
 import '@testing-library/jest-dom'
 
-describe('Page Header Grid Cell Narrow Window Only', () => {
+describe('PageHeaderGridCellNarrowWindowOnly', () => {
   it('renders', () => {
     const { container } = render(<PageHeaderGridCellNarrowWindowOnly />)
 

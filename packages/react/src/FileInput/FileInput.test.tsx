@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { FileInput } from './FileInput'
 import '@testing-library/jest-dom'
 
-describe('File Input', () => {
+describe('FileInput', () => {
   it('renders', () => {
     const { container } = render(<FileInput />)
 

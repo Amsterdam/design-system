@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { TableOfContents } from './TableOfContents'
 import '@testing-library/jest-dom'
 
-describe('Table Of Contents List', () => {
+describe('TableOf Contents List', () => {
   it('renders an HTML ul element', () => {
     const { container } = render(<TableOfContents.List />)
     const list = container.querySelector('ul:only-child')

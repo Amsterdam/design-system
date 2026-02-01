@@ -10,7 +10,7 @@ import { Table } from './Table'
 import { TableHeader } from './TableHeader'
 import '@testing-library/jest-dom'
 
-describe('Table Header', () => {
+describe('TableHeader', () => {
   it('renders', () => {
     render(
       <Table>

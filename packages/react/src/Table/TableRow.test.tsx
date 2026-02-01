@@ -11,7 +11,7 @@ import { TableBody } from './TableBody'
 import { TableRow } from './TableRow'
 import '@testing-library/jest-dom'
 
-describe('Table Row', () => {
+describe('TableRow', () => {
   it('renders', () => {
     render(
       <Table>

@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { ProgressList } from './ProgressList'
 import '@testing-library/jest-dom'
 
-describe('Progress List Substeps', () => {
+describe('ProgressListSubsteps', () => {
   it('renders', () => {
     render(<ProgressList.Substeps>Content</ProgressList.Substeps>)
 

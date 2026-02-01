@@ -9,7 +9,7 @@ import { createRef } from 'react'
 
 import { LinkList } from './LinkList'
 
-describe('Link List Link', () => {
+describe('LinkListLink', () => {
   it('renders', () => {
     const { container } = render(<LinkList.Link href="#" />)
 

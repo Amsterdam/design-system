@@ -9,7 +9,7 @@ import { createRef } from 'react'
 
 import { LinkList } from './LinkList'
 
-describe('Link List', () => {
+describe('LinkList', () => {
   it('renders', () => {
     render(<LinkList />)
 
