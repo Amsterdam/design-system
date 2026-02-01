@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { IconButton } from './IconButton'
 import '@testing-library/jest-dom'
 
-describe('Icon button', () => {
+describe('IconButton', () => {
   it('renders', () => {
     render(<IconButton label="Test" />)
 

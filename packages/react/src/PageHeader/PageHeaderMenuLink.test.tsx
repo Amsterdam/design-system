@@ -10,7 +10,7 @@ import { createRef } from 'react'
 import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 import '@testing-library/jest-dom'
 
-describe('Page Header Menu Link', () => {
+describe('PageHeaderMenuLink', () => {
   it('renders', () => {
     render(<PageHeaderMenuLink href="/" />)
 

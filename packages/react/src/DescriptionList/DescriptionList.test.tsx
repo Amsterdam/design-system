@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { DescriptionList, descriptionListTermsWidths } from './DescriptionList'
 import '@testing-library/jest-dom'
 
-describe('Description List', () => {
+describe('DescriptionList', () => {
   it('renders', () => {
     const { container } = render(<DescriptionList />)
 

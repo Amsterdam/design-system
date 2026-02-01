@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { DescriptionList } from './DescriptionList'
 import '@testing-library/jest-dom'
 
-describe('Description List Section', () => {
+describe('DescriptionListSection', () => {
   it('renders', () => {
     const { container } = render(<DescriptionList.Section>Test</DescriptionList.Section>)
 

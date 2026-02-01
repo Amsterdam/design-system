@@ -19,7 +19,7 @@ const thumbnails: ImageSliderProps['images'] = [
 
 const defaultProps = { currentSlideId: 0, scrollToSlide: jest.fn(), thumbnails: thumbnails }
 
-describe('Image Slider Thumbnails', () => {
+describe('ImageSliderThumbnails', () => {
   it('renders', () => {
     const { container } = render(<ImageSliderThumbnails {...defaultProps} />)
 
