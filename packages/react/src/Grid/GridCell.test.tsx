@@ -6,9 +6,11 @@
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
+import type { GridCellAppearance } from './GridCell'
+
 import { ariaRoleForTag } from '../common/accessibility'
 import { Grid } from './Grid'
-import { gridCellTags } from './GridCell'
+import { gridCellAppearances, gridCellTags } from './GridCell'
 import '@testing-library/jest-dom'
 
 describe('Grid cell', () => {
@@ -35,6 +37,16 @@ describe('Grid cell', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-grid__cell extra')
+  })
+
+  gridCellAppearances.forEach((appearance: GridCellAppearance) => {
+    it(`renders the correct class name for the ‘${appearance}’ appearance`, () => {
+      const { container } = render(<Grid.Cell appearance={appearance} />)
+
+      const component = container.querySelector(':only-child')
+
+      expect(component).toHaveClass(`ams-grid__cell--${appearance}`)
+    })
   })
 
   it('renders no class names for undefined values for start and span', () => {

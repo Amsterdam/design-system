@@ -12,6 +12,9 @@ import type { GridColumnNumber, GridColumnNumbers } from './Grid'
 
 import { gridCellClasses } from './gridCellClasses'
 
+export const gridCellAppearances = ['flush', 'transparent'] as const
+export type GridCellAppearance = (typeof gridCellAppearances)[number]
+
 export const gridCellTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
 export type GridCellTag = (typeof gridCellTags)[number]
 
@@ -37,7 +40,7 @@ export type GridCellProps = {
    *
    * In Spacious Mode, cells are always transparent and without padding; this prop has no effect.
    */
-  appearance?: 'flush' | 'transparent'
+  appearance?: GridCellAppearance
   /** The HTML tag to use. */
   as?: GridCellTag
 } & PropsWithChildren<HTMLAttributes<HTMLElement>> &
