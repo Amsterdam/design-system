@@ -5,7 +5,7 @@
 
 import { formatFileSize } from './formatFileSize'
 
-describe('Format File Size', () => {
+describe('formatFileSize', () => {
   it('formats bytes correctly', () => {
     expect(formatFileSize(500)).toBe('500 bytes')
   })
