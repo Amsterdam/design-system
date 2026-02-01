@@ -7,8 +7,8 @@ Emphasizes a section on a page through a distinctive background colour.
 ## Guidelines
 
 - Use the entire width of the [Page](/docs/components-containers-page--docs) container.
-  Do not position it on the [Grid](/docs/components-layout-grid--docs).
-  Wrap the content in a Grid with extra large vertical padding.
+  Do not position a Spotlight on the [Grid](/docs/components-layout-grid--docs).
+  Wrap its content in a Grid with extra large vertical padding.
 - Use any of the [highlight colours](/docs/brand-design-tokens-colour--docs) for the background.
   The design system does not prescribe a meaning to any of these colours.
   The default is purple.
