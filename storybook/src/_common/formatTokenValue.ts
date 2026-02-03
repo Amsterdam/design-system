@@ -10,7 +10,6 @@
  * formatTokenValue("2px")               // "2px"
  * formatTokenValue("1rem")              // "1rem"
  */
-
 export function formatTokenValue<Type = string>(value: string): Type {
   if (value.includes('{')) {
     const cssVar = value.replace(/[{}]/g, '').replace(/\./g, '-')

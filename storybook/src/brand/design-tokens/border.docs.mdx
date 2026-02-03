@@ -3,8 +3,8 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
-import bordersCompact from "../../../../packages-proprietary/tokens/src/brand/ams/border.compact.tokens.json";
-import bordersSpacious from "../../../../packages-proprietary/tokens/src/brand/ams/border.tokens.json";
+import tokensCompact from "../../../../packages-proprietary/tokens/src/brand/ams/border.compact.tokens.json";
+import tokensSpacious from "../../../../packages-proprietary/tokens/src/brand/ams/border.tokens.json";
 
 <Meta title="Brand/Design Tokens/Border" />
 
@@ -23,10 +23,10 @@ We use a limited set of border widths for consistency.
 The default border is 2 pixels thick.
 One thinner and two thicker options are available.
 
-<DesignTokensTable tokens={bordersSpacious} />
+<DesignTokensTable tokens={tokensSpacious} />
 
 ### Compact Mode
 
 All borders are a pixel thinner in [Compact Mode](/docs/docs-developer-guide-modes--docs), except for the small width.
 
-<DesignTokensTable tokens={bordersCompact} />
+<DesignTokensTable tokens={tokensCompact} />
