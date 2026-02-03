@@ -165,10 +165,10 @@ Note that redefining the value of a token is a much better approach than redecla
 ## Token types
 
 Tokens have a type or extension that we use to generate visual previews in our documentation.
-When adding new tokens, define a type from the W3C specification or add one of our custom extensions when needed.
+When adding new tokens, define a type from the DTCG specification or add one of our custom extensions when needed.
 Do not add an type or extension if the token cannot be previewed.
 
-### W3C standard types
+### DTCG standard types
 
 The following types come from the [Design Tokens Community Group (DTCG) specification](https://www.designtokens.org/tr/2025.10/format/):
 
