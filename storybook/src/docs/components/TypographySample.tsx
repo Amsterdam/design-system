@@ -17,8 +17,9 @@ type TypographySampleProps = {
   fontFamily?: string
   /**
    * The font size to use in the example.
-   * In pixels for easy reference; will be converted to rems.
-   * No fluidity here: we want to display the given size on any viewport.
+   * This shouldn’t be a `clamp` value or a token containing one –
+   * we want to display the given size on any viewport.
+   * Sizes in `rems` are okay; this keeps the samples representative with zoomed text.
    */
   fontSize?: string
   /** The font weight to use in the example. */
