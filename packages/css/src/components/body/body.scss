@@ -8,7 +8,6 @@
   margin-inline: 0;
 }
 
-// Add this class if you haven’t removed the default margin on the `<body>` element.
 .ams-body {
   @include reset-body;
 

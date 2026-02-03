@@ -74,13 +74,13 @@ Use the `start` prop with 3 values, e.g. `start={{ narrow: 2, medium: 4, wide: 6
 ### Background in Compact Mode
 
 In Compact Mode, cells have a white background and padding to clearly set them apart.
-After all, the scarcer amounts of white space can’t fulfill that role.
+This is because the limited white space makes it more difficult to distinguish cells from each other.
 
-Cells can be made transparent, e.g. the one that contains the Breadcrumb Heading.
+Cells can be made transparent, such as the one with the the Breadcrumb and Heading.
 This removes the padding as well.
 
 The ‘flush’ appearance remove only the padding, keeping the white background.
-This is useful for components that want to sit edge-to-edge inside the cell, like a Table.
+This is useful for components that need to fit edge-to-edge inside the cell but do benefit from the white background, like a Table.
 
 In Spacious Mode, cells are always transparent and without padding; this prop has no effect.
 
