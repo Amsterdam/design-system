@@ -187,9 +187,10 @@ For some properties, we add custom types under `$extensions.amsterdam.designsyst
 
 | Type          | Description                      |
 | ------------- | -------------------------------- |
+| `borderStyle` | Border style values              |
+| `borderWidth` | Border thickness values          |
 | `fontSize`    | Font size values                 |
 | `lineHeight`  | Unitless line height multipliers |
-| `borderWidth` | Border thickness values          |
 
 Tokens without a type have values that we currently do not preview.
 
@@ -203,7 +204,7 @@ We add a subtype for certain types to further specify their purpose and preview.
 
 #### Hint
 
-For internal use, we may add a `$extensions.amsterdam.designsystem.hint` to indicate special handling.
+An `$extensions.amsterdam.designsystem.hint` indicates special handling for internal use.
 
 ## Usage in Sass
 

@@ -5,10 +5,12 @@
         "step": {
           "marker": {
             "block-size": {
-              "$value": "calc({ams.typography.heading.2.font-size} * {ams.typography.heading.2.line-height})"
+              "$value": "calc({ams.typography.heading.2.font-size} * {ams.typography.heading.2.line-height})",
+              "$type": "dimension"
             },
             "margin-block-start": {
-              "$value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)"
+              "$value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)",
+              "$type": "dimension"
             }
           }
         }
@@ -17,10 +19,12 @@
         "step": {
           "marker": {
             "block-size": {
-              "$value": "calc({ams.typography.heading.3.font-size} * {ams.typography.heading.3.line-height})"
+              "$value": "calc({ams.typography.heading.3.font-size} * {ams.typography.heading.3.line-height})",
+              "$type": "dimension"
             },
             "margin-block-start": {
-              "$value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)"
+              "$value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)",
+              "$type": "dimension"
             }
           }
         }
@@ -29,10 +33,12 @@
         "step": {
           "marker": {
             "block-size": {
-              "$value": "calc({ams.typography.heading.4.font-size} * {ams.typography.heading.4.line-height})"
+              "$value": "calc({ams.typography.heading.4.font-size} * {ams.typography.heading.4.line-height})",
+              "$type": "dimension"
             },
             "margin-block-start": {
-              "$value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)"
+              "$value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)",
+              "$type": "dimension"
             }
           }
         }
@@ -116,7 +122,8 @@
             "$value": {
               "value": 1,
               "unit": "px"
-            }
+            },
+            "$type": "dimension"
           }
         },
         "heading": {
@@ -213,14 +220,17 @@
           },
           "marker": {
             "block-size": {
-              "$value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})"
+              "$value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})",
+              "$type": "dimension"
             },
             "inline-size": {
-              "$value": "{ams.progress-list.step.marker.shape.block-size}"
+              "$value": "{ams.progress-list.step.marker.shape.block-size}",
+              "$type": "dimension"
             },
             "shape": {
               "block-size": {
-                "$value": "0.75rem"
+                "$value": "0.75rem",
+                "$type": "dimension"
               },
               "background-color": {
                 "$value": "{ams.color.background}",
@@ -285,7 +295,8 @@
               }
             },
             "margin-block-start": {
-              "$value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height} / 2)"
+              "$value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height} / 2)",
+              "$type": "dimension"
             },
             "last-child": {
               "border-inline-color": {

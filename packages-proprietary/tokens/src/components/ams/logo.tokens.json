@@ -2,10 +2,7 @@
   "ams": {
     "logo": {
       "block-size": {
-        "$value": "{ams.space.xl}",
-        "$extensions": {
-          "amsterdam.designsystem.type": "blockSize"
-        }
+        "$value": "{ams.space.xl}"
       },
       "min-block-size": {
         "$value": {
