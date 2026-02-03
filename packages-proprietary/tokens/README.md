@@ -181,15 +181,29 @@ The following types come from the [Design Tokens Community Group (DTCG) specific
 
 ### Custom extensions
 
-For more specific previews, we use custom extensions under `$extensions.amsterdam.designsystem.type`:
+#### Type
 
-| Extension     | Description                      |
+For some properties, we add custom types under `$extensions.amsterdam.designsystem.type`:
+
+| Type          | Description                      |
 | ------------- | -------------------------------- |
 | `fontSize`    | Font size values                 |
 | `lineHeight`  | Unitless line height multipliers |
 | `borderWidth` | Border thickness values          |
 
 Tokens without a type have values that we currently do not preview.
+
+#### Subtype
+
+We add a subtype for certain types to further specify their purpose and preview.
+
+| Subtype | For type    | Description                |
+| ------- | ----------- | -------------------------- |
+| `space` | `dimension` | Margins, paddings and gaps |
+
+#### Hint
+
+For internal use, we may add a `$extensions.amsterdam.designsystem.hint` to indicate special handling.
 
 ## Usage in Sass
 
