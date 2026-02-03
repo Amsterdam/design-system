@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { PageFooter } from './PageFooter'
 import '@testing-library/jest-dom'
 
-describe('Page Footer Spotlight', () => {
+describe('PageFooterSpotlight', () => {
   it('renders', () => {
     const { container } = render(<PageFooter.Spotlight />)
 

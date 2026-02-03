@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { CardHeading } from './CardHeading'
 import '@testing-library/jest-dom'
 
-describe('Card Heading', () => {
+describe('CardHeading', () => {
   it('renders', () => {
     render(<CardHeading level={1} />)
 

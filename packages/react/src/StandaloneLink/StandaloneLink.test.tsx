@@ -13,7 +13,7 @@ import '@testing-library/jest-dom'
 
 const TestIcon = (props: SVGProps<SVGSVGElement>) => <svg {...props} className="test-class" />
 
-describe('Standalone Link', () => {
+describe('StandaloneLink', () => {
   it('renders with href attribute', () => {
     render(<StandaloneLink href="#" />)
 

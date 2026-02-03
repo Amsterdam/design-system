@@ -39,7 +39,7 @@ const images: ImageSliderProps['images'] = [
 // These tests are covered in Storybook interaction tests: storybook/src/components/ImageSlider/ImageSlider.test.stories.tsx
 // The window resize functionality is currently not tested anywhere, because this is difficult in both environments.
 
-describe('Image Slider', () => {
+describe('ImageSlider', () => {
   it('renders', () => {
     const { container } = render(<ImageSlider images={images} />)
 
