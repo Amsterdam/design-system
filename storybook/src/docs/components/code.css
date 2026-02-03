@@ -5,22 +5,23 @@
 
 /*  Replicates the styles of the Code preview in Storybook Docs */
 ._ams-code {
-  background-color: #f7fafc;
-  border: var(--ams-border-width-s) solid #ecf4f9;
+  background-color: rgb(247 250 252);
+  border: 1px solid rgb(236 244 249);
   border-radius: 3px;
-  color: var(--ams-color-text);
+  color: rgb(46 52 56 / 90%);
   display: inline-block;
 
-  /* ui-monospace is not yet widely supported, fallbacks are provided */
-  /* stylelint-disable-next-line plugin/use-baseline */
+  /* stylelint-disable-next-line plugin/use-baseline -- ui-monospace is not widely supported, fallbacks are provided */
   font-family:
     ui-monospace, "Menlo", "Monaco", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Droid Sans Mono", "Courier New", monospace;
-  font-size: 0.8125rem;
+  font-size: 13px;
   -webkit-font-smoothing: antialiased;
   line-height: 1;
-  padding-block: var(--ams-space-xs);
-  padding-inline: var(--ams-space-xs);
+  margin-block: 0;
+  margin-inline: 2px;
+  padding-block: 3px;
+  padding-inline: 5px;
   vertical-align: baseline;
   white-space: nowrap;
 }
