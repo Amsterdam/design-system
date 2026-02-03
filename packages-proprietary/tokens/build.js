@@ -43,7 +43,6 @@ StyleDictionary.registerTransform({
 })
 
 const modes = ['compact']
-const sharedTransforms = ['dtcg/dimension']
 
 function generateSharedConfig(mode) {
   const name = mode || 'index'
@@ -60,7 +59,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: ['name/customKebab', ...sharedTransforms],
+      transforms: ['dtcg/dimension', 'name/customKebab'],
     },
     cssTheme: {
       buildPath: 'dist/',
@@ -74,7 +73,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: ['name/customKebab', ...sharedTransforms],
+      transforms: ['dtcg/dimension', 'name/customKebab'],
     },
     js: {
       buildPath: 'dist/',
@@ -84,7 +83,7 @@ function generateSharedConfig(mode) {
           format: 'javascript/es6',
         },
       ],
-      transforms: ['name/customCamel', ...sharedTransforms],
+      transforms: ['dtcg/dimension', 'name/customCamel'],
     },
     json: {
       buildPath: 'dist/',
@@ -94,7 +93,7 @@ function generateSharedConfig(mode) {
           format: 'json/nested',
         },
       ],
-      transforms: ['name/camel', ...sharedTransforms],
+      transforms: ['dtcg/dimension', 'name/camel'],
     },
     scss: {
       buildPath: 'dist/',
@@ -107,7 +106,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: ['name/customKebab', ...sharedTransforms],
+      transforms: ['dtcg/dimension', 'name/customKebab'],
     },
     typescript: {
       buildPath: 'dist/',
@@ -117,7 +116,7 @@ function generateSharedConfig(mode) {
           format: 'typescript/module-declarations',
         },
       ],
-      transforms: ['name/customCamel', ...sharedTransforms],
+      transforms: ['dtcg/dimension', 'name/customCamel'],
     },
   }
 }
