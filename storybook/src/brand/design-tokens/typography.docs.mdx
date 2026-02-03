@@ -92,13 +92,12 @@ If it is not available, we use Arial or the generic sans-serif instead.
 ### Hyphenation
 
 Words that do not fit on a single line will be split with a hyphen and continue on the next line.
-This happens automatically, but only for words of 12 or more characters.
-There must be at least 8 characters before the hyphen and 4 characters after it.
-This rule helps keep the text readable and prevents strange hyphenations.
+We let the browser decide when and how to hyphenate words.
+This is why it is important to [set the correct language](/docs/docs-developer-guide-language--docs#specify-the-language-for-the-entire-document) for the website.
 
-| CSS variable                                  | Value  |
-| :-------------------------------------------- | :----- |
-| `var(--ams-typography-hyphenate-limit-chars)` | 12 8 4 |
+| CSS variable                                  | Value |
+| :-------------------------------------------- | :---- |
+| `var(--ams-typography-hyphenate-limit-chars)` | auto  |
 
 ### Underlining
 
