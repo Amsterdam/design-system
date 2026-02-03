@@ -12,7 +12,6 @@ import { Page } from '@amsterdam/design-system-react'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { clsx } from 'clsx'
 
-import { Code } from '../src/docs/components/Code'
 import { viewports } from './viewports'
 
 export const argTypes = {
@@ -70,9 +69,6 @@ export const parameters = {
     sort: 'alpha', // Sorts controls in the Controls addon
   },
   docs: {
-    components: {
-      code: Code,
-    },
     controls: {
       sort: 'alpha', // Sorts controls in the Controls doc block – https://github.com/storybookjs/storybook/issues/25386#issuecomment-1905468177
     },
