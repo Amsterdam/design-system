@@ -12,13 +12,13 @@
       "border-style": {
         "$value": "solid",
         "$extensions": {
-          "amsterdam.designsystem.type": "borderStyle"
+          "nl.amsterdam.type": "borderStyle"
         }
       },
       "border-width": {
         "$value": "{ams.border.width.xl}",
         "$extensions": {
-          "amsterdam.designsystem.type": "borderWidth"
+          "nl.amsterdam.type": "borderWidth"
         }
       },
       "severity-indicator": {
@@ -30,14 +30,14 @@
           "$value": "{ams.space.m}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "padding-inline": {
           "$value": "{ams.space.s}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         }
       },
@@ -46,21 +46,21 @@
           "$value": "{ams.space.s}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "padding-block": {
           "$value": "{ams.space.m}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "padding-inline": {
           "$value": "{ams.space.m}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         }
       },

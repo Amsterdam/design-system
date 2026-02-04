@@ -15,7 +15,7 @@
       "font-size": {
         "$value": "{ams.typography.body-text.font-size}",
         "$extensions": {
-          "amsterdam.designsystem.type": "fontSize"
+          "nl.amsterdam.type": "fontSize"
         }
       },
       "font-weight": {
@@ -26,20 +26,20 @@
         "$value": "{ams.space.s}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "space"
+          "nl.amsterdam.subtype": "space"
         }
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
-          "amsterdam.designsystem.type": "lineHeight"
+          "nl.amsterdam.type": "lineHeight"
         }
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "space"
+          "nl.amsterdam.subtype": "space"
         }
       },
       "text-decoration-thickness": {
@@ -50,7 +50,7 @@
         "$value": "{ams.links.text-underline-offset}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "space"
+          "nl.amsterdam.subtype": "space"
         }
       },
       "disabled": {

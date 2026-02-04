@@ -12,8 +12,8 @@ import { DesignTokensTableRow } from './DesignTokensTableRow'
 
 type Token = {
   $extensions?: {
-    'amsterdam.designsystem.subtype'?: string
-    'amsterdam.designsystem.type'?: string
+    'nl.amsterdam.subtype'?: string
+    'nl.amsterdam.type'?: string
   }
   $type?: string
   $value: string | { unit: string; value: number }
@@ -52,8 +52,7 @@ const flattenTokens = (tokens: Tokens, scope: string[] = []): TokenEntry[] =>
       return [
         {
           path: `--${currentPath.join('-')}`,
-          type:
-            $extensions?.['amsterdam.designsystem.subtype'] ?? $type ?? $extensions?.['amsterdam.designsystem.type'],
+          type: $extensions?.['nl.amsterdam.subtype'] ?? $type ?? $extensions?.['nl.amsterdam.type'],
           value: normalizedValue,
         },
       ]

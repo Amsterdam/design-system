@@ -6,14 +6,14 @@
           "$deprecated": "Use `ams.typography.heading.1.font-size` instead.",
           "$value": "{ams.typography.heading.0.font-size}",
           "$extensions": {
-            "amsterdam.designsystem.type": "fontSize"
+            "nl.amsterdam.type": "fontSize"
           }
         },
         "line-height": {
           "$deprecated": "Use `ams.typography.heading.1.line-height` instead.",
           "$value": "{ams.typography.heading.0.line-height}",
           "$extensions": {
-            "amsterdam.designsystem.type": "lineHeight"
+            "nl.amsterdam.type": "lineHeight"
           }
         }
       }

@@ -6,7 +6,7 @@
           "$value": "{ams.space.xs}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "before-error-message": {
@@ -14,7 +14,7 @@
             "$value": "{ams.space.s}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "space"
+              "nl.amsterdam.subtype": "space"
             }
           }
         },
@@ -23,7 +23,7 @@
             "$value": "{ams.space.m}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "space"
+              "nl.amsterdam.subtype": "space"
             }
           }
         },
@@ -32,7 +32,7 @@
             "$value": "{ams.space.l}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "space"
+              "nl.amsterdam.subtype": "space"
             }
           }
         }
@@ -45,7 +45,7 @@
           "$value": "{ams.space.m}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         }
       },
@@ -61,7 +61,7 @@
         "font-size": {
           "$value": "{ams.typography.heading.3.font-size}",
           "$extensions": {
-            "amsterdam.designsystem.type": "fontSize"
+            "nl.amsterdam.type": "fontSize"
           }
         },
         "font-weight": {
@@ -71,7 +71,7 @@
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "amsterdam.designsystem.type": "lineHeight"
+            "nl.amsterdam.type": "lineHeight"
           }
         },
         "text-wrap": {

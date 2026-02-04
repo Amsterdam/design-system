@@ -5,7 +5,7 @@
         "$value": "{ams.space.m}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "space"
+          "nl.amsterdam.subtype": "space"
         }
       },
       "list": {
@@ -28,7 +28,7 @@
         "font-size": {
           "$value": "{ams.typography.body-text.font-size}",
           "$extensions": {
-            "amsterdam.designsystem.type": "fontSize"
+            "nl.amsterdam.type": "fontSize"
           }
         },
         "font-weight": {
@@ -38,28 +38,28 @@
         "line-height": {
           "$value": "{ams.typography.body-text.line-height}",
           "$extensions": {
-            "amsterdam.designsystem.type": "lineHeight"
+            "nl.amsterdam.type": "lineHeight"
           }
         },
         "outline-offset": {
           "$value": "calc({ams.focus.outline-offset} * -1)",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "padding-block": {
           "$value": "{ams.space.s}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "padding-inline": {
           "$value": "{ams.space.m}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "hover": {

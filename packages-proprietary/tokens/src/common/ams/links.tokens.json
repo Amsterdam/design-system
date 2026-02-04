@@ -12,7 +12,7 @@
         },
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.hint": "2px"
+          "nl.amsterdam.hint": "2px"
         }
       },
       "text-underline-offset": {
@@ -22,8 +22,8 @@
         },
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.hint": "2.5px",
-          "amsterdam.designsystem.subtype": "space"
+          "nl.amsterdam.hint": "2.5px",
+          "nl.amsterdam.subtype": "space"
         }
       },
       "hover": {
@@ -38,7 +38,7 @@
           },
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.hint": "3px"
+            "nl.amsterdam.hint": "3px"
           }
         },
         "text-underline-offset": {
@@ -48,8 +48,8 @@
           },
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.hint": "1.5px",
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.hint": "1.5px",
+            "nl.amsterdam.subtype": "space"
           }
         }
       },
