@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as FigureStories from "./Figure.stories.tsx";
 import README from "../../../../packages/css/src/components/figure/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/figure.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={FigureStories} />
 
@@ -18,3 +22,7 @@ Use the inverse colour if the Figure Caption sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
 <Canvas of={FigureStories.InverseColour} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { PageFooter } from './PageFooter'
 import '@testing-library/jest-dom'
 
-describe('Page Footer Menu Link', () => {
+describe('PageFooterMenuLink', () => {
   it('renders with href attribute', () => {
     render(<PageFooter.MenuLink href="#">Link</PageFooter.MenuLink>)
 

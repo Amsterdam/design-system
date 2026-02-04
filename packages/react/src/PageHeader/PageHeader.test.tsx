@@ -5,6 +5,7 @@
 
 import type { AnchorHTMLAttributes } from 'react'
 
+import { PlusIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
@@ -13,7 +14,7 @@ import './matchMedia.mock' // Must be imported before PageHeader
 import { PageHeader } from './PageHeader'
 import '@testing-library/jest-dom'
 
-describe('Page Header', () => {
+describe('PageHeader', () => {
   it('renders', () => {
     render(<PageHeader />)
 
@@ -249,5 +250,13 @@ describe('Page Header', () => {
     const customLink = screen.getByRole('link', { name: 'Gemeente Amsterdam logo Ga naar de homepage' })
 
     expect(customLink).toHaveAttribute('data-test')
+  })
+
+  it('renders a custom icon', () => {
+    render(<PageHeader menuButtonIcon={<PlusIcon aria-label="plus-icon" className="test-class" />}>Test</PageHeader>)
+
+    const icon = screen.getByLabelText('plus-icon')
+
+    expect(icon).toHaveClass('test-class')
   })
 })

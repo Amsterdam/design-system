@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as GridStories from "./Grid.stories";
 import README from "../../../../packages/css/src/components/grid/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/grid.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={GridStories} />
 
@@ -83,3 +87,7 @@ Use the `as` prop on either to make your markup more semantic.
 - The same applies to starting a cell in a later column.
 - If the total of both values is too large, the browser adds columns to the grid.
   This is not allowed.
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

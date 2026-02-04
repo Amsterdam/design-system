@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as ImageSliderStories from "./ImageSlider.stories.tsx";
 import README from "../../../../packages/css/src/components/image-slider/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/image-slider.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={ImageSliderStories} />
 
@@ -21,3 +25,7 @@ A mobile device can often download a smaller file, saving the user’s bandwidth
 Don’t forget to still include the required `src` attribute.
 
 <Canvas of={ImageSliderStories.ResponsiveImages} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

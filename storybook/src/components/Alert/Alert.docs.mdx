@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as AlertStories from "./Alert.stories.tsx";
 import README from "../../../../packages/css/src/components/alert/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/alert.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={AlertStories} />
 
@@ -44,3 +48,7 @@ An informative message can emphasize matters that are useful to follow.
 Include an inline link in the text to guide the user.
 
 <Canvas of={AlertStories.WithInlineLink} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

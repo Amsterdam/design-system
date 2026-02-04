@@ -5,19 +5,16 @@
 
 import type { ForwardedRef, HTMLAttributes } from 'react'
 
+import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 
 import type { ImageProps } from '../Image/Image'
 
 import { Image } from '../Image/Image'
-import { ImageSliderContext } from './ImageSliderContext'
-import { ImageSliderControls } from './ImageSliderControls'
-import { ImageSliderItem } from './ImageSliderItem'
-import { ImageSliderScroller } from './ImageSliderScroller'
+import { ImageSliderControl } from './ImageSliderControl'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
-
-export type ImageSliderImageProps = ImageProps
+import { debounce, scrollToCurrentSlideOnResize, scrollToSlide, setCurrentSlideIdToVisibleSlide } from './utils'
 
 export type ImageSliderProps = {
   /** Display buttons to navigate to the previous or next image. */
@@ -25,14 +22,17 @@ export type ImageSliderProps = {
   /** Label for the image if you need to translate the alt text. */
   imageLabel?: string
   /** The set of images to display. */
-  images: ImageSliderImageProps[]
+  images: ImageProps[]
   /** The label for the ‘next’ button */
   nextLabel?: string
   /** The label for the ‘previous’ button */
   previousLabel?: string
 } & HTMLAttributes<HTMLDivElement>
 
-export const ImageSliderRoot = forwardRef(
+/**
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
+ */
+export const ImageSlider = forwardRef(
   (
     {
       className,
@@ -45,141 +45,101 @@ export const ImageSliderRoot = forwardRef(
     }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
+    if (images.length === 0) return null
+
     const [currentSlideId, setCurrentSlideId] = useState(0)
-    const [isAtStart, setIsAtStart] = useState(true)
-    const [isAtEnd, setIsAtEnd] = useState(false)
-    const targetRef = useRef<HTMLDivElement>(null)
-    const observerRef = useRef<IntersectionObserver | null>(null)
 
-    const inView = useCallback((observations: IntersectionObserverEntry[]) => {
-      const images = Array.from(targetRef.current?.children || [])
+    const scrollerRef = useRef<HTMLDivElement>(null)
 
-      observations.forEach((observation) => {
-        if (observation.isIntersecting) {
-          setCurrentSlideId(images.indexOf(observation.target as HTMLElement))
-        }
-      })
-    }, [])
+    const isAtStart = currentSlideId === 0
+    const isAtEnd = currentSlideId === images.length - 1
 
-    const observerOptions = useMemo(
-      () => ({
-        root: targetRef.current,
+    useEffect(() => {
+      if (!scrollerRef.current) return undefined
+
+      const observerOptions = {
+        root: scrollerRef.current,
         threshold: 0.6,
-      }),
-      [],
-    )
-
-    const updateControls = useCallback(() => {
-      const sliderScrollerElement = targetRef.current
-      if (!sliderScrollerElement) return
-
-      const { firstElementChild: firstElement, lastElementChild: lastElement } = sliderScrollerElement as HTMLDivElement
-
-      setIsAtStart(firstElement === sliderScrollerElement?.children[currentSlideId])
-      setIsAtEnd(lastElement === sliderScrollerElement?.children[currentSlideId])
-    }, [currentSlideId])
-
-    useEffect(() => {
-      if (targetRef.current) {
-        observerRef.current = new IntersectionObserver(inView, observerOptions)
-        const observer = observerRef.current
-
-        const slides = Array.from(targetRef.current.children)
-        slides.forEach((slide) => observer.observe(slide))
-
-        targetRef.current.addEventListener('scrollend', synchronise)
-
-        updateControls()
-
-        return () => {
-          slides.forEach((slide) => observer.unobserve(slide))
-          targetRef.current?.removeEventListener('scrollend', synchronise)
-        }
       }
 
-      return undefined
-    }, [inView, observerOptions, updateControls])
+      const observer = new IntersectionObserver(
+        (observations) => setCurrentSlideIdToVisibleSlide({ observations, ref: scrollerRef, setCurrentSlideId }),
+        observerOptions,
+      )
 
-    const synchronise = useCallback(() => updateControls(), [updateControls])
+      const slides = Array.from(scrollerRef.current.children)
+      slides.forEach((slide) => observer.observe(slide))
 
-    const goToSlide = useCallback((element: HTMLElement) => {
-      const sliderScrollerElement = targetRef.current
-      if (!sliderScrollerElement || !element) return
-
-      sliderScrollerElement.scrollTo({
-        left: element.offsetLeft,
-      })
+      return () => observer.disconnect()
     }, [])
 
-    const goToSlideId = useCallback(
-      (id: number) => {
-        const element = targetRef.current?.children[id] as HTMLElement | null
-        if (element) goToSlide(element)
-      },
-      [goToSlide],
-    )
-
-    const goToNextSlide = useCallback(() => {
-      const element = targetRef.current?.children[currentSlideId]
-      const nextElement = element?.nextElementSibling as HTMLElement | null
-
-      if (nextElement) goToSlide(nextElement)
-    }, [currentSlideId, goToSlide])
-
-    const goToPreviousSlide = useCallback(() => {
-      const element = targetRef.current?.children[currentSlideId]
-      const previousElement = element?.previousElementSibling as HTMLElement | null
-
-      if (previousElement) goToSlide(previousElement)
-    }, [currentSlideId, goToSlide])
-
     useEffect(() => {
-      const handleResize = () => {
-        const sliderScrollerElement = targetRef.current
-        const currentSlideElement = targetRef.current?.children[currentSlideId] as HTMLElement | null
-
-        if (!sliderScrollerElement || !currentSlideElement) return
-
-        const expectedScrollLeft = currentSlideElement.offsetLeft
-
-        if (Math.abs(sliderScrollerElement.scrollLeft - expectedScrollLeft) < 1) return
-
-        goToSlide(currentSlideElement)
-      }
+      const handleResize = debounce(() => scrollToCurrentSlideOnResize({ currentSlideId, ref: scrollerRef }), 100)
 
       window.addEventListener('resize', handleResize)
+
       return () => window.removeEventListener('resize', handleResize)
-    }, [currentSlideId, goToSlide])
+    }, [currentSlideId])
 
     return (
-      <ImageSliderContext.Provider
-        value={{ currentSlideId, goToNextSlide, goToPreviousSlide, goToSlideId, isAtEnd, isAtStart }}
+      <div
+        {...restProps}
+        aria-roledescription="carousel"
+        className={clsx(
+          'ams-image-slider',
+          // The 'ams-image-slider--controls' class is @deprecated and will be removed in a future release.
+          controls && 'ams-image-slider--controls',
+          className,
+        )}
+        ref={ref}
       >
-        <div
-          {...restProps}
-          aria-roledescription="carousel"
-          className={clsx('ams-image-slider', controls && 'ams-image-slider--controls', className)}
-          ref={ref}
-          tabIndex={-1}
-        >
-          {controls && <ImageSliderControls nextLabel={nextLabel} previousLabel={previousLabel} />}
-          <ImageSliderScroller aria-live="polite" ref={targetRef} role="group" tabIndex={0}>
-            {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
-              <ImageSliderItem key={index} slideId={index}>
-                <Image alt={alt} aspectRatio={aspectRatio} sizes={sizes} src={src} srcSet={srcSet} />
-              </ImageSliderItem>
-            ))}
-          </ImageSliderScroller>
-          <ImageSliderThumbnails imageLabel={imageLabel} thumbnails={images} />
+        {controls && (
+          <div className="ams-image-slider__controls">
+            <ImageSliderControl
+              disabled={isAtStart}
+              icon={ChevronBackwardIcon}
+              iconOnly
+              onClick={() => scrollToSlide(currentSlideId - 1, scrollerRef)}
+            >
+              {previousLabel}
+            </ImageSliderControl>
+            <ImageSliderControl
+              disabled={isAtEnd}
+              icon={ChevronForwardIcon}
+              iconOnly
+              onClick={() => scrollToSlide(currentSlideId + 1, scrollerRef)}
+            >
+              {nextLabel}
+            </ImageSliderControl>
+          </div>
+        )}
+        <div aria-live="polite" className="ams-image-slider__scroller" ref={scrollerRef} role="group" tabIndex={0}>
+          {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
+            <Image
+              alt={alt}
+              aria-hidden={index !== currentSlideId ? true : undefined}
+              aspectRatio={aspectRatio}
+              className={clsx(
+                'ams-image-slider__item',
+                // The 'ams-image-slider__item--in-view' class is @deprecated and will be removed in a future release.
+                index === currentSlideId && 'ams-image-slider__item--in-view',
+              )}
+              key={`${index}-${src}`}
+              sizes={sizes}
+              src={src}
+              srcSet={srcSet}
+            />
+          ))}
         </div>
-      </ImageSliderContext.Provider>
+        <ImageSliderThumbnails
+          currentSlideId={currentSlideId}
+          imageLabel={imageLabel}
+          scrollToSlide={(id) => scrollToSlide(id, scrollerRef)}
+          thumbnails={images}
+        />
+      </div>
     )
   },
 )
 
-ImageSliderRoot.displayName = 'ImageSlider'
-
-/**
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
- */
-export const ImageSlider = Object.assign(ImageSliderRoot, { Item: ImageSliderItem })
+ImageSlider.displayName = 'ImageSlider'

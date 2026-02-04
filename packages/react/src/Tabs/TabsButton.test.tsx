@@ -12,7 +12,7 @@ import '@testing-library/jest-dom'
 
 import { TabsContext } from './TabsContext'
 
-describe('Tabs button', () => {
+describe('TabsButton', () => {
   it('renders', () => {
     render(<TabsButton aria-controls="one" />)
 

@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as HeadingStories from "./Heading.stories.tsx";
 import README from "../../../../packages/css/src/components/heading/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/heading.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={HeadingStories} />
 
@@ -58,3 +62,7 @@ Headings can be paired with an icon.
 Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/docs/components-media-icon--docs) to align them.
 
 <Canvas of={HeadingStories.WithIcon} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

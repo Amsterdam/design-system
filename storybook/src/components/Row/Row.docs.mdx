@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as RowStories from "./Row.stories.tsx";
 import README from "../../../../packages/css/src/components/row/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/row.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={RowStories} />
 
@@ -81,3 +85,7 @@ This example centers three items vertically.
 Items that may not fit together on a single line should be allowed to wrap onto multiple lines.
 
 <Canvas of={RowStories.Wrapping} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

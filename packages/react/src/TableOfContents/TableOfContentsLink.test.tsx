@@ -9,7 +9,7 @@ import { createRef } from 'react'
 
 import { TableOfContents } from './TableOfContents'
 
-describe('Table of Contents link', () => {
+describe('TableOfContentsLink', () => {
   it('renders', () => {
     render(<TableOfContents.Link href="#" label="Test label" />)
 

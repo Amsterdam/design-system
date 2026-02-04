@@ -121,5 +121,13 @@
         "camelCaseSvgKeywords": true
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["storybook/src/**/*.css", "storybook/src/**/*.scss"],
+      "rules": {
+        "selector-class-pattern": "^(ams|_ams)-[a-z0-9_-]+$"
+      }
+    }
+  ]
 }

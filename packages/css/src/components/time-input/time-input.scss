@@ -67,11 +67,6 @@
   cursor: var(--ams-time-input-disabled-cursor);
 }
 
-.ams-time-input:disabled::-webkit-calendar-picker-indicator {
-  background-image: var(--ams-time-input-disabled-calendar-picker-indicator-background-image);
-  visibility: visible;
-}
-
 .ams-time-input:not(:disabled):invalid,
 .ams-time-input:not(:disabled)[aria-invalid="true"] {
   border-color: var(--ams-time-input-invalid-border-color);

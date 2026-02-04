@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as SpotlightStories from "./Spotlight.stories.tsx";
 import README from "../../../../packages/css/src/components/spotlight/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/spotlight.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={SpotlightStories} />
 
@@ -19,3 +23,7 @@ import README from "../../../../packages/css/src/components/spotlight/README.md?
 Use a Spotlight to direct the user’s attention to the most important or actionable content on the page.
 
 <Canvas of={SpotlightStories.HighlightContent} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

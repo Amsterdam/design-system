@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.0.0...design-system-css-v3.1.0) (2026-01-28)
+
+
+### Features
+
+* **Badge:** Add option to include an icon ([#2385](https://github.com/Amsterdam/design-system/issues/2385)) ([698c776](https://github.com/Amsterdam/design-system/commit/698c7762f9bc0c844598e71c45165f472d03c185))
+* Introduce Progress List component ([#2373](https://github.com/Amsterdam/design-system/issues/2373)) ([7309159](https://github.com/Amsterdam/design-system/commit/730915911eb28dff40137ff15063cf33c21f26fc))
+
+
+### Bug Fixes
+
+* **DateInput, TimeInput:** Prevent focus on picker icon when input is disabled ([#2378](https://github.com/Amsterdam/design-system/issues/2378)) ([e3fff0f](https://github.com/Amsterdam/design-system/commit/e3fff0fcf7fea144663342493a83afd4e73da7e8))
+* **Error Message:** Prevent adjacent elements from rendering inline ([#2389](https://github.com/Amsterdam/design-system/issues/2389)) ([112d76c](https://github.com/Amsterdam/design-system/commit/112d76c7dc1fd6f72d5c09dd5bca3d248e8b60ee))
+* **Image Slider:** Refactor and add tests ([#2375](https://github.com/Amsterdam/design-system/issues/2375)) ([0d01f0b](https://github.com/Amsterdam/design-system/commit/0d01f0b83c7f3b4b44765b0a9ccfe8ba287bb8aa))
+
 ## [3.0.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v2.2.0...design-system-css-v3.0.0) (2026-01-09)
 
 

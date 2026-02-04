@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as DateInputStories from "./DateInput.stories.tsx";
 import README from "../../../../packages/css/src/components/date-input/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/date-input.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={DateInputStories} />
 
@@ -97,3 +101,7 @@ If the Date Input can become invalid, add an Error Message and its `id` to the `
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 <Canvas of={DateInputStories.InAFieldWithValidation} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

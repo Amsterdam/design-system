@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { CalendarFillIcon } from '@amsterdam/design-system-react-icons'
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
@@ -17,6 +18,7 @@ describe('Badge', () => {
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()
+    expect(component?.tagName).toBe('SPAN')
   })
 
   it('renders a design system BEM class name', () => {
@@ -62,4 +64,24 @@ describe('Badge', () => {
       expect(component).toHaveClass(`ams-badge--${color}`)
     }),
   )
+
+  it('shows an icon', () => {
+    const { container } = render(<Badge icon={CalendarFillIcon} label="test" />)
+
+    const iconWrapper = container.querySelector('.ams-icon')
+    const icon = container.querySelector('svg')
+
+    expect(iconWrapper).toBeInTheDocument()
+    expect(icon).toBeInTheDocument()
+  })
+
+  it('passes additional props', () => {
+    const { container } = render(<Badge aria-hidden={false} data-test="data-test" id="id" label="test" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
