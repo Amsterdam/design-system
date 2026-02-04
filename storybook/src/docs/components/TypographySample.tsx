@@ -19,7 +19,7 @@ type TypographySampleProps = {
    * The font size to use in the example.
    * This shouldn’t be a `clamp` value or a token containing one –
    * we want to display the given size on any viewport.
-   * Sizes in `rems` are okay; this keeps the samples representative with zoomed text.
+   * Use `rems` so the font size scales automatically if the user changes their browser’s base font size.
    */
   fontSize?: string
   /** The font weight to use in the example. */
