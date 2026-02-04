@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
-      {logoBrands.map((brand) => (
+      {[undefined, ...logoBrands].map((brand) => (
         <Logo {...args} brand={brand} key={brand} />
       ))}
     </div>
