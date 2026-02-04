@@ -1,0 +1,81 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@mixin reset-button {
+  background: none;
+  border: none;
+  margin-block: 0; // [1]
+  margin-inline: 0; // [1]
+  padding-block: 0;
+  padding-inline: 0;
+
+  // [1] Remove the margin in older Safari.
+}
+
+.ams-calendar {
+  border-color: var(--ams-calendar-border-color);
+  border-style: var(--ams-calendar-border-style);
+  border-width: var(--ams-calendar-border-width);
+  display: inline-block;
+  flex-direction: column;
+  font-family: var(--ams-calendar-font-family);
+  font-size: var(--ams-calendar-font-size);
+  font-weight: var(--ams-calendar-font-weight);
+  inline-size: 20rem;
+  line-height: var(--ams-calendar-line-height);
+  max-inline-size: 100%;
+  padding-block: var(--ams-calendar-padding-block);
+  padding-inline: var(--ams-calendar-padding-inline);
+}
+
+.ams-calendar-month {
+  align-items: center;
+  display: flex;
+  margin-block-end: var(--ams-calendar-month-margin-block-end);
+}
+
+.ams-calendar-month__label {
+  margin-inline: auto;
+}
+
+.ams-calendar__weekday {
+  text-align: center;
+}
+
+.ams-calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.ams-calendar__day {
+  @include reset-button;
+
+  border-color: var(--ams-calendar-day-border-color);
+  border-style: var(--ams-calendar-day-border-style);
+  border-width: var(--ams-calendar-day-border-width);
+  cursor: var(--ams-button-cursor);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  outline-offset: var(--ams-calendar-day-outline-offset);
+  touch-action: manipulation;
+
+  &:not(:disabled) {
+    color: var(--ams-calendar-day-color);
+  }
+}
+
+.ams-calendar__day--current {
+  border-color: var(--ams-calendar-day-current-border-color);
+}
+
+.ams-calendar__day--selected {
+  background-color: var(--ams-calendar-day-selected-background-color);
+  border-color: var(--ams-calendar-day-selected-border-color);
+  color: var(--ams-calendar-day-selected-color) !important;
+  display: inline-block;
+  text-align: center;
+}
