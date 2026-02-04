@@ -2,7 +2,8 @@
   "ams": {
     "logo": {
       "block-size": {
-        "$value": "{ams.space.xl}"
+        "$value": "{ams.space.xl}",
+        "$type": "dimension"
       },
       "min-block-size": {
         "$value": {
