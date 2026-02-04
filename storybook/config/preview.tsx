@@ -59,23 +59,34 @@ export const decorators = [
 ]
 
 export const parameters = {
+  a11y: {
+    // 'todo' - show a11y violations in the test UI only
+    // 'error' - fail CI on a11y violations
+    // 'off' - skip a11y checks entirely
+    test: 'todo',
+  },
+
   backgrounds: {
     disabled: true,
     grid: {
       disable: true,
     },
   },
+
   controls: {
     sort: 'alpha', // Sorts controls in the Controls addon
   },
+
   docs: {
     controls: {
       sort: 'alpha', // Sorts controls in the Controls doc block – https://github.com/storybookjs/storybook/issues/25386#issuecomment-1905468177
     },
   },
+
   html: {
     root: '.ams-page',
   },
+
   options: {
     storySort: {
       order: [
@@ -90,10 +101,13 @@ export const parameters = {
       ],
     },
   },
+
   pseudo: {
     hover: ['.hover'],
   },
+
   viewMode: 'docs',
+
   viewport: {
     options: viewports,
   },
