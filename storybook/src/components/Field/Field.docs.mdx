@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as FieldStories from "./Field.stories.tsx";
 import README from "../../../../packages/css/src/components/field/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/field.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={FieldStories} />
 
@@ -47,3 +51,7 @@ Fields can be nested inside a Field Set.
 Use the `inFieldSet` prop on the Labels of the Fields to show them in a lighter style.
 
 <Canvas of={FieldStories.InAFieldSet} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

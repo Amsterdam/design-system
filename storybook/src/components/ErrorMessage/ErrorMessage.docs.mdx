@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as ErrorMessageStories from "./ErrorMessage.stories.tsx";
 import README from "../../../../packages/css/src/components/error-message/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/error-message.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={ErrorMessageStories} />
 
@@ -34,3 +38,7 @@ Replace the icon with another to use Error Message in a different theme or visua
 Websites for the City of Amsterdam must use the default icon.
 
 <Canvas of={ErrorMessageStories.WithCustomIcon} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

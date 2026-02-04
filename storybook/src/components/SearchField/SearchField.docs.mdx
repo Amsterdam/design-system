@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as SearchFieldStories from "./SearchField.stories.tsx";
 import README from "../../../../packages/css/src/components/search-field/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/search-field.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={SearchFieldStories} />
 
@@ -27,3 +31,7 @@ However, it can be controlled by React.
 If you enter a value in this search field and use the search Button or the Enter key, you will receive a notification.
 
 <Canvas of={SearchFieldStories.Controlled} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

@@ -3,12 +3,18 @@
     "icon": {
       "heading-0": {
         "font-size": {
-          "comment": "Deprecated. Use ‘heading 1’ instead.",
-          "value": "{ams.typography.heading.0.font-size}"
+          "$deprecated": "Use `ams.typography.heading.1.font-size` instead.",
+          "$value": "{ams.typography.heading.0.font-size}",
+          "$extensions": {
+            "amsterdam.designsystem.type": "fontSize"
+          }
         },
         "line-height": {
-          "comment": "Deprecated. Use ‘heading 1’ instead.",
-          "value": "{ams.typography.heading.0.line-height}"
+          "$deprecated": "Use `ams.typography.heading.1.line-height` instead.",
+          "$value": "{ams.typography.heading.0.line-height}",
+          "$extensions": {
+            "amsterdam.designsystem.type": "lineHeight"
+          }
         }
       }
     }

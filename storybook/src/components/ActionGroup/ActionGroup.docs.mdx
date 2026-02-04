@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as ActionGroupStories from "./ActionGroup.stories.tsx";
 import README from "../../../../packages/css/src/components/action-group/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/action-group.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={ActionGroupStories} />
 
@@ -25,3 +29,7 @@ Resize the pink rectangle to see this in action.
 An action that involves navigation should be a link.
 
 <Canvas of={ActionGroupStories.WithLink} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

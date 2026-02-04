@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as TableOfContentsStories from "./TableOfContents.stories.tsx";
 import README from "../../../../packages/css/src/components/table-of-contents/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/table-of-contents.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={TableOfContentsStories} />
 
@@ -17,3 +21,7 @@ import README from "../../../../packages/css/src/components/table-of-contents/RE
 ### Multiple levels
 
 <Canvas of={TableOfContentsStories.MultipleLevels} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />
