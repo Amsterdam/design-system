@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ams-space-l)' }}>
-      {spotlightColors.map((color) => (
+      {[undefined, ...spotlightColors].map((color) => (
         <Spotlight color={color} key={color}>
           <div style={{ padding: 'var(--ams-space-xl)' }}>
             <h2
