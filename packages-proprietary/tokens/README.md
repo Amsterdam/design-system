@@ -183,7 +183,7 @@ The following types come from the [Design Tokens Community Group (DTCG) specific
 
 #### Type
 
-For some properties, we add custom types under `$extensions.amsterdam.designsystem.type`:
+For some properties, we add custom types under `$extensions.nl.amsterdam.type`:
 
 | Type          | Description                      |
 | ------------- | -------------------------------- |
@@ -204,7 +204,7 @@ We add a subtype for certain types to further specify their purpose and preview.
 
 #### Hint
 
-An `$extensions.amsterdam.designsystem.hint` indicates special handling for internal use.
+An `$extensions.nl.amsterdam.hint` indicates special handling for internal use.
 
 ## Usage in Sass
 

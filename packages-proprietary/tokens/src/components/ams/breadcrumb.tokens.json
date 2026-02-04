@@ -8,7 +8,7 @@
       "font-size": {
         "$value": "{ams.typography.body-text.font-size}",
         "$extensions": {
-          "amsterdam.designsystem.type": "fontSize"
+          "nl.amsterdam.type": "fontSize"
         }
       },
       "font-weight": {
@@ -18,7 +18,7 @@
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
-          "amsterdam.designsystem.type": "lineHeight"
+          "nl.amsterdam.type": "lineHeight"
         }
       },
       "separator": {
@@ -37,7 +37,7 @@
           "$value": "{ams.space.s}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         }
       },
@@ -50,7 +50,7 @@
           "$value": "{ams.focus.outline-offset}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "text-decoration-line": {
@@ -64,7 +64,7 @@
           "$value": "{ams.links.text-underline-offset}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "hover": {

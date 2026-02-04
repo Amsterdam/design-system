@@ -48,7 +48,7 @@
           "$value": "{ams.space.m}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "medium": {
@@ -56,7 +56,7 @@
             "$value": "{ams.space.l}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "space"
+              "nl.amsterdam.subtype": "space"
             }
           }
         },
@@ -80,13 +80,13 @@
             "border-style": {
               "$value": "solid",
               "$extensions": {
-                "amsterdam.designsystem.type": "borderStyle"
+                "nl.amsterdam.type": "borderStyle"
               }
             },
             "border-width": {
               "$value": "{ams.border.width.m}",
               "$extensions": {
-                "amsterdam.designsystem.type": "borderWidth"
+                "nl.amsterdam.type": "borderWidth"
               }
             },
             "outline-color": {
@@ -96,13 +96,13 @@
             "outline-style": {
               "$value": "solid",
               "$extensions": {
-                "amsterdam.designsystem.type": "borderStyle"
+                "nl.amsterdam.type": "borderStyle"
               }
             },
             "outline-width": {
               "$value": "{ams.border.width.m}",
               "$extensions": {
-                "amsterdam.designsystem.type": "borderWidth"
+                "nl.amsterdam.type": "borderWidth"
               }
             }
           }
@@ -115,7 +115,7 @@
           "border-inline-style": {
             "$value": "dashed",
             "$extensions": {
-              "amsterdam.designsystem.type": "borderStyle"
+              "nl.amsterdam.type": "borderStyle"
             }
           },
           "border-inline-width": {
@@ -131,7 +131,7 @@
             "$value": "{ams.space.s}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "space"
+              "nl.amsterdam.subtype": "space"
             }
           }
         },
@@ -140,7 +140,7 @@
             "$value": "{ams.space.l}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "space"
+              "nl.amsterdam.subtype": "space"
             }
           }
         },
@@ -165,7 +165,7 @@
             "border-inline-style": {
               "$value": "solid",
               "$extensions": {
-                "amsterdam.designsystem.type": "borderStyle"
+                "nl.amsterdam.type": "borderStyle"
               }
             }
           }
@@ -196,7 +196,7 @@
           "$value": "{ams.space.m}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "step": {
@@ -205,7 +205,7 @@
               "$value": "{ams.space.m}",
               "$type": "dimension",
               "$extensions": {
-                "amsterdam.designsystem.subtype": "space"
+                "nl.amsterdam.subtype": "space"
               }
             },
             "medium": {
@@ -213,7 +213,7 @@
                 "$value": "{ams.space.l}",
                 "$type": "dimension",
                 "$extensions": {
-                  "amsterdam.designsystem.subtype": "space"
+                  "nl.amsterdam.subtype": "space"
                 }
               }
             }
@@ -243,13 +243,13 @@
               "border-style": {
                 "$value": "solid",
                 "$extensions": {
-                  "amsterdam.designsystem.type": "borderStyle"
+                  "nl.amsterdam.type": "borderStyle"
                 }
               },
               "border-width": {
                 "$value": "{ams.border.width.m}",
                 "$extensions": {
-                  "amsterdam.designsystem.type": "borderWidth"
+                  "nl.amsterdam.type": "borderWidth"
                 }
               },
               "outline-color": {
@@ -259,13 +259,13 @@
               "outline-style": {
                 "$value": "solid",
                 "$extensions": {
-                  "amsterdam.designsystem.type": "borderStyle"
+                  "nl.amsterdam.type": "borderStyle"
                 }
               },
               "outline-width": {
                 "$value": "{ams.border.width.m}",
                 "$extensions": {
-                  "amsterdam.designsystem.type": "borderWidth"
+                  "nl.amsterdam.type": "borderWidth"
                 }
               }
             }
@@ -282,7 +282,7 @@
             "border-inline-style": {
               "$value": "dashed",
               "$extensions": {
-                "amsterdam.designsystem.type": "borderStyle"
+                "nl.amsterdam.type": "borderStyle"
               }
             },
             "border-inline-width": {
@@ -291,7 +291,7 @@
                 "unit": "px"
               },
               "$extensions": {
-                "amsterdam.designsystem.type": "borderWidth"
+                "nl.amsterdam.type": "borderWidth"
               }
             },
             "margin-block-start": {
@@ -310,7 +310,7 @@
               "$value": "{ams.space.m}",
               "$type": "dimension",
               "$extensions": {
-                "amsterdam.designsystem.subtype": "space"
+                "nl.amsterdam.subtype": "space"
               }
             }
           },
@@ -335,7 +335,7 @@
               "border-inline-style": {
                 "$value": "solid",
                 "$extensions": {
-                  "amsterdam.designsystem.type": "borderStyle"
+                  "nl.amsterdam.type": "borderStyle"
                 }
               }
             }
@@ -361,7 +361,7 @@
               "$value": "{ams.space.l}",
               "$type": "dimension",
               "$extensions": {
-                "amsterdam.designsystem.subtype": "space"
+                "nl.amsterdam.subtype": "space"
               }
             }
           }

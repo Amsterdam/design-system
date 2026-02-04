@@ -9,15 +9,15 @@
         "$value": "{ams.space.l}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.subtype": "space"
+          "nl.amsterdam.subtype": "space"
         }
       },
       "padding-inline": {
         "$value": "{ams.grid.padding-inline}",
         "$type": "dimension",
         "$extensions": {
-          "amsterdam.designsystem.hint": "Must be the Grid inline padding, to make sure Header and Grid line up.",
-          "amsterdam.designsystem.subtype": "space"
+          "nl.amsterdam.hint": "Must be the Grid inline padding, to make sure Header and Grid line up.",
+          "nl.amsterdam.subtype": "space"
         }
       },
       "medium": {
@@ -25,7 +25,7 @@
           "$value": "{ams.grid.medium.padding-inline}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         }
       },
@@ -34,7 +34,7 @@
           "$value": "{ams.grid.wide.padding-inline}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         }
       },
@@ -43,14 +43,14 @@
           "$value": "{ams.space.m}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         }
       },
@@ -62,7 +62,7 @@
         "font-size": {
           "$value": "{ams.typography.heading.3.font-size}",
           "$extensions": {
-            "amsterdam.designsystem.type": "fontSize"
+            "nl.amsterdam.type": "fontSize"
           }
         },
         "font-weight": {
@@ -72,7 +72,7 @@
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "amsterdam.designsystem.type": "lineHeight"
+            "nl.amsterdam.type": "lineHeight"
           }
         },
         "text-wrap": {
@@ -84,7 +84,7 @@
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "button": {
@@ -106,14 +106,14 @@
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "row-gap": {
           "$value": "{ams.space.xs}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "item": {
@@ -125,7 +125,7 @@
             "$value": "{ams.space.xs}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "space"
+              "nl.amsterdam.subtype": "space"
             }
           },
           "font-family": {
@@ -135,7 +135,7 @@
           "font-size": {
             "$value": "{ams.typography.body-text.font-size}",
             "$extensions": {
-              "amsterdam.designsystem.type": "fontSize"
+              "nl.amsterdam.type": "fontSize"
             }
           },
           "font-weight": {
@@ -145,21 +145,21 @@
           "line-height": {
             "$value": "{ams.typography.body-text.line-height}",
             "$extensions": {
-              "amsterdam.designsystem.type": "lineHeight"
+              "nl.amsterdam.type": "lineHeight"
             }
           },
           "outline-offset": {
             "$value": "{ams.focus.outline-offset}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "space"
+              "nl.amsterdam.subtype": "space"
             }
           },
           "padding-block": {
             "$value": "{ams.space.xs}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "space"
+              "nl.amsterdam.subtype": "space"
             }
           },
           "hover": {
@@ -174,7 +174,7 @@
             "$value": "{ams.space.xs}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "space"
+              "nl.amsterdam.subtype": "space"
             }
           },
           "text-decoration-line": {
@@ -188,7 +188,7 @@
             "$value": "{ams.links.text-underline-offset}",
             "$type": "dimension",
             "$extensions": {
-              "amsterdam.designsystem.subtype": "space"
+              "nl.amsterdam.subtype": "space"
             }
           },
           "hover": {
@@ -203,14 +203,14 @@
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         },
         "row-gap": {
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
-            "amsterdam.designsystem.subtype": "space"
+            "nl.amsterdam.subtype": "space"
           }
         }
       }

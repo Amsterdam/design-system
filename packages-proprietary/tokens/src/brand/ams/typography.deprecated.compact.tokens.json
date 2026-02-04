@@ -7,7 +7,7 @@
             "$deprecated": "Use `ams.typography.heading.1.font-size` instead.",
             "$value": "clamp(2.1645rem, 2.072rem + 0.4626vw, 2.4883rem)",
             "$extensions": {
-              "amsterdam.designsystem.type": "fontSize"
+              "nl.amsterdam.type": "fontSize"
             }
           }
         },
@@ -16,7 +16,7 @@
             "$deprecated": "Use `ams.typography.heading.5.font-size` instead.",
             "$value": "{ams.typography.body-text.small.font-size}",
             "$extensions": {
-              "amsterdam.designsystem.type": "fontSize"
+              "nl.amsterdam.type": "fontSize"
             }
           }
         }

@@ -15,7 +15,7 @@
         "$deprecated": "Use the Heading component with level 1 instead.",
         "$value": "{ams.typography.heading.0.font-size}",
         "$extensions": {
-          "amsterdam.designsystem.type": "fontSize"
+          "nl.amsterdam.type": "fontSize"
         }
       },
       "font-weight": {
@@ -27,7 +27,7 @@
         "$deprecated": "Use the Heading component with level 1 instead.",
         "$value": "{ams.typography.heading.0.line-height}",
         "$extensions": {
-          "amsterdam.designsystem.type": "lineHeight"
+          "nl.amsterdam.type": "lineHeight"
         }
       },
       "text-wrap": {

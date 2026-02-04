@@ -9,7 +9,7 @@
         "font-size": {
           "$value": "{ams.typography.heading.3.font-size}",
           "$extensions": {
-            "amsterdam.designsystem.type": "fontSize"
+            "nl.amsterdam.type": "fontSize"
           }
         },
         "font-weight": {
@@ -19,7 +19,7 @@
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "amsterdam.designsystem.type": "lineHeight"
+            "nl.amsterdam.type": "lineHeight"
           }
         },
         "text-wrap": {

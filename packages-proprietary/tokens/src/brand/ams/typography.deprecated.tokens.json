@@ -7,14 +7,14 @@
             "$deprecated": "Use `ams.typography.heading.1.font-size` instead.",
             "$value": "clamp(2.435rem, 2.0409rem + 1.9709vw, 3.8147rem)",
             "$extensions": {
-              "amsterdam.designsystem.type": "fontSize"
+              "nl.amsterdam.type": "fontSize"
             }
           },
           "line-height": {
             "$deprecated": "Use `ams.typography.heading.1.line-height` instead.",
             "$value": "1.1",
             "$extensions": {
-              "amsterdam.designsystem.type": "lineHeight"
+              "nl.amsterdam.type": "lineHeight"
             }
           }
         },
@@ -23,14 +23,14 @@
             "$deprecated": "Use `ams.typography.heading.5.font-size` instead.",
             "$value": "{ams.typography.body-text.small.font-size}",
             "$extensions": {
-              "amsterdam.designsystem.type": "fontSize"
+              "nl.amsterdam.type": "fontSize"
             }
           },
           "line-height": {
             "$deprecated": "Use `ams.typography.heading.5.line-height` instead.",
             "$value": "1.4",
             "$extensions": {
-              "amsterdam.designsystem.type": "lineHeight"
+              "nl.amsterdam.type": "lineHeight"
             }
           }
         }
