@@ -131,7 +131,6 @@
 }
 
 @mixin page-header-menu-action {
-  color: var(--ams-page-header-menu-item-color);
   font-size: var(--ams-page-header-menu-item-font-size);
   font-weight: var(--ams-page-header-menu-item-font-weight);
   line-height: var(--ams-page-header-menu-item-line-height);
@@ -148,6 +147,7 @@
 }
 
 .ams-page-header__menu-link {
+  color: var(--ams-page-header-menu-item-color);
   display: inline-flex;
   gap: var(--ams-page-header-menu-link-gap);
   text-decoration-line: var(--ams-page-header-menu-link-text-decoration-line);

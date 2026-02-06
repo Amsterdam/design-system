@@ -143,6 +143,7 @@
         },
         "item": {
           "color": {
+            "$deprecated": "Use `ams.page-header.menu.link.color` instead.",
             "$value": "{ams.links.color}",
             "$type": "color"
           },
@@ -195,6 +196,10 @@
           }
         },
         "link": {
+          "color": {
+            "$value": "{ams.links.color}",
+            "$type": "color"
+          },
           "gap": {
             "$value": "{ams.space.xs}",
             "$type": "dimension",
