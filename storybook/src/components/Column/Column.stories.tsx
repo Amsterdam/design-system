@@ -11,9 +11,9 @@ import { columnGapSizes } from '@amsterdam/design-system-react/src/Column/Column
 import { crossAlignOptionsForColumn, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
 
 const ThreeItems = [
-  <div className="ams-docs-item" key={0} />,
-  <div className="ams-docs-item" key={1} />,
-  <div className="ams-docs-item" key={2} />,
+  <div className="_ams-item" key={0} />,
+  <div className="_ams-item" key={1} />,
+  <div className="_ams-item" key={2} />,
 ]
 
 const meta = {
@@ -21,7 +21,7 @@ const meta = {
   component: Column,
   args: {
     children: ThreeItems,
-    className: 'ams-docs-column',
+    className: '_ams-column',
   },
   argTypes: {
     align: {

@@ -60,14 +60,14 @@ export const IconGallery = ({ excludeIcons, icons }: IconGalleryProps) => {
   const sortedBaseNames = Object.keys(groupedIcons).sort((a, b) => a.localeCompare(b))
 
   return (
-    <div className="sb-unstyled ams-storybook-icon-gallery">
+    <div className="sb-unstyled _ams-icon-gallery">
       {sortedBaseNames.map((baseName) => (
-        <div className="ams-storybook-icon-gallery__item" key={baseName}>
-          <div className="ams-storybook-icon-gallery__icons">
+        <div className="_ams-icon-gallery__item" key={baseName}>
+          <div className="_ams-icon-gallery__icons">
             {groupedIcons[baseName].outline && <Icon size="heading-2" svg={Icons[groupedIcons[baseName].outline!]} />}
             {groupedIcons[baseName].filled && <Icon size="heading-2" svg={Icons[groupedIcons[baseName].filled!]} />}
           </div>
-          <p className="ams-storybook-icon-gallery__name">{baseName.substring(0, baseName.length - 4)}</p>
+          <p className="_ams-icon-gallery__name">{baseName.substring(0, baseName.length - 4)}</p>
         </div>
       ))}
     </div>

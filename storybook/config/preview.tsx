@@ -39,8 +39,8 @@ export const decorators = [
     return (
       <Page
         className={clsx({
-          'ams-docs-dark-background': args['color'] === 'inverse',
-          'ams-docs-light-background': args['color'] === 'contrast',
+          '_ams-page-background--dark': args['color'] === 'inverse',
+          '_ams-page-background--light': args['color'] === 'contrast',
         })}
         lang="nl"
         withMenu={withMenu}
