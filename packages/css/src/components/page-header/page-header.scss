@@ -172,6 +172,8 @@
 }
 
 .ams-page-header__mega-menu-button {
+  @include reset-button;
+
   column-gap: var(--ams-page-header-menu-item-column-gap);
   cursor: var(--ams-page-header-mega-menu-button-cursor);
   display: grid;
@@ -179,7 +181,6 @@
   grid-auto-flow: column;
 
   @include page-header-menu-action;
-  @include reset-button;
 }
 
 .ams-page-header__mega-menu-button[aria-expanded="true"] {
