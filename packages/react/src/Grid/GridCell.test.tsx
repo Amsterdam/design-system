@@ -11,7 +11,7 @@ import { Grid } from './Grid'
 import { gridCellTags } from './GridCell'
 import '@testing-library/jest-dom'
 
-describe('Grid cell', () => {
+describe('GridCell', () => {
   it('renders', () => {
     const { container } = render(<Grid.Cell />)
 

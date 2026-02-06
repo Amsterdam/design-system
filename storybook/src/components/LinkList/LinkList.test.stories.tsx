@@ -24,8 +24,8 @@ const options = ['Link 1', 'Link 2', 'Link 3']
 export const Test: Story = {
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ams-space-s)' }}>
-      {linkListLinkSizes.map((size) => {
-        return linkListLinkColors.map((color) => {
+      {[undefined, ...linkListLinkSizes].map((size) => {
+        return [undefined, ...linkListLinkColors].map((color) => {
           return (
             <LinkList
               key={color}

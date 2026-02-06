@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as TabsStories from "./Tabs.stories.tsx";
 import README from "../../../../packages/css/src/components/tabs/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/tabs.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={TabsStories} />
 
@@ -45,3 +49,7 @@ const handleClick = (event) => {
 ```
 
 <Canvas of={TabsStories.PreventTabsFromChanging} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { UnorderedListItem } from './UnorderedListItem'
 import '@testing-library/jest-dom'
 
-describe('Ordered list item', () => {
+describe('UnorderedListItem', () => {
   it('renders', () => {
     render(<UnorderedListItem />)
 
