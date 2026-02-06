@@ -95,8 +95,7 @@
       "style-dictionary"
     ],
     "overrides": {
-      "js-yaml@>=4.0.0 <4.1.1": ">=4.1.1",
-      "glob@>=11.0.0 <11.1.0": ">=11.1.0"
+      "@isaacs/brace-expansion@>=5.0.0 <5.1.0": ">=5.0.1"
     }
   }
 }
