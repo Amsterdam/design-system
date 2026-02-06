@@ -6,6 +6,22 @@
 @use "../../common/breakpoint" as *;
 @use "../../common/text-rendering" as *;
 
+@mixin reset-button {
+  background: none;
+  border: none;
+  margin-block: 0; // [1]
+  margin-inline: 0; // [1]
+  padding-inline: 0;
+
+  // [1] Remove the margin in older Safari.
+}
+
+@mixin reset-list {
+  list-style: none;
+  margin-block: 0;
+  padding-inline-start: 0;
+}
+
 .ams-page-header {
   /*
   * The logo link section is created twice: once outside the navigation and once hidden inside it.
@@ -89,12 +105,6 @@
   row-gap: var(--ams-page-header-navigation-row-gap);
 }
 
-@mixin reset-list {
-  list-style: none;
-  margin-block: 0;
-  padding-inline-start: 0;
-}
-
 .ams-page-header__menu {
   align-items: center;
   column-gap: var(--ams-page-header-menu-column-gap);
@@ -159,16 +169,6 @@
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: none;
   }
-}
-
-@mixin reset-button {
-  background: none;
-  border: none;
-  margin-block: 0; // [1]
-  margin-inline: 0; // [1]
-  padding-inline: 0;
-
-  // [1] Remove the margin in older Safari.
 }
 
 .ams-page-header__mega-menu-button {
