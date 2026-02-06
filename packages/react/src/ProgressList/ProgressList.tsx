@@ -47,7 +47,13 @@ const ProgressListRoot = forwardRef(
     }: ProgressListProps,
     ref: ForwardedRef<HTMLOListElement>,
   ) => (
-    <ProgressListContext.Provider value={{ completedAccessibleText, currentAccessibleText, headingLevel }}>
+    <ProgressListContext.Provider
+      value={{
+        completedAccessibleText: completedAccessibleText ?? 'Klaar',
+        currentAccessibleText: currentAccessibleText ?? 'Bezig',
+        headingLevel,
+      }}
+    >
       <ol
         {...restProps}
         className={clsx('ams-progress-list', `ams-progress-list--heading-${headingLevel}`, className)}
