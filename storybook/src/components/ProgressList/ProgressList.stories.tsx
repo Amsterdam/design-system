@@ -34,24 +34,6 @@ const meta = {
     ],
     headingLevel: 3,
   },
-  argTypes: {
-    completedAccessibleText: {
-      control: 'text',
-      table: {
-        defaultValue: {
-          summary: 'Klaar',
-        },
-      },
-    },
-    currentAccessibleText: {
-      control: 'text',
-      table: {
-        defaultValue: {
-          summary: 'Bezig',
-        },
-      },
-    },
-  },
 } satisfies Meta<typeof ProgressList>
 
 export default meta
