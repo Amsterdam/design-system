@@ -11,10 +11,11 @@
   color: rgb(46 52 56 / 90%);
   display: inline-block;
 
-  /* stylelint-disable-next-line plugin/use-baseline -- ui-monospace is not widely supported, fallbacks are provided */
+  /* stylelint-disable plugin/use-baseline -- ui-monospace is not widely supported but fallbacks are provided */
   font-family:
     ui-monospace, "Menlo", "Monaco", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Droid Sans Mono", "Courier New", monospace;
+  /* stylelint-enable plugin/use-baseline */
   font-size: 13px;
   -webkit-font-smoothing: antialiased;
   line-height: 1;
