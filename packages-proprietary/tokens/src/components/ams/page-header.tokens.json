@@ -88,6 +88,14 @@
           }
         },
         "button": {
+          "background-color": {
+            "$value": "{ams.color.interactive.default}",
+            "$type": "color"
+          },
+          "color": {
+            "$value": "{ams.color.text.inverse}",
+            "$type": "color"
+          },
           "cursor": {
             "$value": "{ams.cursor.interactive}"
           },
@@ -97,6 +105,23 @@
                 "$value": "{ams.typography.body-text.bold.font-weight}",
                 "$type": "fontWeight"
               }
+            }
+          },
+          "padding-inline": {
+            "$value": "{ams.space.s}",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
+          },
+          "hover": {
+            "background-color": {
+              "$value": "{ams.color.interactive.hover}",
+              "$type": "color"
+            },
+            "color": {
+              "$value": "{ams.color.text.inverse}",
+              "$type": "color"
             }
           }
         }
