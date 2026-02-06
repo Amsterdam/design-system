@@ -1906,7 +1906,14 @@ var ToolbarMenuItemContainer = styled("div")({
   id,
   name,
   description,
-  toolbar: { icon: _icon, items, title: _title, preventDynamicIcon, dynamicTitle, shortcuts }
+  toolbar: {
+    icon: _icon,
+    items,
+    title: _title,
+    preventDynamicIcon,
+    dynamicTitle = !0,
+    shortcuts
+  }
 }) => {
   let api = useStorybookApi(), [globals, updateGlobals, storyGlobals] = useGlobals(), currentValue = globals[id], isOverridden = id in storyGlobals, icon = _icon, title2 = _title;
   preventDynamicIcon || (icon = getSelectedItem({ currentValue, items })?.icon || icon), dynamicTitle && (title2 = getSelectedItem({ currentValue, items })?.title || title2), !title2 && !icon && console.warn(`Toolbar '${name}' has no title or icon`);
@@ -1964,7 +1971,8 @@ var ToolbarMenuItemContainer = styled("div")({
       resetLabel,
       onReset: resetItem ? () => updateGlobals({ [id]: resetItem?.value }) : void 0,
       onSelect: (selected) => updateGlobals({ [id]: selected }),
-      icon: icon && react_default.createElement(Icons, { icon, __suppressDeprecationWarning: !0 })
+      icon: icon && react_default.createElement(Icons, { icon, __suppressDeprecationWarning: !0 }),
+      showSelectedOptionTitle: dynamicTitle
     },
     title2
   );
@@ -5475,7 +5483,7 @@ var ViewportWrapper = styled.div(({ active, isDefault, theme }) => ({
         style: {
           height: `${1 / scale * 100}%`,
           width: `${1 / scale * 100}%`,
-          transform: `scale(${scale})`,
+          transform: scale !== 1 ? `scale(${scale})` : "none",
           transformOrigin: "top left"
         }
       },
