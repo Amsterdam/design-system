@@ -84,7 +84,7 @@ In Compact Mode, it also sets the background color to match the Page component s
 #### Keep the base font size
 
 Do not change the base font-size – e.g. through `html { font-size: 62.5% }`.
-Out typography system expects `1rem` to be the browser default of 16 pixels.
+Our typography system expects `1rem` to be the browser default of 16 pixels.
 
 #### Use extra bold text
 
