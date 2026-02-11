@@ -83,7 +83,6 @@
         "padding-inline": {
           "$value": "{ams.space.2xl}",
           "$type": "dimension",
-          "background-color": { "value": "initial" },
           "$extensions": {
             "nl.amsterdam.subtype": "space"
           }
