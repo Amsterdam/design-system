@@ -2,19 +2,91 @@
 
 # Definition of done
 
-## Generic
+## Quality requirements
 
-- You’ve followed [the contribution guidelines](../CONTRIBUTING.md)
-- You’ve added or updated the story of the component
-- Your code has the necessary tests written
-- The component’s style is imported in `css/src/index.scss`
-- The component can have an additional class name to enable restyling
-- The component has an EUPL-1.2+ license header, and all documentation has a Creative Commons 0 (CC0) license header
+### For components
 
-## React
+#### Required accessibility features
 
-- The component is exported in `src/index.ts`
-- The component, or all elements of a component for more complex cases, support(s) ForwardRef in React
+- Ensure focus outline is visible for interactive components.
+- Test on both mobile and desktop devices.
+- Verify visibility and usability when zoomed up to 200%.
+- Verify visibility and usability when adjusting the text size to the maximum.
+- Confirm that color is not the sole means of conveying information.
+- Validate the component using [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview), [WAVE](https://wave.webaim.org/standalone), and [the Markup Validation Service](https://validator.w3.org/).
+- Test with a screen reader.
+- If the component includes animation, verify it respects the `prefers-reduced-motion` setting.
+- Apply the provided CSS snippet and confirm that all elements are still rendered correctly, adhering to WCAG 1.4.12. In Chrome, you can utilize the Stylus plugin for easy implementation.
+
+```
+* {
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+
+p {
+  margin-bottom: 2em !important;
+}
+```
+
+#### Additional accessibility features
+
+- Translate the component into a right-to-left (RTL) language and verify that all content, including `aria-label` if used, is translated and displays correctly in RTL.
+- Check the print preview for correct rendering.
+- Check if the component still makes sense when CSS fails to load.
+- Ensure the component is still functional without JavaScript enabled.
+- Test in forced colors mode.
+
+#### Automated testing
+
+- Unit tests are written and pass.
+- A test story renders all component variants for visual regression testing.
+- Visual changes in Chromatic are reviewed and approved.
+- ESLint, Stylelint, and Prettier report no errors.
+
+### For pages
+
+All required accessibility features and verify that the heading hierarchy of the page is correct.
+When using Chrome, the HeadingsMap plugin makes this easier.
+
+For a more thorough test, see [Mike's accessibility checklist](https://tamtam.amsterdam.nl/do/page?id=5391962-70616765) (internal Gemeente Amsterdam network only).
+
+## Design
+
+The design team has looked at and approved new work.
+
+## Clean implementation
+
+<!-- TODO -->
+
+New components have been set up using our templates, or at least follow them.
+
+Lijstje dat ik naar Niels heb gestuurd + lijstje van Evi + wat Vincent nog heeft
+
+Huidige checklist in PRs
+
+## NL Design System
+
+The [NL Design System developer guidelines](https://nldesignsystem.nl/handboek/developer/introductie/) are followed.
+
+## Code conventions
+
+- You’ve followed [the contribution guidelines](../CONTRIBUTING.md).
+- CSS follows [the CSS coding conventions](../packages/css/documentation/coding-conventions.md).
+- React follows [the React coding conventions](../packages/react/documentation/coding-conventions.md).
+
+## Documentation
+
+- Props are typed with JSDoc descriptions.
+- A component README is written (documentation in English, example content in Dutch).
+- A Storybook story file exists with representative variants.
+- Documentation follows Storybook conventions (Sentence case headings, Title Case component names).
+
+## Licensing
+
+- Code files have a @license EUPL-1.2+ header with Copyright Gemeente Amsterdam
+- Documentation files have a @license CC0-1.0 header
 
 ## NL Design System
 
