@@ -79,10 +79,6 @@
 
 // Cell
 
-@mixin ams-grid__cell {
-  /* Empty */
-}
-
 @mixin ams-grid__cell--span-all {
   grid-column: 1 / -1;
 }

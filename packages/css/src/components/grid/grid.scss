@@ -67,8 +67,6 @@ $ams-grid-column-count: 12;
 // Cell
 
 .ams-grid__cell {
-  @include ams-grid__cell;
-
   background-color: var(--ams-grid-cell-background-color);
   padding-block: var(--ams-grid-cell-padding-block);
   padding-inline: var(--ams-grid-cell-padding-inline);
