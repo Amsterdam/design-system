@@ -8,7 +8,7 @@ import { useRef } from 'react'
 
 import { KeyboardKeys, useKeyboardFocus } from './useKeyboardFocus'
 
-describe('use focus with arrows', () => {
+describe('useKeyboardFocus', () => {
   const onFocusOneMock = jest.fn()
   const onFocusTwoMock = jest.fn()
   const onFocusThreeMock = jest.fn()

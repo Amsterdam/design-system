@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { PageFooter } from './PageFooter'
 import '@testing-library/jest-dom'
 
-describe('Page Footer Menu', () => {
+describe('PageFooterMenu', () => {
   it('renders a footer menu with children', () => {
     render(
       <PageFooter.Menu>

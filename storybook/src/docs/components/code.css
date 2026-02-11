@@ -1,0 +1,28 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/*  Replicates the styles of the Code preview in Storybook Docs */
+._ams-code {
+  background-color: rgb(247 250 252);
+  border: 1px solid rgb(236 244 249);
+  border-radius: 3px;
+  color: rgb(46 52 56 / 90%);
+  display: inline-block;
+
+  /* stylelint-disable plugin/use-baseline -- ui-monospace is not widely supported but fallbacks are provided */
+  font-family:
+    ui-monospace, "Menlo", "Monaco", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Droid Sans Mono", "Courier New", monospace;
+  /* stylelint-enable plugin/use-baseline */
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  margin-block: 0;
+  margin-inline: 2px;
+  padding-block: 3px;
+  padding-inline: 5px;
+  vertical-align: baseline;
+  white-space: nowrap;
+}

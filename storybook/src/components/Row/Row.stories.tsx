@@ -12,9 +12,9 @@ import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-re
 import { rowGapSizes } from '@amsterdam/design-system-react/src/Row/Row'
 
 const ThreeItems = [
-  <div className="ams-docs-item" key={0} />,
-  <div className="ams-docs-item" key={1} />,
-  <div className="ams-docs-item" key={2} />,
+  <div className="_ams-item" key={0} />,
+  <div className="_ams-item" key={1} />,
+  <div className="_ams-item" key={2} />,
 ]
 
 const meta = {
@@ -22,7 +22,7 @@ const meta = {
   component: Row,
   args: {
     children: ThreeItems,
-    className: 'ams-docs-row',
+    className: '_ams-row',
   },
   argTypes: {
     align: {
@@ -105,7 +105,7 @@ export const VerticalAlignment: Story = {
 export const Wrapping: Story = {
   args: {
     children: Array.from(Array(4).keys()).map((i) => (
-      <span className="ams-docs-item" key={i} style={{ flexBasis: '16rem' }} />
+      <span className="_ams-item" key={i} style={{ flexBasis: '16rem' }} />
     )),
     wrap: true,
   },

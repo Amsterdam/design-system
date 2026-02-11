@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as DialogStories from "./Dialog.stories.tsx";
 import README from "../../../../packages/css/src/components/dialog/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/dialog.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={DialogStories} />
 
@@ -24,3 +28,7 @@ Set a `value` on each button to identify which one was clicked.
 Consult [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog) for more information.
 
 <Canvas of={DialogStories.Confirmation} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

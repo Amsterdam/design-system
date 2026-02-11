@@ -15,7 +15,7 @@ type StatusBadgeProps = {
 
 /** Indicates the status of a component. Use this to prepare implementers for API changes. */
 export const StatusBadge = ({ description, status = 'beta' }: StatusBadgeProps) => (
-  <span className="ams-storybook-status-badge">
+  <span className="_ams-status-badge">
     <Badge color={status === 'deprecated' ? 'red' : 'orange'} label={status} />
     <span>{description}</span>
   </span>

@@ -10,7 +10,7 @@ import { Table } from './Table'
 import { TableFooter } from './TableFooter'
 import '@testing-library/jest-dom'
 
-describe('Table footer', () => {
+describe('TableFooter', () => {
   it('renders', () => {
     render(
       <Table>

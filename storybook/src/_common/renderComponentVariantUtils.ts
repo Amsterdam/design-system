@@ -154,7 +154,7 @@ export function buildComponentProps({
     className: clsx(
       state === 'hovered' ? 'hover' : undefined,
       typeof variant === 'string' && variant === 'inverse' && state !== 'disabled'
-        ? 'ams-docs-dark-background'
+        ? '_ams-page-background--dark'
         : undefined,
     ),
     ...(propName !== sizePropName && { [propName]: variant }),

@@ -1,31 +1,104 @@
 {
   "ams": {
     "grid": {
-      "column-count": { "value": "4" },
-      "column-gap": { "value": "{ams.space.xl}" },
-      "padding-block": {
-        "l": { "value": "{ams.space.l}" },
-        "xl": { "value": "{ams.space.xl}" },
-        "2xl": { "value": "{ams.space.2xl}" }
+      "column-count": {
+        "$value": "4"
       },
-      "padding-inline": { "value": "{ams.space.l}" },
+      "column-gap": {
+        "$value": "{ams.space.xl}",
+        "$type": "dimension",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space"
+        }
+      },
+      "padding-block": {
+        "l": {
+          "$value": "{ams.space.l}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
+        "xl": {
+          "$value": "{ams.space.xl}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
+        "2xl": {
+          "$value": "{ams.space.2xl}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        }
+      },
+      "padding-inline": {
+        "$value": "{ams.space.l}",
+        "$type": "dimension",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space"
+        }
+      },
       "row-gap": {
-        "l": { "value": "{ams.space.l}" },
-        "xl": { "value": "{ams.space.xl}" },
-        "2xl": { "value": "{ams.space.2xl}" }
+        "l": {
+          "$value": "{ams.space.l}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
+        "xl": {
+          "$value": "{ams.space.xl}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
+        "2xl": {
+          "$value": "{ams.space.2xl}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        }
       },
       "medium": {
-        "column-count": { "value": "8" },
-        "padding-inline": { "value": "{ams.space.xl}" }
+        "column-count": {
+          "$value": "8"
+        },
+        "padding-inline": {
+          "$value": "{ams.space.xl}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        }
       },
       "wide": {
-        "column-count": { "value": "12" },
-        "padding-inline": { "value": "{ams.space.2xl}" }
+        "column-count": {
+          "$value": "12"
+        },
+        "padding-inline": {
+          "$value": "{ams.space.2xl}",
+          "$type": "dimension",
+          "background-color": { "value": "initial" },
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        }
       },
       "cell": {
-        "background-color": { "value": "initial" },
-        "padding-block": { "value": "initial" },
-        "padding-inline": { "value": "initial" }
+        "background-color": {
+          "$value": "initial"
+        },
+        "padding-block": {
+          "$value": "initial"
+        },
+        "padding-inline": {
+          "$value": "initial"
+        }
       }
     }
   }

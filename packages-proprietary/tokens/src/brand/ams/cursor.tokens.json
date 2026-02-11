@@ -1,8 +1,12 @@
 {
   "ams": {
     "cursor": {
-      "disabled": { "value": "not-allowed" },
-      "interactive": { "value": "pointer" }
+      "disabled": {
+        "$value": "not-allowed"
+      },
+      "interactive": {
+        "$value": "pointer"
+      }
     }
   }
 }

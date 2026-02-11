@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { ActionGroup } from './ActionGroup'
 import '@testing-library/jest-dom'
 
-describe('Action Group', () => {
+describe('ActionGroup', () => {
   it('renders', () => {
     render(<ActionGroup />)
 

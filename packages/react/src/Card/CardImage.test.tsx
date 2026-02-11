@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { CardImage } from './CardImage'
 import '@testing-library/jest-dom'
 
-describe('Card Image', () => {
+describe('CardImage', () => {
   it('renders', () => {
     const { container } = render(<CardImage alt="" />)
 

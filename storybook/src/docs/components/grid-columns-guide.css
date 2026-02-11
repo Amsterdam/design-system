@@ -1,0 +1,36 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-grid-columns-guide {
+  block-size: 100vh;
+  /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
+  border-inline: thin solid var(--_ams-color-grey);
+  inset-block: 0;
+  inset-inline: 0;
+  position: absolute;
+
+  /* stylelint-disable-next-line selector-max-id */
+  #storybook-docs & {
+    block-size: 100%;
+  }
+}
+
+/* Increase specificity to override Grid Cell background in Compact Mode. */
+.ams-grid__cell._ams-grid-columns-guide__cell {
+  /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
+  background-color: var(--_ams-color-grey);
+}
+
+@media screen and (width < 37.5rem) {
+  ._ams-grid-columns-guide__cell:nth-child(n + 5) {
+    display: none;
+  }
+}
+
+@media screen and (width < 72.5rem) {
+  ._ams-grid-columns-guide__cell:nth-child(n + 9) {
+    display: none;
+  }
+}

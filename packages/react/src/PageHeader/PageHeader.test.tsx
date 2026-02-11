@@ -14,7 +14,7 @@ import './matchMedia.mock' // Must be imported before PageHeader
 import { PageHeader } from './PageHeader'
 import '@testing-library/jest-dom'
 
-describe('Page Header', () => {
+describe('PageHeader', () => {
   it('renders', () => {
     render(<PageHeader />)
 
