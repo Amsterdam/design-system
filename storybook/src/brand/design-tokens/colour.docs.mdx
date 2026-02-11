@@ -17,7 +17,7 @@ They are complemented by two greys and seven supplemental colours.
 
 The primary appearance of each colour has been called level 60.
 Some colours offer a darker shade at level 80 for hover effects.
-A light neutral colour is at level 20, white is at level 0, and black is at level 100.
+We have five neutral colours with white at level 0 and black at 100.
 
 <ColorPalette>
   <ColorPalette.Swatch name="red">
@@ -61,9 +61,9 @@ A light neutral colour is at level 20, white is at level 0, and black is at leve
 
 ## Brand tokens
 
-The term 'Brand' represents the highest level in the three-tier token structure of the [NL Design System](https://nldesignsystem.nl/handboek/design-tokens/).
+The term ‘Brand’ represents the highest level in the three-tier token structure of the [NL Design System](https://nldesignsystem.nl/handboek/design-tokens/).
 
-Our brand colour tokens have meaningful (semantic) names instead of generic labels like 'blue-60' or 'red-100' that other design systems may use.
+Our brand colour tokens have meaningful (semantic) names instead of generic labels like ‘blue-60’ or ‘red-100’ that other design systems may use.
 This approach ensures that the correct colour is used in the appropriate context.
 Always use a token for its intended purpose based on its name.
 Please reach out to us if you require a different colour token.
@@ -86,10 +86,10 @@ They are the same colour in Spacious Mode, but not in Compact Mode.
 
 #### Spacious Mode
 
-| CSS variable                         | Colour    | Example                                                                                                                                           |
-| :----------------------------------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `var(--ams-color-background)`        | neutral-0 | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background)' }} /> |
-| `var(--ams-color-background-canvas)` | neutral-0 | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background)' }} /> |
+| CSS variable                         | Colour    | Example                         |
+| :----------------------------------- | :-------- | :------------------------------ |
+| `var(--ams-color-background)`        | neutral-0 | <ColorSample value="#ffffff" /> |
+| `var(--ams-color-background-canvas)` | neutral-0 | <ColorSample value="#ffffff" /> |
 
 #### Compact Mode
 
@@ -97,14 +97,15 @@ The background colour of pages is light grey in Compact Mode.
 The cells of the Grid have a white background again.
 This is because the limited white space makes it more difficult to distinguish cells from each other.
 
-| CSS variable                         | Colour     | Example                                                                                                                                                  |
-| :----------------------------------- | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `var(--ams-color-background-canvas)` | neutral-10 | <div className="ams-docs-token-example--color ams-docs-token-example--color-border" style={{ backgroundColor: 'var(--ams-color-background-canvas)' }} /> |
+| CSS variable                         | Colour     | Example                         |
+| :----------------------------------- | :--------- | :------------------------------ |
+| `var(--ams-color-background)`        | neutral-0  | <ColorSample value="#ffffff" /> |
+| `var(--ams-color-background-canvas)` | neutral-10 | <ColorSample value="#e8e8e8" /> |
 
 ### Feedback
 
 Use these colours for positive and negative feedback, warnings, and messages that need attention.
-Interactive elements in an invalid state use the 'invalid interactive' token, not the 'error feedback' token.
+Interactive elements in an invalid state use the ‘invalid interactive’ token, not the ‘error feedback’ token.
 
 | CSS variable                        | Colour    | Example                                                   |
 | :---------------------------------- | :-------- | :-------------------------------------------------------- |
