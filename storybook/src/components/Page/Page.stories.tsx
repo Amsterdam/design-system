@@ -52,7 +52,7 @@ export const Default: Story = {
       <PageFooter key="footer">
         <PageFooter.Spotlight>
           <Grid paddingVertical="x-large">
-            <Grid.Cell span="all">
+            <Grid.Cell appearance="transparent" span="all">
               <Paragraph color="inverse">Page Footer</Paragraph>
             </Grid.Cell>
           </Grid>
