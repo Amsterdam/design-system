@@ -162,11 +162,9 @@
 }
 
 @mixin reset-button {
-  background: none;
   border: none;
   margin-block: 0; // [1]
   margin-inline: 0; // [1]
-  padding-inline: 0;
 
   // [1] Remove the margin in older Safari.
 }
