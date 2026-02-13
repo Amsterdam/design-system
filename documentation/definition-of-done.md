@@ -68,7 +68,7 @@ The design team has looked at and approved new work.
   - All tokens used are defined.
   - No unused tokens are defined.
 - **Unit tests:**
-  - Ensure tests use the correct roles.
+  - Ensure tests use the correct ARIA roles.
   - For enum props, all variants are covered in unit tests.
 - **Exports:**
   - Add or update exports in `index.*` files.
