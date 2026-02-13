@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 

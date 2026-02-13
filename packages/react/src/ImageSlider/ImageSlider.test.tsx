@@ -10,7 +10,6 @@ import { createRef } from 'react'
 import type { ImageSliderProps } from './ImageSlider'
 
 import { ImageSlider } from './ImageSlider'
-import '@testing-library/jest-dom'
 
 // Mock implementation of IntersectionObserver
 window.IntersectionObserver = jest.fn(() => ({

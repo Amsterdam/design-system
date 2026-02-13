@@ -9,7 +9,6 @@ import userEvent from '@testing-library/user-event'
 import type { ImageSliderProps } from './ImageSlider'
 
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
-import '@testing-library/jest-dom'
 
 const thumbnails: ImageSliderProps['images'] = [
   { alt: 'One', src: 'https://picsum.photos/id/122/320/180' },

@@ -7,7 +7,6 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { DescriptionList, descriptionListTermsWidths } from './DescriptionList'
-import '@testing-library/jest-dom'
 
 describe('DescriptionList', () => {
   it('renders', () => {

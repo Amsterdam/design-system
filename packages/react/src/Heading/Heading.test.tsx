@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Heading } from './Heading'
-import '@testing-library/jest-dom'
 
 describe('Heading', () => {
   it('renders an element with role heading', () => {

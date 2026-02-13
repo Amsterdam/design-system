@@ -8,7 +8,6 @@ import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 
 import { Accordion } from './Accordion'
-import '@testing-library/jest-dom'
 
 describe('Accordion', () => {
   it('renders an accordion', () => {

@@ -8,7 +8,6 @@ import { createRef } from 'react'
 
 import { gridGaps, gridPaddings } from '../Grid/Grid'
 import { Breakout } from './Breakout'
-import '@testing-library/jest-dom'
 
 describe('Breakout', () => {
   it('renders', () => {

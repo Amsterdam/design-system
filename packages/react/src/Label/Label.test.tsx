@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Label } from './Label'
-import '@testing-library/jest-dom'
 
 describe('Label', () => {
   it('renders an HTML label element', () => {

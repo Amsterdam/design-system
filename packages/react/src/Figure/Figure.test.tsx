@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Figure } from './Figure'
-import '@testing-library/jest-dom'
 
 describe('Figure', () => {
   it('renders', () => {

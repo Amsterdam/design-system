@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Select } from './Select'
-import '@testing-library/jest-dom'
 
 describe('SelectOption', () => {
   it('renders', () => {

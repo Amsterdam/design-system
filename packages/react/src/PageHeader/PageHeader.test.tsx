@@ -12,7 +12,6 @@ import { createRef } from 'react'
 
 import './matchMedia.mock' // Must be imported before PageHeader
 import { PageHeader } from './PageHeader'
-import '@testing-library/jest-dom'
 
 describe('PageHeader', () => {
   it('renders', () => {

@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { OrderedList } from './OrderedList'
-import '@testing-library/jest-dom'
 
 describe('OrderedList', () => {
   it('renders an HTML ol element', () => {
