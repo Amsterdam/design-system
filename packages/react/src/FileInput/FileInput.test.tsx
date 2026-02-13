@@ -7,7 +7,6 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { FileInput } from './FileInput'
-import '@testing-library/jest-dom'
 
 describe('FileInput', () => {
   it('renders', () => {

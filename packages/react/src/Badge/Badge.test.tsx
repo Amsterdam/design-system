@@ -8,7 +8,6 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Badge, badgeColors } from './Badge'
-import '@testing-library/jest-dom'
 
 describe('Badge', () => {
   it('renders', () => {

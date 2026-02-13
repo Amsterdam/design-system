@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { IconButton } from './IconButton'
-import '@testing-library/jest-dom'
 
 describe('IconButton', () => {
   it('renders', () => {

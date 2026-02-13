@@ -8,7 +8,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { PageHeaderMenuLink } from './PageHeaderMenuLink'
-import '@testing-library/jest-dom'
 
 describe('PageHeaderMenuLink', () => {
   it('renders', () => {

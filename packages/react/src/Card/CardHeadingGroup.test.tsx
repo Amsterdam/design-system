@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { CardHeadingGroup } from './CardHeadingGroup'
-import '@testing-library/jest-dom'
 
 describe('CardHeadingGroup', () => {
   it('renders', () => {
