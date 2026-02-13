@@ -6,7 +6,7 @@
 
 ### For components
 
-#### Required accessibility features
+#### Required accessibility checks
 
 - Ensure focus outline is visible for interactive components.
 - Test on both mobile and desktop devices.
@@ -30,7 +30,7 @@ p {
 }
 ```
 
-#### Additional accessibility features
+#### Additional accessibility checks
 
 - Translate the component into a right-to-left (RTL) language and verify that all content, including `aria-label` if used, is translated and displays correctly in RTL.
 - Check the print preview for correct rendering.
@@ -47,8 +47,9 @@ p {
 
 ### For pages
 
-All required accessibility features and verify that the heading hierarchy of the page is correct.
-When using Chrome, the HeadingsMap plugin makes this easier.
+- All required accessibility checks should pass.
+- Verify that the heading hierarchy of the page is correct.
+  When using Chrome, the HeadingsMap plugin makes this easier.
 
 For a more thorough test, see [Mike's accessibility checklist](https://tamtam.amsterdam.nl/do/page?id=5391962-70616765) (internal Gemeente Amsterdam network only).
 
@@ -58,13 +59,22 @@ The design team has looked at and approved new work.
 
 ## Clean implementation
 
-<!-- TODO -->
-
-New components have been set up using our templates, or at least follow them.
-
-Lijstje dat ik naar Niels heb gestuurd + lijstje van Evi + wat Vincent nog heeft
-
-Huidige checklist in PRs
+- **Component setup:** New components are created using our Plop templates. Extensions of existing components and new subcomponents also follow these templates.
+- **CSS validation:**
+  - All CSS declarations are necessary and have an effect.
+  - All CSS classes defined are actually used in the HTML.
+  - All classes used in the HTML are defined in the CSS.
+- **Token usage:**
+  - All tokens used are defined.
+  - No unused tokens are defined.
+- **Unit tests:**
+  - Ensure tests use the correct roles.
+  - For enum props, all variants are covered in unit tests.
+- **Exports:**
+  - Add or update exports in `index.*` files.
+  - Export the main component and its type. Also export the types of any subcomponents.
+- **Stories:**
+  - Add or update Storybook stories for new or changed components.
 
 ## NL Design System
 
@@ -74,7 +84,7 @@ The [NL Design System developer guidelines](https://nldesignsystem.nl/handboek/d
 
 - You’ve followed [the contribution guidelines](../CONTRIBUTING.md).
 - CSS follows [the CSS coding conventions](../packages/css/documentation/coding-conventions.md).
-- React follows [the React coding conventions](../packages/react/documentation/coding-conventions.md).
+- React code follows [the React coding conventions](../packages/react/documentation/coding-conventions.md).
 
 ## Documentation
 
