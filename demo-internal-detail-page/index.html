@@ -58,7 +58,9 @@
     
     <link href="./sb-addons/linus_janns-html-5/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/config-6/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/vitest-6/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/config-7/manager-bundle.js" rel="modulepreload" />
       <style>
   /* Looks like we can’t configure our custom theme to keep the background of controls light in dark mode. */
   #panel-tab-content,
@@ -75,7 +77,7 @@
     </style>
 
     
-    <link href="./sb-addons/config-6/manager-bundle.css" rel="stylesheet" />
+    <link href="./sb-addons/config-7/manager-bundle.css" rel="stylesheet" />
     
   </head>
   <body>
@@ -96,7 +98,8 @@
   "actions": true,
   "backgrounds": true,
   "outline": true,
-  "measure": true
+  "measure": true,
+  "sidebarOnboardingChecklist": true
 };
         
       
@@ -123,30 +126,21 @@
         
       
         
-          window['TAGS_OPTIONS'] = {
-  "dev-only": {
-    "excludeFromDocsStories": true
-  },
-  "docs-only": {
-    "excludeFromSidebar": true
-  },
-  "test-only": {
-    "excludeFromSidebar": true,
-    "excludeFromDocsStories": true
-  }
-};
+          window['TAGS_OPTIONS'] = {};
+        
+      
+        
+          window['STORYBOOK_BUILDER'] = "vite";
+        
+      
+        
+          window['STORYBOOK_FRAMEWORK'] = "react-vite";
         
       
         
           window['STORYBOOK_RENDERER'] = "react";
         
       
-        
-          window['STORYBOOK_BUILDER'] = "@storybook/builder-vite";
-        
-      
-        
-          window['STORYBOOK_FRAMEWORK'] = "@storybook/react-vite";
         
       
     </script>
@@ -168,7 +162,9 @@
       
         import './sb-addons/linus_janns-html-5/manager-bundle.js';
       
-        import './sb-addons/config-6/manager-bundle.js';
+        import './sb-addons/vitest-6/manager-bundle.js';
+      
+        import './sb-addons/config-7/manager-bundle.js';
       
 
       import './sb-manager/runtime.js';
