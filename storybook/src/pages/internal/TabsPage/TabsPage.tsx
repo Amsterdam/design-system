@@ -6,14 +6,20 @@
 import {
   ActionGroup,
   Button,
+  Column,
   DescriptionList,
+  Field,
+  FieldSet,
   Grid,
   Heading,
+  Label,
   Pagination,
   Paragraph,
   Row,
   Table,
   Tabs,
+  TextArea,
+  TextInput,
 } from '@amsterdam/design-system-react'
 import { DeleteIcon, SaveIcon } from '@amsterdam/design-system-react-icons'
 import { lazy, Suspense, useEffect, useState } from 'react'
@@ -146,7 +152,7 @@ export const TabsPage = () => {
 
       <Grid.Cell span={{ narrow: 4, medium: 3, wide: 3 }}>
         <Heading className="ams-mb-m" level={2}>
-          Subtitel
+          Informatie
         </Heading>
         <DescriptionList className="ams-mb-l">
           <DescriptionList.Term>Term 1</DescriptionList.Term>
@@ -156,8 +162,8 @@ export const TabsPage = () => {
           <DescriptionList.Term>Term 3</DescriptionList.Term>
           <DescriptionList.Description>Description 3</DescriptionList.Description>
         </DescriptionList>
-        <Heading className="ams-mb-m" level={2}>
-          Subtitel
+        <Heading className="ams-mb-m" level={3}>
+          Extra informatie
         </Heading>
         <DescriptionList>
           <DescriptionList.Term>Term 1</DescriptionList.Term>
@@ -171,57 +177,87 @@ export const TabsPage = () => {
       <Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }}>
         <Tabs>
           <Tabs.List>
-            <Tabs.Button aria-controls="Gegevens">Gegevens</Tabs.Button>
-            <Tabs.Button aria-controls="Aanslagen">Aanslagen</Tabs.Button>
-            <Tabs.Button aria-controls="Documenten">Documenten</Tabs.Button>
-            <Tabs.Button aria-controls="Acties">Acties</Tabs.Button>
+            <Tabs.Button aria-controls="Table">Table</Tabs.Button>
+            <Tabs.Button aria-controls="Form">Form</Tabs.Button>
+            <Tabs.Button aria-controls="Map">Map</Tabs.Button>
           </Tabs.List>
-          <Tabs.Panel id="Gegevens">
-            <Heading className="ams-mb-xs" level={3}>
-              Gegevens
-            </Heading>
-            <Suspense fallback={<Paragraph>Bezig met laden...</Paragraph>}>
-              <BrugTable
-                brugData={brugData}
-                columns={columns}
-                currentPage={currentPage}
-                error={error}
-                loading={loading}
-              />
-            </Suspense>
+          <Tabs.Panel id="Table">
+            <Column>
+              <Heading className="ams-mb-xs" level={3}>
+                Table
+              </Heading>
+              <Suspense fallback={<Paragraph>Bezig met laden...</Paragraph>}>
+                <BrugTable
+                  brugData={brugData}
+                  columns={columns}
+                  currentPage={currentPage}
+                  error={error}
+                  loading={loading}
+                />
+              </Suspense>
+            </Column>
           </Tabs.Panel>
-          <Tabs.Panel id="Aanslagen">
-            <Heading className="ams-mb-xs" level={3}>
-              Aanslagen
-            </Heading>
-            <Paragraph>
-              De Zuidas Community Garden is 1 van de projecten van de Green Business Club Zuidas. Het doel van deze club
-              is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt. 70 bedrijven en organisaties werken daarvoor
-              in verschillende projecten samen. De tuin aan de Domenico Scarlattilaan is elke dag open van 9.00 tot
-              17.00 uur.
-            </Paragraph>
+          <Tabs.Panel id="Form">
+            <form noValidate onSubmit={(e) => e.preventDefault()}>
+              <FieldSet className="ams-mb-l" legend="Contactgegevens">
+                <Field>
+                  <Label htmlFor="email-input" inFieldSet optional>
+                    E-mailadres
+                  </Label>
+                  <TextInput
+                    autoComplete="email"
+                    autoCorrect="off"
+                    id="email-input"
+                    name="email"
+                    size={30} // Based on this recommendation: https://design-system.service.gov.uk/patterns/email-addresses/#help-users-to-enter-a-valid-email-address
+                    spellCheck="false"
+                    type="email"
+                  />
+                </Field>
+                <Field>
+                  <Label htmlFor="tel-input" inFieldSet optional>
+                    Telefoonnummer
+                  </Label>
+                  <TextInput
+                    autoComplete="tel"
+                    id="tel-input"
+                    name="phone"
+                    size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
+                    type="tel"
+                  />
+                </Field>
+              </FieldSet>
+              <FieldSet className="ams-mb-l" legend="Adresgegevens">
+                <Field>
+                  <Label htmlFor="street-input" inFieldSet>
+                    Straatnaam
+                  </Label>
+                  <TextInput id="street-input" name="street" size={30} />
+                </Field>
+                <Field>
+                  <Label htmlFor="postal-input" inFieldSet>
+                    Postcode
+                  </Label>
+                  <TextInput id="postal-input" name="postal" size={10} />
+                </Field>
+              </FieldSet>
+              <FieldSet className="ams-mb-l" legend="Overige gegevens">
+                <Field>
+                  <Label htmlFor="notes-input" inFieldSet optional>
+                    Opmerkingen
+                  </Label>
+                  <TextArea id="notes-input" name="notes" rows={14} />
+                </Field>
+              </FieldSet>
+              <Button icon={SaveIcon} type="submit">
+                Opslaan
+              </Button>
+            </form>
           </Tabs.Panel>
-          <Tabs.Panel id="Documenten">
+          <Tabs.Panel id="Map">
             <Heading className="ams-mb-xs" level={3}>
-              Documenten
+              Map
             </Heading>
-            <Paragraph>
-              <Paragraph>
-                We richten de rotonde bij de Bouhuijstunnel opnieuw in en maken het veiliger. We passen ook het fiets-
-                en voetpad aan. De rotonde bij de Bouhuijstunnel verbindt de Korte Muiderweg, de Stationsweg en de
-                Leeuwenveldseweg met elkaar.
-              </Paragraph>
-            </Paragraph>
-          </Tabs.Panel>
-          <Tabs.Panel id="Acties">
-            <Heading className="ams-mb-xs" level={3}>
-              Acties
-            </Heading>
-            <Paragraph>
-              We richten de rotonde bij de Bouhuijstunnel opnieuw in en maken het veiliger. We passen ook het fiets- en
-              voetpad aan. De rotonde bij de Bouhuijstunnel verbindt de Korte Muiderweg, de Stationsweg en de
-              Leeuwenveldseweg met elkaar.
-            </Paragraph>
           </Tabs.Panel>
         </Tabs>
       </Grid.Cell>
