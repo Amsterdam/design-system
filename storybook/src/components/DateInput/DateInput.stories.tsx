@@ -74,9 +74,7 @@ export const InAFieldWithValidation: Story = {
 export const MemorableDate: Story = {
   render: () => (
     <FieldSet aria-describedby="description-a" legend="Wanneer ben je geboren?">
-      <Paragraph className="ams-mb-s" id="description-a">
-        Bijvoorbeeld 1 1 2000.
-      </Paragraph>
+      <Paragraph id="description-a">Bijvoorbeeld 1 1 2000.</Paragraph>
       <Row>
         <Column gap="small">
           <Label htmlFor="input-a1" inFieldSet>
@@ -104,12 +102,8 @@ export const MemorableDate: Story = {
 export const MemorableDateWithValidation: Story = {
   render: () => (
     <FieldSet aria-describedby="description-b error-b" invalid legend="Wanneer ben je geboren?">
-      <Paragraph className="ams-mb-s" id="description-b">
-        Bijvoorbeeld 1 1 2000.
-      </Paragraph>
-      <ErrorMessage className="ams-mb-s" id="error-b">
-        De datum moet in het verleden liggen.
-      </ErrorMessage>
+      <Paragraph id="description-b">Bijvoorbeeld 1 1 2000.</Paragraph>
+      <ErrorMessage id="error-b">De datum moet in het verleden liggen.</ErrorMessage>
       <Row>
         <Column gap="small">
           <Label htmlFor="input-b1" inFieldSet>

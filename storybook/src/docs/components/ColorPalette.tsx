@@ -12,7 +12,7 @@ import { forwardRef } from 'react'
 export type DivProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const ColorPaletteRoot = forwardRef(({ children, ...restProps }: DivProps, ref: ForwardedRef<HTMLDivElement>) => (
-  <div {...restProps} className="ams-docs-color-palette" ref={ref}>
+  <div {...restProps} className="_ams-color-palette" ref={ref}>
     {children}
   </div>
 ))
@@ -24,8 +24,8 @@ type ColorPaletteSwatchProps = PropsWithChildren<{
 }>
 
 const ColorPaletteSwatch = ({ children, name }: ColorPaletteSwatchProps) => (
-  <div className={clsx('ams-docs-color-swatch', `ams-docs-color-swatch--${name}`)}>
-    <span className="ams-docs-color-name">{name}</span>
+  <div className={clsx('_ams-color-palette-swatch', `_ams-color-palette-swatch--${name}`)}>
+    <span className="_ams-color-palette-name">{name}</span>
     {children}
   </div>
 )
@@ -39,9 +39,9 @@ type ColorPaletteTileProps = {
 
 const ColorPaletteTile = ({ color, level }: ColorPaletteTileProps) =>
   color && (
-    <div className={clsx('ams-docs-color-tile', `ams-docs-color-tile--${level}`)}>
-      <span className="ams-docs-color-level">{level}</span>
-      <div className="ams-docs-color-sample" style={{ backgroundColor: color }} title={color} />
+    <div className={clsx('_ams-color-palette-tile', `_ams-color-palette-tile--${level}`)}>
+      <span className="_ams-color-palette-level">{level}</span>
+      <div className="_ams-color-palette-sample" style={{ backgroundColor: color }} title={color} />
     </div>
   )
 

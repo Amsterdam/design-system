@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { Tabs } from './Tabs'
 import '@testing-library/jest-dom'
 
-describe('Tabs Panel', () => {
+describe('TabsPanel', () => {
   it('renders', () => {
     render(
       <Tabs>

@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as PageHeaderStories from "./PageHeader.stories.tsx";
 import README from "../../../../packages/css/src/components/page-header/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/page-header.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={PageHeaderStories} />
 
@@ -52,11 +56,11 @@ as well as the logo itself and its accessible name.
 
 ### With custom texts
 
-The text of the menu button and the accessible navigation description can be customized.
+The visible text of the menu button, its accessible texts and the accessible navigation description can be customized.
 
 <Canvas of={PageHeaderStories.WithCustomTexts} />
 
-### With a custom link component
+### With custom link component
 
 Pass a custom link component to the `logoLinkComponent` prop to use your routing library for the logo link.
 Here’s an example with the Link component of Next.js:
@@ -70,3 +74,18 @@ const LinkComponent = (props) => <NextLink {...props} />
 
 return <PageHeader logoLinkComponent={LinkComponent} />
 ```
+
+### With different branding
+
+Websites for the City of Amsterdam **must** use one of our own logos and our menu icon.
+
+Other organisations using this component can provide elements to display their own brand.
+The image for the logo must be an svg, and its label should be ‘name of the organisation + logo’.
+Set the appropriate values for the sizing tokens of [Logo](/docs/components-media-logo--docs).
+A different icon for the menu button must be an svg as well.
+
+<Canvas of={PageHeaderStories.WithDifferentBranding} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

@@ -5,10 +5,6 @@
 
 @use "../../common/text-rendering" as *;
 
-@mixin reset-button {
-  border-radius: 0; // Reset rounded borders on iOS devices
-}
-
 .ams-file-input {
   background-color: var(--ams-file-input-background-color);
   border-color: var(--ams-file-input-border-color);
@@ -52,8 +48,6 @@
   margin-inline-end: var(--ams-file-input-file-selector-button-margin-inline-end);
   padding-block: var(--ams-file-input-file-selector-button-padding-block);
   padding-inline: var(--ams-file-input-file-selector-button-padding-inline);
-
-  @include reset-button;
 }
 
 .ams-file-input:disabled::file-selector-button {

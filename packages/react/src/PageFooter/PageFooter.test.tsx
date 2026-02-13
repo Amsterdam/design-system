@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { PageFooter } from './PageFooter'
 import '@testing-library/jest-dom'
 
-describe('Page Footer', () => {
+describe('PageFooter', () => {
   it('renders an HTML footer element', () => {
     render(<PageFooter />)
 

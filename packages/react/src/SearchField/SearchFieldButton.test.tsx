@@ -9,7 +9,7 @@ import { createRef } from 'react'
 
 import { SearchField } from './SearchField'
 
-describe('Search Field Button', () => {
+describe('SearchFieldButton', () => {
   it('renders a submit button', () => {
     render(<SearchField.Button>Click me!</SearchField.Button>)
 

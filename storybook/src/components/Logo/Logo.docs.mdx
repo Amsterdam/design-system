@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as LogoStories from "./Logo.stories.tsx";
 import README from "../../../../packages/css/src/components/logo/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/logo.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={LogoStories} />
 
@@ -33,3 +37,18 @@ import README from "../../../../packages/css/src/components/logo/README.md?raw";
 ### Museum Weesp
 
 <Canvas of={LogoStories.MuseumWeesp} />
+
+### Custom
+
+Websites for the City of Amsterdam **must** use one of our own logos.
+
+Other organisations using this component can display their own brand by providing a label and a custom image.
+The label should be ‘name of the organisation + logo’.
+The image must be an svg.
+Set the appropriate values for the sizing tokens.
+
+<Canvas of={LogoStories.Custom} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

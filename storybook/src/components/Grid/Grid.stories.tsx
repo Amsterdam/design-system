@@ -9,6 +9,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Grid } from '@amsterdam/design-system-react/src'
 
 import { gridGapAndPaddingArgTypes } from '../../common'
+import { GridColumnsGuide } from '../../docs/components/GridColumnsGuide'
 
 const meta = {
   title: 'Components/Layout/Grid',
@@ -40,19 +41,11 @@ const cellMeta = {
 type Story = StoryObj<typeof meta>
 type CellStory = StoryObj<typeof cellMeta>
 
-const BackgroundGrid = () => (
-  <Grid className="ams-docs-grid">
-    {Array.from(Array(12).keys()).map((i) => (
-      <Grid.Cell className="ams-docs-grid__cell" key={i} />
-    ))}
-  </Grid>
-)
-
 const StoryTemplate: Story = {
   decorators: [
     (Story) => (
       <>
-        <BackgroundGrid />
+        <GridColumnsGuide />
         <Story />
       </>
     ),
@@ -63,7 +56,7 @@ const CellStoryTemplate: CellStory = {
   decorators: [
     (Story) => (
       <>
-        <BackgroundGrid />
+        <GridColumnsGuide />
         <Grid paddingVertical="x-large">
           <Story />
         </Grid>
@@ -80,7 +73,7 @@ export const Default: Story = {
 export const VerticalPadding: Story = {
   ...StoryTemplate,
   args: {
-    children: <Grid.Cell className="ams-docs-item" span="all" />,
+    children: <Grid.Cell className="_ams-item" span="all" />,
   },
 }
 
@@ -88,8 +81,8 @@ export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <Grid.Cell className="ams-docs-item" key={1} span="all" />,
-      <Grid.Cell className="ams-docs-item" key={2} span="all" />,
+      <Grid.Cell className="_ams-item" key={1} span="all" />,
+      <Grid.Cell className="_ams-item" key={2} span="all" />,
     ],
   },
 }
@@ -97,7 +90,7 @@ export const VerticalGap: Story = {
 export const SpanColumns: CellStory = {
   ...CellStoryTemplate,
   args: {
-    className: 'ams-docs-item',
+    className: '_ams-item',
     span: 4,
   },
 }
@@ -105,7 +98,7 @@ export const SpanColumns: CellStory = {
 export const SpanResponsively: CellStory = {
   ...CellStoryTemplate,
   args: {
-    className: 'ams-docs-item',
+    className: '_ams-item',
     span: { narrow: 4, medium: 6, wide: 8 },
   },
 }
@@ -113,7 +106,7 @@ export const SpanResponsively: CellStory = {
 export const SpanAllColumns: CellStory = {
   ...CellStoryTemplate,
   args: {
-    className: 'ams-docs-item',
+    className: '_ams-item',
     span: 'all',
   },
 }
@@ -121,7 +114,7 @@ export const SpanAllColumns: CellStory = {
 export const StartPosition: CellStory = {
   ...CellStoryTemplate,
   args: {
-    className: 'ams-docs-item',
+    className: '_ams-item',
     span: 3,
     start: { narrow: 2, medium: 4, wide: 6 },
   },
@@ -132,5 +125,5 @@ export const ImproveSemantics: CellStory = {
   args: {
     as: 'section',
   },
-  render: ({ as }: GridCellProps) => <Grid.Cell as={as} className="ams-docs-item" span="all" />,
+  render: ({ as }: GridCellProps) => <Grid.Cell as={as} className="_ams-item" span="all" />,
 }

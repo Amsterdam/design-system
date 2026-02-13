@@ -65,7 +65,7 @@ export const WithValidation: Story = {
 export const InAFieldSet: Story = {
   render: (args) => (
     <FieldSet legend="Wat is uw naam?">
-      <Field className="ams-mb-s" {...args}>
+      <Field {...args}>
         <Label htmlFor="input-a1" inFieldSet>
           Voornaam
         </Label>

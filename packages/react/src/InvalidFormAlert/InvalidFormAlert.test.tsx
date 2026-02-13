@@ -9,7 +9,7 @@ import { createRef } from 'react'
 import { InvalidFormAlert } from './InvalidFormAlert'
 import '@testing-library/jest-dom'
 
-describe('Invalid Form Alert', () => {
+describe('InvalidFormAlert', () => {
   const testErrors = [
     { id: '#', label: 'Vul een geldige datum in (bijvoorbeeld 6 januari 2030).' },
     { id: '#', label: 'De geldigheidsdatum van uw paspoort moet in de toekomst liggen.' },

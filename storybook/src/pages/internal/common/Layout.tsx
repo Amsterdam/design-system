@@ -5,7 +5,7 @@
 
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 
-import { Heading, PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
+import { PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
 
 import { MenuWithItems } from './MenuWithItems'
 
@@ -29,9 +29,6 @@ export const Layout = ({ children }: LayoutProps) => (
       {children}
     </main>
     <PageFooter className="ams-page__area--footer">
-      <Heading className="ams-visually-hidden" level={2}>
-        Over deze website
-      </Heading>
       <PageFooter.Menu>
         <PageFooter.MenuLink href="#">E-mail je vraag of feedback</PageFooter.MenuLink>
         <PageFooter.MenuLink href="#">Bekijk help en uitleg</PageFooter.MenuLink>

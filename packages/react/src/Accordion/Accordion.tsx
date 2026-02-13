@@ -11,7 +11,7 @@ import { forwardRef, useImperativeHandle, useRef } from 'react'
 import type { HeadingProps } from '../Heading/Heading'
 
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
-import AccordionContext from './AccordionContext'
+import { AccordionContext } from './AccordionContext'
 import { AccordionSection } from './AccordionSection'
 
 export type AccordionProps = {

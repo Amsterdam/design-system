@@ -19,6 +19,31 @@
   @include reset-fieldset;
 }
 
+// Default margin between all direct children of FieldSet
+.ams-field-set > :not(:last-child) {
+  margin-block-end: var(--ams-field-set-child-margin-block-end); // [3]
+}
+
+// We use :has here to increase the margin before the error message.
+// If :has is not supported, all elements will have the default gap defined above, which is acceptable.
+/* stylelint-disable-next-line plugin/use-baseline */
+.ams-field-set > :has(+ .ams-error-message) {
+  margin-block-end: var(--ams-field-set-child-before-error-message-margin-block-end);
+}
+
+// If a FieldSet contains a Field or another FieldSet, increase the margin of the preceding element.
+/* stylelint-disable-next-line plugin/use-baseline */
+.ams-field-set > :has(+ .ams-field),
+.ams-field-set > :has(+ .ams-field-set) {
+  margin-block-end: var(--ams-field-set-child-before-field-or-field-set-margin-block-end);
+}
+
+// If a FieldSet contains multiple Fields or FieldSets, increase the margin between them.
+/* stylelint-disable-next-line plugin/use-baseline */
+.ams-field-set > :is(.ams-field, .ams-field-set):has(+ :is(.ams-field, .ams-field-set)) {
+  margin-block-end: var(--ams-field-set-child-between-fields-and-field-sets-margin-block-end);
+}
+
 .ams-field-set--invalid {
   border-inline-start: var(--ams-field-set-invalid-border-inline-start);
   padding-inline-start: var(--ams-field-set-invalid-padding-inline-start);
@@ -41,7 +66,6 @@
   font-size: var(--ams-field-set-legend-font-size);
   font-weight: var(--ams-field-set-legend-font-weight);
   line-height: var(--ams-field-set-legend-line-height);
-  margin-block-end: var(--ams-field-set-legend-margin-block-end); // [3]
 
   /*
    * If text-wrap is not supported, it is ignored.

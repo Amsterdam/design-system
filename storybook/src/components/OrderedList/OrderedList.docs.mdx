@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as OrderedListStories from "./OrderedList.stories.tsx";
 import README from "../../../../packages/css/src/components/ordered-list/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/ordered-list.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={OrderedListStories} />
 
@@ -62,3 +66,7 @@ We use a smaller font size for text in a Figure Caption and for metadata like da
 When using a list in small text, set the prop for each item in the list.
 
 <Canvas of={OrderedListStories.SmallText} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

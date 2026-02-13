@@ -65,6 +65,7 @@ Invest the time to understand the PR change fully.
 Read the title and description carefully.
 Typically, you will check out the branch locally and test the functionality explicitly.
 Make yourself familiar with the new code as if you had written it yourself.
+Use our [Definition of Done](./definition-of-done.md) to verify that the work meets our quality standards.
 
 Use GitHub’s ‘Start a review’ feature to ensure the author receives only one notification for all your comments.
 
@@ -87,8 +88,17 @@ The author can apply or reject the proposal at the touch of a button.
 
 ### Resolve comments
 
-The author of a comment is the one to resolve it.
+In general, the author of a comment is the one to resolve it.
 This ensures the reviewer can perform a final check of the implemented changes, and the reviewer will see all merged code at least once.
+Comments created by Copilot or other AI tools are an exception to this rule.
+Make sure to check these yourself and resolve them once they are addressed.
+
+### Visual regression tests
+
+If Chromatic indicates any visual changes in a submitted PR, review them yourself first.
+If any of these changes are undesirable, please submit another commit to correct it.
+If all visual changes are anticipated and acceptable, keep the visual diff open for the reviewer to examine.
+This allows the reviewer to conduct a final visual assessment of the changes made.
 
 ### Approve the PR
 

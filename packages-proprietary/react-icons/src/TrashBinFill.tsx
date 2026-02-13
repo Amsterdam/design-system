@@ -9,4 +9,9 @@ const SvgTrashBinFill = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
+/**
+ * @deprecated The ‘TrashBinFill’ icon will be removed in release 5.0.0.
+ * Use ‘DeleteFill’ instead.
+ */
 export default SvgTrashBinFill

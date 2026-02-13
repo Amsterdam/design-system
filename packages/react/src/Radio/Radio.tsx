@@ -3,10 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren, ReactNode } from 'react'
+import type { ForwardedRef, InputHTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef, useId } from 'react'
+
+import type { IconProps } from '../Icon'
 
 import RadioIcon from './RadioIcon'
 
@@ -15,7 +17,7 @@ export type RadioProps = {
    * An icon to display instead of the default icon.
    * @default RadioIcon
    */
-  icon?: Function | ReactNode
+  icon?: IconProps['svg']
   /** Whether the value fails a validation rule. */
   invalid?: boolean
 } & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>

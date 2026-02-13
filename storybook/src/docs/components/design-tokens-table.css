@@ -1,0 +1,12 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-design-tokens-table {
+  overflow-x: auto;
+}
+
+._ams-design-tokens-table__header th {
+  text-align: start;
+}

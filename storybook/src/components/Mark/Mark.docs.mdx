@@ -1,8 +1,12 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as MarkStories from "./Mark.stories.tsx";
 import README from "../../../../packages/css/src/components/mark/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/mark.tokens.json";
+
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 <Meta of={MarkStories} />
 
@@ -20,3 +24,7 @@ For a basic search, mark all appearances of every keyword.
 Ignore capitalization and include partial matches.
 
 <Canvas of={MarkStories.SearchResults} />
+
+## Tokens
+
+<DesignTokensTable tokens={tokens} />

@@ -14,4 +14,9 @@ const SvgPersonCircle = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
+/**
+ * @deprecated The ‘PersonCircle’ icon will be removed in release 5.0.0.
+ * Use ‘UserAccount’ instead.
+ */
 export default SvgPersonCircle
