@@ -8,8 +8,6 @@ import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 
 import { TabsButton } from './TabsButton'
-import '@testing-library/jest-dom'
-
 import { TabsContext } from './TabsContext'
 
 describe('TabsButton', () => {

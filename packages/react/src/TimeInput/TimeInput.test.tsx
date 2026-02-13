@@ -7,7 +7,6 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { TimeInput } from './TimeInput'
-import '@testing-library/jest-dom'
 
 describe('TimeInput', () => {
   it('renders', () => {

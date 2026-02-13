@@ -9,7 +9,6 @@ import { createRef } from 'react'
 import { ariaRoleForTag } from '../common/accessibility'
 import { Grid } from './Grid'
 import { gridCellTags } from './GridCell'
-import '@testing-library/jest-dom'
 
 describe('GridCell', () => {
   it('renders', () => {

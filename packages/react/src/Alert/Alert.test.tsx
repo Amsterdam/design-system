@@ -7,7 +7,6 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Alert } from './Alert'
-import '@testing-library/jest-dom'
 
 describe('Alert', () => {
   it('renders', () => {

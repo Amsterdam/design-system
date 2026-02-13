@@ -7,7 +7,6 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Accordion } from './Accordion'
-import '@testing-library/jest-dom'
 
 describe('AccordionSection', () => {
   const testLabel = 'Test title'
