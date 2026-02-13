@@ -172,8 +172,6 @@
 }
 
 .ams-page-header__mega-menu-button {
-  @include reset-button;
-
   background-color: var(--ams-page-header-mega-menu-button-background-color);
   color: var(--ams-page-header-mega-menu-button-color);
   column-gap: var(--ams-page-header-menu-item-column-gap);
@@ -184,6 +182,7 @@
   padding-inline: var(--ams-page-header-mega-menu-button-padding-inline);
 
   @include page-header-menu-action;
+  @include reset-button;
 
   &:hover {
     background-color: var(--ams-page-header-mega-menu-button-hover-background-color);
