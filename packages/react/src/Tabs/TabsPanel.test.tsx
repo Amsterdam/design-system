@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Tabs } from './Tabs'
-import '@testing-library/jest-dom'
 
 describe('TabsPanel', () => {
   it('renders', () => {

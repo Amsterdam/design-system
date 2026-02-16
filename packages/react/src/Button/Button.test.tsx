@@ -5,7 +5,6 @@
 
 import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
 import { createRef } from 'react'
 
 import { Button } from './Button'

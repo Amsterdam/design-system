@@ -8,7 +8,6 @@ import { createRef } from 'react'
 
 import { ariaRoleForTag } from '../common/accessibility'
 import { Grid, gridGaps, gridPaddings, gridTags } from './Grid'
-import '@testing-library/jest-dom'
 
 describe('Grid', () => {
   it('renders', () => {

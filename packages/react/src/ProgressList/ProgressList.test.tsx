@@ -7,7 +7,6 @@ import { render, screen, within } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { ProgressList, progressListHeadingSizes } from './ProgressList'
-import '@testing-library/jest-dom'
 
 describe('ProgressList', () => {
   it('renders', () => {

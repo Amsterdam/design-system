@@ -27,7 +27,6 @@ const config: StorybookConfig = {
     ...(process.env['IS_CHROMATIC'] || process.env['NODE_ENV'] === 'development'
       ? ['storybook-addon-pseudo-states']
       : []),
-    '@storybook/addon-vitest',
   ],
 
   core: {

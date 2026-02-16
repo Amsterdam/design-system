@@ -8,7 +8,6 @@ import userEvent from '@testing-library/user-event'
 import { createRef, useState } from 'react'
 
 import { TextArea } from './TextArea'
-import '@testing-library/jest-dom'
 
 describe('TextArea', () => {
   it('renders', () => {

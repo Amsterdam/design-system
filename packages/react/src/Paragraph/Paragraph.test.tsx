@@ -7,7 +7,6 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Paragraph } from './Paragraph'
-import '@testing-library/jest-dom'
 
 describe('Paragraph', () => {
   it('renders an HTML p element', () => {
