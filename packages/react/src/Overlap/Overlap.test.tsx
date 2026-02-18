@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Overlap } from './Overlap'
-import '@testing-library/jest-dom'
 
 describe('Overlap', () => {
   it('renders', () => {

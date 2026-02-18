@@ -8,7 +8,6 @@ import { createRef } from 'react'
 
 import { ariaRoleForTag } from '../common/accessibility'
 import { Spotlight, spotlightColors, spotlightTags } from './Spotlight'
-import '@testing-library/jest-dom'
 
 describe('Spotlight', () => {
   it('renders', () => {

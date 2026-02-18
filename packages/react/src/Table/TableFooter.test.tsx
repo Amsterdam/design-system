@@ -8,7 +8,6 @@ import { createRef } from 'react'
 
 import { Table } from './Table'
 import { TableFooter } from './TableFooter'
-import '@testing-library/jest-dom'
 
 describe('TableFooter', () => {
   it('renders', () => {

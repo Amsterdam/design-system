@@ -4,12 +4,12 @@
  */
 
 :root {
-  --ams-docs-grey: rgb(0 0 0 / 6.25%);
-  --ams-docs-pink: rgb(229 0 130 / 25%);
-  --ams-docs-lightblue: rgb(0 130 229 / 25%);
+  --_ams-color-grey: rgb(0 0 0 / 6.25%);
+  --_ams-color-pink: rgb(229 0 130 / 25%);
+  --_ams-color-lightblue: rgb(0 130 229 / 25%);
 }
 
-.ams-docs-figure {
+._ams-figure {
   display: flex;
   gap: 0.25rem;
   margin-block: 0;
@@ -18,25 +18,24 @@
   padding-inline: 0;
 }
 
-.ams-docs-image,
-.ams-docs-figure > img {
+._ams-figure > img {
   display: block;
   max-inline-size: 100%;
   outline: 0.0625rem dashed #e8e8e8;
 }
 
-.ams-docs-figure > figcaption {
+._ams-figure > figcaption {
   text-align: center;
 }
 
-.ams-docs-gallery {
+._ams-figure-set {
   align-items: flex-end;
   display: flex;
   gap: 2rem;
-  margin-block: 1.5rem;
+  margin-block: 1.5rem !important;
 }
 
-.ams-docs-gallery .ams-docs-figure {
+._ams-figure-set ._ams-figure {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -44,18 +43,8 @@
   margin-inline: 0;
 }
 
-.ams-docs-card {
-  border: 0.0625rem solid hotpink;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  inline-size: 50%;
-  padding-block: 0.5rem;
-  padding-inline: 0.5rem;
-}
-
-.ams-docs-dark-background,
-.ams-docs-light-background {
+._ams-page-background--dark,
+._ams-page-background--light {
   margin-block: -1rem;
   margin-inline: -1rem;
   padding-block: 1rem;
@@ -63,115 +52,73 @@
 }
 
 /* Do not change the order of these two selectors. They ensure the dark background wins if both are set, which is in line with the implementation of the React-component. */
-.ams-docs-light-background {
+._ams-page-background--light {
   background-color: #ffe600; /* Yellow */
 }
 
-.ams-docs-dark-background {
+._ams-page-background--dark {
   background-color: #004699; /* Dark blue */
 }
 
-.ams-docs-column,
-.ams-docs-container,
-.ams-docs-item,
-.ams-docs-row {
+._ams-column,
+._ams-container,
+._ams-item,
+._ams-row {
   box-sizing: border-box;
 }
 
-.ams-docs-column,
-.ams-docs-container,
-.ams-docs-row {
+._ams-column,
+._ams-container,
+._ams-row {
   background: repeating-linear-gradient(
     135deg,
-    var(--ams-docs-grey),
-    var(--ams-docs-grey) 0.5rem,
+    var(--_ams-color-grey),
+    var(--_ams-color-grey) 0.5rem,
     white 0.5rem,
     white 1rem
   );
-  border: thin solid var(--ams-docs-grey);
+  border: thin solid var(--_ams-color-grey);
 }
 
-.ams-docs-column {
+._ams-column {
   max-inline-size: 16rem;
   min-block-size: 16rem;
 }
 
-.ams-docs-container {
+._ams-container {
   padding-block: var(--ams-space-m);
   padding-inline: var(--ams-space-m);
 }
 
-.ams-docs-row {
+._ams-row {
   min-block-size: 6rem;
 }
 
-.ams-docs-grid {
-  block-size: 100vh;
-  border-inline: thin solid var(--ams-docs-grey);
-  inset-block: 0;
-  inset-inline: 0;
-  position: absolute;
+._ams-item {
+  background-color: var(--_ams-color-pink);
+  border: thin dashed var(--_ams-color-grey);
 
-  /* stylelint-disable selector-max-id */
-  #storybook-docs & {
-    block-size: 100%;
-  }
-  /* stylelint-enable selector-max-id */
-}
-
-.ams-docs-grid__cell {
-  background-color: var(--ams-docs-grey);
-}
-
-@media screen and (width < 37.5rem) {
-  .ams-docs-grid__cell:nth-child(n + 5) {
-    display: none;
-  }
-}
-
-@media screen and (width < 72.5rem) {
-  .ams-docs-grid__cell:nth-child(n + 9) {
-    display: none;
-  }
-}
-
-.ams-docs-item {
-  background-color: var(--ams-docs-pink);
-  border: thin dashed var(--ams-docs-grey);
-
-  .ams-docs-column > & {
+  ._ams-column > & {
     block-size: 3rem;
     min-inline-size: 3rem;
   }
 
-  .ams-docs-row > & {
+  ._ams-row > & {
     inline-size: 8rem;
     min-block-size: 3rem;
   }
 
-  .ams-docs-screen > & {
-    block-size: 3rem;
-  }
-
-  .ams-docs-grid + .ams-grid > & {
+  ._ams-grid-columns-guide + .ams-grid > & {
     min-block-size: 3rem;
   }
 }
 
-.ams-docs-item--highlight {
-  background-color: var(--ams-docs-lightblue);
+._ams-item--highlight {
+  background-color: var(--_ams-color-lightblue);
 }
 
-[class*="ams-docs-token-example--"] {
-  block-size: 1rem;
-}
-
-[class*="ams-docs-token-example--space"] {
-  background-color: var(--ams-docs-pink);
-}
-
-.ams-resize-horizontal {
-  outline: 1px dashed var(--ams-docs-pink);
+._ams-resize-horizontal {
+  outline: 1px dashed var(--_ams-color-pink);
   overflow: auto;
   padding-block-end: 1rem;
 

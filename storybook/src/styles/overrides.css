@@ -38,11 +38,11 @@
   margin-block-end: 2em;
 }
 
-.sbdocs-content.sbdocs-content > .ams-storybook-status-badge {
+.sbdocs-content.sbdocs-content > ._ams-status-badge {
   margin-block-end: 1.5rem;
 }
 
-.sbdocs-content.sbdocs-content > .ams-storybook-status-badge > span:nth-child(2) {
+.sbdocs-content.sbdocs-content > ._ams-status-badge > span:nth-child(2) {
   color: var(--ams-color-text);
   font-family: "Amsterdam Sans", "Arial", sans-serif;
   font-size: var(--ams-typography-body-text-small-font-size);

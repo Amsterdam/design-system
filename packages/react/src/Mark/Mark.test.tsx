@@ -7,7 +7,6 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Mark } from './Mark'
-import '@testing-library/jest-dom'
 
 describe('Mark', () => {
   it('renders', () => {

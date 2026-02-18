@@ -7,7 +7,6 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Hint } from '.'
-import '@testing-library/jest-dom'
 
 describe('Hint', () => {
   it('renders', () => {

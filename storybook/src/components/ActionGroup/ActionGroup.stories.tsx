@@ -36,7 +36,7 @@ export const Stacked: Story = {
         Adres verwijderen
       </Button>,
     ],
-    className: 'ams-resize-horizontal',
+    className: '_ams-resize-horizontal',
     style: {
       inlineSize: '16rem',
     },

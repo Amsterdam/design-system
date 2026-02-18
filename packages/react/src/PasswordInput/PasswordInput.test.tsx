@@ -9,7 +9,6 @@ import { createRef, useState } from 'react'
 
 import { Label } from '../Label'
 import { PasswordInput } from './PasswordInput'
-import '@testing-library/jest-dom'
 
 describe('PasswordInput', () => {
   it('renders', () => {

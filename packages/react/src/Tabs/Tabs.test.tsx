@@ -8,7 +8,6 @@ import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 
 import { Tabs } from './Tabs'
-import '@testing-library/jest-dom'
 
 describe('Tabs', () => {
   it('renders', () => {

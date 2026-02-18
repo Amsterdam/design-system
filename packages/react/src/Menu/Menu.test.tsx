@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Menu } from './Menu'
-import '@testing-library/jest-dom'
 
 describe('Menu', () => {
   it('renders', () => {

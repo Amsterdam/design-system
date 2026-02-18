@@ -8,7 +8,6 @@ import userEvent from '@testing-library/user-event'
 import { createRef, useState } from 'react'
 
 import { TextInput, textInputTypes } from './TextInput'
-import '@testing-library/jest-dom'
 
 describe('TextInput', () => {
   it('renders', () => {

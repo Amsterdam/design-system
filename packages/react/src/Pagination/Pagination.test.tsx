@@ -9,7 +9,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Pagination } from './Pagination'
-import '@testing-library/jest-dom'
 
 describe('Pagination', () => {
   const linkTemplate = (page: number) => `#?pagina=${page}`
