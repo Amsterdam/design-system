@@ -63,4 +63,14 @@ describe('Blockquote', () => {
 
     expect(ref.current).toBe(quote)
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<Blockquote aria-hidden={false} data-test="data-test" id="id" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

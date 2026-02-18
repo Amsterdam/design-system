@@ -73,4 +73,14 @@ describe('ErrorMessage', () => {
   // TODO: we can't currently test this, because we can't pass a class or anything to the SVG
   // We plan on changing this, so we can test this in the future
   it.skip('shows a custom icon', () => {})
+
+  it('passes additional props', () => {
+    const { container } = render(<ErrorMessage aria-hidden={false} data-test="data-test" id="id" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
