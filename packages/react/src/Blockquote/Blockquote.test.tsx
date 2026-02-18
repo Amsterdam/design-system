@@ -10,12 +10,9 @@ import { Blockquote } from './Blockquote'
 
 describe('Blockquote', () => {
   it('renders a blockquote HTML element', () => {
-    const { container } = render(<Blockquote />)
+    render(<Blockquote />)
 
-    // TODO: Testing library doesn't seem to recognize the 'blockquote' ARIA role?
-    // const quote = screen.getByRole('blockquote')
-
-    const quote = container.querySelector('blockquote:only-child')
+    const quote = screen.getByRole('blockquote')
 
     expect(quote).toBeInTheDocument()
     expect(quote).toBeVisible()
@@ -31,25 +28,25 @@ describe('Blockquote', () => {
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<Blockquote />)
+    render(<Blockquote />)
 
-    const quote = container.querySelector(':only-child')
+    const quote = screen.getByRole('blockquote')
 
     expect(quote).toHaveClass('ams-blockquote')
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<Blockquote className="extra" />)
+    render(<Blockquote className="extra" />)
 
-    const quote = container.querySelector(':only-child')
+    const quote = screen.getByRole('blockquote')
 
     expect(quote).toHaveClass('ams-blockquote extra')
   })
 
   it('renders the class name for inverse color', () => {
-    const { container } = render(<Blockquote color="inverse" />)
+    render(<Blockquote color="inverse" />)
 
-    const quote = container.querySelector(':only-child')
+    const quote = screen.getByRole('blockquote')
 
     expect(quote).toHaveClass('ams-blockquote--inverse')
   })
@@ -57,20 +54,20 @@ describe('Blockquote', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLQuoteElement>()
 
-    const { container } = render(<Blockquote ref={ref} />)
+    render(<Blockquote ref={ref} />)
 
-    const quote = container.querySelector(':only-child')
+    const quote = screen.getByRole('blockquote')
 
     expect(ref.current).toBe(quote)
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Blockquote aria-hidden={false} data-test="data-test" id="id" />)
+    render(<Blockquote aria-hidden={false} data-test="data-test" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const quote = screen.getByRole('blockquote')
 
-    expect(component).toHaveAttribute('aria-hidden', 'false')
-    expect(component).toHaveAttribute('id', 'id')
-    expect(component).toHaveAttribute('data-test', 'data-test')
+    expect(quote).toHaveAttribute('aria-hidden', 'false')
+    expect(quote).toHaveAttribute('id', 'id')
+    expect(quote).toHaveAttribute('data-test', 'data-test')
   })
 })

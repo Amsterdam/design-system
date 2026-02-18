@@ -10,9 +10,9 @@ import { Card } from './Card'
 
 describe('Card', () => {
   it('renders', () => {
-    const { container } = render(<Card />)
+    render(<Card />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('article')
 
     expect(component).toBeInTheDocument()
     expect(component).toBeVisible()

@@ -120,9 +120,11 @@ describe('Button', () => {
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    const { container } = render(<Button ref={ref}>Click me!</Button>)
+    render(<Button ref={ref}>Click me!</Button>)
 
-    const button = container.querySelector(':only-child')
+    const button = screen.getByRole('button', {
+      name: 'Click me!',
+    })
 
     expect(ref.current).toBe(button)
   })
