@@ -104,4 +104,16 @@ describe('Alert', () => {
 
     expect(component).not.toHaveAttribute('aria-labelledby')
   })
+
+  it('passes additional props', () => {
+    const { container } = render(
+      <Alert aria-hidden={false} data-test="data-test" heading="Let op!" headingLevel={2} id="id" />,
+    )
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

@@ -176,4 +176,18 @@ describe('Button', () => {
     expect(icon).toBeInTheDocument()
     expect(label).toBeInTheDocument()
   })
+
+  it('passes additional props', () => {
+    const { container } = render(
+      <Button aria-hidden={false} data-test="data-test" id="id">
+        Click me!
+      </Button>,
+    )
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
