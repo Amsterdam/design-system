@@ -1,6 +1,0 @@
-import{r as t}from"./renderComponentVariants-CGCUMZjU.js";import{m as o}from"./Alert.stories-DHGtTc2K.js";import{A as a}from"./Alert-Dj5uYjWN.js";import"./iframe-C7L4xNXo.js";import"./preload-helper-PPVm8Dsz.js";import"./Icon-DZNmD9wc.js";import"./Row-rY_5x3wY.js";import"./Heading-Bxg6_m8S.js";import"./getHeadingTag-Dv1eMqvl.js";import"./IconButton-CEElX4L1.js";const f={...o,title:"Components/Feedback/Alert"},r={render:e=>t(a,{args:e}),tags:["!dev","!autodocs"]};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
-  render: args => renderComponentVariants(Alert, {
-    args
-  }),
-  tags: ['!dev', '!autodocs']
-}`,...r.parameters?.docs?.source}}};const A=["Test"];export{r as Test,A as __namedExportsOrder,f as default};
