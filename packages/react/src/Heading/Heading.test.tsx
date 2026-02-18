@@ -127,12 +127,12 @@ describe('Heading', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Heading aria-hidden={false} data-test="data-test" id="id" level={1} />)
+    render(<Heading aria-hidden={false} data-test="data-test" id="id" level={1} />)
 
-    const component = container.querySelector(':only-child')
+    const heading = screen.getByRole('heading')
 
-    expect(component).toHaveAttribute('aria-hidden', 'false')
-    expect(component).toHaveAttribute('id', 'id')
-    expect(component).toHaveAttribute('data-test', 'data-test')
+    expect(heading).toHaveAttribute('aria-hidden', 'false')
+    expect(heading).toHaveAttribute('id', 'id')
+    expect(heading).toHaveAttribute('data-test', 'data-test')
   })
 })

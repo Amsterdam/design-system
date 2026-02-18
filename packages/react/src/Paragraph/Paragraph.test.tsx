@@ -118,12 +118,12 @@ describe('Paragraph', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Paragraph aria-hidden={false} data-test="data-test" id="id" />)
+    render(<Paragraph aria-hidden={false} data-test="data-test" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const paragraph = screen.getByRole('paragraph')
 
-    expect(component).toHaveAttribute('aria-hidden', 'false')
-    expect(component).toHaveAttribute('id', 'id')
-    expect(component).toHaveAttribute('data-test', 'data-test')
+    expect(paragraph).toHaveAttribute('aria-hidden', 'false')
+    expect(paragraph).toHaveAttribute('id', 'id')
+    expect(paragraph).toHaveAttribute('data-test', 'data-test')
   })
 })

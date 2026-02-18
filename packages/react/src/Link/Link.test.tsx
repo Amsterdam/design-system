@@ -61,9 +61,9 @@ describe('Link', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Link aria-hidden={false} data-test="data-test" href="#" id="id" />)
+    render(<Link aria-hidden={false} data-test="data-test" href="#" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('link')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

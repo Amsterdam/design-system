@@ -195,12 +195,12 @@ describe('Radio', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Radio aria-hidden={false} data-test="data-test" id="id" />)
+    render(<Radio aria-hidden={false} data-test="data-test" id="id" />)
 
-    const component = container.querySelector('input[type="radio"]')
+    const input = screen.getByRole('radio')
 
-    expect(component).toHaveAttribute('aria-hidden', 'false')
-    expect(component).toHaveAttribute('id', 'id')
-    expect(component).toHaveAttribute('data-test', 'data-test')
+    expect(input).toHaveAttribute('aria-hidden', 'false')
+    expect(input).toHaveAttribute('id', 'id')
+    expect(input).toHaveAttribute('data-test', 'data-test')
   })
 })

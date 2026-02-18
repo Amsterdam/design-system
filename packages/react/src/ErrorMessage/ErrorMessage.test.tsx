@@ -75,9 +75,9 @@ describe('ErrorMessage', () => {
   it.skip('shows a custom icon', () => {})
 
   it('passes additional props', () => {
-    const { container } = render(<ErrorMessage aria-hidden={false} data-test="data-test" id="id" />)
+    render(<ErrorMessage aria-hidden={false} data-test="data-test" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('paragraph')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

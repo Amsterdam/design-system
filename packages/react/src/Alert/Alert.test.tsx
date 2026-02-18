@@ -106,11 +106,9 @@ describe('Alert', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(
-      <Alert aria-hidden={false} data-test="data-test" heading="Let op!" headingLevel={2} id="id" />,
-    )
+    render(<Alert aria-hidden={false} data-test="data-test" heading="Let op!" headingLevel={2} id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('region', { name: 'Let op!' })
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
