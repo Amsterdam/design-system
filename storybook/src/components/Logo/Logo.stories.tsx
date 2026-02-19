@@ -27,6 +27,12 @@ export const GgdAmsterdam: Story = {
   },
 }
 
+export const MuseumWeesp: Story = {
+  args: {
+    brand: 'museum-weesp',
+  },
+}
+
 export const Stadsarchief: Story = {
   args: {
     brand: 'stadsarchief',
@@ -42,12 +48,6 @@ export const StadsbankVanLening: Story = {
 export const VgaVerzekeringen: Story = {
   args: {
     brand: 'vga-verzekeringen',
-  },
-}
-
-export const MuseumWeesp: Story = {
-  args: {
-    brand: 'museum-weesp',
   },
 }
 
