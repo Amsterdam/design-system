@@ -104,7 +104,7 @@
               "font-weight": {
                 "$value": "{ams.typography.body-text.bold.font-weight}",
                 "$type": "fontWeight",
-                "$deprecated": "We no longer make the button label bold when the mega menu is open. Will be removed in v6.0.0."
+                "$deprecated": "We no longer make the button label bold when the mega menu is open. Will be removed in release 6.0.0."
               }
             }
           },
