@@ -142,9 +142,6 @@ const PageHeaderRoot = forwardRef(
                       {menuButtonText}
                     </span>
                     <span className="ams-visually-hidden">{open ? menuButtonTextForHide : menuButtonTextForShow}</span>
-                    <span aria-hidden="true" className="ams-page-header__mega-menu-button-hidden-label">
-                      {menuButtonText}
-                    </span>
                     <Icon
                       svg={
                         menuButtonIcon ?? (
