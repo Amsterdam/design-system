@@ -80,7 +80,7 @@ export const WithTopTasks: StoryObj = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
-      <Grid>
+      <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
             <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
