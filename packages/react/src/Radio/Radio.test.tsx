@@ -193,4 +193,14 @@ describe('Radio', () => {
 
     expect(ref.current).toBe(input)
   })
+
+  it('passes additional props', () => {
+    render(<Radio aria-hidden={false} data-test="data-test" id="id" />)
+
+    const input = screen.getByRole('radio')
+
+    expect(input).toHaveAttribute('aria-hidden', 'false')
+    expect(input).toHaveAttribute('id', 'id')
+    expect(input).toHaveAttribute('data-test', 'data-test')
+  })
 })
