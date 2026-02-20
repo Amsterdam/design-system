@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Card, Grid, Heading, Overlap, Paragraph, Spotlight, StandaloneLink } from '@amsterdam/design-system-react'
 
@@ -75,7 +75,7 @@ const meta = {
       </Grid>
     </main>
   ),
-}
+} satisfies Meta
 
 export default meta
 
