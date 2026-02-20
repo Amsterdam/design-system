@@ -209,9 +209,6 @@ export const WithMultipleQuestions: StoryObj = {
              */}
             <Paragraph>Stap 2 van 3: Uw gegevens</Paragraph>
           </header>
-          <Heading className="ams-mb-m" level={1} size="level-3">
-            Contactgegevens
-          </Heading>
           {/*
            * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
            * and often gives the user too little information.
@@ -221,32 +218,34 @@ export const WithMultipleQuestions: StoryObj = {
            */}
           <form noValidate onSubmit={(e) => e.preventDefault()}>
             {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
-            <Field>
-              <Label htmlFor="email-input" optional>
-                E-mailadres
-              </Label>
-              <TextInput
-                autoComplete="email"
-                autoCorrect="off"
-                id="email-input"
-                name="email"
-                size={30} // Based on this recommendation: https://design-system.service.gov.uk/patterns/email-addresses/#help-users-to-enter-a-valid-email-address
-                spellCheck="false"
-                type="email"
-              />
-            </Field>
-            <Field className="ams-mb-xl">
-              <Label htmlFor="tel-input" optional>
-                Telefoonnummer
-              </Label>
-              <TextInput
-                autoComplete="tel"
-                id="tel-input"
-                name="phone"
-                size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
-                type="tel"
-              />
-            </Field>
+            <FieldSet legend="Contactgegevens" legendIsPageHeading>
+              <Field>
+                <Label htmlFor="email-input" inFieldSet optional>
+                  E-mailadres
+                </Label>
+                <TextInput
+                  autoComplete="email"
+                  autoCorrect="off"
+                  id="email-input"
+                  name="email"
+                  size={30} // Based on this recommendation: https://design-system.service.gov.uk/patterns/email-addresses/#help-users-to-enter-a-valid-email-address
+                  spellCheck="false"
+                  type="email"
+                />
+              </Field>
+              <Field className="ams-mb-xl">
+                <Label htmlFor="tel-input" inFieldSet optional>
+                  Telefoonnummer
+                </Label>
+                <TextInput
+                  autoComplete="tel"
+                  id="tel-input"
+                  name="phone"
+                  size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
+                  type="tel"
+                />
+              </Field>
+            </FieldSet>
             <Button type="submit">Volgende vraag</Button>
           </form>
         </Grid.Cell>
