@@ -42,7 +42,7 @@ export const spotlightBlocks = [
   {
     title: 'Ontheffing of vergunning',
     description:
-      'Check welke ontheffing of vergunning u nodig heeft. Bijvoorbeeld een RVV, TVM, objectvergunning, nachtwerkontheffing, e-RVV, e-TVM of filmmelding. Dat regult u allemaal met 1 formulier.',
+      'Check welke ontheffing of vergunning u nodig heeft. Bijvoorbeeld een RVV, TVM, objectvergunning, nachtwerkontheffing, e-RVV, e-TVM of filmmelding. Dat regelt u allemaal met 1 formulier.',
     link: 'Eenvoudig regelen',
   },
   {
