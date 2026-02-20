@@ -17,8 +17,6 @@ import {
   InvalidFormAlert,
   Label,
   OrderedList,
-  Page,
-  PageHeader,
   Paragraph,
   Radio,
   StandaloneLink,
@@ -26,60 +24,72 @@ import {
 } from '@amsterdam/design-system-react'
 import { ChevronBackwardIcon } from '@amsterdam/design-system-react-icons'
 
+import { FormLayout } from '../common/FormLayout'
 import { Layout } from '../common/Layout'
-import { FormFooter } from './components/FormFooter'
 
 const meta = {
   title: 'Pages/Public/Form Flow',
+
   parameters: {
     layout: 'fullscreen',
     themes: { themeOverride: 'Spacious' },
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  render: (args) => (
-    <Layout>
-      <Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
-        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-m" level={1}>
-            Waar u dit formulier voor gebruikt
-          </Heading>
-          <Paragraph size="large">
-            Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
-          </Paragraph>
-        </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-          <Heading className="ams-mb-s" level={2}>
-            De stappen in dit formulier
-          </Heading>
-          <OrderedList className="ams-mb-l">
-            <OrderedList.Item>
-              <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak wilt
-              hebben. En wanneer.
-            </OrderedList.Item>
-            <OrderedList.Item>
-              <strong>Uw gegevens</strong> - Vul uw contactgegevens in.
-            </OrderedList.Item>
-            <OrderedList.Item>
-              <strong>Controleren</strong> - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
-            </OrderedList.Item>
-          </OrderedList>
-          <CallToActionLink href="#">Start het formulier</CallToActionLink>
-        </Grid.Cell>
-      </Grid>
-    </Layout>
-  ),
 } satisfies Meta
 
 export default meta
 
-export const LandingPage: StoryObj = {}
-
-export const WithOneQuestion: StoryObj = {
+export const LandingPage: StoryObj = {
+  decorators: [
+    (Story) => (
+      <Layout>
+        <Story />
+      </Layout>
+    ),
+  ],
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
-    <Page>
-      {/* Keep the Page Header as simple as possible, to avoid distractions and to prevent users from accidentally navigating away from the form flow. */}
-      <PageHeader className="ams-mb-xl" />
+    <Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
+      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading className="ams-mb-m" level={1}>
+          Waar u dit formulier voor gebruikt
+        </Heading>
+        <Paragraph size="large">
+          Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
+        </Paragraph>
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Heading className="ams-mb-s" level={2}>
+          De stappen in dit formulier
+        </Heading>
+        <OrderedList className="ams-mb-l">
+          <OrderedList.Item>
+            <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak wilt
+            hebben. En wanneer.
+          </OrderedList.Item>
+          <OrderedList.Item>
+            <strong>Uw gegevens</strong> - Vul uw contactgegevens in.
+          </OrderedList.Item>
+          <OrderedList.Item>
+            <strong>Controleren</strong> - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
+          </OrderedList.Item>
+        </OrderedList>
+        <CallToActionLink href="#">Start het formulier</CallToActionLink>
+      </Grid.Cell>
+    </Grid>
+  ),
+}
+
+export const WithOneQuestion: StoryObj = {
+  decorators: [
+    (Story) => (
+      <FormLayout>
+        <Story />
+      </FormLayout>
+    ),
+  ],
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
+    <>
       {/* The back link is in its own Grid, because it should be outside of the main section. */}
       <Grid className="ams-mb-xl">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
@@ -150,17 +160,21 @@ export const WithOneQuestion: StoryObj = {
           </form>
         </Grid.Cell>
       </Grid>
-      <FormFooter />
-    </Page>
+    </>
   ),
 }
 
 export const WithMultipleQuestions: StoryObj = {
+  decorators: [
+    (Story) => (
+      <FormLayout>
+        <Story />
+      </FormLayout>
+    ),
+  ],
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
-    <Page>
-      {/* Keep the Page Header as simple as possible, to avoid distractions and to prevent users from accidentally navigating away from the form flow. */}
-      <PageHeader className="ams-mb-xl" />
+    <>
       {/* The back link is in its own Grid, because it should be outside of the main section. */}
       <Grid className="ams-mb-xl">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
@@ -237,17 +251,21 @@ export const WithMultipleQuestions: StoryObj = {
           </form>
         </Grid.Cell>
       </Grid>
-      <FormFooter />
-    </Page>
+    </>
   ),
 }
 
 export const WithValidationError: StoryObj = {
+  decorators: [
+    (Story) => (
+      <FormLayout>
+        <Story />
+      </FormLayout>
+    ),
+  ],
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
-    <Page>
-      {/* Keep the Page Header as simple as possible, to avoid distractions and to prevent users from accidentally navigating away from the form flow. */}
-      <PageHeader className="ams-mb-xl" />
+    <>
       {/* The back link is in its own Grid, because it should be outside of the main section. */}
       <Grid className="ams-mb-xl">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
@@ -341,7 +359,6 @@ export const WithValidationError: StoryObj = {
           </form>
         </Grid.Cell>
       </Grid>
-      <FormFooter />
-    </Page>
+    </>
   ),
 }
