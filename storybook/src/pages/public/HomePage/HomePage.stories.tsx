@@ -25,29 +25,29 @@ const meta = {
             {topTaskSection.title}
           </Heading>
         </Grid.Cell>
-        {topTaskSection.tasks.map((task) => (
-          <Grid.Cell key={task.title} span={{ narrow: 4, medium: 4, wide: 3 }}>
+        {topTaskSection.tasks.map(({ title, description }) => (
+          <Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}>
             <Card>
               <Card.Heading level={3}>
-                <Card.Link href="#">{task.title}</Card.Link>
+                <Card.Link href="#">{title}</Card.Link>
               </Card.Heading>
-              <Paragraph>{task.description}</Paragraph>
+              <Paragraph>{description}</Paragraph>
             </Card>
           </Grid.Cell>
         ))}
       </Grid>
       <Spotlight>
         <Grid paddingVertical="x-large">
-          {spotlightBlocks.map((section) => (
-            <Grid.Cell key={section.title} span={{ narrow: 4, medium: 4, wide: 6 }}>
+          {spotlightBlocks.map(({ title, description, link }) => (
+            <Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 6 }}>
               <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
-                {section.title}
+                {title}
               </Heading>
               <Paragraph className="ams-mb-m" color="inverse">
-                {section.description}
+                {description}
               </Paragraph>
               <StandaloneLink color="inverse" href="#">
-                {section.link}
+                {link}
               </StandaloneLink>
             </Grid.Cell>
           ))}
@@ -59,16 +59,16 @@ const meta = {
             {newsSection.title}
           </Heading>
         </Grid.Cell>
-        {newsSection.items.map((item) => (
-          <Grid.Cell key={item.title} span={4}>
+        {newsSection.items.map(({ title, description, image }) => (
+          <Grid.Cell key={title} span={4}>
             <Card>
-              <Card.Image alt="" src={item.image} />
+              <Card.Image alt="" src={image} />
               <Card.HeadingGroup tagline="Nieuws">
                 <Card.Heading level={3}>
-                  <Card.Link href="#">{item.title}</Card.Link>
+                  <Card.Link href="#">{title}</Card.Link>
                 </Card.Heading>
               </Card.HeadingGroup>
-              <Paragraph>{item.description}</Paragraph>
+              <Paragraph>{description}</Paragraph>
             </Card>
           </Grid.Cell>
         ))}

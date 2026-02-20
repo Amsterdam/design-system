@@ -102,16 +102,16 @@ const meta = {
               Meer nieuws
             </Heading>
           </Grid.Cell>
-          {newsSection.items.map((item) => (
-            <Grid.Cell key={item.title} span={4}>
+          {newsSection.items.map(({ title, description, image }) => (
+            <Grid.Cell key={title} span={4}>
               <Card>
-                <Card.Image alt="" src={item.image} />
+                <Card.Image alt="" src={image} />
                 <Card.HeadingGroup tagline="Nieuws">
                   <Card.Heading level={3}>
-                    <Card.Link href="#">{item.title}</Card.Link>
+                    <Card.Link href="#">{title}</Card.Link>
                   </Card.Heading>
                 </Card.HeadingGroup>
-                <Paragraph>{item.description}</Paragraph>
+                <Paragraph>{description}</Paragraph>
               </Card>
             </Grid.Cell>
           ))}
