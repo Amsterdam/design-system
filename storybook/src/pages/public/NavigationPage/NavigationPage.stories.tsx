@@ -23,31 +23,27 @@ import {
 
 import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '../../../components/shared/exampleContent'
 import { commonMeta } from '../common/config'
-import { LinkBlock } from './LinkBlock'
-import { LinkBlockGridCells } from './LinkBlockGridCells'
-import { burgerzakenLinks, parkerenLinks } from './links'
-import { NavigationPage } from './NavigationPage'
-import { persons } from './persons'
+import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from './data'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Navigation Page',
-  component: NavigationPage,
-} satisfies Meta<typeof NavigationPage>
+} satisfies Meta
 
 export default meta
 
 export const Default: StoryObj = {
-  args: {
-    children: [
-      <Grid key={1} paddingTop="large">
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
+    <>
+      <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
             <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
           </Breadcrumb>
         </Grid.Cell>
-      </Grid>,
-      <Grid as="main" id="inhoud" key={2} paddingBottom="x-large">
+      </Grid>
+      <Grid as="main" id="inhoud" paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-m" level={1}>
             Burgerzaken
@@ -57,23 +53,41 @@ export const Default: StoryObj = {
             aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
           </Paragraph>
         </Grid.Cell>
-        <LinkBlockGridCells headingLevel={2} linkGroups={burgerzakenLinks} />
-      </Grid>,
-    ],
-  },
+        {burgerzakenLinks.map(({ heading, links }, index) => (
+          <Grid.Cell
+            key={heading}
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading className="ams-mb-s" level={2} size="level-3">
+              {heading}
+            </Heading>
+            <LinkList>
+              {links.map((link) => (
+                <LinkList.Link href="#" key={link}>
+                  {link}
+                </LinkList.Link>
+              ))}
+            </LinkList>
+          </Grid.Cell>
+        ))}
+      </Grid>
+    </>
+  ),
 }
 
 export const WithTopTasks: StoryObj = {
-  args: {
-    children: [
-      <Grid key={1} paddingTop="large">
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
+    <>
+      <Grid>
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
             <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
           </Breadcrumb>
         </Grid.Cell>
-      </Grid>,
-      <Grid as="main" id="inhoud" key={2} paddingBottom="x-large">
+      </Grid>
+      <Grid as="main" id="inhoud" paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-m" level={1}>
             Leefomgeving
@@ -98,63 +112,45 @@ export const WithTopTasks: StoryObj = {
             <Paragraph>Een demonstratie of manifestatie meldt u vooraf bij de gemeente.</Paragraph>
           </Card>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <LinkBlock
-            heading="Schoon en opgeruimd"
-            headingLevel={2}
-            links={[
-              'Leen een afvalgrijper en afvalring',
-              'Afval op straat melden',
-              'Fietsnietje aanvragen',
-              'Openbare toiletten op de kaart',
-              'Rookvrije zone aanvragen',
-            ]}
-          />
-        </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-          <LinkBlock
-            heading="Spelen en bewegen"
-            headingLevel={2}
-            links={[
-              'Peuterbadjes en zwemwater op de kaart',
-              'Speeltuinen op de kaart',
-              'Kinderboerderijen en stadsboerderijen op de kaart',
-              'Openbare sportplekken op de kaart',
-              'Denk mee over speelplekken',
-            ]}
-          />
-        </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <LinkBlock
-            heading="Dieren en groen"
-            headingLevel={2}
-            introduction="Uw tuin vergroenen of het groen in uw buurt verzorgen. Opvang van dieren en overlast melden."
-            links={['Dieren en groen']}
-          />
-        </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-          <LinkBlock
-            heading="Parken en volkstuinen"
-            headingLevel={2}
-            links={['Parken en recreatiegebieden', 'Volkstuinparken']}
-          />
-        </Grid.Cell>
-      </Grid>,
-    ],
-  },
+        {topTaskLinks.map(({ heading, links }, index) => (
+          <Grid.Cell
+            key={heading}
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading className="ams-mb-s" level={2} size="level-3">
+              {heading}
+            </Heading>
+            {links.length === 1 ? (
+              <StandaloneLink href="#">{links[0]}</StandaloneLink>
+            ) : (
+              <LinkList>
+                {links.map((link) => (
+                  <LinkList.Link href="#" key={link}>
+                    {link}
+                  </LinkList.Link>
+                ))}
+              </LinkList>
+            )}
+          </Grid.Cell>
+        ))}
+      </Grid>
+    </>
+  ),
 }
 
 export const WithInteractiveElement: StoryObj = {
-  args: {
-    children: [
-      <Grid key={1} paddingTop="large">
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
+    <>
+      <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
             <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
           </Breadcrumb>
         </Grid.Cell>
-      </Grid>,
-      <main id="inhoud" key={2}>
+      </Grid>
+      <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
@@ -164,7 +160,24 @@ export const WithInteractiveElement: StoryObj = {
               {exampleParagraph()}
             </Paragraph>
           </Grid.Cell>
-          <LinkBlockGridCells headingLevel={2} linkGroups={parkerenLinks} />
+          {parkerenLinks.map(({ heading, links }, index) => (
+            <Grid.Cell
+              key={heading}
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+            >
+              <Heading className="ams-mb-s" level={2} size="level-3">
+                {heading}
+              </Heading>
+              <LinkList>
+                {links.map((link) => (
+                  <LinkList.Link href="#" key={link}>
+                    {link}
+                  </LinkList.Link>
+                ))}
+              </LinkList>
+            </Grid.Cell>
+          ))}
         </Grid>
         <Spotlight>
           <Grid paddingVertical="large">
@@ -188,22 +201,23 @@ export const WithInteractiveElement: StoryObj = {
           </Grid>
         </Spotlight>
         <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1440/810" />
-      </main>,
-    ],
-  },
+      </main>
+    </>
+  ),
 }
 
 export const WithImageGallery: StoryObj = {
-  args: {
-    children: [
-      <Grid key={1} paddingTop="large">
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
+    <>
+      <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
             <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
             <Breadcrumb.Link href="#">Bestuur en Organisatie</Breadcrumb.Link>
           </Breadcrumb>
         </Grid.Cell>
-      </Grid>,
+      </Grid>
       <main id="inhoud" key={2}>
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -245,20 +259,22 @@ export const WithImageGallery: StoryObj = {
             </Grid.Cell>
           ))}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <LinkBlock
-              heading="Portefeuilleverdeling"
-              headingLevel={2}
-              introduction="Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders."
-              links={['Portefeuilleverdeling']}
-            />
+            <Heading className="ams-mb-s" level={2} size="level-3">
+              Portefeuilleverdeling
+            </Heading>
+            <Paragraph className="ams-mb-s">
+              Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders.
+            </Paragraph>
+            <StandaloneLink href="#">Portefeuilleverdeling</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <LinkBlock
-              heading="Coalitieakkoord"
-              headingLevel={2}
-              introduction="In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026."
-              links={['Coalitieakkoord en Uitvoeringsagenda']}
-            />
+            <Heading className="ams-mb-s" level={2} size="level-3">
+              Coalitieakkoord
+            </Heading>
+            <Paragraph className="ams-mb-s">
+              In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026.
+            </Paragraph>
+            <StandaloneLink href="#">Coalitieakkoord en Uitvoeringsagenda</StandaloneLink>
           </Grid.Cell>
         </Grid>
         <Spotlight>
@@ -302,12 +318,13 @@ export const WithImageGallery: StoryObj = {
         </Spotlight>
         <Grid paddingVertical="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <LinkBlock
-              heading="Pers en woordvoering"
-              headingLevel={2}
-              introduction="Voor vragen van journalisten aan de afdeling Bestuursvoorlichting."
-              links={['Pers']}
-            />
+            <Heading className="ams-mb-s" level={2} size="level-3">
+              Pers en woordvoering
+            </Heading>
+            <Paragraph className="ams-mb-s">
+              Voor vragen van journalisten aan de afdeling Bestuursvoorlichting.
+            </Paragraph>
+            <StandaloneLink href="#">Pers en woordvoering</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading className="ams-mb-s" level={2} size="level-3">
@@ -344,23 +361,24 @@ export const WithImageGallery: StoryObj = {
             <Image alt="" src="https://picsum.photos/640/360" />
           </Grid.Cell>
         </Grid>
-      </main>,
-    ],
-  },
+      </main>
+    </>
+  ),
 }
 
 export const SubnavigationPage: StoryObj = {
-  args: {
-    children: [
-      <Grid key={1} paddingTop="large">
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
+    <>
+      <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
             <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
             <Breadcrumb.Link href="#">Onderwerp</Breadcrumb.Link>
           </Breadcrumb>
         </Grid.Cell>
-      </Grid>,
-      <main id="inhoud" key={2}>
+      </Grid>
+      <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
@@ -381,7 +399,24 @@ export const SubnavigationPage: StoryObj = {
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
-          <LinkBlockGridCells linkGroups={burgerzakenLinks.slice(0, 6)} />
+          {burgerzakenLinks.slice(0, 6).map(({ heading, links }, index) => (
+            <Grid.Cell
+              key={heading}
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+            >
+              <Heading className="ams-mb-s" level={3}>
+                {heading}
+              </Heading>
+              <LinkList>
+                {links.map((link) => (
+                  <LinkList.Link href="#" key={link}>
+                    {link}
+                  </LinkList.Link>
+                ))}
+              </LinkList>
+            </Grid.Cell>
+          ))}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={3}>
               {exampleHeading()}
@@ -435,9 +470,26 @@ export const SubnavigationPage: StoryObj = {
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
-          <LinkBlockGridCells linkGroups={burgerzakenLinks.slice(4, 8)} />
+          {burgerzakenLinks.slice(4, 8).map(({ heading, links }, index) => (
+            <Grid.Cell
+              key={heading}
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+            >
+              <Heading className="ams-mb-s" level={3}>
+                {heading}
+              </Heading>
+              <LinkList>
+                {links.map((link) => (
+                  <LinkList.Link href="#" key={link}>
+                    {link}
+                  </LinkList.Link>
+                ))}
+              </LinkList>
+            </Grid.Cell>
+          ))}
         </Grid>
-      </main>,
-    ],
-  },
+      </main>
+    </>
+  ),
 }
