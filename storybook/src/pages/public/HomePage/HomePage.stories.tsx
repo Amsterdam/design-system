@@ -59,8 +59,8 @@ const meta = {
             {newsSection.title}
           </Heading>
         </Grid.Cell>
-        {newsSection.items.map((item, index) => (
-          <Grid.Cell key={index} span={4}>
+        {newsSection.items.map((item) => (
+          <Grid.Cell key={item.title} span={4}>
             <Card>
               <Card.Image alt="" src={item.image} />
               <Card.HeadingGroup tagline="Nieuws">
