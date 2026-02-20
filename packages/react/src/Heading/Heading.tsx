@@ -11,14 +11,14 @@ import { forwardRef } from 'react'
 
 import { getHeadingTag } from './getHeadingTag'
 
-export const headingSizes = [1, 2, 3, 4] as const
-type HeadingSize = (typeof headingSizes)[number]
+export const headingLevels = [1, 2, 3, 4] as const
+type HeadingLevel = (typeof headingLevels)[number]
 
 export type HeadingProps = {
   /** Changes the text colour for readability on a dark background. */
   color?: 'inverse'
   /** The hierarchical level within the document. */
-  level: HeadingSize
+  level: HeadingLevel
   /**
    * Uses larger or smaller text without changing its position in the heading hierarchy.
    * The value ‘level-6’ is deprecated. Use level 5 instead.
