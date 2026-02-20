@@ -120,9 +120,11 @@ describe('Button', () => {
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLButtonElement>()
 
-    const { container } = render(<Button ref={ref}>Click me!</Button>)
+    render(<Button ref={ref}>Click me!</Button>)
 
-    const button = container.querySelector(':only-child')
+    const button = screen.getByRole('button', {
+      name: 'Click me!',
+    })
 
     expect(ref.current).toBe(button)
   })
@@ -175,5 +177,15 @@ describe('Button', () => {
     expect(button).toBeInTheDocument()
     expect(icon).toBeInTheDocument()
     expect(label).toBeInTheDocument()
+  })
+
+  it('passes additional props', () => {
+    render(<Button aria-hidden={false} data-test="data-test" id="id" />)
+
+    const button = screen.getByRole('button')
+
+    expect(button).toHaveAttribute('aria-hidden', 'false')
+    expect(button).toHaveAttribute('id', 'id')
+    expect(button).toHaveAttribute('data-test', 'data-test')
   })
 })

@@ -125,4 +125,14 @@ describe('Heading', () => {
 
     expect(ref.current).toBe(heading)
   })
+
+  it('passes additional props', () => {
+    render(<Heading aria-hidden={false} data-test="data-test" id="id" level={1} />)
+
+    const heading = screen.getByRole('heading')
+
+    expect(heading).toHaveAttribute('aria-hidden', 'false')
+    expect(heading).toHaveAttribute('id', 'id')
+    expect(heading).toHaveAttribute('data-test', 'data-test')
+  })
 })

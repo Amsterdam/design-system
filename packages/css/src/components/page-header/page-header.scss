@@ -121,7 +121,6 @@
 }
 
 @mixin page-header-menu-action {
-  color: var(--ams-page-header-menu-item-color);
   font-size: var(--ams-page-header-menu-item-font-size);
   font-weight: var(--ams-page-header-menu-item-font-weight);
   line-height: var(--ams-page-header-menu-item-line-height);
@@ -138,6 +137,7 @@
 }
 
 .ams-page-header__menu-link {
+  color: var(--ams-page-header-menu-link-color);
   display: inline-flex;
   gap: var(--ams-page-header-menu-link-gap);
   text-decoration-line: var(--ams-page-header-menu-link-text-decoration-line);
@@ -162,24 +162,30 @@
 }
 
 @mixin reset-button {
-  background: none;
   border: none;
   margin-block: 0; // [1]
   margin-inline: 0; // [1]
-  padding-inline: 0;
 
   // [1] Remove the margin in older Safari.
 }
 
 .ams-page-header__mega-menu-button {
+  background-color: var(--ams-page-header-mega-menu-button-background-color);
+  color: var(--ams-page-header-mega-menu-button-color);
   column-gap: var(--ams-page-header-menu-item-column-gap);
   cursor: var(--ams-page-header-mega-menu-button-cursor);
   display: grid;
   font-family: inherit;
   grid-auto-flow: column;
+  padding-inline: var(--ams-page-header-mega-menu-button-padding-inline);
 
   @include page-header-menu-action;
   @include reset-button;
+
+  &:hover {
+    background-color: var(--ams-page-header-mega-menu-button-hover-background-color);
+    color: var(--ams-page-header-mega-menu-button-hover-color);
+  }
 }
 
 .ams-page-header__mega-menu-button[aria-expanded="true"] {
