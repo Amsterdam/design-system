@@ -71,7 +71,7 @@ export const newsSection = {
     {
       title: 'Nieuwe manieren om afval op te halen',
       description:
-        'We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.',
+        'Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te halen in het centrum.',
       image: 'https://picsum.photos/640/360?random=3',
     },
   ],
