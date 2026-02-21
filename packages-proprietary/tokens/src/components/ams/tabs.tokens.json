@@ -10,7 +10,26 @@
       },
       "list": {
         "box-shadow": {
-          "$value": "inset 0 calc({ams.border.width.m} * -1) {ams.color.separator}"
+          "$type": "shadow",
+          "$value": {
+            "inset": true,
+            "offsetX": {
+              "value": 0,
+              "unit": "rem"
+            },
+            "offsetY": {
+              "value": "calc({ams.border.width.m} * -1)"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "rem"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "rem"
+            },
+            "color": "{ams.color.separator}"
+          }
         }
       },
       "button": {
@@ -64,7 +83,26 @@
         },
         "hover": {
           "box-shadow": {
-            "$value": "inset 0 calc({ams.border.width.m} * -1)"
+            "$type": "shadow",
+            "$value": {
+              "inset": true,
+              "offsetX": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "offsetY": {
+                "value": "calc({ams.border.width.m} * -1)"
+              },
+              "blur": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "spread": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "color": "currentColor"
+            }
           },
           "color": {
             "$value": "{ams.color.interactive.hover}",
@@ -73,7 +111,26 @@
         },
         "selected": {
           "box-shadow": {
-            "$value": "inset 0 calc({ams.border.width.xl} * -1)"
+            "$type": "shadow",
+            "$value": {
+              "inset": true,
+              "offsetX": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "offsetY": {
+                "value": "calc({ams.border.width.xl} * -1)"
+              },
+              "blur": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "spread": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "color": "currentColor"
+            }
           },
           "font-weight": {
             "$value": "{ams.typography.body-text.bold.font-weight}",
