@@ -7,23 +7,10 @@ import { camelCase, kebabCase } from 'change-case'
 import StyleDictionary from 'style-dictionary'
 import { transformTypes } from 'style-dictionary/enums'
 
+import { dtcgDimension } from './style-dictionary/transforms/dtcg-dimension.js'
 import { shadowDTCGDimensionNormalize } from './style-dictionary/transforms/shadow-dtcg-dimension-normalize.js'
 
-// Transform DTCG dimension objects to CSS values
-// i.e. `{ value: 1, unit: 'rem' }` becomes `1rem`
-StyleDictionary.registerTransform({
-  filter: (token) => {
-    const value = token.$value ?? token.value
-    return value?.value !== null && value?.unit
-  },
-  name: 'dtcg/dimension',
-  transform: (token) => {
-    const value = token.$value ?? token.value
-    return `${value.value}${value.unit}`
-  },
-  transitive: true,
-  type: 'value',
-})
+StyleDictionary.registerTransform(dtcgDimension)
 
 // Remove last key if it is 'default' when transforming to kebab-case
 // i.e. `ams.color.default` becomes `--ams-color`
