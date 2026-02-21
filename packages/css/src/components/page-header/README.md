@@ -3,11 +3,11 @@
 # Page Header
 
 Conveys the origin and authority of the website through a logo and an optional name.
-Provides a consistent starting point for navigation.
+Can serve as a consistent starting point for navigation.
 
 ## Guidelines
 
-- All our website must start with the Page Header.
+- All our websites must start with the Page Header.
   Consistent use helps people identify, navigate, and trust our digital channels.
 - The Page Header must show the appropriate logo and brand name.
   The navigation structure can be configured freely.
