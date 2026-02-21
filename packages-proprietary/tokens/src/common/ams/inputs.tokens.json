@@ -74,7 +74,27 @@
       },
       "hover": {
         "box-shadow": {
-          "$value": "inset 0 0 0 {ams.border.width.s}"
+          "$type": "shadow",
+          "$value": {
+            "inset": true,
+            "offsetX": {
+              "value": 0,
+              "unit": "rem"
+            },
+            "offsetY": {
+              "value": 0,
+              "unit": "rem"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "rem"
+            },
+            "spread": {
+              "value": 0.0625,
+              "unit": "rem"
+            },
+            "color": "currentColor"
+          }
         }
       },
       "invalid": {
@@ -88,7 +108,27 @@
             "$type": "color"
           },
           "box-shadow": {
-            "$value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.invalid.hover}"
+            "$type": "shadow",
+            "$value": {
+              "inset": true,
+              "offsetX": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "offsetY": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "blur": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "spread": {
+                "value": 0.0625,
+                "unit": "rem"
+              },
+              "color": "{ams.color.interactive.invalid.hover}"
+            }
           }
         }
       },
