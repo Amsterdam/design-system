@@ -8,7 +8,6 @@ import userEvent from '@testing-library/user-event'
 import { createRef, useState } from 'react'
 
 import { TextArea } from './TextArea'
-import '@testing-library/jest-dom'
 
 describe('TextArea', () => {
   it('renders', () => {
@@ -154,5 +153,15 @@ describe('TextArea', () => {
 
       expect(component).not.toHaveAttribute('aria-invalid')
     })
+  })
+
+  it('passes additional props', () => {
+    render(<TextArea aria-hidden={false} data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('textbox')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { CardLink } from './CardLink'
-import '@testing-library/jest-dom'
 
 describe('CardLink', () => {
   it('renders', () => {

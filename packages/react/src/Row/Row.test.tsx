@@ -9,7 +9,6 @@ import { createRef } from 'react'
 import { ariaRoleForTag } from '../common/accessibility'
 import { crossAlignOptions, mainAlignOptions } from '../common/types'
 import { Row, rowGapSizes, rowTags } from './Row'
-import '@testing-library/jest-dom'
 
 describe('Row', () => {
   it('renders', () => {

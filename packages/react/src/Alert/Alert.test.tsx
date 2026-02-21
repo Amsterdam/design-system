@@ -7,7 +7,6 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Alert } from './Alert'
-import '@testing-library/jest-dom'
 
 describe('Alert', () => {
   it('renders', () => {
@@ -104,5 +103,15 @@ describe('Alert', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).not.toHaveAttribute('aria-labelledby')
+  })
+
+  it('passes additional props', () => {
+    render(<Alert aria-hidden={false} data-test="data-test" heading="Let op!" headingLevel={2} id="id" />)
+
+    const component = screen.getByRole('region', { name: 'Let op!' })
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

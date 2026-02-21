@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Table } from './Table'
-import '@testing-library/jest-dom'
 
 describe('Table', () => {
   it('renders', () => {

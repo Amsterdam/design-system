@@ -8,7 +8,6 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Icon, iconSizes } from './Icon'
-import '@testing-library/jest-dom'
 
 describe('Icon', () => {
   it('renders a span element', () => {

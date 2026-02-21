@@ -8,7 +8,6 @@ import { createRef } from 'react'
 
 import { Table } from './Table'
 import { TableCaption } from './TableCaption'
-import '@testing-library/jest-dom'
 
 describe('TableCaption', () => {
   it('renders', () => {

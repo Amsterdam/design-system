@@ -11,7 +11,6 @@ import type { GridCellAppearance } from './GridCell'
 import { ariaRoleForTag } from '../common/accessibility'
 import { Grid } from './Grid'
 import { gridCellAppearances, gridCellTags } from './GridCell'
-import '@testing-library/jest-dom'
 
 describe('GridCell', () => {
   it('renders', () => {
