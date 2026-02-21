@@ -15,8 +15,5 @@ The logo has a fixed colour, size, and position and is present on all our websit
 ## Guidelines
 
 - All our websites must include the [Page Header](/docs/components-containers-page-header--docs), which ensures the Logo is always present and links to the homepage of the same website.
-- Use the appropriate variation of the logo for websites operated by one of the 6 sub-brands:
-  GGD Amsterdam, Inspectie, Museum Weesp, Stadsarchief, Stadsbank van Lening, and VGA Verzekeringen.
-- The main logo in Dutch is for websites in that language and any language other than English.
-  The English logo is for websites in the English language only.
-  (We will add this logo soon; download it from [Stijlweb](https://amsterdam.nl/stijlweb/basiselementen/logo-gemeente-amsterdam/#hba498e5c-2388-464f-b769-7622a5d32bd1) until then.)
+- Use the appropriate variation of the logo for websites operated by one of the 5 sub-brands:
+  GGD Amsterdam, Museum Weesp, Stadsarchief, Stadsbank van Lening, and VGA Verzekeringen.
