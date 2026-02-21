@@ -24,10 +24,7 @@ export const dtcgDimension = {
     return value?.value !== null && value?.unit
   },
   name: 'dtcg/dimension',
-  transform: (token) => {
-    const value = token.$value ?? token.value
-    return `${value.value}${value.unit}`
-  },
+  transform: (token) => dimensionToString(token.$value ?? token.value),
   transitive: true,
   type: transformTypes.value,
 }
