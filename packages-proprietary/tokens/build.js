@@ -1,6 +1,13 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 import { camelCase, kebabCase } from 'change-case'
 import StyleDictionary from 'style-dictionary'
 import { transformTypes } from 'style-dictionary/enums'
+
+import { shadowDTCGDimensionNormalize } from './style-dictionary/transforms/shadow-dtcg-dimension-normalize.js'
 
 // Transform DTCG dimension objects to CSS values
 // i.e. `{ value: 1, unit: 'rem' }` becomes `1rem`
@@ -42,7 +49,10 @@ StyleDictionary.registerTransform({
   type: transformTypes.name,
 })
 
+StyleDictionary.registerTransform(shadowDTCGDimensionNormalize)
+
 const modes = ['compact']
+const commonTransforms = ['shadow/dtcg-dimension-normalize', 'shadow/css/shorthand', 'dtcg/dimension']
 
 function generateSharedConfig(mode) {
   const name = mode || 'index'
@@ -59,7 +69,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: ['dtcg/dimension', 'name/customKebab'],
+      transforms: [...commonTransforms, 'name/customKebab'],
     },
     cssTheme: {
       buildPath: 'dist/',
@@ -73,7 +83,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: ['dtcg/dimension', 'name/customKebab'],
+      transforms: [...commonTransforms, 'name/customKebab'],
     },
     js: {
       buildPath: 'dist/',
@@ -83,7 +93,7 @@ function generateSharedConfig(mode) {
           format: 'javascript/es6',
         },
       ],
-      transforms: ['dtcg/dimension', 'name/customCamel'],
+      transforms: [...commonTransforms, 'name/customCamel'],
     },
     json: {
       buildPath: 'dist/',
@@ -93,7 +103,7 @@ function generateSharedConfig(mode) {
           format: 'json/nested',
         },
       ],
-      transforms: ['dtcg/dimension', 'name/camel'],
+      transforms: [...commonTransforms, 'name/camel'],
     },
     scss: {
       buildPath: 'dist/',
@@ -106,7 +116,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: ['dtcg/dimension', 'name/customKebab'],
+      transforms: [...commonTransforms, 'name/customKebab'],
     },
     typescript: {
       buildPath: 'dist/',
