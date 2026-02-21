@@ -3,26 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { camelCase, kebabCase } from 'change-case'
+import { camelCase } from 'change-case'
 import StyleDictionary from 'style-dictionary'
 import { transformTypes } from 'style-dictionary/enums'
 
 import { dtcgDimension } from './style-dictionary/transforms/dtcg-dimension.js'
+import { nameCustomKebab } from './style-dictionary/transforms/name-custom-kebab.js'
 import { shadowDTCGDimensionNormalize } from './style-dictionary/transforms/shadow-dtcg-dimension-normalize.js'
 
 StyleDictionary.registerTransform(dtcgDimension)
-
-// Remove last key if it is 'default' when transforming to kebab-case
-// i.e. `ams.color.default` becomes `--ams-color`
-StyleDictionary.registerTransform({
-  name: 'name/customKebab',
-  transform: function (token) {
-    const filteredPath = token.path[token.path.length - 1] === 'default' ? token.path.slice(0, -1) : token.path
-
-    return kebabCase(filteredPath.join(' '))
-  },
-  type: transformTypes.name,
-})
+StyleDictionary.registerTransform(nameCustomKebab)
 
 // Remove last key if it is 'default' when transforming to camelCase
 // i.e. `ams.color.default` becomes `amsColor`
