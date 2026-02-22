@@ -13,10 +13,21 @@
           "$type": "shadow",
           "$value": {
             "inset": true,
-            "offsetX": { "value": 0, "unit": "rem" },
-            "offsetY": { "value": "calc({ams.border.width.m} * -1)", "unit": "rem" },
-            "blur": { "value": 0, "unit": "rem" },
-            "spread": { "value": 0, "unit": "rem" },
+            "offsetX": {
+              "value": 0,
+              "unit": "rem"
+            },
+            "offsetY": {
+              "value": "calc({ams.border.width.m} * -1)"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "rem"
+            },
+            "spread": {
+              "value": 0,
+              "unit": "rem"
+            },
             "color": "{ams.color.separator}"
           }
         }
@@ -75,10 +86,21 @@
             "$type": "shadow",
             "$value": {
               "inset": true,
-              "offsetX": { "value": 0, "unit": "rem" },
-              "offsetY": { "value": "calc({ams.border.width.m} * -1)", "unit": "rem" },
-              "blur": { "value": 0, "unit": "rem" },
-              "spread": { "value": 0, "unit": "rem" },
+              "offsetX": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "offsetY": {
+                "value": "calc({ams.border.width.m} * -1)"
+              },
+              "blur": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "spread": {
+                "value": 0,
+                "unit": "rem"
+              },
               "color": "currentColor"
             }
           },
@@ -92,10 +114,21 @@
             "$type": "shadow",
             "$value": {
               "inset": true,
-              "offsetX": { "value": 0, "unit": "rem" },
-              "offsetY": { "value": "calc({ams.border.width.xl} * -1)", "unit": "rem" },
-              "blur": { "value": 0, "unit": "rem" },
-              "spread": { "value": 0, "unit": "rem" },
+              "offsetX": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "offsetY": {
+                "value": "calc({ams.border.width.xl} * -1)"
+              },
+              "blur": {
+                "value": 0,
+                "unit": "rem"
+              },
+              "spread": {
+                "value": 0,
+                "unit": "rem"
+              },
               "color": "currentColor"
             }
           },
