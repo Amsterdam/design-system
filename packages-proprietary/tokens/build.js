@@ -15,8 +15,8 @@ StyleDictionary.registerTransform(nameCustomCamel)
 StyleDictionary.registerTransform(nameCustomKebab)
 StyleDictionary.registerTransform(shadowDTCGDimensionNormalize)
 
-const modes = ['compact']
 const commonTransforms = ['shadow/dtcg-dimension-normalize', 'shadow/css/shorthand', 'dtcg/dimension']
+const modes = ['compact']
 
 function generateSharedConfig(mode) {
   const name = mode || 'index'
@@ -90,6 +90,7 @@ function generateSharedConfig(mode) {
           format: 'typescript/module-declarations',
         },
       ],
+      // Type declarations only — no CSS-specific transforms needed
       transforms: ['dtcg/dimension', 'name/customCamel'],
     },
   }
@@ -106,12 +107,20 @@ const defaultMode = new StyleDictionary({
   ],
 })
 
-defaultMode.buildAllPlatforms()
+async function build() {
+  await defaultMode.buildAllPlatforms()
 
-modes.map((mode) => {
-  const styleDictionary = new StyleDictionary({
-    platforms: generateSharedConfig(mode),
-    source: [`./src/**/*.${mode}.tokens.json`],
-  })
-  return styleDictionary.buildAllPlatforms()
+  for (const mode of modes) {
+    const styleDictionary = new StyleDictionary({
+      platforms: generateSharedConfig(mode),
+      source: [`./src/**/*.${mode}.tokens.json`],
+    })
+    await styleDictionary.buildAllPlatforms()
+  }
+}
+
+build().catch((error) => {
+  console.error(error)
+  // eslint-disable-next-line no-undef
+  process.exit(1)
 })
