@@ -16,7 +16,10 @@
         }
       },
       "border-radius": {
-        "$value": "initial"
+        "$value": "initial",
+        "$extensions": {
+          "nl.amsterdam.exclude": true
+        }
       },
       "border-width": {
         "$value": "{ams.border.width.m}",
@@ -25,7 +28,10 @@
         }
       },
       "box-shadow": {
-        "$value": "initial"
+        "$value": "initial",
+        "$extensions": {
+          "nl.amsterdam.exclude": true
+        }
       },
       "gap": {
         "$value": "{ams.space.m}",
