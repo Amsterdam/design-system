@@ -16,10 +16,10 @@ so do not apply these styles without an `open` attribute. */
 .ams-dialog:not(dialog:not([open])) {
   background-color: var(--ams-dialog-background-color);
   border-color: var(--ams-dialog-border-color);
-  border-radius: var(--ams-dialog-border-radius);
+  border-radius: var(--ams-dialog-border-radius, initial);
   border-style: var(--ams-dialog-border-style);
   border-width: var(--ams-dialog-border-width);
-  box-shadow: var(--ams-dialog-box-shadow);
+  box-shadow: var(--ams-dialog-box-shadow, initial);
   box-sizing: border-box;
   display: flex; // We’d like to use CSS Grid here, but that doesn’t work as expected in Safari.
   flex-direction: column;
