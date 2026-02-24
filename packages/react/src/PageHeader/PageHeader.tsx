@@ -21,28 +21,38 @@ import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 
 const LogoLinkContent = ({
   brandName,
+  brandNameShort,
   logoAccessibleName,
   logoBrand,
 }: {
   brandName?: string
+  brandNameShort?: string
   logoAccessibleName?: string
   logoBrand: LogoBrand | LogoBrandConfig
-}) => (
-  <>
-    <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
-      <Logo aria-label={logoAccessibleName} brand={logoBrand} />
-    </span>
-    {brandName && (
-      <span aria-hidden="true" className="ams-page-header__brand-name">
-        {brandName}
+}) => {
+  const isWideWindow = useIsAfterBreakpoint('wide')
+
+  const viewportBrandName = isWideWindow ? brandName : brandNameShort || brandName
+
+  return (
+    <>
+      <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
+        <Logo aria-label={logoAccessibleName} brand={logoBrand} />
       </span>
-    )}
-  </>
-)
+      {viewportBrandName && (
+        <span aria-hidden="true" className="ams-page-header__brand-name">
+          {viewportBrandName}
+        </span>
+      )}
+    </>
+  )
+}
 
 export type PageHeaderProps = {
   /** The name of the application. */
   brandName?: string
+  /** The abbreviated name of the application. */
+  brandNameShort?: string
   /** The accessible name of the logo. */
   logoAccessibleName?: string
   /** The name of the brand for which to display the logo. */
@@ -73,6 +83,7 @@ const PageHeaderRoot = forwardRef(
   (
     {
       brandName,
+      brandNameShort,
       children,
       className,
       logoAccessibleName,
@@ -107,7 +118,12 @@ const PageHeaderRoot = forwardRef(
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <Link className="ams-page-header__logo-link" href={logoLink}>
-          <LogoLinkContent brandName={brandName} logoAccessibleName={logoAccessibleName} logoBrand={logoBrand} />
+          <LogoLinkContent
+            brandName={brandName}
+            brandNameShort={brandNameShort}
+            logoAccessibleName={logoAccessibleName}
+            logoBrand={logoBrand}
+          />
           <span className="ams-visually-hidden">{` ${logoLinkTitle}`}</span>
         </Link>
         {(hasMegaMenu || menuItems) && (
