@@ -96,6 +96,8 @@ const PageHeaderRoot = forwardRef(
     const Link = logoLinkComponent
     const hasMegaMenu = Boolean(children)
     const isWideWindow = hasMegaMenu && useIsAfterBreakpoint('wide')
+    // To avoid Unique Landmark violation, only set an accessible name on the menu if it is visible on the current breakpoint.
+    const accessibleNameOnlyIfVisible = isWideWindow ? undefined : 'primary-navigation'
 
     useEffect(() => {
       // Close the menu when the menu button disappears
@@ -111,8 +113,8 @@ const PageHeaderRoot = forwardRef(
           <span className="ams-visually-hidden">{` ${logoLinkTitle}`}</span>
         </Link>
         {(hasMegaMenu || menuItems) && (
-          <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
-            <h2 aria-hidden className="ams-visually-hidden" id="primary-navigation">
+          <nav aria-labelledby={accessibleNameOnlyIfVisible} className="ams-page-header__navigation">
+            <h2 aria-hidden className="ams-visually-hidden" id={accessibleNameOnlyIfVisible}>
               {navigationLabel}
             </h2>
 
