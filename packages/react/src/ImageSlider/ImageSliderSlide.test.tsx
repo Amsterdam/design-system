@@ -3,63 +3,66 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import { ImageSliderSlide } from './ImageSliderSlide'
 
-describe('ImageSliderSlide', () => {
-  it('renders a caption when provided', () => {
-    const { getByText } = render(
-      <ImageSliderSlide
-        alt="One"
-        caption="A bridge over a calm river."
-        currentSlideId={0}
-        index={0}
-        src="https://picsum.photos/id/122/320/180"
-      />,
-    )
+const defaultCaption = 'A bridge over a calm river.'
+const defaultProps = {
+  alt: '',
+  currentSlideId: 0,
+  index: 0,
+  src: 'https://picsum.photos/id/122/320/180',
+}
 
-    expect(getByText('A bridge over a calm river.')).toBeInTheDocument()
+describe('ImageSliderSlide', () => {
+  it('renders', () => {
+    render(<ImageSliderSlide {...defaultProps} />)
+
+    const image = screen.getByRole('presentation')
+
+    expect(image).toBeInTheDocument()
+    expect(image).toBeVisible()
+  })
+
+  it('renders a design system BEM class name', () => {
+    render(<ImageSliderSlide {...defaultProps} />)
+
+    const image = screen.getByRole('presentation')
+
+    expect(image).toHaveClass('ams-image-slider__slide')
+  })
+
+  it('renders a caption when provided, and a figure element', () => {
+    render(<ImageSliderSlide {...defaultProps} caption={defaultCaption} />)
+
+    const figure = screen.getByRole('figure')
+
+    expect(figure).toBeInTheDocument()
+    expect(figure).toHaveTextContent(defaultCaption)
   })
 
   it('does not render a figure element when no caption is provided', () => {
-    const { container } = render(
-      <ImageSliderSlide alt="One" currentSlideId={0} index={0} src="https://picsum.photos/id/122/320/180" />,
-    )
+    render(<ImageSliderSlide {...defaultProps} />)
 
-    expect(container.querySelector('figure')).not.toBeInTheDocument()
+    const figure = screen.queryByRole('figure')
+
+    expect(figure).not.toBeInTheDocument()
   })
 
-  it('renders a figure element when a caption is provided', () => {
-    const { container } = render(
-      <ImageSliderSlide
-        alt="One"
-        caption="A bridge over a calm river."
-        currentSlideId={0}
-        index={0}
-        src="https://picsum.photos/id/122/320/180"
-      />,
-    )
+  it('hides a captioned slide from assistive technologies when it is not the current slide', () => {
+    render(<ImageSliderSlide caption={defaultCaption} {...defaultProps} index={1} />)
 
-    expect(container.querySelector('figure')).toBeInTheDocument()
+    const figure = screen.getByRole('figure')
+
+    expect(figure).toHaveAttribute('aria-hidden', 'true')
   })
 
-  it('hides captioned non-current slides from assistive technologies', () => {
-    const { container } = render(
-      <ImageSliderSlide
-        alt="One"
-        caption="A bridge over a calm river."
-        currentSlideId={0}
-        index={1}
-        src="https://picsum.photos/id/122/320/180"
-      />,
-    )
+  it('does not hide a captioned slide from assistive technologies when it is the current slide', () => {
+    render(<ImageSliderSlide caption={defaultCaption} {...defaultProps} />)
 
-    const figure = container.querySelector('figure')
-    const ariaHiddenWrapper = container.querySelector('[aria-hidden="true"]')
+    const figure = screen.getByRole('figure')
 
-    expect(figure).toBeInTheDocument()
-    expect(ariaHiddenWrapper).toBeInTheDocument()
-    expect(ariaHiddenWrapper).toContainElement(figure as HTMLElement)
+    expect(figure).not.toHaveAttribute('aria-hidden')
   })
 })
