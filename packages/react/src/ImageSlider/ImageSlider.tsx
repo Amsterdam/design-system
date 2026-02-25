@@ -28,9 +28,9 @@ export type ImageSliderProps = {
   imageLabel?: string
   /** The set of images to display. */
   images: ImageSliderImageProps[]
-  /** The label for the 'next' button */
+  /** The label for the ‘next’ button */
   nextLabel?: string
-  /** The label for the 'previous' button */
+  /** The label for the ‘previous’ button */
   previousLabel?: string
 } & HTMLAttributes<HTMLDivElement>
 
