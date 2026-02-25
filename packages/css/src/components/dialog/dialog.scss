@@ -19,6 +19,7 @@ so do not apply these styles without an `open` attribute. */
   border-radius: var(--ams-dialog-border-radius);
   border-style: var(--ams-dialog-border-style);
   border-width: var(--ams-dialog-border-width);
+  box-shadow: var(--ams-dialog-box-shadow);
   box-sizing: border-box;
   display: flex; // We’d like to use CSS Grid here, but that doesn’t work as expected in Safari.
   flex-direction: column;
