@@ -76,13 +76,10 @@ The design team has looked at and approved new work.
 - **Stories:**
   - Add or update Storybook stories for new or changed components.
 
-## NL Design System
-
-The [NL Design System developer guidelines](https://nldesignsystem.nl/handboek/developer/introductie/) are followed.
-
 ## Code conventions
 
 - You’ve followed [the contribution guidelines](../CONTRIBUTING.md).
+- You’ve followed the [NL Design System developer guidelines](https://nldesignsystem.nl/handboek/developer/introductie/).
 - CSS follows [the CSS coding conventions](../packages/css/documentation/coding-conventions.md).
 - React code follows [the React coding conventions](../packages/react/documentation/coding-conventions.md).
 
