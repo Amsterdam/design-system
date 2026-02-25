@@ -51,9 +51,9 @@ describe('ImageSliderSlide', () => {
   })
 
   it('hides a captioned slide from assistive technologies when it is not the current slide', () => {
-    render(<ImageSliderSlide caption={defaultCaption} {...defaultProps} index={1} />)
+    const { container } = render(<ImageSliderSlide caption={defaultCaption} {...defaultProps} index={1} />)
 
-    const figure = screen.getByRole('figure')
+    const figure = container.querySelector('figure')
 
     expect(figure).toHaveAttribute('aria-hidden', 'true')
   })
