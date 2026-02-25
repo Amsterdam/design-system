@@ -3,16 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-@mixin reset-input {
-  -webkit-appearance: none; // Reset appearance for Safari < 15.4
-  appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
-  border-radius: 0; // Reset rounded borders on iOS devices
-  margin-block: 0;
-}
-
 .ams-text-input {
+  @include reset-input;
+  @include text-rendering;
+
   background-color: var(--ams-text-input-background-color);
   border-color: var(--ams-text-input-border-color);
   border-style: var(--ams-text-input-border-style);
@@ -28,23 +25,16 @@
   padding-block: var(--ams-text-input-padding-block);
   padding-inline: var(--ams-text-input-padding-inline);
   touch-action: manipulation;
-
-  @include text-rendering;
-  @include reset-input;
 }
 
 .ams-text-input:not([size]) {
   inline-size: 100%;
 }
 
-@mixin reset-placeholder {
-  opacity: 100%; // Reset lower opacity set by Firefox
-}
-
 .ams-text-input::placeholder {
-  color: var(--ams-text-input-placeholder-color);
-
   @include reset-placeholder;
+
+  color: var(--ams-text-input-placeholder-color);
 }
 
 .ams-text-input:disabled {

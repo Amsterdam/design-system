@@ -3,16 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-@mixin reset-textarea {
-  -webkit-appearance: none; // Reset appearance for Safari < 15.4
-  appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
-  border-radius: 0; // Reset rounded borders on iOS devices
-  margin-block: 0;
-}
-
 .ams-text-area {
+  @include reset-textarea;
+  @include text-rendering;
+
   background-color: var(--ams-text-area-background-color);
   border-color: var(--ams-text-area-border-color);
   border-style: var(--ams-text-area-border-style);
@@ -30,19 +27,12 @@
   padding-block: var(--ams-text-area-padding-block);
   padding-inline: var(--ams-text-area-padding-inline);
   touch-action: manipulation;
-
-  @include text-rendering;
-  @include reset-textarea;
-}
-
-@mixin reset-placeholder {
-  opacity: 100%; // Reset lower opacity set by Firefox
 }
 
 .ams-text-area::placeholder {
-  color: var(--ams-text-area-placeholder-color);
-
   @include reset-placeholder;
+
+  color: var(--ams-text-area-placeholder-color);
 }
 
 .ams-text-area:disabled {

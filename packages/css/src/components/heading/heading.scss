@@ -4,13 +4,14 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-@mixin reset-hx {
-  margin-block: 0;
-}
-
 .ams-heading {
+  @include reset-hx;
+  @include hyphenation;
+  @include text-rendering;
+
   box-sizing: border-box;
 
   /*
@@ -30,10 +31,6 @@
    */
   /* stylelint-disable-next-line plugin/use-baseline */
   text-wrap: var(--ams-heading-text-wrap);
-
-  @include hyphenation;
-  @include text-rendering;
-  @include reset-hx;
 }
 
 .ams-heading--1 {

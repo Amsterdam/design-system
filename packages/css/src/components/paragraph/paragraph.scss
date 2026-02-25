@@ -4,23 +4,20 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-@mixin reset-p {
-  margin-block: 0;
-}
-
 .ams-paragraph {
+  @include reset-p;
+  @include hyphenation;
+  @include text-rendering;
+
   box-sizing: border-box;
   color: var(--ams-paragraph-color);
   font-family: var(--ams-paragraph-font-family);
   font-size: var(--ams-paragraph-font-size);
   font-weight: var(--ams-paragraph-font-weight);
   line-height: var(--ams-paragraph-line-height);
-
-  @include text-rendering;
-  @include hyphenation;
-  @include reset-p;
 }
 
 .ams-paragraph--large {

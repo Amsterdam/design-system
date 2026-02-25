@@ -4,12 +4,8 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
-
-@mixin reset-ol {
-  margin-block: 0;
-  padding-inline: 0;
-}
 
 .ams-breadcrumb {
   /*
@@ -25,12 +21,12 @@
 }
 
 .ams-breadcrumb__list {
-  box-sizing: border-box;
-  break-inside: avoid;
-
+  @include reset-ol;
   @include hyphenation;
   @include text-rendering;
-  @include reset-ol;
+
+  box-sizing: border-box;
+  break-inside: avoid;
 }
 
 .ams-breadcrumb__item {

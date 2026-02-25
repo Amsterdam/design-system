@@ -4,14 +4,14 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-@mixin reset-blockquote {
-  margin-block: 0;
-  margin-inline: 0;
-}
-
 .ams-blockquote {
+  @include reset-blockquote;
+  @include hyphenation;
+  @include text-rendering;
+
   box-sizing: border-box;
   break-inside: avoid;
   color: var(--ams-blockquote-color);
@@ -19,11 +19,7 @@
   font-size: var(--ams-blockquote-font-size);
   font-weight: var(--ams-blockquote-font-weight);
   line-height: var(--ams-blockquote-line-height);
-  quotes: "“" "”";
-
-  @include hyphenation;
-  @include text-rendering;
-  @include reset-blockquote;
+  quotes: “”” “””;
 
   &::before {
     content: open-quote;

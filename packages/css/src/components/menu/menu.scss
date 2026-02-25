@@ -5,13 +5,8 @@
 
 @use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
-
-@mixin reset-ul {
-  list-style: none;
-  margin-block: 0;
-  padding-inline-start: 0;
-}
 
 .ams-menu {
   background-color: var(--ams-menu-background-color);
@@ -51,11 +46,11 @@
 }
 
 .ams-menu__list {
-  display: grid;
-
+  @include reset-ul;
   @include hyphenation;
   @include text-rendering;
-  @include reset-ul;
+
+  display: grid;
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     gap: var(--ams-menu-list-gap);
