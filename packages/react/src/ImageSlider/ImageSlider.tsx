@@ -120,7 +120,7 @@ export const ImageSlider = forwardRef(
         )}
         <div aria-live="polite" className="ams-image-slider__scroller" ref={scrollerRef} role="group" tabIndex={0}>
           {images.map((image, index) => (
-            <ImageSliderSlide key={index} {...image} currentSlideId={currentSlideId} index={index} />
+            <ImageSliderSlide key={`${index}-${image.src}`} {...image} currentSlideId={currentSlideId} index={index} />
           ))}
         </div>
         <ImageSliderThumbnails
