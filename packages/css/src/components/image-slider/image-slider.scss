@@ -10,7 +10,7 @@
   gap: var(--ams-image-slider-gap);
 }
 
-.ams-image-slider__item {
+.ams-image-slider__slide {
   scroll-snap-align: center;
   scroll-snap-stop: always;
 }
@@ -96,4 +96,8 @@
 
 .ams-image-slider__thumbnail--in-view {
   opacity: var(--ams-image-slider-thumbnails-thumbnail-in-view-opacity);
+}
+
+.ams-image-slider__figure {
+  margin-block-end: var(--ams-image-slider-figure-margin-block-end);
 }
