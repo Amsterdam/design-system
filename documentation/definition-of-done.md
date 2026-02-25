@@ -9,12 +9,19 @@
 #### Required accessibility checks
 
 - Ensure focus outline is visible for interactive components.
-- Test on both mobile and desktop devices.
+- Test on smaller screens: verify content does not overflow or get cut off.
+- Test pointer (mouse), keyboard, and touch interactions. Verify custom gestures do not conflict with native ones, for example a horizontal swipe to scroll conflicting with the browser’s swipe-to-navigate gesture.
 - Verify visibility and usability when zoomed up to 200%.
 - Verify visibility and usability when adjusting the text size to the maximum.
 - Confirm that color is not the sole means of conveying information.
 - Validate the component using [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview), [WAVE](https://wave.webaim.org/standalone), and [the Markup Validation Service](https://validator.w3.org/).
-- Test with a screen reader.
+- Test with a screen reader. At minimum, test with NVDA and Chrome on Windows, and VoiceOver and Safari on macOS or iOS. Verify that:
+  - All visible content is also announced by a screen reader.
+  - Interactive elements are announced with their role, name, and state (e.g., "button, Submit, disabled").
+  - Dynamic changes (such as error messages or loading states) are announced without requiring focus to move.
+  - The reading order matches the visual order.
+  - All meaningful images and icons have descriptive alternative text.
+  - Decorative images and icons are hidden from assistive technology.
 - If the component includes animation, verify it respects the `prefers-reduced-motion` setting.
 - Apply the provided CSS snippet and confirm that all elements are still rendered correctly, adhering to WCAG 1.4.12. In Chrome, you can use the [Stylus plugin](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) for easy implementation.
 
@@ -33,10 +40,17 @@ p {
 #### Additional accessibility checks
 
 - Translate the component into a right-to-left (RTL) language and verify that all content, including `aria-label` if used, is translated and displays correctly in RTL.
-- Check the print preview for correct rendering.
-- Check if the component still makes sense when CSS fails to load.
-- Ensure the component is still functional without JavaScript enabled.
-- Test in forced colors mode.
+- Check the print preview renders the same as on a smaller screen, with the exception of print-specific styles.
+- Check if the component is usable when CSS fails to load. This means unnecessary elements are not rendered, and visual elements like images are not shown overly large.
+- Ensure the component degrades gracefully when JavaScript is unavailable or fails to load.
+  - Static content is visible and readable.
+  - Any functionality that can be implemented in HTML/CSS alone still works (e.g., a <details> element for disclosure, native <select> for dropdowns).
+  - The component does not render a broken or empty state (e.g., a spinner that never resolves, or a blank container where content should be).
+- Test in forced colors mode:
+  - All text and interactive elements remain visible and distinguishable.
+  - Focus indicators are still visible.
+  - Icons and graphical elements that convey meaning are visible and distinguishable.
+  - Borders and outlines are present where needed to distinguish UI regions.
 
 #### Automated testing
 
@@ -51,7 +65,7 @@ p {
 - Verify that the heading hierarchy of the page is correct.
   When using Chrome, the [HeadingsMap](https://chromewebstore.google.com/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi?pli=1) plugin makes this easier.
 
-For a more thorough test, see [Mike's accessibility checklist](https://tamtam.amsterdam.nl/do/page?id=5391962-70616765) (internal Gemeente Amsterdam network only).
+For a more thorough test, see [Mike’s accessibility checklist](https://tamtam.amsterdam.nl/do/page?id=5391962-70616765) (internal Gemeente Amsterdam network only).
 
 ## Design
 
