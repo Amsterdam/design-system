@@ -49,7 +49,7 @@ p {
 
 - All required accessibility checks should pass.
 - Verify that the heading hierarchy of the page is correct.
-  When using Chrome, the HeadingsMap plugin makes this easier.
+  When using Chrome, the [HeadingsMap](https://chromewebstore.google.com/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi?pli=1) plugin makes this easier.
 
 For a more thorough test, see [Mike's accessibility checklist](https://tamtam.amsterdam.nl/do/page?id=5391962-70616765) (internal Gemeente Amsterdam network only).
 
