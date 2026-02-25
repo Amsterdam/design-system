@@ -25,29 +25,26 @@ export const ImageSliderSlide = ({
   src,
   srcSet,
 }: ImageSliderSlideProps) => {
-  const image = (
-    <Image
-      alt={alt}
-      aria-hidden={index !== currentSlideId ? true : undefined}
-      aspectRatio={aspectRatio}
-      // The `ams-image-slider__item` and `ams-image-slider__item--in-view` classes are @deprecated and will be removed in a future release.
-      className={clsx(
-        'ams-image-slider__slide ams-image-slider__item',
-        index === currentSlideId && 'ams-image-slider__item--in-view',
-      )}
-      sizes={sizes}
-      src={src}
-      srcSet={srcSet}
-    />
-  )
+  const isCurrentSlide = index === currentSlideId
+
+  const slideProps = {
+    'aria-hidden': isCurrentSlide ? undefined : true,
+    // The `ams-image-slider__item` and `ams-image-slider__item--in-view` classes are @deprecated and will be removed in a future release.
+    className: clsx(
+      'ams-image-slider__slide ams-image-slider__item',
+      isCurrentSlide && 'ams-image-slider__item--in-view',
+    ),
+  }
+
+  const imageProps = { alt, aspectRatio, sizes, src, srcSet }
 
   return caption ? (
-    <Figure className="ams-image-slider__slide ams-image-slider__figure">
-      {image}
+    <Figure {...slideProps} className={clsx(slideProps.className, 'ams-image-slider__figure')}>
+      <Image {...imageProps} />
       <Figure.Caption className="ams-image-slider__caption">{caption}</Figure.Caption>
     </Figure>
   ) : (
-    image
+    <Image {...imageProps} {...slideProps} />
   )
 }
 
