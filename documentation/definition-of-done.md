@@ -47,7 +47,7 @@ p {
 
 ### For pages
 
-- All required accessibility checks should pass.
+- All required accessibility checks pass.
 - Verify that the heading hierarchy of the page is correct.
   When using Chrome, the [HeadingsMap](https://chromewebstore.google.com/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi?pli=1) plugin makes this easier.
 
