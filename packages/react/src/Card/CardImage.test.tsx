@@ -7,7 +7,6 @@ import { render } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { CardImage } from './CardImage'
-import '@testing-library/jest-dom'
 
 describe('CardImage', () => {
   it('renders', () => {

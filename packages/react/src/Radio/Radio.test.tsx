@@ -8,7 +8,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Radio } from './Radio'
-import '@testing-library/jest-dom'
 
 describe('Radio', () => {
   it('renders', () => {
@@ -193,5 +192,15 @@ describe('Radio', () => {
     const input = screen.getByRole('radio')
 
     expect(ref.current).toBe(input)
+  })
+
+  it('passes additional props', () => {
+    render(<Radio aria-hidden={false} data-test="data-test" id="id" />)
+
+    const input = screen.getByRole('radio')
+
+    expect(input).toHaveAttribute('aria-hidden', 'false')
+    expect(input).toHaveAttribute('id', 'id')
+    expect(input).toHaveAttribute('data-test', 'data-test')
   })
 })

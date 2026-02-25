@@ -8,7 +8,6 @@ import userEvent from '@testing-library/user-event'
 import { createRef, useState } from 'react'
 
 import { SearchFieldInput } from './SearchFieldInput'
-import '@testing-library/jest-dom'
 
 describe('SearchFieldInput', () => {
   it('renders', () => {

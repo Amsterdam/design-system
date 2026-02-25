@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Heading } from './Heading'
-import '@testing-library/jest-dom'
 
 describe('Heading', () => {
   it('renders an element with role heading', () => {
@@ -125,5 +124,15 @@ describe('Heading', () => {
     const heading = screen.getByRole('heading')
 
     expect(ref.current).toBe(heading)
+  })
+
+  it('passes additional props', () => {
+    render(<Heading aria-hidden={false} data-test="data-test" id="id" level={1} />)
+
+    const heading = screen.getByRole('heading')
+
+    expect(heading).toHaveAttribute('aria-hidden', 'false')
+    expect(heading).toHaveAttribute('id', 'id')
+    expect(heading).toHaveAttribute('data-test', 'data-test')
   })
 })

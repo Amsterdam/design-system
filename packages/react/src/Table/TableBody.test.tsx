@@ -8,7 +8,6 @@ import { createRef } from 'react'
 
 import { Table } from './Table'
 import { TableBody } from './TableBody'
-import '@testing-library/jest-dom'
 
 describe('TableBody', () => {
   it('renders', () => {

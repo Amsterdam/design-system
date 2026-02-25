@@ -9,7 +9,6 @@ import { createRef } from 'react'
 import { ariaRoleForTag } from '../common/accessibility'
 import { crossAlignOptionsForColumn, mainAlignOptions } from '../common/types'
 import { Column, columnGapSizes, columnTags } from './Column'
-import '@testing-library/jest-dom'
 
 describe('Column', () => {
   it('renders', () => {

@@ -7,8 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { ariaRoleForTag } from '../common/accessibility'
-import '@testing-library/jest-dom'
-
 import { Breakout } from './Breakout'
 import { breakoutCellTags } from './BreakoutCell'
 
