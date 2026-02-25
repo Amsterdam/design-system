@@ -9,6 +9,9 @@
         "$value": "{ams.dialog.background-color}",
         "$type": "color"
       },
+      "border-radius": {
+        "$value": "initial"
+      },
       "border-style": {
         "$value": "solid",
         "$extensions": {
