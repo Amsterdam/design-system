@@ -43,4 +43,23 @@ describe('ImageSliderSlide', () => {
 
     expect(container.querySelector('figure')).toBeInTheDocument()
   })
+
+  it('hides captioned non-current slides from assistive technologies', () => {
+    const { container } = render(
+      <ImageSliderSlide
+        alt="One"
+        caption="A bridge over a calm river."
+        currentSlideId={0}
+        index={1}
+        src="https://picsum.photos/id/122/320/180"
+      />,
+    )
+
+    const figure = container.querySelector('figure')
+    const ariaHiddenWrapper = container.querySelector('[aria-hidden="true"]')
+
+    expect(figure).toBeInTheDocument()
+    expect(ariaHiddenWrapper).toBeInTheDocument()
+    expect(ariaHiddenWrapper).toContainElement(figure as HTMLElement)
+  })
 })
