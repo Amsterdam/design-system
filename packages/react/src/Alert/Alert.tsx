@@ -10,6 +10,7 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 import type { HeadingProps } from '../Heading'
+import type { IconProps } from '../Icon/Icon'
 
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
@@ -43,7 +44,7 @@ export type AlertProps = {
   severity?: Severity
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-const iconSvgBySeverity: Record<Severity, Function> = {
+const iconSvgBySeverity: Record<Severity, IconProps['svg']> = {
   error: ErrorFillIcon,
   success: SuccessFillIcon,
   warning: WarningFillIcon,
