@@ -97,7 +97,3 @@ The [NL Design System developer guidelines](https://nldesignsystem.nl/handboek/d
 
 - Code files have a @license EUPL-1.2+ header with Copyright Gemeente Amsterdam
 - Documentation files have a @license CC0-1.0 header
-
-## NL Design System
-
-- You’ve followed these [NLDS guidelines](https://nldesignsystem.nl/meedoen/als-developer/meewerken-als-developer/)
