@@ -24,12 +24,12 @@ type IconOnlyProp = {
   iconOnly?: boolean
 }
 
-type IconButtonProps = {
+export type IconButtonProps = {
   /** Adds an icon to the button, showing it after the label. */
   icon: IconProps['svg']
 } & (IconBeforeProp | IconOnlyProp)
 
-type TextButtonProps = {
+export type TextButtonProps = {
   icon?: never
   iconBefore?: never
   iconOnly?: never
