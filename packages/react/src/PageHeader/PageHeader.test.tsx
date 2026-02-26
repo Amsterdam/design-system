@@ -248,25 +248,29 @@ describe('PageHeader', () => {
     }
 
     const originalMatchMedia = window.matchMedia
-    window.matchMedia = jest.fn().mockReturnValue(mediaQueryList)
+    window.matchMedia = jest.fn().mockReturnValue(mediaQueryList as unknown as MediaQueryList)
 
-    const user = userEvent.setup()
-    const { container } = render(<PageHeader noMenuButtonOnWideWindow>Test</PageHeader>)
+    try {
+      const user = userEvent.setup()
+      const { container } = render(<PageHeader noMenuButtonOnWideWindow>Test</PageHeader>)
 
-    const menuButton = screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' })
-    await user.click(menuButton)
+      const menuButton = screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' })
+      await user.click(menuButton)
 
-    expect(container.querySelector('.ams-page-header__mega-menu')).not.toHaveClass('ams-page-header__mega-menu--closed')
+      expect(container.querySelector('.ams-page-header__mega-menu')).not.toHaveClass(
+        'ams-page-header__mega-menu--closed',
+      )
 
-    // Simulate the viewport crossing the 'wide' breakpoint
-    mediaQueryList.matches = true
-    act(() => {
-      changeListener?.()
-    })
+      // Simulate the viewport crossing the 'wide' breakpoint
+      mediaQueryList.matches = true
+      act(() => {
+        changeListener?.()
+      })
 
-    expect(container.querySelector('.ams-page-header__mega-menu')).toHaveClass('ams-page-header__mega-menu--closed')
-
-    window.matchMedia = originalMatchMedia
+      expect(container.querySelector('.ams-page-header__mega-menu')).toHaveClass('ams-page-header__mega-menu--closed')
+    } finally {
+      window.matchMedia = originalMatchMedia
+    }
   })
 
   it('renders a custom logo link component', () => {
