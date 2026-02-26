@@ -54,8 +54,7 @@
 }
 
 @mixin reset-input {
-  -webkit-appearance: none; // Reset appearance for Safari < 15.4
-  appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
+  appearance: none; // Reset native appearance on iOS and Android devices
   border-radius: 0; // Reset rounded borders on iOS devices
   margin-block: 0;
 }
@@ -95,8 +94,7 @@
 }
 
 @mixin reset-textarea {
-  -webkit-appearance: none; // Reset appearance for Safari < 15.4
-  appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
+  appearance: none; // Reset native appearance on iOS and Android devices
   border-radius: 0; // Reset rounded borders on iOS devices
   margin-block: 0;
 }
