@@ -17,7 +17,7 @@ type Breakpoint = keyof typeof BREAKPOINTS
  * Hook to determine if the viewport width is at or beyond a given breakpoint.
  *
  * **Prefer CSS media queries over this hook.** Use this only when viewport-dependent
- * logic must run in JavaScript, e.g. for interactions or dynamic behavior that cannot
+ * logic must run in JavaScript, e.g. for interactions or dynamic behaviour that cannot
  * be expressed in CSS. CSS media queries are more performant, better supported across
  * stacks, and easier to maintain.
  *
