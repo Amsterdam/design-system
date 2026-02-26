@@ -3,9 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-file-input {
+  @include reset-input;
+
   background-color: var(--ams-file-input-background-color);
   border-color: var(--ams-file-input-border-color);
   border-style: var(--ams-file-input-border-style);
@@ -32,6 +35,8 @@
 }
 
 .ams-file-input::file-selector-button {
+  @include reset-button;
+
   -webkit-appearance: none; // Reset appearance for Safari < 15.4
   appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
   background-color: var(--ams-file-input-file-selector-button-background-color);
