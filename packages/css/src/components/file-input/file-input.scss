@@ -7,8 +7,6 @@
 @use "../../common/text-rendering" as *;
 
 .ams-file-input {
-  @include reset-input;
-
   background-color: var(--ams-file-input-background-color);
   border-color: var(--ams-file-input-border-color);
   border-style: var(--ams-file-input-border-style);
