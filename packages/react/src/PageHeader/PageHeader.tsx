@@ -133,7 +133,7 @@ const PageHeaderRoot = forwardRef(
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
             <div aria-hidden className="ams-page-header__logo-link ams-page-header__logo-link--hidden" hidden>
-              <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
+              <LogoLinkContent brandName={brandName} brandNameShort={brandNameShort} logoBrand={logoBrand} />
             </div>
 
             <ul className="ams-page-header__menu">
