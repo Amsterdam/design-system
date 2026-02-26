@@ -17,7 +17,7 @@
   font-size: var(--ams-blockquote-font-size);
   font-weight: var(--ams-blockquote-font-weight);
   line-height: var(--ams-blockquote-line-height);
-  quotes: “”” “””;
+  quotes: "“" "”";
 
   @include hyphenation;
   @include text-rendering;
