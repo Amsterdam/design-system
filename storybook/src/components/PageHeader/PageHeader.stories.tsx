@@ -212,7 +212,7 @@ export const WithDifferentBranding: PageHeaderStory = {
   },
 }
 
-export const WithShortenedBrandName: PageHeaderStory = {
+export const WithShortBrandName: PageHeaderStory = {
   args: {
     brandName: 'Amsterdam Design System',
     brandNameShort: 'ADS',
