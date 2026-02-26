@@ -6,7 +6,7 @@
 import type { AnchorHTMLAttributes } from 'react'
 
 import { PlusIcon } from '@amsterdam/design-system-react-icons'
-import { render, screen } from '@testing-library/react'
+import { act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 
@@ -237,8 +237,36 @@ describe('PageHeader', () => {
     expect(menuButton).toHaveTextContent('Custom hide text')
   })
 
-  it.skip('closes the mega menu when it is open and the screen width passes the breakpoint', () => {
-    // TODO: Add this test
+  it('closes the mega menu when it is open and the screen width passes the breakpoint', async () => {
+    let changeListener: (() => void) | undefined
+    const mediaQueryList = {
+      addEventListener: jest.fn((_event: string, listener: () => void) => {
+        changeListener = listener
+      }),
+      matches: false,
+      removeEventListener: jest.fn(),
+    }
+
+    const originalMatchMedia = window.matchMedia
+    window.matchMedia = jest.fn().mockReturnValue(mediaQueryList)
+
+    const user = userEvent.setup()
+    const { container } = render(<PageHeader noMenuButtonOnWideWindow>Test</PageHeader>)
+
+    const menuButton = screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' })
+    await user.click(menuButton)
+
+    expect(container.querySelector('.ams-page-header__mega-menu')).not.toHaveClass('ams-page-header__mega-menu--closed')
+
+    // Simulate the viewport crossing the 'wide' breakpoint
+    mediaQueryList.matches = true
+    act(() => {
+      changeListener?.()
+    })
+
+    expect(container.querySelector('.ams-page-header__mega-menu')).toHaveClass('ams-page-header__mega-menu--closed')
+
+    window.matchMedia = originalMatchMedia
   })
 
   it('renders a custom logo link component', () => {
