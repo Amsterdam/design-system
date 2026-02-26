@@ -30,20 +30,19 @@ const LogoLinkContent = ({
   logoAccessibleName?: string
   logoBrand: LogoBrand | LogoBrandConfig
 }) => {
-  const isWideWindow = useIsAfterBreakpoint('wide')
-
-  const viewportBrandName = isWideWindow ? brandName : brandNameShort || brandName
-
   return (
     <>
       <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
         <Logo aria-label={logoAccessibleName} brand={logoBrand} />
       </span>
-      {viewportBrandName && (
-        <span aria-hidden="true" className="ams-page-header__brand-name">
-          {viewportBrandName}
+      {brandNameShort && (
+        <span aria-hidden="true" className="ams-page-header__brand-name-short">
+          {brandNameShort}
         </span>
       )}
+      <span aria-hidden="true" className="ams-page-header__brand-name">
+        {brandName}
+      </span>
     </>
   )
 }
