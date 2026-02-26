@@ -9,12 +9,13 @@
 
 .ams-link-list {
   @include reset-ul;
-  @include hyphenation;
-  @include text-rendering;
 
   box-sizing: border-box;
   display: grid;
   gap: var(--ams-link-list-gap);
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
 .ams-link-list__link {

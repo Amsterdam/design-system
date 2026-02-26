@@ -22,11 +22,12 @@
 
 .ams-breadcrumb__list {
   @include reset-ol;
-  @include hyphenation;
-  @include text-rendering;
 
   box-sizing: border-box;
   break-inside: avoid;
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
 .ams-breadcrumb__item {

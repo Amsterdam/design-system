@@ -47,10 +47,11 @@
 
 .ams-menu__list {
   @include reset-ul;
-  @include hyphenation;
-  @include text-rendering;
 
   display: grid;
+
+  @include hyphenation;
+  @include text-rendering;
 
   @media screen and (min-width: $ams-breakpoint-wide) {
     gap: var(--ams-menu-list-gap);

@@ -9,12 +9,13 @@
 
 .ams-ordered-list {
   @include reset-ol;
-  @include hyphenation;
-  @include text-rendering;
 
   box-sizing: border-box;
   display: grid;
   gap: var(--ams-ordered-list-gap);
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
 .ams-ordered-list:not(.ams-ordered-list--no-markers) {

@@ -8,7 +8,6 @@
 
 .ams-date-input {
   @include reset-input;
-  @include text-rendering;
 
   background-color: var(--ams-date-input-background-color);
   border-color: var(--ams-date-input-border-color);
@@ -32,6 +31,8 @@
   padding-block: var(--ams-date-input-padding-block);
   padding-inline: var(--ams-date-input-padding-inline);
   touch-action: manipulation;
+
+  @include text-rendering;
 
   // Reset padding on webkit date edit fields to override the value of 1px in the UA stylesheet.
   &::-webkit-datetime-edit,

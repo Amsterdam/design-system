@@ -9,8 +9,6 @@
 
 .ams-heading {
   @include reset-hx;
-  @include hyphenation;
-  @include text-rendering;
 
   box-sizing: border-box;
 
@@ -31,6 +29,9 @@
    */
   /* stylelint-disable-next-line plugin/use-baseline */
   text-wrap: var(--ams-heading-text-wrap);
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
 .ams-heading--1 {

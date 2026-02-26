@@ -8,7 +8,6 @@
 
 .ams-text-area {
   @include reset-textarea;
-  @include text-rendering;
 
   background-color: var(--ams-text-area-background-color);
   border-color: var(--ams-text-area-border-color);
@@ -27,6 +26,8 @@
   padding-block: var(--ams-text-area-padding-block);
   padding-inline: var(--ams-text-area-padding-inline);
   touch-action: manipulation;
+
+  @include text-rendering;
 }
 
 .ams-text-area::placeholder {

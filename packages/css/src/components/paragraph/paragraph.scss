@@ -9,8 +9,6 @@
 
 .ams-paragraph {
   @include reset-p;
-  @include hyphenation;
-  @include text-rendering;
 
   box-sizing: border-box;
   color: var(--ams-paragraph-color);
@@ -18,6 +16,9 @@
   font-size: var(--ams-paragraph-font-size);
   font-weight: var(--ams-paragraph-font-weight);
   line-height: var(--ams-paragraph-line-height);
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
 .ams-paragraph--large {

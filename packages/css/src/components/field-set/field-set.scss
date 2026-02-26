@@ -45,8 +45,6 @@
 
 .ams-field-set__legend {
   @include reset-legend;
-  @include hyphenation;
-  @include text-rendering;
 
   color: var(--ams-field-set-legend-color);
   font-family: var(--ams-field-set-legend-font-family);
@@ -60,6 +58,9 @@
    */
   /* stylelint-disable-next-line plugin/use-baseline */
   text-wrap: var(--ams-field-set-legend-text-wrap);
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
 .ams-field-set__legend--in-fieldset {

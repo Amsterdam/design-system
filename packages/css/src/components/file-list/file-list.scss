@@ -9,13 +9,14 @@
 
 .ams-file-list {
   @include reset-ul;
-  @include hyphenation;
-  @include text-rendering;
 
   display: flex;
   flex-direction: column;
   gap: var(--ams-file-list-gap);
   padding-block: var(--ams-file-list-padding-block);
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
 .ams-file-list__item {

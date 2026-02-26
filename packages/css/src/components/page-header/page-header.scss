@@ -158,7 +158,6 @@
 
 .ams-page-header__mega-menu-button {
   @include reset-button;
-  @include page-header-menu-action;
 
   background-color: var(--ams-page-header-mega-menu-button-background-color);
   color: var(--ams-page-header-mega-menu-button-color);
@@ -168,6 +167,8 @@
   font-family: inherit;
   grid-auto-flow: column;
   padding-inline: var(--ams-page-header-mega-menu-button-padding-inline);
+
+  @include page-header-menu-action;
 
   &:hover {
     background-color: var(--ams-page-header-mega-menu-button-hover-background-color);

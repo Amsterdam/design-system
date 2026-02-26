@@ -10,8 +10,6 @@
 /* @deprecated We no longer use this size of headings. Use `.ams-heading.ams-heading--1` instead. */
 .ams-page-heading {
   @include reset-hx;
-  @include hyphenation;
-  @include text-rendering;
 
   box-sizing: border-box;
   /* stylelint-disable-next-line plugin/use-baseline */
@@ -24,6 +22,9 @@
   line-height: var(--ams-page-heading-line-height);
   /* stylelint-disable-next-line plugin/use-baseline */
   text-wrap: var(--ams-page-heading-text-wrap);
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
 .ams-page-heading--inverse {

@@ -8,7 +8,6 @@
 
 .ams-text-input {
   @include reset-input;
-  @include text-rendering;
 
   background-color: var(--ams-text-input-background-color);
   border-color: var(--ams-text-input-border-color);
@@ -25,6 +24,8 @@
   padding-block: var(--ams-text-input-padding-block);
   padding-inline: var(--ams-text-input-padding-inline);
   touch-action: manipulation;
+
+  @include text-rendering;
 }
 
 .ams-text-input:not([size]) {

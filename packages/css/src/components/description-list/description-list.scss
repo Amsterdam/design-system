@@ -10,8 +10,6 @@
 
 .ams-description-list {
   @include reset-dl;
-  @include hyphenation;
-  @include text-rendering;
 
   box-sizing: border-box;
   color: var(--ams-description-list-color);
@@ -21,6 +19,9 @@
   font-size: var(--ams-description-list-font-size);
   line-height: var(--ams-description-list-line-height);
   row-gap: var(--ams-description-list-row-gap);
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
 @media screen and (min-width: $ams-breakpoint-medium) {

@@ -9,12 +9,13 @@
 
 .ams-unordered-list {
   @include reset-ul;
-  @include hyphenation;
-  @include text-rendering;
 
   box-sizing: border-box;
   display: grid;
   gap: var(--ams-unordered-list-gap);
+
+  @include hyphenation;
+  @include text-rendering;
 }
 
 .ams-unordered-list:not(.ams-unordered-list--no-markers) {

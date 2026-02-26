@@ -13,7 +13,6 @@
 
 .ams-search-field__input {
   @include reset-input;
-  @include text-rendering;
 
   background-color: var(--ams-search-field-input-background-color);
   border-color: var(--ams-search-field-input-border-color);
@@ -30,6 +29,8 @@
   padding-block: var(--ams-search-field-input-padding-block);
   padding-inline: var(--ams-search-field-input-padding-inline);
   touch-action: manipulation;
+
+  @include text-rendering;
 
   &:focus {
     z-index: 1; // Make sure the focus outline isn’t cut off by the adjacent button

@@ -12,8 +12,6 @@
   --ams-icon-line-height: var(--ams-button-line-height);
 
   @include reset-button;
-  @include hyphenation;
-  @include text-rendering;
 
   border-style: var(--ams-button-border-style);
   border-width: var(--ams-button-border-width);
@@ -29,6 +27,9 @@
   padding-block: var(--ams-button-padding-block);
   padding-inline: var(--ams-button-padding-inline);
   touch-action: manipulation;
+
+  @include hyphenation;
+  @include text-rendering;
 
   &:disabled,
   &[aria-disabled="true"] {
