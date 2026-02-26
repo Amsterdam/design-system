@@ -29,7 +29,6 @@ const LogoLinkContent = ({
   brandNameShort?: string
   logoAccessibleName?: string
   logoBrand: LogoBrand | LogoBrandConfig
-<<<<<<< HEAD
 }) => (
   <>
     <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
@@ -45,25 +44,6 @@ const LogoLinkContent = ({
     </span>
   </>
 )
-=======
-}) => {
-  return (
-    <>
-      <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
-        <Logo aria-label={logoAccessibleName} brand={logoBrand} />
-      </span>
-      {brandNameShort && (
-        <span aria-hidden="true" className="ams-page-header__brand-name-short">
-          {brandNameShort}
-        </span>
-      )}
-      <span aria-hidden="true" className="ams-page-header__brand-name">
-        {brandName}
-      </span>
-    </>
-  )
-}
->>>>>>> 4a7c42494e (feat: render both variants; hide on breakpoints)
 
 export type PageHeaderProps = {
   /** The name of the application. */
