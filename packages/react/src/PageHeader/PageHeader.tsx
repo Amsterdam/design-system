@@ -100,7 +100,7 @@ const PageHeaderRoot = forwardRef(
     // We only set an accessible name on the menu if it is visible on the current breakpoint.
     // This avoids a ‘unique landmark’ violation if Menu is also rendered elsewhere on the page.
     // Keep this function in sync with the one in Menu, where it works the other way around.
-    const accessibleNameOnlyIfVisible = isWideWindow ? undefined : 'primary-navigation'
+    const labelId = isWideWindow ? undefined : 'primary-navigation'
 
     useEffect(() => {
       // Close the menu when the menu button disappears
@@ -116,8 +116,8 @@ const PageHeaderRoot = forwardRef(
           <span className="ams-visually-hidden">{` ${logoLinkTitle}`}</span>
         </Link>
         {(hasMegaMenu || menuItems) && (
-          <nav aria-labelledby={accessibleNameOnlyIfVisible} className="ams-page-header__navigation">
-            <h2 aria-hidden className="ams-visually-hidden" id={accessibleNameOnlyIfVisible}>
+          <nav aria-labelledby={labelId} className="ams-page-header__navigation">
+            <h2 aria-hidden className="ams-visually-hidden" id={labelId}>
               {navigationLabel}
             </h2>
 
