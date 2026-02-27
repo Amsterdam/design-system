@@ -24,7 +24,7 @@ type Breakpoint = keyof typeof BREAKPOINTS
  * @param breakpoint - The breakpoint to match against: `'medium'` or `'wide'`.
  * @returns `true` if the viewport width meets or exceeds the breakpoint, `false` otherwise.
  */
-const useIsAfterBreakpoint = (breakpoint: Breakpoint) => {
+const useViewportHasMinWidth = (breakpoint: Breakpoint) => {
   const [matches, setMatches] = useState(false)
 
   useEffect(() => {
@@ -46,4 +46,4 @@ const useIsAfterBreakpoint = (breakpoint: Breakpoint) => {
   return matches
 }
 
-export default useIsAfterBreakpoint
+export default useViewportHasMinWidth
