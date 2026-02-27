@@ -42,7 +42,7 @@ p {
 #### Additional accessibility checks
 
 - All content, including `aria-label` if used, displays correctly in a right-to-left (RTL) language when translated.
-- The print preview renders the same as on a smaller screen, except for print-specific styles.
+- The print preview displays like the website on a medium-size screen, except for print-specific styles.
 - The component is usable when CSS fails to load: unnecessary elements are not rendered, and visual elements like images are not shown overly large.
 - The component degrades gracefully when JavaScript is unavailable or fails to load:
   - Static content is visible and readable.
