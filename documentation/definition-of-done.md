@@ -57,7 +57,7 @@ p {
 
 #### Automated testing
 
-- Unit tests are written and pass.
+- Unit tests have been written and pass.
 - A test story renders all component variants for visual regression testing.
 - Visual changes in Chromatic are reviewed and approved.
 - ESLint, Stylelint, and Prettier report no errors.
