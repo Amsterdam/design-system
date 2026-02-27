@@ -84,9 +84,11 @@
     display: none;
   }
 
-  & ~ .ams-page-header__brand-name {
-    @media screen and (max-width: $ams-breakpoint-wide) {
-      display: none;
+  & + .ams-page-header__brand-name {
+    display: none;
+
+    @media screen and (min-width: $ams-breakpoint-wide) {
+      display: initial;
     }
   }
 }
