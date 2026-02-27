@@ -60,12 +60,12 @@ export const OnFocus: Story = {
 }
 
 export const MultipleLinks: Story = {
-  render: () => (
+  render: (args) => (
     <>
       <Paragraph style={{ marginBottom: '2rem' }}>
         (Click this text, then press the ‘Tab’ key twice to make the Skip Links appear.)
       </Paragraph>
-      <SkipLink href="#">Direct naar inhoud</SkipLink>
+      <SkipLink {...args} />
       <SkipLink href="#">Direct naar contactgegevens</SkipLink>
     </>
   ),
