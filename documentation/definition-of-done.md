@@ -46,7 +46,7 @@ p {
 - The component is usable when CSS fails to load: unnecessary elements are not rendered, and visual elements like images are not shown overly large.
 - The component degrades gracefully when JavaScript is unavailable or fails to load:
   - Static content is visible and readable.
-  - Any functionality that can be implemented in HTML/CSS alone still works (e.g., a <details> element for disclosure, native <select> for dropdowns).
+  - Any functionality that can be implemented in HTML/CSS alone still works (e.g., a `<details>` element for disclosure, native `<select>` for dropdowns).
   - The component does not render a broken or empty state (e.g., a spinner that never resolves, or a blank container where content should be).
 - Works correctly in forced colors mode:
   - All text and interactive elements remain visible and distinguishable.
