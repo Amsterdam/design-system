@@ -67,7 +67,7 @@ p {
 - The heading hierarchy of the page is correct.
   Use the HeadingsMap plugin in [Chrome](https://chromewebstore.google.com/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/headingsmap/) to make this easier.
 
-For a more thorough test, see [Mike’s accessibility checklist](https://tamtam.amsterdam.nl/do/page?id=5391962-70616765) (internal Gemeente Amsterdam network only).
+For a more thorough test, see [the City’s accessibility checklist](https://tamtam.amsterdam.nl/do/page?id=5391962-70616765) (internal Gemeente Amsterdam network only).
 
 ## Clean implementation
 
