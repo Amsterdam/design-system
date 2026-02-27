@@ -9,6 +9,7 @@ import {
   Button,
   CallToActionLink,
   Column,
+  DateInput,
   ErrorMessage,
   Field,
   FieldSet,
@@ -79,7 +80,7 @@ export const LandingPage: StoryObj = {
   ),
 }
 
-export const WithOneQuestion: StoryObj = {
+export const SingleQuestion: StoryObj = {
   decorators: [
     (Story) => (
       <FormLayout>
@@ -164,7 +165,7 @@ export const WithOneQuestion: StoryObj = {
   ),
 }
 
-export const WithMultipleQuestions: StoryObj = {
+export const SingleQuestionWithSubquestions: StoryObj = {
   decorators: [
     (Story) => (
       <FormLayout>
@@ -246,6 +247,83 @@ export const WithMultipleQuestions: StoryObj = {
                 />
               </Field>
             </FieldSet>
+            <Button type="submit">Volgende vraag</Button>
+          </form>
+        </Grid.Cell>
+      </Grid>
+    </>
+  ),
+}
+
+export const MultipleQuestions: StoryObj = {
+  decorators: [
+    (Story) => (
+      <FormLayout>
+        <Story />
+      </FormLayout>
+    ),
+  ],
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
+    <>
+      {/* The back link is in its own Grid, because it should be outside of the main section. */}
+      <Grid className="ams-mb-xl">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          {/*
+           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+           * For more info, see: https://design-system.service.gov.uk/components/back-link/
+           *
+           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           */}
+          <StandaloneLink href="#" icon={ChevronBackwardIcon}>
+            Vorige vraag
+          </StandaloneLink>
+        </Grid.Cell>
+      </Grid>
+      <Grid as="main" paddingBottom="2x-large">
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          {/* A form with multiple questions has a level 1 heading preceding it, which describes the group of questions. */}
+          <Heading className="ams-mb-xl" level={1}>
+            Inschrijven
+          </Heading>
+          {/*
+           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+           * and often gives the user too little information.
+           * Preferably validate user input on the server and return it to the client.
+           * If that is not possible, use client-side validation.
+           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           */}
+          <form noValidate onSubmit={(e) => e.preventDefault()}>
+            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            <Field className="ams-mb-l">
+              <Label htmlFor="name-input">Naam</Label>
+              <TextInput
+                autoComplete="name"
+                autoCorrect="off"
+                id="name-input"
+                name="name"
+                spellCheck="false"
+                type="text"
+              />
+            </Field>
+            <Field className="ams-mb-l">
+              <Label htmlFor="tel-input" optional>
+                Telefoonnummer
+              </Label>
+              <TextInput
+                autoComplete="tel"
+                id="tel-input"
+                name="tel"
+                size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
+                type="tel"
+              />
+            </Field>
+            <Field className="ams-mb-xl">
+              <Label htmlFor="date">Datum</Label>
+              <DateInput id="date" />
+            </Field>
             <Button type="submit">Volgende vraag</Button>
           </form>
         </Grid.Cell>
