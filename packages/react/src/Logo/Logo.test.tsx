@@ -15,7 +15,6 @@ const TestLogo = (props: SVGProps<SVGSVGElement>) => (
 )
 
 import { Logo } from './Logo'
-import '@testing-library/jest-dom'
 
 describe('Logo', () => {
   it('renders', () => {

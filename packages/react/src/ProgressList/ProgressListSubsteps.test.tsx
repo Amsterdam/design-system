@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { ProgressList } from './ProgressList'
-import '@testing-library/jest-dom'
 
 describe('ProgressListSubsteps', () => {
   it('renders', () => {

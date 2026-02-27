@@ -9,7 +9,6 @@ import { createRef } from 'react'
 import { aspectRatioOptions } from '../common/types'
 import { generateAspectRatioClass } from './generateAspectRatioClass'
 import { Image } from './Image'
-import '@testing-library/jest-dom'
 
 describe('Image', () => {
   it('renders', () => {

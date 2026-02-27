@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { Switch } from './Switch'
-import '@testing-library/jest-dom'
 
 describe('Switch', () => {
   it('renders an element with role switch', () => {

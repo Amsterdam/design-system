@@ -88,6 +88,14 @@
           }
         },
         "button": {
+          "background-color": {
+            "$value": "{ams.color.interactive.default}",
+            "$type": "color"
+          },
+          "color": {
+            "$value": "{ams.color.text.inverse}",
+            "$type": "color"
+          },
           "cursor": {
             "$value": "{ams.cursor.interactive}"
           },
@@ -95,8 +103,26 @@
             "open": {
               "font-weight": {
                 "$value": "{ams.typography.body-text.bold.font-weight}",
-                "$type": "fontWeight"
+                "$type": "fontWeight",
+                "$deprecated": "We no longer make the button label bold when the mega menu is open. Will be removed in release 6.0.0."
               }
+            }
+          },
+          "padding-inline": {
+            "$value": "{ams.space.s}",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
+          },
+          "hover": {
+            "background-color": {
+              "$value": "{ams.color.interactive.hover}",
+              "$type": "color"
+            },
+            "color": {
+              "$value": "{ams.color.text.inverse}",
+              "$type": "color"
             }
           }
         }
@@ -118,6 +144,7 @@
         },
         "item": {
           "color": {
+            "$deprecated": "Use `ams.page-header.menu.link.color` instead.",
             "$value": "{ams.links.color}",
             "$type": "color"
           },
@@ -170,6 +197,10 @@
           }
         },
         "link": {
+          "color": {
+            "$value": "{ams.links.color}",
+            "$type": "color"
+          },
           "gap": {
             "$value": "{ams.space.xs}",
             "$type": "dimension",

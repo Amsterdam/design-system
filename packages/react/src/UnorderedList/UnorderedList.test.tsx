@@ -7,7 +7,6 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 
 import { UnorderedList } from './UnorderedList'
-import '@testing-library/jest-dom'
 
 describe('UnorderedList', () => {
   it('renders an HTML ul element', () => {

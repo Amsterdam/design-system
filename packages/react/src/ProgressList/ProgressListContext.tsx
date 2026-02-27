@@ -8,6 +8,8 @@ import { createContext } from 'react'
 import type { ProgressListProps } from './ProgressList'
 
 type ProgressListContextValue = {
+  completedAccessibleText?: ProgressListProps['completedAccessibleText']
+  currentAccessibleText?: ProgressListProps['currentAccessibleText']
   headingLevel: ProgressListProps['headingLevel']
 }
 
