@@ -32,6 +32,19 @@ const meta = {
 
 export default meta
 
+const getLinks = (links: string[]) =>
+  links.length === 1 ? (
+    <StandaloneLink href="#">{links[0]}</StandaloneLink>
+  ) : (
+    <LinkList>
+      {links.map((link) => (
+        <LinkList.Link href="#" key={link}>
+          {link}
+        </LinkList.Link>
+      ))}
+    </LinkList>
+  )
+
 export const Default: StoryObj = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
@@ -62,13 +75,7 @@ export const Default: StoryObj = {
             <Heading className="ams-mb-s" level={2} size="level-3">
               {heading}
             </Heading>
-            <LinkList>
-              {links.map((link) => (
-                <LinkList.Link href="#" key={link}>
-                  {link}
-                </LinkList.Link>
-              ))}
-            </LinkList>
+            {getLinks(links)}
           </Grid.Cell>
         ))}
       </Grid>
@@ -121,17 +128,7 @@ export const WithTopTasks: StoryObj = {
             <Heading className="ams-mb-s" level={2} size="level-3">
               {heading}
             </Heading>
-            {links.length === 1 ? (
-              <StandaloneLink href="#">{links[0]}</StandaloneLink>
-            ) : (
-              <LinkList>
-                {links.map((link) => (
-                  <LinkList.Link href="#" key={link}>
-                    {link}
-                  </LinkList.Link>
-                ))}
-              </LinkList>
-            )}
+            {getLinks(links)}
           </Grid.Cell>
         ))}
       </Grid>
@@ -169,13 +166,7 @@ export const WithInteractiveElement: StoryObj = {
               <Heading className="ams-mb-s" level={2} size="level-3">
                 {heading}
               </Heading>
-              <LinkList>
-                {links.map((link) => (
-                  <LinkList.Link href="#" key={link}>
-                    {link}
-                  </LinkList.Link>
-                ))}
-              </LinkList>
+              {getLinks(links)}
             </Grid.Cell>
           ))}
         </Grid>
@@ -408,13 +399,7 @@ export const SubnavigationPage: StoryObj = {
               <Heading className="ams-mb-s" level={3}>
                 {heading}
               </Heading>
-              <LinkList>
-                {links.map((link) => (
-                  <LinkList.Link href="#" key={link}>
-                    {link}
-                  </LinkList.Link>
-                ))}
-              </LinkList>
+              {getLinks(links)}
             </Grid.Cell>
           ))}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -479,13 +464,7 @@ export const SubnavigationPage: StoryObj = {
               <Heading className="ams-mb-s" level={3}>
                 {heading}
               </Heading>
-              <LinkList>
-                {links.map((link) => (
-                  <LinkList.Link href="#" key={link}>
-                    {link}
-                  </LinkList.Link>
-                ))}
-              </LinkList>
+              {getLinks(links)}
             </Grid.Cell>
           ))}
         </Grid>
