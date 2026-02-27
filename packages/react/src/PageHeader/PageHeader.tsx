@@ -102,6 +102,8 @@ const PageHeaderRoot = forwardRef(
     const [open, setOpen] = useState(false)
 
     const Link = logoLinkComponent
+    const logoLinkContentProps = { brandName, brandNameShort, logoAccessibleName, logoBrand }
+
     const hasMegaMenu = Boolean(children)
     const isWideWindow = hasMegaMenu && useIsAfterBreakpoint('wide')
 
@@ -115,12 +117,7 @@ const PageHeaderRoot = forwardRef(
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <Link className="ams-page-header__logo-link" href={logoLink}>
-          <LogoLinkContent
-            brandName={brandName}
-            brandNameShort={brandNameShort}
-            logoAccessibleName={logoAccessibleName}
-            logoBrand={logoBrand}
-          />
+          <LogoLinkContent {...logoLinkContentProps} />
           <span className="ams-visually-hidden">{` ${logoLinkTitle}`}</span>
         </Link>
         {(hasMegaMenu || menuItems) && (
@@ -131,7 +128,7 @@ const PageHeaderRoot = forwardRef(
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
             <div aria-hidden className="ams-page-header__logo-link ams-page-header__logo-link--hidden" hidden>
-              <LogoLinkContent brandName={brandName} brandNameShort={brandNameShort} logoBrand={logoBrand} />
+              <LogoLinkContent {...logoLinkContentProps} logoBrand={logoBrand} />
             </div>
 
             <ul className="ams-page-header__menu">
