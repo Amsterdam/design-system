@@ -165,6 +165,18 @@ export const WithoutMenuButton: PageHeaderStory = {
   },
 }
 
+export const WithShortBrandName: PageHeaderStory = {
+  args: {
+    brandName: 'Amsterdam Design System',
+    brandNameShort: 'ADS',
+    menuItems: (
+      <PageHeader.MenuLink fixed href="#" icon={LogInIcon}>
+        Inloggen
+      </PageHeader.MenuLink>
+    ),
+  },
+}
+
 export const WithCustomLogoLink: PageHeaderStory = {
   args: {
     logoAccessibleName: 'Gemeentelijke Gezondheidsdienst Amsterdam logo',
@@ -197,17 +209,5 @@ export const WithDifferentBranding: PageHeaderStory = {
       '--ams-logo-block-size': 'clamp(1.125rem, 1.0536rem + 0.3571vw, 1.375rem)',
       '--ams-logo-min-block-size': '1.125rem',
     } as CSSProperties,
-  },
-}
-
-export const WithShortBrandName: PageHeaderStory = {
-  args: {
-    brandName: 'Amsterdam Design System',
-    brandNameShort: 'ADS',
-    menuItems: (
-      <PageHeader.MenuLink fixed href="#" icon={LogInIcon}>
-        Inloggen
-      </PageHeader.MenuLink>
-    ),
   },
 }

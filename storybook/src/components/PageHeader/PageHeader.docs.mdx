@@ -47,6 +47,12 @@ Remember to use the `fixed` prop if you want the inline menu links to stay in pl
 
 <Canvas of={PageHeaderStories.WithoutMenuButton} />
 
+### With short brand name
+
+If the brand name is long and does not display nicely on smaller screens, an abbreviated variant can be shown with `brandNameShort` on viewports [up to the ‘wide’ breakpoint](https://designsystem.amsterdam/?path=/docs/docs-developer-guide-breakpoints--docs#values).
+
+<Canvas of={PageHeaderStories.WithShortBrandName} />
+
 ### With custom logo link
 
 The destination and accessible text of the logo link can be customized,
@@ -85,12 +91,6 @@ Set the appropriate values for the sizing tokens of [Logo](/docs/components-medi
 A different icon for the menu button must be an svg as well.
 
 <Canvas of={PageHeaderStories.WithDifferentBranding} />
-
-### With shortened brand name
-
-If the brand name is long and does not display nicely on smaller screens, it can be shortened by providing a `brandNameShort`.
-
-<Canvas of={PageHeaderStories.WithShortBrandName} />
 
 ## Tokens
 
