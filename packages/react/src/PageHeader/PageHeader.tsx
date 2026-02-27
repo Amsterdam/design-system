@@ -117,9 +117,11 @@ const PageHeaderRoot = forwardRef(
         </Link>
         {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby={labelId} className="ams-page-header__navigation">
-            <h2 aria-hidden className="ams-visually-hidden" id={labelId}>
-              {navigationLabel}
-            </h2>
+            {labelId && (
+              <h2 aria-hidden className="ams-visually-hidden" id={labelId}>
+                {navigationLabel}
+              </h2>
+            )}
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
             <div aria-hidden className="ams-page-header__logo-link ams-page-header__logo-link--hidden" hidden>
