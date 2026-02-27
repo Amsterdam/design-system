@@ -96,7 +96,10 @@ const PageHeaderRoot = forwardRef(
     const Link = logoLinkComponent
     const hasMegaMenu = Boolean(children)
     const isWideWindow = hasMegaMenu && useIsAfterBreakpoint('wide')
-    // To avoid Unique Landmark violation, only set an accessible name on the menu if it is visible on the current breakpoint.
+
+    // We only set an accessible name on the menu if it is visible on the current breakpoint.
+    // This avoids a ‘unique landmark’ violation if Menu is also rendered elsewhere on the page.
+    // Keep this function in sync with the one in Menu, where it works the other way around.
     const accessibleNameOnlyIfVisible = isWideWindow ? undefined : 'primary-navigation'
 
     useEffect(() => {

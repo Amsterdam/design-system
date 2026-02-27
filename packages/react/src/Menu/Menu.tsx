@@ -30,6 +30,9 @@ export const MenuRoot = forwardRef(
     // In a wide window, we render a `nav` element and the related accessibility features.
     const Tag = inWideWindow ? 'nav' : 'div'
 
+    // We only set an accessible name on the menu if it is visible on the current breakpoint.
+    // This avoids a ‘unique landmark’ violation, as Page Header uses the same accessible name.
+    // Keep this function in sync with the one in Page Header, where it works the other way around.
     const accessibleNameOnlyIfVisible = inWideWindow ? 'primary-navigation' : undefined
 
     return (
