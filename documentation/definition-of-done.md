@@ -14,7 +14,7 @@
 - Custom gestures do not conflict with native ones. For example, a horizontal swipe to scroll does not conflict with the browser’s swipe-to-navigate gesture.
 - The component is visible and usable when page zoom is at 200%.
 - The component is visible and usable at the maximum text size you can set in your browser settings. Note: this is not page zoom.
-- Color is not the only way to communicate information.
+- Colour is not the only way to communicate information.
 - The component passes validation using [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview), [WAVE](https://wave.webaim.org/standalone), and [the Markup Validation Service](https://validator.w3.org/).
 - Works correctly with a screen reader, at minimum with NVDA and Chrome on Windows, and VoiceOver and Safari on macOS or iOS:
   - All visible content is announced by a screen reader.
