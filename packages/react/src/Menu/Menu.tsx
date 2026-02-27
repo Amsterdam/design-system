@@ -33,17 +33,17 @@ export const MenuRoot = forwardRef(
     // We only set an accessible name on the menu if it is visible on the current breakpoint.
     // This avoids a ‘unique landmark’ violation, as Page Header uses the same accessible name.
     // Keep this function in sync with the one in Page Header, where it works the other way around.
-    const accessibleNameOnlyIfVisible = inWideWindow ? 'primary-navigation' : undefined
+    const labelId = inWideWindow ? 'primary-navigation' : undefined
 
     return (
       <Tag
         {...restProps}
-        aria-labelledby={accessibleNameOnlyIfVisible}
+        aria-labelledby={labelId}
         className={clsx('ams-menu', inWideWindow && `ams-menu--in-wide-window`, className)}
         ref={ref}
       >
         {inWideWindow && (
-          <h2 className="ams-visually-hidden" id={accessibleNameOnlyIfVisible}>
+          <h2 className="ams-visually-hidden" id={labelId}>
             {accessibleName}
           </h2>
         )}
