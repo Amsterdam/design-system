@@ -69,28 +69,36 @@ p {
 
 For a more thorough test, see [Mike’s accessibility checklist](https://tamtam.amsterdam.nl/do/page?id=5391962-70616765) (internal Gemeente Amsterdam network only).
 
-## Design
-
-The design team has looked at and approved new work.
-
 ## Clean implementation
 
-- **Component setup:** New components are created using our Plop templates. Extensions of existing components and new subcomponents also follow these templates.
-- **CSS validation:**
-  - All CSS declarations are necessary and have an effect.
-  - All CSS classes defined are actually used in the HTML.
-  - All classes used in the HTML are defined in the CSS.
-- **Token usage:**
-  - All tokens used are defined.
-  - No unused tokens are defined.
-- **Unit tests:**
-  - Ensure tests use the correct ARIA roles.
-  - For enum props, all variants are covered in unit tests.
-- **Exports:**
-  - Add or update exports in `index.*` files.
-  - Export the main component and its type. Also export the types of any subcomponents.
-- **Stories:**
-  - Add or update Storybook stories for new or changed components.
+### Component setup
+
+New components are created using our Plop templates. Extensions of existing components and new subcomponents also follow these templates.
+
+### CSS validation
+
+- All CSS declarations are necessary and have an effect.
+- All CSS classes defined are actually used in the HTML.
+- All classes used in the HTML are defined in the CSS.
+
+### Token usage
+
+- All tokens used are defined.
+- No unused tokens are defined.
+
+### Unit tests
+
+- Ensure tests use the correct ARIA roles.
+- For enum props, all variants are covered in unit tests.
+
+### Exports
+
+- Add or update exports in `index.*` files.
+- Export the main component and its type. Also export the types of any subcomponents.
+
+### Stories
+
+- Add or update Storybook stories for new or changed components.
 
 ## Code conventions
 
@@ -110,3 +118,7 @@ The design team has looked at and approved new work.
 
 - Code files have a @license EUPL-1.2+ header with Copyright Gemeente Amsterdam
 - Documentation files have a @license CC0-1.0 header
+
+## Design
+
+The design team has looked at and approved new work.
