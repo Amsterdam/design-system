@@ -4,19 +4,15 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-@mixin reset-figure {
-  margin-block: 0;
-  margin-inline: 0;
-}
-
 .ams-figure {
+  @include reset-figure;
+
   display: flex;
   flex-direction: column;
   gap: var(--ams-figure-gap);
-
-  @include reset-figure;
 }
 
 .ams-figure__caption {

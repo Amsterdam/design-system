@@ -72,7 +72,9 @@ export const InAFieldWithValidation: Story = {
 }
 
 export const MemorableDate: Story = {
-  render: () => (
+  // Storybook needs a render function with an args parameter to correctly render Code view, even if we don't use it in this story.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
     <FieldSet aria-describedby="description-a" legend="Wanneer ben je geboren?">
       <Paragraph id="description-a">Bijvoorbeeld 1 1 2000.</Paragraph>
       <Row>
@@ -100,7 +102,9 @@ export const MemorableDate: Story = {
 }
 
 export const MemorableDateWithValidation: Story = {
-  render: () => (
+  // Storybook needs a render function with an args parameter to correctly render Code view, even if we don't use it in this story.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
     <FieldSet aria-describedby="description-b error-b" invalid legend="Wanneer ben je geboren?">
       <Paragraph id="description-b">Bijvoorbeeld 1 1 2000.</Paragraph>
       <ErrorMessage id="error-b">De datum moet in het verleden liggen.</ErrorMessage>

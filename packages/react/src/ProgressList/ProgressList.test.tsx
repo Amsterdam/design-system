@@ -6,7 +6,7 @@
 import { render, screen, within } from '@testing-library/react'
 import { createRef } from 'react'
 
-import { ProgressList, progressListHeadingSizes } from './ProgressList'
+import { ProgressList, progressListHeadingLevels } from './ProgressList'
 
 describe('ProgressList', () => {
   it('renders', () => {
@@ -27,7 +27,7 @@ describe('ProgressList', () => {
     expect(list).toHaveClass('ams-progress-list')
   })
 
-  progressListHeadingSizes.forEach((level) => {
+  progressListHeadingLevels.forEach((level) => {
     it(`adds the class for heading level ${level}`, () => {
       render(<ProgressList headingLevel={level} />)
 

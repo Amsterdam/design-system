@@ -12,7 +12,7 @@ import type { IconProps } from '../Icon'
 import type { LogoBrand } from '../Logo'
 import type { LogoBrandConfig } from '../Logo/Logo'
 
-import useIsAfterBreakpoint from '../common/useIsAfterBreakpoint'
+import useViewportHasMinWidth from '../common/useViewportHasMinWidth'
 import { Icon } from '../Icon'
 import { Logo } from '../Logo'
 import { PageHeaderGridCellNarrowWindowOnly } from './PageHeaderGridCellNarrowWindowOnly'
@@ -95,7 +95,7 @@ const PageHeaderRoot = forwardRef(
 
     const Link = logoLinkComponent
     const hasMegaMenu = Boolean(children)
-    const isWideWindow = hasMegaMenu && useIsAfterBreakpoint('wide')
+    const isWideWindow = hasMegaMenu && useViewportHasMinWidth('wide')
 
     useEffect(() => {
       // Close the menu when the menu button disappears
@@ -142,9 +142,6 @@ const PageHeaderRoot = forwardRef(
                       {menuButtonText}
                     </span>
                     <span className="ams-visually-hidden">{open ? menuButtonTextForHide : menuButtonTextForShow}</span>
-                    <span aria-hidden="true" className="ams-page-header__mega-menu-button-hidden-label">
-                      {menuButtonText}
-                    </span>
                     <Icon
                       svg={
                         menuButtonIcon ?? (
