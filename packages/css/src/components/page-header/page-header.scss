@@ -64,7 +64,8 @@
   }
 }
 
-@mixin page-header-brand-name {
+.ams-page-header__brand-name,
+.ams-page-header__brand-name-short {
   color: var(--ams-page-header-brand-name-color);
   font-size: var(--ams-page-header-brand-name-font-size);
   font-weight: var(--ams-page-header-brand-name-font-weight);
@@ -78,13 +79,7 @@
   text-wrap: var(--ams-page-header-brand-name-text-wrap);
 }
 
-.ams-page-header__brand-name {
-  @include page-header-brand-name;
-}
-
 .ams-page-header__brand-name-short {
-  @include page-header-brand-name;
-
   @media screen and (min-width: $ams-breakpoint-wide) {
     display: none;
   }
