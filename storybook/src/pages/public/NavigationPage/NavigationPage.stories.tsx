@@ -242,9 +242,7 @@ export const WithImageGallery: StoryObj = {
               <Card>
                 <Card.Image alt="" src={imageSource} />
                 <Card.Heading level={3}>
-                  <Card.Link href="#">
-                    {role} {name} {suffix && ` (${suffix})`}
-                  </Card.Link>
+                  <Card.Link href="#">{`${role} ${name}${suffix ? ` (${suffix})` : ''}`}</Card.Link>
                 </Card.Heading>
               </Card>
             </Grid.Cell>
