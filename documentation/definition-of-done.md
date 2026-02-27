@@ -50,6 +50,7 @@ p {
   - The component does not render a broken or empty state (e.g., a spinner that never resolves, or a blank container where content should be).
 - Works correctly in forced colours mode:
   - All text and interactive elements remain visible and distinguishable.
+  - The correct system colours are used. For example, `LinkText` for links and `SelectedItem` for a selected checkbox.
   - Focus indicators are visible.
   - Icons and graphical elements that convey meaning are visible and distinguishable.
   - Borders and outlines are present where needed to distinguish UI regions.
