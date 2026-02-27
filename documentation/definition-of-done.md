@@ -103,7 +103,7 @@ The design team has looked at and approved new work.
 
 - Props are typed with JSDoc descriptions.
 - A component README is written (documentation in English, example content in Dutch).
-- A Storybook story file exists with representative variants.
+- Storybook stories exists for all component variants that are relevant to our users.
 - Documentation follows Storybook conventions (Sentence case headings, Title Case component names).
 
 ## Licensing
