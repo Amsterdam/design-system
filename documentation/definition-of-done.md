@@ -14,12 +14,12 @@
 - Custom gestures do not conflict with native ones. For example, a horizontal swipe to scroll does not conflict with the browser’s swipe-to-navigate gesture.
 - The component is visible and usable when zoomed up to 200%.
 - The component is visible and usable at maximum text size.
-- Color is not the sole means of conveying information.
+- Colour is not the sole means of conveying information.
 - The component passes validation using [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview), [WAVE](https://wave.webaim.org/standalone), and [the Markup Validation Service](https://validator.w3.org/).
 - Works correctly with a screen reader, at minimum with NVDA and Chrome on Windows, and VoiceOver and Safari on macOS or iOS:
   - All visible content is announced by a screen reader.
   - Elements have the correct role. For example, text that looks like a heading has the `heading` role.
-  - Interactive elements are announced with their role, name, and state (e.g., "button, Submit, disabled").
+  - Interactive elements are announced with their role, name, and state (e.g., “button, Submit, disabled”).
   - Dynamic changes (such as error messages or loading states) are announced without requiring focus to move.
   - The reading order matches the visual order.
   - All meaningful images and icons have descriptive alternative text.
@@ -48,7 +48,7 @@ p {
   - Static content is visible and readable.
   - Any functionality that can be implemented in HTML/CSS alone still works (e.g., a `<details>` element for disclosure, native `<select>` for dropdowns).
   - The component does not render a broken or empty state (e.g., a spinner that never resolves, or a blank container where content should be).
-- Works correctly in forced colors mode:
+- Works correctly in forced colours mode:
   - All text and interactive elements remain visible and distinguishable.
   - Focus indicators are visible.
   - Icons and graphical elements that convey meaning are visible and distinguishable.
