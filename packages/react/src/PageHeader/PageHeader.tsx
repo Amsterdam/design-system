@@ -21,10 +21,12 @@ import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 
 const LogoLinkContent = ({
   brandName,
+  brandNameShort,
   logoAccessibleName,
   logoBrand,
 }: {
   brandName?: string
+  brandNameShort?: string
   logoAccessibleName?: string
   logoBrand: LogoBrand | LogoBrandConfig
 }) => (
@@ -32,17 +34,22 @@ const LogoLinkContent = ({
     <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
       <Logo aria-label={logoAccessibleName} brand={logoBrand} />
     </span>
-    {brandName && (
-      <span aria-hidden="true" className="ams-page-header__brand-name">
-        {brandName}
+    {brandNameShort && (
+      <span aria-hidden="true" className="ams-page-header__brand-name-short">
+        {brandNameShort}
       </span>
     )}
+    <span aria-hidden="true" className="ams-page-header__brand-name">
+      {brandName || brandNameShort}
+    </span>
   </>
 )
 
 export type PageHeaderProps = {
   /** The name of the application. */
   brandName?: string
+  /** The abbreviated name of the application. */
+  brandNameShort?: string
   /** The accessible name of the logo. */
   logoAccessibleName?: string
   /** The name of the brand for which to display the logo. */
@@ -73,6 +80,7 @@ const PageHeaderRoot = forwardRef(
   (
     {
       brandName,
+      brandNameShort,
       children,
       className,
       logoAccessibleName,
@@ -94,6 +102,8 @@ const PageHeaderRoot = forwardRef(
     const [open, setOpen] = useState(false)
 
     const Link = logoLinkComponent
+    const logoLinkContentProps = { brandName, brandNameShort, logoAccessibleName, logoBrand }
+
     const hasMegaMenu = Boolean(children)
     const isWideWindow = hasMegaMenu && useIsAfterBreakpoint('wide')
 
@@ -107,7 +117,7 @@ const PageHeaderRoot = forwardRef(
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <Link className="ams-page-header__logo-link" href={logoLink}>
-          <LogoLinkContent brandName={brandName} logoAccessibleName={logoAccessibleName} logoBrand={logoBrand} />
+          <LogoLinkContent {...logoLinkContentProps} />
           <span className="ams-visually-hidden">{` ${logoLinkTitle}`}</span>
         </Link>
         {(hasMegaMenu || menuItems) && (
@@ -118,7 +128,7 @@ const PageHeaderRoot = forwardRef(
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
             <div aria-hidden className="ams-page-header__logo-link ams-page-header__logo-link--hidden" hidden>
-              <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
+              <LogoLinkContent {...logoLinkContentProps} logoBrand={logoBrand} />
             </div>
 
             <ul className="ams-page-header__menu">
