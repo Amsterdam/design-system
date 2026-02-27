@@ -57,9 +57,9 @@ p {
 
 #### Automated testing
 
-- Unit tests are written and pass.
+- Unit tests have been written and pass.
 - A test story renders all component variants for visual regression testing.
-- Visual changes in Chromatic are reviewed and approved.
+- Visual changes in Chromatic have been reviewed and approved.
 - ESLint, Stylelint, and Prettier report no errors.
 
 ### For pages
@@ -111,7 +111,7 @@ New components are created using our Plop templates. Extensions of existing comp
 ## Documentation
 
 - Props are typed with JSDoc descriptions.
-- A component README is written (documentation in English, example content in Dutch).
+- A component README has been written (documentation in English, example content in Dutch).
 - Storybook stories exist for all component variants that are relevant to our users.
 - Documentation follows Storybook conventions (Sentence case headings, Title Case component names).
 
