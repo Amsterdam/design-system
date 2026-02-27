@@ -14,8 +14,9 @@
 }
 
 // Default margin between all direct children of FieldSet
+// We can’t use grid or flex display and a gap because of a bug in Chrome.
 .ams-field-set > :not(:last-child) {
-  margin-block-end: var(--ams-field-set-child-margin-block-end); // [3]
+  margin-block-end: var(--ams-field-set-child-margin-block-end);
 }
 
 // We use :has here to increase the margin before the error message.
@@ -72,5 +73,3 @@
   font-weight: inherit;
   margin-block: 0;
 }
-
-// [3] We can’t use grid or flex display and a gap because of a bug in Chrome.
