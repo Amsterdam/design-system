@@ -4,15 +4,12 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-@mixin reset-ul {
-  list-style: none;
-  margin-block: 0;
-  padding-inline: 0;
-}
-
 .ams-file-list {
+  @include reset-ul;
+
   display: flex;
   flex-direction: column;
   gap: var(--ams-file-list-gap);
@@ -20,7 +17,6 @@
 
   @include hyphenation;
   @include text-rendering;
-  @include reset-ul;
 }
 
 .ams-file-list__item {
