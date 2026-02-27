@@ -25,7 +25,7 @@
   - All meaningful images and icons have descriptive alternative text.
   - Decorative images and icons are hidden from assistive technology.
 - `prefers-reduced-motion` is used if it includes animation.
-- Content does not overflow or get cut off when the provided CSS snippet is applied. See [WCAG 1.4.12](https://www.w3.org/TR/WCAG22/#text-spacing). In Chrome, the [Stylus plugin](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) makes this easier.
+- Content does not overflow or get cut off when the provided CSS snippet is applied. See [WCAG 1.4.12](https://www.w3.org/TR/WCAG22/#text-spacing). Use the Stylus plugin in [Chrome](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/) to make this easier.
 
 ```
 * {
@@ -65,7 +65,7 @@ p {
 
 - All required accessibility checks pass.
 - The heading hierarchy of the page is correct.
-  When using Chrome, the [HeadingsMap](https://chromewebstore.google.com/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi?pli=1) plugin makes this easier.
+  Use the HeadingsMap plugin in [Chrome](https://chromewebstore.google.com/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/headingsmap/) to make this easier.
 
 For a more thorough test, see [Mike’s accessibility checklist](https://tamtam.amsterdam.nl/do/page?id=5391962-70616765) (internal Gemeente Amsterdam network only).
 
