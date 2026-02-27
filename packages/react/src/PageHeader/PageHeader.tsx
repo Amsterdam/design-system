@@ -40,7 +40,7 @@ const LogoLinkContent = ({
       </span>
     )}
     <span aria-hidden="true" className="ams-page-header__brand-name">
-      {brandName}
+      {brandName || brandNameShort}
     </span>
   </>
 )
