@@ -8,22 +8,24 @@
 
 #### Required accessibility checks
 
-- Ensure focus outline is visible for interactive components.
-- Test on smaller screens: verify content does not overflow or get cut off.
-- Test pointer (mouse), keyboard, and touch interactions. Verify custom gestures do not conflict with native ones, for example a horizontal swipe to scroll conflicting with the browser’s swipe-to-navigate gesture.
-- Verify visibility and usability when zoomed up to 200%.
-- Verify visibility and usability when adjusting the text size to the maximum.
-- Confirm that color is not the sole means of conveying information.
-- Validate the component using [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview), [WAVE](https://wave.webaim.org/standalone), and [the Markup Validation Service](https://validator.w3.org/).
-- Test with a screen reader. At minimum, test with NVDA and Chrome on Windows, and VoiceOver and Safari on macOS or iOS. Verify that:
-  - All visible content is also announced by a screen reader.
+- Focus outline is visible for interactive components.
+- Content does not overflow or get cut off on smaller screens.
+- Native pointer (mouse), keyboard, and touch interactions work. For example, you can tab to interactive elements and you can pinch to zoom.
+- Custom gestures do not conflict with native ones. For example, a horizontal swipe to scroll does not conflict with the browser’s swipe-to-navigate gesture.
+- The component is visible and usable when zoomed up to 200%.
+- The component is visible and usable at maximum text size.
+- Color is not the sole means of conveying information.
+- The component passes validation using [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview), [WAVE](https://wave.webaim.org/standalone), and [the Markup Validation Service](https://validator.w3.org/).
+- Works correctly with a screen reader, at minimum with NVDA and Chrome on Windows, and VoiceOver and Safari on macOS or iOS:
+  - All visible content is announced by a screen reader.
+  - Elements have the correct role. For example, text that looks like a heading has the `heading` role.
   - Interactive elements are announced with their role, name, and state (e.g., "button, Submit, disabled").
   - Dynamic changes (such as error messages or loading states) are announced without requiring focus to move.
   - The reading order matches the visual order.
   - All meaningful images and icons have descriptive alternative text.
   - Decorative images and icons are hidden from assistive technology.
-- If the component includes animation, verify it respects the `prefers-reduced-motion` setting.
-- Apply the provided CSS snippet and confirm that all elements are still rendered correctly, adhering to WCAG 1.4.12. In Chrome, you can use the [Stylus plugin](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) for easy implementation.
+- `prefers-reduced-motion` is used if it includes animation.
+- Content does not overflow or get cut off when the provided CSS snippet is applied. See [WCAG 1.4.12](https://www.w3.org/TR/WCAG22/#text-spacing). In Chrome, the [Stylus plugin](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) makes this easier.
 
 ```
 * {
@@ -39,16 +41,16 @@ p {
 
 #### Additional accessibility checks
 
-- Translate the component into a right-to-left (RTL) language and verify that all content, including `aria-label` if used, is translated and displays correctly in RTL.
-- Check the print preview renders the same as on a smaller screen, with the exception of print-specific styles.
-- Check if the component is usable when CSS fails to load. This means unnecessary elements are not rendered, and visual elements like images are not shown overly large.
-- Ensure the component degrades gracefully when JavaScript is unavailable or fails to load.
+- All content, including `aria-label` if used, displays correctly in a right-to-left (RTL) language when translated.
+- The print preview renders the same as on a smaller screen, with the exception of print-specific styles.
+- The component is usable when CSS fails to load: unnecessary elements are not rendered, and visual elements like images are not shown overly large.
+- The component degrades gracefully when JavaScript is unavailable or fails to load:
   - Static content is visible and readable.
   - Any functionality that can be implemented in HTML/CSS alone still works (e.g., a <details> element for disclosure, native <select> for dropdowns).
   - The component does not render a broken or empty state (e.g., a spinner that never resolves, or a blank container where content should be).
-- Test in forced colors mode:
+- Works correctly in forced colors mode:
   - All text and interactive elements remain visible and distinguishable.
-  - Focus indicators are still visible.
+  - Focus indicators are visible.
   - Icons and graphical elements that convey meaning are visible and distinguishable.
   - Borders and outlines are present where needed to distinguish UI regions.
 
@@ -62,7 +64,7 @@ p {
 ### For pages
 
 - All required accessibility checks pass.
-- Verify that the heading hierarchy of the page is correct.
+- The heading hierarchy of the page is correct.
   When using Chrome, the [HeadingsMap](https://chromewebstore.google.com/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi?pli=1) plugin makes this easier.
 
 For a more thorough test, see [Mike’s accessibility checklist](https://tamtam.amsterdam.nl/do/page?id=5391962-70616765) (internal Gemeente Amsterdam network only).
