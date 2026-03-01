@@ -13,15 +13,17 @@ import type { ImageSliderProps } from './ImageSlider'
 import { ImageSlider } from './ImageSlider'
 
 // Mock implementation of IntersectionObserver
-window.IntersectionObserver = vi.fn(() => ({
-  disconnect: vi.fn(),
-  observe: vi.fn(),
-  root: null,
-  rootMargin: '',
-  takeRecords: vi.fn(),
-  thresholds: [],
-  unobserve: vi.fn(),
-}))
+window.IntersectionObserver = vi.fn(function () {
+  return {
+    disconnect: vi.fn(),
+    observe: vi.fn(),
+    root: null,
+    rootMargin: '',
+    takeRecords: vi.fn(),
+    thresholds: [],
+    unobserve: vi.fn(),
+  }
+})
 
 const scrollTo = vi.fn()
 

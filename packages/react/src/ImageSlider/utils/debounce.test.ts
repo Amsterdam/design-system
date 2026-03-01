@@ -1,10 +1,12 @@
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { debounce } from './debounce'
 
-vi.useFakeTimers()
-
 describe('debounce', () => {
+  beforeEach(() => {
+    vi.useFakeTimers()
+  })
+
   it('calls the function after the delay', () => {
     const fn = vi.fn()
     const debounced = debounce(fn, 100)
