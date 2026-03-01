@@ -20,7 +20,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2020",
-    "types": ["vitest/globals", "@testing-library/jest-dom"]
+    "types": ["@testing-library/jest-dom"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]
