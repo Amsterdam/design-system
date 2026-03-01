@@ -16,7 +16,7 @@ const thumbnails: ImageSliderProps['images'] = [
   { alt: 'Three', src: 'https://picsum.photos/id/153/320/180' },
 ]
 
-const defaultProps = { currentSlideId: 0, scrollToSlide: jest.fn(), thumbnails: thumbnails }
+const defaultProps = { currentSlideId: 0, scrollToSlide: vi.fn(), thumbnails: thumbnails }
 
 describe('ImageSliderThumbnails', () => {
   it('renders', () => {
@@ -45,7 +45,7 @@ describe('ImageSliderThumbnails', () => {
   })
 
   it('calls scrollToSlide on ArrowRight keydown', async () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
     const user = userEvent.setup()
 
@@ -62,7 +62,7 @@ describe('ImageSliderThumbnails', () => {
   })
 
   it('does not call scrollToSlide on ArrowRight keydown when at end', async () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
     const user = userEvent.setup()
 
@@ -81,7 +81,7 @@ describe('ImageSliderThumbnails', () => {
   })
 
   it('calls scrollToSlide on ArrowLeft keydown', async () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
     const user = userEvent.setup()
 
@@ -100,7 +100,7 @@ describe('ImageSliderThumbnails', () => {
   })
 
   it('does not call scrollToSlide on ArrowLeft keydown when at start', async () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
     const user = userEvent.setup()
 
@@ -119,7 +119,7 @@ describe('ImageSliderThumbnails', () => {
   })
 
   it('calls scrollToSlide on thumbnail click', async () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
     const user = userEvent.setup()
 

@@ -139,7 +139,7 @@ describe('Checkbox', () => {
   })
 
   it('can trigger a change event', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     render(<Checkbox onChange={handleChange} />)
 
@@ -151,7 +151,7 @@ describe('Checkbox', () => {
   })
 
   it('does not trigger a change event when disabled', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     render(<Checkbox disabled onChange={handleChange} />)
 
@@ -163,7 +163,7 @@ describe('Checkbox', () => {
   })
 
   it('can trigger a change event by clicking on label', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     const { container } = render(<Checkbox onChange={handleChange} />)
 
@@ -175,7 +175,7 @@ describe('Checkbox', () => {
   })
 
   it('can use a custom id', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     const { container } = render(<Checkbox id="test-id" onChange={handleChange} />)
 

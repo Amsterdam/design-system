@@ -6,15 +6,15 @@
 // Sourced from https://jestjs.io/docs/29.4/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
 
 Object.defineProperty(window, 'matchMedia', {
-  value: jest.fn().mockImplementation((query) => ({
-    addEventListener: jest.fn(),
-    addListener: jest.fn(), // deprecated
-    dispatchEvent: jest.fn(),
+  value: vi.fn().mockImplementation((query) => ({
+    addEventListener: vi.fn(),
+    addListener: vi.fn(), // deprecated
+    dispatchEvent: vi.fn(),
     matches: false,
     media: query,
     onchange: null,
-    removeEventListener: jest.fn(),
-    removeListener: jest.fn(), // deprecated
+    removeEventListener: vi.fn(),
+    removeListener: vi.fn(), // deprecated
   })),
   writable: true,
 })

@@ -77,7 +77,7 @@ describe('Alert', () => {
   })
 
   it('fires the onClose event when the close button is clicked', () => {
-    const onClose = jest.fn()
+    const onClose = vi.fn()
     render(<Alert closeable heading="Let op!" headingLevel={2} onClose={onClose} />)
 
     const component = screen.getByRole('region', { name: 'Let op!' })

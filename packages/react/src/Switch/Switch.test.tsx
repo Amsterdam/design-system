@@ -27,7 +27,7 @@ describe('Switch', () => {
   })
 
   it('can trigger a change event', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     render(<Switch onChange={handleChange} />)
 
@@ -39,7 +39,7 @@ describe('Switch', () => {
   })
 
   it('does not trigger a change event when disabled', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     render(<Switch disabled onChange={handleChange} />)
 
@@ -51,7 +51,7 @@ describe('Switch', () => {
   })
 
   it('does trigger a change event when clicking on associate label', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     const MockImpl = () => {
       return (

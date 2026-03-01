@@ -61,7 +61,7 @@ describe('TabsButton', () => {
 
   it('does not call updateTab if event.preventDefault is invoked', async () => {
     const user = userEvent.setup()
-    const mockUpdateTab = jest.fn()
+    const mockUpdateTab = vi.fn()
 
     render(
       <TabsContext.Provider value={{ updateTab: mockUpdateTab }}>
