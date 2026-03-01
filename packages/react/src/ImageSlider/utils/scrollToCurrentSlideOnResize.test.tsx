@@ -1,6 +1,6 @@
 import type { RefObject } from 'react'
 
-import { describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { scrollToCurrentSlideOnResize } from './scrollToCurrentSlideOnResize'
 import * as scrollUtils from './scrollToSlide'
@@ -19,10 +19,14 @@ describe('scrollToCurrentSlideOnResize', () => {
     }
   }
 
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
   it('calls scrollToSlide if the current slide is not in view', () => {
     const scrollToSlide = vi.fn()
 
-    ;(scrollUtils.scrollToSlide as vi.Mock) = scrollToSlide
+    vi.mocked(scrollUtils.scrollToSlide).mockImplementation(scrollToSlide)
 
     const { ref } = createRef({ offsetLeft: 100, scrollLeft: 0, withElement: true })
 
@@ -34,7 +38,7 @@ describe('scrollToCurrentSlideOnResize', () => {
   it('does not call scrollToSlide if scrollerRef.current is null', () => {
     const scrollToSlide = vi.fn()
 
-    ;(scrollUtils.scrollToSlide as vi.Mock) = scrollToSlide
+    vi.mocked(scrollUtils.scrollToSlide).mockImplementation(scrollToSlide)
 
     const { ref } = createRef({ withElement: false })
 
@@ -46,7 +50,7 @@ describe('scrollToCurrentSlideOnResize', () => {
   it('does not call scrollToSlide if currentSlideElement is null', () => {
     const scrollToSlide = vi.fn()
 
-    ;(scrollUtils.scrollToSlide as vi.Mock) = scrollToSlide
+    vi.mocked(scrollUtils.scrollToSlide).mockImplementation(scrollToSlide)
 
     const scrollerElement = { children: [null], scrollLeft: 0 }
     const ref = { current: scrollerElement } as unknown as RefObject<HTMLDivElement>
@@ -59,7 +63,7 @@ describe('scrollToCurrentSlideOnResize', () => {
   it('does not call scrollToSlide if the slide is already in view', () => {
     const scrollToSlide = vi.fn()
 
-    ;(scrollUtils.scrollToSlide as vi.Mock) = scrollToSlide
+    vi.mocked(scrollUtils.scrollToSlide).mockImplementation(scrollToSlide)
 
     const { ref } = createRef({ offsetLeft: 100, scrollLeft: 100, withElement: true })
 
