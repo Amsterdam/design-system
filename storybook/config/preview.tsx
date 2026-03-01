@@ -59,24 +59,32 @@ export const decorators = [
 ]
 
 export const parameters = {
+  a11y: {
+    test: 'todo',
+  },
+
   backgrounds: {
     disabled: true,
     grid: {
       disable: true,
     },
   },
+
   controls: {
     sort: 'alpha', // Sorts controls in the Controls addon
   },
+
   docs: {
     codePanel: true,
     controls: {
       sort: 'alpha', // Sorts controls in the Controls doc block – https://github.com/storybookjs/storybook/issues/25386#issuecomment-1905468177
     },
   },
+
   html: {
     root: '.ams-page',
   },
+
   options: {
     storySort: {
       order: [
@@ -91,10 +99,13 @@ export const parameters = {
       ],
     },
   },
+
   pseudo: {
     hover: ['.hover'],
   },
+
   viewMode: 'docs',
+
   viewport: {
     options: viewports,
   },
