@@ -49,7 +49,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install Playwright browsers
-        run: pnpm exec playwright install chromium --with-deps
+        run: pnpm --filter @amsterdam/storybook exec playwright install chromium --with-deps
 
       - name: "Continuous Integration: lint"
         run: |
