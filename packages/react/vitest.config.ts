@@ -10,6 +10,7 @@ export default defineConfig({
   plugins: [react()],
   test: {
     coverage: {
+      exclude: ['**/index.ts'],
       provider: 'v8',
     },
     environment: 'jsdom',
