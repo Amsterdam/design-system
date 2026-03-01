@@ -1,5 +1,7 @@
 import type { RefObject } from 'react'
 
+import { describe, expect, it, vi } from 'vitest'
+
 import { setCurrentSlideIdToVisibleSlide } from './setCurrentSlideIdToVisibleSlide'
 
 describe('setCurrentSlideIdToVisibleSlide', () => {

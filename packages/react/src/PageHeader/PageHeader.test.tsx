@@ -9,6 +9,7 @@ import { PlusIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import './matchMedia.mock' // Must be imported before PageHeader
 import { PageHeader } from './PageHeader'

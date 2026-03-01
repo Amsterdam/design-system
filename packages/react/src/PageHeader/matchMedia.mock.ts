@@ -4,6 +4,7 @@
  */
 
 // Sourced from https://jestjs.io/docs/29.4/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
+// Updated `jest.fn` to `vi`fn` when migrating from Jest to Vitest
 
 Object.defineProperty(window, 'matchMedia', {
   value: vi.fn().mockImplementation((query) => ({
@@ -18,3 +19,4 @@ Object.defineProperty(window, 'matchMedia', {
   })),
   writable: true,
 })
+import { vi } from 'vitest'

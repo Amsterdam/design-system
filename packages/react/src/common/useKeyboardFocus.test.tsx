@@ -5,6 +5,7 @@
 
 import { fireEvent, render } from '@testing-library/react'
 import { useRef } from 'react'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { KeyboardKeys, useKeyboardFocus } from './useKeyboardFocus'
 
