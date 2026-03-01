@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { debounce } from './debounce'
 
@@ -43,5 +43,10 @@ describe('debounce', () => {
     debounced.call(context)
     vi.advanceTimersByTime(100)
     expect(spy).toHaveReturnedWith(42)
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.clearAllTimers()
   })
 })
