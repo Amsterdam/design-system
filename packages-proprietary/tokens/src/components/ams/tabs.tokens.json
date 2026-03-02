@@ -17,9 +17,7 @@
               "value": 0,
               "unit": "rem"
             },
-            "offsetY": {
-              "value": "calc({ams.border.width.m} * -1)"
-            },
+            "offsetY": "calc({ams.border.width.m} * -1)",
             "blur": {
               "value": 0,
               "unit": "rem"
@@ -90,9 +88,7 @@
                 "value": 0,
                 "unit": "rem"
               },
-              "offsetY": {
-                "value": "calc({ams.border.width.m} * -1)"
-              },
+              "offsetY": "calc({ams.border.width.m} * -1)",
               "blur": {
                 "value": 0,
                 "unit": "rem"
@@ -118,9 +114,7 @@
                 "value": 0,
                 "unit": "rem"
               },
-              "offsetY": {
-                "value": "calc({ams.border.width.xl} * -1)"
-              },
+              "offsetY": "calc({ams.border.width.xl} * -1)",
               "blur": {
                 "value": 0,
                 "unit": "rem"
