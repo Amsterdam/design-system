@@ -31,7 +31,11 @@ const LogoLinkContent = ({
   logoBrand: LogoBrand | LogoBrandConfig
 }) => (
   <>
-    <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
+    <span
+      className={clsx(
+        logoBrand === 'amsterdam' && Boolean(brandName || brandNameShort) && 'ams-page-header__logo-container',
+      )}
+    >
       <Logo aria-label={logoAccessibleName} brand={logoBrand} />
     </span>
     {brandNameShort && (
