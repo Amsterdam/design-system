@@ -17,7 +17,7 @@ StyleDictionary.registerTransform(nameCustomCamel)
 StyleDictionary.registerTransform(nameCustomKebab)
 StyleDictionary.registerTransform(shadowDTCGDimensionNormalize)
 
-const commonTransforms = ['shadow/dtcg-dimension-normalize', 'shadow/css/shorthand', 'dtcg/dimension']
+const commonCssTransforms = ['shadow/dtcg-dimension-normalize', 'shadow/css/shorthand', 'dtcg/dimension']
 const modes = ['compact']
 
 function generateSharedConfig(mode) {
@@ -36,7 +36,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: [...commonTransforms, 'name/customKebab'],
+      transforms: [...commonCssTransforms, 'name/customKebab'],
     },
     cssTheme: {
       buildPath: 'dist/',
@@ -51,7 +51,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: [...commonTransforms, 'name/customKebab'],
+      transforms: [...commonCssTransforms, 'name/customKebab'],
     },
     js: {
       buildPath: 'dist/',
@@ -62,7 +62,7 @@ function generateSharedConfig(mode) {
           format: 'javascript/es6',
         },
       ],
-      transforms: [...commonTransforms, 'name/customCamel'],
+      transforms: [...commonCssTransforms, 'name/customCamel'],
     },
     json: {
       buildPath: 'dist/',
@@ -73,7 +73,7 @@ function generateSharedConfig(mode) {
           format: 'json/nested',
         },
       ],
-      transforms: [...commonTransforms, 'name/camel'],
+      transforms: [...commonCssTransforms, 'name/camel'],
     },
     scss: {
       buildPath: 'dist/',
@@ -87,7 +87,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: [...commonTransforms, 'name/customKebab'],
+      transforms: [...commonCssTransforms, 'name/customKebab'],
     },
     typescript: {
       buildPath: 'dist/',
@@ -99,7 +99,7 @@ function generateSharedConfig(mode) {
         },
       ],
       // Type declarations only — no CSS-specific transforms needed
-      transforms: ['dtcg/dimension', 'name/customCamel'],
+      transforms: ['name/customCamel'],
     },
   }
 }
