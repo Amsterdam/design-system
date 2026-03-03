@@ -29,6 +29,7 @@
         }
       },
       "row-gap": {
+        "$deprecated": "This token will be removed in release 6.0.0",
         "$value": "{ams.space.s}",
         "$type": "dimension",
         "$extensions": {
@@ -53,6 +54,7 @@
           "$type": "fontWeight"
         },
         "padding-inline-start": {
+          "$deprecated": "This token will be removed in release 6.0.0",
           "$value": "{ams.space.l}",
           "$type": "dimension",
           "$extensions": {
