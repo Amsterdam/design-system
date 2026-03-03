@@ -111,14 +111,15 @@ const PageHeaderRoot = forwardRef(
     const logoLinkContentProps = { brandName, brandNameShort, logoAccessibleName, logoBrand }
 
     const hasMegaMenu = Boolean(children)
-    const isWideWindow = hasMegaMenu && useViewportHasMinWidth('wide')
+    const isViewportWide = useViewportHasMinWidth('wide')
+    const hasMegaMenuOnWideWindow = hasMegaMenu && isViewportWide
 
     useEffect(() => {
       // Close the menu when the menu button disappears
-      if (noMenuButtonOnWideWindow && isWideWindow) {
+      if (noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow) {
         setOpen(false)
       }
-    }, [isWideWindow])
+    }, [hasMegaMenuOnWideWindow])
 
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
