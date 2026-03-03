@@ -21,17 +21,26 @@ import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 
 const LogoLinkContent = ({
   brandName,
+  brandNameShort,
   logoAccessibleName,
   logoBrand,
 }: {
   brandName?: string
+  brandNameShort?: string
   logoAccessibleName?: string
   logoBrand: LogoBrand | LogoBrandConfig
 }) => (
   <>
-    <span className={clsx(logoBrand === 'amsterdam' && Boolean(brandName) && 'ams-page-header__logo-container')}>
+    <span
+      className={clsx(logoBrand === 'amsterdam' && (brandName || brandNameShort) && 'ams-page-header__logo-container')}
+    >
       <Logo aria-label={logoAccessibleName} brand={logoBrand} />
     </span>
+    {brandNameShort && (
+      <span aria-hidden="true" className="ams-page-header__brand-name-short">
+        {brandNameShort}
+      </span>
+    )}
     {brandName && (
       <span aria-hidden="true" className="ams-page-header__brand-name">
         {brandName}
@@ -43,6 +52,8 @@ const LogoLinkContent = ({
 export type PageHeaderProps = {
   /** The name of the application. */
   brandName?: string
+  /** A shorter form of the name of the application. */
+  brandNameShort?: string
   /** The accessible name of the logo. */
   logoAccessibleName?: string
   /** The name of the brand for which to display the logo. */
@@ -73,13 +84,14 @@ const PageHeaderRoot = forwardRef(
   (
     {
       brandName,
+      brandNameShort,
       children,
       className,
       logoAccessibleName,
       logoBrand = 'amsterdam',
       logoLink = '/',
       logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
-      logoLinkTitle = `Ga naar de homepage${brandName ? ` van ${brandName}` : ''}`,
+      logoLinkTitle,
       menuButtonIcon,
       menuButtonText = 'Menu',
       menuButtonTextForHide = 'Verberg navigatiemenu',
@@ -92,23 +104,32 @@ const PageHeaderRoot = forwardRef(
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const [open, setOpen] = useState(false)
+    const viewportHasMinWidth = useViewportHasMinWidth('wide')
+
+    const hasMegaMenu = Boolean(children)
+    const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
 
     const Link = logoLinkComponent
-    const hasMegaMenu = Boolean(children)
-    const isWideWindow = hasMegaMenu && useViewportHasMinWidth('wide')
+    const logoLinkContentProps = { brandName, brandNameShort, logoAccessibleName, logoBrand }
 
     useEffect(() => {
       // Close the menu when the menu button disappears
-      if (noMenuButtonOnWideWindow && isWideWindow) {
+      if (noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow) {
         setOpen(false)
       }
-    }, [isWideWindow])
+    }, [hasMegaMenuOnWideWindow])
+
+    const getDefaultLogoLinkTitle = () => {
+      const name = brandName || brandNameShort
+
+      return `Ga naar de homepage${name ? ' van ' + name : ''}`
+    }
 
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <Link className="ams-page-header__logo-link" href={logoLink}>
-          <LogoLinkContent brandName={brandName} logoAccessibleName={logoAccessibleName} logoBrand={logoBrand} />
-          <span className="ams-visually-hidden">{` ${logoLinkTitle}`}</span>
+          <LogoLinkContent {...logoLinkContentProps} />
+          <span className="ams-visually-hidden"> ${logoLinkTitle ?? getDefaultLogoLinkTitle()}</span>
         </Link>
         {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
@@ -118,7 +139,7 @@ const PageHeaderRoot = forwardRef(
 
             {/* The logo link section is recreated here, to make sure the header menu wraps at the right spot */}
             <div aria-hidden className="ams-page-header__logo-link ams-page-header__logo-link--hidden" hidden>
-              <LogoLinkContent brandName={brandName} logoBrand={logoBrand} />
+              <LogoLinkContent {...logoLinkContentProps} logoAccessibleName={undefined} />
             </div>
 
             <ul className="ams-page-header__menu">
