@@ -5,15 +5,36 @@
 The City’s logo includes an icon (3 Saint Andrew’s crosses) and a wordmark (Gemeente Amsterdam).
 The logo has a fixed colour, size, and position and is present on all our websites.
 
-## Design
+## Specifications
 
-- The design system provides the correct logo for online use.
-  Other logo variations exist, but they cannot be used on our websites.
-- Each logo is 40 pixels tall at its minimum and grows to 60 pixels in wider windows.
-- On websites that accompany the main logo with a brand name, the wordmark gets hidden to save space on narrow windows.
+The design system provides the correct logo for online use.
+Other logo variations exist, but they cannot be used on our websites.
+The Dutch logo is for websites in the Dutch language and any language other than English.
+The English logo is used for websites in the English language.
 
-## Guidelines
+## Exception
 
-- All our websites must include the [Page Header](/docs/components-containers-page-header--docs), which ensures the Logo is always present and links to the homepage of the same website.
-- Use the appropriate variation of the logo for websites operated by one of the 5 sub-brands:
-  GGD Amsterdam, Museum Weesp, Stadsarchief, Stadsbank van Lening, and VGA Verzekeringen.
+Use a sub-brand logo if the website is owned by one of the 5 sub-brands.
+They have a separate status because of their unique service provision not directly associated with the City.
+
+The sub-brands are:
+
+- GGD Amsterdam
+- Museum Weesp
+- Stadsarchief
+- Stadsbank van Lening
+- VGA Verzekeringen
+
+## Requirements for all logos
+
+- The logo is always displayed.
+- The logo is left-aligned in the Page Header.
+- The logo links to the homepage of the website.
+- If the website is a form, application, or tool without a homepage, the logo links to the page where the form, application, or tool is referred to.
+
+The logo is 40 pixels tall at its minimum, growing to 60 pixels in wider windows.
+This also applies to sub-brand logos.
+
+## Download
+
+- [Logo set for websites and apps (ZIP, 10 kB)](https://assets.amsterdam.nl/publish/pages/1007650/logoset_voor_websites_en_apps.zip)
