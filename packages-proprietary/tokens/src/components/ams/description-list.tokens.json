@@ -46,12 +46,26 @@
         "font-weight": {
           "$value": "{ams.typography.body-text.bold.font-weight}",
           "$type": "fontWeight"
+        },
+        "margin-block-start": {
+          "$value": "{ams.space.m}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
         }
       },
       "description": {
         "font-weight": {
           "$value": "{ams.typography.body-text.font-weight}",
           "$type": "fontWeight"
+        },
+        "margin-block-start": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
         },
         "padding-inline-start": {
           "$deprecated": "This token will be removed in release 6.0.0",
