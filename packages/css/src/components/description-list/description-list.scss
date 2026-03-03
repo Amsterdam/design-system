@@ -74,10 +74,8 @@
   @include reset-dd;
 
   font-weight: var(--ams-description-list-description-font-weight);
-  padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 2;
-    padding-inline-start: 0;
   }
 }
