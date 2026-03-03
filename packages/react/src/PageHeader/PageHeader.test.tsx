@@ -9,7 +9,7 @@ import { PlusIcon } from '@amsterdam/design-system-react-icons'
 import { act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import './matchMedia.mock' // Must be imported before PageHeader
 import { PageHeader } from './PageHeader'
@@ -241,15 +241,15 @@ describe('PageHeader', () => {
   it('closes the mega menu when it is open and the screen width passes the breakpoint', async () => {
     let changeListener: (() => void) | undefined
     const mediaQueryList = {
-      addEventListener: jest.fn((_event: string, listener: () => void) => {
+      addEventListener: vi.fn((_event: string, listener: () => void) => {
         changeListener = listener
       }),
       matches: false,
-      removeEventListener: jest.fn(),
+      removeEventListener: vi.fn(),
     }
 
     const originalMatchMedia = window.matchMedia
-    window.matchMedia = jest.fn().mockReturnValue(mediaQueryList as unknown as MediaQueryList)
+    window.matchMedia = vi.fn().mockReturnValue(mediaQueryList as unknown as MediaQueryList)
 
     try {
       const user = userEvent.setup()
