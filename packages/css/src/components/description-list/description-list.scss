@@ -18,7 +18,6 @@
   font-family: var(--ams-description-list-font-family);
   font-size: var(--ams-description-list-font-size);
   line-height: var(--ams-description-list-line-height);
-  row-gap: var(--ams-description-list-row-gap);
 
   @include hyphenation;
   @include text-rendering;
@@ -53,16 +52,34 @@
 .ams-description-list__term {
   font-weight: var(--ams-description-list-term-font-weight);
 
+  + .ams-description-list__description {
+    margin-block-start: var(--ams-description-list-description-margin-block-start);
+  }
+
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 1;
+
+    + .ams-description-list__description {
+      margin-block-start: initial;
+    }
   }
 }
 
 .ams-description-list__section {
+  + .ams-description-list__section,
+  + .ams-description-list__term {
+    margin-block-start: var(--ams-description-list-term-margin-block-start);
+  }
+
   @media screen and (min-width: $ams-breakpoint-medium) {
     column-gap: var(--ams-description-list-column-gap);
     display: grid;
     grid-column: span 2;
+
+    + .ams-description-list__section,
+    + .ams-description-list__term {
+      margin-block-start: initial;
+    }
 
     > :only-of-type {
       grid-row: 1 / 9;
@@ -70,12 +87,23 @@
   }
 }
 
+/* stylelint-disable-next-line  no-descending-specificity */
 .ams-description-list__description {
   @include reset-dd;
 
   font-weight: var(--ams-description-list-description-font-weight);
 
+  + .ams-description-list__section,
+  + .ams-description-list__term {
+    margin-block-start: var(--ams-description-list-term-margin-block-start);
+  }
+
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 2;
+
+    + .ams-description-list__section,
+    + .ams-description-list__term {
+      margin-block-start: initial;
+    }
   }
 }
