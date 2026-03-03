@@ -53,7 +53,7 @@
   font-weight: var(--ams-description-list-term-font-weight);
 
   + .ams-description-list__description {
-    margin-block-start: var(--ams-description-list-description-margin-block-start);
+    margin-block-start: var(--ams-description-list-description-first-of-consecutive-margin-block-start);
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
@@ -68,7 +68,7 @@
 .ams-description-list__section {
   + .ams-description-list__section,
   + .ams-description-list__term {
-    margin-block-start: var(--ams-description-list-term-margin-block-start);
+    margin-block-start: var(--ams-description-list-term-first-of-consecutive-margin-block-start);
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
@@ -95,7 +95,7 @@
 
   + .ams-description-list__section,
   + .ams-description-list__term {
-    margin-block-start: var(--ams-description-list-term-margin-block-start);
+    margin-block-start: var(--ams-description-list-term-first-of-consecutive-margin-block-start);
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {

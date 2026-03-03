@@ -47,11 +47,13 @@
           "$value": "{ams.typography.body-text.bold.font-weight}",
           "$type": "fontWeight"
         },
-        "margin-block-start": {
-          "$value": "{ams.space.m}",
-          "$type": "dimension",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space"
+        "first-of-consecutive": {
+          "margin-block-start": {
+            "$value": "{ams.space.m}",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
           }
         }
       },
@@ -60,11 +62,13 @@
           "$value": "{ams.typography.body-text.font-weight}",
           "$type": "fontWeight"
         },
-        "margin-block-start": {
-          "$value": "{ams.space.s}",
-          "$type": "dimension",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space"
+        "first-of-consecutive": {
+          "margin-block-start": {
+            "$value": "{ams.space.s}",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
           }
         },
         "padding-inline-start": {
