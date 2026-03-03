@@ -39,9 +39,11 @@ const LogoLinkContent = ({
         {brandNameShort}
       </span>
     )}
-    <span aria-hidden="true" className="ams-page-header__brand-name">
-      {brandName || brandNameShort}
-    </span>
+    {(brandName || brandNameShort) && (
+      <span aria-hidden="true" className="ams-page-header__brand-name">
+        {brandName || brandNameShort}
+      </span>
+    )}
   </>
 )
 
