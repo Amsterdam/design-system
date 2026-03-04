@@ -1,0 +1,85 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Docs/Designer Guide/Space between" />
+
+# Space between
+
+Components handle their own internal whitespace, but the space between them is yours to apply.
+
+## How to use
+
+- Find the component on top in the column headers, then the component below in the row headers .
+  The cell where they meet shows the recommended [spacing size](/docs/brand-design-tokens-space--docs).
+- Apply that size in Figma.
+  Developers can then apply it using the corresponding [margin class name](/docs/utilities-css-margin--docs) on each component.
+
+## Following a heading
+
+|                      | Heading 1 | Heading 2 | Heading 3 | Heading 4 |
+| :------------------- | :-------: | :-------: | :-------: | :-------: |
+| **Heading 2**        |   `2xl`   |           |           |           |
+| **Heading 3**        |           |    `l`    |           |           |
+| **Heading 4**        |           |           |    `l`    |           |
+| **Blockquote**       |    `l`    |    `l`    |    `l`    |    `l`    |
+| **… List**           |    `m`    |    `m`    |    `m`    |    `m`    |
+| **Paragraph**        |    `m`    |    `m`    |    `m`    |    `m`    |
+| **Paragraph (lead)** |    `m`    |           |           |           |
+| **Table**            |    `l`    |    `l`    |    `l`    |    `l`    |
+
+## Following body text
+
+|                     | Blockquote | List | Paragraph | Paragraph (lead) |
+| :------------------ | :--------: | :--: | :-------: | :--------------: |
+| **Heading 2**       |    `xl`    | `xl` |   `xl`    |      `2xl`       |
+| **Heading 3**       |    `xl`    | `l`  |    `l`    |       `l`        |
+| **Heading 4**       |    `xl`    | `l`  |    `l`    |       `l`        |
+| **Blockquote**      |            | `l`  |    `l`    |       `l`        |
+| **Button**          |    `l`     | `m`  |    `m`    |       `m`        |
+| **Image**           |    `l`     | `l`  |    `l`    |       `l`        |
+| **Standalone Link** |    `l`     | `m`  |    `m`    |       `m`        |
+| **… List**          |    `l`     | `m`  |    `m`    |       `m`        |
+| **Paragraph**       |    `l`     | `m`  |    `m`    |       `m`        |
+| **Table**           |    `l`     | `l`  |    `l`    |       `l`        |
+
+## Following other components
+
+|                      | Button | Image | List | Standalone Link | Table |
+| :------------------- | :----: | :---: | :--: | :-------------: | :---: |
+| **Heading 2**        |  `xl`  | `xl`  | `xl` |      `xl`       | `xl`  |
+| **Heading 3**        |  `l`   | `xl`  | `l`  |       `l`       | `xl`  |
+| **Heading 4**        |  `l`   | `xl`  | `l`  |       `l`       | `xl`  |
+| **Blockquote**       |  `l`   |  `l`  | `l`  |       `l`       |  `l`  |
+| **Button**           |  `m`   |  `l`  | `m`  |       `m`       |  `l`  |
+| **Image**            |  `l`   |  `m`  | `l`  |       `l`       |  `l`  | 
+| **Link**             |  `m`   |  `l`  | `m`  |       `m`       |  `l`  |
+| **… List**           |  `l`   |  `l`  | `m`  |       `m`       |  `l`  |
+| **Paragraph**        |  `l`   |  `l`  | `m`  |       `m`       |  `l`  |
+| **Table**            |  `l`   |  `l`  | `l`  |       `l`       |  `l`  |
+
+## Components that use their own Grid Cell
+
+An **Alert**, **Breadcrumb**, **Breakout**, **Image Slider** must have its own Grid Cell.
+Hence, the space around it will be `xl`, or `2xl` horizontally if it sits and the start and/or end of the Grid.
+
+## Notes
+
+- Our spacing is responsive and also different between Spacious and Compact Mode.
+  It’s not necessary to consider the pixel values; just work with the t-shirt sizes.
+- If the cell is empty, or a component doesn’t have a row in a table, this means the combination should not occur.
+- For an **Accordion**, see **Heading** with the level you use for it.
+- **… List** refers to Description List, Link List, Ordered List and Unordered List.
+
+## Code example
+
+{/* prettier-ignore */}
+```tsx
+<Grid.Cell>
+  <Heading className="ams-mb-s" level={1}>
+    Met korting van A naar B op de deelscooter of -bakfiets
+  </Heading>
+  <Paragraph className="ams-mb-xl">29 juli 2025</Paragraph>
+  <Paragraph size="large">Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.</Paragraph>
+</Grid.Cell>
+```
