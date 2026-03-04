@@ -168,9 +168,9 @@ To enable correct validation and to fix lint/style errors on save, add this to y
 Unit tests live in `packages/react` and are run with [Vitest](https://vitest.dev/).
 
 - Run all tests once: `pnpm test`
-- Run tests for the React package only: `pnpm --filter @amsterdam/design-system-react test`
 - Watch mode (re-runs on file save): `pnpm --filter @amsterdam/design-system-react watch:test`
-- Run with coverage report: `pnpm --filter @amsterdam/design-system-react test` (coverage is always enabled)
+
+Coverage is always included in the test run and reported after each run.
 
 ### Adding a new component
 
