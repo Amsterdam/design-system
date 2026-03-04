@@ -67,7 +67,7 @@ export const newsArticles: NewsArticle[] = [
         id: 2,
       },
       {
-        body: '<p>Deelvervoer is ook handig tijdens evenementen. Geen gedoe waar de auto te parkeren of wachten in de rij. Zo werden er op 21 juni, de dag van het festival Op de Ring, bijna 12.000 ritten gemaakt met de deelscooter en deelbakfiets. Dat is meer dan ooit gemaakt op 1 dag. Deze zomer staan er nog een paar grote evenementen op de agenda, waaronder Sail 2025. Ook hier kunt u met deelvervoer naartoe komen.</p>',
+        body: '<p>Deelvervoer is ook handig tijdens evenementen. Geen gedoe waar de auto te parkeren of wachten in de rij. Zo werden er op 21 juni, de dag van het festival Op de Ring, bijna 12.000 ritten gemaakt met de deelscooter en deelbakfiets. Dat is meer dan ooit gemaakt op 1 dag. Deze zomer staan er nog een paar grote evenementen op de agenda, waaronder Sail 2025. Ook hier kunt u met deelvervoer naartoe komen.</p><p>Deelvervoer is ook handig tijdens evenementen. Geen gedoe waar de auto te parkeren of wachten in de rij. Zo werden er op 21 juni, de dag van het festival Op de Ring, bijna 12.000 ritten gemaakt met de deelscooter en deelbakfiets. Dat is meer dan ooit gemaakt op 1 dag. Deze zomer staan er nog een paar grote evenementen op de agenda, waaronder Sail 2025. Ook hier kunt u met deelvervoer naartoe komen.</p>',
         heading: 'Evenementen in de stad',
         id: 3,
       },

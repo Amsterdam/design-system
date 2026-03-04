@@ -1,0 +1,123 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+import { SpaceBetweenFinder } from "../../_components/SpaceBetweenFinder/SpaceBetweenFinder";
+
+<Meta title="Docs/Designer Guide/Space between" />
+
+# Space between
+
+Components handle their own internal whitespace, but the space between them is yours to apply.
+
+## Design
+
+- Spacing is responsive and differs per [mode](/docs/docs-developer-guide-modes--docs).
+  That’s why we use t-shirt sizes, not pixel values.
+- In general, space between two equal or comparable components is medium.
+- Space between containers is large.
+  Space between grid columns is x-large.
+
+## Find spacing
+
+<SpaceBetweenFinder />
+
+## How to use the tables
+
+- For every combination of two components, find the top one in the column headers and the one below in the row headers.
+  The cell where they meet shows the recommended [spacing size](/docs/brand-design-tokens-space--docs) between them.
+- Apply that size in Figma.
+  Developers use the corresponding [margin class](/docs/utilities-css-margin--docs).
+- An empty cell or a missing component means we advise against that combination.
+- ‘… List’ refers to Description List, Link List, Ordered List, and Unordered List.
+
+## Space below headings
+
+|                       | Heading 1 | Heading 2 | Heading 3 | Heading 4 |
+| :-------------------- | :-------: | :-------: | :-------: | :-------: |
+| **Heading 2**         |   `xl`    |           |           |           |
+| **Heading 3**         |           |    `m`    |           |           |
+| **Heading 4**         |           |           |    `m`    |           |
+| **Blockquote**        |           |           |           |           |
+| **… List**            |           |    `s`    |   `xs`    |    `0`    |
+| **Paragraph**         |           |    `s`    |   `xs`    |    `0`    |
+| **Paragraph (large)** |    `m`    |           |           |           |
+| **Table**             |           |    `s`    |   `xs`    |    `0`    |
+
+## Space below body text
+
+|                           | Blockquote | … List | Paragraph | Paragraph (large) |
+| :------------------------ | :--------: | :----: | :-------: | :---------------: |
+| **Heading 2**             |            |  `xl`  |   `xl`    |       `xl`        |
+| **Heading 3**             |            |  `l`   |    `l`    |                   |
+| **Heading 4**             |            |  `m`   |    `m`    |                   |
+| **Blockquote**            |            |  `l`   |    `l`    |       `xl`        |
+| **Button** / **CTA Link** |    `l`     |  `m`   |    `m`    |                   |
+| **Image**                 |    `l`     |  `l`   |    `l`    |       `xl`        |
+| **Standalone Link**       |    `l`     |  `m`   |    `m`    |        `l`        |
+| **… List**                |    `l`     |  `m`   |    `m`    |        `l`        |
+| **Paragraph**             |    `l`     |  `m`   |    `m`    |        `l`        |
+| **Table**                 |    `l`     |  `l`   |    `l`    |        `l`        |
+
+**Accordion** and **Table** with a Caption start with a **Heading** – use the space length for its level (2, 3, 4).
+
+## Space below other components
+
+|                           | Button / CTA Link | Image | … List | Standalone Link | Table |
+| :------------------------ | :---------------: | :---: | :----: | :-------------: | :---: |
+| **Heading 2**             |       `xl`        | `xl`  |  `xl`  |      `xl`       | `xl`  |
+| **Heading 3**             |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Heading 4**             |        `l`        |  `l`  |  `m`   |       `l`       |  `l`  |
+| **Blockquote**            |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Button** / **CTA Link** |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Image**                 |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Standalone Link**       |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
+| **… List**                |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Paragraph**             |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Table**                 |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
+
+## Components that have their own Grid Cell
+
+**Alert**, **Breadcrumb**, **Breakout**, **Image Slider**, and **Spotlight** must be in their own [Grid Cell](/docs/components-layout-grid--docs).
+No extra spacing is needed.
+
+## Code example
+
+{/* prettier-ignore */}
+```tsx
+<Grid.Cell>
+  <Heading className="ams-mb-s" level={1}>
+    Met korting van A naar B op de deelscooter of -bakfiets
+  </Heading>
+  <Paragraph className="ams-mb-xl">29 juli 2025</Paragraph>
+  <Paragraph size="large">Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.</Paragraph>
+</Grid.Cell>
+```
+
+## Notes
+
+### Done
+
+- Space `2xl` moet er eigenlijk uit, die willen we alleen voor Grid horizontaal gebruiken, dus geen token ook. (Of toch Grid verticaal?) ← Done
+- Misschien in de tabel P en P large samenvoegen, met een notitie dat onder een H1 altijd een P large moet ← Nee, onduidelijk
+- Kunnen we een groep ‘Grote componenten maken’ waar bijv. Image in zit? ← Zit in plan
+- En dan Sectie achtige dingen zoals Progress List ← Zit in plan
+- En Figure, met Caption? ← Zit in plan
+
+### To do
+
+- Table met Caption aanraden, dan Heading gebruiken voor spacing ← Done, nog checken
+- Table zonder Caption is dan wat er in de tabel komt ← Done, nog checken
+- Overwegen om Heading 2 --> Heading een l te maken voor het aflopende trappetje ← Zit in plan, check UX
+- Onderscheid maken tussen Image (m?) en Hero Image (xl) ← Nagaan of dat goed in Grid Cell docs staat
+
+### Later
+
+- Componenten Content Header en Content Body in Figma. Ook iets voor Code?
+- Breadcrumb container binnenkort mee aan de slag? (Drupal)
+- Token of Variable voor spacing 0 lijkt nog niet nodig?
+- Figma ticket voor klaarzetten Content patroontjes
+
+## Templates te maken
+
+- Contentpagina met h1 en h2 achter elkaar (zonder foto en intro) dus eigenlijk Czaar Peter
+-
