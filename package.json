@@ -68,7 +68,7 @@
     "eslint-plugin-mdx": "3.7.0",
     "eslint-plugin-perfectionist": "5.6.0",
     "eslint-plugin-react": "7.37.5",
-    "eslint-plugin-storybook": "10.2.13",
+    "eslint-plugin-storybook": "10.2.14",
     "globals": "17.4.0",
     "husky": "9.1.7",
     "lint-staged": "16.3.1",
