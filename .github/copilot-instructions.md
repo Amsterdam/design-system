@@ -1,19 +1,12 @@
 # Custom instructions for GitHub Copilot
 
-## Unit Test Generation for React Components
+## Test Generation and Documentation Standards for React Components
 
-When generating unit tests for components in `packages/react/src`, follow these guidelines:
+### Unit Tests
 
-- Use `@testing-library/react` for rendering and querying components.
-- Always test basic rendering and visibility of the component.
-- Assert the presence of the design system BEM class name (e.g., `ams-*`).
-- Test that extra class names provided via props are merged correctly.
-- Validate ForwardRef support using `createRef` and ensure the ref points to the correct DOM node.
-- Cover all prop variations, including edge cases (e.g., different label types, custom prefixes, gap/padding sizes).
-- Use semantic queries (`getByRole`, `getByText`) to ensure accessibility compliance.
-- Wrap all tests in a `describe` block named after the component.
-- Keep each test isolated, descriptive, and focused on a single aspect of the component's behavior.
-- Include license and copyright headers as in existing tests.
+- All components must have unit tests using Jest and React Testing Library.
+- Unit tests are placed in a separate file named `component.test.tsx`.
+- Tests should check specific properties, HTML output, and expected class names.
 
 Example structure:
 
@@ -26,3 +19,33 @@ describe('ComponentName', () => {
   // Additional prop and edge case tests
 })
 ```
+
+### Interaction Tests
+
+- Required for components with custom interactive functionality.
+- Located in `component.test.stories.tsx` using Storybook's play function.
+- Should test user interactions and functional behavior (e.g., opening an accordion section).
+- Use semantic queries (`getByRole`, `getByText`) to ensure accessibility compliance in interaction scenarios.
+- Keep each test isolated, descriptive, and focused on a single aspect of the component's behavior.
+- Wrap all interaction tests in a `describe` block named after the component.
+
+### Visual Tests
+
+- Each component must have visual tests covering all variants.
+- Visual tests are placed in `component.test.stories.tsx`.
+- Should detect unintended changes to visual appearance (e.g., borders, colors).
+- Cover all prop variations and edge cases visually.
+- Keep each test isolated, descriptive, and focused on a single aspect of the component's appearance.
+
+### Accessibility Tests
+
+- Accessibility rules are enforced via Storybook defaults, not per component.
+- Use semantic queries (`getByRole`, `getByText`) to ensure accessibility compliance.
+- Ensure components do not worsen accessibility (e.g., contrast, roles).
+
+### Workflow
+
+- On every pull request, unit tests run via CI.
+- Interaction, visual, and accessibility tests run via Chromatic on stories labeled 'Test'.
+- All test types must pass before merging.
+- Chromatic integration is required for non-unit tests, and changes must be approved in the Chromatic dashboard before merging.
