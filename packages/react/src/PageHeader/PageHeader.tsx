@@ -52,7 +52,10 @@ const LogoLinkContent = ({
 export type PageHeaderProps = {
   /** The name of the application. */
   brandName?: string
-  /** A shorter form of the name of the application. */
+  /**
+   * A shorter form of the name of the application.
+   * Provide this only together with a `brandName`.
+   */
   brandNameShort?: string
   /** The accessible name of the logo. */
   logoAccessibleName?: string
