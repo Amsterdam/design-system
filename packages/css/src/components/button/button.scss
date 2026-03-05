@@ -4,18 +4,14 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
-
-@mixin reset-button {
-  margin-block: 0; // [1]
-  margin-inline: 0; // [1]
-
-  // [1] Remove the margin in older Safari.
-}
 
 .ams-button {
   // Override line height for Icon in Button.
   --ams-icon-line-height: var(--ams-button-line-height);
+
+  @include reset-button;
 
   border-style: var(--ams-button-border-style);
   border-width: var(--ams-button-border-width);
@@ -34,7 +30,6 @@
 
   @include hyphenation;
   @include text-rendering;
-  @include reset-button;
 
   &:disabled,
   &[aria-disabled="true"] {

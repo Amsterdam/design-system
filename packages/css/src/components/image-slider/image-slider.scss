@@ -4,6 +4,7 @@
  */
 
 @use "../../common/breakpoint" as *;
+@use "../../common/resets" as *;
 
 .ams-image-slider {
   display: grid;
@@ -72,13 +73,9 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
-@mixin reset-button {
-  border: none;
-  padding-block: 0;
-  padding-inline: 0;
-}
-
 .ams-image-slider__thumbnail {
+  @include reset-button;
+
   aspect-ratio: var(--ams-image-aspect-ratio); // Use the same default aspect ratio as the Image component
   background-color: var(--ams-image-slider-thumbnails-thumbnail-background-color);
   background-position: center;
@@ -86,8 +83,6 @@
   cursor: var(--ams-image-slider-thumbnails-thumbnail-cursor);
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
   outline-offset: var(--ams-button-outline-offset);
-
-  @include reset-button;
 
   &:hover {
     opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
