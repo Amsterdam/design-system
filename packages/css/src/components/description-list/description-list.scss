@@ -19,6 +19,10 @@
   font-size: var(--ams-description-list-font-size);
   line-height: var(--ams-description-list-line-height);
 
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    row-gap: var(--ams-description-list-row-gap);
+  }
+
   @include hyphenation;
   @include text-rendering;
 }
