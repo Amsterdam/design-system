@@ -120,7 +120,7 @@ const PageHeaderRoot = forwardRef(
       if (noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow) {
         setOpen(false)
       }
-    }, [hasMegaMenuOnWideWindow, hasMegaMenuOnWideWindow])
+    }, [hasMegaMenuOnWideWindow, noMenuButtonOnWideWindow])
 
     const getDefaultLogoLinkTitle = () => {
       const name = brandName || brandNameShort
