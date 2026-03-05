@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "version": 1
+  },
+  "rich-text": {
+    "editor": {
+      "padding": {
+        "value": "var(--ams-space-xs)"
+      },
+      "gap": {
+        "value": "var(--ams-space-xs)"
+      },
+      "min-height": {
+        "value": "8rem"
+      }
+    },
+    "toolbar": {
+      "gap": {
+        "value": "var(--ams-space-xxs)"
+      }
+    }
+  }
+}

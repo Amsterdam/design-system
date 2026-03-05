@@ -1,0 +1,20 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
+import * as RichTextStories from "./RichText.stories.tsx";
+import README from "../../../../packages/css/src/components/rich-text/README.md?raw";
+
+<Meta of={RichTextStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Examples
+
+### In a form field
+
+<Canvas of={RichTextStories.InField} />
