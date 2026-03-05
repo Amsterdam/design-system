@@ -129,7 +129,7 @@ const PageHeaderRoot = forwardRef(
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <LogoLink className="ams-page-header__logo-link" href={logoLink}>
           <LogoLinkContent {...logoLinkContentProps} />
-          <span className="ams-visually-hidden"> ${logoLinkTitle ?? getDefaultLogoLinkTitle()}</span>
+          <span className="ams-visually-hidden">{logoLinkTitle ?? getDefaultLogoLinkTitle()}</span>
         </LogoLink>
         {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
