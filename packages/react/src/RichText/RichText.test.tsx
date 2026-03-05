@@ -4,7 +4,6 @@
  */
 
 import { fireEvent, render, screen } from '@testing-library/react'
-import { vi } from 'vitest'
 
 import type { richTextAllowedElements } from './RichText'
 
@@ -43,7 +42,7 @@ describe('RichText', () => {
   })
 
   it('calls onChange with sanitized HTML when the user types', () => {
-    const handleChange = vi.fn()
+    const handleChange = jest.fn()
 
     render(<RichText aria-label="Rijke tekst" onChange={handleChange} />)
 
@@ -55,7 +54,22 @@ describe('RichText', () => {
   })
 
   it('honours the allowedElements prop', () => {
-    const allowed = ['p'] as typeof richTextAllowedElements
+    const allowed: typeof richTextAllowedElements = [
+      'p',
+      'strong',
+      'em',
+      'a',
+      'ul',
+      'ol',
+      'li',
+      'h2',
+      'h3',
+      'h4',
+      'blockquote',
+      'small',
+      'mark',
+      'br',
+    ]
 
     render(
       <RichText
@@ -67,7 +81,7 @@ describe('RichText', () => {
 
     const textbox = screen.getByRole('textbox') as HTMLDivElement
 
-    expect(textbox.innerHTML).toBe('<p>Hallo wereld</p>')
+    expect(textbox.innerHTML).toBe('<p>Hallo <strong>wereld</strong></p>')
   })
 
   it('can be disabled', () => {
