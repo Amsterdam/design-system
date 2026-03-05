@@ -109,7 +109,7 @@ const PageHeaderRoot = forwardRef(
     const hasMegaMenu = Boolean(children)
     const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
 
-    const Link = logoLinkComponent
+    const LogoLink = logoLinkComponent
     const logoLinkContentProps = { brandName, brandNameShort, logoAccessibleName, logoBrand }
 
     useEffect(() => {
@@ -127,10 +127,10 @@ const PageHeaderRoot = forwardRef(
 
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
-        <Link className="ams-page-header__logo-link" href={logoLink}>
+        <LogoLink className="ams-page-header__logo-link" href={logoLink}>
           <LogoLinkContent {...logoLinkContentProps} />
           <span className="ams-visually-hidden"> ${logoLinkTitle ?? getDefaultLogoLinkTitle()}</span>
-        </Link>
+        </LogoLink>
         {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
             <h2 aria-hidden className="ams-visually-hidden" id="primary-navigation">
