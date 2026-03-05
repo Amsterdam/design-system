@@ -56,23 +56,25 @@
 .ams-description-list__term {
   font-weight: var(--ams-description-list-term-font-weight);
 
-  + .ams-description-list__description {
-    margin-block-start: var(--ams-description-list-description-first-of-consecutive-margin-block-start);
+  /* stylelint-disable-next-line plugin/use-baseline */
+  &:has(+ .ams-description-list__description) {
+    margin-block-end: var(--ams-description-list-description-first-of-consecutive-margin-block-end);
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 1;
 
-    + .ams-description-list__description {
-      margin-block-start: initial;
+    /* stylelint-disable-next-line plugin/use-baseline */
+    &:has(+ .ams-description-list__description) {
+      margin-block-end: initial;
     }
   }
 }
 
 .ams-description-list__section {
-  + .ams-description-list__section,
-  + .ams-description-list__term {
-    margin-block-start: var(--ams-description-list-term-first-of-consecutive-margin-block-start);
+  &:has(+ .ams-description-list__section),
+  &:has(+ .ams-description-list__term) {
+    margin-block-end: var(--ams-description-list-term-first-of-consecutive-margin-block-end);
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
@@ -80,9 +82,9 @@
     display: grid;
     grid-column: span 2;
 
-    + .ams-description-list__section,
-    + .ams-description-list__term {
-      margin-block-start: initial;
+    &:has(+ .ams-description-list__section),
+    &:has(+ .ams-description-list__term) {
+      margin-block-end: initial;
     }
 
     > :only-of-type {
@@ -91,23 +93,22 @@
   }
 }
 
-/* stylelint-disable-next-line  no-descending-specificity */
 .ams-description-list__description {
   @include reset-dd;
 
   font-weight: var(--ams-description-list-description-font-weight);
 
-  + .ams-description-list__section,
-  + .ams-description-list__term {
-    margin-block-start: var(--ams-description-list-term-first-of-consecutive-margin-block-start);
+  &:has(+ .ams-description-list__section),
+  &:has(+ .ams-description-list__term) {
+    margin-block-end: var(--ams-description-list-term-first-of-consecutive-margin-block-end);
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 2;
 
-    + .ams-description-list__section,
-    + .ams-description-list__term {
-      margin-block-start: initial;
+    &:has(+ .ams-description-list__section),
+    &:has(+ .ams-description-list__term) {
+      margin-block-end: initial;
     }
   }
 }
