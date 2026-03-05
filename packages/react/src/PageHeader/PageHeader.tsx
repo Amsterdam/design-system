@@ -20,20 +20,18 @@ import { PageHeaderMenuIcon } from './PageHeaderMenuIcon'
 import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 
 const LogoLinkContent = ({
-  brandName,
+  brandNameFullOrShort,
   brandNameShort,
   logoAccessibleName,
   logoBrand,
 }: {
-  brandName?: string
+  brandNameFullOrShort?: string
   brandNameShort?: string
   logoAccessibleName?: string
   logoBrand: LogoBrand | LogoBrandConfig
 }) => (
   <>
-    <span
-      className={clsx(logoBrand === 'amsterdam' && (brandName || brandNameShort) && 'ams-page-header__logo-container')}
-    >
+    <span className={clsx(logoBrand === 'amsterdam' && brandNameFullOrShort && 'ams-page-header__logo-container')}>
       <Logo aria-label={logoAccessibleName} brand={logoBrand} />
     </span>
     {brandNameShort && (
@@ -41,9 +39,9 @@ const LogoLinkContent = ({
         {brandNameShort}
       </span>
     )}
-    {(brandName || brandNameShort) && (
+    {brandNameFullOrShort && (
       <span aria-hidden="true" className="ams-page-header__brand-name">
-        {brandName || brandNameShort}
+        {brandNameFullOrShort}
       </span>
     )}
   </>
@@ -113,7 +111,10 @@ const PageHeaderRoot = forwardRef(
     const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
 
     const LogoLink = logoLinkComponent
-    const logoLinkContentProps = { brandName, brandNameShort, logoAccessibleName, logoBrand }
+
+    // Foolproof fallback to the short brand name if the full brand name is not provided.
+    const brandNameFullOrShort = brandName || brandNameShort
+    const logoLinkContentProps = { brandNameFullOrShort, brandNameShort, logoAccessibleName, logoBrand }
 
     useEffect(() => {
       // Close the menu when the menu button disappears
@@ -122,17 +123,13 @@ const PageHeaderRoot = forwardRef(
       }
     }, [hasMegaMenuOnWideWindow, noMenuButtonOnWideWindow])
 
-    const getDefaultLogoLinkTitle = () => {
-      const name = brandName || brandNameShort
-
-      return `Ga naar de homepage${name ? ' van ' + name : ''}`
-    }
-
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
         <LogoLink className="ams-page-header__logo-link" href={logoLink}>
           <LogoLinkContent {...logoLinkContentProps} />
-          <span className="ams-visually-hidden">{logoLinkTitle ?? getDefaultLogoLinkTitle()}</span>
+          <span className="ams-visually-hidden">
+            {logoLinkTitle ?? `Ga naar de homepage${brandNameFullOrShort ? ' van ' + brandNameFullOrShort : ''}`}
+          </span>
         </LogoLink>
         {(hasMegaMenu || menuItems) && (
           <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
