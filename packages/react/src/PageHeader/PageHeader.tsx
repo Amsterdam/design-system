@@ -104,8 +104,8 @@ const PageHeaderRoot = forwardRef(
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const [open, setOpen] = useState(false)
-    const viewportHasMinWidth = useViewportHasMinWidth('wide')
 
+    const viewportHasMinWidth = useViewportHasMinWidth('wide')
     const hasMegaMenu = Boolean(children)
     const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
 
@@ -117,7 +117,7 @@ const PageHeaderRoot = forwardRef(
       if (noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow) {
         setOpen(false)
       }
-    }, [hasMegaMenuOnWideWindow])
+    }, [hasMegaMenuOnWideWindow, hasMegaMenuOnWideWindow])
 
     const getDefaultLogoLinkTitle = () => {
       const name = brandName || brandNameShort
