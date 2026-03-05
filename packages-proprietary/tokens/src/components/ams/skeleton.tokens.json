@@ -1,0 +1,38 @@
+{
+  "ams": {
+    "skeleton": {
+      "background-color": {
+        "$value": "{ams.color.background}",
+        "$type": "color"
+      },
+      "highlight-color": {
+        "$value": "{ams.color.background.alt}",
+        "$type": "color"
+      },
+      "font-family": {
+        "$value": "{ams.typography.font-family}",
+        "$type": "fontFamily"
+      },
+      "font-size": {
+        "$value": "{ams.typography.body-text.font-size}",
+        "$type": "fontSize"
+      },
+      "line-height": {
+        "$value": "{ams.typography.body-text.line-height}",
+        "$type": "lineHeight"
+      },
+      "border-radius": {
+        "$value": "{ams.border.radius.s}",
+        "$type": "borderRadius"
+      },
+      "padding-block": {
+        "$value": "{ams.space.xs}",
+        "$type": "dimension"
+      },
+      "padding-inline": {
+        "$value": "{ams.space.s}",
+        "$type": "dimension"
+      }
+    }
+  }
+}
