@@ -7,6 +7,10 @@ describe('debounce', () => {
     vi.useFakeTimers()
   })
 
+  afterAll(() => {
+    vi.useRealTimers()
+  })
+
   it('calls the function after the delay', () => {
     const fn = vi.fn()
     const debounced = debounce(fn, 100)
@@ -45,9 +49,5 @@ describe('debounce', () => {
     debounced.call(context)
     vi.advanceTimersByTime(100)
     expect(spy).toHaveReturnedWith(42)
-  })
-
-  afterAll(() => {
-    vi.useRealTimers()
   })
 })
