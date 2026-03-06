@@ -14,7 +14,7 @@ import {
 } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
-import { BREAKPOINTS } from '@amsterdam/design-system-react/src/common/useIsAfterBreakpoint'
+import { BREAKPOINTS } from '@amsterdam/design-system-react/src/common/useViewportHasMinWidth'
 import { useEffect } from 'react'
 import { useArgs } from 'storybook/preview-api'
 

@@ -4,13 +4,12 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-@mixin reset-p {
-  margin-block: 0;
-}
-
 .ams-error-message {
+  @include reset-p;
+
   box-sizing: border-box;
   color: var(--ams-error-message-color);
   display: flex;
@@ -22,5 +21,4 @@
 
   @include hyphenation;
   @include text-rendering;
-  @include reset-p;
 }

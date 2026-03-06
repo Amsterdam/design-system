@@ -6,23 +6,26 @@
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
+import { describe, expect, it, vi } from 'vitest'
 
 import type { ImageSliderProps } from './ImageSlider'
 
 import { ImageSlider } from './ImageSlider'
 
 // Mock implementation of IntersectionObserver
-window.IntersectionObserver = jest.fn(() => ({
-  disconnect: jest.fn(),
-  observe: jest.fn(),
-  root: null,
-  rootMargin: '',
-  takeRecords: jest.fn(),
-  thresholds: [],
-  unobserve: jest.fn(),
-}))
+window.IntersectionObserver = vi.fn(function () {
+  return {
+    disconnect: vi.fn(),
+    observe: vi.fn(),
+    root: null,
+    rootMargin: '',
+    takeRecords: vi.fn(),
+    thresholds: [],
+    unobserve: vi.fn(),
+  }
+})
 
-const scrollTo = jest.fn()
+const scrollTo = vi.fn()
 
 // Mock scrollTo
 Element.prototype.scrollTo = scrollTo

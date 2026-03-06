@@ -4,8 +4,9 @@
  */
 
 import { renderHook } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 
-import useIsAfterBreakpoint, { BREAKPOINTS } from './useIsAfterBreakpoint'
+import useViewportHasMinWidth, { BREAKPOINTS } from './useViewportHasMinWidth'
 
 const convertMediaQueryToPx = (query: string) => {
   const match = query.match(/[+-]?\d+(\.\d+)?/g)
@@ -16,10 +17,10 @@ const convertMediaQueryToPx = (query: string) => {
 const testMatchFunction = (query: string) => window.innerWidth >= convertMediaQueryToPx(query)
 
 Object.defineProperty(window, 'matchMedia', {
-  value: jest.fn().mockImplementation((query) => ({
-    addEventListener: jest.fn(),
+  value: vi.fn().mockImplementation((query) => ({
+    addEventListener: vi.fn(),
     matches: testMatchFunction(query),
-    removeEventListener: jest.fn(),
+    removeEventListener: vi.fn(),
   })),
   writable: true,
 })
@@ -27,25 +28,25 @@ Object.defineProperty(window, 'matchMedia', {
 describe('useIsAfterBreakpoint', () => {
   it('returns false when the window width is less than the medium breakpoint', () => {
     window.innerWidth = convertMediaQueryToPx(BREAKPOINTS.medium) - 1
-    const { result } = renderHook(() => useIsAfterBreakpoint('medium'))
+    const { result } = renderHook(() => useViewportHasMinWidth('medium'))
     expect(result.current).toBe(false)
   })
 
   it('returns true when the window width is greater than the medium breakpoint', () => {
     window.innerWidth = convertMediaQueryToPx(BREAKPOINTS.medium) + 1
-    const { result } = renderHook(() => useIsAfterBreakpoint('medium'))
+    const { result } = renderHook(() => useViewportHasMinWidth('medium'))
     expect(result.current).toBe(true)
   })
 
   it('returns false when the window width is less than the wide breakpoint', () => {
     window.innerWidth = convertMediaQueryToPx(BREAKPOINTS.wide) - 1
-    const { result } = renderHook(() => useIsAfterBreakpoint('wide'))
+    const { result } = renderHook(() => useViewportHasMinWidth('wide'))
     expect(result.current).toBe(false)
   })
 
   it('returns true when the window width is greater than the wide breakpoint', () => {
     window.innerWidth = convertMediaQueryToPx(BREAKPOINTS.wide) + 1
-    const { result } = renderHook(() => useIsAfterBreakpoint('wide'))
+    const { result } = renderHook(() => useViewportHasMinWidth('wide'))
     expect(result.current).toBe(true)
   })
 })

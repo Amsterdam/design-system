@@ -6,6 +6,7 @@
 import { DocumentIcon, StarIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { Menu } from './Menu'
 
