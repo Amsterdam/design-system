@@ -107,20 +107,13 @@ const defaultMode = new StyleDictionary({
   ],
 })
 
-async function build() {
-  await defaultMode.buildAllPlatforms()
+defaultMode.buildAllPlatforms()
 
-  for (const mode of modes) {
-    const styleDictionary = new StyleDictionary({
-      platforms: generateSharedConfig(mode),
-      source: [`./src/**/*.${mode}.tokens.json`],
-    })
-    await styleDictionary.buildAllPlatforms()
-  }
+for (const mode of modes) {
+  const styleDictionary = new StyleDictionary({
+    platforms: generateSharedConfig(mode),
+    source: [`./src/**/*.${mode}.tokens.json`],
+  })
+
+  styleDictionary.buildAllPlatforms()
 }
-
-build().catch((error) => {
-  console.error(error)
-  // eslint-disable-next-line no-undef
-  process.exit(1)
-})
