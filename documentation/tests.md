@@ -11,7 +11,7 @@ We test our components to ensure their quality and prevent unintended changes.
 | Principle | Check specific properties of a component.                           |
 | Example   | Does the button still have className `.button-primary` as expected? |
 
-Unit tests are written using [Jest](https://github.com/jestjs/jest) and [React Testing Library](https://github.com/testing-library/react-testing-library). These tests run on every [pull request](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/lint-test.yml).
+Unit tests are written using [Vitest](https://vitest.dev) and [React Testing Library](https://github.com/testing-library/react-testing-library). These tests run on every [pull request](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/lint-test.yml).
 All components must have their own unit tests, which are located in a separate file named `component.test.tsx`.
 
 ## Interaction tests

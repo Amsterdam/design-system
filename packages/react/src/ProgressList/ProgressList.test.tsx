@@ -5,6 +5,7 @@
 
 import { render, screen, within } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { ProgressList, progressListHeadingLevels } from './ProgressList'
 

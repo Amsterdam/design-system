@@ -4,15 +4,7 @@
  */
 
 @use "../../common/breakpoint" as *;
-
-@mixin reset-button {
-  background-color: transparent;
-  border: none;
-  margin-block: 0; // [1]
-  margin-inline: 0; // [1]
-
-  // [1] Remove the margin in older Safari.
-}
+@use "../../common/resets" as *;
 
 .ams-tabs {
   display: grid;
@@ -26,6 +18,9 @@
 }
 
 .ams-tabs__button {
+  @include reset-button;
+
+  background-color: transparent;
   color: var(--ams-tabs-button-color);
   cursor: var(--ams-tabs-button-cursor);
   display: grid;
@@ -37,8 +32,6 @@
   outline-offset: var(--ams-tabs-button-outline-offset);
   padding-block: var(--ams-tabs-button-padding-block);
   padding-inline: var(--ams-tabs-button-padding-inline);
-
-  @include reset-button;
 
   &:disabled {
     color: var(--ams-tabs-button-disabled-color);
