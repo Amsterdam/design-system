@@ -6,6 +6,7 @@
 import { StarIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it, vi } from 'vitest'
 
 import { Radio } from './Radio'
 
@@ -125,7 +126,7 @@ describe('Radio', () => {
   })
 
   it('can trigger a change event', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     render(<Radio onChange={handleChange} />)
 
@@ -137,7 +138,7 @@ describe('Radio', () => {
   })
 
   it('does not trigger a change event when disabled', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     render(<Radio disabled onChange={handleChange} />)
 
@@ -149,7 +150,7 @@ describe('Radio', () => {
   })
 
   it('can trigger a change event by clicking on label', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     const { container } = render(<Radio onChange={handleChange} />)
 
@@ -161,7 +162,7 @@ describe('Radio', () => {
   })
 
   it('can use a custom id', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     const { container } = render(<Radio id="test-id" onChange={handleChange} />)
 

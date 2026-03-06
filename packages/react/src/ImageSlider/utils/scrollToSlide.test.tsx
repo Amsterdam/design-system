@@ -1,10 +1,12 @@
 import type { RefObject } from 'react'
 
+import { describe, expect, it, vi } from 'vitest'
+
 import { scrollToSlide } from './scrollToSlide'
 
 describe('scrollToSlide', () => {
   it('scrolls the scroller to the element offsetLeft', () => {
-    const scrollToMock = jest.fn()
+    const scrollToMock = vi.fn()
 
     const element = { offsetLeft: 42 } as HTMLElement
     const ref = {
@@ -25,7 +27,7 @@ describe('scrollToSlide', () => {
   })
 
   it('returns undefined if there is no element', () => {
-    const scrollToMock = jest.fn()
+    const scrollToMock = vi.fn()
 
     const ref = {
       current: { children: [], scrollTo: scrollToMock as unknown },
