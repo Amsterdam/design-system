@@ -6,7 +6,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
-import { describe, expect, it, vi } from 'vitest'
 
 import { Tabs } from './Tabs'
 
@@ -100,7 +99,7 @@ describe('Tabs', () => {
   it('calls onTabChange with the newly activated tab', async () => {
     const user = userEvent.setup()
 
-    const onTabChange = vi.fn()
+    const onTabChange = jest.fn()
     render(
       <Tabs onTabChange={onTabChange}>
         <Tabs.List>
@@ -143,7 +142,7 @@ describe('Tabs', () => {
 
   it('should set the first tab as the initially active tab when the supplied active tab does not exist', async () => {
     // Disable console.warn for this test, to prevent it from cluttering the test output
-    vi.spyOn(console, 'warn').mockImplementation(() => {})
+    jest.spyOn(console, 'warn').mockImplementation(() => {})
 
     render(
       <Tabs activeTab="unknown">

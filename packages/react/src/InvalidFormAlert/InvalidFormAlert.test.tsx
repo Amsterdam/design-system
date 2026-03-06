@@ -5,7 +5,6 @@
 
 import { render, screen, waitFor } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
 
 import { InvalidFormAlert } from './InvalidFormAlert'
 

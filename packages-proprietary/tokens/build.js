@@ -1,21 +1,47 @@
-/**
- * @license EUPL-1.2+
- * Copyright Gemeente Amsterdam
- */
-
+import { camelCase, kebabCase } from 'change-case'
 import StyleDictionary from 'style-dictionary'
+import { transformTypes } from 'style-dictionary/enums'
 
-import { dtcgDimension } from './style-dictionary/transforms/dtcg-dimension.js'
-import { nameCustomCamel } from './style-dictionary/transforms/name-custom-camel.js'
-import { nameCustomKebab } from './style-dictionary/transforms/name-custom-kebab.js'
-import { shadowDTCGDimensionNormalize } from './style-dictionary/transforms/shadow-dtcg-dimension-normalize.js'
+// Transform DTCG dimension objects to CSS values
+// i.e. `{ value: 1, unit: 'rem' }` becomes `1rem`
+StyleDictionary.registerTransform({
+  filter: (token) => {
+    const value = token.$value ?? token.value
+    return value?.value !== null && value?.unit
+  },
+  name: 'dtcg/dimension',
+  transform: (token) => {
+    const value = token.$value ?? token.value
+    return `${value.value}${value.unit}`
+  },
+  transitive: true,
+  type: 'value',
+})
 
-StyleDictionary.registerTransform(dtcgDimension)
-StyleDictionary.registerTransform(nameCustomCamel)
-StyleDictionary.registerTransform(nameCustomKebab)
-StyleDictionary.registerTransform(shadowDTCGDimensionNormalize)
+// Remove last key if it is 'default' when transforming to kebab-case
+// i.e. `ams.color.default` becomes `--ams-color`
+StyleDictionary.registerTransform({
+  name: 'name/customKebab',
+  transform: function (token) {
+    const filteredPath = token.path[token.path.length - 1] === 'default' ? token.path.slice(0, -1) : token.path
 
-const commonCssTransforms = ['shadow/dtcg-dimension-normalize', 'shadow/css/shorthand', 'dtcg/dimension']
+    return kebabCase(filteredPath.join(' '))
+  },
+  type: transformTypes.name,
+})
+
+// Remove last key if it is 'default' when transforming to camelCase
+// i.e. `ams.color.default` becomes `amsColor`
+StyleDictionary.registerTransform({
+  name: 'name/customCamel',
+  transform: function (token) {
+    const filteredPath = token.path[token.path.length - 1] === 'default' ? token.path.slice(0, -1) : token.path
+
+    return camelCase(filteredPath.join(' '))
+  },
+  type: transformTypes.name,
+})
+
 const modes = ['compact']
 
 function generateSharedConfig(mode) {
@@ -33,7 +59,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: [...commonCssTransforms, 'name/customKebab'],
+      transforms: ['dtcg/dimension', 'name/customKebab'],
     },
     cssTheme: {
       buildPath: 'dist/',
@@ -47,7 +73,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: [...commonCssTransforms, 'name/customKebab'],
+      transforms: ['dtcg/dimension', 'name/customKebab'],
     },
     js: {
       buildPath: 'dist/',
@@ -57,7 +83,7 @@ function generateSharedConfig(mode) {
           format: 'javascript/es6',
         },
       ],
-      transforms: [...commonCssTransforms, 'name/customCamel'],
+      transforms: ['dtcg/dimension', 'name/customCamel'],
     },
     json: {
       buildPath: 'dist/',
@@ -67,7 +93,7 @@ function generateSharedConfig(mode) {
           format: 'json/nested',
         },
       ],
-      transforms: [...commonCssTransforms, 'name/camel'],
+      transforms: ['dtcg/dimension', 'name/camel'],
     },
     scss: {
       buildPath: 'dist/',
@@ -80,7 +106,7 @@ function generateSharedConfig(mode) {
           },
         },
       ],
-      transforms: [...commonCssTransforms, 'name/customKebab'],
+      transforms: ['dtcg/dimension', 'name/customKebab'],
     },
     typescript: {
       buildPath: 'dist/',
@@ -90,8 +116,7 @@ function generateSharedConfig(mode) {
           format: 'typescript/module-declarations',
         },
       ],
-      // Type declarations only — no CSS-specific transforms needed
-      transforms: ['name/customCamel'],
+      transforms: ['dtcg/dimension', 'name/customCamel'],
     },
   }
 }
@@ -109,11 +134,10 @@ const defaultMode = new StyleDictionary({
 
 defaultMode.buildAllPlatforms()
 
-for (const mode of modes) {
+modes.map((mode) => {
   const styleDictionary = new StyleDictionary({
     platforms: generateSharedConfig(mode),
     source: [`./src/**/*.${mode}.tokens.json`],
   })
-
-  styleDictionary.buildAllPlatforms()
-}
+  return styleDictionary.buildAllPlatforms()
+})

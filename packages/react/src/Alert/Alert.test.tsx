@@ -5,7 +5,6 @@
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it, vi } from 'vitest'
 
 import { Alert } from './Alert'
 
@@ -78,7 +77,7 @@ describe('Alert', () => {
   })
 
   it('fires the onClose event when the close button is clicked', () => {
-    const onClose = vi.fn()
+    const onClose = jest.fn()
     render(<Alert closeable heading="Let op!" headingLevel={2} onClose={onClose} />)
 
     const component = screen.getByRole('region', { name: 'Let op!' })

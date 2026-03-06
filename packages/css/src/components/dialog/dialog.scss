@@ -4,19 +4,20 @@
  */
 
 @use "../../common/breakpoint" as *;
-@use "../../common/resets" as *;
+
+@mixin reset-dialog {
+  inset-block: 0;
+  padding-block: 0;
+  padding-inline: 0;
+}
 
 /* A dialog must have `display: none` until the `open` attribute is set,
 so do not apply these styles without an `open` attribute. */
 .ams-dialog:not(dialog:not([open])) {
-  @include reset-dialog;
-
   background-color: var(--ams-dialog-background-color);
   border-color: var(--ams-dialog-border-color);
-  border-radius: var(--ams-dialog-border-radius);
   border-style: var(--ams-dialog-border-style);
   border-width: var(--ams-dialog-border-width);
-  box-shadow: var(--ams-dialog-box-shadow);
   box-sizing: border-box;
   display: flex; // We’d like to use CSS Grid here, but that doesn’t work as expected in Safari.
   flex-direction: column;
@@ -24,6 +25,8 @@ so do not apply these styles without an `open` attribute. */
   inline-size: var(--ams-dialog-inline-size);
   max-block-size: var(--ams-dialog-max-block-size);
   max-inline-size: var(--ams-dialog-max-inline-size);
+
+  @include reset-dialog;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     inline-size: var(--ams-dialog-medium-inline-size);

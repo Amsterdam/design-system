@@ -6,7 +6,6 @@
 import { StarIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it, vi } from 'vitest'
 
 import { Checkbox } from './Checkbox'
 
@@ -140,7 +139,7 @@ describe('Checkbox', () => {
   })
 
   it('can trigger a change event', () => {
-    const handleChange = vi.fn()
+    const handleChange = jest.fn()
 
     render(<Checkbox onChange={handleChange} />)
 
@@ -152,7 +151,7 @@ describe('Checkbox', () => {
   })
 
   it('does not trigger a change event when disabled', () => {
-    const handleChange = vi.fn()
+    const handleChange = jest.fn()
 
     render(<Checkbox disabled onChange={handleChange} />)
 
@@ -164,7 +163,7 @@ describe('Checkbox', () => {
   })
 
   it('can trigger a change event by clicking on label', () => {
-    const handleChange = vi.fn()
+    const handleChange = jest.fn()
 
     const { container } = render(<Checkbox onChange={handleChange} />)
 
@@ -176,7 +175,7 @@ describe('Checkbox', () => {
   })
 
   it('can use a custom id', () => {
-    const handleChange = vi.fn()
+    const handleChange = jest.fn()
 
     const { container } = render(<Checkbox id="test-id" onChange={handleChange} />)
 

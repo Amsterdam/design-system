@@ -5,49 +5,14 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Grid, Heading } from '@amsterdam/design-system-react'
-
 import { commonMeta } from '../common/config'
+import { HomePage } from './HomePage'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Internal/Home Page',
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  render: (args) => (
-    <Grid paddingBottom="x-large" paddingTop="large">
-      <Grid.Cell span="all">
-        <Heading level={1}>Titel van de pagina</Heading>
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }}>
-        <div style={{ backgroundColor: '#e8e8e8', height: '12rem' }} />
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 1, medium: 3, wide: 4 }}>
-        <div style={{ backgroundColor: '#e8e8e8', height: '10rem' }} />
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }}>
-        <div style={{ backgroundColor: '#e8e8e8', height: '8rem' }} />
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }}>
-        <div style={{ backgroundColor: '#e8e8e8', height: '12rem' }} />
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }}>
-        <div style={{ backgroundColor: '#e8e8e8', height: '8rem' }} />
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }}>
-        <div style={{ backgroundColor: '#e8e8e8', height: '8rem' }} />
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 3, medium: 2, wide: 4 }}>
-        <div style={{ backgroundColor: '#e8e8e8', height: '6rem' }} />
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 1, medium: 4, wide: 4 }}>
-        <div style={{ backgroundColor: '#e8e8e8', height: '8rem' }} />
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
-        <div style={{ backgroundColor: '#e8e8e8', height: '6rem' }} />
-      </Grid.Cell>
-    </Grid>
-  ),
-} satisfies Meta
+  component: HomePage,
+} satisfies Meta<typeof HomePage>
 
 export default meta
 

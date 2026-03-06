@@ -4,7 +4,6 @@
  */
 
 @use "../../common/hyphenation" as *;
-@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-accordion {
@@ -20,9 +19,15 @@
   /* This class name is deprecated. */
 }
 
-.ams-accordion__button {
-  @include reset-button;
+@mixin reset-button {
+  border: none;
+  margin-block: 0; // [1]
+  margin-inline: 0; // [1]
 
+  // [1] Remove the margin in older Safari.
+}
+
+.ams-accordion__button {
   background-color: transparent;
   color: var(--ams-accordion-button-color);
   cursor: var(--ams-accordion-button-cursor);
@@ -37,6 +42,8 @@
   padding-block: var(--ams-accordion-button-padding-block);
   padding-inline: var(--ams-accordion-button-padding-inline);
   text-align: start;
+
+  @include reset-button;
 
   &:hover {
     color: var(--ams-accordion-button-hover-color);

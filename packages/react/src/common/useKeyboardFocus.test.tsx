@@ -5,14 +5,13 @@
 
 import { fireEvent, render } from '@testing-library/react'
 import { useRef } from 'react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { KeyboardKeys, useKeyboardFocus } from './useKeyboardFocus'
 
 describe('useKeyboardFocus', () => {
-  const onFocusOneMock = vi.fn()
-  const onFocusTwoMock = vi.fn()
-  const onFocusThreeMock = vi.fn()
+  const onFocusOneMock = jest.fn()
+  const onFocusTwoMock = jest.fn()
+  const onFocusThreeMock = jest.fn()
 
   const Component = ({ rotate = undefined }: { rotate?: boolean }) => {
     const ref = useRef<HTMLDivElement>(null)

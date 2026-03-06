@@ -11,6 +11,8 @@ The design system provides the correct logo for online use.
 Other logo variations exist, but they cannot be used on our websites.
 The Dutch logo is for websites in the Dutch language and any language other than English.
 The English logo is used for websites in the English language.
+(We will add this logo to the design system later.)
+In the meantime, you can download an image of this logo from [Stijlweb](https://amsterdam.nl/stijlweb/basiselementen/logo-gemeente-amsterdam/#hba498e5c-2388-464f-b769-7622a5d32bd1).
 
 ## Exception
 

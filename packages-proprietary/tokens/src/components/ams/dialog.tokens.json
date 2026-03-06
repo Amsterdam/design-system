@@ -9,9 +9,6 @@
         "$value": "{ams.dialog.background-color}",
         "$type": "color"
       },
-      "border-radius": {
-        "$value": "initial"
-      },
       "border-style": {
         "$value": "solid",
         "$extensions": {
@@ -23,9 +20,6 @@
         "$extensions": {
           "nl.amsterdam.type": "borderWidth"
         }
-      },
-      "box-shadow": {
-        "$value": "initial"
       },
       "gap": {
         "$value": "{ams.space.m}",

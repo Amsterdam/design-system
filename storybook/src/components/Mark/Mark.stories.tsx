@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Args, Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Card, Grid, Heading, Paragraph, SearchField, UnorderedList } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
@@ -73,7 +73,7 @@ const dateFormat = new Intl.DateTimeFormat('nl', {
   year: 'numeric',
 })
 
-const mark = (text: string, query: string, args: Args) => {
+const mark = (text: string, query: string) => {
   if (!query) return text
 
   const words = query
@@ -86,19 +86,11 @@ const mark = (text: string, query: string, args: Args) => {
   const regex = new RegExp(`(${words.join('|')})`, 'gi')
   const parts = text.split(regex)
 
-  return parts.map((part) =>
-    part.match(regex) ? (
-      <Mark key={part} {...args}>
-        {part}
-      </Mark>
-    ) : (
-      part
-    ),
-  )
+  return parts.map((part) => (part.match(regex) ? <Mark key={part}>{part}</Mark> : part))
 }
 
 export const SearchResults = {
-  render: (args: Args) => {
+  render: () => {
     const [query, setQuery] = useState('horeca vergunning')
 
     const searchResults = articles.filter(({ fragment, heading }) =>
@@ -126,10 +118,10 @@ export const SearchResults = {
                 <Card>
                   <Card.HeadingGroup tagline={category}>
                     <Heading level={2} size="level-4">
-                      <Card.Link href="#">{mark(heading, query, args)}</Card.Link>
+                      <Card.Link href="#">{mark(heading, query)}</Card.Link>
                     </Heading>
                   </Card.HeadingGroup>
-                  <Paragraph className="ams-mb-xs">{mark(fragment, query, args)}</Paragraph>
+                  <Paragraph className="ams-mb-xs">{mark(fragment, query)}</Paragraph>
                   <Paragraph size="small">
                     <time dateTime={date.toISOString()}>{dateFormat.format(date)}</time>
                   </Paragraph>

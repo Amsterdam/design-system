@@ -61,15 +61,6 @@
             }
           }
         }
-      },
-      "figure": {
-        "margin-block-end": {
-          "$value": "{ams.space.m}",
-          "$type": "dimension",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space"
-          }
-        }
       }
     }
   }

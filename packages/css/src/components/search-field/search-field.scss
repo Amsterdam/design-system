@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-search-field {
@@ -11,9 +10,14 @@
   isolation: isolate; // create new stacking context, so the input’s z-index doesn’t escape the component
 }
 
-.ams-search-field__input {
-  @include reset-input;
+@mixin reset-input {
+  -webkit-appearance: none; // Reset appearance for Safari < 15.4
+  appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
+  border-radius: 0; // Reset rounded borders on iOS devices
+  margin-block: 0;
+}
 
+.ams-search-field__input {
   background-color: var(--ams-search-field-input-background-color);
   border-color: var(--ams-search-field-input-border-color);
   border-style: var(--ams-search-field-input-border-style);
@@ -31,15 +35,18 @@
   touch-action: manipulation;
 
   @include text-rendering;
+  @include reset-input;
 
   &:focus {
     z-index: 1; // Make sure the focus outline isn’t cut off by the adjacent button
   }
 }
 
-.ams-search-field__input::placeholder {
-  @include reset-placeholder;
+@mixin reset-placeholder {
+  opacity: 100%; // Reset lower opacity set by Firefox
+}
 
+.ams-search-field__input::placeholder {
   color: var(--ams-search-field-input-placeholder-color);
 }
 

@@ -74,24 +74,7 @@
       },
       "hover": {
         "box-shadow": {
-          "$type": "shadow",
-          "$value": {
-            "inset": true,
-            "offsetX": {
-              "value": 0,
-              "unit": "rem"
-            },
-            "offsetY": {
-              "value": 0,
-              "unit": "rem"
-            },
-            "blur": {
-              "value": 0,
-              "unit": "rem"
-            },
-            "spread": "{ams.border.width.s}",
-            "color": "currentColor"
-          }
+          "$value": "inset 0 0 0 {ams.border.width.s}"
         }
       },
       "invalid": {
@@ -105,24 +88,7 @@
             "$type": "color"
           },
           "box-shadow": {
-            "$type": "shadow",
-            "$value": {
-              "inset": true,
-              "offsetX": {
-                "value": 0,
-                "unit": "rem"
-              },
-              "offsetY": {
-                "value": 0,
-                "unit": "rem"
-              },
-              "blur": {
-                "value": 0,
-                "unit": "rem"
-              },
-              "spread": "{ams.border.width.s}",
-              "color": "{ams.color.interactive.invalid.hover}"
-            }
+            "$value": "inset 0 0 0 {ams.border.width.s} {ams.color.interactive.invalid.hover}"
           }
         }
       },

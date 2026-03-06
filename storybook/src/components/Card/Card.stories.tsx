@@ -77,10 +77,10 @@ export const TopTasks: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-  render: (args) => (
+  render: () => (
     <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
-        <Card {...args}>
+        <Card>
           <Card.Heading level={2}>
             <Card.Link href="#">Gemeentebelastingen</Card.Link>
           </Card.Heading>

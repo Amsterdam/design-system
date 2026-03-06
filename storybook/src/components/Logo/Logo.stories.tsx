@@ -51,12 +51,6 @@ export const MuseumWeesp: Story = {
   },
 }
 
-export const AmsterdamEnglish: Story = {
-  args: {
-    brand: 'amsterdam-english',
-  },
-}
-
 export const Custom: Story = {
   args: {
     brand: {

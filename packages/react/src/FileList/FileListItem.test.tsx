@@ -5,7 +5,6 @@
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it, vi } from 'vitest'
 
 import { FileListItem } from './FileListItem'
 
@@ -53,7 +52,7 @@ describe('FileListItem', () => {
   })
 
   it('calls onDelete when the remove button is clicked', () => {
-    const onDelete = vi.fn()
+    const onDelete = jest.fn()
     render(<FileListItem file={file} onDelete={onDelete} />)
 
     fireEvent.click(screen.getByRole('button'))

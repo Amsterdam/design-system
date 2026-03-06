@@ -84,7 +84,6 @@
       },
       "hover": {
         "box-shadow": {
-          "$type": "shadow",
           "$value": "{ams.inputs.hover.box-shadow}"
         }
       },
@@ -99,7 +98,6 @@
             "$type": "color"
           },
           "box-shadow": {
-            "$type": "shadow",
             "$value": "{ams.inputs.invalid.hover.box-shadow}"
           }
         }

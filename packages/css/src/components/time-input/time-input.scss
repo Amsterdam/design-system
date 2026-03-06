@@ -3,12 +3,27 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-.ams-time-input {
-  @include reset-input;
+@mixin reset-input {
+  -webkit-appearance: none; // Reset appearance for Safari < 15.4
+  appearance: none; // Reset native appearance, this causes issues on iOS and Android devices
+  border-radius: 0; // Reset rounded borders on iOS devices
+  inline-size: auto; // Reset inline size of 10em set by Android devices
+  margin-block: 0;
 
+  &::-webkit-datetime-edit,
+  &::-webkit-datetime-edit-ampm-field,
+  &::-webkit-datetime-edit-fields-wrapper,
+  &::-webkit-datetime-edit-hour-field,
+  &::-webkit-datetime-edit-millisecond-field,
+  &::-webkit-datetime-edit-minute-field,
+  &::-webkit-datetime-edit-second-field {
+    padding-block: 0; // Override value of 1px in UA stylesheet
+  }
+}
+
+.ams-time-input {
   background-color: var(--ams-time-input-background-color);
   border-color: var(--ams-time-input-border-color);
   border-style: var(--ams-time-input-border-style);
@@ -18,9 +33,6 @@
   font-family: var(--ams-time-input-font-family);
   font-size: var(--ams-time-input-font-size);
   font-weight: var(--ams-time-input-font-weight);
-
-  // Reset inline size of 10em set by Android devices.
-  inline-size: auto;
   line-height: var(--ams-time-input-line-height);
 
   // Set min block size for iOS, otherwise an empty box is a lot smaller than a filled one.
@@ -36,17 +48,7 @@
   touch-action: manipulation;
 
   @include text-rendering;
-
-  // Reset padding on webkit time edit fields to override the value of 1px in the UA stylesheet.
-  &::-webkit-datetime-edit,
-  &::-webkit-datetime-edit-ampm-field,
-  &::-webkit-datetime-edit-fields-wrapper,
-  &::-webkit-datetime-edit-hour-field,
-  &::-webkit-datetime-edit-millisecond-field,
-  &::-webkit-datetime-edit-minute-field,
-  &::-webkit-datetime-edit-second-field {
-    padding-block: 0;
-  }
+  @include reset-input;
 }
 
 // This changes the default calendar icon on Chromium browsers only

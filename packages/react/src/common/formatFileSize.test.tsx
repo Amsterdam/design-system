@@ -3,8 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { describe, expect, it } from 'vitest'
-
 import { formatFileSize } from './formatFileSize'
 
 describe('formatFileSize', () => {

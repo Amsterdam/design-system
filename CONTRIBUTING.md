@@ -163,13 +163,6 @@ To enable correct validation and to fix lint/style errors on save, add this to y
 - Install dependencies: `pnpm install`
 - Run storybook: `npm start`
 
-### Run unit tests
-
-Unit tests live in `packages/react` and are run with [Vitest](https://vitest.dev/).
-
-- Run all tests once with a coverage report: `pnpm test`
-- Watch mode, no coverage (re-runs on file save): `pnpm --filter @amsterdam/design-system-react watch:test`
-
 ### Adding a new component
 
 Scaffold all necessary files for a new component at once through `npm run plop`.

@@ -10,7 +10,6 @@ import { forwardRef } from 'react'
 
 import {
   LogoAmsterdam,
-  LogoAmsterdamEnglish,
   LogoGgdAmsterdam,
   LogoMuseumWeesp,
   LogoStadsarchief,
@@ -20,7 +19,6 @@ import {
 
 export const logoBrands = [
   'amsterdam',
-  'amsterdam-english',
   'ggd-amsterdam',
   'museum-weesp',
   'stadsarchief',
@@ -44,10 +42,6 @@ const logoConfig: Record<LogoBrand, LogoBrandConfig> = {
   amsterdam: {
     label: 'Gemeente Amsterdam logo',
     svg: LogoAmsterdam,
-  },
-  'amsterdam-english': {
-    label: 'City of Amsterdam logo',
-    svg: LogoAmsterdamEnglish,
   },
   'ggd-amsterdam': {
     label: 'GGD Amsterdam logo',

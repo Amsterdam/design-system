@@ -5,22 +5,26 @@
 
 @use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
-@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
+
+@mixin reset-ul {
+  list-style: none;
+  margin-block: 0;
+}
 
 .ams-page-footer__spotlight {
   background-color: var(--ams-page-footer-spotlight-background-color);
 }
 
 .ams-page-footer__menu {
-  @include reset-ul;
-
   column-gap: var(--ams-page-footer-menu-column-gap);
   display: flex;
   flex-wrap: wrap;
   padding-block: var(--ams-page-footer-menu-padding-block);
   padding-inline: var(--ams-page-footer-menu-padding-inline);
   row-gap: var(--ams-page-footer-menu-row-gap);
+
+  @include reset-ul;
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     padding-inline: var(--ams-page-footer-menu-medium-padding-inline);

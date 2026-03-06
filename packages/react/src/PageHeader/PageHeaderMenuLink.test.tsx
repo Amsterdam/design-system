@@ -6,7 +6,6 @@
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
 
 import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 

@@ -4,14 +4,13 @@
  */
 
 @use "../../common/breakpoint" as *;
-@use "../../common/resets" as *;
 
 .ams-image-slider {
   display: grid;
   gap: var(--ams-image-slider-gap);
 }
 
-.ams-image-slider__slide {
+.ams-image-slider__item {
   scroll-snap-align: center;
   scroll-snap-stop: always;
 }
@@ -73,9 +72,13 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
-.ams-image-slider__thumbnail {
-  @include reset-button;
+@mixin reset-button {
+  border: none;
+  padding-block: 0;
+  padding-inline: 0;
+}
 
+.ams-image-slider__thumbnail {
   aspect-ratio: var(--ams-image-aspect-ratio); // Use the same default aspect ratio as the Image component
   background-color: var(--ams-image-slider-thumbnails-thumbnail-background-color);
   background-position: center;
@@ -84,6 +87,8 @@
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
   outline-offset: var(--ams-button-outline-offset);
 
+  @include reset-button;
+
   &:hover {
     opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
   }
@@ -91,8 +96,4 @@
 
 .ams-image-slider__thumbnail--in-view {
   opacity: var(--ams-image-slider-thumbnails-thumbnail-in-view-opacity);
-}
-
-.ams-image-slider__figure {
-  margin-block-end: var(--ams-image-slider-figure-margin-block-end);
 }

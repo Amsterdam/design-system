@@ -5,7 +5,6 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
 
 import { ariaRoleForTag } from '../common/accessibility'
 import { Spotlight, spotlightColors, spotlightTags } from './Spotlight'

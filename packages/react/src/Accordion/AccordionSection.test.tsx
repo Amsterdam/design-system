@@ -5,7 +5,6 @@
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
 
 import { Accordion } from './Accordion'
 

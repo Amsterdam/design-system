@@ -216,7 +216,7 @@ As they are already prefixed, the namespace that Sass would assign isn’t neces
 ```
 
 Import the compact tokens if needed.
-Note that Sass doesn’t allow importing them alongside the default set due to naming conflicts.
+Note that Sass doesn't allow importing them alongside the default set due to naming conflicts.
 Address these tokens through the `compact` namespace and do not use the spacious tokens they replace.
 
 ```sass
