@@ -1,9 +1,11 @@
 import type { RefObject } from 'react'
 
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+
 import { scrollToCurrentSlideOnResize } from './scrollToCurrentSlideOnResize'
 import * as scrollUtils from './scrollToSlide'
 
-jest.mock('./scrollToSlide')
+vi.mock('./scrollToSlide')
 
 describe('scrollToCurrentSlideOnResize', () => {
   const createRef = (options: { offsetLeft?: number; scrollLeft?: number; withElement?: boolean }) => {
@@ -17,10 +19,14 @@ describe('scrollToCurrentSlideOnResize', () => {
     }
   }
 
-  it('calls scrollToSlide if the current slide is not in view', () => {
-    const scrollToSlide = jest.fn()
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
 
-    ;(scrollUtils.scrollToSlide as jest.Mock) = scrollToSlide
+  it('calls scrollToSlide if the current slide is not in view', () => {
+    const scrollToSlide = vi.fn()
+
+    vi.mocked(scrollUtils.scrollToSlide).mockImplementation(scrollToSlide)
 
     const { ref } = createRef({ offsetLeft: 100, scrollLeft: 0, withElement: true })
 
@@ -30,9 +36,9 @@ describe('scrollToCurrentSlideOnResize', () => {
   })
 
   it('does not call scrollToSlide if scrollerRef.current is null', () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
-    ;(scrollUtils.scrollToSlide as jest.Mock) = scrollToSlide
+    vi.mocked(scrollUtils.scrollToSlide).mockImplementation(scrollToSlide)
 
     const { ref } = createRef({ withElement: false })
 
@@ -42,9 +48,9 @@ describe('scrollToCurrentSlideOnResize', () => {
   })
 
   it('does not call scrollToSlide if currentSlideElement is null', () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
-    ;(scrollUtils.scrollToSlide as jest.Mock) = scrollToSlide
+    vi.mocked(scrollUtils.scrollToSlide).mockImplementation(scrollToSlide)
 
     const scrollerElement = { children: [null], scrollLeft: 0 }
     const ref = { current: scrollerElement } as unknown as RefObject<HTMLDivElement>
@@ -55,9 +61,9 @@ describe('scrollToCurrentSlideOnResize', () => {
   })
 
   it('does not call scrollToSlide if the slide is already in view', () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
-    ;(scrollUtils.scrollToSlide as jest.Mock) = scrollToSlide
+    vi.mocked(scrollUtils.scrollToSlide).mockImplementation(scrollToSlide)
 
     const { ref } = createRef({ offsetLeft: 100, scrollLeft: 100, withElement: true })
 

@@ -4,6 +4,7 @@
  */
 
 import { renderHook } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 
 import useViewportHasMinWidth, { BREAKPOINTS } from './useViewportHasMinWidth'
 
@@ -16,10 +17,10 @@ const convertMediaQueryToPx = (query: string) => {
 const testMatchFunction = (query: string) => window.innerWidth >= convertMediaQueryToPx(query)
 
 Object.defineProperty(window, 'matchMedia', {
-  value: jest.fn().mockImplementation((query) => ({
-    addEventListener: jest.fn(),
+  value: vi.fn().mockImplementation((query) => ({
+    addEventListener: vi.fn(),
     matches: testMatchFunction(query),
-    removeEventListener: jest.fn(),
+    removeEventListener: vi.fn(),
   })),
   writable: true,
 })
