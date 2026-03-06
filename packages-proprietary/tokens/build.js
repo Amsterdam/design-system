@@ -5,13 +5,11 @@
 
 import StyleDictionary from 'style-dictionary'
 
-import { amsExclude } from './style-dictionary/filters/ams-exclude.js'
 import { dtcgDimension } from './style-dictionary/transforms/dtcg-dimension.js'
 import { nameCustomCamel } from './style-dictionary/transforms/name-custom-camel.js'
 import { nameCustomKebab } from './style-dictionary/transforms/name-custom-kebab.js'
 import { shadowDTCGDimensionNormalize } from './style-dictionary/transforms/shadow-dtcg-dimension-normalize.js'
 
-StyleDictionary.registerFilter(amsExclude)
 StyleDictionary.registerTransform(dtcgDimension)
 StyleDictionary.registerTransform(nameCustomCamel)
 StyleDictionary.registerTransform(nameCustomKebab)
@@ -29,7 +27,6 @@ function generateSharedConfig(mode) {
       files: [
         {
           destination: `${name}.css`,
-          filter: 'ams/exclude',
           format: 'css/variables',
           options: {
             outputReferences: true,
@@ -43,7 +40,6 @@ function generateSharedConfig(mode) {
       files: [
         {
           destination: `${name}.theme.css`,
-          filter: 'ams/exclude',
           format: 'css/variables',
           options: {
             outputReferences: true,
@@ -58,7 +54,6 @@ function generateSharedConfig(mode) {
       files: [
         {
           destination: `${name}.mjs`,
-          filter: 'ams/exclude',
           format: 'javascript/es6',
         },
       ],
@@ -69,7 +64,6 @@ function generateSharedConfig(mode) {
       files: [
         {
           destination: `${name}.json`,
-          filter: 'ams/exclude',
           format: 'json/nested',
         },
       ],
@@ -80,7 +74,6 @@ function generateSharedConfig(mode) {
       files: [
         {
           destination: `${name}.scss`,
-          filter: 'ams/exclude',
           format: 'scss/variables',
           options: {
             outputReferences: true,
@@ -94,7 +87,6 @@ function generateSharedConfig(mode) {
       files: [
         {
           destination: `${name}.d.ts`,
-          filter: 'ams/exclude',
           format: 'typescript/module-declarations',
         },
       ],

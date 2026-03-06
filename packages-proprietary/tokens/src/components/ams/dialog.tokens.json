@@ -10,10 +10,7 @@
         "$type": "color"
       },
       "border-radius": {
-        "$value": "initial",
-        "$extensions": {
-          "nl.amsterdam.exclude": true
-        }
+        "$value": "initial"
       },
       "border-style": {
         "$value": "solid",
@@ -28,10 +25,7 @@
         }
       },
       "box-shadow": {
-        "$value": "initial",
-        "$extensions": {
-          "nl.amsterdam.exclude": true
-        }
+        "$value": "initial"
       },
       "gap": {
         "$value": "{ams.space.m}",

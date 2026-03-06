@@ -206,33 +206,6 @@ We add a subtype for certain types to further specify their purpose and preview.
 
 An `$extensions.nl.amsterdam.hint` indicates special handling for internal use.
 
-#### Exclude
-
-Tokens that have an `$extensions.nl.amsterdam.exclude` property are not included in our output.
-This keeps it free of unused declarations.
-
-We apply this to properties that do not align with our branding, such as rounded corners and shadows.
-We still add these tokens so that teams outside of the City of Amsterdam can use our components.
-The component stylesheets do reference these tokens, but they default to `initial` for us.
-As every token must have a value, we set that to `initial` as well.
-
-```json
-{
-  "border-radius": {
-    "$value": "initial",
-    "$extensions": {
-      "nl.amsterdam.exclude": true
-    }
-  }
-}
-```
-
-```css
-.ams-dialog {
-  border-radius: var(--ams-dialog-border-radius, initial);
-}
-```
-
 ## Usage in Sass
 
 The tokens can be imported as Sass variables as well.
