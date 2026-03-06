@@ -24,7 +24,7 @@ type IconOnlyProp = {
   iconOnly?: boolean
 }
 
-export type IconButtonProps = {
+type IconButtonProps = {
   /** Adds an icon to the button, showing it after the label. */
   icon: IconProps['svg']
 } & (IconBeforeProp | IconOnlyProp)
