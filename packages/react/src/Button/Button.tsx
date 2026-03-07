@@ -29,7 +29,7 @@ type IconButtonProps = {
   icon: IconProps['svg']
 } & (IconBeforeProp | IconOnlyProp)
 
-export type TextButtonProps = {
+type TextButtonProps = {
   icon?: never
   iconBefore?: never
   iconOnly?: never

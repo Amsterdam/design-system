@@ -10,7 +10,7 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 import type { HeadingProps } from '../Heading'
-import type { IconProps } from '../Icon/Icon'
+import type { IconProps } from '../Icon'
 
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
