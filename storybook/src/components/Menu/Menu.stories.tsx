@@ -112,6 +112,7 @@ export const Link: LinkStory = {
   args: {
     children: menuItems[0].text,
     href: '#',
+    // @ts-expect-error Storybook uses the name of the icon as the value for the control.
     icon: 'PieChartFillIcon',
   },
   argTypes: {
@@ -153,7 +154,7 @@ export const Link: LinkStory = {
   ],
   render: ({ children, ...args }) => {
     /* eslint-disable @typescript-eslint/no-unused-vars */
-    // @ts-expect-error Typescript does not infer the correct type here
+    // @ts-expect-error TypeScript does not infer the correct type here
     const { accessibleName, inWideWindow, ...linkArgs } = args
     return <Menu.Link {...linkArgs}>{children}</Menu.Link>
     /* eslint-enable @typescript-eslint/no-unused-vars */

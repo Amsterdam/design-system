@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { IconProps } from '@amsterdam/design-system-react'
 import type { Meta } from '@storybook/react-vite'
 import type { JSX, SVGProps } from 'react'
 
@@ -52,7 +53,7 @@ export type CompletePropsWithValues = (
 
 export type BuildComponentPropsParams = {
   args: Meta['args']
-  hasIcon?: { icon: (props: SVGProps<SVGSVGElement>) => JSX.Element } | null
+  hasIcon?: { icon: IconProps['svg'] } | null
   propName: string
   size?: string | undefined
   sizePropName: string | string[]

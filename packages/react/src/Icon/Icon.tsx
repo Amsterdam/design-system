@@ -5,7 +5,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+import type { ForwardedRef, HTMLAttributes, ReactElement, SVGProps } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -23,6 +23,21 @@ export const iconSizes = [
 ] as const
 type IconSize = (typeof iconSizes)[number]
 
+/** All valid props for an `<svg>` element in React. */
+type SvgProps = SVGProps<SVGSVGElement>
+
+/** A React element representing an `<svg>` element. */
+type SvgElement = ReactElement<SvgProps>
+
+/**
+ * A valid value for the `svg` prop of the `Icon` component. Can be:
+ * - A rendered SVG element, e.g. `<WarningIcon />`
+ * - An SVG component reference, e.g. `WarningIcon`
+ * - A zero-argument function returning an SVG element, e.g. `() => <WarningIcon size="large" />`
+ * - A function accepting SVG props and returning an SVG element, e.g. `(props) => <WarningIcon {...props} />`
+ */
+type IconSvg = SvgElement | (() => SvgElement) | ((props: SvgProps) => SvgElement)
+
 export type IconProps = {
   /** Changes the icon colour for readability on a dark background. */
   color?: 'inverse'
@@ -34,7 +49,7 @@ export type IconProps = {
   /** Whether the icon container should be made square. */
   square?: boolean
   /** The component rendering the icon’s markup. */
-  svg: Function | ReactNode
+  svg: IconSvg
 } & HTMLAttributes<HTMLSpanElement>
 
 /**
@@ -55,7 +70,7 @@ export const Icon = forwardRef(
       ref={ref}
       {...restProps}
     >
-      {typeof svg === 'function' ? svg() : svg}
+      {typeof svg === 'function' ? svg({}) : svg}
     </span>
   ),
 )
