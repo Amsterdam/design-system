@@ -23,6 +23,7 @@ export const ImageSliderThumbnails = ({
   imageLabel,
   scrollToSlide,
   thumbnails,
+  ...restProps
 }: ImageSliderThumbnailsProps) => {
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     const element = event.currentTarget.children[currentSlideId]
@@ -47,7 +48,7 @@ export const ImageSliderThumbnails = ({
   }
 
   return (
-    <nav className="ams-image-slider__thumbnails" onKeyDown={handleKeyDown} role="tablist">
+    <nav className="ams-image-slider__thumbnails" onKeyDown={handleKeyDown} role="tablist" {...restProps}>
       {thumbnails.map(({ alt, aspectRatio, src }, index) => (
         <button
           aria-label={`${imageLabel} ${index + 1}: ${alt}`}
