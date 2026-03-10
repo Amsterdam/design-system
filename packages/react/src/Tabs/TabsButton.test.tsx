@@ -87,4 +87,12 @@ describe('TabsButton', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<TabsButton aria-controls="one" data-test="data-test" id="id" />)
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

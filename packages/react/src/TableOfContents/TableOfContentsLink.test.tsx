@@ -45,4 +45,12 @@ describe('TableOfContentsLink', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<TableOfContents.Link data-test="data-test" href="#" id="id" label="Test" />)
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
