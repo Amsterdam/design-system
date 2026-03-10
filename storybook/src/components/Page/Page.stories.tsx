@@ -12,19 +12,21 @@ import { Page } from '@amsterdam/design-system-react/src'
 const meta = {
   title: 'Components/Containers/Page',
   component: Page,
-  args: {
-    lang: 'nl', // Mimic what we do in preview.tsx, where the decorator doesn’t render a Page for stories of Page.
-  },
   argTypes: {
-    lang: {
-      table: { disable: true }, // It’s best practice to set this attribute on the `html` element, so let’s not highlight it here.
-    },
     withMenu: {
       description:
         'This prop updates automatically to prevent an invalid appearance: a Menu can only be used in Compact Mode.',
       table: { readonly: true },
     },
   },
+  decorators: [
+    (Story) => (
+      // Mimic what we do in preview.tsx, where the decorator doesn’t render a Page for stories of Page.
+      <div lang="nl">
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     layout: 'fullscreen',
   },
@@ -68,7 +70,6 @@ export const Default: Story = {
 export const WithMenu: Story = {
   args: {
     children: <PageBody />,
-    lang: 'nl',
     withMenu: true,
   },
   globals: {

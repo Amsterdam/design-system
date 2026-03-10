@@ -13,7 +13,18 @@ export const BREAKPOINTS = {
 
 type Breakpoint = keyof typeof BREAKPOINTS
 
-const useIsAfterBreakpoint = (breakpoint: Breakpoint) => {
+/**
+ * Hook to determine if the viewport width is at or beyond a given breakpoint.
+ *
+ * **Prefer CSS media queries over this hook.** Use this only when viewport-dependent
+ * logic must run in JavaScript, e.g. for interactions or dynamic behaviour that cannot
+ * be expressed in CSS. CSS media queries are more performant, better supported across
+ * stacks, and easier to maintain.
+ *
+ * @param breakpoint - The breakpoint to match against: `'medium'` or `'wide'`.
+ * @returns `true` if the viewport width meets or exceeds the breakpoint, `false` otherwise.
+ */
+const useViewportHasMinWidth = (breakpoint: Breakpoint) => {
   const [matches, setMatches] = useState(false)
 
   useEffect(() => {
@@ -35,4 +46,4 @@ const useIsAfterBreakpoint = (breakpoint: Breakpoint) => {
   return matches
 }
 
-export default useIsAfterBreakpoint
+export default useViewportHasMinWidth

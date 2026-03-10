@@ -11,10 +11,15 @@ import { forwardRef, useEffect, useRef, useState } from 'react'
 
 import type { ImageProps } from '../Image/Image'
 
-import { Image } from '../Image/Image'
 import { ImageSliderControl } from './ImageSliderControl'
+import { ImageSliderSlide } from './ImageSliderSlide'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import { debounce, scrollToCurrentSlideOnResize, scrollToSlide, setCurrentSlideIdToVisibleSlide } from './utils'
+
+export type ImageSliderImageProps = {
+  /** An optional caption displayed below the image. */
+  caption?: string
+} & ImageProps
 
 export type ImageSliderProps = {
   /** Display buttons to navigate to the previous or next image. */
@@ -22,7 +27,7 @@ export type ImageSliderProps = {
   /** Label for the image if you need to translate the alt text. */
   imageLabel?: string
   /** The set of images to display. */
-  images: ImageProps[]
+  images: ImageSliderImageProps[]
   /** The label for the ‘next’ button */
   nextLabel?: string
   /** The label for the ‘previous’ button */
@@ -114,21 +119,8 @@ export const ImageSlider = forwardRef(
           </div>
         )}
         <div aria-live="polite" className="ams-image-slider__scroller" ref={scrollerRef} role="group" tabIndex={0}>
-          {images.map(({ alt, aspectRatio, sizes, src, srcSet }, index) => (
-            <Image
-              alt={alt}
-              aria-hidden={index !== currentSlideId ? true : undefined}
-              aspectRatio={aspectRatio}
-              className={clsx(
-                'ams-image-slider__item',
-                // The 'ams-image-slider__item--in-view' class is @deprecated and will be removed in a future release.
-                index === currentSlideId && 'ams-image-slider__item--in-view',
-              )}
-              key={`${index}-${src}`}
-              sizes={sizes}
-              src={src}
-              srcSet={srcSet}
-            />
+          {images.map((image, index) => (
+            <ImageSliderSlide key={`${index}-${image.src}`} {...image} currentSlideId={currentSlideId} index={index} />
           ))}
         </div>
         <ImageSliderThumbnails

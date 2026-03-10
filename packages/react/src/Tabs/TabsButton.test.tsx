@@ -6,6 +6,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
+import { describe, expect, it, vi } from 'vitest'
 
 import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
@@ -61,7 +62,7 @@ describe('TabsButton', () => {
 
   it('does not call updateTab if event.preventDefault is invoked', async () => {
     const user = userEvent.setup()
-    const mockUpdateTab = jest.fn()
+    const mockUpdateTab = vi.fn()
 
     render(
       <TabsContext.Provider value={{ updateTab: mockUpdateTab }}>

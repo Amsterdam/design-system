@@ -4,13 +4,12 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-@mixin reset-hx {
-  margin-block: 0;
-}
-
 .ams-heading {
+  @include reset-hx;
+
   box-sizing: border-box;
 
   /*
@@ -33,7 +32,6 @@
 
   @include hyphenation;
   @include text-rendering;
-  @include reset-hx;
 }
 
 .ams-heading--1 {
