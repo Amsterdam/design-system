@@ -29,6 +29,7 @@
         }
       },
       "row-gap": {
+        "$deprecated": "This token will be removed in release 6.0.0",
         "$value": "{ams.space.s}",
         "$type": "dimension",
         "$extensions": {
@@ -46,9 +47,9 @@
           "$value": "{ams.typography.body-text.bold.font-weight}",
           "$type": "fontWeight"
         },
-        "first-of-consecutive": {
+        "last-of-group": {
           "margin-block-end": {
-            "$value": "{ams.space.m}",
+            "$value": "{ams.space.s}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"
@@ -61,13 +62,11 @@
           "$value": "{ams.typography.body-text.font-weight}",
           "$type": "fontWeight"
         },
-        "first-of-consecutive": {
-          "margin-block-end": {
-            "$value": "{ams.space.s}",
-            "$type": "dimension",
-            "$extensions": {
-              "nl.amsterdam.subtype": "space"
-            }
+        "margin-block-end": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
           }
         },
         "padding-inline-start": {
@@ -76,6 +75,24 @@
           "$type": "dimension",
           "$extensions": {
             "nl.amsterdam.subtype": "space"
+          }
+        },
+        "last-of-group": {
+          "margin-block-end": {
+            "$value": "{ams.space.m}",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
+          }
+        },
+        "medium": {
+          "margin-block-end": {
+            "$value": "{ams.space.s}",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
           }
         }
       },

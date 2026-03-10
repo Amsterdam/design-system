@@ -19,10 +19,6 @@
   font-size: var(--ams-description-list-font-size);
   line-height: var(--ams-description-list-line-height);
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    row-gap: var(--ams-description-list-row-gap);
-  }
-
   @include hyphenation;
   @include text-rendering;
 }
@@ -53,39 +49,44 @@
   color: var(--ams-description-list-inverse-color);
 }
 
+/* stylelint-disable plugin/use-baseline -- Without support for `:has`, all elements have the same spacing, which is acceptable. */
+
 .ams-description-list__term {
   font-weight: var(--ams-description-list-term-font-weight);
 
-  /* stylelint-disable-next-line plugin/use-baseline */
+  // If a Term is followed by a Description, increase the margin after the Term.
   &:has(+ .ams-description-list__description) {
-    margin-block-end: var(--ams-description-list-description-first-of-consecutive-margin-block-end);
+    margin-block-end: var(--ams-description-list-term-last-of-group-margin-block-end);
+  }
+
+  // If `:has` is not supported, apply the last-of-group margin to all Terms as a fallback.
+  @supports not selector(:has(+ .ams-description-list__description)) {
+    margin-block-end: var(--ams-description-list-term-last-of-group-margin-block-end);
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 1;
+    margin-block-end: initial;
 
-    /* stylelint-disable-next-line plugin/use-baseline */
-    &:has(+ .ams-description-list__description) {
+    // If the Term is the last child of its type in the description list, it should not have a block-end margin.
+    &:last-of-type {
       margin-block-end: initial;
     }
   }
 }
 
 .ams-description-list__section {
-  &:has(+ .ams-description-list__section),
-  &:has(+ .ams-description-list__term) {
-    margin-block-end: var(--ams-description-list-term-first-of-consecutive-margin-block-end);
+  margin-block-end: var(--ams-description-list-description-last-of-group-margin-block-end);
+
+  // If the section is the last child of the description list, it should not have a block-end margin.
+  &:last-child {
+    margin-block-end: initial;
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     column-gap: var(--ams-description-list-column-gap);
     display: grid;
     grid-column: span 2;
-
-    &:has(+ .ams-description-list__section),
-    &:has(+ .ams-description-list__term) {
-      margin-block-end: initial;
-    }
 
     > :only-of-type {
       grid-row: 1 / 9;
@@ -97,18 +98,19 @@
   @include reset-dd;
 
   font-weight: var(--ams-description-list-description-font-weight);
+  margin-block-end: var(--ams-description-list-description-margin-block-end);
 
-  &:has(+ .ams-description-list__section),
-  &:has(+ .ams-description-list__term) {
-    margin-block-end: var(--ams-description-list-term-first-of-consecutive-margin-block-end);
+  &:has(+ :not(.ams-description-list__description)) {
+    margin-block-end: var(--ams-description-list-description-last-of-group-margin-block-end);
+  }
+
+  // If the Description is the last child of the description list, it should not have a block-end margin.
+  &:last-child {
+    margin-block-end: initial;
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     grid-column-start: 2;
-
-    &:has(+ .ams-description-list__section),
-    &:has(+ .ams-description-list__term) {
-      margin-block-end: initial;
-    }
+    margin-block-end: var(--ams-description-list-description-medium-margin-block-end);
   }
 }
