@@ -73,4 +73,12 @@ describe('StandaloneLink', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<StandaloneLink data-test="data-test" href="#" id="id" />)
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
