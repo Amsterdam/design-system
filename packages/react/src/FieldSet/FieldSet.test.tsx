@@ -112,4 +112,12 @@ describe('FieldSet', () => {
     expect(legend).toHaveClass('ams-field-set__legend--in-fieldset')
     expect(hint).toHaveClass('ams-hint--in-fieldset')
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<FieldSet data-test="data-test" id="id" legend="Test" />)
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
