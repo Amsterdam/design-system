@@ -122,6 +122,30 @@ describe('PageHeader', () => {
     expect(component).toBeInTheDocument()
   })
 
+  it('does not set an accessible name on the navigation on wide windows', () => {
+    const mediaQueryList = {
+      addEventListener: vi.fn(),
+      matches: true,
+      removeEventListener: vi.fn(),
+    }
+
+    const originalMatchMedia = window.matchMedia
+    window.matchMedia = vi.fn().mockReturnValue(mediaQueryList as unknown as MediaQueryList)
+
+    try {
+      render(<PageHeader navigationLabel="Custom Navigation">Test</PageHeader>)
+
+      const navigation = screen.getByRole('navigation')
+
+      expect(navigation).not.toHaveAttribute('aria-labelledby')
+      expect(navigation).not.toHaveAccessibleName()
+
+      expect(screen.queryByRole('heading', { level: 2, name: 'Custom Navigation' })).not.toBeInTheDocument()
+    } finally {
+      window.matchMedia = originalMatchMedia
+    }
+  })
+
   it('renders a menu', () => {
     render(<PageHeader menuItems={<PageHeader.MenuLink>Menu Item</PageHeader.MenuLink>} />)
 
