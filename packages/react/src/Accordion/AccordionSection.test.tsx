@@ -171,4 +171,16 @@ describe('AccordionSection', () => {
 
     expect(ref.current).toBe(accordionSection)
   })
+
+  it('passes additional props', () => {
+    const { container } = render(
+      <Accordion.Section aria-hidden={false} data-test="data-test" id="id" label={testLabel} />,
+    )
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
