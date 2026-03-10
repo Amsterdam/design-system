@@ -86,4 +86,12 @@ describe('Icon', () => {
 
     expect(ref.current).toBe(icon)
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<Icon data-test="data-test" id="id" svg={WarningIcon} />)
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
