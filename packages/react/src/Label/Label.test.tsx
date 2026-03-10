@@ -160,4 +160,12 @@ describe('Label', () => {
     expect(label).toHaveClass('ams-label--in-fieldset')
     expect(hint).toHaveClass('ams-hint--in-fieldset')
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<Label data-test="data-test" htmlFor="form-control" id="id" optional={true} />)
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

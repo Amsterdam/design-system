@@ -66,4 +66,12 @@ describe('ImageSliderSlide', () => {
 
     expect(figure).not.toHaveAttribute('aria-hidden')
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<ImageSliderSlide data-test="data-test" id="id" {...defaultProps} />)
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
