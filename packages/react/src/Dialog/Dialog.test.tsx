@@ -115,4 +115,12 @@ describe('Dialog', () => {
     // We currently can't test this because dialog isn't properly supported in jsdom
     // https://github.com/jsdom/jsdom/issues/3294
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<Dialog data-test="data-test" heading="Test heading" id="id" open />)
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

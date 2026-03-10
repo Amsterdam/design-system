@@ -62,4 +62,13 @@ describe('DescriptionList', () => {
 
     expect(component).toHaveClass('ams-description-list--inverse')
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<DescriptionList data-test="data-test" id="id" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

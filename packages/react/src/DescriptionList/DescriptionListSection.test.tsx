@@ -44,4 +44,17 @@ describe('DescriptionListSection', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    const { container } = render(
+      <DescriptionList.Section data-test="data-test" id="id">
+        Test
+      </DescriptionList.Section>,
+    )
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
