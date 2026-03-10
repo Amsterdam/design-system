@@ -94,4 +94,12 @@ describe('ProgressList', () => {
 
     expect(subStep).toHaveClass('ams-progress-list-substeps__step')
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<ProgressList data-test="data-test" headingLevel={2} id="id" />)
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

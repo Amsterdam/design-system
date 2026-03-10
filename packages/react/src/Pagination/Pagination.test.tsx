@@ -226,4 +226,14 @@ describe('Pagination', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    const { container } = render(
+      <Pagination data-test="data-test" id="id" linkTemplate={linkTemplate} totalPages={10} />,
+    )
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

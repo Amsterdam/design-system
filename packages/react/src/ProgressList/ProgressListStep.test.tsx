@@ -196,4 +196,12 @@ describe('ProgressListStep', () => {
 
     expect(ref.current).toBe(step)
   })
+
+  it('passes additional props', () => {
+    const { container } = render(<ProgressList.Step data-test="data-test" heading="test step" id="id" />)
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
