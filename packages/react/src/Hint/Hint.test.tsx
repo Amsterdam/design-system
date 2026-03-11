@@ -86,7 +86,7 @@ describe('Hint', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Hint data-test="data-test" id="id" />)
+    const { container } = render(<Hint data-test="data-test" hint="hint text" id="id" />)
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveAttribute('id', 'id')

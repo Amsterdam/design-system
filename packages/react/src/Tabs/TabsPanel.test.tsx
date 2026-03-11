@@ -103,10 +103,17 @@ describe('TabsPanel', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Tabs.Panel aria-controls="one" data-test="data-test" id="id" />)
-    const component = container.querySelector(':only-child')
+    const { container } = render(
+      <Tabs>
+        <Tabs.List>
+          <Tabs.Button aria-controls="one" />
+        </Tabs.List>
+        <Tabs.Panel aria-controls="one" data-test="data-test" id="one" />
+      </Tabs>,
+    )
+    const component = container.querySelector('.ams-tabs__panel')
 
-    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('id', 'one')
     expect(component).toHaveAttribute('data-test', 'data-test')
     expect(component).toHaveAttribute('aria-controls', 'one')
   })
