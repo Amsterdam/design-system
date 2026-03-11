@@ -28,7 +28,6 @@ export const SearchFieldInput = forwardRef(
           {label}
         </label>
         <input
-          {...restProps}
           aria-invalid={invalid || undefined}
           autoComplete="off"
           className={clsx('ams-search-field__input', className)}
@@ -38,6 +37,7 @@ export const SearchFieldInput = forwardRef(
           ref={ref}
           spellCheck="false"
           type="search"
+          {...restProps}
         />
       </>
     )
