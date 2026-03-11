@@ -47,13 +47,11 @@
           "$value": "{ams.typography.body-text.bold.font-weight}",
           "$type": "fontWeight"
         },
-        "last-of-group": {
-          "margin-block-end": {
-            "$value": "{ams.space.s}",
-            "$type": "dimension",
-            "$extensions": {
-              "nl.amsterdam.subtype": "space"
-            }
+        "margin-block-end": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
           }
         }
       },
