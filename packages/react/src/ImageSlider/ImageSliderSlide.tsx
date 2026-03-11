@@ -19,6 +19,7 @@ export const ImageSliderSlide = ({
   alt,
   aspectRatio,
   caption,
+  className,
   currentSlideId,
   index,
   sizes,
@@ -34,6 +35,7 @@ export const ImageSliderSlide = ({
     className: clsx(
       'ams-image-slider__slide ams-image-slider__item',
       isCurrentSlide && 'ams-image-slider__item--in-view',
+      className,
     ),
   }
 
