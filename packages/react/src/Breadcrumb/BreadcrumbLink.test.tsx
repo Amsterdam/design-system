@@ -60,7 +60,7 @@ describe('BreadcrumbLink', () => {
   it('passes additional props', () => {
     const { container } = render(<BreadcrumbLink aria-hidden={false} data-test="data-test" href="/" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const component = container.querySelector('.ams-breadcrumb__link')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

@@ -77,7 +77,7 @@ describe('LinkListLink', () => {
 
   it('passes additional props', () => {
     const { container } = render(<LinkList.Link data-test="data-test" href="#" id="id" />)
-    const component = container.querySelector(':only-child')
+    const component = container.querySelector('.ams-link-list__link')
 
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
