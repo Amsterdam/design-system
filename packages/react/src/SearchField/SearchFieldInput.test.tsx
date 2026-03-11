@@ -95,10 +95,11 @@ describe('SearchFieldInput', () => {
   })
 
   it('passes additional props', () => {
-    render(<SearchFieldInput data-test="data-test" id="id" />)
+    render(<SearchFieldInput aria-hidden="false" data-test="data-test" id="id" />)
 
     const component = screen.getByRole('searchbox', { name: 'Zoeken' })
 
+    expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })

@@ -54,9 +54,10 @@ describe('PageFooterMenuLink', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<PageFooter.MenuLink data-test="data-test" id="id" />)
+    const { container } = render(<PageFooter.MenuLink aria-hidden="false" data-test="data-test" id="id" />)
     const component = container.querySelector('.ams-page-footer__menu-link')
 
+    expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })

@@ -54,10 +54,13 @@ describe('CharacterCount', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<CharacterCount data-test="data-test" id="id" length={10} maxLength={100} />)
+    const { container } = render(
+      <CharacterCount aria-hidden="false" data-test="data-test" id="id" length={10} maxLength={100} />,
+    )
 
     const component = container.querySelector(':only-child')
 
+    expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })

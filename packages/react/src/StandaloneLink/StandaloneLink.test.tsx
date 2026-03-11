@@ -75,9 +75,10 @@ describe('StandaloneLink', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<StandaloneLink data-test="data-test" href="#" id="id" />)
+    const { container } = render(<StandaloneLink aria-hidden="false" data-test="data-test" href="#" id="id" />)
     const component = container.querySelector(':only-child')
 
+    expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })

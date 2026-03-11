@@ -117,9 +117,12 @@ describe('Dialog', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Dialog data-test="data-test" heading="Test heading" id="id" open />)
+    const { container } = render(
+      <Dialog aria-hidden="false" data-test="data-test" heading="Test heading" id="id" open />,
+    )
     const component = container.querySelector(':only-child')
 
+    expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })

@@ -45,11 +45,11 @@ describe('UnorderedListItem', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<UnorderedListItem aria-controls="one" data-test="data-test" id="id" />)
+    const { container } = render(<UnorderedListItem aria-hidden="false" data-test="data-test" id="id" />)
     const component = container.querySelector(':only-child')
 
+    expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
-    expect(component).toHaveAttribute('aria-controls', 'one')
   })
 })

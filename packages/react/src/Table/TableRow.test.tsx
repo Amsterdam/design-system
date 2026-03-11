@@ -72,9 +72,10 @@ describe('TableRow', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<TableRow data-test="data-test" id="id" />)
+    const { container } = render(<TableRow aria-hidden="false" data-test="data-test" id="id" />)
     const component = container.querySelector(':only-child')
 
+    expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })

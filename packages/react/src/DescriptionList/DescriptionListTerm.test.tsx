@@ -47,13 +47,14 @@ describe('DescriptionListTerm', () => {
 
   it('passes additional props', () => {
     const { container } = render(
-      <DescriptionList.Term data-test="data-test" id="id">
+      <DescriptionList.Term aria-hidden="false" data-test="data-test" id="id">
         Test
       </DescriptionList.Term>,
     )
 
     const component = container.querySelector(':only-child')
 
+    expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })

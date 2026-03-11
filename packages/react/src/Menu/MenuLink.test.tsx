@@ -78,9 +78,12 @@ describe('MenuLink', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Menu.Link data-test="data-test" href="#" icon={DocumentIcon} id="id" />)
+    const { container } = render(
+      <Menu.Link aria-hidden="false" data-test="data-test" href="#" icon={DocumentIcon} id="id" />,
+    )
     const component = container.querySelector('.ams-menu__link')
 
+    expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })

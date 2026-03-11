@@ -162,9 +162,12 @@ describe('Label', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Label data-test="data-test" htmlFor="form-control" id="id" optional={true} />)
+    const { container } = render(
+      <Label aria-hidden="false" data-test="data-test" htmlFor="form-control" id="id" optional={true} />,
+    )
     const component = container.querySelector(':only-child')
 
+    expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })

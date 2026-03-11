@@ -112,9 +112,10 @@ describe('Switch', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Switch data-test="data-test" id="id" />)
+    const { container } = render(<Switch aria-hidden="false" data-test="data-test" id="id" />)
     const component = container.querySelector('.ams-switch__input')
 
+    expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })
