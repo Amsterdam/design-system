@@ -49,8 +49,6 @@
   color: var(--ams-description-list-inverse-color);
 }
 
-/* stylelint-disable plugin/use-baseline -- Without support for `:has`, all elements have the same spacing, which is acceptable. */
-
 .ams-description-list__term {
   font-weight: var(--ams-description-list-term-font-weight);
   margin-block-end: var(--ams-description-list-term-margin-block-end);
@@ -62,18 +60,20 @@
 }
 
 .ams-description-list__section {
-  // As sections group Terms and Descriptions together, apply the last-of-group Description margin to the section.
+  // As Sections group Terms and Descriptions together, apply the last-of-group Description margin to the section.
   margin-block-end: var(--ams-description-list-description-last-of-group-margin-block-end);
 
-  // If the section is the last child of the description list, it should not have a block-end margin.
+  // If the Section is the last child of the List, it should not have a block-end margin.
   &:last-child {
     margin-block-end: initial;
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
+    // Let a Section span both columns of the parent List
     grid-column: span 2;
 
     > :only-of-type {
+      // Vertically stretch a single Term or Description
       grid-row: 1 / 9;
     }
   }
@@ -86,6 +86,7 @@
   margin-block-end: var(--ams-description-list-description-margin-block-end);
 
   // If a Description is not followed by another Description, increase the margin after the Description.
+  /* stylelint-disable-next-line plugin/use-baseline -- Suboptimal spacing is acceptable, and we have a fallback. */
   &:has(+ :not(.ams-description-list__description)) {
     margin-block-end: var(--ams-description-list-description-last-of-group-margin-block-end);
   }
@@ -95,7 +96,7 @@
     margin-block-end: var(--ams-description-list-description-last-of-group-margin-block-end);
   }
 
-  // If the Description is the last child of the description list, it should not have a block-end margin.
+  // If the Description is the last child of the List, it should not have a block-end margin.
   &:last-child {
     margin-block-end: initial;
   }
