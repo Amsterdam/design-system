@@ -23,6 +23,7 @@
 @media screen and (min-width: $ams-breakpoint-medium) {
   .ams-description-list,
   .ams-description-list__section {
+    align-items: start;
     column-gap: var(--ams-description-list-column-gap);
     display: grid;
     grid-template-columns: auto 1fr;
