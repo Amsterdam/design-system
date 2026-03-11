@@ -89,6 +89,7 @@ describe('Icon', () => {
 
   it('passes additional props', () => {
     const { container } = render(<Icon aria-hidden="false" data-test="data-test" id="id" svg={WarningIcon} />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')

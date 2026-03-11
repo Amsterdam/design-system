@@ -46,6 +46,7 @@ describe('TabsList', () => {
 
   it('passes additional props', () => {
     const { container } = render(<TabsList aria-controls="one" data-test="data-test" id="id" />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveAttribute('id', 'id')

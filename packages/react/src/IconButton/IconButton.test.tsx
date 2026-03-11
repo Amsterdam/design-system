@@ -71,6 +71,7 @@ describe('IconButton', () => {
 
   it('passes additional props', () => {
     const { container } = render(<IconButton aria-hidden="false" data-test="data-test" id="id" label="Test" />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')

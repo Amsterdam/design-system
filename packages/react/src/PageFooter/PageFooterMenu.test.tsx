@@ -85,6 +85,7 @@ describe('PageFooterMenu', () => {
 
   it('passes additional props', () => {
     const { container } = render(<PageFooter.Menu aria-hidden="false" data-test="data-test" id="id" />)
+
     const component = container.querySelector('.ams-page-footer__menu')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')

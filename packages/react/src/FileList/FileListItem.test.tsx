@@ -63,6 +63,7 @@ describe('FileListItem', () => {
 
   it('passes additional props', () => {
     const { container } = render(<FileListItem aria-hidden="false" data-test="data-test" file={file} id="id" />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')

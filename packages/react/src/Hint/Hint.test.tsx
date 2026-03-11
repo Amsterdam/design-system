@@ -87,6 +87,7 @@ describe('Hint', () => {
 
   it('passes additional props', () => {
     const { container } = render(<Hint aria-hidden="false" data-test="data-test" hint="hint text" id="id" />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')

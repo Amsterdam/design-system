@@ -77,6 +77,7 @@ describe('LinkListLink', () => {
 
   it('passes additional props', () => {
     const { container } = render(<LinkList.Link aria-hidden="false" data-test="data-test" href="#" id="id" />)
+
     const component = container.querySelector('.ams-link-list__link')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')

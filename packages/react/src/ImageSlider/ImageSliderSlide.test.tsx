@@ -69,6 +69,7 @@ describe('ImageSliderSlide', () => {
 
   it('passes additional props', () => {
     const { container } = render(<ImageSliderSlide data-test="data-test" id="id" {...defaultProps} />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveAttribute('id', 'id')

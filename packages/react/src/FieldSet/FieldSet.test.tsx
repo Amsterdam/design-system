@@ -115,6 +115,7 @@ describe('FieldSet', () => {
 
   it('passes additional props', () => {
     const { container } = render(<FieldSet aria-hidden="false" data-test="data-test" id="id" legend="Test" />)
+
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
