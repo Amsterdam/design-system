@@ -12,8 +12,6 @@
   @include reset-dl;
 
   color: var(--ams-description-list-color);
-  column-gap: var(--ams-description-list-column-gap);
-  display: grid;
   font-family: var(--ams-description-list-font-family);
   font-size: var(--ams-description-list-font-size);
   line-height: var(--ams-description-list-line-height);
@@ -25,6 +23,8 @@
 @media screen and (min-width: $ams-breakpoint-medium) {
   .ams-description-list,
   .ams-description-list__section {
+    column-gap: var(--ams-description-list-column-gap);
+    display: grid;
     grid-template-columns: auto 1fr;
   }
 
@@ -84,8 +84,6 @@
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    column-gap: var(--ams-description-list-column-gap);
-    display: grid;
     grid-column: span 2;
 
     > :only-of-type {
