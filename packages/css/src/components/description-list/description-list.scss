@@ -11,7 +11,6 @@
 .ams-description-list {
   @include reset-dl;
 
-  box-sizing: border-box;
   color: var(--ams-description-list-color);
   column-gap: var(--ams-description-list-column-gap);
   display: grid;
