@@ -35,6 +35,7 @@ export const TabsButton = forwardRef(
 
     return (
       <button
+        {...restProps}
         aria-controls={ariaControls}
         aria-selected={activeTabId === ariaControls}
         className={clsx('ams-tabs__button', className)}
@@ -44,7 +45,6 @@ export const TabsButton = forwardRef(
         role="tab"
         tabIndex={activeTabId === ariaControls ? 0 : -1}
         type="button"
-        {...restProps}
       >
         <span aria-hidden="true" className="ams-tabs__button-label-hidden">
           {children}

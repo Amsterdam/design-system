@@ -48,7 +48,7 @@ export const ImageSliderThumbnails = ({
   }
 
   return (
-    <nav className="ams-image-slider__thumbnails" onKeyDown={handleKeyDown} role="tablist" {...restProps}>
+    <nav {...restProps} className="ams-image-slider__thumbnails" onKeyDown={handleKeyDown} role="tablist">
       {thumbnails.map(({ alt, aspectRatio, src }, index) => (
         <button
           aria-label={`${imageLabel} ${index + 1}: ${alt}`}
