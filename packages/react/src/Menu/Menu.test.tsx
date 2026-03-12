@@ -5,7 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { Menu } from './Menu'
 
@@ -63,12 +63,25 @@ describe('Menu', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders a custom accessible name', () => {
-    render(<Menu accessibleName="Custom accessible name" inWideWindow />)
+  it('sets an accessible name on wide windows', () => {
+    const mediaQueryList = {
+      addEventListener: vi.fn(),
+      matches: true,
+      removeEventListener: vi.fn(),
+    }
 
-    const component = screen.getByRole('navigation', { name: 'Custom accessible name' })
+    const originalMatchMedia = window.matchMedia
+    window.matchMedia = vi.fn().mockReturnValue(mediaQueryList as unknown as MediaQueryList)
 
-    expect(component).toBeInTheDocument()
+    try {
+      render(<Menu accessibleName="Custom accessible name" inWideWindow />)
+
+      const component = screen.getByRole('navigation', { name: 'Custom accessible name' })
+
+      expect(component).toBeInTheDocument()
+    } finally {
+      window.matchMedia = originalMatchMedia
+    }
   })
 
   it('doesn’t render a custom accessible name if not in a wide window', () => {
