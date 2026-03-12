@@ -89,9 +89,9 @@ describe('TabsButton', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<TabsButton aria-controls="one" data-test="data-test" />)
+    ender(<TabsButton aria-controls="one" data-test="data-test" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('tab')
 
     expect(component).toHaveAttribute('id', 'button-one')
     expect(component).toHaveAttribute('data-test', 'data-test')

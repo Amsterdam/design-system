@@ -64,9 +64,9 @@ describe('SelectOptionGroup', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Select.Group aria-hidden="false" data-test="data-test" id="id" />)
+    render(<Select.Group aria-hidden="false" data-test="data-test" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('group')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

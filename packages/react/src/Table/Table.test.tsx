@@ -46,9 +46,9 @@ describe('Table', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Table aria-hidden="false" data-test="data-test" id="id" />)
+    render(<Table aria-hidden="false" data-test="data-test" id="id" />)
 
-    const component = container.querySelector('.ams-table__table')
+    const component = screen.getByRole('table')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

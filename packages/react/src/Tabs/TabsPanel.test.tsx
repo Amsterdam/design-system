@@ -103,7 +103,7 @@ describe('TabsPanel', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(
+    render(
       <Tabs>
         <Tabs.List>
           <Tabs.Button aria-controls="one" />
@@ -111,7 +111,8 @@ describe('TabsPanel', () => {
         <Tabs.Panel aria-controls="one" data-test="data-test" id="one" />
       </Tabs>,
     )
-    const component = container.querySelector('.ams-tabs__panel')
+
+    const component = screen.getByRole('tabpanel')
 
     expect(component).toHaveAttribute('id', 'one')
     expect(component).toHaveAttribute('data-test', 'data-test')

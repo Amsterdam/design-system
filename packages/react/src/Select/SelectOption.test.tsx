@@ -64,9 +64,9 @@ describe('SelectOption', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Select.Option aria-hidden="false" data-test="data-test" id="id" />)
+    render(<Select.Option aria-hidden="false" data-test="data-test" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('option')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

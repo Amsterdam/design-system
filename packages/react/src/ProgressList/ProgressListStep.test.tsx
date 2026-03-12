@@ -198,10 +198,9 @@ describe('ProgressListStep', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(
-      <ProgressList.Step aria-hidden="false" data-test="data-test" heading="test step" id="id" />,
-    )
-    const component = container.querySelector(':only-child')
+    render(<ProgressList.Step aria-hidden="false" data-test="data-test" heading="test step" id="id" />)
+
+    const component = screen.getByRole('listitem')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

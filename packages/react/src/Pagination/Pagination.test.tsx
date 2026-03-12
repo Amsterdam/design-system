@@ -228,10 +228,9 @@ describe('Pagination', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(
-      <Pagination aria-hidden="false" data-test="data-test" id="id" linkTemplate={linkTemplate} totalPages={10} />,
-    )
-    const component = container.querySelector(':only-child')
+    render(<Pagination aria-hidden="false" data-test="data-test" id="id" linkTemplate={linkTemplate} totalPages={10} />)
+
+    const component = screen.getByRole('navigation', { name: 'Paginering' })
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

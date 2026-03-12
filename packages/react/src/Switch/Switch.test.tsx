@@ -112,9 +112,9 @@ describe('Switch', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Switch aria-hidden="false" data-test="data-test" id="id" />)
+    render(<Switch aria-hidden="false" data-test="data-test" id="id" />)
 
-    const component = container.querySelector('.ams-switch__input')
+    const component = screen.getByRole('switch')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

@@ -76,9 +76,9 @@ describe('PageHeaderMenuLink', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<PageHeaderMenuLink aria-hidden="false" data-test="data-test" id="id" />)
+    render(<PageHeaderMenuLink aria-hidden="false" data-test="data-test" id="id" />)
 
-    const component = container.querySelector('.ams-page-header__menu-link')
+    const item = screen.getByRole('listitem')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

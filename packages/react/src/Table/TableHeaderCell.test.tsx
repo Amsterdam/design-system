@@ -98,9 +98,9 @@ describe('TableHeaderCell', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<TableHeaderCell aria-hidden="false" data-test="data-test" id="id" />)
+    render(<TableHeaderCell aria-hidden="false" data-test="data-test" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('columnheader')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

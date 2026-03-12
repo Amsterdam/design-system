@@ -47,10 +47,9 @@ describe('TableOfContentsLink', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(
-      <TableOfContents.Link aria-hidden="false" data-test="data-test" href="#" id="id" label="Test" />,
-    )
-    const component = container.querySelector('.ams-table-of-contents__link')
+    render(<TableOfContents.Link aria-hidden="false" data-test="data-test" href="#" id="id" label="Test" />)
+
+    const component = screen.getByRole('link')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

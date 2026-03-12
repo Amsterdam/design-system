@@ -76,9 +76,9 @@ describe('LinkListLink', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<LinkList.Link aria-hidden="false" data-test="data-test" href="#" id="id" />)
+    render(<LinkList.Link aria-hidden="false" data-test="data-test" href="#" id="id" />)
 
-    const component = container.querySelector('.ams-link-list__link')
+    const component = screen.getByRole('link')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
