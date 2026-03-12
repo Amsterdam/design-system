@@ -94,24 +94,21 @@ const PageHeaderRoot = forwardRef(
     const [open, setOpen] = useState(false)
 
     const Link = logoLinkComponent
+    const viewportHasMinWidth = useViewportHasMinWidth('wide')
     const hasMegaMenu = Boolean(children)
-    const isWideWindow = hasMegaMenu && useViewportHasMinWidth('wide')
+    const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
 
     // We only set an accessible name on the menu if it is visible on the current breakpoint.
     // This avoids a ‘unique landmark’ violation if Menu is also rendered elsewhere on the page.
     // Keep this function in sync with the one in Menu, where it works the other way around.
-    const [labelId, setLabelId] = useState<string | undefined>(undefined)
-
-    useEffect(() => {
-      setLabelId(isWideWindow ? undefined : 'primary-navigation')
-    }, [isWideWindow])
+    const labelId = hasMegaMenuOnWideWindow ? undefined : 'primary-navigation'
 
     useEffect(() => {
       // Close the menu when the menu button disappears
-      if (noMenuButtonOnWideWindow && isWideWindow) {
+      if (noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow) {
         setOpen(false)
       }
-    }, [isWideWindow])
+    }, [hasMegaMenuOnWideWindow])
 
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
