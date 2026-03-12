@@ -54,13 +54,13 @@
   margin-block-end: var(--ams-description-list-term-margin-block-end);
 
   // Remove whitespace between consecutive Terms
-  /* stylelint-disable-next-line plugin/use-baseline -- Suboptimal spacing in non-supporting browsers is acceptable. */
+  /* stylelint-disable-next-line plugin/use-baseline -- Suboptimal spacing in non-supporting browsers is acceptable */
   &:has(+ .ams-description-list__term) {
     margin-block-end: 0;
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    // Make sure all Terms are in the second column.
+    // Make sure all Terms are in the second column
     grid-column-start: 1;
 
     // Depend on Descriptions for vertical spacing
@@ -87,15 +87,19 @@
 
   font-weight: var(--ams-description-list-description-font-weight);
   margin-block-end: var(--ams-description-list-description-margin-block-end);
+  padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    // Make sure all Descriptions are in the second column.
+    // Make sure all Descriptions are in the second column
     grid-column-start: 2;
+
+    // Remove indentation in 2-column layout
+    padding-inline-start: 0;
   }
 }
 
 // Remove trailing margins
-/* stylelint-disable-next-line no-duplicate-selectors -- Natural reading order, prevents descending specificity. */
+/* stylelint-disable-next-line no-duplicate-selectors -- Natural reading order, prevents descending specificity */
 .ams-description-list {
   > .ams-description-list__term:last-child,
   > .ams-description-list__description:last-child,

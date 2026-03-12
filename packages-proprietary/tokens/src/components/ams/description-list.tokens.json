@@ -68,8 +68,7 @@
           }
         },
         "padding-inline-start": {
-          "$deprecated": "This token will be removed in release 6.0.0",
-          "$value": "{ams.space.l}",
+          "$value": "0",
           "$type": "dimension",
           "$extensions": {
             "nl.amsterdam.subtype": "space"
