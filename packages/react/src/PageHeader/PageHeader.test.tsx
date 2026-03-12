@@ -11,7 +11,6 @@ import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 
-import './matchMedia.mock' // Must be imported before PageHeader
 import { PageHeader } from './PageHeader'
 
 describe('PageHeader', () => {
