@@ -62,21 +62,11 @@
     // Make sure all Terms are in the second column.
     grid-column-start: 1;
     margin-block-end: 0;
-
-    // Remove margin from the last Term in the List (hypothetical).
-    &:last-of-type:last-child {
-      margin-block-end: initial;
-    }
   }
 }
 
 .ams-description-list__section {
   margin-block-end: var(--ams-description-list-section-margin-block-end);
-
-  // Remove margin from the last Section in the List.
-  &:last-of-type:last-child {
-    margin-block-end: 0;
-  }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
     // Let a Section span both columns of the parent List
@@ -95,13 +85,20 @@
   font-weight: var(--ams-description-list-description-font-weight);
   margin-block-end: var(--ams-description-list-description-margin-block-end);
 
-  // Remove margin from the last Description in the List.
-  &:last-of-type:last-child {
-    margin-block-end: 0;
-  }
-
   @media screen and (min-width: $ams-breakpoint-medium) {
     // Make sure all Descriptions are in the second column.
     grid-column-start: 2;
+  }
+}
+
+// Remove trailing margins
+/* stylelint-disable-next-line no-duplicate-selectors -- Natural reading order, prevents descending specificity. */
+.ams-description-list {
+  > .ams-description-list__term:last-child,
+  > .ams-description-list__description:last-child,
+  > .ams-description-list__section:last-child,
+  > .ams-description-list__section:last-child > .ams-description-list__term:last-child,
+  > .ams-description-list__section:last-child > .ams-description-list__description:last-child {
+    margin-block-end: 0;
   }
 }
