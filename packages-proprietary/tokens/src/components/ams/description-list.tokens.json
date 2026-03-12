@@ -74,23 +74,14 @@
           "$extensions": {
             "nl.amsterdam.subtype": "space"
           }
-        },
-        "last-of-group": {
-          "margin-block-end": {
-            "$value": "{ams.space.m}",
-            "$type": "dimension",
-            "$extensions": {
-              "nl.amsterdam.subtype": "space"
-            }
-          }
-        },
-        "medium": {
-          "margin-block-end": {
-            "$value": "{ams.space.s}",
-            "$type": "dimension",
-            "$extensions": {
-              "nl.amsterdam.subtype": "space"
-            }
+        }
+      },
+      "section": {
+        "margin-block-end": {
+          "$value": "{ams.space.m}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
           }
         }
       },
