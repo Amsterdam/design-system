@@ -90,17 +90,6 @@
   font-weight: var(--ams-description-list-description-font-weight);
   margin-block-end: var(--ams-description-list-description-margin-block-end);
 
-  // If a Description is not followed by another Description, increase the margin after the Description.
-  /* stylelint-disable-next-line plugin/use-baseline -- Suboptimal spacing is acceptable, and we have a fallback. */
-  &:has(+ :not(.ams-description-list__description)) {
-    margin-block-end: var(--ams-description-list-description-last-of-group-margin-block-end);
-  }
-
-  // If `:has` is not supported, apply the last-of-group margin to all Descriptions as a fallback.
-  @supports not selector(:has(+ :not(.ams-description-list__description))) {
-    margin-block-end: var(--ams-description-list-description-last-of-group-margin-block-end);
-  }
-
   // If the Description is the last child of the List, it should not have a block-end margin.
   &:last-child {
     margin-block-end: 0;
