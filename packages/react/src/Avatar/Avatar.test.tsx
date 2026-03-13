@@ -93,7 +93,7 @@ describe('Avatar', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Avatar aria-hidden={false} data-test="data-test" id="id" label="AL" />)
+    const { container } = render(<Avatar aria-hidden={false} data-test="data-test" id="id" label="EW" />)
 
     const component = container.querySelector(':only-child')
 
