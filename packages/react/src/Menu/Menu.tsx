@@ -46,7 +46,7 @@ export const MenuRoot = forwardRef(
         className={clsx('ams-menu', inWideWindow && `ams-menu--in-wide-window`, className)}
         ref={ref}
       >
-        {inWideWindow && (
+        {labelId && (
           <h2 aria-hidden="true" className="ams-visually-hidden" id={labelId}>
             {accessibleName}
           </h2>
