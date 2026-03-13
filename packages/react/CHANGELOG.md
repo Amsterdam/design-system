@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v3.1.0...design-system-react-v3.2.0) (2026-03-13)
+
+
+### Features
+
+* **Image Slider:** Allow adding captions to images ([#2436](https://github.com/Amsterdam/design-system/issues/2436)) ([a48f585](https://github.com/Amsterdam/design-system/commit/a48f5852157392f0cdcf74f8637c42a2d4ed0c77))
+* **Logo:** Add English logo for main brand ([#2444](https://github.com/Amsterdam/design-system/issues/2444)) ([6ebabc8](https://github.com/Amsterdam/design-system/commit/6ebabc84d1d25a435e651bd96c262d9d79dc0663))
+* **Page Header:** Allow providing a short brand name for narrow windows ([#2449](https://github.com/Amsterdam/design-system/issues/2449)) ([ee8919f](https://github.com/Amsterdam/design-system/commit/ee8919f095605f422a4a58a9936b4cbc9d390825))
+* **Progress List:** Add accessible status text to steps and substeps ([#2395](https://github.com/Amsterdam/design-system/issues/2395)) ([4c117a1](https://github.com/Amsterdam/design-system/commit/4c117a1cb63f6767a1709d792e73d77f0b28d7b3))
+
+
+### Bug Fixes
+
+* **Menu, Page Header:** Prevent duplicate identifiers in HTML ([#2456](https://github.com/Amsterdam/design-system/issues/2456)) ([3f29e14](https://github.com/Amsterdam/design-system/commit/3f29e14ba3c38f122f8e64c69b7a264894fccdc7))
+
 ## [3.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v3.0.0...design-system-react-v3.1.0) (2026-01-28)
 
 
