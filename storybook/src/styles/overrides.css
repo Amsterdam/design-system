@@ -110,6 +110,11 @@
   line-height: 1.5;
 }
 
+.sbdocs-content.sbdocs-content > table:not(.sb-unstyled) th,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) th {
+  font-weight: var(--ams-typography-body-text-bold-font-weight);
+}
+
 .sbdocs-content.sbdocs-content > p code {
   color: currentColor;
   font-size: 1rem;
