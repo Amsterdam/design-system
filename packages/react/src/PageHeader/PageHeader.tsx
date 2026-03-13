@@ -6,6 +6,7 @@
 import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
+import { useId } from 'react'
 import { forwardRef, useEffect, useState } from 'react'
 
 import type { IconProps } from '../Icon'
@@ -94,6 +95,7 @@ const PageHeaderRoot = forwardRef(
     const [open, setOpen] = useState(false)
 
     const Link = logoLinkComponent
+    const accessibleLabelId = useId()
     const hasMegaMenu = Boolean(children)
     const isWideWindow = hasMegaMenu && useViewportHasMinWidth('wide')
 
@@ -111,8 +113,8 @@ const PageHeaderRoot = forwardRef(
           <span className="ams-visually-hidden">{` ${logoLinkTitle}`}</span>
         </Link>
         {(hasMegaMenu || menuItems) && (
-          <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
-            <h2 aria-hidden className="ams-visually-hidden" id="primary-navigation">
+          <nav aria-labelledby={accessibleLabelId} className="ams-page-header__navigation">
+            <h2 aria-hidden className="ams-visually-hidden" id={accessibleLabelId}>
               {navigationLabel}
             </h2>
 

@@ -6,6 +6,7 @@
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
+import { useId } from 'react'
 import { forwardRef } from 'react'
 
 import { MenuLink } from './MenuLink'
@@ -30,15 +31,17 @@ export const MenuRoot = forwardRef(
     // In a wide window, we render a `nav` element and the related accessibility features.
     const Tag = inWideWindow ? 'nav' : 'div'
 
+    const accessibleLabelId = useId()
+
     return (
       <Tag
         {...restProps}
-        aria-labelledby={inWideWindow ? 'primary-navigation' : undefined}
+        aria-labelledby={inWideWindow ? accessibleLabelId : undefined}
         className={clsx('ams-menu', inWideWindow && `ams-menu--in-wide-window`, className)}
         ref={ref}
       >
         {inWideWindow && (
-          <h2 className="ams-visually-hidden" id="primary-navigation">
+          <h2 className="ams-visually-hidden" id={accessibleLabelId}>
             {accessibleName}
           </h2>
         )}
