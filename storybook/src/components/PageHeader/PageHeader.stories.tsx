@@ -165,6 +165,18 @@ export const WithoutMenuButton: PageHeaderStory = {
   },
 }
 
+export const WithShortBrandName: PageHeaderStory = {
+  args: {
+    brandName: 'Amsterdam Design System',
+    brandNameShort: 'ADS',
+    menuItems: (
+      <PageHeader.MenuLink fixed href="#" icon={LogInIcon}>
+        Inloggen
+      </PageHeader.MenuLink>
+    ),
+  },
+}
+
 export const WithCustomLogoLink: PageHeaderStory = {
   args: {
     logoAccessibleName: 'Gemeentelijke Gezondheidsdienst Amsterdam logo',

@@ -40,6 +40,7 @@ export const WithInput: Story = {
       canvas: {
         sourceState: 'none',
       },
+      codePanel: false,
     },
   },
   render: () => <FileInputWithFileList />,

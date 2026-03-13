@@ -6,7 +6,7 @@ import tsPlugin from '@typescript-eslint/eslint-plugin'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import baselineJs from 'eslint-plugin-baseline-js'
 import importPlugin from 'eslint-plugin-import'
-import jest from 'eslint-plugin-jest'
+import vitest from '@vitest/eslint-plugin'
 import * as mdx from 'eslint-plugin-mdx'
 import perfectionist from 'eslint-plugin-perfectionist'
 import react from 'eslint-plugin-react'
@@ -63,7 +63,7 @@ export default tseslint.config(
   {
     name: 'amsterdam-design-system/language-options',
     languageOptions: {
-      globals: { ...globals.browser, ...globals.es6, ...globals.jest },
+      globals: { ...globals.browser, ...globals.es6, ...vitest.environments.env.globals },
     },
   },
   {
@@ -79,7 +79,7 @@ export default tseslint.config(
       '@typescript-eslint': tsPlugin,
       'baseline-js': baselineJs,
       import: importPlugin,
-      jest,
+      vitest,
       perfectionist,
       react,
     },
@@ -99,7 +99,7 @@ export default tseslint.config(
     },
     rules: {
       ...eslint.configs.recommended.rules,
-      ...jest.configs.recommended.rules,
+      ...vitest.configs.recommended.rules,
       ...perfectionist.configs['recommended-natural'].rules,
       ...react.configs.recommended.rules,
       ...tsPlugin.configs.recommended.rules,

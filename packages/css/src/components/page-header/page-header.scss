@@ -4,6 +4,7 @@
  */
 
 @use "../../common/breakpoint" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-page-header {
@@ -65,7 +66,8 @@
   }
 }
 
-.ams-page-header__brand-name {
+.ams-page-header__brand-name,
+.ams-page-header__brand-name-short {
   color: var(--ams-page-header-brand-name-color);
   font-size: var(--ams-page-header-brand-name-font-size);
   font-weight: var(--ams-page-header-brand-name-font-weight);
@@ -79,6 +81,20 @@
   text-wrap: var(--ams-page-header-brand-name-text-wrap);
 }
 
+.ams-page-header__brand-name-short {
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    display: none;
+  }
+
+  & + .ams-page-header__brand-name {
+    display: none;
+
+    @media screen and (min-width: $ams-breakpoint-wide) {
+      display: initial;
+    }
+  }
+}
+
 .ams-page-header__navigation {
   column-gap: var(--ams-page-header-navigation-column-gap);
   display: flex;
@@ -90,13 +106,9 @@
   row-gap: var(--ams-page-header-navigation-row-gap);
 }
 
-@mixin reset-list {
-  list-style: none;
-  margin-block: 0;
-  padding-inline-start: 0;
-}
-
 .ams-page-header__menu {
+  @include reset-ul;
+
   align-items: center;
   column-gap: var(--ams-page-header-menu-column-gap);
   display: flex;
@@ -105,8 +117,6 @@
   margin-inline-start: auto;
   pointer-events: auto; // Set pointer events back to auto to allow the menu to be activated
   row-gap: var(--ams-page-header-menu-row-gap);
-
-  @include reset-list;
 }
 
 // Do not show menu items below the wide breakpoint...
@@ -162,15 +172,9 @@
   }
 }
 
-@mixin reset-button {
-  border: none;
-  margin-block: 0; // [1]
-  margin-inline: 0; // [1]
-
-  // [1] Remove the margin in older Safari.
-}
-
 .ams-page-header__mega-menu-button {
+  @include reset-button;
+
   background-color: var(--ams-page-header-mega-menu-button-background-color);
   color: var(--ams-page-header-mega-menu-button-color);
   column-gap: var(--ams-page-header-menu-item-column-gap);
@@ -181,7 +185,6 @@
   padding-inline: var(--ams-page-header-mega-menu-button-padding-inline);
 
   @include page-header-menu-action;
-  @include reset-button;
 
   &:hover {
     background-color: var(--ams-page-header-mega-menu-button-hover-background-color);

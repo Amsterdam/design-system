@@ -4,63 +4,49 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
-@mixin reset-fieldset {
-  border: none;
-  margin-inline: 0;
-  padding-block: 0;
-  padding-inline: 0;
-}
-
 .ams-field-set {
-  break-inside: avoid;
-
   @include reset-fieldset;
+
+  break-inside: avoid;
 }
 
-// Default margin between all direct children of FieldSet
+// Default margin between all direct children of Field Set
+// We can’t use grid or flex display and a gap because of a bug in Chrome.
 .ams-field-set > :not(:last-child) {
-  margin-block-end: var(--ams-field-set-child-margin-block-end); // [3]
+  margin-block-end: var(--ams-field-set-child-margin-block-end);
 }
+
+/* stylelint-disable plugin/use-baseline -- Without support for `:has`, all elements have the same spacing, which is acceptable. */
 
 // We use :has here to increase the margin before the error message.
-// If :has is not supported, all elements will have the default gap defined above, which is acceptable.
-/* stylelint-disable-next-line plugin/use-baseline */
 .ams-field-set > :has(+ .ams-error-message) {
   margin-block-end: var(--ams-field-set-child-before-error-message-margin-block-end);
 }
 
-// If a FieldSet contains a Field or another FieldSet, increase the margin of the preceding element.
-/* stylelint-disable-next-line plugin/use-baseline */
+// If a Field Set contains a Field or another Field Set, increase the margin of the preceding element.
 .ams-field-set > :has(+ .ams-field),
 .ams-field-set > :has(+ .ams-field-set) {
   margin-block-end: var(--ams-field-set-child-before-field-or-field-set-margin-block-end);
 }
 
-// If a FieldSet contains multiple Fields or FieldSets, increase the margin between them.
-/* stylelint-disable-next-line plugin/use-baseline */
+// If a Field Set contains multiple Fields or Field Sets, increase the margin between them.
 .ams-field-set > :is(.ams-field, .ams-field-set):has(+ :is(.ams-field, .ams-field-set)) {
   margin-block-end: var(--ams-field-set-child-between-fields-and-field-sets-margin-block-end);
 }
+
+/* stylelint-enable plugin/use-baseline */
 
 .ams-field-set--invalid {
   border-inline-start: var(--ams-field-set-invalid-border-inline-start);
   padding-inline-start: var(--ams-field-set-invalid-padding-inline-start);
 }
 
-@mixin reset-legend {
-  /* stylelint-disable-next-line csstools/use-logical */
-  float: left; // [1]
-  inline-size: 100%; // [1]
-  padding-inline: 0;
-
-  + * {
-    clear: both; // [2]
-  }
-}
-
 .ams-field-set__legend {
+  @include reset-legend;
+
   color: var(--ams-field-set-legend-color);
   font-family: var(--ams-field-set-legend-font-family);
   font-size: var(--ams-field-set-legend-font-size);
@@ -76,7 +62,6 @@
 
   @include hyphenation;
   @include text-rendering;
-  @include reset-legend;
 }
 
 .ams-field-set__legend--in-fieldset {
@@ -88,8 +73,3 @@
   font-weight: inherit;
   margin-block: 0;
 }
-
-// [1] This combination allows the fieldset border to go around the legend, instead of through it.
-// The actual value for float is not important, a legend should never have elements that wrap around it.
-// [2] Reset the applied float for the legend’s first sibling.
-// [3] We can’t use grid or flex display and a gap because of a bug in Chrome.
