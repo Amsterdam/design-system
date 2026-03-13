@@ -56,4 +56,14 @@ describe('CardHeading', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    render(<CardHeading aria-hidden={false} data-test="data-test" id="id" level={4} />)
+
+    const component = screen.getByRole('heading')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

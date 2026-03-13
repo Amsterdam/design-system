@@ -115,4 +115,14 @@ describe('Dialog', () => {
     // We currently can't test this because dialog isn't properly supported in jsdom
     // https://github.com/jsdom/jsdom/issues/3294
   })
+
+  it('passes additional props', () => {
+    render(<Dialog aria-hidden="false" data-test="data-test" heading="Test heading" id="id" open />)
+
+    const component = screen.getByRole('dialog')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

@@ -45,4 +45,14 @@ describe('ProgressListSubsteps', () => {
 
     expect(ref.current).toBe(substeps)
   })
+
+  it('passes additional props', () => {
+    render(<ProgressList.Substeps aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('list')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

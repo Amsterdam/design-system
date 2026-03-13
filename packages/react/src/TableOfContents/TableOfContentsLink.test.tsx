@@ -45,4 +45,14 @@ describe('TableOfContentsLink', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    render(<TableOfContents.Link aria-hidden="false" data-test="data-test" href="#" id="id" label="Test" />)
+
+    const component = screen.getByRole('link')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

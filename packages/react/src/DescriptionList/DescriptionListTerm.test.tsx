@@ -44,4 +44,18 @@ describe('DescriptionListTerm', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    render(
+      <DescriptionList.Term aria-hidden="false" data-test="data-test" id="id">
+        Test
+      </DescriptionList.Term>,
+    )
+
+    const component = screen.getByRole('term')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

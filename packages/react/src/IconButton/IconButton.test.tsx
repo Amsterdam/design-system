@@ -68,4 +68,14 @@ describe('IconButton', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    render(<IconButton aria-hidden="false" data-test="data-test" id="id" label="Test" />)
+
+    const component = screen.getByRole('button')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
