@@ -97,7 +97,9 @@ describe('Menu', () => {
     try {
       render(<Menu accessibleName="Custom accessible name" inWideWindow />)
 
-      expect(screen.queryByRole('heading', { level: 2, name: 'Custom accessible name' })).not.toBeInTheDocument()
+      const heading = screen.queryByRole('heading', { level: 2, name: 'Custom accessible name' })
+
+      expect(heading).not.toBeInTheDocument()
     } finally {
       window.matchMedia = originalMatchMedia
     }
