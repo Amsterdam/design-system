@@ -11,14 +11,10 @@
 .ams-description-list {
   @include reset-dl;
 
-  box-sizing: border-box;
   color: var(--ams-description-list-color);
-  column-gap: var(--ams-description-list-column-gap);
-  display: grid;
   font-family: var(--ams-description-list-font-family);
   font-size: var(--ams-description-list-font-size);
   line-height: var(--ams-description-list-line-height);
-  row-gap: var(--ams-description-list-row-gap);
 
   @include hyphenation;
   @include text-rendering;
@@ -27,6 +23,9 @@
 @media screen and (min-width: $ams-breakpoint-medium) {
   .ams-description-list,
   .ams-description-list__section {
+    align-items: start;
+    column-gap: var(--ams-description-list-column-gap);
+    display: grid;
     grid-template-columns: auto 1fr;
   }
 
@@ -52,19 +51,32 @@
 
 .ams-description-list__term {
   font-weight: var(--ams-description-list-term-font-weight);
+  margin-block-end: var(--ams-description-list-term-margin-block-end);
+
+  // Remove whitespace between consecutive Terms
+  /* stylelint-disable-next-line plugin/use-baseline -- Suboptimal spacing in non-supporting browsers is acceptable */
+  &:has(+ .ams-description-list__term) {
+    margin-block-end: 0;
+  }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
+    // Make sure all Terms are in the second column
     grid-column-start: 1;
+
+    // Depend on Descriptions for vertical spacing
+    margin-block-end: 0;
   }
 }
 
 .ams-description-list__section {
+  margin-block-end: var(--ams-description-list-section-margin-block-end);
+
   @media screen and (min-width: $ams-breakpoint-medium) {
-    column-gap: var(--ams-description-list-column-gap);
-    display: grid;
+    // Let a Section span both columns of the parent List
     grid-column: span 2;
 
     > :only-of-type {
+      // Vertically stretch a single Term or Description
       grid-row: 1 / 9;
     }
   }
@@ -74,10 +86,26 @@
   @include reset-dd;
 
   font-weight: var(--ams-description-list-description-font-weight);
+  margin-block-end: var(--ams-description-list-description-margin-block-end);
   padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
+    // Make sure all Descriptions are in the second column
     grid-column-start: 2;
+
+    // Remove indentation in 2-column layout
     padding-inline-start: 0;
+  }
+}
+
+// Remove trailing margins
+/* stylelint-disable-next-line no-duplicate-selectors -- Natural reading order, prevents descending specificity */
+.ams-description-list {
+  > .ams-description-list__term:last-child,
+  > .ams-description-list__description:last-child,
+  > .ams-description-list__section:last-child,
+  > .ams-description-list__section:last-child > .ams-description-list__term:last-child,
+  > .ams-description-list__section:last-child > .ams-description-list__description:last-child {
+    margin-block-end: 0;
   }
 }

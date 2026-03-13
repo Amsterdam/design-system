@@ -22,16 +22,31 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   args: {
     children: [
-      <DescriptionList.Term key={1}>Het hoger onderwijs</DescriptionList.Term>,
-      <DescriptionList.Description key={2}>Het hbo en wo</DescriptionList.Description>,
-      <DescriptionList.Term key={3}>Het mbo en hoger onderwijs</DescriptionList.Term>,
-      <DescriptionList.Description key={4}>Het vervolgonderwijs</DescriptionList.Description>,
-      <DescriptionList.Term key={5}>Laagopgeleid</DescriptionList.Term>,
-      <DescriptionList.Description key={6}>Praktisch opgeleid</DescriptionList.Description>,
-      <DescriptionList.Term key={7}>Hoogopgeleid</DescriptionList.Term>,
-      <DescriptionList.Description key={8}>Theoretisch opgeleid</DescriptionList.Description>,
-      <DescriptionList.Term key={9}>Opleidingsniveau</DescriptionList.Term>,
-      <DescriptionList.Description key={10}>Onderwijsrichting</DescriptionList.Description>,
+      // 1:1
+      <DescriptionList.Term key={1}>Land</DescriptionList.Term>,
+      <DescriptionList.Description key={2}>Nederland</DescriptionList.Description>,
+
+      // 1:n
+      <DescriptionList.Term key={3}>Plaatsnaam</DescriptionList.Term>,
+      <DescriptionList.Description key={4}>Amsterdam</DescriptionList.Description>,
+      <DescriptionList.Description key={5}>Weesp</DescriptionList.Description>,
+
+      // n:1
+      <DescriptionList.Section key={6}>
+        <DescriptionList.Term>Voornaam</DescriptionList.Term>
+        <DescriptionList.Term>Achternaam</DescriptionList.Term>
+        <DescriptionList.Description>Johan Cruijff</DescriptionList.Description>
+      </DescriptionList.Section>,
+
+      // n:m
+      <DescriptionList.Section key={7}>
+        <DescriptionList.Term>Stadsdeel</DescriptionList.Term>
+        <DescriptionList.Term>Stadsgebied</DescriptionList.Term>
+        <DescriptionList.Description>Centrum</DescriptionList.Description>
+        <DescriptionList.Description>Oost</DescriptionList.Description>
+        <DescriptionList.Description>Nieuw-West</DescriptionList.Description>
+        <DescriptionList.Description>Weesp</DescriptionList.Description>
+      </DescriptionList.Section>,
     ],
   },
   render: (args) =>
