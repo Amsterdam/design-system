@@ -21,7 +21,7 @@
     "npm": "^10",
     "pnpm": "^10"
   },
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@10.32.1",
   "workspaces": [
     "./packages/*",
     "./packages-proprietary/*",
