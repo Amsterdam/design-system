@@ -135,11 +135,11 @@ describe('PageHeader', () => {
       render(<PageHeader navigationLabel="Custom Navigation">Test</PageHeader>)
 
       const navigation = screen.getByRole('navigation')
+      const navigationLabel = screen.queryByRole('heading', { level: 2, name: 'Custom Navigation' })
 
       expect(navigation).not.toHaveAttribute('aria-labelledby')
       expect(navigation).not.toHaveAccessibleName()
-
-      expect(screen.queryByRole('heading', { level: 2, name: 'Custom Navigation' })).not.toBeInTheDocument()
+      expect(navigationLabel).not.toBeInTheDocument()
     } finally {
       window.matchMedia = originalMatchMedia
     }
