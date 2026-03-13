@@ -36,7 +36,7 @@ export const MenuRoot = forwardRef(
 
     // We only set an accessible name on the menu if it is visible on the current breakpoint.
     // This avoids a ‘unique landmark’ violation, as Page Header uses the same accessible name.
-    // Keep this function in sync with the one in Page Header, where it works the other way around.
+    // Keep this logic in sync with the one in Page Header, where it works the other way around.
     const labelId = hasMenuOnWideWindow ? 'primary-navigation' : undefined
 
     return (

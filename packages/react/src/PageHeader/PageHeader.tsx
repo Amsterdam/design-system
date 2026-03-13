@@ -100,7 +100,7 @@ const PageHeaderRoot = forwardRef(
 
     // We only set an accessible name on the menu if it is visible on the current breakpoint.
     // This avoids a ‘unique landmark’ violation if Menu is also rendered elsewhere on the page.
-    // Keep this function in sync with the one in Menu, where it works the other way around.
+    // Keep this logic in sync with the one in Menu, where it works the other way around.
     const labelId = hasMegaMenuOnWideWindow ? undefined : 'primary-navigation'
 
     useEffect(() => {
