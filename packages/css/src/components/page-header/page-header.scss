@@ -65,7 +65,8 @@
   }
 }
 
-.ams-page-header__brand-name {
+.ams-page-header__brand-name,
+.ams-page-header__brand-name-short {
   color: var(--ams-page-header-brand-name-color);
   font-size: var(--ams-page-header-brand-name-font-size);
   font-weight: var(--ams-page-header-brand-name-font-weight);
@@ -77,6 +78,20 @@
    */
   /* stylelint-disable-next-line plugin/use-baseline */
   text-wrap: var(--ams-page-header-brand-name-text-wrap);
+}
+
+.ams-page-header__brand-name-short {
+  @media screen and (min-width: $ams-breakpoint-wide) {
+    display: none;
+  }
+
+  & + .ams-page-header__brand-name {
+    display: none;
+
+    @media screen and (min-width: $ams-breakpoint-wide) {
+      display: initial;
+    }
+  }
 }
 
 .ams-page-header__navigation {
