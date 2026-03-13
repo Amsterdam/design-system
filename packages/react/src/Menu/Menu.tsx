@@ -47,7 +47,7 @@ export const MenuRoot = forwardRef(
         ref={ref}
       >
         {inWideWindow && (
-          <h2 className="ams-visually-hidden" id={labelId}>
+          <h2 aria-hidden="true" className="ams-visually-hidden" id={labelId}>
             {accessibleName}
           </h2>
         )}
