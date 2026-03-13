@@ -76,9 +76,9 @@ describe('PageHeaderMenuLink', () => {
   })
 
   it('passes additional props', () => {
-    render(<PageHeaderMenuLink aria-hidden="false" data-test="data-test" id="id" />)
+    render(<PageHeaderMenuLink aria-hidden="false" data-test="data-test" href="/" id="id" />)
 
-    const component = screen.getByRole('listitem')
+    const component = screen.getByRole('link')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

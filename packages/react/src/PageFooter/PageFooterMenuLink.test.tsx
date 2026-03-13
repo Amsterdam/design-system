@@ -54,7 +54,11 @@ describe('PageFooterMenuLink', () => {
   })
 
   it('passes additional props', () => {
-    render(<PageFooter.MenuLink aria-hidden="false" data-test="data-test" id="id" />)
+    render(
+      <PageFooter.MenuLink aria-hidden="false" data-test="data-test" href="#" id="id">
+        Link
+      </PageFooter.MenuLink>,
+    )
 
     const component = screen.getByRole('link')
 
