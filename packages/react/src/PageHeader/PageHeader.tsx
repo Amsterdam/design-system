@@ -84,7 +84,7 @@ const PageHeaderRoot = forwardRef(
 
     const LogoLink = logoLinkComponent
 
-    // Foolproof fallback to the short brand name if the full brand name is not provided.
+    // Use short brand name if no full brand name is (invalidly) provided
     const brandNameFullOrShort = brandName || brandNameShort
     const logoLinkContentProps = { brandNameFullOrShort, brandNameShort, logoAccessibleName, logoBrand }
 

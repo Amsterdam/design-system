@@ -5,22 +5,23 @@
 
 import { clsx } from 'clsx'
 
-import type { LogoBrand } from '../Logo'
-import type { LogoBrandConfig } from '../Logo/Logo'
+import type { PageHeaderProps } from './PageHeader'
 
 import { Logo } from '../Logo'
+
+type LogoLinkContentProps = {
+  brandNameFullOrShort?: PageHeaderProps['brandName'] | PageHeaderProps['brandNameShort']
+  brandNameShort?: PageHeaderProps['brandNameShort']
+  logoAccessibleName?: PageHeaderProps['logoAccessibleName']
+  logoBrand: PageHeaderProps['logoBrand']
+}
 
 export const LogoLinkContent = ({
   brandNameFullOrShort,
   brandNameShort,
   logoAccessibleName,
   logoBrand,
-}: {
-  brandNameFullOrShort?: string
-  brandNameShort?: string
-  logoAccessibleName?: string
-  logoBrand: LogoBrand | LogoBrandConfig
-}) => (
+}: LogoLinkContentProps) => (
   <>
     <span className={clsx(logoBrand === 'amsterdam' && brandNameFullOrShort && 'ams-page-header__logo-container')}>
       <Logo aria-label={logoAccessibleName} brand={logoBrand} />
