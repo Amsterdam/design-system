@@ -6,8 +6,7 @@
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
-import { useId } from 'react'
-import { forwardRef } from 'react'
+import { forwardRef, useId } from 'react'
 
 import { MenuLink } from './MenuLink'
 
