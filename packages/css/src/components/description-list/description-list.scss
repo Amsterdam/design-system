@@ -60,11 +60,11 @@
   }
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    // Make sure all Terms are in the second column
+    // Make sure all Terms are in the first column
     grid-column-start: 1;
 
-    // Depend on Descriptions for vertical spacing
-    margin-block-end: 0;
+    // Add margin for Terms that are longer than their Description(s)
+    margin-block-end: var(--ams-description-list-term-vi-medium-margin-block-end);
   }
 }
 
