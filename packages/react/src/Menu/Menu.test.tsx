@@ -84,6 +84,25 @@ describe('Menu', () => {
     }
   })
 
+  it('does not expose the accessible name as a heading on wide windows', () => {
+    const mediaQueryList = {
+      addEventListener: vi.fn(),
+      matches: true,
+      removeEventListener: vi.fn(),
+    }
+
+    const originalMatchMedia = window.matchMedia
+    window.matchMedia = vi.fn().mockReturnValue(mediaQueryList as unknown as MediaQueryList)
+
+    try {
+      render(<Menu accessibleName="Custom accessible name" inWideWindow />)
+
+      expect(screen.queryByRole('heading', { level: 2, name: 'Custom accessible name' })).not.toBeInTheDocument()
+    } finally {
+      window.matchMedia = originalMatchMedia
+    }
+  })
+
   it('doesn’t render a custom accessible name if not in a wide window', () => {
     render(<Menu accessibleName="Custom accessible name" />)
 
