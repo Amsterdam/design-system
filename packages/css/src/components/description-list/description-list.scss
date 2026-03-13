@@ -53,12 +53,6 @@
   font-weight: var(--ams-description-list-term-font-weight);
   margin-block-end: var(--ams-description-list-term-margin-block-end);
 
-  // Remove whitespace between consecutive Terms
-  /* stylelint-disable-next-line plugin/use-baseline -- Suboptimal spacing in non-supporting browsers is acceptable */
-  &:has(+ .ams-description-list__term) {
-    margin-block-end: 0;
-  }
-
   @media screen and (min-width: $ams-breakpoint-medium) {
     // Make sure all Terms are in the first column
     grid-column-start: 1;
@@ -66,19 +60,11 @@
     // Add margin for Terms that are longer than their Description(s)
     margin-block-end: var(--ams-description-list-term-vi-medium-margin-block-end);
   }
-}
 
-.ams-description-list__section {
-  margin-block-end: var(--ams-description-list-section-margin-block-end);
-
-  @media screen and (min-width: $ams-breakpoint-medium) {
-    // Let a Section span both columns of the parent List
-    grid-column: span 2;
-
-    > :only-of-type {
-      // Vertically stretch a single Term or Description
-      grid-row: 1 / 9;
-    }
+  // Remove whitespace between consecutive Terms
+  /* stylelint-disable-next-line plugin/use-baseline -- Suboptimal spacing in non-supporting browsers is acceptable */
+  &:has(+ .ams-description-list__term) {
+    margin-block-end: 0;
   }
 }
 
@@ -99,6 +85,20 @@
     // Make sure the first Description starts at the top row
     &:first-of-type {
       grid-row-start: 1;
+    }
+  }
+}
+
+.ams-description-list__section {
+  margin-block-end: var(--ams-description-list-section-margin-block-end);
+
+  @media screen and (min-width: $ams-breakpoint-medium) {
+    // Let a Section span both columns of the parent List
+    grid-column: span 2;
+
+    > :only-of-type {
+      // Vertically stretch a single Term or Description
+      grid-row: 1 / 9;
     }
   }
 }
