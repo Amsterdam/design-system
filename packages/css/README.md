@@ -75,16 +75,16 @@ They override the spacious ones; the stylesheets can remain unchanged.
 Some elements of your document are out of reach for the Design System components.
 However, their styles can influence the appearance of the components.
 
+#### Set a class on the body
+
+Add the `ams-body` class to your document’s `<body>` tag.
+This removes white space that the browser might add.
+In Compact Mode, it also sets the background color to match the Page component seamlessly.
+
 #### Keep the base font size
 
 Do not change the base font-size – e.g. through `html { font-size: 62.5% }`.
-Out typography system expects `1rem` to be the browser default of 16 pixels.
-
-If you can’t easily remove such an approach from your application, adopt the Design System components gradually by setting `font-size: 100%` on elements that use them.
-
-#### Remove the body margin
-
-If you haven’t removed the margin on the `<body>` element that browsers set by default, you can add our `ams-body` class to it to do so.
+Our typography system expects `1rem` to be the browser default of 16 pixels.
 
 #### Use extra bold text
 

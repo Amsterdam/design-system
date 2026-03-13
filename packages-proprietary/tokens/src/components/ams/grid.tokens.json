@@ -87,6 +87,17 @@
             "nl.amsterdam.subtype": "space"
           }
         }
+      },
+      "cell": {
+        "background-color": {
+          "$value": "initial"
+        },
+        "padding-block": {
+          "$value": "initial"
+        },
+        "padding-inline": {
+          "$value": "initial"
+        }
       }
     }
   }

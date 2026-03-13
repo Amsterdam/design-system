@@ -17,7 +17,8 @@
   }
 }
 
-._ams-grid-columns-guide__cell {
+/* Increase specificity to override Grid Cell background in Compact Mode. */
+.ams-grid__cell._ams-grid-columns-guide__cell {
   /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
   background-color: var(--_ams-color-grey);
 }

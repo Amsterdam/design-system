@@ -70,7 +70,7 @@
               "$type": "dimension"
             },
             "background-color": {
-              "$value": "{ams.color.background}",
+              "$value": "{ams.color.background.default}",
               "$type": "color"
             },
             "border-color": {
@@ -90,7 +90,7 @@
               }
             },
             "outline-color": {
-              "$value": "{ams.color.background}",
+              "$value": "{ams.color.background.default}",
               "$type": "color"
             },
             "outline-style": {
@@ -233,7 +233,7 @@
                 "$type": "dimension"
               },
               "background-color": {
-                "$value": "{ams.color.background}",
+                "$value": "{ams.color.background.default}",
                 "$type": "color"
               },
               "border-color": {
@@ -253,7 +253,7 @@
                 }
               },
               "outline-color": {
-                "$value": "{ams.color.background}",
+                "$value": "{ams.color.background.default}",
                 "$type": "color"
               },
               "outline-style": {
@@ -272,7 +272,7 @@
           },
           "connector": {
             "background-color": {
-              "$value": "{ams.color.background}",
+              "$value": "{ams.color.background.default}",
               "$type": "color"
             },
             "border-inline-color": {
@@ -300,7 +300,7 @@
             },
             "last-child": {
               "border-inline-color": {
-                "$value": "{ams.color.background}",
+                "$value": "{ams.color.background.default}",
                 "$type": "color"
               }
             }
