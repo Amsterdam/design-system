@@ -95,6 +95,11 @@
 
     // Remove indentation in 2-column layout
     padding-inline-start: 0;
+
+    // Make sure the first Description starts at the top row
+    &:first-of-type {
+      grid-row-start: 1;
+    }
   }
 }
 
