@@ -49,7 +49,7 @@ describe('ProgressListSubsteps', () => {
   it('passes additional props', () => {
     render(<ProgressList.Substeps aria-hidden="false" data-test="data-test" id="id" />)
 
-    const substeps = screen.getByRole('list')
+    const component = screen.getByRole('list')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

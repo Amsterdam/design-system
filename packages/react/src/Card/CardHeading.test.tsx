@@ -58,9 +58,9 @@ describe('CardHeading', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<CardHeading aria-hidden={false} data-test="data-test" id="id" level={4} />)
+    render(<CardHeading aria-hidden={false} data-test="data-test" id="id" level={4} />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('heading')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

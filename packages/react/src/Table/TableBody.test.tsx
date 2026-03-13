@@ -65,7 +65,7 @@ describe('TableBody', () => {
   it('passes additional props', () => {
     render(<TableBody aria-hidden="false" data-test="data-test" id="id" />)
 
-    cconst component = screen.getByRole('rowgroup')
+    const component = screen.getByRole('rowgroup')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

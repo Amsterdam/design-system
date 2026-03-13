@@ -46,9 +46,9 @@ describe('ActionGroup', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<ActionGroup aria-hidden={false} data-test="data-test" id="id" />)
+    render(<ActionGroup aria-hidden={false} data-test="data-test" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('group')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

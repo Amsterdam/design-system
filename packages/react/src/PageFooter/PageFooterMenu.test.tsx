@@ -86,7 +86,7 @@ describe('PageFooterMenu', () => {
   it('passes additional props', () => {
     render(<PageFooter.Menu aria-hidden="false" data-test="data-test" id="id" />)
 
-    const menu = screen.getByRole('list')
+    const component = screen.getByRole('list')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

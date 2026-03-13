@@ -46,9 +46,9 @@ describe('Figure', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<Figure aria-hidden="false" data-test="data-test" id="id" />)
+    render(<Figure aria-hidden="false" data-test="data-test" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('figure')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')

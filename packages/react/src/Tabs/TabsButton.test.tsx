@@ -89,7 +89,7 @@ describe('TabsButton', () => {
   })
 
   it('passes additional props', () => {
-    ender(<TabsButton aria-controls="one" data-test="data-test" />)
+    render(<TabsButton aria-controls="one" data-test="data-test" />)
 
     const component = screen.getByRole('tab')
 

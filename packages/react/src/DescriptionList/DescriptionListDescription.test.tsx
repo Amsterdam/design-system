@@ -46,9 +46,9 @@ describe('DescriptionListDescription', () => {
   })
 
   it('passes additional props', () => {
-    const { container } = render(<DescriptionList.Description aria-hidden="false" data-test="data-test" id="id" />)
+    render(<DescriptionList.Description aria-hidden="false" data-test="data-test" id="id" />)
 
-    const component = container.querySelector(':only-child')
+    const component = screen.getByRole('definition')
 
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
