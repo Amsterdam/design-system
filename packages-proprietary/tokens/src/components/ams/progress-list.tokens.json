@@ -66,7 +66,7 @@
           }
         },
         "padding-block": {
-          "$value": "{ams.space.s}",
+          "$value": "0",
           "$type": "dimension",
           "$extensions": {
             "nl.amsterdam.subtype": "space"
