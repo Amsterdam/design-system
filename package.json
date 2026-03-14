@@ -96,6 +96,7 @@
     ],
     "overrides": {
       "@isaacs/brace-expansion@>=5.0.0 <5.1.0": ">=5.0.1",
+      "minimatch@>=3.0.0 <3.1.4": "3.1.4",
       "tar": ">=7.5.10",
       "diff": ">=8.0.3"
     }
