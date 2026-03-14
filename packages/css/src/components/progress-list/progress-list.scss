@@ -211,6 +211,17 @@
 .ams-progress-list__panel-inner {
   min-block-size: 0;
   overflow: hidden;
+  visibility: hidden;
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* Delay visibility change until the panel has fully closed. */
+    transition: visibility var(--ams-progress-list-step-panel-transition-duration);
+  }
+}
+
+/* When expanded, make content visible immediately so it is reachable. */
+.ams-progress-list__panel--expanded .ams-progress-list__panel-inner {
+  visibility: visible;
 }
 
 /* Substeps is its own block in BEM and has the same elements as above */
