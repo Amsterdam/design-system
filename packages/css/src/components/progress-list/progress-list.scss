@@ -195,11 +195,22 @@
 /* Panel */
 
 .ams-progress-list__panel {
-  display: none;
+  display: grid;
+  grid-template-rows: 0fr;
+
+  @media not (prefers-reduced-motion) {
+    transition: grid-template-rows var(--ams-progress-list-step-panel-transition-duration)
+      var(--ams-progress-list-step-panel-transition-easing);
+  }
 }
 
 .ams-progress-list__panel--expanded {
-  display: block;
+  grid-template-rows: 1fr;
+}
+
+.ams-progress-list__panel-inner {
+  min-block-size: 0;
+  overflow: hidden;
 }
 
 /* Substeps is its own block in BEM and has the same elements as above */

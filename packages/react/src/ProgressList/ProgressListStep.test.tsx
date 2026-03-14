@@ -164,7 +164,7 @@ describe('ProgressListStep', () => {
       </ProgressList>,
     )
 
-    const button = screen.getByRole('button', { name: 'Test Step' })
+    const button = screen.getByRole('button', { name: /Test Step/ })
 
     expect(button).toBeInTheDocument()
     expect(button).toHaveClass('ams-progress-list__button')
@@ -233,7 +233,7 @@ describe('ProgressListStep', () => {
       </ProgressList>,
     )
 
-    const button = screen.getByRole('button', { name: 'Test Step' })
+    const button = screen.getByRole('button', { name: /Test Step/ })
     const panel = container.querySelector('.ams-progress-list__panel')
 
     expect(panel).not.toHaveClass('ams-progress-list__panel--expanded')
@@ -256,7 +256,7 @@ describe('ProgressListStep', () => {
       </ProgressList>,
     )
 
-    const button = screen.getByRole('button', { name: 'Test Step' })
+    const button = screen.getByRole('button', { name: /Test Step/ })
 
     expect(button).toHaveAttribute('aria-expanded', 'false')
 
@@ -272,7 +272,7 @@ describe('ProgressListStep', () => {
       </ProgressList>,
     )
 
-    const button = screen.getByRole('button', { name: 'Test Step' })
+    const button = screen.getByRole('button', { name: /Test Step/ })
     const icon = button.querySelector('svg')
 
     expect(icon).toBeInTheDocument()

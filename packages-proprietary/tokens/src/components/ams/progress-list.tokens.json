@@ -187,6 +187,16 @@
             }
           }
         },
+        "panel": {
+          "transition": {
+            "duration": {
+              "$value": "0.3s"
+            },
+            "easing": {
+              "$value": "ease"
+            }
+          }
+        },
         "completed": {
           "marker": {
             "shape": {

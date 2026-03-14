@@ -81,7 +81,7 @@ export const ProgressListStep = forwardRef(
             className={clsx('ams-progress-list__panel', { 'ams-progress-list__panel--expanded': isExpanded })}
             id={panelId}
           >
-            {children}
+            <div className="ams-progress-list__panel-inner">{children}</div>
           </div>
         </div>
       </li>
