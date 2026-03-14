@@ -170,10 +170,24 @@ describe('ProgressListStep', () => {
     expect(button).toHaveClass('ams-progress-list__button')
   })
 
-  it('collapses content by default', () => {
+  it('expands content by default', () => {
     const { container } = render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const panel = container.querySelector('.ams-progress-list__panel')
+
+    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
+  })
+
+  it('collapses content by default when status is completed', () => {
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
       </ProgressList>,
     )
 
@@ -196,10 +210,26 @@ describe('ProgressListStep', () => {
     expect(panel).toHaveClass('ams-progress-list__panel--expanded')
   })
 
+  it('collapses content when expanded prop is false', () => {
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step expanded={false} heading="Test Step">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const panel = container.querySelector('.ams-progress-list__panel')
+
+    expect(panel).not.toHaveClass('ams-progress-list__panel--expanded')
+  })
+
   it('toggles expanded state when the button is clicked', () => {
     const { container } = render(
       <ProgressList headingLevel={3}>
-        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+        <ProgressList.Step heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
       </ProgressList>,
     )
 
@@ -220,7 +250,9 @@ describe('ProgressListStep', () => {
   it('sets aria-expanded on the button', () => {
     render(
       <ProgressList headingLevel={3}>
-        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+        <ProgressList.Step heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
       </ProgressList>,
     )
 

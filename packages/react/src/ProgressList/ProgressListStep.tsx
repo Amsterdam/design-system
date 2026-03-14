@@ -29,11 +29,11 @@ export type ProgressListStepProps = {
 
 export const ProgressListStep = forwardRef(
   (
-    { children, className, expanded = false, hasSubsteps, heading, status, ...restProps }: ProgressListStepProps,
+    { children, className, expanded, hasSubsteps, heading, status, ...restProps }: ProgressListStepProps,
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     const { headingLevel } = useContext(ProgressListContext)
-    const [isExpanded, setIsExpanded] = useState(expanded)
+    const [isExpanded, setIsExpanded] = useState(expanded ?? status !== 'completed')
 
     const id = useId()
     const iconSize = `heading-${headingLevel}` as IconProps['size']
