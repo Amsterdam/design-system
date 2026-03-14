@@ -147,6 +147,56 @@
   margin-block-end: var(--ams-progress-list-step-heading-margin-block-end);
 }
 
+/* Button */
+
+.ams-progress-list__button {
+  @include reset-button;
+
+  background-color: transparent;
+  color: var(--ams-progress-list-button-color);
+  cursor: var(--ams-progress-list-button-cursor);
+  display: flex;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  gap: var(--ams-progress-list-button-gap);
+  inline-size: 100%;
+  line-height: inherit;
+  outline-offset: var(--ams-progress-list-button-outline-offset);
+  padding-block: var(--ams-progress-list-button-padding-block);
+  padding-inline: var(--ams-progress-list-button-padding-inline);
+  text-align: start;
+
+  &:hover {
+    color: var(--ams-progress-list-button-hover-color);
+  }
+}
+
+/* Icon */
+
+.ams-progress-list__icon svg {
+  rotate: 0deg;
+  transition: none;
+
+  [aria-expanded="true"] & {
+    rotate: -180deg;
+  }
+
+  @media not (prefers-reduced-motion) {
+    transition: rotate 0.3s ease;
+  }
+}
+
+/* Panel */
+
+.ams-progress-list__panel {
+  display: none;
+}
+
+.ams-progress-list__panel--expanded {
+  display: block;
+}
+
 /* Substeps is its own block in BEM and has the same elements as above */
 
 .ams-progress-list-substeps {

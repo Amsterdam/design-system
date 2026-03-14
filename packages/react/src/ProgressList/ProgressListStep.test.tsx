@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
@@ -142,7 +142,7 @@ describe('ProgressListStep', () => {
     expect(step).not.toHaveClass('ams-progress-list__step--has-substeps')
   })
 
-  it('renders children inside the content container', () => {
+  it('renders children inside the panel', () => {
     const { container, getByText } = render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step">
@@ -151,10 +151,99 @@ describe('ProgressListStep', () => {
       </ProgressList>,
     )
 
-    const content = container.querySelector('.ams-progress-list__content')
+    const panel = container.querySelector('.ams-progress-list__panel')
 
-    expect(content).toBeInTheDocument()
-    expect(content).toContainElement(getByText('Inner child'))
+    expect(panel).toBeInTheDocument()
+    expect(panel).toContainElement(getByText('Inner child'))
+  })
+
+  it('renders a button inside the heading', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: 'Test Step' })
+
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveClass('ams-progress-list__button')
+  })
+
+  it('collapses content by default', () => {
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const panel = container.querySelector('.ams-progress-list__panel')
+
+    expect(panel).not.toHaveClass('ams-progress-list__panel--expanded')
+  })
+
+  it('expands content when expanded prop is true', () => {
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step expanded heading="Test Step">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const panel = container.querySelector('.ams-progress-list__panel')
+
+    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
+  })
+
+  it('toggles expanded state when the button is clicked', () => {
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: 'Test Step' })
+    const panel = container.querySelector('.ams-progress-list__panel')
+
+    expect(panel).not.toHaveClass('ams-progress-list__panel--expanded')
+
+    fireEvent.click(button)
+
+    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
+
+    fireEvent.click(button)
+
+    expect(panel).not.toHaveClass('ams-progress-list__panel--expanded')
+  })
+
+  it('sets aria-expanded on the button', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: 'Test Step' })
+
+    expect(button).toHaveAttribute('aria-expanded', 'false')
+
+    fireEvent.click(button)
+
+    expect(button).toHaveAttribute('aria-expanded', 'true')
+  })
+
+  it('renders the chevron icon inside the button', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: 'Test Step' })
+    const icon = button.querySelector('svg')
+
+    expect(icon).toBeInTheDocument()
   })
 
   it('renders the arrow icon only when status is current', () => {
