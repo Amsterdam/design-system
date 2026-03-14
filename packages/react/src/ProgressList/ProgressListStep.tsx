@@ -46,6 +46,7 @@ export const ProgressListStep = forwardRef(
         className={clsx(
           className,
           'ams-progress-list__step',
+          !isExpanded && 'ams-progress-list__step--collapsed',
           hasSubsteps && 'ams-progress-list__step--has-substeps',
           status && `ams-progress-list__step--${status}`,
         )}

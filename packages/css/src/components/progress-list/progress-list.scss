@@ -127,6 +127,11 @@
   .ams-progress-list > :last-child:not(.ams-progress-list__step--has-substeps) & {
     display: none;
   }
+
+  /* Hide connector for last step when collapsed. */
+  .ams-progress-list > :last-child.ams-progress-list__step--collapsed & {
+    display: none;
+  }
 }
 
 /* Content */
