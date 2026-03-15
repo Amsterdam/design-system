@@ -347,6 +347,30 @@ describe('ProgressListStep', () => {
     expect(nonCurrentMarkerShape?.querySelector('svg')).not.toBeInTheDocument()
   })
 
+  it('renders substep indicators inside an expanded panel', () => {
+    // Regression test: overflow-y: clip must be used on panel-inner instead of
+    // overflow: hidden. The substep indicator uses a negative margin-inline-start
+    // to reach into the main indicator column. overflow: hidden clips that
+    // inline overflow; overflow-y: clip does not.
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step hasSubsteps heading="Test Step" status="current">
+          <ProgressList.Substeps>
+            <ProgressList.Substep>Substep one</ProgressList.Substep>
+            <ProgressList.Substep>Substep two</ProgressList.Substep>
+          </ProgressList.Substeps>
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const panel = container.querySelector('.ams-progress-list__panel')
+    const substepMarkers = container.querySelectorAll('.ams-progress-list-substeps__marker')
+
+    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
+    expect(substepMarkers).toHaveLength(2)
+    substepMarkers.forEach((marker) => expect(marker).toBeInTheDocument())
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLLIElement>()
 

@@ -211,7 +211,13 @@
 
 .ams-progress-list__panel-inner {
   min-block-size: 0;
-  overflow: hidden;
+
+  /* overflow-y: clip is intentional: it clips only the block direction so the
+   * animation works correctly, while leaving overflow-x as 'visible'. This
+   * allows substep indicators that extend past the panel's inline start edge
+   * (via negative margin) to remain unclipped. Using overflow: hidden here
+   * would coerce overflow-x to 'auto' and clip those indicators. */
+  overflow-y: clip;
   visibility: hidden;
 
   @media (prefers-reduced-motion: no-preference) {
