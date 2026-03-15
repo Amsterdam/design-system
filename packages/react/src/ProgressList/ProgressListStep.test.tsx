@@ -116,6 +116,51 @@ describe('ProgressListStep', () => {
     expect(step).not.toHaveAttribute('aria-current')
   })
 
+  it('adds the collapsed class when the step is collapsed', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('does not add the collapsed class when the step is expanded', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('removes the collapsed class when the button is clicked', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+    const button = screen.getByRole('button', { name: /Test Step/ })
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
+
+    fireEvent.click(button)
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+  })
+
   it('adds has-substeps class when hasSubsteps is true', () => {
     render(
       <ProgressList headingLevel={3}>
