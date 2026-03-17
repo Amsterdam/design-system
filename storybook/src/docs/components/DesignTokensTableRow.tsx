@@ -15,6 +15,13 @@ type DesignTokensTableRowProps = {
   value: string
 }
 
+/**
+ * Renders a single row in the design tokens table.
+ * The `type` prop controls which sample component appears in the Example column:
+ * `borderStyle` / `borderWidth` → `BorderSample`, `color` → `ColorSample`,
+ * `fontFamily` / `fontSize` / `fontWeight` / `lineHeight` → `TypographySample`, `space` → `SpaceSample`.
+ * Rows with an unrecognised or absent `type` show no example.
+ */
 export const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRowProps) => (
   <tr>
     <td>
