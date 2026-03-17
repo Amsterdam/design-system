@@ -36,7 +36,7 @@ type SvgElement = ReactElement<SvgProps>
  * - A zero-argument function returning an SVG element, e.g. `() => <WarningIcon size="large" />`
  * - A function accepting SVG props and returning an SVG element, e.g. `(props) => <WarningIcon {...props} />`
  */
-type IconSvg = SvgElement | (() => SvgElement) | ((props: SvgProps) => SvgElement)
+type IconSvg = SvgElement | ((props: SvgProps) => SvgElement)
 
 export type IconProps = {
   /** Changes the icon colour for readability on a dark background. */
