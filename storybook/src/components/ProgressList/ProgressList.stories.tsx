@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { ProgressList } from '@amsterdam/design-system-react/src'
 
-import { exampleParagraph, exampleUnorderedList } from '../shared/exampleContent'
+import { exampleParagraph, exampleUnorderedList } from '../../_common/exampleContent'
 
 const paragraphs = Array.from({ length: 6 }, () => exampleParagraph())
 
