@@ -22,11 +22,11 @@
   padding-inline: var(--ams-page-footer-menu-padding-inline);
   row-gap: var(--ams-page-footer-menu-row-gap);
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
+  @media (min-width: $ams-breakpoint-medium) {
     padding-inline: var(--ams-page-footer-menu-medium-padding-inline);
   }
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     padding-inline: var(--ams-page-footer-menu-wide-padding-inline);
   }
 }

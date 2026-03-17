@@ -23,12 +23,12 @@
   // We subtract the menu link padding to align the items with surrounding content.
   padding-inline: calc(var(--ams-grid-padding-inline) - var(--ams-menu-link-padding-inline));
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
+  @media (min-width: $ams-breakpoint-medium) {
     margin-inline: calc(var(--ams-grid-medium-padding-inline) * -1);
     padding-inline: var(--ams-grid-medium-padding-inline);
   }
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     display: none;
     margin-inline: 0; // Override negative margin above.
     max-inline-size: var(--ams-menu-wide-max-inline-size);
@@ -40,7 +40,7 @@
 .ams-menu--in-wide-window {
   display: none;
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     display: block;
   }
 }
@@ -53,7 +53,7 @@
   @include hyphenation;
   @include text-rendering;
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     gap: var(--ams-menu-list-gap);
   }
 }
@@ -79,7 +79,7 @@
     align-self: initial;
   }
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     align-items: center;
     display: flex; // The links do stretch in the vertical layout of Menu.
     flex-direction: column;

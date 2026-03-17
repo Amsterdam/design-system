@@ -82,7 +82,7 @@ $ams-breakout-row-span-max: 4;
   }
 }
 
-@media screen and (min-width: $ams-breakpoint-medium) {
+@media (min-width: $ams-breakpoint-medium) {
   @for $i from 1 through $ams-grid-column-count {
     .ams-breakout__cell--col-span-#{$i}-medium {
       @include ams-grid__cell--span-medium($i);
@@ -94,7 +94,7 @@ $ams-breakout-row-span-max: 4;
   }
 }
 
-@media screen and (min-width: $ams-breakpoint-wide) {
+@media (min-width: $ams-breakpoint-wide) {
   @for $i from 1 through $ams-grid-column-count {
     .ams-breakout__cell--col-span-#{$i}-wide {
       @include ams-grid__cell--span-wide($i);
@@ -117,11 +117,11 @@ $ams-breakout-row-span-max: 4;
   margin-block: calc(var(--ams-space-xl) * -1);
   margin-inline: calc(var(--ams-grid-padding-inline) * -1);
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
+  @media (min-width: $ams-breakpoint-medium) {
     margin-inline: calc(var(--ams-grid-medium-padding-inline) * -1);
   }
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     margin-inline: calc(var(--ams-grid-wide-padding-inline) * -1);
   }
 
@@ -146,7 +146,7 @@ $ams-breakout-row-span-max: 4;
   }
 }
 
-@media screen and (min-width: $ams-breakpoint-medium) {
+@media (min-width: $ams-breakpoint-medium) {
   @for $i from 1 through $ams-breakout-row-span-max {
     .ams-breakout__cell--row-span-#{$i}-medium {
       grid-row-end: span $i;
@@ -158,7 +158,7 @@ $ams-breakout-row-span-max: 4;
   }
 }
 
-@media screen and (min-width: $ams-breakpoint-wide) {
+@media (min-width: $ams-breakpoint-wide) {
   @for $i from 1 through $ams-breakout-row-span-max {
     .ams-breakout__cell--row-span-#{$i}-wide {
       grid-row-end: span $i;
