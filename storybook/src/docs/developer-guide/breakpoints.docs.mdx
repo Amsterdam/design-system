@@ -43,6 +43,8 @@ Some other components still use the breakpoints themselves to adapt their appear
 
 Reuse our breakpoints in your custom components, so that layout changes only occur on these two window widths.
 
+By only querying on viewport width and [not querying on media type](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media#media_types) `all` is implied and the page layout will look correct when printing.
+
 ### With Sass
 
 Import the variables from [src/common/breakpoint.scss](https://github.com/Amsterdam/design-system/blob/main/packages/css/src/common/breakpoint.scss) in the CSS package.
