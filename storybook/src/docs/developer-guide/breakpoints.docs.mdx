@@ -43,7 +43,8 @@ Some other components still use the breakpoints themselves to adapt their appear
 
 Reuse our breakpoints in your custom components, so that layout changes only occur on these two window widths.
 
-By querying only on viewport width, and by not specifying a [media type](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media#media_types), the media type `all` is implied and the page layout will also look correct when printing.
+We leave out the [media type](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media#media_types) so that our media queries work for both screens and paged media.
+This helps printed and PDF outputs look more like the web page.
 
 ### With Sass
 
