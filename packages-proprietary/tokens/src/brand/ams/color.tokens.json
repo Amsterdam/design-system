@@ -85,6 +85,12 @@
           "$type": "color"
         }
       },
+      "print": {
+        "text": {
+          "$value": "#202020",
+          "$type": "color"
+        }
+      },
       "progress": {
         "current": {
           "$value": "#00893c",

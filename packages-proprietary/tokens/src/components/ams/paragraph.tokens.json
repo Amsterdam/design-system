@@ -31,6 +31,12 @@
           "$type": "color"
         }
       },
+      "print": {
+        "color": {
+          "$value": "{ams.color.print.text}",
+          "$type": "color"
+        }
+      },
       "small": {
         "font-size": {
           "$value": "{ams.typography.body-text.small.font-size}",

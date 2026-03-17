@@ -5,6 +5,7 @@
 
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
+@use "../../common/print-reset" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-paragraph {
@@ -48,4 +49,10 @@
 
 .ams-paragraph--inverse {
   color: var(--ams-paragraph-inverse-color);
+
+  @media print {
+    color: var(--ams-paragraph-print-color);
+
+    @include print-reset;
+  }
 }

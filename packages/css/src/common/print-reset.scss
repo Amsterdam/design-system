@@ -1,0 +1,12 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
+ * Reset how browser vendors handle printing, prioritizing legibility over speed when rendering text.
+ */
+@mixin print-reset {
+  /* stylelint-disable-next-line plugin/use-baseline */
+  print-color-adjust: exact;
+}
