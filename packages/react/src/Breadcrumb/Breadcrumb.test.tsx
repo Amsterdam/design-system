@@ -59,6 +59,22 @@ describe('Breadcrumb', () => {
     expect(breadcrumbs.length).toBe(3)
   })
 
+  it('renders an accessible name for the navigation', () => {
+    render(<Breadcrumb accessibleName="Test accessible name" />)
+
+    const component = screen.getByRole('navigation', { name: 'Test accessible name' })
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('sets a custom id for the accessible name', () => {
+    render(<Breadcrumb accessibleNameId="test-accessible-name-id" />)
+
+    const component = screen.getByRole('navigation', { name: 'Kruimelpad' })
+
+    expect(component).toHaveAttribute('aria-labelledby', 'test-accessible-name-id')
+  })
+
   it('is able to pass a React ref', () => {
     const ref = createRef<HTMLElement>()
 
