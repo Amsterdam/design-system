@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v3.2.0...design-system-tokens-v3.3.0) (2026-03-17)
+
+
+### Features
+
+* **Description List:** Let terms contribute to vertical space ([#2460](https://github.com/Amsterdam/design-system/issues/2460)) ([1ecbdad](https://github.com/Amsterdam/design-system/commit/1ecbdadad4994b50dd22cfac39bfb3932a5b2f91))
+
 ## [3.2.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v3.1.0...design-system-tokens-v3.2.0) (2026-03-13)
 
 
