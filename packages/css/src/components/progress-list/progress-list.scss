@@ -36,7 +36,7 @@
   display: flex;
   gap: var(--ams-progress-list-step-gap);
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
+  @media (min-width: $ams-breakpoint-medium) {
     gap: var(--ams-progress-list-step-medium-gap);
   }
 }
@@ -170,7 +170,7 @@
 
   @include indicator;
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
+  @media (min-width: $ams-breakpoint-medium) {
     margin-inline-end: var(--ams-progress-list-substeps-step-indicator-medium-margin-inline-end);
     margin-inline-start: calc(
       -1 * var(--ams-progress-list-step-medium-gap) - var(--ams-progress-list-step-marker-shape-block-size)
