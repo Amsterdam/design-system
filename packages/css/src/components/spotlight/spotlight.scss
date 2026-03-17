@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/print-reset" as *;
+
 .ams-spotlight {
   background-color: var(--ams-spotlight-background-color);
 }
@@ -29,4 +31,18 @@
 
 .ams-spotlight--yellow {
   background-color: var(--ams-spotlight-yellow-background-color);
+}
+
+@media print {
+  .ams-spotlight,
+  .ams-spotlight--azure,
+  .ams-spotlight--green,
+  .ams-spotlight--lime,
+  .ams-spotlight--magenta,
+  .ams-spotlight--orange,
+  .ams-spotlight--yellow {
+    background-color: var(--ams-spotlight-print-background-color);
+
+    @include print-reset;
+  }
 }

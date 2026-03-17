@@ -86,6 +86,10 @@
         }
       },
       "print": {
+        "background": {
+          "$value": "#ffffff",
+          "$type": "color"
+        },
         "text": {
           "$value": "#202020",
           "$type": "color"

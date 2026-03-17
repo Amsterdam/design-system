@@ -40,6 +40,12 @@
           "$value": "{ams.color.highlight.yellow}",
           "$type": "color"
         }
+      },
+      "print": {
+        "background-color": {
+          "$value": "{ams.color.print.background}",
+          "$type": "color"
+        }
       }
     }
   }
