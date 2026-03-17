@@ -6,7 +6,7 @@
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useId } from 'react'
 
 import { BreadcrumbLink } from './BreadcrumbLink'
 
@@ -24,19 +24,19 @@ const BreadcrumbRoot = forwardRef(
   (
     { accessibleName, accessibleNameId, children, className, ...restProps }: BreadcrumbProps,
     ref: ForwardedRef<HTMLElement>,
-  ) => (
-    <nav
-      {...restProps}
-      aria-labelledby={accessibleNameId || 'ams-breadcrumb-a11y-label'}
-      className={clsx('ams-breadcrumb', className)}
-      ref={ref}
-    >
-      <h2 aria-hidden={true} className="ams-visually-hidden" id={accessibleNameId || 'ams-breadcrumb-a11y-label'}>
-        {accessibleName || 'Kruimelpad'}
-      </h2>
-      <ol className="ams-breadcrumb__list">{children}</ol>
-    </nav>
-  ),
+  ) => {
+    const generatedId = useId()
+    const labelId = accessibleNameId || generatedId
+
+    return (
+      <nav {...restProps} aria-labelledby={labelId} className={clsx('ams-breadcrumb', className)} ref={ref}>
+        <h2 aria-hidden={true} className="ams-visually-hidden" id={labelId}>
+          {accessibleName || 'Kruimelpad'}
+        </h2>
+        <ol className="ams-breadcrumb__list">{children}</ol>
+      </nav>
+    )
+  },
 )
 
 BreadcrumbRoot.displayName = 'Breadcrumb'
