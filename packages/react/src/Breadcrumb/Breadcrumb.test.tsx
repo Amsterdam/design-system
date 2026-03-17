@@ -59,6 +59,14 @@ describe('Breadcrumb', () => {
     expect(breadcrumbs.length).toBe(3)
   })
 
+  it('renders the default accessible name for the navigation', () => {
+    render(<Breadcrumb />)
+
+    const component = screen.getByRole('navigation', { name: 'Kruimelpad' })
+
+    expect(component).toBeInTheDocument()
+  })
+
   it('renders an accessible name for the navigation', () => {
     render(<Breadcrumb accessibleName="Test accessible name" />)
 
