@@ -76,10 +76,7 @@
   padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    // Make sure all Descriptions are in the second column
     grid-column-start: 2;
-
-    // Remove indentation in 2-column layout
     padding-inline-start: 0;
 
     // Make sure the first Description starts at the top row
@@ -93,7 +90,6 @@
   margin-block-end: var(--ams-description-list-section-margin-block-end);
 
   @media screen and (min-width: $ams-breakpoint-medium) {
-    // Let a Section span both columns of the parent List
     grid-column: span 2;
 
     > :only-of-type {
