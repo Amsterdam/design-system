@@ -5,7 +5,6 @@
 
 import type { IconProps } from '@amsterdam/design-system-react'
 import type { Meta } from '@storybook/react-vite'
-import type { JSX, SVGProps } from 'react'
 
 export type renderComponentVariantsParams = {
   args: Meta['args'] // Storybook args applied to every instance
@@ -33,7 +32,7 @@ export type DocgenInfo = {
 export type PropWithValues = {
   name: string
   propType: string | undefined
-  values: string[] | number[] | boolean[] | ((props: SVGProps<SVGSVGElement>) => JSX.Element)[]
+  values: string[] | number[] | boolean[] | IconProps['svg'][]
 }
 
 export type CompletePropsWithValues = (
@@ -44,7 +43,7 @@ export type CompletePropsWithValues = (
     }
   | {
       hasIcon: {
-        icon: (props: SVGProps<SVGSVGElement>) => JSX.Element
+        icon: IconProps['svg']
       }
       name: string
       values: PropWithValues['values']
@@ -59,5 +58,5 @@ export type BuildComponentPropsParams = {
   sizePropName: string | string[]
   state: string
   values?: PropWithValues['values']
-  variant: string | number | boolean | ((props: SVGProps<SVGSVGElement>) => JSX.Element)
+  variant: string | number | boolean | IconProps['svg']
 }
