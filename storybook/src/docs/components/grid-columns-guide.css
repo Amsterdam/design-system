@@ -22,13 +22,13 @@
   background-color: var(--_ams-color-grey);
 }
 
-@media screen and (width < 37.5rem) {
+@media (width < 37.5rem) {
   ._ams-grid-columns-guide__cell:nth-child(n + 5) {
     display: none;
   }
 }
 
-@media screen and (width < 72.5rem) {
+@media (width < 72.5rem) {
   ._ams-grid-columns-guide__cell:nth-child(n + 9) {
     display: none;
   }
