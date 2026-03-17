@@ -6,7 +6,9 @@
 import type { GridProps } from '@amsterdam/design-system-react'
 import type { ArgTypes } from '@storybook/react-vite'
 
-// Shared padding args
+/**
+ * Storybook ArgTypes for the gap and padding props of Grid.
+ */
 export const gridGapAndPaddingArgTypes: ArgTypes<GridProps> = {
   gapVertical: {
     control: {

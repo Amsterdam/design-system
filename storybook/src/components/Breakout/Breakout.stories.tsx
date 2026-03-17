@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Image, Paragraph, Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 
-import { gridGapAndPaddingArgTypes } from '../../common'
+import { gridGapAndPaddingArgTypes } from '../Grid/Grid.argTypes'
 
 const meta = {
   title: 'Components/Layout/Breakout',

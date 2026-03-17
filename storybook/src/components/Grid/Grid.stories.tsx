@@ -8,8 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid } from '@amsterdam/design-system-react/src'
 
-import { gridGapAndPaddingArgTypes } from '../../common'
 import { GridColumnsGuide } from '../../docs/components/GridColumnsGuide'
+import { gridGapAndPaddingArgTypes } from './Grid.argTypes'
 
 const meta = {
   title: 'Components/Layout/Grid',
