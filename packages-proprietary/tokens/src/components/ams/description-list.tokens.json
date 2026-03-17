@@ -53,6 +53,16 @@
           "$extensions": {
             "nl.amsterdam.subtype": "space"
           }
+        },
+        "vi-medium": {
+          "margin-block-end": {
+            "$value": "{ams.description-list.description.margin-block-end}",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.hint": "Should equal the bottom margin of descriptions.",
+              "nl.amsterdam.subtype": "space"
+            }
+          }
         }
       },
       "description": {
