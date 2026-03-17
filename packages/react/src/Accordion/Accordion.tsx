@@ -26,7 +26,10 @@ export type AccordionProps = {
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 const AccordionRoot = forwardRef(
-  ({ children, className, headingLevel, sectionAs = 'section' }: AccordionProps, ref: ForwardedRef<HTMLDivElement>) => {
+  (
+    { children, className, headingLevel, sectionAs = 'section', ...restProps }: AccordionProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => {
     const innerRef = useRef<HTMLDivElement>(null)
 
     // use a passed ref if it's there, otherwise use innerRef
@@ -39,7 +42,7 @@ const AccordionRoot = forwardRef(
 
     return (
       <AccordionContext.Provider value={{ headingLevel: headingLevel, sectionAs: sectionAs }}>
-        <div className={clsx('ams-accordion', className)} onKeyDown={keyDown} ref={innerRef}>
+        <div {...restProps} className={clsx('ams-accordion', className)} onKeyDown={keyDown} ref={innerRef}>
           {children}
         </div>
       </AccordionContext.Provider>

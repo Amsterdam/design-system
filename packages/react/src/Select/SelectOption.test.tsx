@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { Select } from './Select'
 
@@ -60,5 +61,15 @@ describe('SelectOption', () => {
     const component = screen.getByRole('option')
 
     expect(component).toBeDisabled()
+  })
+
+  it('passes additional props', () => {
+    render(<Select.Option aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('option')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

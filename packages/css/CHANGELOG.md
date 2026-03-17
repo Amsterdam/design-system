@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.2.0...design-system-css-v3.2.1) (2026-03-17)
+
+
+### Bug Fixes
+
+* **Description List:** Let terms contribute to vertical space ([#2460](https://github.com/Amsterdam/design-system/issues/2460)) ([1ecbdad](https://github.com/Amsterdam/design-system/commit/1ecbdadad4994b50dd22cfac39bfb3932a5b2f91))
+
+## [3.2.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.1.0...design-system-css-v3.2.0) (2026-03-13)
+
+
+### Features
+
+* **Description List:** Vary spacing within and between groups, remove indentation of descriptions ([#2448](https://github.com/Amsterdam/design-system/issues/2448)) ([f8c4fa0](https://github.com/Amsterdam/design-system/commit/f8c4fa00795b4d9012e9e81f4d3311db83109cb5))
+* **Dialog:** Add design tokens for border radius and box shadow ([#2435](https://github.com/Amsterdam/design-system/issues/2435)) ([2b8b28a](https://github.com/Amsterdam/design-system/commit/2b8b28a5b163c68746924b42467904f0a281551f))
+* **Image Slider:** Allow adding captions to images ([#2436](https://github.com/Amsterdam/design-system/issues/2436)) ([a48f585](https://github.com/Amsterdam/design-system/commit/a48f5852157392f0cdcf74f8637c42a2d4ed0c77))
+* **Page Header:** Allow providing a short brand name for narrow windows ([#2449](https://github.com/Amsterdam/design-system/issues/2449)) ([ee8919f](https://github.com/Amsterdam/design-system/commit/ee8919f095605f422a4a58a9936b4cbc9d390825))
+* **Page Header:** Make menu button blue ([#2408](https://github.com/Amsterdam/design-system/issues/2408)) ([3915f84](https://github.com/Amsterdam/design-system/commit/3915f84f97df2f9d915704a99eae6f05f69be8f6))
+
 ## [3.1.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.0.0...design-system-css-v3.1.0) (2026-01-28)
 
 

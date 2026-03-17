@@ -5,6 +5,7 @@
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it, vi } from 'vitest'
 
 import { FileListItem } from './FileListItem'
 
@@ -52,11 +53,21 @@ describe('FileListItem', () => {
   })
 
   it('calls onDelete when the remove button is clicked', () => {
-    const onDelete = jest.fn()
+    const onDelete = vi.fn()
     render(<FileListItem file={file} onDelete={onDelete} />)
 
     fireEvent.click(screen.getByRole('button'))
 
     expect(onDelete).toHaveBeenCalledTimes(1)
+  })
+
+  it('passes additional props', () => {
+    render(<FileListItem aria-hidden="false" data-test="data-test" file={file} id="id" />)
+
+    const component = screen.getByRole('listitem')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

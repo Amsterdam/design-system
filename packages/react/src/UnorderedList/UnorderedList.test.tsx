@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { UnorderedList } from './UnorderedList'
 
@@ -82,5 +83,15 @@ describe('UnorderedList', () => {
     const component = screen.getByRole('list')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('passes additional props', () => {
+    render(<UnorderedList aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('list')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+    expect(component).toHaveAttribute('aria-hidden', 'false')
   })
 })

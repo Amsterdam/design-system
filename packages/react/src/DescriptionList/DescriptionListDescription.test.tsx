@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { DescriptionList } from './DescriptionList'
 
@@ -42,5 +43,15 @@ describe('DescriptionListDescription', () => {
     const component = screen.getByRole('definition')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('passes additional props', () => {
+    render(<DescriptionList.Description aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('definition')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

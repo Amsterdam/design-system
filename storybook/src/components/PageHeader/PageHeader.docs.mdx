@@ -31,6 +31,7 @@ import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 - The City’s main website or that of a sub-brand must not display a brand name, as the logo already includes a wordmark.
 - All other websites must display the name of the brand or service next to the logo.
   This helps people understand they are on a different website and that its navigation is separate from the main one.
+- An abbreviated brand name can be shown in narrow or medium-wide windows if the full name does not fit.
 
 ### Inline menu
 
@@ -83,6 +84,13 @@ Remember to use the `fixed` prop if you want the inline menu links to stay in pl
 
 <Canvas of={PageHeaderStories.WithoutMenuButton} />
 
+### With short brand name
+
+For brand names that may not fit in a narrow window, a shorter form can be given.
+Make sure the abbreviation is widely understood.
+
+<Canvas of={PageHeaderStories.WithShortBrandName} />
+
 ### With custom logo link
 
 The destination and accessible text of the logo link can be customized,
@@ -122,6 +130,6 @@ A different icon for the menu button must be an svg as well.
 
 <Canvas of={PageHeaderStories.WithDifferentBranding} />
 
-## Tokens
+## Design tokens
 
 <DesignTokensTable tokens={tokens} />

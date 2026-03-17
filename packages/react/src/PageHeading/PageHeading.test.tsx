@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { PageHeading } from './PageHeading'
 
@@ -52,5 +53,15 @@ describe('PageHeading', () => {
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('passes additional props', () => {
+    render(<PageHeading aria-hidden="false" data-test="data-test" id="id" />)
+
+    const pageHeading = screen.getByRole('heading')
+
+    expect(pageHeading).toHaveAttribute('aria-hidden', 'false')
+    expect(pageHeading).toHaveAttribute('id', 'id')
+    expect(pageHeading).toHaveAttribute('data-test', 'data-test')
   })
 })

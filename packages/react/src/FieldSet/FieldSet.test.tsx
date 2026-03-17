@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { FieldSet } from './FieldSet'
 
@@ -110,5 +111,15 @@ describe('FieldSet', () => {
 
     expect(legend).toHaveClass('ams-field-set__legend--in-fieldset')
     expect(hint).toHaveClass('ams-hint--in-fieldset')
+  })
+
+  it('passes additional props', () => {
+    render(<FieldSet aria-hidden="false" data-test="data-test" id="id" legend="Test" />)
+
+    const component = screen.getByRole('group', { name: 'Test' })
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it, vi } from 'vitest'
 
 import { Switch } from './Switch'
 
@@ -27,7 +28,7 @@ describe('Switch', () => {
   })
 
   it('can trigger a change event', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     render(<Switch onChange={handleChange} />)
 
@@ -39,7 +40,7 @@ describe('Switch', () => {
   })
 
   it('does not trigger a change event when disabled', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     render(<Switch disabled onChange={handleChange} />)
 
@@ -51,7 +52,7 @@ describe('Switch', () => {
   })
 
   it('does trigger a change event when clicking on associate label', () => {
-    const handleChange = jest.fn()
+    const handleChange = vi.fn()
 
     const MockImpl = () => {
       return (
@@ -108,5 +109,15 @@ describe('Switch', () => {
     const switchElement = screen.getByRole('switch')
 
     expect(ref.current).toBe(switchElement)
+  })
+
+  it('passes additional props', () => {
+    render(<Switch aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('switch')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

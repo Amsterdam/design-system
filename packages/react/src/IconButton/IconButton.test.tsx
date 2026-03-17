@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { IconButton } from './IconButton'
 
@@ -66,5 +67,15 @@ describe('IconButton', () => {
     const component = screen.getByRole('button')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('passes additional props', () => {
+    render(<IconButton aria-hidden="false" data-test="data-test" id="id" label="Test" />)
+
+    const component = screen.getByRole('button')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

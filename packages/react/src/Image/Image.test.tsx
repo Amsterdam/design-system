@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { aspectRatioOptions } from '../common/types'
 import { generateAspectRatioClass } from './generateAspectRatioClass'
@@ -71,5 +72,15 @@ describe('Image', () => {
     const component = screen.getByRole('presentation')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('passes additional props', () => {
+    render(<Image alt="" aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('presentation')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

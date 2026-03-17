@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { ProgressList } from './ProgressList'
 
@@ -90,5 +91,15 @@ describe('ProgressListSubstep', () => {
     const substep = screen.getByRole('listitem')
 
     expect(ref.current).toBe(substep)
+  })
+
+  it('passes additional props', () => {
+    render(<ProgressList.Substep aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('listitem')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

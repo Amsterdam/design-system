@@ -17,14 +17,14 @@ type SearchFieldInputProps = {
 
 export const SearchFieldInput = forwardRef(
   (
-    { className, dir, invalid, label = 'Zoeken', ...restProps }: SearchFieldInputProps,
+    { className, dir, id, invalid, label = 'Zoeken', ...restProps }: SearchFieldInputProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
-    const id = useId()
+    const inputId = id ?? useId()
 
     return (
       <>
-        <label className="ams-visually-hidden" htmlFor={id}>
+        <label className="ams-visually-hidden" htmlFor={inputId}>
           {label}
         </label>
         <input
@@ -34,7 +34,7 @@ export const SearchFieldInput = forwardRef(
           className={clsx('ams-search-field__input', className)}
           dir={dir ?? 'auto'}
           enterKeyHint="search"
-          id={id}
+          id={inputId}
           ref={ref}
           spellCheck="false"
           type="search"

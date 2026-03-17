@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { Label } from './Label'
 
@@ -158,5 +159,16 @@ describe('Label', () => {
 
     expect(label).toHaveClass('ams-label--in-fieldset')
     expect(hint).toHaveClass('ams-hint--in-fieldset')
+  })
+
+  it('passes additional props', () => {
+    const { container } = render(
+      <Label aria-hidden="false" data-test="data-test" htmlFor="form-control" id="id" optional={true} />,
+    )
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

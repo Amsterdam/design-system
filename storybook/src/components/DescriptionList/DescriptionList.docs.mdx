@@ -20,15 +20,23 @@ import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
 
 ### Multiple descriptions
 
-A term may have multiple descriptions.
+A term can have several descriptions.
+Descriptions have the same spacing as sections because they usually include longer text.
 
 <Canvas of={DescriptionListStories.MultipleDescriptions} />
 
 ### Multiple terms
 
-If multiple terms share a single description, group them in a `DescriptionList.Section` component to ensure proper grid layout.
+If several terms have the same description, place them in a `DescriptionList.Section` component for a correct grid layout.
+The terms are positioned closely together.
 
 <Canvas of={DescriptionListStories.MultipleTerms} />
+
+### Multiple terms and descriptions
+
+Do not group multiple terms with several descriptions.
+This type of content is too complicated and will distort the layout.
+Use distinct sections instead, or find an alternative to a Description List.
 
 ### Rich description
 
@@ -43,6 +51,6 @@ This ensures the colour of the text provides enough contrast.
 
 <Canvas of={DescriptionListStories.InverseColour} />
 
-## Tokens
+## Design tokens
 
 <DesignTokensTable tokens={tokens} />

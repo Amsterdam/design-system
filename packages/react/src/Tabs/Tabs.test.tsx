@@ -6,6 +6,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
+import { describe, expect, it, vi } from 'vitest'
 
 import { Tabs } from './Tabs'
 
@@ -99,7 +100,7 @@ describe('Tabs', () => {
   it('calls onTabChange with the newly activated tab', async () => {
     const user = userEvent.setup()
 
-    const onTabChange = jest.fn()
+    const onTabChange = vi.fn()
     render(
       <Tabs onTabChange={onTabChange}>
         <Tabs.List>
@@ -142,7 +143,7 @@ describe('Tabs', () => {
 
   it('should set the first tab as the initially active tab when the supplied active tab does not exist', async () => {
     // Disable console.warn for this test, to prevent it from cluttering the test output
-    jest.spyOn(console, 'warn').mockImplementation(() => {})
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
 
     render(
       <Tabs activeTab="unknown">
@@ -202,5 +203,15 @@ describe('Tabs', () => {
     await user.keyboard('{ArrowRight}')
 
     expect(firstButton).toHaveFocus()
+  })
+
+  it('passes additional props', () => {
+    const { container } = render(<Tabs aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

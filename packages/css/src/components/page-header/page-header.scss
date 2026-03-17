@@ -18,11 +18,11 @@
   padding-block: var(--ams-page-header-padding-block);
   padding-inline: var(--ams-page-header-padding-inline);
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
+  @media (min-width: $ams-breakpoint-medium) {
     padding-inline: var(--ams-page-header-medium-padding-inline);
   }
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     padding-inline: var(--ams-page-header-wide-padding-inline);
   }
 }
@@ -60,12 +60,13 @@
   inline-size: 0.75rem;
   overflow: hidden;
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
+  @media (min-width: $ams-breakpoint-medium) {
     inline-size: auto;
   }
 }
 
-.ams-page-header__brand-name {
+.ams-page-header__brand-name,
+.ams-page-header__brand-name-short {
   color: var(--ams-page-header-brand-name-color);
   font-size: var(--ams-page-header-brand-name-font-size);
   font-weight: var(--ams-page-header-brand-name-font-weight);
@@ -77,6 +78,20 @@
    */
   /* stylelint-disable-next-line plugin/use-baseline */
   text-wrap: var(--ams-page-header-brand-name-text-wrap);
+}
+
+.ams-page-header__brand-name-short {
+  @media (min-width: $ams-breakpoint-wide) {
+    display: none;
+  }
+
+  & + .ams-page-header__brand-name {
+    display: none;
+
+    @media (min-width: $ams-breakpoint-wide) {
+      display: initial;
+    }
+  }
 }
 
 .ams-page-header__navigation {
@@ -105,7 +120,7 @@
 
 // Do not show menu items below the wide breakpoint...
 .ams-page-header__menu-item {
-  @media screen and (not (min-width: $ams-breakpoint-wide)) {
+  @media (not (min-width: $ams-breakpoint-wide)) {
     display: none;
   }
 }
@@ -151,7 +166,7 @@
 }
 
 .ams-page-header__mega-menu-button-item--hide-on-wide-window {
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     display: none;
   }
 }
@@ -230,7 +245,7 @@
 .ams-page-header__grid-cell-narrow-window-only {
   display: initial; // Override the `hidden` attribute; this cell duplicates the non-fixed links in the Page Header Menu.
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     display: none;
   }
 }

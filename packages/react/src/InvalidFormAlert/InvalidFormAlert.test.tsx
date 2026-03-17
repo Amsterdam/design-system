@@ -5,6 +5,7 @@
 
 import { render, screen, waitFor } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { InvalidFormAlert } from './InvalidFormAlert'
 
@@ -156,5 +157,16 @@ describe('InvalidFormAlert', () => {
     const component = container.querySelector(':only-child')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('passes additional props', () => {
+    const { container } = render(
+      <InvalidFormAlert aria-hidden="false" data-test="data-test" errors={testErrors} headingLevel={2} id="id" />,
+    )
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

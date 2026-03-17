@@ -6,6 +6,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef, useState } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { TextInput, textInputTypes } from './TextInput'
 
@@ -133,5 +134,15 @@ describe('TextInput', () => {
         expect(component).toHaveAttribute('type', type)
       }),
     )
+  })
+
+  it('passes additional props', () => {
+    render(<TextInput aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('textbox')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

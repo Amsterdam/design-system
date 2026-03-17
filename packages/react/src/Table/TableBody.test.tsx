@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { Table } from './Table'
 import { TableBody } from './TableBody'
@@ -59,5 +60,15 @@ describe('TableBody', () => {
     const component = screen.getByRole('rowgroup')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('passes additional props', () => {
+    render(<TableBody aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('rowgroup')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

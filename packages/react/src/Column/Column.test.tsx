@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { ariaRoleForTag } from '../common/accessibility'
 import { crossAlignOptionsForColumn, mainAlignOptions } from '../common/types'
@@ -86,5 +87,15 @@ describe('Column', () => {
         expect(component).toHaveClass(`ams-column--align-horizontal-${align}`)
       }),
     )
+  })
+
+  it('passes additional props', () => {
+    const { container } = render(<Column aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

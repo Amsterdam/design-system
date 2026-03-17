@@ -5,6 +5,7 @@
 
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { describe, expect, it, vi } from 'vitest'
 
 import type { ImageSliderProps } from './ImageSlider'
 
@@ -16,7 +17,7 @@ const thumbnails: ImageSliderProps['images'] = [
   { alt: 'Three', src: 'https://picsum.photos/id/153/320/180' },
 ]
 
-const defaultProps = { currentSlideId: 0, scrollToSlide: jest.fn(), thumbnails: thumbnails }
+const defaultProps = { currentSlideId: 0, scrollToSlide: vi.fn(), thumbnails: thumbnails }
 
 describe('ImageSliderThumbnails', () => {
   it('renders', () => {
@@ -45,7 +46,7 @@ describe('ImageSliderThumbnails', () => {
   })
 
   it('calls scrollToSlide on ArrowRight keydown', async () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
     const user = userEvent.setup()
 
@@ -62,7 +63,7 @@ describe('ImageSliderThumbnails', () => {
   })
 
   it('does not call scrollToSlide on ArrowRight keydown when at end', async () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
     const user = userEvent.setup()
 
@@ -81,7 +82,7 @@ describe('ImageSliderThumbnails', () => {
   })
 
   it('calls scrollToSlide on ArrowLeft keydown', async () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
     const user = userEvent.setup()
 
@@ -100,7 +101,7 @@ describe('ImageSliderThumbnails', () => {
   })
 
   it('does not call scrollToSlide on ArrowLeft keydown when at start', async () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
     const user = userEvent.setup()
 
@@ -119,7 +120,7 @@ describe('ImageSliderThumbnails', () => {
   })
 
   it('calls scrollToSlide on thumbnail click', async () => {
-    const scrollToSlide = jest.fn()
+    const scrollToSlide = vi.fn()
 
     const user = userEvent.setup()
 
@@ -132,5 +133,16 @@ describe('ImageSliderThumbnails', () => {
     await user.click(secondThumbnail)
 
     expect(scrollToSlide).toHaveBeenCalledWith(1)
+  })
+
+  it('passes additional props', () => {
+    const { container } = render(
+      <ImageSliderThumbnails aria-hidden="false" data-test="data-test" id="id" {...defaultProps} />,
+    )
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

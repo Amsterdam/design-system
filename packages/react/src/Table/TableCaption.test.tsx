@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { Table } from './Table'
 import { TableCaption } from './TableCaption'
@@ -70,5 +71,15 @@ describe('TableCaption', () => {
     const caption = component?.querySelector(':only-child')
 
     expect(ref.current).toBe(caption)
+  })
+
+  it('passes additional props', () => {
+    render(<TableCaption aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('caption')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

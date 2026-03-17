@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { Breadcrumb } from './Breadcrumb'
 
@@ -70,5 +71,15 @@ describe('Breadcrumb', () => {
     const breadcrumb = container.querySelector(':only-child')
 
     expect(ref.current).toBe(breadcrumb)
+  })
+
+  it('passes additional props', () => {
+    render(<Breadcrumb aria-hidden={false} data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('navigation')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

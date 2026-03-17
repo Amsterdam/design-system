@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { Table } from './Table'
 import { TableHeader } from './TableHeader'
@@ -94,5 +95,15 @@ describe('TableHeaderCell', () => {
     const component = screen.getByRole('columnheader')
 
     expect(ref.current).toBe(component)
+  })
+
+  it('passes additional props', () => {
+    render(<TableHeaderCell aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('columnheader')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

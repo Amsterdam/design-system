@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { Menu } from './Menu'
 
@@ -76,5 +77,15 @@ describe('Menu', () => {
     const component = screen.queryByRole('navigation', { name: 'Custom accessible name' })
 
     expect(component).not.toBeInTheDocument()
+  })
+
+  it('passes additional props', () => {
+    const { container } = render(<Menu aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })

@@ -5,6 +5,7 @@
 
 import { render, screen, within } from '@testing-library/react'
 import { createRef } from 'react'
+import { describe, expect, it } from 'vitest'
 
 import { ProgressList, progressListHeadingLevels } from './ProgressList'
 
@@ -92,5 +93,15 @@ describe('ProgressList', () => {
     const [subStep] = within(subStepsList).getAllByRole('listitem')
 
     expect(subStep).toHaveClass('ams-progress-list-substeps__step')
+  })
+
+  it('passes additional props', () => {
+    render(<ProgressList aria-hidden="false" data-test="data-test" headingLevel={2} id="id" />)
+
+    const component = screen.getByRole('list')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
   })
 })
