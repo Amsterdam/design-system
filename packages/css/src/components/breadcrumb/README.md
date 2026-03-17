@@ -12,6 +12,7 @@ Users can use it to navigate.
   It distracts the user from their task, or one can accidentally interpret it as a Progress Indicator.
 - This is a secondary navigation pattern.
   It can’t replace the main navigation.
+- A breadcrumb must not contain a link to the home page.
 
 ### Using links with routing libraries
 

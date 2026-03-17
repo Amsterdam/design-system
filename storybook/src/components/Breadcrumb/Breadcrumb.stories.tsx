@@ -20,15 +20,12 @@ export const Default: Story = {
   args: {
     children: [
       <Breadcrumb.Link href="#" key={1}>
-        Home
-      </Breadcrumb.Link>,
-      <Breadcrumb.Link href="#" key={2}>
         Afval
       </Breadcrumb.Link>,
-      <Breadcrumb.Link href="#" key={3}>
+      <Breadcrumb.Link href="#" key={2}>
         Bedrijfsafval
       </Breadcrumb.Link>,
-      <Breadcrumb.Link href="#" key={4}>
+      <Breadcrumb.Link href="#" key={3}>
         Recyclepunten voor bedrijven
       </Breadcrumb.Link>,
     ],
