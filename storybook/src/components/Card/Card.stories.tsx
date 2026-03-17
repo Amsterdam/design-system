@@ -9,7 +9,7 @@ import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 
 import { exampleTopTask } from '../../_common/exampleContent'
-import { formatDate } from '../../common'
+import { formatDate } from '../../_common/formatDate'
 
 const topTask = exampleTopTask()
 
