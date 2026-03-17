@@ -9,13 +9,15 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type DivProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+type ColorPaletteProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-const ColorPaletteRoot = forwardRef(({ children, ...restProps }: DivProps, ref: ForwardedRef<HTMLDivElement>) => (
-  <div {...restProps} className="_ams-color-palette" ref={ref}>
-    {children}
-  </div>
-))
+const ColorPaletteRoot = forwardRef(
+  ({ children, ...restProps }: ColorPaletteProps, ref: ForwardedRef<HTMLDivElement>) => (
+    <div {...restProps} className="_ams-color-palette" ref={ref}>
+      {children}
+    </div>
+  ),
+)
 
 ColorPaletteRoot.displayName = 'ColorPalette'
 
