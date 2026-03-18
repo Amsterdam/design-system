@@ -15,10 +15,10 @@ type SpaceSampleProps = {
   value?: string
 } & HTMLAttributes<HTMLDivElement>
 
-export const SpaceSample = ({ className, value, ...restProps }: SpaceSampleProps) => (
+export const SpaceSample = ({ className, style, value, ...restProps }: SpaceSampleProps) => (
   <div
     {...restProps}
     className={clsx('_ams-space-sample', 'sb-unstyled', className)}
-    style={{ inlineSize: value ? formatTokenValue(value) : undefined }}
+    style={{ ...style, inlineSize: value ? formatTokenValue(value) : undefined }}
   />
 )

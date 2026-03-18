@@ -16,7 +16,7 @@ type TypographySampleProps = {
   /** A font-family token value, either a CSS value or a token reference. */
   fontFamily?: string
   /**
-   * A font-size token value, either a CSS value or a token reference.'`).
+   * A font-size token value, either a CSS value or a token reference.
    * Avoid `clamp` values — we want to display the given size on any viewport.
    * Use `rems` so the font size scales automatically if the user changes their browser's base font size.
    */
@@ -34,12 +34,14 @@ export const TypographySample = ({
   fontSize,
   fontWeight = 'body-text',
   lineHeight,
+  style,
   ...restProps
 }: TypographySampleProps) => (
   <span
     {...restProps}
     className={clsx('_ams-typography-sample', compact && 'ams-theme--compact', 'sb-unstyled', className)}
     style={{
+      ...style,
       fontFamily: fontFamily ? formatTokenValue(fontFamily) : undefined,
       fontSize: fontSize ? formatTokenValue(fontSize) : undefined,
       fontWeight: fontWeight ? formatTokenValue(fontWeight) : undefined,
