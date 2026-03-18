@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.0.0...design-system-assets-v2.1.0) (2026-03-13)
+
+
+### Features
+
+* **Logo:** Add English logo for main brand ([#2444](https://github.com/Amsterdam/design-system/issues/2444)) ([6ebabc8](https://github.com/Amsterdam/design-system/commit/6ebabc84d1d25a435e651bd96c262d9d79dc0663))
+
 ## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v1.1.0...design-system-assets-v2.0.0) (2026-01-09)
 
 
