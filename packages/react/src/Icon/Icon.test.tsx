@@ -26,6 +26,22 @@ describe('Icon', () => {
     expect(icon).toBeInTheDocument()
   })
 
+  it('renders with a zero-argument function for the svg prop', () => {
+    const { container } = render(<Icon svg={() => <WarningIcon />} />)
+
+    const icon = container.querySelector(':only-child svg')
+
+    expect(icon).toBeInTheDocument()
+  })
+
+  it('renders with a props-accepting function for the svg prop', () => {
+    const { container } = render(<Icon svg={(props) => <WarningIcon {...props} />} />)
+
+    const icon = container.querySelector(':only-child svg')
+
+    expect(icon).toBeInTheDocument()
+  })
+
   it('renders a design system BEM class name', () => {
     const { container } = render(<Icon svg={WarningIcon} />)
 

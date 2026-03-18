@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { IconProps } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { ReactNode } from 'react'
 
 import { Grid, Heading, LinkList, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
 import {
@@ -28,7 +28,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 type FollowLink = {
-  icon?: ReactNode
+  icon?: IconProps['svg']
   text: string
 }
 
