@@ -3,8 +3,9 @@ import '@amsterdam/design-system-tokens/dist/compact.theme.css'
 import '@amsterdam/design-system-assets/font/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
 
-import '../src/styles/docs.css'
-import '../src/styles/overrides.css'
+import '../src/_styles/docs.css'
+import '../src/_styles/overrides.css'
+
 import type { PageProps } from '@amsterdam/design-system-react'
 import type { StoryContext, StoryFn } from '@storybook/react-vite'
 

@@ -43,4 +43,14 @@ describe('TabsList', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    render(<TabsList aria-controls="one" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('tablist')
+
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+    expect(component).toHaveAttribute('aria-controls', 'one')
+  })
 })

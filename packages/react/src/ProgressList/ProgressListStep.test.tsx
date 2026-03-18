@@ -196,4 +196,14 @@ describe('ProgressListStep', () => {
 
     expect(ref.current).toBe(step)
   })
+
+  it('passes additional props', () => {
+    render(<ProgressList.Step aria-hidden="false" data-test="data-test" heading="test step" id="id" />)
+
+    const component = screen.getByRole('listitem')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

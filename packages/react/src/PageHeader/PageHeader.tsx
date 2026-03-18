@@ -6,7 +6,7 @@
 import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef, useEffect, useState } from 'react'
+import { forwardRef, useEffect, useId, useState } from 'react'
 
 import type { IconProps } from '../Icon'
 import type { LogoBrand } from '../Logo'
@@ -79,6 +79,7 @@ const PageHeaderRoot = forwardRef(
     const [open, setOpen] = useState(false)
 
     const viewportHasMinWidth = useViewportHasMinWidth('wide')
+    const accessibleLabelId = useId()
     const hasMegaMenu = Boolean(children)
     const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
 
@@ -104,8 +105,8 @@ const PageHeaderRoot = forwardRef(
           </span>
         </LogoLink>
         {(hasMegaMenu || menuItems) && (
-          <nav aria-labelledby="primary-navigation" className="ams-page-header__navigation">
-            <h2 aria-hidden className="ams-visually-hidden" id="primary-navigation">
+          <nav aria-labelledby={accessibleLabelId} className="ams-page-header__navigation">
+            <h2 aria-hidden className="ams-visually-hidden" id={accessibleLabelId}>
               {navigationLabel}
             </h2>
 

@@ -47,36 +47,43 @@ Other scopes, like `docs`, are allowed, as is omitting it.
 
 ## How to create a release
 
-1. Locally merge the latest version of `develop` into `main` using a fast-forward merge, and push to the remote:
+### Merge into the main branch
 
-   ```sh
-     git checkout main
-     git pull
-     git merge --ff-only origin/develop
-     git push
-   ```
+Locally merge the latest version of `develop` into `main` using a fast-forward merge, and push to the remote:
 
-2. This triggers a GitHub Action, which creates a release PR.
-   Review this PR and make sure to check the changelogs for the different packages.
-   A commit might only be a breaking change for one package, but it will be marked as breaking for all affected packages.
+```sh
+git checkout main
+git pull
+git merge --ff-only origin/develop
+git push
+```
 
-   Note: Release Please uses the PR description to create the GitHub release notes.
-   When you update a changelog, be sure to update both CHANGELOG.md and the PR description.
+### Approve the pull request
 
-   Approve the PR, then merge it – no need to wait for the checks.
+The push to `main` triggers a GitHub Action, which creates a release PR.
 
-   The same Action will then publish the release to npm and GitHub.
-   It also deploys the released version to our main Storybook environment.
+Review this PR and make sure to check the changelogs for the different packages.
+A commit might only be a breaking change for one package, but it will be marked as breaking for all affected packages.
 
-3. When complete, the Action adds a new release commit to `main`.
-   Locally merge this commit back into `develop` and push it to the remote:
+Note: Release Please uses the PR description to create the GitHub release notes.
+When you update a changelog, be sure to update both CHANGELOG.md and the PR description.
 
-   ```sh
-    git checkout develop
-    git pull
-    git merge --ff-only origin/main
-    git push
-   ```
+Approve the PR, then merge it – no need to wait for the checks.
+
+The same Action will then publish the release to npm and GitHub.
+It also deploys the released version to our main Storybook environment.
+
+### Merge back into develop
+
+When complete, the Action adds a new release commit to `main`.
+Locally merge this commit back into `develop` and push it to the remote:
+
+```sh
+git checkout develop
+git pull
+git merge --ff-only origin/main
+git push
+```
 
 ### Gotchas
 

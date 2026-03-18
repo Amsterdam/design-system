@@ -19,11 +19,13 @@ export const ImageSliderSlide = ({
   alt,
   aspectRatio,
   caption,
+  className,
   currentSlideId,
   index,
   sizes,
   src,
   srcSet,
+  ...restProps
 }: ImageSliderSlideProps) => {
   const isCurrentSlide = index === currentSlideId
 
@@ -33,18 +35,19 @@ export const ImageSliderSlide = ({
     className: clsx(
       'ams-image-slider__slide ams-image-slider__item',
       isCurrentSlide && 'ams-image-slider__item--in-view',
+      className,
     ),
   }
 
   const imageProps = { alt, aspectRatio, sizes, src, srcSet }
 
   return caption ? (
-    <Figure {...slideProps} className={clsx(slideProps.className, 'ams-image-slider__figure')}>
+    <Figure {...restProps} {...slideProps} className={clsx(slideProps.className, 'ams-image-slider__figure')}>
       <Image {...imageProps} />
       <Figure.Caption className="ams-image-slider__caption">{caption}</Figure.Caption>
     </Figure>
   ) : (
-    <Image {...imageProps} {...slideProps} />
+    <Image {...restProps} {...imageProps} {...slideProps} />
   )
 }
 

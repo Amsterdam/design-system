@@ -6,6 +6,7 @@
 import './inline-color-sample.css'
 import { clsx } from 'clsx'
 
+/** Hardcoded subset of the Amsterdam design system colour palette, keyed by colour name. */
 const colors = {
   azure: '#009de6',
   black: '#202020',
@@ -25,6 +26,10 @@ const colors = {
   yellow: '#ffe600',
 }
 
+/**
+ * Renders a small inline colour swatch for use in documentation prose.
+ * @param color - The name of a colour from the Amsterdam design system palette.
+ */
 export const InlineColorSample = ({ color }: { color: keyof typeof colors }) => (
   <span
     className={clsx('ams-inline-color-sample', color === 'white' && 'ams-inline-color-sample--white')}

@@ -5,19 +5,17 @@
 
 import type { CSSProperties, HTMLAttributes } from 'react'
 
-import { clsx } from 'clsx'
-
 import './border-sample.css'
 import { formatTokenValue } from '../../_common/formatTokenValue'
 
 type BorderSampleProps = {
   style?: string
   width?: string
-} & HTMLAttributes<HTMLDivElement>
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>
 
-export const BorderSample = ({ className, style, width }: BorderSampleProps) => (
+export const BorderSample = ({ style, width }: BorderSampleProps) => (
   <div
-    className={clsx('_ams-border-sample', className, 'sb-unstyled')}
+    className="_ams-border-sample sb-unstyled"
     style={{
       ...(style && {
         // borderInlineStartStyle is a strict CSS property, we need to cast it to CSSProperties

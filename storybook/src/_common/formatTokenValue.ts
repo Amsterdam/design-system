@@ -1,4 +1,9 @@
 /**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
  * Converts a design token reference to a CSS custom property.
  *
  * @param value - A token value that may be a variable reference (e.g., "{spacing.md}") or a literal value (e.g., "2px")

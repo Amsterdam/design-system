@@ -8,8 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 
-import { formatDate } from '../../common'
-import { exampleTopTask } from '../shared/exampleContent'
+import { exampleTopTask } from '../../_common/exampleContent'
+import { formatDate } from '../../_common/formatDate'
 
 const topTask = exampleTopTask()
 

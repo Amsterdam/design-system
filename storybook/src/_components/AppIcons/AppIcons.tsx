@@ -5,6 +5,7 @@
 
 import { Image } from '@amsterdam/design-system-react'
 
+/** Displays the Apple Touch icon at its native size (180 px). */
 export const AppleTouchIcon = () => (
   <div className="_ams-figure-set">
     <figure className="_ams-figure">
@@ -14,6 +15,7 @@ export const AppleTouchIcon = () => (
   </div>
 )
 
+/** Displays the favicon at 16 px, 32 px, 48 px and 64 px side by side. */
 export const Favicon = () => (
   <div className="_ams-figure-set">
     <figure className="_ams-figure">
@@ -35,6 +37,7 @@ export const Favicon = () => (
   </div>
 )
 
+/** Displays the SVG icon at 64 px. */
 export const SvgIcon = () => (
   <div className="_ams-figure-set">
     <figure className="_ams-figure">
@@ -44,6 +47,7 @@ export const SvgIcon = () => (
   </div>
 )
 
+/** Displays the PWA icons at 192 px and 512 px side by side. */
 export const WebAppIcons = () => (
   <div className="_ams-figure-set">
     <figure className="_ams-figure">

@@ -160,10 +160,3 @@ export function buildComponentProps({
     ...(propName !== sizePropName && { [propName]: variant }),
   }
 }
-
-/**
- * Generates a unique key for component variants
- */
-export function generateVariantKey(size: string, propName: string, variant: string, state: string) {
-  return `${size}${propName}${variant}${state}`
-}

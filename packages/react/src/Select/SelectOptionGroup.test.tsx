@@ -62,4 +62,14 @@ describe('SelectOptionGroup', () => {
 
     expect(component).toBeDisabled()
   })
+
+  it('passes additional props', () => {
+    render(<Select.Group aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('group')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

@@ -72,4 +72,14 @@ describe('Breadcrumb', () => {
 
     expect(ref.current).toBe(breadcrumb)
   })
+
+  it('passes additional props', () => {
+    render(<Breadcrumb aria-hidden={false} data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('navigation')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

@@ -87,4 +87,13 @@ describe('TabsButton', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    render(<TabsButton aria-controls="one" data-test="data-test" />)
+
+    const component = screen.getByRole('tab')
+
+    expect(component).toHaveAttribute('id', 'button-one')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

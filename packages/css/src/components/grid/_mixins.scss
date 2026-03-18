@@ -14,12 +14,12 @@
   padding-inline: var(--ams-grid-padding-inline);
   row-gap: var(--ams-grid-row-gap-xl);
 
-  @media screen and (min-width: $ams-breakpoint-medium) {
+  @media (min-width: $ams-breakpoint-medium) {
     grid-template-columns: repeat(var(--ams-grid-medium-column-count), 1fr);
     padding-inline: var(--ams-grid-medium-padding-inline);
   }
 
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     grid-template-columns: repeat(var(--ams-grid-wide-column-count), 1fr);
     padding-inline: var(--ams-grid-wide-padding-inline);
   }
@@ -94,25 +94,25 @@
 }
 
 @mixin ams-grid__cell--span-medium($i) {
-  @media screen and (min-width: $ams-breakpoint-medium) {
+  @media (min-width: $ams-breakpoint-medium) {
     grid-column-end: span $i;
   }
 }
 
 @mixin ams-grid__cell--start-medium($i) {
-  @media screen and (min-width: $ams-breakpoint-medium) {
+  @media (min-width: $ams-breakpoint-medium) {
     grid-column-start: $i;
   }
 }
 
 @mixin ams-grid__cell--span-wide($i) {
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     grid-column-end: span $i;
   }
 }
 
 @mixin ams-grid__cell--start-wide($i) {
-  @media screen and (min-width: $ams-breakpoint-wide) {
+  @media (min-width: $ams-breakpoint-wide) {
     grid-column-start: $i;
   }
 }

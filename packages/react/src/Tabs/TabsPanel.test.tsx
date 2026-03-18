@@ -101,4 +101,21 @@ describe('TabsPanel', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    render(
+      <Tabs>
+        <Tabs.List>
+          <Tabs.Button aria-controls="one" />
+        </Tabs.List>
+        <Tabs.Panel aria-controls="one" data-test="data-test" id="one" />
+      </Tabs>,
+    )
+
+    const component = screen.getByRole('tabpanel')
+
+    expect(component).toHaveAttribute('id', 'one')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+    expect(component).toHaveAttribute('aria-controls', 'one')
+  })
 })

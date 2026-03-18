@@ -52,4 +52,14 @@ describe('CharacterCount', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    render(<CharacterCount aria-hidden="false" data-test="data-test" id="id" length={10} maxLength={100} />)
+
+    const component = screen.getByRole('status')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

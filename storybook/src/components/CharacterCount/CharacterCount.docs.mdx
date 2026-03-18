@@ -6,7 +6,7 @@ import * as CharacterCountStories from "./CharacterCount.stories.tsx";
 import README from "../../../../packages/css/src/components/character-count/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/character-count.tokens.json";
 
-import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
+import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={CharacterCountStories} />
 
@@ -24,6 +24,6 @@ When the length exceeds the maximum length, the colour of the text changes to re
 
 <Canvas of={CharacterCountStories.Error} />
 
-## Tokens
+## Design tokens
 
 <DesignTokensTable tokens={tokens} />

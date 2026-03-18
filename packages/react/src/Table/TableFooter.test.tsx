@@ -61,4 +61,14 @@ describe('TableFooter', () => {
 
     expect(ref.current).toBe(component)
   })
+
+  it('passes additional props', () => {
+    render(<TableFooter aria-hidden="false" data-test="data-test" id="id" />)
+
+    const component = screen.getByRole('rowgroup')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })

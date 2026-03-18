@@ -66,4 +66,13 @@ describe('ImageSliderSlide', () => {
 
     expect(figure).not.toHaveAttribute('aria-hidden')
   })
+
+  it('passes additional props', () => {
+    render(<ImageSliderSlide data-test="data-test" id="id" {...defaultProps} />)
+
+    const image = screen.getByRole('presentation')
+
+    expect(image).toHaveAttribute('id', 'id')
+    expect(image).toHaveAttribute('data-test', 'data-test')
+  })
 })

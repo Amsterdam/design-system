@@ -6,8 +6,8 @@ import * as MenuStories from "./Menu.stories.tsx";
 import README from "../../../../packages/css/src/components/menu/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/menu.tokens.json";
 
-import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
-import { StatusBadge } from "../../docs/components/StatusBadge.tsx";
+import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
+import { StatusBadge } from "../../_components/StatusBadge/StatusBadge.tsx";
 
 <StatusBadge
   description="We’re experimenting with this component; feedback is welcome. Expect changes in future iterations."
@@ -39,6 +39,6 @@ Use the filled variant.
 
 <Controls of={MenuStories.Link} />
 
-## Tokens
+## Design tokens
 
 <DesignTokensTable tokens={tokens} />

@@ -5,7 +5,7 @@ import * as ProgressListStories from "./ProgressList.stories.tsx";
 import README from "../../../../packages/css/src/components/progress-list/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/progress-list.tokens.json";
 
-import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
+import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={ProgressListStories} />
 
@@ -26,6 +26,6 @@ Don’t forget to set the `hasSubsteps` prop on the parent step.
 
 <Canvas of={ProgressListStories.WithSubsteps} />
 
-## Tokens
+## Design tokens
 
 <DesignTokensTable tokens={tokens} />

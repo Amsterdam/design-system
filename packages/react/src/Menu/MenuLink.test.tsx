@@ -76,4 +76,14 @@ describe('MenuLink', () => {
 
     expect(icon).toBeInTheDocument()
   })
+
+  it('passes additional props', () => {
+    render(<Menu.Link aria-hidden="false" data-test="data-test" href="#" icon={DocumentIcon} id="id" />)
+
+    const component = screen.getByRole('link')
+
+    expect(component).toHaveAttribute('aria-hidden', 'false')
+    expect(component).toHaveAttribute('id', 'id')
+    expect(component).toHaveAttribute('data-test', 'data-test')
+  })
 })
