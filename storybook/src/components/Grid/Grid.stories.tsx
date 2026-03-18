@@ -15,9 +15,6 @@ import { gridGapAndPaddingArgTypes } from './Grid.argTypes'
 const meta = {
   title: 'Components/Layout/Grid',
   component: Grid,
-  args: {
-    paddingVertical: 'x-large',
-  },
   argTypes: gridGapAndPaddingArgTypes,
   parameters: {
     layout: 'fullscreen',
@@ -43,6 +40,9 @@ type Story = StoryObj<typeof meta>
 type CellStory = StoryObj<typeof cellMeta>
 
 const StoryTemplate: Story = {
+  args: {
+    paddingVertical: 'x-large',
+  },
   decorators: [
     (Story) => (
       <>

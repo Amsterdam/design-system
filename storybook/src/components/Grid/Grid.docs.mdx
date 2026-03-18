@@ -77,13 +77,17 @@ Use the `start` prop with 3 values, e.g. `start={{ narrow: 2, medium: 4, wide: 6
 
 ### Background in Compact Mode
 
-In Compact Mode, cells have a white background and padding to clearly set them apart.
-This is because the limited white space makes it more difficult to distinguish cells from each other.
+In Compact Mode, the page background is light grey.
+Grid cells have a white background and padding to stand out against it,
+because the tight spacing doesn't distinguish them enough on its own.
 
-Cells can be made transparent, such as the one with the Breadcrumb and Heading.
-This removes the padding as well.
+Use the `transparent` appearance to let a cell blend into the page background instead.
+This also removes the padding.
 
-In Spacious Mode, cells are always transparent and without padding; this prop has no effect.
+In Spacious Mode, the large spacing between cells is enough to tell them apart, so cells are always transparent and without padding.
+The `appearance` prop has no effect there.
+
+**Note**: that’s why this example appears best with the ‘Compact theme’ turned on in the toolbar above.
 
 <Canvas of={GridStories.BackgroundInCompactMode} />
 

@@ -35,7 +35,7 @@ export type GridCellProps = {
   /**
    * Controls the background of the Grid Cell.
    *
-   * In Compact Mode, cells have a background colour and padding to clearly set them apart.
+   * In Compact Mode, cells have a background colour and padding to set them apart.
    * The transparent variant removes both background and padding.
    *
    * In Spacious Mode, cells are always transparent and without padding; this prop has no effect.
