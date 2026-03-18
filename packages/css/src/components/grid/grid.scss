@@ -72,14 +72,10 @@ $ams-grid-column-count: 12;
   padding-inline: var(--ams-grid-cell-padding-inline);
 }
 
-.ams-grid__cell--flush,
-.ams-grid__cell--transparent {
-  padding-block: 0;
-  padding-inline: 0;
-}
-
 .ams-grid__cell--transparent {
   background-color: transparent;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 // Column span

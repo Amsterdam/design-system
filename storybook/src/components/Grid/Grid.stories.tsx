@@ -125,13 +125,10 @@ export const BackgroundInCompactMode: Story = {
   ...StoryTemplate,
   args: {
     children: [
-      <Grid.Cell key={1} span={4}>
+      <Grid.Cell key={1} span={6}>
         <Paragraph>Default</Paragraph>
       </Grid.Cell>,
-      <Grid.Cell appearance="flush" key={2} span={4}>
-        <Paragraph>Flush</Paragraph>
-      </Grid.Cell>,
-      <Grid.Cell appearance="transparent" key={3} span={4}>
+      <Grid.Cell appearance="transparent" key={2} span={6}>
         <Paragraph>Transparent</Paragraph>
       </Grid.Cell>,
     ],
