@@ -16,6 +16,43 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Guidelines for elements
+
+### Logo
+
+- Use the correct logo: our main one, one for a sub-brand, or the English variation.
+  See [Logo](/docs/components-media-logo--docs) documentation for details.
+- The logo links to the homepage of the site it appears on.
+  This is a common convention that helps people navigate back to the homepage from any page of the website.
+- For websites with a brand name that feature the standard Amsterdam logo, only the emblem is shown on narrow screens.
+
+### Brand name
+
+- The City’s main website or that of a sub-brand must not display a brand name, as the logo already includes a wordmark.
+- All other websites must display the name of the brand or service next to the logo.
+  This helps people understand they are on a different website and that its navigation is separate from the main one.
+- An abbreviated brand name can be shown in narrow or medium-wide windows if the full name does not fit.
+
+### Inline menu
+
+- The menu to the right can contain a maximum of 5 items, including the menu button.
+- Labels should be short to help the menu fit on a single line whenever possible.
+- An [icon](/docs/brand-assets-icons--docs) can be added to a menu item if it helps clarify it.
+- Links move into the collapsible menu on narrow windows, unless they have the `fixed` prop.
+
+### Menu button
+
+- The ‘Menu’ button opens the collapsible menu.
+  It does not appear when the Page Header has no child content.
+- Use `noMenuButtonOnWideWindow` to hide the menu button on wide windows when there are only a few links.
+
+### Collapsible menu
+
+- This menu gets accessed through the menu button and offers much room for more links.
+- Use the `GridCellNarrowWindowOnly` subcomponent to contain links from the inline menu that disappear in narrow windows.
+- If the collapsible menu contains [Headings](https://designsystem.amsterdam/?path=/docs/components-text-heading--docs), give them level 2 and a size of ‘level-3’.
+- Don’t add whitespace to the Grid in the collapsible menu — its container already provides this.
+
 ## Examples
 
 ### With moving links
