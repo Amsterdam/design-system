@@ -20,6 +20,7 @@ export const Test: Story = {
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
       <BorderSample lineStyle="dashed" />
       <BorderSample width="4px" />
+      <BorderSample lineStyle="dashed" width="4px" />
     </div>
   ),
   tags: ['!dev', '!autodocs'],

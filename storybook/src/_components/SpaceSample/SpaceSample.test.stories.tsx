@@ -16,6 +16,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: () => <SpaceSample value="16px" />,
+  render: () => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
+      <SpaceSample value="16px" />
+      <SpaceSample />
+    </div>
+  ),
   tags: ['!dev', '!autodocs'],
 }
