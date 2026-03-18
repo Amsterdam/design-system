@@ -2,7 +2,6 @@
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
-
 import type { ForwardedRef, SVGProps } from 'react'
 
 import { forwardRef } from 'react'
@@ -35,6 +34,7 @@ const StadsbankVanLeningLogo = forwardRef((props: SVGProps<SVGSVGElement>, ref: 
     />
   </svg>
 ))
+
 StadsbankVanLeningLogo.displayName = 'StadsbankVanLeningLogo'
 
 export default StadsbankVanLeningLogo

@@ -2,7 +2,6 @@
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
-
 import type { ForwardedRef, SVGProps } from 'react'
 
 import { forwardRef } from 'react'
@@ -35,6 +34,7 @@ const MuseumWeespLogo = forwardRef((props: SVGProps<SVGSVGElement>, ref: Forward
     />
   </svg>
 ))
+
 MuseumWeespLogo.displayName = 'MuseumWeespLogo'
 
 export default MuseumWeespLogo
