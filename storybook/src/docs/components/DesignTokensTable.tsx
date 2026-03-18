@@ -5,8 +5,6 @@
 
 import type { HTMLAttributes } from 'react'
 
-import { clsx } from 'clsx'
-
 import './design-tokens-table.css'
 import { DesignTokensTableRow } from './DesignTokensTableRow'
 
@@ -82,18 +80,18 @@ const flattenTokens = (tokens: Tokens, scope: string[] = []): TokenEntry[] =>
 type DesignTokensTableRootProps = {
   /** The raw nested token object to display, typically imported directly from a JSON token file. */
   tokens: Tokens
-} & HTMLAttributes<HTMLDivElement>
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>
 
 /**
  * Compound component that renders a design token JSON file as a three-column table
  * (CSS variable name, value, visual example).
  * Attach `DesignTokensTable.Row` to customise individual row rendering if needed.
  */
-const DesignTokensTableRoot = ({ className, tokens }: DesignTokensTableRootProps) => {
+const DesignTokensTableRoot = ({ tokens }: DesignTokensTableRootProps) => {
   const flatTokens = flattenTokens(tokens)
 
   return (
-    <div className={clsx('_ams-design-tokens-table', className)}>
+    <div className="_ams-design-tokens-table">
       <table>
         <thead className="_ams-design-tokens-table__header">
           <tr>

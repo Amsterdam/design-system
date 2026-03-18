@@ -9,7 +9,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-type ColorPaletteProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+type ColorPaletteProps = PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>, 'className'>>
 
 /**
  * Compound component for displaying a colour palette in documentation.
