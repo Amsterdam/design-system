@@ -5,43 +5,45 @@
 
 import type { HTMLAttributes } from 'react'
 
+import './typography-sample.css'
 import { clsx } from 'clsx'
 
-import './typography-sample.css'
 import { formatTokenValue } from '../../_common/formatTokenValue'
 
 type TypographySampleProps = {
   /** Whether to use the tokens for Compact Mode. */
   compact?: boolean
-  /** The font family to use in the example */
+  /** A font-family token value, either a CSS value or a token reference. */
   fontFamily?: string
   /**
-   * The font size to use in the example.
-   * This shouldn’t be a `clamp` value or a token containing one –
-   * we want to display the given size on any viewport.
-   * Use `rems` so the font size scales automatically if the user changes their browser’s base font size.
+   * A font-size token value, either a CSS value or a token reference.'`).
+   * Avoid `clamp` values — we want to display the given size on any viewport.
+   * Use `rems` so the font size scales automatically if the user changes their browser's base font size.
    */
   fontSize?: string
-  /** The font weight to use in the example. */
+  /** A font-weight token value, either a CSS value or a token reference. */
   fontWeight?: string
-  /** The line height to use in the example. */
+  /** A line-height token value, either a CSS value or a token reference. */
   lineHeight?: string
-} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>
+} & HTMLAttributes<HTMLSpanElement>
 
 export const TypographySample = ({
+  className,
   compact,
   fontFamily,
   fontSize,
   fontWeight = 'body-text',
   lineHeight,
+  ...restProps
 }: TypographySampleProps) => (
   <span
-    className={clsx('_ams-typography-sample', compact && 'ams-theme--compact', 'sb-unstyled')}
+    {...restProps}
+    className={clsx('_ams-typography-sample', compact && 'ams-theme--compact', 'sb-unstyled', className)}
     style={{
-      ...(fontSize && { fontSize: formatTokenValue(fontSize) }),
-      ...(fontWeight && { fontWeight: formatTokenValue(fontWeight) }),
-      ...(lineHeight && { lineHeight: formatTokenValue(lineHeight) }),
-      ...(fontFamily && { fontFamily: formatTokenValue(fontFamily) }),
+      fontFamily: fontFamily ? formatTokenValue(fontFamily) : undefined,
+      fontSize: fontSize ? formatTokenValue(fontSize) : undefined,
+      fontWeight: fontWeight ? formatTokenValue(fontWeight) : undefined,
+      lineHeight: lineHeight ? formatTokenValue(lineHeight) : undefined,
     }}
   >
     Abc

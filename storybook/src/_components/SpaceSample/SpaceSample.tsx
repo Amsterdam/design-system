@@ -3,20 +3,22 @@
  * Copyright Gemeente Amsterdam
  */
 
+import './space-sample.css'
 import type { HTMLAttributes } from 'react'
 
-import './space-sample.css'
+import { clsx } from 'clsx'
+
 import { formatTokenValue } from '../../_common/formatTokenValue'
 
 type SpaceSampleProps = {
+  /** A spacing token value, either a CSS value or a token reference. */
   value?: string
-} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>
+} & HTMLAttributes<HTMLDivElement>
 
-export const SpaceSample = ({ value }: SpaceSampleProps) => (
+export const SpaceSample = ({ className, value, ...restProps }: SpaceSampleProps) => (
   <div
-    className="_ams-space-sample sb-unstyled"
-    style={{
-      ...(value && { inlineSize: formatTokenValue(value) }),
-    }}
+    {...restProps}
+    className={clsx('_ams-space-sample', 'sb-unstyled', className)}
+    style={{ inlineSize: value ? formatTokenValue(value) : undefined }}
   />
 )
