@@ -64,3 +64,35 @@ npm run generate
 ```
 
 This will generate React icon components from all the SVGs in `/icons`.
+
+## Adding a logo for a new brand
+
+Logo SVG files live in the `logo/` folder.
+Follow the guidelines below to keep them consistent with the existing logos.
+
+### File naming
+
+Use kebab-case and end the name with `-logo` (e.g., `my-organisation-logo.svg`).
+This suffix is required for the generation script to produce the correct React component name.
+
+### SVG markup
+
+The root `<svg>` element must have:
+
+- `xmlns="http://www.w3.org/2000/svg"`
+- `fill="none"` — fills are set on individual path elements, not inherited
+- `viewBox="0 0 <width> 40"` — the height is always 40; the width scales proportionally
+
+Do not add `width` or `height` attributes to the root; size is controlled via CSS.
+
+Each visual part of the logo is a single `<path>` element.
+Set the `class` attribute directly on the `<path>`, not on a wrapping `<g>`:
+
+| Class                      | Use                                        |
+| -------------------------- | ------------------------------------------ |
+| `ams-logo__emblem`         | The Amsterdam coat of arms (three crosses) |
+| `ams-logo__text-primary`   | The main organisation name                 |
+| `ams-logo__text-secondary` | A secondary text element, if present       |
+
+Set `fill` on each `<path>` as well.
+The Amsterdam red is `#EC0000`; black text uses `#000`.
