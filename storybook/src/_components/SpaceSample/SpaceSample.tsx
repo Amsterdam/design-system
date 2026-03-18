@@ -5,18 +5,16 @@
 
 import type { HTMLAttributes } from 'react'
 
-import { clsx } from 'clsx'
-
 import './space-sample.css'
 import { formatTokenValue } from '../../_common/formatTokenValue'
 
 type SpaceSampleProps = {
   value?: string
-} & HTMLAttributes<HTMLDivElement>
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>
 
-export const SpaceSample = ({ className, value }: SpaceSampleProps) => (
+export const SpaceSample = ({ value }: SpaceSampleProps) => (
   <div
-    className={clsx('_ams-space-sample', className, 'sb-unstyled')}
+    className="_ams-space-sample sb-unstyled"
     style={{
       ...(value && { inlineSize: formatTokenValue(value) }),
     }}
