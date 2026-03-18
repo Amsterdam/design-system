@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   render: () => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
-      <BorderSample style="dashed" />
+      <BorderSample lineStyle="dashed" />
       <BorderSample width="4px" />
     </div>
   ),
