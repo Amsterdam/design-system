@@ -22,7 +22,8 @@
     "directory": "packages-proprietary/assets"
   },
   "scripts": {
-    "optimize-icons": "svgo -f icons"
+    "optimize-icons": "svgo -f icons",
+    "optimize-logos": "svgo -f logo --config svgo.logos.config.js"
   },
   "devDependencies": {
     "svgo": "4.0.1"
