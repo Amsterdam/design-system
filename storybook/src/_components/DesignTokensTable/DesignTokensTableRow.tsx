@@ -3,11 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { BorderSample } from './BorderSample'
-import { Code } from './Code'
-import { ColorSample } from './ColorSample'
-import { SpaceSample } from './SpaceSample'
-import { TypographySample } from './TypographySample'
+import { BorderSample } from '../BorderSample/BorderSample'
+import { Code } from '../Code/Code'
+import { ColorSample } from '../ColorSample/ColorSample'
+import { SpaceSample } from '../SpaceSample/SpaceSample'
+import { TypographySample } from '../TypographySample/TypographySample'
 
 type DesignTokensTableRowProps = {
   name: string
