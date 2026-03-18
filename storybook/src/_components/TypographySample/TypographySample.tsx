@@ -42,10 +42,10 @@ export const TypographySample = ({
     className={clsx('_ams-typography-sample', compact && 'ams-theme--compact', 'sb-unstyled', className)}
     style={{
       ...style,
-      fontFamily: fontFamily ? formatTokenValue(fontFamily) : undefined,
-      fontSize: fontSize ? formatTokenValue(fontSize) : undefined,
-      fontWeight: fontWeight ? formatTokenValue(fontWeight) : undefined,
-      lineHeight: lineHeight ? formatTokenValue(lineHeight) : undefined,
+      ...(fontFamily ? { fontFamily: formatTokenValue(fontFamily) } : {}),
+      ...(fontSize ? { fontSize: formatTokenValue(fontSize) } : {}),
+      ...(fontWeight ? { fontWeight: formatTokenValue(fontWeight) } : {}),
+      ...(lineHeight ? { lineHeight: formatTokenValue(lineHeight) } : {}),
     }}
   >
     Abc

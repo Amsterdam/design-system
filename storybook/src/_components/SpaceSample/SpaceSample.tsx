@@ -19,6 +19,6 @@ export const SpaceSample = ({ className, style, value, ...restProps }: SpaceSamp
   <div
     {...restProps}
     className={clsx('_ams-space-sample', 'sb-unstyled', className)}
-    style={{ ...style, inlineSize: value ? formatTokenValue(value) : undefined }}
+    style={{ ...style, ...(value ? { inlineSize: formatTokenValue(value) } : {}) }}
   />
 )

@@ -24,10 +24,12 @@ export const BorderSample = ({ className, lineStyle, style, width, ...restProps 
     style={{
       ...style,
       // Typed as a closed keyword union, not string, so the generic cast is required
-      borderInlineStartStyle: lineStyle
-        ? formatTokenValue<CSSProperties['borderInlineStartStyle']>(lineStyle)
-        : undefined,
-      borderInlineStartWidth: width ? formatTokenValue(width) : undefined,
+      borderInlineStartStyle:
+        lineStyle !== undefined
+          ? formatTokenValue<CSSProperties['borderInlineStartStyle']>(lineStyle)
+          : style?.borderInlineStartStyle,
+      borderInlineStartWidth:
+        width !== undefined ? formatTokenValue(width) : style?.borderInlineStartWidth,
     }}
   />
 )
