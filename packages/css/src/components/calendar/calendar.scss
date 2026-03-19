@@ -3,16 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@mixin reset-button {
-  background: none;
-  border: none;
-  margin-block: 0; // [1]
-  margin-inline: 0; // [1]
-  padding-block: 0;
-  padding-inline: 0;
-
-  // [1] Remove the margin in older Safari.
-}
+@use "../../common/resets" as *;
 
 .ams-calendar {
   border-color: var(--ams-calendar-border-color);
