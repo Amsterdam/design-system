@@ -131,7 +131,7 @@ graph LR
 
 Managing these dependencies requires extra attention when publishing.
 We use [PNPM’s workspace feature](https://pnpm.io/workspaces#publishing-workspace-packages) to define dependencies between our packages.
-When we publish CSS and React, the latest specific versions of their dependencies (Tokens, Assets, and React Icons) get pinned.
+When we publish CSS and React, the latest specific versions of their dependencies get pinned: Tokens and Assets for CSS, and CSS and React Icons for React.
 
 This setup works well when we update both CSS and React in a release.
 However, issues arise if a release only updates Tokens and Assets without changes to CSS or React.
