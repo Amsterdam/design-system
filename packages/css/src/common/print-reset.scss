@@ -4,7 +4,8 @@
  */
 
 /**
- * Reset how browser vendors handle printing, prioritizing legibility over speed when rendering text.
+ * Reset how browser vendors handle printing.
+ * Make sure to set the proper color adjustments for printing (i.e. only transparent backgrounds and dark coloured foreground colours) wherever this mixin is used.
  */
 @mixin print-reset {
   -webkit-print-color-adjust: exact;
