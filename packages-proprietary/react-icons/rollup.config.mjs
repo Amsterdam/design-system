@@ -26,5 +26,5 @@ export default {
       globals: outputGlobals,
     },
   ],
-  plugins: [peerDepsExternal(), resolve(), typescript({ includeDependencies: false })],
+  plugins: [peerDepsExternal(), resolve(), typescript({ includeDependencies: false, clean: true })],
 }
