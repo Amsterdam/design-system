@@ -87,7 +87,7 @@
       },
       "print": {
         "background": {
-          "$value": "#ffffff",
+          "$value": "initial",
           "$type": "color"
         },
         "text": {
