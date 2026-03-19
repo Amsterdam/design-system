@@ -69,7 +69,7 @@
     "vitest": "4.1.0"
   },
   "peerDependencies": {
-    "@amsterdam/design-system-css": "workspace:*",
+    "@amsterdam/design-system-css": "3.2.1",
     "react": "16 - 19",
     "react-dom": "16 - 19"
   }
