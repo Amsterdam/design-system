@@ -58,15 +58,21 @@ git merge --ff-only origin/develop
 git push
 ```
 
-### Approve the pull request
-
 The push to `main` triggers a GitHub Action, which creates a release PR.
+
+### Verify changelogs and dependencies
 
 Review this PR and make sure to check the changelogs for the different packages.
 A commit might only be a breaking change for one package, but it will be marked as breaking for all affected packages.
 
-Note: Release Please uses the PR description to create the GitHub release notes.
-When you update a changelog, be sure to update both CHANGELOG.md and the PR description.
+**Note**: Apply any updates to the changelog to both CHANGELOG.md and the PR description.
+Release Please uses the PR description to create the GitHub release notes.
+
+**Note**: Make sure all necessary peer dependencies get updated.
+Releases that only change Tokens or Assets may require extra steps for CSS or React.
+See below for details.
+
+### Approve the pull request
 
 Approve the PR, then merge it – no need to wait for the checks.
 
@@ -81,21 +87,29 @@ Locally merge this commit back into `develop` and push it to the remote:
 ```sh
 git checkout develop
 git pull
-git merge --ff-only origin/main
+git merge origin/main
 git push
 ```
 
+If `develop` has progressed since the merge to `main`, this will produce a merge commit.
+
 ### Gotchas
+
+#### Don’t change the PR title
 
 The Release Please Action generates a release PR with a specific title (currently: `chore: release main`).
 This PR title is verified on the second run of the Action.
 Changing this title can cause the Action to fail.
 
+#### Remove stale release labels
+
 Release Please uses labels to determine the status of a release.
 A release PR gets the label `autorelease: pending` or `autorelease: triggered`.
 When running the action again, the PR with those labels gets released, and the labels should be removed.
+
 However, due to GitHub API failures, it’s possible that the label was not removed correctly upon a previous release and Release Please thinks that the previous release is still pending.
 Release Please will not create a new release PR if it thinks there is a pending release.
+
 To fix this, check whether any closed PRs still have the `autorelease: pending` or `autorelease: triggered` labels, and remove them.
 
 [See the Release Please docs for more information](https://github.com/googleapis/release-please?tab=readme-ov-file#release-please-bot-does-not-create-a-release-pr-why).
@@ -117,7 +131,7 @@ graph LR
 
 Managing these dependencies requires extra attention when publishing.
 We use [PNPM’s workspace feature](https://pnpm.io/workspaces#publishing-workspace-packages) to define dependencies between our packages.
-When we publish upstream packages like CSS and React, the latest specific versions of downstream packages (Tokens, Assets, and React Icons) get listed as dependencies.
+When we publish CSS and React, the latest specific versions of their dependencies (Tokens, Assets, and React Icons) get pinned.
 
 This setup works well when we update both CSS and React in a release.
 However, issues arise if a release only updates Tokens and Assets without changes to CSS or React.
