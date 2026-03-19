@@ -6,9 +6,6 @@
 @use "../../common/resets" as *;
 
 .ams-calendar {
-  border-color: var(--ams-calendar-border-color);
-  border-style: var(--ams-calendar-border-style);
-  border-width: var(--ams-calendar-border-width);
   display: inline-block;
   flex-direction: column;
   font-family: var(--ams-calendar-font-family);

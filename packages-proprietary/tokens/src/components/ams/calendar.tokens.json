@@ -1,22 +1,6 @@
 {
   "ams": {
     "calendar": {
-      "border-color": {
-        "$value": "{ams.inputs.border-color}",
-        "$type": "color"
-      },
-      "border-style": {
-        "$value": "{ams.inputs.border-style}",
-        "$extensions": {
-          "nl.amsterdam.type": "borderStyle"
-        }
-      },
-      "border-width": {
-        "$value": "{ams.inputs.border-width}",
-        "$extensions": {
-          "nl.amsterdam.type": "borderWidth"
-        }
-      },
       "font-family": {
         "$value": "{ams.typography.font-family}",
         "$type": "fontFamily"
