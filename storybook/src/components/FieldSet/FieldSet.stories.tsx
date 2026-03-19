@@ -17,7 +17,7 @@ import {
 } from '@amsterdam/design-system-react'
 import { FieldSet } from '@amsterdam/design-system-react/src'
 
-import { exampleFamilyName, exampleGivenName } from '../shared/exampleContent'
+import { exampleFamilyName, exampleGivenName } from '../../_common/exampleContent'
 
 const familyName = exampleFamilyName()
 const givenName = exampleGivenName()

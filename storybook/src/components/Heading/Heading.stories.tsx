@@ -10,7 +10,7 @@ import { Column, Icon, Row } from '@amsterdam/design-system-react'
 import { MailIcon } from '@amsterdam/design-system-react-icons'
 import { Heading } from '@amsterdam/design-system-react/src'
 
-import { exampleHeading } from '../shared/exampleContent'
+import { exampleHeading } from '../../_common/exampleContent'
 
 const heading = exampleHeading()
 
