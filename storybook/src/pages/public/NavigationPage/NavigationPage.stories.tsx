@@ -21,7 +21,7 @@ import {
   UnorderedList,
 } from '@amsterdam/design-system-react'
 
-import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '../../../components/shared/exampleContent'
+import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '../../../_common/exampleContent'
 import { commonMeta } from '../common/config'
 import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from './data'
 

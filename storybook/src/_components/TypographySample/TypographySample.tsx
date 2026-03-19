@@ -26,10 +26,9 @@ type TypographySampleProps = {
   fontWeight?: string
   /** The line height to use in the example. */
   lineHeight?: string
-} & HTMLAttributes<HTMLDivElement>
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>
 
 export const TypographySample = ({
-  className,
   compact,
   fontFamily,
   fontSize,
@@ -37,7 +36,7 @@ export const TypographySample = ({
   lineHeight,
 }: TypographySampleProps) => (
   <span
-    className={clsx('_ams-typography-sample', compact && 'ams-theme--compact', className, 'sb-unstyled')}
+    className={clsx('_ams-typography-sample', compact && 'ams-theme--compact', 'sb-unstyled')}
     style={{
       ...(fontSize && { fontSize: formatTokenValue(fontSize) }),
       ...(fontWeight && { fontWeight: formatTokenValue(fontWeight) }),
