@@ -26,7 +26,7 @@
     "build": "tsc --project ./tsconfig.build.json && rollup -c",
     "build:watch": "rollup -c --watch",
     "clean": "rimraf dist/",
-    "generate-logos": "svgr --config-file src/Logo/svgr.config.mjs '../../packages-proprietary/assets/logo/*-logo.svg' --out-dir src/Logo/brands && prettier --write 'src/Logo/brands/**' && eslint 'src/Logo/brands' --fix",
+    "generate-logos": "svgr --config-file src/Logo/svgr.config.mjs ../../packages-proprietary/assets/logo/*-logo.svg --out-dir src/Logo/brands && prettier --write src/Logo/brands && eslint src/Logo/brands --fix",
     "lint": "tsc --noEmit --project ./tsconfig.json",
     "test": "vitest run --coverage",
     "watch:test": "vitest"
