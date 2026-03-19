@@ -26,5 +26,14 @@ export default {
       globals: outputGlobals,
     },
   ],
-  plugins: [peerDepsExternal(), resolve(), typescript({ includeDependencies: false, clean: true })],
+  plugins: [
+    peerDepsExternal(),
+    resolve(),
+    typescript({
+      includeDependencies: false,
+      // Disables rpt2’s incremental cache to avoid an ENOENT race when multiple packages build in parallel
+      // and rpt2 tries to rename its cache directory. Without this the build fails non-deterministically.
+      clean: true,
+    }),
+  ],
 }
