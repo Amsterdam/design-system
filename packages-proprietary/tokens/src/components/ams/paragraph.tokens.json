@@ -27,14 +27,14 @@
       },
       "inverse": {
         "color": {
-          "$value": "{ams.color.text.inverse}",
+          "$value": "{ams.color.text.inverse.default}",
           "$type": "color"
-        }
-      },
-      "print": {
-        "color": {
-          "$value": "{ams.color.print.text}",
-          "$type": "color"
+        },
+        "print": {
+          "color": {
+            "$value": "{ams.color.text.inverse.print}",
+            "$type": "color"
+          }
         }
       },
       "small": {

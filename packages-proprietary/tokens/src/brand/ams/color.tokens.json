@@ -85,16 +85,6 @@
           "$type": "color"
         }
       },
-      "print": {
-        "background": {
-          "$value": "initial",
-          "$type": "color"
-        },
-        "text": {
-          "$value": "#202020",
-          "$type": "color"
-        }
-      },
       "progress": {
         "current": {
           "$value": "#00893c",
@@ -119,8 +109,14 @@
           "$type": "color"
         },
         "inverse": {
-          "$value": "#ffffff",
-          "$type": "color"
+          "default": {
+            "$value": "#ffffff",
+            "$type": "color"
+          },
+          "print": {
+            "$value": "#202020",
+            "$type": "color"
+          }
         },
         "secondary": {
           "$value": "#767676",

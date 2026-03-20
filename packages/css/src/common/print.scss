@@ -1,0 +1,14 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
+ * Instruct browsers to print backgrounds as we've set them.
+ * Users can choose to print in greyscale and disable backgrounds.
+ */
+@mixin print {
+  -webkit-print-color-adjust: exact;
+  /* stylelint-disable-next-line plugin/use-baseline */
+  print-color-adjust: exact;
+}

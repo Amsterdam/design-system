@@ -37,7 +37,7 @@
       "inverse": {
         "color": {
           "$deprecated": "Use the Heading component with level 1 instead.",
-          "$value": "{ams.color.text.inverse}",
+          "$value": "{ams.color.text.inverse.default}",
           "$type": "color"
         }
       }
