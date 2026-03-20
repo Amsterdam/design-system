@@ -1,1 +1,0 @@
-import{j as s}from"./iframe-D884ZgTX.js";const o=({children:e})=>s.jsx("code",{className:"_ams-code sb-unstyled",children:e});try{o.displayName="Code",o.__docgenInfo={description:"",displayName:"Code",props:{}}}catch{}export{o as C};
