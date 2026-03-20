@@ -11,10 +11,9 @@
   /*
   * The logo link section is created twice: once outside the navigation and once hidden inside it.
   * This keeps all navigation in one nav element and lets the menu wrap around the logo link section.
-  * Display grid is used to let both logo link sections overlap.
   */
   background-color: var(--ams-page-header-background-color);
-  display: grid;
+  display: grid; /* Allows both instances of Logo Link to overlap */
   font-family: var(--ams-page-header-font-family);
   padding-block: var(--ams-page-header-padding-block);
   padding-inline: var(--ams-page-header-padding-inline);
@@ -33,7 +32,7 @@
   align-self: start; // To align the logo link section to the top of the header when it wraps
   column-gap: var(--ams-page-header-logo-link-column-gap);
   display: flex;
-  grid-area: 1 / 1; // To allow this section to overlap with the second logo link section
+  grid-area: 1 / 1; /* Lets this instance of Logo Link overlap the other */
   inline-size: fit-content;
   outline-offset: var(--ams-page-header-logo-link-outline-offset);
   text-decoration: none;
@@ -99,7 +98,7 @@
   column-gap: var(--ams-page-header-navigation-column-gap);
   display: flex;
   flex-wrap: wrap;
-  grid-area: 1 / 1; // To allow this section to overlap with the logo link section
+  grid-area: 1 / 1; /* Lets this instance of Logo Link overlap the other */
   // This section blocks pointer events initially, so the hidden logo link section can't be activated.
   // The menu and collapsible menu set it back to auto, to make sure they can be activated.
   pointer-events: none;
