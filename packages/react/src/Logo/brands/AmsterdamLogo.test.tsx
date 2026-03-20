@@ -9,6 +9,8 @@ import { describe, expect, it } from 'vitest'
 
 import { AmsterdamLogo } from '.'
 
+// This test is representative for all `*Logo.tsx` components in this directory.
+// They all follow the same structure, so no need to add separate tests for the others.
 describe('AmsterdamLogo', () => {
   it('renders', () => {
     render(<AmsterdamLogo />)
