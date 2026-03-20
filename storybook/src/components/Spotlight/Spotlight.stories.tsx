@@ -9,7 +9,7 @@ import { Blockquote, Grid, Heading, Paragraph, StandaloneLink } from '@amsterdam
 import { Spotlight } from '@amsterdam/design-system-react/src'
 import { spotlightColors } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
 
-import { exampleQuote } from '../shared/exampleContent'
+import { exampleQuote } from '../../_common/exampleContent'
 
 const quote = exampleQuote()
 

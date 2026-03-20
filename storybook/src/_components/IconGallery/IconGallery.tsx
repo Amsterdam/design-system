@@ -60,7 +60,7 @@ export const IconGallery = ({ excludeIcons, icons }: IconGalleryProps) => {
   const sortedBaseNames = Object.keys(groupedIcons).sort((a, b) => a.localeCompare(b))
 
   return (
-    <div className="sb-unstyled _ams-icon-gallery">
+    <div className="_ams-icon-gallery sb-unstyled">
       {sortedBaseNames.map((baseName) => (
         <div className="_ams-icon-gallery__item" key={baseName}>
           <div className="_ams-icon-gallery__icons">

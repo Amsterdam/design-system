@@ -168,8 +168,8 @@ importers:
   packages/react:
     dependencies:
       '@amsterdam/design-system-css':
-        specifier: workspace:*
-        version: link:../css
+        specifier: 3.2.1
+        version: 3.2.1(@amsterdam/design-system-assets@2.1.0)(@amsterdam/design-system-tokens@3.3.0)
       '@amsterdam/design-system-react-icons':
         specifier: workspace:*
         version: link:../../packages-proprietary/react-icons
@@ -339,6 +339,18 @@ packages:
 
   '@adobe/css-tools@4.4.4':
     resolution: {integrity: sha512-Elp+iwUx5rN5+Y8xLt5/GRoG20WGoDCQ/1Fb+1LiGtvwbDavuSk0jhD/eZdckHAuzcDzccnkv+rEjyWfRx18gg==}
+
+  '@amsterdam/design-system-assets@2.1.0':
+    resolution: {integrity: sha512-WWKX2dS1IjkwbVwEyFHNuyYFmBSZY2UquCrmYLzPhxWrkO5Wrf9EhghaJPHhLWJj6g33z/YEHFWO1LzqmLjx1A==}
+
+  '@amsterdam/design-system-css@3.2.1':
+    resolution: {integrity: sha512-xVd3dOgOgFS5hoJv/Hah8YJ8CqB2iTNb1zzaTntnXYoHNu86eIdMgQOQ585O6L8sjdXdZLji6N6UO4fN/xSlkg==}
+    peerDependencies:
+      '@amsterdam/design-system-assets': 2.1.0
+      '@amsterdam/design-system-tokens': 3.3.0
+
+  '@amsterdam/design-system-tokens@3.3.0':
+    resolution: {integrity: sha512-+L76IumVKoTMDguGPiQ2ozr3V0r+o2Xo0f4HElvT057uSVAvRPeIfIzKue+efYZmhxqdbEIhGdSEGXWCo0hogg==}
 
   '@asamuzakjp/css-color@3.2.0':
     resolution: {integrity: sha512-K1A6z8tS3XsmCMM86xoWdn7Fkdn9m6RSVtocUrJYIwZnFVkng/PvkEoWtOWmP+Scc6saYWHWZYbndEEXxl24jw==}
@@ -5716,6 +5728,15 @@ packages:
 snapshots:
 
   '@adobe/css-tools@4.4.4': {}
+
+  '@amsterdam/design-system-assets@2.1.0': {}
+
+  '@amsterdam/design-system-css@3.2.1(@amsterdam/design-system-assets@2.1.0)(@amsterdam/design-system-tokens@3.3.0)':
+    dependencies:
+      '@amsterdam/design-system-assets': 2.1.0
+      '@amsterdam/design-system-tokens': 3.3.0
+
+  '@amsterdam/design-system-tokens@3.3.0': {}
 
   '@asamuzakjp/css-color@3.2.0':
     dependencies:

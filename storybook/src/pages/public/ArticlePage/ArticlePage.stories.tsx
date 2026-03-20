@@ -21,7 +21,7 @@ import { Fragment } from 'react'
 
 import type { NewsArticle } from './news-articles'
 
-import { formatDate } from '../../../common'
+import { formatDate } from '../../../_common/formatDate'
 import { commonMeta } from '../common/config'
 import { newsSection } from '../HomePage/data'
 import { newsArticles } from './news-articles'

@@ -5,17 +5,17 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { SpaceSample } from './SpaceSample'
+import { GridColumnsGuide } from './GridColumnsGuide'
 
 const meta = {
-  title: 'Components/Docs/Space Sample',
-} satisfies Meta<typeof SpaceSample>
+  title: 'Components/Docs/Grid Columns Guide',
+} satisfies Meta<typeof GridColumnsGuide>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: () => <SpaceSample value="16px" />,
+  render: () => <GridColumnsGuide />,
   tags: ['!dev', '!autodocs'],
 }

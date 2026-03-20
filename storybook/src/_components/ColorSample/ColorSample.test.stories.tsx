@@ -5,11 +5,11 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { BorderSample } from './BorderSample'
+import { ColorSample } from './ColorSample'
 
 const meta = {
-  title: 'Components/Docs/Border Sample',
-} satisfies Meta<typeof BorderSample>
+  title: 'Components/Docs/Color Sample',
+} satisfies Meta<typeof ColorSample>
 
 export default meta
 
@@ -18,8 +18,8 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   render: () => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
-      <BorderSample style="dashed" />
-      <BorderSample width="4px" />
+      <ColorSample value="hotpink" />
+      <ColorSample value="" />
     </div>
   ),
   tags: ['!dev', '!autodocs'],

@@ -5,11 +5,11 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { TypographySample } from './TypographySample'
+import { BorderSample } from './BorderSample'
 
 const meta = {
-  title: 'Components/Docs/Typography Sample',
-} satisfies Meta<typeof TypographySample>
+  title: 'Components/Docs/Border Sample',
+} satisfies Meta<typeof BorderSample>
 
 export default meta
 
@@ -18,10 +18,9 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   render: () => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
-      <TypographySample fontFamily="arial" />
-      <TypographySample fontSize="1.5rem" />
-      <TypographySample fontWeight="bold" />
-      <TypographySample lineHeight="1.5" />
+      <BorderSample lineStyle="dashed" />
+      <BorderSample width="4px" />
+      <BorderSample lineStyle="dashed" width="4px" />
     </div>
   ),
   tags: ['!dev', '!autodocs'],
