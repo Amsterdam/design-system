@@ -15,6 +15,7 @@
 .ams-page-footer__menu {
   @include reset-ul;
 
+  background-color: var(--ams-page-footer-menu-background-color);
   column-gap: var(--ams-page-footer-menu-column-gap);
   display: flex;
   flex-wrap: wrap;

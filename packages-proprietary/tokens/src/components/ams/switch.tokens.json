@@ -24,7 +24,7 @@
       },
       "thumb": {
         "background-color": {
-          "$value": "{ams.color.background}",
+          "$value": "{ams.color.background.default}",
           "$type": "color"
         },
         "block-size": {

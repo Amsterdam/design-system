@@ -64,7 +64,21 @@ $ams-grid-column-count: 12;
   @include ams-grid--padding-vertical--2x-large;
 }
 
-// Column span
+// Cell
+
+.ams-grid__cell {
+  background-color: var(--ams-grid-cell-background-color);
+  padding-block: var(--ams-grid-cell-padding-block);
+  padding-inline: var(--ams-grid-cell-padding-inline);
+}
+
+.ams-grid__cell--transparent {
+  background-color: transparent;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+// Cell span and start
 // The order of these declaration blocks ensures the intended specificity.
 
 .ams-grid__cell--span-all {

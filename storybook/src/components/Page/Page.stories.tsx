@@ -37,7 +37,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const PageBody = () => (
-  <Grid paddingBottom="x-large">
+  <Grid paddingVertical="x-large">
     <Grid.Cell span="all">
       <Heading level={1}>Page Body</Heading>
     </Grid.Cell>
@@ -54,7 +54,7 @@ export const Default: Story = {
       <PageFooter key="footer">
         <PageFooter.Spotlight>
           <Grid paddingVertical="x-large">
-            <Grid.Cell span="all">
+            <Grid.Cell appearance="transparent" span="all">
               <Paragraph color="inverse">Page Footer</Paragraph>
             </Grid.Cell>
           </Grid>

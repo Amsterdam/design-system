@@ -1,0 +1,16 @@
+{
+  "ams": {
+    "color": {
+      "background": {
+        "canvas": {
+          "$value": "#e8e8e8",
+          "$type": "color"
+        },
+        "default": {
+          "$value": "#ffffff",
+          "$type": "color"
+        }
+      }
+    }
+  }
+}

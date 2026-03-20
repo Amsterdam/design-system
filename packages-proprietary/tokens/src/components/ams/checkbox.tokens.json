@@ -111,7 +111,7 @@
       },
       "rectangle": {
         "fill": {
-          "$value": "{ams.color.background}",
+          "$value": "{ams.color.background.default}",
           "$type": "color"
         },
         "stroke": {

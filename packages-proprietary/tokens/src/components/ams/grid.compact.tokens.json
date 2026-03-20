@@ -7,6 +7,26 @@
         "$extensions": {
           "nl.amsterdam.subtype": "space"
         }
+      },
+      "cell": {
+        "background-color": {
+          "$value": "{ams.color.background.default}",
+          "$type": "color"
+        },
+        "padding-block": {
+          "$value": "{ams.space.m}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
+        "padding-inline": {
+          "$value": "{ams.space.m}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        }
       }
     }
   }

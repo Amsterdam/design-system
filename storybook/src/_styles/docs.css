@@ -108,13 +108,18 @@
     min-block-size: 3rem;
   }
 
+  /** Repeat declarations and increase specificity to override Grid Cell background in Compact Mode. */
   ._ams-grid-columns-guide + .ams-grid > & {
+    background-color: var(--_ams-color-pink);
+    border: thin dashed var(--_ams-color-grey);
     min-block-size: 3rem;
   }
 }
 
 ._ams-item--highlight {
   background-color: var(--_ams-color-lightblue);
+  border: thin dashed var(--_ams-color-grey);
+  min-block-size: 3rem;
 }
 
 ._ams-resize-horizontal {
