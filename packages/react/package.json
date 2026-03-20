@@ -26,6 +26,7 @@
     "build": "tsc --project ./tsconfig.build.json && rollup -c",
     "build:watch": "rollup -c --watch",
     "clean": "rimraf dist/",
+    "generate-logos": "svgr --config-file src/Logo/svgr.config.mjs ../../packages-proprietary/assets/logo/*-logo.svg --out-dir src/Logo/brands && prettier --write src/Logo/brands && eslint src/Logo/brands --fix",
     "lint": "tsc --noEmit --project ./tsconfig.json",
     "test": "vitest run --coverage",
     "watch:test": "vitest"
@@ -43,6 +44,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.29.0",
+    "@svgr/cli": "8.1.0",
     "@babel/plugin-transform-runtime": "7.29.0",
     "@babel/preset-react": "7.28.5",
     "@rollup/plugin-babel": "7.0.0",
