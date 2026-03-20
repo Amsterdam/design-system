@@ -13,8 +13,8 @@
 
   color: var(--ams-description-list-color);
   font-family: var(--ams-description-list-font-family);
-  font-size: var(--ams-description-list-font-size);
-  line-height: var(--ams-description-list-line-height);
+  font-size: var(--ams-description-list-font-size); /* This token is @deprecated. */
+  line-height: var(--ams-description-list-line-height); /* This token is @deprecated. */
 
   @include hyphenation;
   @include text-rendering;
@@ -50,7 +50,9 @@
 }
 
 .ams-description-list__term {
+  font-size: var(--ams-description-list-term-font-size);
   font-weight: var(--ams-description-list-term-font-weight);
+  line-height: var(--ams-description-list-term-line-height);
   margin-block-end: var(--ams-description-list-term-margin-block-end);
 
   @media (min-width: $ams-breakpoint-medium) {
@@ -70,7 +72,9 @@
 .ams-description-list__description {
   @include reset-dd;
 
+  font-size: var(--ams-description-list-description-font-size);
   font-weight: var(--ams-description-list-description-font-weight);
+  line-height: var(--ams-description-list-description-line-height);
   margin-block-end: var(--ams-description-list-description-margin-block-end);
   padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
