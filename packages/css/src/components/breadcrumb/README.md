@@ -6,8 +6,11 @@ Shows the location of the page within the hierarchy of a website and allows navi
 
 ## Guidelines
 
-- Avoid it on pages with forms – it may distract users from their task or be mistaken for a progress indicator.
-- A breadcrumb must not contain a link to the home page. It should not display more than 5 items.
+- Do not use a breadcrumb on pages that have forms.
+  A breadcrumb on a page with a form can distract users from completing the form, or be confused with a progress indicator.
+- A breadcrumb should not have more than 5 items.
+- The first item links to the home page, with ‘Home’ as its text.
+  This applies to Dutch websites as well.
 
 ### Using links with routing libraries
 
