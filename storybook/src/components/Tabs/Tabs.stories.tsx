@@ -9,7 +9,7 @@ import type { PropsWithChildren, ReactNode } from 'react'
 import { Heading, Paragraph, Table } from '@amsterdam/design-system-react'
 import { Tabs } from '@amsterdam/design-system-react/src'
 
-import { cityParts, exampleParagraph } from '../shared/exampleContent'
+import { cityParts, exampleParagraph } from '../../_common/exampleContent'
 
 const slowPanelDelay = 1000
 

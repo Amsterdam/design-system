@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ErrorMessage, FieldSet, Label, Paragraph, TextInput } from '@amsterdam/design-system-react'
 import { Field } from '@amsterdam/design-system-react/src'
 
-import { exampleFamilyName, exampleGivenName } from '../shared/exampleContent'
+import { exampleFamilyName, exampleGivenName } from '../../_common/exampleContent'
 
 const givenName = exampleGivenName()
 const familyName = exampleFamilyName()

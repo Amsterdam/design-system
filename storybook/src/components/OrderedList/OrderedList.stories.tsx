@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Card, Paragraph } from '@amsterdam/design-system-react'
 import { OrderedList } from '@amsterdam/design-system-react/src'
 
-import { exampleOrderedList } from '../shared/exampleContent'
+import { exampleOrderedList } from '../../_common/exampleContent'
 
 const orderedListItems = exampleOrderedList().map((text) => <OrderedList.Item key={text}>{text}</OrderedList.Item>)
 

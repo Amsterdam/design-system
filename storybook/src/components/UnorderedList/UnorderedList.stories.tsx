@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Card, Paragraph } from '@amsterdam/design-system-react'
 import { UnorderedList } from '@amsterdam/design-system-react/src'
 
-import { exampleUnorderedList } from '../shared/exampleContent'
+import { exampleUnorderedList } from '../../_common/exampleContent'
 
 const unorderedListItems = exampleUnorderedList().map((text) => (
   <UnorderedList.Item key={text}>{text}</UnorderedList.Item>
