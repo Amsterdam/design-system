@@ -5,23 +5,31 @@
 
 import type { CSSProperties, HTMLAttributes } from 'react'
 
+import { clsx } from 'clsx'
+
 import './border-sample.css'
 import { formatTokenValue } from '../../_common/formatTokenValue'
 
 type BorderSampleProps = {
-  style?: string
+  /** A border-style token value, either a CSS keyword or a token reference. */
+  lineStyle?: string
+  /** A border-width token value, either a CSS value or a token reference. */
   width?: string
-} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>
+} & HTMLAttributes<HTMLDivElement>
 
-export const BorderSample = ({ style, width }: BorderSampleProps) => (
+export const BorderSample = ({ className, lineStyle, style, width, ...restProps }: BorderSampleProps) => (
   <div
-    className="_ams-border-sample sb-unstyled"
+    {...restProps}
+    className={clsx('_ams-border-sample', 'sb-unstyled', className)}
     style={{
-      ...(style && {
-        // borderInlineStartStyle is a strict CSS property, we need to cast it to CSSProperties
-        borderInlineStartStyle: formatTokenValue<CSSProperties['borderInlineStartStyle']>(style),
-      }),
-      ...(width && { borderInlineStartWidth: formatTokenValue(width) }),
+      ...style,
+      // Typed as a closed keyword union, not string, so the generic cast is required
+      borderInlineStartStyle:
+        lineStyle !== undefined
+          ? formatTokenValue<CSSProperties['borderInlineStartStyle']>(lineStyle)
+          : style?.borderInlineStartStyle,
+      borderInlineStartWidth:
+        width !== undefined ? formatTokenValue(width) : style?.borderInlineStartWidth,
     }}
   />
 )
