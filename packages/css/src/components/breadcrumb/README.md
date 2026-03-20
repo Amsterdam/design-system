@@ -2,16 +2,12 @@
 
 # Breadcrumb
 
-The breadcrumb is a secondary navigation pattern that helps a user understand the structure between levels in the website up to the current page.
-Users can use it to navigate.
+Shows the location of the page within the hierarchy of a website and allows navigating between levels.
 
 ## Guidelines
 
-- Only use the breadcrumb trail if it adds something functional for the user and the structure is ‘static’.
-- Do not display the breadcrumb trail on a form page.
-  It distracts the user from their task, or one can accidentally interpret it as a Progress Indicator.
-- This is a secondary navigation pattern.
-  It can’t replace the main navigation.
+- Avoid it on pages with forms – it may distract users from their task or be mistaken for a progress indicator.
+- A breadcrumb must not contain a link to the home page. It should not display more than 5 items.
 
 ### Using links with routing libraries
 

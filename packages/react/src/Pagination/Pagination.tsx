@@ -118,7 +118,9 @@ export const Pagination = forwardRef(
             <span className="ams-visually-hidden">
               {previousAccessibleName || previousVisuallyHiddenLabel || 'Vorige pagina'}
             </span>
-            <span aria-hidden>{previousLabel}</span>
+            <span aria-hidden className="ams-pagination__link-label" hidden>
+              {previousLabel}
+            </span>
           </Link>
         )}
         <ol className="ams-pagination__list">
@@ -141,7 +143,9 @@ export const Pagination = forwardRef(
             <span className="ams-visually-hidden">
               {nextAccessibleName || nextVisuallyHiddenLabel || 'Volgende pagina'}
             </span>
-            <span aria-hidden>{nextLabel}</span>
+            <span aria-hidden className="ams-pagination__link-label" hidden>
+              {nextLabel}
+            </span>
             <Icon svg={ChevronForwardIcon} />
           </Link>
         )}
