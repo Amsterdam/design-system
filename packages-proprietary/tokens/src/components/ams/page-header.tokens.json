@@ -93,7 +93,7 @@
             "$type": "color"
           },
           "color": {
-            "$value": "{ams.color.text.inverse}",
+            "$value": "{ams.color.text.inverse.default}",
             "$type": "color"
           },
           "cursor": {
@@ -121,7 +121,7 @@
               "$type": "color"
             },
             "color": {
-              "$value": "{ams.color.text.inverse}",
+              "$value": "{ams.color.text.inverse.default}",
               "$type": "color"
             }
           }

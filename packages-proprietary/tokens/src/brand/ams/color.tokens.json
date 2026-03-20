@@ -109,8 +109,14 @@
           "$type": "color"
         },
         "inverse": {
-          "$value": "#ffffff",
-          "$type": "color"
+          "default": {
+            "$value": "#ffffff",
+            "$type": "color"
+          },
+          "print": {
+            "$value": "#202020",
+            "$type": "color"
+          }
         },
         "secondary": {
           "$value": "#767676",
