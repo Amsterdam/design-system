@@ -20,7 +20,7 @@
           "$type": "fontWeight"
         },
         "line-height": {
-          "$value": "1.8",
+          "$value": "1.6",
           "$extensions": {
             "nl.amsterdam.type": "lineHeight"
           }
@@ -40,7 +40,7 @@
             "$type": "dimension"
           },
           "line-height": {
-            "$value": "1.6",
+            "$value": "1.5",
             "$extensions": {
               "nl.amsterdam.type": "lineHeight"
             }
@@ -54,7 +54,7 @@
             }
           },
           "line-height": {
-            "$value": "1.6",
+            "$value": "1.5",
             "$extensions": {
               "nl.amsterdam.type": "lineHeight"
             }
