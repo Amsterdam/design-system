@@ -49,10 +49,4 @@
 
 .ams-paragraph--inverse {
   color: var(--ams-paragraph-inverse-color);
-
-  @media print {
-    color: var(--ams-paragraph-inverse-print-color);
-
-    @include print;
-  }
 }

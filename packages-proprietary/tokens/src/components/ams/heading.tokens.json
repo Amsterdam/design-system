@@ -18,7 +18,7 @@
       },
       "inverse": {
         "color": {
-          "$value": "{ams.color.text.inverse.default}",
+          "$value": "{ams.color.text.inverse}",
           "$type": "color"
         }
       },
