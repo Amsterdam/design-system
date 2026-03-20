@@ -13,5 +13,10 @@ After adding or updating an SVG in that folder, run:
 pnpm run generate-logos
 ```
 
-This optimises the SVGs with SVGO, generates `*Logo.tsx` components with `forwardRef` and the correct props, and formats and lints the output.
+This will:
+
+- Optimise the SVGs with SVGO
+- Generate `*Logo.tsx` components with `forwardRef` and the correct props
+- Format and lint the output
+
 Commit both the SVG file(s) and the generated components together.
