@@ -60,6 +60,20 @@
 
     // Add margin for Terms that are longer than their Description(s)
     margin-block-end: var(--ams-description-list-term-vi-medium-margin-block-end);
+
+    // Add half of the difference in computed line heights to align Terms with Descriptions.
+    // - Terms use heading line heights; Descriptions use body text
+    // - Not for Terms that follow a Term, or which are the last child
+    &:not(& + &, :last-child) {
+      padding-block-start: calc(
+        (
+            var(--ams-description-list-description-font-size) *
+              var(--ams-description-list-description-line-height) - var(--ams-description-list-term-font-size) *
+              var(--ams-description-list-term-line-height)
+          ) /
+          2
+      );
+    }
   }
 
   // Remove whitespace between consecutive Terms
