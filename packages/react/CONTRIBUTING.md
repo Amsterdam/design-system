@@ -10,7 +10,7 @@ They must not be edited by hand.
 After adding or updating an SVG in that folder, run:
 
 ```sh
-npm run generate-logos
+pnpm run generate-logos
 ```
 
 This optimises the SVGs with SVGO, generates `*Logo.tsx` components with `forwardRef` and the correct props, and formats and lints the output.
