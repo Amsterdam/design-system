@@ -83,7 +83,7 @@
   grid-column: 1 / -1;
 }
 
-// Column span
+// Cell span and start
 
 @mixin ams-grid__cell--span($i) {
   grid-column-end: span $i;
