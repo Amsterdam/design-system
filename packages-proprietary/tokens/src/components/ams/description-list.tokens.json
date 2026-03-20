@@ -54,6 +54,9 @@
             "nl.amsterdam.subtype": "space"
           }
         },
+        "text-wrap": {
+          "$value": "balance"
+        },
         "vi-medium": {
           "margin-block-end": {
             "$value": "{ams.description-list.description.margin-block-end}",

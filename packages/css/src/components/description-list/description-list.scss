@@ -53,6 +53,13 @@
   font-weight: var(--ams-description-list-term-font-weight);
   margin-block-end: var(--ams-description-list-term-margin-block-end);
 
+  /*
+   * If text-wrap is not supported, it is ignored.
+   * This means the wrapped text will look less balanced, which is fine.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
+  text-wrap: var(--ams-description-list-term-text-wrap);
+
   @media (min-width: $ams-breakpoint-medium) {
     grid-column-start: 1;
 
