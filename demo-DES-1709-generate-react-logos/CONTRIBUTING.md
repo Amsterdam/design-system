@@ -54,13 +54,13 @@ To export all icons from our [Figma Library](https://www.figma.com/community/fil
 4. Copy these files over to the `icons` folder and run the following command to optimize them:
 
 ```sh
-npm run optimize-icons
+pnpm run optimize-icons
 ```
 
 Then, go to the `react-icons` package and run:
 
 ```sh
-npm run generate
+pnpm run generate
 ```
 
 This will generate React icon components from all the SVGs in `/icons`.
