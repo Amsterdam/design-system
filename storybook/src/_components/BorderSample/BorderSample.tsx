@@ -28,8 +28,7 @@ export const BorderSample = ({ className, lineStyle, style, width, ...restProps 
         lineStyle !== undefined
           ? formatTokenValue<CSSProperties['borderInlineStartStyle']>(lineStyle)
           : style?.borderInlineStartStyle,
-      borderInlineStartWidth:
-        width !== undefined ? formatTokenValue(width) : style?.borderInlineStartWidth,
+      borderInlineStartWidth: width !== undefined ? formatTokenValue(width) : style?.borderInlineStartWidth,
     }}
   />
 )
