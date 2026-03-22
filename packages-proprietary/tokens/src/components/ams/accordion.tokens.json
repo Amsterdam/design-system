@@ -10,31 +10,31 @@
       },
       "button": {
         "font-family": {
-          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead.",
+          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead. Will be removed in release 4.0.0.",
           "$value": "{ams.typography.font-family}",
           "$type": "fontFamily"
         },
         "font-size": {
-          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead.",
+          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead. Will be removed in release 4.0.0.",
           "$value": "{ams.typography.heading.3.font-size}",
           "$extensions": {
             "nl.amsterdam.type": "fontSize"
           }
         },
         "font-weight": {
-          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead.",
+          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead. Will be removed in release 4.0.0.",
           "$value": "{ams.typography.heading.font-weight}",
           "$type": "fontWeight"
         },
         "line-height": {
-          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead.",
+          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead. Will be removed in release 4.0.0.",
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
             "nl.amsterdam.type": "lineHeight"
           }
         },
         "text-wrap": {
-          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead.",
+          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead. Will be removed in release 4.0.0.",
           "$value": "{ams.typography.heading.text-wrap}"
         },
         "color": {
@@ -81,11 +81,11 @@
       },
       "panel": {
         "padding-block": {
-          "$deprecated": "This token will be removed in a future release.",
+          "$deprecated": "Will be removed in release 4.0.0.",
           "$value": "0"
         },
         "padding-inline": {
-          "$deprecated": "This token will be removed in a future release.",
+          "$deprecated": "Will be removed in release 4.0.0.",
           "$value": "0"
         }
       }

@@ -51,7 +51,7 @@
       },
       "legend": {
         "margin-block-end": {
-          "$deprecated": "This token will be removed in release 5.0.0",
+          "$deprecated": "Will be removed in release 5.0.0.",
           "$value": "{ams.space.s}",
           "$type": "dimension",
           "$extensions": {

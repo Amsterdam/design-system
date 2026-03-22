@@ -85,7 +85,7 @@
           "$type": "color"
         },
         "secondary": {
-          "$deprecated": "Use `currentColor` instead",
+          "$deprecated": "Use `currentColor` instead. Will be removed in release 4.0.0.",
           "$value": "#202020",
           "$type": "color"
         }

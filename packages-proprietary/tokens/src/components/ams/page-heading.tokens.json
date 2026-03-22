@@ -2,41 +2,41 @@
   "ams": {
     "page-heading": {
       "color": {
-        "$deprecated": "Use the Heading component with level 1 instead.",
+        "$deprecated": "Use the Heading component with level 1 instead. Will be removed in release 4.0.0.",
         "$value": "{ams.color.text.default}",
         "$type": "color"
       },
       "font-family": {
-        "$deprecated": "Use the Heading component with level 1 instead.",
+        "$deprecated": "Use the Heading component with level 1 instead. Will be removed in release 4.0.0.",
         "$value": "{ams.typography.font-family}",
         "$type": "fontFamily"
       },
       "font-size": {
-        "$deprecated": "Use the Heading component with level 1 instead.",
+        "$deprecated": "Use the Heading component with level 1 instead. Will be removed in release 4.0.0.",
         "$value": "{ams.typography.heading.0.font-size}",
         "$extensions": {
           "nl.amsterdam.type": "fontSize"
         }
       },
       "font-weight": {
-        "$deprecated": "Use the Heading component with level 1 instead.",
+        "$deprecated": "Use the Heading component with level 1 instead. Will be removed in release 4.0.0.",
         "$value": "{ams.typography.heading.font-weight}",
         "$type": "fontWeight"
       },
       "line-height": {
-        "$deprecated": "Use the Heading component with level 1 instead.",
+        "$deprecated": "Use the Heading component with level 1 instead. Will be removed in release 4.0.0.",
         "$value": "{ams.typography.heading.0.line-height}",
         "$extensions": {
           "nl.amsterdam.type": "lineHeight"
         }
       },
       "text-wrap": {
-        "$deprecated": "Use the Heading component with level 1 instead.",
+        "$deprecated": "Use the Heading component with level 1 instead. Will be removed in release 4.0.0.",
         "$value": "{ams.typography.heading.text-wrap}"
       },
       "inverse": {
         "color": {
-          "$deprecated": "Use the Heading component with level 1 instead.",
+          "$deprecated": "Use the Heading component with level 1 instead. Will be removed in release 4.0.0.",
           "$value": "{ams.color.text.inverse}",
           "$type": "color"
         }

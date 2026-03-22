@@ -71,7 +71,7 @@
           "$value": "{ams.links.subtle.hover.text-decoration-line}"
         },
         "text-decoration-thickness": {
-          "$deprecated": "Use `ams.checkbox.text-decoration-thickness` instead",
+          "$deprecated": "Use `ams.checkbox.text-decoration-thickness` instead. Will be removed in release 4.0.0.",
           "$value": "{ams.border.width.m}",
           "$type": "dimension"
         }
@@ -135,7 +135,7 @@
             },
             "hover": {
               "fill": {
-                "$deprecated": "This token will be removed in a future release.",
+                "$deprecated": "Will be removed in release 4.0.0.",
                 "$value": "{ams.color.interactive.disabled}",
                 "$type": "color"
               }
@@ -148,7 +148,7 @@
             },
             "disabled-invalid": {
               "fill": {
-                "$deprecated": "This token will be removed in a future release.",
+                "$deprecated": "Will be removed in release 4.0.0.",
                 "$value": "{ams.color.interactive.disabled}",
                 "$type": "color"
               }
@@ -180,7 +180,7 @@
           },
           "disabled-invalid": {
             "stroke": {
-              "$deprecated": "This token will be removed in a future release.",
+              "$deprecated": "Will be removed in release 4.0.0.",
               "$value": "{ams.color.interactive.disabled}",
               "$type": "color"
             }
@@ -198,7 +198,7 @@
             },
             "hover": {
               "fill": {
-                "$deprecated": "This token will be removed in a future release.",
+                "$deprecated": "Will be removed in release 4.0.0.",
                 "$value": "{ams.color.interactive.disabled}",
                 "$type": "color"
               }
@@ -211,7 +211,7 @@
             },
             "disabled-invalid": {
               "fill": {
-                "$deprecated": "This token will be removed in a future release.",
+                "$deprecated": "Will be removed in release 4.0.0.",
                 "$value": "{ams.color.interactive.disabled}",
                 "$type": "color"
               }

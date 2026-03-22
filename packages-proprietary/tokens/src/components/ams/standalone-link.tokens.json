@@ -62,12 +62,12 @@
           "$value": "{ams.links.subtle.hover.text-decoration-line}"
         },
         "text-decoration-thickness": {
-          "$deprecated": "Use `ams.standalone-link.text-decoration-thickness` instead",
+          "$deprecated": "Use `ams.standalone-link.text-decoration-thickness` instead. Will be removed in release 4.0.0.",
           "$value": "{ams.links.hover.text-decoration-thickness}",
           "$type": "dimension"
         },
         "text-underline-offset": {
-          "$deprecated": "Use `ams.standalone-link.text-underline-offset` instead",
+          "$deprecated": "Use `ams.standalone-link.text-underline-offset` instead. Will be removed in release 4.0.0.",
           "$value": "{ams.links.hover.text-underline-offset}",
           "$type": "dimension",
           "$extensions": {
@@ -77,17 +77,17 @@
       },
       "with-icon": {
         "text-decoration-line": {
-          "$deprecated": "Use `ams.standalone-link.text-decoration-line` instead",
+          "$deprecated": "Use `ams.standalone-link.text-decoration-line` instead. Will be removed in release 4.0.0.",
           "$value": "{ams.links.subtle.text-decoration-line}"
         },
         "text-decoration-thickness": {
-          "$deprecated": "Use `ams.standalone-link.text-decoration-thickness` instead",
+          "$deprecated": "Use `ams.standalone-link.text-decoration-thickness` instead. Will be removed in release 4.0.0.",
           "$value": "{ams.links.text-decoration-thickness}",
           "$type": "dimension"
         },
         "hover": {
           "text-decoration-line": {
-            "$deprecated": "Use `ams.standalone-link.hover.text-decoration-line` instead",
+            "$deprecated": "Use `ams.standalone-link.hover.text-decoration-line` instead. Will be removed in release 4.0.0.",
             "$value": "{ams.links.subtle.hover.text-decoration-line}"
           }
         }

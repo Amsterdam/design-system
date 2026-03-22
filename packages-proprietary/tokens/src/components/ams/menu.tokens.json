@@ -62,13 +62,13 @@
         },
         "contrast": {
           "color": {
-            "$deprecated": "The menu has a dark background now, so this is no longer needed.",
+            "$deprecated": "The menu has a dark background now, so this is no longer needed. Will be removed in release 4.0.0.",
             "$value": "{ams.links.contrast.color}",
             "$type": "color"
           },
           "hover": {
             "color": {
-              "$deprecated": "The menu has a dark background now, so this is no longer needed.",
+              "$deprecated": "The menu has a dark background now, so this is no longer needed. Will be removed in release 4.0.0.",
               "$value": "{ams.links.contrast.hover.color}",
               "$type": "color"
             }
@@ -76,13 +76,13 @@
         },
         "inverse": {
           "color": {
-            "$deprecated": "The menu has a dark background now, so this is no longer needed.",
+            "$deprecated": "The menu has a dark background now, so this is no longer needed. Will be removed in release 4.0.0.",
             "$value": "{ams.links.inverse.color}",
             "$type": "color"
           },
           "hover": {
             "color": {
-              "$deprecated": "The menu has a dark background now, so this is no longer needed.",
+              "$deprecated": "The menu has a dark background now, so this is no longer needed. Will be removed in release 4.0.0.",
               "$value": "{ams.links.inverse.hover.color}",
               "$type": "color"
             }
