@@ -1,0 +1,92 @@
+{
+  "ams": {
+    "calendar": {
+      "font-family": {
+        "$value": "{ams.typography.font-family}",
+        "$type": "fontFamily"
+      },
+      "font-size": {
+        "$value": "{ams.typography.body-text.font-size}",
+        "$extensions": {
+          "nl.amsterdam.type": "fontSize"
+        }
+      },
+      "font-weight": {
+        "$value": "{ams.typography.body-text.font-weight}",
+        "$type": "fontWeight"
+      },
+      "line-height": {
+        "$value": "{ams.typography.body-text.line-height}",
+        "$extensions": {
+          "nl.amsterdam.type": "lineHeight"
+        }
+      },
+      "padding-block": {
+        "$value": "{ams.space.xs}",
+        "$type": "dimension"
+      },
+      "padding-inline": {
+        "$value": "{ams.space.xs}",
+        "$type": "dimension"
+      },
+      "month": {
+        "margin-block-end": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension"
+        }
+      },
+      "day": {
+        "border-color": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "border-style": {
+          "$value": "solid",
+          "$extensions": {
+            "nl.amsterdam.type": "borderStyle"
+          }
+        },
+        "border-width": {
+          "$value": "{ams.border.width.m}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderWidth"
+          }
+        },
+        "color": {
+          "$value": "{ams.color.interactive.default}",
+          "$type": "color"
+        },
+        "cursor": {
+          "$value": "{ams.cursor.interactive}"
+        },
+        "outline-offset": {
+          "$value": "{ams.focus.outline-offset}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
+        "current": {
+          "border-color": {
+            "$value": "{ams.color.text.default}",
+            "$type": "color"
+          }
+        },
+        "selected": {
+          "background-color": {
+            "$value": "{ams.color.interactive.default}",
+            "$type": "color"
+          },
+          "border-color": {
+            "$value": "{ams.color.interactive.default}",
+            "$type": "color"
+          },
+          "color": {
+            "$value": "{ams.color.text.inverse}",
+            "$type": "color"
+          }
+        }
+      }
+    }
+  }
+}

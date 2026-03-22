@@ -1,0 +1,21 @@
+{/* @license CC0-1.0 */}
+
+import { Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { DesignTokensTable } from "../../docs/components/DesignTokensTable";
+
+import README from "../../../../packages/css/src/components/calendar/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/calendar.tokens.json";
+
+import * as CalendarStories from "./Calendar.stories.tsx";
+
+<Meta of={CalendarStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
