@@ -24,7 +24,14 @@ tmp/
 
 # Cache
 .cache/
+.swc/
 tsconfig.tsbuildinfo
+
+# AI tools
+.claude/
+.cursor/
+.aider*
+.copilot/
 
 # Ignore log files
 *.err
