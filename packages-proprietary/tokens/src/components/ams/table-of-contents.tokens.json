@@ -28,6 +28,27 @@
           "nl.amsterdam.type": "lineHeight"
         }
       },
+      "heading": {
+        "font-weight": {
+          "$deprecated": "This token is no longer used.",
+          "$value": "{ams.typography.heading.font-weight}",
+          "$type": "fontWeight"
+        },
+        "font-size": {
+          "$deprecated": "This token is no longer used.",
+          "$value": "{ams.typography.heading.4.font-size}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "line-height": {
+          "$deprecated": "This token is no longer used.",
+          "$value": "{ams.typography.heading.4.line-height}",
+          "$extensions": {
+            "nl.amsterdam.type": "lineHeight"
+          }
+        }
+      },
       "link": {
         "color": {
           "$value": "{ams.links.color}",

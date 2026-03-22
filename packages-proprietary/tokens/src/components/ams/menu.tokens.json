@@ -60,6 +60,34 @@
           "$value": "{ams.links.inverse.color}",
           "$type": "color"
         },
+        "contrast": {
+          "color": {
+            "$deprecated": "The menu has a dark background now, so this is no longer needed.",
+            "$value": "{ams.links.contrast.color}",
+            "$type": "color"
+          },
+          "hover": {
+            "color": {
+              "$deprecated": "The menu has a dark background now, so this is no longer needed.",
+              "$value": "{ams.links.contrast.hover.color}",
+              "$type": "color"
+            }
+          }
+        },
+        "inverse": {
+          "color": {
+            "$deprecated": "The menu has a dark background now, so this is no longer needed.",
+            "$value": "{ams.links.inverse.color}",
+            "$type": "color"
+          },
+          "hover": {
+            "color": {
+              "$deprecated": "The menu has a dark background now, so this is no longer needed.",
+              "$value": "{ams.links.inverse.hover.color}",
+              "$type": "color"
+            }
+          }
+        },
         "gap": {
           "$value": "{ams.space.s}",
           "$type": "dimension",

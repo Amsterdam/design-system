@@ -83,6 +83,11 @@
         "inverse": {
           "$value": "#ffffff",
           "$type": "color"
+        },
+        "secondary": {
+          "$deprecated": "Use `currentColor` instead",
+          "$value": "#202020",
+          "$type": "color"
         }
       },
       "progress": {

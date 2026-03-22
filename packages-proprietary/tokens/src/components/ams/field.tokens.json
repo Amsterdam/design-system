@@ -1,6 +1,14 @@
 {
   "ams": {
     "field": {
+      "gap": {
+        "$deprecated": "This token will be removed in release 5.0.0",
+        "$value": "{ams.space.s}",
+        "$type": "dimension",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space"
+        }
+      },
       "child": {
         "margin-block-end": {
           "$value": "{ams.space.xs}",

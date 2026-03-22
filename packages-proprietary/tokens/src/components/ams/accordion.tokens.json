@@ -9,6 +9,34 @@
         }
       },
       "button": {
+        "font-family": {
+          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead.",
+          "$value": "{ams.typography.font-family}",
+          "$type": "fontFamily"
+        },
+        "font-size": {
+          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead.",
+          "$value": "{ams.typography.heading.3.font-size}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "font-weight": {
+          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead.",
+          "$value": "{ams.typography.heading.font-weight}",
+          "$type": "fontWeight"
+        },
+        "line-height": {
+          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead.",
+          "$value": "{ams.typography.heading.3.line-height}",
+          "$extensions": {
+            "nl.amsterdam.type": "lineHeight"
+          }
+        },
+        "text-wrap": {
+          "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead.",
+          "$value": "{ams.typography.heading.text-wrap}"
+        },
         "color": {
           "$value": "{ams.color.interactive.default}",
           "$type": "color"
@@ -49,6 +77,16 @@
             "$value": "{ams.color.interactive.hover}",
             "$type": "color"
           }
+        }
+      },
+      "panel": {
+        "padding-block": {
+          "$deprecated": "This token will be removed in a future release.",
+          "$value": "0"
+        },
+        "padding-inline": {
+          "$deprecated": "This token will be removed in a future release.",
+          "$value": "0"
         }
       }
     }

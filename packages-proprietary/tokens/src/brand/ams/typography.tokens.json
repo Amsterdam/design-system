@@ -83,6 +83,22 @@
         "text-wrap": {
           "$value": "balance"
         },
+        "0": {
+          "font-size": {
+            "$deprecated": "Use `ams.typography.heading.1.font-size` instead.",
+            "$value": "clamp(2.435rem, 2.0409rem + 1.9709vw, 3.8147rem)",
+            "$extensions": {
+              "nl.amsterdam.type": "fontSize"
+            }
+          },
+          "line-height": {
+            "$deprecated": "Use `ams.typography.heading.1.line-height` instead.",
+            "$value": "1.1",
+            "$extensions": {
+              "nl.amsterdam.type": "lineHeight"
+            }
+          }
+        },
         "1": {
           "font-size": {
             "$value": "clamp(2rem, 1.7143rem + 1.4286vw, 3rem)",
@@ -147,6 +163,22 @@
             }
           },
           "line-height": {
+            "$value": "1.4",
+            "$extensions": {
+              "nl.amsterdam.type": "lineHeight"
+            }
+          }
+        },
+        "6": {
+          "font-size": {
+            "$deprecated": "Use `ams.typography.heading.5.font-size` instead.",
+            "$value": "{ams.typography.body-text.small.font-size}",
+            "$extensions": {
+              "nl.amsterdam.type": "fontSize"
+            }
+          },
+          "line-height": {
+            "$deprecated": "Use `ams.typography.heading.5.line-height` instead.",
             "$value": "1.4",
             "$extensions": {
               "nl.amsterdam.type": "lineHeight"

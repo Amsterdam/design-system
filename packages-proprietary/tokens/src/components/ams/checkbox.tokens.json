@@ -69,6 +69,11 @@
         },
         "text-decoration-line": {
           "$value": "{ams.links.subtle.hover.text-decoration-line}"
+        },
+        "text-decoration-thickness": {
+          "$deprecated": "Use `ams.checkbox.text-decoration-thickness` instead",
+          "$value": "{ams.border.width.m}",
+          "$type": "dimension"
         }
       },
       "checked-indicator": {
@@ -127,12 +132,26 @@
             "fill": {
               "$value": "{ams.color.interactive.disabled}",
               "$type": "color"
+            },
+            "hover": {
+              "fill": {
+                "$deprecated": "This token will be removed in a future release.",
+                "$value": "{ams.color.interactive.disabled}",
+                "$type": "color"
+              }
             }
           },
           "hover": {
             "fill": {
               "$value": "{ams.color.interactive.hover}",
               "$type": "color"
+            },
+            "disabled-invalid": {
+              "fill": {
+                "$deprecated": "This token will be removed in a future release.",
+                "$value": "{ams.color.interactive.disabled}",
+                "$type": "color"
+              }
             }
           },
           "invalid": {
@@ -158,6 +177,13 @@
           "stroke": {
             "$value": "{ams.color.interactive.hover}",
             "$type": "color"
+          },
+          "disabled-invalid": {
+            "stroke": {
+              "$deprecated": "This token will be removed in a future release.",
+              "$value": "{ams.color.interactive.disabled}",
+              "$type": "color"
+            }
           }
         },
         "indeterminate": {
@@ -169,12 +195,26 @@
             "fill": {
               "$value": "{ams.color.interactive.disabled}",
               "$type": "color"
+            },
+            "hover": {
+              "fill": {
+                "$deprecated": "This token will be removed in a future release.",
+                "$value": "{ams.color.interactive.disabled}",
+                "$type": "color"
+              }
             }
           },
           "hover": {
             "fill": {
               "$value": "{ams.color.interactive.hover}",
               "$type": "color"
+            },
+            "disabled-invalid": {
+              "fill": {
+                "$deprecated": "This token will be removed in a future release.",
+                "$value": "{ams.color.interactive.disabled}",
+                "$type": "color"
+              }
             }
           },
           "invalid": {
