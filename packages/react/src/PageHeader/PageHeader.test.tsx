@@ -114,7 +114,15 @@ describe('PageHeader', () => {
     expect(component).toHaveClass('ams-page-header__navigation')
   })
 
-  it('renders a nav section with a custom label', () => {
+  it('renders a nav section with the default accessible name', () => {
+    render(<PageHeader>Test</PageHeader>)
+
+    const component = screen.getByRole('navigation', { name: 'Hoofdmenu' })
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders a nav section with a custom accessible name', () => {
     render(<PageHeader navigationLabel="Custom Navigation">Test</PageHeader>)
 
     const component = screen.getByRole('navigation', { name: 'Custom Navigation' })
