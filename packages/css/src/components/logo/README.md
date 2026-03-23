@@ -20,6 +20,7 @@ They have a separate status because of their unique service provision not direct
 The sub-brands are:
 
 - GGD Amsterdam
+- GGD Amsterdam Inspectie
 - Museum Weesp
 - Stadsarchief
 - Stadsbank van Lening
