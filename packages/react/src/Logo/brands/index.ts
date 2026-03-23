@@ -5,6 +5,7 @@
 
 export { default as AmsterdamEnglishLogo } from './AmsterdamEnglishLogo'
 export { default as AmsterdamLogo } from './AmsterdamLogo'
+export { default as GgdAmsterdamInspectieLogo } from './GgdAmsterdamInspectieLogo'
 export { default as GgdAmsterdamLogo } from './GgdAmsterdamLogo'
 export { default as MuseumWeespLogo } from './MuseumWeespLogo'
 export { default as StadsarchiefLogo } from './StadsarchiefLogo'
