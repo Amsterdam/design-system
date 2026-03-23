@@ -13,8 +13,8 @@
 
   color: var(--ams-description-list-color);
   font-family: var(--ams-description-list-font-family);
-  font-size: var(--ams-description-list-font-size);
-  line-height: var(--ams-description-list-line-height);
+  font-size: var(--ams-description-list-font-size); /* This token is @deprecated. */
+  line-height: var(--ams-description-list-line-height); /* This token is @deprecated. */
 
   @include hyphenation;
   @include text-rendering;
@@ -50,7 +50,9 @@
 }
 
 .ams-description-list__term {
+  font-size: var(--ams-description-list-term-font-size);
   font-weight: var(--ams-description-list-term-font-weight);
+  line-height: var(--ams-description-list-term-line-height);
   margin-block-end: var(--ams-description-list-term-margin-block-end);
 
   /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
@@ -61,6 +63,20 @@
 
     // Add margin for Terms that are longer than their Description(s)
     margin-block-end: var(--ams-description-list-term-vi-medium-margin-block-end);
+
+    // Add half of the difference in computed line heights to align Terms with Descriptions.
+    // - Terms use heading line heights; Descriptions use body text
+    // - Not for Terms that follow a Term, or which are the last child
+    &:not(& + &, :last-child) {
+      padding-block-start: calc(
+        (
+            var(--ams-description-list-description-font-size) *
+              var(--ams-description-list-description-line-height) - var(--ams-description-list-term-font-size) *
+              var(--ams-description-list-term-line-height)
+          ) /
+          2
+      );
+    }
   }
 
   // Remove whitespace between consecutive Terms
@@ -73,7 +89,9 @@
 .ams-description-list__description {
   @include reset-dd;
 
+  font-size: var(--ams-description-list-description-font-size);
   font-weight: var(--ams-description-list-description-font-weight);
+  line-height: var(--ams-description-list-description-line-height);
   margin-block-end: var(--ams-description-list-description-margin-block-end);
   padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
