@@ -14,12 +14,13 @@ The English logo is used for websites in the English language.
 
 ## Exception
 
-Use a sub-brand logo if the website is owned by one of the 5 sub-brands.
+Websites operated by one of the sub-brands use their specific logo.
 They have a separate status because of their unique service provision not directly associated with the City.
 
 The sub-brands are:
 
 - GGD Amsterdam
+- GGD Amsterdam Inspectie
 - Museum Weesp
 - Stadsarchief
 - Stadsbank van Lening
