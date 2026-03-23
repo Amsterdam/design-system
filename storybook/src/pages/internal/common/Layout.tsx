@@ -22,8 +22,8 @@ export const Layout = ({ children }: LayoutProps) => (
       logoLink="/"
       logoLinkTitle="Naar de homepage van Applicatie"
       menuItems={
-        <PageHeader.MenuLink fixed href="#" icon={UserAccountIcon} key={1}>
-          Log in
+        <PageHeader.MenuLink fixed href="#" icon={UserAccountIcon}>
+          Inloggen
         </PageHeader.MenuLink>
       }
       navigationLabel="Menu"
