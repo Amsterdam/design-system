@@ -1,0 +1,1 @@
+import{j as s}from"./iframe-ClbubOol.js";import{G as r}from"./Grid-DTTR4vf0.js";const i=()=>s.jsx(r,{className:"_ams-grid-columns-guide",children:Array.from(Array(12).keys()).map(m=>s.jsx(r.Cell,{className:"_ams-grid-columns-guide__cell"},m))});export{i as G};
