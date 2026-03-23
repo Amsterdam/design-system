@@ -32,7 +32,7 @@
   align-self: start; // To align the logo link section to the top of the header when it wraps
   column-gap: var(--ams-page-header-logo-link-column-gap);
   display: flex;
-  grid-area: 1 / 1; /* Lets this instance of Logo Link overlap the other */
+  grid-area: 1 / 1; /* Lets this visible instance of Logo Link overlap the hidden one in Navigation. */
   inline-size: fit-content;
   outline-offset: var(--ams-page-header-logo-link-outline-offset);
   text-decoration: none;
@@ -94,7 +94,7 @@
   column-gap: var(--ams-page-header-navigation-column-gap);
   display: flex;
   flex-wrap: wrap;
-  grid-area: 1 / 1; /* Lets this instance of Logo Link overlap the other */
+  grid-area: 1 / 1; /* Makes the hidden Logo Link child overlap the visible one. */
   // This section blocks pointer events initially, so the hidden logo link section can't be activated.
   // The menu and collapsible menu set it back to auto, to make sure they can be activated.
   pointer-events: none;
