@@ -127,6 +127,11 @@
   .ams-progress-list > :last-child:not(.ams-progress-list__step--has-substeps) & {
     display: none;
   }
+
+  /* Hide connector for last step when collapsed. */
+  .ams-progress-list > :last-child.ams-progress-list__step--collapsed & {
+    display: none;
+  }
 }
 
 /* Content */
@@ -145,6 +150,85 @@
 
 .ams-progress-list__heading {
   margin-block-end: var(--ams-progress-list-step-heading-margin-block-end);
+}
+
+/* Button */
+
+.ams-progress-list__button {
+  @include reset-button;
+
+  background-color: transparent;
+  color: var(--ams-progress-list-button-color);
+  cursor: var(--ams-progress-list-button-cursor);
+  display: flex;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  gap: var(--ams-progress-list-button-gap);
+  inline-size: 100%;
+  line-height: inherit;
+  outline-offset: var(--ams-progress-list-button-outline-offset);
+  padding-block: var(--ams-progress-list-button-padding-block);
+  padding-inline: var(--ams-progress-list-button-padding-inline);
+  text-align: start;
+
+  &:hover {
+    color: var(--ams-progress-list-button-hover-color);
+  }
+}
+
+/* Icon */
+
+.ams-progress-list__icon svg {
+  rotate: 0deg;
+  transition: none;
+
+  [aria-expanded="true"] & {
+    rotate: -180deg;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: rotate var(--ams-progress-list-step-panel-transition-duration)
+      var(--ams-progress-list-step-panel-transition-easing);
+  }
+}
+
+/* Panel */
+
+.ams-progress-list__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: grid-template-rows var(--ams-progress-list-step-panel-transition-duration)
+      var(--ams-progress-list-step-panel-transition-easing);
+  }
+}
+
+.ams-progress-list__panel--expanded {
+  grid-template-rows: 1fr;
+}
+
+.ams-progress-list__panel-inner {
+  min-block-size: 0;
+
+  /* overflow-y: clip is intentional: it clips only the block direction so the
+   * animation works correctly, while leaving overflow-x as 'visible'. This
+   * allows substep indicators that extend past the panel's inline start edge
+   * (via negative margin) to remain unclipped. Using overflow: hidden here
+   * would coerce overflow-x to 'auto' and clip those indicators. */
+  overflow-y: clip;
+  visibility: hidden;
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* Delay visibility change until the panel has fully closed. */
+    transition: visibility var(--ams-progress-list-step-panel-transition-duration);
+  }
+}
+
+/* When expanded, make content visible immediately so it is reachable. */
+.ams-progress-list__panel--expanded .ams-progress-list__panel-inner {
+  visibility: visible;
 }
 
 /* Substeps is its own block in BEM and has the same elements as above */

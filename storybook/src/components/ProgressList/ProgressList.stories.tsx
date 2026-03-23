@@ -42,6 +42,34 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+/**
+ * A completed step is collapsed by default so past information does not
+ * dominate the page. Steps without a status, or with status `'current'`,
+ * default to expanded.
+ *
+ * Use the `expanded` prop to override the initial state for any individual
+ * step.
+ */
+export const ExpandedOverride: Story = {
+  args: {
+    children: [
+      <ProgressList.Step expanded heading="2024" key={0} status="completed">
+        <Paragraph>{paragraphs[3]}</Paragraph>
+      </ProgressList.Step>,
+      <ProgressList.Step heading="2025" key={1} status="completed">
+        <Paragraph>{paragraphs[4]}</Paragraph>
+      </ProgressList.Step>,
+      <ProgressList.Step heading="2026" key={2} status="current">
+        <Paragraph className="ams-mb-m">{paragraphs[1]}</Paragraph>
+        <UnorderedList>{unorderedList}</UnorderedList>
+      </ProgressList.Step>,
+      <ProgressList.Step expanded={false} heading="2027" key={3}>
+        <Paragraph>{paragraphs[5]}</Paragraph>
+      </ProgressList.Step>,
+    ],
+  },
+}
+
 export const WithSubsteps: Story = {
   args: {
     children: [

@@ -5,9 +5,11 @@
 
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
-import { ArrowForwardIcon } from '@amsterdam/design-system-react-icons'
+import { ArrowForwardIcon, ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useContext } from 'react'
+import { forwardRef, useContext, useId, useState } from 'react'
+
+import type { IconProps } from '../Icon/Icon'
 
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
@@ -15,6 +17,15 @@ import { AccessibleStatusText } from './AccessibleStatusText'
 import { ProgressListContext } from './ProgressListContext'
 
 export type ProgressListStepProps = {
+  /**
+   * Whether the content is displayed initially. Defaults to `true` unless
+   * `status` is `'completed'`, in which case the step starts collapsed.
+   *
+   * Note: if a user focuses an interactive element inside the panel and the
+   * panel is then collapsed, focus moves to `<body>`. This is standard browser
+   * behaviour when `visibility: hidden` is applied to a focused element.
+   */
+  expanded?: boolean
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
   hasSubsteps?: boolean
   /** The heading text for this step. */
@@ -25,10 +36,16 @@ export type ProgressListStepProps = {
 
 export const ProgressListStep = forwardRef(
   (
-    { children, className, hasSubsteps, heading, status, ...restProps }: ProgressListStepProps,
+    { children, className, expanded, hasSubsteps, heading, status, ...restProps }: ProgressListStepProps,
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     const { headingLevel } = useContext(ProgressListContext)
+    const [isExpanded, setIsExpanded] = useState(expanded ?? status !== 'completed')
+
+    const id = useId()
+    const iconSize = `heading-${headingLevel}` as IconProps['size']
+    const buttonId = `button-${id}`
+    const panelId = `panel-${id}`
 
     return (
       <li
@@ -36,6 +53,7 @@ export const ProgressListStep = forwardRef(
         className={clsx(
           className,
           'ams-progress-list__step',
+          !isExpanded && 'ams-progress-list__step--collapsed',
           hasSubsteps && 'ams-progress-list__step--has-substeps',
           status && `ams-progress-list__step--${status}`,
         )}
@@ -52,10 +70,26 @@ export const ProgressListStep = forwardRef(
         </div>
         <div className="ams-progress-list__content">
           <Heading className="ams-progress-list__heading" level={headingLevel}>
-            <AccessibleStatusText status={status} />
-            {heading}
+            <button
+              aria-controls={panelId}
+              aria-expanded={isExpanded}
+              className="ams-progress-list__button"
+              id={buttonId}
+              onClick={() => setIsExpanded(!isExpanded)}
+              type="button"
+            >
+              <Icon className="ams-progress-list__icon" size={iconSize} svg={ChevronDownIcon} />
+              <AccessibleStatusText status={status} />
+              {heading}
+            </button>
           </Heading>
-          {children}
+          <div
+            aria-labelledby={buttonId}
+            className={clsx('ams-progress-list__panel', { 'ams-progress-list__panel--expanded': isExpanded })}
+            id={panelId}
+          >
+            <div className="ams-progress-list__panel-inner">{children}</div>
+          </div>
         </div>
       </li>
     )
