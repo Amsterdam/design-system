@@ -20,6 +20,7 @@ export const Layout = ({ children }: LayoutProps) => (
       className="ams-page__area--header"
       logoLink="/"
       logoLinkTitle="Naar de homepage van Applicatie"
+      navigationLabel="Menu"
       noMenuButtonOnWideWindow
     >
       <MenuWithItems />
