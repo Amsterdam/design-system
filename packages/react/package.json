@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "@amsterdam/design-system-react-icons": "workspace:*",
-    "@babel/runtime": "7.28.6",
+    "@babel/runtime": "7.29.2",
     "clsx": "2.1.1"
   },
   "devDependencies": {
