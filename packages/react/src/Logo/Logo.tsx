@@ -22,8 +22,8 @@ import {
 export const logoBrands = [
   'amsterdam',
   'amsterdam-english',
-  'ggd-amsterdam-inspectie',
   'ggd-amsterdam',
+  'ggd-amsterdam-inspectie',
   'museum-weesp',
   'stadsarchief',
   'stadsbank-van-lening',
