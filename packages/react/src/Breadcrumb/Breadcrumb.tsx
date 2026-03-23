@@ -6,18 +6,37 @@
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useId } from 'react'
 
 import { BreadcrumbLink } from './BreadcrumbLink'
 
-export type BreadcrumbProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+export type BreadcrumbProps = {
+  /** The accessible name for the component. */
+  accessibleName?: string
+  /**
+   * Connects the component with an internal element that defines its accessible name.
+   * Note: must be unique for the page.
+   */
+  accessibleNameId?: string
+} & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const BreadcrumbRoot = forwardRef(
-  ({ children, className, ...restProps }: BreadcrumbProps, ref: ForwardedRef<HTMLElement>) => (
-    <nav {...restProps} className={clsx('ams-breadcrumb', className)} ref={ref}>
-      <ol className="ams-breadcrumb__list">{children}</ol>
-    </nav>
-  ),
+  (
+    { accessibleName, accessibleNameId, children, className, ...restProps }: BreadcrumbProps,
+    ref: ForwardedRef<HTMLElement>,
+  ) => {
+    const generatedId = useId()
+    const labelId = accessibleNameId || generatedId
+
+    return (
+      <nav {...restProps} aria-labelledby={labelId} className={clsx('ams-breadcrumb', className)} ref={ref}>
+        <h2 aria-hidden={true} className="ams-visually-hidden" id={labelId}>
+          {accessibleName || 'Kruimelpad'}
+        </h2>
+        <ol className="ams-breadcrumb__list">{children}</ol>
+      </nav>
+    )
+  },
 )
 
 BreadcrumbRoot.displayName = 'Breadcrumb'

@@ -48,6 +48,10 @@
   }
 }
 
+.ams-pagination__link-label {
+  display: inline; // Override the default 'hidden' attribute, showing the visible label when CSS loads
+}
+
 .ams-pagination__link[aria-current="page"] {
   font-weight: var(--ams-pagination-link-current-font-weight);
 

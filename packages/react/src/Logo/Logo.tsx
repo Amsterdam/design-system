@@ -9,19 +9,21 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 import {
-  LogoAmsterdam,
-  LogoAmsterdamEnglish,
-  LogoGgdAmsterdam,
-  LogoMuseumWeesp,
-  LogoStadsarchief,
-  LogoStadsbankVanLening,
-  LogoVgaVerzekeringen,
-} from './brand'
+  AmsterdamEnglishLogo,
+  AmsterdamLogo,
+  GgdAmsterdamInspectieLogo,
+  GgdAmsterdamLogo,
+  MuseumWeespLogo,
+  StadsarchiefLogo,
+  StadsbankVanLeningLogo,
+  VgaVerzekeringenLogo,
+} from './brands'
 
 export const logoBrands = [
   'amsterdam',
   'amsterdam-english',
   'ggd-amsterdam',
+  'ggd-amsterdam-inspectie',
   'museum-weesp',
   'stadsarchief',
   'stadsbank-van-lening',
@@ -43,31 +45,35 @@ export type LogoBrandConfig = {
 const logoConfig: Record<LogoBrand, LogoBrandConfig> = {
   amsterdam: {
     label: 'Gemeente Amsterdam logo',
-    svg: LogoAmsterdam,
+    svg: AmsterdamLogo,
   },
   'amsterdam-english': {
     label: 'City of Amsterdam logo',
-    svg: LogoAmsterdamEnglish,
+    svg: AmsterdamEnglishLogo,
   },
   'ggd-amsterdam': {
     label: 'GGD Amsterdam logo',
-    svg: LogoGgdAmsterdam,
+    svg: GgdAmsterdamLogo,
+  },
+  'ggd-amsterdam-inspectie': {
+    label: 'GGD Amsterdam Inspectie logo',
+    svg: GgdAmsterdamInspectieLogo,
   },
   'museum-weesp': {
     label: 'Gemeente Amsterdam Museum Weesp logo',
-    svg: LogoMuseumWeesp,
+    svg: MuseumWeespLogo,
   },
   stadsarchief: {
     label: 'Gemeente Amsterdam Stadsarchief logo',
-    svg: LogoStadsarchief,
+    svg: StadsarchiefLogo,
   },
   'stadsbank-van-lening': {
     label: 'Gemeente Amsterdam Stadsbank van Lening logo',
-    svg: LogoStadsbankVanLening,
+    svg: StadsbankVanLeningLogo,
   },
   'vga-verzekeringen': {
     label: 'Gemeente Amsterdam VGA Verzekeringen logo',
-    svg: LogoVgaVerzekeringen,
+    svg: VgaVerzekeringenLogo,
   },
 }
 

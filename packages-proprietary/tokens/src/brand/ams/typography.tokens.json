@@ -20,7 +20,7 @@
           "$type": "fontWeight"
         },
         "line-height": {
-          "$value": "1.8",
+          "$value": "1.6",
           "$extensions": {
             "nl.amsterdam.type": "lineHeight"
           }
@@ -40,7 +40,7 @@
             "$type": "dimension"
           },
           "line-height": {
-            "$value": "1.6",
+            "$value": "1.5",
             "$extensions": {
               "nl.amsterdam.type": "lineHeight"
             }
@@ -54,7 +54,7 @@
             }
           },
           "line-height": {
-            "$value": "1.6",
+            "$value": "1.5",
             "$extensions": {
               "nl.amsterdam.type": "lineHeight"
             }
@@ -82,6 +82,22 @@
         },
         "text-wrap": {
           "$value": "balance"
+        },
+        "0": {
+          "font-size": {
+            "$deprecated": "Use `ams.typography.heading.1.font-size` instead. Will be removed in release 4.0.0.",
+            "$value": "clamp(2.435rem, 2.0409rem + 1.9709vw, 3.8147rem)",
+            "$extensions": {
+              "nl.amsterdam.type": "fontSize"
+            }
+          },
+          "line-height": {
+            "$deprecated": "Use `ams.typography.heading.1.line-height` instead. Will be removed in release 4.0.0.",
+            "$value": "1.1",
+            "$extensions": {
+              "nl.amsterdam.type": "lineHeight"
+            }
+          }
         },
         "1": {
           "font-size": {
@@ -147,6 +163,22 @@
             }
           },
           "line-height": {
+            "$value": "1.4",
+            "$extensions": {
+              "nl.amsterdam.type": "lineHeight"
+            }
+          }
+        },
+        "6": {
+          "font-size": {
+            "$deprecated": "Use `ams.typography.heading.5.font-size` instead. Will be removed in release 4.0.0.",
+            "$value": "{ams.typography.body-text.small.font-size}",
+            "$extensions": {
+              "nl.amsterdam.type": "fontSize"
+            }
+          },
+          "line-height": {
+            "$deprecated": "Use `ams.typography.heading.5.line-height` instead. Will be removed in release 4.0.0.",
             "$value": "1.4",
             "$extensions": {
               "nl.amsterdam.type": "lineHeight"

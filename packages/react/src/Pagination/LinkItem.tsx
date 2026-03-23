@@ -22,10 +22,8 @@ export const LinkItem = ({ currentPage, linkComponent, linkTemplate, pageNumber 
         className="ams-pagination__link"
         href={linkTemplate(pageNumber)}
       >
-        <span className="ams-visually-hidden">
-          {pageNumber === currentPage ? `Pagina ${pageNumber}` : `Ga naar pagina ${pageNumber}`}
-        </span>
-        <span aria-hidden>{pageNumber}</span>
+        <span className="ams-visually-hidden">{pageNumber === currentPage ? 'Pagina ' : 'Ga naar pagina '}</span>
+        {pageNumber}
       </Link>
     </li>
   )

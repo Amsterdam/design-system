@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v3.2.0...design-system-react-v3.2.1) (2026-03-19)
+
+
+### Bug Fixes
+
+* **deps:** Fix peer dependency on CSS package ([#2478](https://github.com/Amsterdam/design-system/issues/2478)) ([9e07fcd](https://github.com/Amsterdam/design-system/commit/9e07fcdac5a291c641cd1256e7f3a55152799e9e))
+
 ## [3.2.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v3.1.0...design-system-react-v3.2.0) (2026-03-13)
 
 

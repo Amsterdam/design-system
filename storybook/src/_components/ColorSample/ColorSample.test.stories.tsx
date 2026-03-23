@@ -16,6 +16,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: () => <ColorSample value="hotpink" />,
+  render: () => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
+      <ColorSample value="hotpink" />
+      <ColorSample value="" />
+    </div>
+  ),
   tags: ['!dev', '!autodocs'],
 }

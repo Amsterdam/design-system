@@ -216,6 +216,19 @@ export default tseslint.config(
     },
   },
 
+  // Generated logo components
+  {
+    name: 'amsterdam-design-system/generated-logos',
+    files: ['packages/react/src/Logo/brands/*Logo.tsx'],
+    rules: {
+      'padding-line-between-statements': [
+        'error',
+        { blankLine: 'always', prev: 'const', next: 'expression' },
+        { blankLine: 'always', prev: 'expression', next: 'export' },
+      ],
+    },
+  },
+
   // JSON
   {
     name: 'amsterdam-design-system/json',

@@ -43,7 +43,7 @@ For example, you can indicate that you’d like feedback about a specific code f
 
 When saving the PR, GitHub will statically analyse the code for linting errors or failing tests.
 Check back after a few minutes to verify there have been no errors – otherwise, the PR cannot merge, which will block the first reviewer.
-Alternatively, run linting and tests locally: `npm run lint` and `npm run test`.
+Alternatively, run linting and tests locally: `pnpm run lint` and `pnpm run test`.
 
 ### Consider the PR an intermediate step
 

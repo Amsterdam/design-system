@@ -22,6 +22,7 @@ export const Test: Story = {
       <TypographySample fontSize="1.5rem" />
       <TypographySample fontWeight="bold" />
       <TypographySample lineHeight="1.5" />
+      <TypographySample compact fontSize="1.5rem" />
     </div>
   ),
   tags: ['!dev', '!autodocs'],

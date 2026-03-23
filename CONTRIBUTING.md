@@ -172,7 +172,7 @@ Unit tests live in `packages/react` and are run with [Vitest](https://vitest.dev
 
 ### Adding a new component
 
-Scaffold all necessary files for a new component at once through `npm run plop`.
+Scaffold all necessary files for a new component at once through `pnpm run plop`.
 Enter the name of your component when prompted.
 Answer the other prompts if applicable, otherwise use the defaults.
 This will create files for the design tokens, CSS and React components, and React Stories.
