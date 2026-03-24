@@ -53,8 +53,8 @@ export const ProgressListStep = forwardRef(
     const { headingLevel } = useContext(ProgressListContext)
     const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? status !== 'completed')
 
-    const id = useId()
     const iconSize = `heading-${headingLevel}` as IconProps['size']
+    const id = useId()
     const buttonId = `button-${id}`
     const panelId = `panel-${id}`
 
