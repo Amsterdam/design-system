@@ -307,7 +307,31 @@ export const CzaarPeterstraat: StoryObj = {
             </UnorderedList.Item>
             <UnorderedList.Item>
               De invulling van de beperkte ruimte op de stoep. We zoeken naar een balans tussen de wensen en behoeftes
-              en de ruimte die er is om dit goed in te passen.
+              en de ruimte die er is om dit goed in te passen:
+              <UnorderedList>
+                <UnorderedList.Item>
+                  (Brom-) fietsparkeren: de parkeerdruk is hoog, maar niet op alle plekken in de straat.
+                </UnorderedList.Item>
+                <UnorderedList.Item>
+                  Vrije doorloopruimte: de minimale maat voor vrije doorloopruimte van 2 meter wordt nu niet overal
+                  gehaald. We willen de straat zo toegankelijk mogelijke straat maken.
+                </UnorderedList.Item>
+                <UnorderedList.Item>
+                  Bij het pleintje bij de Eerste Coehoornstraat komt ruimte voor andere invulling door het verdwijnen
+                  van de tramhalte.
+                </UnorderedList.Item>
+                <UnorderedList.Item>
+                  Laad- en losplekken: het aantal plekken blijft gelijk. Er wordt wat geschoven, zodat er bij de
+                  ophaalpunten voor de post in de straat een plek is.
+                </UnorderedList.Item>
+                <UnorderedList.Item>
+                  Bomen en groen: samen met de groenbeheerder willen we meer bomen/groen planten. In ieder geval op de
+                  plekken waar eerder bomen gestaan hebben.
+                </UnorderedList.Item>
+                <UnorderedList.Item>
+                  Een autoluwe straat: welke maatregelen kunnen bijdragen aan minder autoverkeer in de straat?
+                </UnorderedList.Item>
+              </UnorderedList>
             </UnorderedList.Item>
           </UnorderedList>
           <Heading className="ams-mb-xs" level={3}>
