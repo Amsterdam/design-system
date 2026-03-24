@@ -231,6 +231,18 @@
   visibility: visible;
 }
 
+/* Print: expand all panels so no content is lost on paper. */
+@media print {
+  .ams-progress-list__panel {
+    grid-template-rows: 1fr;
+  }
+
+  .ams-progress-list__panel-inner {
+    overflow-y: visible;
+    visibility: visible;
+  }
+}
+
 /* Substeps is its own block in BEM and has the same elements as above */
 
 .ams-progress-list-substeps {
