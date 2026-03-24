@@ -53,6 +53,9 @@
   font-weight: var(--ams-description-list-term-font-weight);
   margin-block-end: var(--ams-description-list-term-margin-block-end);
 
+  /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
+  text-wrap: var(--ams-description-list-term-text-wrap);
+
   @media (min-width: $ams-breakpoint-medium) {
     grid-column-start: 1;
 

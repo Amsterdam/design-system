@@ -31,7 +31,7 @@ export const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRow
       <Code>{value}</Code>
     </td>
     <td>
-      {type === 'borderStyle' && <BorderSample style={value} />}
+      {type === 'borderStyle' && <BorderSample lineStyle={value} />}
       {type === 'borderWidth' && <BorderSample width={value} />}
       {type === 'color' && value !== 'currentColor' && <ColorSample value={value} />}
       {type === 'fontFamily' && <TypographySample fontFamily={value} />}

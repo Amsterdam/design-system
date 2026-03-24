@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import './design-tokens-table.css'
 import type { HTMLAttributes } from 'react'
 
-import './design-tokens-table.css'
+import { clsx } from 'clsx'
+
 import { DesignTokensTableRow } from './DesignTokensTableRow'
 
 /** A single design token node as produced by Style Dictionary (W3C DTCG format). */
@@ -80,18 +82,17 @@ const flattenTokens = (tokens: Tokens, scope: string[] = []): TokenEntry[] =>
 type DesignTokensTableRootProps = {
   /** The raw nested token object to display, typically imported directly from a JSON token file. */
   tokens: Tokens
-} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>
+} & HTMLAttributes<HTMLDivElement>
 
 /**
  * Compound component that renders a design token JSON file as a three-column table
  * (CSS variable name, value, visual example).
- * Attach `DesignTokensTable.Row` to customise individual row rendering if needed.
  */
-const DesignTokensTableRoot = ({ tokens }: DesignTokensTableRootProps) => {
+const DesignTokensTableRoot = ({ className, tokens, ...restProps }: DesignTokensTableRootProps) => {
   const flatTokens = flattenTokens(tokens)
 
   return (
-    <div className="_ams-design-tokens-table">
+    <div {...restProps} className={clsx('_ams-design-tokens-table', className)}>
       <table>
         <thead className="_ams-design-tokens-table__header">
           <tr>

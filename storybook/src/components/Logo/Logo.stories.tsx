@@ -27,6 +27,12 @@ export const GgdAmsterdam: Story = {
   },
 }
 
+export const GgdAmsterdamInspectie: Story = {
+  args: {
+    brand: 'ggd-amsterdam-inspectie',
+  },
+}
+
 export const MuseumWeesp: Story = {
   args: {
     brand: 'museum-weesp',
