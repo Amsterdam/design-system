@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
+import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 import { exampleTopTask } from '../../_common/exampleContent'
 import { formatDate } from '../../_common/formatDate'
@@ -53,21 +54,30 @@ export const WithTagline: Story = {
 
 export const WithImage: Story = {
   args: {
-    children: [
-      <Card.Image alt="" aspectRatio="4:3" key={1} src="https://picsum.photos/480/360" />,
-      <Card.HeadingGroup key={2} tagline="Nieuws">
+    aspectRatio: '4:3',
+  },
+  argTypes: {
+    aspectRatio: {
+      control: { type: 'select' },
+      options: aspectRatioOptions,
+    },
+  },
+  render: ({ aspectRatio, ...args }) => (
+    <Card {...args}>
+      <Card.Image alt="" aspectRatio={aspectRatio} src="https://picsum.photos/480/360" />
+      <Card.HeadingGroup tagline="Nieuws">
         <Card.Heading level={3}>
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
         </Card.Heading>
-      </Card.HeadingGroup>,
-      <Column gap="small" key={3}>
+      </Card.HeadingGroup>
+      <Column gap="small">
         <Paragraph>
           We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
         </Paragraph>
         <Paragraph size="small">{formatDate(Date.now())}</Paragraph>
-      </Column>,
-    ],
-  },
+      </Column>
+    </Card>
+  ),
 }
 
 export const TopTasks: Story = {
