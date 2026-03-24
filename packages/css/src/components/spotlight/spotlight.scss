@@ -7,6 +7,8 @@
 
 .ams-spotlight {
   background-color: var(--ams-spotlight-background-color);
+
+  @include print;
 }
 
 .ams-spotlight--azure {
@@ -31,16 +33,4 @@
 
 .ams-spotlight--yellow {
   background-color: var(--ams-spotlight-yellow-background-color);
-}
-
-@media print {
-  .ams-spotlight,
-  .ams-spotlight--azure,
-  .ams-spotlight--green,
-  .ams-spotlight--lime,
-  .ams-spotlight--magenta,
-  .ams-spotlight--orange,
-  .ams-spotlight--yellow {
-    @include print;
-  }
 }

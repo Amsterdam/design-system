@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/print" as *;
+
 .ams-alert {
   background-color: var(--ams-alert-background-color);
   border-color: var(--ams-alert-border-color);
@@ -17,6 +19,8 @@
   flex: none;
   padding-block: var(--ams-alert-severity-indicator-padding-block);
   padding-inline: var(--ams-alert-severity-indicator-padding-inline);
+
+  @include print;
 }
 
 .ams-alert__content {

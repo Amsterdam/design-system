@@ -4,6 +4,7 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/print" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
@@ -29,6 +30,7 @@
   touch-action: manipulation;
 
   @include hyphenation;
+  @include print;
   @include text-rendering;
 
   &:disabled,

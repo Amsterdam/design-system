@@ -4,6 +4,7 @@
  */
 
 @use "../../common/breakpoint" as *;
+@use "../../common/print" as *;
 @use "../../common/resets" as *;
 
 @mixin indicator {
@@ -80,6 +81,7 @@
     var(--ams-progress-list-step-marker-shape-outline-style) var(--ams-progress-list-step-marker-shape-outline-color);
 
   @include marker-shape;
+  @include print;
 
   .ams-progress-list__step--completed & {
     background-color: var(--ams-progress-list-step-completed-marker-shape-background-color);
@@ -199,6 +201,7 @@
     var(--ams-progress-list-substeps-step-marker-shape-outline-color);
 
   @include marker-shape;
+  @include print;
 
   .ams-progress-list-substeps__step--completed & {
     background-color: var(--ams-progress-list-substeps-step-completed-marker-shape-background-color);
