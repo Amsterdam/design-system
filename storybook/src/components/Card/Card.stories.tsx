@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { ComponentProps } from 'react'
 
 import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
@@ -25,6 +26,16 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
+
+type WithImageProps = {
+  aspectRatio: (typeof aspectRatioOptions)[number]
+  date: string
+  heading: string
+  tagline: string
+  text: string
+} & ComponentProps<typeof Card>
+
+type WithImageStory = StoryObj<WithImageProps>
 
 export const Default: Story = {
   args: {
@@ -52,29 +63,35 @@ export const WithTagline: Story = {
   },
 }
 
-export const WithImage: Story = {
+export const WithImage: WithImageStory = {
   args: {
     aspectRatio: '4:3',
+    date: formatDate(Date.now()),
+    heading: 'Nederlands eerste houten woonwijk komt in Zuidoost',
+    tagline: 'Nieuws',
+    text: 'We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
   },
   argTypes: {
     aspectRatio: {
-      control: { type: 'select' },
+      control: { type: 'inline-radio' },
       options: aspectRatioOptions,
     },
+    date: { control: 'text' },
+    heading: { control: 'text' },
+    tagline: { control: 'text' },
+    text: { control: 'text' },
   },
-  render: ({ aspectRatio, ...args }) => (
+  render: ({ aspectRatio, date, heading, tagline, text, ...args }) => (
     <Card {...args}>
       <Card.Image alt="" aspectRatio={aspectRatio} src="https://picsum.photos/480/360" />
-      <Card.HeadingGroup tagline="Nieuws">
+      <Card.HeadingGroup tagline={tagline}>
         <Card.Heading level={3}>
-          <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
+          <Card.Link href="/">{heading}</Card.Link>
         </Card.Heading>
       </Card.HeadingGroup>
       <Column gap="small">
-        <Paragraph>
-          We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
-        </Paragraph>
-        <Paragraph size="small">{formatDate(Date.now())}</Paragraph>
+        <Paragraph>{text}</Paragraph>
+        <Paragraph size="small">{date}</Paragraph>
       </Column>
     </Card>
   ),
