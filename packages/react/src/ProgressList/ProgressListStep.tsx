@@ -30,13 +30,24 @@ export type ProgressListStepProps = {
   hasSubsteps?: boolean
   /** The heading text for this step. */
   heading: string
+  /** Callback fired when the step is expanded or collapsed. Receives the new expanded state. */
+  onToggle?: (expanded: boolean) => void
   /** The current progress state of the step. */
   status?: 'current' | 'completed'
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export const ProgressListStep = forwardRef(
   (
-    { children, className, defaultExpanded, hasSubsteps, heading, status, ...restProps }: ProgressListStepProps,
+    {
+      children,
+      className,
+      defaultExpanded,
+      hasSubsteps,
+      heading,
+      onToggle,
+      status,
+      ...restProps
+    }: ProgressListStepProps,
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     const { headingLevel } = useContext(ProgressListContext)
@@ -75,7 +86,11 @@ export const ProgressListStep = forwardRef(
               aria-expanded={isExpanded}
               className="ams-progress-list__button"
               id={buttonId}
-              onClick={() => setIsExpanded(!isExpanded)}
+              onClick={() => {
+                const next = !isExpanded
+                setIsExpanded(next)
+                onToggle?.(next)
+              }}
               type="button"
             >
               <Icon className="ams-progress-list__icon" size={iconSize} svg={ChevronDownIcon} />

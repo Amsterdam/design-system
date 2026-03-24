@@ -5,7 +5,7 @@
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { ProgressList } from './ProgressList'
 
@@ -308,6 +308,42 @@ describe('ProgressListStep', () => {
     fireEvent.click(button)
 
     expect(button).toHaveAttribute('aria-expanded', 'true')
+  })
+
+  it('calls onToggle with the new expanded state when the button is clicked', () => {
+    const onToggle = vi.fn()
+
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step" onToggle={onToggle} status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: /Test Step/ })
+
+    fireEvent.click(button)
+
+    expect(onToggle).toHaveBeenCalledTimes(1)
+    expect(onToggle).toHaveBeenCalledWith(true)
+
+    fireEvent.click(button)
+
+    expect(onToggle).toHaveBeenCalledTimes(2)
+    expect(onToggle).toHaveBeenLastCalledWith(false)
+  })
+
+  it('does not throw when onToggle is not provided', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: /Test Step/ })
+
+    expect(() => fireEvent.click(button)).not.toThrow()
   })
 
   it('renders the chevron icon inside the button', () => {
