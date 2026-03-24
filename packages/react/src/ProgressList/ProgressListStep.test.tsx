@@ -241,10 +241,10 @@ describe('ProgressListStep', () => {
     expect(panel).not.toHaveClass('ams-progress-list__panel--expanded')
   })
 
-  it('expands content when expanded prop is true', () => {
+  it('expands content when defaultExpanded prop is true', () => {
     const { container } = render(
       <ProgressList headingLevel={3}>
-        <ProgressList.Step expanded heading="Test Step">
+        <ProgressList.Step defaultExpanded heading="Test Step">
           Content
         </ProgressList.Step>
       </ProgressList>,
@@ -255,10 +255,10 @@ describe('ProgressListStep', () => {
     expect(panel).toHaveClass('ams-progress-list__panel--expanded')
   })
 
-  it('collapses content when expanded prop is false', () => {
+  it('collapses content when defaultExpanded prop is false', () => {
     const { container } = render(
       <ProgressList headingLevel={3}>
-        <ProgressList.Step expanded={false} heading="Test Step">
+        <ProgressList.Step defaultExpanded={false} heading="Test Step">
           Content
         </ProgressList.Step>
       </ProgressList>,

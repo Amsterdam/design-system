@@ -25,7 +25,7 @@ export type ProgressListStepProps = {
    * panel is then collapsed, focus moves to `<body>`. This is standard browser
    * behaviour when `visibility: hidden` is applied to a focused element.
    */
-  expanded?: boolean
+  defaultExpanded?: boolean
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
   hasSubsteps?: boolean
   /** The heading text for this step. */
@@ -36,11 +36,11 @@ export type ProgressListStepProps = {
 
 export const ProgressListStep = forwardRef(
   (
-    { children, className, expanded, hasSubsteps, heading, status, ...restProps }: ProgressListStepProps,
+    { children, className, defaultExpanded, hasSubsteps, heading, status, ...restProps }: ProgressListStepProps,
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     const { headingLevel } = useContext(ProgressListContext)
-    const [isExpanded, setIsExpanded] = useState(expanded ?? status !== 'completed')
+    const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? status !== 'completed')
 
     const id = useId()
     const iconSize = `heading-${headingLevel}` as IconProps['size']
