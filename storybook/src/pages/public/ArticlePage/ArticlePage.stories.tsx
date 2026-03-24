@@ -61,18 +61,18 @@ const meta = {
         srcSet={args.image.srcSet}
       />
       <Grid paddingVertical="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Grid.Cell
+          className="ams-prose"
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        >
           {args.sections.map(({ body, heading, id }) => (
             <Fragment key={id}>
-              <Heading className="ams-mb-s" level={2}>
-                {heading}
-              </Heading>
+              <Heading level={2}>{heading}</Heading>
               {parse(body, parserOptions)}
             </Fragment>
           ))}
-          <Heading className="ams-mb-s" level={2}>
-            Lees ook
-          </Heading>
+          <Heading level={2}>Lees ook</Heading>
           <LinkList>
             {args.relatedArticles?.map(({ heading, url }) => (
               <LinkList.Link href={url} key={url}>
@@ -150,11 +150,13 @@ export const CzaarPeterstraat: StoryObj = {
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading level={1}>Meer over de herinrichting van de Czaar Peterstraat</Heading>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-          <Heading className="ams-mb-s" level={2}>
-            Nota van uitgangspunten
-          </Heading>
-          <Paragraph className="ams-mb-xl">
+        <Grid.Cell
+          className="ams-prose"
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        >
+          <Heading level={2}>Nota van uitgangspunten</Heading>
+          <Paragraph>
             Op 16 februari 2022 heeft de gemeenteraad de <Link href="#">nota van uitgangspunten</Link> voor de
             herinrichting van de Czaar Peterstraat vastgesteld. Dit is de basis voor het ontwerp. Voor de vaststelling
             van de nota van uitgangspunten is in 2018 inspraak geweest en in 2021 een bijeenkomst over de actualisatie
@@ -162,10 +164,8 @@ export const CzaarPeterstraat: StoryObj = {
             <Link href="#">nota van beantwoording</Link>. Het college van burgemeester en wethouders heeft deze
             vastgesteld.
           </Paragraph>
-          <Heading className="ams-mb-s" level={2}>
-            Uitwerking ontwerp
-          </Heading>
-          <Paragraph className="ams-mb-xl">
+          <Heading level={2}>Uitwerking ontwerp</Heading>
+          <Paragraph>
             In 2022 zijn we gestart met het opstellen van het programma van eisen. We hebben de vastgestelde
             uitgangspunten en randvoorwaarden vanuit het gemeentelijke beleid uitgewerkt tot duidelijke onderdelen voor
             het ontwerp van de straat. Ook hebben we onderzoek gedaan naar het verkeer in de straat, naar de invloed van
@@ -175,10 +175,8 @@ export const CzaarPeterstraat: StoryObj = {
             ondernemers en andere belanghebbenden reageren op het voorlopig ontwerp. Daarna hebben we het ontwerp
             definitief gemaakt. In mei 2024 heeft stadsdeel Centrum positief geadviseerd over het ontwerp.
           </Paragraph>
-          <Heading className="ams-mb-s" level={2}>
-            Onderzoeksresultaten
-          </Heading>
-          <Paragraph className="ams-mb-l">
+          <Heading level={2}>Onderzoeksresultaten</Heading>
+          <Paragraph>
             We willen bij de herinrichting van de straat de trambaan over de hele lengte van de straat ongeveer 60
             centimeter opschuiven naar de even huisnummers. Zo kunnen we aan beide kanten een breder fietspad aanleggen.
             We vervangen het dubbele spoor dat in elkaar loopt door 2 losse tramsporen. Zo hoeven trams niet meer op
@@ -188,19 +186,19 @@ export const CzaarPeterstraat: StoryObj = {
             opvragen door een e-mail te sturen naar{' '}
             <Link href="mailto:binnenring@amsterdam.nl">binnenring@amsterdam.nl</Link>.
           </Paragraph>
-          <Accordion className="ams-mb-xl" headingLevel={3}>
+          <Accordion headingLevel={3}>
             <Accordion.Section label="Tramhalte">
-              <Paragraph className="ams-mb-m">
+              <Paragraph>
                 We voegen de 2 tramhaltes Eerste Coehoornstraat en Eerste Leeghwaterstraat samen tot 1 nieuwe halte, met
                 een gelijkvloerse instap. De plek van de nieuwe tramhalte is een belangrijk en bepalend onderdeel voor
                 het ontwerp van de Czaar Peterstraat. Daar waar een tramhalte komt, is op de stoep geen ruimte voor
                 bomen, planten, een terras of andere opvulling. Zo blijft er voldoende ruimte om door te lopen.
               </Paragraph>
-              <Paragraph className="ams-mb-m">
+              <Paragraph>
                 We hebben onderzocht wat een zo goed mogelijke plek voor de nieuwe tramhalte is. We hebben verschillende
                 mogelijkheden bekeken, bijvoorbeeld:
               </Paragraph>
-              <UnorderedList className="ams-mb-m">
+              <UnorderedList>
                 <UnorderedList.Item>een halte bij de Eerste Leeghwaterstraat</UnorderedList.Item>
                 <UnorderedList.Item>
                   een halte met de perrons ver uit elkaar: voor de trams in de richting Azartplein een halteperron net
@@ -209,8 +207,8 @@ export const CzaarPeterstraat: StoryObj = {
                 </UnorderedList.Item>
                 <UnorderedList.Item>behoud van 1 van de bestaande haltes</UnorderedList.Item>
               </UnorderedList>
-              <Paragraph className="ams-mb-m">Bij de afweging is gekeken naar:</Paragraph>
-              <UnorderedList className="ams-mb-m">
+              <Paragraph>Bij de afweging is gekeken naar:</Paragraph>
+              <UnorderedList>
                 <UnorderedList.Item>
                   de loopafstand van de nieuwe halteperrons tot woningen, winkels en voorzieningen in de buurt
                 </UnorderedList.Item>
@@ -231,13 +229,13 @@ export const CzaarPeterstraat: StoryObj = {
               </Paragraph>
             </Accordion.Section>
             <Accordion.Section label="Geluid en trillingen">
-              <Paragraph className="ams-mb-m">
+              <Paragraph>
                 In opdracht van de gemeente heeft Crux Engineering met Bouwrisk onderzoek uitgevoerd naar geluid en
                 trillingen rond de trambaan in de bestaande situatie en in de situatie na de herinrichting. De metingen
                 waren in 2022, op verschillende meetpunten in de straat, vlak naast de weg en aan de gevel van woningen.
               </Paragraph>
               <Heading level={4}>Trillingen niet tot nauwelijks voelbaar</Heading>
-              <Paragraph className="ams-mb-m">
+              <Paragraph>
                 Conclusie van de trillingsmetingen is dat de trillingen in de straat gemiddeld zeer laag zijn en niet of
                 bijna niet voelbaar zijn voor bewoners. In de nieuwe situatie, na het verschuiven van de trambaan en het
                 autoverkeer, neemt het trillingsniveau wel iets toe, maar blijft niet of bijna niet voelbaar.
@@ -250,13 +248,13 @@ export const CzaarPeterstraat: StoryObj = {
               </Paragraph>
             </Accordion.Section>
             <Accordion.Section label="Verkeer">
-              <Paragraph className="ams-mb-m">
+              <Paragraph>
                 We hebben onderzoek gedaan om de verkeersveiligheid waar nodig te verbeteren. We hebben gekeken naar de
                 samenstelling van het verkeer, zoals zwaar verkeer, busjes, personenauto’s, (brom-)fietsers,
                 bestemmingsverkeer, doorgaand verkeer, logistiek verkeer, naar de spreiding van drukte over de dag, en
                 hoe het verkeer zich op de kruisingen beweegt.
               </Paragraph>
-              <Paragraph className="ams-mb-m">
+              <Paragraph>
                 In 2022 is met camera’s en telslangen onderzoek gedaan in de Czaar Peterstraat. De belangrijkste
                 conclusies uit het verkeersonderzoek zijn:
               </Paragraph>
@@ -280,26 +278,22 @@ export const CzaarPeterstraat: StoryObj = {
               </UnorderedList>
             </Accordion.Section>
           </Accordion>
-          <Heading className="ams-mb-s" level={2}>
-            Meedoen
-          </Heading>
-          <Paragraph className="ams-mb-m">
+          <Heading level={2}>Meedoen</Heading>
+          <Paragraph>
             We doen de voorbereiding, uitwerking en uitvoering van het herinrichtingsproject in fasen. Bij iedere fase
             betrekken we de omgeving en zijn er momenten waarop u kunt meedenken of meedoen, inbreng geven, voordat
             ergens over besloten wordt.
           </Paragraph>
-          <Paragraph className="ams-mb-l">
+          <Paragraph>
             In 2023 is onderzoek gedaan naar de technische haalbaarheid en zijn de uitgangspunten uitgewerkt tot
             concrete oplossingen voor het ontwerp. Voor de buurt was er ruimte om mee te denken op de volgende momenten:
           </Paragraph>
-          <Heading className="ams-mb-xs" level={3}>
-            Begin 2023: plek van de tramhalte, invulling van de stoep, autoluwe straat
-          </Heading>
-          <Paragraph className="ams-mb-m">
+          <Heading level={3}>Begin 2023: plek van de tramhalte, invulling van de stoep, autoluwe straat</Heading>
+          <Paragraph>
             Tot eind januari konden mensen reageren op de plek van de nieuwe tramhalte, invulling van de ruimte op de
             stoep en ideeën geven om de straat autoluwer te maken:
           </Paragraph>
-          <UnorderedList className="ams-mb-l">
+          <UnorderedList>
             <UnorderedList.Item>
               Het voorstel waar de nieuwe tramhalte komt: de tram stopt in de Czaar Peterstraat in beide richtingen voor
               de kruising met de Cruquiusstraat. Bij de halte is straks op de stoep geen ruimte voor plantenbakken,
@@ -334,33 +328,23 @@ export const CzaarPeterstraat: StoryObj = {
               </UnorderedList>
             </UnorderedList.Item>
           </UnorderedList>
-          <Heading className="ams-mb-xs" level={3}>
-            Najaar 2023: reageren op voorlopig ontwerp
-          </Heading>
-          <Paragraph className="ams-mb-l">
+          <Heading level={3}>Najaar 2023: reageren op voorlopig ontwerp</Heading>
+          <Paragraph>
             Voor bewoners en ondernemers zijn informatiebijeenkomsten georganiseerd waarbij we een toelichting gaven op
             het voorlopig ontwerp. Bewoners konden reageren op het ontwerp. Waar mogelijk hebben we de reacties verwerkt
             in het definitief ontwerp voor de straat.
           </Paragraph>
-          <Heading className="ams-mb-xs" level={3}>
-            2024: advies en besluit over definitief ontwerp
-          </Heading>
-          <Paragraph className="ams-mb-xl">
+          <Heading level={3}>2024: advies en besluit over definitief ontwerp</Heading>
+          <Paragraph>
             Begin 2024 is het definitief ontwerp afgerond. In april is dit ontwerp in de stadsdeelcommissie van
             stadsdeel Centrum behandeld. Hierbij was de mogelijkheid om in te spreken. Op 14 mei heeft het stadsdeel
             positief geadviseerd over het ontwerp. Vervolgens hebben we het college gevraagd het ontwerp en het
             benodigde geld voor de uitvoering vast te stellen. Dit is gebeurd op 22 oktober 2024.
           </Paragraph>
-          <Heading className="ams-mb-s" level={2}>
-            Uitvoering
-          </Heading>
-          <Paragraph className="ams-mb-xl">
-            De herinrichting is gestart in maart 2025 en duurt tot eind juli 2026.
-          </Paragraph>
-          <Heading className="ams-mb-s" level={2}>
-            Blijf op de hoogte
-          </Heading>
-          <Paragraph className="ams-mb-m">
+          <Heading level={2}>Uitvoering</Heading>
+          <Paragraph>De herinrichting is gestart in maart 2025 en duurt tot eind juli 2026.</Paragraph>
+          <Heading level={2}>Blijf op de hoogte</Heading>
+          <Paragraph>
             Wilt u op de hoogte gehouden worden over dit project? Meld u dan aan voor onze mailing door een bericht te
             sturen aan <Link href="mailto:czaarpeterstraat@amsterdam.nl">czaarpeterstraat@amsterdam.nl</Link>
           </Paragraph>
