@@ -20,7 +20,8 @@
   font-size: var(--ams-page-heading-font-size);
   font-weight: var(--ams-page-heading-font-weight);
   line-height: var(--ams-page-heading-line-height);
-  /* stylelint-disable-next-line plugin/use-baseline */
+
+  /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
   text-wrap: var(--ams-page-heading-text-wrap);
 
   @include hyphenation;

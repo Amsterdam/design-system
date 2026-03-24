@@ -144,7 +144,7 @@
         },
         "item": {
           "color": {
-            "$deprecated": "Use `ams.page-header.menu.link.color` instead.",
+            "$deprecated": "Use `ams.page-header.menu.link.color` instead. Will be removed in release 5.0.0.",
             "$value": "{ams.links.color}",
             "$type": "color"
           },
