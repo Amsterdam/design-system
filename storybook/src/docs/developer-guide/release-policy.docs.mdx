@@ -76,13 +76,13 @@ To make the most of the design system and avoid surprises:
 ## Dependabot configuration
 
 [Dependabot](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide) automatically opens pull requests when new versions of your dependencies are available.
-We recommend setting it up for your project so you don't miss important updates or security fixes.
+We recommend setting it up for your project so you don’t miss important updates or security fixes.
 
 ### Peer dependencies
 
 Our packages depend on each other through **peer dependencies**.
-The React package requires a matching version of the CSS package, and the CSS package requires matching versions of the Tokens and Assets packages.
-When you upgrade one package, you'll likely need to upgrade the others as well.
+The React package declares a peer dependency on the CSS package, and the CSS package declares peer dependencies on the Tokens and Assets packages.
+When you upgrade one of these packages, you'll likely need to upgrade the others as well to satisfy the peer dependency version ranges.
 
 Dependabot doesn't resolve peer dependencies on its own.
 Without the right configuration, it may open separate pull requests for each package, and those PRs may fail because the peer dependency constraints aren't satisfied.
@@ -91,8 +91,8 @@ Grouping our packages into a single Dependabot update avoids this problem.
 ### Recommended configuration
 
 Add the following to your `.github/dependabot.yml` file.
-It groups all Amsterdam Design System packages into a single pull request, so peer dependencies stay in sync.
-Only patch and minor versions are updated automatically – major versions require a manual upgrade.
+It groups all Amsterdam Design System packages into a single pull request for patch and minor updates, so peer dependencies stay in sync.
+Dependabot will still open separate pull requests for new major versions; we recommend reviewing and upgrading those manually.
 
 ```yaml
 version: 2
