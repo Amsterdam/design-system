@@ -28,6 +28,17 @@
 
 .ams-progress-list {
   @include reset-ol;
+
+  /* Compensate for the heading margin below the last step when it is collapsed. */
+  /* stylelint-disable-next-line plugin/use-baseline -- A bit of trailing space in non-supporting browsers is acceptable */
+  &:has(> :last-child.ams-progress-list__step--collapsed) {
+    margin-block-end: calc(var(--ams-progress-list-step-heading-margin-block-end) * -1);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: margin-block-end var(--ams-progress-list-step-panel-transition-duration)
+        var(--ams-progress-list-step-panel-transition-easing);
+    }
+  }
 }
 
 /* Step */
@@ -150,11 +161,6 @@
 
 .ams-progress-list__heading {
   margin-block-end: var(--ams-progress-list-step-heading-margin-block-end);
-
-  /* Prevent the list from having outer whitespace. */
-  .ams-progress-list__step--collapsed:last-child & {
-    margin-block-end: 0;
-  }
 }
 
 /* Button */
@@ -219,14 +225,20 @@
 }
 
 .ams-progress-list__panel-inner {
+  inset-block-start: 0;
   min-block-size: 0;
+  position: relative;
 
   @media (prefers-reduced-motion: no-preference) {
-    /* Delay the switch to hidden until the panel has fully closed. */
-    transition: visibility var(--ams-progress-list-step-panel-transition-duration);
+    /* Animate slide position. No visibility transition here so that
+     * expanding flips to visible instantly (content is reachable immediately). */
+    transition: inset-block-start var(--ams-progress-list-step-panel-transition-duration)
+      var(--ams-progress-list-step-panel-transition-easing);
   }
 
   .ams-progress-list__step--collapsed & {
+    inset-block-start: calc(var(--ams-progress-list-step-heading-margin-block-end) * -1);
+
     /* overflow-y: clip is intentional: it clips only the block direction so the
      * animation works correctly, while leaving overflow-x as 'visible'. This
      * allows substep indicators that extend past the panel's inline start edge
@@ -235,7 +247,18 @@
     overflow-y: clip;
     visibility: hidden;
 
+    @media (prefers-reduced-motion: no-preference) {
+      /* Also transition visibility when collapsing, so it stays visible
+       * until the close animation finishes. On expand this rule no longer
+       * applies, so visibility flips to visible instantly. */
+      transition:
+        inset-block-start var(--ams-progress-list-step-panel-transition-duration)
+          var(--ams-progress-list-step-panel-transition-easing),
+        visibility var(--ams-progress-list-step-panel-transition-duration);
+    }
+
     @media print {
+      inset-block-start: 0;
       overflow-y: visible;
       visibility: visible;
     }
