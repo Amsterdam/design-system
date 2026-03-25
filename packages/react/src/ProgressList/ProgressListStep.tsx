@@ -96,7 +96,7 @@ export const ProgressListStep = forwardRef(
             </button>
           </Heading>
           <div className="ams-progress-list__panel" id={panelId}>
-            <div className="ams-progress-list__panel-inner">{children}</div>
+            {children}
           </div>
         </div>
       </li>
