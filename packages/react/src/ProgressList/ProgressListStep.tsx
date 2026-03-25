@@ -54,9 +54,7 @@ export const ProgressListStep = forwardRef(
     const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? status !== 'completed')
 
     const iconSize = `heading-${headingLevel}` as IconProps['size']
-    const id = useId()
-    const buttonId = `button-${id}`
-    const panelId = `panel-${id}`
+    const panelId = useId()
 
     return (
       <li
@@ -85,7 +83,6 @@ export const ProgressListStep = forwardRef(
               aria-controls={panelId}
               aria-expanded={isExpanded}
               className="ams-progress-list__button"
-              id={buttonId}
               onClick={() => {
                 const next = !isExpanded
                 setIsExpanded(next)
@@ -99,7 +96,6 @@ export const ProgressListStep = forwardRef(
             </button>
           </Heading>
           <div
-            aria-labelledby={buttonId}
             className={clsx('ams-progress-list__panel', { 'ams-progress-list__panel--expanded': isExpanded })}
             id={panelId}
           >

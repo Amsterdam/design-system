@@ -354,19 +354,6 @@ describe('ProgressListStep', () => {
     expect(panel).toHaveClass('ams-progress-list__panel')
   })
 
-  it('labels the panel with the button via aria-labelledby', () => {
-    const { container } = render(
-      <ProgressList headingLevel={3}>
-        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const button = screen.getByRole('button', { name: /Test Step/ })
-    const panel = container.querySelector('.ams-progress-list__panel')
-
-    expect(panel).toHaveAttribute('aria-labelledby', button.id)
-  })
-
   it('calls onToggle with the new expanded state when the button is clicked', () => {
     const onToggle = vi.fn()
 
