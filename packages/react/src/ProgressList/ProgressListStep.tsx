@@ -18,14 +18,14 @@ import { ProgressListContext } from './ProgressListContext'
 
 export type ProgressListStepProps = {
   /**
-   * Whether the content is displayed initially. Defaults to `true` unless
-   * `status` is `'completed'`, in which case the step starts collapsed.
+   * Whether the content is initially collapsed. Defaults to `true` when
+   * `status` is `'completed'`, and `false` otherwise.
    *
    * Note: if a user focuses an interactive element inside the panel and the
    * panel is then collapsed, focus moves to `<body>`. This is standard browser
    * behaviour when `visibility: hidden` is applied to a focused element.
    */
-  defaultExpanded?: boolean
+  defaultCollapsed?: boolean
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
   hasSubsteps?: boolean
   /** The heading text for this step. */
@@ -41,7 +41,7 @@ export const ProgressListStep = forwardRef(
     {
       children,
       className,
-      defaultExpanded,
+      defaultCollapsed,
       hasSubsteps,
       heading,
       onToggle,
@@ -51,7 +51,7 @@ export const ProgressListStep = forwardRef(
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     const { headingLevel } = useContext(ProgressListContext)
-    const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? status !== 'completed')
+    const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed ?? status === 'completed')
 
     const iconSize = `heading-${headingLevel}` as IconProps['size']
     const panelId = useId()
@@ -62,7 +62,7 @@ export const ProgressListStep = forwardRef(
         className={clsx(
           className,
           'ams-progress-list__step',
-          !isExpanded && 'ams-progress-list__step--collapsed',
+          isCollapsed && 'ams-progress-list__step--collapsed',
           hasSubsteps && 'ams-progress-list__step--has-substeps',
           status && `ams-progress-list__step--${status}`,
         )}
@@ -81,12 +81,12 @@ export const ProgressListStep = forwardRef(
           <Heading className="ams-progress-list__heading" level={headingLevel}>
             <button
               aria-controls={panelId}
-              aria-expanded={isExpanded}
+              aria-expanded={!isCollapsed}
               className="ams-progress-list__button"
               onClick={() => {
-                const next = !isExpanded
-                setIsExpanded(next)
-                onToggle?.(next)
+                const next = !isCollapsed
+                setIsCollapsed(next)
+                onToggle?.(!next)
               }}
               type="button"
             >
@@ -95,10 +95,7 @@ export const ProgressListStep = forwardRef(
               {heading}
             </button>
           </Heading>
-          <div
-            className={clsx('ams-progress-list__panel', { 'ams-progress-list__panel--expanded': isExpanded })}
-            id={panelId}
-          >
+          <div className="ams-progress-list__panel" id={panelId}>
             <div className="ams-progress-list__panel-inner">{children}</div>
           </div>
         </div>

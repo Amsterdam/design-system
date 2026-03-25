@@ -215,48 +215,8 @@ describe('ProgressListStep', () => {
     expect(button).toHaveClass('ams-progress-list__button')
   })
 
-  it('expands content by default', () => {
-    const { container } = render(
-      <ProgressList headingLevel={3}>
-        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const panel = container.querySelector('.ams-progress-list__panel')
-
-    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
-  })
-
-  it('collapses content by default when status is completed', () => {
-    const { container } = render(
-      <ProgressList headingLevel={3}>
-        <ProgressList.Step heading="Test Step" status="completed">
-          Content
-        </ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const panel = container.querySelector('.ams-progress-list__panel')
-
-    expect(panel).not.toHaveClass('ams-progress-list__panel--expanded')
-  })
-
-  it('expands content when defaultExpanded prop is true', () => {
-    const { container } = render(
-      <ProgressList headingLevel={3}>
-        <ProgressList.Step defaultExpanded heading="Test Step">
-          Content
-        </ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const panel = container.querySelector('.ams-progress-list__panel')
-
-    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
-  })
-
-  it('expands content when status is current', () => {
-    const { container } = render(
+  it('does not collapse when status is current', () => {
+    render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step" status="current">
           Content
@@ -264,41 +224,41 @@ describe('ProgressListStep', () => {
       </ProgressList>,
     )
 
-    const panel = container.querySelector('.ams-progress-list__panel')
+    const step = screen.getByRole('listitem')
 
-    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
   })
 
-  it('expands a completed step when defaultExpanded overrides the default', () => {
-    const { container } = render(
+  it('expands a completed step when defaultCollapsed is false', () => {
+    render(
       <ProgressList headingLevel={3}>
-        <ProgressList.Step defaultExpanded heading="Test Step" status="completed">
+        <ProgressList.Step defaultCollapsed={false} heading="Test Step" status="completed">
           Content
         </ProgressList.Step>
       </ProgressList>,
     )
 
-    const panel = container.querySelector('.ams-progress-list__panel')
+    const step = screen.getByRole('listitem')
 
-    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
   })
 
-  it('collapses content when defaultExpanded prop is false', () => {
-    const { container } = render(
+  it('collapses when defaultCollapsed is true', () => {
+    render(
       <ProgressList headingLevel={3}>
-        <ProgressList.Step defaultExpanded={false} heading="Test Step">
+        <ProgressList.Step defaultCollapsed heading="Test Step">
           Content
         </ProgressList.Step>
       </ProgressList>,
     )
 
-    const panel = container.querySelector('.ams-progress-list__panel')
+    const step = screen.getByRole('listitem')
 
-    expect(panel).not.toHaveClass('ams-progress-list__panel--expanded')
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
   })
 
-  it('toggles expanded state when the button is clicked', () => {
-    const { container } = render(
+  it('toggles collapsed state when the button is clicked', () => {
+    render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step" status="completed">
           Content
@@ -306,18 +266,18 @@ describe('ProgressListStep', () => {
       </ProgressList>,
     )
 
+    const step = screen.getByRole('listitem')
     const button = screen.getByRole('button', { name: /Test Step/ })
-    const panel = container.querySelector('.ams-progress-list__panel')
 
-    expect(panel).not.toHaveClass('ams-progress-list__panel--expanded')
-
-    fireEvent.click(button)
-
-    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
 
     fireEvent.click(button)
 
-    expect(panel).not.toHaveClass('ams-progress-list__panel--expanded')
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+
+    fireEvent.click(button)
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
   })
 
   it('sets aria-expanded on the button', () => {
@@ -439,10 +399,10 @@ describe('ProgressListStep', () => {
       </ProgressList>,
     )
 
-    const panel = container.querySelector('.ams-progress-list__panel')
+    const step = container.querySelector('.ams-progress-list__step')
     const substepMarkers = container.querySelectorAll('.ams-progress-list-substeps__marker')
 
-    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
     expect(substepMarkers).toHaveLength(2)
     substepMarkers.forEach((marker) => expect(marker).toBeInTheDocument())
   })
