@@ -2,6 +2,7 @@
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 import * as ProgressListStories from "./ProgressList.stories.tsx";
+import * as ProgressListStepStories from "./ProgressListStep.stories.tsx";
 import README from "../../../../packages/css/src/components/progress-list/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/progress-list.tokens.json";
 
@@ -14,6 +15,17 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Step
+
+Hide the content of a Step initially through the `defaultCollapsed` prop.
+Completed steps are collapsed by default, others are expanded.
+
+<Canvas of={ProgressListStepStories.Step} />
+
+<Controls of={ProgressListStepStories.Step} />
 
 ## Examples
 
