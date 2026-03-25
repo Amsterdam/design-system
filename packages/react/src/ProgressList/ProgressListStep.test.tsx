@@ -255,6 +255,34 @@ describe('ProgressListStep', () => {
     expect(panel).toHaveClass('ams-progress-list__panel--expanded')
   })
 
+  it('expands content when status is current', () => {
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step" status="current">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const panel = container.querySelector('.ams-progress-list__panel')
+
+    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
+  })
+
+  it('expands a completed step when defaultExpanded overrides the default', () => {
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step defaultExpanded heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const panel = container.querySelector('.ams-progress-list__panel')
+
+    expect(panel).toHaveClass('ams-progress-list__panel--expanded')
+  })
+
   it('collapses content when defaultExpanded prop is false', () => {
     const { container } = render(
       <ProgressList headingLevel={3}>
@@ -308,6 +336,35 @@ describe('ProgressListStep', () => {
     fireEvent.click(button)
 
     expect(button).toHaveAttribute('aria-expanded', 'true')
+  })
+
+  it('links the button to the panel via aria-controls', () => {
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: /Test Step/ })
+    const panelId = button.getAttribute('aria-controls')
+    const panel = container.querySelector(`#${CSS.escape(panelId!)}`)
+
+    expect(panelId).toBeTruthy()
+    expect(panel).toBeInTheDocument()
+    expect(panel).toHaveClass('ams-progress-list__panel')
+  })
+
+  it('labels the panel with the button via aria-labelledby', () => {
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: /Test Step/ })
+    const panel = container.querySelector('.ams-progress-list__panel')
+
+    expect(panel).toHaveAttribute('aria-labelledby', button.id)
   })
 
   it('calls onToggle with the new expanded state when the button is clicked', () => {
