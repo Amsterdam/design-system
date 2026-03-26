@@ -1,0 +1,19 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+import * as TableStories from "./TablePage.stories.tsx";
+
+<Meta of={TableStories} />
+
+# Table page
+
+These examples show how to use the Table component in Compact Mode to work with data sets.
+They include various ways to sort, filter and operate on data.
+
+## Storing state in the URL
+
+**Store UI state in the URL where possible** – the sort column and direction, active filters, the current page of a paginated set, etc.
+This works with the web platform instead of around it: it allows users to bookmark, share or navigate back to a specific state of the table.
+
+Storybook cannot use URL parameters for this, so these examples use React state instead.
+Consult the [prototypes application](https://amsterdam.github.io/design-system-prototypes/rijke-tabellen) for a full implementation.
