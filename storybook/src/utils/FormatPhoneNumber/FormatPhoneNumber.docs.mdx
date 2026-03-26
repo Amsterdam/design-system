@@ -1,0 +1,56 @@
+{/* @license CC0-1.0 */}
+
+import { Controls, Meta, Primary } from "@storybook/addon-docs/blocks";
+
+import * as FormatPhoneNumberStories from "./FormatPhoneNumber.stories.tsx";
+
+<Meta of={FormatPhoneNumberStories} />
+
+# Format Phone Number
+
+Formats a Dutch phone number according to the City of Amsterdam writing guidelines.
+
+<Primary />
+
+<Controls />
+
+## Usage
+
+```tsx
+import { formatPhoneNumber } from "@amsterdam/design-system-react";
+
+formatPhoneNumber("0202355911"); // '020 235 5911'
+formatPhoneNumber("0343255922"); // '0343 255 922'
+formatPhoneNumber("0612345678"); // '06 1234 5678'
+formatPhoneNumber("0888989294"); // '088 898 9294'
+formatPhoneNumber("14020"); // '14 020'
+formatPhoneNumber("+31201234567"); // '+31 20 123 4567'
+formatPhoneNumber("+31 (0)20 123 4567"); // '+31 20 123 4567'
+formatPhoneNumber("08001234"); // '0800 1234'
+```
+
+## Guidelines
+
+- Uses spaces to separate the area code and subscriber number — no dashes or parentheses.
+- A two-digit area code is followed by a seven-digit subscriber number, grouped as 3 and 4: `020 235 5911`.
+- A three-digit area code is followed by a six-digit subscriber number, grouped as 3 and 3: `0343 255 922`.
+- Numbers for businesses and institutions, which start with `084`, `085`, `087`, `088`, or `091`, are grouped like a two-digit area code: `088 898 9294`.
+- Mobile numbers are grouped as 4 and 4 after `06`: `06 1234 5678`.
+- International numbers replace the leading `0` with `+31` and use spaces throughout: `+31 20 123 4567`.
+  A trunk zero that is written out anyway, as in `+31 (0)20`, is dropped.
+- The `0031` prefix is also accepted and formatted as `+31`.
+- Service numbers `0800`, `0900`, `0906`, and `0909` are supported: `0800 1234` or `0900 123 4567`.
+- Municipal service numbers are the digits `14` followed by an area code: `14 020`.
+- Unrecognised input, such as `112`, is returned unchanged rather than grouped on a guess.
+
+## Accessibility
+
+- Write the number in a `tel:` link so it can be dialled: `<a href="tel:0202355911">020 235 5911</a>`.
+  Keep the spaces in the link text and leave them out of the `href`.
+- Do not add an `aria-label` that spells out the digits.
+  It overrides the way people have set up their screen reader to read numbers, which is their choice to make, not ours.
+
+## See also
+
+- [Telefoonnummers at Amsterdam Writing Guide (in Dutch)](https://www.amsterdam.nl/schrijfwijzer/heldere-taal-basis-onze-huisstijl/tekstonderdelen-heldere-taal/telefoonnummers/)
+- [Nummerplan telefoon- en ISDN-diensten (in Dutch)](https://wetten.overheid.nl/BWBR0010198) – which area codes and prefixes exist, and how long each number is.
