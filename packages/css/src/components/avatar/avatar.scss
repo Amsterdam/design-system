@@ -22,7 +22,7 @@
   padding-inline: var(--ams-avatar-padding-inline);
   place-content: center;
 
-  @include print;
+  @include print-exact;
 
   svg {
     fill: currentColor;

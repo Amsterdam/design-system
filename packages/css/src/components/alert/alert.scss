@@ -20,7 +20,7 @@
   padding-block: var(--ams-alert-severity-indicator-padding-block);
   padding-inline: var(--ams-alert-severity-indicator-padding-inline);
 
-  @include print;
+  @include print-exact;
 }
 
 .ams-alert__content {

@@ -19,7 +19,7 @@
   padding-inline: var(--ams-badge-padding-inline);
 
   @include hyphenation;
-  @include print;
+  @include print-exact;
   @include text-rendering;
 }
 

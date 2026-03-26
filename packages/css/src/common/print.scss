@@ -7,7 +7,7 @@
  * Ask browsers to preserve authored colors, backgrounds, and images in print
  * instead of auto-optimizing them for ink saving or contrast. A user may still choose to override these settings.
  */
-@mixin print {
+@mixin print-exact {
   @media print {
     -webkit-print-color-adjust: exact;
     /* stylelint-disable-next-line plugin/use-baseline -- The vendor-prefixed fallback adds long-term support. */

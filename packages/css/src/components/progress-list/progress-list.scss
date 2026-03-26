@@ -81,7 +81,7 @@
     var(--ams-progress-list-step-marker-shape-outline-style) var(--ams-progress-list-step-marker-shape-outline-color);
 
   @include marker-shape;
-  @include print;
+  @include print-exact;
 
   .ams-progress-list__step--completed & {
     background-color: var(--ams-progress-list-step-completed-marker-shape-background-color);
@@ -201,7 +201,7 @@
     var(--ams-progress-list-substeps-step-marker-shape-outline-color);
 
   @include marker-shape;
-  @include print;
+  @include print-exact;
 
   .ams-progress-list-substeps__step--completed & {
     background-color: var(--ams-progress-list-substeps-step-completed-marker-shape-background-color);

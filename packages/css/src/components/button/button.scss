@@ -30,7 +30,7 @@
   touch-action: manipulation;
 
   @include hyphenation;
-  @include print;
+  @include print-exact;
   @include text-rendering;
 
   &:disabled,

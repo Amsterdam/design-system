@@ -8,7 +8,7 @@
 .ams-spotlight {
   background-color: var(--ams-spotlight-background-color);
 
-  @include print;
+  @include print-exact;
 }
 
 .ams-spotlight--azure {

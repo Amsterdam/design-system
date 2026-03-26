@@ -12,7 +12,7 @@
 .ams-page-footer__spotlight {
   background-color: var(--ams-page-footer-spotlight-background-color);
 
-  @include print;
+  @include print-exact;
 }
 
 .ams-page-footer__menu {
