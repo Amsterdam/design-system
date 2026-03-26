@@ -4,6 +4,7 @@
  */
 
 @use "../../common/hyphenation" as *;
+@use "../../common/print-exact" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-badge {
@@ -18,6 +19,7 @@
   padding-inline: var(--ams-badge-padding-inline);
 
   @include hyphenation;
+  @include print-exact;
   @include text-rendering;
 }
 
