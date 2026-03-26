@@ -4,7 +4,7 @@
  */
 
 @use "../../common/breakpoint" as *;
-@use "../../common/print" as *;
+@use "../../common/print-exact" as *;
 @use "../../common/resets" as *;
 
 @mixin indicator {

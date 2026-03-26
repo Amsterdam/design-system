@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/print" as *;
+@use "../../common/print-exact" as *;
 
 .ams-alert {
   background-color: var(--ams-alert-background-color);

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/print" as *;
+@use "../../common/print-exact" as *;
 
 .ams-avatar {
   aspect-ratio: var(--ams-avatar-aspect-ratio);
