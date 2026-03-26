@@ -6,8 +6,8 @@
 /* stylelint-disable no-invalid-position-declaration */
 
 /**
- * Instruct browsers to print backgrounds as we've set them.
- * Users can choose to print in greyscale and disable backgrounds.
+ * Ask browsers to preserve authored colors, backgrounds, and images in print
+ * instead of auto-optimizing them for ink saving or contrast. A user may still choose to override these settings.
  */
 @mixin print {
   @media print {
