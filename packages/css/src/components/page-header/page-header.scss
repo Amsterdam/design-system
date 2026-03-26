@@ -4,6 +4,7 @@
  */
 
 @use "../../common/breakpoint" as *;
+@use "../../common/print-exact" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
@@ -180,6 +181,7 @@
   padding-inline: var(--ams-page-header-mega-menu-button-padding-inline);
 
   @include page-header-menu-action;
+  @include print-exact;
 
   &:hover {
     background-color: var(--ams-page-header-mega-menu-button-hover-background-color);
