@@ -4,7 +4,7 @@
 
 ## Class name
 
-- `ams-body`
+`ams-body`
 
 ### Guidelines
 
