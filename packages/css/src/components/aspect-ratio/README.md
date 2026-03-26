@@ -16,6 +16,8 @@ The class can be applied to any component or element.
 - `ams-aspect-ratio-16-9`
 - `ams-aspect-ratio-16-5`
 
+These classes apply the [design tokens for aspect ratio](/docs/brand-design-tokens-aspect-ratio--docs).
+
 ## Guidelines
 
 - Apply one of these classes to an image, video or other media content to constrain its dimensions to one of the available aspect ratios.
