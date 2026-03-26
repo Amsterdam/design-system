@@ -1,0 +1,42 @@
+{/* @license CC0-1.0 */}
+
+import { Controls, Meta, Primary } from "@storybook/addon-docs/blocks";
+
+import * as FormatIbanStories from "./FormatIban.stories.tsx";
+
+<Meta of={FormatIbanStories} />
+
+# Format IBAN
+
+Formats a Dutch IBAN bank account number according to the City of Amsterdam writing guidelines.
+
+<Primary />
+
+<Controls />
+
+## Usage
+
+```tsx
+import { formatIban } from "@amsterdam/design-system-react";
+
+formatIban("NL70TRIO0123456789"); // 'NL70 TRIO 0123 4567 89'
+formatIban("nl70trio0123456789"); // 'NL70 TRIO 0123 4567 89'
+```
+
+## Guidelines
+
+- Dutch IBANs follow the pattern `NL00 BANK 0000 0000 00`: groups of four, ending in a group of two.
+- The country code and bank code are uppercased.
+- Normalises spacing and casing from common input variations.
+- Formats any input shaped like a Dutch IBAN: two letters, two digits, four letters, and ten digits.
+  It does not check that the country code is `NL`, and IBANs from countries with another shape are returned unchanged.
+- This function formats only — it does not validate the IBAN check digits.
+
+## Accessibility
+
+- Do not add an `aria-label` to spell out the account number.
+  It overrides the way people have set up their screen reader to read the grouped digits, which is their choice to make, not ours.
+
+## See also
+
+- [Rekeningnummers at Amsterdam Writing Guide (in Dutch)](https://www.amsterdam.nl/schrijfwijzer/heldere-taal-basis-onze-huisstijl/tekstonderdelen-heldere-taal/rekeningnummers/)
