@@ -47,7 +47,10 @@ export type PageHeaderProps = {
   menuButtonTextForShow?: string
   /** A slot for the menu items. Use PageHeader.MenuLink here. */
   menuItems?: ReactNode
-  /** The accessible label for the navigation section. */
+  /**
+   * The accessible label for the navigation section.
+   * @default Hoofdmenu
+   */
   navigationLabel?: string
   /** Whether the menu button is visible on wide screens.  */
   noMenuButtonOnWideWindow?: boolean
@@ -70,7 +73,7 @@ const PageHeaderRoot = forwardRef(
       menuButtonTextForHide = 'Verberg navigatiemenu',
       menuButtonTextForShow = 'Laat navigatiemenu zien',
       menuItems,
-      navigationLabel = 'Hoofdnavigatie',
+      navigationLabel = 'Hoofdmenu',
       noMenuButtonOnWideWindow,
       ...restProps
     }: PageHeaderProps,
