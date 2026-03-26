@@ -1,0 +1,5 @@
+/**
+ * @license SEE LICENSE.md
+ * Copyright Gemeente Amsterdam
+ * All rights reserved
+ */
