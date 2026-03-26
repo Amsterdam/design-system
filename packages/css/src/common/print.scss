@@ -12,7 +12,7 @@
 @mixin print {
   @media print {
     -webkit-print-color-adjust: exact;
-    /* stylelint-disable-next-line plugin/use-baseline */
+    /* stylelint-disable-next-line plugin/use-baseline -- The vendor-prefixed fallback adds long-term support. */
     print-color-adjust: exact;
   }
 }
