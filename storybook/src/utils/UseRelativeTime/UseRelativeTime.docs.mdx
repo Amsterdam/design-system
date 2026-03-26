@@ -1,0 +1,58 @@
+{/* @license CC0-1.0 */}
+
+import { Controls, Meta, Primary } from "@storybook/addon-docs/blocks";
+
+import * as UseRelativeTimeStories from "./UseRelativeTime.stories.tsx";
+
+<Meta of={UseRelativeTimeStories} />
+
+# Use Relative Time
+
+A React hook that returns a live-updating relative time string in Dutch.
+
+<Primary />
+
+<Controls />
+
+## Usage
+
+```tsx
+import { Paragraph, useRelativeTime } from "@amsterdam/design-system-react";
+
+const MyComponent = ({ createdAt }: { readonly createdAt: Date }) => {
+  const label = useRelativeTime(createdAt);
+
+  return <Paragraph>{label}</Paragraph>;
+};
+```
+
+## Output examples
+
+| Time elapsed           | Output                      |
+| ---------------------- | --------------------------- |
+| Less than a minute ago | minder dan 1 minuut geleden |
+| 5 minutes ago          | 5 minuten geleden           |
+| 1 hour ago             | 1 uur geleden               |
+| 3 days ago             | 3 dagen geleden             |
+| 2 months ago           | 2 maanden geleden           |
+| In 1 hour              | over 1 uur                  |
+
+## Guidelines
+
+- Accepts a `Date` object or a numeric timestamp (milliseconds since epoch).
+- Handles past and future times, rolling up through minutes, hours, days, weeks, months, and years.
+- Updates automatically every 30 seconds.
+- For a precise date, use `formatDate` instead.
+- On the server it renders an empty string, and fills in once the page runs in the browser.
+
+## Accessibility
+
+- A relative time does not say when something happened.
+  Write the date next to it, or use `formatDate`, wherever the exact moment matters to the reader.
+- Take care when wrapping the label in a `<time>` element.
+  Safari and VoiceOver announce its `dateTime` value a second time, in the language of the operating system rather than the language of the page, so a full timestamp is read out in its entirety.
+  Keep the value no longer than the reader needs.
+
+## See also
+
+- [Format Date](/docs/utilities-javascript-format-date--docs) – for an absolute date.
