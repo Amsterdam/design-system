@@ -1,10 +1,14 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# @license EUPL-1.2+
+# Copyright Gemeente Amsterdam
 
-# Ignore 3rd party files
-node_modules/
+# Node and dependencies
+# Do not ignore package.json in the root
 .npm/
+node_modules/
+package-lock.json
+!/package-lock.json
 
-# Ignore generated files
+# Generated output
 build/
 coverage/
 dist/
@@ -15,34 +19,14 @@ tmp/
 .swc/
 tsconfig.tsbuildinfo
 
-# AI tools
-.claude/
-.cursor/
-.aider*
-.copilot/
-
-# Ignore log files
+# Logs
+logs/
 *.err
 *.log
 *.tmp
 
-# Code editor files
-.idea/
-.vscode/
-.code-workspace/
-
-# Operating system files
-.DS_Store
-Thumbs.db
-
-# Files that (sometimes) contain secrets
+# Files that may contain secrets
+# Do not ignore an example for it
 *.env
 .env.*
-
-# Example file exceptions
 !.env.example
-
-# Only track the npm 7 workspace root package-lock.json
-yarn.lock
-package-lock.json
-!/package-lock.json

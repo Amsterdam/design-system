@@ -1,14 +1,14 @@
-# Ignore 3rd party files
+# @license EUPL-1.2+
+# Copyright Gemeente Amsterdam
+
+# Node and dependencies
 node_modules/
 
-# Ignore generated files
-.angular/
+# Generated output
 build/
 coverage/
 dist/
 tmp/
-*.snap
-CHANGELOG.md
 
 # Cache
 .swc/
@@ -20,5 +20,8 @@ package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
-# Ignore handlebar template files
+# Changelogs
+CHANGELOG.md
+
+# Handlebars templates
 *.hbs
