@@ -24,7 +24,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: <Paragraph>This is the content of the HTML `&lt;body&gt;` element.</Paragraph>,
+    children: <Paragraph>{`This is the content of the HTML <body> element.`}</Paragraph>,
   },
   render,
 }
