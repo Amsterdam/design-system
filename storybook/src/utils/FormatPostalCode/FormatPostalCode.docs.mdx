@@ -1,0 +1,39 @@
+{/* @license CC0-1.0 */}
+
+import { Controls, Meta, Primary } from "@storybook/addon-docs/blocks";
+
+import * as FormatPostalCodeStories from "./FormatPostalCode.stories.tsx";
+
+<Meta of={FormatPostalCodeStories} />
+
+# Format Postal Code
+
+Formats a Dutch postal code as four digits, a space, and two uppercase letters.
+
+<Primary />
+
+<Controls />
+
+## Usage
+
+```tsx
+import { formatPostalCode } from "@amsterdam/design-system-react";
+
+formatPostalCode("1014ba"); // '1014 BA'
+formatPostalCode("1014 ba"); // '1014 BA'
+formatPostalCode("1014 BA"); // '1014 BA'
+```
+
+## Guidelines
+
+- Normalises common input variations: missing space, lowercase letters, surrounding whitespace.
+- Registries such as the BAG store postal codes without a space, so this is the form you will usually pass in.
+- Returns the input unchanged if it does not match the Dutch postal code pattern (4 digits + 2 letters).
+- Formats any four digits followed by two letters, on purpose.
+  It deliberately does not reject a number range or a combination of letters: postal codes starting with a zero are being introduced for Bonaire, Sint Eustatius, and Saba, and letters that were once left out have since been issued.
+  A stricter check would reject addresses that are real.
+
+## Accessibility
+
+- Do not add an `aria-label` to spell out the postal code.
+  It overrides the way people have set up their screen reader to read numbers and letters, which is their choice to make, not ours.
