@@ -1,0 +1,11 @@
+{/* @license CC0-1.0 */}
+
+import { Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import * as BodyStories from "./Body.stories.tsx";
+import README from "../../../../packages/css/src/components/body/README.md?raw";
+
+<Meta of={BodyStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
