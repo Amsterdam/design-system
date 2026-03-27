@@ -168,7 +168,7 @@ To enable correct validation and to fix lint/style errors on save, add this to y
 ### Run storybook
 
 - Install dependencies: `pnpm install`
-- Run storybook: `npm start`
+- Run storybook: `pnpm start`
 
 ### Run unit tests
 
@@ -189,18 +189,15 @@ This will create files for the design tokens, CSS and React components, and Reac
 
 If you need to link your local version of this library (to test your unpublished changes, for example) to a local project, follow these steps:
 
-- Go to the root directory of the packages you want to link to (i.e. where its package.json is)
-- Run `npm link`.
+- Go to the root directory of the packages you want to link (i.e. where its `package.json` is)
+- Run `pnpm link --global`.
   Do this for all packages you want to link.
 - Go to the root of the project in which you want to consume the packages
-- Run `npm link <package-name>`.
-  If you want to link multiple packages, separate the package names with a space.
-  For example: `npm link @amsterdam/design-system-tokens @amsterdam/design-system-assets @amsterdam/design-system-react @amsterdam/design-system-react-icons`.
-  **Be careful**: you have to link all packages in the same namespace together.
-  Doing it one at a time will only link the last one.
-  <!-- TODO: is there a workaround for this? -->
+- Run `pnpm link --global <package-name>`.
+  If you want to link multiple packages, run the command once per package.
+  For example: `pnpm link --global @amsterdam/design-system-tokens @amsterdam/design-system-assets @amsterdam/design-system-react @amsterdam/design-system-react-icons`.
 - Sometimes the local link is severed.
-  Run `npm link @amsterdam/...` again if this happens.
+  Run `pnpm link --global @amsterdam/...` again if this happens.
 
 </details>
 
