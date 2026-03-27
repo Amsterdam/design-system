@@ -3,8 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/print-exact" as *;
+
 .ams-spotlight {
   background-color: var(--ams-spotlight-background-color);
+
+  @include print-exact;
 }
 
 .ams-spotlight--azure {

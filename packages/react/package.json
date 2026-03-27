@@ -55,7 +55,7 @@
     "@testing-library/react": "16.3.2",
     "@testing-library/user-event": "14.6.1",
     "@vitejs/plugin-react": "5.2.0",
-    "@vitest/coverage-v8": "4.1.0",
+    "@vitest/coverage-v8": "4.1.1",
     "@types/react": "18.3.28",
     "@types/react-dom": "18.3.7",
     "react": "18.3.1",
@@ -68,7 +68,7 @@
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-typescript2": "0.36.0",
     "sass": "1.98.0",
-    "vitest": "4.1.0"
+    "vitest": "4.1.1"
   },
   "peerDependencies": {
     "@amsterdam/design-system-css": "3.2.1",
