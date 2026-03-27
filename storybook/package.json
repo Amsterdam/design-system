@@ -47,5 +47,12 @@
     "storybook": "10.3.3",
     "storybook-addon-pseudo-states": "10.3.3",
     "vite": "8.0.2"
+  },
+  "overrides": {
+    "storybook": {
+      "@storybook/react-vite": {
+        "@joshwooding/vite-plugin-react-docgen-typescript": "0.7.0"
+      }
+    }
   }
 }

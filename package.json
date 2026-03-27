@@ -97,8 +97,7 @@
     "overrides": {
       "minimatch@>=3.0.0 <3.1.4": "3.1.4",
       "tar": ">=7.5.10",
-      "flatted": ">=3.4.2",
-      "@joshwooding/vite-plugin-react-docgen-typescript": "0.7.0"
+      "flatted": ">=3.4.2"
     }
   }
 }
