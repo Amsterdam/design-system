@@ -26,11 +26,11 @@
   row-gap: var(--ams-page-footer-menu-row-gap);
 
   @media (min-width: $ams-breakpoint-medium) {
-    padding-inline: var(--ams-page-footer-menu-medium-padding-inline);
+    padding-inline: var(--ams-page-footer-menu-vi-medium-padding-inline);
   }
 
   @media (min-width: $ams-breakpoint-wide) {
-    padding-inline: var(--ams-page-footer-menu-wide-padding-inline);
+    padding-inline: var(--ams-page-footer-menu-vi-wide-padding-inline);
   }
 }
 
