@@ -53,6 +53,16 @@
         },
         "medium": {
           "gap": {
+            "$deprecated": "Use `ams.progress-list.step.vi-medium.gap` instead. Will be removed in release 6.0.0.",
+            "$value": "{ams.space.l}",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
+          }
+        },
+        "vi-medium": {
+          "gap": {
             "$value": "{ams.space.l}",
             "$type": "dimension",
             "$extensions": {
@@ -209,6 +219,16 @@
               }
             },
             "medium": {
+              "margin-inline-end": {
+                "$deprecated": "Use `ams.progress-list.substeps.step.indicator.vi-medium.margin-inline-end` instead. Will be removed in release 6.0.0.",
+                "$value": "{ams.space.l}",
+                "$type": "dimension",
+                "$extensions": {
+                  "nl.amsterdam.subtype": "space"
+                }
+              }
+            },
+            "vi-medium": {
               "margin-inline-end": {
                 "$value": "{ams.space.l}",
                 "$type": "dimension",
