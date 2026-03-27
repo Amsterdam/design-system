@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
 import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
@@ -15,8 +15,8 @@ import { formatDate } from '../../_common/formatDate'
 
 const topTask = exampleTopTask()
 
-const maxWidthDecorator = (Story) => (
-  <div style={{ width: '24rem' }}>
+const maxWidthDecorator: Decorator = (Story) => (
+  <div style={{ maxWidth: '24rem' }}>
     <Story />
   </div>
 )
