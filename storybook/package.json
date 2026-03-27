@@ -18,6 +18,7 @@
     "chromatic": "chromatic",
     "clean": "rimraf dist/",
     "lint": "tsc --noEmit --project ./tsconfig.json",
+    "test": "vitest run",
     "start": "storybook dev --config-dir config/ --port 6006"
   },
   "dependencies": {
@@ -46,7 +47,8 @@
     "remark-gfm": "4.0.1",
     "storybook": "10.3.3",
     "storybook-addon-pseudo-states": "10.3.3",
-    "vite": "8.0.2"
+    "vite": "8.0.2",
+    "vitest": "4.1.1"
   },
   "overrides": {
     "storybook": {

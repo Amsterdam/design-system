@@ -11,15 +11,15 @@
  * @returns String with all token references replaced by CSS custom properties
  *
  * @example
- * formatTokenValue("{border.width.sm}")                           // "var(--border-width-sm)"
- * formatTokenValue("{spacing.md}")                                // "var(--spacing-md)"
+ * formatTokenValue("{border.width.sm}")                          // "var(--border-width-sm)"
+ * formatTokenValue("{spacing.md}")                               // "var(--spacing-md)"
  * formatTokenValue("2px")                                        // "2px"
  * formatTokenValue("inset 0rem {border.width.m} 0rem {color.x}") // "inset 0rem var(--border-width-m) 0rem var(--color-x)"
  */
-export function formatTokenValue<Type = string>(value: string): Type {
+export function formatTokenValue<T = string>(value: string): T {
   if (value.includes('{')) {
-    return value.replace(/\{([^}]+)\}/g, (_, ref: string) => `var(--${ref.replace(/\./g, '-')})`) as unknown as Type
+    return value.replace(/\{([^}]+)\}/g, (_, ref: string) => `var(--${ref.replace(/\./g, '-')})`) as unknown as T
   }
 
-  return value as unknown as Type
+  return value as unknown as T
 }
