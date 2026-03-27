@@ -25,11 +25,19 @@ jobs:
         run: |
           gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions -f content=eyes
 
+      - name: Get PR head SHA
+        id: get-sha
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          SHA=$(gh pr view ${{ github.event.issue.number }} --json headRefOid -q '.headRefOid' --repo ${{ github.repository }})
+          echo "sha=$SHA" >> $GITHUB_OUTPUT
+
       - name: Check out branch
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
-          ref: refs/pull/${{ github.event.issue.number }}/head
+          ref: ${{ steps.get-sha.outputs.sha }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
