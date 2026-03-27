@@ -5,24 +5,16 @@
 
 import type { StorybookConfig } from '@storybook/react-vite'
 
-import { dirname } from 'node:path'
 import process from 'node:process'
-import { fileURLToPath } from 'node:url'
 import remarkGfm from 'remark-gfm'
-
-// Apply suggestion for module resolution in special environments
-// See: https://storybook.js.org/docs/faq#how-do-i-fix-module-resolution-in-special-environments
-const getAbsolutePath = (packageName: string) => {
-  return dirname(fileURLToPath(import.meta.resolve(`${packageName}/package.json`)))
-}
 
 const config: StorybookConfig = {
   addons: [
-    getAbsolutePath('@storybook/addon-links'),
-    getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-themes'),
+    '@storybook/addon-links',
+    '@storybook/addon-a11y',
+    '@storybook/addon-themes',
     {
-      name: getAbsolutePath('@storybook/addon-docs'),
+      name: '@storybook/addon-docs',
       options: {
         mdxPluginOptions: {
           mdxCompileOptions: {
@@ -31,9 +23,9 @@ const config: StorybookConfig = {
         },
       },
     },
-    getAbsolutePath('@linus_janns/storybook-addon-html'),
+    '@linus_janns/storybook-addon-html',
     ...(process.env['IS_CHROMATIC'] || process.env['NODE_ENV'] === 'development'
-      ? [getAbsolutePath('storybook-addon-pseudo-states')]
+      ? ['storybook-addon-pseudo-states']
       : []),
   ],
 
@@ -42,7 +34,7 @@ const config: StorybookConfig = {
   },
 
   framework: {
-    name: getAbsolutePath('@storybook/react-vite'),
+    name: '@storybook/react-vite',
     options: {},
   },
 
