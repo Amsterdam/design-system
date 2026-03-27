@@ -64,7 +64,37 @@
           }
         }
       },
+
       "medium": {
+        "column-count": {
+          "$deprecated": "Use `ams.grid.vi-medium.column-count` instead. Will be removed in release 6.0.0.",
+          "$value": "8"
+        },
+        "padding-inline": {
+          "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed in release 6.0.0.",
+          "$value": "{ams.space.xl}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        }
+      },
+
+      "wide": {
+        "column-count": {
+          "$deprecated": "Use `ams.grid.vi-wide.column-count` instead. Will be removed in release 6.0.0.",
+          "$value": "12"
+        },
+        "padding-inline": {
+          "$deprecated": "Use `ams.grid.vi-wide.padding-inline` instead. Will be removed in release 6.0.0.",
+          "$value": "{ams.space.2xl}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        }
+      },
+      "vi-medium": {
         "column-count": {
           "$value": "8"
         },
@@ -76,7 +106,7 @@
           }
         }
       },
-      "wide": {
+      "vi-wide": {
         "column-count": {
           "$value": "12"
         },
