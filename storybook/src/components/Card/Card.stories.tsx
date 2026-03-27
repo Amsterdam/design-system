@@ -15,12 +15,15 @@ import { formatDate } from '../../_common/formatDate'
 
 const topTask = exampleTopTask()
 
+const maxWidthDecorator = (Story) => (
+  <div style={{ width: '24rem' }}>
+    <Story />
+  </div>
+)
+
 const meta = {
   title: 'Components/Navigation/Card',
   component: Card,
-  args: {
-    style: { maxWidth: '24rem' },
-  },
 } satisfies Meta<typeof Card>
 
 export default meta
@@ -36,6 +39,7 @@ export const Default: Story = {
       <Paragraph key={2}>{topTask.description}</Paragraph>,
     ],
   },
+  decorators: [maxWidthDecorator],
 }
 
 export const WithTagline: Story = {
@@ -51,6 +55,7 @@ export const WithTagline: Story = {
       </Paragraph>,
     ],
   },
+  decorators: [maxWidthDecorator],
 }
 
 type WithImageProps = {
@@ -84,6 +89,7 @@ export const WithImage: WithImageStory = {
     tagline: { control: 'text' },
     text: { control: 'text' },
   },
+  decorators: [maxWidthDecorator],
   render: ({ aspectRatio, date, heading, imageSrc, tagline, text, ...args }) => (
     <Card {...args}>
       <Card.Image alt="" aspectRatio={aspectRatio} src={imageSrc} />
