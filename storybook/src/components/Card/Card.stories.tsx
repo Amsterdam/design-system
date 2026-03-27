@@ -27,16 +27,6 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-type WithImageProps = {
-  aspectRatio: (typeof aspectRatioOptions)[number]
-  date: string
-  heading: string
-  tagline: string
-  text: string
-} & ComponentProps<typeof Card>
-
-type WithImageStory = StoryObj<WithImageProps>
-
 export const Default: Story = {
   args: {
     children: [
@@ -63,11 +53,23 @@ export const WithTagline: Story = {
   },
 }
 
+type WithImageProps = {
+  aspectRatio: (typeof aspectRatioOptions)[number]
+  date: string
+  heading: string
+  imageSrc: string
+  tagline: string
+  text: string
+} & ComponentProps<typeof Card>
+
+type WithImageStory = StoryObj<WithImageProps>
+
 export const WithImage: WithImageStory = {
   args: {
     aspectRatio: '4:3',
     date: formatDate(Date.now()),
     heading: 'Nederlands eerste houten woonwijk komt in Zuidoost',
+    imageSrc: 'https://picsum.photos/480/360',
     tagline: 'Nieuws',
     text: 'We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
   },
@@ -78,12 +80,13 @@ export const WithImage: WithImageStory = {
     },
     date: { control: 'text' },
     heading: { control: 'text' },
+    imageSrc: { control: 'text' },
     tagline: { control: 'text' },
     text: { control: 'text' },
   },
-  render: ({ aspectRatio, date, heading, tagline, text, ...args }) => (
+  render: ({ aspectRatio, date, heading, imageSrc, tagline, text, ...args }) => (
     <Card {...args}>
-      <Card.Image alt="" aspectRatio={aspectRatio} src="https://picsum.photos/480/360" />
+      <Card.Image alt="" aspectRatio={aspectRatio} src={imageSrc} />
       <Card.HeadingGroup tagline={tagline}>
         <Card.Heading level={3}>
           <Card.Link href="/">{heading}</Card.Link>
