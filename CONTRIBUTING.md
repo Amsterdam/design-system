@@ -125,8 +125,15 @@ For more information, please read about [their contribution model](https://nldes
 You need to have the following tools installed to run Storybook locally:
 
 - [Git](https://git-scm.com/)
-- [Node.js and npm](https://nodejs.org/en/)
-- [Pnpm](https://pnpm.io/), `npm install -g pnpm`
+- [Node.js](https://nodejs.org/en/) (version 24 or higher)
+- [pnpm](https://pnpm.io/) — use [Corepack](https://nodejs.org/api/corepack.html), which is bundled with Node.js:
+
+```sh
+corepack enable
+```
+
+This activates the correct pnpm version automatically based on the `packageManager` field in `package.json`.
+Do not use `npm install -g pnpm` — that will install a different version and may cause errors.
 
 <details>
   <summary>Pro tip: VSCode extensions and linting on save</summary>
