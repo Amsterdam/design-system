@@ -13,11 +13,9 @@ tmp/
 # Cache
 .swc/
 
-# The indentation of dependency JSON files should only be updated by `yarn` and
-# `npm` commands, so dependency automation scripts (such as Dependabot and
-# Snyk) automatically use the correct indentation.
-package-lock.json
-yarn.lock
+# The indentation of the lock file should only be updated by pnpm,
+# so dependency automation scripts (such as Dependabot and Snyk)
+# automatically use the correct indentation.
 pnpm-lock.yaml
 
 # Changelogs

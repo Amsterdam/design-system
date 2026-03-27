@@ -2,11 +2,7 @@
 # Copyright Gemeente Amsterdam
 
 # Node and dependencies
-# Do not ignore package-lock.json in the root
-.npm/
 node_modules/
-package-lock.json
-!/package-lock.json
 
 # Generated output
 build/
