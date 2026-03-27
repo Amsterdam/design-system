@@ -1,0 +1,29 @@
+{/* @license CC0-1.0 */}
+
+import { Meta, Primary } from "@storybook/addon-docs/blocks";
+import * as FormatPostalCodeStories from "./FormatPostalCode.stories.tsx";
+
+<Meta of={FormatPostalCodeStories} />
+
+# Format Postal Code
+
+Formats a Dutch postal code as four digits, a space, and two uppercase letters.
+
+## Usage
+
+```tsx
+import { formatPostalCode } from "@amsterdam/design-system-react";
+
+formatPostalCode("1014ba"); // '1014 BA'
+formatPostalCode("1014 ba"); // '1014 BA'
+formatPostalCode("1014 BA"); // '1014 BA'
+```
+
+## Guidelines
+
+- Normalises common input variations: missing space, lowercase letters, surrounding whitespace.
+- Returns the input unchanged if it does not match the Dutch postal code pattern (4 digits + 2 letters).
+
+## Preview
+
+<Primary />

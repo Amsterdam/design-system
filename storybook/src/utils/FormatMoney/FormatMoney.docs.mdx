@@ -1,0 +1,38 @@
+{/* @license CC0-1.0 */}
+
+import { Meta, Primary } from "@storybook/addon-docs/blocks";
+import * as FormatMoneyStories from "./FormatMoney.stories.tsx";
+
+<Meta of={FormatMoneyStories} />
+
+# Format Money
+
+Formats an amount of money in euros according to the City of Amsterdam writing guidelines.
+
+## Usage
+
+```tsx
+import { formatMoney } from "@amsterdam/design-system-react";
+
+formatMoney(198); // '€ 198,-'
+formatMoney(198.5); // '€ 198,50'
+formatMoney(1040.25); // '€ 1.040,25'
+formatMoney(1000000); // '€ 1.000.000,-'
+```
+
+## Guidelines
+
+- The euro sign `€` precedes the amount, followed by a space.
+- Whole amounts end with `,-`: `€ 198,-`.
+- Amounts with cents show exactly two decimal places, using a comma: `€ 198,50`.
+- Thousands are separated by periods: `€ 1.000,-`.
+- Uses `Intl.NumberFormat` with the `nl-NL` locale.
+- For large round amounts in running text, the writing guidelines prefer writing 'euro' and 'miljoen' as words, e.g. '7,6 miljoen euro'. This function does not do that — it always produces the `€` notation.
+
+## Preview
+
+<Primary />
+
+## References
+
+- [Bedragen at Amsterdam Writing Guide (in Dutch)](https://www.amsterdam.nl/schrijfwijzer/heldere-taal-basis-onze-huisstijl/tekstonderdelen-heldere-taal/getallen-bedragen-breuken-percentages/)

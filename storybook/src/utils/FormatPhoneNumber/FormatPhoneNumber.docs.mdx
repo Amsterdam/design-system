@@ -1,0 +1,43 @@
+{/* @license CC0-1.0 */}
+
+import { Meta, Primary } from "@storybook/addon-docs/blocks";
+import * as FormatPhoneNumberStories from "./FormatPhoneNumber.stories.tsx";
+
+<Meta of={FormatPhoneNumberStories} />
+
+# Format Phone Number
+
+Formats a Dutch phone number according to the City of Amsterdam writing guidelines.
+
+## Usage
+
+```tsx
+import { formatPhoneNumber } from "@amsterdam/design-system-react";
+
+formatPhoneNumber("0202355911"); // '020 235 5911'
+formatPhoneNumber("0343255922"); // '0343 255 922'
+formatPhoneNumber("0612345678"); // '06 1234 5678'
+formatPhoneNumber("+31201234567"); // '+31 20 123 4567'
+formatPhoneNumber("+31612345678"); // '+31 6 1234 5678'
+formatPhoneNumber("08001234"); // '0800 1234'
+```
+
+## Guidelines
+
+- Uses spaces to separate the area code and subscriber number — no dashes or parentheses.
+- Subscriber numbers with an even digit count are split into two equal groups: `255 922`.
+- Subscriber numbers with an odd digit count get a group of 3 followed by a group of 4: `235 5911`.
+- Mobile numbers use a group of 4 and a group of 4 after `06`: `06 1234 5678`.
+- International numbers replace the leading `0` with `+31` and use spaces throughout: `+31 20 123 4567`.
+- The `0031` prefix is also accepted and formatted as `+31`.
+- Service numbers `0800` and `0900` are supported: `0800 1234` or `0800 123 4567`.
+- Unrecognised input (e.g. `14 020`, `112`) is returned unchanged.
+
+## Preview
+
+<Primary />
+
+## References
+
+- [Telefoonnummers at Amsterdam Writing Guide (in Dutch)](https://www.amsterdam.nl/schrijfwijzer/heldere-taal-basis-onze-huisstijl/tekstonderdelen-heldere-taal/telefoonnummers/)
+- [Taaladvies – Telefoonnummers in Nederland](https://taaladvies.net/telefoonnummers-in-nederland-algemeen/)

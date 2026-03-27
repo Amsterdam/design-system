@@ -1,0 +1,34 @@
+{/* @license CC0-1.0 */}
+
+import { Meta, Primary } from "@storybook/addon-docs/blocks";
+import * as FormatTimeStories from "./FormatTime.stories.tsx";
+
+<Meta of={FormatTimeStories} />
+
+# Format Time
+
+Formats a time or time range in Dutch notation according to the City's writing guidelines.
+
+## Usage
+
+```tsx
+import { formatTime } from "@amsterdam/design-system-react";
+
+formatTime(new Date(2026, 0, 1, 14, 30)); // '14:30'
+formatTime(new Date(2026, 0, 1, 9, 5)); // '9:05'
+formatTime(new Date(2026, 0, 1, 14, 30), new Date(2026, 0, 1, 15, 0)); // '14:30–15:00'
+```
+
+## Guidelines
+
+- Uses the `nl` locale with `Intl.DateTimeFormat`.
+- Hours do not have a leading zero: `9:05`, not `09:05`.
+- Pass a second argument to format a time range: `'14:30–15:00'`.
+
+## Preview
+
+<Primary />
+
+## References
+
+- [Tijdnotatie at Amsterdam Writing Guide (in Dutch)](https://www.amsterdam.nl/schrijfwijzer/heldere-taal-basis-onze-huisstijl/tekstonderdelen-heldere-taal/tijdnotatie/)

@@ -1,0 +1,44 @@
+{/* @license CC0-1.0 */}
+
+import { Meta, Primary } from "@storybook/addon-docs/blocks";
+import * as UseRelativeTimeStories from "./UseRelativeTime.stories.tsx";
+
+<Meta of={UseRelativeTimeStories} />
+
+# Use Relative Time
+
+A React hook that returns a live-updating relative time string in Dutch.
+
+## Usage
+
+```tsx
+import { useRelativeTime } from "@amsterdam/design-system-react";
+
+const MyComponent = ({ createdAt }: { createdAt: Date }) => {
+  const label = useRelativeTime(createdAt);
+
+  return <time dateTime={createdAt.toISOString()}>{label}</time>;
+};
+```
+
+## Output examples
+
+| Time elapsed       | Output                      |
+| ------------------ | --------------------------- |
+| Less than 1 minute | minder dan 1 minuut geleden |
+| 1 minute           | 1 minuut geleden            |
+| 5 minutes          | 5 minuten geleden           |
+| 1 hour             | 1 uur geleden               |
+| 3 hours            | 3 uur geleden               |
+| 1 day              | 1 dag geleden               |
+| 4 days             | 4 dagen geleden             |
+
+## Guidelines
+
+- Accepts a `Date` object or a numeric timestamp (milliseconds since epoch).
+- Updates automatically every 30 seconds.
+- Intended for recent timestamps. For older dates, consider using `formatDate` instead.
+
+## Preview
+
+<Primary />

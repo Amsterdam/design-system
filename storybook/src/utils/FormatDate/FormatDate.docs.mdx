@@ -1,0 +1,38 @@
+{/* @license CC0-1.0 */}
+
+import { Meta, Primary } from "@storybook/addon-docs/blocks";
+import * as FormatDateStories from "./FormatDate.stories.tsx";
+
+<Meta of={FormatDateStories} />
+
+# Format Date
+
+Formats a date in Dutch long-form notation according to the City’s writing guidelines.
+
+## Usage
+
+```tsx
+import { formatDate } from "@amsterdam/design-system-react";
+
+formatDate(new Date(2026, 0, 16)); // '16 januari 2026'
+formatDate(1800000000000); // '14 september 2027'
+formatDate(new Date(2028, 4, 36)); // '5 juni 2028'
+formatDate(Date.now()); // Today’s date
+formatDate(new Date(2028, 0, 16), { weekday: true }); // ‘zondag 16 januari 2028’
+```
+
+## Guidelines
+
+- Uses the `nl` locale with `Intl.DateTimeFormat` to produce a day, full month name, and year.
+- Accepts a `Date` object or a numeric timestamp (milliseconds since epoch).
+- Note that `new Date(year, month, day)` uses a zero-based month: `0` is January, `11` is December.
+- `new Date()` rolls over out-of-range values, e.g. day 32 of October becomes 1 November.
+- Pass `{ weekday: true }` to include the full weekday name, e.g. 'zondag 16 januari 2028'.
+
+## Preview
+
+<Primary />
+
+## References
+
+- [Date notation at Amsterdam Writing Guide (in Dutch)](https://www.amsterdam.nl/schrijfwijzer/heldere-taal-basis-onze-huisstijl/tekstonderdelen-heldere-taal/datumnotatie/)
