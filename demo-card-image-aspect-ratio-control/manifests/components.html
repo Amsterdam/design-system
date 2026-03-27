@@ -3683,7 +3683,7 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { Decorator, Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { ComponentProps } from &#39;react&#39;
 
 import { Column, Grid, Paragraph } from &#39;@amsterdam/design-system-react&#39;
@@ -3695,8 +3695,8 @@ import { formatDate } from &#39;../../_common/formatDate&#39;
 
 const topTask = exampleTopTask()
 
-const maxWidthDecorator = (Story) =&gt; (
-  &lt;div style={{ width: &#39;24rem&#39; }}&gt;
+const maxWidthDecorator: Decorator = (Story) =&gt; (
+  &lt;div style={{ maxWidth: &#39;24rem&#39; }}&gt;
     &lt;Story /&gt;
   &lt;/div&gt;
 )
@@ -27525,7 +27525,7 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { Decorator, Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { ComponentProps } from &#39;react&#39;
 
 import { Column, Grid, Paragraph } from &#39;@amsterdam/design-system-react&#39;
@@ -27537,8 +27537,8 @@ import { formatDate } from &#39;../../_common/formatDate&#39;
 
 const topTask = exampleTopTask()
 
-const maxWidthDecorator = (Story) =&gt; (
-  &lt;div style={{ width: &#39;24rem&#39; }}&gt;
+const maxWidthDecorator: Decorator = (Story) =&gt; (
+  &lt;div style={{ maxWidth: &#39;24rem&#39; }}&gt;
     &lt;Story /&gt;
   &lt;/div&gt;
 )
