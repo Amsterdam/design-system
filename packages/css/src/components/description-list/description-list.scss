@@ -13,8 +13,8 @@
 
   color: var(--ams-description-list-color);
   font-family: var(--ams-description-list-font-family);
-  font-size: var(--ams-description-list-font-size); /* This token is @deprecated. */
-  line-height: var(--ams-description-list-line-height); /* This token is @deprecated. */
+  font-size: var(--ams-description-list-font-size);
+  line-height: var(--ams-description-list-line-height);
 
   @include hyphenation;
   @include text-rendering;
@@ -67,8 +67,8 @@
     &:not(& + &, :last-child) {
       padding-block-start: calc(
         (
-            var(--ams-description-list-description-font-size) *
-              var(--ams-description-list-description-line-height) - var(--ams-description-list-term-font-size) *
+            var(--ams-description-list-font-size) *
+              var(--ams-description-list-line-height) - var(--ams-description-list-term-font-size) *
               var(--ams-description-list-term-line-height)
           ) /
           2
@@ -86,9 +86,7 @@
 .ams-description-list__description {
   @include reset-dd;
 
-  font-size: var(--ams-description-list-description-font-size);
   font-weight: var(--ams-description-list-description-font-weight);
-  line-height: var(--ams-description-list-description-line-height);
   margin-block-end: var(--ams-description-list-description-margin-block-end);
   padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
