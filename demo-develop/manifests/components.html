@@ -49188,6 +49188,16 @@ We follow [semantic versioning](https://semver.org) to indicate the impact of ch
 - Minor (x.y): offers new features, check whether you can use them.
 - Major (x): breaking changes that may require updates to your code.
 
+## Peer dependencies
+
+Our packages are interconnected through peer dependencies.
+The React package relies on the CSS package, while the CSS package depends on the Tokens and Assets packages.
+Upgrading one of these packages likely means you will also need to upgrade the others to satisfy the peer dependency version requirements.
+
+Without additional configuration, tools like **Dependabot by GitHub** might create separate pull requests for each package, which could fail due to unmet peer dependency constraints.
+Grouping the design system packages into a single update can prevent this issue.
+[Their documentation](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates#grouping-related-dependencies-together) provides details on this.
+
 ## Release cadence
 
 Breaking changes are grouped into major releases, which we limit to **once every 3 months**.
