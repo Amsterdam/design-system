@@ -150,6 +150,18 @@ We follow [the NL Design System token naming guidelines](https://nldesignsystem.
 
 Find the [list of component tokens](https://github.com/Amsterdam/design-system/tree/main/packages-proprietary/tokens/src/component/ams) on GitHub.
 
+#### Logical viewport inline size tokens
+
+Some component tokens vary by viewport breakpoint and follow [CSS logical property](https://developer.mozilla.org/en-US/docs/Glossary/Logical_properties) naming:
+
+- `vi` means _viewport inline size_.
+- Breakpoint-specific variants use `vi-medium` and `vi-wide`, for example:
+  - `ams.menu.vi-wide.padding-inline`
+  - `ams.dialog.vi-medium.inline-size`
+  - `ams.grid.vi-medium.column-count`
+
+Components can also use `narrow`, `medium` or `wide` keys without the `vi` prefix when the dimension is intrinsic to the component and not tied to the active viewport breakpoint.
+
 ### Overriding tokens
 
 This package allows the creation of a theme to reuse our components for a different brand.
