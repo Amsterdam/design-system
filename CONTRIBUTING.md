@@ -125,8 +125,8 @@ For more information, please read about [their contribution model](https://nldes
 You need to have the following tools installed to run Storybook locally:
 
 - [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/en/) (version 24 or higher)
-- [pnpm](https://pnpm.io/) — use [Corepack](https://nodejs.org/api/corepack.html), which is bundled with Node.js:
+- [Node.js](https://nodejs.org/en/) – see `package.json` for the minimum version
+- [pnpm](https://pnpm.io/) – use [Corepack](https://nodejs.org/api/corepack.html), which is bundled with Node.js:
 
 ```sh
 corepack enable
