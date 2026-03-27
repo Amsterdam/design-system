@@ -100,6 +100,8 @@ If any of these changes are undesirable, please submit another commit to correct
 If all visual changes are anticipated and acceptable, keep the visual diff open for the reviewer to examine.
 This allows the reviewer to conduct a final visual assessment of the changes made.
 
+To run visual regression tests, comment /Chromatic test on the pull request. This will trigger Chromatic to capture snapshots and compare them against the baseline. Visual regression tests also run automatically when a draft PR is marked as ready for review.
+
 ### Approve the PR
 
 One of the maintainers approves the pull request if it meets the requirements and merges the branch.
