@@ -14,7 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       github.event.issue.pull_request &&
-      startsWith(github.event.comment.body, '/Chromatic test')
+      startsWith(github.event.comment.body, '/Chromatic test') &&
+      (github.event.comment.author_association == 'OWNER' ||
+       github.event.comment.author_association == 'MEMBER' ||
+       github.event.comment.author_association == 'COLLABORATOR')
     steps:
       - name: React to comment
         env:
