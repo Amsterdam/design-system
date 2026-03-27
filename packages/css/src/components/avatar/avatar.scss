@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/print-exact" as *;
+
 .ams-avatar {
   aspect-ratio: var(--ams-avatar-aspect-ratio);
   background-color: var(--ams-avatar-background-color);
@@ -19,6 +21,8 @@
   padding-block: var(--ams-avatar-padding-block);
   padding-inline: var(--ams-avatar-padding-inline);
   place-content: center;
+
+  @include print-exact;
 
   svg {
     fill: currentColor;

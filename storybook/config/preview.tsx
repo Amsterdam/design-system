@@ -60,12 +60,7 @@ export const decorators = [
 ]
 
 export const parameters = {
-  backgrounds: {
-    disabled: true,
-    grid: {
-      disable: true,
-    },
-  },
+  backgrounds: { disable: true },
   controls: {
     sort: 'alpha', // Sorts controls in the Controls addon
   },

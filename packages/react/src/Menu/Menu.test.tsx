@@ -63,6 +63,14 @@ describe('Menu', () => {
     expect(ref.current).toBe(component)
   })
 
+  it('renders the default accessible name', () => {
+    render(<Menu inWideWindow />)
+
+    const component = screen.getByRole('navigation', { name: 'Hoofdmenu' })
+
+    expect(component).toBeInTheDocument()
+  })
+
   it('renders a custom accessible name', () => {
     render(<Menu accessibleName="Custom accessible name" inWideWindow />)
 
