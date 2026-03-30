@@ -224,6 +224,8 @@
   }
 }
 
+// This extra wrapper exists for one reason: the grid-template-rows: 0fr → 1fr animation technique requires a child with min-block-size: 0 to collapse into.
+// The grid row shrinks to 0fr, and the child's min-block-size: 0 allows it to actually reach zero height. Without that child, there's nothing to constrain.
 .ams-progress-list__panel-inner {
   inset-block-start: 0;
   min-block-size: 0;
