@@ -307,7 +307,7 @@ describe('ProgressListStep', () => {
 
     const button = screen.getByRole('button', { name: /Test Step/ })
     const panelId = button.getAttribute('aria-controls')
-    const panel = container.querySelector(`#${CSS.escape(panelId!)}`)
+    const panel = container.querySelector(`[id="${panelId}"]`)
 
     expect(panelId).toBeTruthy()
     expect(panel).toBeInTheDocument()
