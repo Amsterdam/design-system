@@ -203,7 +203,8 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: rotate 0.3s ease;
+    transition: rotate var(--ams-progress-list-icon-transition-duration)
+      var(--ams-progress-list-icon-transition-timing-function);
   }
 }
 
