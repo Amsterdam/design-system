@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/print-exact" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
 
@@ -30,6 +31,7 @@
   padding-inline: var(--ams-search-field-input-padding-inline);
   touch-action: manipulation;
 
+  @include print-exact;
   @include text-rendering;
 
   &:focus {

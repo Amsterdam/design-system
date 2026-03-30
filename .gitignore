@@ -1,59 +1,28 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# @license EUPL-1.2+
+# Copyright Gemeente Amsterdam
 
-# Ignore 3rd party files
+# Node and dependencies
 node_modules/
-vendor/
-.npm/
 
-# Ignore generated files
+# Generated output
 build/
 coverage/
 dist/
 tmp/
 
-# Ignore archives
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.tgz
-*.zip
-
 # Cache
 .cache/
+.swc/
 tsconfig.tsbuildinfo
 
-# Ignore log files
+# Logs
+logs/
 *.err
 *.log
 *.tmp
 
-# Code editor files
-.idea/
-.vs/
-.vscode/
-.code-workspace/
-*.sublime-project
-*.sublime-workspace
-
-# Operating system files
-.DS_Store
-Thumbs.db
-
-# Files that (sometimes) contain secrets
-*.der
+# Files that may contain secrets
+# Do not ignore an example for it
 *.env
-*.key
-*.pem
 .env.*
-
-# Example file exceptions
 !.env.example
-
-# Only track the npm 7 workspace root package-lock.json
-yarn.lock
-package-lock.json
-!/package-lock.json

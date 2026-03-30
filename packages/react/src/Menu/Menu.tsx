@@ -14,7 +14,7 @@ export type MenuProps = {
   /**
    * A name for this menu, which screen readers will announce.
    * Only applies to the `inWideWindow` appearance: otherwise, the menu is in the Page Header, which ensures accessibility itself.
-   * @default Hoofdnavigatie
+   * @default Hoofdmenu
    */
   accessibleName?: string
   /** Hides the component on narrow windows. */
@@ -23,7 +23,7 @@ export type MenuProps = {
 
 export const MenuRoot = forwardRef(
   (
-    { accessibleName = 'Hoofdnavigatie', children, className, inWideWindow, ...restProps }: MenuProps,
+    { accessibleName = 'Hoofdmenu', children, className, inWideWindow, ...restProps }: MenuProps,
     ref: ForwardedRef<any>,
   ) => {
     // In a medium or narrow window, the Menu is a child of the `nav` of Page Header.

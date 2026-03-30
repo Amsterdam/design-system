@@ -6,6 +6,7 @@
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 import { PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
+import { UserAccountIcon } from '@amsterdam/design-system-react-icons'
 
 import { MenuWithItems } from './MenuWithItems'
 
@@ -20,6 +21,12 @@ export const Layout = ({ children }: LayoutProps) => (
       className="ams-page__area--header"
       logoLink="/"
       logoLinkTitle="Naar de homepage van Applicatie"
+      menuItems={
+        <PageHeader.MenuLink fixed href="#" icon={UserAccountIcon}>
+          Inloggen
+        </PageHeader.MenuLink>
+      }
+      navigationLabel="Menu"
       noMenuButtonOnWideWindow
     >
       <MenuWithItems />
