@@ -145,8 +145,12 @@
 .ams-progress-list__content {
   flex: auto;
 
-  /* Add white space below all but the last step and steps with substeps. */
-  .ams-progress-list__step:not(:last-child, .ams-progress-list__step--has-substeps) & {
+  /* Add space below content, unless it is the last child, or if it has substeps and it is not collapsed. */
+  .ams-progress-list__step:not(
+      :last-child,
+      .ams-progress-list__step--has-substeps:not(.ams-progress-list__step--collapsed)
+    )
+    & {
     margin-block-end: var(--ams-progress-list-step-content-margin-block-end);
   }
 }
