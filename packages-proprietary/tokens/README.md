@@ -152,7 +152,7 @@ Find the [list of component tokens](https://github.com/Amsterdam/design-system/t
 
 #### Logical viewport inline size tokens
 
-Some component tokens vary by viewport breakpoint and follow [CSS logical property](https://developer.mozilla.org/en-US/docs/Glossary/Logical_properties) naming:
+Some component tokens vary by viewport breakpoint and follow [CSS logical properties](https://developer.mozilla.org/en-US/docs/Glossary/Logical_properties) naming:
 
 - `vi` means _viewport inline size_.
 - Breakpoint-specific variants use `vi-medium` and `vi-wide`, for example:
