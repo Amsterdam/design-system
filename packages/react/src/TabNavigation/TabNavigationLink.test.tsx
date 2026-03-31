@@ -3,11 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { AnchorHTMLAttributes } from 'react'
+
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
 import { TabNavigationLink } from './TabNavigationLink'
+
+const TestIcon = () => <svg data-testid="test-icon" />
 
 describe('TabNavigationLink', () => {
   it('renders', () => {
@@ -56,7 +60,7 @@ describe('TabNavigationLink', () => {
   })
 
   it('renders a custom link component', () => {
-    const CustomLink = ({ children, ...props }: any) => (
+    const CustomLink = ({ children, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
       <a {...props} data-custom="true">
         {children}
       </a>
@@ -68,6 +72,22 @@ describe('TabNavigationLink', () => {
 
     expect(component).toHaveAttribute('data-custom', 'true')
     expect(component).toHaveAttribute('href', '/test')
+  })
+
+  it('renders an icon', () => {
+    render(<TabNavigationLink href="/" icon={TestIcon} />)
+
+    const icon = screen.getByTestId('test-icon')
+
+    expect(icon).toBeInTheDocument()
+  })
+
+  it('does not render an icon by default', () => {
+    const { container } = render(<TabNavigationLink href="/" />)
+
+    const icon = container.querySelector('.ams-icon')
+
+    expect(icon).not.toBeInTheDocument()
   })
 
   it('supports ForwardRef in React', () => {
