@@ -29,12 +29,6 @@
 
 .ams-progress-list {
   @include reset-ol;
-
-  /* Compensate for the heading margin below the last step when it is collapsed. */
-  /* stylelint-disable-next-line plugin/use-baseline -- Some extra trailing space in non-supporting browsers is acceptable. */
-  &:has(> :last-child.ams-progress-list__step--collapsed) {
-    margin-block-end: calc(var(--ams-progress-list-step-heading-margin-block-end) * -1);
-  }
 }
 
 /* Step */
