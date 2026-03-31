@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { MouseEvent } from 'react'
 
+import { DocumentIcon, EuroIcon, MegaphoneIcon, PersonIcon } from '@amsterdam/design-system-react-icons'
 import { TabNavigation } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 
@@ -25,6 +26,17 @@ function useTabNavigation(labels: Array<string>, initialLabel?: string) {
 const meta = {
   title: 'Components/Navigation/Tab Navigation',
   component: TabNavigation,
+  argTypes: {
+    orientation: {
+      control: { type: 'inline-radio' },
+      options: ['horizontal', 'vertical'],
+    },
+  },
+  decorators: [
+    (Story, context) => (
+      <div style={{ maxWidth: context.args.orientation === 'vertical' ? '16rem' : undefined }}>{Story()}</div>
+    ),
+  ],
 } satisfies Meta<typeof TabNavigation>
 
 export default meta
@@ -49,11 +61,11 @@ export const Default: Story = {
       },
     },
   },
-  render: () => {
+  render: (args) => {
     const { current, handleClick } = useTabNavigation(labels)
 
     return (
-      <TabNavigation>
+      <TabNavigation {...args}>
         <TabNavigation.List>
           {labels.map((label) => (
             <TabNavigation.Link
@@ -72,7 +84,9 @@ export const Default: Story = {
 }
 
 export const Vertical: Story = {
-  decorators: [(Story) => <div style={{ maxWidth: '16rem' }}>{Story()}</div>],
+  args: {
+    orientation: 'vertical',
+  },
   parameters: {
     docs: {
       source: {
@@ -88,16 +102,62 @@ export const Vertical: Story = {
       },
     },
   },
-  render: () => {
+  render: (args) => {
     const { current, handleClick } = useTabNavigation(labels)
 
     return (
-      <TabNavigation orientation="vertical">
+      <TabNavigation {...args}>
         <TabNavigation.List>
           {labels.map((label) => (
             <TabNavigation.Link
               aria-current={current === label ? 'page' : undefined}
               href={`#${label.toLowerCase()}`}
+              key={label}
+              onClick={(e) => handleClick(e, label)}
+            >
+              {label}
+            </TabNavigation.Link>
+          ))}
+        </TabNavigation.List>
+      </TabNavigation>
+    )
+  },
+}
+
+const labelsWithIcons = [
+  { icon: PersonIcon, label: 'Gegevens' },
+  { icon: EuroIcon, label: 'Aanslagen' },
+  { icon: DocumentIcon, label: 'Documenten' },
+  { icon: MegaphoneIcon, label: 'Acties' },
+]
+
+export const WithIcons: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<TabNavigation>
+  <TabNavigation.List>
+    <TabNavigation.Link aria-current="page" href="/gegevens" icon={PersonIcon}>Gegevens</TabNavigation.Link>
+    <TabNavigation.Link href="/aanslagen" icon={EuroIcon}>Aanslagen</TabNavigation.Link>
+    <TabNavigation.Link href="/documenten" icon={DocumentIcon}>Documenten</TabNavigation.Link>
+    <TabNavigation.Link href="/acties" icon={MegaphoneIcon}>Acties</TabNavigation.Link>
+  </TabNavigation.List>
+</TabNavigation>`,
+        language: 'tsx',
+      },
+    },
+  },
+  render: (args) => {
+    const { current, handleClick } = useTabNavigation(labelsWithIcons.map(({ label }) => label))
+
+    return (
+      <TabNavigation {...args}>
+        <TabNavigation.List>
+          {labelsWithIcons.map(({ icon, label }) => (
+            <TabNavigation.Link
+              aria-current={current === label ? 'page' : undefined}
+              href={`#${label.toLowerCase()}`}
+              icon={icon}
               key={label}
               onClick={(e) => handleClick(e, label)}
             >
@@ -126,11 +186,11 @@ export const WithManyLinks: Story = {
       },
     },
   },
-  render: () => {
+  render: (args) => {
     const { current, handleClick } = useTabNavigation(cityParts)
 
     return (
-      <TabNavigation>
+      <TabNavigation {...args}>
         <TabNavigation.List>
           {cityParts.map((name) => (
             <TabNavigation.Link
