@@ -121,7 +121,7 @@
       },
       "secondary": {
         "background-color": {
-          "$value": "{ams.color.background}",
+          "$value": "{ams.color.background.default}",
           "$type": "color"
         },
         "border-color": {

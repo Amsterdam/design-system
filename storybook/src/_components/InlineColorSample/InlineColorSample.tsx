@@ -4,6 +4,7 @@
  */
 
 import './inline-color-sample.css'
+import { clsx } from 'clsx'
 
 /** Hardcoded subset of the Amsterdam design system colour palette, keyed by colour name. */
 const colors = {
@@ -15,6 +16,7 @@ const colors = {
   lime: '#bed200',
   magenta: '#e50082',
   neutral: '#767676',
+  'neutral-10': '#e8e8e8',
   'neutral-20': '#d1d1d1',
   orange: '#ff9100',
   purple: '#a00078',
@@ -29,5 +31,8 @@ const colors = {
  * @param color - The name of a colour from the Amsterdam design system palette.
  */
 export const InlineColorSample = ({ color }: { color: keyof typeof colors }) => (
-  <span className="ams-inline-color-sample" style={{ backgroundColor: `${colors[color]}` }} />
+  <span
+    className={clsx('ams-inline-color-sample', color === 'white' && 'ams-inline-color-sample--white')}
+    style={{ backgroundColor: `${colors[color]}` }}
+  />
 )
