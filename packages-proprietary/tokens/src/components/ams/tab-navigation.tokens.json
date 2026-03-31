@@ -46,6 +46,13 @@
         }
       },
       "link": {
+        "gap": {
+          "$value": "{ams.space.xs}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
         "color": {
           "$value": "{ams.color.interactive.default}",
           "$type": "color"
