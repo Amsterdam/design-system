@@ -86,6 +86,22 @@ describe('TabNavigation', () => {
     expect(ref.current).toBe(component)
   })
 
+  it('renders a vertical variant', () => {
+    render(<TabNavigation orientation="vertical" />)
+
+    const component = screen.getByRole('navigation')
+
+    expect(component).toHaveClass('ams-tab-navigation--vertical')
+  })
+
+  it('does not render the vertical class for horizontal orientation', () => {
+    render(<TabNavigation orientation="horizontal" />)
+
+    const component = screen.getByRole('navigation')
+
+    expect(component).not.toHaveClass('ams-tab-navigation--vertical')
+  })
+
   it('passes additional props', () => {
     render(<TabNavigation aria-hidden={false} data-test="data-test" id="id" />)
 
