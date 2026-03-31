@@ -19,18 +19,25 @@ export type TabNavigationProps = {
    * Note: must be unique for the page.
    */
   accessibleNameId?: string
+  /** The direction in which the links are laid out. */
+  orientation?: 'horizontal' | 'vertical'
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const TabNavigationRoot = forwardRef(
   (
-    { accessibleName, accessibleNameId, children, className, ...restProps }: TabNavigationProps,
+    { accessibleName, accessibleNameId, children, className, orientation, ...restProps }: TabNavigationProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const generatedId = useId()
     const labelId = accessibleNameId || generatedId
 
     return (
-      <nav {...restProps} aria-labelledby={labelId} className={clsx('ams-tab-navigation', className)} ref={ref}>
+      <nav
+        {...restProps}
+        aria-labelledby={labelId}
+        className={clsx('ams-tab-navigation', orientation === 'vertical' && 'ams-tab-navigation--vertical', className)}
+        ref={ref}
+      >
         <h2 aria-hidden={true} className="ams-visually-hidden" id={labelId}>
           {accessibleName || 'Navigatie'}
         </h2>
