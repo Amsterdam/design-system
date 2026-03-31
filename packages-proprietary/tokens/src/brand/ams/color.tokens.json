@@ -2,7 +2,7 @@
   "ams": {
     "color": {
       "background": {
-        "canvas": {
+        "body": {
           "$value": "#ffffff",
           "$type": "color"
         },

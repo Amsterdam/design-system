@@ -2,7 +2,7 @@
   "ams": {
     "page": {
       "background-color": {
-        "$value": "{ams.color.background.canvas}",
+        "$value": "{ams.color.background.body}",
         "$type": "color"
       },
       "max-inline-size": {
