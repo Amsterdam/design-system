@@ -19,12 +19,14 @@
       "font-size": {
         "$value": "{ams.typography.body-text.font-size}",
         "$extensions": {
+          "nl.amsterdam.hint": "Applies to descriptions only; terms set their own font size.",
           "nl.amsterdam.type": "fontSize"
         }
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
+          "nl.amsterdam.hint": "Applies to descriptions only; terms set their own line height.",
           "nl.amsterdam.type": "lineHeight"
         }
       },
@@ -43,9 +45,21 @@
         }
       },
       "term": {
+        "font-size": {
+          "$value": "{ams.typography.heading.4.font-size}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
         "font-weight": {
-          "$value": "{ams.typography.body-text.bold.font-weight}",
+          "$value": "{ams.typography.heading.font-weight}",
           "$type": "fontWeight"
+        },
+        "line-height": {
+          "$value": "{ams.typography.heading.4.line-height}",
+          "$extensions": {
+            "nl.amsterdam.type": "lineHeight"
+          }
         },
         "margin-block-end": {
           "$value": "{ams.space.xs}",

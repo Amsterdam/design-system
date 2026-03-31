@@ -3,22 +3,27 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
+import type { ComponentProps } from 'react'
 
 import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
+import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 import { exampleTopTask } from '../../_common/exampleContent'
 import { formatDate } from '../../_common/formatDate'
 
 const topTask = exampleTopTask()
 
+const maxWidthDecorator: Decorator = (Story) => (
+  <div style={{ maxWidth: '24rem' }}>
+    <Story />
+  </div>
+)
+
 const meta = {
   title: 'Components/Navigation/Card',
   component: Card,
-  args: {
-    style: { maxWidth: '24rem' },
-  },
 } satisfies Meta<typeof Card>
 
 export default meta
@@ -34,6 +39,7 @@ export const Default: Story = {
       <Paragraph key={2}>{topTask.description}</Paragraph>,
     ],
   },
+  decorators: [maxWidthDecorator],
 }
 
 export const WithTagline: Story = {
@@ -49,25 +55,55 @@ export const WithTagline: Story = {
       </Paragraph>,
     ],
   },
+  decorators: [maxWidthDecorator],
 }
 
-export const WithImage: Story = {
+type WithImageProps = {
+  aspectRatio: (typeof aspectRatioOptions)[number]
+  date: string
+  heading: string
+  imageSrc: string
+  tagline: string
+  text: string
+} & ComponentProps<typeof Card>
+
+type WithImageStory = StoryObj<WithImageProps>
+
+export const WithImage: WithImageStory = {
   args: {
-    children: [
-      <Card.Image alt="" aspectRatio="4:3" key={1} src="https://picsum.photos/480/360" />,
-      <Card.HeadingGroup key={2} tagline="Nieuws">
-        <Card.Heading level={3}>
-          <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
-        </Card.Heading>
-      </Card.HeadingGroup>,
-      <Column gap="small" key={3}>
-        <Paragraph>
-          We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
-        </Paragraph>
-        <Paragraph size="small">{formatDate(Date.now())}</Paragraph>
-      </Column>,
-    ],
+    aspectRatio: '4:3',
+    date: formatDate(Date.now()),
+    heading: 'Nederlands eerste houten woonwijk komt in Zuidoost',
+    imageSrc: 'https://picsum.photos/480/360',
+    tagline: 'Nieuws',
+    text: 'We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
   },
+  argTypes: {
+    aspectRatio: {
+      control: { type: 'inline-radio' },
+      options: aspectRatioOptions,
+    },
+    date: { control: 'text' },
+    heading: { control: 'text' },
+    imageSrc: { control: 'text' },
+    tagline: { control: 'text' },
+    text: { control: 'text' },
+  },
+  decorators: [maxWidthDecorator],
+  render: ({ aspectRatio, date, heading, imageSrc, tagline, text, ...args }) => (
+    <Card {...args}>
+      <Card.Image alt="" aspectRatio={aspectRatio} src={imageSrc} />
+      <Card.HeadingGroup tagline={tagline}>
+        <Card.Heading level={3}>
+          <Card.Link href="/">{heading}</Card.Link>
+        </Card.Heading>
+      </Card.HeadingGroup>
+      <Column gap="small">
+        <Paragraph>{text}</Paragraph>
+        <Paragraph size="small">{date}</Paragraph>
+      </Column>
+    </Card>
+  ),
 }
 
 export const TopTasks: Story = {
