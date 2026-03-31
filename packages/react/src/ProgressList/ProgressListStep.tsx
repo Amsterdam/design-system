@@ -18,12 +18,8 @@ import { ProgressListContext } from './ProgressListContext'
 
 export type ProgressListStepProps = {
   /**
-   * Whether the content is initially collapsed. Defaults to `true` when
-   * `status` is `'completed'`, and `false` otherwise.
-   *
-   * Note: if a user focuses an interactive element inside the panel and the
-   * panel is then collapsed, focus moves to `<body>`. This is standard browser
-   * behaviour when `visibility: hidden` is applied to a focused element.
+   * Whether the content is initially collapsed.
+   * Defaults to `true` when `status` is `'completed'`, and `false` otherwise.
    */
   defaultCollapsed?: boolean
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
