@@ -35,3 +35,21 @@ export const Test: Story = {
   ),
   tags: ['!dev', '!autodocs'],
 }
+
+export const TestVertical: Story = {
+  render: () => (
+    <TabNavigation orientation="vertical">
+      <TabNavigation.List>
+        <TabNavigation.Link aria-current="page" href="#">
+          Gegevens
+        </TabNavigation.Link>
+        <TabNavigation.Link href="#">Aanslagen</TabNavigation.Link>
+        <TabNavigation.Link href="#">Documenten</TabNavigation.Link>
+        <TabNavigation.Link className="hover" href="#">
+          Acties
+        </TabNavigation.Link>
+      </TabNavigation.List>
+    </TabNavigation>
+  ),
+  tags: ['!dev', '!autodocs'],
+}

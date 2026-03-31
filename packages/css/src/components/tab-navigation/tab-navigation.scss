@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 
 .ams-tab-navigation__list {
@@ -13,6 +14,16 @@
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
+}
+
+.ams-tab-navigation--vertical {
+  @include hyphenation;
+
+  .ams-tab-navigation__list {
+    box-shadow: var(--ams-tab-navigation-list-vertical-box-shadow);
+    flex-direction: column;
+    overflow-x: visible;
+  }
 }
 
 .ams-tab-navigation__item {
@@ -48,6 +59,14 @@
     @media (forced-colors: active) {
       background-color: SelectedItem;
     }
+  }
+
+  .ams-tab-navigation--vertical &:hover:not([aria-current="page"]) {
+    box-shadow: var(--ams-tab-navigation-link-vertical-hover-box-shadow);
+  }
+
+  .ams-tab-navigation--vertical &[aria-current="page"] {
+    box-shadow: var(--ams-tab-navigation-link-vertical-current-box-shadow);
   }
 }
 

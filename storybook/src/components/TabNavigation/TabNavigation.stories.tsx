@@ -71,6 +71,45 @@ export const Default: Story = {
   },
 }
 
+export const Vertical: Story = {
+  decorators: [(Story) => <div style={{ maxWidth: '16rem' }}>{Story()}</div>],
+  parameters: {
+    docs: {
+      source: {
+        code: `<TabNavigation orientation="vertical">
+  <TabNavigation.List>
+    <TabNavigation.Link aria-current="page" href="/gegevens">Gegevens</TabNavigation.Link>
+    <TabNavigation.Link href="/aanslagen">Aanslagen</TabNavigation.Link>
+    <TabNavigation.Link href="/documenten">Documenten</TabNavigation.Link>
+    <TabNavigation.Link href="/acties">Acties</TabNavigation.Link>
+  </TabNavigation.List>
+</TabNavigation>`,
+        language: 'tsx',
+      },
+    },
+  },
+  render: () => {
+    const { current, handleClick } = useTabNavigation(labels)
+
+    return (
+      <TabNavigation orientation="vertical">
+        <TabNavigation.List>
+          {labels.map((label) => (
+            <TabNavigation.Link
+              aria-current={current === label ? 'page' : undefined}
+              href={`#${label.toLowerCase()}`}
+              key={label}
+              onClick={(e) => handleClick(e, label)}
+            >
+              {label}
+            </TabNavigation.Link>
+          ))}
+        </TabNavigation.List>
+      </TabNavigation>
+    )
+  },
+}
+
 export const WithManyLinks: Story = {
   parameters: {
     docs: {

@@ -11,6 +11,7 @@ It looks similar to Tabs but uses links instead of buttons, because each tab nav
 - Use [Tabs](http://designsystem.amsterdam/?path=/docs/components-containers-tabs--docs) for in-page content switching where panel content changes without navigating away.
 - The current page's link receives the `aria-current="page"` attribute.
 - Always have one link marked as current.
+- Use the `vertical` orientation to stack links below each other, e.g. in a sidebar.
 
 You can navigate the links with your keyboard:
 
