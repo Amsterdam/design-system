@@ -14,7 +14,7 @@ const meta = {
   title: 'Pages/Internal/Home Page',
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
-    <Grid paddingVertical="x-large">
+    <Grid paddingBottom="x-large" paddingTop="large">
       <Grid.Cell appearance="transparent" span="all">
         <Heading level={1}>Titel van de pagina</Heading>
       </Grid.Cell>
