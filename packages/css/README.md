@@ -81,6 +81,10 @@ Add the `ams-body` class to your document’s `<body>` tag.
 This removes white space that the browser might add.
 In Compact Mode, it also sets the background color to match the Page component seamlessly.
 
+We don’t have a separate, global reset stylesheet.
+This follows from our component-based architecture: every component overwrites user agent styles on the elements they render.
+You shouldn’t need a reset stylesheet.
+
 #### Keep the base font size
 
 Do not change the base font-size – e.g. through `html { font-size: 62.5% }`.
