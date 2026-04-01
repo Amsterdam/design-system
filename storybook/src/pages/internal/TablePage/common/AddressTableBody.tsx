@@ -37,12 +37,12 @@ export const AddressTableBody = ({ addresses }: AddressTableBodyProps) => (
             <Table.Cell>{huisnummer}</Table.Cell>
             <Table.Cell>{huisletter}</Table.Cell>
             <Table.Cell>{postcode}</Table.Cell>
-            <Table.Cell>{gebruiksdoel}</Table.Cell>
+            <Table.Cell>{gebruiksdoel?.replace(',', ', ')}</Table.Cell>
             <Table.Cell>{aantalKamers}</Table.Cell>
             <Table.Cell>{oppervlakte}</Table.Cell>
             <Table.Cell>{bouwjaar}</Table.Cell>
             <Table.Cell>{status}</Table.Cell>
-            <Table.Cell>{wozSoortObject}</Table.Cell>
+            <Table.Cell>{wozSoortObject?.replace(',', ', ')}</Table.Cell>
           </Table.Row>
         ),
       )
