@@ -22917,13 +22917,13 @@ export const Test: Story = {
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  15 | import &#39;./table-page.css&#39;
-  16 |
-&gt; 17 | const meta = {
+  16 | const params = new URLSearchParams(window.location.search)
+  17 |
+&gt; 18 | const meta = {
      | ^
-  18 |   ...commonMeta,
-  19 |   title: &#39;Pages/Internal/Table Page&#39;,
-  20 | } satisfies Meta
+  19 |   ...commonMeta,
+  20 |   title: &#39;Pages/Internal/Table Page&#39;,
+  21 | } satisfies Meta
 
 ./src/pages/internal/TablePage/TablePage.stories.tsx:
 /**
@@ -22934,13 +22934,14 @@ export const Test: Story = {
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import { Grid, Heading, Label, Row, Select, Table } from &#39;@amsterdam/design-system-react&#39;
-import { useState } from &#39;react&#39;
 
 import type { SortOrder } from &#39;./common&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from &#39;./common&#39;
 import &#39;./table-page.css&#39;
+
+const params = new URLSearchParams(window.location.search)
 
 const meta = {
   ...commonMeta,
@@ -22951,25 +22952,37 @@ export default meta
 
 export const SortingWithSelect: StoryObj = {
   render: () =&gt; {
-    const [sortOrder, setSortOrder] = useState&lt;SortOrder&gt;(&#39;straat-asc&#39;)
+    const sortOrder = (params.get(&#39;sort&#39;) ?? &#39;straat-asc&#39;) as SortOrder
     const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
 
     return (
       &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+        &lt;Grid.Cell className=&quot;ams-grid__cell--transparent&quot; span=&quot;all&quot;&gt;
+          &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Row align=&quot;end&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
-            &lt;Label htmlFor=&quot;sortOrder&quot;&gt;Sorteren op&lt;/Label&gt;
-            &lt;Select id=&quot;sortOrder&quot; onChange={(e) =&gt; setSortOrder(e.target.value as SortOrder)} value={sortOrder}&gt;
-              {sortOptions.map(({ label, value }) =&gt; (
-                &lt;Select.Option key={value} value={value}&gt;
-                  {label}
-                &lt;/Select.Option&gt;
-              ))}
-            &lt;/Select&gt;
-          &lt;/Row&gt;
+          &lt;form
+            onSubmit={(e) =&gt; {
+              e.preventDefault()
+              const url = new URL(window.location.href)
+              url.searchParams.set(&#39;sort&#39;, new FormData(e.currentTarget).get(&#39;sort&#39;) as string)
+              window.location.href = url.toString()
+            }}
+          &gt;
+            &lt;Row align=&quot;end&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+              &lt;Label htmlFor=&quot;sort&quot;&gt;Sorteren op&lt;/Label&gt;
+              &lt;Select defaultValue={sortOrder} id=&quot;sort&quot; name=&quot;sort&quot; onChange={(e) =&gt; e.target.form?.requestSubmit()}&gt;
+                {sortOptions.map(({ label, value }) =&gt; (
+                  &lt;Select.Option key={value} value={value}&gt;
+                    {label}
+                  &lt;/Select.Option&gt;
+                ))}
+              &lt;/Select&gt;
+            &lt;/Row&gt;
+          &lt;/form&gt;
           &lt;Table&gt;
             &lt;Table.Caption&gt;
-              &lt;Heading level={1}&gt;BAG Adressen&lt;/Heading&gt;
+              &lt;Heading level={2}&gt;Gegevens per adres&lt;/Heading&gt;
             &lt;/Table.Caption&gt;
             &lt;Table.Header&gt;
               &lt;AddressTableHeaderRow /&gt;
@@ -23023,25 +23036,37 @@ export const SortingWithSelect: StoryObj = {
               
               
               <pre><code>const SortingWithSelect = () =&gt; {
-  const [sortOrder, setSortOrder] = useState&lt;SortOrder&gt;(&#39;straat-asc&#39;)
+  const sortOrder = (params.get(&#39;sort&#39;) ?? &#39;straat-asc&#39;) as SortOrder
   const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
 
   return (
     &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+      &lt;Grid.Cell className=&quot;ams-grid__cell--transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Row align=&quot;end&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
-          &lt;Label htmlFor=&quot;sortOrder&quot;&gt;Sorteren op&lt;/Label&gt;
-          &lt;Select id=&quot;sortOrder&quot; onChange={(e) =&gt; setSortOrder(e.target.value as SortOrder)} value={sortOrder}&gt;
-            {sortOptions.map(({ label, value }) =&gt; (
-              &lt;Select.Option key={value} value={value}&gt;
-                {label}
-              &lt;/Select.Option&gt;
-            ))}
-          &lt;/Select&gt;
-        &lt;/Row&gt;
+        &lt;form
+          onSubmit={(e) =&gt; {
+            e.preventDefault()
+            const url = new URL(window.location.href)
+            url.searchParams.set(&#39;sort&#39;, new FormData(e.currentTarget).get(&#39;sort&#39;) as string)
+            window.location.href = url.toString()
+          }}
+        &gt;
+          &lt;Row align=&quot;end&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+            &lt;Label htmlFor=&quot;sort&quot;&gt;Sorteren op&lt;/Label&gt;
+            &lt;Select defaultValue={sortOrder} id=&quot;sort&quot; name=&quot;sort&quot; onChange={(e) =&gt; e.target.form?.requestSubmit()}&gt;
+              {sortOptions.map(({ label, value }) =&gt; (
+                &lt;Select.Option key={value} value={value}&gt;
+                  {label}
+                &lt;/Select.Option&gt;
+              ))}
+            &lt;/Select&gt;
+          &lt;/Row&gt;
+        &lt;/form&gt;
         &lt;Table&gt;
           &lt;Table.Caption&gt;
-            &lt;Heading level={1}&gt;BAG Adressen&lt;/Heading&gt;
+            &lt;Heading level={2}&gt;Gegevens per adres&lt;/Heading&gt;
           &lt;/Table.Caption&gt;
           &lt;Table.Header&gt;
             &lt;AddressTableHeaderRow /&gt;
@@ -23087,10 +23112,7 @@ For example:
 https://yourapp.amsterdam.nl/some-table-page?status=4&amp;sort=name-asc&amp;page-size=20&amp;page=3
 ```
 
-This is why we use links for table controls where possible.
-
-As we can’t use URL parameters in Storybook, these examples use React state instead.
-Adapt your own implementation.
+This is why we use links and forms for table controls rather than buttons.
 </code></pre></div>
             </div>
         </div>
@@ -48622,13 +48644,13 @@ export const Test: Story = {
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  15 | import &#39;./table-page.css&#39;
-  16 |
-&gt; 17 | const meta = {
+  16 | const params = new URLSearchParams(window.location.search)
+  17 |
+&gt; 18 | const meta = {
      | ^
-  18 |   ...commonMeta,
-  19 |   title: &#39;Pages/Internal/Table Page&#39;,
-  20 | } satisfies Meta
+  19 |   ...commonMeta,
+  20 |   title: &#39;Pages/Internal/Table Page&#39;,
+  21 | } satisfies Meta
 
 ./src/pages/internal/TablePage/TablePage.stories.tsx:
 /**
@@ -48639,13 +48661,14 @@ export const Test: Story = {
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import { Grid, Heading, Label, Row, Select, Table } from &#39;@amsterdam/design-system-react&#39;
-import { useState } from &#39;react&#39;
 
 import type { SortOrder } from &#39;./common&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from &#39;./common&#39;
 import &#39;./table-page.css&#39;
+
+const params = new URLSearchParams(window.location.search)
 
 const meta = {
   ...commonMeta,
@@ -48656,25 +48679,37 @@ export default meta
 
 export const SortingWithSelect: StoryObj = {
   render: () =&gt; {
-    const [sortOrder, setSortOrder] = useState&lt;SortOrder&gt;(&#39;straat-asc&#39;)
+    const sortOrder = (params.get(&#39;sort&#39;) ?? &#39;straat-asc&#39;) as SortOrder
     const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
 
     return (
       &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+        &lt;Grid.Cell className=&quot;ams-grid__cell--transparent&quot; span=&quot;all&quot;&gt;
+          &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Row align=&quot;end&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
-            &lt;Label htmlFor=&quot;sortOrder&quot;&gt;Sorteren op&lt;/Label&gt;
-            &lt;Select id=&quot;sortOrder&quot; onChange={(e) =&gt; setSortOrder(e.target.value as SortOrder)} value={sortOrder}&gt;
-              {sortOptions.map(({ label, value }) =&gt; (
-                &lt;Select.Option key={value} value={value}&gt;
-                  {label}
-                &lt;/Select.Option&gt;
-              ))}
-            &lt;/Select&gt;
-          &lt;/Row&gt;
+          &lt;form
+            onSubmit={(e) =&gt; {
+              e.preventDefault()
+              const url = new URL(window.location.href)
+              url.searchParams.set(&#39;sort&#39;, new FormData(e.currentTarget).get(&#39;sort&#39;) as string)
+              window.location.href = url.toString()
+            }}
+          &gt;
+            &lt;Row align=&quot;end&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+              &lt;Label htmlFor=&quot;sort&quot;&gt;Sorteren op&lt;/Label&gt;
+              &lt;Select defaultValue={sortOrder} id=&quot;sort&quot; name=&quot;sort&quot; onChange={(e) =&gt; e.target.form?.requestSubmit()}&gt;
+                {sortOptions.map(({ label, value }) =&gt; (
+                  &lt;Select.Option key={value} value={value}&gt;
+                    {label}
+                  &lt;/Select.Option&gt;
+                ))}
+              &lt;/Select&gt;
+            &lt;/Row&gt;
+          &lt;/form&gt;
           &lt;Table&gt;
             &lt;Table.Caption&gt;
-              &lt;Heading level={1}&gt;BAG Adressen&lt;/Heading&gt;
+              &lt;Heading level={2}&gt;Gegevens per adres&lt;/Heading&gt;
             &lt;/Table.Caption&gt;
             &lt;Table.Header&gt;
               &lt;AddressTableHeaderRow /&gt;
@@ -48728,25 +48763,37 @@ export const SortingWithSelect: StoryObj = {
               
               
               <pre><code>const SortingWithSelect = () =&gt; {
-  const [sortOrder, setSortOrder] = useState&lt;SortOrder&gt;(&#39;straat-asc&#39;)
+  const sortOrder = (params.get(&#39;sort&#39;) ?? &#39;straat-asc&#39;) as SortOrder
   const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
 
   return (
     &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+      &lt;Grid.Cell className=&quot;ams-grid__cell--transparent&quot; span=&quot;all&quot;&gt;
+        &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Row align=&quot;end&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
-          &lt;Label htmlFor=&quot;sortOrder&quot;&gt;Sorteren op&lt;/Label&gt;
-          &lt;Select id=&quot;sortOrder&quot; onChange={(e) =&gt; setSortOrder(e.target.value as SortOrder)} value={sortOrder}&gt;
-            {sortOptions.map(({ label, value }) =&gt; (
-              &lt;Select.Option key={value} value={value}&gt;
-                {label}
-              &lt;/Select.Option&gt;
-            ))}
-          &lt;/Select&gt;
-        &lt;/Row&gt;
+        &lt;form
+          onSubmit={(e) =&gt; {
+            e.preventDefault()
+            const url = new URL(window.location.href)
+            url.searchParams.set(&#39;sort&#39;, new FormData(e.currentTarget).get(&#39;sort&#39;) as string)
+            window.location.href = url.toString()
+          }}
+        &gt;
+          &lt;Row align=&quot;end&quot; alignVertical=&quot;center&quot; className=&quot;ams-mb-m&quot; wrap&gt;
+            &lt;Label htmlFor=&quot;sort&quot;&gt;Sorteren op&lt;/Label&gt;
+            &lt;Select defaultValue={sortOrder} id=&quot;sort&quot; name=&quot;sort&quot; onChange={(e) =&gt; e.target.form?.requestSubmit()}&gt;
+              {sortOptions.map(({ label, value }) =&gt; (
+                &lt;Select.Option key={value} value={value}&gt;
+                  {label}
+                &lt;/Select.Option&gt;
+              ))}
+            &lt;/Select&gt;
+          &lt;/Row&gt;
+        &lt;/form&gt;
         &lt;Table&gt;
           &lt;Table.Caption&gt;
-            &lt;Heading level={1}&gt;BAG Adressen&lt;/Heading&gt;
+            &lt;Heading level={2}&gt;Gegevens per adres&lt;/Heading&gt;
           &lt;/Table.Caption&gt;
           &lt;Table.Header&gt;
             &lt;AddressTableHeaderRow /&gt;
@@ -48792,10 +48839,7 @@ For example:
 https://yourapp.amsterdam.nl/some-table-page?status=4&amp;sort=name-asc&amp;page-size=20&amp;page=3
 ```
 
-This is why we use links for table controls where possible.
-
-As we can’t use URL parameters in Storybook, these examples use React state instead.
-Adapt your own implementation.
+This is why we use links and forms for table controls rather than buttons.
 </code></pre></div>
             </div>
         </div>
