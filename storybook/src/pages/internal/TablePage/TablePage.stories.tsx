@@ -11,8 +11,7 @@ import { useState } from 'react'
 import type { SortOrder } from './common'
 
 import { commonMeta } from '../common/config'
-import { sortOptions } from './common'
-import { getSortedRanking, ranking, RankingTableBody, RankingTableHeaderRow } from './common'
+import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from './common'
 import './table-page.css'
 
 const meta = {
@@ -24,18 +23,18 @@ export default meta
 
 export const SortingWithSelect: StoryObj = {
   render: () => {
-    const [sortOrder, setSortOrder] = useState<SortOrder>('positie-asc')
-    const sortedRanking = getSortedRanking(ranking, sortOrder)
+    const [sortOrder, setSortOrder] = useState<SortOrder>('straat-asc')
+    const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
 
     return (
       <Grid paddingBottom="x-large" paddingTop="large">
         <Grid.Cell span="all">
           <Heading className="ams-mb-xl" level={1}>
-            Eredivisie 2024/2025
+            Adressen
           </Heading>
           <Row align="between" alignVertical="center" className="ams-mb-m" wrap>
-            <Heading id="tabel-eindstand" level={2}>
-              Eindstand
+            <Heading id="tabel-adressen" level={2}>
+              BAG Adressen
             </Heading>
             <Row alignVertical="center" wrap>
               <Label htmlFor="sortOrder">Sorteren op</Label>
@@ -48,11 +47,11 @@ export const SortingWithSelect: StoryObj = {
               </Select>
             </Row>
           </Row>
-          <Table aria-labelledby="tabel-eindstand">
+          <Table aria-labelledby="tabel-adressen">
             <Table.Header>
-              <RankingTableHeaderRow />
+              <AddressTableHeaderRow />
             </Table.Header>
-            <RankingTableBody ranking={sortedRanking} />
+            <AddressTableBody addresses={addresses} />
           </Table>
         </Grid.Cell>
       </Grid>

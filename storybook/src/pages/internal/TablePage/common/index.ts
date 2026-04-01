@@ -3,8 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-export * from './getSortedRanking'
+export * from './AddressTableBody'
+export * from './AddressTableHeaderRow'
+export * from './bagAddresses'
 export * from './options'
-export * from './ranking'
-export * from './RankingTableBody'
-export * from './RankingTableHeaderRow'
+export * from './sortAddresses'
