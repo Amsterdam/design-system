@@ -1,3 +1,10 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+// Data source: https://data.amsterdam.nl/data/bag/adressen?filters=gebiedenStadsdeelNaam%3DCentrum%7CgebiedenWijkNaam%3DWeesperbuurt%2FPlantage%7CgebiedenBuurtNaam%3DSarphatistrook
+
 export type BagAddress = {
   aantalBouwlagen?: number
   aantalKamers?: number
