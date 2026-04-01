@@ -41,7 +41,7 @@ export const SortingWithSelect: StoryObj = {
               window.location.href = url.toString()
             }}
           >
-            <Row align="end" alignVertical="center" className="ams-mb-m" wrap>
+            <Row align="end" alignVertical="center" wrap>
               <Label htmlFor="sort">Sorteren op</Label>
               <Select defaultValue={sortOrder} id="sort" name="sort" onChange={(e) => e.target.form?.requestSubmit()}>
                 {sortOptions.map(({ label, value }) => (
@@ -53,7 +53,7 @@ export const SortingWithSelect: StoryObj = {
             </Row>
           </form>
           <Table>
-            <Table.Caption>
+            <Table.Caption className="ams-mb-m">
               <Heading level={2}>Gegevens per adres</Heading>
             </Table.Caption>
             <Table.Header>
