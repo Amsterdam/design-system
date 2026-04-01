@@ -576,7 +576,7 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">73/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">80/86 infos</a><span class="filter-pill ok" aria-disabled="true">278 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">101 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">73/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">80/86 infos</a><span class="filter-pill ok" aria-disabled="true">279 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">101 docs ok</a></div>
   </div>
 </header>
 <main>
@@ -22281,7 +22281,7 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
       <div class="badges">
         <label for="c-76-components-containers-table-err" class="badge err as-toggle">prop type error</label>
         <label for="c-76-components-containers-table-info" class="badge info as-toggle">1 info</label>
-        <label for="c-76-components-containers-table-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-76-components-containers-table-stories" class="badge ok as-toggle">3 stories</label>
         <label for="c-76-components-containers-table-docs" class="badge ok as-toggle">1 doc</label>
       </div>
     </div>
@@ -22321,7 +22321,7 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
-import { Heading } from &#39;@amsterdam/design-system-react&#39;
+import { Heading, Paragraph } from &#39;@amsterdam/design-system-react&#39;
 import { Table } from &#39;@amsterdam/design-system-react/src&#39;
 
 const meta = {
@@ -22399,6 +22399,47 @@ export const WithFooterAndRowHeaders: Story = {
     ],
   },
 }
+
+export const WithDescriptionInCaption: Story = {
+  args: {
+    &#39;aria-labelledby&#39;: &#39;caption-heading&#39;,
+    children: [
+      &lt;Table.Caption key=&quot;caption&quot;&gt;
+        &lt;Heading id=&quot;caption-heading&quot; level={3}&gt;
+          Kosten voor de aanvraag
+        &lt;/Heading&gt;
+        &lt;Paragraph size=&quot;small&quot;&gt;
+          Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
+        &lt;/Paragraph&gt;
+      &lt;/Table.Caption&gt;,
+      &lt;Table.Header key=&quot;header&quot;&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.HeaderCell&gt;Type&lt;/Table.HeaderCell&gt;
+          &lt;Table.HeaderCell&gt;
+            Normale levertijd
+            &lt;br /&gt;1 week
+          &lt;/Table.HeaderCell&gt;
+          &lt;Table.HeaderCell&gt;
+            Spoed
+            &lt;br /&gt;2 werkdagen
+          &lt;/Table.HeaderCell&gt;
+        &lt;/Table.Row&gt;
+      &lt;/Table.Header&gt;,
+      &lt;Table.Body key=&quot;body&quot;&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.Cell&gt;Paspoort&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 77,85&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 130,80&lt;/Table.Cell&gt;
+        &lt;/Table.Row&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.Cell&gt;ID-kaart&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 70,35&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 123,30&lt;/Table.Cell&gt;
+        &lt;/Table.Row&gt;
+      &lt;/Table.Body&gt;,
+    ],
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -22420,7 +22461,7 @@ export const WithFooterAndRowHeaders: Story = {
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Heading } from "@amsterdam/design-system-react";
+                <pre><code>import { Heading, Paragraph } from "@amsterdam/design-system-react";
 import { Table } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
@@ -22498,6 +22539,49 @@ import { Table } from "@amsterdam/design-system-react/src";</code></pre>
       &lt;/Table.Footer&gt;,
     ]}&lt;/Table&gt;;</code></pre>
             </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">With Description In Caption</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithDescriptionInCaption = () =&gt; &lt;Table aria-labelledby=&quot;caption-heading&quot;&gt;{[
+      &lt;Table.Caption key=&quot;caption&quot;&gt;
+        &lt;Heading id=&quot;caption-heading&quot; level={3}&gt;
+          Kosten voor de aanvraag
+        &lt;/Heading&gt;
+        &lt;Paragraph size=&quot;small&quot;&gt;
+          Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
+        &lt;/Paragraph&gt;
+      &lt;/Table.Caption&gt;,
+      &lt;Table.Header key=&quot;header&quot;&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.HeaderCell&gt;Type&lt;/Table.HeaderCell&gt;
+          &lt;Table.HeaderCell&gt;
+            Normale levertijd
+            &lt;br /&gt;1 week
+          &lt;/Table.HeaderCell&gt;
+          &lt;Table.HeaderCell&gt;
+            Spoed
+            &lt;br /&gt;2 werkdagen
+          &lt;/Table.HeaderCell&gt;
+        &lt;/Table.Row&gt;
+      &lt;/Table.Header&gt;,
+      &lt;Table.Body key=&quot;body&quot;&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.Cell&gt;Paspoort&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 77,85&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 130,80&lt;/Table.Cell&gt;
+        &lt;/Table.Row&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.Cell&gt;ID-kaart&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 70,35&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 123,30&lt;/Table.Cell&gt;
+        &lt;/Table.Row&gt;
+      &lt;/Table.Body&gt;,
+    ]}&lt;/Table&gt;;</code></pre>
+            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -22535,6 +22619,14 @@ Use the scope attribute to help users of assistive technology distinguish betwee
 Use `Table.Footer` for a summary row.
 
 &lt;Canvas of={TableStories.WithFooterAndRowHeaders} /&gt;
+
+### With description in caption
+
+Add a description to the caption to provide context like a source, date, or reading instructions.
+Use a small [Paragraph](/docs/components-text-paragraph--docs).
+Set `aria-labelledby` to keep only the heading as the table&#39;s accessible name.
+
+&lt;Canvas of={TableStories.WithDescriptionInCaption} /&gt;
 
 ## Design tokens
 
@@ -41247,7 +41339,7 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
       <div class="badges">
         <label for="c-error-54-components-containers-table-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-54-components-containers-table-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-54-components-containers-table-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-error-54-components-containers-table-stories" class="badge ok as-toggle">3 stories</label>
         <label for="c-error-54-components-containers-table-docs" class="badge ok as-toggle">1 doc</label>
       </div>
     </div>
@@ -41287,7 +41379,7 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
-import { Heading } from &#39;@amsterdam/design-system-react&#39;
+import { Heading, Paragraph } from &#39;@amsterdam/design-system-react&#39;
 import { Table } from &#39;@amsterdam/design-system-react/src&#39;
 
 const meta = {
@@ -41365,6 +41457,47 @@ export const WithFooterAndRowHeaders: Story = {
     ],
   },
 }
+
+export const WithDescriptionInCaption: Story = {
+  args: {
+    &#39;aria-labelledby&#39;: &#39;caption-heading&#39;,
+    children: [
+      &lt;Table.Caption key=&quot;caption&quot;&gt;
+        &lt;Heading id=&quot;caption-heading&quot; level={3}&gt;
+          Kosten voor de aanvraag
+        &lt;/Heading&gt;
+        &lt;Paragraph size=&quot;small&quot;&gt;
+          Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
+        &lt;/Paragraph&gt;
+      &lt;/Table.Caption&gt;,
+      &lt;Table.Header key=&quot;header&quot;&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.HeaderCell&gt;Type&lt;/Table.HeaderCell&gt;
+          &lt;Table.HeaderCell&gt;
+            Normale levertijd
+            &lt;br /&gt;1 week
+          &lt;/Table.HeaderCell&gt;
+          &lt;Table.HeaderCell&gt;
+            Spoed
+            &lt;br /&gt;2 werkdagen
+          &lt;/Table.HeaderCell&gt;
+        &lt;/Table.Row&gt;
+      &lt;/Table.Header&gt;,
+      &lt;Table.Body key=&quot;body&quot;&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.Cell&gt;Paspoort&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 77,85&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 130,80&lt;/Table.Cell&gt;
+        &lt;/Table.Row&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.Cell&gt;ID-kaart&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 70,35&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 123,30&lt;/Table.Cell&gt;
+        &lt;/Table.Row&gt;
+      &lt;/Table.Body&gt;,
+    ],
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -41386,7 +41519,7 @@ export const WithFooterAndRowHeaders: Story = {
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Heading } from "@amsterdam/design-system-react";
+                <pre><code>import { Heading, Paragraph } from "@amsterdam/design-system-react";
 import { Table } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
@@ -41464,6 +41597,49 @@ import { Table } from "@amsterdam/design-system-react/src";</code></pre>
       &lt;/Table.Footer&gt;,
     ]}&lt;/Table&gt;;</code></pre>
             </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">With Description In Caption</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithDescriptionInCaption = () =&gt; &lt;Table aria-labelledby=&quot;caption-heading&quot;&gt;{[
+      &lt;Table.Caption key=&quot;caption&quot;&gt;
+        &lt;Heading id=&quot;caption-heading&quot; level={3}&gt;
+          Kosten voor de aanvraag
+        &lt;/Heading&gt;
+        &lt;Paragraph size=&quot;small&quot;&gt;
+          Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
+        &lt;/Paragraph&gt;
+      &lt;/Table.Caption&gt;,
+      &lt;Table.Header key=&quot;header&quot;&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.HeaderCell&gt;Type&lt;/Table.HeaderCell&gt;
+          &lt;Table.HeaderCell&gt;
+            Normale levertijd
+            &lt;br /&gt;1 week
+          &lt;/Table.HeaderCell&gt;
+          &lt;Table.HeaderCell&gt;
+            Spoed
+            &lt;br /&gt;2 werkdagen
+          &lt;/Table.HeaderCell&gt;
+        &lt;/Table.Row&gt;
+      &lt;/Table.Header&gt;,
+      &lt;Table.Body key=&quot;body&quot;&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.Cell&gt;Paspoort&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 77,85&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 130,80&lt;/Table.Cell&gt;
+        &lt;/Table.Row&gt;
+        &lt;Table.Row&gt;
+          &lt;Table.Cell&gt;ID-kaart&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 70,35&lt;/Table.Cell&gt;
+          &lt;Table.Cell&gt;€ 123,30&lt;/Table.Cell&gt;
+        &lt;/Table.Row&gt;
+      &lt;/Table.Body&gt;,
+    ]}&lt;/Table&gt;;</code></pre>
+            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -41501,6 +41677,14 @@ Use the scope attribute to help users of assistive technology distinguish betwee
 Use `Table.Footer` for a summary row.
 
 &lt;Canvas of={TableStories.WithFooterAndRowHeaders} /&gt;
+
+### With description in caption
+
+Add a description to the caption to provide context like a source, date, or reading instructions.
+Use a small [Paragraph](/docs/components-text-paragraph--docs).
+Set `aria-labelledby` to keep only the heading as the table&#39;s accessible name.
+
+&lt;Canvas of={TableStories.WithDescriptionInCaption} /&gt;
 
 ## Design tokens
 
