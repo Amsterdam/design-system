@@ -33,7 +33,15 @@ TableRoot.displayName = 'Table'
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-table--docs Table docs at Amsterdam Design System}
  */
-export const Table = Object.assign(TableRoot, {
+export const Table: {
+  Body: typeof TableBody
+  Caption: typeof TableCaption
+  Cell: typeof TableCell
+  Footer: typeof TableFooter
+  Header: typeof TableHeader
+  HeaderCell: typeof TableHeaderCell
+  Row: typeof TableRow
+} & typeof TableRoot = Object.assign(TableRoot, {
   Body: TableBody,
   Caption: TableCaption,
   Cell: TableCell,

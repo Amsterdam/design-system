@@ -4,16 +4,23 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type TableCaptionProps = PropsWithChildren<HTMLAttributes<HTMLTableCaptionElement>>
+export type TableCaptionProps = {
+  /** Positions the caption below the table. */
+  side?: 'bottom'
+} & PropsWithChildren<HTMLAttributes<HTMLTableCaptionElement>>
 
-export const TableCaption = forwardRef(
-  ({ children, className, ...restProps }: TableCaptionProps, ref: ForwardedRef<HTMLTableCaptionElement>) => (
-    <caption {...restProps} className={clsx('ams-table__caption', className)} ref={ref}>
+export const TableCaption = forwardRef<HTMLTableCaptionElement, TableCaptionProps>(
+  ({ children, className, side, ...restProps }, ref) => (
+    <caption
+      {...restProps}
+      className={clsx('ams-table__caption', side === 'bottom' && 'ams-table__caption--bottom', className)}
+      ref={ref}
+    >
       {children}
     </caption>
   ),
