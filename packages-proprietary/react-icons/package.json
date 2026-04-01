@@ -38,9 +38,9 @@
     "@svgr/cli": "8.1.0",
     "@types/react": "18.3.28",
     "react": "18.3.1",
-    "rollup": "4.60.0",
+    "rollup": "4.60.1",
     "rollup-plugin-peer-deps-external": "2.2.4",
-    "rollup-plugin-typescript2": "0.36.0"
+    "rollup-plugin-typescript2": "0.37.0"
   },
   "peerDependencies": {
     "react": "16 - 19",
