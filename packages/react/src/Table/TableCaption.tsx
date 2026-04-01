@@ -4,15 +4,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 export type TableCaptionProps = PropsWithChildren<HTMLAttributes<HTMLTableCaptionElement>>
 
-export const TableCaption = forwardRef<HTMLTableCaptionElement, TableCaptionProps>(
-  ({ children, className, ...restProps }, ref) => (
+export const TableCaption = forwardRef(
+  ({ children, className, ...restProps }: TableCaptionProps, ref: ForwardedRef<HTMLTableCaptionElement>) => (
     <caption {...restProps} className={clsx('ams-table__caption', className)} ref={ref}>
       {children}
     </caption>
