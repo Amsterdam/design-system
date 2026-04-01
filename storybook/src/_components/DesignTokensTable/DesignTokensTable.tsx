@@ -102,9 +102,15 @@ const DesignTokensTableRoot = ({ className, tokens, ...restProps }: DesignTokens
           </tr>
         </thead>
         <tbody>
-          {flatTokens.map(({ path, type, value }) => (
-            <DesignTokensTableRow key={path} name={path} type={type} value={value} />
-          ))}
+          {flatTokens.length ? (
+            flatTokens.map(({ path, type, value }) => (
+              <DesignTokensTableRow key={path} name={path} type={type} value={value} />
+            ))
+          ) : (
+            <tr>
+              <td colSpan={3}>No design tokens available.</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
