@@ -56,21 +56,6 @@ describe('TableCaption', () => {
     expect(caption).toHaveClass('ams-table__caption extra')
   })
 
-  it('renders the class name for a caption below the table', () => {
-    render(
-      <Table>
-        <TableCaption side="bottom">Caption</TableCaption>
-      </Table>,
-    )
-
-    const component = screen.getByRole('table', {
-      name: 'Caption',
-    })
-    const caption = component?.querySelector(':only-child')
-
-    expect(caption).toHaveClass('ams-table__caption--bottom')
-  })
-
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLTableCaptionElement>()
 

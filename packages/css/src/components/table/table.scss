@@ -19,16 +19,8 @@
 
 .ams-table__caption {
   font-weight: var(--ams-table-caption-font-weight);
+  margin-block-end: var(--ams-table-caption-margin-block-end);
   text-align: start;
-
-  &:not(.ams-table__caption--bottom) {
-    margin-block-end: var(--ams-table-caption-margin-block-end);
-  }
-}
-
-.ams-table__caption--bottom {
-  caption-side: bottom;
-  margin-block-start: var(--ams-table-caption-margin-block-start);
 }
 
 .ams-table__cell,

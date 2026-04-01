@@ -36,13 +36,6 @@
           "$extensions": {
             "nl.amsterdam.subtype": "space"
           }
-        },
-        "margin-block-start": {
-          "$value": "{ams.space.m}",
-          "$type": "dimension",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space"
-          }
         }
       },
       "cell": {
