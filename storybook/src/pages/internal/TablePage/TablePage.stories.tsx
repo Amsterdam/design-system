@@ -29,25 +29,20 @@ export const SortingWithSelect: StoryObj = {
     return (
       <Grid paddingBottom="x-large" paddingTop="large">
         <Grid.Cell span="all">
-          <Heading className="ams-mb-xl" level={1}>
-            Adressen
-          </Heading>
-          <Row align="between" alignVertical="center" className="ams-mb-m" wrap>
-            <Heading id="tabel-adressen" level={2}>
-              BAG Adressen
-            </Heading>
-            <Row alignVertical="center" wrap>
-              <Label htmlFor="sortOrder">Sorteren op</Label>
-              <Select id="sortOrder" onChange={(e) => setSortOrder(e.target.value as SortOrder)} value={sortOrder}>
-                {sortOptions.map(({ label, value }) => (
-                  <Select.Option key={value} value={value}>
-                    {label}
-                  </Select.Option>
-                ))}
-              </Select>
-            </Row>
+          <Row align="end" alignVertical="center" className="ams-mb-m" wrap>
+            <Label htmlFor="sortOrder">Sorteren op</Label>
+            <Select id="sortOrder" onChange={(e) => setSortOrder(e.target.value as SortOrder)} value={sortOrder}>
+              {sortOptions.map(({ label, value }) => (
+                <Select.Option key={value} value={value}>
+                  {label}
+                </Select.Option>
+              ))}
+            </Select>
           </Row>
-          <Table aria-labelledby="tabel-adressen">
+          <Table>
+            <Table.Caption>
+              <Heading level={1}>BAG Adressen</Heading>
+            </Table.Caption>
             <Table.Header>
               <AddressTableHeaderRow />
             </Table.Header>
