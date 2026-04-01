@@ -28,6 +28,9 @@ export const SortingWithSelect: StoryObj = {
 
     return (
       <Grid paddingBottom="x-large" paddingTop="large">
+        <Grid.Cell className="ams-grid__cell--transparent" span="all">
+          <Heading level={1}>Vergunninghouders 2026/2027</Heading>
+        </Grid.Cell>
         <Grid.Cell span="all">
           <Row align="end" alignVertical="center" className="ams-mb-m" wrap>
             <Label htmlFor="sortOrder">Sorteren op</Label>
@@ -41,7 +44,7 @@ export const SortingWithSelect: StoryObj = {
           </Row>
           <Table>
             <Table.Caption>
-              <Heading level={1}>BAG Adressen</Heading>
+              <Heading level={2}>Gegevens per adres</Heading>
             </Table.Caption>
             <Table.Header>
               <AddressTableHeaderRow />
