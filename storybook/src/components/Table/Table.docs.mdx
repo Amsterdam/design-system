@@ -24,6 +24,14 @@ Use `Table.Footer` for a summary row.
 
 <Canvas of={TableStories.WithFooterAndRowHeaders} />
 
+### With description in caption
+
+Add a description to the caption to provide context like a source, date, or reading instructions.
+Use a small [Paragraph](/docs/components-text-paragraph--docs).
+Set `aria-labelledby` to keep only the heading as the table's accessible name.
+
+<Canvas of={TableStories.WithDescriptionInCaption} />
+
 ## Design tokens
 
 <DesignTokensTable tokens={tokens} />
