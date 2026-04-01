@@ -7,7 +7,7 @@
       },
       "column-gap": {
         "$deprecated": "Use `ams.description-list.vi-medium.column-gap` instead. Will be removed in release 6.0.0.",
-        "$value": "{ams.space.l}",
+        "$value": "{ams.description-list.vi-medium.column-gap}",
         "$type": "dimension",
         "$extensions": {
           "nl.amsterdam.subtype": "space"
@@ -115,19 +115,19 @@
       "narrow": {
         "grid-template-columns": {
           "$deprecated": "Use `ams.description-list.vi-medium.narrow.grid-template-columns` instead. Will be removed in release 6.0.0.",
-          "$value": "1fr 4fr"
+          "$value": "{ams.description-list.vi-medium.narrow.grid-template-columns}"
         }
       },
       "medium": {
         "grid-template-columns": {
           "$deprecated": "Use `ams.description-list.vi-medium.medium.grid-template-columns` instead. Will be removed in release 6.0.0.",
-          "$value": "1fr 2fr"
+          "$value": "{ams.description-list.vi-medium.medium.grid-template-columns}"
         }
       },
       "wide": {
         "grid-template-columns": {
           "$deprecated": "Use `ams.description-list.vi-medium.wide.grid-template-columns` instead. Will be removed in release 6.0.0.",
-          "$value": "1fr 1fr"
+          "$value": "{ams.description-list.vi-medium.wide.grid-template-columns}"
         }
       },
       "vi-medium": {

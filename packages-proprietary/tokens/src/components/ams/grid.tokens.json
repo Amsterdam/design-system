@@ -68,11 +68,11 @@
       "medium": {
         "column-count": {
           "$deprecated": "Use `ams.grid.vi-medium.column-count` instead. Will be removed in release 6.0.0.",
-          "$value": "8"
+          "$value": "{ams.grid.vi-medium.column-count}"
         },
         "padding-inline": {
           "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed in release 6.0.0.",
-          "$value": "{ams.space.xl}",
+          "$value": "{ams.grid.vi-medium.padding-inline}",
           "$type": "dimension",
           "$extensions": {
             "nl.amsterdam.subtype": "space"
@@ -83,11 +83,11 @@
       "wide": {
         "column-count": {
           "$deprecated": "Use `ams.grid.vi-wide.column-count` instead. Will be removed in release 6.0.0.",
-          "$value": "12"
+          "$value": "{ams.grid.vi-wide.column-count}"
         },
         "padding-inline": {
           "$deprecated": "Use `ams.grid.vi-wide.padding-inline` instead. Will be removed in release 6.0.0.",
-          "$value": "{ams.space.2xl}",
+          "$value": "{ams.grid.vi-wide.padding-inline}",
           "$type": "dimension",
           "$extensions": {
             "nl.amsterdam.subtype": "space"

@@ -52,12 +52,12 @@
       "medium": {
         "inline-size": {
           "$deprecated": "Use `ams.dialog.vi-medium.inline-size` instead. Will be removed in release 6.0.0.",
-          "$value": "calc(100% - 2 * {ams.space.xl})",
+          "$value": "{ams.dialog.vi-medium.inline-size}",
           "$type": "dimension"
         },
         "max-block-size": {
           "$deprecated": "Use `ams.dialog.vi-medium.max-block-size` instead. Will be removed in release 6.0.0.",
-          "$value": "calc(100dvh - 2 * {ams.space.xl})",
+          "$value": "{ams.dialog.vi-medium.max-block-size}",
           "$type": "dimension"
         }
       },
@@ -102,7 +102,7 @@
         "medium": {
           "padding-block": {
             "$deprecated": "Use `ams.dialog.header.vi-medium.padding-block` instead. Will be removed in release 6.0.0.",
-            "$value": "{ams.space.xl} 0",
+            "$value": "{ams.dialog.header.vi-medium.padding-block}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"
@@ -110,7 +110,7 @@
           },
           "padding-inline": {
             "$deprecated": "Use `ams.dialog.header.vi-medium.padding-inline` instead. Will be removed in release 6.0.0.",
-            "$value": "{ams.space.xl}",
+            "$value": "{ams.dialog.header.vi-medium.padding-inline}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"
@@ -152,7 +152,7 @@
         "medium": {
           "padding-inline": {
             "$deprecated": "Use `ams.dialog.body.vi-medium.padding-inline` instead. Will be removed in release 6.0.0.",
-            "$value": "{ams.space.xl}",
+            "$value": "{ams.dialog.body.vi-medium.padding-inline}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"
@@ -187,7 +187,7 @@
         "medium": {
           "padding-block": {
             "$deprecated": "Use `ams.dialog.footer.vi-medium.padding-block` instead. Will be removed in release 6.0.0.",
-            "$value": "0 {ams.space.xl}",
+            "$value": "{ams.dialog.footer.vi-medium.padding-block}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"
@@ -195,7 +195,7 @@
           },
           "padding-inline": {
             "$deprecated": "Use `ams.dialog.footer.vi-medium.padding-inline` instead. Will be removed in release 6.0.0.",
-            "$value": "{ams.space.xl}",
+            "$value": "{ams.dialog.footer.vi-medium.padding-inline}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"

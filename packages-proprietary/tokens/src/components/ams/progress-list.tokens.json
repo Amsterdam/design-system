@@ -54,7 +54,7 @@
         "medium": {
           "gap": {
             "$deprecated": "Use `ams.progress-list.step.vi-medium.gap` instead. Will be removed in release 6.0.0.",
-            "$value": "{ams.space.l}",
+            "$value": "{ams.progress-list.step.vi-medium.gap}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"
@@ -221,7 +221,7 @@
             "medium": {
               "margin-inline-end": {
                 "$deprecated": "Use `ams.progress-list.substeps.step.indicator.vi-medium.margin-inline-end` instead. Will be removed in release 6.0.0.",
-                "$value": "{ams.space.l}",
+                "$value": "{ams.progress-list.substeps.step.indicator.vi-medium.margin-inline-end}",
                 "$type": "dimension",
                 "$extensions": {
                   "nl.amsterdam.subtype": "space"

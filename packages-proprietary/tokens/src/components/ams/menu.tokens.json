@@ -35,15 +35,12 @@
       "wide": {
         "max-inline-size": {
           "$deprecated": "Use `ams.menu.vi-wide.max-inline-size` instead. Will be removed in release 6.0.0.",
-          "$value": {
-            "value": 8,
-            "unit": "rem"
-          },
+          "$value": "{ams.menu.vi-wide.max-inline-size}",
           "$type": "dimension"
         },
         "padding-block": {
           "$deprecated": "Use `ams.menu.vi-wide.padding-block` instead. Will be removed in release 6.0.0.",
-          "$value": "calc({ams.logo.block-size} + 2 * {ams.page-header.padding-block}) {ams.space.m}",
+          "$value": "{ams.menu.vi-wide.padding-block}",
           "$type": "dimension",
           "$extensions": {
             "nl.amsterdam.subtype": "space"
@@ -51,7 +48,7 @@
         },
         "padding-inline": {
           "$deprecated": "Use `ams.menu.vi-wide.padding-inline` instead. Will be removed in release 6.0.0.",
-          "$value": "{ams.space.s}",
+          "$value": "{ams.menu.vi-wide.padding-inline}",
           "$type": "dimension",
           "$extensions": {
             "nl.amsterdam.subtype": "space"
@@ -168,7 +165,7 @@
         "wide": {
           "gap": {
             "$deprecated": "Use `ams.menu.link.vi-wide.gap` instead. Will be removed in release 6.0.0.",
-            "$value": "{ams.space.xs}",
+            "$value": "{ams.menu.link.vi-wide.gap}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"
