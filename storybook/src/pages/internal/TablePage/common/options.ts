@@ -2,12 +2,7 @@
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
-import type { BagAddress } from './bagAddresses'
-
-export type SortDirection = 'asc' | 'desc'
-export type SortOrder = `${keyof BagAddress}-${SortDirection}`
-
-export const sortOptions: Array<{ label: string; value: SortOrder }> = [
+export const sortOptions = [
   { label: 'Straat A-Z', value: 'straat-asc' },
   { label: 'Straat Z-A', value: 'straat-desc' },
   { label: 'Huisnummer oplopend', value: 'huisnummer-asc' },
@@ -17,4 +12,6 @@ export const sortOptions: Array<{ label: string; value: SortOrder }> = [
   { label: 'Oppervlakte klein-groot', value: 'oppervlakte-asc' },
   { label: 'Bouwjaar oud-nieuw', value: 'bouwjaar-asc' },
   { label: 'Bouwjaar nieuw-oud', value: 'bouwjaar-desc' },
-]
+] as const
+
+export type SortOrder = (typeof sortOptions)[number]['value']

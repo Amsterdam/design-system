@@ -4,10 +4,12 @@
  */
 
 import type { BagAddress } from './bagAddresses'
-import type { SortDirection, SortOrder } from './options'
+import type { SortOrder } from './options'
 
 export function sortAddresses(addresses: BagAddress[], sortOrder: SortOrder) {
-  const [field, direction] = sortOrder.split('-') as [keyof BagAddress, SortDirection]
+  const separatorIndex = sortOrder.lastIndexOf('-')
+  const field = sortOrder.slice(0, separatorIndex) as keyof BagAddress
+  const direction = sortOrder.slice(separatorIndex + 1)
 
   return [...addresses].sort((a, b) => {
     const aValue = a[field]
