@@ -6,13 +6,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid, Heading, Label, Row, Select, Table } from '@amsterdam/design-system-react'
-import { useState } from 'react'
 
 import type { SortOrder } from './common'
 
 import { commonMeta } from '../common/config'
 import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from './common'
 import './table-page.css'
+
+const params = new URLSearchParams(window.location.search)
 
 const meta = {
   ...commonMeta,
@@ -23,7 +24,7 @@ export default meta
 
 export const SortingWithSelect: StoryObj = {
   render: () => {
-    const [sortOrder, setSortOrder] = useState<SortOrder>('straat-asc')
+    const sortOrder = (params.get('sort') ?? 'straat-asc') as SortOrder
     const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
 
     return (
@@ -32,16 +33,25 @@ export const SortingWithSelect: StoryObj = {
           <Heading level={1}>Vergunninghouders 2026/2027</Heading>
         </Grid.Cell>
         <Grid.Cell span="all">
-          <Row align="end" alignVertical="center" className="ams-mb-m" wrap>
-            <Label htmlFor="sortOrder">Sorteren op</Label>
-            <Select id="sortOrder" onChange={(e) => setSortOrder(e.target.value as SortOrder)} value={sortOrder}>
-              {sortOptions.map(({ label, value }) => (
-                <Select.Option key={value} value={value}>
-                  {label}
-                </Select.Option>
-              ))}
-            </Select>
-          </Row>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              const url = new URL(window.location.href)
+              url.searchParams.set('sort', new FormData(e.currentTarget).get('sort') as string)
+              window.location.href = url.toString()
+            }}
+          >
+            <Row align="end" alignVertical="center" className="ams-mb-m" wrap>
+              <Label htmlFor="sort">Sorteren op</Label>
+              <Select defaultValue={sortOrder} id="sort" name="sort" onChange={(e) => e.target.form?.requestSubmit()}>
+                {sortOptions.map(({ label, value }) => (
+                  <Select.Option key={value} value={value}>
+                    {label}
+                  </Select.Option>
+                ))}
+              </Select>
+            </Row>
+          </form>
           <Table>
             <Table.Caption>
               <Heading level={2}>Gegevens per adres</Heading>
