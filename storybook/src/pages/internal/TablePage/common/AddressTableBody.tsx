@@ -48,7 +48,7 @@ export const AddressTableBody = ({ addresses }: AddressTableBodyProps) => (
       )
     ) : (
       <Table.Row>
-        <Table.Cell colSpan={11}>Geen gegevens</Table.Cell>
+        <Table.Cell colSpan={11}>Geen resultaten</Table.Cell>
       </Table.Row>
     )}
   </Table.Body>
