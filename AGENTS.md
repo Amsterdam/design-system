@@ -25,7 +25,7 @@ If these priorities conflict, choose the option that best preserves accessibilit
 | `packages-proprietary/tokens` | Style Dictionary    | Design tokens → CSS/JSON/Sass                            |
 | `packages/css`                | Sass + Stylelint    | Component CSS (`dist/`)                                  |
 | `packages/react`              | TypeScript + Rollup | Unstyled components emitting `.ams-*` classes            |
-| `storybook/`                  | Storybook 8         | Component explorer, interaction tests, visual regression |
+| `storybook/`                  | Storybook 10        | Component explorer, interaction tests, visual regression |
 
 Global styles are imported in `storybook/config/preview.tsx`. Proprietary assets are served from `packages-proprietary/assets` via `staticDirs` in `storybook/config/main.ts`.
 
