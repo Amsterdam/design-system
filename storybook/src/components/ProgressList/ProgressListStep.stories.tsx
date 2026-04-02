@@ -13,12 +13,6 @@ import { exampleParagraph } from '../../_common/exampleContent'
 const meta = {
   title: 'Components/Containers/Progress List',
   component: ProgressList.Step,
-  args: {
-    children: <Paragraph>{exampleParagraph()}</Paragraph>,
-    defaultCollapsed: true,
-    heading: 'Aanpassing ontwerp fietspad Entreegebied',
-    status: 'current',
-  },
   argTypes: {
     status: {
       control: {
@@ -42,4 +36,11 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Step: Story = {}
+export const Step: Story = {
+  args: {
+    children: <Paragraph>{exampleParagraph()}</Paragraph>,
+    defaultCollapsed: true,
+    heading: 'Aanpassing ontwerp fietspad Entreegebied',
+    status: 'current',
+  },
+}
