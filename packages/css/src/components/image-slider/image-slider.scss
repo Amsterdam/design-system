@@ -46,7 +46,7 @@
     display: none;
   }
 
-  @media not (prefers-reduced-motion) {
+  @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
   }
 }
