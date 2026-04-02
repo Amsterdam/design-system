@@ -25,6 +25,7 @@ Before submitting your pull request, please ensure you have done the following. 
 - [ ] Add or update documentation
 - [ ] Add or update stories
 - [ ] Add or update exports in index.\* files
+- [ ] Comment `/chromatic test` and verify visual regression tests pass
 - [ ] Start the PR title with a Conventional Commit prefix, [as explained here](https://github.com/Amsterdam/design-system/blob/main/documentation/publishing.md?plain=1#L11).
 
 ## Additional notes

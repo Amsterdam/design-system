@@ -8,4 +8,5 @@
   inline-size: 0; // Make sure the input doesn’t take up space on iOS
   margin-block: 0;
   margin-inline: 0;
+  outline-style: initial; // Override Firefox focus ring (outline-style: auto) on hidden input
 }
