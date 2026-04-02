@@ -55,4 +55,4 @@ Support both native (`:invalid`) and manual (`aria-invalid`) validation styles.
 - Component SCSS: `src/components/<name>/<name>.scss`
 - Register in: `src/components/index.scss`
 
-Run lint: `pnpm lint:css` or auto-fix with `pnpm lint-fix:css`.
+Run lint: `pnpm run lint:css` or auto-fix with `pnpm run lint-fix:css`.

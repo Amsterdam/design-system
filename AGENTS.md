@@ -40,22 +40,22 @@ Never edit generated output directly. Instead, update the source files or config
 
 ## Commands
 
-| Task              | Command                                                   |
-| ----------------- | --------------------------------------------------------- |
-| Install           | `corepack enable && pnpm install`                         |
-| Build all         | `pnpm build`                                              |
-| Dev (all watches) | `pnpm start`                                              |
-| Watch React only  | `pnpm watch:react`                                        |
-| Watch CSS only    | `pnpm watch:css`                                          |
-| Watch Storybook   | `pnpm watch:storybook`                                    |
-| Lint all          | `pnpm lint`                                               |
-| Lint JS/TS        | `pnpm lint:js`                                            |
-| Lint CSS/Sass     | `pnpm lint:css`                                           |
-| Auto-fix lint     | `pnpm lint-fix`                                           |
-| Format            | `pnpm prettier`                                           |
-| Run tests         | `pnpm test`                                               |
-| Watch tests       | `pnpm --filter @amsterdam/design-system-react watch:test` |
-| New component     | `pnpm plop`                                               |
+| Task              | Command                                                       |
+| ----------------- | ------------------------------------------------------------- |
+| Install           | `corepack enable && pnpm install`                             |
+| Build all         | `pnpm run build`                                              |
+| Dev (all watches) | `pnpm run start`                                              |
+| Watch React only  | `pnpm run watch:react`                                        |
+| Watch CSS only    | `pnpm run watch:css`                                          |
+| Watch Storybook   | `pnpm run watch:storybook`                                    |
+| Lint all          | `pnpm run lint`                                               |
+| Lint JS/TS        | `pnpm run lint:js`                                            |
+| Lint CSS/Sass     | `pnpm run lint:css`                                           |
+| Auto-fix lint     | `pnpm run lint-fix`                                           |
+| Format            | `pnpm run prettier`                                           |
+| Run tests         | `pnpm run test`                                               |
+| Watch tests       | `pnpm run --filter @amsterdam/design-system-react watch:test` |
+| New component     | `pnpm run plop`                                               |
 
 ## Never do
 
@@ -105,7 +105,7 @@ Settings are in [.prettierrc.json](.prettierrc.json) — do not override per fil
 
 ## Linting
 
-Rules are in [eslint.config.mjs](eslint.config.mjs) (ESLint flat config) and applied to Sass via Stylelint (`pnpm lint:css`). Key behavioural notes for agents:
+Rules are in [eslint.config.mjs](eslint.config.mjs) (ESLint flat config) and applied to Sass via Stylelint (`pnpm run lint:css`). Key behavioural notes for agents:
 
 - Use `import type` for type-only imports; never import types as values.
 - No cyclic imports between packages.
@@ -140,7 +140,7 @@ Before creating a component, read an existing one of similar complexity (e.g. `p
 
 See [`packages/react/AGENTS.md`](packages/react/AGENTS.md) for unit tests and [`storybook/AGENTS.md`](storybook/AGENTS.md) for interaction, visual, and accessibility tests.
 
-When you add or change behaviour or markup, prefer running the most specific relevant commands first (for example, `pnpm --filter @amsterdam/design-system-react test` for React component changes, or `pnpm lint:css` for Sass-only changes) before falling back to the full `pnpm lint` and `pnpm test` suite.
+When you add or change behaviour or markup, prefer running the most specific relevant commands first (for example, `pnpm run --filter @amsterdam/design-system-react test` for React component changes, or `pnpm run lint:css` for Sass-only changes) before falling back to the full `pnpm run lint` and `pnpm run test` suite.
 
 ## Accessibility
 
@@ -194,7 +194,7 @@ See `CONTRIBUTING.md` for the full required copyright notice template.
 - Keep PRs small and focused — one concern per branch.
 - Use [Conventional Commits](https://www.conventionalcommits.org/): `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`, `style:`.
 - PR title is used in release notes — write a clear, English, user-facing title.
-- Run `pnpm lint` and `pnpm test` locally before opening a PR.
+- Run `pnpm run lint` and `pnpm run test` locally before opening a PR.
 - At least one maintainer must approve before merge.
 - All CI checks (lint, tests, Chromatic) must pass.
 
@@ -212,8 +212,8 @@ When you are asked to review code or a pull request, apply these principles:
 
 The full checklist is in [`documentation/definition-of-done.md`](documentation/definition-of-done.md). Before marking work complete, verify at minimum:
 
-- [ ] `pnpm lint` passes with no errors
-- [ ] `pnpm test` passes
+- [ ] `pnpm run lint` passes with no errors
+- [ ] `pnpm run test` passes
 - [ ] Chromatic visual changes reviewed and approved
 - [ ] License header present in every new file
 - [ ] Relevant `AGENTS.md` files updated if conventions, file locations, or tooling changed
