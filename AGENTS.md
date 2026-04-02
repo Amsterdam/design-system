@@ -176,14 +176,20 @@ Every new source file must have a license header as its **first line**:
 **Code files** (`.ts`, `.tsx`, `.scss`, `.js`):
 
 ```ts
-// @license EUPL-1.2+
-// Copyright Gemeente Amsterdam
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
 ```
 
 **Documentation files** (`.md`, `.mdx`):
 
 ```md
 <!-- @license CC0-1.0 -->
+```
+
+```mdx
+{/* @license CC0-1.0 */}
 ```
 
 See `CONTRIBUTING.md` for the full required copyright notice template.
