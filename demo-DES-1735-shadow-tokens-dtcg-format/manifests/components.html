@@ -582,7 +582,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.5s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -3669,13 +3669,13 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;Card&quot; component.
-  14 | const topTask = exampleTopTask()
-  15 |
-&gt; 16 | const meta = {
+  22 | )
+  23 |
+&gt; 24 | const meta = {
      | ^
-  17 |   title: &#39;Components/Navigation/Card&#39;,
-  18 |   component: Card,
-  19 |   args: {
+  25 |   title: &#39;Components/Navigation/Card&#39;,
+  26 |   component: Card,
+  27 | } satisfies Meta&lt;typeof Card&gt;
 
 ./src/components/Card/Card.stories.tsx:
 /**
@@ -3683,22 +3683,27 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { Decorator, Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { ComponentProps } from &#39;react&#39;
 
 import { Column, Grid, Paragraph } from &#39;@amsterdam/design-system-react&#39;
 import { Card } from &#39;@amsterdam/design-system-react/src&#39;
+import { aspectRatioOptions } from &#39;@amsterdam/design-system-react/src/common/types&#39;
 
 import { exampleTopTask } from &#39;../../_common/exampleContent&#39;
 import { formatDate } from &#39;../../_common/formatDate&#39;
 
 const topTask = exampleTopTask()
 
+const maxWidthDecorator: Decorator = (Story) =&gt; (
+  &lt;div style={{ maxWidth: &#39;24rem&#39; }}&gt;
+    &lt;Story /&gt;
+  &lt;/div&gt;
+)
+
 const meta = {
   title: &#39;Components/Navigation/Card&#39;,
   component: Card,
-  args: {
-    style: { maxWidth: &#39;24rem&#39; },
-  },
 } satisfies Meta&lt;typeof Card&gt;
 
 export default meta
@@ -3714,6 +3719,7 @@ export const Default: Story = {
       &lt;Paragraph key={2}&gt;{topTask.description}&lt;/Paragraph&gt;,
     ],
   },
+  decorators: [maxWidthDecorator],
 }
 
 export const WithTagline: Story = {
@@ -3729,25 +3735,55 @@ export const WithTagline: Story = {
       &lt;/Paragraph&gt;,
     ],
   },
+  decorators: [maxWidthDecorator],
 }
 
-export const WithImage: Story = {
+type WithImageProps = {
+  aspectRatio: (typeof aspectRatioOptions)[number]
+  date: string
+  heading: string
+  imageSrc: string
+  tagline: string
+  text: string
+} &amp; ComponentProps&lt;typeof Card&gt;
+
+type WithImageStory = StoryObj&lt;WithImageProps&gt;
+
+export const WithImage: WithImageStory = {
   args: {
-    children: [
-      &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; key={1} src=&quot;https://picsum.photos/480/360&quot; /&gt;,
-      &lt;Card.HeadingGroup key={2} tagline=&quot;Nieuws&quot;&gt;
-        &lt;Card.Heading level={3}&gt;
-          &lt;Card.Link href=&quot;/&quot;&gt;Nederlands eerste houten woonwijk komt in Zuidoost&lt;/Card.Link&gt;
-        &lt;/Card.Heading&gt;
-      &lt;/Card.HeadingGroup&gt;,
-      &lt;Column gap=&quot;small&quot; key={3}&gt;
-        &lt;Paragraph&gt;
-          We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
-        &lt;/Paragraph&gt;
-        &lt;Paragraph size=&quot;small&quot;&gt;{formatDate(Date.now())}&lt;/Paragraph&gt;
-      &lt;/Column&gt;,
-    ],
+    aspectRatio: &#39;4:3&#39;,
+    date: formatDate(Date.now()),
+    heading: &#39;Nederlands eerste houten woonwijk komt in Zuidoost&#39;,
+    imageSrc: &#39;https://picsum.photos/480/360&#39;,
+    tagline: &#39;Nieuws&#39;,
+    text: &#39;We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.&#39;,
   },
+  argTypes: {
+    aspectRatio: {
+      control: { type: &#39;inline-radio&#39; },
+      options: aspectRatioOptions,
+    },
+    date: { control: &#39;text&#39; },
+    heading: { control: &#39;text&#39; },
+    imageSrc: { control: &#39;text&#39; },
+    tagline: { control: &#39;text&#39; },
+    text: { control: &#39;text&#39; },
+  },
+  decorators: [maxWidthDecorator],
+  render: ({ aspectRatio, date, heading, imageSrc, tagline, text, ...args }) =&gt; (
+    &lt;Card {...args}&gt;
+      &lt;Card.Image alt=&quot;&quot; aspectRatio={aspectRatio} src={imageSrc} /&gt;
+      &lt;Card.HeadingGroup tagline={tagline}&gt;
+        &lt;Card.Heading level={3}&gt;
+          &lt;Card.Link href=&quot;/&quot;&gt;{heading}&lt;/Card.Link&gt;
+        &lt;/Card.Heading&gt;
+      &lt;/Card.HeadingGroup&gt;
+      &lt;Column gap=&quot;small&quot;&gt;
+        &lt;Paragraph&gt;{text}&lt;/Paragraph&gt;
+        &lt;Paragraph size=&quot;small&quot;&gt;{date}&lt;/Paragraph&gt;
+      &lt;/Column&gt;
+    &lt;/Card&gt;
+  ),
 }
 
 export const TopTasks: Story = {
@@ -3831,7 +3867,7 @@ import { Column, Grid, Paragraph } from "@amsterdam/design-system-react";</code>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;Card style={{ maxWidth: &#39;24rem&#39; }}&gt;{[
+              <pre><code>const Default = () =&gt; &lt;Card&gt;{[
       &lt;Card.Heading key={1} level={2}&gt;
         &lt;Card.Link href=&quot;/&quot;&gt;{topTask.heading}&lt;/Card.Link&gt;
       &lt;/Card.Heading&gt;,
@@ -3845,7 +3881,7 @@ import { Column, Grid, Paragraph } from "@amsterdam/design-system-react";</code>
               </div>
               
               
-              <pre><code>const WithTagline = () =&gt; &lt;Card style={{ maxWidth: &#39;24rem&#39; }}&gt;{[
+              <pre><code>const WithTagline = () =&gt; &lt;Card&gt;{[
       &lt;Card.HeadingGroup key={1} tagline=&quot;Dossier&quot;&gt;
         &lt;Card.Heading level={2}&gt;
           &lt;Card.Link href=&quot;/&quot;&gt;Monitor Attracties MRA&lt;/Card.Link&gt;
@@ -3863,20 +3899,24 @@ import { Column, Grid, Paragraph } from "@amsterdam/design-system-react";</code>
               </div>
               
               
-              <pre><code>const WithImage = () =&gt; &lt;Card style={{ maxWidth: &#39;24rem&#39; }}&gt;{[
-      &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; key={1} src=&quot;https://picsum.photos/480/360&quot; /&gt;,
-      &lt;Card.HeadingGroup key={2} tagline=&quot;Nieuws&quot;&gt;
+              <pre><code>const WithImage = () =&gt; &lt;Card
+    aspectRatio=&quot;4:3&quot;
+    date={formatDate(Date.now())}
+    heading=&quot;Nederlands eerste houten woonwijk komt in Zuidoost&quot;
+    imageSrc=&quot;https://picsum.photos/480/360&quot;
+    tagline=&quot;Nieuws&quot;
+    text=&quot;We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.&quot;&gt;
+    &lt;Card.Image alt=&quot;&quot; aspectRatio={aspectRatio} src={imageSrc} /&gt;
+    &lt;Card.HeadingGroup tagline={tagline}&gt;
         &lt;Card.Heading level={3}&gt;
-          &lt;Card.Link href=&quot;/&quot;&gt;Nederlands eerste houten woonwijk komt in Zuidoost&lt;/Card.Link&gt;
+            &lt;Card.Link href=&quot;/&quot;&gt;{heading}&lt;/Card.Link&gt;
         &lt;/Card.Heading&gt;
-      &lt;/Card.HeadingGroup&gt;,
-      &lt;Column gap=&quot;small&quot; key={3}&gt;
-        &lt;Paragraph&gt;
-          We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
-        &lt;/Paragraph&gt;
-        &lt;Paragraph size=&quot;small&quot;&gt;{formatDate(Date.now())}&lt;/Paragraph&gt;
-      &lt;/Column&gt;,
-    ]}&lt;/Card&gt;;</code></pre>
+    &lt;/Card.HeadingGroup&gt;
+    &lt;Column gap=&quot;small&quot;&gt;
+        &lt;Paragraph&gt;{text}&lt;/Paragraph&gt;
+        &lt;Paragraph size=&quot;small&quot;&gt;{date}&lt;/Paragraph&gt;
+    &lt;/Column&gt;
+&lt;/Card&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -27559,13 +27599,13 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;Card&quot; component.
-  14 | const topTask = exampleTopTask()
-  15 |
-&gt; 16 | const meta = {
+  22 | )
+  23 |
+&gt; 24 | const meta = {
      | ^
-  17 |   title: &#39;Components/Navigation/Card&#39;,
-  18 |   component: Card,
-  19 |   args: {
+  25 |   title: &#39;Components/Navigation/Card&#39;,
+  26 |   component: Card,
+  27 | } satisfies Meta&lt;typeof Card&gt;
 
 ./src/components/Card/Card.stories.tsx:
 /**
@@ -27573,22 +27613,27 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { Decorator, Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { ComponentProps } from &#39;react&#39;
 
 import { Column, Grid, Paragraph } from &#39;@amsterdam/design-system-react&#39;
 import { Card } from &#39;@amsterdam/design-system-react/src&#39;
+import { aspectRatioOptions } from &#39;@amsterdam/design-system-react/src/common/types&#39;
 
 import { exampleTopTask } from &#39;../../_common/exampleContent&#39;
 import { formatDate } from &#39;../../_common/formatDate&#39;
 
 const topTask = exampleTopTask()
 
+const maxWidthDecorator: Decorator = (Story) =&gt; (
+  &lt;div style={{ maxWidth: &#39;24rem&#39; }}&gt;
+    &lt;Story /&gt;
+  &lt;/div&gt;
+)
+
 const meta = {
   title: &#39;Components/Navigation/Card&#39;,
   component: Card,
-  args: {
-    style: { maxWidth: &#39;24rem&#39; },
-  },
 } satisfies Meta&lt;typeof Card&gt;
 
 export default meta
@@ -27604,6 +27649,7 @@ export const Default: Story = {
       &lt;Paragraph key={2}&gt;{topTask.description}&lt;/Paragraph&gt;,
     ],
   },
+  decorators: [maxWidthDecorator],
 }
 
 export const WithTagline: Story = {
@@ -27619,25 +27665,55 @@ export const WithTagline: Story = {
       &lt;/Paragraph&gt;,
     ],
   },
+  decorators: [maxWidthDecorator],
 }
 
-export const WithImage: Story = {
+type WithImageProps = {
+  aspectRatio: (typeof aspectRatioOptions)[number]
+  date: string
+  heading: string
+  imageSrc: string
+  tagline: string
+  text: string
+} &amp; ComponentProps&lt;typeof Card&gt;
+
+type WithImageStory = StoryObj&lt;WithImageProps&gt;
+
+export const WithImage: WithImageStory = {
   args: {
-    children: [
-      &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; key={1} src=&quot;https://picsum.photos/480/360&quot; /&gt;,
-      &lt;Card.HeadingGroup key={2} tagline=&quot;Nieuws&quot;&gt;
-        &lt;Card.Heading level={3}&gt;
-          &lt;Card.Link href=&quot;/&quot;&gt;Nederlands eerste houten woonwijk komt in Zuidoost&lt;/Card.Link&gt;
-        &lt;/Card.Heading&gt;
-      &lt;/Card.HeadingGroup&gt;,
-      &lt;Column gap=&quot;small&quot; key={3}&gt;
-        &lt;Paragraph&gt;
-          We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
-        &lt;/Paragraph&gt;
-        &lt;Paragraph size=&quot;small&quot;&gt;{formatDate(Date.now())}&lt;/Paragraph&gt;
-      &lt;/Column&gt;,
-    ],
+    aspectRatio: &#39;4:3&#39;,
+    date: formatDate(Date.now()),
+    heading: &#39;Nederlands eerste houten woonwijk komt in Zuidoost&#39;,
+    imageSrc: &#39;https://picsum.photos/480/360&#39;,
+    tagline: &#39;Nieuws&#39;,
+    text: &#39;We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.&#39;,
   },
+  argTypes: {
+    aspectRatio: {
+      control: { type: &#39;inline-radio&#39; },
+      options: aspectRatioOptions,
+    },
+    date: { control: &#39;text&#39; },
+    heading: { control: &#39;text&#39; },
+    imageSrc: { control: &#39;text&#39; },
+    tagline: { control: &#39;text&#39; },
+    text: { control: &#39;text&#39; },
+  },
+  decorators: [maxWidthDecorator],
+  render: ({ aspectRatio, date, heading, imageSrc, tagline, text, ...args }) =&gt; (
+    &lt;Card {...args}&gt;
+      &lt;Card.Image alt=&quot;&quot; aspectRatio={aspectRatio} src={imageSrc} /&gt;
+      &lt;Card.HeadingGroup tagline={tagline}&gt;
+        &lt;Card.Heading level={3}&gt;
+          &lt;Card.Link href=&quot;/&quot;&gt;{heading}&lt;/Card.Link&gt;
+        &lt;/Card.Heading&gt;
+      &lt;/Card.HeadingGroup&gt;
+      &lt;Column gap=&quot;small&quot;&gt;
+        &lt;Paragraph&gt;{text}&lt;/Paragraph&gt;
+        &lt;Paragraph size=&quot;small&quot;&gt;{date}&lt;/Paragraph&gt;
+      &lt;/Column&gt;
+    &lt;/Card&gt;
+  ),
 }
 
 export const TopTasks: Story = {
@@ -27721,7 +27797,7 @@ import { Column, Grid, Paragraph } from "@amsterdam/design-system-react";</code>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;Card style={{ maxWidth: &#39;24rem&#39; }}&gt;{[
+              <pre><code>const Default = () =&gt; &lt;Card&gt;{[
       &lt;Card.Heading key={1} level={2}&gt;
         &lt;Card.Link href=&quot;/&quot;&gt;{topTask.heading}&lt;/Card.Link&gt;
       &lt;/Card.Heading&gt;,
@@ -27735,7 +27811,7 @@ import { Column, Grid, Paragraph } from "@amsterdam/design-system-react";</code>
               </div>
               
               
-              <pre><code>const WithTagline = () =&gt; &lt;Card style={{ maxWidth: &#39;24rem&#39; }}&gt;{[
+              <pre><code>const WithTagline = () =&gt; &lt;Card&gt;{[
       &lt;Card.HeadingGroup key={1} tagline=&quot;Dossier&quot;&gt;
         &lt;Card.Heading level={2}&gt;
           &lt;Card.Link href=&quot;/&quot;&gt;Monitor Attracties MRA&lt;/Card.Link&gt;
@@ -27753,20 +27829,24 @@ import { Column, Grid, Paragraph } from "@amsterdam/design-system-react";</code>
               </div>
               
               
-              <pre><code>const WithImage = () =&gt; &lt;Card style={{ maxWidth: &#39;24rem&#39; }}&gt;{[
-      &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; key={1} src=&quot;https://picsum.photos/480/360&quot; /&gt;,
-      &lt;Card.HeadingGroup key={2} tagline=&quot;Nieuws&quot;&gt;
+              <pre><code>const WithImage = () =&gt; &lt;Card
+    aspectRatio=&quot;4:3&quot;
+    date={formatDate(Date.now())}
+    heading=&quot;Nederlands eerste houten woonwijk komt in Zuidoost&quot;
+    imageSrc=&quot;https://picsum.photos/480/360&quot;
+    tagline=&quot;Nieuws&quot;
+    text=&quot;We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.&quot;&gt;
+    &lt;Card.Image alt=&quot;&quot; aspectRatio={aspectRatio} src={imageSrc} /&gt;
+    &lt;Card.HeadingGroup tagline={tagline}&gt;
         &lt;Card.Heading level={3}&gt;
-          &lt;Card.Link href=&quot;/&quot;&gt;Nederlands eerste houten woonwijk komt in Zuidoost&lt;/Card.Link&gt;
+            &lt;Card.Link href=&quot;/&quot;&gt;{heading}&lt;/Card.Link&gt;
         &lt;/Card.Heading&gt;
-      &lt;/Card.HeadingGroup&gt;,
-      &lt;Column gap=&quot;small&quot; key={3}&gt;
-        &lt;Paragraph&gt;
-          We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.
-        &lt;/Paragraph&gt;
-        &lt;Paragraph size=&quot;small&quot;&gt;{formatDate(Date.now())}&lt;/Paragraph&gt;
-      &lt;/Column&gt;,
-    ]}&lt;/Card&gt;;</code></pre>
+    &lt;/Card.HeadingGroup&gt;
+    &lt;Column gap=&quot;small&quot;&gt;
+        &lt;Paragraph&gt;{text}&lt;/Paragraph&gt;
+        &lt;Paragraph size=&quot;small&quot;&gt;{date}&lt;/Paragraph&gt;
+    &lt;/Column&gt;
+&lt;/Card&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
