@@ -37,9 +37,10 @@ export const Layout = ({ children }: LayoutProps) => (
     </main>
     <PageFooter className="ams-page__area--footer">
       <PageFooter.Menu>
-        <PageFooter.MenuLink href="#">E-mail je vraag of feedback</PageFooter.MenuLink>
-        <PageFooter.MenuLink href="#">Bekijk help en uitleg</PageFooter.MenuLink>
-        <PageFooter.MenuLink href="#">Overzicht releases</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Over deze website</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Veelgestelde vragen</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Toegankelijkheid</PageFooter.MenuLink>
+        <PageFooter.MenuLink href="#">Contact</PageFooter.MenuLink>
       </PageFooter.Menu>
     </PageFooter>
   </>
