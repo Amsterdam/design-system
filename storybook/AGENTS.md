@@ -24,7 +24,7 @@ Import the CSS README as the primary content source. Add React-specific notes wh
 
 - One story per visual variant / state in `<Name>.test.stories.tsx`.
 - Tag stories with `'test'` so Chromatic picks them up.
-- Chromatic enables pseudo-states via the `IS_CHROMATIC` environment variable (`config/main.ts`).
+- Chromatic enables CSS pseudo-state simulation (`:hover`, `:focus`, etc.) via the `IS_CHROMATIC` environment variable (`config/main.ts`). This variable is set automatically by Chromatic's CI runner — do not set it manually.
 - Visual changes must be reviewed and approved in the Chromatic dashboard before merging.
 
 ## Interaction tests
