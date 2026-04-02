@@ -35,7 +35,7 @@ Only list changed properties inside a pseudo-class block. Unchanged properties b
 
 ## Mixins
 
-- Extract any pattern repeated 2+ times into a mixin.
+- Extract common patterns into mixins, especially if they need more than 2 declarations.
 - Name reset mixins after the element: `@mixin reset-ul`.
 - Each declaration in a mixin must override the default user-agent style.
 - Common mixins live in `src/common/`.
