@@ -6,8 +6,9 @@
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useImperativeHandle, useRef } from 'react'
 
+import { useKeyboardFocus } from '../common/useKeyboardFocus'
 import { headingLevels } from '../Heading/Heading'
 import { ProgressListContext } from './ProgressListContext'
 import { ProgressListStep } from './ProgressListStep'
@@ -46,23 +47,35 @@ const ProgressListRoot = forwardRef(
       ...restProps
     }: ProgressListProps,
     ref: ForwardedRef<HTMLOListElement>,
-  ) => (
-    <ProgressListContext.Provider
-      value={{
-        completedAccessibleText: completedAccessibleText ?? 'Klaar',
-        currentAccessibleText: currentAccessibleText ?? 'Bezig',
-        headingLevel,
-      }}
-    >
-      <ol
-        {...restProps}
-        className={clsx('ams-progress-list', `ams-progress-list--heading-${headingLevel}`, className)}
-        ref={ref}
+  ) => {
+    const innerRef = useRef<HTMLOListElement>(null)
+
+    useImperativeHandle(ref, () => innerRef.current as HTMLOListElement)
+
+    const { keyDown } = useKeyboardFocus(innerRef, {
+      focusableElements: ['.ams-progress-list__button:not([disabled])'],
+      rotating: true,
+    })
+
+    return (
+      <ProgressListContext.Provider
+        value={{
+          completedAccessibleText: completedAccessibleText ?? 'Klaar',
+          currentAccessibleText: currentAccessibleText ?? 'Bezig',
+          headingLevel,
+        }}
       >
-        {children}
-      </ol>
-    </ProgressListContext.Provider>
-  ),
+        <ol
+          {...restProps}
+          className={clsx('ams-progress-list', `ams-progress-list--heading-${headingLevel}`, className)}
+          onKeyDown={keyDown}
+          ref={innerRef}
+        >
+          {children}
+        </ol>
+      </ProgressListContext.Provider>
+    )
+  },
 )
 
 /**

@@ -4,8 +4,7 @@ on:
   issue_comment:
     types: [created]
   pull_request:
-    types: [ready_for_review]
-
+    types: [opened, ready_for_review]
 permissions:
   contents: read
   pull-requests: write
@@ -15,7 +14,9 @@ jobs:
     name: Run Chromatic
     runs-on: ubuntu-latest
     if: |
-      (github.event_name == 'pull_request' && github.event.action == 'ready_for_review') ||
+      (github.event_name == 'pull_request' && 
+       (github.event.action == 'ready_for_review' || 
+        (github.event.action == 'opened' && github.event.pull_request.draft == false))) ||
       (github.event_name == 'issue_comment' &&
        github.event.issue.pull_request &&
        startsWith(github.event.comment.body, '/chromatic test') &&
@@ -30,22 +31,25 @@ jobs:
         run: |
           gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions -f content=eyes
 
-      - name: Get PR head SHA
-        id: get-sha
+      - name: Get PR info
+        id: pr-info
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ "${{ github.event_name }}" == "pull_request" ]; then
             echo "sha=${{ github.event.pull_request.head.sha }}" >> $GITHUB_OUTPUT
+            echo "branch=${{ github.head_ref }}" >> $GITHUB_OUTPUT
           else
-            SHA=$(gh pr view ${{ github.event.issue.number }} --json headRefOid -q '.headRefOid' --repo ${{ github.repository }})
-            echo "sha=$SHA" >> $GITHUB_OUTPUT
+            PR_DATA=$(gh pr view ${{ github.event.issue.number }} --json headRefOid,headRefName --repo ${{ github.repository }})
+            echo "sha=$(echo "$PR_DATA" | jq -r '.headRefOid')" >> $GITHUB_OUTPUT
+            echo "branch=$(echo "$PR_DATA" | jq -r '.headRefName')" >> $GITHUB_OUTPUT
           fi
+
       - name: Check out branch
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
-          ref: ${{ steps.get-sha.outputs.sha }}
+          ref: ${{ steps.pr-info.outputs.sha }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
@@ -62,5 +66,7 @@ jobs:
       - name: Run Chromatic
         uses: chromaui/action@f191a0224b10e1a38b2091cefb7b7a2337009116 # v16.0.0
         with:
+          branchName: ${{ steps.pr-info.outputs.branch }}
+          chromaticSha: ${{ steps.pr-info.outputs.sha }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: storybook

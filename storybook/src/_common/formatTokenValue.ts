@@ -4,22 +4,22 @@
  */
 
 /**
- * Converts a design token reference to a CSS custom property.
+ * Converts design token references in a string to CSS custom properties.
+ * Supports both single references and strings containing multiple references.
  *
- * @param value - A token value that may be a variable reference (e.g., "{spacing.md}") or a literal value (e.g., "2px")
- * @returns CSS custom property if value is a variable reference, otherwise the original value
+ * @param value - A token value that may contain variable references (e.g., "{spacing.md}") or be a literal value (e.g., "2px")
+ * @returns String with all token references replaced by CSS custom properties
  *
  * @example
- * formatTokenValue("{border.width.sm}") // "var(--border-width-sm)"
- * formatTokenValue("{spacing.md}")      // "var(--spacing-md)"
- * formatTokenValue("2px")               // "2px"
- * formatTokenValue("1rem")              // "1rem"
+ * formatTokenValue("{border.width.sm}")                          // "var(--border-width-sm)"
+ * formatTokenValue("{spacing.md}")                               // "var(--spacing-md)"
+ * formatTokenValue("2px")                                        // "2px"
+ * formatTokenValue("inset 0rem {border.width.m} 0rem {color.x}") // "inset 0rem var(--border-width-m) 0rem var(--color-x)"
  */
-export function formatTokenValue<Type = string>(value: string): Type {
+export function formatTokenValue<T = string>(value: string): T {
   if (value.includes('{')) {
-    const cssVar = value.replace(/[{}]/g, '').replace(/\./g, '-')
-    return `var(--${cssVar})` as unknown as Type
+    return value.replace(/\{([^}]+)\}/g, (_, ref: string) => `var(--${ref.replace(/\./g, '-')})`) as unknown as T
   }
 
-  return value as unknown as Type
+  return value as unknown as T
 }
