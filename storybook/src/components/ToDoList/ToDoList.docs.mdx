@@ -1,0 +1,20 @@
+{/* @license CC0-1.0 */}
+
+import { Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import * as ToDoListStories from "./ToDoList.stories.tsx";
+import README from "../../../../packages/css/src/components/to-do-list/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/to-do-list.tokens.json";
+
+import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
+
+<Meta of={ToDoListStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
