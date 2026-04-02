@@ -1,8 +1,45 @@
 /**
- * @license EUPL-1.2+
- * Copyright Gemeente Amsterdam
- */
+* @license EUPL-1.2+
+* Copyright Gemeente Amsterdam
+*/
 
+@use "../../common/resets" as *;
+
+// stylelint-disable csstools/value-no-unknown-custom-properties
 .ams-to-do-list {
-  /* Add styles here */
+  display: grid;
+  gap: var(--ams-to-do-list-gap);
+}
+
+.ams-to-do-list__form {
+  display: flex;
+  gap: var(--ams-to-do-list-form-gap);
+}
+
+.ams-to-do-list__form-fields {
+  flex: 1;
+}
+
+.ams-to-do-list__items {
+  @include reset-ul;
+
+  display: grid;
+  gap: var(--ams-to-do-list-item-gap);
+}
+
+.ams-to-do-list__item {
+  align-items: center;
+  display: flex;
+  gap: var(--ams-to-do-list-item-gap);
+}
+
+.ams-to-do-list__delete-button {
+  margin-inline-start: auto;
+}
+
+.ams-to-do-list__item--done .ams-to-do-list__label {
+  color: var(--ams-to-do-list-item-done-color);
+  text-decoration-line: var(--ams-to-do-list-item-done-text-decoration-line);
+  text-decoration-thickness: var(--ams-to-do-list-item-done-text-decoration-thickness);
+  text-underline-offset: var(--ams-to-do-list-item-done-text-underline-offset);
 }

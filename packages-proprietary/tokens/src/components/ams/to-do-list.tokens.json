@@ -1,5 +1,51 @@
 {
   "ams": {
-    "to-do-list": {}
+    "to-do-list": {
+      "gap": {
+        "$value": "{ams.space.m}",
+        "$type": "dimension",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space"
+        }
+      },
+      "form": {
+        "gap": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        }
+      },
+      "item": {
+        "gap": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
+        "done": {
+          "color": {
+            "$value": "{ams.color.text.subtle}",
+            "$type": "color"
+          },
+          "text-decoration-line": {
+            "$value": "line-through"
+          },
+          "text-decoration-thickness": {
+            "$value": "{ams.links.text-decoration-thickness}",
+            "$type": "dimension"
+          },
+          "text-underline-offset": {
+            "$value": "{ams.links.text-underline-offset}",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
+          }
+        }
+      }
+    }
   }
 }

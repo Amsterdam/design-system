@@ -11,7 +11,7 @@ const meta = {
   title: 'To Do List',
   component: ToDoList,
   args: {
-    children: 'Nieuw component',
+    defaultItems: [{ label: 'Eerste taak' }, { done: true, label: 'Tweede taak' }],
   },
 } satisfies Meta<typeof ToDoList>
 
