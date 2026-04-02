@@ -6,6 +6,7 @@
 import { BorderSample } from '../BorderSample/BorderSample'
 import { Code } from '../Code/Code'
 import { ColorSample } from '../ColorSample/ColorSample'
+import { ShadowSample } from '../ShadowSample/ShadowSample'
 import { SpaceSample } from '../SpaceSample/SpaceSample'
 import { TypographySample } from '../TypographySample/TypographySample'
 
@@ -38,6 +39,7 @@ export const DesignTokensTableRow = ({ name, type, value }: DesignTokensTableRow
       {type === 'fontSize' && <TypographySample fontSize={value} />}
       {type === 'fontWeight' && <TypographySample fontWeight={value} />}
       {type === 'lineHeight' && <TypographySample lineHeight={value} />}
+      {type === 'shadow' && <ShadowSample value={value} />}
       {type === 'space' && <SpaceSample value={value} />}
     </td>
   </tr>
