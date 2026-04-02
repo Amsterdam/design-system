@@ -10,9 +10,7 @@ Full conventions: [documentation/coding-conventions.md](documentation/coding-con
 
 Barrel files (`index.ts`) exist for **external consumers only**. Never use them for imports within the same package — this causes cyclic dependencies.
 
-<!-- prettier-ignore -->
 ```tsx
-/* eslint-disable perfectionist/sort-imports, no-redeclare */
 // ✅ Import sibling components directly
 import type { HeadingProps } from '../Heading/Heading'
 
@@ -65,9 +63,7 @@ All props must have JSDoc descriptions. Use `type` (not `interface`) for prop ty
 
 Config: `vitest.config.ts` (jsdom, excludes `**/dist/**`). Every component must cover at minimum:
 
-<!-- prettier-ignore -->
 ```tsx
-/* eslint-disable vitest/expect-expect */
 describe('ComponentName', () => {
   it('renders', () => {
     /* ... */
