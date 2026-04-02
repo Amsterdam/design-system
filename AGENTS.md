@@ -84,7 +84,7 @@ Follow this decision order when deciding which layer to change:
 - Prefer updating design tokens in `packages-proprietary/tokens` when the change is about a reusable design value.
 - Otherwise, update component CSS in `packages/css` using existing tokens.
 
-1. **Behaviour or markup changes that keep the visual contract**:
+2. **Behaviour or markup changes that keep the visual contract**:
 
 - Update React components in `packages/react` only; reuse existing CSS classes where possible.
 
@@ -210,16 +210,10 @@ When you are asked to review code or a pull request, apply these principles:
 
 ## Definition of done
 
-Before marking work complete:
+The full checklist is in [`documentation/definition-of-done.md`](documentation/definition-of-done.md). Before marking work complete, verify at minimum:
 
 - [ ] `pnpm lint` passes with no errors
 - [ ] `pnpm test` passes
-- [ ] All Storybook stories render without console errors
 - [ ] Chromatic visual changes reviewed and approved
-- [ ] Focus outlines visible; keyboard navigation works
-- [ ] Screen reader tested (NVDA + Chrome, VoiceOver + Safari)
-- [ ] No content overflow at narrow viewports or 200% zoom
 - [ ] License header present in every new file
-- [ ] All props have JSDoc descriptions
-- [ ] CSS and React READMEs written
-- [ ] Design team approval obtained (new or changed components)
+- [ ] Relevant `AGENTS.md` files updated if conventions, file locations, or tooling changed
