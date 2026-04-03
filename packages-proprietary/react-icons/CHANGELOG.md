@@ -3,13 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.0.1](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v2.0.0...design-system-react-icons-v2.0.1) (2026-04-03)
-
-
-### Bug Fixes
-
-* **build:** Disable rpt2 rolling cache to prevent ENOENT on parallel builds ([#2481](https://github.com/Amsterdam/design-system/issues/2481)) ([1026123](https://github.com/Amsterdam/design-system/commit/1026123dc32f45b73aff76ec50fe6885d4623fc0))
-
 ## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v1.1.1...design-system-react-icons-v2.0.0) (2026-01-09)
 
 
