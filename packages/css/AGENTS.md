@@ -21,7 +21,7 @@ The full coding conventions are in [documentation/coding-conventions.md](documen
 - **Token usage**: all design values (colors, spacing, typography, borders, shadows) must come from CSS custom properties backed by tokens. Reference them as `var(--ams-<component>-<property>)`. If a token is missing, add it in the tokens package first.
 - **Input state precedence** (highest → lowest): Disabled → Hover → Invalid → Default. See the coding conventions for the full breakdown including checkbox/radio/switch value states.
 - **Pseudo-class blocks**: only list changed properties; unchanged properties belong in the base class.
-- **Mixins**: extract common patterns (>2 declarations) into mixins in `src/common/`. Name reset mixins after the element (e.g. `@mixin reset-ul`). Import mixins with `@use "../../common/<mixin-file>" as *;`.
+- **Mixins**: extract common patterns that appear 3 or more times into mixins in `src/common/`, especially if they need more than 1 declaration. Name reset mixins after the element (e.g. `@mixin reset-ul`). Import mixins with `@use "../../common/<mixin-file>" as *;`.
 - **Form validation**: support both native (`:invalid`) and manual (`aria-invalid`) validation styles.
 - **Raw values**: never introduce new raw `px`, `rem`, or `em` values for colors, spacing, font sizes, radii, or shadows; if you need a new value, add a token in the tokens package first.
 - **Focus visibility**: never remove focus indicators. Use the shared focus styles defined by tokens and common mixins, and ensure focus states continue to meet WCAG 2.2 contrast and visibility requirements.
