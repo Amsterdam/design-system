@@ -37,6 +37,26 @@
           "$extensions": {
             "nl.amsterdam.type": "borderWidth"
           }
+        },
+        "negative": {
+          "m": {
+            "$value": {
+              "value": -0.125,
+              "unit": "rem"
+            },
+            "$extensions": {
+              "nl.amsterdam.type": "borderWidth"
+            }
+          },
+          "xl": {
+            "$value": {
+              "value": -0.25,
+              "unit": "rem"
+            },
+            "$extensions": {
+              "nl.amsterdam.type": "borderWidth"
+            }
+          }
         }
       }
     }

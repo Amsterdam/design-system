@@ -17,18 +17,24 @@ type BorderSampleProps = {
   width?: string
 } & HTMLAttributes<HTMLDivElement>
 
-export const BorderSample = ({ className, lineStyle, style, width, ...restProps }: BorderSampleProps) => (
-  <div
-    {...restProps}
-    className={clsx('_ams-border-sample', 'sb-unstyled', className)}
-    style={{
-      ...style,
-      // Typed as a closed keyword union, not string, so the generic cast is required
-      borderInlineStartStyle:
-        lineStyle !== undefined
-          ? formatTokenValue<CSSProperties['borderInlineStartStyle']>(lineStyle)
-          : style?.borderInlineStartStyle,
-      borderInlineStartWidth: width !== undefined ? formatTokenValue(width) : style?.borderInlineStartWidth,
-    }}
-  />
-)
+export const BorderSample = ({ className, lineStyle, style, width, ...restProps }: BorderSampleProps) => {
+  if (width?.startsWith('-')) {
+    return null
+  }
+
+  return (
+    <div
+      {...restProps}
+      className={clsx('_ams-border-sample', 'sb-unstyled', className)}
+      style={{
+        ...style,
+        // Typed as a closed keyword union, not string, so the generic cast is required
+        borderInlineStartStyle:
+          lineStyle !== undefined
+            ? formatTokenValue<CSSProperties['borderInlineStartStyle']>(lineStyle)
+            : style?.borderInlineStartStyle,
+        borderInlineStartWidth: width !== undefined ? formatTokenValue(width) : style?.borderInlineStartWidth,
+      }}
+    />
+  )
+}

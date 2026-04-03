@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { ProgressList } from './ProgressList'
 
@@ -116,6 +116,51 @@ describe('ProgressListStep', () => {
     expect(step).not.toHaveAttribute('aria-current')
   })
 
+  it('adds the collapsed class when the step is collapsed', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('does not add the collapsed class when the step is expanded', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('removes the collapsed class when the button is clicked', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+    const button = screen.getByRole('button', { name: /Test Step/ })
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
+
+    fireEvent.click(button)
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+  })
+
   it('adds has-substeps class when hasSubsteps is true', () => {
     render(
       <ProgressList headingLevel={3}>
@@ -142,7 +187,7 @@ describe('ProgressListStep', () => {
     expect(step).not.toHaveClass('ams-progress-list__step--has-substeps')
   })
 
-  it('renders children inside the content container', () => {
+  it('renders children inside the panel', () => {
     const { container, getByText } = render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step">
@@ -151,10 +196,171 @@ describe('ProgressListStep', () => {
       </ProgressList>,
     )
 
-    const content = container.querySelector('.ams-progress-list__content')
+    const panel = container.querySelector('.ams-progress-list__panel')
 
-    expect(content).toBeInTheDocument()
-    expect(content).toContainElement(getByText('Inner child'))
+    expect(panel).toBeInTheDocument()
+    expect(panel).toContainElement(getByText('Inner child'))
+  })
+
+  it('renders a button inside the heading', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: /Test Step/ })
+
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveClass('ams-progress-list__button')
+  })
+
+  it('does not collapse when status is current', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step" status="current">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('expands a completed step when defaultCollapsed is false', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step defaultCollapsed={false} heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('collapses when defaultCollapsed is true', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step defaultCollapsed heading="Test Step">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('toggles collapsed state when the button is clicked', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+    const button = screen.getByRole('button', { name: /Test Step/ })
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
+
+    fireEvent.click(button)
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+
+    fireEvent.click(button)
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('sets aria-expanded on the button', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: /Test Step/ })
+
+    expect(button).toHaveAttribute('aria-expanded', 'false')
+
+    fireEvent.click(button)
+
+    expect(button).toHaveAttribute('aria-expanded', 'true')
+  })
+
+  it('links the button to the panel via aria-controls', () => {
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: /Test Step/ })
+    const panelId = button.getAttribute('aria-controls')
+    const panel = container.querySelector(`[id="${panelId}"]`)
+
+    expect(panelId).toBeTruthy()
+    expect(panel).toBeInTheDocument()
+    expect(panel).toHaveClass('ams-progress-list__panel')
+  })
+
+  it('calls onToggle with the new expanded state when the button is clicked', () => {
+    const onToggle = vi.fn()
+
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step" onToggle={onToggle} status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: /Test Step/ })
+
+    fireEvent.click(button)
+
+    expect(onToggle).toHaveBeenCalledTimes(1)
+    expect(onToggle).toHaveBeenCalledWith(true)
+
+    fireEvent.click(button)
+
+    expect(onToggle).toHaveBeenCalledTimes(2)
+    expect(onToggle).toHaveBeenLastCalledWith(false)
+  })
+
+  it('does not throw when onToggle is not provided', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: /Test Step/ })
+
+    expect(() => fireEvent.click(button)).not.toThrow()
+  })
+
+  it('renders the chevron icon inside the button', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: /Test Step/ })
+    const icon = button.querySelector('svg')
+
+    expect(icon).toBeInTheDocument()
   })
 
   it('renders the arrow icon only when status is current', () => {
@@ -179,6 +385,26 @@ describe('ProgressListStep', () => {
     const nonCurrentMarkerShape = nonCurrentContainer.querySelector('.ams-progress-list__marker-shape')
 
     expect(nonCurrentMarkerShape?.querySelector('svg')).not.toBeInTheDocument()
+  })
+
+  it('renders substep markers inside the panel', () => {
+    const { container } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step hasSubsteps heading="Test Step" status="current">
+          <ProgressList.Substeps>
+            <ProgressList.Substep>Substep one</ProgressList.Substep>
+            <ProgressList.Substep>Substep two</ProgressList.Substep>
+          </ProgressList.Substeps>
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = container.querySelector('.ams-progress-list__step')
+    const substepMarkers = container.querySelectorAll('.ams-progress-list-substeps__marker')
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+    expect(substepMarkers).toHaveLength(2)
+    substepMarkers.forEach((marker) => expect(marker).toBeInTheDocument())
   })
 
   it('supports ForwardRef in React', () => {
