@@ -33,7 +33,6 @@
         "medium": {
           "padding-inline": {
             "$deprecated": "Use `ams.page-footer.menu.vi-medium.padding-inline` instead. Will be removed in release 6.0.0.",
-            "$value": "{ams.page-footer.menu.vi-medium.padding-inline}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"
@@ -43,7 +42,6 @@
         "wide": {
           "padding-inline": {
             "$deprecated": "Use `ams.page-footer.menu.vi-wide.padding-inline` instead. Will be removed in release 6.0.0.",
-            "$value": "{ams.page-footer.menu.vi-wide.padding-inline}",
             "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.subtype": "space"
