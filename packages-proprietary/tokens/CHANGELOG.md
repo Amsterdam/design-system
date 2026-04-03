@@ -12,11 +12,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Description List:** Balance multiple lines of text in term ([#2485](https://github.com/Amsterdam/design-system/issues/2485)) ([a77a62e](https://github.com/Amsterdam/design-system/commit/a77a62e8c2f11666f1c6a3a132fe4f14654d9268))
 * **Progress List:** Make steps collapsible ([#2482](https://github.com/Amsterdam/design-system/issues/2482)) ([1fc3e39](https://github.com/Amsterdam/design-system/commit/1fc3e39644cce6a0299ba9bb08cc861c9b4155d7))
 * **typography:** Decrease line height for body text ([#2484](https://github.com/Amsterdam/design-system/issues/2484)) ([970b08e](https://github.com/Amsterdam/design-system/commit/970b08ee22edca8e630bd9c62ceddf891de25a3c))
-
-
-### Bug Fixes
-
-* **tokens:** Use DTCG shadow format for shadow tokens ([#2505](https://github.com/Amsterdam/design-system/issues/2505)) ([bd5411c](https://github.com/Amsterdam/design-system/commit/bd5411cacbdd68efd8804edd706362670c56c406))
+* Use DTCG shadow format for shadow tokens ([#2505](https://github.com/Amsterdam/design-system/issues/2505)) ([bd5411c](https://github.com/Amsterdam/design-system/commit/bd5411cacbdd68efd8804edd706362670c56c406))
 
 ## [3.3.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v3.2.0...design-system-tokens-v3.3.0) (2026-03-17)
 
