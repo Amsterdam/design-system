@@ -23,7 +23,7 @@ const options = ['Link 1', 'Link 2', 'Link 3']
 
 export const Test: Story = {
   render: (args) => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ams-space-s)' }}>
+    <div className="_ams-stack">
       {[undefined, ...linkListLinkSizes].map((size) => {
         return [undefined, ...linkListLinkColors].map((color) => {
           return (

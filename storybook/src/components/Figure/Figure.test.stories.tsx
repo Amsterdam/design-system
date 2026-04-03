@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ams-space-s)' }}>
+    <div className="_ams-stack">
       <Figure {...args}>
         <img
           alt=""

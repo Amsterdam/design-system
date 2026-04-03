@@ -37,7 +37,7 @@ export const Test: Story = {
     expect(testFn).toHaveBeenCalledWith('Amsterdam')
   },
   render: (args) => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ams-space-s)' }}>
+    <div className="_ams-stack">
       <SearchField {...args}>
         <SearchField.Input data-testid="searchbox" name="search" placeholder="Waar ben je naar opzoek?" />
         <SearchField.Button data-testid="button" />

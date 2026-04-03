@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
+    <div className="_ams-gallery">
       <SpaceSample value="16px" />
       <SpaceSample />
     </div>
