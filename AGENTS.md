@@ -161,7 +161,11 @@ Package filter names: `@amsterdam/design-system-tokens`, `@amsterdam/design-syst
 
 ## Git and contribution workflow
 
-Human contributors and agents should both follow the conventions in [documentation/git.md](documentation/git.md): branch from `develop`, use branch names like `feat/DES-178-introduce-checkbox-component`, and write commit messages in English imperative mood describing the goal of the change. See also [documentation/code-reviews.md](documentation/code-reviews.md).
+Human contributors and agents should both follow the conventions in [documentation/git.md](documentation/git.md): branch from `develop`, use branch names like `feat/DES-178-introduce-checkbox-component`, and write commit messages in English imperative mood describing the goal of the change.
+
+PR titles use [Conventional Commits](documentation/publishing.md#conventional-commits): `feat`, `fix`, `chore` (append `!` for breaking changes). Include the component name as scope when applicable, e.g. `fix(Avatar): Correct the aspect ratio for the image`. These titles become squash-merge commit messages and drive changelog generation.
+
+See also [documentation/code-reviews.md](documentation/code-reviews.md).
 
 ## Reviewing as an agent
 

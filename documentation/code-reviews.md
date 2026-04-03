@@ -90,7 +90,7 @@ The author can apply or reject the proposal at the touch of a button.
 
 In general, the author of a comment is the one to resolve it.
 This ensures the reviewer can perform a final check of the implemented changes, and the reviewer will see all merged code at least once.
-Comments created by Copilot or other AI tools are an exception to this rule.
+Comments created by AI tools are an exception to this rule.
 Make sure to check these yourself and resolve them once they are addressed.
 
 ### Visual regression tests
@@ -107,3 +107,18 @@ To run visual regression tests, comment `/chromatic test` on the pull request. T
 One of the maintainers approves the pull request if it meets the requirements and merges the branch.
 Static analysis must not reveal errors, all comments have been resolved, and enough reviewers have approved.
 Make sure there is no unnecessary waiting.
+
+## AI-assisted contributions
+
+AI agents may author pull requests and review comments.
+The same conventions apply: PR titles follow [Conventional Commits](./publishing.md#conventional-commits), descriptions explain the approach, and code meets the definition of done.
+
+When reviewing a PR that was authored with AI assistance, pay extra attention to:
+
+- Generated code that compiles but does not match project conventions or introduces subtle accessibility regressions.
+- Overly broad changes — AI tools tend to refactor beyond the scope of the task.
+
+When acting on review comments left by AI tools:
+
+- Verify each suggestion against the codebase before applying it — AI tools can hallucinate APIs, file paths, or conventions.
+- The comment author resolves their own comments, except for AI-generated comments. The PR author is responsible for checking and resolving those (see [Resolve comments](#resolve-comments)).
