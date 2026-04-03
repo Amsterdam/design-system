@@ -8,7 +8,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **Breadcrumb:** Add accessible name that also shows as heading without CSS ([#2471](https://github.com/Amsterdam/design-system/issues/2471)) ([33a68ac](https://github.com/Amsterdam/design-system/commit/33a68ac32cdc9b02cd1d10745b20a00fbfd3de84))
 * **Description List:** Apply heading 4 typography to terms ([#2486](https://github.com/Amsterdam/design-system/issues/2486)) ([e624ae4](https://github.com/Amsterdam/design-system/commit/e624ae4cd348736f5f32f0fea4609652f22e8753))
 * **Description List:** Balance multiple lines of text in term ([#2485](https://github.com/Amsterdam/design-system/issues/2485)) ([a77a62e](https://github.com/Amsterdam/design-system/commit/a77a62e8c2f11666f1c6a3a132fe4f14654d9268))
 * **Progress List:** Make steps collapsible ([#2482](https://github.com/Amsterdam/design-system/issues/2482)) ([1fc3e39](https://github.com/Amsterdam/design-system/commit/1fc3e39644cce6a0299ba9bb08cc861c9b4155d7))
