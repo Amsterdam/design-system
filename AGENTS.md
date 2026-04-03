@@ -9,7 +9,7 @@ This file is a thin agent-specific layer on top of the official documentation an
 ## How to use these instructions
 
 1. Identify which package(s) your change touches (tokens, CSS, React, Storybook).
-2. Read this file and then the relevant package `AGENTS.md` file(s) before editing any code.
+2. Read this file and then the relevant package `AGENTS.md` file(s) before editing or reviewing any code.
 3. Skim any linked documentation (coding conventions, tests, Storybook docs) that applies to your change.
 4. Make the smallest possible change in the narrowest relevant package or component.
 
