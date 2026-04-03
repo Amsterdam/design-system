@@ -6,7 +6,7 @@ These instructions are additive to the root [AGENTS.md](../AGENTS.md). Read that
 
 ## Story files
 
-Every component has three story files in `src/components/<Name>/`:
+Most components have three story files in `src/components/<Name>/` (some may also have subcomponent story files):
 
 | File                      | Purpose                                      |
 | ------------------------- | -------------------------------------------- |
@@ -31,7 +31,7 @@ When adding a new component, choose the most fitting existing category. Agents m
 
 ## Imports
 
-- Import React components from `@amsterdam/design-system-react/src` (source, not dist) for stories.
+- Import the primary component of a story from `@amsterdam/design-system-react/src` (source, not dist). Helper components used for composition (e.g. Grid, Paragraph) may be imported from `@amsterdam/design-system-react` (the package barrel).
 - CSS is loaded globally via `config/preview.tsx` — do not import CSS or SCSS in individual story files.
 - Import Storybook types from `@storybook/react-vite`.
 - Test stories typically spread the main story's meta: `const meta = { ...accordionMeta, title: '...' } satisfies Meta<typeof Component>`.
@@ -43,8 +43,8 @@ Import the CSS README as the primary content source. Add React-specific notes wh
 ## Visual tests (Chromatic)
 
 - One story per visual variant / state in `<Name>.test.stories.tsx`.
-- Tag stories with `'test'` so Chromatic picks them up.
-- Chromatic enables CSS pseudo-state simulation (`:hover`, `:focus`, etc.) via the `IS_CHROMATIC` environment variable (`config/main.ts`). This variable is set automatically by Chromatic's CI runner — do not set it manually.
+- Tag test stories with `['!dev', '!autodocs']` to exclude them from docs and development views.
+- The CSS pseudo-state simulation addon (`:hover`, `:focus`, etc.) loads in Chromatic CI (via `IS_CHROMATIC`) and in local development (`NODE_ENV === 'development'`). See `config/main.ts`. Do not set `IS_CHROMATIC` manually.
 - Visual changes must be reviewed and approved in the Chromatic dashboard before merging.
 - **Never approve Chromatic changes as an agent** — visual approval is a human responsibility.
 
@@ -63,7 +63,13 @@ Enforced globally via Storybook defaults — no per-component setup needed. Do n
 
 ## CI
 
-Full reference: [`../documentation/tests.md`](../documentation/tests.md). Interaction, visual, and accessibility tests run via Chromatic on stories tagged `'test'`. All must pass and visual changes must be approved before merging.
+Full reference: [`../documentation/tests.md`](../documentation/tests.md). Interaction, visual, and accessibility tests run via Chromatic. All must pass and visual changes must be approved before merging.
+
+Chromatic runs automatically when a draft PR is marked as ready for review. To trigger it manually, comment `/chromatic test` on the pull request.
+
+## Unit tests
+
+Utility functions in `src/_common/` have unit tests (`*.test.ts`) run by Vitest (config: `vitest.config.ts`). When adding or modifying utilities, ensure tests are added or updated.
 
 ## Configuration
 

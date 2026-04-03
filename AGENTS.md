@@ -65,7 +65,7 @@ Before making changes in a given layer, read the relevant package `AGENTS.md` an
 ### Off-limits
 
 - Generated output in any `dist/` directory — update source files or configuration and run the appropriate build script instead.
-- Generated proprietary assets under `packages-proprietary/assets/logo/` and `packages-proprietary/assets/icons/` — update source SVGs and run `pnpm run generate-logos`.
+- Generated proprietary assets under `packages-proprietary/assets/logo/` and `packages-proprietary/assets/icons/` — update source SVGs and run `pnpm --filter @amsterdam/design-system-react generate-logos`.
 
 ## Global "never do" rules
 
@@ -105,12 +105,13 @@ When in doubt, prefer the smallest change that satisfies the task and matches ex
 For details, rely on the official documentation and per-package instructions:
 
 - Testing: [documentation/tests.md](documentation/tests.md), plus [packages/react/AGENTS.md](packages/react/AGENTS.md) and [storybook/AGENTS.md](storybook/AGENTS.md) for unit, interaction, visual, and accessibility tests.
-- Accessibility: [documentation/definition-of-done.md](documentation/definition-of-done.md) (WCAG 2.2 Level AA checklist).
+- Accessibility and quality: [documentation/definition-of-done.md](documentation/definition-of-done.md) (full quality checklist including WCAG 2.2 Level AA).
 - Component docs and Storybook: [documentation/component-docs.md](documentation/component-docs.md) and [documentation/storybook.md](documentation/storybook.md).
 - Git and contribution workflow: [documentation/git.md](documentation/git.md), [documentation/code-reviews.md](documentation/code-reviews.md), and [documentation/publishing.md](documentation/publishing.md).
 
 Key agent expectations:
 
+- Before submitting work, cross-check the full definition-of-done checklist in [documentation/definition-of-done.md](documentation/definition-of-done.md).
 - Run the most specific relevant lint/test commands for the package you touched before relying on full `pnpm run lint` / `pnpm run test`.
 - Update relevant README, Storybook docs, and tests whenever behaviour, APIs, or visual contracts change.
 - Linting and formatting rules (ESLint, Stylelint, Prettier) are authoritative for code style — consult the configs ([eslint.config.mjs](eslint.config.mjs), [.stylelintrc.json](.stylelintrc.json), [.prettierrc.json](.prettierrc.json)) and use them as guidance when writing or reviewing code.
@@ -144,16 +145,17 @@ Every new source file must start with the appropriate license header. Do not int
 
 All commands run from the repository root. Use `pnpm --filter <package-name>` to scope to a single package.
 
-| Task                     | Command             |
-| ------------------------ | ------------------- |
-| Install dependencies     | `pnpm install`      |
-| Build all packages       | `pnpm run build`    |
-| Lint everything          | `pnpm run lint`     |
-| Run all tests            | `pnpm run test`     |
-| Lint CSS only            | `pnpm run lint:css` |
-| Lint JS/TS only          | `pnpm run lint:js`  |
-| Auto-fix lint + format   | `pnpm run lint-fix` |
-| Scaffold a new component | `pnpm run plop`     |
+| Task                     | Command                      |
+| ------------------------ | ---------------------------- |
+| Install dependencies     | `pnpm install`               |
+| Build all packages       | `pnpm run build`             |
+| Lint everything          | `pnpm run lint`              |
+| Run all tests            | `pnpm run test`              |
+| Lint CSS only            | `pnpm run lint:css`          |
+| Lint JS/TS only          | `pnpm run lint:js`           |
+| Auto-fix lint + format   | `pnpm run lint-fix`          |
+| Start Storybook          | `pnpm run watch:storybook`   |
+| Scaffold a new component | `pnpm run plop`              |
 
 Package-specific commands (lint, test, build, watch) are listed in each package `AGENTS.md`.
 

@@ -38,8 +38,8 @@ Token files use the `.tokens.json` extension and follow the DTCG format:
 ```
 
 - Always reference existing brand or common tokens where possible — do not hardcode raw values.
-- Valid `$type` values used in this project: `color`, `dimension`, `fontFamily`, `fontWeight`, `shadow`. Do not invent other types.
-- Use the `$extensions` field for Amsterdam-specific metadata (e.g. `nl.amsterdam.type`, `nl.amsterdam.subtype`).
+- Valid `$type` values used in this project: `color`, `dimension`, `fontFamily`, `fontWeight`, `shadow`. Do not invent other `$type` values.
+- Use the `$extensions` field for Amsterdam-specific metadata (e.g. `nl.amsterdam.type`, `nl.amsterdam.subtype`). Common `$extensions` types include `fontSize`, `lineHeight`, and `space` (via `nl.amsterdam.subtype`). See existing component tokens for examples.
 - Variant tokens are nested under the component (e.g. `ams.badge.azure.background-color`).
 
 ## Compact mode
@@ -51,7 +51,7 @@ Some token categories have `.compact.tokens.json` variants (e.g. `space.compact.
 - Build command: `pnpm build` (runs `node build.js`)
 - Watch mode: `pnpm build:watch`
 - Output: `dist/` — never edit generated output directly.
-- Build config: `build.js` with custom Style Dictionary transforms in `style-dictionary/transforms/`.
+- Build config: `build.js` with custom Style Dictionary logic in `style-dictionary/` (includes `transforms/` and `dimensionToString.js`).
 
 ## File locations
 
@@ -63,7 +63,7 @@ Some token categories have `.compact.tokens.json` variants (e.g. `space.compact.
 
 ## Key rules
 
-- Every token must have a `$value` and `$type`. When a token's semantic type is expressed via `$extensions` instead, follow the existing patterns in this package and the Style Dictionary configuration.
+- Every token must have a `$value`. Type information is provided through either `$type` (DTCG standard) or `$extensions` with `nl.amsterdam.type` / `nl.amsterdam.subtype`. Some tokens (e.g. cursors, aspect ratios) have no type annotation — follow the existing pattern for the token category you are editing.
 - Token names use kebab-case and mirror CSS property names where applicable.
 - No unused tokens — every defined token must be consumed by CSS or another token.
 - No hardcoded design values in CSS or React — if a value is missing, add a token here first.

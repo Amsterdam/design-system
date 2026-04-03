@@ -13,7 +13,7 @@ Agent-critical points:
 - **Barrel imports**: barrel files (`index.ts`) exist for external consumers only. Never use them for imports within the same package — this causes cyclic dependencies. Import directly from the source file (e.g. `import type { HeadingProps } from '../Heading/Heading'`).
 - **ForwardRef**: wrap every component with `forwardRef` (imported directly from `'react'`, not via `React.forwardRef`). Set `displayName` on the result.
 - **restProps and clsx**: always destructure known props and spread `...restProps` onto the root element. Merge class names with `clsx('ams-<component-name>', className)` — never use template literals or string concatenation.
-- **Subcomponents**: keep in separate files (`GridCell.tsx` alongside `Grid.tsx`), each with their own test file. Do not export from the package barrel.
+- **Subcomponents**: keep in separate files (`GridCell.tsx` alongside `Grid.tsx`), each with their own test file. Do not export subcomponent values from the package barrel — only export their prop types.
 - **Screen reader text**: use `ams-visually-hidden` — not `aria-label` (not reliably auto-translated). Other ARIA attributes (`aria-describedby`, `aria-expanded`, `role`) are fine.
 - **Styling imports**: never import CSS or SCSS files inside a React component. Components should emit class names only; styling comes from the design system CSS package and consumer/app-level styles (including Storybook globals).
 - **Dependencies and config**: do not introduce new runtime dependencies (UI libraries, state managers, date libraries, etc.) or change ESLint, TypeScript, Vitest, or Storybook configuration unless explicitly requested for the task.
