@@ -15,7 +15,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **deps:** Bump @babel/runtime from 7.28.6 to 7.29.2 in the patch-and-minor-dependencies group ([#2493](https://github.com/Amsterdam/design-system/issues/2493)) ([b5cc2a1](https://github.com/Amsterdam/design-system/commit/b5cc2a15f49ad967ff506821974a2dd9fc22e07d))
 * **Menu, Page Header:** Simplify accessible names, make landmarks unique in home page example for internal websites ([#2488](https://github.com/Amsterdam/design-system/issues/2488)) ([0efff31](https://github.com/Amsterdam/design-system/commit/0efff31a005873062e4d77418d191360c90cc3b3))
 * **Pagination:** Remove duplicate visible texts before CSS loads ([#2473](https://github.com/Amsterdam/design-system/issues/2473)) ([07d7dfc](https://github.com/Amsterdam/design-system/commit/07d7dfc3404c4af096bef58b3bb5a1d2065eb532))
 
