@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.2.1...design-system-css-v3.3.0) (2026-04-03)
+
+
+### Features
+
+* **Breadcrumb:** Add accessible name that also shows as heading without CSS ([#2471](https://github.com/Amsterdam/design-system/issues/2471)) ([33a68ac](https://github.com/Amsterdam/design-system/commit/33a68ac32cdc9b02cd1d10745b20a00fbfd3de84))
+* **Description List:** Apply heading 4 typography to terms ([#2486](https://github.com/Amsterdam/design-system/issues/2486)) ([e624ae4](https://github.com/Amsterdam/design-system/commit/e624ae4cd348736f5f32f0fea4609652f22e8753))
+* **Description List:** Balance multiple lines of text in term ([#2485](https://github.com/Amsterdam/design-system/issues/2485)) ([a77a62e](https://github.com/Amsterdam/design-system/commit/a77a62e8c2f11666f1c6a3a132fe4f14654d9268))
+* **Logo:** Add GGD Amsterdam Inspection logo ([#2487](https://github.com/Amsterdam/design-system/issues/2487)) ([35bb0f7](https://github.com/Amsterdam/design-system/commit/35bb0f7a1375e089d85975fb544af84d18d334da))
+* **Progress List:** Make steps collapsible ([#2482](https://github.com/Amsterdam/design-system/issues/2482)) ([1fc3e39](https://github.com/Amsterdam/design-system/commit/1fc3e39644cce6a0299ba9bb08cc861c9b4155d7))
+
+
+### Bug Fixes
+
+* **Checkbox, Radio, Switch:** Remove superfluous focus outline from hidden input in Firefox ([#2510](https://github.com/Amsterdam/design-system/issues/2510)) ([16a0fdf](https://github.com/Amsterdam/design-system/commit/16a0fdf146aa36fa33cdf56cae8897520d166ce1))
+* **css:** Use appropriate layout for print output ([#2469](https://github.com/Amsterdam/design-system/issues/2469)) ([669f81f](https://github.com/Amsterdam/design-system/commit/669f81fef32867ea4393eb2c71b6710c40430ad6))
+* **Pagination:** Remove duplicate visible texts before CSS loads ([#2473](https://github.com/Amsterdam/design-system/issues/2473)) ([07d7dfc](https://github.com/Amsterdam/design-system/commit/07d7dfc3404c4af096bef58b3bb5a1d2065eb532))
+* **print:** Make browsers print components exactly as designed ([#2470](https://github.com/Amsterdam/design-system/issues/2470)) ([0cbdfe0](https://github.com/Amsterdam/design-system/commit/0cbdfe02c98e15e5b8c5fa1a5125a6a9c00f8a9e))
+
 ## [3.2.1](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.2.0...design-system-css-v3.2.1) (2026-03-17)
 
 
