@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.1.0...design-system-assets-v2.2.0) (2026-04-03)
+
+
+### Features
+
+* **Logo:** Add GGD Amsterdam Inspection logo ([#2487](https://github.com/Amsterdam/design-system/issues/2487)) ([35bb0f7](https://github.com/Amsterdam/design-system/commit/35bb0f7a1375e089d85975fb544af84d18d334da))
+
 ## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.0.0...design-system-assets-v2.1.0) (2026-03-13)
 
 
