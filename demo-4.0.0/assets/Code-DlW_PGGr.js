@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-BneVvdWh.js";import{t}from"./jsx-runtime-BrayXyei.js";var n=e((()=>{})),r,i,a=e((()=>{n(),r=t(),i=({children:e})=>(0,r.jsx)(`code`,{className:`_ams-code sb-unstyled`,children:e});try{i.displayName=`Code`,i.__docgenInfo={description:``,displayName:`Code`,props:{}}}catch{}}));export{a as n,i as t};
