@@ -4,6 +4,8 @@
 
 These instructions are additive to the root [AGENTS.md](../../AGENTS.md). Read that first.
 
+See [README.md](README.md) for full token usage and design guidance; this file focuses on agent-specific rules for editing token source files.
+
 ## Overview
 
 This package defines design tokens using the [Design Tokens Community Group (DTCG)](https://tr.designtokens.org/format/) format and builds them into CSS custom properties, JSON, and Sass variables via [Style Dictionary](https://styledictionary.com/).
@@ -65,5 +67,5 @@ Some token categories have `.compact.tokens.json` variants (e.g. `space.compact.
 - Token names use kebab-case and mirror CSS property names where applicable.
 - No unused tokens — every defined token must be consumed by CSS or another token.
 - No hardcoded design values in CSS or React — if a value is missing, add a token here first.
- - Changes to brand-level tokens in `src/brand/ams/` have wide impact; do not change them unless the task explicitly calls for brand updates.
- - When adding new component tokens, wire them into CSS (and React where applicable) in the same change so they are immediately used.
+- Changes to brand-level tokens in `src/brand/ams/` have wide impact; do not change them unless the task explicitly calls for brand updates.
+- When adding new component tokens, wire them into CSS (and React where applicable) in the same change so they are immediately used.

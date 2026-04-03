@@ -9,7 +9,7 @@ This file is a thin agent-specific layer on top of the official documentation an
 ## How to use these instructions
 
 1. Identify which package(s) your change touches (tokens, CSS, React, Storybook).
-2. Read this file and then the relevant package `AGENTS.md` file(s) before editing any code.
+2. Read this file and then the relevant package `AGENTS.md` file(s) before editing or reviewing any code.
 3. Skim any linked documentation (coding conventions, tests, Storybook docs) that applies to your change.
 4. Make the smallest possible change in the narrowest relevant package or component.
 
@@ -78,7 +78,7 @@ These rules override common agent defaults and apply across the repository:
 - **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed.
 - **Never bypass accessibility** — do not use `aria-label` for screen reader-only text; use the `ams-visually-hidden` helper instead, and never remove focus outlines or rely on colour alone to convey meaning.
 - **Never add features, abstractions, or refactors beyond the scope of the task.**
-- **Never add comments** unless the logic is genuinely non-obvious and cannot be simplified.
+- **Never add comments** unless the logic is genuinely non-obvious and cannot be simplified. Exception: JSDoc used for public APIs, props, and documentation that is required by package conventions is allowed.
 
 Package-specific "never do" rules (for example, avoiding barrel imports within the React package, or Storybook testing practices) live in the per-package `AGENTS.md` files.
 
