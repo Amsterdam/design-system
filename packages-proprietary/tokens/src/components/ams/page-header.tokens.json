@@ -40,7 +40,7 @@
       },
       "vi-medium": {
         "padding-inline": {
-          "$value": "{ams.grid.medium.padding-inline}",
+          "$value": "{ams.grid.vi-medium.padding-inline}",
           "$type": "dimension",
           "$extensions": {
             "nl.amsterdam.subtype": "space"
@@ -49,7 +49,7 @@
       },
       "vi-wide": {
         "padding-inline": {
-          "$value": "{ams.grid.wide.padding-inline}",
+          "$value": "{ams.grid.vi-wide.padding-inline}",
           "$type": "dimension",
           "$extensions": {
             "nl.amsterdam.subtype": "space"
