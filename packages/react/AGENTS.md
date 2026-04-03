@@ -6,34 +6,18 @@ These instructions are additive to the root [AGENTS.md](../../AGENTS.md). Read t
 
 Full conventions: [documentation/coding-conventions.md](documentation/coding-conventions.md)
 
-## Barrel import rule
+## Key conventions
 
-Barrel files (`index.ts`) exist for **external consumers only**. Never use them for imports within the same package — this causes cyclic dependencies.
+Agent-critical points:
 
-```tsx
-// ✅ Import sibling components directly
-import type { HeadingProps } from '../Heading/Heading'
-
-// ❌ Never import via barrel within the package
-import type { HeadingProps } from '../Heading'
-import type { HeadingProps } from '../'
-```
-
-## Component structure
-
-- Wrap every component with `React.forwardRef<Ref, Props>`.
-- Keep subcomponents in separate files (`GridCell.tsx` alongside `Grid.tsx`), each with their own test file. Import them in the main component file. Do not export them from the package barrel.
-- Only use polymorphism for HTML tags that support global attributes (`div`, `section`, `footer`, etc.); type `ref` as `any`. See `Spotlight` and `GridCell` as examples.
-
-## Screen reader text
-
-Use `ams-visually-hidden` — not `aria-label`. `aria-label` is not reliably translated automatically.
-
-```tsx
-<span className="ams-visually-hidden">Sluit menu</span>
-```
-
-Other ARIA attributes (`aria-describedby`, `aria-expanded`, `role`) are fine and should be used where appropriate.
+- **Barrel imports**: barrel files (`index.ts`) exist for external consumers only. Never use them for imports within the same package — this causes cyclic dependencies. Import directly from the source file (e.g. `import type { HeadingProps } from '../Heading/Heading'`).
+- **ForwardRef**: wrap every component with `forwardRef` (imported directly from `'react'`, not via `React.forwardRef`). Set `displayName` on the result.
+- **restProps and clsx**: always destructure known props and spread `...restProps` onto the root element. Merge class names with `clsx('ams-<component-name>', className)` — never use template literals or string concatenation.
+- **Subcomponents**: keep in separate files (`GridCell.tsx` alongside `Grid.tsx`), each with their own test file. Do not export from the package barrel.
+- **Screen reader text**: use `ams-visually-hidden` — not `aria-label` (not reliably auto-translated). Other ARIA attributes (`aria-describedby`, `aria-expanded`, `role`) are fine.
+- **Styling imports**: never import CSS or SCSS files inside a React component. Components should emit class names only; styling comes from the design system CSS package and consumer/app-level styles (including Storybook globals).
+ - **Dependencies and config**: do not introduce new runtime dependencies (UI libraries, state managers, date libraries, etc.) or change ESLint, TypeScript, Vitest, or Storybook configuration unless explicitly requested for the task.
+ - **Component typing style**: do not use `React.FC` or `React.VFC`; prefer plain function components wrapped in `forwardRef` with explicit props types.
 
 ## CSS class names
 
@@ -44,6 +28,7 @@ Other ARIA attributes (`aria-describedby`, `aria-expanded`, `role`) are fine and
 ## Props
 
 All props must have JSDoc descriptions. Use `type` (not `interface`) for prop type definitions.
+Reuse existing shared types where they already exist; do not introduce new "common" prop types or helpers unless there is a clear, documented need.
 
 ## README
 
@@ -83,4 +68,7 @@ describe('ComponentName', () => {
 
 Use semantic queries only: `getByRole`, `getByLabelText`, `getByText`. Never `getByTestId`.
 
-Run: `pnpm --filter @amsterdam/design-system-react test` or `watch:test` for watch mode.
+Run from the repository root:
+
+- `pnpm --filter @amsterdam/design-system-react test`
+- `pnpm --filter @amsterdam/design-system-react watch:test` (watch mode)

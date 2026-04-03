@@ -14,35 +14,17 @@ BEM-ish NLDS naming:
 - Modifier: `.ams-component--variant`
 - Element: `.ams-component__element`
 
-## Input state precedence (highest → lowest)
+## Key conventions
 
-Style rules must respect this order so higher-priority states always win:
+The full coding conventions are in [documentation/coding-conventions.md](documentation/coding-conventions.md). Agent-critical points:
 
-1. Disabled
-2. Hover (suppressed when disabled)
-3. Invalid (+ hover variant)
-4. Default
-
-For checkbox / radio / switch value states:
-
-1. Indeterminate (overrides checked)
-2. Checked
-3. Default (unchecked)
-
-## Pseudo-class blocks
-
-Only list changed properties inside a pseudo-class block. Unchanged properties belong in the base class.
-
-## Mixins
-
-- Extract common patterns into mixins, especially if they need more than 2 declarations.
-- Name reset mixins after the element: `@mixin reset-ul`.
-- Each declaration in a mixin must override the default user-agent style.
-- Common mixins live in `src/common/`.
-
-## Form validation
-
-Support both native (`:invalid`) and manual (`aria-invalid`) validation styles.
+- **Token usage**: all design values (colors, spacing, typography, borders, shadows) must come from CSS custom properties backed by tokens. Reference them as `var(--ams-<component>-<property>)`. If a token is missing, add it in the tokens package first.
+- **Input state precedence** (highest → lowest): Disabled → Hover → Invalid → Default. See the coding conventions for the full breakdown including checkbox/radio/switch value states.
+- **Pseudo-class blocks**: only list changed properties; unchanged properties belong in the base class.
+- **Mixins**: extract common patterns (>2 declarations) into mixins in `src/common/`. Name reset mixins after the element (e.g. `@mixin reset-ul`). Import mixins with `@use "../../common/<mixin-file>" as *;`.
+- **Form validation**: support both native (`:invalid`) and manual (`aria-invalid`) validation styles.
+ - **Raw values**: never introduce new raw `px`, `rem`, or `em` values for colors, spacing, font sizes, radii, or shadows; if you need a new value, add a token in the tokens package first.
+ - **Focus visibility**: never remove focus indicators. Use the shared focus styles defined by tokens and common mixins, and ensure focus states continue to meet WCAG 2.2 contrast and visibility requirements.
 
 ## README
 
@@ -52,7 +34,13 @@ Support both native (`:invalid`) and manual (`aria-invalid`) validation styles.
 
 ## File locations
 
-- Component SCSS: `src/components/<name>/<name>.scss`
-- Register in: `src/components/index.scss`
+All CSS directories and file names use `kebab-case` (unlike React's `PascalCase`).
 
-Run lint: `pnpm run lint:css` or auto-fix with `pnpm run lint-fix:css`.
+- Component SCSS: `src/components/<name>/<name>.scss`
+- Component README: `src/components/<name>/README.md`
+- Shared mixins: `src/common/<name>.scss`
+- Register new components in: `src/components/index.scss` (add `@use "<name>/<name>";`)
+
+Run from the repository root:
+
+- `pnpm run lint:css` (lint) or `pnpm run lint-fix:css` (auto-fix)

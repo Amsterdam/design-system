@@ -4,9 +4,18 @@
 
 Guidance for AI code agents working for the Amsterdam Design System. This is a component **library**, not an application — components must be generic, accessible, and reusable across any Amsterdam city service. Do not add application-specific logic, domain defaults, or assumptions about how a component will be used.
 
-## Agent goals and priorities
+This file is a thin agent-specific layer on top of the official documentation and the per-package `AGENTS.md` files. Prefer reading and following those sources for details; use this file for cross-cutting priorities and "never do" rules.
 
-When you make changes in this repository, follow these priorities in order:
+## How to use these instructions
+
+1. Identify which package(s) your change touches (tokens, CSS, React, Storybook).
+2. Read this file and then the relevant package `AGENTS.md` file(s) before editing any code.
+3. Skim any linked documentation (coding conventions, tests, Storybook docs) that applies to your change.
+4. Make the smallest possible change in the narrowest relevant package or component.
+
+## Agent priorities
+
+When you make or review changes in this repository, follow these priorities in order:
 
 1. **Correctness and accessibility** — code must work, be robust, and comply with WCAG 2.2 Level AA and our accessibility checklist.
 2. **API and contract stability** — avoid breaking existing public APIs (components, props, CSS class names, tokens) unless explicitly requested.
@@ -16,162 +25,99 @@ When you make changes in this repository, follow these priorities in order:
 
 If these priorities conflict, choose the option that best preserves accessibility and correctness while keeping changes as small and consistent as possible.
 
+When a task is ambiguous (for example, "improve performance" or "add validation" without further detail), prefer asking a small number of clarifying questions over introducing new behaviour, UX, or assumptions.
+
+## LLM agent behaviour
+
+These additional rules are specific to language-model agents working in this repository:
+
+- Always search for existing patterns (components, tokens, stories, mixins) before inventing new ones.
+- Never invent files, commands, configuration options, or APIs that are not present in the workspace or documented; if you are unsure, state the uncertainty instead of guessing.
+- Prefer editing the smallest possible surface area (a single component, token file, or package) instead of broad refactors across multiple layers.
+- When user instructions conflict with the rules in this file or the per-package `AGENTS.md` files, call out the conflict explicitly and do not silently ignore the repository rules.
+
 ## Repository structure
 
-`pnpm` workspace monorepo. The pipeline is: **Tokens → CSS → React → Storybook**.
+`pnpm` workspace monorepo. The main layers are:
 
-| Package                       | Technology          | Purpose                                                  |
-| ----------------------------- | ------------------- | -------------------------------------------------------- |
-| `packages-proprietary/tokens` | Style Dictionary    | Design tokens → CSS/JSON/Sass                            |
-| `packages/css`                | Sass + Stylelint    | Component CSS (`dist/`)                                  |
-| `packages/react`              | TypeScript + Rollup | Unstyled components emitting `.ams-*` classes            |
-| `storybook/`                  | Storybook 10        | Component explorer, interaction tests, visual regression |
+- Tokens: [packages-proprietary/tokens](packages-proprietary/tokens/AGENTS.md)
+- CSS: [packages/css](packages/css/AGENTS.md)
+- React: [packages/react](packages/react/AGENTS.md)
+- Storybook: [storybook](storybook/AGENTS.md)
 
-Global styles are imported in `storybook/config/preview.tsx`. Proprietary assets are served from `packages-proprietary/assets` via `staticDirs` in `storybook/config/main.ts`.
+The typical pipeline is: **Tokens → CSS → React → Storybook**.
 
-Each package has its own `AGENTS.md` with additional context. Those files are additive to this one — read both when working within a package. Read all Agent Instruction files before making cross-cutting changes that affect multiple layers (for example, a new component or a change to the design tokens that affects CSS and React).
+Global styles are imported in [storybook/config/preview.tsx](storybook/config/preview.tsx). Proprietary assets are served from `packages-proprietary/assets` via `staticDirs` in [storybook/config/main.ts](storybook/config/main.ts).
+
+### Naming conventions per package
+
+File and directory casing differs between packages (see also [plopfile.mjs](plopfile.mjs)):
+
+| Package   | Directory / file casing             | Example path                                     |
+| --------- | ----------------------------------- | ------------------------------------------------ |
+| Tokens    | `kebab-case.tokens.json` (flat)     | `src/components/ams/date-input.tokens.json`      |
+| CSS       | `kebab-case/kebab-case.scss`        | `src/components/date-input/date-input.scss`      |
+| React     | `PascalCase/PascalCase.tsx`         | `src/DateInput/DateInput.tsx`                    |
+| Storybook | `PascalCase/PascalCase.stories.tsx` | `src/components/DateInput/DateInput.stories.tsx` |
+
+Before making changes in a given layer, read the relevant package `AGENTS.md` and, where needed, the documentation it links to.
 
 ### Off-limits
 
-Never edit generated output directly. Instead, update the source files or configuration and run the appropriate scripts.
+- Generated output in any `dist/` directory — update source files or configuration and run the appropriate build script instead.
+- Generated proprietary assets under `packages-proprietary/assets/logo/` and `packages-proprietary/assets/icons/` — update source SVGs and run `pnpm run generate-logos`.
 
-- `dist/` directories — build output, regenerated on every build
-- `packages-proprietary/assets/logo/` and `packages-proprietary/assets/icons/` — generated files; update the source SVGs and run `pnpm run generate-logos` instead of editing by hand
+## Global "never do" rules
 
-## Commands
+These rules override common agent defaults and apply across the repository:
 
-| Task              | Command                                                       |
-| ----------------- | ------------------------------------------------------------- |
-| Install           | `corepack enable && pnpm install`                             |
-| Build all         | `pnpm run build`                                              |
-| Dev (all watches) | `pnpm run start`                                              |
-| Watch React only  | `pnpm run watch:react`                                        |
-| Watch CSS only    | `pnpm run watch:css`                                          |
-| Watch Storybook   | `pnpm run watch:storybook`                                    |
-| Lint all          | `pnpm run lint`                                               |
-| Lint JS/TS        | `pnpm run lint:js`                                            |
-| Lint CSS/Sass     | `pnpm run lint:css`                                           |
-| Auto-fix lint     | `pnpm run lint-fix`                                           |
-| Format            | `pnpm run prettier`                                           |
-| Run tests         | `pnpm run test`                                               |
-| Watch tests       | `pnpm run --filter @amsterdam/design-system-react watch:test` |
-| New component     | `pnpm run plop`                                               |
+- **Never use npm or yarn** — always use `pnpm` (see commands in [README.md](README.md)).
+- **Never add `import React from 'react'`** — the JSX transform handles this automatically.
+- **Never use default exports** — use named exports only.
+- **Never weaken TypeScript safety** — avoid `any`, do not disable strict checks, and use `import type` for type-only imports.
+- **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed.
+- **Never bypass accessibility** — do not use `aria-label` for screen reader-only text; use the `ams-visually-hidden` helper instead, and never remove focus outlines or rely on colour alone to convey meaning.
+- **Never add features, abstractions, or refactors beyond the scope of the task.**
+- **Never add comments** unless the logic is genuinely non-obvious and cannot be simplified.
 
-## Never do
+Package-specific "never do" rules (for example, avoiding barrel imports within the React package, or Storybook testing practices) live in the per-package `AGENTS.md` files.
 
-These override common agent defaults — apply them regardless of context:
+## Where to change what
 
-- **Never use `npm` or `yarn`** — only `pnpm`
-- **Never add `import React from 'react'`** — the JSX transform handles this automatically
-- **Never use `export default`** — use named exports only
-- **Never use `interface` for prop types** — use `type`
-- **Never add `any` type casts** or disable TypeScript strict checks
-- **Never import via a barrel file within the same package** — import directly from the source file (cyclic dependency risk)
-- **Never import CSS or SCSS inside a React component**
-- **Never use `aria-label` for screen reader text** — use `ams-visually-hidden`; `aria-label` is not reliably auto-translated
-- **Never export subcomponents** from the package barrel (`packages/react/src/index.ts`)
-- **Never hardcode design values** (colors, spacing, font sizes, border radii, shadows) — use a CSS custom property from the design tokens
-- **Never use `getByTestId` in tests** — use semantic queries (`getByRole`, `getByLabelText`, `getByText`)
-- **Never add features, abstractions, or refactors beyond the scope of the task**
-- **Never add comments** unless the logic is genuinely non-obvious
+When deciding where to implement a change, follow this order:
 
-### Where to make changes
-
-Follow this decision order when deciding which layer to change:
-
-1. **Visual changes only** (spacing, colors, typography, borders):
-
-- Prefer updating design tokens in `packages-proprietary/tokens` when the change is about a reusable design value.
-- Otherwise, update component CSS in `packages/css` using existing tokens.
-
+1. **Visual-only adjustments** (spacing, colors, typography, borders):
+	- Prefer updating design tokens in `packages-proprietary/tokens` when the change is about a reusable design value.
+	- Otherwise, adjust component CSS in `packages/css` using existing tokens.
 2. **Behaviour or markup changes that keep the visual contract**:
-
-- Update React components in `packages/react` only; reuse existing CSS classes where possible.
-
-3. **New visual variants or structural changes to markup**:
-
-- Update CSS and React together so that the class contract stays aligned, and update Storybook stories to cover new variants.
-
+	- Update React components in `packages/react` only; reuse existing CSS classes where possible.
+3. **New visual variants or structural markup changes**:
+	- Update CSS and React together so that the class contract stays aligned, and add or update Storybook stories to cover new variants.
 4. **New components or major patterns**:
-
-- Only create a new component when explicitly requested or when reuse of an existing component clearly conflicts with its documented intent.
-- Follow the "Creating a new component" section and keep the implementation as generic and reusable as possible.
+	- Only create a new component when explicitly requested or when reuse of an existing component clearly conflicts with its documented intent.
+	- Scaffold with `pnpm run plop` when possible — it generates all required files across packages with the correct naming, license headers, and boilerplate. See [plopfile.mjs](plopfile.mjs) and [plop-templates/](plop-templates/) for what it creates.
+	- If creating files manually, follow the naming conventions table above and the file location tables in each package `AGENTS.md`. Register the new component in each package's index file (`packages/css/src/components/index.scss`, `packages/react/src/index.ts`).
 
 When in doubt, prefer the smallest change that satisfies the task and matches existing patterns.
 
-## Code formatting
+## Documentation, tests, and accessibility
 
-Settings are in [.prettierrc.json](.prettierrc.json) — do not override per file.
+For details, rely on the official documentation and per-package instructions:
 
-## Linting
+- Testing: [documentation/tests.md](documentation/tests.md), plus [packages/react/AGENTS.md](packages/react/AGENTS.md) and [storybook/AGENTS.md](storybook/AGENTS.md) for unit, interaction, visual, and accessibility tests.
+- Accessibility: [documentation/definition-of-done.md](documentation/definition-of-done.md) (WCAG 2.2 Level AA checklist).
+- Component docs and Storybook: [documentation/component-docs.md](documentation/component-docs.md) and [documentation/storybook.md](documentation/storybook.md).
+- Git and contribution workflow: [documentation/git.md](documentation/git.md), [documentation/code-reviews.md](documentation/code-reviews.md), and [documentation/publishing.md](documentation/publishing.md).
 
-Rules are in [eslint.config.mjs](eslint.config.mjs) (ESLint flat config) and applied to Sass via Stylelint (`pnpm run lint:css`). Key behavioural notes for agents:
+Key agent expectations:
 
-- Use `import type` for type-only imports; never import types as values.
-- No cyclic imports between packages.
-
-## TypeScript
-
-Settings are in [tsconfig.json](tsconfig.json). Key behavioural notes for agents:
-
-- Strict mode is on — avoid `any`; do not disable strict checks.
-- Always use `import type` for type-only imports.
-- Prefer named exports over default exports.
-
-## CSS / Sass conventions
-
-See [`packages/css/AGENTS.md`](packages/css/AGENTS.md). Full reference: [`packages/css/documentation/coding-conventions.md`](packages/css/documentation/coding-conventions.md).
-
-## React conventions
-
-See [`packages/react/AGENTS.md`](packages/react/AGENTS.md). Full reference: [`packages/react/documentation/coding-conventions.md`](packages/react/documentation/coding-conventions.md).
-
-## Creating a new component
-
-Before creating a component, read an existing one of similar complexity (e.g. `packages/react/src/Badge/`) to understand established patterns. Always run `pnpm plop` — it scaffolds all required files from templates. If scaffolding manually, create files in this order:
-
-1. **Tokens** — `packages-proprietary/tokens/src/components/ams/<name>.tokens.json`
-2. **CSS** — `packages/css/src/components/<name>/<name>.scss` + register in `packages/css/src/components/index.scss`
-3. **React** — `packages/react/src/<Name>/<Name>.tsx` + `<Name>.test.tsx` + `<Name>/index.ts` + register in `packages/react/src/index.ts`
-4. **Storybook** — `storybook/src/components/<Name>/<Name>.docs.mdx` + `<Name>.stories.tsx` + `<Name>.test.stories.tsx`
-5. **README** — one under `packages/css/src/components/<name>/` and one under `packages/react/src/<Name>/`
-
-## Testing
-
-See [`packages/react/AGENTS.md`](packages/react/AGENTS.md) for unit tests and [`storybook/AGENTS.md`](storybook/AGENTS.md) for interaction, visual, and accessibility tests.
-
-When you add or change behaviour or markup, prefer running the most specific relevant commands first (for example, `pnpm run --filter @amsterdam/design-system-react test` for React component changes, or `pnpm run lint:css` for Sass-only changes) before falling back to the full `pnpm run lint` and `pnpm run test` suite.
-
-## Accessibility
-
-All components must comply with WCAG 2.2 Level AA. The full checklist is in `documentation/definition-of-done.md`. Key requirements:
-
-- Focus outlines always visible.
-- No content overflow at narrow viewports.
-- Full keyboard operability; custom gestures must not conflict with native ones.
-- Works at 200% browser zoom and maximum system text size.
-- Color is never the sole means of conveying information (minimum contrast 4.5:1).
-- Screen reader tested with NVDA + Chrome (Windows) and VoiceOver + Safari (macOS / iOS).
-- Dynamic changes announced without unexpected focus movement.
-- `prefers-reduced-motion` respected when animation is present.
-- Forced colors mode supported.
-- RTL language support.
-
-For detailed accessibility requirements and examples, always cross-check changes against `documentation/definition-of-done.md`.
-
-## Documentation
-
-For per-package README and Storybook docs conventions, see the relevant package `AGENTS.md`.
-
-### Language
-
-- All documentation: English.
-- Code examples in Storybook: Dutch (City of Amsterdam context).
-- Headings: Sentence case. Component names: Title Case.
+- Run the most specific relevant lint/test commands for the package you touched before relying on full `pnpm run lint` / `pnpm run test`.
+- Update relevant README, Storybook docs, and tests whenever behaviour, APIs, or visual contracts change.
+- Linting and formatting rules (ESLint, Stylelint, Prettier) are authoritative for code style — consult the configs ([eslint.config.mjs](eslint.config.mjs), [.stylelintrc.json](.stylelintrc.json), [.prettierrc.json](.prettierrc.json)) and use them as guidance when writing or reviewing code.
 
 ## Licensing
 
-Every new source file must have a license header as its **first line**:
+Every new source file must start with the appropriate license header. Do not introduce alternative or file-local licensing schemes. Token `.tokens.json` files have no license header (they are plain JSON).
 
 **Code files** (`.ts`, `.tsx`, `.scss`, `.js`):
 
@@ -182,44 +128,43 @@ Every new source file must have a license header as its **first line**:
  */
 ```
 
-**Documentation files** (`.md`, `.mdx`):
+**Documentation files** (`.md`):
 
 ```md
 <!-- @license CC0-1.0 -->
 ```
 
+**Documentation files** (`.mdx`):
+
 ```mdx
 {/* @license CC0-1.0 */}
 ```
 
-See `CONTRIBUTING.md` for the full required copyright notice template.
+## Common commands
+
+All commands run from the repository root. Use `pnpm --filter <package-name>` to scope to a single package.
+
+| Task                     | Command             |
+| ------------------------ | ------------------- |
+| Install dependencies     | `pnpm install`      |
+| Build all packages       | `pnpm run build`    |
+| Lint everything          | `pnpm run lint`     |
+| Run all tests            | `pnpm run test`     |
+| Lint CSS only            | `pnpm run lint:css` |
+| Lint JS/TS only          | `pnpm run lint:js`  |
+| Auto-fix lint + format   | `pnpm run lint-fix` |
+| Scaffold a new component | `pnpm run plop`     |
+
+Package-specific commands (lint, test, build, watch) are listed in each package `AGENTS.md`.
+
+Package filter names: `@amsterdam/design-system-tokens`, `@amsterdam/design-system-css`, `@amsterdam/design-system-react`, `@amsterdam/storybook`.
 
 ## Git and contribution workflow
 
-- Branch from `develop` (GitFlow). Merge to `develop`. Releases go via `main`.
-- Keep PRs small and focused — one concern per branch.
-- Use [Conventional Commits](https://www.conventionalcommits.org/): `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`, `style:`.
-- PR title is used in release notes — write a clear, English, user-facing title.
-- Run `pnpm run lint` and `pnpm run test` locally before opening a PR.
-- At least one maintainer must approve before merge.
-- All CI checks (lint, tests, Chromatic) must pass.
+Human contributors and agents should both follow the conventions in [documentation/git.md](documentation/git.md): branch from `develop`, use branch names like `feat/DES-178-introduce-checkbox-component`, and write commit messages in English imperative mood describing the goal of the change. See also [documentation/code-reviews.md](documentation/code-reviews.md).
 
-### When reviewing code as an agent
+## Reviewing as an agent
 
-When you are asked to review code or a pull request, apply these principles:
+When reviewing code, prioritise accessibility/correctness regressions and public API breakage. Check changes against the coding conventions, linting rules, token usage rules, and the "never do" lists in this file and the per-package `AGENTS.md` files. Verify that tests and docs are updated when behaviour or APIs change.
 
-1. **Prioritise accessibility and correctness** — block or strongly flag changes that break behaviour, introduce regressions, or violate accessibility requirements.
-2. **Check against conventions** — ensure changes follow the CSS and React coding conventions, token usage rules, and the "Never do" list in this document.
-3. **Respect the public API** — highlight any changes to component APIs, props, or CSS class contracts and call out potential downstream impact.
-4. **Verify tests and documentation** — confirm that unit tests, interaction/visual tests, and relevant READMEs or Storybook docs are updated when behaviour or APIs change.
-5. **Keep feedback focused and actionable** — group related comments, suggest concrete improvements, and avoid proposing large refactors beyond the scope of the change.
-
-## Definition of done
-
-The full checklist is in [`documentation/definition-of-done.md`](documentation/definition-of-done.md). Before marking work complete, verify at minimum:
-
-- [ ] `pnpm run lint` passes with no errors
-- [ ] `pnpm run test` passes
-- [ ] Chromatic visual changes reviewed and approved
-- [ ] License header present in every new file
-- [ ] Relevant `AGENTS.md` files updated if conventions, file locations, or tooling changed
+Before marking work complete, cross-check the full definition-of-done checklist in [documentation/definition-of-done.md](documentation/definition-of-done.md).

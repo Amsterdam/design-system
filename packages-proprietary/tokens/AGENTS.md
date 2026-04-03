@@ -36,6 +36,7 @@ Token files use the `.tokens.json` extension and follow the DTCG format:
 ```
 
 - Always reference existing brand or common tokens where possible — do not hardcode raw values.
+- Valid `$type` values used in this project: `color`, `dimension`, `fontFamily`, `fontWeight`, `shadow`. Do not invent other types.
 - Use the `$extensions` field for Amsterdam-specific metadata (e.g. `nl.amsterdam.type`, `nl.amsterdam.subtype`).
 - Variant tokens are nested under the component (e.g. `ams.badge.azure.background-color`).
 
@@ -60,7 +61,9 @@ Some token categories have `.compact.tokens.json` variants (e.g. `space.compact.
 
 ## Key rules
 
-- Every token must have a `$value` and `$type` (or an `$extensions` equivalent).
+- Every token must have a `$value` and `$type`. When a token's semantic type is expressed via `$extensions` instead, follow the existing patterns in this package and the Style Dictionary configuration.
 - Token names use kebab-case and mirror CSS property names where applicable.
 - No unused tokens — every defined token must be consumed by CSS or another token.
 - No hardcoded design values in CSS or React — if a value is missing, add a token here first.
+ - Changes to brand-level tokens in `src/brand/ams/` have wide impact; do not change them unless the task explicitly calls for brand updates.
+ - When adding new component tokens, wire them into CSS (and React where applicable) in the same change so they are immediately used.
