@@ -42,7 +42,7 @@ export const DesignTokensTableRow = ({ deprecated, name, type, value }: DesignTo
     <td>
       {type === 'borderStyle' && <BorderSample lineStyle={value} />}
       {type === 'borderWidth' && <BorderSample width={value} />}
-      {type === 'color' && value !== 'currentColor' && <ColorSample value={value} />}
+      {type === 'color' && <ColorSample value={value} />}
       {type === 'fontFamily' && <TypographySample fontFamily={value} />}
       {type === 'fontSize' && <TypographySample fontSize={value} />}
       {type === 'fontWeight' && <TypographySample fontWeight={value} />}
