@@ -15,6 +15,24 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+export const Descriptions: Story = {
+  render: () => (
+    <DesignTokensTable
+      showDescriptions
+      tokens={{
+        interactive: {
+          $description: 'All interactive elements in their default state that lack a cursor style.',
+          $extensions: { 'nl.amsterdam.type': 'cursor' },
+          $value: 'pointer',
+        },
+        // Token without a description — cell should still render, but empty.
+        plain: { $value: 'value' },
+      }}
+    />
+  ),
+  tags: ['!dev', '!autodocs'],
+}
+
 export const Test: Story = {
   render: () => (
     <DesignTokensTable

@@ -26,6 +26,7 @@ type ShadowValue = {
 /** A single design token node as produced by Style Dictionary (W3C DTCG format). */
 type Token = {
   $deprecated?: string
+  $description?: string
   $extensions?: {
     'nl.amsterdam.subtype'?: string
     'nl.amsterdam.type'?: string
@@ -43,6 +44,7 @@ type Tokens = {
 /** A flattened representation of a single token ready for rendering in the table. */
 type TokenEntry = {
   deprecated?: string
+  description?: string
   path: string
   type?: string
   value: string
@@ -97,7 +99,7 @@ const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedType?: str
 
     // Case 1: It is a valid token
     if (isTokenValue(node)) {
-      const { $deprecated, $extensions, $type, $value } = node
+      const { $deprecated, $description, $extensions, $type, $value } = node
       const type = $extensions?.['nl.amsterdam.subtype'] ?? $type ?? groupType ?? $extensions?.['nl.amsterdam.type']
 
       // Combine unit and value into a single string e.g. "1rem"
@@ -116,6 +118,7 @@ const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedType?: str
       return [
         {
           deprecated: $deprecated,
+          description: $description,
           path: `--${currentPath.join('-')}`,
           type,
           value: normalizedValue,
@@ -134,6 +137,8 @@ const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedType?: str
 }
 
 type DesignTokensTableRootProps = {
+  /** Whether to show a Description column populated from the `$description` field. */
+  showDescriptions?: boolean
   /** The raw nested token object to display, typically imported directly from a JSON token file. */
   tokens: Tokens
 } & HTMLAttributes<HTMLDivElement>
@@ -142,8 +147,9 @@ type DesignTokensTableRootProps = {
  * Compound component that renders a design token JSON file as a three-column table
  * (CSS variable name, value, visual example).
  */
-const DesignTokensTableRoot = ({ className, tokens, ...restProps }: DesignTokensTableRootProps) => {
+const DesignTokensTableRoot = ({ className, showDescriptions, tokens, ...restProps }: DesignTokensTableRootProps) => {
   const flatTokens = flattenTokens(tokens)
+  const columnCount = showDescriptions ? 4 : 3
 
   return (
     <div {...restProps} className={clsx('_ams-design-tokens-table', className)}>
@@ -152,17 +158,25 @@ const DesignTokensTableRoot = ({ className, tokens, ...restProps }: DesignTokens
           <tr>
             <th>CSS variable</th>
             <th>Value</th>
+            {showDescriptions && <th>Description</th>}
             <th>Example</th>
           </tr>
         </thead>
         <tbody>
           {flatTokens.length ? (
-            flatTokens.map(({ deprecated, path, type, value }) => (
-              <DesignTokensTableRow deprecated={deprecated} key={path} name={path} type={type} value={value} />
+            flatTokens.map(({ deprecated, description, path, type, value }) => (
+              <DesignTokensTableRow
+                deprecated={deprecated}
+                description={showDescriptions ? description : undefined}
+                key={path}
+                name={path}
+                type={type}
+                value={value}
+              />
             ))
           ) : (
             <tr>
-              <td colSpan={3}>No design tokens available.</td>
+              <td colSpan={columnCount}>No design tokens available.</td>
             </tr>
           )}
         </tbody>

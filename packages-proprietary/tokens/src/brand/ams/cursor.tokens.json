@@ -3,12 +3,14 @@
     "cursor": {
       "disabled": {
         "$value": "not-allowed",
+        "$description": "Interactive elements that are disabled.",
         "$extensions": {
           "nl.amsterdam.type": "cursor"
         }
       },
       "interactive": {
         "$value": "pointer",
+        "$description": "All interactive elements in their default state that lack a cursor style.",
         "$extensions": {
           "nl.amsterdam.type": "cursor"
         }
