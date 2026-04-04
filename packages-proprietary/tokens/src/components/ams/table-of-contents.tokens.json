@@ -25,8 +25,9 @@
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
-          "nl.amsterdam.type": "lineHeight"
-        }
+          "nl.amsterdam.subtype": "lineHeight"
+        },
+        "$type": "number"
       },
       "heading": {
         "font-weight": {
@@ -45,8 +46,9 @@
           "$deprecated": "This token is no longer used. Will be removed in release 4.0.0.",
           "$value": "{ams.typography.heading.4.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         }
       },
       "link": {

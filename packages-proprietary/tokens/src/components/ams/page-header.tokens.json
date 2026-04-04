@@ -76,8 +76,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         },
         "text-wrap": {
           "$value": "{ams.typography.heading.text-wrap}"
@@ -176,8 +177,9 @@
           "line-height": {
             "$value": "{ams.typography.body-text.line-height}",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           },
           "outline-offset": {
             "$value": "{ams.focus.outline-offset}",

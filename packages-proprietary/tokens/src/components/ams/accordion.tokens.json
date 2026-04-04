@@ -30,8 +30,9 @@
           "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead. Will be removed in release 4.0.0.",
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         },
         "text-wrap": {
           "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead. Will be removed in release 4.0.0.",

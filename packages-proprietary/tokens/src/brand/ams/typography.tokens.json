@@ -22,8 +22,9 @@
         "line-height": {
           "$value": "1.6",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         },
         "bold": {
           "font-weight": {
@@ -42,8 +43,9 @@
           "line-height": {
             "$value": "1.5",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "large": {
@@ -56,8 +58,9 @@
           "line-height": {
             "$value": "1.5",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "x-large": {
@@ -70,19 +73,13 @@
           "line-height": {
             "$value": "1.4",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         }
       },
       "heading": {
-        "font-weight": {
-          "$value": "800",
-          "$type": "fontWeight"
-        },
-        "text-wrap": {
-          "$value": "balance"
-        },
         "0": {
           "font-size": {
             "$deprecated": "Use `ams.typography.heading.1.font-size` instead. Will be removed in release 4.0.0.",
@@ -95,8 +92,9 @@
             "$deprecated": "Use `ams.typography.heading.1.line-height` instead. Will be removed in release 4.0.0.",
             "$value": "1.1",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "1": {
@@ -109,8 +107,9 @@
           "line-height": {
             "$value": "1.2",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "2": {
@@ -123,8 +122,9 @@
           "line-height": {
             "$value": "1.3",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "3": {
@@ -137,8 +137,9 @@
           "line-height": {
             "$value": "1.3",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "4": {
@@ -151,8 +152,9 @@
           "line-height": {
             "$value": "1.4",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "5": {
@@ -165,8 +167,9 @@
           "line-height": {
             "$value": "1.4",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "6": {
@@ -181,9 +184,17 @@
             "$deprecated": "Use `ams.typography.heading.5.line-height` instead. Will be removed in release 4.0.0.",
             "$value": "1.4",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
+        },
+        "font-weight": {
+          "$value": "800",
+          "$type": "fontWeight"
+        },
+        "text-wrap": {
+          "$value": "balance"
         }
       }
     }

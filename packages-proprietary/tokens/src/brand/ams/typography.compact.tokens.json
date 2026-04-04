@@ -12,8 +12,9 @@
         "line-height": {
           "$value": "1.5",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         },
         "small": {
           "font-size": {
@@ -26,8 +27,9 @@
           "line-height": {
             "$value": "1.4",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "large": {
@@ -40,8 +42,9 @@
           "line-height": {
             "$value": "1.4",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "x-large": {
@@ -54,8 +57,9 @@
           "line-height": {
             "$value": "1.3",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         }
       },
@@ -79,8 +83,9 @@
           "line-height": {
             "$value": "1.2",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "2": {
@@ -93,8 +98,9 @@
           "line-height": {
             "$value": "1.3",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "3": {
@@ -107,8 +113,9 @@
           "line-height": {
             "$value": "1.3",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "4": {
@@ -121,8 +128,9 @@
           "line-height": {
             "$value": "1.4",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "5": {
@@ -135,8 +143,9 @@
           "line-height": {
             "$value": "1.4",
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "6": {

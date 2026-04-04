@@ -10,8 +10,9 @@
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
-          "nl.amsterdam.type": "lineHeight"
-        }
+          "nl.amsterdam.subtype": "lineHeight"
+        },
+        "$type": "number"
       },
       "small": {
         "font-size": {
@@ -23,8 +24,9 @@
         "line-height": {
           "$value": "{ams.typography.body-text.small.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         }
       },
       "large": {
@@ -37,8 +39,9 @@
         "line-height": {
           "$value": "{ams.typography.body-text.large.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         }
       },
       "heading-0": {
@@ -53,8 +56,9 @@
           "$deprecated": "Use `ams.typography.heading.1.line-height` instead. Will be removed in release 4.0.0.",
           "$value": "{ams.typography.heading.0.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         }
       },
       "heading-1": {
@@ -67,8 +71,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.1.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         }
       },
       "heading-2": {
@@ -81,8 +86,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.2.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         }
       },
       "heading-3": {
@@ -95,8 +101,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         }
       },
       "heading-4": {
@@ -109,8 +116,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.4.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         }
       },
       "heading-5": {
@@ -123,8 +131,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.5.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         }
       },
       "heading-6": {
@@ -137,8 +146,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.6.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         }
       },
       "inverse": {

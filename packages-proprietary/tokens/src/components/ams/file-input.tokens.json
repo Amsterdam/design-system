@@ -45,8 +45,9 @@
       "line-height": {
         "$value": "{ams.inputs.line-height}",
         "$extensions": {
-          "nl.amsterdam.type": "lineHeight"
-        }
+          "nl.amsterdam.subtype": "lineHeight"
+        },
+        "$type": "number"
       },
       "outline-offset": {
         "$value": "{ams.inputs.outline-offset}",
@@ -109,8 +110,9 @@
         "line-height": {
           "$value": "{ams.button.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         },
         "margin-inline-end": {
           "$value": "{ams.space.m}",

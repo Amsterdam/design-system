@@ -27,8 +27,9 @@
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
           "nl.amsterdam.hint": "Applies to descriptions only; terms set their own line height.",
-          "nl.amsterdam.type": "lineHeight"
-        }
+          "nl.amsterdam.subtype": "lineHeight"
+        },
+        "$type": "number"
       },
       "row-gap": {
         "$deprecated": "Will be removed in release 6.0.0.",
@@ -58,8 +59,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.4.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         },
         "margin-block-end": {
           "$value": "{ams.space.xs}",

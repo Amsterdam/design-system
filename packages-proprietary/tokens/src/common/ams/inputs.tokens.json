@@ -42,8 +42,9 @@
       "line-height": {
         "$value": "1.4",
         "$extensions": {
-          "nl.amsterdam.type": "lineHeight"
-        }
+          "nl.amsterdam.subtype": "lineHeight"
+        },
+        "$type": "number"
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
