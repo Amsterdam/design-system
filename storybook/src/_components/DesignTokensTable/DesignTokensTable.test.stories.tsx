@@ -30,6 +30,12 @@ export const Test: Story = {
           // currentColor is explicitly excluded from rendering a colour swatch
           text: { $type: 'color', $value: 'currentColor' },
         },
+        // Deprecated token — shows warning icon with tooltip
+        deprecated: {
+          $deprecated: 'Use `new-token` instead. Will be removed in release 4.0.0.',
+          $type: 'color',
+          $value: '#ff0000',
+        },
         // Type resolved via $extensions (lowest precedence)
         extended: { $extensions: { 'nl.amsterdam.type': 'color' }, $value: '#ec0000' },
         // Group-level $type inherited by descendants

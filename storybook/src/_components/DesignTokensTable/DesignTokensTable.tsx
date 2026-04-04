@@ -25,6 +25,7 @@ type ShadowValue = {
 
 /** A single design token node as produced by Style Dictionary (W3C DTCG format). */
 type Token = {
+  $deprecated?: string
   $extensions?: {
     'nl.amsterdam.subtype'?: string
     'nl.amsterdam.type'?: string
@@ -41,6 +42,7 @@ type Tokens = {
 
 /** A flattened representation of a single token ready for rendering in the table. */
 type TokenEntry = {
+  deprecated?: string
   path: string
   type?: string
   value: string
@@ -95,7 +97,7 @@ const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedType?: str
 
     // Case 1: It is a valid token
     if (isTokenValue(node)) {
-      const { $extensions, $type, $value } = node
+      const { $deprecated, $extensions, $type, $value } = node
       const type = $extensions?.['nl.amsterdam.subtype'] ?? $type ?? groupType ?? $extensions?.['nl.amsterdam.type']
 
       // Combine unit and value into a single string e.g. "1rem"
@@ -113,6 +115,7 @@ const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedType?: str
 
       return [
         {
+          deprecated: $deprecated,
           path: `--${currentPath.join('-')}`,
           type,
           value: normalizedValue,
@@ -154,8 +157,8 @@ const DesignTokensTableRoot = ({ className, tokens, ...restProps }: DesignTokens
         </thead>
         <tbody>
           {flatTokens.length ? (
-            flatTokens.map(({ path, type, value }) => (
-              <DesignTokensTableRow key={path} name={path} type={type} value={value} />
+            flatTokens.map(({ deprecated, path, type, value }) => (
+              <DesignTokensTableRow deprecated={deprecated} key={path} name={path} type={type} value={value} />
             ))
           ) : (
             <tr>
