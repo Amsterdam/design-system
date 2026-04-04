@@ -24,9 +24,9 @@
       },
       "gap": {
         "$value": "{ams.space.s}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "line-height": {
@@ -101,7 +101,9 @@
       "icon-container": {
         "block-size": {
           "$value": "calc({ams.checkbox.font-size} * {ams.checkbox.line-height})",
-          "$type": "dimension"
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
         },
         "inline-size": {
           "$value": "{ams.checkbox.font-size}",

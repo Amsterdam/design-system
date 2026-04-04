@@ -27,9 +27,9 @@
       },
       "padding-block": {
         "$value": "{ams.space.m}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "wide": {
@@ -42,16 +42,16 @@
         },
         "padding-block": {
           "$value": "calc({ams.logo.block-size} + 2 * {ams.page-header.padding-block}) {ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "padding-inline": {
           "$value": "{ams.space.s}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
@@ -90,9 +90,9 @@
         },
         "gap": {
           "$value": "{ams.space.s}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "outline-offset": {
@@ -104,16 +104,16 @@
         },
         "padding-block": {
           "$value": "{ams.space.s}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "padding-inline": {
           "$value": "{ams.space.s}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "text-decoration-line": {
@@ -142,9 +142,9 @@
         "wide": {
           "gap": {
             "$value": "{ams.space.xs}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           }
         }
@@ -152,9 +152,9 @@
       "list": {
         "gap": {
           "$value": "{ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       }

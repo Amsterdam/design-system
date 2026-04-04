@@ -4,34 +4,34 @@
       "heading": {
         "margin-block-end": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "heading-group": {
         "gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "margin-block-end": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "image": {
         "margin-block-end": {
           "$value": "{ams.space.s}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },

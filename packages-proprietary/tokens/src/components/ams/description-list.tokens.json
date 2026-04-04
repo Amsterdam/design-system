@@ -7,9 +7,9 @@
       },
       "column-gap": {
         "$value": "{ams.space.l}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "font-family": {
@@ -33,9 +33,9 @@
       "row-gap": {
         "$deprecated": "Will be removed in release 6.0.0.",
         "$value": "{ams.space.s}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "inverse": {
@@ -63,9 +63,9 @@
         },
         "margin-block-end": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "text-wrap": {
@@ -89,9 +89,9 @@
         },
         "margin-block-end": {
           "$value": "{ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "padding-inline-start": {
@@ -105,9 +105,9 @@
       "section": {
         "margin-block-end": {
           "$value": "{ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },

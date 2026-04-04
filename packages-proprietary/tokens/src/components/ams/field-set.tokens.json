@@ -4,35 +4,35 @@
       "child": {
         "margin-block-end": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "before-error-message": {
           "margin-block-end": {
             "$value": "{ams.space.s}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           }
         },
         "before-field-or-field-set": {
           "margin-block-end": {
             "$value": "{ams.space.m}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           }
         },
         "between-fields-and-field-sets": {
           "margin-block-end": {
             "$value": "{ams.space.l}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           }
         }
@@ -43,9 +43,9 @@
         },
         "padding-inline-start": {
           "$value": "{ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
@@ -53,9 +53,9 @@
         "margin-block-end": {
           "$deprecated": "Will be removed in release 5.0.0.",
           "$value": "{ams.space.s}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "color": {

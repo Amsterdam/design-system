@@ -21,9 +21,9 @@
       },
       "gap": {
         "$value": "{ams.space.s}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "line-height": {
@@ -83,9 +83,9 @@
       "unordered-list": {
         "gap": {
           "$value": "{ams.space.s}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "list-style-type": {
@@ -94,16 +94,16 @@
         },
         "padding-block-end": {
           "$value": "{ams.space.s}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "padding-block-start": {
           "$value": "{ams.space.s}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "item": {
@@ -114,7 +114,7 @@
             },
             "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.hint": "Indent less than the parent to start-align the child\u2019s marker with the parent text.",
+              "nl.amsterdam.hint": "Indent less than the parent to start-align the child’s marker with the parent text.",
               "nl.amsterdam.subtype": "space"
             }
           },

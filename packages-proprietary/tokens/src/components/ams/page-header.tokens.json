@@ -11,9 +11,9 @@
       },
       "padding-block": {
         "$value": "{ams.space.l}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "padding-inline": {
@@ -45,9 +45,9 @@
       "logo-link": {
         "column-gap": {
           "$value": "{ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "outline-offset": {
@@ -86,9 +86,9 @@
       "mega-menu": {
         "padding-block": {
           "$value": "{ams.space.l}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "button": {
@@ -114,9 +114,9 @@
           },
           "padding-inline": {
             "$value": "{ams.space.s}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           },
           "hover": {
@@ -134,16 +134,16 @@
       "menu": {
         "column-gap": {
           "$value": "{ams.space.l}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "row-gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "item": {
@@ -154,9 +154,9 @@
           },
           "column-gap": {
             "$value": "{ams.space.xs}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           },
           "font-family": {
@@ -188,9 +188,9 @@
           },
           "padding-block": {
             "$value": "{ams.space.xs}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           },
           "hover": {
@@ -207,9 +207,9 @@
           },
           "gap": {
             "$value": "{ams.space.xs}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           },
           "text-decoration-line": {
@@ -236,16 +236,16 @@
       "navigation": {
         "column-gap": {
           "$value": "{ams.space.l}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "row-gap": {
           "$value": "{ams.space.l}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       }

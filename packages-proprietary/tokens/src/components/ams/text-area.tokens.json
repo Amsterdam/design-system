@@ -47,9 +47,9 @@
       },
       "min-block-size": {
         "$value": "calc({ams.typography.body-text.line-height} * 1em + 2 * {ams.text-area.padding-block})",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "outline-offset": {

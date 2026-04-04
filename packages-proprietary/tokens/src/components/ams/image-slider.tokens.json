@@ -3,17 +3,17 @@
     "image-slider": {
       "gap": {
         "$value": "{ams.space.xs}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "scroller": {
         "gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "outline-offset": {
@@ -27,9 +27,9 @@
       "thumbnails": {
         "gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "thumbnail": {
@@ -65,9 +65,9 @@
       "figure": {
         "margin-block-end": {
           "$value": "{ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       }

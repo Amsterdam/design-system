@@ -3,9 +3,9 @@
     "action-group": {
       "gap": {
         "$value": "{ams.space.m}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       }
     }

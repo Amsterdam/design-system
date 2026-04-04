@@ -6,11 +6,15 @@
           "marker": {
             "block-size": {
               "$value": "calc({ams.typography.heading.2.font-size} * {ams.typography.heading.2.line-height})",
-              "$type": "dimension"
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
             },
             "margin-block-start": {
               "$value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)",
-              "$type": "dimension"
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
             }
           }
         }
@@ -20,11 +24,15 @@
           "marker": {
             "block-size": {
               "$value": "calc({ams.typography.heading.3.font-size} * {ams.typography.heading.3.line-height})",
-              "$type": "dimension"
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
             },
             "margin-block-start": {
               "$value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)",
-              "$type": "dimension"
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
             }
           }
         }
@@ -34,11 +42,15 @@
           "marker": {
             "block-size": {
               "$value": "calc({ams.typography.heading.4.font-size} * {ams.typography.heading.4.line-height})",
-              "$type": "dimension"
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
             },
             "margin-block-start": {
               "$value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)",
-              "$type": "dimension"
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
             }
           }
         }
@@ -53,9 +65,9 @@
         },
         "gap": {
           "$value": "{ams.space.s}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "outline-offset": {
@@ -97,17 +109,17 @@
       "step": {
         "gap": {
           "$value": "{ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "medium": {
           "gap": {
             "$value": "{ams.space.l}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           }
         },
@@ -180,18 +192,18 @@
         "heading": {
           "margin-block-end": {
             "$value": "{ams.space.s}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           }
         },
         "content": {
           "margin-block-end": {
             "$value": "{ams.space.l}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           }
         },
@@ -245,26 +257,26 @@
       "substeps": {
         "padding-block-start": {
           "$value": "{ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "step": {
           "indicator": {
             "margin-inline-end": {
               "$value": "{ams.space.m}",
-              "$type": "dimension",
               "$extensions": {
-                "nl.amsterdam.subtype": "space"
+                "nl.amsterdam.subtype": "space",
+                "nl.amsterdam.type": "dimension"
               }
             },
             "medium": {
               "margin-inline-end": {
                 "$value": "{ams.space.l}",
-                "$type": "dimension",
                 "$extensions": {
-                  "nl.amsterdam.subtype": "space"
+                  "nl.amsterdam.subtype": "space",
+                  "nl.amsterdam.type": "dimension"
                 }
               }
             }
@@ -272,7 +284,9 @@
           "marker": {
             "block-size": {
               "$value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height})",
-              "$type": "dimension"
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
             },
             "inline-size": {
               "$value": "{ams.progress-list.step.marker.shape.block-size}",
@@ -347,7 +361,9 @@
             },
             "margin-block-start": {
               "$value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height} / 2)",
-              "$type": "dimension"
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
             },
             "last-child": {
               "border-inline-color": {
@@ -359,9 +375,9 @@
           "content": {
             "margin-block-end": {
               "$value": "{ams.space.m}",
-              "$type": "dimension",
               "$extensions": {
-                "nl.amsterdam.subtype": "space"
+                "nl.amsterdam.subtype": "space",
+                "nl.amsterdam.type": "dimension"
               }
             }
           },
@@ -410,9 +426,9 @@
           "content": {
             "margin-block-end": {
               "$value": "{ams.space.l}",
-              "$type": "dimension",
               "$extensions": {
-                "nl.amsterdam.subtype": "space"
+                "nl.amsterdam.subtype": "space",
+                "nl.amsterdam.type": "dimension"
               }
             }
           }

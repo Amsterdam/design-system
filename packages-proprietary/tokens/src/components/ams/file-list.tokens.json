@@ -3,16 +3,16 @@
     "file-list": {
       "gap": {
         "$value": "{ams.space.m}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "padding-block": {
         "$value": "{ams.space.m}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "file": {
@@ -32,9 +32,9 @@
         },
         "gap": {
           "$value": "{ams.space.s}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "line-height": {
@@ -52,7 +52,9 @@
         "preview": {
           "width": {
             "$value": "clamp(2.5rem, 10vw, 5rem)",
-            "$type": "dimension"
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
           }
         }
       }

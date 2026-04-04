@@ -25,9 +25,9 @@
       },
       "gap": {
         "$value": "{ams.space.xs}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "line-height": {
@@ -38,9 +38,9 @@
       },
       "padding-inline": {
         "$value": "{ams.space.xs}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "azure": {

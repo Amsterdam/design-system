@@ -67,9 +67,9 @@
       },
       "padding-inline": {
         "$value": "{ams.inputs.padding-inline} calc(2 * {ams.inputs.padding-inline} + 1em)",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "disabled": {
