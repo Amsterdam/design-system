@@ -30,7 +30,7 @@ type Token = {
     'nl.amsterdam.type'?: string
   }
   $type?: string
-  $value: DimensionValue | ShadowValue | string
+  $value: DimensionValue | ShadowValue | string | string[]
 }
 
 /** A nested tree of design tokens, where leaf nodes are `Token` objects. */
@@ -93,6 +93,8 @@ const flattenTokens = (tokens: Tokens, scope: string[] = []): TokenEntry[] =>
 
       if (typeof $value === 'string') {
         normalizedValue = $value
+      } else if (Array.isArray($value)) {
+        normalizedValue = $value.map((name) => (name.includes(' ') ? `'${name}'` : name)).join(', ')
       } else if (isDimensionValue($value)) {
         normalizedValue = `${$value.value}${$value.unit}`
       } else if (type === 'shadow' && typeof $value === 'object') {

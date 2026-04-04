@@ -2,7 +2,7 @@
   "ams": {
     "typography": {
       "font-family": {
-        "$value": "'Amsterdam Sans', Arial, sans-serif",
+        "$value": ["Amsterdam Sans", "Arial", "sans-serif"],
         "$type": "fontFamily"
       },
       "hyphenate-limit-chars": {
