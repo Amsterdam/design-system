@@ -1,13 +1,15 @@
 {
   "ams": {
     "inputs": {
+      "$description": "Shared base styles for all form input components: text inputs, selects, text areas, etc.",
       "background-color": {
         "$value": "{ams.color.background.default}",
         "$type": "color"
       },
       "border-color": {
         "$value": "currentColor",
-        "$type": "color"
+        "$type": "color",
+        "$description": "Uses currentColor so the border adapts to the text colour, including in error states."
       },
       "border-style": {
         "$value": "solid",
@@ -41,6 +43,7 @@
       },
       "line-height": {
         "$value": "1.4",
+        "$description": "Tighter than body text (1.6) to keep inputs compact.",
         "$extensions": {
           "nl.amsterdam.subtype": "lineHeight"
         },
@@ -76,6 +79,7 @@
       "hover": {
         "box-shadow": {
           "$type": "shadow",
+          "$description": "An inset shadow that reinforces the border on hover without shifting the layout.",
           "$value": {
             "inset": true,
             "offsetX": {

@@ -1,6 +1,7 @@
 {
   "ams": {
     "links": {
+      "$description": "Shared base styles for all link-like components.",
       "color": {
         "$value": "{ams.color.interactive.default}",
         "$type": "color"
@@ -27,6 +28,7 @@
         }
       },
       "hover": {
+        "$description": "On hover the underline thickens and moves closer to the text.",
         "color": {
           "$value": "{ams.color.interactive.hover}",
           "$type": "color"
@@ -54,6 +56,7 @@
         }
       },
       "subtle": {
+        "$description": "For links that are already recognisable from context, e.g. in navigation menus. No underline by default; underline appears on hover.",
         "text-decoration-line": {
           "$value": "none",
           "$extensions": {
@@ -70,6 +73,7 @@
         }
       },
       "contrast": {
+        "$description": "For links on coloured backgrounds where the default blue lacks sufficient contrast.",
         "color": {
           "$value": "{ams.color.interactive.contrast}"
         },
@@ -81,6 +85,7 @@
         "$type": "color"
       },
       "inverse": {
+        "$description": "For links on dark backgrounds.",
         "color": {
           "$value": "{ams.color.interactive.inverse}"
         },

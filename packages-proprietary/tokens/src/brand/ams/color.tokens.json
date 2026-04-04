@@ -3,10 +3,12 @@
     "color": {
       "background": {
         "body": {
-          "$value": "#ffffff"
+          "$value": "#ffffff",
+          "$description": "The background colour of the page body."
         },
         "default": {
-          "$value": "#ffffff"
+          "$value": "#ffffff",
+          "$description": "The default background colour for surfaces like cards and dialogs."
         }
       },
       "feedback": {
@@ -24,6 +26,7 @@
         }
       },
       "highlight": {
+        "$description": "Accent colours for visual distinction, not for interactive elements.",
         "azure": {
           "$value": "#009de6"
         },
@@ -47,8 +50,10 @@
         }
       },
       "interactive": {
+        "$description": "Colours for interactive elements like links and buttons.",
         "contrast": {
-          "$value": "#202020"
+          "$value": "#202020",
+          "$description": "For interactive elements on coloured backgrounds where the default blue lacks sufficient contrast."
         },
         "default": {
           "$value": "#004699"
@@ -68,7 +73,8 @@
           }
         },
         "inverse": {
-          "$value": "#ffffff"
+          "$value": "#ffffff",
+          "$description": "For interactive elements on dark backgrounds."
         },
         "secondary": {
           "$deprecated": "Use `currentColor` instead. Will be removed in release 4.0.0.",
@@ -76,6 +82,7 @@
         }
       },
       "progress": {
+        "$description": "Colours for progress indicators like step lists.",
         "current": {
           "$value": "#00893c"
         },
@@ -87,17 +94,20 @@
         }
       },
       "separator": {
-        "$value": "#d1d1d1"
+        "$value": "#d1d1d1",
+        "$description": "For visual dividers between content sections."
       },
       "text": {
         "default": {
           "$value": "#202020"
         },
         "inverse": {
-          "$value": "#ffffff"
+          "$value": "#ffffff",
+          "$description": "For text on dark backgrounds."
         },
         "secondary": {
-          "$value": "#767676"
+          "$value": "#767676",
+          "$description": "For supporting text that is less prominent than the default, e.g. metadata."
         }
       }
     }

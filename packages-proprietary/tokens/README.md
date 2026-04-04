@@ -227,6 +227,11 @@ We add a subtype for certain types to further specify their purpose and preview.
 
 An `$extensions.nl.amsterdam.hint` indicates special handling for internal use.
 
+### Descriptions
+
+Brand and common tokens use the DTCG `$description` property to explain the purpose of a token or group when the name alone is not sufficient.
+Add a `$description` when a token has a non-obvious value (e.g. `currentColor`), when similar tokens need to be distinguished (e.g. `background.body` vs `background.default`), or when the value encodes design rationale worth preserving (e.g. pixel equivalents for responsive `clamp()` values).
+
 ## Usage in Sass
 
 The tokens can be imported as Sass variables as well.
