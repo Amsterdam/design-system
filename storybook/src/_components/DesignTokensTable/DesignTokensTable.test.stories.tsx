@@ -32,6 +32,12 @@ export const Test: Story = {
         },
         // Type resolved via $extensions (lowest precedence)
         extended: { $extensions: { 'nl.amsterdam.type': 'color' }, $value: '#ec0000' },
+        // Group-level $type inherited by descendants
+        inherited: {
+          $type: 'color',
+          one: { $value: '#bed200' },
+          two: { $value: '#a00078' },
+        },
         // No type — renders no sample
         plain: { $value: 'value' },
         // Composite $value (normalised to e.g. "1rem")

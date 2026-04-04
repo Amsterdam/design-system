@@ -33,9 +33,10 @@ type Token = {
   $value: DimensionValue | ShadowValue | string | string[]
 }
 
-/** A nested tree of design tokens, where leaf nodes are `Token` objects. */
+/** A nested tree of design tokens, where leaf nodes are `Token` objects. Groups may carry a `$type` that descendants inherit. */
 type Tokens = {
-  [key: string]: Token | Tokens
+  [key: string]: Token | Tokens | string | undefined
+  $type?: string
 }
 
 /** A flattened representation of a single token ready for rendering in the table. */
@@ -76,17 +77,26 @@ const formatShadowValue = (shadow: ShadowValue): string => {
  * Composite values (e.g. `{ value, unit }`) are normalised into a single string (e.g. `'1rem'`).
  * Token type is resolved from, in order of precedence: `$extensions['nl.amsterdam.subtype']`, `$type`,
  * then `$extensions['nl.amsterdam.type']`.
+ * A group-level `$type` is inherited by all descendant tokens, following the DTCG specification.
  * @param tokens - The (possibly nested) token group to flatten.
  * @param scope - The accumulated path segments from ancestor keys (used for recursion).
+ * @param inheritedType - A `$type` inherited from an ancestor group.
  */
-const flattenTokens = (tokens: Tokens, scope: string[] = []): TokenEntry[] =>
-  Object.entries(tokens).flatMap(([key, node]) => {
+const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedType?: string): TokenEntry[] => {
+  // A group-level $type overrides any inherited type for this group and its descendants.
+  const groupType = ('$type' in tokens && typeof tokens['$type'] === 'string' ? tokens['$type'] : inheritedType) as
+    | string
+    | undefined
+
+  return Object.entries(tokens).flatMap(([key, node]) => {
+    if (key.startsWith('$')) return []
+
     const currentPath = [...scope, key]
 
     // Case 1: It is a valid token
     if (isTokenValue(node)) {
       const { $extensions, $type, $value } = node
-      const type = $extensions?.['nl.amsterdam.subtype'] ?? $type ?? $extensions?.['nl.amsterdam.type']
+      const type = $extensions?.['nl.amsterdam.subtype'] ?? $type ?? groupType ?? $extensions?.['nl.amsterdam.type']
 
       // Combine unit and value into a single string e.g. "1rem"
       let normalizedValue = ''
@@ -112,12 +122,13 @@ const flattenTokens = (tokens: Tokens, scope: string[] = []): TokenEntry[] =>
 
     // Case 2: It is a nested group of tokens
     if (typeof node === 'object' && node !== null && !Array.isArray(node)) {
-      return flattenTokens(node as Tokens, currentPath)
+      return flattenTokens(node as Tokens, currentPath, groupType)
     }
 
     // Case 3: Invalid or empty group
     return []
   })
+}
 
 type DesignTokensTableRootProps = {
   /** The raw nested token object to display, typically imported directly from a JSON token file. */
