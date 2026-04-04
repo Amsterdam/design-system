@@ -62,7 +62,10 @@
           "$type": "number"
         },
         "text-wrap": {
-          "$value": "balance"
+          "$value": "balance",
+          "$extensions": {
+            "nl.amsterdam.type": "textWrap"
+          }
         }
       }
     }

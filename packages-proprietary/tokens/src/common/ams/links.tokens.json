@@ -55,11 +55,17 @@
       },
       "subtle": {
         "text-decoration-line": {
-          "$value": "none"
+          "$value": "none",
+          "$extensions": {
+            "nl.amsterdam.type": "textDecorationLine"
+          }
         },
         "hover": {
           "text-decoration-line": {
-            "$value": "underline"
+            "$value": "underline",
+            "$extensions": {
+              "nl.amsterdam.type": "textDecorationLine"
+            }
           }
         }
       },

@@ -2,10 +2,16 @@
   "ams": {
     "cursor": {
       "disabled": {
-        "$value": "not-allowed"
+        "$value": "not-allowed",
+        "$extensions": {
+          "nl.amsterdam.type": "cursor"
+        }
       },
       "interactive": {
-        "$value": "pointer"
+        "$value": "pointer",
+        "$extensions": {
+          "nl.amsterdam.type": "cursor"
+        }
       }
     }
   }

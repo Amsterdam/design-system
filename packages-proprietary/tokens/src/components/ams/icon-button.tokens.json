@@ -6,7 +6,10 @@
         "$type": "color"
       },
       "cursor": {
-        "$value": "{ams.cursor.interactive}"
+        "$value": "{ams.cursor.interactive}",
+        "$extensions": {
+          "nl.amsterdam.type": "cursor"
+        }
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
@@ -31,7 +34,10 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}"
+          "$value": "{ams.cursor.disabled}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         }
       },
       "contrast": {

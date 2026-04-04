@@ -49,7 +49,10 @@
           }
         },
         "text-decoration-line": {
-          "$value": "{ams.links.subtle.text-decoration-line}"
+          "$value": "{ams.links.subtle.text-decoration-line}",
+          "$extensions": {
+            "nl.amsterdam.type": "textDecorationLine"
+          }
         },
         "text-decoration-thickness": {
           "$value": "{ams.links.text-decoration-thickness}",
@@ -74,7 +77,10 @@
             "$type": "color"
           },
           "text-decoration-line": {
-            "$value": "{ams.links.subtle.hover.text-decoration-line}"
+            "$value": "{ams.links.subtle.hover.text-decoration-line}",
+            "$extensions": {
+              "nl.amsterdam.type": "textDecorationLine"
+            }
           }
         }
       }

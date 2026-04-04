@@ -61,7 +61,10 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.interactive}"
+          "$value": "{ams.cursor.interactive}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         },
         "gap": {
           "$value": "{ams.space.s}",
@@ -100,10 +103,14 @@
       },
       "icon": {
         "transition-duration": {
-          "$value": "0.3s"
+          "$value": "0.3s",
+          "$type": "duration"
         },
         "transition-timing-function": {
-          "$value": "ease"
+          "$value": "ease",
+          "$extensions": {
+            "nl.amsterdam.type": "transitionTimingFunction"
+          }
         }
       },
       "step": {

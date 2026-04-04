@@ -71,7 +71,10 @@
           }
         },
         "text-wrap": {
-          "$value": "balance"
+          "$value": "balance",
+          "$extensions": {
+            "nl.amsterdam.type": "textWrap"
+          }
         },
         "vi-medium": {
           "margin-block-end": {
@@ -115,17 +118,26 @@
       },
       "narrow": {
         "grid-template-columns": {
-          "$value": "1fr 4fr"
+          "$value": "1fr 4fr",
+          "$extensions": {
+            "nl.amsterdam.type": "gridTemplateColumns"
+          }
         }
       },
       "medium": {
         "grid-template-columns": {
-          "$value": "1fr 2fr"
+          "$value": "1fr 2fr",
+          "$extensions": {
+            "nl.amsterdam.type": "gridTemplateColumns"
+          }
         }
       },
       "wide": {
         "grid-template-columns": {
-          "$value": "1fr 1fr"
+          "$value": "1fr 1fr",
+          "$extensions": {
+            "nl.amsterdam.type": "gridTemplateColumns"
+          }
         }
       }
     }

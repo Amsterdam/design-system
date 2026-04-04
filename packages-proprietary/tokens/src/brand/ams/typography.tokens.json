@@ -6,7 +6,10 @@
         "$type": "fontFamily"
       },
       "hyphenate-limit-chars": {
-        "$value": "auto"
+        "$value": "auto",
+        "$extensions": {
+          "nl.amsterdam.type": "hyphenateLimitChars"
+        }
       },
       "body-text": {
         "font-size": {
@@ -194,7 +197,10 @@
           "$type": "fontWeight"
         },
         "text-wrap": {
-          "$value": "balance"
+          "$value": "balance",
+          "$extensions": {
+            "nl.amsterdam.type": "textWrap"
+          }
         }
       }
     }

@@ -2,7 +2,8 @@
   "ams": {
     "grid": {
       "column-count": {
-        "$value": "4"
+        "$value": "4",
+        "$type": "number"
       },
       "column-gap": {
         "$value": "{ams.space.xl}",
@@ -66,7 +67,8 @@
       },
       "medium": {
         "column-count": {
-          "$value": "8"
+          "$value": "8",
+          "$type": "number"
         },
         "padding-inline": {
           "$value": "{ams.space.xl}",
@@ -78,7 +80,8 @@
       },
       "wide": {
         "column-count": {
-          "$value": "12"
+          "$value": "12",
+          "$type": "number"
         },
         "padding-inline": {
           "$value": "{ams.space.2xl}",
@@ -90,13 +93,20 @@
       },
       "cell": {
         "background-color": {
-          "$value": "initial"
+          "$value": "initial",
+          "$type": "color"
         },
         "padding-block": {
-          "$value": "initial"
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
         },
         "padding-inline": {
-          "$value": "initial"
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
         }
       }
     }

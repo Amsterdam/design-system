@@ -80,7 +80,10 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}"
+          "$value": "{ams.cursor.disabled}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         }
       },
       "hover": {

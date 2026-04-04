@@ -38,10 +38,16 @@
             "$type": "color"
           },
           "cursor": {
-            "$value": "{ams.cursor.interactive}"
+            "$value": "{ams.cursor.interactive}",
+            "$extensions": {
+              "nl.amsterdam.type": "cursor"
+            }
           },
           "opacity": {
-            "$value": "40%"
+            "$value": "40%",
+            "$extensions": {
+              "nl.amsterdam.type": "opacity"
+            }
           },
           "outline-offset": {
             "$value": "{ams.focus.outline-offset}",
@@ -52,12 +58,18 @@
           },
           "in-view": {
             "opacity": {
-              "$value": "100%"
+              "$value": "100%",
+              "$extensions": {
+                "nl.amsterdam.type": "opacity"
+              }
             }
           },
           "hover": {
             "opacity": {
-              "$value": "100%"
+              "$value": "100%",
+              "$extensions": {
+                "nl.amsterdam.type": "opacity"
+              }
             }
           }
         }

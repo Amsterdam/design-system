@@ -164,9 +164,8 @@ Note that redefining the value of a token is a much better approach than redecla
 
 ## Token types
 
-Tokens have a type or extension that we use to generate visual previews in our documentation.
-When adding new tokens, define a type from the DTCG specification or add one of our custom extensions when needed.
-Do not add an type or extension if the token cannot be previewed.
+Every token has a type.
+When adding new tokens, use a type from the DTCG specification or add one of our custom extensions when no standard type applies.
 
 ### DTCG standard types
 
@@ -176,9 +175,11 @@ The following types come from the [Design Tokens Community Group (DTCG) specific
 | ------------ | -------------------------------------- |
 | `color`      | Any colour value                       |
 | `dimension`  | Any dimension with a unit              |
+| `duration`   | A length of time                       |
 | `fontFamily` | Font family definitions (string array) |
 | `fontWeight` | Font weight values                     |
 | `number`     | Unitless numeric values                |
+| `shadow`     | Box shadow definitions                 |
 
 ### Custom extensions
 
@@ -186,18 +187,29 @@ The following types come from the [Design Tokens Community Group (DTCG) specific
 
 For properties that the DTCG specification does not cover, or whose values do not conform to a standard type, we add custom types under `$extensions.nl.amsterdam.type`:
 
-| Type          | Description             |
-| ------------- | ----------------------- |
-| `borderStyle` | Border style values     |
-| `borderWidth` | Border thickness values |
-| `dimension`   | Responsive dimensions   |
-| `fontSize`    | Font size values        |
+| Type                       | Description                         |
+| -------------------------- | ----------------------------------- |
+| `aspectRatio`              | Aspect ratio values                 |
+| `backgroundImage`          | Background image values (e.g. SVGs) |
+| `backgroundPosition`       | Background position values          |
+| `border`                   | Border shorthand values             |
+| `borderRadius`             | Border radius values                |
+| `borderStyle`              | Border style values                 |
+| `borderWidth`              | Border thickness values             |
+| `cursor`                   | Cursor values                       |
+| `dimension`                | Responsive dimensions               |
+| `fontSize`                 | Font size values                    |
+| `gridTemplateColumns`      | Grid track definitions              |
+| `hyphenateLimitChars`      | Hyphenation limit values            |
+| `listStyleType`            | List marker styles                  |
+| `opacity`                  | Opacity values                      |
+| `textDecorationLine`       | Text decoration line values         |
+| `textWrap`                 | Text wrapping values                |
+| `transitionTimingFunction` | Transition timing function values   |
 
 Note that `dimension` appears both as a standard `$type` and as a custom extension type.
 The standard type is for values that conform to the DTCG dimension format (an object with a `value` and `unit`).
 The extension type is for responsive dimensions that use `clamp()` expressions, which are not valid DTCG dimensions.
-
-Tokens without a type have values that we currently do not preview.
 
 #### Subtype
 

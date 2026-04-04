@@ -36,14 +36,20 @@
         },
         "text-wrap": {
           "$deprecated": "The Accordion section button now uses a Heading component. Use the Heading component tokens instead. Will be removed in release 4.0.0.",
-          "$value": "{ams.typography.heading.text-wrap}"
+          "$value": "{ams.typography.heading.text-wrap}",
+          "$extensions": {
+            "nl.amsterdam.type": "textWrap"
+          }
         },
         "color": {
           "$value": "{ams.color.interactive.default}",
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.interactive}"
+          "$value": "{ams.cursor.interactive}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         },
         "gap": {
           "$value": "{ams.space.s}",
@@ -83,11 +89,17 @@
       "panel": {
         "padding-block": {
           "$deprecated": "Will be removed in release 4.0.0.",
-          "$value": "0"
+          "$value": "0",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
         },
         "padding-inline": {
           "$deprecated": "Will be removed in release 4.0.0.",
-          "$value": "0"
+          "$value": "0",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
         }
       }
     }

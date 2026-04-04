@@ -34,7 +34,10 @@
         "$type": "number"
       },
       "list-style-type": {
-        "$value": "decimal"
+        "$value": "decimal",
+        "$extensions": {
+          "nl.amsterdam.type": "listStyleType"
+        }
       },
       "small": {
         "font-size": {
@@ -90,7 +93,10 @@
           }
         },
         "list-style-type": {
-          "$value": "lower-alpha"
+          "$value": "lower-alpha",
+          "$extensions": {
+            "nl.amsterdam.type": "listStyleType"
+          }
         },
         "padding-block-end": {
           "$value": "{ams.space.s}",

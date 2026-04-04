@@ -33,7 +33,10 @@
       },
       "text-wrap": {
         "$deprecated": "Use the Heading component with level 1 instead. Will be removed in release 4.0.0.",
-        "$value": "{ams.typography.heading.text-wrap}"
+        "$value": "{ams.typography.heading.text-wrap}",
+        "$extensions": {
+          "nl.amsterdam.type": "textWrap"
+        }
       },
       "inverse": {
         "color": {

@@ -34,7 +34,10 @@
       },
       "cell": {
         "border-block-end": {
-          "$value": "{ams.border.width.s} solid {ams.color.separator}"
+          "$value": "{ams.border.width.s} solid {ams.color.separator}",
+          "$extensions": {
+            "nl.amsterdam.type": "border"
+          }
         },
         "padding-block": {
           "$value": "{ams.space.s}",

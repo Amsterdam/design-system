@@ -24,7 +24,10 @@
       },
       "separator": {
         "background-image": {
-          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23000000' fill-rule='evenodd' d='m9.757 32-2.9-2.91L19.937 16 6.857 2.91 9.757 0l16 16z'/></svg>\")"
+          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23000000' fill-rule='evenodd' d='m9.757 32-2.9-2.91L19.937 16 6.857 2.91 9.757 0l16 16z'/></svg>\")",
+          "$extensions": {
+            "nl.amsterdam.type": "backgroundImage"
+          }
         },
         "block-size": {
           "$value": "1ex",
@@ -55,7 +58,10 @@
           }
         },
         "text-decoration-line": {
-          "$value": "{ams.links.subtle.text-decoration-line}"
+          "$value": "{ams.links.subtle.text-decoration-line}",
+          "$extensions": {
+            "nl.amsterdam.type": "textDecorationLine"
+          }
         },
         "text-decoration-thickness": {
           "$value": "{ams.links.text-decoration-thickness}",
@@ -74,7 +80,10 @@
             "$type": "color"
           },
           "text-decoration-line": {
-            "$value": "{ams.links.subtle.hover.text-decoration-line}"
+            "$value": "{ams.links.subtle.hover.text-decoration-line}",
+            "$extensions": {
+              "nl.amsterdam.type": "textDecorationLine"
+            }
           }
         }
       }

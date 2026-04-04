@@ -104,7 +104,10 @@
         "$type": "fontWeight"
       },
       "text-wrap": {
-        "$value": "{ams.typography.heading.text-wrap}"
+        "$value": "{ams.typography.heading.text-wrap}",
+        "$extensions": {
+          "nl.amsterdam.type": "textWrap"
+        }
       },
       "inverse": {
         "color": {

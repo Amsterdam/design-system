@@ -39,7 +39,10 @@
       },
       "invalid": {
         "border-inline-start": {
-          "$value": "{ams.border.width.l} solid {ams.color.feedback.error}"
+          "$value": "{ams.border.width.l} solid {ams.color.feedback.error}",
+          "$extensions": {
+            "nl.amsterdam.type": "border"
+          }
         },
         "padding-inline-start": {
           "$value": "{ams.space.m}",
@@ -84,7 +87,10 @@
           "$type": "number"
         },
         "text-wrap": {
-          "$value": "{ams.typography.heading.text-wrap}"
+          "$value": "{ams.typography.heading.text-wrap}",
+          "$extensions": {
+            "nl.amsterdam.type": "textWrap"
+          }
         },
         "in-fieldset": {
           "font-weight": {

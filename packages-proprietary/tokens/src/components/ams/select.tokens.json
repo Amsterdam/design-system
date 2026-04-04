@@ -6,10 +6,16 @@
         "$type": "color"
       },
       "background-image": {
-        "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")"
+        "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")",
+        "$extensions": {
+          "nl.amsterdam.type": "backgroundImage"
+        }
       },
       "background-position": {
-        "$value": "right {ams.space.m} center"
+        "$value": "right {ams.space.m} center",
+        "$extensions": {
+          "nl.amsterdam.type": "backgroundPosition"
+        }
       },
       "border-color": {
         "$value": "{ams.inputs.border-color}",
@@ -75,14 +81,20 @@
       },
       "disabled": {
         "background-image": {
-          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23767676' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")"
+          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23767676' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")",
+          "$extensions": {
+            "nl.amsterdam.type": "backgroundImage"
+          }
         },
         "color": {
           "$value": "{ams.inputs.disabled.color}",
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}"
+          "$value": "{ams.cursor.disabled}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         }
       },
       "hover": {
@@ -91,7 +103,10 @@
           "$value": "{ams.inputs.hover.box-shadow}"
         },
         "background-image": {
-          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23003677' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")"
+          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23003677' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")",
+          "$extensions": {
+            "nl.amsterdam.type": "backgroundImage"
+          }
         }
       },
       "invalid": {

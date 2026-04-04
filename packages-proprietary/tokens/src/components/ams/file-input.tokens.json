@@ -26,7 +26,10 @@
         "$type": "color"
       },
       "cursor": {
-        "$value": "{ams.cursor.interactive}"
+        "$value": "{ams.cursor.interactive}",
+        "$extensions": {
+          "nl.amsterdam.type": "cursor"
+        }
       },
       "font-family": {
         "$value": "{ams.inputs.font-family}",
@@ -76,7 +79,10 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}"
+          "$value": "{ams.cursor.disabled}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         }
       },
       "file-selector-button": {
@@ -105,7 +111,10 @@
           "$type": "color"
         },
         "cursor": {
-          "$value": "{ams.button.cursor}"
+          "$value": "{ams.button.cursor}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         },
         "line-height": {
           "$value": "{ams.button.line-height}",
@@ -141,7 +150,10 @@
             "$type": "color"
           },
           "cursor": {
-            "$value": "{ams.button.disabled.cursor}"
+            "$value": "{ams.button.disabled.cursor}",
+            "$extensions": {
+              "nl.amsterdam.type": "cursor"
+            }
           }
         },
         "hover": {

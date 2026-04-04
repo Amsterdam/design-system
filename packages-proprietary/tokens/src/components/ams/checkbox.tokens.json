@@ -6,7 +6,10 @@
         "$type": "color"
       },
       "cursor": {
-        "$value": "{ams.cursor.interactive}"
+        "$value": "{ams.cursor.interactive}",
+        "$extensions": {
+          "nl.amsterdam.type": "cursor"
+        }
       },
       "font-family": {
         "$value": "{ams.typography.font-family}",
@@ -56,7 +59,10 @@
       },
       "disabled": {
         "cursor": {
-          "$value": "{ams.cursor.disabled}"
+          "$value": "{ams.cursor.disabled}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         },
         "color": {
           "$value": "{ams.color.interactive.disabled}",
@@ -69,7 +75,10 @@
           "$type": "color"
         },
         "text-decoration-line": {
-          "$value": "{ams.links.subtle.hover.text-decoration-line}"
+          "$value": "{ams.links.subtle.hover.text-decoration-line}",
+          "$extensions": {
+            "nl.amsterdam.type": "textDecorationLine"
+          }
         },
         "text-decoration-thickness": {
           "$deprecated": "Use `ams.checkbox.text-decoration-thickness` instead. Will be removed in release 4.0.0.",

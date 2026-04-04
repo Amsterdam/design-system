@@ -14,7 +14,10 @@
         }
       },
       "cursor": {
-        "$value": "{ams.cursor.interactive}"
+        "$value": "{ams.cursor.interactive}",
+        "$extensions": {
+          "nl.amsterdam.type": "cursor"
+        }
       },
       "font-family": {
         "$value": "{ams.typography.font-family}",
@@ -67,7 +70,10 @@
       },
       "disabled": {
         "cursor": {
-          "$value": "{ams.cursor.disabled}"
+          "$value": "{ams.cursor.disabled}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         }
       },
       "icon-only": {
