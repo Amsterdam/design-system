@@ -59,107 +59,93 @@
       },
       "checked-indicator": {
         "fill": {
-          "$value": "{ams.color.interactive.default}",
-          "$type": "color"
+          "$value": "{ams.color.interactive.default}"
         },
         "disabled": {
           "fill": {
-            "$value": "{ams.color.interactive.disabled}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.disabled}"
           }
         },
         "disabled-invalid": {
           "fill": {
-            "$value": "{ams.color.interactive.disabled}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.disabled}"
           },
           "hover": {
             "fill": {
-              "$value": "{ams.color.interactive.disabled}",
-              "$type": "color"
+              "$value": "{ams.color.interactive.disabled}"
             }
           }
         },
         "hover": {
           "fill": {
-            "$value": "{ams.color.interactive.hover}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.hover}"
           }
         },
         "invalid": {
           "fill": {
-            "$value": "{ams.color.interactive.invalid.default}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.invalid.default}"
           },
           "hover": {
             "fill": {
-              "$value": "{ams.color.interactive.invalid.hover}",
-              "$type": "color"
+              "$value": "{ams.color.interactive.invalid.hover}"
             }
           }
-        }
+        },
+        "$type": "color"
       },
       "hover-indicator": {
         "hover": {
           "stroke": {
-            "$value": "{ams.color.interactive.hover}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.hover}"
           }
         },
         "invalid": {
           "hover": {
             "stroke": {
-              "$value": "{ams.color.interactive.invalid.hover}",
-              "$type": "color"
+              "$value": "{ams.color.interactive.invalid.hover}"
             }
           }
-        }
+        },
+        "$type": "color"
       },
       "circle": {
         "fill": {
-          "$value": "{ams.color.background.default}",
-          "$type": "color"
+          "$value": "{ams.color.background.default}"
         },
         "stroke": {
-          "$value": "{ams.color.interactive.default}",
-          "$type": "color"
+          "$value": "{ams.color.interactive.default}"
         },
         "disabled": {
           "stroke": {
-            "$value": "{ams.color.interactive.disabled}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.disabled}"
           }
         },
         "disabled-invalid": {
           "stroke": {
-            "$value": "{ams.color.interactive.disabled}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.disabled}"
           },
           "hover": {
             "stroke": {
-              "$value": "{ams.color.interactive.disabled}",
-              "$type": "color"
+              "$value": "{ams.color.interactive.disabled}"
             }
           }
         },
         "hover": {
           "stroke": {
-            "$value": "{ams.color.interactive.hover}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.hover}"
           }
         },
         "invalid": {
           "stroke": {
-            "$value": "{ams.color.interactive.invalid.default}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.invalid.default}"
           },
           "hover": {
             "stroke": {
-              "$value": "{ams.color.interactive.invalid.hover}",
-              "$type": "color"
+              "$value": "{ams.color.interactive.invalid.hover}"
             }
           }
-        }
+        },
+        "$type": "color"
       },
       "disabled": {
         "color": {

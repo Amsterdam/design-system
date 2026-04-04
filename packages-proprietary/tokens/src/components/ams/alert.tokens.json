@@ -66,39 +66,36 @@
       },
       "error": {
         "border-color": {
-          "$value": "{ams.color.feedback.error}",
-          "$type": "color"
+          "$value": "{ams.color.feedback.error}"
         },
         "severity-indicator": {
           "background-color": {
-            "$value": "{ams.color.feedback.error}",
-            "$type": "color"
+            "$value": "{ams.color.feedback.error}"
           }
-        }
+        },
+        "$type": "color"
       },
       "success": {
         "border-color": {
-          "$value": "{ams.color.feedback.success}",
-          "$type": "color"
+          "$value": "{ams.color.feedback.success}"
         },
         "severity-indicator": {
           "background-color": {
-            "$value": "{ams.color.feedback.success}",
-            "$type": "color"
+            "$value": "{ams.color.feedback.success}"
           }
-        }
+        },
+        "$type": "color"
       },
       "warning": {
         "border-color": {
-          "$value": "{ams.color.feedback.warning}",
-          "$type": "color"
+          "$value": "{ams.color.feedback.warning}"
         },
         "severity-indicator": {
           "background-color": {
-            "$value": "{ams.color.feedback.warning}",
-            "$type": "color"
+            "$value": "{ams.color.feedback.warning}"
           }
-        }
+        },
+        "$type": "color"
       }
     }
   }

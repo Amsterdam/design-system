@@ -167,6 +167,9 @@ Note that redefining the value of a token is a much better approach than redecla
 Every token has a type.
 When adding new tokens, use a type from the DTCG specification or add one of our custom extensions when no standard type applies.
 
+We use group-level `$type` inheritance where all tokens in a group share the same type.
+A `$type` set on a group applies to all its descendants, so individual tokens do not need to repeat it.
+
 ### DTCG standard types
 
 The following types come from the [Design Tokens Community Group (DTCG) specification](https://www.designtokens.org/tr/2025.10/format/):

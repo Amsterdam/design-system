@@ -46,73 +46,66 @@
       },
       "azure": {
         "background-color": {
-          "$value": "{ams.color.feedback.info}",
-          "$type": "color"
+          "$value": "{ams.color.feedback.info}"
         },
         "color": {
-          "$value": "{ams.color.text.inverse}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.inverse}"
+        },
+        "$type": "color"
       },
       "lime": {
         "background-color": {
-          "$value": "{ams.color.highlight.lime}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.lime}"
         },
         "color": {
-          "$value": "{ams.color.text.default}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.default}"
+        },
+        "$type": "color"
       },
       "magenta": {
         "background-color": {
-          "$value": "{ams.color.highlight.magenta}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.magenta}"
         },
         "color": {
-          "$value": "{ams.color.text.inverse}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.inverse}"
+        },
+        "$type": "color"
       },
       "orange": {
         "background-color": {
-          "$value": "{ams.color.feedback.warning}",
-          "$type": "color"
+          "$value": "{ams.color.feedback.warning}"
         },
         "color": {
-          "$value": "{ams.color.text.default}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.default}"
+        },
+        "$type": "color"
       },
       "purple": {
         "background-color": {
-          "$value": "{ams.color.highlight.purple}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.purple}"
         },
         "color": {
-          "$value": "{ams.color.text.inverse}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.inverse}"
+        },
+        "$type": "color"
       },
       "red": {
         "background-color": {
-          "$value": "{ams.color.feedback.error}",
-          "$type": "color"
+          "$value": "{ams.color.feedback.error}"
         },
         "color": {
-          "$value": "{ams.color.text.inverse}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.inverse}"
+        },
+        "$type": "color"
       },
       "yellow": {
         "background-color": {
-          "$value": "{ams.color.highlight.yellow}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.yellow}"
         },
         "color": {
-          "$value": "{ams.color.text.default}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.default}"
+        },
+        "$type": "color"
       }
     }
   }

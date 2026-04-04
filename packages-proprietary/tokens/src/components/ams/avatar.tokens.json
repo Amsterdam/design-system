@@ -76,87 +76,75 @@
       },
       "azure": {
         "background-color": {
-          "$value": "{ams.color.highlight.azure}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.azure}"
         },
         "border-color": {
-          "$value": "{ams.color.highlight.azure}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.azure}"
         },
         "color": {
-          "$value": "{ams.color.text.inverse}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.inverse}"
+        },
+        "$type": "color"
       },
       "green": {
         "background-color": {
-          "$value": "{ams.color.highlight.green}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.green}"
         },
         "border-color": {
-          "$value": "{ams.color.highlight.green}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.green}"
         },
         "color": {
-          "$value": "{ams.color.text.inverse}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.inverse}"
+        },
+        "$type": "color"
       },
       "lime": {
         "background-color": {
-          "$value": "{ams.color.highlight.lime}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.lime}"
         },
         "border-color": {
-          "$value": "{ams.color.highlight.lime}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.lime}"
         },
         "color": {
-          "$value": "{ams.color.text.default}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.default}"
+        },
+        "$type": "color"
       },
       "magenta": {
         "background-color": {
-          "$value": "{ams.color.highlight.magenta}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.magenta}"
         },
         "border-color": {
-          "$value": "{ams.color.highlight.magenta}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.magenta}"
         },
         "color": {
-          "$value": "{ams.color.text.inverse}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.inverse}"
+        },
+        "$type": "color"
       },
       "orange": {
         "background-color": {
-          "$value": "{ams.color.highlight.orange}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.orange}"
         },
         "border-color": {
-          "$value": "{ams.color.highlight.orange}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.orange}"
         },
         "color": {
-          "$value": "{ams.color.text.default}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.default}"
+        },
+        "$type": "color"
       },
       "yellow": {
         "background-color": {
-          "$value": "{ams.color.highlight.yellow}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.yellow}"
         },
         "border-color": {
-          "$value": "{ams.color.highlight.yellow}",
-          "$type": "color"
+          "$value": "{ams.color.highlight.yellow}"
         },
         "color": {
-          "$value": "{ams.color.text.default}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.text.default}"
+        },
+        "$type": "color"
       }
     }
   }

@@ -20,13 +20,12 @@
       },
       "hover": {
         "background-color": {
-          "$value": "rgb(0 70 153 / 12.5%)",
-          "$type": "color"
+          "$value": "rgb(0 70 153 / 12.5%)"
         },
         "color": {
-          "$value": "{ams.color.interactive.hover}",
-          "$type": "color"
-        }
+          "$value": "{ams.color.interactive.hover}"
+        },
+        "$type": "color"
       },
       "disabled": {
         "color": {
@@ -42,55 +41,47 @@
       },
       "contrast": {
         "color": {
-          "$value": "{ams.color.interactive.contrast}",
-          "$type": "color"
+          "$value": "{ams.color.interactive.contrast}"
         },
         "hover": {
           "background-color": {
-            "$value": "rgb(0 0 0 / 12.5%)",
-            "$type": "color"
+            "$value": "rgb(0 0 0 / 12.5%)"
           },
           "color": {
-            "$value": "{ams.color.interactive.contrast}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.contrast}"
           }
         },
         "disabled": {
           "color": {
-            "$value": "{ams.color.interactive.disabled}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.disabled}"
           }
-        }
+        },
+        "$type": "color"
       },
       "inverse": {
         "background-color": {
-          "$value": "{ams.color.interactive.default}",
-          "$type": "color"
+          "$value": "{ams.color.interactive.default}"
         },
         "color": {
-          "$value": "{ams.color.interactive.inverse}",
-          "$type": "color"
+          "$value": "{ams.color.interactive.inverse}"
         },
         "hover": {
           "background-color": {
-            "$value": "{ams.color.interactive.hover}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.hover}"
           },
           "color": {
-            "$value": "{ams.color.interactive.inverse}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.inverse}"
           }
         },
         "disabled": {
           "color": {
-            "$value": "{ams.color.interactive.inverse}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.inverse}"
           },
           "background-color": {
-            "$value": "{ams.color.interactive.disabled}",
-            "$type": "color"
+            "$value": "{ams.color.interactive.disabled}"
           }
-        }
+        },
+        "$type": "color"
       }
     }
   }

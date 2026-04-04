@@ -218,14 +218,13 @@
           "marker": {
             "shape": {
               "background-color": {
-                "$value": "{ams.color.progress.completed}",
-                "$type": "color"
+                "$value": "{ams.color.progress.completed}"
               },
               "border-color": {
-                "$value": "{ams.color.progress.completed}",
-                "$type": "color"
+                "$value": "{ams.color.progress.completed}"
               }
-            }
+            },
+            "$type": "color"
           },
           "connector": {
             "border-inline-color": {
@@ -244,21 +243,19 @@
           "marker": {
             "shape": {
               "background-color": {
-                "$value": "{ams.color.progress.current}",
-                "$type": "color"
+                "$value": "{ams.color.progress.current}"
               },
               "border-color": {
-                "$value": "{ams.color.progress.current}",
-                "$type": "color"
+                "$value": "{ams.color.progress.current}"
               }
             }
           },
           "connector": {
             "border-inline-color": {
-              "$value": "{ams.color.progress.current}",
-              "$type": "color"
+              "$value": "{ams.color.progress.current}"
             }
-          }
+          },
+          "$type": "color"
         }
       },
       "substeps": {
@@ -392,14 +389,13 @@
             "marker": {
               "shape": {
                 "background-color": {
-                  "$value": "{ams.color.progress.completed}",
-                  "$type": "color"
+                  "$value": "{ams.color.progress.completed}"
                 },
                 "border-color": {
-                  "$value": "{ams.color.progress.completed}",
-                  "$type": "color"
+                  "$value": "{ams.color.progress.completed}"
                 }
-              }
+              },
+              "$type": "color"
             },
             "connector": {
               "border-inline-color": {
@@ -418,15 +414,14 @@
             "marker": {
               "shape": {
                 "background-color": {
-                  "$value": "{ams.color.progress.current}",
-                  "$type": "color"
+                  "$value": "{ams.color.progress.current}"
                 },
                 "border-color": {
-                  "$value": "{ams.color.progress.current}",
-                  "$type": "color"
+                  "$value": "{ams.color.progress.current}"
                 }
               }
-            }
+            },
+            "$type": "color"
           }
         },
         "last-child": {

@@ -109,27 +109,25 @@
         },
         "contrast": {
           "color": {
-            "$value": "{ams.links.contrast.color}",
-            "$type": "color"
+            "$value": "{ams.links.contrast.color}"
           },
           "hover": {
             "color": {
-              "$value": "{ams.links.contrast.hover.color}",
-              "$type": "color"
+              "$value": "{ams.links.contrast.hover.color}"
             }
-          }
+          },
+          "$type": "color"
         },
         "inverse": {
           "color": {
-            "$value": "{ams.links.inverse.color}",
-            "$type": "color"
+            "$value": "{ams.links.inverse.color}"
           },
           "hover": {
             "color": {
-              "$value": "{ams.links.inverse.hover.color}",
-              "$type": "color"
+              "$value": "{ams.links.inverse.hover.color}"
             }
-          }
+          },
+          "$type": "color"
         }
       }
     }

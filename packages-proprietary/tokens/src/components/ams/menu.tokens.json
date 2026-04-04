@@ -64,30 +64,28 @@
         "contrast": {
           "color": {
             "$deprecated": "The menu has a dark background now, so this is no longer needed. Will be removed in release 4.0.0.",
-            "$value": "{ams.links.contrast.color}",
-            "$type": "color"
+            "$value": "{ams.links.contrast.color}"
           },
           "hover": {
             "color": {
               "$deprecated": "The menu has a dark background now, so this is no longer needed. Will be removed in release 4.0.0.",
-              "$value": "{ams.links.contrast.hover.color}",
-              "$type": "color"
+              "$value": "{ams.links.contrast.hover.color}"
             }
-          }
+          },
+          "$type": "color"
         },
         "inverse": {
           "color": {
             "$deprecated": "The menu has a dark background now, so this is no longer needed. Will be removed in release 4.0.0.",
-            "$value": "{ams.links.inverse.color}",
-            "$type": "color"
+            "$value": "{ams.links.inverse.color}"
           },
           "hover": {
             "color": {
               "$deprecated": "The menu has a dark background now, so this is no longer needed. Will be removed in release 4.0.0.",
-              "$value": "{ams.links.inverse.hover.color}",
-              "$type": "color"
+              "$value": "{ams.links.inverse.hover.color}"
             }
-          }
+          },
+          "$type": "color"
         },
         "gap": {
           "$value": "{ams.space.s}",

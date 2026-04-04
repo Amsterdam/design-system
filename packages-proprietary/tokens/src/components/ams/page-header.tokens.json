@@ -128,13 +128,12 @@
           },
           "hover": {
             "background-color": {
-              "$value": "{ams.color.interactive.hover}",
-              "$type": "color"
+              "$value": "{ams.color.interactive.hover}"
             },
             "color": {
-              "$value": "{ams.color.text.inverse}",
-              "$type": "color"
-            }
+              "$value": "{ams.color.text.inverse}"
+            },
+            "$type": "color"
           }
         }
       },
