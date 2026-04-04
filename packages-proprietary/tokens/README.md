@@ -172,25 +172,30 @@ Do not add an type or extension if the token cannot be previewed.
 
 The following types come from the [Design Tokens Community Group (DTCG) specification](https://www.designtokens.org/tr/2025.10/format/):
 
-| Type         | Description               |
-| ------------ | ------------------------- |
-| `color`      | Any colour value          |
-| `dimension`  | Any dimension with a unit |
-| `fontFamily` | Font family definitions   |
-| `fontWeight` | Font weight values        |
+| Type         | Description                            |
+| ------------ | -------------------------------------- |
+| `color`      | Any colour value                       |
+| `dimension`  | Any dimension with a unit              |
+| `fontFamily` | Font family definitions (string array) |
+| `fontWeight` | Font weight values                     |
+| `number`     | Unitless numeric values                |
 
 ### Custom extensions
 
 #### Type
 
-For some properties, we add custom types under `$extensions.nl.amsterdam.type`:
+For properties that the DTCG specification does not cover, or whose values do not conform to a standard type, we add custom types under `$extensions.nl.amsterdam.type`:
 
-| Type          | Description                      |
-| ------------- | -------------------------------- |
-| `borderStyle` | Border style values              |
-| `borderWidth` | Border thickness values          |
-| `fontSize`    | Font size values                 |
-| `lineHeight`  | Unitless line height multipliers |
+| Type          | Description             |
+| ------------- | ----------------------- |
+| `borderStyle` | Border style values     |
+| `borderWidth` | Border thickness values |
+| `dimension`   | Responsive dimensions   |
+| `fontSize`    | Font size values        |
+
+Note that `dimension` appears both as a standard `$type` and as a custom extension type.
+The standard type is for values that conform to the DTCG dimension format (an object with a `value` and `unit`).
+The extension type is for responsive dimensions that use `clamp()` expressions, which are not valid DTCG dimensions.
 
 Tokens without a type have values that we currently do not preview.
 
@@ -198,9 +203,10 @@ Tokens without a type have values that we currently do not preview.
 
 We add a subtype for certain types to further specify their purpose and preview.
 
-| Subtype | For type    | Description                |
-| ------- | ----------- | -------------------------- |
-| `space` | `dimension` | Margins, paddings and gaps |
+| Subtype      | For type    | Description                |
+| ------------ | ----------- | -------------------------- |
+| `lineHeight` | `number`    | Line height multipliers    |
+| `space`      | `dimension` | Margins, paddings and gaps |
 
 #### Hint
 
