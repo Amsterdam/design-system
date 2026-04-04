@@ -6,6 +6,7 @@
 import { Icon } from '@amsterdam/design-system-react'
 import { WarningIcon } from '@amsterdam/design-system-react-icons'
 
+import { AspectRatioSample } from '../AspectRatioSample/AspectRatioSample'
 import { BorderSample } from '../BorderSample/BorderSample'
 import { Code } from '../Code/Code'
 import { ColorSample } from '../ColorSample/ColorSample'
@@ -23,7 +24,7 @@ type DesignTokensTableRowProps = {
 /**
  * Renders a single row in the design tokens table.
  * The `type` prop controls which sample component appears in the Example column:
- * `borderStyle` / `borderWidth` → `BorderSample`, `color` → `ColorSample`,
+ * `aspectRatio` → `AspectRatioSample`, `borderStyle` / `borderWidth` → `BorderSample`, `color` → `ColorSample`,
  * `fontFamily` / `fontSize` / `fontWeight` / `lineHeight` → `TypographySample`, `space` → `SpaceSample`.
  * Rows with an unrecognised or absent `type` show no example.
  * Deprecated tokens show a yellow warning icon with the deprecation message as a tooltip.
@@ -40,6 +41,7 @@ export const DesignTokensTableRow = ({ deprecated, name, type, value }: DesignTo
       <Code>{value}</Code>
     </td>
     <td>
+      {type === 'aspectRatio' && <AspectRatioSample value={value} />}
       {type === 'borderStyle' && <BorderSample lineStyle={value} />}
       {type === 'borderWidth' && <BorderSample width={value} />}
       {type === 'color' && <ColorSample value={value} />}
