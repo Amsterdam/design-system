@@ -11,7 +11,31 @@ import tokens from "../../../../packages-proprietary/tokens/src/common/ams/links
 Several link components share the same appearance in various aspects.
 This set of common tokens maintains their visual consistency.
 
-<DesignTokensTable showDescriptions tokens={tokens} />
+## Default
+
+Our default links have the following styles:
+
+<DesignTokensTable exclude={["subtle", "contrast", "inverse"]} path="ams.links" showDescriptions tokens={tokens} />
+
+## Subtle
+
+Subtle links are used in places where the context helps indicate that the text is a link.
+For instance, in the Page Header or Pagination components.
+As a result, their styling can be less obvious.
+
+<DesignTokensTable path="ams.links.subtle" showDescriptions tokens={tokens} />
+
+## Contrast
+
+Links on light (but not white) backgrounds use the interactive contrast colour.
+
+<DesignTokensTable path="ams.links.contrast" showDescriptions tokens={tokens} />
+
+## Inverse
+
+On dark backgrounds, links have the inverse colour.
+
+<DesignTokensTable path="ams.links.inverse" showDescriptions tokens={tokens} />
 
 ## How to use
 

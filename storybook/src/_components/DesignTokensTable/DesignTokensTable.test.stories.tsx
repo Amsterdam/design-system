@@ -15,6 +15,33 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+const pathAndExcludeTokens = {
+  ams: {
+    inputs: {
+      'background-color': { $type: 'color', $value: '#ffffff' },
+      color: { $type: 'color', $value: '#000000' },
+      disabled: {
+        color: { $type: 'color', $value: '#999999' },
+      },
+      hover: {
+        color: { $type: 'color', $value: '#0000ff' },
+      },
+    },
+  },
+}
+
+export const PathAndExclude: Story = {
+  render: () => (
+    <>
+      {/* Shows only top-level tokens, excluding the `disabled` and `hover` groups */}
+      <DesignTokensTable exclude={['disabled', 'hover']} path="ams.inputs" tokens={pathAndExcludeTokens} />
+      {/* Shows only the disabled group, with full path prefix */}
+      <DesignTokensTable path="ams.inputs.disabled" tokens={pathAndExcludeTokens} />
+    </>
+  ),
+  tags: ['!dev', '!autodocs'],
+}
+
 export const Descriptions: Story = {
   render: () => (
     <DesignTokensTable

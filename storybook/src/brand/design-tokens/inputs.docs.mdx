@@ -22,7 +22,30 @@ These tokens are used by
 [Time Input](/docs/components-forms-time-input--docs) and
 (one of them) by [Button](/docs/components-buttons-button--docs).
 
-<DesignTokensTable showDescriptions tokens={tokens} />
+## Default
+
+<DesignTokensTable
+  exclude={["disabled", "hover", "invalid", "placeholder"]}
+  path="ams.inputs"
+  showDescriptions
+  tokens={tokens}
+/>
+
+## Disabled
+
+<DesignTokensTable path="ams.inputs.disabled" showDescriptions tokens={tokens} />
+
+## Hover
+
+<DesignTokensTable path="ams.inputs.hover" showDescriptions tokens={tokens} />
+
+## Invalid
+
+<DesignTokensTable path="ams.inputs.invalid" showDescriptions tokens={tokens} />
+
+## Placeholder
+
+<DesignTokensTable path="ams.inputs.placeholder" showDescriptions tokens={tokens} />
 
 ## How to use
 

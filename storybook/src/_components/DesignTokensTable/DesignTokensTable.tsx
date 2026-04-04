@@ -137,6 +137,10 @@ const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedType?: str
 }
 
 type DesignTokensTableRootProps = {
+  /** Keys to omit from the (optionally path-narrowed) token group. */
+  exclude?: string[]
+  /** Dot-separated path to a subtree, e.g. `"ams.inputs.hover"`. The path segments become the CSS variable prefix so that full names are preserved. */
+  path?: string
   /** Whether to show a Description column populated from the `$description` field. */
   showDescriptions?: boolean
   /** The raw nested token object to display, typically imported directly from a JSON token file. */
@@ -147,8 +151,37 @@ type DesignTokensTableRootProps = {
  * Compound component that renders a design token JSON file as a three-column table
  * (CSS variable name, value, visual example).
  */
-const DesignTokensTableRoot = ({ className, showDescriptions, tokens, ...restProps }: DesignTokensTableRootProps) => {
-  const flatTokens = flattenTokens(tokens)
+const DesignTokensTableRoot = ({
+  className,
+  exclude,
+  path,
+  showDescriptions,
+  tokens,
+  ...restProps
+}: DesignTokensTableRootProps) => {
+  // Walk the path to reach the target subtree, collecting any group-level $type along the way.
+  let subtree: Tokens = tokens
+  const pathSegments = path ? path.split('.') : []
+  let inheritedType: string | undefined
+
+  for (const segment of pathSegments) {
+    if (typeof subtree['$type'] === 'string') {
+      inheritedType = subtree['$type']
+    }
+
+    const next = subtree[segment]
+
+    if (typeof next === 'object' && next !== null && !Array.isArray(next)) {
+      subtree = next as Tokens
+    }
+  }
+
+  // Remove excluded keys from the subtree.
+  if (exclude?.length) {
+    subtree = Object.fromEntries(Object.entries(subtree).filter(([key]) => !exclude.includes(key))) as Tokens
+  }
+
+  const flatTokens = flattenTokens(subtree, pathSegments, inheritedType)
   const columnCount = showDescriptions ? 4 : 3
 
   return (
