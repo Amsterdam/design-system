@@ -41,6 +41,8 @@ const DesignTokensTableRoot = ({
   const pathSegments = path ? path.split('.') : []
   let inheritedType: string | undefined
 
+  let pathIsValid = true
+
   for (const segment of pathSegments) {
     if (typeof subtree['$type'] === 'string') {
       inheritedType = subtree['$type']
@@ -50,6 +52,9 @@ const DesignTokensTableRoot = ({
 
     if (typeof next === 'object' && next !== null && !Array.isArray(next)) {
       subtree = next as Tokens
+    } else {
+      pathIsValid = false
+      break
     }
   }
 
@@ -58,7 +63,7 @@ const DesignTokensTableRoot = ({
     subtree = Object.fromEntries(Object.entries(subtree).filter(([key]) => !exclude.includes(key))) as Tokens
   }
 
-  const flatTokens = flattenTokens(subtree, pathSegments, inheritedType)
+  const flatTokens = pathIsValid ? flattenTokens(subtree, pathSegments, inheritedType) : []
   const columnCount = showDescriptions ? 4 : 3
 
   return (
@@ -73,13 +78,17 @@ const DesignTokensTableRoot = ({
           </tr>
         </thead>
         <tbody>
-          {flatTokens.length ? (
-            flatTokens.map(({ deprecated, description, path, type, value }) => (
+          {!pathIsValid ? (
+            <tr>
+              <td colSpan={columnCount}>Invalid path: &ldquo;{path}&rdquo;.</td>
+            </tr>
+          ) : flatTokens.length ? (
+            flatTokens.map(({ deprecated, description, path: tokenPath, type, value }) => (
               <DesignTokensTableRow
                 deprecated={deprecated}
                 description={showDescriptions ? description : undefined}
-                key={path}
-                name={path}
+                key={tokenPath}
+                name={tokenPath}
                 type={type}
                 value={value}
               />
