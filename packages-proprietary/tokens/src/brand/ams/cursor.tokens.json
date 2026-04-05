@@ -3,7 +3,6 @@
     "cursor": {
       "disabled": {
         "$value": "not-allowed",
-        "$description": "Interactive elements that are disabled.",
         "$extensions": {
           "nl.amsterdam.type": "cursor"
         }
