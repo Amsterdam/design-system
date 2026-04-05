@@ -17,6 +17,7 @@ import { TypographySample } from '../TypographySample/TypographySample'
 type DesignTokensTableRowProps = {
   deprecated?: string
   description?: string
+  hideExamples?: boolean
   name: string
   showDescriptions?: boolean
   type?: string
@@ -34,6 +35,7 @@ type DesignTokensTableRowProps = {
 export const DesignTokensTableRow = ({
   deprecated,
   description,
+  hideExamples,
   name,
   showDescriptions,
   type,
@@ -50,18 +52,20 @@ export const DesignTokensTableRow = ({
       <Code>{value}</Code>
     </td>
     {showDescriptions && <td>{description}</td>}
-    <td>
-      {type === 'aspectRatio' && <AspectRatioSample value={value} />}
-      {type === 'borderStyle' && <BorderSample lineStyle={value} />}
-      {type === 'borderWidth' && <BorderSample width={value} />}
-      {type === 'color' && <ColorSample value={value} />}
-      {type === 'fontFamily' && <TypographySample fontFamily={value} />}
-      {type === 'fontSize' && <TypographySample fontSize={value} />}
-      {type === 'fontWeight' && <TypographySample fontWeight={value} />}
-      {type === 'lineHeight' && <TypographySample lineHeight={value} />}
-      {type === 'shadow' && <ShadowSample value={value} />}
-      {type === 'space' && <SpaceSample value={value} />}
-    </td>
+    {!hideExamples && (
+      <td>
+        {type === 'aspectRatio' && <AspectRatioSample value={value} />}
+        {type === 'borderStyle' && <BorderSample lineStyle={value} />}
+        {type === 'borderWidth' && <BorderSample width={value} />}
+        {type === 'color' && <ColorSample value={value} />}
+        {type === 'fontFamily' && <TypographySample fontFamily={value} />}
+        {type === 'fontSize' && <TypographySample fontSize={value} />}
+        {type === 'fontWeight' && <TypographySample fontWeight={value} />}
+        {type === 'lineHeight' && <TypographySample lineHeight={value} />}
+        {type === 'shadow' && <ShadowSample value={value} />}
+        {type === 'space' && <SpaceSample value={value} />}
+      </td>
+    )}
   </tr>
 )
 

@@ -16,6 +16,8 @@ import { flattenTokens } from './flattenTokens'
 type DesignTokensTableRootProps = {
   /** Keys to omit from the (optionally path-narrowed) token group. */
   exclude?: string[]
+  /** Whether to hide the Example column entirely. */
+  hideExamples?: boolean
   /** Dot-separated path to a subtree, e.g. `"ams.inputs.hover"`. The path segments become the CSS variable prefix so that full names are preserved. */
   path?: string
   /** Whether to show a Description column populated from the `$description` field. */
@@ -31,6 +33,7 @@ type DesignTokensTableRootProps = {
 const DesignTokensTableRoot = ({
   className,
   exclude,
+  hideExamples,
   path,
   showDescriptions,
   tokens,
@@ -64,7 +67,7 @@ const DesignTokensTableRoot = ({
   }
 
   const flatTokens = pathIsValid ? flattenTokens(subtree, pathSegments, inheritedType) : []
-  const columnCount = showDescriptions ? 4 : 3
+  const columnCount = 2 + (showDescriptions ? 1 : 0) + (hideExamples ? 0 : 1)
 
   return (
     <div {...restProps} className={clsx('_ams-design-tokens-table', className)}>
@@ -74,7 +77,7 @@ const DesignTokensTableRoot = ({
             <th>CSS variable</th>
             <th>Value</th>
             {showDescriptions && <th>Description</th>}
-            <th>Example</th>
+            {!hideExamples && <th>Example</th>}
           </tr>
         </thead>
         <tbody>
@@ -87,6 +90,7 @@ const DesignTokensTableRoot = ({
               <DesignTokensTableRow
                 deprecated={deprecated}
                 description={description}
+                hideExamples={hideExamples}
                 key={tokenPath}
                 name={tokenPath}
                 showDescriptions={showDescriptions}
