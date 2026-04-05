@@ -18,6 +18,7 @@ type DesignTokensTableRowProps = {
   deprecated?: string
   description?: string
   name: string
+  showDescriptions?: boolean
   type?: string
   value: string
 }
@@ -30,7 +31,14 @@ type DesignTokensTableRowProps = {
  * Rows with an unrecognised or absent `type` show no example.
  * Deprecated tokens show a yellow warning icon with the deprecation message as a tooltip.
  */
-export const DesignTokensTableRow = ({ deprecated, description, name, type, value }: DesignTokensTableRowProps) => (
+export const DesignTokensTableRow = ({
+  deprecated,
+  description,
+  name,
+  showDescriptions,
+  type,
+  value,
+}: DesignTokensTableRowProps) => (
   <tr>
     <td>
       <Code>var({name})</Code>
@@ -41,7 +49,7 @@ export const DesignTokensTableRow = ({ deprecated, description, name, type, valu
     <td>
       <Code>{value}</Code>
     </td>
-    {description !== undefined && <td>{description}</td>}
+    {showDescriptions && <td>{description}</td>}
     <td>
       {type === 'aspectRatio' && <AspectRatioSample value={value} />}
       {type === 'borderStyle' && <BorderSample lineStyle={value} />}

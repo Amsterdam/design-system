@@ -86,9 +86,10 @@ const DesignTokensTableRoot = ({
             flatTokens.map(({ deprecated, description, path: tokenPath, type, value }) => (
               <DesignTokensTableRow
                 deprecated={deprecated}
-                description={showDescriptions ? description : undefined}
+                description={description}
                 key={tokenPath}
                 name={tokenPath}
+                showDescriptions={showDescriptions}
                 type={type}
                 value={value}
               />
