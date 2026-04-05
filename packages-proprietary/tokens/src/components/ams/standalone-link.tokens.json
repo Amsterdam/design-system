@@ -48,7 +48,10 @@
       },
       "text-decoration-thickness": {
         "$value": "{ams.links.text-decoration-thickness}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space"
+        }
       },
       "text-underline-offset": {
         "$value": "{ams.links.text-underline-offset}",
@@ -71,7 +74,10 @@
         "text-decoration-thickness": {
           "$deprecated": "Use `ams.standalone-link.text-decoration-thickness` instead. Will be removed in release 4.0.0.",
           "$value": "{ams.links.hover.text-decoration-thickness}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
         },
         "text-underline-offset": {
           "$deprecated": "Use `ams.standalone-link.text-underline-offset` instead. Will be removed in release 4.0.0.",
@@ -93,7 +99,10 @@
         "text-decoration-thickness": {
           "$deprecated": "Use `ams.standalone-link.text-decoration-thickness` instead. Will be removed in release 4.0.0.",
           "$value": "{ams.links.text-decoration-thickness}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
         },
         "hover": {
           "text-decoration-line": {

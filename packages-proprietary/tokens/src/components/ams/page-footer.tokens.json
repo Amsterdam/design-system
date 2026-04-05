@@ -93,7 +93,10 @@
           },
           "text-decoration-thickness": {
             "$value": "{ams.links.text-decoration-thickness}",
-            "$type": "dimension"
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
           },
           "text-underline-offset": {
             "$value": "{ams.links.text-underline-offset}",

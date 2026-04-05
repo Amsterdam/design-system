@@ -14,7 +14,8 @@
         "$type": "dimension",
         "$description": "2px equivalent.",
         "$extensions": {
-          "nl.amsterdam.hint": "2px"
+          "nl.amsterdam.hint": "2px",
+          "nl.amsterdam.subtype": "space"
         }
       },
       "text-underline-offset": {
@@ -43,7 +44,8 @@
           "$type": "dimension",
           "$description": "3px equivalent.",
           "$extensions": {
-            "nl.amsterdam.hint": "3px"
+            "nl.amsterdam.hint": "3px",
+            "nl.amsterdam.subtype": "space"
           }
         },
         "text-underline-offset": {

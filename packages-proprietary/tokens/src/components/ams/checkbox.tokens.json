@@ -48,7 +48,10 @@
       },
       "text-decoration-thickness": {
         "$value": "{ams.links.text-decoration-thickness}",
-        "$type": "dimension"
+        "$type": "dimension",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space"
+        }
       },
       "text-underline-offset": {
         "$value": "{ams.links.text-underline-offset}",
@@ -83,7 +86,10 @@
         "text-decoration-thickness": {
           "$deprecated": "Use `ams.checkbox.text-decoration-thickness` instead. Will be removed in release 4.0.0.",
           "$value": "{ams.border.width.m}",
-          "$type": "dimension"
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
         }
       },
       "checked-indicator": {
