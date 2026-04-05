@@ -21,7 +21,7 @@ import { transformTypes } from 'style-dictionary/enums'
  * @see {@link https://www.designtokens.org/TR/2025.10/format/#font-family} DTCG fontFamily spec
  */
 export const dtcgFontFamily = {
-  filter: (token) => Array.isArray(token.$value ?? token.value),
+  filter: (token) => (token.$type ?? token.type) === 'fontFamily' && Array.isArray(token.$value ?? token.value),
   name: 'dtcg/fontFamily',
   transform: (token) => {
     const value = token.$value ?? token.value
