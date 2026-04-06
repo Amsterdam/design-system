@@ -41,7 +41,7 @@
     "@storybook/react-vite": "10.3.4",
     "@types/react": "18.3.28",
     "@vitejs/plugin-react": "5.2.0",
-    "chromatic": "16.0.0",
+    "chromatic": "16.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "remark-gfm": "4.0.1",
