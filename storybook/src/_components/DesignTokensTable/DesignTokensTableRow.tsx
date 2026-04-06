@@ -45,7 +45,11 @@ export const DesignTokensTableRow = ({
     <td>
       <Code>var({name})</Code>
       {deprecated && (
-        <Icon className="_ams-design-tokens-table__deprecated-icon" svg={WarningIcon} title={deprecated} />
+        <Icon
+          className="_ams-design-tokens-table__deprecated-icon"
+          svg={WarningIcon}
+          title={`Deprecated. ${deprecated}`}
+        />
       )}
     </td>
     <td>
