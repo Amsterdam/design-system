@@ -20,13 +20,17 @@ export type ProgressListStepProps = {
   /**
    * Whether the content is initially collapsed.
    * Defaults to `true` when `status` is `'completed'`, and `false` otherwise.
+   * Ignored if `collapsible` is `false`.
    */
   defaultCollapsed?: boolean
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
   hasSubsteps?: boolean
   /** The heading text for this step. */
   heading: string
-  /** Callback fired when the step is expanded or collapsed. Receives the new expanded state. */
+  /**
+   * Callback fired when the step is expanded or collapsed. Receives the new expanded state.
+   * Ignored if `collapsible` is `false`.
+   */
   onToggle?: (expanded: boolean) => void
   /** The current progress state of the step. */
   status?: 'current' | 'completed'
@@ -46,7 +50,7 @@ export const ProgressListStep = forwardRef(
     }: ProgressListStepProps,
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
-    const { headingLevel } = useContext(ProgressListContext)
+    const { collapsible, headingLevel } = useContext(ProgressListContext)
     const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed ?? status === 'completed')
 
     const iconSize = `heading-${headingLevel}` as IconProps['size']
@@ -58,7 +62,7 @@ export const ProgressListStep = forwardRef(
         className={clsx(
           className,
           'ams-progress-list__step',
-          isCollapsed && 'ams-progress-list__step--collapsed',
+          collapsible && isCollapsed && 'ams-progress-list__step--collapsed',
           hasSubsteps && 'ams-progress-list__step--has-substeps',
           status && `ams-progress-list__step--${status}`,
         )}
@@ -75,23 +79,30 @@ export const ProgressListStep = forwardRef(
         </div>
         <div className="ams-progress-list__content">
           <Heading className="ams-progress-list__heading" level={headingLevel}>
-            <button
-              aria-controls={panelId}
-              aria-expanded={!isCollapsed}
-              className="ams-progress-list__button"
-              onClick={() => {
-                const next = !isCollapsed
-                setIsCollapsed(next)
-                onToggle?.(!next)
-              }}
-              type="button"
-            >
-              <Icon className="ams-progress-list__icon" size={iconSize} svg={ChevronDownIcon} />
-              <AccessibleStatusText status={status} />
-              {heading}
-            </button>
+            {collapsible ? (
+              <button
+                aria-controls={panelId}
+                aria-expanded={!isCollapsed}
+                className="ams-progress-list__button"
+                onClick={() => {
+                  const next = !isCollapsed
+                  setIsCollapsed(next)
+                  onToggle?.(!next)
+                }}
+                type="button"
+              >
+                <Icon className="ams-progress-list__icon" size={iconSize} svg={ChevronDownIcon} />
+                <AccessibleStatusText status={status} />
+                {heading}
+              </button>
+            ) : (
+              <>
+                <AccessibleStatusText status={status} />
+                {heading}
+              </>
+            )}
           </Heading>
-          <div className="ams-progress-list__panel" id={panelId}>
+          <div className="ams-progress-list__panel" id={collapsible ? panelId : undefined}>
             {children}
           </div>
         </div>

@@ -423,6 +423,58 @@ describe('ProgressListStep', () => {
     expect(ref.current).toBe(step)
   })
 
+  it('does not render a button when collapsible is false', () => {
+    render(
+      <ProgressList collapsible={false} headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 3, name: 'Test Step' })).toBeInTheDocument()
+  })
+
+  it('does not render the chevron icon when collapsible is false', () => {
+    const { container } = render(
+      <ProgressList collapsible={false} headingLevel={3}>
+        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const heading = container.querySelector('.ams-progress-list__heading')
+    const icon = heading?.querySelector('.ams-progress-list__icon')
+
+    expect(icon).not.toBeInTheDocument()
+  })
+
+  it('always shows content when collapsible is false, even for completed steps', () => {
+    render(
+      <ProgressList collapsible={false} headingLevel={3}>
+        <ProgressList.Step heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('ignores defaultCollapsed when collapsible is false', () => {
+    render(
+      <ProgressList collapsible={false} headingLevel={3}>
+        <ProgressList.Step defaultCollapsed heading="Test Step">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+  })
+
   it('passes additional props', () => {
     render(<ProgressList.Step aria-hidden="false" data-test="data-test" heading="test step" id="id" />)
 

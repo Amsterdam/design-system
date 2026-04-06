@@ -122,6 +122,43 @@ export const Test: Story = {
           <p>This step is expanded by default.</p>
         </ProgressList.Step>
       </ProgressList>
+
+      {/* Not collapsible: no buttons, no chevrons, all content visible */}
+      <ProgressList collapsible={false} headingLevel={3}>
+        <ProgressList.Step heading="Completed" status="completed">
+          <p>This completed step is always visible.</p>
+        </ProgressList.Step>
+        <ProgressList.Step heading="Current" status="current">
+          <p>This current step is always visible.</p>
+        </ProgressList.Step>
+        <ProgressList.Step heading="Upcoming">
+          <p>This upcoming step is always visible.</p>
+        </ProgressList.Step>
+      </ProgressList>
+
+      {/* Not collapsible with substeps */}
+      <ProgressList collapsible={false} headingLevel={3}>
+        <ProgressList.Step heading="Completed" status="completed">
+          <p>Content for completed step.</p>
+        </ProgressList.Step>
+        <ProgressList.Step hasSubsteps heading="Current" status="current">
+          <p>Content for current step.</p>
+          <ProgressList.Substeps>
+            <ProgressList.Substep status="completed">
+              <p>Substep one</p>
+            </ProgressList.Substep>
+            <ProgressList.Substep status="current">
+              <p>Substep two</p>
+            </ProgressList.Substep>
+            <ProgressList.Substep>
+              <p>Substep three</p>
+            </ProgressList.Substep>
+          </ProgressList.Substeps>
+        </ProgressList.Step>
+        <ProgressList.Step heading="Upcoming">
+          <p>Content for upcoming step.</p>
+        </ProgressList.Step>
+      </ProgressList>
     </div>
   ),
   tags: ['!dev', '!autodocs'],

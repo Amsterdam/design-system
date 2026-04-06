@@ -20,6 +20,11 @@ type ProgressListHeadingLevel = (typeof progressListHeadingLevels)[number]
 
 export type ProgressListProps = {
   /**
+   * Whether the steps can be expanded and collapsed.
+   * @default true
+   */
+  collapsible?: boolean
+  /**
    * An accessible phrase that screen readers announce before a completed step heading.
    * @default Klaar
    */
@@ -41,6 +46,7 @@ const ProgressListRoot = forwardRef(
     {
       children,
       className,
+      collapsible = true,
       completedAccessibleText,
       currentAccessibleText,
       headingLevel,
@@ -60,6 +66,7 @@ const ProgressListRoot = forwardRef(
     return (
       <ProgressListContext.Provider
         value={{
+          collapsible,
           completedAccessibleText: completedAccessibleText ?? 'Klaar',
           currentAccessibleText: currentAccessibleText ?? 'Bezig',
           headingLevel,
@@ -68,7 +75,7 @@ const ProgressListRoot = forwardRef(
         <ol
           {...restProps}
           className={clsx('ams-progress-list', `ams-progress-list--heading-${headingLevel}`, className)}
-          onKeyDown={keyDown}
+          onKeyDown={collapsible ? keyDown : undefined}
           ref={innerRef}
         >
           {children}

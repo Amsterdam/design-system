@@ -6,7 +6,7 @@
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { ProgressList, progressListHeadingLevels } from './ProgressList'
 
@@ -124,6 +124,44 @@ describe('ProgressList', () => {
     await user.keyboard('{ArrowDown}')
 
     expect(firstButton).toHaveFocus()
+  })
+
+  it('does not render buttons when collapsible is false', () => {
+    render(
+      <ProgressList collapsible={false} headingLevel={3}>
+        <ProgressList.Step heading="one">Content</ProgressList.Step>
+        <ProgressList.Step heading="two">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+  })
+
+  it('does not handle keyboard navigation when collapsible is false', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <ProgressList collapsible={false} headingLevel={3}>
+        <ProgressList.Step heading="one">Content</ProgressList.Step>
+        <ProgressList.Step heading="two">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const list = screen.getByRole('list')
+    const onKeyDown = vi.fn()
+
+    list.addEventListener('keydown', onKeyDown)
+    list.focus()
+
+    await user.keyboard('{ArrowDown}')
+    await user.keyboard('{ArrowUp}')
+    await user.keyboard('{Home}')
+    await user.keyboard('{End}')
+
+    // Events fire on the element, but none are intercepted (no preventDefault called)
+    for (const call of onKeyDown.mock.calls) {
+      expect(call[0].defaultPrevented).toBe(false)
+    }
   })
 
   it('passes additional props', () => {
