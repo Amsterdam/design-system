@@ -1,0 +1,92 @@
+import{n as e}from"./chunk-BneVvdWh.js";import{At as t}from"./iframe-DTXPeajc.js";import{r as n}from"./react-OE4kQLOb.js";import{c as r,f as i,i as a,l as o,n as s,s as c}from"./blocks-XcQ6UL21.js";import{n as l,t as u}from"./DesignTokensTable-DtExseK-.js";import{t as d}from"./mdx-react-shim-CgwLEPcv.js";import{BackgroundInCompactMode as f,ImproveSemantics as p,SpanAllColumns as m,SpanColumns as h,SpanResponsively as g,StartPosition as _,VerticalGap as v,VerticalPadding as y,n as b,t as x}from"./Grid.stories-BVkZbYFS.js";var S,C=e((()=>{S=`<!-- @license CC0-1.0 -->
+
+# Grid
+
+Divides the screen into columns to align the elements of a page.
+
+## Guidelines
+
+- Every page uses the Grid component as the foundation for its layout.
+  It is a direct child of the [Page](/docs/components-containers-page--docs) container.
+- The Grid provides 4, 8, or 12 columns, depending on the width of the window.
+- Its children are \`Grid.Cell\` components that define how many columns they span, and optionally where they start.
+  Both its \`span\` and \`start\` properties accept a single value, or separate values for the narrow, medium and wide variations of the Grid.
+  Follow these [optimal sizes of Grid Cells](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells) for various typical page sections.
+- A single page can have several Grids.
+  This allows mixing a Grid with a [Spotlight](/docs/components-containers-spotlight--docs), [Breakout](/docs/components-layout-breakout--docs) or full width [Image](/docs/components-media-image--docs) which ‘bleed out’ of the main layout.
+- Grids must not be nested.
+  The component is currently intended for the full width of the page only.
+- The Gap utility classes must not be used on the Grid component.
+
+## Design
+
+The [design choices](/docs/docs-developer-guide-grid--docs) are described in the Developer Guide.
+`})),w,T,E=e((()=>{w={grid:{"column-count":{$value:`4`},"column-gap":{$value:`{ams.space.xl}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},"padding-block":{l:{$value:`{ams.space.l}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},xl:{$value:`{ams.space.xl}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},"2xl":{$value:`{ams.space.2xl}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}}},"padding-inline":{$value:`{ams.space.l}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},"row-gap":{l:{$value:`{ams.space.l}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},xl:{$value:`{ams.space.xl}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},"2xl":{$value:`{ams.space.2xl}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}}},medium:{"column-count":{$value:`8`},"padding-inline":{$value:`{ams.space.xl}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}}},wide:{"column-count":{$value:`12`},"padding-inline":{$value:`{ams.space.2xl}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}}},cell:{"background-color":{$value:`initial`},"padding-block":{$value:`initial`},"padding-inline":{$value:`initial`}}}},T={ams:w}}));function D(e){let t={a:`a`,code:`code`,h2:`h2`,h3:`h3`,li:`li`,p:`p`,strong:`strong`,ul:`ul`,...n(),...e.components};return(0,k.jsxs)(k.Fragment,{children:[`
+`,`
+`,`
+`,`
+`,(0,k.jsx)(r,{of:x}),`
+`,(0,k.jsx)(c,{children:S}),`
+`,(0,k.jsx)(o,{}),`
+`,(0,k.jsx)(a,{}),`
+`,(0,k.jsx)(t.h2,{id:`examples`,children:`Examples`}),`
+`,(0,k.jsx)(t.p,{children:`The grey strokes in the examples on this page indicate the columns of the grid.
+The gaps between the columns are white – note that they can be wider than the columns.
+Pink boxes represent cells on the grid.
+In Compact Mode, the page background is light grey.`}),`
+`,(0,k.jsx)(t.h3,{id:`vertical-padding`,children:`Vertical padding`}),`
+`,(0,k.jsxs)(t.p,{children:[`Add white space above and below the grid through the `,(0,k.jsx)(t.code,{children:`padding…`}),` props.
+Their options match the design tokens for `,(0,k.jsx)(t.a,{href:`/docs/brand-design-tokens-space--docs`,children:`Space`}),`.
+This is useful in a container with a coloured background, like `,(0,k.jsx)(t.a,{href:`/docs/components-containers-page-footer--docs`,children:`Page Footer`}),` or `,(0,k.jsx)(t.a,{href:`/docs/components-containers-spotlight--docs`,children:`Spotlight`}),`, or between two consecutive grids.
+Specify a value of `,(0,k.jsx)(t.code,{children:`x-large`}),` to get the same size as the vertical gap between columns.
+Like the other features of the grid, this padding is responsive.`]}),`
+`,(0,k.jsx)(s,{of:y}),`
+`,(0,k.jsx)(t.h3,{id:`vertical-gap`,children:`Vertical gap`}),`
+`,(0,k.jsxs)(t.p,{children:[`A grid automatically creates a new row if the next cell doesn’t fit the current one.
+White space between rows is as wide as that between columns, which is `,(0,k.jsx)(t.code,{children:`x-large`}),`.
+Use the `,(0,k.jsx)(t.code,{children:`verticalGap`}),` prop to adjust to remove it.
+Its options match the design tokens for `,(0,k.jsx)(t.a,{href:`/docs/brand-design-tokens-space--docs`,children:`Space`}),`.`]}),`
+`,(0,k.jsx)(s,{of:v}),`
+`,(0,k.jsx)(t.h3,{id:`span-columns`,children:`Span columns`}),`
+`,(0,k.jsxs)(t.p,{children:[`A cell defaults to spanning 1 column in the grid.
+Use the `,(0,k.jsx)(t.code,{children:`span`}),` prop to make a cell span more columns.`]}),`
+`,(0,k.jsx)(s,{of:h}),`
+`,(0,k.jsx)(t.h3,{id:`span-responsively`,children:`Span responsively`}),`
+`,(0,k.jsxs)(t.p,{children:[`You can make the number of columns a cell spans depend on the window width.
+Use the `,(0,k.jsx)(t.code,{children:`span`}),` prop with 3 values for narrow, medium, and wide windows.
+E.g. `,(0,k.jsx)(t.code,{children:`span={{ narrow: 4, medium: 5, wide: 7 }}`}),` makes the cell span all 4 columns on narrow windows, 5 of the 8 on medium windows, and 7 of the 12 on wide windows.`]}),`
+`,(0,k.jsx)(s,{of:g}),`
+`,(0,k.jsx)(t.h3,{id:`span-all-columns`,children:`Span all columns`}),`
+`,(0,k.jsxs)(t.p,{children:[`To stretch the cell to all columns of the grid – whether that are 4, 8, or 12 – use `,(0,k.jsx)(t.code,{children:`span="all"`}),`.`]}),`
+`,(0,k.jsx)(s,{of:m}),`
+`,(0,k.jsx)(t.h3,{id:`start-position`,children:`Start position`}),`
+`,(0,k.jsxs)(t.p,{children:[`Each cell automatically starts in the next available position in the grid.
+Adjust the starting position of a cell with the `,(0,k.jsx)(t.code,{children:`start`}),` prop.
+This way, you can align cells in multiple rows or center a cell horizontally.
+It can also skip a column for more white space between cells.`]}),`
+`,(0,k.jsxs)(t.p,{children:[`The starting position of a cell may also depend on the window width.
+Use the `,(0,k.jsx)(t.code,{children:`start`}),` prop with 3 values, e.g. `,(0,k.jsx)(t.code,{children:`start={{ narrow: 2, medium: 4, wide: 6 }}`}),`.`]}),`
+`,(0,k.jsx)(s,{of:_}),`
+`,(0,k.jsx)(t.h3,{id:`background-in-compact-mode`,children:`Background in Compact Mode`}),`
+`,(0,k.jsx)(t.p,{children:`In Compact Mode, the page background is light grey.
+Grid cells have a white background and padding to stand out against it,
+because the tight spacing doesn't distinguish them enough on its own.`}),`
+`,(0,k.jsxs)(t.p,{children:[`Use the `,(0,k.jsx)(t.code,{children:`transparent`}),` appearance to let a cell blend into the page background instead.
+This also removes the padding.`]}),`
+`,(0,k.jsxs)(t.p,{children:[`In Spacious Mode, the large spacing between cells is enough to tell them apart, so cells are always transparent and without padding.
+The `,(0,k.jsx)(t.code,{children:`appearance`}),` prop has no effect there.`]}),`
+`,(0,k.jsxs)(t.p,{children:[(0,k.jsx)(t.strong,{children:`Note`}),`: that’s why this example appears best with the ‘Compact theme’ turned on in the toolbar above.`]}),`
+`,(0,k.jsx)(s,{of:f}),`
+`,(0,k.jsx)(t.h3,{id:`improve-semantics`,children:`Improve semantics`}),`
+`,(0,k.jsxs)(t.p,{children:[`By default, both Grid and Grid Cell render a `,(0,k.jsx)(t.code,{children:`<div>`}),` element in HTML.
+Use the `,(0,k.jsx)(t.code,{children:`as`}),` prop on either to make your markup more semantic.`]}),`
+`,(0,k.jsx)(s,{of:p}),`
+`,(0,k.jsx)(t.h2,{id:`caution`,children:`Caution`}),`
+`,(0,k.jsxs)(t.ul,{children:[`
+`,(0,k.jsx)(t.li,{children:`Ensure that the number of columns you assign to a cell matches the amount of columns in the grid for the respective window width.`}),`
+`,(0,k.jsx)(t.li,{children:`The same applies to starting a cell in a later column.`}),`
+`,(0,k.jsx)(t.li,{children:`If the total of both values is too large, the browser adds columns to the grid.
+This is not allowed.`}),`
+`]}),`
+`,(0,k.jsx)(t.h2,{id:`design-tokens`,children:`Design tokens`}),`
+`,(0,k.jsx)(u,{tokens:T})]})}function O(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,k.jsx)(t,{...e,children:(0,k.jsx)(D,{...e})}):D(e)}var k;e((()=>{k=t(),d(),i(),b(),C(),E(),l()}))();export{O as default};
