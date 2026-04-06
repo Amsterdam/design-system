@@ -2,7 +2,7 @@
   "ams": {
     "grid": {
       "column-count": {
-        "$value": "4",
+        "$value": 4,
         "$type": "number"
       },
       "column-gap": {
@@ -67,7 +67,7 @@
       },
       "medium": {
         "column-count": {
-          "$value": "8",
+          "$value": 8,
           "$type": "number"
         },
         "padding-inline": {
@@ -80,7 +80,7 @@
       },
       "wide": {
         "column-count": {
-          "$value": "12",
+          "$value": 12,
           "$type": "number"
         },
         "padding-inline": {

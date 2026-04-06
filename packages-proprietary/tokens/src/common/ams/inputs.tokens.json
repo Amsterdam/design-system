@@ -42,7 +42,7 @@
         "$type": "fontWeight"
       },
       "line-height": {
-        "$value": "1.4",
+        "$value": 1.4,
         "$description": "Tighter than body text (1.6) to keep inputs compact. Buttons also use this to match.",
         "$extensions": {
           "nl.amsterdam.subtype": "lineHeight"
