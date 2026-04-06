@@ -31,4 +31,12 @@ describe('isDimensionValue', () => {
   it('returns false for an object missing value', () => {
     expect(isDimensionValue({ unit: 'px' })).toBe(false)
   })
+
+  it('returns false when value is a string instead of a number', () => {
+    expect(isDimensionValue({ unit: 'px', value: '16' })).toBe(false)
+  })
+
+  it('returns false when unit is a number instead of a string', () => {
+    expect(isDimensionValue({ unit: 1, value: 16 })).toBe(false)
+  })
 })
