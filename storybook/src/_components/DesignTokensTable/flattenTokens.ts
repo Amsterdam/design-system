@@ -38,7 +38,9 @@ export const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedTyp
       // Combine unit and value into a single string e.g. "1rem"
       let normalizedValue = ''
 
-      if (typeof $value === 'string') {
+      if (typeof $value === 'number') {
+        normalizedValue = String($value)
+      } else if (typeof $value === 'string') {
         normalizedValue = $value
       } else if (Array.isArray($value)) {
         normalizedValue = $value.map((name) => (name.includes(' ') ? `'${name}'` : name)).join(', ')
