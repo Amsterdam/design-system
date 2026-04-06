@@ -43,7 +43,7 @@ export type Token = {
   /** The DTCG type of the token, e.g. `'color'`, `'dimension'`, or `'shadow'`. */
   $type?: string
   /** The resolved value of the token. */
-  $value: DimensionValue | ShadowValue | string | string[]
+  $value: DimensionValue | ShadowValue | number | string | string[]
 }
 
 /** A nested tree of design tokens, where leaf nodes are `Token` objects. Groups may carry a `$type` that descendants inherit. */
