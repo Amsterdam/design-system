@@ -6264,7 +6264,7 @@ This ensures the colour of the text provides enough contrast.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> DesignTokensTable</h2>
       <div class="badges">
-        <label for="c-25-components-docs-design-tokens-table-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-25-components-docs-design-tokens-table-props" class="badge ok as-toggle">5 prop types</label>
         <label for="c-25-components-docs-design-tokens-table-info" class="badge info as-toggle">1 info</label>
         <label for="c-25-components-docs-design-tokens-table-stories" class="badge ok as-toggle">3 stories</label>
         
@@ -6298,7 +6298,7 @@ This ensures the colour of the text provides enough contrast.
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen-typescript)</small></span>
-              <span class="badge ok">4 prop types</span>
+              <span class="badge ok">5 prop types</span>
             </div>
             <pre><code>Component: src/_components/DesignTokensTable/DesignTokensTable.tsx::DesignTokensTable</code></pre>
             <pre><code>Props:</code></pre>
@@ -6306,6 +6306,11 @@ This ensures the colour of the text provides enough contrast.
  * Keys to omit from the (optionally path-narrowed) token group.
  */
 exclude?: string[]
+
+/**
+ * Whether to hide the Example column entirely.
+ */
+hideExamples?: boolean
 
 /**
  * Dot-separated path to a subtree, e.g. `&quot;ams.inputs.hover&quot;`. The path segments become the CSS variable prefix so that full names are preserved.
@@ -50798,7 +50803,7 @@ import tokens from &quot;../../../../packages-proprietary/tokens/src/brand/ams/c
 
 [Interactive elements](/docs/docs-developer-guide-interactivity--docs) that do not have a cursor style, such as buttons, should use one of these `cursor` values.
 
-&lt;DesignTokensTable path=&quot;ams.cursor&quot; showDescriptions tokens={tokens} /&gt;
+&lt;DesignTokensTable hideExamples path=&quot;ams.cursor&quot; showDescriptions tokens={tokens} /&gt;
 </code></pre>
           </div>
         </div>
@@ -50991,19 +50996,19 @@ Subtle links are used in places where the context helps indicate that the text i
 For instance, in the Page Header or Pagination components.
 As a result, their styling can be less obvious.
 
-&lt;DesignTokensTable path=&quot;ams.links.subtle&quot; showDescriptions tokens={tokens} /&gt;
+&lt;DesignTokensTable hideExamples path=&quot;ams.links.subtle&quot; tokens={tokens} /&gt;
 
 ## Contrast
 
 Links on light (but not white) backgrounds use the interactive contrast colour.
 
-&lt;DesignTokensTable path=&quot;ams.links.contrast&quot; showDescriptions tokens={tokens} /&gt;
+&lt;DesignTokensTable path=&quot;ams.links.contrast&quot; tokens={tokens} /&gt;
 
 ## Inverse
 
 On dark backgrounds, links have the inverse colour.
 
-&lt;DesignTokensTable path=&quot;ams.links.inverse&quot; showDescriptions tokens={tokens} /&gt;
+&lt;DesignTokensTable path=&quot;ams.links.inverse&quot; tokens={tokens} /&gt;
 
 ## How to use
 
