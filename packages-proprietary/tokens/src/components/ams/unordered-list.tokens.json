@@ -35,7 +35,9 @@
       },
       "list-style-type": {
         "$value": "'\\2022'",
-        "$type": "fontFamily"
+        "$extensions": {
+          "nl.amsterdam.type": "listStyleType"
+        }
       },
       "inverse": {
         "color": {
@@ -91,7 +93,9 @@
         },
         "list-style-type": {
           "$value": "'\\2013'",
-          "$type": "fontFamily"
+          "$extensions": {
+            "nl.amsterdam.type": "listStyleType"
+          }
         },
         "padding-block-end": {
           "$value": "{ams.space.s}",
