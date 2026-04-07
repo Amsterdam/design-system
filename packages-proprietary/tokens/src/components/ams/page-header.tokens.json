@@ -1,6 +1,10 @@
 {
   "ams": {
     "page-header": {
+      "background-color": {
+        "$value": "{ams.color.background.default}",
+        "$type": "color"
+      },
       "font-family": {
         "$value": "{ams.typography.font-family}",
         "$type": "fontFamily"

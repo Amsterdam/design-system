@@ -2,8 +2,14 @@
   "ams": {
     "color": {
       "background": {
-        "$value": "#ffffff",
-        "$type": "color"
+        "body": {
+          "$value": "#ffffff",
+          "$type": "color"
+        },
+        "default": {
+          "$value": "#ffffff",
+          "$type": "color"
+        }
       },
       "feedback": {
         "error": {
