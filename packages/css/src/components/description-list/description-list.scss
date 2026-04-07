@@ -20,37 +20,79 @@
   @include text-rendering;
 }
 
-@media (min-width: $ams-breakpoint-medium) {
-  .ams-description-list,
-  .ams-description-list__section {
-    align-items: start;
-    column-gap: var(--ams-description-list-column-gap, var(--ams-description-list-vi-medium-column-gap));
-    display: grid;
-    grid-template-columns: auto 1fr;
+@supports not (container-type: inline-size) {
+  @media (min-width: $ams-breakpoint-medium) {
+    .ams-description-list,
+    .ams-description-list__section {
+      align-items: start;
+      column-gap: var(--ams-description-list-column-gap, var(--ams-description-list-vi-medium-column-gap));
+      display: grid;
+      grid-template-columns: auto 1fr;
+    }
+
+    .ams-description-list--narrow,
+    .ams-description-list--narrow .ams-description-list__section {
+      grid-template-columns: var(
+        --ams-description-list-narrow-grid-template-columns,
+        var(--ams-description-list-vi-medium-narrow-grid-template-columns)
+      );
+    }
+
+    .ams-description-list--medium,
+    .ams-description-list--medium .ams-description-list__section {
+      grid-template-columns: var(
+        --ams-description-list-medium-grid-template-columns,
+        var(--ams-description-list-vi-medium-medium-grid-template-columns)
+      );
+    }
+
+    .ams-description-list--wide,
+    .ams-description-list--wide .ams-description-list__section {
+      grid-template-columns: var(
+        --ams-description-list-wide-grid-template-columns,
+        var(--ams-description-list-vi-medium-wide-grid-template-columns)
+      );
+    }
+  }
+}
+
+@supports (container-type: inline-size) {
+  .ams-description-list {
+    container-type: inline-size;
   }
 
-  .ams-description-list--narrow,
-  .ams-description-list--narrow .ams-description-list__section {
-    grid-template-columns: var(
-      --ams-description-list-narrow-grid-template-columns,
-      var(--ams-description-list-vi-medium-narrow-grid-template-columns)
-    );
-  }
+  @container (min-width: $ams-breakpoint-medium) {
+    .ams-description-list,
+    .ams-description-list__section {
+      align-items: start;
+      column-gap: var(--ams-description-list-column-gap, var(--ams-description-list-vi-medium-column-gap));
+      display: grid;
+      grid-template-columns: auto 1fr;
+    }
 
-  .ams-description-list--medium,
-  .ams-description-list--medium .ams-description-list__section {
-    grid-template-columns: var(
-      --ams-description-list-medium-grid-template-columns,
-      var(--ams-description-list-vi-medium-medium-grid-template-columns)
-    );
-  }
+    .ams-description-list--narrow,
+    .ams-description-list--narrow .ams-description-list__section {
+      grid-template-columns: var(
+        --ams-description-list-narrow-grid-template-columns,
+        var(--ams-description-list-vi-medium-narrow-grid-template-columns)
+      );
+    }
 
-  .ams-description-list--wide,
-  .ams-description-list--wide .ams-description-list__section {
-    grid-template-columns: var(
-      --ams-description-list-wide-grid-template-columns,
-      var(--ams-description-list-vi-medium-wide-grid-template-columns)
-    );
+    .ams-description-list--medium,
+    .ams-description-list--medium .ams-description-list__section {
+      grid-template-columns: var(
+        --ams-description-list-medium-grid-template-columns,
+        var(--ams-description-list-vi-medium-medium-grid-template-columns)
+      );
+    }
+
+    .ams-description-list--wide,
+    .ams-description-list--wide .ams-description-list__section {
+      grid-template-columns: var(
+        --ams-description-list-wide-grid-template-columns,
+        var(--ams-description-list-vi-medium-wide-grid-template-columns)
+      );
+    }
   }
 }
 
@@ -67,27 +109,55 @@
   /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
   text-wrap: var(--ams-description-list-term-text-wrap);
 
-  @media (min-width: $ams-breakpoint-medium) {
-    grid-column-start: 1;
+  @supports not (container-type: inline-size) {
+    @media (min-width: $ams-breakpoint-medium) {
+      grid-column-start: 1;
 
-    // Add margin for Terms that are longer than their Description(s)
-    margin-block-end: var(
-      --ams-description-list-term-medium-margin-block-end,
-      var(--ams-description-list-term-vi-medium-margin-block-end)
-    );
-
-    // Add half of the difference in computed line heights to align Terms with Descriptions.
-    // - Terms use heading line heights; Descriptions use body text
-    // - Not for Terms that follow a Term, or which are the last child
-    &:not(& + &, :last-child) {
-      padding-block-start: calc(
-        (
-            var(--ams-description-list-font-size) *
-              var(--ams-description-list-line-height) - var(--ams-description-list-term-font-size) *
-              var(--ams-description-list-term-line-height)
-          ) /
-          2
+      // Add margin for Terms that are longer than their Description(s)
+      margin-block-end: var(
+        --ams-description-list-term-medium-margin-block-end,
+        var(--ams-description-list-term-vi-medium-margin-block-end)
       );
+
+      // Add half of the difference in computed line heights to align Terms with Descriptions.
+      // - Terms use heading line heights; Descriptions use body text
+      // - Not for Terms that follow a Term, or which are the last child
+      &:not(& + &, :last-child) {
+        padding-block-start: calc(
+          (
+              var(--ams-description-list-font-size) *
+                var(--ams-description-list-line-height) - var(--ams-description-list-term-font-size) *
+                var(--ams-description-list-term-line-height)
+            ) /
+            2
+        );
+      }
+    }
+  }
+
+  @supports (container-type: inline-size) {
+    @container (min-width: $ams-breakpoint-medium) {
+      grid-column-start: 1;
+
+      // Add margin for Terms that are longer than their Description(s)
+      margin-block-end: var(
+        --ams-description-list-term-medium-margin-block-end,
+        var(--ams-description-list-term-vi-medium-margin-block-end)
+      );
+
+      // Add half of the difference in computed line heights to align Terms with Descriptions.
+      // - Terms use heading line heights; Descriptions use body text
+      // - Not for Terms that follow a Term, or which are the last child
+      &:not(& + &, :last-child) {
+        padding-block-start: calc(
+          (
+              var(--ams-description-list-font-size) *
+                var(--ams-description-list-line-height) - var(--ams-description-list-term-font-size) *
+                var(--ams-description-list-term-line-height)
+            ) /
+            2
+        );
+      }
     }
   }
 
@@ -105,13 +175,27 @@
   margin-block-end: var(--ams-description-list-description-margin-block-end);
   padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
-  @media (min-width: $ams-breakpoint-medium) {
-    grid-column-start: 2;
-    padding-inline-start: 0;
+  @supports not (container-type: inline-size) {
+    @media (min-width: $ams-breakpoint-medium) {
+      grid-column-start: 2;
+      padding-inline-start: 0;
 
-    // Make sure the first Description starts at the top row
-    &:first-of-type {
-      grid-row-start: 1;
+      // Make sure the first Description starts at the top row
+      &:first-of-type {
+        grid-row-start: 1;
+      }
+    }
+  }
+
+  @supports (container-type: inline-size) {
+    @container (min-width: $ams-breakpoint-medium) {
+      grid-column-start: 2;
+      padding-inline-start: 0;
+
+      // Make sure the first Description starts at the top row
+      &:first-of-type {
+        grid-row-start: 1;
+      }
     }
   }
 }
@@ -119,12 +203,25 @@
 .ams-description-list__section {
   margin-block-end: var(--ams-description-list-section-margin-block-end);
 
-  @media (min-width: $ams-breakpoint-medium) {
-    grid-column: span 2;
+  @supports not (container-type: inline-size) {
+    @media (min-width: $ams-breakpoint-medium) {
+      grid-column: span 2;
 
-    > :only-of-type {
-      // Vertically stretch a single Term or Description
-      grid-row: 1 / 9;
+      > :only-of-type {
+        // Vertically stretch a single Term or Description
+        grid-row: 1 / 9;
+      }
+    }
+  }
+
+  @supports (container-type: inline-size) {
+    @container (min-width: $ams-breakpoint-medium) {
+      grid-column: span 2;
+
+      > :only-of-type {
+        // Vertically stretch a single Term or Description
+        grid-row: 1 / 9;
+      }
     }
   }
 }
@@ -142,10 +239,23 @@
 }
 
 @media (min-width: $ams-breakpoint-medium) {
-  .ams-description-list,
-  .ams-description-list > .ams-description-list__section:last-child {
-    > .ams-description-list__term:last-of-type {
-      margin-block-end: 0;
+  @supports not (container-type: inline-size) {
+    .ams-description-list,
+    .ams-description-list > .ams-description-list__section:last-child {
+      > .ams-description-list__term:last-of-type {
+        margin-block-end: 0;
+      }
+    }
+  }
+
+  @supports (container-type: inline-size) {
+    @container (min-width: $ams-breakpoint-medium) {
+      .ams-description-list,
+      .ams-description-list > .ams-description-list__section:last-child {
+        > .ams-description-list__term:last-of-type {
+          margin-block-end: 0;
+        }
+      }
     }
   }
 }

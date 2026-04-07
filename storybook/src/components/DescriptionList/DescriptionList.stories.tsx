@@ -113,3 +113,35 @@ export const InverseColour: Story = {
     color: 'inverse',
   },
 }
+
+export const ContainerQueries: Story = {
+  render: (args) => (
+    <div style={{ alignItems: 'flex-start', display: 'flex', gap: 'var(--ams-space-layout-xl)' }}>
+      <div
+        style={{
+          border: '1px dashed var(--ams-color-border-default)',
+          padding: 'var(--ams-space-layout-m)',
+          width: '18rem',
+        }}
+      >
+        <Paragraph className="ams-mb-s" size="small">
+          Smalle container (verticale weergave)
+        </Paragraph>
+        <DescriptionList {...args} />
+      </div>
+
+      <div
+        style={{
+          border: '1px dashed var(--ams-color-border-default)',
+          padding: 'var(--ams-space-layout-m)',
+          width: '32rem',
+        }}
+      >
+        <Paragraph className="ams-mb-s" size="small">
+          Brede container (twee kolommen)
+        </Paragraph>
+        <DescriptionList {...args} />
+      </div>
+    </div>
+  ),
+}
