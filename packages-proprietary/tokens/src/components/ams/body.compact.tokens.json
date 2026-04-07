@@ -1,0 +1,10 @@
+{
+  "ams": {
+    "body": {
+      "background-color": {
+        "$value": "{ams.color.background.body}",
+        "$type": "color"
+      }
+    }
+  }
+}

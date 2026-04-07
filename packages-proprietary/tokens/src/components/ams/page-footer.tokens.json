@@ -2,6 +2,10 @@
   "ams": {
     "page-footer": {
       "menu": {
+        "background-color": {
+          "$value": "{ams.color.background.default}",
+          "$type": "color"
+        },
         "column-gap": {
           "$value": "{ams.space.l}",
           "$type": "dimension",

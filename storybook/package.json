@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "clsx": "2.1.1",
-    "html-react-parser": "5.2.17"
+    "html-react-parser": "6.0.0"
   },
   "devDependencies": {
     "@amsterdam/design-system-assets": "workspace:*",
@@ -33,21 +33,21 @@
     "@amsterdam/design-system-tokens": "workspace:*",
     "@linus_janns/storybook-addon-html": "9.0.0",
     "@mdx-js/react": "3.1.1",
-    "@storybook/addon-a11y": "10.3.3",
-    "@storybook/addon-docs": "10.3.3",
-    "@storybook/addon-links": "10.3.3",
-    "@storybook/addon-themes": "10.3.3",
+    "@storybook/addon-a11y": "10.3.4",
+    "@storybook/addon-docs": "10.3.4",
+    "@storybook/addon-links": "10.3.4",
+    "@storybook/addon-themes": "10.3.4",
     "@storybook/mdx2-csf": "1.1.0",
-    "@storybook/react-vite": "10.3.3",
+    "@storybook/react-vite": "10.3.4",
     "@types/react": "18.3.28",
     "@vitejs/plugin-react": "5.2.0",
-    "chromatic": "16.0.0",
+    "chromatic": "16.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "remark-gfm": "4.0.1",
-    "storybook": "10.3.3",
-    "storybook-addon-pseudo-states": "10.3.3",
-    "vite": "8.0.2",
+    "storybook": "10.3.4",
+    "storybook-addon-pseudo-states": "10.3.4",
+    "vite": "8.0.3",
     "vitest": "4.1.2"
   },
   "overrides": {
