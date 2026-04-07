@@ -5,6 +5,13 @@
     "skipLibCheck": true
   },
   "extends": "../tsconfig.json",
-  "include": ["src/**/*.ts", "src/**/*.tsx", "config/**/*.ts", "config/**/*.tsx"],
+  "include": [
+    "../packages/react/src/**/*.ts",
+    "../packages/react/src/**/*.tsx",
+    "config/**/*.ts",
+    "config/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
   "exclude": ["**/node_modules/*"]
 }
