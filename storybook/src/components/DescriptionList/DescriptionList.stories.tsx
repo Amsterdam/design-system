@@ -113,3 +113,11 @@ export const InverseColour: Story = {
     color: 'inverse',
   },
 }
+
+export const NarrowContainer: Story = {
+  render: (args) => (
+    <div style={{ maxWidth: '20rem', border: '1px dotted #ccc', padding: '1rem' }}>
+      <DescriptionList {...args} />
+    </div>
+  ),
+}
