@@ -24,24 +24,33 @@
   .ams-description-list,
   .ams-description-list__section {
     align-items: start;
-    column-gap: var(--ams-description-list-column-gap);
+    column-gap: var(--ams-description-list-column-gap, var(--ams-description-list-vi-medium-column-gap));
     display: grid;
     grid-template-columns: auto 1fr;
   }
 
   .ams-description-list--narrow,
   .ams-description-list--narrow .ams-description-list__section {
-    grid-template-columns: var(--ams-description-list-narrow-grid-template-columns);
+    grid-template-columns: var(
+      --ams-description-list-narrow-grid-template-columns,
+      var(--ams-description-list-vi-medium-narrow-grid-template-columns)
+    );
   }
 
   .ams-description-list--medium,
   .ams-description-list--medium .ams-description-list__section {
-    grid-template-columns: var(--ams-description-list-medium-grid-template-columns);
+    grid-template-columns: var(
+      --ams-description-list-medium-grid-template-columns,
+      var(--ams-description-list-vi-medium-medium-grid-template-columns)
+    );
   }
 
   .ams-description-list--wide,
   .ams-description-list--wide .ams-description-list__section {
-    grid-template-columns: var(--ams-description-list-wide-grid-template-columns);
+    grid-template-columns: var(
+      --ams-description-list-wide-grid-template-columns,
+      var(--ams-description-list-vi-medium-wide-grid-template-columns)
+    );
   }
 }
 
@@ -62,7 +71,10 @@
     grid-column-start: 1;
 
     // Add margin for Terms that are longer than their Description(s)
-    margin-block-end: var(--ams-description-list-term-vi-medium-margin-block-end);
+    margin-block-end: var(
+      --ams-description-list-term-medium-margin-block-end,
+      var(--ams-description-list-term-vi-medium-margin-block-end)
+    );
 
     // Add half of the difference in computed line heights to align Terms with Descriptions.
     // - Terms use heading line heights; Descriptions use body text
