@@ -24,8 +24,8 @@
   padding-inline: calc(var(--ams-grid-padding-inline) - var(--ams-menu-link-padding-inline));
 
   @media (min-width: $ams-breakpoint-medium) {
-    margin-inline: calc(var(--ams-grid-medium-padding-inline) * -1);
-    padding-inline: var(--ams-grid-medium-padding-inline);
+    margin-inline: calc(var(--ams-grid-vi-medium-padding-inline) * -1);
+    padding-inline: var(--ams-grid-vi-medium-padding-inline);
   }
 
   @media (min-width: $ams-breakpoint-wide) {
