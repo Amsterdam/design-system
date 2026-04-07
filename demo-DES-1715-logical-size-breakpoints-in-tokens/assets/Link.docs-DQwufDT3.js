@@ -1,0 +1,72 @@
+import{n as e}from"./chunk-zsgVPwQN.js";import{At as t}from"./iframe-B4OoWQbj.js";import{r as n}from"./react-8SMSAzK2.js";import{c as r,f as i,i as a,l as o,n as s,s as c}from"./blocks-BifevNMR.js";import{n as l,t as u}from"./DesignTokensTable-DAyD6BSl.js";import{t as d}from"./mdx-react-shim-B0A7Egfr.js";import{ContrastColour as f,InverseColour as p,n as m,t as h}from"./Link.stories-CvEEkF8N.js";var g,_=e((()=>{g=`<!-- @license CC0-1.0 -->
+
+# Link
+
+A link is a navigation element and can be used independently or inline with text.
+It is the lightweight variant for navigation.
+
+## Guidelines
+
+- Use a link in the following cases:
+  - To navigate to another page within the website
+  - To navigate to another website (see [External links](#external-links))
+  - To navigate to an element on the same page
+  - To link to emails or phone numbers (start the link with \`mailto:\` or \`tel:\`)
+- A link is a navigation component.
+  Use a button instead of a link when an action is desired.
+- An icon can be added to links, positioned after the link.
+- Too many links on the same page may confuse the user.
+- For a link on its own line of text, use the [Standalone Link](/docs/components-navigation-standalone-link--docs).
+
+### External links
+
+Always include \`rel="external"\` for an external link.
+Avoid \`target="_blank"\`, but use \`rel="external noopener"\` if necessary.
+For more information: [Links to cross-origin destinations are unsafe](https://developer.chrome.com/docs/lighthouse/best-practices/external-anchors-use-rel-noopener/)
+
+### Visited style
+
+Visited links indicate that a user has already opened the link.
+We discourage using styles for visited links because they often make the page less clear and navigation more challenging.
+It is not part of navigation elements that are frequently scanned.
+
+### Using links with routing libraries
+
+Check out the [developer guide](/docs/docs-developer-guide-routing-libraries--docs) on how to integrate links with external routing libraries.
+
+## Relevant WCAG requirements
+
+- [WCAG 1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+- [WCAG 2.4.4](https://www.w3.org/TR/WCAG21/#link-purpose-in-context)
+- [WCAG 2.5.3](https://www.w3.org/TR/WCAG21/#label-in-name)
+- [WCAG 3.1.2](https://www.w3.org/TR/WCAG21/#language-of-parts)
+
+## References
+
+- [Links to cross-origin destinations are unsafe](https://developer.chrome.com/docs/lighthouse/best-practices/external-anchors-use-rel-noopener/): Avoid \`target="_blank"\` or use \`rel="external noopener"\` if necessary.
+- [_A comprehensive guide to designing perfect links in UX_, on Prototypr](https://blog.prototypr.io/a-guide-to-designing-perfect-links-in-ux-414558f35730): Best practices for links.
+- [_Writing Hyperlinks: Salient, Descriptive, Start with Keyword_ by Norman Nielsen Group](https://www.nngroup.com/articles/writing-links/): How to write good links? An extensive article on links.
+- [_Hover, focus, active_, by Wunder](https://wunder.io/wunderpedia/accessibility/accessible-uis/hover-focus-active/): A good explanation of the states that elements like links and buttons have in browsers.
+- [MDN: \`<a>\`: The Anchor element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a): Comprehensive overview of all possibilities of links in HTML.
+`})),v,y,b=e((()=>{v={link:{color:{$value:`{ams.links.color}`,$type:`color`},"font-family":{$value:`inherit`,$type:`fontFamily`},"font-size":{$value:`inherit`,$extensions:{"nl.amsterdam.type":`fontSize`}},"font-weight":{$value:`{ams.typography.body-text.font-weight}`,$type:`fontWeight`},"line-height":{$value:`inherit`,$extensions:{"nl.amsterdam.type":`lineHeight`}},"outline-offset":{$value:`{ams.focus.outline-offset}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},"text-decoration-thickness":{$value:`{ams.links.text-decoration-thickness}`,$type:`dimension`},"text-underline-offset":{$value:`{ams.links.text-underline-offset}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},hover:{color:{$value:`{ams.links.hover.color}`,$type:`color`},"text-decoration-thickness":{$value:`{ams.links.hover.text-decoration-thickness}`,$type:`dimension`},"text-underline-offset":{$value:`{ams.links.hover.text-underline-offset}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}}},contrast:{color:{$value:`{ams.links.contrast.color}`,$type:`color`},hover:{color:{$value:`{ams.links.contrast.hover.color}`,$type:`color`}}},inverse:{color:{$value:`{ams.links.inverse.color}`,$type:`color`},hover:{color:{$value:`{ams.links.inverse.hover.color}`,$type:`color`}}}}},y={ams:v}}));function x(e){let t={a:`a`,h2:`h2`,h3:`h3`,h4:`h4`,p:`p`,...n(),...e.components};return(0,C.jsxs)(C.Fragment,{children:[`
+`,`
+`,`
+`,`
+`,(0,C.jsx)(r,{of:h}),`
+`,(0,C.jsx)(c,{children:g}),`
+`,(0,C.jsx)(o,{}),`
+`,(0,C.jsx)(a,{}),`
+`,(0,C.jsx)(t.h2,{id:`examples`,children:`Examples`}),`
+`,(0,C.jsx)(t.h3,{id:`on-a-coloured-background`,children:`On a coloured background`}),`
+`,(0,C.jsxs)(t.p,{children:[`A Link on a coloured background must set `,(0,C.jsx)(t.a,{href:`?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours`,children:`the correct text colour`}),` to provide enough contrast.
+We have lighter and darker background colours, and links behave differently on each.`]}),`
+`,(0,C.jsx)(t.h4,{id:`contrast-colour`,children:`Contrast colour`}),`
+`,(0,C.jsx)(t.p,{children:`Use the contrast colour on a lime, orange or yellow background.
+It will make the Link black.`}),`
+`,(0,C.jsx)(s,{of:f}),`
+`,(0,C.jsx)(t.h4,{id:`inverse-colour`,children:`Inverse colour`}),`
+`,(0,C.jsx)(t.p,{children:`Use the inverse colour on an azure, blue, green, magenta or purple background.
+It will make the Link white.`}),`
+`,(0,C.jsx)(s,{of:p}),`
+`,(0,C.jsx)(t.h2,{id:`design-tokens`,children:`Design tokens`}),`
+`,(0,C.jsx)(u,{tokens:y})]})}function S(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,C.jsx)(t,{...e,children:(0,C.jsx)(x,{...e})}):x(e)}var C;e((()=>{C=t(),d(),i(),m(),_(),b(),l()}))();export{S as default};
