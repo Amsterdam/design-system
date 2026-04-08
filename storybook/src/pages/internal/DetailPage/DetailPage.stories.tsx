@@ -54,7 +54,7 @@ const meta = {
             rowSpan={{ narrow: 1, medium: 3, wide: 2 }}
             span={{ narrow: 4, medium: 2, wide: 2 }}
           >
-            <TabNavigation orientation="vertical">
+            <TabNavigation accessibleName="Navigatie voor Naam van het project" orientation="vertical">
               <TabNavigation.List>
                 {menuItems.map(({ icon, label, slug }) => (
                   <TabNavigation.Link
@@ -75,7 +75,7 @@ const meta = {
             span={{ narrow: 4, medium: 6, wide: 10 }}
             start={{ narrow: 1, medium: 3, wide: 3 }}
           >
-            <TabNavigation>
+            <TabNavigation accessibleName={`Subnavigatie voor ${currentMenuSlug}`}>
               <TabNavigation.List ref={subMenuListRef}>
                 {subMenuItems.map(({ label, slug }) => (
                   <TabNavigation.Link
