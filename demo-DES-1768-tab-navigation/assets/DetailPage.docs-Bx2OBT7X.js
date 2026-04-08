@@ -1,5 +1,0 @@
-import{n as e}from"./chunk-zsgVPwQN.js";import{Vt as t}from"./iframe-C1K9Nvqi.js";import{r as n}from"./react-C9HMM2xV.js";import{c as r,f as i}from"./blocks-DSwiD7AL.js";import{t as a}from"./mdx-react-shim-C_9LJs5Y.js";import{n as o,t as s}from"./DetailPage.stories-CDtqJMri.js";function c(e){let t={h1:`h1`,p:`p`,...n(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[`
-`,`
-`,(0,u.jsx)(r,{of:s}),`
-`,(0,u.jsx)(t.h1,{id:`detail-page`,children:`Detail page`}),`
-`,(0,u.jsx)(t.p,{children:`TODO`})]})}function l(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,u.jsx)(t,{...e,children:(0,u.jsx)(c,{...e})}):c(e)}var u;e((()=>{u=t(),a(),i(),o()}))();export{l as default};

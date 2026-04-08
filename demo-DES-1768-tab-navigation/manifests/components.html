@@ -6314,13 +6314,13 @@ tokens: Tokens</code></pre>
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  47 | ]
-  48 |
-&gt; 49 | const meta = {
+  19 | const subMenuItems = Array.from({ length: 6 }, (_, index) =&gt; `Submenu item ${index + 1}`)
+  20 |
+&gt; 21 | const meta = {
      | ^
-  50 |   ...commonMeta,
-  51 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  52 |   render: () =&gt; {
+  22 |   ...commonMeta,
+  23 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  24 |   render: () =&gt; {
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -6331,61 +6331,33 @@ tokens: Tokens</code></pre>
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { MouseEvent } from &#39;react&#39;
 
-import {
-  Breadcrumb,
-  Column,
-  DescriptionList,
-  Grid,
-  Heading,
-  Image,
-  Link,
-  LinkList,
-  Paragraph,
-  Row,
-  TabNavigation,
-} from &#39;@amsterdam/design-system-react&#39;
-import {
-  CalendarIcon,
-  ClipboardIcon,
-  ConnectedCirclesIcon,
-  CrossHairIcon,
-  DocumentEuroIcon,
-  DocumentIcon,
-  DocumentWithPencilIcon,
-  LightningIcon,
-  MailIcon,
-} from &#39;@amsterdam/design-system-react-icons&#39;
+import { Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
+import { ChevronForwardIcon } from &#39;@amsterdam/design-system-react-icons&#39;
 import { useState } from &#39;react&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 
-const tabLabels = [&#39;Overzicht&#39;, &#39;Kerngegevens&#39;, &#39;Projectinformatie&#39;, &#39;Projectgrenzen&#39;, &#39;Projectcodes&#39;, &#39;Autorisaties&#39;]
-
-const sidebarLabels = [
-  { icon: DocumentIcon, label: &#39;Projectdetails&#39; },
-  { icon: DocumentEuroIcon, label: &#39;Financiën&#39; },
-  { icon: ConnectedCirclesIcon, label: &#39;Projectstructuur&#39; },
-  { icon: CrossHairIcon, label: &#39;Kwaliteit&#39; },
-  { icon: CalendarIcon, label: &#39;Planning&#39; },
-  { icon: LightningIcon, label: &quot;Risico&#39;s&quot; },
-  { icon: ClipboardIcon, label: &#39;Logboek&#39; },
-]
+const menuItems = Array.from({ length: 8 }, (_, index) =&gt; ({
+  icon: ChevronForwardIcon,
+  label: `Menu item ${index + 1}`,
+}))
+const subMenuItems = Array.from({ length: 6 }, (_, index) =&gt; `Submenu item ${index + 1}`)
 
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Internal/Detail Page&#39;,
   render: () =&gt; {
-    const [currentTab, setCurrentTab] = useState(&#39;Kerngegevens&#39;)
-    const [currentSidebar, setCurrentSidebar] = useState(&#39;Projectdetails&#39;)
+    const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
+    const [currentSubMenuItem, setCurrentSubMenuItem] = useState(subMenuItems[2])
 
-    const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+    const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
       event.preventDefault()
-      setCurrentTab(label)
+      setCurrentMenuItem(label)
     }
 
-    const handleSidebarClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+    const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
       event.preventDefault()
-      setCurrentSidebar(label)
+      setCurrentSubMenuItem(label)
     }
 
     return (
@@ -6406,13 +6378,13 @@ const meta = {
           &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
             &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
               &lt;TabNavigation.List&gt;
-                {sidebarLabels.map(({ icon, label }) =&gt; (
+                {menuItems.map(({ icon, label }) =&gt; (
                   &lt;TabNavigation.Link
-                    aria-current={currentSidebar === label ? &#39;page&#39; : undefined}
-                    href=&quot;#&quot;
+                    aria-current={currentMenuItem === label ? &#39;page&#39; : undefined}
+                    href=&quot;&quot;
                     icon={icon}
                     key={label}
-                    onClick={(e) =&gt; handleSidebarClick(e, label)}
+                    onClick={(e) =&gt; handleMenuItemClick(e, label)}
                   &gt;
                     {label}
                   &lt;/TabNavigation.Link&gt;
@@ -6427,12 +6399,12 @@ const meta = {
           &gt;
             &lt;TabNavigation&gt;
               &lt;TabNavigation.List&gt;
-                {tabLabels.map((label) =&gt; (
+                {subMenuItems.map((label) =&gt; (
                   &lt;TabNavigation.Link
-                    aria-current={currentTab === label ? &#39;page&#39; : undefined}
-                    href=&quot;#&quot;
+                    aria-current={currentSubMenuItem === label ? &#39;page&#39; : undefined}
+                    href=&quot;&quot;
                     key={label}
-                    onClick={(e) =&gt; handleTabClick(e, label)}
+                    onClick={(e) =&gt; handleSubMenuItemClick(e, label)}
                   &gt;
                     {label}
                   &lt;/TabNavigation.Link&gt;
@@ -6440,114 +6412,12 @@ const meta = {
               &lt;/TabNavigation.List&gt;
             &lt;/TabNavigation&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
-            &lt;Column gap=&quot;x-large&quot;&gt;
-              &lt;Row align=&quot;between&quot; alignVertical=&quot;baseline&quot; wrap&gt;
-                &lt;Heading level={3}&gt;Kerngegevens&lt;/Heading&gt;
-                &lt;LinkList&gt;
-                  &lt;LinkList.Link href=&quot;#&quot; icon={DocumentWithPencilIcon}&gt;
-                    Wijzig kerngegevens
-                  &lt;/LinkList.Link&gt;
-                &lt;/LinkList&gt;
-              &lt;/Row&gt;
-              &lt;section&gt;
-                &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                  Opdrachtgevers
-                &lt;/Heading&gt;
-                &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                  &lt;DescriptionList.Term&gt;Ambtelijk opdrachtgever&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Marise Ent&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Bestuurlijk Opdrachtgever Stad&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Melanie van der Horst&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                &lt;/DescriptionList&gt;
-              &lt;/section&gt;
-              &lt;section&gt;
-                &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                  Opdrachtnemers
-                &lt;/Heading&gt;
-                &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                  &lt;DescriptionList.Term&gt;Accounthouder&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Paul Brouwer&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Opdrachtnemer&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Erik Bakker&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Klaas Helmers&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Marjolein Boomer&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Carina Cairo&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                &lt;/DescriptionList&gt;
-              &lt;/section&gt;
-              &lt;section&gt;
-                &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                  Basisgegevens
-                &lt;/Heading&gt;
-                &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                  &lt;DescriptionList.Term&gt;Gebied&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Gemeente Amsterdam&lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Stadsdeel&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Amsterdam&lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Stadsdeel&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Amsterdam&lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Status&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Actief&lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Projectsoort&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Programma Bruggen&lt;/DescriptionList.Description&gt;
-                &lt;/DescriptionList&gt;
-              &lt;/section&gt;
-            &lt;/Column&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }}&gt;
-            &lt;Column&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/900/720?random=1&quot; /&gt;
-                &lt;Paragraph&gt;
-                  Impressie Brug 423 &amp;nbsp; &lt;Link href=&quot;#&quot;&gt;Afbeelding wijzigen&lt;/Link&gt;
-                &lt;/Paragraph&gt;
-              &lt;/Column&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/900/720?random=2&quot; /&gt;
-                &lt;Paragraph&gt;
-                  Locatie Brug 423 &amp;nbsp; &lt;Link href=&quot;#&quot;&gt;Bekijk op datapunt.nl&lt;/Link&gt;
-                &lt;/Paragraph&gt;
-              &lt;/Column&gt;
-            &lt;/Column&gt;
-          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }} /&gt;
+          &lt;Grid.Cell
+            span={{ narrow: 4, medium: 4, wide: 3 }}
+            start={{ narrow: 1, medium: 3, wide: 10 }}
+            style={{ blockSize: &#39;20vh&#39; }}
+          /&gt;
         &lt;/Grid&gt;
       &lt;/&gt;
     )
@@ -6578,20 +6448,7 @@ export const Default: StoryObj = {}
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import {
-    Breadcrumb,
-    Column,
-    DescriptionList,
-    Grid,
-    Heading,
-    Image,
-    Link,
-    LinkList,
-    Paragraph,
-    Row,
-    TabNavigation,
-} from "@amsterdam/design-system-react";
-import { MailIcon } from "@amsterdam/design-system-react-icons";</code></pre>
+                <pre><code>import { Breadcrumb, Grid, Heading, TabNavigation } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
           
@@ -6603,17 +6460,17 @@ import { MailIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               
               
               <pre><code>const Default = () =&gt; {
-  const [currentTab, setCurrentTab] = useState(&#39;Kerngegevens&#39;)
-  const [currentSidebar, setCurrentSidebar] = useState(&#39;Projectdetails&#39;)
+  const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
+  const [currentSubMenuItem, setCurrentSubMenuItem] = useState(subMenuItems[2])
 
-  const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+  const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
     event.preventDefault()
-    setCurrentTab(label)
+    setCurrentMenuItem(label)
   }
 
-  const handleSidebarClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+  const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
     event.preventDefault()
-    setCurrentSidebar(label)
+    setCurrentSubMenuItem(label)
   }
 
   return (
@@ -6634,13 +6491,13 @@ import { MailIcon } from "@amsterdam/design-system-react-icons";</code></pre>
         &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
           &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
             &lt;TabNavigation.List&gt;
-              {sidebarLabels.map(({ icon, label }) =&gt; (
+              {menuItems.map(({ icon, label }) =&gt; (
                 &lt;TabNavigation.Link
-                  aria-current={currentSidebar === label ? &#39;page&#39; : undefined}
-                  href=&quot;#&quot;
+                  aria-current={currentMenuItem === label ? &#39;page&#39; : undefined}
+                  href=&quot;&quot;
                   icon={icon}
                   key={label}
-                  onClick={(e) =&gt; handleSidebarClick(e, label)}
+                  onClick={(e) =&gt; handleMenuItemClick(e, label)}
                 &gt;
                   {label}
                 &lt;/TabNavigation.Link&gt;
@@ -6655,12 +6512,12 @@ import { MailIcon } from "@amsterdam/design-system-react-icons";</code></pre>
         &gt;
           &lt;TabNavigation&gt;
             &lt;TabNavigation.List&gt;
-              {tabLabels.map((label) =&gt; (
+              {subMenuItems.map((label) =&gt; (
                 &lt;TabNavigation.Link
-                  aria-current={currentTab === label ? &#39;page&#39; : undefined}
-                  href=&quot;#&quot;
+                  aria-current={currentSubMenuItem === label ? &#39;page&#39; : undefined}
+                  href=&quot;&quot;
                   key={label}
-                  onClick={(e) =&gt; handleTabClick(e, label)}
+                  onClick={(e) =&gt; handleSubMenuItemClick(e, label)}
                 &gt;
                   {label}
                 &lt;/TabNavigation.Link&gt;
@@ -6668,114 +6525,12 @@ import { MailIcon } from "@amsterdam/design-system-react-icons";</code></pre>
             &lt;/TabNavigation.List&gt;
           &lt;/TabNavigation&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
-          &lt;Column gap=&quot;x-large&quot;&gt;
-            &lt;Row align=&quot;between&quot; alignVertical=&quot;baseline&quot; wrap&gt;
-              &lt;Heading level={3}&gt;Kerngegevens&lt;/Heading&gt;
-              &lt;LinkList&gt;
-                &lt;LinkList.Link href=&quot;#&quot; icon={DocumentWithPencilIcon}&gt;
-                  Wijzig kerngegevens
-                &lt;/LinkList.Link&gt;
-              &lt;/LinkList&gt;
-            &lt;/Row&gt;
-            &lt;section&gt;
-              &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                Opdrachtgevers
-              &lt;/Heading&gt;
-              &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                &lt;DescriptionList.Term&gt;Ambtelijk opdrachtgever&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Marise Ent&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Bestuurlijk Opdrachtgever Stad&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Melanie van der Horst&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-              &lt;/DescriptionList&gt;
-            &lt;/section&gt;
-            &lt;section&gt;
-              &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                Opdrachtnemers
-              &lt;/Heading&gt;
-              &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                &lt;DescriptionList.Term&gt;Accounthouder&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Paul Brouwer&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Opdrachtnemer&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Erik Bakker&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Klaas Helmers&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Marjolein Boomer&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Carina Cairo&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-              &lt;/DescriptionList&gt;
-            &lt;/section&gt;
-            &lt;section&gt;
-              &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                Basisgegevens
-              &lt;/Heading&gt;
-              &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                &lt;DescriptionList.Term&gt;Gebied&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Gemeente Amsterdam&lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Stadsdeel&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Amsterdam&lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Stadsdeel&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Amsterdam&lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Status&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Actief&lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Projectsoort&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Programma Bruggen&lt;/DescriptionList.Description&gt;
-              &lt;/DescriptionList&gt;
-            &lt;/section&gt;
-          &lt;/Column&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }}&gt;
-          &lt;Column&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/900/720?random=1&quot; /&gt;
-              &lt;Paragraph&gt;
-                Impressie Brug 423 &amp;nbsp; &lt;Link href=&quot;#&quot;&gt;Afbeelding wijzigen&lt;/Link&gt;
-              &lt;/Paragraph&gt;
-            &lt;/Column&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/900/720?random=2&quot; /&gt;
-              &lt;Paragraph&gt;
-                Locatie Brug 423 &amp;nbsp; &lt;Link href=&quot;#&quot;&gt;Bekijk op datapunt.nl&lt;/Link&gt;
-              &lt;/Paragraph&gt;
-            &lt;/Column&gt;
-          &lt;/Column&gt;
-        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }} /&gt;
+        &lt;Grid.Cell
+          span={{ narrow: 4, medium: 4, wide: 3 }}
+          start={{ narrow: 1, medium: 3, wide: 10 }}
+          style={{ blockSize: &#39;20vh&#39; }}
+        /&gt;
       &lt;/Grid&gt;
     &lt;/&gt;
   )
@@ -6802,7 +6557,9 @@ import * as DetailStories from &quot;./DetailPage.stories.tsx&quot;;
 
 # Detail page
 
-TODO
+A detail page shows all properties of a particular person, thing, or concept.
+
+For large sets of data, [Tab Navigation](/docs/components-navigation-tab-navigation--docs) can be used to create separate, focused pages.
 </code></pre></div>
             </div>
         </div>
@@ -11398,9 +11155,14 @@ import * as HomeStories from &quot;./HomePage.stories.tsx&quot;;
 
 # Home page
 
-The home page of an internal website can have varying types of content.
+The home page for an internal website generally consists of a title and a number of blocks.
 
-Our single example in this category currently focuses on the overall layout.
+The overall layout uses a
+[Page](/docs/components-containers-page--docs),
+[Page Header](/docs/components-containers-page-header--docs),
+[Page Footer](/docs/components-containers-page-footer--docs) and
+[Menu](/docs/components-navigation-menu--docs),
+as documented in this section’s [Introduction](/docs/pages-internal-introduction--docs#page-structure).
 </code></pre></div>
             </div>
         </div>
@@ -24084,6 +23846,10 @@ Each link can display an icon before its label.
 The links scroll horizontally when their width exceeds the available space.
 
 &lt;Canvas of={TabNavigationStories.WithManyLinks} /&gt;
+
+## See also
+
+- A [Detail Page](/story/pages-internal-detail-page--default) can use this component to navigate between multiple pages of information.
 
 ## Design tokens
 
@@ -43486,6 +43252,10 @@ The links scroll horizontally when their width exceeds the available space.
 
 &lt;Canvas of={TabNavigationStories.WithManyLinks} /&gt;
 
+## See also
+
+- A [Detail Page](/story/pages-internal-detail-page--default) can use this component to navigate between multiple pages of information.
+
 ## Design tokens
 
 &lt;DesignTokensTable tokens={tokens} /&gt;
@@ -46123,13 +45893,13 @@ export const Test: Story = {
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  47 | ]
-  48 |
-&gt; 49 | const meta = {
+  19 | const subMenuItems = Array.from({ length: 6 }, (_, index) =&gt; `Submenu item ${index + 1}`)
+  20 |
+&gt; 21 | const meta = {
      | ^
-  50 |   ...commonMeta,
-  51 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  52 |   render: () =&gt; {
+  22 |   ...commonMeta,
+  23 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  24 |   render: () =&gt; {
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -46140,61 +45910,33 @@ export const Test: Story = {
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { MouseEvent } from &#39;react&#39;
 
-import {
-  Breadcrumb,
-  Column,
-  DescriptionList,
-  Grid,
-  Heading,
-  Image,
-  Link,
-  LinkList,
-  Paragraph,
-  Row,
-  TabNavigation,
-} from &#39;@amsterdam/design-system-react&#39;
-import {
-  CalendarIcon,
-  ClipboardIcon,
-  ConnectedCirclesIcon,
-  CrossHairIcon,
-  DocumentEuroIcon,
-  DocumentIcon,
-  DocumentWithPencilIcon,
-  LightningIcon,
-  MailIcon,
-} from &#39;@amsterdam/design-system-react-icons&#39;
+import { Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
+import { ChevronForwardIcon } from &#39;@amsterdam/design-system-react-icons&#39;
 import { useState } from &#39;react&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 
-const tabLabels = [&#39;Overzicht&#39;, &#39;Kerngegevens&#39;, &#39;Projectinformatie&#39;, &#39;Projectgrenzen&#39;, &#39;Projectcodes&#39;, &#39;Autorisaties&#39;]
-
-const sidebarLabels = [
-  { icon: DocumentIcon, label: &#39;Projectdetails&#39; },
-  { icon: DocumentEuroIcon, label: &#39;Financiën&#39; },
-  { icon: ConnectedCirclesIcon, label: &#39;Projectstructuur&#39; },
-  { icon: CrossHairIcon, label: &#39;Kwaliteit&#39; },
-  { icon: CalendarIcon, label: &#39;Planning&#39; },
-  { icon: LightningIcon, label: &quot;Risico&#39;s&quot; },
-  { icon: ClipboardIcon, label: &#39;Logboek&#39; },
-]
+const menuItems = Array.from({ length: 8 }, (_, index) =&gt; ({
+  icon: ChevronForwardIcon,
+  label: `Menu item ${index + 1}`,
+}))
+const subMenuItems = Array.from({ length: 6 }, (_, index) =&gt; `Submenu item ${index + 1}`)
 
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Internal/Detail Page&#39;,
   render: () =&gt; {
-    const [currentTab, setCurrentTab] = useState(&#39;Kerngegevens&#39;)
-    const [currentSidebar, setCurrentSidebar] = useState(&#39;Projectdetails&#39;)
+    const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
+    const [currentSubMenuItem, setCurrentSubMenuItem] = useState(subMenuItems[2])
 
-    const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+    const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
       event.preventDefault()
-      setCurrentTab(label)
+      setCurrentMenuItem(label)
     }
 
-    const handleSidebarClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+    const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
       event.preventDefault()
-      setCurrentSidebar(label)
+      setCurrentSubMenuItem(label)
     }
 
     return (
@@ -46215,13 +45957,13 @@ const meta = {
           &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
             &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
               &lt;TabNavigation.List&gt;
-                {sidebarLabels.map(({ icon, label }) =&gt; (
+                {menuItems.map(({ icon, label }) =&gt; (
                   &lt;TabNavigation.Link
-                    aria-current={currentSidebar === label ? &#39;page&#39; : undefined}
-                    href=&quot;#&quot;
+                    aria-current={currentMenuItem === label ? &#39;page&#39; : undefined}
+                    href=&quot;&quot;
                     icon={icon}
                     key={label}
-                    onClick={(e) =&gt; handleSidebarClick(e, label)}
+                    onClick={(e) =&gt; handleMenuItemClick(e, label)}
                   &gt;
                     {label}
                   &lt;/TabNavigation.Link&gt;
@@ -46236,12 +45978,12 @@ const meta = {
           &gt;
             &lt;TabNavigation&gt;
               &lt;TabNavigation.List&gt;
-                {tabLabels.map((label) =&gt; (
+                {subMenuItems.map((label) =&gt; (
                   &lt;TabNavigation.Link
-                    aria-current={currentTab === label ? &#39;page&#39; : undefined}
-                    href=&quot;#&quot;
+                    aria-current={currentSubMenuItem === label ? &#39;page&#39; : undefined}
+                    href=&quot;&quot;
                     key={label}
-                    onClick={(e) =&gt; handleTabClick(e, label)}
+                    onClick={(e) =&gt; handleSubMenuItemClick(e, label)}
                   &gt;
                     {label}
                   &lt;/TabNavigation.Link&gt;
@@ -46249,114 +45991,12 @@ const meta = {
               &lt;/TabNavigation.List&gt;
             &lt;/TabNavigation&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
-            &lt;Column gap=&quot;x-large&quot;&gt;
-              &lt;Row align=&quot;between&quot; alignVertical=&quot;baseline&quot; wrap&gt;
-                &lt;Heading level={3}&gt;Kerngegevens&lt;/Heading&gt;
-                &lt;LinkList&gt;
-                  &lt;LinkList.Link href=&quot;#&quot; icon={DocumentWithPencilIcon}&gt;
-                    Wijzig kerngegevens
-                  &lt;/LinkList.Link&gt;
-                &lt;/LinkList&gt;
-              &lt;/Row&gt;
-              &lt;section&gt;
-                &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                  Opdrachtgevers
-                &lt;/Heading&gt;
-                &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                  &lt;DescriptionList.Term&gt;Ambtelijk opdrachtgever&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Marise Ent&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Bestuurlijk Opdrachtgever Stad&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Melanie van der Horst&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                &lt;/DescriptionList&gt;
-              &lt;/section&gt;
-              &lt;section&gt;
-                &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                  Opdrachtnemers
-                &lt;/Heading&gt;
-                &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                  &lt;DescriptionList.Term&gt;Accounthouder&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Paul Brouwer&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Opdrachtnemer&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Erik Bakker&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Klaas Helmers&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Marjolein Boomer&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;
-                    &lt;Row align=&quot;between&quot;&gt;
-                      &lt;span&gt;Carina Cairo&lt;/span&gt;
-                      &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                    &lt;/Row&gt;
-                  &lt;/DescriptionList.Description&gt;
-                &lt;/DescriptionList&gt;
-              &lt;/section&gt;
-              &lt;section&gt;
-                &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                  Basisgegevens
-                &lt;/Heading&gt;
-                &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                  &lt;DescriptionList.Term&gt;Gebied&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Gemeente Amsterdam&lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Stadsdeel&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Amsterdam&lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Stadsdeel&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Amsterdam&lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Status&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Actief&lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Projectsoort&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Programma Bruggen&lt;/DescriptionList.Description&gt;
-                &lt;/DescriptionList&gt;
-              &lt;/section&gt;
-            &lt;/Column&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }}&gt;
-            &lt;Column&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/900/720?random=1&quot; /&gt;
-                &lt;Paragraph&gt;
-                  Impressie Brug 423 &amp;nbsp; &lt;Link href=&quot;#&quot;&gt;Afbeelding wijzigen&lt;/Link&gt;
-                &lt;/Paragraph&gt;
-              &lt;/Column&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/900/720?random=2&quot; /&gt;
-                &lt;Paragraph&gt;
-                  Locatie Brug 423 &amp;nbsp; &lt;Link href=&quot;#&quot;&gt;Bekijk op datapunt.nl&lt;/Link&gt;
-                &lt;/Paragraph&gt;
-              &lt;/Column&gt;
-            &lt;/Column&gt;
-          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }} /&gt;
+          &lt;Grid.Cell
+            span={{ narrow: 4, medium: 4, wide: 3 }}
+            start={{ narrow: 1, medium: 3, wide: 10 }}
+            style={{ blockSize: &#39;20vh&#39; }}
+          /&gt;
         &lt;/Grid&gt;
       &lt;/&gt;
     )
@@ -46387,20 +46027,7 @@ export const Default: StoryObj = {}
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import {
-    Breadcrumb,
-    Column,
-    DescriptionList,
-    Grid,
-    Heading,
-    Image,
-    Link,
-    LinkList,
-    Paragraph,
-    Row,
-    TabNavigation,
-} from "@amsterdam/design-system-react";
-import { MailIcon } from "@amsterdam/design-system-react-icons";</code></pre>
+                <pre><code>import { Breadcrumb, Grid, Heading, TabNavigation } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
           
@@ -46412,17 +46039,17 @@ import { MailIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               
               
               <pre><code>const Default = () =&gt; {
-  const [currentTab, setCurrentTab] = useState(&#39;Kerngegevens&#39;)
-  const [currentSidebar, setCurrentSidebar] = useState(&#39;Projectdetails&#39;)
+  const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
+  const [currentSubMenuItem, setCurrentSubMenuItem] = useState(subMenuItems[2])
 
-  const handleTabClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+  const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
     event.preventDefault()
-    setCurrentTab(label)
+    setCurrentMenuItem(label)
   }
 
-  const handleSidebarClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+  const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
     event.preventDefault()
-    setCurrentSidebar(label)
+    setCurrentSubMenuItem(label)
   }
 
   return (
@@ -46443,13 +46070,13 @@ import { MailIcon } from "@amsterdam/design-system-react-icons";</code></pre>
         &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
           &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
             &lt;TabNavigation.List&gt;
-              {sidebarLabels.map(({ icon, label }) =&gt; (
+              {menuItems.map(({ icon, label }) =&gt; (
                 &lt;TabNavigation.Link
-                  aria-current={currentSidebar === label ? &#39;page&#39; : undefined}
-                  href=&quot;#&quot;
+                  aria-current={currentMenuItem === label ? &#39;page&#39; : undefined}
+                  href=&quot;&quot;
                   icon={icon}
                   key={label}
-                  onClick={(e) =&gt; handleSidebarClick(e, label)}
+                  onClick={(e) =&gt; handleMenuItemClick(e, label)}
                 &gt;
                   {label}
                 &lt;/TabNavigation.Link&gt;
@@ -46464,12 +46091,12 @@ import { MailIcon } from "@amsterdam/design-system-react-icons";</code></pre>
         &gt;
           &lt;TabNavigation&gt;
             &lt;TabNavigation.List&gt;
-              {tabLabels.map((label) =&gt; (
+              {subMenuItems.map((label) =&gt; (
                 &lt;TabNavigation.Link
-                  aria-current={currentTab === label ? &#39;page&#39; : undefined}
-                  href=&quot;#&quot;
+                  aria-current={currentSubMenuItem === label ? &#39;page&#39; : undefined}
+                  href=&quot;&quot;
                   key={label}
-                  onClick={(e) =&gt; handleTabClick(e, label)}
+                  onClick={(e) =&gt; handleSubMenuItemClick(e, label)}
                 &gt;
                   {label}
                 &lt;/TabNavigation.Link&gt;
@@ -46477,114 +46104,12 @@ import { MailIcon } from "@amsterdam/design-system-react-icons";</code></pre>
             &lt;/TabNavigation.List&gt;
           &lt;/TabNavigation&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
-          &lt;Column gap=&quot;x-large&quot;&gt;
-            &lt;Row align=&quot;between&quot; alignVertical=&quot;baseline&quot; wrap&gt;
-              &lt;Heading level={3}&gt;Kerngegevens&lt;/Heading&gt;
-              &lt;LinkList&gt;
-                &lt;LinkList.Link href=&quot;#&quot; icon={DocumentWithPencilIcon}&gt;
-                  Wijzig kerngegevens
-                &lt;/LinkList.Link&gt;
-              &lt;/LinkList&gt;
-            &lt;/Row&gt;
-            &lt;section&gt;
-              &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                Opdrachtgevers
-              &lt;/Heading&gt;
-              &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                &lt;DescriptionList.Term&gt;Ambtelijk opdrachtgever&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Marise Ent&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Bestuurlijk Opdrachtgever Stad&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Melanie van der Horst&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-              &lt;/DescriptionList&gt;
-            &lt;/section&gt;
-            &lt;section&gt;
-              &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                Opdrachtnemers
-              &lt;/Heading&gt;
-              &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                &lt;DescriptionList.Term&gt;Accounthouder&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Paul Brouwer&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Opdrachtnemer&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Erik Bakker&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Klaas Helmers&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Marjolein Boomer&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Projectbeheerser&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;
-                  &lt;Row align=&quot;between&quot;&gt;
-                    &lt;span&gt;Carina Cairo&lt;/span&gt;
-                    &lt;MailIcon fill=&quot;#004469&quot; width={24} /&gt;
-                  &lt;/Row&gt;
-                &lt;/DescriptionList.Description&gt;
-              &lt;/DescriptionList&gt;
-            &lt;/section&gt;
-            &lt;section&gt;
-              &lt;Heading className=&quot;ams-mb-m&quot; level={4}&gt;
-                Basisgegevens
-              &lt;/Heading&gt;
-              &lt;DescriptionList termsWidth=&quot;medium&quot;&gt;
-                &lt;DescriptionList.Term&gt;Gebied&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Gemeente Amsterdam&lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Stadsdeel&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Amsterdam&lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Stadsdeel&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Amsterdam&lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Status&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Actief&lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Projectsoort&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Programma Bruggen&lt;/DescriptionList.Description&gt;
-              &lt;/DescriptionList&gt;
-            &lt;/section&gt;
-          &lt;/Column&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }}&gt;
-          &lt;Column&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/900/720?random=1&quot; /&gt;
-              &lt;Paragraph&gt;
-                Impressie Brug 423 &amp;nbsp; &lt;Link href=&quot;#&quot;&gt;Afbeelding wijzigen&lt;/Link&gt;
-              &lt;/Paragraph&gt;
-            &lt;/Column&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/900/720?random=2&quot; /&gt;
-              &lt;Paragraph&gt;
-                Locatie Brug 423 &amp;nbsp; &lt;Link href=&quot;#&quot;&gt;Bekijk op datapunt.nl&lt;/Link&gt;
-              &lt;/Paragraph&gt;
-            &lt;/Column&gt;
-          &lt;/Column&gt;
-        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }} /&gt;
+        &lt;Grid.Cell
+          span={{ narrow: 4, medium: 4, wide: 3 }}
+          start={{ narrow: 1, medium: 3, wide: 10 }}
+          style={{ blockSize: &#39;20vh&#39; }}
+        /&gt;
       &lt;/Grid&gt;
     &lt;/&gt;
   )
@@ -46611,7 +46136,9 @@ import * as DetailStories from &quot;./DetailPage.stories.tsx&quot;;
 
 # Detail page
 
-TODO
+A detail page shows all properties of a particular person, thing, or concept.
+
+For large sets of data, [Tab Navigation](/docs/components-navigation-tab-navigation--docs) can be used to create separate, focused pages.
 </code></pre></div>
             </div>
         </div>
@@ -48182,9 +47709,14 @@ import * as HomeStories from &quot;./HomePage.stories.tsx&quot;;
 
 # Home page
 
-The home page of an internal website can have varying types of content.
+The home page for an internal website generally consists of a title and a number of blocks.
 
-Our single example in this category currently focuses on the overall layout.
+The overall layout uses a
+[Page](/docs/components-containers-page--docs),
+[Page Header](/docs/components-containers-page-header--docs),
+[Page Footer](/docs/components-containers-page-footer--docs) and
+[Menu](/docs/components-navigation-menu--docs),
+as documented in this section’s [Introduction](/docs/pages-internal-introduction--docs#page-structure).
 </code></pre></div>
             </div>
         </div>
