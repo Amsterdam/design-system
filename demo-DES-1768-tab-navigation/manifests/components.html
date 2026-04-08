@@ -582,7 +582,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.4s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -6332,7 +6332,7 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { MouseEvent } from &#39;react&#39;
 
 import { Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
-import { useState } from &#39;react&#39;
+import { useRef, useState } from &#39;react&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 import { menuItems } from &#39;./menuItems&#39;
@@ -6344,6 +6344,8 @@ const meta = {
     const [currentMenuSlug, setCurrentMenuSlug] = useState(menuItems[0].slug)
     const [currentSubMenuSlug, setCurrentSubMenuSlug] = useState(menuItems[0].subMenuItems[0].slug)
 
+    const subMenuListRef = useRef&lt;HTMLUListElement&gt;(null)
+
     const currentMenu = menuItems.find(({ slug }) =&gt; slug === currentMenuSlug) ?? menuItems[0]
     const subMenuItems = currentMenu.subMenuItems
 
@@ -6354,6 +6356,7 @@ const meta = {
       const menu = menuItems.find((item) =&gt; item.slug === menuSlug) ?? menuItems[0]
 
       setCurrentSubMenuSlug(menu.subMenuItems[0].slug)
+      subMenuListRef.current?.scrollTo({ left: 0 })
     }
 
     const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, subMenuSlug: string) =&gt; {
@@ -6394,7 +6397,7 @@ const meta = {
             start={{ narrow: 1, medium: 3, wide: 3 }}
           &gt;
             &lt;TabNavigation&gt;
-              &lt;TabNavigation.List&gt;
+              &lt;TabNavigation.List ref={subMenuListRef}&gt;
                 {subMenuItems.map(({ label, slug }) =&gt; (
                   &lt;TabNavigation.Link
                     aria-current={currentSubMenuSlug === slug ? &#39;page&#39; : undefined}
@@ -6408,7 +6411,7 @@ const meta = {
               &lt;/TabNavigation.List&gt;
             &lt;/TabNavigation&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: `${currentMenu.cellHeights[0]}vh` }}&gt;
             &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
               {currentMenu.label}
             &lt;/Heading&gt;
@@ -6419,7 +6422,7 @@ const meta = {
           &lt;Grid.Cell
             span={{ narrow: 4, medium: 4, wide: 3 }}
             start={{ narrow: 1, medium: 3, wide: 10 }}
-            style={{ blockSize: &#39;20vh&#39; }}
+            style={{ blockSize: `${currentMenu.cellHeights[1]}vh` }}
           /&gt;
         &lt;/Grid&gt;
       &lt;/&gt;
@@ -6466,6 +6469,8 @@ export const Default: StoryObj = {}
   const [currentMenuSlug, setCurrentMenuSlug] = useState(menuItems[0].slug)
   const [currentSubMenuSlug, setCurrentSubMenuSlug] = useState(menuItems[0].subMenuItems[0].slug)
 
+  const subMenuListRef = useRef&lt;HTMLUListElement&gt;(null)
+
   const currentMenu = menuItems.find(({ slug }) =&gt; slug === currentMenuSlug) ?? menuItems[0]
   const subMenuItems = currentMenu.subMenuItems
 
@@ -6476,6 +6481,7 @@ export const Default: StoryObj = {}
     const menu = menuItems.find((item) =&gt; item.slug === menuSlug) ?? menuItems[0]
 
     setCurrentSubMenuSlug(menu.subMenuItems[0].slug)
+    subMenuListRef.current?.scrollTo({ left: 0 })
   }
 
   const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, subMenuSlug: string) =&gt; {
@@ -6516,7 +6522,7 @@ export const Default: StoryObj = {}
           start={{ narrow: 1, medium: 3, wide: 3 }}
         &gt;
           &lt;TabNavigation&gt;
-            &lt;TabNavigation.List&gt;
+            &lt;TabNavigation.List ref={subMenuListRef}&gt;
               {subMenuItems.map(({ label, slug }) =&gt; (
                 &lt;TabNavigation.Link
                   aria-current={currentSubMenuSlug === slug ? &#39;page&#39; : undefined}
@@ -6530,7 +6536,7 @@ export const Default: StoryObj = {}
             &lt;/TabNavigation.List&gt;
           &lt;/TabNavigation&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: `${currentMenu.cellHeights[0]}vh` }}&gt;
           &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
             {currentMenu.label}
           &lt;/Heading&gt;
@@ -6541,7 +6547,7 @@ export const Default: StoryObj = {}
         &lt;Grid.Cell
           span={{ narrow: 4, medium: 4, wide: 3 }}
           start={{ narrow: 1, medium: 3, wide: 10 }}
-          style={{ blockSize: &#39;20vh&#39; }}
+          style={{ blockSize: `${currentMenu.cellHeights[1]}vh` }}
         /&gt;
       &lt;/Grid&gt;
     &lt;/&gt;
@@ -45923,7 +45929,7 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { MouseEvent } from &#39;react&#39;
 
 import { Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
-import { useState } from &#39;react&#39;
+import { useRef, useState } from &#39;react&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 import { menuItems } from &#39;./menuItems&#39;
@@ -45935,6 +45941,8 @@ const meta = {
     const [currentMenuSlug, setCurrentMenuSlug] = useState(menuItems[0].slug)
     const [currentSubMenuSlug, setCurrentSubMenuSlug] = useState(menuItems[0].subMenuItems[0].slug)
 
+    const subMenuListRef = useRef&lt;HTMLUListElement&gt;(null)
+
     const currentMenu = menuItems.find(({ slug }) =&gt; slug === currentMenuSlug) ?? menuItems[0]
     const subMenuItems = currentMenu.subMenuItems
 
@@ -45945,6 +45953,7 @@ const meta = {
       const menu = menuItems.find((item) =&gt; item.slug === menuSlug) ?? menuItems[0]
 
       setCurrentSubMenuSlug(menu.subMenuItems[0].slug)
+      subMenuListRef.current?.scrollTo({ left: 0 })
     }
 
     const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, subMenuSlug: string) =&gt; {
@@ -45985,7 +45994,7 @@ const meta = {
             start={{ narrow: 1, medium: 3, wide: 3 }}
           &gt;
             &lt;TabNavigation&gt;
-              &lt;TabNavigation.List&gt;
+              &lt;TabNavigation.List ref={subMenuListRef}&gt;
                 {subMenuItems.map(({ label, slug }) =&gt; (
                   &lt;TabNavigation.Link
                     aria-current={currentSubMenuSlug === slug ? &#39;page&#39; : undefined}
@@ -45999,7 +46008,7 @@ const meta = {
               &lt;/TabNavigation.List&gt;
             &lt;/TabNavigation&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: `${currentMenu.cellHeights[0]}vh` }}&gt;
             &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
               {currentMenu.label}
             &lt;/Heading&gt;
@@ -46010,7 +46019,7 @@ const meta = {
           &lt;Grid.Cell
             span={{ narrow: 4, medium: 4, wide: 3 }}
             start={{ narrow: 1, medium: 3, wide: 10 }}
-            style={{ blockSize: &#39;20vh&#39; }}
+            style={{ blockSize: `${currentMenu.cellHeights[1]}vh` }}
           /&gt;
         &lt;/Grid&gt;
       &lt;/&gt;
@@ -46057,6 +46066,8 @@ export const Default: StoryObj = {}
   const [currentMenuSlug, setCurrentMenuSlug] = useState(menuItems[0].slug)
   const [currentSubMenuSlug, setCurrentSubMenuSlug] = useState(menuItems[0].subMenuItems[0].slug)
 
+  const subMenuListRef = useRef&lt;HTMLUListElement&gt;(null)
+
   const currentMenu = menuItems.find(({ slug }) =&gt; slug === currentMenuSlug) ?? menuItems[0]
   const subMenuItems = currentMenu.subMenuItems
 
@@ -46067,6 +46078,7 @@ export const Default: StoryObj = {}
     const menu = menuItems.find((item) =&gt; item.slug === menuSlug) ?? menuItems[0]
 
     setCurrentSubMenuSlug(menu.subMenuItems[0].slug)
+    subMenuListRef.current?.scrollTo({ left: 0 })
   }
 
   const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, subMenuSlug: string) =&gt; {
@@ -46107,7 +46119,7 @@ export const Default: StoryObj = {}
           start={{ narrow: 1, medium: 3, wide: 3 }}
         &gt;
           &lt;TabNavigation&gt;
-            &lt;TabNavigation.List&gt;
+            &lt;TabNavigation.List ref={subMenuListRef}&gt;
               {subMenuItems.map(({ label, slug }) =&gt; (
                 &lt;TabNavigation.Link
                   aria-current={currentSubMenuSlug === slug ? &#39;page&#39; : undefined}
@@ -46121,7 +46133,7 @@ export const Default: StoryObj = {}
             &lt;/TabNavigation.List&gt;
           &lt;/TabNavigation&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: `${currentMenu.cellHeights[0]}vh` }}&gt;
           &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
             {currentMenu.label}
           &lt;/Heading&gt;
@@ -46132,7 +46144,7 @@ export const Default: StoryObj = {}
         &lt;Grid.Cell
           span={{ narrow: 4, medium: 4, wide: 3 }}
           start={{ narrow: 1, medium: 3, wide: 10 }}
-          style={{ blockSize: &#39;20vh&#39; }}
+          style={{ blockSize: `${currentMenu.cellHeights[1]}vh` }}
         /&gt;
       &lt;/Grid&gt;
     &lt;/&gt;
