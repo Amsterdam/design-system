@@ -18,7 +18,7 @@ export type GridColumnNumbers = {
   wide: GridColumnNumber
 }
 
-export type GridRowNumber = 2 | 3 | 4
+export type GridRowNumber = 1 | 2 | 3 | 4
 export type GridRowNumbers = { narrow: GridRowNumber; medium: GridRowNumber; wide: GridRowNumber }
 
 export const gridGaps = ['none', 'large', '2x-large'] as const

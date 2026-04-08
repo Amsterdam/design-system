@@ -132,12 +132,12 @@ describe('GridCell', () => {
   })
 
   it('renders class names for an object value for rowSpan', () => {
-    const { container } = render(<Grid.Cell rowSpan={{ narrow: 2, medium: 3, wide: 4 }} />)
+    const { container } = render(<Grid.Cell rowSpan={{ narrow: 1, medium: 3, wide: 4 }} />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass(
-      'ams-grid__cell--row-span-2 ams-grid__cell--row-span-3-medium ams-grid__cell--row-span-4-wide',
+      'ams-grid__cell--row-span-1 ams-grid__cell--row-span-3-medium ams-grid__cell--row-span-4-wide',
     )
   })
 

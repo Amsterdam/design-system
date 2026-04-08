@@ -7,7 +7,7 @@
 @use "mixins" as *;
 
 $ams-grid-column-count: 12;
-$ams-grid-row-span-min: 2;
+$ams-grid-row-span-min: 1;
 $ams-grid-row-span-max: 4;
 
 .ams-grid {
