@@ -4,6 +4,7 @@
  */
 
 ._ams-grid-columns-guide {
+  align-items: stretch;
   block-size: 100vh;
   /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
   border-inline: thin solid var(--_ams-color-grey);
