@@ -10,6 +10,8 @@ $ams-grid-column-count: 12;
 
 .ams-grid {
   @include ams-grid;
+
+  align-items: start;
 }
 
 // Grid gap
