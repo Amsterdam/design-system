@@ -52,12 +52,14 @@ Use the `span` prop to make a cell span more columns.
 ### Span rows
 
 The `rowSpan` prop makes a Cell span multiple rows.
+It only supports the values `1`, `2`, `3`, and `4`.
+If you use `rowSpan` responsively, each of the `narrow`, `medium`, and `wide` values must also be between `1` and `4`.
 
 <Canvas of={GridStories.SpanRows} />
 
 ### Span responsively
 
-You can make the number of columns a cell spans depend on the window width.
+The number of columns or rows that a cell covers can vary with the window width.
 Use the `span` or `rowSpan` prop with 3 values for narrow, medium, and wide windows.
 E.g. `span={{ narrow: 4, medium: 5, wide: 7 }}` makes the cell span all 4 columns on narrow windows, 5 of the 8 on medium windows, and 7 of the 12 on wide windows.
 
@@ -71,7 +73,7 @@ To stretch the cell to all columns of the grid – whether that are 4, 8, or 12 
 
 ### Start position
 
-Each cell automatically starts in the next available column in the grid.
+Each cell automatically starts in the next available position in the grid.
 Adjust the starting position of a cell with the `start` prop.
 This way, you can align cells in multiple rows or center a cell horizontally.
 It can also skip a column for more white space between cells.
