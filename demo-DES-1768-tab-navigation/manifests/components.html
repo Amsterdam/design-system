@@ -582,7 +582,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.6s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -6341,24 +6341,24 @@ const meta = {
   ...commonMeta,
   title: &#39;Pages/Internal/Detail Page&#39;,
   render: () =&gt; {
-    const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
-    const [currentSubMenuItem, setCurrentSubMenuItem] = useState(menuItems[0].subMenuItems[0])
+    const [currentMenuSlug, setCurrentMenuSlug] = useState(menuItems[0].slug)
+    const [currentSubMenuSlug, setCurrentSubMenuSlug] = useState(menuItems[0].subMenuItems[0].slug)
 
-    const currentMenu = menuItems.find(({ label }) =&gt; label === currentMenuItem) ?? menuItems[0]
+    const currentMenu = menuItems.find(({ slug }) =&gt; slug === currentMenuSlug) ?? menuItems[0]
     const subMenuItems = currentMenu.subMenuItems
 
-    const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+    const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, menuSlug: string) =&gt; {
       event.preventDefault()
-      setCurrentMenuItem(label)
+      setCurrentMenuSlug(menuSlug)
 
-      const menu = menuItems.find((item) =&gt; item.label === label) ?? menuItems[0]
+      const menu = menuItems.find((item) =&gt; item.slug === menuSlug) ?? menuItems[0]
 
-      setCurrentSubMenuItem(menu.subMenuItems[0])
+      setCurrentSubMenuSlug(menu.subMenuItems[0].slug)
     }
 
-    const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+    const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, subMenuSlug: string) =&gt; {
       event.preventDefault()
-      setCurrentSubMenuItem(label)
+      setCurrentSubMenuSlug(subMenuSlug)
     }
 
     return (
@@ -6374,13 +6374,13 @@ const meta = {
           &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
             &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
               &lt;TabNavigation.List&gt;
-                {menuItems.map(({ icon, label }) =&gt; (
+                {menuItems.map(({ icon, label, slug }) =&gt; (
                   &lt;TabNavigation.Link
-                    aria-current={currentMenuItem === label ? &#39;page&#39; : undefined}
-                    href=&quot;&quot;
+                    aria-current={currentMenuSlug === slug ? &#39;page&#39; : undefined}
+                    href={`/projecten/42/${slug}`}
                     icon={icon}
-                    key={label}
-                    onClick={(e) =&gt; handleMenuItemClick(e, label)}
+                    key={slug}
+                    onClick={(e) =&gt; handleMenuItemClick(e, slug)}
                   &gt;
                     {label}
                   &lt;/TabNavigation.Link&gt;
@@ -6395,12 +6395,12 @@ const meta = {
           &gt;
             &lt;TabNavigation&gt;
               &lt;TabNavigation.List&gt;
-                {subMenuItems.map((label) =&gt; (
+                {subMenuItems.map(({ label, slug }) =&gt; (
                   &lt;TabNavigation.Link
-                    aria-current={currentSubMenuItem === label ? &#39;page&#39; : undefined}
-                    href=&quot;&quot;
-                    key={label}
-                    onClick={(e) =&gt; handleSubMenuItemClick(e, label)}
+                    aria-current={currentSubMenuSlug === slug ? &#39;page&#39; : undefined}
+                    href={`/projecten/42/${currentMenuSlug}/${slug}`}
+                    key={slug}
+                    onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
                   &gt;
                     {label}
                   &lt;/TabNavigation.Link&gt;
@@ -6410,10 +6410,10 @@ const meta = {
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
             &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
-              {currentMenuItem}
+              {currentMenu.label}
             &lt;/Heading&gt;
             &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-              {currentSubMenuItem}
+              {subMenuItems.find(({ slug }) =&gt; slug === currentSubMenuSlug)?.label}
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
@@ -6463,24 +6463,24 @@ export const Default: StoryObj = {}
               
               
               <pre><code>const Default = () =&gt; {
-  const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
-  const [currentSubMenuItem, setCurrentSubMenuItem] = useState(menuItems[0].subMenuItems[0])
+  const [currentMenuSlug, setCurrentMenuSlug] = useState(menuItems[0].slug)
+  const [currentSubMenuSlug, setCurrentSubMenuSlug] = useState(menuItems[0].subMenuItems[0].slug)
 
-  const currentMenu = menuItems.find(({ label }) =&gt; label === currentMenuItem) ?? menuItems[0]
+  const currentMenu = menuItems.find(({ slug }) =&gt; slug === currentMenuSlug) ?? menuItems[0]
   const subMenuItems = currentMenu.subMenuItems
 
-  const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+  const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, menuSlug: string) =&gt; {
     event.preventDefault()
-    setCurrentMenuItem(label)
+    setCurrentMenuSlug(menuSlug)
 
-    const menu = menuItems.find((item) =&gt; item.label === label) ?? menuItems[0]
+    const menu = menuItems.find((item) =&gt; item.slug === menuSlug) ?? menuItems[0]
 
-    setCurrentSubMenuItem(menu.subMenuItems[0])
+    setCurrentSubMenuSlug(menu.subMenuItems[0].slug)
   }
 
-  const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+  const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, subMenuSlug: string) =&gt; {
     event.preventDefault()
-    setCurrentSubMenuItem(label)
+    setCurrentSubMenuSlug(subMenuSlug)
   }
 
   return (
@@ -6496,13 +6496,13 @@ export const Default: StoryObj = {}
         &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
           &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
             &lt;TabNavigation.List&gt;
-              {menuItems.map(({ icon, label }) =&gt; (
+              {menuItems.map(({ icon, label, slug }) =&gt; (
                 &lt;TabNavigation.Link
-                  aria-current={currentMenuItem === label ? &#39;page&#39; : undefined}
-                  href=&quot;&quot;
+                  aria-current={currentMenuSlug === slug ? &#39;page&#39; : undefined}
+                  href={`/projecten/42/${slug}`}
                   icon={icon}
-                  key={label}
-                  onClick={(e) =&gt; handleMenuItemClick(e, label)}
+                  key={slug}
+                  onClick={(e) =&gt; handleMenuItemClick(e, slug)}
                 &gt;
                   {label}
                 &lt;/TabNavigation.Link&gt;
@@ -6517,12 +6517,12 @@ export const Default: StoryObj = {}
         &gt;
           &lt;TabNavigation&gt;
             &lt;TabNavigation.List&gt;
-              {subMenuItems.map((label) =&gt; (
+              {subMenuItems.map(({ label, slug }) =&gt; (
                 &lt;TabNavigation.Link
-                  aria-current={currentSubMenuItem === label ? &#39;page&#39; : undefined}
-                  href=&quot;&quot;
-                  key={label}
-                  onClick={(e) =&gt; handleSubMenuItemClick(e, label)}
+                  aria-current={currentSubMenuSlug === slug ? &#39;page&#39; : undefined}
+                  href={`/projecten/42/${currentMenuSlug}/${slug}`}
+                  key={slug}
+                  onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
                 &gt;
                   {label}
                 &lt;/TabNavigation.Link&gt;
@@ -6532,10 +6532,10 @@ export const Default: StoryObj = {}
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
           &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
-            {currentMenuItem}
+            {currentMenu.label}
           &lt;/Heading&gt;
           &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-            {currentSubMenuItem}
+            {subMenuItems.find(({ slug }) =&gt; slug === currentSubMenuSlug)?.label}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
@@ -45932,24 +45932,24 @@ const meta = {
   ...commonMeta,
   title: &#39;Pages/Internal/Detail Page&#39;,
   render: () =&gt; {
-    const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
-    const [currentSubMenuItem, setCurrentSubMenuItem] = useState(menuItems[0].subMenuItems[0])
+    const [currentMenuSlug, setCurrentMenuSlug] = useState(menuItems[0].slug)
+    const [currentSubMenuSlug, setCurrentSubMenuSlug] = useState(menuItems[0].subMenuItems[0].slug)
 
-    const currentMenu = menuItems.find(({ label }) =&gt; label === currentMenuItem) ?? menuItems[0]
+    const currentMenu = menuItems.find(({ slug }) =&gt; slug === currentMenuSlug) ?? menuItems[0]
     const subMenuItems = currentMenu.subMenuItems
 
-    const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+    const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, menuSlug: string) =&gt; {
       event.preventDefault()
-      setCurrentMenuItem(label)
+      setCurrentMenuSlug(menuSlug)
 
-      const menu = menuItems.find((item) =&gt; item.label === label) ?? menuItems[0]
+      const menu = menuItems.find((item) =&gt; item.slug === menuSlug) ?? menuItems[0]
 
-      setCurrentSubMenuItem(menu.subMenuItems[0])
+      setCurrentSubMenuSlug(menu.subMenuItems[0].slug)
     }
 
-    const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+    const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, subMenuSlug: string) =&gt; {
       event.preventDefault()
-      setCurrentSubMenuItem(label)
+      setCurrentSubMenuSlug(subMenuSlug)
     }
 
     return (
@@ -45965,13 +45965,13 @@ const meta = {
           &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
             &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
               &lt;TabNavigation.List&gt;
-                {menuItems.map(({ icon, label }) =&gt; (
+                {menuItems.map(({ icon, label, slug }) =&gt; (
                   &lt;TabNavigation.Link
-                    aria-current={currentMenuItem === label ? &#39;page&#39; : undefined}
-                    href=&quot;&quot;
+                    aria-current={currentMenuSlug === slug ? &#39;page&#39; : undefined}
+                    href={`/projecten/42/${slug}`}
                     icon={icon}
-                    key={label}
-                    onClick={(e) =&gt; handleMenuItemClick(e, label)}
+                    key={slug}
+                    onClick={(e) =&gt; handleMenuItemClick(e, slug)}
                   &gt;
                     {label}
                   &lt;/TabNavigation.Link&gt;
@@ -45986,12 +45986,12 @@ const meta = {
           &gt;
             &lt;TabNavigation&gt;
               &lt;TabNavigation.List&gt;
-                {subMenuItems.map((label) =&gt; (
+                {subMenuItems.map(({ label, slug }) =&gt; (
                   &lt;TabNavigation.Link
-                    aria-current={currentSubMenuItem === label ? &#39;page&#39; : undefined}
-                    href=&quot;&quot;
-                    key={label}
-                    onClick={(e) =&gt; handleSubMenuItemClick(e, label)}
+                    aria-current={currentSubMenuSlug === slug ? &#39;page&#39; : undefined}
+                    href={`/projecten/42/${currentMenuSlug}/${slug}`}
+                    key={slug}
+                    onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
                   &gt;
                     {label}
                   &lt;/TabNavigation.Link&gt;
@@ -46001,10 +46001,10 @@ const meta = {
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
             &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
-              {currentMenuItem}
+              {currentMenu.label}
             &lt;/Heading&gt;
             &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-              {currentSubMenuItem}
+              {subMenuItems.find(({ slug }) =&gt; slug === currentSubMenuSlug)?.label}
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
@@ -46054,24 +46054,24 @@ export const Default: StoryObj = {}
               
               
               <pre><code>const Default = () =&gt; {
-  const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
-  const [currentSubMenuItem, setCurrentSubMenuItem] = useState(menuItems[0].subMenuItems[0])
+  const [currentMenuSlug, setCurrentMenuSlug] = useState(menuItems[0].slug)
+  const [currentSubMenuSlug, setCurrentSubMenuSlug] = useState(menuItems[0].subMenuItems[0].slug)
 
-  const currentMenu = menuItems.find(({ label }) =&gt; label === currentMenuItem) ?? menuItems[0]
+  const currentMenu = menuItems.find(({ slug }) =&gt; slug === currentMenuSlug) ?? menuItems[0]
   const subMenuItems = currentMenu.subMenuItems
 
-  const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+  const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, menuSlug: string) =&gt; {
     event.preventDefault()
-    setCurrentMenuItem(label)
+    setCurrentMenuSlug(menuSlug)
 
-    const menu = menuItems.find((item) =&gt; item.label === label) ?? menuItems[0]
+    const menu = menuItems.find((item) =&gt; item.slug === menuSlug) ?? menuItems[0]
 
-    setCurrentSubMenuItem(menu.subMenuItems[0])
+    setCurrentSubMenuSlug(menu.subMenuItems[0].slug)
   }
 
-  const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
+  const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, subMenuSlug: string) =&gt; {
     event.preventDefault()
-    setCurrentSubMenuItem(label)
+    setCurrentSubMenuSlug(subMenuSlug)
   }
 
   return (
@@ -46087,13 +46087,13 @@ export const Default: StoryObj = {}
         &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
           &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
             &lt;TabNavigation.List&gt;
-              {menuItems.map(({ icon, label }) =&gt; (
+              {menuItems.map(({ icon, label, slug }) =&gt; (
                 &lt;TabNavigation.Link
-                  aria-current={currentMenuItem === label ? &#39;page&#39; : undefined}
-                  href=&quot;&quot;
+                  aria-current={currentMenuSlug === slug ? &#39;page&#39; : undefined}
+                  href={`/projecten/42/${slug}`}
                   icon={icon}
-                  key={label}
-                  onClick={(e) =&gt; handleMenuItemClick(e, label)}
+                  key={slug}
+                  onClick={(e) =&gt; handleMenuItemClick(e, slug)}
                 &gt;
                   {label}
                 &lt;/TabNavigation.Link&gt;
@@ -46108,12 +46108,12 @@ export const Default: StoryObj = {}
         &gt;
           &lt;TabNavigation&gt;
             &lt;TabNavigation.List&gt;
-              {subMenuItems.map((label) =&gt; (
+              {subMenuItems.map(({ label, slug }) =&gt; (
                 &lt;TabNavigation.Link
-                  aria-current={currentSubMenuItem === label ? &#39;page&#39; : undefined}
-                  href=&quot;&quot;
-                  key={label}
-                  onClick={(e) =&gt; handleSubMenuItemClick(e, label)}
+                  aria-current={currentSubMenuSlug === slug ? &#39;page&#39; : undefined}
+                  href={`/projecten/42/${currentMenuSlug}/${slug}`}
+                  key={slug}
+                  onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
                 &gt;
                   {label}
                 &lt;/TabNavigation.Link&gt;
@@ -46123,10 +46123,10 @@ export const Default: StoryObj = {}
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
           &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
-            {currentMenuItem}
+            {currentMenu.label}
           &lt;/Heading&gt;
           &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-            {currentSubMenuItem}
+            {subMenuItems.find(({ slug }) =&gt; slug === currentSubMenuSlug)?.label}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
