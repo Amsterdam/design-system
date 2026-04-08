@@ -12,7 +12,7 @@ import type { GridColumnNumber, GridColumnNumbers } from './Grid'
 
 import { gridCellClasses } from './gridCellClasses'
 
-export const gridCellAppearances = ['transparent'] as const
+export const gridCellAppearances = ['flush', 'transparent'] as const
 export type GridCellAppearance = (typeof gridCellAppearances)[number]
 
 export const gridCellTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
@@ -36,6 +36,7 @@ export type GridCellProps = {
    * Controls the background of the Grid Cell.
    *
    * In Compact Mode, cells have a background colour and padding to set them apart.
+   * The flush variant removes the padding but keeps the background colour.
    * The transparent variant removes both background and padding.
    *
    * In Spacious Mode, cells are always transparent and without padding; this prop has no effect.
