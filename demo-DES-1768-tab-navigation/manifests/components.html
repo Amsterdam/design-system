@@ -6379,7 +6379,7 @@ const meta = {
             rowSpan={{ narrow: 1, medium: 3, wide: 2 }}
             span={{ narrow: 4, medium: 2, wide: 2 }}
           &gt;
-            &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
+            &lt;TabNavigation accessibleName=&quot;Navigatie voor Naam van het project&quot; orientation=&quot;vertical&quot;&gt;
               &lt;TabNavigation.List&gt;
                 {menuItems.map(({ icon, label, slug }) =&gt; (
                   &lt;TabNavigation.Link
@@ -6400,7 +6400,7 @@ const meta = {
             span={{ narrow: 4, medium: 6, wide: 10 }}
             start={{ narrow: 1, medium: 3, wide: 3 }}
           &gt;
-            &lt;TabNavigation&gt;
+            &lt;TabNavigation accessibleName={`Subnavigatie voor ${currentMenuSlug}`}&gt;
               &lt;TabNavigation.List ref={subMenuListRef}&gt;
                 {subMenuItems.map(({ label, slug }) =&gt; (
                   &lt;TabNavigation.Link
@@ -6508,7 +6508,7 @@ export const Default: StoryObj = {}
           rowSpan={{ narrow: 1, medium: 3, wide: 2 }}
           span={{ narrow: 4, medium: 2, wide: 2 }}
         &gt;
-          &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
+          &lt;TabNavigation accessibleName=&quot;Navigatie voor Naam van het project&quot; orientation=&quot;vertical&quot;&gt;
             &lt;TabNavigation.List&gt;
               {menuItems.map(({ icon, label, slug }) =&gt; (
                 &lt;TabNavigation.Link
@@ -6529,7 +6529,7 @@ export const Default: StoryObj = {}
           span={{ narrow: 4, medium: 6, wide: 10 }}
           start={{ narrow: 1, medium: 3, wide: 3 }}
         &gt;
-          &lt;TabNavigation&gt;
+          &lt;TabNavigation accessibleName={`Subnavigatie voor ${currentMenuSlug}`}&gt;
             &lt;TabNavigation.List ref={subMenuListRef}&gt;
               {subMenuItems.map(({ label, slug }) =&gt; (
                 &lt;TabNavigation.Link
@@ -45984,7 +45984,7 @@ const meta = {
             rowSpan={{ narrow: 1, medium: 3, wide: 2 }}
             span={{ narrow: 4, medium: 2, wide: 2 }}
           &gt;
-            &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
+            &lt;TabNavigation accessibleName=&quot;Navigatie voor Naam van het project&quot; orientation=&quot;vertical&quot;&gt;
               &lt;TabNavigation.List&gt;
                 {menuItems.map(({ icon, label, slug }) =&gt; (
                   &lt;TabNavigation.Link
@@ -46005,7 +46005,7 @@ const meta = {
             span={{ narrow: 4, medium: 6, wide: 10 }}
             start={{ narrow: 1, medium: 3, wide: 3 }}
           &gt;
-            &lt;TabNavigation&gt;
+            &lt;TabNavigation accessibleName={`Subnavigatie voor ${currentMenuSlug}`}&gt;
               &lt;TabNavigation.List ref={subMenuListRef}&gt;
                 {subMenuItems.map(({ label, slug }) =&gt; (
                   &lt;TabNavigation.Link
@@ -46113,7 +46113,7 @@ export const Default: StoryObj = {}
           rowSpan={{ narrow: 1, medium: 3, wide: 2 }}
           span={{ narrow: 4, medium: 2, wide: 2 }}
         &gt;
-          &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
+          &lt;TabNavigation accessibleName=&quot;Navigatie voor Naam van het project&quot; orientation=&quot;vertical&quot;&gt;
             &lt;TabNavigation.List&gt;
               {menuItems.map(({ icon, label, slug }) =&gt; (
                 &lt;TabNavigation.Link
@@ -46134,7 +46134,7 @@ export const Default: StoryObj = {}
           span={{ narrow: 4, medium: 6, wide: 10 }}
           start={{ narrow: 1, medium: 3, wide: 3 }}
         &gt;
-          &lt;TabNavigation&gt;
+          &lt;TabNavigation accessibleName={`Subnavigatie voor ${currentMenuSlug}`}&gt;
             &lt;TabNavigation.List ref={subMenuListRef}&gt;
               {subMenuItems.map(({ label, slug }) =&gt; (
                 &lt;TabNavigation.Link
