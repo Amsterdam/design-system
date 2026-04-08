@@ -8,6 +8,7 @@
 @use "../../common/breakpoint" as *;
 
 @mixin ams-grid {
+  align-items: start;
   column-gap: var(--ams-grid-column-gap);
   display: grid;
   grid-template-columns: repeat(var(--ams-grid-column-count), 1fr);
