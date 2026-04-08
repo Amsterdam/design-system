@@ -582,7 +582,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.5s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -6314,13 +6314,13 @@ tokens: Tokens</code></pre>
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  19 | const subMenuItems = Array.from({ length: 6 }, (_, index) =&gt; `Submenu item ${index + 1}`)
-  20 |
-&gt; 21 | const meta = {
+  13 | import { menuItems } from &#39;./menuItems&#39;
+  14 |
+&gt; 15 | const meta = {
      | ^
-  22 |   ...commonMeta,
-  23 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  24 |   render: () =&gt; {
+  16 |   ...commonMeta,
+  17 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  18 |   render: () =&gt; {
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -6332,27 +6332,28 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { MouseEvent } from &#39;react&#39;
 
 import { Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
-import { ChevronForwardIcon } from &#39;@amsterdam/design-system-react-icons&#39;
 import { useState } from &#39;react&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
-
-const menuItems = Array.from({ length: 8 }, (_, index) =&gt; ({
-  icon: ChevronForwardIcon,
-  label: `Menu item ${index + 1}`,
-}))
-const subMenuItems = Array.from({ length: 6 }, (_, index) =&gt; `Submenu item ${index + 1}`)
+import { menuItems } from &#39;./menuItems&#39;
 
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Internal/Detail Page&#39;,
   render: () =&gt; {
     const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
-    const [currentSubMenuItem, setCurrentSubMenuItem] = useState(subMenuItems[2])
+    const [currentSubMenuItem, setCurrentSubMenuItem] = useState(menuItems[0].subMenuItems[0])
+
+    const currentMenu = menuItems.find(({ label }) =&gt; label === currentMenuItem) ?? menuItems[0]
+    const subMenuItems = currentMenu.subMenuItems
 
     const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
       event.preventDefault()
       setCurrentMenuItem(label)
+
+      const menu = menuItems.find((item) =&gt; item.label === label) ?? menuItems[0]
+
+      setCurrentSubMenuItem(menu.subMenuItems[0])
     }
 
     const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
@@ -6365,15 +6366,10 @@ const meta = {
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
             &lt;Breadcrumb&gt;
-              &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Dashboard&lt;/Breadcrumb.Link&gt;
+              &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
               &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Projecten&lt;/Breadcrumb.Link&gt;
             &lt;/Breadcrumb&gt;
-            &lt;Heading level={2} size=&quot;level-1&quot;&gt;
-              Kerngegevens
-            &lt;/Heading&gt;
-            &lt;Heading level={1} size=&quot;level-2&quot;&gt;
-              Brug 423 opwaardering (Berlagebrug) – ams20192715
-            &lt;/Heading&gt;
+            &lt;Heading level={1}&gt;Naam van het project&lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
             &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
@@ -6412,7 +6408,14 @@ const meta = {
               &lt;/TabNavigation.List&gt;
             &lt;/TabNavigation&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }} /&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              {currentMenuItem}
+            &lt;/Heading&gt;
+            &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
+              {currentSubMenuItem}
+            &lt;/Heading&gt;
+          &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
             span={{ narrow: 4, medium: 4, wide: 3 }}
             start={{ narrow: 1, medium: 3, wide: 10 }}
@@ -6461,11 +6464,18 @@ export const Default: StoryObj = {}
               
               <pre><code>const Default = () =&gt; {
   const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
-  const [currentSubMenuItem, setCurrentSubMenuItem] = useState(subMenuItems[2])
+  const [currentSubMenuItem, setCurrentSubMenuItem] = useState(menuItems[0].subMenuItems[0])
+
+  const currentMenu = menuItems.find(({ label }) =&gt; label === currentMenuItem) ?? menuItems[0]
+  const subMenuItems = currentMenu.subMenuItems
 
   const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
     event.preventDefault()
     setCurrentMenuItem(label)
+
+    const menu = menuItems.find((item) =&gt; item.label === label) ?? menuItems[0]
+
+    setCurrentSubMenuItem(menu.subMenuItems[0])
   }
 
   const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
@@ -6478,15 +6488,10 @@ export const Default: StoryObj = {}
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
           &lt;Breadcrumb&gt;
-            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Dashboard&lt;/Breadcrumb.Link&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
             &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Projecten&lt;/Breadcrumb.Link&gt;
           &lt;/Breadcrumb&gt;
-          &lt;Heading level={2} size=&quot;level-1&quot;&gt;
-            Kerngegevens
-          &lt;/Heading&gt;
-          &lt;Heading level={1} size=&quot;level-2&quot;&gt;
-            Brug 423 opwaardering (Berlagebrug) – ams20192715
-          &lt;/Heading&gt;
+          &lt;Heading level={1}&gt;Naam van het project&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
           &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
@@ -6525,7 +6530,14 @@ export const Default: StoryObj = {}
             &lt;/TabNavigation.List&gt;
           &lt;/TabNavigation&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }} /&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            {currentMenuItem}
+          &lt;/Heading&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
+            {currentSubMenuItem}
+          &lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
           span={{ narrow: 4, medium: 4, wide: 3 }}
           start={{ narrow: 1, medium: 3, wide: 10 }}
@@ -45893,13 +45905,13 @@ export const Test: Story = {
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  19 | const subMenuItems = Array.from({ length: 6 }, (_, index) =&gt; `Submenu item ${index + 1}`)
-  20 |
-&gt; 21 | const meta = {
+  13 | import { menuItems } from &#39;./menuItems&#39;
+  14 |
+&gt; 15 | const meta = {
      | ^
-  22 |   ...commonMeta,
-  23 |   title: &#39;Pages/Internal/Detail Page&#39;,
-  24 |   render: () =&gt; {
+  16 |   ...commonMeta,
+  17 |   title: &#39;Pages/Internal/Detail Page&#39;,
+  18 |   render: () =&gt; {
 
 ./src/pages/internal/DetailPage/DetailPage.stories.tsx:
 /**
@@ -45911,27 +45923,28 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import type { MouseEvent } from &#39;react&#39;
 
 import { Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
-import { ChevronForwardIcon } from &#39;@amsterdam/design-system-react-icons&#39;
 import { useState } from &#39;react&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
-
-const menuItems = Array.from({ length: 8 }, (_, index) =&gt; ({
-  icon: ChevronForwardIcon,
-  label: `Menu item ${index + 1}`,
-}))
-const subMenuItems = Array.from({ length: 6 }, (_, index) =&gt; `Submenu item ${index + 1}`)
+import { menuItems } from &#39;./menuItems&#39;
 
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Internal/Detail Page&#39;,
   render: () =&gt; {
     const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
-    const [currentSubMenuItem, setCurrentSubMenuItem] = useState(subMenuItems[2])
+    const [currentSubMenuItem, setCurrentSubMenuItem] = useState(menuItems[0].subMenuItems[0])
+
+    const currentMenu = menuItems.find(({ label }) =&gt; label === currentMenuItem) ?? menuItems[0]
+    const subMenuItems = currentMenu.subMenuItems
 
     const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
       event.preventDefault()
       setCurrentMenuItem(label)
+
+      const menu = menuItems.find((item) =&gt; item.label === label) ?? menuItems[0]
+
+      setCurrentSubMenuItem(menu.subMenuItems[0])
     }
 
     const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
@@ -45944,15 +45957,10 @@ const meta = {
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
             &lt;Breadcrumb&gt;
-              &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Dashboard&lt;/Breadcrumb.Link&gt;
+              &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
               &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Projecten&lt;/Breadcrumb.Link&gt;
             &lt;/Breadcrumb&gt;
-            &lt;Heading level={2} size=&quot;level-1&quot;&gt;
-              Kerngegevens
-            &lt;/Heading&gt;
-            &lt;Heading level={1} size=&quot;level-2&quot;&gt;
-              Brug 423 opwaardering (Berlagebrug) – ams20192715
-            &lt;/Heading&gt;
+            &lt;Heading level={1}&gt;Naam van het project&lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
             &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
@@ -45991,7 +45999,14 @@ const meta = {
               &lt;/TabNavigation.List&gt;
             &lt;/TabNavigation&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }} /&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              {currentMenuItem}
+            &lt;/Heading&gt;
+            &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
+              {currentSubMenuItem}
+            &lt;/Heading&gt;
+          &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
             span={{ narrow: 4, medium: 4, wide: 3 }}
             start={{ narrow: 1, medium: 3, wide: 10 }}
@@ -46040,11 +46055,18 @@ export const Default: StoryObj = {}
               
               <pre><code>const Default = () =&gt; {
   const [currentMenuItem, setCurrentMenuItem] = useState(menuItems[0].label)
-  const [currentSubMenuItem, setCurrentSubMenuItem] = useState(subMenuItems[2])
+  const [currentSubMenuItem, setCurrentSubMenuItem] = useState(menuItems[0].subMenuItems[0])
+
+  const currentMenu = menuItems.find(({ label }) =&gt; label === currentMenuItem) ?? menuItems[0]
+  const subMenuItems = currentMenu.subMenuItems
 
   const handleMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
     event.preventDefault()
     setCurrentMenuItem(label)
+
+    const menu = menuItems.find((item) =&gt; item.label === label) ?? menuItems[0]
+
+    setCurrentSubMenuItem(menu.subMenuItems[0])
   }
 
   const handleSubMenuItemClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
@@ -46057,15 +46079,10 @@ export const Default: StoryObj = {}
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
           &lt;Breadcrumb&gt;
-            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Dashboard&lt;/Breadcrumb.Link&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
             &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Projecten&lt;/Breadcrumb.Link&gt;
           &lt;/Breadcrumb&gt;
-          &lt;Heading level={2} size=&quot;level-1&quot;&gt;
-            Kerngegevens
-          &lt;/Heading&gt;
-          &lt;Heading level={1} size=&quot;level-2&quot;&gt;
-            Brug 423 opwaardering (Berlagebrug) – ams20192715
-          &lt;/Heading&gt;
+          &lt;Heading level={1}&gt;Naam van het project&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
           &lt;TabNavigation orientation=&quot;vertical&quot;&gt;
@@ -46104,7 +46121,14 @@ export const Default: StoryObj = {}
             &lt;/TabNavigation.List&gt;
           &lt;/TabNavigation&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }} /&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} style={{ blockSize: &#39;50vh&#39; }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            {currentMenuItem}
+          &lt;/Heading&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
+            {currentSubMenuItem}
+          &lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
           span={{ narrow: 4, medium: 4, wide: 3 }}
           start={{ narrow: 1, medium: 3, wide: 10 }}
