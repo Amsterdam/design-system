@@ -5839,13 +5839,13 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;DescriptionList&quot; component.
-  10 | import { DescriptionList } from &#39;@amsterdam/design-system-react/src&#39;
-  11 |
-&gt; 12 | const meta = {
+  18 | )
+  19 |
+&gt; 20 | const meta = {
      | ^
-  13 |   title: &#39;Components/Text/Description List&#39;,
-  14 |   component: DescriptionList,
-  15 |   args: {
+  21 |   title: &#39;Components/Text/Description List&#39;,
+  22 |   component: DescriptionList,
+  23 |   args: {
 
 ./src/components/DescriptionList/DescriptionList.stories.tsx:
 /**
@@ -5853,11 +5853,19 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { Meta, StoryFn, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import { Grid, Link, Paragraph, UnorderedList } from &#39;@amsterdam/design-system-react&#39;
 import { descriptionListTermsWidths } from &#39;@amsterdam/design-system-react/dist/DescriptionList/DescriptionList&#39;
 import { DescriptionList } from &#39;@amsterdam/design-system-react/src&#39;
+
+const inSingleCellGrid = (Story: StoryFn) =&gt; (
+  &lt;Grid&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;Story /&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+)
 
 const meta = {
   title: &#39;Components/Text/Description List&#39;,
@@ -5898,7 +5906,9 @@ export default meta
 
 type Story = StoryObj&lt;typeof meta&gt;
 
-export const Default: Story = {}
+export const Default: Story = {
+  decorators: [inSingleCellGrid],
+}
 
 export const MultipleDescriptions: Story = {
   args: {
@@ -5910,6 +5920,7 @@ export const MultipleDescriptions: Story = {
       &lt;DescriptionList.Description key={5}&gt;Persoon die slechtziend is&lt;/DescriptionList.Description&gt;,
     ],
   },
+  decorators: [inSingleCellGrid],
 }
 
 export const MultipleTerms: Story = {
@@ -5930,9 +5941,11 @@ export const MultipleTerms: Story = {
     ],
     termsWidth: &#39;medium&#39;,
   },
+  decorators: [inSingleCellGrid],
 }
 
 export const RichDescription: Story = {
+  decorators: [inSingleCellGrid],
   render: (args) =&gt; (
     &lt;DescriptionList {...args}&gt;
       &lt;DescriptionList.Term key={1}&gt;Amsterdam Light Festival&lt;/DescriptionList.Term&gt;
@@ -5962,6 +5975,7 @@ export const InverseColour: Story = {
   args: {
     color: &#39;inverse&#39;,
   },
+  decorators: [inSingleCellGrid],
 }
 
 export const NarrowContainer: Story = {
@@ -29552,13 +29566,13 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;DescriptionList&quot; component.
-  10 | import { DescriptionList } from &#39;@amsterdam/design-system-react/src&#39;
-  11 |
-&gt; 12 | const meta = {
+  18 | )
+  19 |
+&gt; 20 | const meta = {
      | ^
-  13 |   title: &#39;Components/Text/Description List&#39;,
-  14 |   component: DescriptionList,
-  15 |   args: {
+  21 |   title: &#39;Components/Text/Description List&#39;,
+  22 |   component: DescriptionList,
+  23 |   args: {
 
 ./src/components/DescriptionList/DescriptionList.stories.tsx:
 /**
@@ -29566,11 +29580,19 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { Meta, StoryFn, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import { Grid, Link, Paragraph, UnorderedList } from &#39;@amsterdam/design-system-react&#39;
 import { descriptionListTermsWidths } from &#39;@amsterdam/design-system-react/dist/DescriptionList/DescriptionList&#39;
 import { DescriptionList } from &#39;@amsterdam/design-system-react/src&#39;
+
+const inSingleCellGrid = (Story: StoryFn) =&gt; (
+  &lt;Grid&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;Story /&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+)
 
 const meta = {
   title: &#39;Components/Text/Description List&#39;,
@@ -29611,7 +29633,9 @@ export default meta
 
 type Story = StoryObj&lt;typeof meta&gt;
 
-export const Default: Story = {}
+export const Default: Story = {
+  decorators: [inSingleCellGrid],
+}
 
 export const MultipleDescriptions: Story = {
   args: {
@@ -29623,6 +29647,7 @@ export const MultipleDescriptions: Story = {
       &lt;DescriptionList.Description key={5}&gt;Persoon die slechtziend is&lt;/DescriptionList.Description&gt;,
     ],
   },
+  decorators: [inSingleCellGrid],
 }
 
 export const MultipleTerms: Story = {
@@ -29643,9 +29668,11 @@ export const MultipleTerms: Story = {
     ],
     termsWidth: &#39;medium&#39;,
   },
+  decorators: [inSingleCellGrid],
 }
 
 export const RichDescription: Story = {
+  decorators: [inSingleCellGrid],
   render: (args) =&gt; (
     &lt;DescriptionList {...args}&gt;
       &lt;DescriptionList.Term key={1}&gt;Amsterdam Light Festival&lt;/DescriptionList.Term&gt;
@@ -29675,6 +29702,7 @@ export const InverseColour: Story = {
   args: {
     color: &#39;inverse&#39;,
   },
+  decorators: [inSingleCellGrid],
 }
 
 export const NarrowContainer: Story = {
