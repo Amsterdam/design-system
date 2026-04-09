@@ -6,8 +6,8 @@ A collection of terms and their descriptions.
 
 ## Design
 
-In a narrow window, descriptions appear below their term.
-After that, they display in a two-column layout.
+In a narrow container, descriptions appear below their term.
+Once the container reaches 32rem (or wider), they display in a two-column layout.
 The column for the terms is as wide as the longest term, without wrapping.
 Its width can be adjusted to be ‘large’ (50%), ‘medium’ (33%), or ‘small’ (20%), which also allows the terms to wrap.
 
