@@ -20,7 +20,15 @@
   @include text-rendering;
 }
 
-@media (min-width: $ams-breakpoint-medium) {
+// Container query breakpoint
+// - Note: CSS Custom Properties can’t be used in `@container` queries.
+// - Use `$ams-breakpoint-medium - 2 × 2.75rem` ⇒ 37.5rem - 5.5rem = 32rem.
+// - 2.75rem ≈ medium parent gutter (Grid uses `--ams-space-xl`);
+/* stylelint-disable-next-line scss/dollar-variable-pattern, scss/dollar-variable-first-in-block -- Declare magic number locally; not for reuse */
+$__ams-grid-cell-vi-medium-padding-inline: 2.75rem;
+$ams-description-list-cqi-breakpoint-medium: $ams-breakpoint-medium - (2 * $__ams-grid-cell-vi-medium-padding-inline);
+
+@container (width > #{$ams-description-list-cqi-breakpoint-medium}) {
   .ams-description-list,
   .ams-description-list__section {
     align-items: start;
@@ -58,7 +66,7 @@
   /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
   text-wrap: var(--ams-description-list-term-text-wrap);
 
-  @media (min-width: $ams-breakpoint-medium) {
+  @container (width > #{$ams-description-list-cqi-breakpoint-medium}) {
     grid-column-start: 1;
 
     // Add margin for Terms that are longer than their Description(s)
@@ -93,7 +101,7 @@
   margin-block-end: var(--ams-description-list-description-margin-block-end);
   padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
-  @media (min-width: $ams-breakpoint-medium) {
+  @container (width > #{$ams-description-list-cqi-breakpoint-medium}) {
     grid-column-start: 2;
     padding-inline-start: 0;
 
@@ -107,7 +115,7 @@
 .ams-description-list__section {
   margin-block-end: var(--ams-description-list-section-margin-block-end);
 
-  @media (min-width: $ams-breakpoint-medium) {
+  @container (width > #{$ams-description-list-cqi-breakpoint-medium}) {
     grid-column: span 2;
 
     > :only-of-type {
@@ -129,7 +137,7 @@
   }
 }
 
-@media (min-width: $ams-breakpoint-medium) {
+@container (width > #{$ams-description-list-cqi-breakpoint-medium}) {
   .ams-description-list,
   .ams-description-list > .ams-description-list__section:last-child {
     > .ams-description-list__term:last-of-type {

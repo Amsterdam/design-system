@@ -51,6 +51,13 @@ This ensures the colour of the text provides enough contrast.
 
 <Canvas of={DescriptionListStories.InverseColour} />
 
+### Narrow container
+
+The Description List uses container queries to switch between a vertical and horizontal layout.
+When its parent container is narrower than the breakpoint, terms and descriptions stack in a single column.
+
+<Canvas of={DescriptionListStories.NarrowContainer} />
+
 ## Design tokens
 
 <DesignTokensTable tokens={tokens} />

@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { Grid, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 
@@ -112,4 +112,18 @@ export const InverseColour: Story = {
   args: {
     color: 'inverse',
   },
+}
+
+export const NarrowContainer: Story = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  render: (args) => (
+    <Grid>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 8 }}>
+        <DescriptionList {...args} />
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }} />
+    </Grid>
+  ),
 }
