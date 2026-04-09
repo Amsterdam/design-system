@@ -134,10 +134,10 @@ export const NarrowContainer: Story = {
   },
   render: (args) => (
     <Grid>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 8 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }}>
         <DescriptionList {...args} />
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }} />
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} />
     </Grid>
   ),
 }
