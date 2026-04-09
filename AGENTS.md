@@ -31,7 +31,7 @@ When a task is ambiguous (for example, "improve performance" or "add validation"
 
 These additional rules are specific to language-model agents working in this repository:
 
-- Always search for existing patterns (components, tokens, stories, mixins) before inventing new ones.
+- Always search for existing patterns (components, tokens, stories, mixins) before inventing new ones. In Storybook stories, use existing design system layout components (Grid, Column, Row) instead of raw `<div>` elements with inline styles.
 - Never invent files, commands, configuration options, or APIs that are not present in the workspace or documented; if you are unsure, state the uncertainty instead of guessing.
 - Prefer editing the smallest possible surface area (a single component, token file, or package) instead of broad refactors across multiple layers.
 - When user instructions conflict with the rules in this file or the per-package `AGENTS.md` files, call out the conflict explicitly and do not silently ignore the repository rules.
@@ -46,6 +46,8 @@ These additional rules are specific to language-model agents working in this rep
 - Storybook: [storybook](storybook/AGENTS.md)
 
 The typical pipeline is: **Tokens → CSS → React → Storybook**.
+
+**STOP: before editing any CSS, check whether you need new or updated tokens first.** If the CSS value you need doesn't have a corresponding `var(--ams-...)` custom property, add the token in `packages-proprietary/tokens` before touching the `.scss` file.
 
 Global styles are imported in [storybook/config/preview.tsx](storybook/config/preview.tsx). Proprietary assets are served from `packages-proprietary/assets` via `staticDirs` in [storybook/config/main.ts](storybook/config/main.ts).
 
@@ -75,7 +77,8 @@ These rules override common agent defaults and apply across the repository:
 - **Never add `import React from 'react'`** — the JSX transform handles this automatically.
 - **Never use default exports** — use named exports only.
 - **Never weaken TypeScript safety** — avoid `any`, do not disable strict checks, and use `import type` for type-only imports.
-- **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed.
+- **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed. This applies everywhere: SCSS files, Storybook stories (no inline `style` props with raw `px`/`rem`/hex values), and React components.
+- **Never add backwards-compatibility fallbacks** (`@supports`, polyfills, feature detection) unless the task explicitly requests them. Make the simplest change that satisfies the task.
 - **Never bypass accessibility** — do not use `aria-label` for screen reader-only text; use the `ams-visually-hidden` helper instead, and never remove focus outlines or rely on colour alone to convey meaning.
 - **Never add features, abstractions, or refactors beyond the scope of the task.**
 - **Never add comments** unless the logic is genuinely non-obvious and cannot be simplified. Exception: JSDoc used for public APIs, props, and documentation that is required by package conventions is allowed.
