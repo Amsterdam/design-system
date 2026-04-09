@@ -9,7 +9,7 @@
 
 // Container query breakpoint
 // - Note: CSS Custom Properties can’t be used in `@container` queries.
-// - Keep aligned with Grid Medium padding: `37.5rem - (2 × 2.75rem) = 32rem`.
+// - Keep aligned with Grid inline padding for the medium breakpoint: `37.5rem - (2 × 2.75rem) = 32rem`.
 $ams-description-list-cqi-medium: 32rem;
 
 .ams-description-list {

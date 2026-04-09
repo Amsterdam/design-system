@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { DescriptionList } from '@amsterdam/design-system-react/src'
+import { DescriptionList, Grid } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { default as descriptionListMeta } from './DescriptionList.stories'
@@ -49,9 +49,14 @@ export const Test: Story = {
       </DescriptionList.Section>,
     ],
   },
-  render: (args) =>
-    renderComponentVariants(DescriptionList, {
-      args,
-    }),
+  render: (args) => (
+    <Grid>
+      <Grid.Cell span="all">
+        {renderComponentVariants(DescriptionList, {
+          args,
+        })}
+      </Grid.Cell>
+    </Grid>
+  ),
   tags: ['!dev', '!autodocs'],
 }
