@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-zsgVPwQN.js";import{At as t}from"./iframe-D7gyn2E_.js";var n=e((()=>{})),r,i,a=e((()=>{n(),r=t(),i=({children:e})=>(0,r.jsx)(`code`,{className:`_ams-code sb-unstyled`,children:e})}));export{a as n,i as t};

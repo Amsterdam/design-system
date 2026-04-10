@@ -576,13 +576,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">73/88 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">81/88 infos</a><span class="filter-pill ok" aria-disabled="true">281 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">102 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">73/88 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">81/88 infos</a><span class="filter-pill ok" aria-disabled="true">282 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">102 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.6s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -9484,7 +9484,7 @@ import README from &quot;../../../../packages/css/src/components/gap/README.md?r
       <div class="badges">
         <label for="c-34-components-layout-grid-err" class="badge err as-toggle">prop type error</label>
         <label for="c-34-components-layout-grid-info" class="badge info as-toggle">1 info</label>
-        <label for="c-34-components-layout-grid-stories" class="badge ok as-toggle">9 stories</label>
+        <label for="c-34-components-layout-grid-stories" class="badge ok as-toggle">10 stories</label>
         <label for="c-34-components-layout-grid-docs" class="badge ok as-toggle">1 doc</label>
       </div>
     </div>
@@ -9615,6 +9615,17 @@ export const SpanColumns: CellStory = {
   },
 }
 
+export const SpanRows: Story = {
+  ...StoryTemplate,
+  args: {
+    children: [
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={1} rowSpan={2} span={2} /&gt;,
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={2} span={{ narrow: 2, medium: 6, wide: 10 }} /&gt;,
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={3} span={{ narrow: 2, medium: 6, wide: 10 }} /&gt;,
+    ],
+  },
+}
+
 export const SpanResponsively: CellStory = {
   ...CellStoryTemplate,
   args: {
@@ -9725,6 +9736,19 @@ import { GridColumnsGuide } from "@amsterdam/design-system-react";</code></pre>
               
               
               <pre><code>const SpanColumns = () =&gt; &lt;Grid className=&quot;_ams-item&quot; span={4} /&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Span Rows</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const SpanRows = () =&gt; &lt;Grid&gt;{[
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={1} rowSpan={2} span={2} /&gt;,
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={2} span={{ narrow: 2, medium: 6, wide: 10 }} /&gt;,
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={3} span={{ narrow: 2, medium: 6, wide: 10 }} /&gt;,
+    ]}&lt;/Grid&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -9841,10 +9865,18 @@ Use the `span` prop to make a cell span more columns.
 
 &lt;Canvas of={GridStories.SpanColumns} /&gt;
 
+### Span rows
+
+The `rowSpan` prop makes a Cell span multiple rows.
+It only supports the values `1`, `2`, `3`, and `4`.
+If you use `rowSpan` responsively, each of the `narrow`, `medium`, and `wide` values must also be between `1` and `4`.
+
+&lt;Canvas of={GridStories.SpanRows} /&gt;
+
 ### Span responsively
 
-You can make the number of columns a cell spans depend on the window width.
-Use the `span` prop with 3 values for narrow, medium, and wide windows.
+The number of columns or rows that a cell covers can vary with the window width.
+Use the `span` or `rowSpan` prop with 3 values for narrow, medium, and wide windows.
 E.g. `span={{ narrow: 4, medium: 5, wide: 7 }}` makes the cell span all 4 columns on narrow windows, 5 of the 8 on medium windows, and 7 of the 12 on wide windows.
 
 &lt;Canvas of={GridStories.SpanResponsively} /&gt;
@@ -31924,7 +31956,7 @@ list of files and use `onDelete` when removing a file from the list.
       <div class="badges">
         <label for="c-error-23-components-layout-grid-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-23-components-layout-grid-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-23-components-layout-grid-stories" class="badge ok as-toggle">9 stories</label>
+        <label for="c-error-23-components-layout-grid-stories" class="badge ok as-toggle">10 stories</label>
         <label for="c-error-23-components-layout-grid-docs" class="badge ok as-toggle">1 doc</label>
       </div>
     </div>
@@ -32055,6 +32087,17 @@ export const SpanColumns: CellStory = {
   },
 }
 
+export const SpanRows: Story = {
+  ...StoryTemplate,
+  args: {
+    children: [
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={1} rowSpan={2} span={2} /&gt;,
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={2} span={{ narrow: 2, medium: 6, wide: 10 }} /&gt;,
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={3} span={{ narrow: 2, medium: 6, wide: 10 }} /&gt;,
+    ],
+  },
+}
+
 export const SpanResponsively: CellStory = {
   ...CellStoryTemplate,
   args: {
@@ -32165,6 +32208,19 @@ import { GridColumnsGuide } from "@amsterdam/design-system-react";</code></pre>
               
               
               <pre><code>const SpanColumns = () =&gt; &lt;Grid className=&quot;_ams-item&quot; span={4} /&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Span Rows</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const SpanRows = () =&gt; &lt;Grid&gt;{[
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={1} rowSpan={2} span={2} /&gt;,
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={2} span={{ narrow: 2, medium: 6, wide: 10 }} /&gt;,
+      &lt;Grid.Cell className=&quot;_ams-item&quot; key={3} span={{ narrow: 2, medium: 6, wide: 10 }} /&gt;,
+    ]}&lt;/Grid&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -32281,10 +32337,18 @@ Use the `span` prop to make a cell span more columns.
 
 &lt;Canvas of={GridStories.SpanColumns} /&gt;
 
+### Span rows
+
+The `rowSpan` prop makes a Cell span multiple rows.
+It only supports the values `1`, `2`, `3`, and `4`.
+If you use `rowSpan` responsively, each of the `narrow`, `medium`, and `wide` values must also be between `1` and `4`.
+
+&lt;Canvas of={GridStories.SpanRows} /&gt;
+
 ### Span responsively
 
-You can make the number of columns a cell spans depend on the window width.
-Use the `span` prop with 3 values for narrow, medium, and wide windows.
+The number of columns or rows that a cell covers can vary with the window width.
+Use the `span` or `rowSpan` prop with 3 values for narrow, medium, and wide windows.
 E.g. `span={{ narrow: 4, medium: 5, wide: 7 }}` makes the cell span all 4 columns on narrow windows, 5 of the 8 on medium windows, and 7 of the 12 on wide windows.
 
 &lt;Canvas of={GridStories.SpanResponsively} /&gt;
