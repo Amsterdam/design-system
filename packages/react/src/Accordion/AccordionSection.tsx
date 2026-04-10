@@ -22,8 +22,6 @@ export type AccordionSectionProps = {
   label: string
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-// The 'ams-accordion__header' class is @deprecated and will be removed in a future release.
-
 export const AccordionSection = forwardRef(
   (
     { children, className, expanded = false, label, ...restProps }: AccordionSectionProps,
