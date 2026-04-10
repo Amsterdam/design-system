@@ -1,0 +1,12 @@
+{
+  "extends": "../packages/react/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node"
+  },
+  "include": [
+    "../packages/react/src/**/*.ts",
+    "../packages/react/src/**/*.tsx",
+    "../packages-proprietary/react-icons/src/**/*.ts",
+    "../packages-proprietary/react-icons/src/**/*.tsx"
+  ]
+}

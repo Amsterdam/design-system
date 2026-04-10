@@ -8,11 +8,11 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { GridColumnNumber, GridColumnNumbers } from './Grid'
+import type { GridColumnNumber, GridColumnNumbers, GridRowNumber, GridRowNumbers } from './Grid'
 
 import { gridCellClasses } from './gridCellClasses'
 
-export const gridCellAppearances = ['transparent'] as const
+export const gridCellAppearances = ['flush', 'transparent'] as const
 export type GridCellAppearance = (typeof gridCellAppearances)[number]
 
 export const gridCellTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
@@ -36,6 +36,7 @@ export type GridCellProps = {
    * Controls the background of the Grid Cell.
    *
    * In Compact Mode, cells have a background colour and padding to set them apart.
+   * The flush variant removes the padding but keeps the background colour.
    * The transparent variant removes both background and padding.
    *
    * In Spacious Mode, cells are always transparent and without padding; this prop has no effect.
@@ -43,12 +44,14 @@ export type GridCellProps = {
   appearance?: GridCellAppearance
   /** The HTML tag to use. */
   as?: GridCellTag
+  /** The amount of grid rows the cell spans. */
+  rowSpan?: GridRowNumber | GridRowNumbers
 } & PropsWithChildren<HTMLAttributes<HTMLElement>> &
   (GridCellSpanAllProp | GridCellSpanAndStartProps)
 
 export const GridCell = forwardRef(
   (
-    { appearance, as: Tag = 'div', children, className, span, start, ...restProps }: GridCellProps,
+    { appearance, as: Tag = 'div', children, className, rowSpan, span, start, ...restProps }: GridCellProps,
     ref: ForwardedRef<any>,
   ) => (
     <Tag
@@ -56,7 +59,7 @@ export const GridCell = forwardRef(
       className={clsx(
         'ams-grid__cell',
         appearance && `ams-grid__cell--${appearance}`,
-        gridCellClasses(span, start),
+        gridCellClasses(span, start, rowSpan),
         className,
       )}
       ref={ref}

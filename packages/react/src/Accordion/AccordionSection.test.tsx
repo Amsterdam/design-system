@@ -25,15 +25,11 @@ describe('AccordionSection', () => {
   it('renders the accordion section BEM class names', () => {
     const { container } = render(<Accordion.Section label={testLabel}>{testContent}</Accordion.Section>)
 
-    const heading = screen.getByRole('heading', {
-      name: testLabel,
-    })
     const button = screen.getByRole('button', {
       name: testLabel,
     })
     const section = container.querySelector('.ams-accordion__panel')
 
-    expect(heading).toHaveClass('ams-heading ams-accordion__header')
     expect(button).toHaveClass('ams-accordion__button')
     expect(section).toBeInTheDocument()
   })

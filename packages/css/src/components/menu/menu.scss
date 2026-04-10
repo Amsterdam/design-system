@@ -92,21 +92,3 @@
     }
   }
 }
-
-/** @deprecated The menu has a dark background now, so this is no longer needed. */
-.ams-menu__link--contrast {
-  color: var(--ams-menu-link-contrast-color);
-
-  &:hover {
-    color: var(--ams-menu-link-contrast-hover-color);
-  }
-}
-
-/** @deprecated The menu has a dark background now, so this is no longer needed. */
-.ams-menu__link--inverse {
-  color: var(--ams-menu-link-inverse-color);
-
-  &:hover {
-    color: var(--ams-menu-link-inverse-hover-color);
-  }
-}

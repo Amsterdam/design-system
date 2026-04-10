@@ -96,6 +96,12 @@
           "$value": "initial",
           "$type": "color"
         },
+        "container-name": {
+          "$value": "ams-grid-cell"
+        },
+        "container-type": {
+          "$value": "inline-size"
+        },
         "padding-block": {
           "$value": "initial",
           "$extensions": {

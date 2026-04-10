@@ -5,8 +5,13 @@
 
 import type { StorybookConfig } from '@storybook/react-vite'
 
+import path from 'node:path'
 import process from 'node:process'
+import { fileURLToPath } from 'node:url'
 import remarkGfm from 'remark-gfm'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const repoRoot = path.resolve(__dirname, '../..')
 
 const config: StorybookConfig = {
   addons: [
@@ -43,6 +48,15 @@ const config: StorybookConfig = {
 
   typescript: {
     reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      include: [
+        `${path.resolve(repoRoot, 'packages/react/src')}/**/*.tsx`,
+        `${path.resolve(repoRoot, 'packages-proprietary/react-icons/src')}/**/*.tsx`,
+      ],
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
+      tsconfigPath: 'tsconfig.docgen.json',
+    },
   },
 }
 

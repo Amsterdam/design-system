@@ -12,7 +12,7 @@ const SvgTrashBin = (props: SVGProps<SVGSVGElement>) => (
 )
 
 /**
- * @deprecated The ‘TrashBin’ icon will be removed in release 5.0.0.
+ * @deprecated The ‘TrashBin’ icon will be removed on or after 2026-07-09.
  * Use ‘Delete’ instead.
  */
 export default SvgTrashBin

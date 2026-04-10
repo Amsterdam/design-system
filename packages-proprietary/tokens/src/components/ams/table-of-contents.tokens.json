@@ -29,28 +29,6 @@
         },
         "$type": "number"
       },
-      "heading": {
-        "font-weight": {
-          "$deprecated": "This token is no longer used. Will be removed in release 4.0.0.",
-          "$value": "{ams.typography.heading.font-weight}",
-          "$type": "fontWeight"
-        },
-        "font-size": {
-          "$deprecated": "This token is no longer used. Will be removed in release 4.0.0.",
-          "$value": "{ams.typography.heading.4.font-size}",
-          "$extensions": {
-            "nl.amsterdam.type": "fontSize"
-          }
-        },
-        "line-height": {
-          "$deprecated": "This token is no longer used. Will be removed in release 4.0.0.",
-          "$value": "{ams.typography.heading.4.line-height}",
-          "$extensions": {
-            "nl.amsterdam.subtype": "lineHeight"
-          },
-          "$type": "number"
-        }
-      },
       "link": {
         "color": {
           "$value": "{ams.links.color}",

@@ -82,14 +82,6 @@
           "$extensions": {
             "nl.amsterdam.type": "textDecorationLine"
           }
-        },
-        "text-decoration-thickness": {
-          "$deprecated": "Use `ams.checkbox.text-decoration-thickness` instead. Will be removed in release 4.0.0.",
-          "$value": "{ams.border.width.m}",
-          "$type": "dimension",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space"
-          }
         }
       },
       "checked-indicator": {
@@ -145,23 +137,11 @@
           "disabled": {
             "fill": {
               "$value": "{ams.color.interactive.disabled}"
-            },
-            "hover": {
-              "fill": {
-                "$deprecated": "Will be removed in release 4.0.0.",
-                "$value": "{ams.color.interactive.disabled}"
-              }
             }
           },
           "hover": {
             "fill": {
               "$value": "{ams.color.interactive.hover}"
-            },
-            "disabled-invalid": {
-              "fill": {
-                "$deprecated": "Will be removed in release 4.0.0.",
-                "$value": "{ams.color.interactive.disabled}"
-              }
             }
           },
           "invalid": {
@@ -183,12 +163,6 @@
         "hover": {
           "stroke": {
             "$value": "{ams.color.interactive.hover}"
-          },
-          "disabled-invalid": {
-            "stroke": {
-              "$deprecated": "Will be removed in release 4.0.0.",
-              "$value": "{ams.color.interactive.disabled}"
-            }
           }
         },
         "indeterminate": {
@@ -198,23 +172,11 @@
           "disabled": {
             "fill": {
               "$value": "{ams.color.interactive.disabled}"
-            },
-            "hover": {
-              "fill": {
-                "$deprecated": "Will be removed in release 4.0.0.",
-                "$value": "{ams.color.interactive.disabled}"
-              }
             }
           },
           "hover": {
             "fill": {
               "$value": "{ams.color.interactive.hover}"
-            },
-            "disabled-invalid": {
-              "fill": {
-                "$deprecated": "Will be removed in release 4.0.0.",
-                "$value": "{ams.color.interactive.disabled}"
-              }
             }
           },
           "invalid": {

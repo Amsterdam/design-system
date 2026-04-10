@@ -31,12 +31,7 @@ export const ImageSliderSlide = ({
 
   const slideProps = {
     'aria-hidden': isCurrentSlide ? undefined : true,
-    // The `ams-image-slider__item` and `ams-image-slider__item--in-view` classes are @deprecated and will be removed in a future release.
-    className: clsx(
-      'ams-image-slider__slide ams-image-slider__item',
-      isCurrentSlide && 'ams-image-slider__item--in-view',
-      className,
-    ),
+    className: clsx('ams-image-slider__slide', className),
   }
 
   const imageProps = { alt, aspectRatio, sizes, src, srcSet }

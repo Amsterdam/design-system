@@ -76,21 +76,6 @@
           "$type": "number"
         }
       },
-      "6": {
-        "font-size": {
-          "$value": "{ams.typography.heading.6.font-size}",
-          "$extensions": {
-            "nl.amsterdam.type": "fontSize"
-          }
-        },
-        "line-height": {
-          "$value": "{ams.typography.heading.6.line-height}",
-          "$extensions": {
-            "nl.amsterdam.subtype": "lineHeight"
-          },
-          "$type": "number"
-        }
-      },
       "color": {
         "$value": "{ams.color.text.default}",
         "$type": "color"

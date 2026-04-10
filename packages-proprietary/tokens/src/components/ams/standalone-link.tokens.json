@@ -70,48 +70,6 @@
           "$extensions": {
             "nl.amsterdam.type": "textDecorationLine"
           }
-        },
-        "text-decoration-thickness": {
-          "$deprecated": "Use `ams.standalone-link.text-decoration-thickness` instead. Will be removed in release 4.0.0.",
-          "$value": "{ams.links.hover.text-decoration-thickness}",
-          "$type": "dimension",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space"
-          }
-        },
-        "text-underline-offset": {
-          "$deprecated": "Use `ams.standalone-link.text-underline-offset` instead. Will be removed in release 4.0.0.",
-          "$value": "{ams.links.hover.text-underline-offset}",
-          "$type": "dimension",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space"
-          }
-        }
-      },
-      "with-icon": {
-        "text-decoration-line": {
-          "$deprecated": "Use `ams.standalone-link.text-decoration-line` instead. Will be removed in release 4.0.0.",
-          "$value": "{ams.links.subtle.text-decoration-line}",
-          "$extensions": {
-            "nl.amsterdam.type": "textDecorationLine"
-          }
-        },
-        "text-decoration-thickness": {
-          "$deprecated": "Use `ams.standalone-link.text-decoration-thickness` instead. Will be removed in release 4.0.0.",
-          "$value": "{ams.links.text-decoration-thickness}",
-          "$type": "dimension",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space"
-          }
-        },
-        "hover": {
-          "text-decoration-line": {
-            "$deprecated": "Use `ams.standalone-link.hover.text-decoration-line` instead. Will be removed in release 4.0.0.",
-            "$value": "{ams.links.subtle.hover.text-decoration-line}",
-            "$extensions": {
-              "nl.amsterdam.type": "textDecorationLine"
-            }
-          }
         }
       },
       "contrast": {

@@ -15,6 +15,7 @@
   font-family: var(--ams-description-list-font-family);
   font-size: var(--ams-description-list-font-size);
   line-height: var(--ams-description-list-line-height);
+  row-gap: var(--ams-description-list-row-gap); /* This token is @deprecated. Will be removed on or after 2026-10-03. */
 
   @include hyphenation;
   @include text-rendering;
