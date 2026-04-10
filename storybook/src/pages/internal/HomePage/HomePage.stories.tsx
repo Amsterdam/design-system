@@ -5,8 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Grid, Heading } from '@amsterdam/design-system-react'
-import { Paragraph } from '@amsterdam/design-system-react'
+import { Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
 
 import { exampleParagraph } from '../../../_common/exampleContent'
 import { commonMeta } from '../common/config'
