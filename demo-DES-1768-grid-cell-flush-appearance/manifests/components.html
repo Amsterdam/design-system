@@ -582,7 +582,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.3s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -9593,6 +9593,7 @@ export const Default: Story = {
 export const VerticalPadding: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: &lt;Grid.Cell className=&quot;_ams-item&quot; span=&quot;all&quot; /&gt;,
   },
 }
@@ -9600,6 +9601,7 @@ export const VerticalPadding: Story = {
 export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: [
       &lt;Grid.Cell className=&quot;_ams-item&quot; key={1} span=&quot;all&quot; /&gt;,
       &lt;Grid.Cell className=&quot;_ams-item&quot; key={2} span=&quot;all&quot; /&gt;,
@@ -9643,6 +9645,7 @@ export const StartPosition: CellStory = {
 export const BackgroundInCompactMode: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: [
       &lt;Grid.Cell key={1} span={4}&gt;
         &lt;Paragraph&gt;Default&lt;/Paragraph&gt;
@@ -9655,6 +9658,7 @@ export const BackgroundInCompactMode: Story = {
       &lt;/Grid.Cell&gt;,
     ],
   },
+  decorators: undefined,
 }
 
 export const ImproveSemantics: CellStory = {
@@ -32040,6 +32044,7 @@ export const Default: Story = {
 export const VerticalPadding: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: &lt;Grid.Cell className=&quot;_ams-item&quot; span=&quot;all&quot; /&gt;,
   },
 }
@@ -32047,6 +32052,7 @@ export const VerticalPadding: Story = {
 export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: [
       &lt;Grid.Cell className=&quot;_ams-item&quot; key={1} span=&quot;all&quot; /&gt;,
       &lt;Grid.Cell className=&quot;_ams-item&quot; key={2} span=&quot;all&quot; /&gt;,
@@ -32090,6 +32096,7 @@ export const StartPosition: CellStory = {
 export const BackgroundInCompactMode: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: [
       &lt;Grid.Cell key={1} span={4}&gt;
         &lt;Paragraph&gt;Default&lt;/Paragraph&gt;
@@ -32102,6 +32109,7 @@ export const BackgroundInCompactMode: Story = {
       &lt;/Grid.Cell&gt;,
     ],
   },
+  decorators: undefined,
 }
 
 export const ImproveSemantics: CellStory = {
