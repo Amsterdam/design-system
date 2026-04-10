@@ -14,7 +14,7 @@ import { AccordionSection } from './AccordionSection'
 
 export type AccordionProps = {
   /**
-   * The hierarchical level of this Accordion's Section Headings within the document.
+   * The hierarchical level of this Accordion’s Section Headings within the document.
    * There is no default value; determine the correct level for each instance.
    */
   headingLevel: 2 | 3 | 4
