@@ -93,7 +93,7 @@
           "$value": "initial"
         },
         "container-name": {
-          "$value": "grid-cell"
+          "$value": "ams-grid-cell"
         },
         "container-type": {
           "$value": "inline-size"
