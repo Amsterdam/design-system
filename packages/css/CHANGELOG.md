@@ -110,7 +110,7 @@ The following deprecated CSS classes have been removed in this release:
 
 ### Deprecations
 
-The following class names will be removed in release 4.0.0. If you use them in your code, please delete them.
+The following class names have been removed in release 4.0.0.
 
 - `ams-menu__link--contrast`
 - `ams-menu__link--inverse`
@@ -144,7 +144,7 @@ The following class names will be removed in release 4.0.0. If you use them in y
 
 ### Deprecations
 
-The following class names will be removed in release 4.0.0. If you use them in your code, please delete them.
+The following class names have been removed in release 4.0.0.
 
 * `ams-accordion__header`
 * `ams-icon--heading-0`

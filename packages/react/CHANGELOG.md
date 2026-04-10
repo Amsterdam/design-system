@@ -105,7 +105,7 @@ The following deprecated API has been removed in this release:
 
 ### Deprecations
 
-The following prop will be removed in release 4.0.0:
+The following prop have been removed in release 4.0.0:
 
 * **Menu.Link**: `color`
 
@@ -146,7 +146,7 @@ The following prop will be removed in release 4.0.0:
 
 ### Deprecations
 
-The following props and prop values will be removed in release 4.0.0:
+The following props and prop values have been removed in release 4.0.0:
 
 * **Accordion**: `headingLevel` 1
 * **Heading**: `size` 'level-6'
