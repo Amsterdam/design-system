@@ -54,8 +54,8 @@ export const decorators = [
   withThemeByClassName({
     defaultTheme: 'Spacious',
     themes: {
-      Compact: 'ams-theme--compact',
-      Spacious: '',
+      Compact: 'ams-body ams-theme--compact',
+      Spacious: 'ams-body',
     },
   }),
 ]

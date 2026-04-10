@@ -5,7 +5,8 @@
 
 @use "../../common/resets" as *;
 
-// Add this class if you haven’t removed the default margin on the `<body>` element.
 .ams-body {
   @include reset-body;
+
+  background-color: var(--ams-body-background-color);
 }

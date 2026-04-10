@@ -7,9 +7,11 @@ import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
+import type { GridCellAppearance } from './GridCell'
+
 import { ariaRoleForTag } from '../common/accessibility'
 import { Grid } from './Grid'
-import { gridCellTags } from './GridCell'
+import { gridCellAppearances, gridCellTags } from './GridCell'
 
 describe('GridCell', () => {
   it('renders', () => {
@@ -35,6 +37,16 @@ describe('GridCell', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-grid__cell extra')
+  })
+
+  gridCellAppearances.forEach((appearance: GridCellAppearance) => {
+    it(`renders the correct class name for the ‘${appearance}’ appearance`, () => {
+      const { container } = render(<Grid.Cell appearance={appearance} />)
+
+      const component = container.querySelector(':only-child')
+
+      expect(component).toHaveClass(`ams-grid__cell--${appearance}`)
+    })
   })
 
   it('renders no class names for undefined values for start and span', () => {
@@ -100,6 +112,32 @@ describe('GridCell', () => {
 
     expect(component).toHaveClass(
       'ams-grid__cell--span-2 ams-grid__cell--span-4-medium ams-grid__cell--span-6-wide ams-grid__cell--start-1 ams-grid__cell--start-3-medium ams-grid__cell--start-5-wide',
+    )
+  })
+
+  it('renders no class name for an undefined value for rowSpan', () => {
+    const { container } = render(<Grid.Cell />)
+
+    const elementWithRowSpanClass = container.querySelector('[class*="ams-grid__cell--row-span"]')
+
+    expect(elementWithRowSpanClass).not.toBeInTheDocument()
+  })
+
+  it('renders a class name for a single number value for rowSpan', () => {
+    const { container } = render(<Grid.Cell rowSpan={2} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-grid__cell--row-span-2')
+  })
+
+  it('renders class names for an object value for rowSpan', () => {
+    const { container } = render(<Grid.Cell rowSpan={{ narrow: 1, medium: 3, wide: 4 }} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass(
+      'ams-grid__cell--row-span-1 ams-grid__cell--row-span-3-medium ams-grid__cell--row-span-4-wide',
     )
   })
 
