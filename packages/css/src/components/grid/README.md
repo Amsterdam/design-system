@@ -21,7 +21,7 @@ Divides the screen into columns to align the elements of a page.
 - Grids must not be nested.
   The component is currently intended for the full width of the page only.
 - The Gap utility classes must not be used on the Grid component.
-- Components can base their appearance on the width of an ancestor Grid Cell using [CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries).
+- Components can adapt their appearance to the width of their Grid Cell through a [CSS container query](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries).
 
 ## Design
 
