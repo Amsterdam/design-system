@@ -582,7 +582,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.7s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -658,12 +658,6 @@ const meta = {
   component: Accordion,
   args: {
     headingLevel: 3,
-  },
-  argTypes: {
-    headingLevel: {
-      control: &#39;radio&#39;,
-      options: [2, 3, 4], // Level 1 is deprecated, the argTypes object can be removed when Level 1 is removed
-    },
   },
 } satisfies Meta&lt;typeof Accordion&gt;
 
@@ -23027,13 +23021,13 @@ export const Test: Story = {
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  16 | const params = new URLSearchParams(window.location.search)
-  17 |
-&gt; 18 | const meta = {
+  15 | const params = new URLSearchParams(window.location.search)
+  16 |
+&gt; 17 | const meta = {
      | ^
-  19 |   ...commonMeta,
-  20 |   title: &#39;Pages/Internal/Table Page&#39;,
-  21 | } satisfies Meta
+  18 |   ...commonMeta,
+  19 |   title: &#39;Pages/Internal/Table Page&#39;,
+  20 | } satisfies Meta
 
 ./src/pages/internal/TablePage/TablePage.stories.tsx:
 /**
@@ -23049,7 +23043,6 @@ import type { SortOrder } from &#39;./common&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from &#39;./common&#39;
-import &#39;./table-page.css&#39;
 
 const params = new URLSearchParams(window.location.search)
 
@@ -25515,12 +25508,6 @@ const meta = {
   component: Accordion,
   args: {
     headingLevel: 3,
-  },
-  argTypes: {
-    headingLevel: {
-      control: &#39;radio&#39;,
-      options: [2, 3, 4], // Level 1 is deprecated, the argTypes object can be removed when Level 1 is removed
-    },
   },
 } satisfies Meta&lt;typeof Accordion&gt;
 
@@ -48690,13 +48677,13 @@ export const Test: Story = {
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  16 | const params = new URLSearchParams(window.location.search)
-  17 |
-&gt; 18 | const meta = {
+  15 | const params = new URLSearchParams(window.location.search)
+  16 |
+&gt; 17 | const meta = {
      | ^
-  19 |   ...commonMeta,
-  20 |   title: &#39;Pages/Internal/Table Page&#39;,
-  21 | } satisfies Meta
+  18 |   ...commonMeta,
+  19 |   title: &#39;Pages/Internal/Table Page&#39;,
+  20 | } satisfies Meta
 
 ./src/pages/internal/TablePage/TablePage.stories.tsx:
 /**
@@ -48712,7 +48699,6 @@ import type { SortOrder } from &#39;./common&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from &#39;./common&#39;
-import &#39;./table-page.css&#39;
 
 const params = new URLSearchParams(window.location.search)
 
@@ -49826,7 +49812,7 @@ We recommend staying up to date with at least each major release.
 
 We deprecate public features – React components, CSS classes, assets and design tokens – before removing them, so you have enough time to migrate.
 
-We keep features available until the **second major release** after their deprecation.
+We keep features available until **at least six months** after their deprecation has been published.
 All deprecations and removals are noted in the changelogs.
 Find migration guidance in release notes, on this website, in JSDoc annotations, or comments in code.
 
