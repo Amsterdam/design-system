@@ -136,6 +136,7 @@ export const BackgroundInCompactMode: Story = {
       </Grid.Cell>,
     ],
   },
+  decorators: undefined,
 }
 
 export const ImproveSemantics: CellStory = {
