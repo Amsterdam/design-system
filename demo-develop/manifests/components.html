@@ -10757,13 +10757,13 @@ A typical layout for a homepage:
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  10 | import { commonMeta } from &#39;../common/config&#39;
-  11 |
-&gt; 12 | const meta = {
+  14 | const exampleParagraph2 = exampleParagraph()
+  15 |
+&gt; 16 | const meta = {
      | ^
-  13 |   ...commonMeta,
-  14 |   title: &#39;Pages/Internal/Home Page&#39;,
-  15 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  17 |   ...commonMeta,
+  18 |   title: &#39;Pages/Internal/Home Page&#39;,
+  19 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 ./src/pages/internal/HomePage/HomePage.stories.tsx:
 /**
@@ -10773,9 +10773,13 @@ A typical layout for a homepage:
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
-import { Grid, Heading } from &#39;@amsterdam/design-system-react&#39;
+import { Grid, Heading, Paragraph } from &#39;@amsterdam/design-system-react&#39;
 
+import { exampleParagraph } from &#39;../../../_common/exampleContent&#39;
 import { commonMeta } from &#39;../common/config&#39;
+
+const exampleParagraph1 = exampleParagraph()
+const exampleParagraph2 = exampleParagraph()
 
 const meta = {
   ...commonMeta,
@@ -10788,8 +10792,12 @@ const meta = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }} style={{ height: &#39;12rem&#39; }} /&gt;
       &lt;Grid.Cell span={{ narrow: 1, medium: 3, wide: 4 }} style={{ height: &#39;10rem&#39; }} /&gt;
-      &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }} style={{ height: &#39;8rem&#39; }} /&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }} style={{ height: &#39;12rem&#39; }} /&gt;
+      &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }}&gt;
+        &lt;Paragraph&gt;{exampleParagraph1}&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+        &lt;Paragraph&gt;{exampleParagraph2}&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ height: &#39;8rem&#39; }} /&gt;
       &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ height: &#39;8rem&#39; }} /&gt;
       &lt;Grid.Cell span={{ narrow: 3, medium: 2, wide: 4 }} style={{ height: &#39;6rem&#39; }} /&gt;
@@ -10823,7 +10831,7 @@ export const Default: StoryObj = {}
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Grid, Heading } from "@amsterdam/design-system-react";</code></pre>
+                <pre><code>import { Grid, Heading, Paragraph } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
           
@@ -10841,8 +10849,12 @@ export const Default: StoryObj = {}
     &lt;/Grid.Cell&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }} style={{ height: &#39;12rem&#39; }} /&gt;
     &lt;Grid.Cell span={{ narrow: 1, medium: 3, wide: 4 }} style={{ height: &#39;10rem&#39; }} /&gt;
-    &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }} style={{ height: &#39;8rem&#39; }} /&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }} style={{ height: &#39;12rem&#39; }} /&gt;
+    &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }}&gt;
+      &lt;Paragraph&gt;{exampleParagraph1}&lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+      &lt;Paragraph&gt;{exampleParagraph2}&lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
     &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ height: &#39;8rem&#39; }} /&gt;
     &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ height: &#39;8rem&#39; }} /&gt;
     &lt;Grid.Cell span={{ narrow: 3, medium: 2, wide: 4 }} style={{ height: &#39;6rem&#39; }} /&gt;
@@ -46348,13 +46360,13 @@ A typical layout for a homepage:
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  10 | import { commonMeta } from &#39;../common/config&#39;
-  11 |
-&gt; 12 | const meta = {
+  14 | const exampleParagraph2 = exampleParagraph()
+  15 |
+&gt; 16 | const meta = {
      | ^
-  13 |   ...commonMeta,
-  14 |   title: &#39;Pages/Internal/Home Page&#39;,
-  15 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  17 |   ...commonMeta,
+  18 |   title: &#39;Pages/Internal/Home Page&#39;,
+  19 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 ./src/pages/internal/HomePage/HomePage.stories.tsx:
 /**
@@ -46364,9 +46376,13 @@ A typical layout for a homepage:
 
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
-import { Grid, Heading } from &#39;@amsterdam/design-system-react&#39;
+import { Grid, Heading, Paragraph } from &#39;@amsterdam/design-system-react&#39;
 
+import { exampleParagraph } from &#39;../../../_common/exampleContent&#39;
 import { commonMeta } from &#39;../common/config&#39;
+
+const exampleParagraph1 = exampleParagraph()
+const exampleParagraph2 = exampleParagraph()
 
 const meta = {
   ...commonMeta,
@@ -46379,8 +46395,12 @@ const meta = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }} style={{ height: &#39;12rem&#39; }} /&gt;
       &lt;Grid.Cell span={{ narrow: 1, medium: 3, wide: 4 }} style={{ height: &#39;10rem&#39; }} /&gt;
-      &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }} style={{ height: &#39;8rem&#39; }} /&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }} style={{ height: &#39;12rem&#39; }} /&gt;
+      &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }}&gt;
+        &lt;Paragraph&gt;{exampleParagraph1}&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+        &lt;Paragraph&gt;{exampleParagraph2}&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ height: &#39;8rem&#39; }} /&gt;
       &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ height: &#39;8rem&#39; }} /&gt;
       &lt;Grid.Cell span={{ narrow: 3, medium: 2, wide: 4 }} style={{ height: &#39;6rem&#39; }} /&gt;
@@ -46414,7 +46434,7 @@ export const Default: StoryObj = {}
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Grid, Heading } from "@amsterdam/design-system-react";</code></pre>
+                <pre><code>import { Grid, Heading, Paragraph } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
           
@@ -46432,8 +46452,12 @@ export const Default: StoryObj = {}
     &lt;/Grid.Cell&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }} style={{ height: &#39;12rem&#39; }} /&gt;
     &lt;Grid.Cell span={{ narrow: 1, medium: 3, wide: 4 }} style={{ height: &#39;10rem&#39; }} /&gt;
-    &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }} style={{ height: &#39;8rem&#39; }} /&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }} style={{ height: &#39;12rem&#39; }} /&gt;
+    &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }}&gt;
+      &lt;Paragraph&gt;{exampleParagraph1}&lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+      &lt;Paragraph&gt;{exampleParagraph2}&lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
     &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ height: &#39;8rem&#39; }} /&gt;
     &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ height: &#39;8rem&#39; }} /&gt;
     &lt;Grid.Cell span={{ narrow: 3, medium: 2, wide: 4 }} style={{ height: &#39;6rem&#39; }} /&gt;
