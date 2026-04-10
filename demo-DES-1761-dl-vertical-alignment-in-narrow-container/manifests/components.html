@@ -582,7 +582,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.7s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -2758,7 +2758,7 @@ width?: string</code></pre>
               
               
               <pre><code>const Test = () =&gt; (
-  &lt;div style={{ display: &#39;flex&#39;, flexWrap: &#39;wrap&#39;, gap: &#39;var(--ams-space-l)&#39; }}&gt;
+  &lt;div className=&quot;_ams-tests-grid&quot;&gt;
     &lt;BorderSample lineStyle=&quot;dashed&quot; /&gt;
     &lt;BorderSample width=&quot;4px&quot; /&gt;
     &lt;BorderSample lineStyle=&quot;dashed&quot; width=&quot;4px&quot; /&gt;
@@ -5009,7 +5009,7 @@ value: string</code></pre>
               
               
               <pre><code>const Test = () =&gt; (
-  &lt;div style={{ display: &#39;flex&#39;, flexWrap: &#39;wrap&#39;, gap: &#39;var(--ams-space-l)&#39; }}&gt;
+  &lt;div className=&quot;_ams-tests-grid&quot;&gt;
     &lt;ColorSample value=&quot;hotpink&quot; /&gt;
     &lt;ColorSample value=&quot;&quot; /&gt;
   &lt;/div&gt;
@@ -5900,6 +5900,22 @@ type Story = StoryObj&lt;typeof meta&gt;
 
 export const Default: Story = {}
 
+export const Orientation: Story = {
+  parameters: {
+    layout: &#39;fullscreen&#39;,
+  },
+  render: (args) =&gt; (
+    &lt;Grid&gt;
+      &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 4, wide: 4 }}&gt;
+        &lt;DescriptionList {...args} /&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 8, wide: 8 }}&gt;
+        &lt;DescriptionList {...args} /&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  ),
+}
+
 export const MultipleDescriptions: Story = {
   args: {
     children: [
@@ -5963,22 +5979,6 @@ export const InverseColour: Story = {
     color: &#39;inverse&#39;,
   },
 }
-
-export const NarrowContainer: Story = {
-  parameters: {
-    layout: &#39;fullscreen&#39;,
-  },
-  render: (args) =&gt; (
-    &lt;Grid&gt;
-      &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 8, wide: 8 }}&gt;
-        &lt;DescriptionList {...args} /&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 4, wide: 4 }}&gt;
-        &lt;DescriptionList {...args} /&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-  ),
-}
 </code></pre></div>
     </div>
         </div>
@@ -6024,6 +6024,44 @@ import { Grid, Link, Paragraph, UnorderedList } from "@amsterdam/design-system-r
       &lt;DescriptionList.Term key={9}&gt;Opleidingsniveau&lt;/DescriptionList.Term&gt;,
       &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
     ]}&lt;/DescriptionList&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Orientation</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Orientation = () =&gt; &lt;Grid&gt;
+    &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 4, wide: 4 }}&gt;
+        &lt;DescriptionList&gt;{[
+              &lt;DescriptionList.Term key={1}&gt;Het hoger onderwijs&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={2}&gt;Het hbo en wo&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={3}&gt;Het mbo en hoger onderwijs&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={4}&gt;Het vervolgonderwijs&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={5}&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={6}&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={7}&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={8}&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={9}&gt;Opleidingsniveau&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
+            ]}&lt;/DescriptionList&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 8, wide: 8 }}&gt;
+        &lt;DescriptionList&gt;{[
+              &lt;DescriptionList.Term key={1}&gt;Het hoger onderwijs&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={2}&gt;Het hbo en wo&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={3}&gt;Het mbo en hoger onderwijs&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={4}&gt;Het vervolgonderwijs&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={5}&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={6}&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={7}&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={8}&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={9}&gt;Opleidingsniveau&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
+            ]}&lt;/DescriptionList&gt;
+    &lt;/Grid.Cell&gt;
+&lt;/Grid&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -6107,44 +6145,6 @@ import { Grid, Link, Paragraph, UnorderedList } from "@amsterdam/design-system-r
       &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
     ]}&lt;/DescriptionList&gt;;</code></pre>
             </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Narrow Container</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const NarrowContainer = () =&gt; &lt;Grid&gt;
-    &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 8, wide: 8 }}&gt;
-        &lt;DescriptionList&gt;{[
-              &lt;DescriptionList.Term key={1}&gt;Het hoger onderwijs&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={2}&gt;Het hbo en wo&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={3}&gt;Het mbo en hoger onderwijs&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={4}&gt;Het vervolgonderwijs&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={5}&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={6}&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={7}&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={8}&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={9}&gt;Opleidingsniveau&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
-            ]}&lt;/DescriptionList&gt;
-    &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 4, wide: 4 }}&gt;
-        &lt;DescriptionList&gt;{[
-              &lt;DescriptionList.Term key={1}&gt;Het hoger onderwijs&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={2}&gt;Het hbo en wo&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={3}&gt;Het mbo en hoger onderwijs&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={4}&gt;Het vervolgonderwijs&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={5}&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={6}&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={7}&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={8}&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={9}&gt;Opleidingsniveau&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
-            ]}&lt;/DescriptionList&gt;
-    &lt;/Grid.Cell&gt;
-&lt;/Grid&gt;;</code></pre>
-            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -6176,6 +6176,14 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
 &lt;Controls /&gt;
 
 ## Examples
+
+### Orientation
+
+The Description List uses container queries to switch from a vertical to a horizontal orientation when a parent container is wider than a predefined breakpoint (see Design).
+
+**Note**: the blue background on the Grid Cells is for demonstration purposes only.
+
+&lt;Canvas of={DescriptionListStories.Orientation} /&gt;
 
 ### Multiple descriptions
 
@@ -6209,13 +6217,6 @@ Use the inverse colour if the Description List sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
 &lt;Canvas of={DescriptionListStories.InverseColour} /&gt;
-
-### Narrow container
-
-The Description List uses container queries to switch between a vertical and horizontal layout.
-When its parent container is narrower than the breakpoint, terms and descriptions stack in a single column.
-
-&lt;Canvas of={DescriptionListStories.NarrowContainer} /&gt;
 
 ## Design tokens
 
@@ -12197,7 +12198,7 @@ Consistent caption lengths across images help avoid large layout shifts when sli
               
               
               <pre><code>const Test = () =&gt; (
-  &lt;div style={{ display: &#39;flex&#39;, flexWrap: &#39;wrap&#39;, gap: &#39;var(--ams-space-l)&#39; }}&gt;
+  &lt;div className=&quot;_ams-tests-grid&quot;&gt;
     &lt;InlineColorSample color=&quot;azure&quot; /&gt;
     &lt;InlineColorSample color=&quot;red&quot; /&gt;
     &lt;InlineColorSample color=&quot;green&quot; /&gt;
@@ -21270,7 +21271,7 @@ value: string</code></pre>
               
               
               <pre><code>const Test = () =&gt; (
-  &lt;div style={{ display: &#39;flex&#39;, flexWrap: &#39;wrap&#39;, gap: &#39;var(--ams-space-l)&#39; }}&gt;
+  &lt;div className=&quot;_ams-tests-grid&quot;&gt;
     &lt;ShadowSample value=&quot;0 0 0 0.125rem hotpink&quot; /&gt;
     &lt;ShadowSample value=&quot;inset 0 -0.125rem 0 0 rebeccapurple&quot; /&gt;
     &lt;ShadowSample value=&quot;4px 4px 8px 0 rgba(0,0,0,0.25)&quot; /&gt;
@@ -21597,7 +21598,7 @@ value?: string</code></pre>
               
               
               <pre><code>const Test = () =&gt; (
-  &lt;div style={{ display: &#39;flex&#39;, flexWrap: &#39;wrap&#39;, gap: &#39;var(--ams-space-l)&#39; }}&gt;
+  &lt;div className=&quot;_ams-tests-grid&quot;&gt;
     &lt;SpaceSample value=&quot;16px&quot; /&gt;
     &lt;SpaceSample /&gt;
   &lt;/div&gt;
@@ -22335,7 +22336,7 @@ status?: string = beta</code></pre>
               
               
               <pre><code>const Test = () =&gt; (
-  &lt;div style={{ display: &#39;flex&#39;, flexDirection: &#39;column&#39;, gap: &#39;var(--ams-space-l)&#39; }}&gt;
+  &lt;div className=&quot;_ams-tests-stack&quot;&gt;
     &lt;StatusBadge description=&quot;This component is still in development and its API may change.&quot; status=&quot;beta&quot; /&gt;
     &lt;StatusBadge description=&quot;Use the Alert component instead.&quot; status=&quot;deprecated&quot; /&gt;
   &lt;/div&gt;
@@ -25135,7 +25136,7 @@ lineHeight?: string</code></pre>
               
               
               <pre><code>const Test = () =&gt; (
-  &lt;div style={{ display: &#39;flex&#39;, flexWrap: &#39;wrap&#39;, gap: &#39;var(--ams-space-l)&#39; }}&gt;
+  &lt;div className=&quot;_ams-tests-grid&quot;&gt;
     &lt;TypographySample fontFamily=&quot;arial&quot; /&gt;
     &lt;TypographySample fontSize=&quot;1.5rem&quot; /&gt;
     &lt;TypographySample fontWeight=&quot;bold&quot; /&gt;
@@ -29922,6 +29923,22 @@ type Story = StoryObj&lt;typeof meta&gt;
 
 export const Default: Story = {}
 
+export const Orientation: Story = {
+  parameters: {
+    layout: &#39;fullscreen&#39;,
+  },
+  render: (args) =&gt; (
+    &lt;Grid&gt;
+      &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 4, wide: 4 }}&gt;
+        &lt;DescriptionList {...args} /&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 8, wide: 8 }}&gt;
+        &lt;DescriptionList {...args} /&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  ),
+}
+
 export const MultipleDescriptions: Story = {
   args: {
     children: [
@@ -29985,22 +30002,6 @@ export const InverseColour: Story = {
     color: &#39;inverse&#39;,
   },
 }
-
-export const NarrowContainer: Story = {
-  parameters: {
-    layout: &#39;fullscreen&#39;,
-  },
-  render: (args) =&gt; (
-    &lt;Grid&gt;
-      &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 8, wide: 8 }}&gt;
-        &lt;DescriptionList {...args} /&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 4, wide: 4 }}&gt;
-        &lt;DescriptionList {...args} /&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-  ),
-}
 </code></pre></div>
     </div>
         </div>
@@ -30046,6 +30047,44 @@ import { Grid, Link, Paragraph, UnorderedList } from "@amsterdam/design-system-r
       &lt;DescriptionList.Term key={9}&gt;Opleidingsniveau&lt;/DescriptionList.Term&gt;,
       &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
     ]}&lt;/DescriptionList&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Orientation</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Orientation = () =&gt; &lt;Grid&gt;
+    &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 4, wide: 4 }}&gt;
+        &lt;DescriptionList&gt;{[
+              &lt;DescriptionList.Term key={1}&gt;Het hoger onderwijs&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={2}&gt;Het hbo en wo&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={3}&gt;Het mbo en hoger onderwijs&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={4}&gt;Het vervolgonderwijs&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={5}&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={6}&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={7}&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={8}&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={9}&gt;Opleidingsniveau&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
+            ]}&lt;/DescriptionList&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 8, wide: 8 }}&gt;
+        &lt;DescriptionList&gt;{[
+              &lt;DescriptionList.Term key={1}&gt;Het hoger onderwijs&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={2}&gt;Het hbo en wo&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={3}&gt;Het mbo en hoger onderwijs&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={4}&gt;Het vervolgonderwijs&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={5}&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={6}&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={7}&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={8}&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;,
+              &lt;DescriptionList.Term key={9}&gt;Opleidingsniveau&lt;/DescriptionList.Term&gt;,
+              &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
+            ]}&lt;/DescriptionList&gt;
+    &lt;/Grid.Cell&gt;
+&lt;/Grid&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -30129,44 +30168,6 @@ import { Grid, Link, Paragraph, UnorderedList } from "@amsterdam/design-system-r
       &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
     ]}&lt;/DescriptionList&gt;;</code></pre>
             </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Narrow Container</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const NarrowContainer = () =&gt; &lt;Grid&gt;
-    &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 8, wide: 8 }}&gt;
-        &lt;DescriptionList&gt;{[
-              &lt;DescriptionList.Term key={1}&gt;Het hoger onderwijs&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={2}&gt;Het hbo en wo&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={3}&gt;Het mbo en hoger onderwijs&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={4}&gt;Het vervolgonderwijs&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={5}&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={6}&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={7}&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={8}&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={9}&gt;Opleidingsniveau&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
-            ]}&lt;/DescriptionList&gt;
-    &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell className=&quot;_ams-item--highlight&quot; span={{ narrow: 4, medium: 4, wide: 4 }}&gt;
-        &lt;DescriptionList&gt;{[
-              &lt;DescriptionList.Term key={1}&gt;Het hoger onderwijs&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={2}&gt;Het hbo en wo&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={3}&gt;Het mbo en hoger onderwijs&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={4}&gt;Het vervolgonderwijs&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={5}&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={6}&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={7}&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={8}&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;,
-              &lt;DescriptionList.Term key={9}&gt;Opleidingsniveau&lt;/DescriptionList.Term&gt;,
-              &lt;DescriptionList.Description key={10}&gt;Onderwijsrichting&lt;/DescriptionList.Description&gt;,
-            ]}&lt;/DescriptionList&gt;
-    &lt;/Grid.Cell&gt;
-&lt;/Grid&gt;;</code></pre>
-            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -30198,6 +30199,14 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
 &lt;Controls /&gt;
 
 ## Examples
+
+### Orientation
+
+The Description List uses container queries to switch from a vertical to a horizontal orientation when a parent container is wider than a predefined breakpoint (see Design).
+
+**Note**: the blue background on the Grid Cells is for demonstration purposes only.
+
+&lt;Canvas of={DescriptionListStories.Orientation} /&gt;
 
 ### Multiple descriptions
 
@@ -30231,13 +30240,6 @@ Use the inverse colour if the Description List sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
 &lt;Canvas of={DescriptionListStories.InverseColour} /&gt;
-
-### Narrow container
-
-The Description List uses container queries to switch between a vertical and horizontal layout.
-When its parent container is narrower than the breakpoint, terms and descriptions stack in a single column.
-
-&lt;Canvas of={DescriptionListStories.NarrowContainer} /&gt;
 
 ## Design tokens
 
