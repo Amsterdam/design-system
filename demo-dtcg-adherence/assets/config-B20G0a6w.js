@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-BneVvdWh.js";import{At as t}from"./iframe-BY6BFzy7.js";import{n,t as r}from"./Layout-CwR8WRLa.js";var i,a,o=e((()=>{n(),i=t(),a={decorators:[e=>(0,i.jsx)(r,{children:(0,i.jsx)(e,{})})],parameters:{layout:`fullscreen`,themes:{themeOverride:`Spacious`}}}}));export{o as n,a as t};
