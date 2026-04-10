@@ -11,6 +11,8 @@ $ams-grid-row-span-max: 4;
 
 .ams-grid {
   @include ams-grid;
+
+  align-items: start;
 }
 
 // Grid gap
