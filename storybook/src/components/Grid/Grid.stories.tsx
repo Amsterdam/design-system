@@ -96,6 +96,17 @@ export const SpanColumns: CellStory = {
   },
 }
 
+export const SpanRows: Story = {
+  ...StoryTemplate,
+  args: {
+    children: [
+      <Grid.Cell className="_ams-item" key={1} rowSpan={2} span={2} />,
+      <Grid.Cell className="_ams-item" key={2} span={{ narrow: 2, medium: 6, wide: 10 }} />,
+      <Grid.Cell className="_ams-item" key={3} span={{ narrow: 2, medium: 6, wide: 10 }} />,
+    ],
+  },
+}
+
 export const SpanResponsively: CellStory = {
   ...CellStoryTemplate,
   args: {

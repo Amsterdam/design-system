@@ -49,10 +49,18 @@ Use the `span` prop to make a cell span more columns.
 
 <Canvas of={GridStories.SpanColumns} />
 
+### Span rows
+
+The `rowSpan` prop makes a Cell span multiple rows.
+It only supports the values `1`, `2`, `3`, and `4`.
+If you use `rowSpan` responsively, each of the `narrow`, `medium`, and `wide` values must also be between `1` and `4`.
+
+<Canvas of={GridStories.SpanRows} />
+
 ### Span responsively
 
-You can make the number of columns a cell spans depend on the window width.
-Use the `span` prop with 3 values for narrow, medium, and wide windows.
+The number of columns or rows that a cell covers can vary with the window width.
+Use the `span` or `rowSpan` prop with 3 values for narrow, medium, and wide windows.
 E.g. `span={{ narrow: 4, medium: 5, wide: 7 }}` makes the cell span all 4 columns on narrow windows, 5 of the 8 on medium windows, and 7 of the 12 on wide windows.
 
 <Canvas of={GridStories.SpanResponsively} />
