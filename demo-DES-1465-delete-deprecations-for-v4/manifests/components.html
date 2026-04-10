@@ -576,13 +576,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">73/88 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">81/88 infos</a><span class="filter-pill ok" aria-disabled="true">283 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">102 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">73/88 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">81/88 infos</a><span class="filter-pill ok" aria-disabled="true">282 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">102 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.5s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -18484,7 +18484,7 @@ Often includes a Call to Action Link that directs the user to a form.
       <div class="badges">
         <label for="c-63-components-containers-progress-list-err" class="badge err as-toggle">prop type error</label>
         <label for="c-63-components-containers-progress-list-info" class="badge info as-toggle">1 info</label>
-        <label for="c-63-components-containers-progress-list-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-63-components-containers-progress-list-stories" class="badge ok as-toggle">2 stories</label>
         <label for="c-63-components-containers-progress-list-docs" class="badge ok as-toggle">1 doc</label>
       </div>
     </div>
@@ -18508,13 +18508,13 @@ Often includes a Call to Action Link that directs the user to a form.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;ProgressList&quot; component.
-  18 |   .map((text) =&gt; &lt;UnorderedList.Item key={text}&gt;{text}&lt;/UnorderedList.Item&gt;)
-  19 |
-&gt; 20 | const meta = {
+  17 |   .map((text) =&gt; &lt;UnorderedList.Item key={text}&gt;{text}&lt;/UnorderedList.Item&gt;)
+  18 |
+&gt; 19 | const meta = {
      | ^
-  21 |   title: &#39;Components/Containers/Progress List&#39;,
-  22 |   component: ProgressList,
-  23 |   args: {
+  20 |   title: &#39;Components/Containers/Progress List&#39;,
+  21 |   component: ProgressList,
+  22 |   args: {
 
 ./src/components/ProgressList/ProgressList.stories.tsx:
 /**
@@ -18526,7 +18526,6 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import { Paragraph, UnorderedList } from &#39;@amsterdam/design-system-react&#39;
 import { ProgressList } from &#39;@amsterdam/design-system-react/src&#39;
-import { progressListHeadingLevels } from &#39;@amsterdam/design-system-react/src/ProgressList/ProgressList&#39;
 
 import { exampleParagraph, exampleUnorderedList } from &#39;../../_common/exampleContent&#39;
 
@@ -18554,27 +18553,6 @@ const meta = {
     ],
     headingLevel: 3,
   },
-  argTypes: {
-    collapsible: {
-      control: {
-        type: &#39;boolean&#39;,
-      },
-    },
-    completedAccessibleText: {
-      control: {
-        type: &#39;text&#39;,
-      },
-    },
-    currentAccessibleText: {
-      control: {
-        type: &#39;text&#39;,
-      },
-    },
-    headingLevel: {
-      control: &#39;radio&#39;,
-      options: progressListHeadingLevels,
-    },
-  },
 } satisfies Meta&lt;typeof ProgressList&gt;
 
 export default meta
@@ -18582,26 +18560,6 @@ export default meta
 type Story = StoryObj&lt;typeof meta&gt;
 
 export const Default: Story = {}
-
-export const NotCollapsible: Story = {
-  args: {
-    children: [
-      &lt;ProgressList.Step heading=&quot;Aanvraag ingediend&quot; key={0} status=&quot;completed&quot;&gt;
-        &lt;Paragraph&gt;Uw aanvraag is op 2 januari 2026 ontvangen.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;In behandeling&quot; key={1} status=&quot;current&quot;&gt;
-        &lt;Paragraph&gt;Een medewerker beoordeelt uw aanvraag en neemt contact met u op bij vragen.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;Besluit&quot; key={2}&gt;
-        &lt;Paragraph&gt;U ontvangt het besluit binnen 8 weken na uw aanvraag.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;Uitvoering&quot; key={3}&gt;
-        &lt;Paragraph&gt;Na een positief besluit starten de werkzaamheden volgens planning.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-    ],
-    collapsible: false,
-  },
-}
 
 export const WithSubsteps: Story = {
   args: {
@@ -18678,28 +18636,6 @@ import { ProgressList } from "@amsterdam/design-system-react/src";</code></pre>
       &lt;/ProgressList.Step&gt;,
       &lt;ProgressList.Step heading=&quot;2027&quot; key={2}&gt;
         &lt;Paragraph&gt;{paragraphs[2]}&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-    ]}&lt;/ProgressList&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Not Collapsible</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const NotCollapsible = () =&gt; &lt;ProgressList headingLevel={3} collapsible={false}&gt;{[
-      &lt;ProgressList.Step heading=&quot;Aanvraag ingediend&quot; key={0} status=&quot;completed&quot;&gt;
-        &lt;Paragraph&gt;Uw aanvraag is op 2 januari 2026 ontvangen.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;In behandeling&quot; key={1} status=&quot;current&quot;&gt;
-        &lt;Paragraph&gt;Een medewerker beoordeelt uw aanvraag en neemt contact met u op bij vragen.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;Besluit&quot; key={2}&gt;
-        &lt;Paragraph&gt;U ontvangt het besluit binnen 8 weken na uw aanvraag.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;Uitvoering&quot; key={3}&gt;
-        &lt;Paragraph&gt;Na een positief besluit starten de werkzaamheden volgens planning.&lt;/Paragraph&gt;
       &lt;/ProgressList.Step&gt;,
     ]}&lt;/ProgressList&gt;;</code></pre>
             </div>
@@ -18782,13 +18718,6 @@ Use the `defaultCollapsed` prop to override this, e.g. to show a Progress List w
 &lt;Controls of={ProgressListStepStories.Step} /&gt;
 
 ## Examples
-
-### Not collapsible
-
-Set `collapsible` to `false` to display all steps without expand/collapse buttons.
-Use this when the content of every step should always be visible.
-
-&lt;Canvas of={ProgressListStories.NotCollapsible} /&gt;
 
 ### With substeps
 
@@ -38854,7 +38783,7 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
       <div class="badges">
         <label for="c-error-44-components-containers-progress-list-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-44-components-containers-progress-list-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-44-components-containers-progress-list-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-error-44-components-containers-progress-list-stories" class="badge ok as-toggle">2 stories</label>
         <label for="c-error-44-components-containers-progress-list-docs" class="badge ok as-toggle">1 doc</label>
       </div>
     </div>
@@ -38878,13 +38807,13 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;ProgressList&quot; component.
-  18 |   .map((text) =&gt; &lt;UnorderedList.Item key={text}&gt;{text}&lt;/UnorderedList.Item&gt;)
-  19 |
-&gt; 20 | const meta = {
+  17 |   .map((text) =&gt; &lt;UnorderedList.Item key={text}&gt;{text}&lt;/UnorderedList.Item&gt;)
+  18 |
+&gt; 19 | const meta = {
      | ^
-  21 |   title: &#39;Components/Containers/Progress List&#39;,
-  22 |   component: ProgressList,
-  23 |   args: {
+  20 |   title: &#39;Components/Containers/Progress List&#39;,
+  21 |   component: ProgressList,
+  22 |   args: {
 
 ./src/components/ProgressList/ProgressList.stories.tsx:
 /**
@@ -38896,7 +38825,6 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import { Paragraph, UnorderedList } from &#39;@amsterdam/design-system-react&#39;
 import { ProgressList } from &#39;@amsterdam/design-system-react/src&#39;
-import { progressListHeadingLevels } from &#39;@amsterdam/design-system-react/src/ProgressList/ProgressList&#39;
 
 import { exampleParagraph, exampleUnorderedList } from &#39;../../_common/exampleContent&#39;
 
@@ -38924,27 +38852,6 @@ const meta = {
     ],
     headingLevel: 3,
   },
-  argTypes: {
-    collapsible: {
-      control: {
-        type: &#39;boolean&#39;,
-      },
-    },
-    completedAccessibleText: {
-      control: {
-        type: &#39;text&#39;,
-      },
-    },
-    currentAccessibleText: {
-      control: {
-        type: &#39;text&#39;,
-      },
-    },
-    headingLevel: {
-      control: &#39;radio&#39;,
-      options: progressListHeadingLevels,
-    },
-  },
 } satisfies Meta&lt;typeof ProgressList&gt;
 
 export default meta
@@ -38952,26 +38859,6 @@ export default meta
 type Story = StoryObj&lt;typeof meta&gt;
 
 export const Default: Story = {}
-
-export const NotCollapsible: Story = {
-  args: {
-    children: [
-      &lt;ProgressList.Step heading=&quot;Aanvraag ingediend&quot; key={0} status=&quot;completed&quot;&gt;
-        &lt;Paragraph&gt;Uw aanvraag is op 2 januari 2026 ontvangen.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;In behandeling&quot; key={1} status=&quot;current&quot;&gt;
-        &lt;Paragraph&gt;Een medewerker beoordeelt uw aanvraag en neemt contact met u op bij vragen.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;Besluit&quot; key={2}&gt;
-        &lt;Paragraph&gt;U ontvangt het besluit binnen 8 weken na uw aanvraag.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;Uitvoering&quot; key={3}&gt;
-        &lt;Paragraph&gt;Na een positief besluit starten de werkzaamheden volgens planning.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-    ],
-    collapsible: false,
-  },
-}
 
 export const WithSubsteps: Story = {
   args: {
@@ -39048,28 +38935,6 @@ import { ProgressList } from "@amsterdam/design-system-react/src";</code></pre>
       &lt;/ProgressList.Step&gt;,
       &lt;ProgressList.Step heading=&quot;2027&quot; key={2}&gt;
         &lt;Paragraph&gt;{paragraphs[2]}&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-    ]}&lt;/ProgressList&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Not Collapsible</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const NotCollapsible = () =&gt; &lt;ProgressList headingLevel={3} collapsible={false}&gt;{[
-      &lt;ProgressList.Step heading=&quot;Aanvraag ingediend&quot; key={0} status=&quot;completed&quot;&gt;
-        &lt;Paragraph&gt;Uw aanvraag is op 2 januari 2026 ontvangen.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;In behandeling&quot; key={1} status=&quot;current&quot;&gt;
-        &lt;Paragraph&gt;Een medewerker beoordeelt uw aanvraag en neemt contact met u op bij vragen.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;Besluit&quot; key={2}&gt;
-        &lt;Paragraph&gt;U ontvangt het besluit binnen 8 weken na uw aanvraag.&lt;/Paragraph&gt;
-      &lt;/ProgressList.Step&gt;,
-      &lt;ProgressList.Step heading=&quot;Uitvoering&quot; key={3}&gt;
-        &lt;Paragraph&gt;Na een positief besluit starten de werkzaamheden volgens planning.&lt;/Paragraph&gt;
       &lt;/ProgressList.Step&gt;,
     ]}&lt;/ProgressList&gt;;</code></pre>
             </div>
@@ -39152,13 +39017,6 @@ Use the `defaultCollapsed` prop to override this, e.g. to show a Progress List w
 &lt;Controls of={ProgressListStepStories.Step} /&gt;
 
 ## Examples
-
-### Not collapsible
-
-Set `collapsible` to `false` to display all steps without expand/collapse buttons.
-Use this when the content of every step should always be visible.
-
-&lt;Canvas of={ProgressListStories.NotCollapsible} /&gt;
 
 ### With substeps
 
