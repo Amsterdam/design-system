@@ -2,6 +2,6 @@
   "packages/css": "3.3.0",
   "packages/react": "3.3.0",
   "packages-proprietary/assets": "2.2.0",
-  "packages-proprietary/react-icons": "2.0.0",
+  "packages-proprietary/react-icons": "2.0.1",
   "packages-proprietary/tokens": "3.4.0"
 }
