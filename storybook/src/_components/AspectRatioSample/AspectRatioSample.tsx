@@ -8,6 +8,8 @@ import type { HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
 
+import { formatTokenValue } from '../../_common/formatTokenValue'
+
 type AspectRatioSampleProps = {
   /** An aspect ratio value, e.g. "16 / 9" or "1 / 1". */
   value: string
@@ -17,6 +19,6 @@ export const AspectRatioSample = ({ className, style, value, ...restProps }: Asp
   <div
     {...restProps}
     className={clsx('_ams-aspect-ratio-sample', 'sb-unstyled', className)}
-    style={{ ...style, aspectRatio: value }}
+    style={{ ...style, aspectRatio: formatTokenValue(value) }}
   />
 )

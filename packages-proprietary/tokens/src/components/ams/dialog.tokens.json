@@ -29,7 +29,9 @@
       },
       "box-shadow": {
         "$value": "initial",
-        "$type": "shadow"
+        "$extensions": {
+          "nl.amsterdam.type": "shadow"
+        }
       },
       "gap": {
         "$value": "{ams.space.m}",

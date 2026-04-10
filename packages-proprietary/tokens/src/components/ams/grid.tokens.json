@@ -94,7 +94,9 @@
       "cell": {
         "background-color": {
           "$value": "initial",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "container-name": {
           "$value": "ams-grid-cell"
