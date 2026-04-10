@@ -1,0 +1,6 @@
+import{n as e,o as t}from"./chunk-zsgVPwQN.js";import{jt as n,mn as r}from"./iframe-BqSNfP8s.js";import{M as i,N as a,P as o,t as s}from"./src-Do9Fb13m.js";import c,{n as l}from"./Logo.stories-aT5UH4MY.js";var u,d,f,p,m;e((()=>{s(),a(),l(),u=t(r()),d=n(),f={...c,title:`Components/Media/Logo`},p={render:e=>(0,d.jsx)(`div`,{className:`_ams-tests-grid`,children:[void 0,...o].map(t=>(0,u.createElement)(i,{...e,brand:t,key:t}))}),tags:[`!dev`,`!autodocs`]},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+  render: args => <div className="_ams-tests-grid">
+      {[undefined, ...logoBrands].map(brand => <Logo {...args} brand={brand} key={brand} />)}
+    </div>,
+  tags: ['!dev', '!autodocs']
+}`,...p.parameters?.docs?.source}}},m=[`Test`]}))();export{p as Test,m as __namedExportsOrder,f as default};
