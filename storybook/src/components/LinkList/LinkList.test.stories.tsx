@@ -23,7 +23,7 @@ const options = ['Link 1', 'Link 2', 'Link 3']
 
 export const Test: Story = {
   render: (args) => (
-    <div className="_ams-stack">
+    <div className="_ams-tests-stack">
       {[undefined, ...linkListLinkSizes].map((size) => {
         return [undefined, ...linkListLinkColors].map((color) => {
           return (

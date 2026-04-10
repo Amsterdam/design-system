@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: () => (
-    <div className="_ams-stack">
+    <div className="_ams-tests-stack">
       {[undefined, ...spotlightColors].map((color) => (
         <Spotlight color={color} key={color}>
           <div style={{ padding: 'var(--ams-space-xl)' }}>

@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) => (
-    <div className="_ams-stack">
+    <div className="_ams-tests-stack">
       <Figure {...args}>
         <img
           alt=""

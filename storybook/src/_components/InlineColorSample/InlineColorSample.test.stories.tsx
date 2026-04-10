@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: () => (
-    <div className="_ams-gallery">
+    <div className="_ams-tests-grid">
       <InlineColorSample color="azure" />
       <InlineColorSample color="red" />
       <InlineColorSample color="green" />

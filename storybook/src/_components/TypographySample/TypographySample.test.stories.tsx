@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: () => (
-    <div className="_ams-gallery">
+    <div className="_ams-tests-grid">
       <TypographySample fontFamily="arial" />
       <TypographySample fontSize="1.5rem" />
       <TypographySample fontWeight="bold" />

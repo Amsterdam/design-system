@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args) => (
-    <div className="_ams-gallery">
+    <div className="_ams-tests-grid">
       {[undefined, ...logoBrands].map((brand) => (
         <Logo {...args} brand={brand} key={brand} />
       ))}
