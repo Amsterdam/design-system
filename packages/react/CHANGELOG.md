@@ -105,7 +105,7 @@ The following deprecated API has been removed in this release:
 
 ### Deprecations
 
-The following prop have been removed in release 4.0.0:
+The following prop has been removed in release 4.0.0:
 
 * **Menu.Link**: `color`
 
