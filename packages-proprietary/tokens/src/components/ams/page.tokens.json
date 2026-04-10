@@ -5,6 +5,12 @@
         "$value": "{ams.color.background.body}",
         "$type": "color"
       },
+      "container-name": {
+        "$value": "ams-page"
+      },
+      "container-type": {
+        "$value": "inline-size"
+      },
       "max-inline-size": {
         "$value": {
           "value": 90,
