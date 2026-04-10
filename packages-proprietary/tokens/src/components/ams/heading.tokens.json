@@ -91,20 +91,6 @@
             "nl.amsterdam.type": "lineHeight"
           }
         }
-      },
-      "6": {
-        "font-size": {
-          "$value": "{ams.typography.heading.6.font-size}",
-          "$extensions": {
-            "nl.amsterdam.type": "fontSize"
-          }
-        },
-        "line-height": {
-          "$value": "{ams.typography.heading.6.line-height}",
-          "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
-        }
       }
     }
   }
