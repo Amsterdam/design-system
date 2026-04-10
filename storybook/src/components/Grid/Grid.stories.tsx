@@ -74,6 +74,7 @@ export const Default: Story = {
 export const VerticalPadding: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: <Grid.Cell className="_ams-item" span="all" />,
   },
 }
@@ -81,6 +82,7 @@ export const VerticalPadding: Story = {
 export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: [
       <Grid.Cell className="_ams-item" key={1} span="all" />,
       <Grid.Cell className="_ams-item" key={2} span="all" />,
@@ -135,15 +137,20 @@ export const StartPosition: CellStory = {
 export const BackgroundInCompactMode: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: [
-      <Grid.Cell key={1} span={6}>
+      <Grid.Cell key={1} span={4}>
         <Paragraph>Default</Paragraph>
       </Grid.Cell>,
-      <Grid.Cell appearance="transparent" key={2} span={6}>
+      <Grid.Cell appearance="flush" key={2} span={4}>
+        <Paragraph>Flush</Paragraph>
+      </Grid.Cell>,
+      <Grid.Cell appearance="transparent" key={3} span={4}>
         <Paragraph>Transparent</Paragraph>
       </Grid.Cell>,
     ],
   },
+  decorators: undefined,
 }
 
 export const ImproveSemantics: CellStory = {
