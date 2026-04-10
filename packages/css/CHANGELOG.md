@@ -9,12 +9,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 The following deprecated CSS classes have been removed in this release:
 
-- `.ams-page-heading` and `.ams-page-heading--inverse`.
-Use `.ams-heading` instead.
-- `.ams-heading--6`.
-Use `.ams-heading--5` instead.
-- `.ams-icon--heading-0` and `.ams-icon--heading-6`.
-Use `.ams-icon--heading-1` and `.ams-icon--heading-5` instead.
+- `.ams-page-heading` and `.ams-page-heading--inverse`. Use `.ams-heading` instead.
+- `.ams-heading--6`. Use `.ams-heading--5` instead.
+- `.ams-icon--heading-0` and `.ams-icon--heading-6`. Use `.ams-icon--heading-1` and `.ams-icon--heading-5` instead.
 - `.ams-menu__link--contrast` and `.ams-menu__link--inverse`.
 - `.ams-accordion__header`.
 - `.ams-standalone-link--with-icon`.

@@ -9,17 +9,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 The following deprecated API has been removed in this release:
 
-- The `PageHeading` component.
-Use a `Heading` instead.
+- The `PageHeading` component. Use a `Heading` instead.
 - The `color` prop of `Menu.Link`.
-- The `size` value `level-6` of `Heading`.
-Use `level-5` instead.
-- The `size` values `heading-0` and `heading-6` of `Icon`.
-Use `heading-1` and `heading-5` instead.
-- The `headingLevel` value `1` of `Accordion`.
-Use `2`, `3`, or `4` instead.
-- The `visuallyHiddenLabel`, `visuallyHiddenLabelId`, `nextVisuallyHiddenLabel`, and `previousVisuallyHiddenLabel` props of `Pagination`.
-Use `accessibleName`, `accessibleNameId`, `nextAccessibleName`, and `previousAccessibleName` instead.
+- The `size` value `level-6` of `Heading`. Use `level-5` instead.
+- The `size` values `heading-0` and `heading-6` of `Icon`. Use `heading-1` and `heading-5` instead.
+- The `headingLevel` value `1` of `Accordion`. Use `2`, `3`, or `4` instead.
+- The `visuallyHiddenLabel`, `visuallyHiddenLabelId`, `nextVisuallyHiddenLabel`, and `previousVisuallyHiddenLabel` props of `Pagination`. Use `accessibleName`, `accessibleNameId`, `nextAccessibleName`, and `previousAccessibleName` instead.
 
 ## [3.3.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v3.2.1...design-system-react-v3.3.0) (2026-04-03)
 
