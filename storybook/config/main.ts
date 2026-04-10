@@ -38,18 +38,6 @@ const config: StorybookConfig = {
     options: {},
   },
 
-  // TODO: remove this temporary workaround for Storybook's rendering of stories in Firefox 140 (ESR) when a fix has been released.
-  // Bug reports for Storybook: https://github.com/storybookjs/storybook/issues/33743, https://github.com/storybookjs/storybook/issues/33769
-  // Implemented workaround: https://github.com/storybookjs/storybook/issues/33769#issuecomment-3929210792
-  managerHead: (head) => `
-    ${head}
-    <style>
-      main[aria-labelledby="main-preview-heading"] > div {
-        place-content: stretch;
-      }
-    </style>
-  `,
-
   staticDirs: ['../../packages-proprietary/assets'],
   stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
 
