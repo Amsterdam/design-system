@@ -13,4 +13,4 @@ With a Menu, that becomes 120 rems (1.920 pixels).
 
 - As a root layout component, it must be used for all websites for the City of Amsterdam.
 - Components can adapt their appearance to the width of a container component and ultimately the Page component through a [CSS container query](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries).
-- Because Page spans the entire width of the page, it effectively allows components to adapt their appearance to the width of the viewport by using container queries instead of [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries).
+- Because Page is the top-level layout container, it allows components to adapt their appearance to the Page component’s available inline size by using container queries instead of [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries). This matches the viewport width only until the Page reaches its configured maximum width.
