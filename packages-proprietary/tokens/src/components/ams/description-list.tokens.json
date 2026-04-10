@@ -31,8 +31,8 @@
         }
       },
       "row-gap": {
-        "$deprecated": "Will be removed in release 6.0.0.",
-        "$value": "{ams.space.s}",
+        "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-03.",
+        "$value": "0",
         "$type": "dimension",
         "$extensions": {
           "nl.amsterdam.subtype": "space"
