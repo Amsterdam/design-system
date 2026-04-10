@@ -43,6 +43,11 @@ const config: StorybookConfig = {
 
   typescript: {
     reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      include: ['../packages/react/src/**/*.tsx', '../packages-proprietary/react-icons/src/*.tsx'],
+      shouldExtractLiteralValuesFromEnum: true,
+      tsconfigPath: '../packages/react/tsconfig.json',
+    },
   },
 }
 
