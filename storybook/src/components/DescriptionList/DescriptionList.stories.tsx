@@ -50,6 +50,22 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Orientation: Story = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  render: (args) => (
+    <Grid>
+      <Grid.Cell className="_ams-item--highlight" span={{ narrow: 4, medium: 4, wide: 4 }}>
+        <DescriptionList {...args} />
+      </Grid.Cell>
+      <Grid.Cell className="_ams-item--highlight" span={{ narrow: 4, medium: 8, wide: 8 }}>
+        <DescriptionList {...args} />
+      </Grid.Cell>
+    </Grid>
+  ),
+}
+
 export const MultipleDescriptions: Story = {
   args: {
     children: [
@@ -112,20 +128,4 @@ export const InverseColour: Story = {
   args: {
     color: 'inverse',
   },
-}
-
-export const NarrowContainer: Story = {
-  parameters: {
-    layout: 'fullscreen',
-  },
-  render: (args) => (
-    <Grid>
-      <Grid.Cell className="_ams-item--highlight" span={{ narrow: 4, medium: 8, wide: 8 }}>
-        <DescriptionList {...args} />
-      </Grid.Cell>
-      <Grid.Cell className="_ams-item--highlight" span={{ narrow: 4, medium: 4, wide: 4 }}>
-        <DescriptionList {...args} />
-      </Grid.Cell>
-    </Grid>
-  ),
 }
