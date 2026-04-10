@@ -15,6 +15,7 @@ Divides the screen into columns to align the elements of a page.
 - Grid Cells align to the top of their row.
   This makes them as tall as their content.
   This is especially useful for [Compact Mode](https://designsystem.amsterdam/docs/docs-developer-guide-modes--docs), where their background colour is different than that of the Page.
+  The [internal Home Page](/story/pages-internal-home-page--default) example shows this behaviour.
 - A single page can have several Grids.
   This allows mixing a Grid with a [Spotlight](/docs/components-containers-spotlight--docs), [Breakout](/docs/components-layout-breakout--docs) or full width [Image](/docs/components-media-image--docs) which ‘bleed out’ of the main layout.
 - Grids must not be nested.
