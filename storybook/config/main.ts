@@ -55,7 +55,7 @@ const config: StorybookConfig = {
       ],
       shouldExtractLiteralValuesFromEnum: true,
       shouldRemoveUndefinedFromOptional: true,
-      tsconfigPath: path.resolve(repoRoot, 'packages/react/tsconfig.json'),
+      tsconfigPath: 'tsconfig.docgen.json',
     },
   },
 }
