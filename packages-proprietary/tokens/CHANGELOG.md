@@ -69,7 +69,7 @@ The following deprecated tokens have been removed in this release:
 
 ### Deprecations
 
-The following tokens will be removed in release 5.0.0:
+The following tokens will be removed on or after 2026-07-09:
 
 - `ams.field-set.legend.margin-block-end`
 -  `ams.field.gap`

@@ -108,7 +108,7 @@
               "font-weight": {
                 "$value": "{ams.typography.body-text.font-weight}",
                 "$type": "fontWeight",
-                "$deprecated": "We no longer make the button label bold when the mega menu is open. Will be removed in release 6.0.0."
+                "$deprecated": "We no longer make the button label bold when the mega menu is open. Will be removed on or after 2026-09-13."
               }
             }
           },
@@ -148,7 +148,7 @@
         },
         "item": {
           "color": {
-            "$deprecated": "Use `ams.page-header.menu.link.color` instead. Will be removed in release 5.0.0.",
+            "$deprecated": "Use `ams.page-header.menu.link.color` instead. Will be removed on or after 2026-09-13.",
             "$value": "{ams.links.color}",
             "$type": "color"
           },

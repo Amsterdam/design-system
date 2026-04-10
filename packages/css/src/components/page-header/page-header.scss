@@ -128,7 +128,10 @@
 }
 
 @mixin page-header-menu-action {
-  color: var(--ams-page-header-menu-item-color); /* This token is @deprecated. */
+  color: var(
+    --ams-page-header-menu-item-color
+  ); /* This token is @deprecated. Will be removed on or after 2026-09-13. */
+
   font-size: var(--ams-page-header-menu-item-font-size);
   font-weight: var(--ams-page-header-menu-item-font-weight);
   line-height: var(--ams-page-header-menu-item-line-height);
@@ -190,13 +193,15 @@
   }
 
   &[aria-expanded="true"] {
-    font-weight: var(--ams-page-header-mega-menu-button-label-open-font-weight); /* This token is @deprecated. */
+    font-weight: var(
+      --ams-page-header-mega-menu-button-label-open-font-weight
+    ); /* This token is @deprecated. Will be removed on or after 2026-09-13. */
   }
 }
 
 .ams-page-header__mega-menu-button-label,
 .ams-page-header__mega-menu-button-hidden-label {
-  /* @deprecated These class names will be removed in 6.0.0. */
+  /* @deprecated These class names will be removed on or after 2026-09-13. */
 }
 
 .ams-page-header__menu-icon-top,
