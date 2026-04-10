@@ -19,7 +19,7 @@ Use `heading-1` and `heading-5` instead.
 - The `headingLevel` value `1` of `Accordion`.
 Use `2`, `3`, or `4` instead.
 - The `visuallyHiddenLabel`, `visuallyHiddenLabelId`, `nextVisuallyHiddenLabel`, and `previousVisuallyHiddenLabel` props of `Pagination`.
-Use `label`, `labelId`, `nextLabel`, and `previousLabel` instead.
+Use `accessibleName`, `accessibleNameId`, `nextAccessibleName`, and `previousAccessibleName` instead.
 
 ## [3.3.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v3.2.1...design-system-react-v3.3.0) (2026-04-03)
 
