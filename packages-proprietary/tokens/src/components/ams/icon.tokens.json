@@ -41,22 +41,6 @@
           }
         }
       },
-      "heading-0": {
-        "font-size": {
-          "$deprecated": "Use `ams.typography.heading.1.font-size` instead. Will be removed in release 4.0.0.",
-          "$value": "{ams.typography.heading.0.font-size}",
-          "$extensions": {
-            "nl.amsterdam.type": "fontSize"
-          }
-        },
-        "line-height": {
-          "$deprecated": "Use `ams.typography.heading.1.line-height` instead. Will be removed in release 4.0.0.",
-          "$value": "{ams.typography.heading.0.line-height}",
-          "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
-        }
-      },
       "heading-1": {
         "font-size": {
           "$value": "{ams.typography.heading.1.font-size}",
@@ -122,20 +106,6 @@
         },
         "line-height": {
           "$value": "{ams.typography.heading.5.line-height}",
-          "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
-        }
-      },
-      "heading-6": {
-        "font-size": {
-          "$value": "{ams.typography.heading.6.font-size}",
-          "$extensions": {
-            "nl.amsterdam.type": "fontSize"
-          }
-        },
-        "line-height": {
-          "$value": "{ams.typography.heading.6.line-height}",
           "$extensions": {
             "nl.amsterdam.type": "lineHeight"
           }

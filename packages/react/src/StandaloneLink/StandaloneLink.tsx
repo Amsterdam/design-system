@@ -23,8 +23,6 @@ export type StandaloneLinkProps = {
   icon?: IconProps['svg']
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
 
-// The `ams-standalone-link--with-icon` class is @deprecated and will be removed in a future release.
-
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-standalone-link--docs Standalone Link docs at Amsterdam Design System}
  */
@@ -35,11 +33,7 @@ export const StandaloneLink = forwardRef(
   ) => (
     <a
       {...restProps}
-      className={clsx(
-        'ams-standalone-link ams-standalone-link--with-icon',
-        color && `ams-standalone-link--${color}`,
-        className,
-      )}
+      className={clsx('ams-standalone-link', color && `ams-standalone-link--${color}`, className)}
       ref={ref}
     >
       <Icon svg={icon} />

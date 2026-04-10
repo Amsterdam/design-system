@@ -128,6 +128,10 @@
 }
 
 @mixin page-header-menu-action {
+  color: var(
+    --ams-page-header-menu-item-color
+  ); /* This token is @deprecated. Will be removed on or after 2026-09-13. */
+
   font-size: var(--ams-page-header-menu-item-font-size);
   font-weight: var(--ams-page-header-menu-item-font-weight);
   line-height: var(--ams-page-header-menu-item-line-height);
@@ -144,14 +148,14 @@
 }
 
 .ams-page-header__menu-link {
+  @include page-header-menu-action;
+
   color: var(--ams-page-header-menu-link-color);
   display: inline-flex;
   gap: var(--ams-page-header-menu-link-gap);
   text-decoration-line: var(--ams-page-header-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-page-header-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-page-header-menu-link-text-underline-offset);
-
-  @include page-header-menu-action;
 
   &:hover {
     text-decoration-line: var(--ams-page-header-menu-link-hover-text-decoration-line);
@@ -170,6 +174,7 @@
 
 .ams-page-header__mega-menu-button {
   @include reset-button;
+  @include page-header-menu-action;
 
   background-color: var(--ams-page-header-mega-menu-button-background-color);
   color: var(--ams-page-header-mega-menu-button-color);
@@ -180,18 +185,23 @@
   grid-auto-flow: column;
   padding-inline: var(--ams-page-header-mega-menu-button-padding-inline);
 
-  @include page-header-menu-action;
   @include print-exact;
 
   &:hover {
     background-color: var(--ams-page-header-mega-menu-button-hover-background-color);
     color: var(--ams-page-header-mega-menu-button-hover-color);
   }
+
+  &[aria-expanded="true"] {
+    font-weight: var(
+      --ams-page-header-mega-menu-button-label-open-font-weight
+    ); /* This token is @deprecated. Will be removed on or after 2026-09-13. */
+  }
 }
 
 .ams-page-header__mega-menu-button-label,
 .ams-page-header__mega-menu-button-hidden-label {
-  /* @deprecated These class names will be removed in 6.0.0. */
+  /* @deprecated These class names will be removed on or after 2026-09-13. */
 }
 
 .ams-page-header__menu-icon-top,
