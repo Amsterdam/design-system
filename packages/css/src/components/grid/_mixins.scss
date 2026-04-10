@@ -116,3 +116,21 @@
     grid-column-start: $i;
   }
 }
+
+// Cell row span
+
+@mixin ams-grid__cell--row-span($i) {
+  grid-row: span $i;
+}
+
+@mixin ams-grid__cell--row-span-medium($i) {
+  @media (min-width: $ams-breakpoint-medium) {
+    grid-row: span $i;
+  }
+}
+
+@mixin ams-grid__cell--row-span-wide($i) {
+  @media (min-width: $ams-breakpoint-wide) {
+    grid-row: span $i;
+  }
+}

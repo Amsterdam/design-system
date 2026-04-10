@@ -16,7 +16,12 @@ export const addGridClass = (prefix: string, value?: GridColumnNumber | GridColu
   return []
 }
 
-export const gridCellClasses = (colSpan?: GridCellProps['span'], colStart?: GridCellProps['start']): string[] => [
+export const gridCellClasses = (
+  colSpan?: GridCellProps['span'],
+  colStart?: GridCellProps['start'],
+  rowSpan?: GridCellProps['rowSpan'],
+): string[] => [
   ...addGridClass('ams-grid__cell--span-', colSpan),
   ...addGridClass('ams-grid__cell--start-', colStart),
+  ...addGridClass('ams-grid__cell--row-span-', rowSpan),
 ]
