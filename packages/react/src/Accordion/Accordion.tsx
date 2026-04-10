@@ -8,19 +8,16 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef, useImperativeHandle, useRef } from 'react'
 
-import type { HeadingProps } from '../Heading/Heading'
-
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 import { AccordionContext } from './AccordionContext'
 import { AccordionSection } from './AccordionSection'
 
 export type AccordionProps = {
   /**
-   * The hierarchical level of this Accordion’s Section Headings within the document.
+   * The hierarchical level of this Accordion's Section Headings within the document.
    * There is no default value; determine the correct level for each instance.
-   * The value ‘1’ is deprecated.
    */
-  headingLevel: HeadingProps['level']
+  headingLevel: 2 | 3 | 4
   /** The HTML element to use for each Accordion Section. */
   sectionAs?: 'div' | 'section'
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
