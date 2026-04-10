@@ -3,19 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryFn, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
-
-const inSingleCellGrid = (Story: StoryFn) => (
-  <Grid>
-    <Grid.Cell span="all">
-      <Story />
-    </Grid.Cell>
-  </Grid>
-)
 
 const meta = {
   title: 'Components/Text/Description List',
@@ -56,9 +48,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  decorators: [inSingleCellGrid],
-}
+export const Default: Story = {}
 
 export const MultipleDescriptions: Story = {
   args: {
@@ -70,7 +60,6 @@ export const MultipleDescriptions: Story = {
       <DescriptionList.Description key={5}>Persoon die slechtziend is</DescriptionList.Description>,
     ],
   },
-  decorators: [inSingleCellGrid],
 }
 
 export const MultipleTerms: Story = {
@@ -91,11 +80,9 @@ export const MultipleTerms: Story = {
     ],
     termsWidth: 'medium',
   },
-  decorators: [inSingleCellGrid],
 }
 
 export const RichDescription: Story = {
-  decorators: [inSingleCellGrid],
   render: (args) => (
     <DescriptionList {...args}>
       <DescriptionList.Term key={1}>Amsterdam Light Festival</DescriptionList.Term>
@@ -125,7 +112,6 @@ export const InverseColour: Story = {
   args: {
     color: 'inverse',
   },
-  decorators: [inSingleCellGrid],
 }
 
 export const NarrowContainer: Story = {
@@ -134,10 +120,12 @@ export const NarrowContainer: Story = {
   },
   render: (args) => (
     <Grid>
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 4 }}>
+      <Grid.Cell className="_ams-item--highlight" span={{ narrow: 4, medium: 8, wide: 8 }}>
         <DescriptionList {...args} />
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} />
+      <Grid.Cell className="_ams-item--highlight" span={{ narrow: 4, medium: 4, wide: 4 }}>
+        <DescriptionList {...args} />
+      </Grid.Cell>
     </Grid>
   ),
 }
