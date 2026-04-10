@@ -9593,6 +9593,7 @@ export const Default: Story = {
 export const VerticalPadding: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: &lt;Grid.Cell className=&quot;_ams-item&quot; span=&quot;all&quot; /&gt;,
   },
 }
@@ -9600,6 +9601,7 @@ export const VerticalPadding: Story = {
 export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: [
       &lt;Grid.Cell className=&quot;_ams-item&quot; key={1} span=&quot;all&quot; /&gt;,
       &lt;Grid.Cell className=&quot;_ams-item&quot; key={2} span=&quot;all&quot; /&gt;,
@@ -9654,15 +9656,20 @@ export const StartPosition: CellStory = {
 export const BackgroundInCompactMode: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: [
-      &lt;Grid.Cell key={1} span={6}&gt;
+      &lt;Grid.Cell key={1} span={4}&gt;
         &lt;Paragraph&gt;Default&lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;,
-      &lt;Grid.Cell appearance=&quot;transparent&quot; key={2} span={6}&gt;
+      &lt;Grid.Cell appearance=&quot;flush&quot; key={2} span={4}&gt;
+        &lt;Paragraph&gt;Flush&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;,
+      &lt;Grid.Cell appearance=&quot;transparent&quot; key={3} span={4}&gt;
         &lt;Paragraph&gt;Transparent&lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;,
     ],
   },
+  decorators: undefined,
 }
 
 export const ImproveSemantics: CellStory = {
@@ -9785,10 +9792,13 @@ import { GridColumnsGuide } from "@amsterdam/design-system-react";</code></pre>
               
               
               <pre><code>const BackgroundInCompactMode = () =&gt; &lt;Grid&gt;{[
-      &lt;Grid.Cell key={1} span={6}&gt;
+      &lt;Grid.Cell key={1} span={4}&gt;
         &lt;Paragraph&gt;Default&lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;,
-      &lt;Grid.Cell appearance=&quot;transparent&quot; key={2} span={6}&gt;
+      &lt;Grid.Cell appearance=&quot;flush&quot; key={2} span={4}&gt;
+        &lt;Paragraph&gt;Flush&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;,
+      &lt;Grid.Cell appearance=&quot;transparent&quot; key={3} span={4}&gt;
         &lt;Paragraph&gt;Transparent&lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;,
     ]}&lt;/Grid&gt;;</code></pre>
@@ -9905,6 +9915,7 @@ In Compact Mode, the page background is light grey.
 Grid cells have a white background and padding to stand out against it,
 because the tight spacing doesn&#39;t distinguish them enough on its own.
 
+Use the `flush` appearance to keep the white background but remove the padding, allowing content to fill the entire cell.
 Use the `transparent` appearance to let a cell blend into the page background instead.
 This also removes the padding.
 
@@ -32304,6 +32315,7 @@ export const Default: Story = {
 export const VerticalPadding: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: &lt;Grid.Cell className=&quot;_ams-item&quot; span=&quot;all&quot; /&gt;,
   },
 }
@@ -32311,6 +32323,7 @@ export const VerticalPadding: Story = {
 export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: [
       &lt;Grid.Cell className=&quot;_ams-item&quot; key={1} span=&quot;all&quot; /&gt;,
       &lt;Grid.Cell className=&quot;_ams-item&quot; key={2} span=&quot;all&quot; /&gt;,
@@ -32365,15 +32378,20 @@ export const StartPosition: CellStory = {
 export const BackgroundInCompactMode: Story = {
   ...StoryTemplate,
   args: {
+    ...StoryTemplate.args,
     children: [
-      &lt;Grid.Cell key={1} span={6}&gt;
+      &lt;Grid.Cell key={1} span={4}&gt;
         &lt;Paragraph&gt;Default&lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;,
-      &lt;Grid.Cell appearance=&quot;transparent&quot; key={2} span={6}&gt;
+      &lt;Grid.Cell appearance=&quot;flush&quot; key={2} span={4}&gt;
+        &lt;Paragraph&gt;Flush&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;,
+      &lt;Grid.Cell appearance=&quot;transparent&quot; key={3} span={4}&gt;
         &lt;Paragraph&gt;Transparent&lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;,
     ],
   },
+  decorators: undefined,
 }
 
 export const ImproveSemantics: CellStory = {
@@ -32496,10 +32514,13 @@ import { GridColumnsGuide } from "@amsterdam/design-system-react";</code></pre>
               
               
               <pre><code>const BackgroundInCompactMode = () =&gt; &lt;Grid&gt;{[
-      &lt;Grid.Cell key={1} span={6}&gt;
+      &lt;Grid.Cell key={1} span={4}&gt;
         &lt;Paragraph&gt;Default&lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;,
-      &lt;Grid.Cell appearance=&quot;transparent&quot; key={2} span={6}&gt;
+      &lt;Grid.Cell appearance=&quot;flush&quot; key={2} span={4}&gt;
+        &lt;Paragraph&gt;Flush&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;,
+      &lt;Grid.Cell appearance=&quot;transparent&quot; key={3} span={4}&gt;
         &lt;Paragraph&gt;Transparent&lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;,
     ]}&lt;/Grid&gt;;</code></pre>
@@ -32616,6 +32637,7 @@ In Compact Mode, the page background is light grey.
 Grid cells have a white background and padding to stand out against it,
 because the tight spacing doesn&#39;t distinguish them enough on its own.
 
+Use the `flush` appearance to keep the white background but remove the padding, allowing content to fill the entire cell.
 Use the `transparent` appearance to let a cell blend into the page background instead.
 This also removes the padding.
 
