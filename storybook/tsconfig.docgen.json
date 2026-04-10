@@ -1,10 +1,7 @@
 {
+  "extends": "../packages/react/tsconfig.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "strict": true
+    "moduleResolution": "node"
   },
   "include": [
     "../packages/react/src/**/*.ts",
