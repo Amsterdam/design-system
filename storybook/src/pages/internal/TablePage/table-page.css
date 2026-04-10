@@ -1,0 +1,22 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/* TODO Remove after Page and Grid Cell background features have landed in 4.0.0.. */
+
+body,
+.ams-page {
+  background-color: #e1e1e1;
+}
+
+.ams-page-header,
+.ams-page-footer {
+  background-color: #fff;
+}
+
+.ams-grid__cell:not(.ams-grid__cell--transparent) {
+  background-color: #fff;
+  padding-block: var(--ams-space-m);
+  padding-inline: var(--ams-space-m);
+}
