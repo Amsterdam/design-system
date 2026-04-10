@@ -111,6 +111,9 @@ defaultMode.buildAllPlatforms()
 
 for (const mode of modes) {
   const styleDictionary = new StyleDictionary({
+    log: {
+      verbosity: 'verbose',
+    },
     platforms: generateSharedConfig(mode),
     source: [`./src/**/*.${mode}.tokens.json`],
   })

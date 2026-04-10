@@ -6,6 +6,7 @@
 import type { GridCellProps } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { Paragraph } from '@amsterdam/design-system-react/src'
 import { Grid } from '@amsterdam/design-system-react/src'
 
 import { GridColumnsGuide } from '../../_components/GridColumnsGuide/GridColumnsGuide'
@@ -14,9 +15,6 @@ import { gridGapAndPaddingArgTypes } from './Grid.argTypes'
 const meta = {
   title: 'Components/Layout/Grid',
   component: Grid,
-  args: {
-    paddingVertical: 'x-large',
-  },
   argTypes: gridGapAndPaddingArgTypes,
   parameters: {
     layout: 'fullscreen',
@@ -42,6 +40,9 @@ type Story = StoryObj<typeof meta>
 type CellStory = StoryObj<typeof cellMeta>
 
 const StoryTemplate: Story = {
+  args: {
+    paddingVertical: 'x-large',
+  },
   decorators: [
     (Story) => (
       <>
@@ -95,6 +96,17 @@ export const SpanColumns: CellStory = {
   },
 }
 
+export const SpanRows: Story = {
+  ...StoryTemplate,
+  args: {
+    children: [
+      <Grid.Cell className="_ams-item" key={1} rowSpan={2} span={2} />,
+      <Grid.Cell className="_ams-item" key={2} span={{ narrow: 2, medium: 6, wide: 10 }} />,
+      <Grid.Cell className="_ams-item" key={3} span={{ narrow: 2, medium: 6, wide: 10 }} />,
+    ],
+  },
+}
+
 export const SpanResponsively: CellStory = {
   ...CellStoryTemplate,
   args: {
@@ -117,6 +129,20 @@ export const StartPosition: CellStory = {
     className: '_ams-item',
     span: 3,
     start: { narrow: 2, medium: 4, wide: 6 },
+  },
+}
+
+export const BackgroundInCompactMode: Story = {
+  ...StoryTemplate,
+  args: {
+    children: [
+      <Grid.Cell key={1} span={6}>
+        <Paragraph>Default</Paragraph>
+      </Grid.Cell>,
+      <Grid.Cell appearance="transparent" key={2} span={6}>
+        <Paragraph>Transparent</Paragraph>
+      </Grid.Cell>,
+    ],
   },
 }
 

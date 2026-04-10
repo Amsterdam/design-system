@@ -4,6 +4,7 @@
  */
 
 import { render, screen, within } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
@@ -93,6 +94,36 @@ describe('ProgressList', () => {
     const [subStep] = within(subStepsList).getAllByRole('listitem')
 
     expect(subStep).toHaveClass('ams-progress-list-substeps__step')
+  })
+
+  it('sets focus on step buttons when using arrow keys', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="one">Content</ProgressList.Step>
+        <ProgressList.Step heading="two">Content</ProgressList.Step>
+        <ProgressList.Step heading="three">Content</ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const firstButton = screen.getByRole('button', { name: /one/ })
+    const thirdButton = screen.getByRole('button', { name: /three/ })
+
+    await user.click(firstButton)
+
+    expect(firstButton).toHaveFocus()
+
+    await user.keyboard('{ArrowDown}')
+    await user.keyboard('{ArrowDown}')
+
+    expect(thirdButton).toHaveFocus()
+    expect(firstButton).not.toHaveFocus()
+
+    // Rotating: wraps from last to first
+    await user.keyboard('{ArrowDown}')
+
+    expect(firstButton).toHaveFocus()
   })
 
   it('passes additional props', () => {

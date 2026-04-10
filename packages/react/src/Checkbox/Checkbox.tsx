@@ -60,7 +60,7 @@ export const Checkbox = forwardRef(
         <label className="ams-checkbox__label" htmlFor={inputId}>
           {/* The icon is only shown when the CSS loads, so we hide it by default. */}
           <span className="ams-checkbox__icon-container" hidden>
-            {typeof icon === 'function' ? icon() : icon}
+            {typeof icon === 'function' ? icon({}) : icon}
           </span>
           {children}
         </label>
