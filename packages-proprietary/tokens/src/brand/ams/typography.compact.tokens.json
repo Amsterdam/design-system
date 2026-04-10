@@ -138,15 +138,6 @@
               "nl.amsterdam.type": "lineHeight"
             }
           }
-        },
-        "6": {
-          "font-size": {
-            "$deprecated": "Use `ams.typography.heading.5.font-size` instead. Will be removed in release 4.0.0.",
-            "$value": "{ams.typography.body-text.small.font-size}",
-            "$extensions": {
-              "nl.amsterdam.type": "fontSize"
-            }
-          }
         }
       }
     }
