@@ -39,6 +39,13 @@ Don’t forget to set the `hasSubsteps` prop on the parent step.
 
 <Canvas of={ProgressListStories.WithSubsteps} />
 
+### Controlled step
+
+Use the `collapsed` prop together with `onToggle` to control the collapsed state of a step from a parent component.
+This is useful when the expanded step should depend on other state in the application.
+
+<Canvas of={ProgressListStepStories.ControlledStep} />
+
 ## Design tokens
 
 <DesignTokensTable tokens={tokens} />

@@ -45,7 +45,7 @@ export const Step: Story = {
   },
 }
 
-export const Controlled: Story = {
+export const ControlledStep: Story = {
   args: {
     children: <Paragraph>{exampleParagraph()}</Paragraph>,
     collapsed: false,
