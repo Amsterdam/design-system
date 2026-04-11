@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0]
+
+### Deprecations
+
+The following deprecated tokens have been removed in this release:
+
+- `ams.accordion.button.font-family`, `ams.accordion.button.font-size`, `ams.accordion.button.font-weight`, `ams.accordion.button.line-height`, `ams.accordion.button.text-wrap`, `ams.accordion.panel.padding-block`, and `ams.accordion.panel.padding-inline`.
+- `ams.checkbox.hover.text-decoration-thickness`, `ams.checkbox.rectangle.checked.disabled.hover.*`, `ams.checkbox.rectangle.checked.hover.disabled-invalid.*`, `ams.checkbox.rectangle.hover.disabled-invalid.*`, `ams.checkbox.rectangle.indeterminate.disabled.hover.*`, and `ams.checkbox.rectangle.indeterminate.hover.disabled-invalid.*`.
+- `ams.color.link.secondary`.
+- `ams.date-input.calender-picker-indicator.*`, `ams.date-input.disabled.calender-picker-indicator.*`, and `ams.date-input.hover.calender-picker-indicator.*`.
+- `ams.heading.6.*`.
+- `ams.icon.heading-0.*` and `ams.icon.heading-6.*`.
+- `ams.menu.link.contrast.*` and `ams.menu.link.inverse.*`.
+- `ams.page-heading.*`.
+- `ams.standalone-link.hover.text-decoration-thickness`, `ams.standalone-link.hover.text-underline-offset`, and `ams.standalone-link.with-icon.*`.
+- `ams.table-of-contents.heading.*`.
+- `ams.time-input.calender-picker-indicator.*`, `ams.time-input.disabled.calender-picker-indicator.*`, and `ams.time-input.hover.calender-picker-indicator.*`.
+- `ams.typography.heading.0.*` and `ams.typography.heading.6.*`.
+
+## [3.4.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v3.3.0...design-system-tokens-v3.4.0) (2026-04-03)
+
+
+### Features
+
+* **Description List:** Apply heading 4 typography to terms ([#2486](https://github.com/Amsterdam/design-system/issues/2486)) ([e624ae4](https://github.com/Amsterdam/design-system/commit/e624ae4cd348736f5f32f0fea4609652f22e8753))
+* **Description List:** Balance multiple lines of text in term ([#2485](https://github.com/Amsterdam/design-system/issues/2485)) ([a77a62e](https://github.com/Amsterdam/design-system/commit/a77a62e8c2f11666f1c6a3a132fe4f14654d9268))
+* **Progress List:** Make steps collapsible ([#2482](https://github.com/Amsterdam/design-system/issues/2482)) ([1fc3e39](https://github.com/Amsterdam/design-system/commit/1fc3e39644cce6a0299ba9bb08cc861c9b4155d7))
+* **typography:** Decrease line height for body text ([#2484](https://github.com/Amsterdam/design-system/issues/2484)) ([970b08e](https://github.com/Amsterdam/design-system/commit/970b08ee22edca8e630bd9c62ceddf891de25a3c))
+* Use DTCG shadow format for shadow tokens ([#2505](https://github.com/Amsterdam/design-system/issues/2505)) ([bd5411c](https://github.com/Amsterdam/design-system/commit/bd5411cacbdd68efd8804edd706362670c56c406))
+
 ## [3.3.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v3.2.0...design-system-tokens-v3.3.0) (2026-03-17)
 
 
@@ -39,7 +69,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
-The following tokens will be removed in release 5.0.0:
+The following tokens will be removed on or after 2026-07-09:
 
 - `ams.field-set.legend.margin-block-end`
 -  `ams.field.gap`
@@ -66,7 +96,7 @@ The following tokens will be removed in release 5.0.0:
 
 ### Deprecations
 
-The following tokens will be removed in release 4.0.0. If you use them in your code, please delete them.
+The following tokens have been removed in release 4.0.0.
 
 - `ams.menu.link.contrast.color`, `ams.menu.link.contrast.hover.color`, `ams.menu.link.inverse.color`, `ams.menu.link.inverse.hover.color`.
 - `ams.date-input.disabled.calender-picker-indicator.background-image`, `ams.date-input.hover.calender-picker-indicator.background-image`, `ams.date-input.calender-picker-indicator.background-image`, `ams.date-input.calender-picker-indicator.cursor`.
@@ -90,7 +120,7 @@ The following tokens will be removed in release 4.0.0. If you use them in your c
 
 ### Deprecations
 
-The following tokens will be removed in release 4.0.0. If you use them in your code, please delete them.
+The following tokens have been removed in release 4.0.0.
 
 * `ams.accordion.panel.*` and some tokens in `ams.accordion.button`
 * `ams.checkbox.hover.text-decoration-thickness` and `ams.checkbox.rectangle.*`

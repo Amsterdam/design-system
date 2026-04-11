@@ -7,9 +7,12 @@
 @use "mixins" as *;
 
 $ams-grid-column-count: 12;
+$ams-grid-row-span-max: 4;
 
 .ams-grid {
   @include ams-grid;
+
+  align-items: start;
 }
 
 // Grid gap
@@ -64,7 +67,28 @@ $ams-grid-column-count: 12;
   @include ams-grid--padding-vertical--2x-large;
 }
 
-// Column span
+// Cell
+
+.ams-grid__cell {
+  background-color: var(--ams-grid-cell-background-color);
+  container-name: var(--ams-grid-cell-container-name);
+  container-type: var(--ams-grid-cell-container-type);
+  padding-block: var(--ams-grid-cell-padding-block);
+  padding-inline: var(--ams-grid-cell-padding-inline);
+}
+
+.ams-grid__cell--flush {
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+.ams-grid__cell--transparent {
+  background-color: transparent;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+// Cell span and start
 // The order of these declaration blocks ensures the intended specificity.
 
 .ams-grid__cell--span-all {
@@ -101,6 +125,30 @@ $ams-grid-column-count: 12;
 
     .ams-grid__cell--start-#{$i}-wide {
       @include ams-grid__cell--start-wide($i);
+    }
+  }
+}
+
+// Cell row span
+
+@for $i from 1 through $ams-grid-row-span-max {
+  .ams-grid__cell--row-span-#{$i} {
+    @include ams-grid__cell--row-span($i);
+  }
+}
+
+@media (min-width: $ams-breakpoint-medium) {
+  @for $i from 1 through $ams-grid-row-span-max {
+    .ams-grid__cell--row-span-#{$i}-medium {
+      @include ams-grid__cell--row-span-medium($i);
+    }
+  }
+}
+
+@media (min-width: $ams-breakpoint-wide) {
+  @for $i from 1 through $ams-grid-row-span-max {
+    .ams-grid__cell--row-span-#{$i}-wide {
+      @include ams-grid__cell--row-span-wide($i);
     }
   }
 }

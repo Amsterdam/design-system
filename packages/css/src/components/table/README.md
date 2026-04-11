@@ -2,8 +2,7 @@
 
 # Table
 
-Use the table component to let users compare information in rows and columns.
-Table is used to display simple information that does not need to be filtered or edited.
+Structures data in rows and columns to help users work with large amounts of information.
 
 ## Guidelines
 

@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ams-space-l)' }}>
+    <div className="_ams-tests-stack">
       <StatusBadge description="This component is still in development and its API may change." status="beta" />
       <StatusBadge description="Use the Alert component instead." status="deprecated" />
     </div>

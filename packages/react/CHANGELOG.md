@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0]
+
+### Deprecations
+
+The following deprecated API has been removed in this release:
+
+- The `PageHeading` component. Use a `Heading` instead.
+- The `color` prop of `Menu.Link`.
+- The `size` value `level-6` of `Heading`. Use `level-5` instead.
+- The `size` values `heading-0` and `heading-6` of `Icon`. Use `heading-1` and `heading-5` instead.
+- The `headingLevel` value `1` of `Accordion`. Use `2`, `3`, or `4` instead.
+- The `visuallyHiddenLabel`, `visuallyHiddenLabelId`, `nextVisuallyHiddenLabel`, and `previousVisuallyHiddenLabel` props of `Pagination`. Use `accessibleName`, `accessibleNameId`, `nextAccessibleName`, and `previousAccessibleName` instead.
+
+## [3.3.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v3.2.1...design-system-react-v3.3.0) (2026-04-03)
+
+
+### Features
+
+* **Breadcrumb:** Add accessible name that also shows as heading without CSS ([#2471](https://github.com/Amsterdam/design-system/issues/2471)) ([33a68ac](https://github.com/Amsterdam/design-system/commit/33a68ac32cdc9b02cd1d10745b20a00fbfd3de84))
+* **Logo:** Add GGD Amsterdam Inspection logo ([#2487](https://github.com/Amsterdam/design-system/issues/2487)) ([35bb0f7](https://github.com/Amsterdam/design-system/commit/35bb0f7a1375e089d85975fb544af84d18d334da))
+* **Progress List:** Make steps collapsible ([#2482](https://github.com/Amsterdam/design-system/issues/2482)) ([1fc3e39](https://github.com/Amsterdam/design-system/commit/1fc3e39644cce6a0299ba9bb08cc861c9b4155d7))
+
+
+### Bug Fixes
+
+* **Menu, Page Header:** Simplify accessible names, make landmarks unique in home page example for internal websites ([#2488](https://github.com/Amsterdam/design-system/issues/2488)) ([0efff31](https://github.com/Amsterdam/design-system/commit/0efff31a005873062e4d77418d191360c90cc3b3))
+* **Pagination:** Remove duplicate visible texts before CSS loads ([#2473](https://github.com/Amsterdam/design-system/issues/2473)) ([07d7dfc](https://github.com/Amsterdam/design-system/commit/07d7dfc3404c4af096bef58b3bb5a1d2065eb532))
+
 ## [3.2.1](https://github.com/Amsterdam/design-system/compare/design-system-react-v3.2.0...design-system-react-v3.2.1) (2026-03-19)
 
 
@@ -77,7 +105,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
-The following prop will be removed in release 4.0.0:
+The following prop has been removed in release 4.0.0:
 
 * **Menu.Link**: `color`
 
@@ -118,7 +146,7 @@ The following prop will be removed in release 4.0.0:
 
 ### Deprecations
 
-The following props and prop values will be removed in release 4.0.0:
+The following props and prop values have been removed in release 4.0.0:
 
 * **Accordion**: `headingLevel` 1
 * **Heading**: `size` 'level-6'

@@ -2,7 +2,7 @@
   "ams": {
     "field": {
       "gap": {
-        "$deprecated": "Will be removed in release 5.0.0.",
+        "$deprecated": "Whitespace is now applied through the `ams.field-set.child.*` tokens. Will be removed on or after 2026-07-09.",
         "$value": "{ams.space.s}",
         "$type": "dimension",
         "$extensions": {
