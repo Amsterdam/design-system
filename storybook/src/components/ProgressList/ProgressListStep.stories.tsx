@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { ProgressList } from '@amsterdam/design-system-react/src'
+import { useArgs } from 'storybook/preview-api'
 
 import { exampleParagraph } from '../../_common/exampleContent'
 
@@ -51,5 +52,19 @@ export const ControlledStep: Story = {
     collapsed: false,
     heading: 'Aanpassing ontwerp fietspad Entreegebied',
     status: 'current',
+  },
+  render: ({ children, ...args }) => {
+    const [, setArgs] = useArgs()
+
+    return (
+      <ProgressList.Step
+        {...args}
+        onToggle={(expanded) => {
+          setArgs({ collapsed: !expanded })
+        }}
+      >
+        {children}
+      </ProgressList.Step>
+    )
   },
 }
