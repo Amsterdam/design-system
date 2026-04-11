@@ -582,7 +582,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>2.4s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>2.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -18721,6 +18721,13 @@ They are visually subordinate to their parent step: their indicators are smaller
 Don’t forget to set the `hasSubsteps` prop on the parent step.
 
 &lt;Canvas of={ProgressListStories.WithSubsteps} /&gt;
+
+### Controlled step
+
+Use the `collapsed` prop together with `onToggle` to control the collapsed state of a step from a parent component.
+This is useful when the expanded step should depend on other state in the application.
+
+&lt;Canvas of={ProgressListStepStories.ControlledStep} /&gt;
 
 ## Design tokens
 
@@ -39013,6 +39020,13 @@ They are visually subordinate to their parent step: their indicators are smaller
 Don’t forget to set the `hasSubsteps` prop on the parent step.
 
 &lt;Canvas of={ProgressListStories.WithSubsteps} /&gt;
+
+### Controlled step
+
+Use the `collapsed` prop together with `onToggle` to control the collapsed state of a step from a parent component.
+This is useful when the expanded step should depend on other state in the application.
+
+&lt;Canvas of={ProgressListStepStories.ControlledStep} /&gt;
 
 ## Design tokens
 
