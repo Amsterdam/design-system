@@ -423,6 +423,96 @@ describe('ProgressListStep', () => {
     expect(ref.current).toBe(step)
   })
 
+  it('respects the collapsed prop when true', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step collapsed heading="Test Step">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('respects the collapsed prop when false, even with status completed', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step collapsed={false} heading="Test Step" status="completed">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('does not toggle internally when controlled', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step collapsed heading="Test Step">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+    const button = screen.getByRole('button', { name: /Test Step/ })
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
+
+    fireEvent.click(button)
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
+  })
+
+  it('calls onToggle in controlled mode', () => {
+    const onToggle = vi.fn()
+
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step collapsed heading="Test Step" onToggle={onToggle}>
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const button = screen.getByRole('button', { name: /Test Step/ })
+
+    fireEvent.click(button)
+
+    expect(onToggle).toHaveBeenCalledTimes(1)
+    expect(onToggle).toHaveBeenCalledWith(true)
+  })
+
+  it('responds to controlled prop changes', () => {
+    const { rerender } = render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step collapsed heading="Test Step">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    const step = screen.getByRole('listitem')
+
+    expect(step).toHaveClass('ams-progress-list__step--collapsed')
+
+    rerender(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step collapsed={false} heading="Test Step">
+          Content
+        </ProgressList.Step>
+      </ProgressList>,
+    )
+
+    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+  })
+
   it('passes additional props', () => {
     render(<ProgressList.Step aria-hidden="false" data-test="data-test" heading="test step" id="id" />)
 

@@ -17,6 +17,8 @@ import { AccessibleStatusText } from './AccessibleStatusText'
 import { ProgressListContext } from './ProgressListContext'
 
 export type ProgressListStepProps = {
+  /** Whether the step content is collapsed. When provided, the component is controlled. */
+  collapsed?: boolean
   /**
    * Whether the content is initially collapsed.
    * Defaults to `true` when `status` is `'completed'`, and `false` otherwise.
@@ -37,6 +39,7 @@ export const ProgressListStep = forwardRef(
     {
       children,
       className,
+      collapsed,
       defaultCollapsed,
       hasSubsteps,
       heading,
@@ -47,7 +50,9 @@ export const ProgressListStep = forwardRef(
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     const { headingLevel } = useContext(ProgressListContext)
-    const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed ?? status === 'completed')
+    const isControlled = collapsed !== undefined
+    const [internalCollapsed, setInternalCollapsed] = useState(defaultCollapsed ?? status === 'completed')
+    const isCollapsed = isControlled ? collapsed : internalCollapsed
 
     const iconSize = `heading-${headingLevel}` as IconProps['size']
     const panelId = useId()
@@ -81,7 +86,9 @@ export const ProgressListStep = forwardRef(
               className="ams-progress-list__button"
               onClick={() => {
                 const next = !isCollapsed
-                setIsCollapsed(next)
+                if (!isControlled) {
+                  setInternalCollapsed(next)
+                }
                 onToggle?.(!next)
               }}
               type="button"

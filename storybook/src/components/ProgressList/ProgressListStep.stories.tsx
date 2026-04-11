@@ -44,3 +44,12 @@ export const Step: Story = {
     status: 'current',
   },
 }
+
+export const Controlled: Story = {
+  args: {
+    children: <Paragraph>{exampleParagraph()}</Paragraph>,
+    collapsed: false,
+    heading: 'Aanpassing ontwerp fietspad Entreegebied',
+    status: 'current',
+  },
+}
