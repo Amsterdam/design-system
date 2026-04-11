@@ -40,15 +40,6 @@ type Story = StoryObj<typeof meta>
 export const Step: Story = {
   args: {
     children: <Paragraph>{exampleParagraph()}</Paragraph>,
-    defaultCollapsed: true,
-    heading: 'Aanpassing ontwerp fietspad Entreegebied',
-    status: 'current',
-  },
-}
-
-export const ControlledStep: Story = {
-  args: {
-    children: <Paragraph>{exampleParagraph()}</Paragraph>,
     collapsed: false,
     heading: 'Aanpassing ontwerp fietspad Entreegebied',
     status: 'current',

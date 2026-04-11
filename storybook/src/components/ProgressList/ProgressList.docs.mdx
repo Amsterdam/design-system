@@ -24,6 +24,9 @@ Current and upcoming steps start expanded by default.
 Completed ones are initially collapsed.
 Use the `defaultCollapsed` prop to override this, e.g. to show a Progress List with all steps collapsed.
 
+Use the `collapsed` prop together with `onToggle` to control the collapsed state of a step from a parent component.
+This is useful when the expanded step should depend on other state in the application.
+
 <Canvas of={ProgressListStepStories.Step} />
 
 <Controls of={ProgressListStepStories.Step} />
@@ -38,13 +41,6 @@ They are visually subordinate to their parent step: their indicators are smaller
 Don’t forget to set the `hasSubsteps` prop on the parent step.
 
 <Canvas of={ProgressListStories.WithSubsteps} />
-
-### Controlled step
-
-Use the `collapsed` prop together with `onToggle` to control the collapsed state of a step from a parent component.
-This is useful when the expanded step should depend on other state in the application.
-
-<Canvas of={ProgressListStepStories.ControlledStep} />
 
 ## Design tokens
 
