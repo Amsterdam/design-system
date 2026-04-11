@@ -7,7 +7,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useContext, useId, useState } from 'react'
+import { forwardRef, useContext, useEffect, useId, useState } from 'react'
 
 import type { IconProps } from '../Icon'
 
@@ -32,12 +32,14 @@ export const AccordionSection = forwardRef(
     { children, className, defaultExpanded, expanded, label, ...restProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    if (expanded !== undefined) {
-      console.warn('Accordion.Section: The `expanded` prop is deprecated. Use `defaultExpanded` instead.')
-    }
-
     const { headingLevel, sectionAs } = useContext(AccordionContext)
     const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? expanded ?? false)
+
+    useEffect(() => {
+      if (expanded !== undefined) {
+        console.warn('Accordion.Section: The `expanded` prop is deprecated. Use `defaultExpanded` instead.')
+      }
+    }, [])
 
     const SectionTag = sectionAs || 'section'
     const id = useId()
