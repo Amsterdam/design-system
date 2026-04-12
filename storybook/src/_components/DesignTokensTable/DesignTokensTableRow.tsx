@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { Icon } from '@amsterdam/design-system-react'
+import { Icon, Row } from '@amsterdam/design-system-react'
 import { WarningIcon } from '@amsterdam/design-system-react-icons'
 
 import { AspectRatioSample } from '../AspectRatioSample/AspectRatioSample'
@@ -43,14 +43,16 @@ export const DesignTokensTableRow = ({
 }: DesignTokensTableRowProps) => (
   <tr>
     <td>
-      <Code>var({name})</Code>
-      {deprecated && (
-        <Icon
-          className="_ams-design-tokens-table__deprecated-icon"
-          svg={WarningIcon}
-          title={`Deprecated. ${deprecated}`}
-        />
-      )}
+      <Row alignVertical="center" gap="x-small">
+        <Code>var({name})</Code>
+        {deprecated && (
+          <Icon
+            className="_ams-design-tokens-table__deprecated-icon"
+            svg={WarningIcon}
+            title={`Deprecated. ${deprecated}`}
+          />
+        )}
+      </Row>
     </td>
     <td>
       <Code>{value}</Code>
