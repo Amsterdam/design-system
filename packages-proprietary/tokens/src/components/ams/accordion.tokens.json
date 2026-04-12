@@ -53,22 +53,6 @@
             "$type": "color"
           }
         }
-      },
-      "panel": {
-        "padding-block": {
-          "$deprecated": "Will be removed in release 4.0.0.",
-          "$value": "0",
-          "$extensions": {
-            "nl.amsterdam.type": "dimension"
-          }
-        },
-        "padding-inline": {
-          "$deprecated": "Will be removed in release 4.0.0.",
-          "$value": "0",
-          "$extensions": {
-            "nl.amsterdam.type": "dimension"
-          }
-        }
       }
     }
   }
