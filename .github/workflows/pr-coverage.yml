@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   coverage:
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
 
     steps:
@@ -26,9 +27,6 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
-      - name: Build packages
-        run: pnpm run build
 
       - name: Run tests with coverage
         run: pnpm --filter @amsterdam/design-system-react test
