@@ -142,12 +142,17 @@
           },
           "hover": {
             "background-color": {
-              "$value": "{ams.color.interactive.hover}"
+              "$value": "{ams.color.interactive.hover}",
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             },
             "color": {
-              "$value": "{ams.color.text.inverse}"
-            },
-            "$type": "color"
+              "$value": "{ams.color.text.inverse}",
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
+            }
           }
         }
       },

@@ -72,36 +72,51 @@
       },
       "error": {
         "border-color": {
-          "$value": "{ams.color.feedback.error}"
+          "$value": "{ams.color.feedback.error}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "severity-indicator": {
           "background-color": {
-            "$value": "{ams.color.feedback.error}"
+            "$value": "{ams.color.feedback.error}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
-        },
-        "$type": "color"
+        }
       },
       "success": {
         "border-color": {
-          "$value": "{ams.color.feedback.success}"
+          "$value": "{ams.color.feedback.success}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "severity-indicator": {
           "background-color": {
-            "$value": "{ams.color.feedback.success}"
+            "$value": "{ams.color.feedback.success}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
-        },
-        "$type": "color"
+        }
       },
       "warning": {
         "border-color": {
-          "$value": "{ams.color.feedback.warning}"
+          "$value": "{ams.color.feedback.warning}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "severity-indicator": {
           "background-color": {
-            "$value": "{ams.color.feedback.warning}"
+            "$value": "{ams.color.feedback.warning}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
-        },
-        "$type": "color"
+        }
       }
     }
   }

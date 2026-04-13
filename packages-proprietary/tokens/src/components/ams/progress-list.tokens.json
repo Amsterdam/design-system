@@ -230,13 +230,18 @@
           "marker": {
             "shape": {
               "background-color": {
-                "$value": "{ams.color.progress.completed}"
+                "$value": "{ams.color.progress.completed}",
+                "$extensions": {
+                  "nl.amsterdam.type": "color"
+                }
               },
               "border-color": {
-                "$value": "{ams.color.progress.completed}"
+                "$value": "{ams.color.progress.completed}",
+                "$extensions": {
+                  "nl.amsterdam.type": "color"
+                }
               }
-            },
-            "$type": "color"
+            }
           },
           "connector": {
             "border-inline-color": {
@@ -257,19 +262,27 @@
           "marker": {
             "shape": {
               "background-color": {
-                "$value": "{ams.color.progress.current}"
+                "$value": "{ams.color.progress.current}",
+                "$extensions": {
+                  "nl.amsterdam.type": "color"
+                }
               },
               "border-color": {
-                "$value": "{ams.color.progress.current}"
+                "$value": "{ams.color.progress.current}",
+                "$extensions": {
+                  "nl.amsterdam.type": "color"
+                }
               }
             }
           },
           "connector": {
             "border-inline-color": {
-              "$value": "{ams.color.progress.current}"
+              "$value": "{ams.color.progress.current}",
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             }
-          },
-          "$type": "color"
+          }
         }
       },
       "substeps": {
@@ -417,13 +430,18 @@
             "marker": {
               "shape": {
                 "background-color": {
-                  "$value": "{ams.color.progress.completed}"
+                  "$value": "{ams.color.progress.completed}",
+                  "$extensions": {
+                    "nl.amsterdam.type": "color"
+                  }
                 },
                 "border-color": {
-                  "$value": "{ams.color.progress.completed}"
+                  "$value": "{ams.color.progress.completed}",
+                  "$extensions": {
+                    "nl.amsterdam.type": "color"
+                  }
                 }
-              },
-              "$type": "color"
+              }
             },
             "connector": {
               "border-inline-color": {
@@ -444,14 +462,19 @@
             "marker": {
               "shape": {
                 "background-color": {
-                  "$value": "{ams.color.progress.current}"
+                  "$value": "{ams.color.progress.current}",
+                  "$extensions": {
+                    "nl.amsterdam.type": "color"
+                  }
                 },
                 "border-color": {
-                  "$value": "{ams.color.progress.current}"
+                  "$value": "{ams.color.progress.current}",
+                  "$extensions": {
+                    "nl.amsterdam.type": "color"
+                  }
                 }
               }
-            },
-            "$type": "color"
+            }
           }
         },
         "last-child": {

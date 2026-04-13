@@ -74,25 +74,35 @@
       },
       "contrast": {
         "color": {
-          "$value": "{ams.links.contrast.color}"
+          "$value": "{ams.links.contrast.color}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "hover": {
           "color": {
-            "$value": "{ams.links.contrast.hover.color}"
+            "$value": "{ams.links.contrast.hover.color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
-        },
-        "$type": "color"
+        }
       },
       "inverse": {
         "color": {
-          "$value": "{ams.links.inverse.color}"
+          "$value": "{ams.links.inverse.color}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "hover": {
           "color": {
-            "$value": "{ams.links.inverse.hover.color}"
+            "$value": "{ams.links.inverse.hover.color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
-        },
-        "$type": "color"
+        }
       }
     }
   }

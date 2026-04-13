@@ -98,31 +98,51 @@
       },
       "primary": {
         "background-color": {
-          "$value": "{ams.color.interactive.default}"
+          "$value": "{ams.color.interactive.default}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "border-color": {
-          "$value": "{ams.color.interactive.default}"
+          "$value": "{ams.color.interactive.default}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "color": {
-          "$value": "{ams.color.text.inverse}"
+          "$value": "{ams.color.text.inverse}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "disabled": {
           "background-color": {
-            "$value": "{ams.color.interactive.disabled}"
+            "$value": "{ams.color.interactive.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "border-color": {
-            "$value": "{ams.color.interactive.disabled}"
+            "$value": "{ams.color.interactive.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         },
         "hover": {
           "background-color": {
-            "$value": "{ams.color.interactive.hover}"
+            "$value": "{ams.color.interactive.hover}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "border-color": {
-            "$value": "{ams.color.interactive.hover}"
+            "$value": "{ams.color.interactive.hover}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
-        },
-        "$type": "color"
+        }
       },
       "secondary": {
         "background-color": {
@@ -143,12 +163,17 @@
         },
         "disabled": {
           "border-color": {
-            "$value": "{ams.color.interactive.disabled}"
+            "$value": "{ams.color.interactive.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "color": {
-            "$value": "{ams.color.interactive.disabled}"
-          },
-          "$type": "color"
+            "$value": "{ams.color.interactive.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          }
         },
         "hover": {
           "box-shadow": {
@@ -181,28 +206,39 @@
       },
       "tertiary": {
         "background-color": {
-          "$value": "transparent"
+          "$value": "transparent",
+          "$type": "color"
         },
         "border-color": {
-          "$value": "transparent"
+          "$value": "transparent",
+          "$type": "color"
         },
         "color": {
-          "$value": "{ams.color.interactive.default}"
+          "$value": "{ams.color.interactive.default}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "disabled": {
           "color": {
-            "$value": "{ams.color.interactive.disabled}"
+            "$value": "{ams.color.interactive.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         },
         "hover": {
           "border-color": {
-            "$value": "currentColor"
+            "$value": "currentColor",
+            "$type": "color"
           },
           "color": {
-            "$value": "{ams.color.interactive.hover}"
+            "$value": "{ams.color.interactive.hover}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
-        },
-        "$type": "color"
+        }
       }
     }
   }

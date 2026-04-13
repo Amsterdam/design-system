@@ -68,93 +68,141 @@
       },
       "checked-indicator": {
         "fill": {
-          "$value": "{ams.color.interactive.default}"
+          "$value": "{ams.color.interactive.default}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "disabled": {
           "fill": {
-            "$value": "{ams.color.interactive.disabled}"
+            "$value": "{ams.color.interactive.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         },
         "disabled-invalid": {
           "fill": {
-            "$value": "{ams.color.interactive.disabled}"
+            "$value": "{ams.color.interactive.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "hover": {
             "fill": {
-              "$value": "{ams.color.interactive.disabled}"
+              "$value": "{ams.color.interactive.disabled}",
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             }
           }
         },
         "hover": {
           "fill": {
-            "$value": "{ams.color.interactive.hover}"
+            "$value": "{ams.color.interactive.hover}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         },
         "invalid": {
           "fill": {
-            "$value": "{ams.color.interactive.invalid.default}"
+            "$value": "{ams.color.interactive.invalid.default}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "hover": {
             "fill": {
-              "$value": "{ams.color.interactive.invalid.hover}"
+              "$value": "{ams.color.interactive.invalid.hover}",
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             }
           }
-        },
-        "$type": "color"
+        }
       },
       "hover-indicator": {
         "hover": {
           "stroke": {
-            "$value": "{ams.color.interactive.hover}"
+            "$value": "{ams.color.interactive.hover}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         },
         "invalid": {
           "hover": {
             "stroke": {
-              "$value": "{ams.color.interactive.invalid.hover}"
+              "$value": "{ams.color.interactive.invalid.hover}",
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             }
           }
-        },
-        "$type": "color"
+        }
       },
       "circle": {
         "fill": {
-          "$value": "{ams.color.background.default}"
+          "$value": "{ams.color.background.default}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "stroke": {
-          "$value": "{ams.color.interactive.default}"
+          "$value": "{ams.color.interactive.default}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "disabled": {
           "stroke": {
-            "$value": "{ams.color.interactive.disabled}"
+            "$value": "{ams.color.interactive.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         },
         "disabled-invalid": {
           "stroke": {
-            "$value": "{ams.color.interactive.disabled}"
+            "$value": "{ams.color.interactive.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "hover": {
             "stroke": {
-              "$value": "{ams.color.interactive.disabled}"
+              "$value": "{ams.color.interactive.disabled}",
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             }
           }
         },
         "hover": {
           "stroke": {
-            "$value": "{ams.color.interactive.hover}"
+            "$value": "{ams.color.interactive.hover}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         },
         "invalid": {
           "stroke": {
-            "$value": "{ams.color.interactive.invalid.default}"
+            "$value": "{ams.color.interactive.invalid.default}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "hover": {
             "stroke": {
-              "$value": "{ams.color.interactive.invalid.hover}"
+              "$value": "{ams.color.interactive.invalid.hover}",
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             }
           }
-        },
-        "$type": "color"
+        }
       },
       "disabled": {
         "color": {

@@ -54,66 +54,101 @@
       },
       "azure": {
         "background-color": {
-          "$value": "{ams.color.feedback.info}"
+          "$value": "{ams.color.feedback.info}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "color": {
-          "$value": "{ams.color.text.inverse}"
-        },
-        "$type": "color"
+          "$value": "{ams.color.text.inverse}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
       },
       "lime": {
         "background-color": {
-          "$value": "{ams.color.highlight.lime}"
+          "$value": "{ams.color.highlight.lime}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "color": {
-          "$value": "{ams.color.text.default}"
-        },
-        "$type": "color"
+          "$value": "{ams.color.text.default}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
       },
       "magenta": {
         "background-color": {
-          "$value": "{ams.color.highlight.magenta}"
+          "$value": "{ams.color.highlight.magenta}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "color": {
-          "$value": "{ams.color.text.inverse}"
-        },
-        "$type": "color"
+          "$value": "{ams.color.text.inverse}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
       },
       "orange": {
         "background-color": {
-          "$value": "{ams.color.feedback.warning}"
+          "$value": "{ams.color.feedback.warning}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "color": {
-          "$value": "{ams.color.text.default}"
-        },
-        "$type": "color"
+          "$value": "{ams.color.text.default}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
       },
       "purple": {
         "background-color": {
-          "$value": "{ams.color.highlight.purple}"
+          "$value": "{ams.color.highlight.purple}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "color": {
-          "$value": "{ams.color.text.inverse}"
-        },
-        "$type": "color"
+          "$value": "{ams.color.text.inverse}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
       },
       "red": {
         "background-color": {
-          "$value": "{ams.color.feedback.error}"
+          "$value": "{ams.color.feedback.error}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "color": {
-          "$value": "{ams.color.text.inverse}"
-        },
-        "$type": "color"
+          "$value": "{ams.color.text.inverse}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
       },
       "yellow": {
         "background-color": {
-          "$value": "{ams.color.highlight.yellow}"
+          "$value": "{ams.color.highlight.yellow}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "color": {
-          "$value": "{ams.color.text.default}"
-        },
-        "$type": "color"
+          "$value": "{ams.color.text.default}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
       }
     }
   }
