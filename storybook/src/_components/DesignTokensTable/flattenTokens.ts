@@ -50,11 +50,14 @@ export const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedTyp
         normalizedValue = formatShadowValue($value as ShadowValue)
       }
 
+      // Drop a trailing 'default' segment to match the CSS custom property names shipped by the build pipeline.
+      const cssPath = currentPath.at(-1) === 'default' ? currentPath.slice(0, -1) : currentPath
+
       return [
         {
           deprecated: $deprecated,
           description: $description,
-          path: `--${currentPath.join('-')}`,
+          path: `--${cssPath.join('-')}`,
           type,
           value: normalizedValue,
         },
