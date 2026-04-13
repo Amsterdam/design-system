@@ -10,9 +10,7 @@ import { DocumentIcon, EuroIcon, MegaphoneIcon, PersonIcon } from '@amsterdam/de
 import { TabNavigation } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 
-import { cityParts } from '../../_common/exampleContent'
-
-function useTabNavigation(labels: Array<string>, initialLabel?: string) {
+const useTabNavigation = (labels: Array<string>, initialLabel?: string) => {
   const [current, setCurrent] = useState(initialLabel ?? labels[0])
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>, label: string) => {
@@ -170,16 +168,19 @@ export const WithIcons: Story = {
   },
 }
 
+const twelve = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve']
+
 export const WithManyLinks: Story = {
   parameters: {
     docs: {
       source: {
         code: `<TabNavigation>
   <TabNavigation.List>
-    <TabNavigation.Link aria-current="page" href="/centrum">Centrum</TabNavigation.Link>
-    <TabNavigation.Link href="/westpoort">Westpoort</TabNavigation.Link>
-    <TabNavigation.Link href="/west">West</TabNavigation.Link>
+    <TabNavigation.Link aria-current="page" href="/one">Tab one</TabNavigation.Link>
+    <TabNavigation.Link href="/two">Tab two</TabNavigation.Link>
+    <TabNavigation.Link href="/three">Tab three</TabNavigation.Link>
     {/* … */}
+    <TabNavigation.Link href="/twelve">Tab twelvs</TabNavigation.Link>
   </TabNavigation.List>
 </TabNavigation>`,
         language: 'tsx',
@@ -187,19 +188,19 @@ export const WithManyLinks: Story = {
     },
   },
   render: (args) => {
-    const { current, handleClick } = useTabNavigation(cityParts)
+    const { current, handleClick } = useTabNavigation(twelve)
 
     return (
       <TabNavigation {...args}>
         <TabNavigation.List>
-          {cityParts.map((name) => (
+          {twelve.map((name) => (
             <TabNavigation.Link
               aria-current={current === name ? 'page' : undefined}
               href={`#${name.toLowerCase()}`}
               key={name}
               onClick={(e) => handleClick(e, name)}
             >
-              {name}
+              Tab {name}
             </TabNavigation.Link>
           ))}
         </TabNavigation.List>

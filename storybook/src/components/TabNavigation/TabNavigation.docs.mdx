@@ -16,12 +16,21 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Keyboard support
+
+The user can navigate the links with their keyboard:
+
+| key         | element                                        |
+| :---------- | :--------------------------------------------- |
+| Tab         | Go to the next element that can have focus     |
+| Shift + Tab | Go to the previous element that can have focus |
+| Enter       | Follow the link that has focus                 |
+
 ## Examples
 
 ### Vertical
 
-The links can be stacked vertically.
-The indicator moves from the bottom to the right side of the links.
+The links can be stacked vertically through the `orientation` prop.
 
 <Canvas of={TabNavigationStories.Vertical} />
 
