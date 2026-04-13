@@ -164,10 +164,10 @@ Note that redefining the value of a token is a much better approach than redecla
 
 ## Token types
 
-Every token has a `$type`, unless it is a reference to another token, in which case it inherits the type automatically.
-When adding new tokens, use types from the DTCG specification or add one of our custom extensions when no standard type applies.
+Tokens may define their type using a DTCG `$type`, or, when no standard DTCG type applies, using our Amsterdam-specific `$extensions.nl.amsterdam.type`.
+References inherit the type of the token they refer to.
 
-We use group-level inheritance where all tokens in a group share the same type.
+We also use group-level inheritance where all tokens in a group share the same DTCG type.
 A `$type` set on a group applies to all its descendants, so individual tokens do not need to repeat it.
 
 ### DTCG standard types
@@ -192,7 +192,7 @@ We add a custom type under `$extensions.nl.amsterdam.type` for:
 
 1. tokens that refer to another token
 2. properties that the DTCG specification does not cover
-3. values that not conform to a standard type
+3. values that do not conform to a standard type
 
 We use these types to help decide which preview to render in the Design Tokens Table on each component’s documentation page.
 
