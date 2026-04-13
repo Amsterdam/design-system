@@ -51,7 +51,7 @@ export const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedTyp
       }
 
       // Drop a trailing 'default' segment to match the CSS custom property names shipped by the build pipeline.
-      const cssPath = currentPath.at(-1) === 'default' ? currentPath.slice(0, -1) : currentPath
+      const cssPath = currentPath[currentPath.length - 1] === 'default' ? currentPath.slice(0, -1) : currentPath
 
       return [
         {

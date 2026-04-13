@@ -187,6 +187,28 @@ describe('flattenTokens', () => {
     expect(result[0].path).toBe('--primary')
   })
 
+  it("drops a trailing 'default' segment from the path", () => {
+    const tokens = {
+      ams: {
+        color: {
+          background: {
+            default: { $type: 'color', $value: '#ffffff' },
+          },
+        },
+      },
+    }
+
+    expect(flattenTokens(tokens)).toEqual([
+      {
+        deprecated: undefined,
+        description: undefined,
+        path: '--ams-color-background',
+        type: 'color',
+        value: '#ffffff',
+      },
+    ])
+  })
+
   it('returns an empty array for an empty group', () => {
     expect(flattenTokens({})).toEqual([])
   })
