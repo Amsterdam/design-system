@@ -1,1 +1,0 @@
-import{n as e,t}from"./react-RY8N8R-x.js";t();export{e as MDXProvider};
