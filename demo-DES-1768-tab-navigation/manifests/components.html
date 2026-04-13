@@ -576,7 +576,7 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">74/89 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">82/89 infos</a><span class="filter-pill ok" aria-disabled="true">286 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">103 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">74/89 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">82/89 infos</a><span class="filter-pill ok" aria-disabled="true">283 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">103 docs ok</a></div>
   </div>
 </header>
 <main>
@@ -23259,13 +23259,13 @@ This is why we use links and forms for table controls rather than buttons.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;TabNavigation&quot; component.
-  24 | }
-  25 |
-&gt; 26 | const meta = {
+  22 | }
+  23 |
+&gt; 24 | const meta = {
      | ^
-  27 |   title: &#39;Components/Navigation/Tab Navigation&#39;,
-  28 |   component: TabNavigation,
-  29 |   argTypes: {
+  25 |   title: &#39;Components/Navigation/Tab Navigation&#39;,
+  26 |   component: TabNavigation,
+  27 |   argTypes: {
 
 ./src/components/TabNavigation/TabNavigation.stories.tsx:
 /**
@@ -23280,9 +23280,7 @@ import { DocumentIcon, EuroIcon, MegaphoneIcon, PersonIcon } from &#39;@amsterda
 import { TabNavigation } from &#39;@amsterdam/design-system-react/src&#39;
 import { useState } from &#39;react&#39;
 
-import { cityParts } from &#39;../../_common/exampleContent&#39;
-
-function useTabNavigation(labels: Array&lt;string&gt;, initialLabel?: string) {
+const useTabNavigation = (labels: Array&lt;string&gt;, initialLabel?: string) =&gt; {
   const [current, setCurrent] = useState(initialLabel ?? labels[0])
 
   const handleClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
@@ -23440,16 +23438,19 @@ export const WithIcons: Story = {
   },
 }
 
+const twelve = [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;five&#39;, &#39;six&#39;, &#39;seven&#39;, &#39;eight&#39;, &#39;nine&#39;, &#39;ten&#39;, &#39;eleven&#39;, &#39;twelve&#39;]
+
 export const WithManyLinks: Story = {
   parameters: {
     docs: {
       source: {
         code: `&lt;TabNavigation&gt;
   &lt;TabNavigation.List&gt;
-    &lt;TabNavigation.Link aria-current=&quot;page&quot; href=&quot;/centrum&quot;&gt;Centrum&lt;/TabNavigation.Link&gt;
-    &lt;TabNavigation.Link href=&quot;/westpoort&quot;&gt;Westpoort&lt;/TabNavigation.Link&gt;
-    &lt;TabNavigation.Link href=&quot;/west&quot;&gt;West&lt;/TabNavigation.Link&gt;
+    &lt;TabNavigation.Link aria-current=&quot;page&quot; href=&quot;/one&quot;&gt;Tab one&lt;/TabNavigation.Link&gt;
+    &lt;TabNavigation.Link href=&quot;/two&quot;&gt;Tab two&lt;/TabNavigation.Link&gt;
+    &lt;TabNavigation.Link href=&quot;/three&quot;&gt;Tab three&lt;/TabNavigation.Link&gt;
     {/* … */}
+    &lt;TabNavigation.Link href=&quot;/twelve&quot;&gt;Tab twelvs&lt;/TabNavigation.Link&gt;
   &lt;/TabNavigation.List&gt;
 &lt;/TabNavigation&gt;`,
         language: &#39;tsx&#39;,
@@ -23457,19 +23458,19 @@ export const WithManyLinks: Story = {
     },
   },
   render: (args) =&gt; {
-    const { current, handleClick } = useTabNavigation(cityParts)
+    const { current, handleClick } = useTabNavigation(twelve)
 
     return (
       &lt;TabNavigation {...args}&gt;
         &lt;TabNavigation.List&gt;
-          {cityParts.map((name) =&gt; (
+          {twelve.map((name) =&gt; (
             &lt;TabNavigation.Link
               aria-current={current === name ? &#39;page&#39; : undefined}
               href={`#${name.toLowerCase()}`}
               key={name}
               onClick={(e) =&gt; handleClick(e, name)}
             &gt;
-              {name}
+              Tab {name}
             &lt;/TabNavigation.Link&gt;
           ))}
         &lt;/TabNavigation.List&gt;
@@ -23595,19 +23596,19 @@ export const WithManyLinks: Story = {
               
               
               <pre><code>const WithManyLinks = () =&gt; {
-    const { current, handleClick } = useTabNavigation(cityParts)
+    const { current, handleClick } = useTabNavigation(twelve)
 
     return (
         &lt;TabNavigation&gt;
             &lt;TabNavigation.List&gt;
-                {cityParts.map((name) =&gt; (
+                {twelve.map((name) =&gt; (
                   &lt;TabNavigation.Link
                     aria-current={current === name ? &#39;page&#39; : undefined}
                     href={`#${name.toLowerCase()}`}
                     key={name}
                     onClick={(e) =&gt; handleClick(e, name)}
                   &gt;
-                    {name}
+                    Tab {name}
                   &lt;/TabNavigation.Link&gt;
                 ))}
             &lt;/TabNavigation.List&gt;
@@ -23645,12 +23646,21 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
 
 &lt;Controls /&gt;
 
+## Keyboard support
+
+The user can navigate the links with their keyboard:
+
+| key         | element                                        |
+| :---------- | :--------------------------------------------- |
+| Tab         | Go to the next element that can have focus     |
+| Shift + Tab | Go to the previous element that can have focus |
+| Enter       | Follow the link that has focus                 |
+
 ## Examples
 
 ### Vertical
 
-The links can be stacked vertically.
-The indicator moves from the bottom to the right side of the links.
+The links can be stacked vertically through the `orientation` prop.
 
 &lt;Canvas of={TabNavigationStories.Vertical} /&gt;
 
@@ -23688,7 +23698,7 @@ The links scroll horizontally when their width exceeds the available space.
       <div class="badges">
         <label for="c-82-components-containers-tabs-err" class="badge err as-toggle">prop type error</label>
         <label for="c-82-components-containers-tabs-info" class="badge info as-toggle">1 info</label>
-        <label for="c-82-components-containers-tabs-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-82-components-containers-tabs-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-82-components-containers-tabs-docs" class="badge ok as-toggle">1 doc</label>
       </div>
     </div>
@@ -23712,13 +23722,13 @@ The links scroll horizontally when their width exceeds the available space.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;Tabs&quot; component.
-  63 | ]
-  64 |
-&gt; 65 | const meta = {
+  10 | import { Tabs } from &#39;@amsterdam/design-system-react/src&#39;
+  11 |
+&gt; 12 | const meta = {
      | ^
-  66 |   title: &#39;Components/Containers/Tabs&#39;,
-  67 |   component: Tabs,
-  68 |   args: {
+  13 |   title: &#39;Components/Containers/Tabs&#39;,
+  14 |   component: Tabs,
+  15 |   argTypes: {
 
 ./src/components/Tabs/Tabs.stories.tsx:
 /**
@@ -23726,71 +23736,15 @@ The links scroll horizontally when their width exceeds the available space.
  * Copyright Gemeente Amsterdam
  */
 
+import type { Decorator } from &#39;@storybook/react-vite&#39;
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
-import type { PropsWithChildren, ReactNode } from &#39;react&#39;
 
-import { Heading, Paragraph, Table } from &#39;@amsterdam/design-system-react&#39;
+import { Paragraph } from &#39;@amsterdam/design-system-react&#39;
 import { Tabs } from &#39;@amsterdam/design-system-react/src&#39;
-
-import { cityParts, exampleParagraph } from &#39;../../_common/exampleContent&#39;
-
-const slowPanelDelay = 1000
-
-const SlowPanel = ({ children }: PropsWithChildren) =&gt; {
-  console.log(`[ARTIFICIALLY SLOW] Adding a ${slowPanelDelay}ms delay…`)
-
-  let startTime = performance.now()
-  while (performance.now() - startTime &lt; slowPanelDelay) {
-    /* Emulate slow code. */
-  }
-
-  return children
-}
-
-type TabContent = {
-  body: ReactNode
-  label: string
-}
-
-const tabsContent: Array&lt;TabContent&gt; = [
-  { body: exampleParagraph(), label: &#39;Gegevens&#39; },
-  { body: exampleParagraph(), label: &#39;Aanslagen&#39; },
-  {
-    body: (
-      &lt;&gt;
-        (This tab panel simulates a load time of {slowPanelDelay} milliseconds.)
-        &lt;SlowPanel /&gt;
-      &lt;/&gt;
-    ),
-    label: &#39;Documenten&#39;,
-  },
-  { body: exampleParagraph(), label: &#39;Acties&#39; },
-]
-
-const defaultTabs = [
-  &lt;Tabs.List key=&quot;tabsList&quot;&gt;
-    {tabsContent.map(({ label }) =&gt; (
-      &lt;Tabs.Button aria-controls={label} key={label}&gt;
-        {label}
-      &lt;/Tabs.Button&gt;
-    ))}
-  &lt;/Tabs.List&gt;,
-  tabsContent.map(({ body, label }) =&gt; (
-    &lt;Tabs.Panel id={label} key={label}&gt;
-      &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-        {label}
-      &lt;/Heading&gt;
-      &lt;Paragraph&gt;{body}&lt;/Paragraph&gt;
-    &lt;/Tabs.Panel&gt;
-  )),
-]
 
 const meta = {
   title: &#39;Components/Containers/Tabs&#39;,
   component: Tabs,
-  args: {
-    children: defaultTabs,
-  },
   argTypes: {
     onTabChange: {
       action: &#39;clicked&#39;,
@@ -23803,91 +23757,43 @@ export default meta
 
 type Story = StoryObj&lt;typeof meta&gt;
 
-export const Default: Story = {}
+const maxWidthDecorator: Decorator = (Story) =&gt; (
+  &lt;div style={{ maxWidth: &#39;20rem&#39; }}&gt;
+    &lt;Story /&gt;
+  &lt;/div&gt;
+)
 
-export const WithInitialTab: Story = {
-  args: {
-    activeTab: &#39;Acties&#39;,
-  },
-}
-
-export const WithWideContent: Story = {
+export const Default: Story = {
   args: {
     children: [
-      &lt;Tabs.List key=&quot;tabsList&quot;&gt;
-        {cityParts.map((name) =&gt; (
-          &lt;Tabs.Button aria-controls={name} key={name}&gt;
-            {name}
-          &lt;/Tabs.Button&gt;
-        ))}
+      &lt;Tabs.List key=&quot;list&quot;&gt;
+        &lt;Tabs.Button aria-controls=&quot;west&quot;&gt;West&lt;/Tabs.Button&gt;
+        &lt;Tabs.Button aria-controls=&quot;centrum&quot;&gt;Centrum&lt;/Tabs.Button&gt;
+        &lt;Tabs.Button aria-controls=&quot;oost&quot;&gt;Oost&lt;/Tabs.Button&gt;
       &lt;/Tabs.List&gt;,
-      cityParts.map((name) =&gt; (
-        &lt;Tabs.Panel id={name} key={name}&gt;
-          &lt;Table&gt;
-            &lt;Table.Caption&gt;
-              &lt;Heading level={3}&gt;
-                Voorbeeld van een tabel voor {name === &#39;Weesp&#39; ? &#39;stadsgebied&#39; : &#39;stadsdeel&#39;} {name}
-              &lt;/Heading&gt;
-            &lt;/Table.Caption&gt;
-            &lt;Table.Header&gt;
-              &lt;Table.Row&gt;
-                &lt;Table.HeaderCell&gt;&lt;/Table.HeaderCell&gt;
-                {Array.from({ length: 12 }, (_, index) =&gt; (
-                  &lt;Table.HeaderCell key={`headercell-${index}`}&gt;Kolom&lt;/Table.HeaderCell&gt;
-                ))}
-              &lt;/Table.Row&gt;
-            &lt;/Table.Header&gt;
-            &lt;Table.Body&gt;
-              {Array.from({ length: 3 }, (_, rowIndex) =&gt; (
-                &lt;Table.Row key={rowIndex}&gt;
-                  &lt;Table.HeaderCell scope=&quot;row&quot;&gt;Rij&lt;/Table.HeaderCell&gt;
-                  {Array.from({ length: 12 }, (_, columnIndex) =&gt; (
-                    &lt;Table.Cell key={columnIndex} style={{ textAlign: &#39;end&#39; }}&gt;
-                      {(rowIndex + 1) * (columnIndex + 1)}.000
-                    &lt;/Table.Cell&gt;
-                  ))}
-                &lt;/Table.Row&gt;
-              ))}
-            &lt;/Table.Body&gt;
-          &lt;/Table&gt;
-        &lt;/Tabs.Panel&gt;
-      )),
+      &lt;Tabs.Panel id=&quot;west&quot; key=&quot;west&quot;&gt;
+        &lt;Paragraph&gt;
+          Bos en Lommerplein 250
+          &lt;br /&gt;
+          1055 EK Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
+      &lt;Tabs.Panel id=&quot;centrum&quot; key=&quot;centrum&quot;&gt;
+        &lt;Paragraph&gt;
+          Amstel 1
+          &lt;br /&gt;
+          1011 PN Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
+      &lt;Tabs.Panel id=&quot;oost&quot; key=&quot;oost&quot;&gt;
+        &lt;Paragraph&gt;
+          Oranje-Vrijstaatplein 2&lt;br /&gt;
+          1093 NG Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
     ],
   },
-}
-
-const tabsContentWithoutSlowPanel = tabsContent.filter(({ label }) =&gt; label !== &#39;Documenten&#39;)
-
-export const PreventTabsFromChanging: Story = {
-  args: {
-    children: [
-      &lt;Tabs.List key=&quot;tabsList&quot;&gt;
-        {tabsContentWithoutSlowPanel.map(({ label }) =&gt; (
-          &lt;Tabs.Button
-            aria-controls={label}
-            key={label}
-            onClick={(e) =&gt; {
-              // eslint-disable-next-line no-alert
-              const confirmLeave = window.confirm(&#39;You have unsaved changes. Do you want to leave?&#39;)
-              if (!confirmLeave) {
-                e.preventDefault()
-              }
-            }}
-          &gt;
-            {label}
-          &lt;/Tabs.Button&gt;
-        ))}
-      &lt;/Tabs.List&gt;,
-      tabsContentWithoutSlowPanel.map(({ body, label }) =&gt; (
-        &lt;Tabs.Panel id={label} key={label}&gt;
-          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-            {label}
-          &lt;/Heading&gt;
-          &lt;Paragraph&gt;{body}&lt;/Paragraph&gt;
-        &lt;/Tabs.Panel&gt;
-      )),
-    ],
-  },
+  decorators: [maxWidthDecorator],
 }
 </code></pre></div>
     </div>
@@ -23910,7 +23816,7 @@ export const PreventTabsFromChanging: Story = {
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Heading, Paragraph, Table } from "@amsterdam/design-system-react";
+                <pre><code>import { Paragraph } from "@amsterdam/design-system-react";
 import { Tabs } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
@@ -23922,98 +23828,32 @@ import { Tabs } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;Tabs&gt;{defaultTabs}&lt;/Tabs&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">With Initial Tab</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithInitialTab = () =&gt; &lt;Tabs activeTab=&quot;Acties&quot;&gt;{defaultTabs}&lt;/Tabs&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">With Wide Content</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithWideContent = () =&gt; &lt;Tabs&gt;{[
-      &lt;Tabs.List key=&quot;tabsList&quot;&gt;
-        {cityParts.map((name) =&gt; (
-          &lt;Tabs.Button aria-controls={name} key={name}&gt;
-            {name}
-          &lt;/Tabs.Button&gt;
-        ))}
+              <pre><code>const Default = () =&gt; &lt;Tabs&gt;{[
+      &lt;Tabs.List key=&quot;list&quot;&gt;
+        &lt;Tabs.Button aria-controls=&quot;west&quot;&gt;West&lt;/Tabs.Button&gt;
+        &lt;Tabs.Button aria-controls=&quot;centrum&quot;&gt;Centrum&lt;/Tabs.Button&gt;
+        &lt;Tabs.Button aria-controls=&quot;oost&quot;&gt;Oost&lt;/Tabs.Button&gt;
       &lt;/Tabs.List&gt;,
-      cityParts.map((name) =&gt; (
-        &lt;Tabs.Panel id={name} key={name}&gt;
-          &lt;Table&gt;
-            &lt;Table.Caption&gt;
-              &lt;Heading level={3}&gt;
-                Voorbeeld van een tabel voor {name === &#39;Weesp&#39; ? &#39;stadsgebied&#39; : &#39;stadsdeel&#39;} {name}
-              &lt;/Heading&gt;
-            &lt;/Table.Caption&gt;
-            &lt;Table.Header&gt;
-              &lt;Table.Row&gt;
-                &lt;Table.HeaderCell&gt;&lt;/Table.HeaderCell&gt;
-                {Array.from({ length: 12 }, (_, index) =&gt; (
-                  &lt;Table.HeaderCell key={`headercell-${index}`}&gt;Kolom&lt;/Table.HeaderCell&gt;
-                ))}
-              &lt;/Table.Row&gt;
-            &lt;/Table.Header&gt;
-            &lt;Table.Body&gt;
-              {Array.from({ length: 3 }, (_, rowIndex) =&gt; (
-                &lt;Table.Row key={rowIndex}&gt;
-                  &lt;Table.HeaderCell scope=&quot;row&quot;&gt;Rij&lt;/Table.HeaderCell&gt;
-                  {Array.from({ length: 12 }, (_, columnIndex) =&gt; (
-                    &lt;Table.Cell key={columnIndex} style={{ textAlign: &#39;end&#39; }}&gt;
-                      {(rowIndex + 1) * (columnIndex + 1)}.000
-                    &lt;/Table.Cell&gt;
-                  ))}
-                &lt;/Table.Row&gt;
-              ))}
-            &lt;/Table.Body&gt;
-          &lt;/Table&gt;
-        &lt;/Tabs.Panel&gt;
-      )),
-    ]}&lt;/Tabs&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Prevent Tabs From Changing</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const PreventTabsFromChanging = () =&gt; &lt;Tabs&gt;{[
-      &lt;Tabs.List key=&quot;tabsList&quot;&gt;
-        {tabsContentWithoutSlowPanel.map(({ label }) =&gt; (
-          &lt;Tabs.Button
-            aria-controls={label}
-            key={label}
-            onClick={(e) =&gt; {
-              // eslint-disable-next-line no-alert
-              const confirmLeave = window.confirm(&#39;You have unsaved changes. Do you want to leave?&#39;)
-              if (!confirmLeave) {
-                e.preventDefault()
-              }
-            }}
-          &gt;
-            {label}
-          &lt;/Tabs.Button&gt;
-        ))}
-      &lt;/Tabs.List&gt;,
-      tabsContentWithoutSlowPanel.map(({ body, label }) =&gt; (
-        &lt;Tabs.Panel id={label} key={label}&gt;
-          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-            {label}
-          &lt;/Heading&gt;
-          &lt;Paragraph&gt;{body}&lt;/Paragraph&gt;
-        &lt;/Tabs.Panel&gt;
-      )),
+      &lt;Tabs.Panel id=&quot;west&quot; key=&quot;west&quot;&gt;
+        &lt;Paragraph&gt;
+          Bos en Lommerplein 250
+          &lt;br /&gt;
+          1055 EK Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
+      &lt;Tabs.Panel id=&quot;centrum&quot; key=&quot;centrum&quot;&gt;
+        &lt;Paragraph&gt;
+          Amstel 1
+          &lt;br /&gt;
+          1011 PN Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
+      &lt;Tabs.Panel id=&quot;oost&quot; key=&quot;oost&quot;&gt;
+        &lt;Paragraph&gt;
+          Oranje-Vrijstaatplein 2&lt;br /&gt;
+          1093 NG Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
     ]}&lt;/Tabs&gt;;</code></pre>
             </div>
         </div>
@@ -24046,39 +23886,19 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
 
 &lt;Controls /&gt;
 
-## Examples
+## Keyboard support
 
-### With initial tab
+The user can navigate the links with their keyboard:
 
-The first tab is active by default.
-Another tab’s panel can be displayed initially as well.
-
-&lt;Canvas of={TabsStories.WithInitialTab} /&gt;
-
-### With wide content
-
-The Tab Buttons list and the content within the active Tab Panel will scroll horizontally when their width exceeds the available space.
-
-&lt;Canvas of={TabsStories.WithWideContent} /&gt;
-
-### Prevent tabs from changing
-
-The Tab Button `onChange` prop can be used with `event.preventDefault` to stop tabs from changing when clicked.
-This is helpful to keep users from switching tabs until specific conditions are met.
-
-You can use this click handler for example:
-
-```jsx
-const handleClick = (event) =&gt; {
-  // eslint-disable-next-line no-alert
-  const confirmLeave = window.confirm(&quot;You have unsaved changes. Do you want to leave?&quot;);
-  if (!confirmLeave) {
-    event.preventDefault();
-  }
-};
-```
-
-&lt;Canvas of={TabsStories.PreventTabsFromChanging} /&gt;
+| key            | element                                        |
+| :------------- | :--------------------------------------------- |
+| Enter or Space | Open or close the tab that has the focus       |
+| Tab            | Go to the next element that can have focus     |
+| Shift + Tab    | Go to the next element that can have focus     |
+| Left arrow     | If the tabs have focus, go to the previous tab |
+| Right arrow    | If the tabs have focus, go to the next tab     |
+| Home           | If the tabs have focus, go to the first tab    |
+| End            | If the tabs have focus, go to the last tab     |
 
 ## Design tokens
 
@@ -42523,13 +42343,13 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;TabNavigation&quot; component.
-  24 | }
-  25 |
-&gt; 26 | const meta = {
+  22 | }
+  23 |
+&gt; 24 | const meta = {
      | ^
-  27 |   title: &#39;Components/Navigation/Tab Navigation&#39;,
-  28 |   component: TabNavigation,
-  29 |   argTypes: {
+  25 |   title: &#39;Components/Navigation/Tab Navigation&#39;,
+  26 |   component: TabNavigation,
+  27 |   argTypes: {
 
 ./src/components/TabNavigation/TabNavigation.stories.tsx:
 /**
@@ -42544,9 +42364,7 @@ import { DocumentIcon, EuroIcon, MegaphoneIcon, PersonIcon } from &#39;@amsterda
 import { TabNavigation } from &#39;@amsterdam/design-system-react/src&#39;
 import { useState } from &#39;react&#39;
 
-import { cityParts } from &#39;../../_common/exampleContent&#39;
-
-function useTabNavigation(labels: Array&lt;string&gt;, initialLabel?: string) {
+const useTabNavigation = (labels: Array&lt;string&gt;, initialLabel?: string) =&gt; {
   const [current, setCurrent] = useState(initialLabel ?? labels[0])
 
   const handleClick = (event: MouseEvent&lt;HTMLAnchorElement&gt;, label: string) =&gt; {
@@ -42704,16 +42522,19 @@ export const WithIcons: Story = {
   },
 }
 
+const twelve = [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;five&#39;, &#39;six&#39;, &#39;seven&#39;, &#39;eight&#39;, &#39;nine&#39;, &#39;ten&#39;, &#39;eleven&#39;, &#39;twelve&#39;]
+
 export const WithManyLinks: Story = {
   parameters: {
     docs: {
       source: {
         code: `&lt;TabNavigation&gt;
   &lt;TabNavigation.List&gt;
-    &lt;TabNavigation.Link aria-current=&quot;page&quot; href=&quot;/centrum&quot;&gt;Centrum&lt;/TabNavigation.Link&gt;
-    &lt;TabNavigation.Link href=&quot;/westpoort&quot;&gt;Westpoort&lt;/TabNavigation.Link&gt;
-    &lt;TabNavigation.Link href=&quot;/west&quot;&gt;West&lt;/TabNavigation.Link&gt;
+    &lt;TabNavigation.Link aria-current=&quot;page&quot; href=&quot;/one&quot;&gt;Tab one&lt;/TabNavigation.Link&gt;
+    &lt;TabNavigation.Link href=&quot;/two&quot;&gt;Tab two&lt;/TabNavigation.Link&gt;
+    &lt;TabNavigation.Link href=&quot;/three&quot;&gt;Tab three&lt;/TabNavigation.Link&gt;
     {/* … */}
+    &lt;TabNavigation.Link href=&quot;/twelve&quot;&gt;Tab twelvs&lt;/TabNavigation.Link&gt;
   &lt;/TabNavigation.List&gt;
 &lt;/TabNavigation&gt;`,
         language: &#39;tsx&#39;,
@@ -42721,19 +42542,19 @@ export const WithManyLinks: Story = {
     },
   },
   render: (args) =&gt; {
-    const { current, handleClick } = useTabNavigation(cityParts)
+    const { current, handleClick } = useTabNavigation(twelve)
 
     return (
       &lt;TabNavigation {...args}&gt;
         &lt;TabNavigation.List&gt;
-          {cityParts.map((name) =&gt; (
+          {twelve.map((name) =&gt; (
             &lt;TabNavigation.Link
               aria-current={current === name ? &#39;page&#39; : undefined}
               href={`#${name.toLowerCase()}`}
               key={name}
               onClick={(e) =&gt; handleClick(e, name)}
             &gt;
-              {name}
+              Tab {name}
             &lt;/TabNavigation.Link&gt;
           ))}
         &lt;/TabNavigation.List&gt;
@@ -42859,19 +42680,19 @@ export const WithManyLinks: Story = {
               
               
               <pre><code>const WithManyLinks = () =&gt; {
-    const { current, handleClick } = useTabNavigation(cityParts)
+    const { current, handleClick } = useTabNavigation(twelve)
 
     return (
         &lt;TabNavigation&gt;
             &lt;TabNavigation.List&gt;
-                {cityParts.map((name) =&gt; (
+                {twelve.map((name) =&gt; (
                   &lt;TabNavigation.Link
                     aria-current={current === name ? &#39;page&#39; : undefined}
                     href={`#${name.toLowerCase()}`}
                     key={name}
                     onClick={(e) =&gt; handleClick(e, name)}
                   &gt;
-                    {name}
+                    Tab {name}
                   &lt;/TabNavigation.Link&gt;
                 ))}
             &lt;/TabNavigation.List&gt;
@@ -42909,12 +42730,21 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
 
 &lt;Controls /&gt;
 
+## Keyboard support
+
+The user can navigate the links with their keyboard:
+
+| key         | element                                        |
+| :---------- | :--------------------------------------------- |
+| Tab         | Go to the next element that can have focus     |
+| Shift + Tab | Go to the previous element that can have focus |
+| Enter       | Follow the link that has focus                 |
+
 ## Examples
 
 ### Vertical
 
-The links can be stacked vertically.
-The indicator moves from the bottom to the right side of the links.
+The links can be stacked vertically through the `orientation` prop.
 
 &lt;Canvas of={TabNavigationStories.Vertical} /&gt;
 
@@ -42952,7 +42782,7 @@ The links scroll horizontally when their width exceeds the available space.
       <div class="badges">
         <label for="c-error-56-components-containers-tabs-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-56-components-containers-tabs-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-56-components-containers-tabs-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-error-56-components-containers-tabs-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-error-56-components-containers-tabs-docs" class="badge ok as-toggle">1 doc</label>
       </div>
     </div>
@@ -42976,13 +42806,13 @@ The links scroll horizontally when their width exceeds the available space.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>No component file found for the &quot;Tabs&quot; component.
-  63 | ]
-  64 |
-&gt; 65 | const meta = {
+  10 | import { Tabs } from &#39;@amsterdam/design-system-react/src&#39;
+  11 |
+&gt; 12 | const meta = {
      | ^
-  66 |   title: &#39;Components/Containers/Tabs&#39;,
-  67 |   component: Tabs,
-  68 |   args: {
+  13 |   title: &#39;Components/Containers/Tabs&#39;,
+  14 |   component: Tabs,
+  15 |   argTypes: {
 
 ./src/components/Tabs/Tabs.stories.tsx:
 /**
@@ -42990,71 +42820,15 @@ The links scroll horizontally when their width exceeds the available space.
  * Copyright Gemeente Amsterdam
  */
 
+import type { Decorator } from &#39;@storybook/react-vite&#39;
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
-import type { PropsWithChildren, ReactNode } from &#39;react&#39;
 
-import { Heading, Paragraph, Table } from &#39;@amsterdam/design-system-react&#39;
+import { Paragraph } from &#39;@amsterdam/design-system-react&#39;
 import { Tabs } from &#39;@amsterdam/design-system-react/src&#39;
-
-import { cityParts, exampleParagraph } from &#39;../../_common/exampleContent&#39;
-
-const slowPanelDelay = 1000
-
-const SlowPanel = ({ children }: PropsWithChildren) =&gt; {
-  console.log(`[ARTIFICIALLY SLOW] Adding a ${slowPanelDelay}ms delay…`)
-
-  let startTime = performance.now()
-  while (performance.now() - startTime &lt; slowPanelDelay) {
-    /* Emulate slow code. */
-  }
-
-  return children
-}
-
-type TabContent = {
-  body: ReactNode
-  label: string
-}
-
-const tabsContent: Array&lt;TabContent&gt; = [
-  { body: exampleParagraph(), label: &#39;Gegevens&#39; },
-  { body: exampleParagraph(), label: &#39;Aanslagen&#39; },
-  {
-    body: (
-      &lt;&gt;
-        (This tab panel simulates a load time of {slowPanelDelay} milliseconds.)
-        &lt;SlowPanel /&gt;
-      &lt;/&gt;
-    ),
-    label: &#39;Documenten&#39;,
-  },
-  { body: exampleParagraph(), label: &#39;Acties&#39; },
-]
-
-const defaultTabs = [
-  &lt;Tabs.List key=&quot;tabsList&quot;&gt;
-    {tabsContent.map(({ label }) =&gt; (
-      &lt;Tabs.Button aria-controls={label} key={label}&gt;
-        {label}
-      &lt;/Tabs.Button&gt;
-    ))}
-  &lt;/Tabs.List&gt;,
-  tabsContent.map(({ body, label }) =&gt; (
-    &lt;Tabs.Panel id={label} key={label}&gt;
-      &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-        {label}
-      &lt;/Heading&gt;
-      &lt;Paragraph&gt;{body}&lt;/Paragraph&gt;
-    &lt;/Tabs.Panel&gt;
-  )),
-]
 
 const meta = {
   title: &#39;Components/Containers/Tabs&#39;,
   component: Tabs,
-  args: {
-    children: defaultTabs,
-  },
   argTypes: {
     onTabChange: {
       action: &#39;clicked&#39;,
@@ -43067,91 +42841,43 @@ export default meta
 
 type Story = StoryObj&lt;typeof meta&gt;
 
-export const Default: Story = {}
+const maxWidthDecorator: Decorator = (Story) =&gt; (
+  &lt;div style={{ maxWidth: &#39;20rem&#39; }}&gt;
+    &lt;Story /&gt;
+  &lt;/div&gt;
+)
 
-export const WithInitialTab: Story = {
-  args: {
-    activeTab: &#39;Acties&#39;,
-  },
-}
-
-export const WithWideContent: Story = {
+export const Default: Story = {
   args: {
     children: [
-      &lt;Tabs.List key=&quot;tabsList&quot;&gt;
-        {cityParts.map((name) =&gt; (
-          &lt;Tabs.Button aria-controls={name} key={name}&gt;
-            {name}
-          &lt;/Tabs.Button&gt;
-        ))}
+      &lt;Tabs.List key=&quot;list&quot;&gt;
+        &lt;Tabs.Button aria-controls=&quot;west&quot;&gt;West&lt;/Tabs.Button&gt;
+        &lt;Tabs.Button aria-controls=&quot;centrum&quot;&gt;Centrum&lt;/Tabs.Button&gt;
+        &lt;Tabs.Button aria-controls=&quot;oost&quot;&gt;Oost&lt;/Tabs.Button&gt;
       &lt;/Tabs.List&gt;,
-      cityParts.map((name) =&gt; (
-        &lt;Tabs.Panel id={name} key={name}&gt;
-          &lt;Table&gt;
-            &lt;Table.Caption&gt;
-              &lt;Heading level={3}&gt;
-                Voorbeeld van een tabel voor {name === &#39;Weesp&#39; ? &#39;stadsgebied&#39; : &#39;stadsdeel&#39;} {name}
-              &lt;/Heading&gt;
-            &lt;/Table.Caption&gt;
-            &lt;Table.Header&gt;
-              &lt;Table.Row&gt;
-                &lt;Table.HeaderCell&gt;&lt;/Table.HeaderCell&gt;
-                {Array.from({ length: 12 }, (_, index) =&gt; (
-                  &lt;Table.HeaderCell key={`headercell-${index}`}&gt;Kolom&lt;/Table.HeaderCell&gt;
-                ))}
-              &lt;/Table.Row&gt;
-            &lt;/Table.Header&gt;
-            &lt;Table.Body&gt;
-              {Array.from({ length: 3 }, (_, rowIndex) =&gt; (
-                &lt;Table.Row key={rowIndex}&gt;
-                  &lt;Table.HeaderCell scope=&quot;row&quot;&gt;Rij&lt;/Table.HeaderCell&gt;
-                  {Array.from({ length: 12 }, (_, columnIndex) =&gt; (
-                    &lt;Table.Cell key={columnIndex} style={{ textAlign: &#39;end&#39; }}&gt;
-                      {(rowIndex + 1) * (columnIndex + 1)}.000
-                    &lt;/Table.Cell&gt;
-                  ))}
-                &lt;/Table.Row&gt;
-              ))}
-            &lt;/Table.Body&gt;
-          &lt;/Table&gt;
-        &lt;/Tabs.Panel&gt;
-      )),
+      &lt;Tabs.Panel id=&quot;west&quot; key=&quot;west&quot;&gt;
+        &lt;Paragraph&gt;
+          Bos en Lommerplein 250
+          &lt;br /&gt;
+          1055 EK Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
+      &lt;Tabs.Panel id=&quot;centrum&quot; key=&quot;centrum&quot;&gt;
+        &lt;Paragraph&gt;
+          Amstel 1
+          &lt;br /&gt;
+          1011 PN Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
+      &lt;Tabs.Panel id=&quot;oost&quot; key=&quot;oost&quot;&gt;
+        &lt;Paragraph&gt;
+          Oranje-Vrijstaatplein 2&lt;br /&gt;
+          1093 NG Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
     ],
   },
-}
-
-const tabsContentWithoutSlowPanel = tabsContent.filter(({ label }) =&gt; label !== &#39;Documenten&#39;)
-
-export const PreventTabsFromChanging: Story = {
-  args: {
-    children: [
-      &lt;Tabs.List key=&quot;tabsList&quot;&gt;
-        {tabsContentWithoutSlowPanel.map(({ label }) =&gt; (
-          &lt;Tabs.Button
-            aria-controls={label}
-            key={label}
-            onClick={(e) =&gt; {
-              // eslint-disable-next-line no-alert
-              const confirmLeave = window.confirm(&#39;You have unsaved changes. Do you want to leave?&#39;)
-              if (!confirmLeave) {
-                e.preventDefault()
-              }
-            }}
-          &gt;
-            {label}
-          &lt;/Tabs.Button&gt;
-        ))}
-      &lt;/Tabs.List&gt;,
-      tabsContentWithoutSlowPanel.map(({ body, label }) =&gt; (
-        &lt;Tabs.Panel id={label} key={label}&gt;
-          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-            {label}
-          &lt;/Heading&gt;
-          &lt;Paragraph&gt;{body}&lt;/Paragraph&gt;
-        &lt;/Tabs.Panel&gt;
-      )),
-    ],
-  },
+  decorators: [maxWidthDecorator],
 }
 </code></pre></div>
     </div>
@@ -43174,7 +42900,7 @@ export const PreventTabsFromChanging: Story = {
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Heading, Paragraph, Table } from "@amsterdam/design-system-react";
+                <pre><code>import { Paragraph } from "@amsterdam/design-system-react";
 import { Tabs } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
@@ -43186,98 +42912,32 @@ import { Tabs } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;Tabs&gt;{defaultTabs}&lt;/Tabs&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">With Initial Tab</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithInitialTab = () =&gt; &lt;Tabs activeTab=&quot;Acties&quot;&gt;{defaultTabs}&lt;/Tabs&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">With Wide Content</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithWideContent = () =&gt; &lt;Tabs&gt;{[
-      &lt;Tabs.List key=&quot;tabsList&quot;&gt;
-        {cityParts.map((name) =&gt; (
-          &lt;Tabs.Button aria-controls={name} key={name}&gt;
-            {name}
-          &lt;/Tabs.Button&gt;
-        ))}
+              <pre><code>const Default = () =&gt; &lt;Tabs&gt;{[
+      &lt;Tabs.List key=&quot;list&quot;&gt;
+        &lt;Tabs.Button aria-controls=&quot;west&quot;&gt;West&lt;/Tabs.Button&gt;
+        &lt;Tabs.Button aria-controls=&quot;centrum&quot;&gt;Centrum&lt;/Tabs.Button&gt;
+        &lt;Tabs.Button aria-controls=&quot;oost&quot;&gt;Oost&lt;/Tabs.Button&gt;
       &lt;/Tabs.List&gt;,
-      cityParts.map((name) =&gt; (
-        &lt;Tabs.Panel id={name} key={name}&gt;
-          &lt;Table&gt;
-            &lt;Table.Caption&gt;
-              &lt;Heading level={3}&gt;
-                Voorbeeld van een tabel voor {name === &#39;Weesp&#39; ? &#39;stadsgebied&#39; : &#39;stadsdeel&#39;} {name}
-              &lt;/Heading&gt;
-            &lt;/Table.Caption&gt;
-            &lt;Table.Header&gt;
-              &lt;Table.Row&gt;
-                &lt;Table.HeaderCell&gt;&lt;/Table.HeaderCell&gt;
-                {Array.from({ length: 12 }, (_, index) =&gt; (
-                  &lt;Table.HeaderCell key={`headercell-${index}`}&gt;Kolom&lt;/Table.HeaderCell&gt;
-                ))}
-              &lt;/Table.Row&gt;
-            &lt;/Table.Header&gt;
-            &lt;Table.Body&gt;
-              {Array.from({ length: 3 }, (_, rowIndex) =&gt; (
-                &lt;Table.Row key={rowIndex}&gt;
-                  &lt;Table.HeaderCell scope=&quot;row&quot;&gt;Rij&lt;/Table.HeaderCell&gt;
-                  {Array.from({ length: 12 }, (_, columnIndex) =&gt; (
-                    &lt;Table.Cell key={columnIndex} style={{ textAlign: &#39;end&#39; }}&gt;
-                      {(rowIndex + 1) * (columnIndex + 1)}.000
-                    &lt;/Table.Cell&gt;
-                  ))}
-                &lt;/Table.Row&gt;
-              ))}
-            &lt;/Table.Body&gt;
-          &lt;/Table&gt;
-        &lt;/Tabs.Panel&gt;
-      )),
-    ]}&lt;/Tabs&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Prevent Tabs From Changing</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const PreventTabsFromChanging = () =&gt; &lt;Tabs&gt;{[
-      &lt;Tabs.List key=&quot;tabsList&quot;&gt;
-        {tabsContentWithoutSlowPanel.map(({ label }) =&gt; (
-          &lt;Tabs.Button
-            aria-controls={label}
-            key={label}
-            onClick={(e) =&gt; {
-              // eslint-disable-next-line no-alert
-              const confirmLeave = window.confirm(&#39;You have unsaved changes. Do you want to leave?&#39;)
-              if (!confirmLeave) {
-                e.preventDefault()
-              }
-            }}
-          &gt;
-            {label}
-          &lt;/Tabs.Button&gt;
-        ))}
-      &lt;/Tabs.List&gt;,
-      tabsContentWithoutSlowPanel.map(({ body, label }) =&gt; (
-        &lt;Tabs.Panel id={label} key={label}&gt;
-          &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-            {label}
-          &lt;/Heading&gt;
-          &lt;Paragraph&gt;{body}&lt;/Paragraph&gt;
-        &lt;/Tabs.Panel&gt;
-      )),
+      &lt;Tabs.Panel id=&quot;west&quot; key=&quot;west&quot;&gt;
+        &lt;Paragraph&gt;
+          Bos en Lommerplein 250
+          &lt;br /&gt;
+          1055 EK Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
+      &lt;Tabs.Panel id=&quot;centrum&quot; key=&quot;centrum&quot;&gt;
+        &lt;Paragraph&gt;
+          Amstel 1
+          &lt;br /&gt;
+          1011 PN Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
+      &lt;Tabs.Panel id=&quot;oost&quot; key=&quot;oost&quot;&gt;
+        &lt;Paragraph&gt;
+          Oranje-Vrijstaatplein 2&lt;br /&gt;
+          1093 NG Amsterdam
+        &lt;/Paragraph&gt;
+      &lt;/Tabs.Panel&gt;,
     ]}&lt;/Tabs&gt;;</code></pre>
             </div>
         </div>
@@ -43310,39 +42970,19 @@ import { DesignTokensTable } from &quot;../../_components/DesignTokensTable/Desi
 
 &lt;Controls /&gt;
 
-## Examples
+## Keyboard support
 
-### With initial tab
+The user can navigate the links with their keyboard:
 
-The first tab is active by default.
-Another tab’s panel can be displayed initially as well.
-
-&lt;Canvas of={TabsStories.WithInitialTab} /&gt;
-
-### With wide content
-
-The Tab Buttons list and the content within the active Tab Panel will scroll horizontally when their width exceeds the available space.
-
-&lt;Canvas of={TabsStories.WithWideContent} /&gt;
-
-### Prevent tabs from changing
-
-The Tab Button `onChange` prop can be used with `event.preventDefault` to stop tabs from changing when clicked.
-This is helpful to keep users from switching tabs until specific conditions are met.
-
-You can use this click handler for example:
-
-```jsx
-const handleClick = (event) =&gt; {
-  // eslint-disable-next-line no-alert
-  const confirmLeave = window.confirm(&quot;You have unsaved changes. Do you want to leave?&quot;);
-  if (!confirmLeave) {
-    event.preventDefault();
-  }
-};
-```
-
-&lt;Canvas of={TabsStories.PreventTabsFromChanging} /&gt;
+| key            | element                                        |
+| :------------- | :--------------------------------------------- |
+| Enter or Space | Open or close the tab that has the focus       |
+| Tab            | Go to the next element that can have focus     |
+| Shift + Tab    | Go to the next element that can have focus     |
+| Left arrow     | If the tabs have focus, go to the previous tab |
+| Right arrow    | If the tabs have focus, go to the next tab     |
+| Home           | If the tabs have focus, go to the first tab    |
+| End            | If the tabs have focus, go to the last tab     |
 
 ## Design tokens
 
