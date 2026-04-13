@@ -2,95 +2,101 @@
   "ams": {
     "grid": {
       "column-count": {
-        "$value": "4"
+        "$value": 4,
+        "$type": "number"
       },
       "column-gap": {
         "$value": "{ams.space.xl}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "padding-block": {
         "l": {
           "$value": "{ams.space.l}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "xl": {
           "$value": "{ams.space.xl}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "2xl": {
           "$value": "{ams.space.2xl}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "padding-inline": {
         "$value": "{ams.space.l}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "row-gap": {
         "l": {
           "$value": "{ams.space.l}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "xl": {
           "$value": "{ams.space.xl}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "2xl": {
           "$value": "{ams.space.2xl}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "medium": {
         "column-count": {
-          "$value": "8"
+          "$value": 8,
+          "$type": "number"
         },
         "padding-inline": {
           "$value": "{ams.space.xl}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "wide": {
         "column-count": {
-          "$value": "12"
+          "$value": 12,
+          "$type": "number"
         },
         "padding-inline": {
           "$value": "{ams.space.2xl}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "cell": {
         "background-color": {
-          "$value": "initial"
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "container-name": {
           "$value": "ams-grid-cell"
@@ -99,10 +105,16 @@
           "$value": "inline-size"
         },
         "padding-block": {
-          "$value": "initial"
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
         },
         "padding-inline": {
-          "$value": "initial"
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
         }
       }
     }
