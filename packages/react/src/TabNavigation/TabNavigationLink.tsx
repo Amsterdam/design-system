@@ -15,7 +15,10 @@ import { Icon } from '../Icon'
 export type TabNavigationLinkProps = {
   /** An icon to display before the link text. */
   icon?: IconProps['svg']
-  /** The React component to use for the link. */
+  /**
+   * The React component to use for the link.
+   * Refs are not forwarded to custom link components.
+   */
   linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
@@ -28,7 +31,7 @@ export const TabNavigationLink = forwardRef(
 
     return (
       <li className="ams-tab-navigation__item">
-        <Link {...restProps} className={clsx('ams-tab-navigation__link', className)} ref={ref}>
+        <Link {...restProps} className={clsx('ams-tab-navigation__link', className)} {...(!linkComponent && { ref })}>
           {icon && <Icon svg={icon} />}
           <span className="ams-tab-navigation__link-label-wrapper">
             <span aria-hidden="true" className="ams-tab-navigation__link-label-hidden" hidden>
