@@ -1,0 +1,16 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-tests-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ams-space-l);
+}
+
+._ams-tests-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-space-l);
+}

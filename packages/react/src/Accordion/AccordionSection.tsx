@@ -22,8 +22,6 @@ export type AccordionSectionProps = {
   label: string
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-// The 'ams-accordion__header' class is @deprecated and will be removed in a future release.
-
 export const AccordionSection = forwardRef(
   (
     { children, className, expanded = false, label, ...restProps }: AccordionSectionProps,
@@ -40,7 +38,7 @@ export const AccordionSection = forwardRef(
 
     return (
       <div className={clsx('ams-accordion__section', className)} ref={ref} {...restProps}>
-        <Heading className="ams-accordion__header" level={headingLevel}>
+        <Heading level={headingLevel}>
           <button
             aria-controls={panelId}
             aria-expanded={isExpanded}

@@ -42,22 +42,6 @@ describe('MenuLink', () => {
     expect(component).toHaveClass('ams-menu__link extra')
   })
 
-  it('renders the class name for contrast color', () => {
-    render(<Menu.Link color="contrast" href="#" icon={DocumentIcon} />)
-
-    const component = screen.getByRole('link')
-
-    expect(component).toHaveClass('ams-menu__link--contrast')
-  })
-
-  it('renders the class name for inverse color', () => {
-    render(<Menu.Link color="inverse" href="#" icon={DocumentIcon} />)
-
-    const component = screen.getByRole('link')
-
-    expect(component).toHaveClass('ams-menu__link--inverse')
-  })
-
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLAnchorElement>()
 

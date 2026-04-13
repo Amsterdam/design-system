@@ -32,35 +32,14 @@ export type PaginationProps = {
   nextAccessibleName?: string
   /** The visible label for the link to the next page. */
   nextLabel?: string
-  /**
-   * @deprecated Use `nextAccessibleName` instead.
-   * The accessible name for the link to the next page.
-   */
-  nextVisuallyHiddenLabel?: string
   /** The current page number. */
   page?: number
   /** The accessible name for the link to the previous page. */
   previousAccessibleName?: string
   /** The visible label for the link to the previous page. */
   previousLabel?: string
-  /**
-   * @deprecated Use `previousAccessibleName` instead.
-   * The accessible name for the link to the previous page.
-   */
-  previousVisuallyHiddenLabel?: string
   /** The total amount of pages. */
   totalPages: number
-  /**
-   * @deprecated Use `accessibleName` instead.
-   * The accessible name for the Pagination component.
-   */
-  visuallyHiddenLabel?: string
-  /**
-   * @deprecated Use `accessibleNameId` instead.
-   * Connects the component with an internal element that defines its accessible name.
-   * Note: must be unique for the page.
-   */
-  visuallyHiddenLabelId?: string
 } & HTMLAttributes<HTMLElement>
 
 /**
@@ -77,14 +56,10 @@ export const Pagination = forwardRef(
       maxVisiblePages = 7,
       nextAccessibleName,
       nextLabel = 'volgende',
-      nextVisuallyHiddenLabel,
       page = 1,
       previousAccessibleName,
       previousLabel = 'vorige',
-      previousVisuallyHiddenLabel,
       totalPages,
-      visuallyHiddenLabel,
-      visuallyHiddenLabelId,
       ...restProps
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
@@ -102,22 +77,17 @@ export const Pagination = forwardRef(
     return (
       <nav
         {...restProps}
-        aria-labelledby={accessibleNameId || visuallyHiddenLabelId || 'ams-pagination-a11y-label'}
+        aria-labelledby={accessibleNameId || 'ams-pagination-a11y-label'}
         className={clsx('ams-pagination', className)}
         ref={ref}
       >
-        <span
-          className="ams-visually-hidden"
-          id={accessibleNameId || visuallyHiddenLabelId || 'ams-pagination-a11y-label'}
-        >
-          {accessibleName || visuallyHiddenLabel || 'Paginering'}
+        <span className="ams-visually-hidden" id={accessibleNameId || 'ams-pagination-a11y-label'}>
+          {accessibleName || 'Paginering'}
         </span>
         {page !== 1 && (
           <Link className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
             <Icon svg={ChevronBackwardIcon} />
-            <span className="ams-visually-hidden">
-              {previousAccessibleName || previousVisuallyHiddenLabel || 'Vorige pagina'}
-            </span>
+            <span className="ams-visually-hidden">{previousAccessibleName || 'Vorige pagina'}</span>
             <span aria-hidden className="ams-pagination__link-label" hidden>
               {previousLabel}
             </span>
@@ -140,9 +110,7 @@ export const Pagination = forwardRef(
         </ol>
         {page !== totalPages && (
           <Link className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
-            <span className="ams-visually-hidden">
-              {nextAccessibleName || nextVisuallyHiddenLabel || 'Volgende pagina'}
-            </span>
+            <span className="ams-visually-hidden">{nextAccessibleName || 'Volgende pagina'}</span>
             <span aria-hidden className="ams-pagination__link-label" hidden>
               {nextLabel}
             </span>

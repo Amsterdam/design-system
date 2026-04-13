@@ -19,11 +19,8 @@ export type HeadingProps = {
   color?: 'inverse'
   /** The hierarchical level within the document. */
   level: HeadingLevel
-  /**
-   * Uses larger or smaller text without changing its position in the heading hierarchy.
-   * The value ‘level-6’ is deprecated. Use level 5 instead.
-   */
-  size?: 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'
+  /** Uses larger or smaller text without changing its position in the heading hierarchy. */
+  size?: 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5'
 } & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
 
 /**

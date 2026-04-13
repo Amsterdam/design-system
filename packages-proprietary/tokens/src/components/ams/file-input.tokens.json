@@ -3,11 +3,15 @@
     "file-input": {
       "background-color": {
         "$value": "{ams.inputs.background-color}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "border-color": {
         "$value": "{ams.inputs.border-color}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "border-style": {
         "$value": "dashed",
@@ -23,14 +27,21 @@
       },
       "color": {
         "$value": "{ams.inputs.color}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "cursor": {
-        "$value": "{ams.cursor.interactive}"
+        "$value": "{ams.cursor.interactive}",
+        "$extensions": {
+          "nl.amsterdam.type": "cursor"
+        }
       },
       "font-family": {
         "$value": "{ams.inputs.font-family}",
-        "$type": "fontFamily"
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
       },
       "font-size": {
         "$value": "{ams.inputs.font-size}",
@@ -40,52 +51,64 @@
       },
       "font-weight": {
         "$value": "{ams.inputs.font-weight}",
-        "$type": "fontWeight"
+        "$extensions": {
+          "nl.amsterdam.type": "fontWeight"
+        }
       },
       "line-height": {
         "$value": "{ams.inputs.line-height}",
         "$extensions": {
-          "nl.amsterdam.type": "lineHeight"
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
         }
       },
       "outline-offset": {
         "$value": "{ams.inputs.outline-offset}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "padding-block": {
         "$value": "{ams.space.m}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "padding-inline": {
         "$value": "{ams.space.m}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "disabled": {
         "color": {
           "$value": "{ams.inputs.disabled.color}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}"
+          "$value": "{ams.cursor.disabled}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         }
       },
       "file-selector-button": {
         "background-color": {
           "$value": "{ams.button.secondary.background-color}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "border-color": {
           "$value": "{ams.button.secondary.border-color}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "border-style": {
           "$value": "{ams.button.border-style}",
@@ -101,55 +124,70 @@
         },
         "color": {
           "$value": "{ams.button.secondary.color}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "cursor": {
-          "$value": "{ams.button.cursor}"
+          "$value": "{ams.button.cursor}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         },
         "line-height": {
           "$value": "{ams.button.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         },
         "margin-inline-end": {
           "$value": "{ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "padding-block": {
           "$value": "{ams.button.padding-block}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "padding-inline": {
           "$value": "{ams.button.padding-inline}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "disabled": {
           "color": {
             "$value": "{ams.button.secondary.disabled.color}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "cursor": {
-            "$value": "{ams.button.disabled.cursor}"
+            "$value": "{ams.button.disabled.cursor}",
+            "$extensions": {
+              "nl.amsterdam.type": "cursor"
+            }
           }
         },
         "hover": {
           "box-shadow": {
-            "$type": "shadow",
-            "$value": "{ams.button.secondary.hover.box-shadow}"
+            "$value": "{ams.button.secondary.hover.box-shadow}",
+            "$extensions": {
+              "nl.amsterdam.type": "shadow"
+            }
           },
           "color": {
             "$value": "{ams.button.secondary.hover.color}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         }
       }
