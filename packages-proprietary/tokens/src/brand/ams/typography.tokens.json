@@ -93,6 +93,18 @@
         }
       },
       "heading": {
+        "$description": "Text styles for section headings. Larger headings use tighter line-heights for visual balance.",
+        "font-weight": {
+          "$value": "800",
+          "$type": "fontWeight"
+        },
+        "text-wrap": {
+          "$value": "balance",
+          "$description": "Distributes heading text evenly across lines for a more balanced appearance.",
+          "$extensions": {
+            "nl.amsterdam.type": "textWrap"
+          }
+        },
         "1": {
           "font-size": {
             "$value": "clamp(2rem, 1.7143rem + 1.4286vw, 3rem)",
@@ -167,18 +179,6 @@
               "nl.amsterdam.subtype": "lineHeight"
             },
             "$type": "number"
-          }
-        },
-        "$description": "Text styles for section headings. Larger headings use tighter line-heights for visual balance.",
-        "font-weight": {
-          "$value": "800",
-          "$type": "fontWeight"
-        },
-        "text-wrap": {
-          "$value": "balance",
-          "$description": "Distributes heading text evenly across lines for a more balanced appearance.",
-          "$extensions": {
-            "nl.amsterdam.type": "textWrap"
           }
         }
       }

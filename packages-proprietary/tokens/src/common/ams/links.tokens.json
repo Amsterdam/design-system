@@ -14,7 +14,6 @@
           "unit": "rem"
         },
         "$type": "dimension",
-        "$description": "2px equivalent.",
         "$extensions": {
           "nl.amsterdam.hint": "2px",
           "nl.amsterdam.subtype": "space"
@@ -26,7 +25,6 @@
           "unit": "rem"
         },
         "$type": "dimension",
-        "$description": "2.5px equivalent.",
         "$extensions": {
           "nl.amsterdam.hint": "2.5px",
           "nl.amsterdam.subtype": "space"
@@ -46,7 +44,6 @@
             "unit": "rem"
           },
           "$type": "dimension",
-          "$description": "3px equivalent.",
           "$extensions": {
             "nl.amsterdam.hint": "3px",
             "nl.amsterdam.subtype": "space"
@@ -58,7 +55,6 @@
             "unit": "rem"
           },
           "$type": "dimension",
-          "$description": "1.5px equivalent.",
           "$extensions": {
             "nl.amsterdam.hint": "1.5px",
             "nl.amsterdam.subtype": "space"

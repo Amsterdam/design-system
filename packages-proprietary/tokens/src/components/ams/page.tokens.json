@@ -27,6 +27,7 @@
             "$value": "{ams.grid.padding-inline}",
             "$extensions": {
               "nl.amsterdam.hint": "Must be the Grid inline padding, to make sure Skip Link and Grid line up.",
+              "nl.amsterdam.type": "dimension",
               "nl.amsterdam.subtype": "space"
             }
           }
