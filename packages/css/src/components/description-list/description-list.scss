@@ -72,10 +72,7 @@
     grid-column-start: 1;
 
     // Add margin for Terms that are longer than their Description(s)
-    margin-block-end: var(
-      --ams-description-list-term-medium-margin-block-end,
-      var(--ams-description-list-term-vi-medium-margin-block-end)
-    );
+    margin-block-end: var(--ams-description-list-term-vi-medium-margin-block-end);
 
     // Add half of the difference in computed line heights to align Terms with Descriptions.
     // - Terms use heading line heights; Descriptions use body text
