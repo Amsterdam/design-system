@@ -3,7 +3,9 @@
     "page": {
       "background-color": {
         "$value": "{ams.color.background.body}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "max-inline-size": {
         "$value": {

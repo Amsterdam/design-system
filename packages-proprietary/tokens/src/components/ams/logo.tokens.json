@@ -23,7 +23,9 @@
       "subsite": {
         "color": {
           "$value": "{ams.color.text.default}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       },
       "title": {

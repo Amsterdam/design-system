@@ -7,11 +7,15 @@
       },
       "color": {
         "$value": "{ams.color.text.inverse}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "font-family": {
         "$value": "{ams.typography.font-family}",
-        "$type": "fontFamily"
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
       },
       "font-size": {
         "$value": "{ams.typography.body-text.font-size}",
@@ -21,20 +25,22 @@
       },
       "font-weight": {
         "$value": "{ams.typography.body-text.font-weight}",
-        "$type": "fontWeight"
+        "$extensions": {
+          "nl.amsterdam.type": "fontWeight"
+        }
       },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
-          "nl.amsterdam.subtype": "lineHeight"
-        },
-        "$type": "number"
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
+        }
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "padding-block": {
@@ -53,16 +59,16 @@
       },
       "text-decoration-thickness": {
         "$value": "{ams.links.text-decoration-thickness}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "text-underline-offset": {
         "$value": "{ams.links.text-underline-offset}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "hover": {
@@ -72,16 +78,16 @@
         },
         "text-decoration-thickness": {
           "$value": "{ams.links.hover.text-decoration-thickness}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "text-underline-offset": {
           "$value": "{ams.links.hover.text-underline-offset}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       }

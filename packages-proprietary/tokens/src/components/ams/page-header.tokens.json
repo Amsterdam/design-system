@@ -3,11 +3,15 @@
     "page-header": {
       "background-color": {
         "$value": "{ams.color.background.default}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "font-family": {
         "$value": "{ams.typography.font-family}",
-        "$type": "fontFamily"
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
       },
       "padding-block": {
         "$value": "{ams.space.l}",
@@ -18,27 +22,27 @@
       },
       "padding-inline": {
         "$value": "{ams.grid.padding-inline}",
-        "$type": "dimension",
         "$extensions": {
           "nl.amsterdam.hint": "Must be the Grid inline padding, to make sure Header and Grid line up.",
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "medium": {
         "padding-inline": {
           "$value": "{ams.grid.medium.padding-inline}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "wide": {
         "padding-inline": {
           "$value": "{ams.grid.wide.padding-inline}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
@@ -52,16 +56,18 @@
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "brand-name": {
         "color": {
           "$value": "{ams.color.text.default}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "font-size": {
           "$value": "{ams.typography.heading.3.font-size}",
@@ -71,14 +77,16 @@
         },
         "font-weight": {
           "$value": "{ams.typography.heading.font-weight}",
-          "$type": "fontWeight"
+          "$extensions": {
+            "nl.amsterdam.type": "fontWeight"
+          }
         },
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "nl.amsterdam.subtype": "lineHeight"
-          },
-          "$type": "number"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
         },
         "text-wrap": {
           "$value": "{ams.typography.heading.text-wrap}",
@@ -98,11 +106,15 @@
         "button": {
           "background-color": {
             "$value": "{ams.color.interactive.default}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "color": {
             "$value": "{ams.color.text.inverse}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "cursor": {
             "$value": "{ams.cursor.interactive}",
@@ -114,7 +126,9 @@
             "open": {
               "font-weight": {
                 "$value": "{ams.typography.body-text.font-weight}",
-                "$type": "fontWeight",
+                "$extensions": {
+                  "nl.amsterdam.type": "fontWeight"
+                },
                 "$deprecated": "We no longer make the button label bold when the mega menu is open. Will be removed on or after 2026-09-13."
               }
             }
@@ -154,9 +168,11 @@
         },
         "item": {
           "color": {
-            "$deprecated": "Use `ams.page-header.menu.link.color` instead. Will be removed on or after 2026-09-13.",
             "$value": "{ams.links.color}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            },
+            "$deprecated": "Use `ams.page-header.menu.link.color` instead. Will be removed on or after 2026-09-13."
           },
           "column-gap": {
             "$value": "{ams.space.xs}",
@@ -167,7 +183,9 @@
           },
           "font-family": {
             "$value": "{ams.typography.font-family}",
-            "$type": "fontFamily"
+            "$extensions": {
+              "nl.amsterdam.type": "fontFamily"
+            }
           },
           "font-size": {
             "$value": "{ams.typography.body-text.font-size}",
@@ -177,20 +195,22 @@
           },
           "font-weight": {
             "$value": "{ams.typography.body-text.font-weight}",
-            "$type": "fontWeight"
+            "$extensions": {
+              "nl.amsterdam.type": "fontWeight"
+            }
           },
           "line-height": {
             "$value": "{ams.typography.body-text.line-height}",
             "$extensions": {
-              "nl.amsterdam.subtype": "lineHeight"
-            },
-            "$type": "number"
+              "nl.amsterdam.subtype": "lineHeight",
+              "nl.amsterdam.type": "number"
+            }
           },
           "outline-offset": {
             "$value": "{ams.focus.outline-offset}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           },
           "padding-block": {
@@ -203,14 +223,18 @@
           "hover": {
             "color": {
               "$value": "{ams.links.hover.color}",
-              "$type": "color"
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             }
           }
         },
         "link": {
           "color": {
             "$value": "{ams.links.color}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "gap": {
             "$value": "{ams.space.xs}",
@@ -227,16 +251,16 @@
           },
           "text-decoration-thickness": {
             "$value": "{ams.links.text-decoration-thickness}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           },
           "text-underline-offset": {
             "$value": "{ams.links.text-underline-offset}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           },
           "hover": {

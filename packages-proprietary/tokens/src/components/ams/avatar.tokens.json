@@ -9,11 +9,15 @@
       },
       "background-color": {
         "$value": "{ams.color.highlight.purple}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "border-color": {
         "$value": "{ams.color.highlight.purple}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "border-style": {
         "$value": "solid",
@@ -29,11 +33,15 @@
       },
       "color": {
         "$value": "{ams.color.text.inverse}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "font-family": {
         "$value": "{ams.typography.font-family}",
-        "$type": "fontFamily"
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
       },
       "font-size": {
         "$value": "{ams.typography.body-text.small.font-size}",
@@ -43,14 +51,16 @@
       },
       "font-weight": {
         "$value": "{ams.typography.body-text.font-weight}",
-        "$type": "fontWeight"
+        "$extensions": {
+          "nl.amsterdam.type": "fontWeight"
+        }
       },
       "line-height": {
         "$value": "{ams.typography.body-text.small.line-height}",
         "$extensions": {
-          "nl.amsterdam.subtype": "lineHeight"
-        },
-        "$type": "number"
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
+        }
       },
       "padding-block": {
         "$value": "{ams.space.xs}",

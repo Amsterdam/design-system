@@ -38,7 +38,9 @@
       "link": {
         "color": {
           "$value": "{ams.links.color}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "text-decoration-line": {
           "$value": "{ams.links.subtle.text-decoration-line}",
@@ -48,22 +50,24 @@
         },
         "text-decoration-thickness": {
           "$value": "{ams.links.text-decoration-thickness}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "text-underline-offset": {
           "$value": "{ams.links.text-underline-offset}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "hover": {
           "color": {
             "$value": "{ams.links.hover.color}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "text-decoration-line": {
             "$value": "{ams.links.subtle.hover.text-decoration-line}",
@@ -75,9 +79,9 @@
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       }
     }

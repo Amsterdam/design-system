@@ -3,7 +3,9 @@
     "icon-button": {
       "color": {
         "$value": "{ams.color.interactive.default}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "cursor": {
         "$value": "{ams.cursor.interactive}",
@@ -13,9 +15,9 @@
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "hover": {
@@ -30,7 +32,9 @@
       "disabled": {
         "color": {
           "$value": "{ams.color.interactive.disabled}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "cursor": {
           "$value": "{ams.cursor.disabled}",

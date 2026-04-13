@@ -3,11 +3,15 @@
     "dialog": {
       "background-color": {
         "$value": "{ams.color.background.default}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "border-color": {
         "$value": "{ams.dialog.background-color}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "border-radius": {
         "$value": "initial",

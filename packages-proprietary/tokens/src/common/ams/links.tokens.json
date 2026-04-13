@@ -4,7 +4,9 @@
       "$description": "Shared base styles for all link-like components.",
       "color": {
         "$value": "{ams.color.interactive.default}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "text-decoration-thickness": {
         "$value": {
@@ -34,7 +36,9 @@
         "$description": "On hover the underline thickens and moves closer to the text.",
         "color": {
           "$value": "{ams.color.interactive.hover}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "text-decoration-thickness": {
           "$value": {

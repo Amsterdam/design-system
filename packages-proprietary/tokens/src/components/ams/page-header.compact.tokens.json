@@ -11,9 +11,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.2.line-height}",
           "$extensions": {
-            "nl.amsterdam.subtype": "lineHeight"
-          },
-          "$type": "number"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
         }
       },
       "mega-menu": {

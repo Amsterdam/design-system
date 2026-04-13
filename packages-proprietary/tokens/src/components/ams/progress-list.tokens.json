@@ -58,7 +58,9 @@
       "button": {
         "color": {
           "$value": "{ams.color.interactive.default}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "cursor": {
           "$value": "{ams.cursor.interactive}",
@@ -75,9 +77,9 @@
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "padding-block": {
@@ -97,7 +99,9 @@
         "hover": {
           "color": {
             "$value": "{ams.color.interactive.hover}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         }
       },
@@ -141,11 +145,15 @@
             },
             "background-color": {
               "$value": "{ams.color.background.default}",
-              "$type": "color"
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             },
             "border-color": {
               "$value": "{ams.color.progress.upcoming}",
-              "$type": "color"
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             },
             "border-style": {
               "$value": "solid",
@@ -161,7 +169,9 @@
             },
             "outline-color": {
               "$value": "{ams.color.background.default}",
-              "$type": "color"
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             },
             "outline-style": {
               "$value": "solid",
@@ -180,7 +190,9 @@
         "connector": {
           "border-inline-color": {
             "$value": "{ams.color.progress.upcoming}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "border-inline-style": {
             "$value": "dashed",
@@ -229,7 +241,9 @@
           "connector": {
             "border-inline-color": {
               "$value": "{ams.color.progress.completed}",
-              "$type": "color"
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             },
             "border-inline-style": {
               "$value": "solid",
@@ -294,7 +308,9 @@
             },
             "inline-size": {
               "$value": "{ams.progress-list.step.marker.shape.block-size}",
-              "$type": "dimension"
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
             },
             "shape": {
               "block-size": {
@@ -303,11 +319,15 @@
               },
               "background-color": {
                 "$value": "{ams.color.background.default}",
-                "$type": "color"
+                "$extensions": {
+                  "nl.amsterdam.type": "color"
+                }
               },
               "border-color": {
                 "$value": "{ams.color.progress.upcoming}",
-                "$type": "color"
+                "$extensions": {
+                  "nl.amsterdam.type": "color"
+                }
               },
               "border-style": {
                 "$value": "solid",
@@ -323,7 +343,9 @@
               },
               "outline-color": {
                 "$value": "{ams.color.background.default}",
-                "$type": "color"
+                "$extensions": {
+                  "nl.amsterdam.type": "color"
+                }
               },
               "outline-style": {
                 "$value": "solid",
@@ -342,11 +364,15 @@
           "connector": {
             "background-color": {
               "$value": "{ams.color.background.default}",
-              "$type": "color"
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             },
             "border-inline-color": {
               "$value": "{ams.color.progress.upcoming}",
-              "$type": "color"
+              "$extensions": {
+                "nl.amsterdam.type": "color"
+              }
             },
             "border-inline-style": {
               "$value": "dashed",
@@ -372,7 +398,9 @@
             "last-child": {
               "border-inline-color": {
                 "$value": "{ams.color.background.default}",
-                "$type": "color"
+                "$extensions": {
+                  "nl.amsterdam.type": "color"
+                }
               }
             }
           },
@@ -400,7 +428,9 @@
             "connector": {
               "border-inline-color": {
                 "$value": "{ams.color.progress.completed}",
-                "$type": "color"
+                "$extensions": {
+                  "nl.amsterdam.type": "color"
+                }
               },
               "border-inline-style": {
                 "$value": "solid",

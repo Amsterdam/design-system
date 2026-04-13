@@ -3,11 +3,15 @@
     "alert": {
       "background-color": {
         "$value": "{ams.color.background.default}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "border-color": {
         "$value": "{ams.color.feedback.info}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "border-style": {
         "$value": "solid",
@@ -24,7 +28,9 @@
       "severity-indicator": {
         "background-color": {
           "$value": "{ams.color.feedback.info}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "padding-block": {
           "$value": "{ams.space.m}",

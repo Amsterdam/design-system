@@ -11,9 +11,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.1.line-height}",
           "$extensions": {
-            "nl.amsterdam.subtype": "lineHeight"
-          },
-          "$type": "number"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
         }
       },
       "2": {
@@ -26,9 +26,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.2.line-height}",
           "$extensions": {
-            "nl.amsterdam.subtype": "lineHeight"
-          },
-          "$type": "number"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
         }
       },
       "3": {
@@ -41,9 +41,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "nl.amsterdam.subtype": "lineHeight"
-          },
-          "$type": "number"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
         }
       },
       "4": {
@@ -56,9 +56,9 @@
         "line-height": {
           "$value": "{ams.typography.heading.4.line-height}",
           "$extensions": {
-            "nl.amsterdam.subtype": "lineHeight"
-          },
-          "$type": "number"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
         }
       },
       "5": {
@@ -71,22 +71,28 @@
         "line-height": {
           "$value": "{ams.typography.heading.5.line-height}",
           "$extensions": {
-            "nl.amsterdam.subtype": "lineHeight"
-          },
-          "$type": "number"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
         }
       },
       "color": {
         "$value": "{ams.color.text.default}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "font-family": {
         "$value": "{ams.typography.font-family}",
-        "$type": "fontFamily"
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
       },
       "font-weight": {
         "$value": "{ams.typography.heading.font-weight}",
-        "$type": "fontWeight"
+        "$extensions": {
+          "nl.amsterdam.type": "fontWeight"
+        }
       },
       "text-wrap": {
         "$value": "{ams.typography.heading.text-wrap}",
@@ -97,7 +103,9 @@
       "inverse": {
         "color": {
           "$value": "{ams.color.text.inverse}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       }
     }

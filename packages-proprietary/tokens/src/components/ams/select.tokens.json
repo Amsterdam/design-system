@@ -3,7 +3,9 @@
     "select": {
       "background-color": {
         "$value": "{ams.inputs.background-color}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "background-image": {
         "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23004699' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")",
@@ -19,7 +21,9 @@
       },
       "border-color": {
         "$value": "{ams.inputs.border-color}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "border-style": {
         "$value": "{ams.inputs.border-style}",
@@ -35,11 +39,15 @@
       },
       "color": {
         "$value": "{ams.inputs.color}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "font-family": {
         "$value": "{ams.inputs.font-family}",
-        "$type": "fontFamily"
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
       },
       "font-size": {
         "$value": "{ams.inputs.font-size}",
@@ -49,27 +57,29 @@
       },
       "font-weight": {
         "$value": "{ams.inputs.font-weight}",
-        "$type": "fontWeight"
+        "$extensions": {
+          "nl.amsterdam.type": "fontWeight"
+        }
       },
       "line-height": {
         "$value": "{ams.inputs.line-height}",
         "$extensions": {
-          "nl.amsterdam.subtype": "lineHeight"
-        },
-        "$type": "number"
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
+        }
       },
       "outline-offset": {
         "$value": "{ams.inputs.outline-offset}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "padding-block": {
         "$value": "{ams.inputs.padding-block}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "padding-inline": {
@@ -88,7 +98,9 @@
         },
         "color": {
           "$value": "{ams.inputs.disabled.color}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "cursor": {
           "$value": "{ams.cursor.disabled}",
@@ -99,8 +111,10 @@
       },
       "hover": {
         "box-shadow": {
-          "$type": "shadow",
-          "$value": "{ams.inputs.hover.box-shadow}"
+          "$value": "{ams.inputs.hover.box-shadow}",
+          "$extensions": {
+            "nl.amsterdam.type": "shadow"
+          }
         },
         "background-image": {
           "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23003677' fill-rule='evenodd' d='m16 25.757-16-16 2.91-2.9L16 19.937l13.09-13.08 2.91 2.9z'/></svg>\")",
@@ -112,16 +126,22 @@
       "invalid": {
         "border-color": {
           "$value": "{ams.inputs.invalid.border-color}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "hover": {
           "border-color": {
             "$value": "{ams.inputs.invalid.hover.border-color}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "box-shadow": {
-            "$type": "shadow",
-            "$value": "{ams.inputs.invalid.hover.box-shadow}"
+            "$value": "{ams.inputs.invalid.hover.box-shadow}",
+            "$extensions": {
+              "nl.amsterdam.type": "shadow"
+            }
           }
         }
       },
@@ -129,7 +149,9 @@
         "disabled": {
           "color": {
             "$value": "{ams.color.interactive.disabled}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         }
       }

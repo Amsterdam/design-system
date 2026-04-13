@@ -3,7 +3,9 @@
     "description-list": {
       "color": {
         "$value": "{ams.color.text.default}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "column-gap": {
         "$value": "{ams.space.l}",
@@ -14,7 +16,9 @@
       },
       "font-family": {
         "$value": "{ams.typography.font-family}",
-        "$type": "fontFamily"
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
       },
       "font-size": {
         "$value": "{ams.typography.body-text.font-size}",
@@ -27,9 +31,9 @@
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
           "nl.amsterdam.hint": "Applies to descriptions only; terms set their own line height.",
-          "nl.amsterdam.subtype": "lineHeight"
-        },
-        "$type": "number"
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
+        }
       },
       "row-gap": {
         "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-03.",
@@ -43,7 +47,9 @@
       "inverse": {
         "color": {
           "$value": "{ams.color.text.inverse}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       },
       "term": {
@@ -55,14 +61,16 @@
         },
         "font-weight": {
           "$value": "{ams.typography.heading.font-weight}",
-          "$type": "fontWeight"
+          "$extensions": {
+            "nl.amsterdam.type": "fontWeight"
+          }
         },
         "line-height": {
           "$value": "{ams.typography.heading.4.line-height}",
           "$extensions": {
-            "nl.amsterdam.subtype": "lineHeight"
-          },
-          "$type": "number"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
         },
         "margin-block-end": {
           "$value": "{ams.space.xs}",
@@ -80,10 +88,10 @@
         "vi-medium": {
           "margin-block-end": {
             "$value": "{ams.description-list.description.margin-block-end}",
-            "$type": "dimension",
             "$extensions": {
               "nl.amsterdam.hint": "Should equal the bottom margin of descriptions.",
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           }
         }
@@ -91,7 +99,9 @@
       "description": {
         "font-weight": {
           "$value": "{ams.typography.body-text.font-weight}",
-          "$type": "fontWeight"
+          "$extensions": {
+            "nl.amsterdam.type": "fontWeight"
+          }
         },
         "margin-block-end": {
           "$value": "{ams.space.m}",
