@@ -3,11 +3,15 @@
     "time-input": {
       "background-color": {
         "$value": "{ams.inputs.background-color}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "border-color": {
         "$value": "{ams.inputs.border-color}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "border-style": {
         "$value": "{ams.inputs.border-style}",
@@ -23,11 +27,15 @@
       },
       "color": {
         "$value": "{ams.inputs.color}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "font-family": {
         "$value": "{ams.inputs.font-family}",
-        "$type": "fontFamily"
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
       },
       "font-size": {
         "$value": "{ams.inputs.font-size}",
@@ -37,77 +45,102 @@
       },
       "font-weight": {
         "$value": "{ams.inputs.font-weight}",
-        "$type": "fontWeight"
+        "$extensions": {
+          "nl.amsterdam.type": "fontWeight"
+        }
       },
       "line-height": {
         "$value": "{ams.inputs.line-height}",
         "$extensions": {
-          "nl.amsterdam.type": "lineHeight"
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
         }
       },
       "outline-offset": {
         "$value": "{ams.inputs.outline-offset}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "padding-block": {
         "$value": "{ams.inputs.padding-block}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "padding-inline": {
         "$value": "{ams.inputs.padding-inline}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "disabled": {
         "color": {
           "$value": "{ams.inputs.disabled.color}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}"
+          "$value": "{ams.cursor.disabled}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         }
       },
       "hover": {
         "box-shadow": {
-          "$type": "shadow",
-          "$value": "{ams.inputs.hover.box-shadow}"
+          "$value": "{ams.inputs.hover.box-shadow}",
+          "$extensions": {
+            "nl.amsterdam.type": "shadow"
+          }
         },
         "calendar-picker-indicator": {
           "background-image": {
-            "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='%23003677'><path d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16A16 16 0 0 0 16 0zm.9 28v-2h-2v1.9A11.8 11.8 0 0 1 4.1 17H6v-2H4.1A11.8 11.8 0 0 1 15 4.1V6h2V4.1A11.8 11.8 0 0 1 27.9 15H26v2h1.9a11.9 11.9 0 0 1-11 11zm.1-13h4v2h-6V9h2v6z'/></svg>\")"
+            "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='%23003677'><path d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16A16 16 0 0 0 16 0zm.9 28v-2h-2v1.9A11.8 11.8 0 0 1 4.1 17H6v-2H4.1A11.8 11.8 0 0 1 15 4.1V6h2V4.1A11.8 11.8 0 0 1 27.9 15H26v2h1.9a11.9 11.9 0 0 1-11 11zm.1-13h4v2h-6V9h2v6z'/></svg>\")",
+            "$extensions": {
+              "nl.amsterdam.type": "backgroundImage"
+            }
           }
         }
       },
       "invalid": {
         "border-color": {
           "$value": "{ams.inputs.invalid.border-color}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "hover": {
           "border-color": {
             "$value": "{ams.inputs.invalid.hover.border-color}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "box-shadow": {
-            "$type": "shadow",
-            "$value": "{ams.inputs.invalid.hover.box-shadow}"
+            "$value": "{ams.inputs.invalid.hover.box-shadow}",
+            "$extensions": {
+              "nl.amsterdam.type": "shadow"
+            }
           }
         }
       },
       "calendar-picker-indicator": {
         "background-image": {
-          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='%23004699'><path d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16A16 16 0 0 0 16 0zm.9 28v-2h-2v1.9A11.8 11.8 0 0 1 4.1 17H6v-2H4.1A11.8 11.8 0 0 1 15 4.1V6h2V4.1A11.8 11.8 0 0 1 27.9 15H26v2h1.9a11.9 11.9 0 0 1-11 11zm.1-13h4v2h-6V9h2v6z'/></svg>\")"
+          "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='%23004699'><path d='M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16A16 16 0 0 0 16 0zm.9 28v-2h-2v1.9A11.8 11.8 0 0 1 4.1 17H6v-2H4.1A11.8 11.8 0 0 1 15 4.1V6h2V4.1A11.8 11.8 0 0 1 27.9 15H26v2h1.9a11.9 11.9 0 0 1-11 11zm.1-13h4v2h-6V9h2v6z'/></svg>\")",
+          "$extensions": {
+            "nl.amsterdam.type": "backgroundImage"
+          }
         },
         "cursor": {
-          "$value": "{ams.cursor.interactive}"
+          "$value": "{ams.cursor.interactive}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         }
       }
     }

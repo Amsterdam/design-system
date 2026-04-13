@@ -3,16 +3,21 @@
     "icon-button": {
       "color": {
         "$value": "{ams.color.interactive.default}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "cursor": {
-        "$value": "{ams.cursor.interactive}"
+        "$value": "{ams.cursor.interactive}",
+        "$extensions": {
+          "nl.amsterdam.type": "cursor"
+        }
       },
       "outline-offset": {
         "$value": "{ams.focus.outline-offset}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "hover": {
@@ -22,22 +27,31 @@
         },
         "color": {
           "$value": "{ams.color.interactive.hover}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       },
       "disabled": {
         "color": {
           "$value": "{ams.color.interactive.disabled}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "cursor": {
-          "$value": "{ams.cursor.disabled}"
+          "$value": "{ams.cursor.disabled}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
         }
       },
       "contrast": {
         "color": {
           "$value": "{ams.color.interactive.contrast}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "hover": {
           "background-color": {
@@ -46,43 +60,59 @@
           },
           "color": {
             "$value": "{ams.color.interactive.contrast}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         },
         "disabled": {
           "color": {
             "$value": "{ams.color.interactive.disabled}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         }
       },
       "inverse": {
         "background-color": {
           "$value": "{ams.color.interactive.default}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "color": {
           "$value": "{ams.color.interactive.inverse}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "hover": {
           "background-color": {
             "$value": "{ams.color.interactive.hover}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "color": {
             "$value": "{ams.color.interactive.inverse}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         },
         "disabled": {
           "color": {
             "$value": "{ams.color.interactive.inverse}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           },
           "background-color": {
             "$value": "{ams.color.interactive.disabled}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         }
       }
