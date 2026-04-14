@@ -24,8 +24,6 @@ export type TableOfContentsProps = {
   headingLevel?: HeadingProps['level']
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-// The 'ams-table-of-contents__heading' class is @deprecated and will be removed in a future release.
-
 const TableOfContentsRoot = forwardRef(
   (
     { children, className, heading, headingLevel = 2, ...restProps }: TableOfContentsProps,

@@ -15,6 +15,51 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+const pathAndExcludeTokens = {
+  ams: {
+    inputs: {
+      'background-color': { $type: 'color', $value: '#ffffff' },
+      color: { $type: 'color', $value: '#000000' },
+      disabled: {
+        color: { $type: 'color', $value: '#999999' },
+      },
+      hover: {
+        color: { $type: 'color', $value: '#0000ff' },
+      },
+    },
+  },
+}
+
+export const PathAndExclude: Story = {
+  render: () => (
+    <>
+      {/* Shows only top-level tokens, excluding the `disabled` and `hover` groups */}
+      <DesignTokensTable exclude={['disabled', 'hover']} path="ams.inputs" tokens={pathAndExcludeTokens} />
+      {/* Shows only the disabled group, with full path prefix */}
+      <DesignTokensTable path="ams.inputs.disabled" tokens={pathAndExcludeTokens} />
+    </>
+  ),
+  tags: ['!dev', '!autodocs'],
+}
+
+export const Descriptions: Story = {
+  render: () => (
+    <DesignTokensTable
+      showDescriptions
+      tokens={{
+        interactive: {
+          $description: 'All interactive elements in their default state that lack a cursor style.',
+          $extensions: { 'nl.amsterdam.type': 'cursor' },
+          $value: 'pointer',
+        },
+        // Token without a description — cell should still render, but empty.
+        plain: { $value: 'value' },
+      }}
+    />
+  ),
+  tags: ['!dev', '!autodocs'],
+}
+
 export const Test: Story = {
   render: () => (
     <DesignTokensTable
@@ -30,8 +75,20 @@ export const Test: Story = {
           // currentColor is explicitly excluded from rendering a colour swatch
           text: { $type: 'color', $value: 'currentColor' },
         },
+        // Deprecated token — shows warning icon with tooltip
+        deprecated: {
+          $deprecated: 'Use `new-token` instead. Will be removed in release 4.0.0.',
+          $type: 'color',
+          $value: '#ff0000',
+        },
         // Type resolved via $extensions (lowest precedence)
         extended: { $extensions: { 'nl.amsterdam.type': 'color' }, $value: '#ec0000' },
+        // Group-level $type inherited by descendants
+        inherited: {
+          $type: 'color',
+          one: { $value: '#bed200' },
+          two: { $value: '#a00078' },
+        },
         // No type — renders no sample
         plain: { $value: 'value' },
         // Composite $value (normalised to e.g. "1rem")

@@ -11,7 +11,7 @@ const SvgBellFill = (props: SVGProps<SVGSVGElement>) => (
 )
 
 /**
- * @deprecated The ‘BellFill’ icon will be removed in release 5.0.0.
+ * @deprecated The ‘BellFill’ icon will be removed on or after 2026-07-09.
  * Use ‘NotificationFill’ instead.
  */
 export default SvgBellFill

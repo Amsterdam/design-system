@@ -1,27 +1,6 @@
 {
   "ams": {
     "heading": {
-      "color": {
-        "$value": "{ams.color.text.default}",
-        "$type": "color"
-      },
-      "font-family": {
-        "$value": "{ams.typography.font-family}",
-        "$type": "fontFamily"
-      },
-      "font-weight": {
-        "$value": "{ams.typography.heading.font-weight}",
-        "$type": "fontWeight"
-      },
-      "text-wrap": {
-        "$value": "{ams.typography.heading.text-wrap}"
-      },
-      "inverse": {
-        "color": {
-          "$value": "{ams.color.text.inverse}",
-          "$type": "color"
-        }
-      },
       "1": {
         "font-size": {
           "$value": "{ams.typography.heading.1.font-size}",
@@ -32,7 +11,8 @@
         "line-height": {
           "$value": "{ams.typography.heading.1.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
@@ -46,7 +26,8 @@
         "line-height": {
           "$value": "{ams.typography.heading.2.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
@@ -60,7 +41,8 @@
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
@@ -74,7 +56,8 @@
         "line-height": {
           "$value": "{ams.typography.heading.4.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
@@ -88,21 +71,40 @@
         "line-height": {
           "$value": "{ams.typography.heading.5.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
-      "6": {
-        "font-size": {
-          "$value": "{ams.typography.heading.6.font-size}",
+      "color": {
+        "$value": "{ams.color.text.default}",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "font-family": {
+        "$value": "{ams.typography.font-family}",
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
+      },
+      "font-weight": {
+        "$value": "{ams.typography.heading.font-weight}",
+        "$extensions": {
+          "nl.amsterdam.type": "fontWeight"
+        }
+      },
+      "text-wrap": {
+        "$value": "{ams.typography.heading.text-wrap}",
+        "$extensions": {
+          "nl.amsterdam.type": "textWrap"
+        }
+      },
+      "inverse": {
+        "color": {
+          "$value": "{ams.color.text.inverse}",
           "$extensions": {
-            "nl.amsterdam.type": "fontSize"
-          }
-        },
-        "line-height": {
-          "$value": "{ams.typography.heading.6.line-height}",
-          "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.type": "color"
           }
         }
       }
