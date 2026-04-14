@@ -100,7 +100,7 @@ describe('ProgressList', () => {
     const user = userEvent.setup()
 
     render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="one">Content</ProgressList.Step>
         <ProgressList.Step heading="two">Content</ProgressList.Step>
         <ProgressList.Step heading="three">Content</ProgressList.Step>

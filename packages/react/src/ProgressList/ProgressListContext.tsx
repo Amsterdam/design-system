@@ -15,7 +15,7 @@ type ProgressListContextValue = {
 }
 
 const defaultValues: ProgressListContextValue = {
-  collapsible: true,
+  collapsible: false,
   // Default value for type safety.
   // The actual value is always provided via ProgressList’s required headingLevel prop.
   headingLevel: 2,

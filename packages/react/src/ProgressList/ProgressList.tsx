@@ -21,7 +21,7 @@ type ProgressListHeadingLevel = (typeof progressListHeadingLevels)[number]
 export type ProgressListProps = {
   /**
    * Whether the steps can be expanded and collapsed.
-   * @default true
+   * @default false
    */
   collapsible?: boolean
   /**
@@ -46,7 +46,7 @@ const ProgressListRoot = forwardRef(
     {
       children,
       className,
-      collapsible = true,
+      collapsible = false,
       completedAccessibleText,
       currentAccessibleText,
       headingLevel,

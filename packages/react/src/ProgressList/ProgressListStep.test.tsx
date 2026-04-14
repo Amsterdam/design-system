@@ -118,7 +118,7 @@ describe('ProgressListStep', () => {
 
   it('adds the collapsed class when the step is collapsed', () => {
     render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Test Step" status="completed">
           Content
         </ProgressList.Step>
@@ -144,7 +144,7 @@ describe('ProgressListStep', () => {
 
   it('removes the collapsed class when the button is clicked', () => {
     render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Test Step" status="completed">
           Content
         </ProgressList.Step>
@@ -204,7 +204,7 @@ describe('ProgressListStep', () => {
 
   it('renders a button inside the heading', () => {
     render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
       </ProgressList>,
     )
@@ -231,7 +231,7 @@ describe('ProgressListStep', () => {
 
   it('expands a completed step when defaultCollapsed is false', () => {
     render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step defaultCollapsed={false} heading="Test Step" status="completed">
           Content
         </ProgressList.Step>
@@ -245,7 +245,7 @@ describe('ProgressListStep', () => {
 
   it('collapses when defaultCollapsed is true', () => {
     render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step defaultCollapsed heading="Test Step">
           Content
         </ProgressList.Step>
@@ -259,7 +259,7 @@ describe('ProgressListStep', () => {
 
   it('toggles collapsed state when the button is clicked', () => {
     render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Test Step" status="completed">
           Content
         </ProgressList.Step>
@@ -282,7 +282,7 @@ describe('ProgressListStep', () => {
 
   it('sets aria-expanded on the button', () => {
     render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Test Step" status="completed">
           Content
         </ProgressList.Step>
@@ -300,7 +300,7 @@ describe('ProgressListStep', () => {
 
   it('links the button to the panel via aria-controls', () => {
     const { container } = render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
       </ProgressList>,
     )
@@ -318,7 +318,7 @@ describe('ProgressListStep', () => {
     const onToggle = vi.fn()
 
     render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Test Step" onToggle={onToggle} status="completed">
           Content
         </ProgressList.Step>
@@ -340,7 +340,7 @@ describe('ProgressListStep', () => {
 
   it('does not throw when onToggle is not provided', () => {
     render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
       </ProgressList>,
     )
@@ -352,7 +352,7 @@ describe('ProgressListStep', () => {
 
   it('renders the chevron icon inside the button', () => {
     render(
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
       </ProgressList>,
     )

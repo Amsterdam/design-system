@@ -28,7 +28,7 @@ export const Test: Story = {
   render: () => (
     <div style={{ display: 'grid', gap: 'var(--ams-space-l)', gridTemplateColumns: 'repeat(3, 24rem)' }}>
       {/* Default: mix of collapsed (completed) and expanded steps */}
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Completed" status="completed">
           <Paragraph>This step is collapsed by default.</Paragraph>
         </ProgressList.Step>
@@ -41,7 +41,7 @@ export const Test: Story = {
       </ProgressList>
 
       {/* All collapsed: connector hiding, heading spacing, :has() negative margin */}
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="2024" status="completed">
           <Paragraph>Content for 2024.</Paragraph>
         </ProgressList.Step>
@@ -54,7 +54,7 @@ export const Test: Story = {
       </ProgressList>
 
       {/* defaultCollapsed overrides: completed forced open, upcoming forced closed */}
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step defaultCollapsed={false} heading="Forced open" status="completed">
           <Paragraph>This completed step is forced open.</Paragraph>
         </ProgressList.Step>
@@ -70,7 +70,7 @@ export const Test: Story = {
       </ProgressList>
 
       {/* Expanded substeps: indicators not clipped by overflow-y: clip */}
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="2026" status="completed">
           <Paragraph>Content for 2026.</Paragraph>
         </ProgressList.Step>
@@ -94,7 +94,7 @@ export const Test: Story = {
       </ProgressList>
 
       {/* Collapsed last step with substeps: connector hidden */}
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="2026" status="completed">
           <Paragraph>Content for 2026.</Paragraph>
         </ProgressList.Step>
@@ -115,7 +115,7 @@ export const Test: Story = {
       </ProgressList>
 
       {/* Toggle: Chromatic captures the final state after clicking open */}
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Toggled" status="completed">
           <Paragraph>This step was collapsed, then clicked open.</Paragraph>
         </ProgressList.Step>

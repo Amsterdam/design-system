@@ -33,6 +33,7 @@ const meta = {
         <Paragraph>{paragraphs[2]}</Paragraph>
       </ProgressList.Step>,
     ],
+    collapsible: true,
     headingLevel: 3,
   },
   argTypes: {

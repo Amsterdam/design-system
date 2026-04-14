@@ -24,7 +24,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <Story />
       </ProgressList>
     ),
