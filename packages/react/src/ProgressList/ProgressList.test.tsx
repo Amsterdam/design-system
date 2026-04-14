@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 import { describe, expect, it, vi } from 'vitest'
@@ -137,9 +137,7 @@ describe('ProgressList', () => {
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
   })
 
-  it('does not handle keyboard navigation when collapsible is false', async () => {
-    const user = userEvent.setup()
-
+  it('does not handle keyboard navigation when collapsible is false', () => {
     render(
       <ProgressList collapsible={false} headingLevel={3}>
         <ProgressList.Step heading="one">Content</ProgressList.Step>
@@ -151,14 +149,14 @@ describe('ProgressList', () => {
     const onKeyDown = vi.fn()
 
     list.addEventListener('keydown', onKeyDown)
-    list.focus()
 
-    await user.keyboard('{ArrowDown}')
-    await user.keyboard('{ArrowUp}')
-    await user.keyboard('{Home}')
-    await user.keyboard('{End}')
+    for (const key of ['ArrowDown', 'ArrowUp', 'Home', 'End']) {
+      fireEvent.keyDown(list, { key })
+    }
 
     // Events fire on the element, but none are intercepted (no preventDefault called)
+    expect(onKeyDown).toHaveBeenCalledTimes(4)
+
     for (const call of onKeyDown.mock.calls) {
       expect(call[0].defaultPrevented).toBe(false)
     }
