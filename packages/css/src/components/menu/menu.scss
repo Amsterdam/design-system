@@ -25,17 +25,33 @@
 
   @media (min-width: $ams-breakpoint-medium) {
     margin-inline: calc(
-      var(--ams-grid-medium-padding-inline, var(--ams-grid-vi-medium-padding-inline)) * -1
+      var(
+          --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+          var(--ams-grid-vi-medium-padding-inline)
+        ) *
+        -1
     );
-    padding-inline: var(--ams-grid-medium-padding-inline, var(--ams-grid-vi-medium-padding-inline));
+    padding-inline: var(
+      --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-grid-vi-medium-padding-inline)
+    );
   }
 
   @media (min-width: $ams-breakpoint-wide) {
     display: none;
     margin-inline: 0; // Override negative margin above.
-    max-inline-size: var(--ams-menu-wide-max-inline-size, var(--ams-menu-vi-wide-max-inline-size));
-    padding-block: var(--ams-menu-wide-padding-block, var(--ams-menu-vi-wide-padding-block));
-    padding-inline: var(--ams-menu-wide-padding-inline, var(--ams-menu-vi-wide-padding-inline));
+    max-inline-size: var(
+      --ams-menu-wide-max-inline-size /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-menu-vi-wide-max-inline-size)
+    );
+    padding-block: var(
+      --ams-menu-wide-padding-block /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-menu-vi-wide-padding-block)
+    );
+    padding-inline: var(
+      --ams-menu-wide-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-menu-vi-wide-padding-inline)
+    );
   }
 }
 
@@ -85,7 +101,10 @@
     align-items: center;
     display: flex; // The links do stretch in the vertical layout of Menu.
     flex-direction: column;
-    gap: var(--ams-menu-link-wide-gap, var(--ams-menu-link-vi-wide-gap));
+    gap: var(
+      --ams-menu-link-wide-gap /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-menu-link-vi-wide-gap)
+    );
     text-align: center;
 
     .ams-menu__icon {
