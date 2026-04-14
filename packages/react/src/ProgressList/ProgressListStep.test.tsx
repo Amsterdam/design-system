@@ -441,8 +441,11 @@ describe('ProgressListStep', () => {
       </ProgressList>,
     )
 
-    const heading = container.querySelector('.ams-progress-list__heading')
-    const icon = heading?.querySelector('.ams-progress-list__icon')
+    const heading = screen.getByRole('heading', { name: /Test Step/i })
+
+    expect(heading).toBeInTheDocument()
+
+    const icon = container.querySelector('.ams-progress-list__heading .ams-progress-list__icon')
 
     expect(icon).not.toBeInTheDocument()
   })
