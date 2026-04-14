@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
 
+      - name: Build icons package
+        run: pnpm --filter @amsterdam/design-system-react-icons build
+
       - name: Run tests with coverage
         run: pnpm --filter @amsterdam/design-system-react test
 
