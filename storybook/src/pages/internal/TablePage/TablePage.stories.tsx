@@ -11,7 +11,6 @@ import type { SortOrder } from './common'
 
 import { commonMeta } from '../common/config'
 import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from './common'
-import './table-page.css'
 
 const params = new URLSearchParams(window.location.search)
 

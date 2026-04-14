@@ -16,10 +16,6 @@
   @include text-rendering;
 }
 
-.ams-accordion__header {
-  /* This class name is deprecated. */
-}
-
 .ams-accordion__button {
   @include reset-button;
 
