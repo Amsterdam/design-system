@@ -65,7 +65,6 @@
           }
         }
       },
-
       "medium": {
         "column-count": {
           "$deprecated": "Use `ams.grid.vi-medium.column-count` instead. Will be removed on or after 2026-10-17.",
@@ -81,7 +80,6 @@
           }
         }
       },
-
       "wide": {
         "column-count": {
           "$deprecated": "Use `ams.grid.vi-wide.column-count` instead. Will be removed on or after 2026-10-17.",
