@@ -39,4 +39,4 @@ jobs:
         with:
           json-summary-path: packages/react/coverage/coverage-summary.json
           name: React components
-          threshold-icons: "{0: '🔴', 90: '🟠', 97.5: '🟢'}"
+          threshold-icons: '{"0": "🔴", "80": "🟠", "90": "🟢"}'
