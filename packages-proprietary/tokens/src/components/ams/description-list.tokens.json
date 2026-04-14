@@ -8,7 +8,8 @@
         }
       },
       "column-gap": {
-        "$value": "{ams.space.l}",
+        "$deprecated": "Use `ams.description-list.vi-medium.column-gap` instead. Will be removed on or after 2026-10-17.",
+        "$value": "initial",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
@@ -128,7 +129,8 @@
       },
       "narrow": {
         "grid-template-columns": {
-          "$value": "1fr 4fr",
+          "$deprecated": "Use `ams.description-list.vi-medium.narrow.grid-template-columns` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
           "$extensions": {
             "nl.amsterdam.type": "gridTemplateColumns"
           }
@@ -136,7 +138,8 @@
       },
       "medium": {
         "grid-template-columns": {
-          "$value": "1fr 2fr",
+          "$deprecated": "Use `ams.description-list.vi-medium.medium.grid-template-columns` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
           "$extensions": {
             "nl.amsterdam.type": "gridTemplateColumns"
           }
@@ -144,9 +147,43 @@
       },
       "wide": {
         "grid-template-columns": {
-          "$value": "1fr 1fr",
+          "$deprecated": "Use `ams.description-list.vi-medium.wide.grid-template-columns` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
           "$extensions": {
             "nl.amsterdam.type": "gridTemplateColumns"
+          }
+        }
+      },
+      "vi-medium": {
+        "column-gap": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "narrow": {
+          "grid-template-columns": {
+            "$value": "1fr 4fr",
+            "$extensions": {
+              "nl.amsterdam.type": "gridTemplateColumns"
+            }
+          }
+        },
+        "medium": {
+          "grid-template-columns": {
+            "$value": "1fr 2fr",
+            "$extensions": {
+              "nl.amsterdam.type": "gridTemplateColumns"
+            }
+          }
+        },
+        "wide": {
+          "grid-template-columns": {
+            "$value": "1fr 1fr",
+            "$extensions": {
+              "nl.amsterdam.type": "gridTemplateColumns"
+            }
           }
         }
       }

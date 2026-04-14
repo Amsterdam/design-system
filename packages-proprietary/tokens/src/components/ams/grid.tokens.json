@@ -67,6 +67,36 @@
       },
       "medium": {
         "column-count": {
+          "$deprecated": "Use `ams.grid.vi-medium.column-count` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$type": "number"
+        },
+        "padding-inline": {
+          "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "wide": {
+        "column-count": {
+          "$deprecated": "Use `ams.grid.vi-wide.column-count` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$type": "number"
+        },
+        "padding-inline": {
+          "$deprecated": "Use `ams.grid.vi-wide.padding-inline` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "vi-medium": {
+        "column-count": {
           "$value": 8,
           "$type": "number"
         },
@@ -78,7 +108,7 @@
           }
         }
       },
-      "wide": {
+      "vi-wide": {
         "column-count": {
           "$value": 12,
           "$type": "number"
