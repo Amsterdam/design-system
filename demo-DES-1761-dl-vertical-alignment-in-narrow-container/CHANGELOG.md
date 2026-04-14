@@ -26,7 +26,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
-The following icons will be removed in release 4.0.0:
+The following icons will be removed on or after 2026-07-09:
 
 - `Bell` and `BellFill`, use `Notification` and `NotificationFill` instead.
 - `PersonCircle` and `PersonCircleFill`, use `UserAccount` and `UserAccountFill` instead.
