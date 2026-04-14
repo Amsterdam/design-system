@@ -26,7 +26,7 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: Run tests with coverage
         run: pnpm --filter @amsterdam/design-system-react test
@@ -36,3 +36,4 @@ jobs:
         with:
           json-summary-path: packages/react/coverage/coverage-summary.json
           name: React components
+          threshold-icons: "{0: '🔴', 90: '🟠', 97.5: '🟢'}"
