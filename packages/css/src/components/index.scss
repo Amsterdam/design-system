@@ -70,3 +70,9 @@
 @use "time-input/time-input";
 @use "unordered-list/unordered-list";
 @use "visually-hidden/visually-hidden";
+
+@for $i from 1 through 100 {
+  .ams-inline-size-#{$i} {
+    inline-size: #{$i}rem;
+  }
+}
