@@ -41,6 +41,29 @@
       },
       "wide": {
         "max-inline-size": {
+          "$deprecated": "Use `ams.menu.vi-wide.max-inline-size` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$type": "dimension"
+        },
+        "padding-block": {
+          "$deprecated": "Use `ams.menu.vi-wide.padding-block` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
+        "padding-inline": {
+          "$deprecated": "Use `ams.menu.vi-wide.padding-inline` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        }
+      },
+      "vi-wide": {
+        "max-inline-size": {
           "$value": {
             "value": 8,
             "unit": "rem"
@@ -132,6 +155,16 @@
           }
         },
         "wide": {
+          "gap": {
+            "$deprecated": "Use `ams.menu.link.vi-wide.gap` instead. Will be removed on or after 2026-10-17.",
+            "$value": "initial",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
+          }
+        },
+        "vi-wide": {
           "gap": {
             "$value": "{ams.space.xs}",
             "$extensions": {
