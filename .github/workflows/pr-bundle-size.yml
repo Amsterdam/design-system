@@ -29,6 +29,6 @@ jobs:
         uses: preactjs/compressed-size-action@66325aad6443cb7cf89c4bfcd414aea2367cda94 # v2.9.1
         with:
           build-script: build
-          install-script: install --frozen-lockfile
+          install-script: pnpm install --frozen-lockfile
           pattern: "packages/react/dist/**/*.{js,css}"
           strip-hash: "\\b\\w{8}\\."
