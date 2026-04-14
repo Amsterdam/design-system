@@ -96,39 +96,9 @@ describe('ProgressList', () => {
     expect(subStep).toHaveClass('ams-progress-list-substeps__step')
   })
 
-  it('sets focus on step buttons when using arrow keys', async () => {
-    const user = userEvent.setup()
-
+  it('renders no buttons by default', () => {
     render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step heading="one">Content</ProgressList.Step>
-        <ProgressList.Step heading="two">Content</ProgressList.Step>
-        <ProgressList.Step heading="three">Content</ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const firstButton = screen.getByRole('button', { name: /one/ })
-    const thirdButton = screen.getByRole('button', { name: /three/ })
-
-    await user.click(firstButton)
-
-    expect(firstButton).toHaveFocus()
-
-    await user.keyboard('{ArrowDown}')
-    await user.keyboard('{ArrowDown}')
-
-    expect(thirdButton).toHaveFocus()
-    expect(firstButton).not.toHaveFocus()
-
-    // Rotating: wraps from last to first
-    await user.keyboard('{ArrowDown}')
-
-    expect(firstButton).toHaveFocus()
-  })
-
-  it('does not render buttons when collapsible is false', () => {
-    render(
-      <ProgressList collapsible={false} headingLevel={3}>
+      <ProgressList headingLevel={3}>
         <ProgressList.Step heading="one">Content</ProgressList.Step>
         <ProgressList.Step heading="two">Content</ProgressList.Step>
       </ProgressList>,
@@ -137,9 +107,9 @@ describe('ProgressList', () => {
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
   })
 
-  it('does not handle keyboard navigation when collapsible is false', () => {
+  it('does not handle keyboard navigation by default', () => {
     render(
-      <ProgressList collapsible={false} headingLevel={3}>
+      <ProgressList headingLevel={3}>
         <ProgressList.Step heading="one">Content</ProgressList.Step>
         <ProgressList.Step heading="two">Content</ProgressList.Step>
       </ProgressList>,
@@ -170,5 +140,37 @@ describe('ProgressList', () => {
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
+  })
+
+  describe('when collapsible', () => {
+    it('sets focus on step buttons when using arrow keys', async () => {
+      const user = userEvent.setup()
+
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="one">Content</ProgressList.Step>
+          <ProgressList.Step heading="two">Content</ProgressList.Step>
+          <ProgressList.Step heading="three">Content</ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const firstButton = screen.getByRole('button', { name: /one/ })
+      const thirdButton = screen.getByRole('button', { name: /three/ })
+
+      await user.click(firstButton)
+
+      expect(firstButton).toHaveFocus()
+
+      await user.keyboard('{ArrowDown}')
+      await user.keyboard('{ArrowDown}')
+
+      expect(thirdButton).toHaveFocus()
+      expect(firstButton).not.toHaveFocus()
+
+      // Rotating: wraps from last to first
+      await user.keyboard('{ArrowDown}')
+
+      expect(firstButton).toHaveFocus()
+    })
   })
 })

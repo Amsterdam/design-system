@@ -29,7 +29,11 @@ const meta = {
       </ProgressList>
     ),
   ],
-  render: ({ children, ...args }) => <ProgressList.Step {...args}>{children}</ProgressList.Step>,
+  render: ({ children, ...args }) => (
+    <ProgressList.Step key={String(args.defaultCollapsed)} {...args}>
+      {children}
+    </ProgressList.Step>
+  ),
 } satisfies Meta<typeof ProgressList.Step>
 
 export default meta

@@ -22,18 +22,19 @@ const meta = {
   component: ProgressList,
   args: {
     children: [
-      <ProgressList.Step heading="2025" key={0} status="completed">
-        <Paragraph>{paragraphs[0]}</Paragraph>
+      <ProgressList.Step heading="Aanvraag ingediend" key={0} status="completed">
+        <Paragraph>Uw aanvraag is op 2 januari 2026 ontvangen.</Paragraph>
       </ProgressList.Step>,
-      <ProgressList.Step heading="2026" key={1} status="current">
-        <Paragraph className="ams-mb-m">{paragraphs[1]}</Paragraph>
-        <UnorderedList>{unorderedList}</UnorderedList>
+      <ProgressList.Step heading="In behandeling" key={1} status="current">
+        <Paragraph>Een medewerker beoordeelt uw aanvraag en neemt contact met u op bij vragen.</Paragraph>
       </ProgressList.Step>,
-      <ProgressList.Step heading="2027" key={2}>
-        <Paragraph>{paragraphs[2]}</Paragraph>
+      <ProgressList.Step heading="Besluit" key={2}>
+        <Paragraph>U ontvangt het besluit binnen 8 weken na uw aanvraag.</Paragraph>
+      </ProgressList.Step>,
+      <ProgressList.Step heading="Uitvoering" key={3}>
+        <Paragraph>Na een positief besluit starten de werkzaamheden volgens planning.</Paragraph>
       </ProgressList.Step>,
     ],
-    collapsible: true,
     headingLevel: 3,
   },
   argTypes: {
@@ -65,23 +66,21 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const NotCollapsible: Story = {
+export const Collapsible: Story = {
   args: {
     children: [
-      <ProgressList.Step heading="Aanvraag ingediend" key={0} status="completed">
-        <Paragraph>Uw aanvraag is op 2 januari 2026 ontvangen.</Paragraph>
+      <ProgressList.Step heading="2025" key={0} status="completed">
+        <Paragraph>{paragraphs[0]}</Paragraph>
       </ProgressList.Step>,
-      <ProgressList.Step heading="In behandeling" key={1} status="current">
-        <Paragraph>Een medewerker beoordeelt uw aanvraag en neemt contact met u op bij vragen.</Paragraph>
+      <ProgressList.Step heading="2026" key={1} status="current">
+        <Paragraph className="ams-mb-m">{paragraphs[1]}</Paragraph>
+        <UnorderedList>{unorderedList}</UnorderedList>
       </ProgressList.Step>,
-      <ProgressList.Step heading="Besluit" key={2}>
-        <Paragraph>U ontvangt het besluit binnen 8 weken na uw aanvraag.</Paragraph>
-      </ProgressList.Step>,
-      <ProgressList.Step heading="Uitvoering" key={3}>
-        <Paragraph>Na een positief besluit starten de werkzaamheden volgens planning.</Paragraph>
+      <ProgressList.Step heading="2027" key={2}>
+        <Paragraph>{paragraphs[2]}</Paragraph>
       </ProgressList.Step>,
     ],
-    collapsible: false,
+    collapsible: true,
   },
 }
 
@@ -115,5 +114,6 @@ export const WithSubsteps: Story = {
         <Paragraph>{paragraphs[2]}</Paragraph>
       </ProgressList.Step>,
     ],
+    collapsible: true,
   },
 }

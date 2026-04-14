@@ -116,51 +116,6 @@ describe('ProgressListStep', () => {
     expect(step).not.toHaveAttribute('aria-current')
   })
 
-  it('adds the collapsed class when the step is collapsed', () => {
-    render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step heading="Test Step" status="completed">
-          Content
-        </ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const step = screen.getByRole('listitem')
-
-    expect(step).toHaveClass('ams-progress-list__step--collapsed')
-  })
-
-  it('does not add the collapsed class when the step is expanded', () => {
-    render(
-      <ProgressList headingLevel={3}>
-        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const step = screen.getByRole('listitem')
-
-    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
-  })
-
-  it('removes the collapsed class when the button is clicked', () => {
-    render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step heading="Test Step" status="completed">
-          Content
-        </ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const step = screen.getByRole('listitem')
-    const button = screen.getByRole('button', { name: /Test Step/ })
-
-    expect(step).toHaveClass('ams-progress-list__step--collapsed')
-
-    fireEvent.click(button)
-
-    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
-  })
-
   it('adds has-substeps class when hasSubsteps is true', () => {
     render(
       <ProgressList headingLevel={3}>
@@ -200,167 +155,6 @@ describe('ProgressListStep', () => {
 
     expect(panel).toBeInTheDocument()
     expect(panel).toContainElement(getByText('Inner child'))
-  })
-
-  it('renders a button inside the heading', () => {
-    render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const button = screen.getByRole('button', { name: /Test Step/ })
-
-    expect(button).toBeInTheDocument()
-    expect(button).toHaveClass('ams-progress-list__button')
-  })
-
-  it('does not collapse when status is current', () => {
-    render(
-      <ProgressList headingLevel={3}>
-        <ProgressList.Step heading="Test Step" status="current">
-          Content
-        </ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const step = screen.getByRole('listitem')
-
-    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
-  })
-
-  it('expands a completed step when defaultCollapsed is false', () => {
-    render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step defaultCollapsed={false} heading="Test Step" status="completed">
-          Content
-        </ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const step = screen.getByRole('listitem')
-
-    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
-  })
-
-  it('collapses when defaultCollapsed is true', () => {
-    render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step defaultCollapsed heading="Test Step">
-          Content
-        </ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const step = screen.getByRole('listitem')
-
-    expect(step).toHaveClass('ams-progress-list__step--collapsed')
-  })
-
-  it('toggles collapsed state when the button is clicked', () => {
-    render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step heading="Test Step" status="completed">
-          Content
-        </ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const step = screen.getByRole('listitem')
-    const button = screen.getByRole('button', { name: /Test Step/ })
-
-    expect(step).toHaveClass('ams-progress-list__step--collapsed')
-
-    fireEvent.click(button)
-
-    expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
-
-    fireEvent.click(button)
-
-    expect(step).toHaveClass('ams-progress-list__step--collapsed')
-  })
-
-  it('sets aria-expanded on the button', () => {
-    render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step heading="Test Step" status="completed">
-          Content
-        </ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const button = screen.getByRole('button', { name: /Test Step/ })
-
-    expect(button).toHaveAttribute('aria-expanded', 'false')
-
-    fireEvent.click(button)
-
-    expect(button).toHaveAttribute('aria-expanded', 'true')
-  })
-
-  it('links the button to the panel via aria-controls', () => {
-    const { container } = render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const button = screen.getByRole('button', { name: /Test Step/ })
-    const panelId = button.getAttribute('aria-controls')
-    const panel = container.querySelector(`[id="${panelId}"]`)
-
-    expect(panelId).toBeTruthy()
-    expect(panel).toBeInTheDocument()
-    expect(panel).toHaveClass('ams-progress-list__panel')
-  })
-
-  it('calls onToggle with the new expanded state when the button is clicked', () => {
-    const onToggle = vi.fn()
-
-    render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step heading="Test Step" onToggle={onToggle} status="completed">
-          Content
-        </ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const button = screen.getByRole('button', { name: /Test Step/ })
-
-    fireEvent.click(button)
-
-    expect(onToggle).toHaveBeenCalledTimes(1)
-    expect(onToggle).toHaveBeenCalledWith(true)
-
-    fireEvent.click(button)
-
-    expect(onToggle).toHaveBeenCalledTimes(2)
-    expect(onToggle).toHaveBeenLastCalledWith(false)
-  })
-
-  it('does not throw when onToggle is not provided', () => {
-    render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const button = screen.getByRole('button', { name: /Test Step/ })
-
-    expect(() => fireEvent.click(button)).not.toThrow()
-  })
-
-  it('renders the chevron icon inside the button', () => {
-    render(
-      <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
-      </ProgressList>,
-    )
-
-    const button = screen.getByRole('button', { name: /Test Step/ })
-    const icon = button.querySelector('svg')
-
-    expect(icon).toBeInTheDocument()
   })
 
   it('renders the arrow icon only when status is current', () => {
@@ -423,9 +217,9 @@ describe('ProgressListStep', () => {
     expect(ref.current).toBe(step)
   })
 
-  it('does not render a button when collapsible is false', () => {
+  it('does not render a button by default', () => {
     render(
-      <ProgressList collapsible={false} headingLevel={3}>
+      <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
       </ProgressList>,
     )
@@ -434,9 +228,9 @@ describe('ProgressListStep', () => {
     expect(screen.getByRole('heading', { level: 3, name: 'Test Step' })).toBeInTheDocument()
   })
 
-  it('does not render the chevron icon when collapsible is false', () => {
+  it('does not render the chevron icon by default', () => {
     const { container } = render(
-      <ProgressList collapsible={false} headingLevel={3}>
+      <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
       </ProgressList>,
     )
@@ -450,9 +244,9 @@ describe('ProgressListStep', () => {
     expect(icon).not.toBeInTheDocument()
   })
 
-  it('always shows content when collapsible is false, even for completed steps', () => {
+  it('always shows content by default, even for completed steps', () => {
     render(
-      <ProgressList collapsible={false} headingLevel={3}>
+      <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Test Step" status="completed">
           Content
         </ProgressList.Step>
@@ -464,9 +258,9 @@ describe('ProgressListStep', () => {
     expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
   })
 
-  it('ignores defaultCollapsed when collapsible is false', () => {
+  it('ignores defaultCollapsed by default', () => {
     render(
-      <ProgressList collapsible={false} headingLevel={3}>
+      <ProgressList headingLevel={3}>
         <ProgressList.Step defaultCollapsed heading="Test Step">
           Content
         </ProgressList.Step>
@@ -486,5 +280,213 @@ describe('ProgressListStep', () => {
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
+  })
+
+  describe('when collapsible', () => {
+    it('renders a button inside the heading', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const button = screen.getByRole('button', { name: /Test Step/ })
+
+      expect(button).toBeInTheDocument()
+      expect(button).toHaveClass('ams-progress-list__button')
+    })
+
+    it('renders the chevron icon inside the button', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const button = screen.getByRole('button', { name: /Test Step/ })
+      const icon = button.querySelector('svg')
+
+      expect(icon).toBeInTheDocument()
+    })
+
+    it('adds the collapsed class when the step is collapsed', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="Test Step" status="completed">
+            Content
+          </ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const step = screen.getByRole('listitem')
+
+      expect(step).toHaveClass('ams-progress-list__step--collapsed')
+    })
+
+    it('does not add the collapsed class when the step is expanded', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const step = screen.getByRole('listitem')
+
+      expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+    })
+
+    it('does not collapse when status is current', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="Test Step" status="current">
+            Content
+          </ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const step = screen.getByRole('listitem')
+
+      expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+    })
+
+    it('expands a completed step when defaultCollapsed is false', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step defaultCollapsed={false} heading="Test Step" status="completed">
+            Content
+          </ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const step = screen.getByRole('listitem')
+
+      expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+    })
+
+    it('collapses when defaultCollapsed is true', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step defaultCollapsed heading="Test Step">
+            Content
+          </ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const step = screen.getByRole('listitem')
+
+      expect(step).toHaveClass('ams-progress-list__step--collapsed')
+    })
+
+    it('removes the collapsed class when the button is clicked', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="Test Step" status="completed">
+            Content
+          </ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const step = screen.getByRole('listitem')
+      const button = screen.getByRole('button', { name: /Test Step/ })
+
+      expect(step).toHaveClass('ams-progress-list__step--collapsed')
+
+      fireEvent.click(button)
+
+      expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+    })
+
+    it('toggles collapsed state when the button is clicked', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="Test Step" status="completed">
+            Content
+          </ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const step = screen.getByRole('listitem')
+      const button = screen.getByRole('button', { name: /Test Step/ })
+
+      expect(step).toHaveClass('ams-progress-list__step--collapsed')
+
+      fireEvent.click(button)
+
+      expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+
+      fireEvent.click(button)
+
+      expect(step).toHaveClass('ams-progress-list__step--collapsed')
+    })
+
+    it('sets aria-expanded on the button', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="Test Step" status="completed">
+            Content
+          </ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const button = screen.getByRole('button', { name: /Test Step/ })
+
+      expect(button).toHaveAttribute('aria-expanded', 'false')
+
+      fireEvent.click(button)
+
+      expect(button).toHaveAttribute('aria-expanded', 'true')
+    })
+
+    it('links the button to the panel via aria-controls', () => {
+      const { container } = render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const button = screen.getByRole('button', { name: /Test Step/ })
+      const panelId = button.getAttribute('aria-controls')
+      const panel = container.querySelector(`[id="${panelId}"]`)
+
+      expect(panelId).toBeTruthy()
+      expect(panel).toBeInTheDocument()
+      expect(panel).toHaveClass('ams-progress-list__panel')
+    })
+
+    it('calls onToggle with the new expanded state when the button is clicked', () => {
+      const onToggle = vi.fn()
+
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="Test Step" onToggle={onToggle} status="completed">
+            Content
+          </ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const button = screen.getByRole('button', { name: /Test Step/ })
+
+      fireEvent.click(button)
+
+      expect(onToggle).toHaveBeenCalledTimes(1)
+      expect(onToggle).toHaveBeenCalledWith(true)
+
+      fireEvent.click(button)
+
+      expect(onToggle).toHaveBeenCalledTimes(2)
+      expect(onToggle).toHaveBeenLastCalledWith(false)
+    })
+
+    it('does not throw when onToggle is not provided', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="Test Step">Content</ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const button = screen.getByRole('button', { name: /Test Step/ })
+
+      expect(() => fireEvent.click(button)).not.toThrow()
+    })
   })
 })
