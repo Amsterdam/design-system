@@ -1,0 +1,20 @@
+{/* @license CC0-1.0 */}
+
+import { Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import * as BundleTestStories from "./BundleTest.stories.tsx";
+import README from "../../../../packages/css/src/components/bundle-test/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/bundle-test.tokens.json";
+
+import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
+
+<Meta of={BundleTestStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
