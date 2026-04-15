@@ -83,6 +83,7 @@ export const parameters = {
         'Components',
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
         'Utilities',
+        'Patterns',
         'Pages',
         ['Introduction', 'Public', ['Introduction', 'Home Page'], 'Internal', ['Introduction', 'Home Page']],
       ],
