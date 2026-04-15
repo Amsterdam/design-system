@@ -19,11 +19,41 @@ See also: [‘Spacing Research’ pages](http://localhost:6006/?path=/docs/pages
 - Space between containers is large.
   Space between grid columns is x-large.
 
+## Component families
+
+We sort components into five families.
+Most spacing rules apply to a whole family, not to individual components.
+
+**1. Heading 1 + Lead Paragraph** open a page.
+A Heading 1 is always followed by a Paragraph (large).
+
+**2. Heading 2–4** structure the content.
+The space _above_ a heading depends only on its level.
+
+The remaining three families are defined by their members:
+
+| 3. Body content  | 4. Block content | 5. Own Grid Cell |
+| :--------------- | :--------------- | :--------------- |
+| Paragraph        | Blockquote       | Alert            |
+| Description List | Image            | Breadcrumb       |
+| Link List        | Table            | Breakout         |
+| Ordered List     |                  | Image Slider     |
+| Unordered List   |                  | Spotlight        |
+| Standalone Link  |                  |                  |
+| Button           |                  |                  |
+| CTA Link         |                  |                  |
+
+- **Body content** carries the running content; items sit close together.
+- **Block content** interrupts the flow with a stand-out block; items need more breathing room.
+- **Components in their own Grid Cell** inherit the Grid’s spacing and do not appear in the tables below.
+
 ## Find spacing
 
 <SpaceBetweenFinder />
 
-## How to use the tables
+## Detailed tables
+
+### How to read
 
 - For every combination of two components, find the top one in the column headers and the one below in the row headers.
   The cell where they meet shows the recommended [spacing size](/docs/brand-design-tokens-space--docs) between them.
@@ -32,7 +62,7 @@ See also: [‘Spacing Research’ pages](http://localhost:6006/?path=/docs/pages
 - An empty cell or a missing component means we advise against that combination.
 - ‘… List’ refers to Description List, Link List, Ordered List, and Unordered List.
 
-## Space below headings
+### Space below headings
 
 |                       | Heading 1 | Heading 2 | Heading 3 | Heading 4 |
 | :-------------------- | :-------: | :-------: | :-------: | :-------: |
@@ -45,7 +75,7 @@ See also: [‘Spacing Research’ pages](http://localhost:6006/?path=/docs/pages
 | **Paragraph (large)** |    `m`    |           |           |           |
 | **Table**             |           |    `s`    |   `xs`    |    `0`    |
 
-## Space below body text
+### Space below body text
 
 |                           | Blockquote | … List | Paragraph | Paragraph (large) |
 | :------------------------ | :--------: | :----: | :-------: | :---------------: |
@@ -62,7 +92,7 @@ See also: [‘Spacing Research’ pages](http://localhost:6006/?path=/docs/pages
 
 **Accordion** and **Table** with a Caption start with a **Heading** – use the space length for its level (2, 3, 4).
 
-## Space below other components
+### Space below other components
 
 |                           | Button / CTA Link | Image | … List | Standalone Link | Table |
 | :------------------------ | :---------------: | :---: | :----: | :-------------: | :---: |
@@ -76,11 +106,6 @@ See also: [‘Spacing Research’ pages](http://localhost:6006/?path=/docs/pages
 | **… List**                |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
 | **Paragraph**             |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
 | **Table**                 |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
-
-## Components that have their own Grid Cell
-
-**Alert**, **Breadcrumb**, **Breakout**, **Image Slider**, and **Spotlight** must be in their own [Grid Cell](/docs/components-layout-grid--docs).
-No extra spacing is needed.
 
 ## Code example
 
