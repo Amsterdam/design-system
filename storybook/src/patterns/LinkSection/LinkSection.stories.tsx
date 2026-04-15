@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid, Heading, LinkList, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
+import { DownloadIcon } from '@amsterdam/design-system-react-icons'
 
 import type { LinkSectionProps } from './LinkSection'
 
@@ -103,6 +104,28 @@ export const WithParagraphAndLinkList: Story = {
         <LinkList.Link href="#">Werelderfgoed</LinkList.Link>
         <LinkList.Link href="#">Stadscuratorium</LinkList.Link>
         <LinkList.Link href="#">EIT Culture & Creativity</LinkList.Link>
+      </LinkList>
+    </>
+  ),
+}
+
+export const WithDownloadLinks: Story = {
+  args: {
+    heading: 'Trouwen en Partnerschap',
+    paragraph: '',
+  },
+  render: () => (
+    <>
+      <Heading className="ams-mb-s" level={2} size="level-3">
+        Cultureel Weesp
+      </Heading>
+      <LinkList>
+        <LinkList.Link href="#" icon={DownloadIcon}>
+          Cultuurnota Weesp (PDF, 275 kB)
+        </LinkList.Link>
+        <LinkList.Link href="#" icon={DownloadIcon}>
+          Verordeningen Cultuurprijs Weesp (PDF, 275 kB)
+        </LinkList.Link>
       </LinkList>
     </>
   ),
