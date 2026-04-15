@@ -1,0 +1,39 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+import * as SpacingResearchStories from "./SpacingResearch.stories.tsx";
+
+<Meta of={SpacingResearchStories} />
+
+# Spacing research
+
+A set of realistic page compositions used to validate the "Space between" tables.
+Each story exercises a different combination of the components those tables cover, so the spacing choices and the upcoming `ams-prose` class can be eyeballed in context and diffed visually as the rules evolve.
+
+Open each story in isolation mode for a full-page view without the Storybook manager.
+
+## Content pages
+
+Pages driven by a single CMS item: Heading 1, date, Lead Paragraph, hero Image, and body.
+
+- [**Heading staircase**](./iframe.html?id=pages-public-spacing-research--content-heading-staircase&viewMode=story)<br />
+  H1 → H2 → H3 → H4 → H2 sequences with minimal paragraphs, to read the heading-to-heading and heading-to-body spacing end to end.
+- [**Flow passages**](./iframe.html?id=pages-public-spacing-research--content-flow-passages&viewMode=story)<br />
+  Paragraph, Unordered/Ordered/Link List, Standalone Link and CTA Link interleaved; exercises the Flow ↔ Flow `m` cluster.
+- [**Feature interludes**](./iframe.html?id=pages-public-spacing-research--content-feature-interludes&viewMode=story)<br />
+  Paragraphs punctuated by inline Figure, Blockquote and Table; exercises Feature ↔ Feature and Flow ↔ Feature `l`.
+- [**Mixed article**](./iframe.html?id=pages-public-spacing-research--content-mixed-article&viewMode=story)<br />
+  Realistic long-read mixing all four families; the reference story.
+- [**Own-cell neighbours**](./iframe.html?id=pages-public-spacing-research--content-own-cell-neighbours&viewMode=story)<br />
+  Alert, Image Slider, Accordion, Breakout and Spotlight each in their own Grid Cell, confirming they inherit the Grid's `xl` gap.
+
+## Singular pages
+
+Pages built from repeated link blocks (Heading, Paragraph, Link List, Standalone Link) plus Cards and Spotlights — no per-article date.
+
+- [**Link blocks wide**](./iframe.html?id=pages-public-spacing-research--singular-link-blocks-wide&viewMode=story)<br />
+  Side-by-side Link Blocks at `wide: 6`, with a Spotlight section in the middle.
+- [**Navigation overview**](./iframe.html?id=pages-public-spacing-research--singular-navigation-overview&viewMode=story)<br />
+  Navigation-page layout using Link Blocks at `wide: 5` with odd-cell `start` offsets, closed by a row of top-task Cards.
+- [**Home-style mix**](./iframe.html?id=pages-public-spacing-research--singular-home-mix&viewMode=story)<br />
+  Welcome Grid, top-task Cards, a Spotlight band of Link Blocks, and a row of preview Cards — showing how singular-page spacing relies mostly on the Grid's gaps.
