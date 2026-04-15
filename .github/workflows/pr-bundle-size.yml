@@ -30,5 +30,5 @@ jobs:
         with:
           build-script: build
           install-script: pnpm install --frozen-lockfile
-          pattern: "packages/react/dist/**/*.{js,css}"
+          pattern: "{packages/react/dist/**/*.js,packages/css/dist/**/*.css,packages-proprietary/tokens/dist/**/*.{mjs,css,json}}"
           strip-hash: "\\b\\w{8}\\."
