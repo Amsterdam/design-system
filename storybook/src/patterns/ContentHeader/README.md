@@ -2,6 +2,8 @@
 
 # Content Header
 
+The start of a content item – e.g. an article, event, project or vacancy – with a Breadcrumb, level 1 Heading, metadata and a Lead Paragraph.
+
 ## Anatomy
 
 The header of a content page consists of the following elements:

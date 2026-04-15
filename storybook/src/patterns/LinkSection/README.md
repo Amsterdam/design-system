@@ -2,6 +2,8 @@
 
 # Link Section
 
+A small block that provides one or more links, with a Heading and an optional Paragraph.
+
 ## Anatomy
 
 A link section consists of the following elements:

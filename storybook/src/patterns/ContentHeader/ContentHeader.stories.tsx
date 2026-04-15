@@ -12,28 +12,6 @@ import type { ContentHeaderProps } from './ContentHeader'
 import { formatDate } from '../../_common/formatDate'
 import { ContentHeader } from './ContentHeader'
 
-const render = ({ breadcrumb, date, heading, lead }: ContentHeaderProps) => (
-  <>
-    <Grid paddingTop="large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Breadcrumb>
-          <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
-          <Breadcrumb.Link href="#">{breadcrumb}</Breadcrumb.Link>
-        </Breadcrumb>
-      </Grid.Cell>
-    </Grid>
-    <Grid as="main" id="inhoud" paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={1}>
-          {heading}
-        </Heading>
-        <Paragraph className="ams-mb-xl">{formatDate(new Date(date))}</Paragraph>
-        <Paragraph size="large">{lead}</Paragraph>
-      </Grid.Cell>
-    </Grid>
-  </>
-)
-
 const meta = {
   title: 'Patterns/Public/Content Header',
   component: ContentHeader,
@@ -53,5 +31,25 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render,
+  render: ({ breadcrumb, date, heading, lead }: ContentHeaderProps) => (
+    <>
+      <Grid paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Breadcrumb>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+            <Breadcrumb.Link href="#">{breadcrumb}</Breadcrumb.Link>
+          </Breadcrumb>
+        </Grid.Cell>
+      </Grid>
+      <Grid as="main" id="inhoud" paddingBottom="x-large">
+        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Heading className="ams-mb-s" level={1}>
+            {heading}
+          </Heading>
+          <Paragraph className="ams-mb-xl">{formatDate(new Date(date))}</Paragraph>
+          <Paragraph size="large">{lead}</Paragraph>
+        </Grid.Cell>
+      </Grid>
+    </>
+  ),
 }
