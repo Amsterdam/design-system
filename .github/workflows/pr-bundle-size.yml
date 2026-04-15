@@ -30,5 +30,5 @@ jobs:
         with:
           build-script: build
           install-script: pnpm install --frozen-lockfile --ignore-scripts
-          pattern: "{packages/react/dist/index*.js,packages/css/dist/index.css,packages-proprietary/tokens/dist/{index,compact}.{mjs,css,json}}"
+          pattern: "{packages/react/dist/index!(*.cjs).js,packages/css/dist/index.css,packages-proprietary/tokens/dist/!(*.theme).css}"
           strip-hash: "\\b\\w{8}\\."
