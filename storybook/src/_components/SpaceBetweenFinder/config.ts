@@ -62,6 +62,7 @@ export const spaceBetween: Record<string, SpaceSize> = {
   'Button / CTA Link|Standalone Link': 'm',
   'Button / CTA Link|Table': 'l',
   'Heading 1|Heading 2': 'xl',
+  'Heading 1|Paragraph': 'xs',
   'Heading 1|Paragraph (large)': 'm',
   'Heading 2|\u2026 List': 's',
   'Heading 2|Heading 3': 'm',
