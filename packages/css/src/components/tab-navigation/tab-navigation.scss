@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 
@@ -16,13 +17,15 @@
   scroll-snap-type: x mandatory;
 }
 
-.ams-tab-navigation--vertical {
-  @include hyphenation;
+@media (min-width: $ams-breakpoint-medium) {
+  .ams-tab-navigation--vertical {
+    @include hyphenation;
 
-  .ams-tab-navigation__list {
-    box-shadow: var(--ams-tab-navigation-list-vertical-box-shadow);
-    flex-direction: column;
-    overflow-x: visible;
+    .ams-tab-navigation__list {
+      box-shadow: var(--ams-tab-navigation-list-vertical-box-shadow);
+      flex-direction: column;
+      overflow-x: visible;
+    }
   }
 }
 
@@ -63,12 +66,14 @@
     }
   }
 
-  .ams-tab-navigation--vertical &:hover:not([aria-current="page"]) {
-    box-shadow: var(--ams-tab-navigation-link-vertical-hover-box-shadow);
-  }
+  @media (min-width: $ams-breakpoint-medium) {
+    .ams-tab-navigation--vertical &:hover:not([aria-current="page"]) {
+      box-shadow: var(--ams-tab-navigation-link-vertical-hover-box-shadow);
+    }
 
-  .ams-tab-navigation--vertical &[aria-current="page"] {
-    box-shadow: var(--ams-tab-navigation-link-vertical-current-box-shadow);
+    .ams-tab-navigation--vertical &[aria-current="page"] {
+      box-shadow: var(--ams-tab-navigation-link-vertical-current-box-shadow);
+    }
   }
 }
 
