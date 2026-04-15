@@ -45,7 +45,7 @@
       window.LOGLEVEL = 'info';
       window.FRAMEWORK_OPTIONS = {};
       window.CHANNEL_OPTIONS = {};
-      window.FEATURES = {"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false,"disallowImplicitActionsInRenderV8":true,"viewport":true,"highlight":true,"controls":true,"interactions":true,"actions":true,"backgrounds":true,"outline":true,"measure":true,"sidebarOnboardingChecklist":true,"componentsManifest":true};
+      window.FEATURES = {"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false,"disallowImplicitActionsInRenderV8":true,"viewport":true,"highlight":true,"controls":true,"interactions":true,"actions":true,"backgrounds":true,"outline":true,"measure":true,"sidebarOnboardingChecklist":true,"componentsManifest":false};
       window.STORIES = [{"titlePrefix":"","directory":"./src","files":"**/*.docs.mdx","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.docs\\.mdx)$"},{"titlePrefix":"","directory":"./src","files":"**/*.stories.@(js|jsx|ts|tsx)","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(js|jsx|ts|tsx))$"}];
       window.DOCS_OPTIONS = {"defaultName":"Docs"};
       window.TAGS_OPTIONS = {};
@@ -550,16 +550,20 @@
   window.global = window;
 </script>
 
-    <script type="module" crossorigin src="./assets/iframe-7BwSrG-e.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/chunk-BneVvdWh.js">
-    <link rel="modulepreload" crossorigin href="./assets/preload-helper-CV6hqhE5.js">
-    <link rel="modulepreload" crossorigin href="./assets/clsx-ByoTzrZA.js">
-    <link rel="modulepreload" crossorigin href="./assets/react-XedgCGTy.js">
-    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-BrayXyei.js">
-    <link rel="modulepreload" crossorigin href="./assets/chunk-3LY4VQVK-DCNlYdu3.js">
-    <link rel="modulepreload" crossorigin href="./assets/csf-CUFMCocY.js">
-    <link rel="modulepreload" crossorigin href="./assets/index.esm-Dj7-3sXk.js">
-    <link rel="stylesheet" crossorigin href="./assets/iframe-XyDbsd46.css">
+    <script type="module" crossorigin src="./assets/iframe-DUhs6nVr.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/chunk-zsgVPwQN.js">
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-D_VTBiTN.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-4BE7D4DS-CDlZhLrp.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-SL3VIQZ3-BbK2E4D4.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-D0wvkd_0.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-Wx6hiPly.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-GmyBfqKJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-3LY4VQVK-BG-EhfVb.js">
+    <link rel="modulepreload" crossorigin href="./assets/csf-DsnyFt6e.js">
+    <link rel="modulepreload" crossorigin href="./assets/esm-BjhwlfDj.js">
+    <link rel="modulepreload" crossorigin href="./assets/index.esm-6Mm6hKCe.js">
+    <link rel="modulepreload" crossorigin href="./assets/index.esm-BnpK1b4i.js">
+    <link rel="stylesheet" crossorigin href="./assets/iframe-7LqV9HZJ.css">
   </head>
 
   <body>
@@ -691,10 +695,10 @@
         if (hostname !== 'localhost' && globalThis.CONFIG_TYPE === 'DEVELOPMENT') {
           const message = `Failed to load the Storybook preview file 'vite-app.js':
 
-It looks like you're visiting the Storybook development server on another hostname than localhost: '${hostname}', but you haven't configured the necessary security features to support this.
-Please re-run your Storybook development server with the '--host ${hostname}' flag, or manually configure your Vite allowedHosts configuration with viteFinal.
+      It looks like you're visiting the Storybook development server on another hostname than localhost: '${hostname}', but you haven't configured the necessary security features to support this.
+      Please re-run your Storybook development server with the '--host ${hostname}' flag, or manually configure your Vite allowedHosts configuration with viteFinal.
 
-See:`;
+      See:`;
           const docs = [
             'https://storybook.js.org/docs/api/cli-options#dev',
             'https://storybook.js.org/docs/api/main-config/main-config-vite-final',
@@ -706,7 +710,7 @@ See:`;
             `<p style="color: red; max-width: 70ch">${message.replaceAll(
               '\n',
               '<br/>'
-            )}<ul>${docs.map((doc) => `<li><a href='${doc}' target='_blank'>${doc}</a></li>`).join('')}<ul></p>`;
+            )}<ul>${docs.map((doc) => `<li><a href='${doc}' target='_blank'>${doc}</a></li>`).join('')}</ul></p>`;
           return;
         }
       }
