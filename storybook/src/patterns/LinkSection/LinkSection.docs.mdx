@@ -1,0 +1,23 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import * as LinkSectionStories from "./LinkSection.stories.tsx";
+import README from "./README.md?raw";
+
+<Meta of={LinkSectionStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## More examples
+
+### With Link List
+
+<Canvas of={LinkSectionStories.WithLinkList} />
+
+### With Paragraph and Link List
+
+<Canvas of={LinkSectionStories.WithParagraphAndLinkList} />
