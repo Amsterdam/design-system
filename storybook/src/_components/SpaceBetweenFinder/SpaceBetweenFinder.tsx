@@ -50,7 +50,7 @@ export const SpaceBetweenFinder = ({ className, ...restProps }: HTMLAttributes<H
         <p className="_ams-space-between-finder__result">
           {size !== undefined ? (
             <>
-              → Recommended spacing: <code>ams-space-{size}</code>.
+              → Recommended space size: <code>{size}</code>.
             </>
           ) : (
             '→ We advise against this combination.'
