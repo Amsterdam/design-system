@@ -8,6 +8,6 @@ A horizontal or vertical list of links, styled as tabs, to navigate between a se
 
 - Use Tab Navigation for navigating between pages that each have their own main content.
   Thanks to using links, every tab’s content has its own url that the user can open in a new window, share, or bookmark.
-- Use [Tabs](http://designsystem.amsterdam/?path=/docs/components-containers-tabs--docs) instead to switch between small pieces of secondary content without navigating away.
+- Use [Tabs](https://designsystem.amsterdam/?path=/docs/components-containers-tabs--docs) instead to switch between small pieces of secondary content without navigating away.
 - Use the vertical orientation to stack links below each other, e.g. in a sidebar.
 - Add `aria-current="page"` to the link pointing to the current page.
