@@ -5,7 +5,7 @@
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { Accordion } from './Accordion'
 
@@ -53,7 +53,19 @@ describe('AccordionSection', () => {
     expect(sectionContent).not.toHaveClass('ams-accordion__panel--expanded')
   })
 
-  it('adds --expanded class when expanded prop is true', () => {
+  it('adds --expanded class when defaultExpanded prop is true', () => {
+    const { getByText } = render(
+      <Accordion.Section defaultExpanded label={testLabel}>
+        {testContent}
+      </Accordion.Section>,
+    )
+
+    const sectionContent = getByText(testContent)
+
+    expect(sectionContent).toHaveClass('ams-accordion__panel--expanded')
+  })
+
+  it('still supports the deprecated expanded prop', () => {
     const { getByText } = render(
       <Accordion.Section expanded label={testLabel}>
         {testContent}
@@ -63,6 +75,34 @@ describe('AccordionSection', () => {
     const sectionContent = getByText(testContent)
 
     expect(sectionContent).toHaveClass('ams-accordion__panel--expanded')
+  })
+
+  it('lets defaultExpanded take priority over expanded', () => {
+    const { getByText } = render(
+      <Accordion.Section defaultExpanded={false} expanded label={testLabel}>
+        {testContent}
+      </Accordion.Section>,
+    )
+
+    const sectionContent = getByText(testContent)
+
+    expect(sectionContent).not.toHaveClass('ams-accordion__panel--expanded')
+  })
+
+  it('warns when the deprecated expanded prop is used', () => {
+    const spy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    render(
+      <Accordion.Section expanded label={testLabel}>
+        {testContent}
+      </Accordion.Section>,
+    )
+
+    expect(spy).toHaveBeenCalledWith(
+      'Accordion.Section: The `expanded` prop is deprecated. Use `defaultExpanded` instead.',
+    )
+
+    spy.mockRestore()
   })
 
   it('renders a section HTML tag by default', () => {
