@@ -21,7 +21,8 @@ import { Prose } from './Prose'
 
 const render = (props: ProseProps) => (
   <div className="ams-prose" {...props}>
-    <Heading level={1}>Werkzaamheden aan de Oranjeloper</Heading>
+    <Heading level={1}>Werkzaamheden aan de Oranje Loper</Heading>
+    <Paragraph>16 augustus 2024</Paragraph>
     <Paragraph size="large">
       Afgelopen maand konden bewoners hun reactie op de plannen geven tijdens informatiebijeenkomsten. Online kunt u tot
       en met 31 oktober reageren op de plannen.
