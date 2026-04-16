@@ -49,14 +49,7 @@ export const Test: Story = {
       </DescriptionList.Section>,
 
       // n:m in narrow container
-      <div
-        className="ams-inline-size-context"
-        key={8}
-        style={{
-          container: 'ams-layout-context / inline-size', // TODO: replace with coming `ams-containment-context` CSS utility class (another PR).
-          inlineSize: '31.99rem',
-        }}
-      >
+      <div className="ams-inline-size-context" key={8} style={{ inlineSize: '31.99rem' }}>
         <DescriptionList.Section>
           <DescriptionList.Term>Stadsdeel</DescriptionList.Term>
           <DescriptionList.Term>Stadsgebied</DescriptionList.Term>
