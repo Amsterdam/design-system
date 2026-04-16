@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { DescriptionList, Grid } from '@amsterdam/design-system-react/src'
+import { DescriptionList } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { default as descriptionListMeta } from './DescriptionList.stories'
@@ -47,16 +47,30 @@ export const Test: Story = {
         <DescriptionList.Description>Nieuw-West</DescriptionList.Description>
         <DescriptionList.Description>Weesp</DescriptionList.Description>
       </DescriptionList.Section>,
+
+      // n:m in narrow container
+      <div
+        className="ams-inline-size-context"
+        key={8}
+        style={{
+          container: 'ams-layout-context / inline-size', // TODO: replace with coming `ams-containment-context` CSS utility class (another PR).
+          inlineSize: '31.99rem',
+        }}
+      >
+        <DescriptionList.Section>
+          <DescriptionList.Term>Stadsdeel</DescriptionList.Term>
+          <DescriptionList.Term>Stadsgebied</DescriptionList.Term>
+          <DescriptionList.Description>Centrum</DescriptionList.Description>
+          <DescriptionList.Description>Oost</DescriptionList.Description>
+          <DescriptionList.Description>Nieuw-West</DescriptionList.Description>
+          <DescriptionList.Description>Weesp</DescriptionList.Description>
+        </DescriptionList.Section>
+      </div>,
     ],
   },
-  render: (args) => (
-    <Grid>
-      <Grid.Cell span="all">
-        {renderComponentVariants(DescriptionList, {
-          args,
-        })}
-      </Grid.Cell>
-    </Grid>
-  ),
+  render: (args) =>
+    renderComponentVariants(DescriptionList, {
+      args,
+    }),
   tags: ['!dev', '!autodocs'],
 }
