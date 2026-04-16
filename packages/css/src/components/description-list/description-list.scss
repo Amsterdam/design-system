@@ -32,24 +32,39 @@ $ams-description-list-breakpoint: 32rem;
   .ams-description-list,
   .ams-description-list__section {
     align-items: start;
-    column-gap: var(--ams-description-list-column-gap);
+    column-gap: var(
+      --ams-description-list-column-gap /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-description-list-vi-medium-column-gap)
+    );
     display: grid;
     grid-template-columns: auto 1fr;
   }
 
   .ams-description-list--narrow,
   .ams-description-list--narrow .ams-description-list__section {
-    grid-template-columns: var(--ams-description-list-narrow-grid-template-columns);
+    grid-template-columns: var(
+      --ams-description-list-narrow-grid-template-columns
+        /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-description-list-vi-medium-narrow-grid-template-columns)
+    );
   }
 
   .ams-description-list--medium,
   .ams-description-list--medium .ams-description-list__section {
-    grid-template-columns: var(--ams-description-list-medium-grid-template-columns);
+    grid-template-columns: var(
+      --ams-description-list-medium-grid-template-columns
+        /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-description-list-vi-medium-medium-grid-template-columns)
+    );
   }
 
   .ams-description-list--wide,
   .ams-description-list--wide .ams-description-list__section {
-    grid-template-columns: var(--ams-description-list-wide-grid-template-columns);
+    grid-template-columns: var(
+      --ams-description-list-wide-grid-template-columns
+        /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-description-list-vi-medium-wide-grid-template-columns)
+    );
   }
 }
 

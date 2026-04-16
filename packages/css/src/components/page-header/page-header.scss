@@ -20,11 +20,17 @@
   padding-inline: var(--ams-page-header-padding-inline);
 
   @media (min-width: $ams-breakpoint-medium) {
-    padding-inline: var(--ams-page-header-medium-padding-inline);
+    padding-inline: var(
+      --ams-page-header-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-page-header-vi-medium-padding-inline)
+    );
   }
 
   @media (min-width: $ams-breakpoint-wide) {
-    padding-inline: var(--ams-page-header-wide-padding-inline);
+    padding-inline: var(
+      --ams-page-header-wide-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-page-header-vi-wide-padding-inline)
+    );
   }
 }
 
