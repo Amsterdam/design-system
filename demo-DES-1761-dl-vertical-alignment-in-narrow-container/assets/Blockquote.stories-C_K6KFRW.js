@@ -1,0 +1,5 @@
+import{n as e,r as t}from"./chunk-zsgVPwQN.js";import{t as n,ut as r}from"./src-BF4ssZcx.js";import{m as i,u as a}from"./exampleContent-up3wPRrW.js";var o=t({Default:()=>c,InverseColour:()=>l,__namedExportsOrder:()=>u,default:()=>s}),s,c,l,u,d=e((()=>{n(),i(),s={title:`Components/Text/Blockquote`,component:r,args:{children:a()},argTypes:{children:{description:`The text for the quote.`,table:{disable:!1}},color:{control:{labels:{undefined:`default`},type:`radio`},options:[void 0,`inverse`]}}},c={},l={args:{color:`inverse`}},c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{}`,...c.parameters?.docs?.source}}},l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  args: {
+    color: 'inverse'
+  }
+}`,...l.parameters?.docs?.source}}},u=[`Default`,`InverseColour`]}));d();export{c as Default,l as InverseColour,u as __namedExportsOrder,s as default,d as n,o as t};
