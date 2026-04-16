@@ -30,7 +30,7 @@ const meta = {
     ),
   ],
   render: ({ children, ...args }) => (
-    <ProgressList.Step key={String(args.defaultCollapsed)} {...args}>
+    <ProgressList.Step key={`${String(args.defaultCollapsed)}-${String(args.status)}`} {...args}>
       {children}
     </ProgressList.Step>
   ),
