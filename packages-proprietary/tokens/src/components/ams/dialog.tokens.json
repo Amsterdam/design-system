@@ -65,6 +65,18 @@
       },
       "medium": {
         "inline-size": {
+          "$deprecated": "Use `ams.dialog.vi-medium.inline-size` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$type": "dimension"
+        },
+        "max-block-size": {
+          "$deprecated": "Use `ams.dialog.vi-medium.max-block-size` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$type": "dimension"
+        }
+      },
+      "vi-medium": {
+        "inline-size": {
           "$value": "calc(100% - 2 * {ams.space.xl})",
           "$extensions": {
             "nl.amsterdam.type": "dimension"
@@ -107,6 +119,24 @@
         },
         "medium": {
           "padding-block": {
+            "$deprecated": "Use `ams.dialog.header.vi-medium.padding-block` instead. Will be removed on or after 2026-10-17.",
+            "$value": "initial",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
+          },
+          "padding-inline": {
+            "$deprecated": "Use `ams.dialog.header.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+            "$value": "initial",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
+          }
+        },
+        "vi-medium": {
+          "padding-block": {
             "$value": "{ams.space.xl} 0",
             "$extensions": {
               "nl.amsterdam.subtype": "space",
@@ -139,6 +169,16 @@
         },
         "medium": {
           "padding-inline": {
+            "$deprecated": "Use `ams.dialog.body.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+            "$value": "initial",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
+          }
+        },
+        "vi-medium": {
+          "padding-inline": {
             "$value": "{ams.space.xl}",
             "$extensions": {
               "nl.amsterdam.subtype": "space",
@@ -163,6 +203,24 @@
           }
         },
         "medium": {
+          "padding-block": {
+            "$deprecated": "Use `ams.dialog.footer.vi-medium.padding-block` instead. Will be removed on or after 2026-10-17.",
+            "$value": "initial",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
+          },
+          "padding-inline": {
+            "$deprecated": "Use `ams.dialog.footer.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+            "$value": "initial",
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space"
+            }
+          }
+        },
+        "vi-medium": {
           "padding-block": {
             "$value": "0 {ams.space.xl}",
             "$extensions": {

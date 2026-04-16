@@ -150,6 +150,18 @@ We follow [the NL Design System token naming guidelines](https://nldesignsystem.
 
 Find the [list of component tokens](https://github.com/Amsterdam/design-system/tree/main/packages-proprietary/tokens/src/component/ams) on GitHub.
 
+#### Logical viewport inline size tokens
+
+Some component tokens vary by viewport breakpoint and follow [CSS logical properties](https://developer.mozilla.org/en-US/docs/Glossary/Logical_properties) naming:
+
+- `vi` means _viewport inline size_.
+- Breakpoint-specific variants use `vi-medium` and `vi-wide`, for example:
+  - `ams.menu.vi-wide.padding-inline`
+  - `ams.dialog.vi-medium.inline-size`
+  - `ams.grid.vi-medium.column-count`
+
+Components can also use `narrow`, `medium` or `wide` keys without the `vi` prefix when the dimension is intrinsic to the component and not tied to the active viewport breakpoint.
+
 ### Overriding tokens
 
 This package allows the creation of a theme to reuse our components for a different brand.
@@ -161,6 +173,71 @@ We repeat: websites for the City of Amsterdam must follow the design system as c
 At the same time, we are aware that adopting a design system can pose challenges in practice.
 If there is a good reason to (temporarily) adapt a component, do so by overriding the values of its appropriate tokens in a separate stylesheet.
 Note that redefining the value of a token is a much better approach than redeclaring styles, adding class names or even inline styles.
+
+## Deprecating tokens
+
+We deprecate tokens using the DTCG `$deprecated` field. The [official definition](https://www.designtokens.org/tr/drafts/format/#deprecated) allows `$deprecated` to be `true`, `false` or a string explanation.
+
+In ADS, `$deprecated` should be a string so consumers always get a reason + migration path.
+
+### Deprecation message format
+
+- Always include a removal date: `Will be removed on or after YYYY-MM-DD.`
+- If there is a direct replacement, start with: ``Use `<replacement-token>` instead.``
+
+### Simple deprecation (no fallback)
+
+If a deprecated token is still used directly, keep its existing `$value` until removal.
+Also add a deprecation comment next to the token usage in the consuming CSS.
+
+Token JSON:
+
+```jsonc
+"row-gap": {
+  "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-03.",
+  "$value": "0"
+}
+```
+
+Component CSS:
+
+```css
+row-gap: var(--ams-description-list-row-gap); /* This token is @deprecated. Will be removed on or after 2026-10-03. */
+```
+
+### Renames that use `var()` fallback
+
+When a token is renamed but we still want (downstream) overrides of the old token to keep working, we implement the rename through CSS `var()` fallback.
+
+Always add an inline deprecation comment next to the deprecated custom property inside the `var()` call.
+
+1. Update the component CSS to reference the deprecated token first, and the replacement token as the fallback:
+
+```css
+padding-inline: var(
+  --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+  var(--ams-grid-vi-medium-padding-inline)
+);
+```
+
+2. In the token JSON, mark the old token as deprecated and set its `$value` to the CSS-wide keyword `initial`:
+
+```jsonc
+"medium": {
+  "padding-inline": {
+    "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+    "$value": "initial"
+  }
+}
+```
+
+Why `initial`? Per CSS `var()` rules, when a custom property is [not set or is set to a CSS-wide keyword](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/var#syntax) like `initial`, the fallback value is used. This makes the replacement token the default while keeping the deprecated token visible and overrideable.
+
+Only apply this `initial` rule when the deprecated token is used in a `var(--deprecated, <fallback>)` pattern.
+
+### Deprecations without a 1:1 replacement
+
+If there is no 1:1 replacement (design/behavior changed), keep the existing `$value` until removal and update the consuming CSS/markup before deleting the token.
 
 ## Token types
 
