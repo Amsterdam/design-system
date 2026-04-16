@@ -56,6 +56,12 @@ export const ProgressListStep = forwardRef(
     const iconSize = `heading-${headingLevel}` as IconProps['size']
     const panelId = useId()
 
+    // Toggles the local collapsed state and emits the new state
+    const handleClick = () => {
+      setIsCollapsed(!isCollapsed)
+      onToggle?.(isCollapsed)
+    }
+
     return (
       <li
         aria-current={status === 'current' ? 'step' : undefined}
@@ -84,11 +90,7 @@ export const ProgressListStep = forwardRef(
                 aria-controls={panelId}
                 aria-expanded={!isCollapsed}
                 className="ams-progress-list__button"
-                onClick={() => {
-                  const next = !isCollapsed
-                  setIsCollapsed(next)
-                  onToggle?.(!next)
-                }}
+                onClick={handleClick}
                 type="button"
               >
                 <Icon className="ams-progress-list__icon" size={iconSize} svg={ChevronDownIcon} />
