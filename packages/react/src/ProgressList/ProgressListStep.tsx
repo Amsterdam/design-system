@@ -56,10 +56,11 @@ export const ProgressListStep = forwardRef(
     const iconSize = `heading-${headingLevel}` as IconProps['size']
     const panelId = useId()
 
-    // Toggles the local collapsed state and emits the new state
+    // Toggles the local collapsed state and emits the new expanded state
     const handleClick = () => {
+      const nextIsExpanded = isCollapsed
       setIsCollapsed(!isCollapsed)
-      onToggle?.(isCollapsed)
+      onToggle?.(nextIsExpanded)
     }
 
     return (
