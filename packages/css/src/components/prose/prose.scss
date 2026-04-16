@@ -3,6 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
+$ams-button-or-cta: ".ams-button, .ams-call-to-action-link";
+$ams-heavy-body: ".ams-blockquote, .ams-image, .ams-paragraph--large, .ams-table";
+$ams-list-or-paragraph: ".ams-ordered-list, .ams-paragraph:not(.ams-paragraph--large), .ams-unordered-list";
+$ams-minor-heading: ".ams-heading--4, .ams-heading--5, .ams-heading--6";
+$ams-plain-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
+
 @mixin prose-spacing {
   /* Fallback for older browsers: uniform spacing */
   > .ams-heading {
@@ -21,24 +27,29 @@
   /* stylelint-disable-next-line scss/operator-no-unspaced */
   @supports selector(:has(+ *)) {
     /* Reset fallback margins */
-    > .ams-heading,
-    > :not(.ams-heading) {
+    > * {
       margin-block-end: 0;
     }
 
-    /* Heading level 1-2 followed by its content */
-    > :is(.ams-heading--1, .ams-heading--2):has(+ :not(.ams-heading)) {
-      margin-block-end: var(--ams-space-s);
-    }
-
-    /* Heading level 3-6 followed by its content */
-    > :is(.ams-heading--3, .ams-heading--4, .ams-heading--5, .ams-heading--6):has(+ :not(.ams-heading)) {
-      margin-block-end: var(--ams-space-xs);
-    }
-
-    /* Consecutive body-level elements */
+    /* Body-to-body default */
     > :not(.ams-heading):has(+ :not(.ams-heading)) {
       margin-block-end: var(--ams-space-m);
+    }
+
+    /* Heavy body element (Blockquote, Image, Paragraph (large), Table) on either side */
+    > :is(#{$ams-heavy-body}):has(+ :not(.ams-heading)),
+    > :not(.ams-heading):has(+ :is(#{$ams-heavy-body})) {
+      margin-block-end: var(--ams-space-l);
+    }
+
+    /* Button or CTA Link followed by Button or CTA Link */
+    > :is(#{$ams-button-or-cta}):has(+ :is(#{$ams-button-or-cta})) {
+      margin-block-end: var(--ams-space-l);
+    }
+
+    /* Paragraph (large) before Blockquote or Image needs extra air */
+    > .ams-paragraph--large:has(+ :is(.ams-blockquote, .ams-image)) {
+      margin-block-end: var(--ams-space-xl);
     }
 
     /* Body content before an accordion needs a slightly larger gap */
@@ -46,8 +57,13 @@
       margin-block-end: var(--ams-space-l);
     }
 
-    /* Any element before a level 4-6 heading */
-    > *:has(+ :is(.ams-heading--4, .ams-heading--5, .ams-heading--6)) {
+    /* Body before a minor heading (level 4-6): default */
+    > :not(.ams-heading):has(+ :is(#{$ams-minor-heading})) {
+      margin-block-end: var(--ams-space-l);
+    }
+
+    /* List or regular Paragraph before a minor heading: tighter */
+    > :is(#{$ams-list-or-paragraph}):has(+ :is(#{$ams-minor-heading})) {
       margin-block-end: var(--ams-space-m);
     }
 
@@ -59,6 +75,31 @@
     /* Any element before a level 2 heading (section boundary) */
     > *:has(+ .ams-heading--2) {
       margin-block-end: var(--ams-space-xl);
+    }
+
+    /* Heading level 3 followed by its content */
+    > .ams-heading--3:has(+ :not(.ams-heading)) {
+      margin-block-end: var(--ams-space-xs);
+    }
+
+    /* Heading level 2 followed by its content */
+    > .ams-heading--2:has(+ :not(.ams-heading)) {
+      margin-block-end: var(--ams-space-s);
+    }
+
+    /* Heading level 1 followed by a regular Paragraph */
+    > .ams-heading--1:has(+ #{$ams-plain-paragraph}) {
+      margin-block-end: var(--ams-space-xs);
+    }
+
+    /* Heading level 1 followed by a Paragraph (large), typically lead or metadata */
+    > .ams-heading--1:has(+ .ams-paragraph--large) {
+      margin-block-end: var(--ams-space-m);
+    }
+
+    /* Heading level 2 or 3 followed by another heading */
+    > :is(.ams-heading--2, .ams-heading--3):has(+ .ams-heading) {
+      margin-block-end: var(--ams-space-m);
     }
   }
 }
