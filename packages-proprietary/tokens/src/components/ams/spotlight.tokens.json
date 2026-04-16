@@ -3,42 +3,56 @@
     "spotlight": {
       "background-color": {
         "$value": "{ams.color.highlight.purple}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "azure": {
         "background-color": {
           "$value": "{ams.color.highlight.azure}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       },
       "green": {
         "background-color": {
           "$value": "{ams.color.highlight.green}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       },
       "lime": {
         "background-color": {
           "$value": "{ams.color.highlight.lime}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       },
       "magenta": {
         "background-color": {
           "$value": "{ams.color.highlight.magenta}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       },
       "orange": {
         "background-color": {
           "$value": "{ams.color.highlight.orange}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       },
       "yellow": {
         "background-color": {
           "$value": "{ams.color.highlight.yellow}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       }
     }

@@ -10,3 +10,8 @@
 ._ams-design-tokens-table__header th {
   text-align: start;
 }
+
+._ams-design-tokens-table__deprecated-icon {
+  color: var(--ams-color-feedback-warning);
+  vertical-align: middle;
+}

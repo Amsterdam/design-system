@@ -1,9 +1,12 @@
 {
   "ams": {
     "links": {
+      "$description": "Shared base styles for all link-like components.",
       "color": {
         "$value": "{ams.color.interactive.default}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       },
       "text-decoration-thickness": {
         "$value": {
@@ -12,7 +15,8 @@
         },
         "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.hint": "2px"
+          "nl.amsterdam.hint": "2px",
+          "nl.amsterdam.subtype": "space"
         }
       },
       "text-underline-offset": {
@@ -27,9 +31,12 @@
         }
       },
       "hover": {
+        "$description": "On hover the underline thickens and moves closer to the text.",
         "color": {
           "$value": "{ams.color.interactive.hover}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "text-decoration-thickness": {
           "$value": {
@@ -38,7 +45,8 @@
           },
           "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.hint": "3px"
+            "nl.amsterdam.hint": "3px",
+            "nl.amsterdam.subtype": "space"
           }
         },
         "text-underline-offset": {
@@ -54,36 +62,53 @@
         }
       },
       "subtle": {
+        "$description": "For links that are already recognisable from context, e.g. in navigation menus. No underline by default; underline appears on hover.",
         "text-decoration-line": {
-          "$value": "none"
+          "$value": "none",
+          "$extensions": {
+            "nl.amsterdam.type": "textDecorationLine"
+          }
         },
         "hover": {
           "text-decoration-line": {
-            "$value": "underline"
+            "$value": "underline",
+            "$extensions": {
+              "nl.amsterdam.type": "textDecorationLine"
+            }
           }
         }
       },
       "contrast": {
+        "$description": "For links on coloured backgrounds where the default blue lacks sufficient contrast.",
         "color": {
           "$value": "{ams.color.interactive.contrast}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "hover": {
           "color": {
             "$value": "{ams.color.interactive.contrast}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         }
       },
       "inverse": {
+        "$description": "For links on dark backgrounds.",
         "color": {
           "$value": "{ams.color.interactive.inverse}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         },
         "hover": {
           "color": {
             "$value": "{ams.color.interactive.inverse}",
-            "$type": "color"
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
           }
         }
       }

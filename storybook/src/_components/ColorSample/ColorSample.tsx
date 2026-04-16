@@ -15,11 +15,14 @@ type ColorSampleProps = {
   value: string
 } & HTMLAttributes<HTMLDivElement>
 
-export const ColorSample = ({ className, style, value, ...restProps }: ColorSampleProps) =>
-  value ? (
+export const ColorSample = ({ className, style, value, ...restProps }: ColorSampleProps) => {
+  if (!value || value === 'currentColor') return null
+
+  return (
     <div
       {...restProps}
       className={clsx('_ams-color-sample', 'sb-unstyled', className)}
       style={{ ...style, backgroundColor: formatTokenValue(value) }}
     />
-  ) : null
+  )
+}

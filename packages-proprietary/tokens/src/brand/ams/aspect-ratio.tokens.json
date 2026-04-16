@@ -2,22 +2,40 @@
   "ams": {
     "aspect-ratio": {
       "9-16": {
-        "$value": "9 / 16"
+        "$value": "9 / 16",
+        "$extensions": {
+          "nl.amsterdam.type": "aspectRatio"
+        }
       },
       "3-4": {
-        "$value": "3 / 4"
+        "$value": "3 / 4",
+        "$extensions": {
+          "nl.amsterdam.type": "aspectRatio"
+        }
       },
       "1-1": {
-        "$value": "1 / 1"
+        "$value": "1 / 1",
+        "$extensions": {
+          "nl.amsterdam.type": "aspectRatio"
+        }
       },
       "4-3": {
-        "$value": "4 / 3"
+        "$value": "4 / 3",
+        "$extensions": {
+          "nl.amsterdam.type": "aspectRatio"
+        }
       },
       "16-9": {
-        "$value": "16 / 9"
+        "$value": "16 / 9",
+        "$extensions": {
+          "nl.amsterdam.type": "aspectRatio"
+        }
       },
       "16-5": {
-        "$value": "16 / 5"
+        "$value": "16 / 5",
+        "$extensions": {
+          "nl.amsterdam.type": "aspectRatio"
+        }
       }
     }
   }
