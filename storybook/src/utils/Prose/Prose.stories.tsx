@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import {
   CallToActionLink,
+  Grid,
   Heading,
   Link,
   OrderedList,
@@ -124,6 +125,15 @@ const render = (props: ProseProps) => (
 const meta = {
   title: 'Utilities/CSS/Prose',
   component: Prose,
+  decorators: [
+    (Story) => (
+      <Grid>
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          <Story />
+        </Grid.Cell>
+      </Grid>
+    ),
+  ],
 } satisfies Meta<typeof Prose>
 
 export default meta
