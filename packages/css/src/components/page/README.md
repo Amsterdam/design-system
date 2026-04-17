@@ -6,12 +6,12 @@ Contains the entire website.
 
 The Page component wraps the [Page Header](https://designsystem.amsterdam/?path=/docs/components-containers-page-header--docs),
 [Page Footer](https://designsystem.amsterdam/?path=/docs/components-containers-page-footer--docs), and the main content in between.
-As a root layout component, it must be used for all websites for the City of Amsterdam.
 It is centered horizontally and sets a maximum width of 90 rems (usually 1.440 pixels).
 With a Menu, that becomes 120 rems (1.920 pixels).
 
 ## Guidelines
 
+- As a root layout component, it must be used for all websites for the City of Amsterdam.
 - Components can adapt their appearance to the width of a container component and ultimately the Page component through a [CSS container query](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries).
-- Because Page is the top-level layout container, it allows components to adapt their appearance to the Page component's available inline size by using container queries instead of [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries). This matches the viewport width only until the Page reaches its configured maximum width.
+- Because Page is the top-level layout container, it allows components to adapt their appearance to the Page component’s available inline size by using container queries instead of [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries). This matches the viewport width only until the Page reaches its configured maximum width.
 - Page responds to the container names `ams-page-containment-context` (for Page-specific rules) and `ams-inline-size-context` (the shared name used across layout containers — see [Inline Size Context](/docs/utilities-css-inline-size-context--docs)).
