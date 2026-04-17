@@ -1,0 +1,162 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+import { VerticalSpaceFinder } from "../../_components/VerticalSpaceFinder/VerticalSpaceFinder";
+
+<Meta title="Docs/Designer Guide/Vertical space" />
+
+# Vertical space
+
+Components don’t add whitespace on their outside, because it depends on the combination.
+When composing patterns and pages, the vertical space between components is yours to apply.
+This page explains how much of it we recommend for the various combinations.
+
+## Space finder
+
+Select two components to get the recommended vertical space between them:
+
+<VerticalSpaceFinder />
+
+## Patterns
+
+### Body text
+
+This family of components have **medium** space between each other:
+
+- Paragraph (expect for the ‘large’ variant)
+- Description List, Link List, Ordered List, Unordered List
+- Button, Standalone Link, Call to Action Link
+
+### Body blocks
+
+These components have **large** space between each other, as well as above and below them:
+
+- Blockquote, Image, Table
+
+### In Grid Cell
+
+These components each sit in their own Grid Cell and need **no** extra spacing:
+
+- Alert, Breadcrumb, Breakout, Image Slider, Spotlight
+
+They inherit the Grid’s spacing and do not appear in the tables below.
+
+### Content Heading
+
+A content page for a public website usually starts with a Breadcrumb, a level 1 Heading, and a lead Paragraph.
+The space between them is as follows:
+
+- Breadcrumb → Heading 1: **zero**
+- Heading 1 → Lead Paragraph: **x-small**
+- Heading 1 → Metadata Paragraph: **medium**
+- Lead Paragraph → Heading 2: **x-large**
+
+### Section Headings
+
+The space before and after level 2, 3, and 4 headings is generally as follows:
+
+- Before a Heading 2: **x-large**
+- Before a Heading 3/4: **large**
+- Heading 2/3 → Heading 3/4: **medium**
+- Heading 2 → Body text: **small**
+- Heading 3 → Body text: **x-small**
+
+A few exceptions here – find them in the Space Finder above, or the Tables below.
+
+## Detailed tables
+
+The tables below list the individual space values for all combinations.
+They are the same as in the sections above.
+
+### How to read
+
+- For every combination of two components, find the top one in the column headers and the one below in the row headers.
+  The cell where they meet shows the recommended spacing size between them.
+- An empty cell or a missing component means we advise against that combination.
+- ‘… List’ refers to Description List, Link List, Ordered List, and Unordered List.
+
+### Space below headings
+
+|                       | Heading 1 | Heading 2 | Heading 3 | Heading 4 |
+| :-------------------- | :-------: | :-------: | :-------: | :-------: |
+| **Heading 2**         |   `xl`    |           |           |           |
+| **Heading 3**         |           |    `m`    |           |           |
+| **Heading 4**         |           |           |    `m`    |           |
+| **Blockquote**        |           |           |           |           |
+| **… List**            |           |    `s`    |   `xs`    |    `0`    |
+| **Paragraph**         |   `xs`    |    `s`    |   `xs`    |    `0`    |
+| **Paragraph (large)** |    `m`    |           |           |           |
+| **Table**             |           |    `s`    |   `xs`    |    `0`    |
+
+- Use the visual size of **Headings**.
+  For instance, with a `<Heading level={2} size="level-3" />`, refer to ‘Heading 3’ in these tables.
+
+### Space below body text
+
+|                           | Blockquote | … List | Paragraph | Paragraph (large) |
+| :------------------------ | :--------: | :----: | :-------: | :---------------: |
+| **Heading 2**             |            |  `xl`  |   `xl`    |       `xl`        |
+| **Heading 3**             |            |  `l`   |    `l`    |                   |
+| **Heading 4**             |            |  `m`   |    `m`    |                   |
+| **Blockquote**            |            |  `l`   |    `l`    |       `xl`        |
+| **Button** / **CTA Link** |    `l`     |  `m`   |    `m`    |                   |
+| **Image**                 |    `l`     |  `l`   |    `l`    |       `xl`        |
+| **Standalone Link**       |    `l`     |  `m`   |    `m`    |        `l`        |
+| **… List**                |    `l`     |  `m`   |    `m`    |        `l`        |
+| **Paragraph**             |    `l`     |  `m`   |    `m`    |        `l`        |
+| **Table**                 |    `l`     |  `l`   |    `l`    |        `l`        |
+
+- **Accordion** and **Table** with a Caption start with a **Heading** – use the space length for its size or level (2, 3, 4).
+
+### Space below other components
+
+|                           | Button / CTA Link | Image | … List | Standalone Link | Table |
+| :------------------------ | :---------------: | :---: | :----: | :-------------: | :---: |
+| **Heading 2**             |       `xl`        | `xl`  |  `xl`  |      `xl`       | `xl`  |
+| **Heading 3**             |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Heading 4**             |        `l`        |  `l`  |  `m`   |       `l`       |  `l`  |
+| **Blockquote**            |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Button** / **CTA Link** |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Image**                 |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Standalone Link**       |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
+| **… List**                |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Paragraph**             |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Table**                 |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
+
+## Code examples
+
+### Apply individual margins
+
+Add one of the [Margin](/docs/utilities-css-margin--docs) utility classes (`ams-mb-*`) on individual elements to apply a bottom margin to them.
+
+```tsx
+<Grid.Cell>
+  <Heading className="ams-mb-s" level={1}>
+    Met korting van A naar B op de deelscooter of -bakfiets
+  </Heading>
+  <Paragraph className="ams-mb-xl">29 juli 2025</Paragraph>
+  <Paragraph size="large">
+    Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
+    Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
+  </Paragraph>
+</Grid.Cell>
+```
+
+### Prose
+
+Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to the parent element to have all spacing applied at once:
+
+```tsx
+<article className="ams-prose">
+  <Heading level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
+  <Paragraph>29 juli 2025</Paragraph>
+  <Paragraph size="large">
+    Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
+    Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
+  </Paragraph>
+</article>
+```
+
+## See also
+
+- Consult the [space tokens](/docs/brand-design-tokens-space--docs) to get the various pixel values for each size.
