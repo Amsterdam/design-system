@@ -1,10 +1,16 @@
 {/* @license CC0-1.0 */}
 
 import { Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { StatusBadge } from "../../_components/StatusBadge/StatusBadge";
 import * as ProseStories from "./Prose.stories.tsx";
 import README from "../../../../packages/css/src/components/prose/README.md?raw";
 
 <Meta of={ProseStories} />
+
+<StatusBadge
+  description="Covers many element combinations. Exceptions will surface – we’ll iterate. API is stable."
+  status="beta"
+/>
 
 <Markdown>{README}</Markdown>
 
