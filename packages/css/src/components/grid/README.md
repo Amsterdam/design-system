@@ -22,6 +22,7 @@ Divides the screen into columns to align the elements of a page.
   The component is currently intended for the full width of the page only.
 - The Gap utility classes must not be used on the Grid component.
 - Components can adapt their appearance to the width of their Grid Cell through a [CSS container query](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries).
+  Each cell responds to the container names `ams-grid-cell-containment-context` (for Grid Cell-specific rules) and `ams-inline-size-context` (the shared name used across layout containers — see [Inline Size Context](/docs/utilities-css-inline-size-context--docs)).
 
 ## Design
 
