@@ -30,11 +30,6 @@ const meta = {
       options: ['horizontal', 'vertical'],
     },
   },
-  decorators: [
-    (Story, context) => (
-      <div style={{ maxWidth: context.args.orientation === 'vertical' ? '16rem' : undefined }}>{Story()}</div>
-    ),
-  ],
 } satisfies Meta<typeof TabNavigation>
 
 export default meta
