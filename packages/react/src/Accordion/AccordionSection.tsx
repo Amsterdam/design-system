@@ -7,7 +7,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useContext, useId, useState } from 'react'
+import { forwardRef, useContext, useEffect, useId, useState } from 'react'
 
 import type { IconProps } from '../Icon'
 
@@ -17,6 +17,11 @@ import { AccordionContext } from './AccordionContext'
 
 export type AccordionSectionProps = {
   /** Whether the content is displayed initially. */
+  defaultExpanded?: boolean
+  /**
+   * Whether the content is displayed initially.
+   * @deprecated Use the `defaultExpanded` prop instead. Will be removed on or after 2026-10-17.
+   */
   expanded?: boolean
   /** The heading text. */
   label: string
@@ -24,11 +29,17 @@ export type AccordionSectionProps = {
 
 export const AccordionSection = forwardRef(
   (
-    { children, className, expanded = false, label, ...restProps }: AccordionSectionProps,
+    { children, className, defaultExpanded, expanded, label, ...restProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const { headingLevel, sectionAs } = useContext(AccordionContext)
-    const [isExpanded, setIsExpanded] = useState(expanded)
+    const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? expanded ?? false)
+
+    useEffect(() => {
+      if (expanded !== undefined) {
+        console.warn('Accordion.Section: The `expanded` prop is deprecated. Use `defaultExpanded` instead.')
+      }
+    }, [])
 
     const SectionTag = sectionAs || 'section'
     const id = useId()
