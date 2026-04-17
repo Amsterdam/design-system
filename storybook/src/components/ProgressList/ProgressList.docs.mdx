@@ -20,15 +20,21 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 ### Step
 
-Current and upcoming steps start expanded by default.
-Completed ones are initially collapsed.
-Use the `defaultCollapsed` prop to override this, e.g. to show a Progress List with all steps collapsed.
-
 <Canvas of={ProgressListStepStories.Step} />
 
 <Controls of={ProgressListStepStories.Step} />
 
 ## Examples
+
+### Collapsible
+
+Set `collapsible` to `true` to let users expand and collapse the content of each step.
+Current and upcoming steps then start expanded.
+Completed ones are initially collapsed.
+Use the `defaultCollapsed` prop on a step to override the default behaviour.
+The `onToggle` callback emits the expanded state whenever it changes.
+
+<Canvas of={ProgressListStories.Collapsible} />
 
 ### With substeps
 

@@ -24,12 +24,16 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <ProgressList headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <Story />
       </ProgressList>
     ),
   ],
-  render: ({ children, ...args }) => <ProgressList.Step {...args}>{children}</ProgressList.Step>,
+  render: ({ children, ...args }) => (
+    <ProgressList.Step key={`${String(args.defaultCollapsed)}-${String(args.status)}`} {...args}>
+      {children}
+    </ProgressList.Step>
+  ),
 } satisfies Meta<typeof ProgressList.Step>
 
 export default meta
