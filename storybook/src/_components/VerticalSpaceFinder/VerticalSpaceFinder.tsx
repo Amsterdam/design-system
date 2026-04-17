@@ -21,7 +21,7 @@ export const VerticalSpaceFinder = ({ className, ...restProps }: HTMLAttributes<
   const bothSelected = above !== '' && below !== ''
 
   return (
-    <div {...restProps} className={clsx('_ams-vertical-space-finder sb-docs sb-docs-content', className)}>
+    <div {...restProps} className={clsx('_ams-vertical-space-finder sb-unstyled', className)}>
       <div className="_ams-vertical-space-finder__fields">
         <div>
           <label className="ams-visually-hidden" htmlFor="_ams-vertical-space-component-1">

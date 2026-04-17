@@ -19,8 +19,9 @@ import type { ProseProps } from './Prose'
 
 import { Prose } from './Prose'
 
+//eslint-disable-next-line @typescript-eslint/no-unused-vars -- Required to render source code in Storybook.
 const render = (props: ProseProps) => (
-  <div {...props} className="ams-prose">
+  <article className="ams-prose">
     <Heading level={1}>Werkzaamheden aan de Oranje Loper</Heading>
     <Paragraph>16 augustus 2024</Paragraph>
     <Paragraph size="large">
@@ -118,7 +119,7 @@ const render = (props: ProseProps) => (
       hoogte houden van wijzigingen in de planning en tijdelijke omleidingen.
     </Paragraph>
     <CallToActionLink href="#">Aanmelden voor de nieuwsbrief</CallToActionLink>
-  </div>
+  </article>
 )
 
 const meta = {
