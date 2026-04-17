@@ -3,10 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { ProgressList, progressListHeadingLevels } from './ProgressList'
 
@@ -96,34 +96,40 @@ describe('ProgressList', () => {
     expect(subStep).toHaveClass('ams-progress-list-substeps__step')
   })
 
-  it('sets focus on step buttons when using arrow keys', async () => {
-    const user = userEvent.setup()
-
+  it('renders no buttons by default', () => {
     render(
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="one">Content</ProgressList.Step>
         <ProgressList.Step heading="two">Content</ProgressList.Step>
-        <ProgressList.Step heading="three">Content</ProgressList.Step>
       </ProgressList>,
     )
 
-    const firstButton = screen.getByRole('button', { name: /one/ })
-    const thirdButton = screen.getByRole('button', { name: /three/ })
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+  })
 
-    await user.click(firstButton)
+  it('does not handle keyboard navigation by default', () => {
+    render(
+      <ProgressList headingLevel={3}>
+        <ProgressList.Step heading="one">Content</ProgressList.Step>
+        <ProgressList.Step heading="two">Content</ProgressList.Step>
+      </ProgressList>,
+    )
 
-    expect(firstButton).toHaveFocus()
+    const list = screen.getByRole('list')
+    const onKeyDown = vi.fn()
 
-    await user.keyboard('{ArrowDown}')
-    await user.keyboard('{ArrowDown}')
+    list.addEventListener('keydown', onKeyDown)
 
-    expect(thirdButton).toHaveFocus()
-    expect(firstButton).not.toHaveFocus()
+    for (const key of ['ArrowDown', 'ArrowUp', 'Home', 'End']) {
+      fireEvent.keyDown(list, { key })
+    }
 
-    // Rotating: wraps from last to first
-    await user.keyboard('{ArrowDown}')
+    // Events fire on the element, but none are intercepted (no preventDefault called)
+    expect(onKeyDown).toHaveBeenCalledTimes(4)
 
-    expect(firstButton).toHaveFocus()
+    for (const call of onKeyDown.mock.calls) {
+      expect(call[0].defaultPrevented).toBe(false)
+    }
   })
 
   it('passes additional props', () => {
@@ -134,5 +140,37 @@ describe('ProgressList', () => {
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
+  })
+
+  describe('when collapsible', () => {
+    it('sets focus on step buttons when using arrow keys', async () => {
+      const user = userEvent.setup()
+
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step heading="one">Content</ProgressList.Step>
+          <ProgressList.Step heading="two">Content</ProgressList.Step>
+          <ProgressList.Step heading="three">Content</ProgressList.Step>
+        </ProgressList>,
+      )
+
+      const firstButton = screen.getByRole('button', { name: /one/ })
+      const thirdButton = screen.getByRole('button', { name: /three/ })
+
+      await user.click(firstButton)
+
+      expect(firstButton).toHaveFocus()
+
+      await user.keyboard('{ArrowDown}')
+      await user.keyboard('{ArrowDown}')
+
+      expect(thirdButton).toHaveFocus()
+      expect(firstButton).not.toHaveFocus()
+
+      // Rotating: wraps from last to first
+      await user.keyboard('{ArrowDown}')
+
+      expect(firstButton).toHaveFocus()
+    })
   })
 })
