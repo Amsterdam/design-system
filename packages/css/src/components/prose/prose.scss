@@ -1,0 +1,104 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+$_ams-body-block: ".ams-blockquote, .ams-image, .ams-paragraph--large, .ams-table";
+$_ams-button-or-cta: ".ams-button, .ams-call-to-action-link";
+$_ams-list-or-paragraph: ".ams-description-list, .ams-link-list, .ams-ordered-list, .ams-paragraph:not(.ams-paragraph--large), .ams-unordered-list";
+$_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
+
+.ams-prose {
+  /* Fallback for older browsers: uniform spacing */
+  > .ams-heading {
+    margin-block-end: var(--ams-space-s);
+  }
+
+  > :not(.ams-heading) {
+    margin-block-end: var(--ams-space-m);
+  }
+
+  > :last-child {
+    margin-block-end: 0;
+  }
+
+  /* Context-aware spacing for browsers with :has() support */
+  /* stylelint-disable-next-line scss/operator-no-unspaced -- Prettier removes the space after ‘*’, which is valid CSS. */
+  @supports selector(:has(+ *)) {
+    /* Reset fallback margins */
+    > * {
+      margin-block-end: 0;
+    }
+
+    /* Body-to-body default */
+    > :not(.ams-heading):has(+ :not(.ams-heading)) {
+      margin-block-end: var(--ams-space-m);
+    }
+
+    /* Heavy body element (Blockquote, Image, Paragraph (large), Table) on either side */
+    > :is(#{$_ams-body-block}):has(+ :not(.ams-heading)),
+    > :not(.ams-heading):has(+ :is(#{$_ams-body-block})) {
+      margin-block-end: var(--ams-space-l);
+    }
+
+    /* Button or CTA Link followed by Button or CTA Link */
+    > :is(#{$_ams-button-or-cta}):has(+ :is(#{$_ams-button-or-cta})) {
+      margin-block-end: var(--ams-space-l);
+    }
+
+    /* Paragraph (large) before Blockquote or Image needs extra air */
+    > .ams-paragraph--large:has(+ :is(.ams-blockquote, .ams-image)) {
+      margin-block-end: var(--ams-space-xl);
+    }
+
+    /* Body content before an accordion needs a slightly larger gap */
+    > :not(.ams-heading):has(+ .ams-accordion) {
+      margin-block-end: var(--ams-space-l);
+    }
+
+    /* Body before a level 4 heading: default */
+    > :not(.ams-heading):has(+ :is(.ams-heading--4)) {
+      margin-block-end: var(--ams-space-l);
+    }
+
+    /* List or regular Paragraph before a level 4 heading: tighter */
+    > :is(#{$_ams-list-or-paragraph}):has(+ :is(.ams-heading--4)) {
+      margin-block-end: var(--ams-space-m);
+    }
+
+    /* Any element before a level 3 heading (subsection boundary) */
+    > *:has(+ .ams-heading--3) {
+      margin-block-end: var(--ams-space-l);
+    }
+
+    /* Any element before a level 2 heading (section boundary) */
+    > *:has(+ .ams-heading--2) {
+      margin-block-end: var(--ams-space-xl);
+    }
+
+    /* Heading level 3 followed by its content */
+    > .ams-heading--3:has(+ :not(.ams-heading)) {
+      margin-block-end: var(--ams-space-xs);
+    }
+
+    /* Heading level 2 followed by its content */
+    > .ams-heading--2:has(+ :not(.ams-heading)) {
+      margin-block-end: var(--ams-space-s);
+    }
+
+    /* Heading level 1 followed by a regular Paragraph */
+    > .ams-heading--1:has(+ #{$_ams-paragraph}) {
+      margin-block-end: var(--ams-space-xs);
+    }
+
+    /* Heading level 1 followed by a Paragraph (large), typically lead or metadata */
+    > .ams-heading--1:has(+ .ams-paragraph--large) {
+      margin-block-end: var(--ams-space-m);
+    }
+
+    /* Heading level 2 or 3 followed by another heading */
+    > :is(.ams-heading--2, .ams-heading--3):has(+ .ams-heading) {
+      margin-block-end: var(--ams-space-m);
+    }
+  }
+}
