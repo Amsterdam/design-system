@@ -1,0 +1,52 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
+import * as TabNavigationStories from "./TabNavigation.stories.tsx";
+import README from "../../../../packages/css/src/components/tab-navigation/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/tab-navigation.tokens.json";
+
+import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
+
+<Meta of={TabNavigationStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Keyboard support
+
+The user can navigate the links with their keyboard:
+
+| key         | element                                        |
+| :---------- | :--------------------------------------------- |
+| Tab         | Go to the next element that can have focus     |
+| Shift + Tab | Go to the previous element that can have focus |
+| Enter       | Follow the link that has focus                 |
+
+## Examples
+
+### Vertical
+
+The links can stack vertically through the `orientation` prop.
+This layout kicks in from the medium breakpoint upward.
+
+<Canvas of={TabNavigationStories.Vertical} />
+
+### With icons
+
+Each link can display an icon before its label.
+
+<Canvas of={TabNavigationStories.WithIcons} />
+
+### With many links
+
+The links scroll horizontally when their width exceeds the available space.
+
+<Canvas of={TabNavigationStories.WithManyLinks} />
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
