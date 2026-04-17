@@ -67,18 +67,6 @@ $ams-grid-row-span-max: 4;
   @include ams-grid--padding-vertical--2x-large;
 }
 
-.ams-grid--padding-horizontal--none {
-  @include ams-grid--padding-horizontal--none;
-}
-
-// .ams-grid--padding-horizontal--large {
-//   @include ams-grid--padding-horizontal--large;
-// }
-
-.ams-grid--padding-horizontal--x-large {
-  @include ams-grid--padding-horizontal--x-large;
-}
-
 // Cell
 
 .ams-grid__cell {

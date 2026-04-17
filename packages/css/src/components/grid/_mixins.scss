@@ -11,7 +11,7 @@
   column-gap: var(--ams-grid-column-gap);
   display: grid;
   grid-template-columns: repeat(var(--ams-grid-column-count), 1fr);
-  padding-inline: var(--ams-grid-padding-inline-l);
+  padding-inline: var(--ams-grid-padding-inline);
   row-gap: var(--ams-grid-row-gap-xl);
 
   @media (min-width: $ams-breakpoint-medium) {
@@ -22,6 +22,10 @@
       ),
       1fr
     );
+    padding-inline: var(
+      --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-grid-vi-medium-padding-inline)
+    );
   }
 
   @media (min-width: $ams-breakpoint-wide) {
@@ -31,6 +35,10 @@
         var(--ams-grid-vi-wide-column-count)
       ),
       1fr
+    );
+    padding-inline: var(
+      --ams-grid-wide-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      var(--ams-grid-vi-wide-padding-inline)
     );
   }
 }
@@ -85,14 +93,6 @@
 
 @mixin ams-grid--padding-vertical--2x-large {
   padding-block: var(--ams-grid-padding-block-2xl);
-}
-
-@mixin ams-grid--padding-horizontal--none {
-  padding-inline: initial;
-}
-
-@mixin ams-grid--padding-horizontal--x-large {
-  padding-inline: var(--ams-grid-padding-inline-xl);
 }
 
 // Cell

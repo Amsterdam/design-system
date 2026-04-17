@@ -21,7 +21,7 @@
         }
       },
       "padding-inline": {
-        "$value": "{ams.space.l}",
+        "$value": "{ams.grid.padding-inline}",
         "$extensions": {
           "nl.amsterdam.hint": "Must be the Grid inline padding, to make sure Header and Grid line up.",
           "nl.amsterdam.subtype": "space",

@@ -41,10 +41,6 @@ type CellStory = StoryObj<typeof cellMeta>
 
 const StoryTemplate: Story = {
   args: {
-    children: [
-      <Grid.Cell className="_ams-item" key={1} span="all" />,
-      <Grid.Cell className="_ams-item" key={2} span="all" />,
-    ],
     paddingVertical: 'x-large',
   },
   decorators: [
@@ -87,7 +83,6 @@ export const VerticalGap: Story = {
   ...StoryTemplate,
   args: {
     ...StoryTemplate.args,
-
     children: [
       <Grid.Cell className="_ams-item" key={1} span="all" />,
       <Grid.Cell className="_ams-item" key={2} span="all" />,

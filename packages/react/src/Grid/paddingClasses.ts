@@ -3,13 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { GridVerticalPadding } from './Grid'
+import type { GridPadding } from './Grid'
 
 export const paddingClasses = (
   componentName: string,
-  paddingBottom?: GridVerticalPadding,
-  paddingTop?: GridVerticalPadding,
-  paddingVertical?: GridVerticalPadding,
+  paddingBottom?: GridPadding,
+  paddingTop?: GridPadding,
+  paddingVertical?: GridPadding,
 ): string[] => {
   const classes: string[] = []
 
