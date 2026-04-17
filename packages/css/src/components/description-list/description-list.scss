@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+@use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
@@ -28,7 +29,55 @@ $ams-description-list-breakpoint: 32rem;
   @include text-rendering;
 }
 
-@container ams-inline-size-context (min-inline-size: #{$ams-description-list-breakpoint}) {
+.ams-description-list--inverse {
+  color: var(--ams-description-list-inverse-color);
+}
+
+.ams-description-list__term {
+  font-size: var(--ams-description-list-term-font-size);
+  font-weight: var(--ams-description-list-term-font-weight);
+  line-height: var(--ams-description-list-term-line-height);
+  margin-block-end: var(--ams-description-list-term-margin-block-end);
+
+  /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
+  text-wrap: var(--ams-description-list-term-text-wrap);
+
+  /* stylelint-disable-next-line plugin/use-baseline -- Suboptimal spacing in non-supporting browsers is acceptable */
+  &:has(+ .ams-description-list__term) {
+    margin-block-end: 0;
+  }
+}
+
+.ams-description-list__description {
+  @include reset-dd;
+
+  font-weight: var(--ams-description-list-description-font-weight);
+  margin-block-end: var(--ams-description-list-description-margin-block-end);
+  padding-inline-start: var(--ams-description-list-description-padding-inline-start);
+}
+
+.ams-description-list__section {
+  margin-block-end: var(--ams-description-list-section-margin-block-end);
+}
+
+// Remove trailing margins
+/* stylelint-disable-next-line no-duplicate-selectors -- Natural reading order, prevents descending specificity */
+.ams-description-list {
+  > .ams-description-list__term:last-child,
+  > .ams-description-list__description:last-child,
+  > .ams-description-list__section:last-child,
+  > .ams-description-list__section:last-child > .ams-description-list__term:last-child,
+  > .ams-description-list__section:last-child > .ams-description-list__description:last-child {
+    margin-block-end: 0;
+  }
+}
+
+// Responsive layout: switch between horizontal and vertical orientation based on available width.
+// Narrow: terms and descriptions stack vertically.
+// Medium and wide: terms and descriptions sit side by side in a grid.
+
+// Horizontal layout styles, shared by @media (baseline) and @container (preferred) for wider views.
+@mixin ams-description-list--horizontal {
   .ams-description-list,
   .ams-description-list__section {
     align-items: start;
@@ -38,6 +87,39 @@ $ams-description-list-breakpoint: 32rem;
     );
     display: grid;
     grid-template-columns: auto 1fr;
+  }
+
+  .ams-description-list__term {
+    grid-column-start: 1;
+    margin-block-end: var(--ams-description-list-term-vi-medium-margin-block-end);
+
+    &:not(& + &, :last-child) {
+      padding-block-start: calc(
+        (
+            var(--ams-description-list-font-size) *
+              var(--ams-description-list-line-height) - var(--ams-description-list-term-font-size) *
+              var(--ams-description-list-term-line-height)
+          ) /
+          2
+      );
+    }
+  }
+
+  .ams-description-list__description {
+    grid-column-start: 2;
+    padding-inline-start: 0;
+
+    &:first-of-type {
+      grid-row-start: 1;
+    }
+  }
+
+  .ams-description-list__section {
+    grid-column: span 2;
+
+    > :only-of-type {
+      grid-row: 1 / 9;
+    }
   }
 
   .ams-description-list--narrow,
@@ -66,97 +148,54 @@ $ams-description-list-breakpoint: 32rem;
       var(--ams-description-list-vi-medium-wide-grid-template-columns)
     );
   }
-}
 
-.ams-description-list--inverse {
-  color: var(--ams-description-list-inverse-color);
-}
-
-.ams-description-list__term {
-  font-size: var(--ams-description-list-term-font-size);
-  font-weight: var(--ams-description-list-term-font-weight);
-  line-height: var(--ams-description-list-term-line-height);
-  margin-block-end: var(--ams-description-list-term-margin-block-end);
-
-  /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
-  text-wrap: var(--ams-description-list-term-text-wrap);
-
-  @container ams-inline-size-context (min-inline-size: #{$ams-description-list-breakpoint}) {
-    grid-column-start: 1;
-
-    // Add margin for Terms that are longer than their Description(s)
-    margin-block-end: var(--ams-description-list-term-vi-medium-margin-block-end);
-
-    // Add half of the difference in computed line heights to align Terms with Descriptions.
-    // - Terms use heading line heights; Descriptions use body text
-    // - Not for Terms that follow a Term, or which are the last child
-    &:not(& + &, :last-child) {
-      padding-block-start: calc(
-        (
-            var(--ams-description-list-font-size) *
-              var(--ams-description-list-line-height) - var(--ams-description-list-term-font-size) *
-              var(--ams-description-list-term-line-height)
-          ) /
-          2
-      );
-    }
-  }
-
-  // Remove whitespace between consecutive Terms
-  /* stylelint-disable-next-line plugin/use-baseline -- Suboptimal spacing in non-supporting browsers is acceptable */
-  &:has(+ .ams-description-list__term) {
-    margin-block-end: 0;
-  }
-}
-
-.ams-description-list__description {
-  @include reset-dd;
-
-  font-weight: var(--ams-description-list-description-font-weight);
-  margin-block-end: var(--ams-description-list-description-margin-block-end);
-  padding-inline-start: var(--ams-description-list-description-padding-inline-start);
-
-  @container ams-inline-size-context (min-inline-size: #{$ams-description-list-breakpoint}) {
-    grid-column-start: 2;
-    padding-inline-start: 0;
-
-    // Make sure the first Description starts at the top row
-    &:first-of-type {
-      grid-row-start: 1;
-    }
-  }
-}
-
-.ams-description-list__section {
-  margin-block-end: var(--ams-description-list-section-margin-block-end);
-
-  @container ams-inline-size-context (min-inline-size: #{$ams-description-list-breakpoint}) {
-    grid-column: span 2;
-
-    > :only-of-type {
-      // Vertically stretch a single Term or Description
-      grid-row: 1 / 9;
-    }
-  }
-}
-
-// Remove trailing margins
-/* stylelint-disable-next-line no-duplicate-selectors -- Natural reading order, prevents descending specificity */
-.ams-description-list {
-  > .ams-description-list__term:last-child,
-  > .ams-description-list__description:last-child,
-  > .ams-description-list__section:last-child,
-  > .ams-description-list__section:last-child > .ams-description-list__term:last-child,
-  > .ams-description-list__section:last-child > .ams-description-list__description:last-child {
-    margin-block-end: 0;
-  }
-}
-
-@container ams-inline-size-context (min-inline-size: #{$ams-description-list-breakpoint}) {
   .ams-description-list,
   .ams-description-list > .ams-description-list__section:last-child {
     > .ams-description-list__term:last-of-type {
       margin-block-end: 0;
     }
   }
+}
+
+// Undo ams-description-list--horizontal when inside a containment context that is narrower than the breakpoint.
+// Selectors must match ams-description-list--horizontal to ensure equal specificity so source order wins.
+@mixin ams-description-list--horizontal--reset {
+  .ams-description-list,
+  .ams-description-list__section {
+    display: block;
+  }
+
+  .ams-description-list__term {
+    margin-block-end: var(--ams-description-list-term-margin-block-end);
+
+    &:not(& + &, :last-child) {
+      padding-block-start: 0;
+    }
+  }
+
+  .ams-description-list__description {
+    padding-inline-start: var(--ams-description-list-description-padding-inline-start);
+  }
+
+  .ams-description-list,
+  .ams-description-list > .ams-description-list__section:last-child {
+    > .ams-description-list__term:last-of-type {
+      margin-block-end: var(--ams-description-list-term-margin-block-end);
+    }
+  }
+}
+
+// Baseline: respond to viewport when no containment context exists
+@media (min-width: $ams-breakpoint-medium) {
+  @include ams-description-list--horizontal;
+}
+
+// Reset: undo @media when inside a containment context
+@container ams-inline-size-context (min-inline-size: 0) {
+  @include ams-description-list--horizontal--reset;
+}
+
+// Respond to the width of an ancestor container
+@container ams-inline-size-context (min-inline-size: #{$ams-description-list-breakpoint}) {
+  @include ams-description-list--horizontal;
 }
