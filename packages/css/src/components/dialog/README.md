@@ -12,6 +12,8 @@ A popup window in which the user must perform an action to proceed.
 - Wrap multiple buttons in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
 - To open the Dialog, use `Dialog.open(dialogId)` from the React package.
 - To close it, either call the `Dialog.close` function or add a `<form>` as in the ‘confirmation’ example.
+- Components inside a Dialog can adapt to its inline size through a [CSS container query](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries).
+  Dialog responds to the container names `ams-dialog-containment-context` (for Dialog-specific rules) and `ams-inline-size-context` (the shared name used across layout containers — see [Inline Size Context](/docs/utilities-css-inline-size-context--docs)).
 
 ## Keyboard support
 
