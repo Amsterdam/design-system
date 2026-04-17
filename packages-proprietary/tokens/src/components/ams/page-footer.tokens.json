@@ -23,7 +23,7 @@
           }
         },
         "padding-inline": {
-          "$value": "{ams.grid.padding-inline}",
+          "$value": "{ams.space.l}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"

@@ -36,10 +36,19 @@
         }
       },
       "padding-inline": {
-        "$value": "{ams.space.l}",
-        "$extensions": {
-          "nl.amsterdam.subtype": "space",
-          "nl.amsterdam.type": "dimension"
+        "l": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "xl": {
+          "$value": "{ams.space.xl}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
         }
       },
       "row-gap": {

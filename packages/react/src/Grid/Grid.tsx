@@ -24,8 +24,11 @@ export type GridRowNumbers = { narrow: GridRowNumber; medium: GridRowNumber; wid
 export const gridGaps = ['none', 'large', '2x-large'] as const
 export type GridGap = (typeof gridGaps)[number]
 
-export const gridPaddings = ['large', 'x-large', '2x-large'] as const
-export type GridPadding = (typeof gridPaddings)[number]
+export const gridHorizontalPaddings = ['none', 'large', 'x-large'] as const
+export type GridHorizontalPadding = (typeof gridHorizontalPaddings)[number]
+
+export const gridVerticalPaddings = ['large', 'x-large', '2x-large'] as const
+export type GridVerticalPadding = (typeof gridVerticalPaddings)[number]
 
 export const gridTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
 export type GridTag = (typeof gridTags)[number]
@@ -34,14 +37,14 @@ type GridPaddingVerticalProp = {
   paddingBottom?: never
   paddingTop?: never
   /** The amount of space above and below. */
-  paddingVertical?: GridPadding
+  paddingVertical?: GridVerticalPadding
 }
 
 type GridPaddingTopAndBottomProps = {
   /** The amount of space below. */
-  paddingBottom?: GridPadding
+  paddingBottom?: GridVerticalPadding
   /** The amount of space above. */
-  paddingTop?: GridPadding
+  paddingTop?: GridVerticalPadding
   paddingVertical?: never
 }
 
@@ -50,6 +53,8 @@ export type GridProps = {
   as?: GridTag
   /** The amount of space between rows. */
   gapVertical?: GridGap
+  /** The amount of space on the left and right. */
+  paddingHorizontal?: GridHorizontalPadding
 } & PropsWithChildren<HTMLAttributes<HTMLDivElement>> &
   (GridPaddingVerticalProp | GridPaddingTopAndBottomProps)
 
@@ -61,6 +66,7 @@ const GridRoot = forwardRef(
       className,
       gapVertical,
       paddingBottom,
+      paddingHorizontal,
       paddingTop,
       paddingVertical,
       ...restProps
@@ -73,6 +79,7 @@ const GridRoot = forwardRef(
         'ams-grid',
         gapVertical && `ams-grid--gap-vertical--${gapVertical}`,
         paddingClasses('grid', paddingBottom, paddingTop, paddingVertical),
+        paddingHorizontal && `ams-grid--padding-horizontal--${paddingHorizontal}`,
         className,
       )}
       ref={ref}

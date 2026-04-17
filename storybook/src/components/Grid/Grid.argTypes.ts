@@ -24,6 +24,13 @@ export const gridGapAndPaddingArgTypes: ArgTypes<GridProps> = {
     },
     options: [undefined, 'large', 'x-large', '2x-large'],
   },
+  paddingHorizontal: {
+    control: {
+      labels: { undefined: 'large (default)' },
+      type: 'radio',
+    },
+    options: [undefined, 'none', 'x-large'],
+  },
   paddingTop: {
     control: {
       labels: { undefined: 'none (default)' },
