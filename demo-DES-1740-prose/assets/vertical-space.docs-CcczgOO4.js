@@ -32,8 +32,8 @@ This page explains how much of it we recommend for the various combinations.`}),
 The space between them is as follows:`}),`
 `,(0,S.jsxs)(t.ul,{children:[`
 `,(0,S.jsxs)(t.li,{children:[`Breadcrumb → Heading 1: `,(0,S.jsx)(t.strong,{children:`zero`})]}),`
-`,(0,S.jsxs)(t.li,{children:[`Heading 1 → Lead Paragraph: `,(0,S.jsx)(t.strong,{children:`x-small`})]}),`
-`,(0,S.jsxs)(t.li,{children:[`Heading 1 → Metadata Paragraph: `,(0,S.jsx)(t.strong,{children:`medium`})]}),`
+`,(0,S.jsxs)(t.li,{children:[`Heading 1 → Metadata Paragraph: `,(0,S.jsx)(t.strong,{children:`x-small`})]}),`
+`,(0,S.jsxs)(t.li,{children:[`Heading 1 → Lead Paragraph: `,(0,S.jsx)(t.strong,{children:`medium`})]}),`
 `,(0,S.jsxs)(t.li,{children:[`Lead Paragraph → Heading 2: `,(0,S.jsx)(t.strong,{children:`x-large`})]}),`
 `]}),`
 `,(0,S.jsx)(t.h3,{id:`section-headings`,children:`Section Headings`}),`
