@@ -10,7 +10,7 @@ A collection of terms and their descriptions.
 - The term is set in bold text.
 - Description Lists display in a vertical orientation by default. They display in a horizontal orientation (descriptions to the right of their terms) when enough space is available.
   Inside a [container query context](/docs/utilities-css-inline-size-context--docs), this happens at a container width of `32rem` (typically 512 pixels).
-  Without a containment context, it falls back a media query on the medium breakpoint.
+  Without a containment context, it falls back to a media query on the medium breakpoint.
 
 ## References
 
