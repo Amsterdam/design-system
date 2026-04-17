@@ -2,7 +2,7 @@
   "ams": {
     "grid": {
       "padding-inline": {
-        "$value": "{ams.space.xl}",
+        "$value": "{ams.space.l}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
