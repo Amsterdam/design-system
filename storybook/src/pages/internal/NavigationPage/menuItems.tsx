@@ -23,7 +23,7 @@ type MenuItem = {
 }
 
 type SubMenuItem = {
-  // These random heights in `vb` simulate content variation in the two Grid Cells.
+  // These random heights in `vb` (viewport block size) simulate content variation in the two Grid Cells on every page.
   cellHeights: [number, number]
   label: string
   slug: string
