@@ -150,6 +150,18 @@ We follow [the NL Design System token naming guidelines](https://nldesignsystem.
 
 Find the [list of component tokens](https://github.com/Amsterdam/design-system/tree/main/packages-proprietary/tokens/src/component/ams) on GitHub.
 
+#### Logical viewport inline size tokens
+
+Some component tokens vary by viewport breakpoint and follow [CSS logical properties](https://developer.mozilla.org/en-US/docs/Glossary/Logical_properties) naming:
+
+- `vi` means _viewport inline size_.
+- Breakpoint-specific variants use `vi-medium` and `vi-wide`, for example:
+  - `ams.menu.vi-wide.padding-inline`
+  - `ams.dialog.vi-medium.inline-size`
+  - `ams.grid.vi-medium.column-count`
+
+Components can also use `narrow`, `medium` or `wide` keys without the `vi` prefix when the dimension is intrinsic to the component and not tied to the active viewport breakpoint.
+
 ### Overriding tokens
 
 This package allows the creation of a theme to reuse our components for a different brand.
@@ -162,49 +174,146 @@ At the same time, we are aware that adopting a design system can pose challenges
 If there is a good reason to (temporarily) adapt a component, do so by overriding the values of its appropriate tokens in a separate stylesheet.
 Note that redefining the value of a token is a much better approach than redeclaring styles, adding class names or even inline styles.
 
+## Deprecating tokens
+
+We deprecate tokens using the DTCG `$deprecated` field. The [official definition](https://www.designtokens.org/tr/drafts/format/#deprecated) allows `$deprecated` to be `true`, `false` or a string explanation.
+
+In ADS, `$deprecated` should be a string so consumers always get a reason + migration path.
+
+### Deprecation message format
+
+- Always include a removal date: `Will be removed on or after YYYY-MM-DD.`
+- If there is a direct replacement, start with: ``Use `<replacement-token>` instead.``
+
+### Simple deprecation (no fallback)
+
+If a deprecated token is still used directly, keep its existing `$value` until removal.
+Also add a deprecation comment next to the token usage in the consuming CSS.
+
+Token JSON:
+
+```jsonc
+"row-gap": {
+  "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-03.",
+  "$value": "0"
+}
+```
+
+Component CSS:
+
+```css
+row-gap: var(--ams-description-list-row-gap); /* This token is @deprecated. Will be removed on or after 2026-10-03. */
+```
+
+### Renames that use `var()` fallback
+
+When a token is renamed but we still want (downstream) overrides of the old token to keep working, we implement the rename through CSS `var()` fallback.
+
+Always add an inline deprecation comment next to the deprecated custom property inside the `var()` call.
+
+1. Update the component CSS to reference the deprecated token first, and the replacement token as the fallback:
+
+```css
+padding-inline: var(
+  --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+  var(--ams-grid-vi-medium-padding-inline)
+);
+```
+
+2. In the token JSON, mark the old token as deprecated and set its `$value` to the CSS-wide keyword `initial`:
+
+```jsonc
+"medium": {
+  "padding-inline": {
+    "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+    "$value": "initial"
+  }
+}
+```
+
+Why `initial`? Per CSS `var()` rules, when a custom property is [not set or is set to a CSS-wide keyword](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/var#syntax) like `initial`, the fallback value is used. This makes the replacement token the default while keeping the deprecated token visible and overrideable.
+
+Only apply this `initial` rule when the deprecated token is used in a `var(--deprecated, <fallback>)` pattern.
+
+### Deprecations without a 1:1 replacement
+
+If there is no 1:1 replacement (design/behavior changed), keep the existing `$value` until removal and update the consuming CSS/markup before deleting the token.
+
 ## Token types
 
-Tokens have a type or extension that we use to generate visual previews in our documentation.
-When adding new tokens, define a type from the DTCG specification or add one of our custom extensions when needed.
-Do not add an type or extension if the token cannot be previewed.
+Tokens may define their type using a DTCG `$type`, or, when no standard DTCG type applies, using our Amsterdam-specific `$extensions.nl.amsterdam.type`.
+References inherit the type of the token they refer to.
+
+We also use group-level inheritance where all tokens in a group share the same DTCG type.
+A `$type` set on a group applies to all its descendants, so individual tokens do not need to repeat it.
 
 ### DTCG standard types
 
 The following types come from the [Design Tokens Community Group (DTCG) specification](https://www.designtokens.org/tr/2025.10/format/):
 
-| Type         | Description               |
-| ------------ | ------------------------- |
-| `color`      | Any colour value          |
-| `dimension`  | Any dimension with a unit |
-| `fontFamily` | Font family definitions   |
-| `fontWeight` | Font weight values        |
+| Type         | Description                            |
+| ------------ | -------------------------------------- |
+| `color`      | Any colour value                       |
+| `dimension`  | Any dimension with a unit              |
+| `duration`   | A length of time                       |
+| `fontFamily` | Font family definitions (string array) |
+| `fontWeight` | Font weight values                     |
+| `number`     | Unitless numeric values                |
+| `shadow`     | Box shadow definitions                 |
 
 ### Custom extensions
 
 #### Type
 
-For some properties, we add custom types under `$extensions.nl.amsterdam.type`:
+We add a custom type under `$extensions.nl.amsterdam.type` for:
 
-| Type          | Description                      |
-| ------------- | -------------------------------- |
-| `borderStyle` | Border style values              |
-| `borderWidth` | Border thickness values          |
-| `fontSize`    | Font size values                 |
-| `lineHeight`  | Unitless line height multipliers |
+1. tokens that refer to another token
+2. properties that the DTCG specification does not cover
+3. values that do not conform to a standard type
 
-Tokens without a type have values that we currently do not preview.
+We use these types to help decide which preview to render in the Design Tokens Table on each component’s documentation page.
+
+| Type                       | Description                         |
+| -------------------------- | ----------------------------------- |
+| `aspectRatio`              | Aspect ratio values                 |
+| `backgroundImage`          | Background image values (e.g. SVGs) |
+| `backgroundPosition`       | Background position values          |
+| `border`                   | Border shorthand values             |
+| `borderRadius`             | Border radius values                |
+| `borderStyle`              | Border style values                 |
+| `borderWidth`              | Border thickness values             |
+| `cursor`                   | Cursor values                       |
+| `dimension`                | Responsive dimensions               |
+| `fontSize`                 | Font size values                    |
+| `gridTemplateColumns`      | Grid track definitions              |
+| `hyphenateLimitChars`      | Hyphenation limit values            |
+| `listStyleType`            | List marker styles                  |
+| `opacity`                  | Opacity values                      |
+| `textDecorationLine`       | Text decoration line values         |
+| `textWrap`                 | Text wrapping values                |
+| `transitionTimingFunction` | Transition timing function values   |
+
+Note that `dimension` appears both as a standard `$type` and as a custom extension type.
+The standard type is for values that conform to the DTCG dimension format (an object with a `value` and `unit`).
+The extension type is for responsive dimensions that use `clamp()` expressions, which are not valid DTCG dimensions.
 
 #### Subtype
 
 We add a subtype for certain types to further specify their purpose and preview.
 
-| Subtype | For type    | Description                |
-| ------- | ----------- | -------------------------- |
-| `space` | `dimension` | Margins, paddings and gaps |
+| Subtype      | For type    | Description                |
+| ------------ | ----------- | -------------------------- |
+| `lineHeight` | `number`    | Line height multipliers    |
+| `space`      | `dimension` | Margins, paddings and gaps |
 
 #### Hint
 
 An `$extensions.nl.amsterdam.hint` indicates special handling for internal use.
+
+### Descriptions
+
+Brand and common tokens use the DTCG `$description` property to explain the purpose of a token or group when the name alone is not sufficient.
+Add a `$description` when a token has a non-obvious value (e.g. `currentColor`), when similar tokens need to be distinguished (e.g. `background.body` vs `background.default`), or when the value encodes design rationale worth preserving (e.g. pixel equivalents for responsive `clamp()` values).
 
 ## Usage in Sass
 

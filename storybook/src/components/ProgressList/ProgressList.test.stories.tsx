@@ -5,6 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { Paragraph } from '@amsterdam/design-system-react'
 import { ProgressList } from '@amsterdam/design-system-react/src'
 
 import { default as progressListMeta } from './ProgressList.stories'
@@ -26,100 +27,137 @@ export const Test: Story = {
   },
   render: () => (
     <div style={{ display: 'grid', gap: 'var(--ams-space-l)', gridTemplateColumns: 'repeat(3, 24rem)' }}>
-      {/* Default: mix of collapsed (completed) and expanded steps */}
+      {/* Default (not collapsible): no buttons, no chevrons, all content visible */}
       <ProgressList headingLevel={3}>
         <ProgressList.Step heading="Completed" status="completed">
-          <p>This step is collapsed by default.</p>
+          <Paragraph>This completed step is always visible.</Paragraph>
         </ProgressList.Step>
         <ProgressList.Step heading="Current" status="current">
-          <p>This step is expanded by default.</p>
+          <Paragraph>This current step is always visible.</Paragraph>
         </ProgressList.Step>
         <ProgressList.Step heading="Upcoming">
-          <p>This step is expanded by default.</p>
+          <Paragraph>This upcoming step is always visible.</Paragraph>
         </ProgressList.Step>
       </ProgressList>
 
-      {/* All collapsed: connector hiding, heading spacing, :has() negative margin */}
+      {/* Not collapsible with substeps */}
       <ProgressList headingLevel={3}>
-        <ProgressList.Step heading="2024" status="completed">
-          <p>Content for 2024.</p>
+        <ProgressList.Step heading="Completed" status="completed">
+          <Paragraph>Content for completed step.</Paragraph>
         </ProgressList.Step>
-        <ProgressList.Step heading="2025" status="completed">
-          <p>Content for 2025.</p>
-        </ProgressList.Step>
-        <ProgressList.Step defaultCollapsed heading="2026">
-          <p>Content for 2026.</p>
-        </ProgressList.Step>
-      </ProgressList>
-
-      {/* defaultCollapsed overrides: completed forced open, upcoming forced closed */}
-      <ProgressList headingLevel={3}>
-        <ProgressList.Step defaultCollapsed={false} heading="Forced open" status="completed">
-          <p>This completed step is forced open.</p>
-        </ProgressList.Step>
-        <ProgressList.Step heading="Default" status="completed">
-          <p>This completed step is collapsed by default.</p>
-        </ProgressList.Step>
-        <ProgressList.Step heading="Current" status="current">
-          <p>This current step is expanded by default.</p>
-        </ProgressList.Step>
-        <ProgressList.Step defaultCollapsed heading="Forced closed">
-          <p>This upcoming step is forced closed.</p>
-        </ProgressList.Step>
-      </ProgressList>
-
-      {/* Expanded substeps: indicators not clipped by overflow-y: clip */}
-      <ProgressList headingLevel={3}>
-        <ProgressList.Step heading="2026" status="completed">
-          <p>Content for 2026.</p>
-        </ProgressList.Step>
-        <ProgressList.Step hasSubsteps heading="2027" status="current">
-          <p>Content for 2027.</p>
+        <ProgressList.Step hasSubsteps heading="Current" status="current">
+          <Paragraph>Content for current step.</Paragraph>
           <ProgressList.Substeps>
             <ProgressList.Substep status="completed">
-              <p>Februari: De Clercqstraat</p>
+              <Paragraph>Substep one</Paragraph>
             </ProgressList.Substep>
             <ProgressList.Substep status="current">
-              <p>Juni: Raadhuisstraat</p>
+              <Paragraph>Substep two</Paragraph>
             </ProgressList.Substep>
             <ProgressList.Substep>
-              <p>Oktober: Nieuwezijds Voorburgwal</p>
+              <Paragraph>Substep three</Paragraph>
+            </ProgressList.Substep>
+          </ProgressList.Substeps>
+        </ProgressList.Step>
+        <ProgressList.Step heading="Upcoming">
+          <Paragraph>Content for upcoming step.</Paragraph>
+        </ProgressList.Step>
+      </ProgressList>
+
+      {/* Collapsible: mix of collapsed (completed) and expanded steps */}
+      <ProgressList collapsible headingLevel={3}>
+        <ProgressList.Step heading="Completed" status="completed">
+          <Paragraph>This step is collapsed by default.</Paragraph>
+        </ProgressList.Step>
+        <ProgressList.Step heading="Current" status="current">
+          <Paragraph>This step is expanded by default.</Paragraph>
+        </ProgressList.Step>
+        <ProgressList.Step heading="Upcoming">
+          <Paragraph>This step is expanded by default.</Paragraph>
+        </ProgressList.Step>
+      </ProgressList>
+
+      {/* Collapsible, all collapsed: connector hiding, heading spacing, :has() negative margin */}
+      <ProgressList collapsible headingLevel={3}>
+        <ProgressList.Step heading="2024" status="completed">
+          <Paragraph>Content for 2024.</Paragraph>
+        </ProgressList.Step>
+        <ProgressList.Step heading="2025" status="completed">
+          <Paragraph>Content for 2025.</Paragraph>
+        </ProgressList.Step>
+        <ProgressList.Step defaultCollapsed heading="2026">
+          <Paragraph>Content for 2026.</Paragraph>
+        </ProgressList.Step>
+      </ProgressList>
+
+      {/* Collapsible, defaultCollapsed overrides: completed forced open, upcoming forced closed */}
+      <ProgressList collapsible headingLevel={3}>
+        <ProgressList.Step defaultCollapsed={false} heading="Forced open" status="completed">
+          <Paragraph>This completed step is forced open.</Paragraph>
+        </ProgressList.Step>
+        <ProgressList.Step heading="Default" status="completed">
+          <Paragraph>This completed step is collapsed by default.</Paragraph>
+        </ProgressList.Step>
+        <ProgressList.Step heading="Current" status="current">
+          <Paragraph>This current step is expanded by default.</Paragraph>
+        </ProgressList.Step>
+        <ProgressList.Step defaultCollapsed heading="Forced closed">
+          <Paragraph>This upcoming step is forced closed.</Paragraph>
+        </ProgressList.Step>
+      </ProgressList>
+
+      {/* Collapsible with expanded substeps: indicators not clipped by overflow-y: clip */}
+      <ProgressList collapsible headingLevel={3}>
+        <ProgressList.Step heading="2026" status="completed">
+          <Paragraph>Content for 2026.</Paragraph>
+        </ProgressList.Step>
+        <ProgressList.Step hasSubsteps heading="2027" status="current">
+          <Paragraph>Content for 2027.</Paragraph>
+          <ProgressList.Substeps>
+            <ProgressList.Substep status="completed">
+              <Paragraph>Februari: De Clercqstraat</Paragraph>
+            </ProgressList.Substep>
+            <ProgressList.Substep status="current">
+              <Paragraph>Juni: Raadhuisstraat</Paragraph>
+            </ProgressList.Substep>
+            <ProgressList.Substep>
+              <Paragraph>Oktober: Nieuwezijds Voorburgwal</Paragraph>
             </ProgressList.Substep>
           </ProgressList.Substeps>
         </ProgressList.Step>
         <ProgressList.Step heading="2028">
-          <p>Content for 2028.</p>
+          <Paragraph>Content for 2028.</Paragraph>
         </ProgressList.Step>
       </ProgressList>
 
-      {/* Collapsed last step with substeps: connector hidden */}
-      <ProgressList headingLevel={3}>
+      {/* Collapsible, collapsed last step with substeps: connector hidden */}
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="2026" status="completed">
-          <p>Content for 2026.</p>
+          <Paragraph>Content for 2026.</Paragraph>
         </ProgressList.Step>
         <ProgressList.Step heading="2027" status="current">
-          <p>Content for 2027.</p>
+          <Paragraph>Content for 2027.</Paragraph>
         </ProgressList.Step>
         <ProgressList.Step defaultCollapsed hasSubsteps heading="2028">
-          <p>Content for 2028.</p>
+          <Paragraph>Content for 2028.</Paragraph>
           <ProgressList.Substeps>
             <ProgressList.Substep status="completed">
-              <p>Substep one</p>
+              <Paragraph>Substep one</Paragraph>
             </ProgressList.Substep>
             <ProgressList.Substep>
-              <p>Substep two</p>
+              <Paragraph>Substep two</Paragraph>
             </ProgressList.Substep>
           </ProgressList.Substeps>
         </ProgressList.Step>
       </ProgressList>
 
-      {/* Toggle: Chromatic captures the final state after clicking open */}
-      <ProgressList headingLevel={3}>
+      {/* Collapsible toggle: Chromatic captures the final state after clicking open */}
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="Toggled" status="completed">
-          <p>This step was collapsed, then clicked open.</p>
+          <Paragraph>This step was collapsed, then clicked open.</Paragraph>
         </ProgressList.Step>
         <ProgressList.Step heading="Current" status="current">
-          <p>This step is expanded by default.</p>
+          <Paragraph>This step is expanded by default.</Paragraph>
         </ProgressList.Step>
       </ProgressList>
     </div>

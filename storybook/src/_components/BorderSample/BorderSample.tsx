@@ -18,9 +18,10 @@ type BorderSampleProps = {
 } & HTMLAttributes<HTMLDivElement>
 
 export const BorderSample = ({ className, lineStyle, style, width, ...restProps }: BorderSampleProps) => {
-  if (width?.startsWith('-')) {
-    return null
-  }
+  if (!lineStyle && !width) return null
+
+  // Negative border tokens represent inset box-shadows; show their absolute width in the sample.
+  const positiveWidth = width?.startsWith('-') ? width.substring(1) : width
 
   return (
     <div
@@ -33,7 +34,7 @@ export const BorderSample = ({ className, lineStyle, style, width, ...restProps 
           lineStyle !== undefined
             ? formatTokenValue<CSSProperties['borderInlineStartStyle']>(lineStyle)
             : style?.borderInlineStartStyle,
-        borderInlineStartWidth: width !== undefined ? formatTokenValue(width) : style?.borderInlineStartWidth,
+        borderInlineStartWidth: positiveWidth ? formatTokenValue(positiveWidth) : style?.borderInlineStartWidth,
       }}
     />
   )

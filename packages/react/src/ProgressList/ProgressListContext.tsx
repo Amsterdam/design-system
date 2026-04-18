@@ -8,12 +8,14 @@ import { createContext } from 'react'
 import type { ProgressListProps } from './ProgressList'
 
 type ProgressListContextValue = {
+  collapsible: boolean
   completedAccessibleText?: ProgressListProps['completedAccessibleText']
   currentAccessibleText?: ProgressListProps['currentAccessibleText']
   headingLevel: ProgressListProps['headingLevel']
 }
 
 const defaultValues: ProgressListContextValue = {
+  collapsible: false,
   // Default value for type safety.
   // The actual value is always provided via ProgressList’s required headingLevel prop.
   headingLevel: 2,

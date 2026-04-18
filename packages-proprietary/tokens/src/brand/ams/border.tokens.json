@@ -7,6 +7,7 @@
             "value": 0.0625,
             "unit": "rem"
           },
+          "$description": "1px equivalent. For subtle borders like hover reinforcement.",
           "$extensions": {
             "nl.amsterdam.type": "borderWidth"
           }
@@ -16,6 +17,7 @@
             "value": 0.125,
             "unit": "rem"
           },
+          "$description": "2px equivalent. The default border width for inputs and containers.",
           "$extensions": {
             "nl.amsterdam.type": "borderWidth"
           }
@@ -25,6 +27,7 @@
             "value": 0.1875,
             "unit": "rem"
           },
+          "$description": "3px equivalent.",
           "$extensions": {
             "nl.amsterdam.type": "borderWidth"
           }
@@ -34,11 +37,13 @@
             "value": 0.25,
             "unit": "rem"
           },
+          "$description": "4px equivalent. For strong emphasis like active tab indicators.",
           "$extensions": {
             "nl.amsterdam.type": "borderWidth"
           }
         },
         "negative": {
+          "$description": "Negative values of border widths, used to offset elements inward by the border thickness.",
           "m": {
             "$value": {
               "value": -0.125,

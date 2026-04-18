@@ -4,38 +4,41 @@
       "gap": {
         "$deprecated": "Whitespace is now applied through the `ams.field-set.child.*` tokens. Will be removed on or after 2026-07-09.",
         "$value": "{ams.space.s}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "child": {
         "margin-block-end": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "before-error-message": {
           "margin-block-end": {
             "$value": "{ams.space.s}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           }
         }
       },
       "invalid": {
         "border-inline-start": {
-          "$value": "{ams.border.width.l} solid {ams.color.feedback.error}"
+          "$value": "{ams.border.width.l} solid {ams.color.feedback.error}",
+          "$extensions": {
+            "nl.amsterdam.type": "border"
+          }
         },
         "padding-inline-start": {
           "$value": "{ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       }

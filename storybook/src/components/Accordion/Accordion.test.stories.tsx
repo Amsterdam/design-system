@@ -68,7 +68,7 @@ export const Test: Story = {
       {renderComponentVariants(Accordion, {
         args,
       })}
-      <Accordion.Section expanded label="Verhuizing doorgeven bij stadsloket">
+      <Accordion.Section defaultExpanded label="Verhuizing doorgeven bij stadsloket">
         <p data-testid="expanded-paragraph">
           Veel Amsterdammers in de bijstand zijn huiverig om te gaan werken. Ze denken dat ze dan minder geld krijgen,
           bijvoorbeeld omdat ze hun toeslagen verliezen. Voor deze mensen ontwikkelen we de ‘garantieknop’. Als mensen
