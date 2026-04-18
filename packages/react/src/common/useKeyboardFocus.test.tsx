@@ -93,6 +93,8 @@ describe('useKeyboardFocus', () => {
   })
 
   it('only navigates direct children when directChildrenOnly is true', () => {
+    const onFocusNestedMock = vi.fn()
+
     const DirectChildComponent = () => {
       const ref = useRef<HTMLDivElement>(null)
       const { keyDown } = useKeyboardFocus(ref, { directChildrenOnly: true })
@@ -103,8 +105,9 @@ describe('useKeyboardFocus', () => {
             One
           </button>
           <div>
-            {/* This nested button should be excluded with directChildrenOnly: true */}
-            <button type="button">Nested</button>
+            <button onFocus={onFocusNestedMock} type="button">
+              Nested
+            </button>
           </div>
           <button onFocus={onFocusTwoMock} type="button">
             Two
@@ -119,6 +122,10 @@ describe('useKeyboardFocus', () => {
 
     fireEvent.keyDown(component, { key: KeyboardKeys.ArrowDown })
     expect(onFocusOneMock).toHaveBeenCalledTimes(1)
+
+    fireEvent.keyDown(component, { key: KeyboardKeys.ArrowDown })
+    expect(onFocusTwoMock).toHaveBeenCalledTimes(1)
+    expect(onFocusNestedMock).not.toHaveBeenCalled()
   })
 
   it('sets focus to first element when using "Home" key', () => {

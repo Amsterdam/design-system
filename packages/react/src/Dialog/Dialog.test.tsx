@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { MouseEvent } from 'react'
+
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it, vi } from 'vitest'

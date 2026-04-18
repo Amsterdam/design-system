@@ -62,7 +62,7 @@ describe('FileListItem', () => {
   })
 
   it('renders an image preview for image files', () => {
-    URL.createObjectURL = vi.fn().mockReturnValue('blob:test')
+    const createObjectURL = vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:test')
 
     const imageFile = new File(['image content'], 'photo.png', { type: 'image/png' })
 
@@ -72,6 +72,8 @@ describe('FileListItem', () => {
 
     expect(component).toBeInTheDocument()
     expect(component).toHaveAttribute('src', 'blob:test')
+
+    createObjectURL.mockRestore()
   })
 
   it('passes additional props', () => {
