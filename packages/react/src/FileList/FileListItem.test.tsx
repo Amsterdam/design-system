@@ -64,16 +64,18 @@ describe('FileListItem', () => {
   it('renders an image preview for image files', () => {
     const createObjectURL = vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:test')
 
-    const imageFile = new File(['image content'], 'photo.png', { type: 'image/png' })
+    try {
+      const imageFile = new File(['image content'], 'photo.png', { type: 'image/png' })
 
-    render(<FileListItem file={imageFile} />)
+      render(<FileListItem file={imageFile} />)
 
-    const component = screen.getByRole('img', { name: 'photo.png' })
+      const component = screen.getByRole('img', { name: 'photo.png' })
 
-    expect(component).toBeInTheDocument()
-    expect(component).toHaveAttribute('src', 'blob:test')
-
-    createObjectURL.mockRestore()
+      expect(component).toBeInTheDocument()
+      expect(component).toHaveAttribute('src', 'blob:test')
+    } finally {
+      createObjectURL.mockRestore()
+    }
   })
 
   it('passes additional props', () => {
