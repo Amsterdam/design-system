@@ -218,15 +218,14 @@ describe('Tabs', () => {
     expect(component).toBeInTheDocument()
   })
 
-  it('calls the default TabsContext updateTab when Tabs.Button is rendered outside a Tabs provider', async () => {
+  it('does not throw when Tabs.Button is rendered outside a Tabs provider', async () => {
     const user = userEvent.setup()
 
     render(<Tabs.Button aria-controls="test">Tab</Tabs.Button>)
 
     const button = screen.getByRole('tab')
-    await user.click(button)
 
-    expect(button).toBeInTheDocument()
+    await expect(user.click(button)).resolves.toBeUndefined()
   })
 
   it('passes additional props', () => {
