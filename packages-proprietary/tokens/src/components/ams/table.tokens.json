@@ -38,7 +38,7 @@
           "$type": "fontWeight"
         },
         "margin-block-end": {
-          "$value": "{ams.space.m}",
+          "$value": "{ams.space.s}",
           "$type": "dimension",
           "$extensions": {
             "nl.amsterdam.subtype": "space"
