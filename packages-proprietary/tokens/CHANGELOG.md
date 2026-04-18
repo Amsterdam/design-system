@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v3.4.0...design-system-tokens-v4.0.0) (2026-04-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549))
+* **Grid, Page:** Make Page grey and Grid Cell white in Compact Mode ([#2398](https://github.com/Amsterdam/design-system/issues/2398))
+
+### Features
+
+* **Grid, Page:** Make Page grey and Grid Cell white in Compact Mode ([#2398](https://github.com/Amsterdam/design-system/issues/2398)) ([6b5bb5b](https://github.com/Amsterdam/design-system/commit/6b5bb5b2f7c273d35e25e18e29cfa6557d20c38f))
+* **Grid:** Allow components to adapt their appearance to the width of their Grid Cell ([#2543](https://github.com/Amsterdam/design-system/issues/2543)) ([dff0a3d](https://github.com/Amsterdam/design-system/commit/dff0a3d6abe446bd80232fe2767cffd98db81177))
+* **Grid:** Revert allowing components to adapt their appearance to the width of their Grid Cell ([#2543](https://github.com/Amsterdam/design-system/issues/2543)) ([#2564](https://github.com/Amsterdam/design-system/issues/2564)) ([dcdc000](https://github.com/Amsterdam/design-system/commit/dcdc00050744ab42e55c33903912698e2b66eea2))
+* Introduce Tab Navigation component ([#2552](https://github.com/Amsterdam/design-system/issues/2552)) ([1d6e0a3](https://github.com/Amsterdam/design-system/commit/1d6e0a32e856775e6d42879c71902d0aa5ddace8))
+* **Table:** Add whitespace below Caption ([#2515](https://github.com/Amsterdam/design-system/issues/2515)) ([092c0ff](https://github.com/Amsterdam/design-system/commit/092c0fff4ebfd9e395caee721cb55732e57d7cc5))
+* **tokens:** Introduce `vi-` prefix for viewport-dependent component tokens ([#2502](https://github.com/Amsterdam/design-system/issues/2502)) ([90c19da](https://github.com/Amsterdam/design-system/commit/90c19da8f309eedb926bbd3f65f52990b880b661))
+
+
+### Bug Fixes
+
+* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549)) ([4a78276](https://github.com/Amsterdam/design-system/commit/4a78276e463498f2a6bfe417ec7fe1794ee1282c))
+
 ## [4.0.0]
 
 ### Deprecations

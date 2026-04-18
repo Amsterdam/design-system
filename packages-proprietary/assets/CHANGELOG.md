@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.2.0...design-system-assets-v3.0.0) (2026-04-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549))
+
+### Bug Fixes
+
+* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549)) ([4a78276](https://github.com/Amsterdam/design-system/commit/4a78276e463498f2a6bfe417ec7fe1794ee1282c))
+
 ## [2.2.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.1.0...design-system-assets-v2.2.0) (2026-04-03)
 
 

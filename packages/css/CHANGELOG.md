@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.3.0...design-system-css-v4.0.0) (2026-04-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Progress List:** Make collapsing and expanding steps optional ([#2538](https://github.com/Amsterdam/design-system/issues/2538))
+* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549))
+* **Grid, Page:** Make Page grey and Grid Cell white in Compact Mode ([#2398](https://github.com/Amsterdam/design-system/issues/2398))
+
+### Features
+
+* Add utility class for vertical space in prose ([#2563](https://github.com/Amsterdam/design-system/issues/2563)) ([ddca6ce](https://github.com/Amsterdam/design-system/commit/ddca6cead210b03dce395221f793a3e21c08d774))
+* **Grid, Page:** Make Page grey and Grid Cell white in Compact Mode ([#2398](https://github.com/Amsterdam/design-system/issues/2398)) ([6b5bb5b](https://github.com/Amsterdam/design-system/commit/6b5bb5b2f7c273d35e25e18e29cfa6557d20c38f))
+* **Grid:** Add ‘flush’ appearance to Grid Cell ([#2536](https://github.com/Amsterdam/design-system/issues/2536)) ([75bdb6b](https://github.com/Amsterdam/design-system/commit/75bdb6b3a46be08ebce4050d96c140f9b463abad))
+* **Grid:** Align cells to the top of the grid row ([#2535](https://github.com/Amsterdam/design-system/issues/2535)) ([294c119](https://github.com/Amsterdam/design-system/commit/294c119f8a17c1492a122916f56605b14cc8ae10))
+* **Grid:** Allow cells to span multiple rows ([#2537](https://github.com/Amsterdam/design-system/issues/2537)) ([a6c8ce0](https://github.com/Amsterdam/design-system/commit/a6c8ce0cb5f3cdf58832f2b37349ca345f7f2540))
+* **Grid:** Allow components to adapt their appearance to the width of their Grid Cell ([#2543](https://github.com/Amsterdam/design-system/issues/2543)) ([dff0a3d](https://github.com/Amsterdam/design-system/commit/dff0a3d6abe446bd80232fe2767cffd98db81177))
+* **Grid:** Revert allowing components to adapt their appearance to the width of their Grid Cell ([#2543](https://github.com/Amsterdam/design-system/issues/2543)) ([#2564](https://github.com/Amsterdam/design-system/issues/2564)) ([dcdc000](https://github.com/Amsterdam/design-system/commit/dcdc00050744ab42e55c33903912698e2b66eea2))
+* Introduce Tab Navigation component ([#2552](https://github.com/Amsterdam/design-system/issues/2552)) ([1d6e0a3](https://github.com/Amsterdam/design-system/commit/1d6e0a32e856775e6d42879c71902d0aa5ddace8))
+* **Progress List:** Make collapsing and expanding steps optional ([#2538](https://github.com/Amsterdam/design-system/issues/2538)) ([9b4f489](https://github.com/Amsterdam/design-system/commit/9b4f4899881ee2bcfa46275d34194d3470d00446))
+* **Table:** Add whitespace below Caption ([#2515](https://github.com/Amsterdam/design-system/issues/2515)) ([092c0ff](https://github.com/Amsterdam/design-system/commit/092c0fff4ebfd9e395caee721cb55732e57d7cc5))
+* **tokens:** Introduce `vi-` prefix for viewport-dependent component tokens ([#2502](https://github.com/Amsterdam/design-system/issues/2502)) ([90c19da](https://github.com/Amsterdam/design-system/commit/90c19da8f309eedb926bbd3f65f52990b880b661))
+
+
+### Bug Fixes
+
+* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549)) ([4a78276](https://github.com/Amsterdam/design-system/commit/4a78276e463498f2a6bfe417ec7fe1794ee1282c))
+
 ## [4.0.0]
 
 ### Deprecations
