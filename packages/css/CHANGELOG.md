@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0]
+
+### Deprecations
+
+The following deprecated CSS classes have been removed in this release:
+
+- `.ams-page-heading` and `.ams-page-heading--inverse`. Use `.ams-heading` instead.
+- `.ams-heading--6`. Use `.ams-heading--5` instead.
+- `.ams-icon--heading-0` and `.ams-icon--heading-6`. Use `.ams-icon--heading-1` and `.ams-icon--heading-5` instead.
+- `.ams-menu__link--contrast` and `.ams-menu__link--inverse`.
+- `.ams-accordion__header`.
+- `.ams-standalone-link--with-icon`.
+- `.ams-image-slider--controls`, `.ams-image-slider__item`, and `.ams-image-slider__item--in-view`.
+
 ## [3.3.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.2.1...design-system-css-v3.3.0) (2026-04-03)
 
 
@@ -96,7 +110,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Deprecations
 
-The following class names will be removed in release 4.0.0. If you use them in your code, please delete them.
+The following class names have been removed in release 4.0.0.
 
 - `ams-menu__link--contrast`
 - `ams-menu__link--inverse`
@@ -130,7 +144,7 @@ The following class names will be removed in release 4.0.0. If you use them in y
 
 ### Deprecations
 
-The following class names will be removed in release 4.0.0. If you use them in your code, please delete them.
+The following class names have been removed in release 4.0.0.
 
 * `ams-accordion__header`
 * `ams-icon--heading-0`

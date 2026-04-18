@@ -10,7 +10,8 @@
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
-          "nl.amsterdam.type": "lineHeight"
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
         }
       },
       "small": {
@@ -23,7 +24,8 @@
         "line-height": {
           "$value": "{ams.typography.body-text.small.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
@@ -37,23 +39,8 @@
         "line-height": {
           "$value": "{ams.typography.body-text.large.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
-        }
-      },
-      "heading-0": {
-        "font-size": {
-          "$deprecated": "Use `ams.typography.heading.1.font-size` instead. Will be removed in release 4.0.0.",
-          "$value": "{ams.typography.heading.0.font-size}",
-          "$extensions": {
-            "nl.amsterdam.type": "fontSize"
-          }
-        },
-        "line-height": {
-          "$deprecated": "Use `ams.typography.heading.1.line-height` instead. Will be removed in release 4.0.0.",
-          "$value": "{ams.typography.heading.0.line-height}",
-          "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
@@ -67,7 +54,8 @@
         "line-height": {
           "$value": "{ams.typography.heading.1.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
@@ -81,7 +69,8 @@
         "line-height": {
           "$value": "{ams.typography.heading.2.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
@@ -95,7 +84,8 @@
         "line-height": {
           "$value": "{ams.typography.heading.3.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
@@ -109,7 +99,8 @@
         "line-height": {
           "$value": "{ams.typography.heading.4.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
@@ -123,28 +114,17 @@
         "line-height": {
           "$value": "{ams.typography.heading.5.line-height}",
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
-        }
-      },
-      "heading-6": {
-        "font-size": {
-          "$value": "{ams.typography.heading.6.font-size}",
-          "$extensions": {
-            "nl.amsterdam.type": "fontSize"
-          }
-        },
-        "line-height": {
-          "$value": "{ams.typography.heading.6.line-height}",
-          "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
           }
         }
       },
       "inverse": {
         "color": {
           "$value": "{ams.color.text.inverse}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       }
     }

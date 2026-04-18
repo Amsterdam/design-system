@@ -16,39 +16,19 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
-## Examples
+## Keyboard support
 
-### With initial tab
+The user can navigate the links with their keyboard:
 
-The first tab is active by default.
-Another tab’s panel can be displayed initially as well.
-
-<Canvas of={TabsStories.WithInitialTab} />
-
-### With wide content
-
-The Tab Buttons list and the content within the active Tab Panel will scroll horizontally when their width exceeds the available space.
-
-<Canvas of={TabsStories.WithWideContent} />
-
-### Prevent tabs from changing
-
-The Tab Button `onChange` prop can be used with `event.preventDefault` to stop tabs from changing when clicked.
-This is helpful to keep users from switching tabs until specific conditions are met.
-
-You can use this click handler for example:
-
-```jsx
-const handleClick = (event) => {
-  // eslint-disable-next-line no-alert
-  const confirmLeave = window.confirm("You have unsaved changes. Do you want to leave?");
-  if (!confirmLeave) {
-    event.preventDefault();
-  }
-};
-```
-
-<Canvas of={TabsStories.PreventTabsFromChanging} />
+| key            | element                                        |
+| :------------- | :--------------------------------------------- |
+| Enter or Space | Open or close the tab that has the focus       |
+| Tab            | Go to the next element that can have focus     |
+| Shift + Tab    | Go to the next element that can have focus     |
+| Left arrow     | If the tabs have focus, go to the previous tab |
+| Right arrow    | If the tabs have focus, go to the next tab     |
+| Home           | If the tabs have focus, go to the first tab    |
+| End            | If the tabs have focus, go to the last tab     |
 
 ## Design tokens
 

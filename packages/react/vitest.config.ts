@@ -12,6 +12,7 @@ export default defineConfig({
     coverage: {
       exclude: ['**/index.ts'],
       provider: 'v8',
+      reporter: ['text', 'json-summary'],
     },
     environment: 'jsdom',
     exclude: ['**/dist/**', '**/node_modules/**'],

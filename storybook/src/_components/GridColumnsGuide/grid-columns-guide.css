@@ -4,6 +4,7 @@
  */
 
 ._ams-grid-columns-guide {
+  align-items: stretch;
   block-size: 100vh;
   /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
   border-inline: thin solid var(--_ams-color-grey);
@@ -17,9 +18,12 @@
   }
 }
 
-._ams-grid-columns-guide__cell {
+/* Increase specificity to override Grid Cell background and padding in Compact Mode. */
+.ams-grid__cell._ams-grid-columns-guide__cell {
   /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
   background-color: var(--_ams-color-grey);
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 @media (width < 37.5rem) {

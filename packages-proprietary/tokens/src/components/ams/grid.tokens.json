@@ -2,89 +2,142 @@
   "ams": {
     "grid": {
       "column-count": {
-        "$value": "4"
+        "$value": 4,
+        "$type": "number"
       },
       "column-gap": {
         "$value": "{ams.space.xl}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "padding-block": {
         "l": {
           "$value": "{ams.space.l}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "xl": {
           "$value": "{ams.space.xl}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "2xl": {
           "$value": "{ams.space.2xl}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "padding-inline": {
         "$value": "{ams.space.l}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "row-gap": {
         "l": {
           "$value": "{ams.space.l}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "xl": {
           "$value": "{ams.space.xl}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "2xl": {
           "$value": "{ams.space.2xl}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "medium": {
         "column-count": {
-          "$value": "8"
+          "$deprecated": "Use `ams.grid.vi-medium.column-count` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$type": "number"
         },
         "padding-inline": {
-          "$value": "{ams.space.xl}",
-          "$type": "dimension",
+          "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "wide": {
         "column-count": {
-          "$value": "12"
+          "$deprecated": "Use `ams.grid.vi-wide.column-count` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$type": "number"
+        },
+        "padding-inline": {
+          "$deprecated": "Use `ams.grid.vi-wide.padding-inline` instead. Will be removed on or after 2026-10-17.",
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "vi-medium": {
+        "column-count": {
+          "$value": 8,
+          "$type": "number"
+        },
+        "padding-inline": {
+          "$value": "{ams.space.xl}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "vi-wide": {
+        "column-count": {
+          "$value": 12,
+          "$type": "number"
         },
         "padding-inline": {
           "$value": "{ams.space.2xl}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "cell": {
+        "background-color": {
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "padding-block": {
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-inline": {
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
           }
         }
       }

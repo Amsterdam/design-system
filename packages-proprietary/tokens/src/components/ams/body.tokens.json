@@ -1,0 +1,12 @@
+{
+  "ams": {
+    "body": {
+      "background-color": {
+        "$value": "{ams.color.background.body}",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      }
+    }
+  }
+}

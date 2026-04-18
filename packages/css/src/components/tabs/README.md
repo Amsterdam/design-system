@@ -2,33 +2,15 @@
 
 # Tabs
 
-Tabs are used to bundle related content in a compact overview within a page. Each tab has a short name, and these names indicate the relationship between the information displayed in each tab.
+Discloses related pieces of content in a secondary area on the page.
 
 ## Guidelines
 
-- The content of each tab is viewable independently, not in the context of one another.
-- The content within each tab should have a similar structure.
-- Use when there is limited visual space and content needs to be divided into sections.
-- Each tab consists of a button and a panel.
-  The button has an `aria-controls` attribute that matches the `id` of the associated panel.
-
-You can navigate tabs with your keyboard:
-
-| key            | element                                        |
-| :------------- | :--------------------------------------------- |
-| Enter or Space | Open or close the tab that has the focus       |
-| Tab            | Go to the next element that can have focus     |
-| Shift + Tab    | Go to the next element that can have focus     |
-| Left arrow     | If the tabs have focus: go to the previous tab |
-| Right arrow    | If the tabs have focus: go to the next tab     |
-| Home           | If the tabs have focus: go to the first tab    |
-| End            | If the tabs have focus, go to the last tab     |
-
-### Caution
-
-Do not use tabs if the content in each tab functions just as well on separate pages.
-
-## References
-
-- [W3C - Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
-- [MDN - Tab Aria Roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role)
+- Use Tabs to let related content fragments share a space on the current page.
+  Each tab has a button that shows its content in a panel.
+- Do not make it toggle between large amounts of primary content.
+  That would come down to navigating between pages.
+  In this context, use [Tab Navigation](/docs/components-navigation-tab-navigation--docs) to offer the user the benefits of links.
+- The content of each tab must be usable independent of the others.
+- Create a panel for each button.
+  Add an `aria-controls` attribute to each button and match its value to the `id` of the associated panel.

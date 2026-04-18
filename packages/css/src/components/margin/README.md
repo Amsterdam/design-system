@@ -30,3 +30,4 @@ They are also smaller in [Compact Mode](https://designsystem.amsterdam/docs/docs
   Consult [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) for details.
 - To add equal margins between elements, either use the [Gap](/docs/utilities-css-gap--docs) utility class on their common parent or wrap them in a [Column](/docs/components-layout-column--docs) component.
   This helps in loops: it prevents having to treat the last element differently.
+- Wrap editorial content in the [Prose](/docs/utilities-css-prose--docs) utility class to have all spacing set automatically.

@@ -1,0 +1,15 @@
+{
+  "ams": {
+    "color": {
+      "background": {
+        "body": {
+          "$value": "#e8e8e8"
+        },
+        "default": {
+          "$value": "#ffffff"
+        }
+      }
+    }
+  },
+  "$type": "color"
+}

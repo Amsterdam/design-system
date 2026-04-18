@@ -6,16 +6,23 @@
 import StyleDictionary from 'style-dictionary'
 
 import { dtcgDimension } from './style-dictionary/transforms/dtcg-dimension.js'
+import { dtcgFontFamily } from './style-dictionary/transforms/dtcg-font-family.js'
 import { nameCustomCamel } from './style-dictionary/transforms/name-custom-camel.js'
 import { nameCustomKebab } from './style-dictionary/transforms/name-custom-kebab.js'
 import { shadowDTCGDimensionNormalize } from './style-dictionary/transforms/shadow-dtcg-dimension-normalize.js'
 
 StyleDictionary.registerTransform(dtcgDimension)
+StyleDictionary.registerTransform(dtcgFontFamily)
 StyleDictionary.registerTransform(nameCustomCamel)
 StyleDictionary.registerTransform(nameCustomKebab)
 StyleDictionary.registerTransform(shadowDTCGDimensionNormalize)
 
-const commonCssTransforms = ['shadow/dtcg-dimension-normalize', 'shadow/css/shorthand', 'dtcg/dimension']
+const commonCssTransforms = [
+  'shadow/dtcg-dimension-normalize',
+  'shadow/css/shorthand',
+  'dtcg/dimension',
+  'dtcg/fontFamily',
+]
 const modes = ['compact']
 
 function generateSharedConfig(mode) {
@@ -111,6 +118,9 @@ defaultMode.buildAllPlatforms()
 
 for (const mode of modes) {
   const styleDictionary = new StyleDictionary({
+    log: {
+      verbosity: 'verbose',
+    },
     platforms: generateSharedConfig(mode),
     source: [`./src/**/*.${mode}.tokens.json`],
   })

@@ -1,0 +1,12 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/resets" as *;
+
+.ams-body {
+  @include reset-body;
+
+  background-color: var(--ams-body-background-color);
+}

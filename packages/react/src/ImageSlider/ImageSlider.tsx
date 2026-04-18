@@ -11,7 +11,7 @@ import { forwardRef, useEffect, useRef, useState } from 'react'
 
 import type { ImageProps } from '../Image/Image'
 
-import { ImageSliderControl } from './ImageSliderControl'
+import { Button } from '../Button'
 import { ImageSliderSlide } from './ImageSliderSlide'
 import { ImageSliderThumbnails } from './ImageSliderThumbnails'
 import { debounce, scrollToCurrentSlideOnResize, scrollToSlide, setCurrentSlideIdToVisibleSlide } from './utils'
@@ -87,35 +87,29 @@ export const ImageSlider = forwardRef(
     }, [currentSlideId])
 
     return (
-      <div
-        {...restProps}
-        aria-roledescription="carousel"
-        className={clsx(
-          'ams-image-slider',
-          // The 'ams-image-slider--controls' class is @deprecated and will be removed in a future release.
-          controls && 'ams-image-slider--controls',
-          className,
-        )}
-        ref={ref}
-      >
+      <div {...restProps} aria-roledescription="carousel" className={clsx('ams-image-slider', className)} ref={ref}>
         {controls && (
           <div className="ams-image-slider__controls">
-            <ImageSliderControl
+            <Button
+              className="ams-image-slider__control"
+              color="inverse"
               disabled={isAtStart}
               icon={ChevronBackwardIcon}
               iconOnly
               onClick={() => scrollToSlide(currentSlideId - 1, scrollerRef)}
             >
               {previousLabel}
-            </ImageSliderControl>
-            <ImageSliderControl
+            </Button>
+            <Button
+              className="ams-image-slider__control"
+              color="inverse"
               disabled={isAtEnd}
               icon={ChevronForwardIcon}
               iconOnly
               onClick={() => scrollToSlide(currentSlideId + 1, scrollerRef)}
             >
               {nextLabel}
-            </ImageSliderControl>
+            </Button>
           </div>
         )}
         <div aria-live="polite" className="ams-image-slider__scroller" ref={scrollerRef} role="group" tabIndex={0}>

@@ -2,126 +2,109 @@
   "ams": {
     "color": {
       "background": {
-        "$value": "#ffffff",
-        "$type": "color"
+        "body": {
+          "$value": "#ffffff"
+        },
+        "default": {
+          "$value": "#ffffff",
+          "$description": "The default background colour for form controls and smaller surfaces."
+        }
       },
       "feedback": {
         "error": {
-          "$value": "#ec0000",
-          "$type": "color"
+          "$value": "#ec0000"
         },
         "info": {
-          "$value": "#009de6",
-          "$type": "color"
+          "$value": "#009de6"
         },
         "success": {
-          "$value": "#00893c",
-          "$type": "color"
+          "$value": "#00893c"
         },
         "warning": {
-          "$value": "#ff9100",
-          "$type": "color"
+          "$value": "#ff9100"
         }
       },
       "highlight": {
+        "$description": "Accent colours for visual distinction, not for interactive elements.",
         "azure": {
-          "$value": "#009de6",
-          "$type": "color"
+          "$value": "#009de6"
         },
         "green": {
-          "$value": "#00893c",
-          "$type": "color"
+          "$value": "#00893c"
         },
         "lime": {
-          "$value": "#bed200",
-          "$type": "color"
+          "$value": "#bed200"
         },
         "magenta": {
-          "$value": "#e50082",
-          "$type": "color"
+          "$value": "#e50082"
         },
         "orange": {
-          "$value": "#ff9100",
-          "$type": "color"
+          "$value": "#ff9100"
         },
         "purple": {
-          "$value": "#a00078",
-          "$type": "color"
+          "$value": "#a00078"
         },
         "yellow": {
-          "$value": "#ffe600",
-          "$type": "color"
+          "$value": "#ffe600"
         }
       },
       "interactive": {
+        "$description": "Colours for interactive elements like links and buttons.",
         "contrast": {
           "$value": "#202020",
-          "$type": "color"
+          "$description": "For interactive elements on coloured backgrounds where the default blue lacks sufficient contrast."
         },
         "default": {
-          "$value": "#004699",
-          "$type": "color"
+          "$value": "#004699"
         },
         "disabled": {
-          "$value": "#767676",
-          "$type": "color"
+          "$value": "#767676"
         },
         "hover": {
-          "$value": "#003677",
-          "$type": "color"
+          "$value": "#003677"
         },
         "invalid": {
           "default": {
-            "$value": "#ec0000",
-            "$type": "color"
+            "$value": "#ec0000"
           },
           "hover": {
-            "$value": "#b70000",
-            "$type": "color"
+            "$value": "#b70000"
           }
         },
         "inverse": {
           "$value": "#ffffff",
-          "$type": "color"
-        },
-        "secondary": {
-          "$deprecated": "Use `currentColor` instead. Will be removed in release 4.0.0.",
-          "$value": "#202020",
-          "$type": "color"
+          "$description": "For interactive elements on dark backgrounds."
         }
       },
       "progress": {
+        "$description": "Colours for progress indicators like step lists.",
         "current": {
-          "$value": "#00893c",
-          "$type": "color"
+          "$value": "#00893c"
         },
         "completed": {
-          "$value": "#00893c",
-          "$type": "color"
+          "$value": "#00893c"
         },
         "upcoming": {
-          "$value": "#767676",
-          "$type": "color"
+          "$value": "#767676"
         }
       },
       "separator": {
         "$value": "#d1d1d1",
-        "$type": "color"
+        "$description": "For row borders in tables."
       },
       "text": {
         "default": {
-          "$value": "#202020",
-          "$type": "color"
+          "$value": "#202020"
         },
         "inverse": {
-          "$value": "#ffffff",
-          "$type": "color"
+          "$value": "#ffffff"
         },
         "secondary": {
           "$value": "#767676",
-          "$type": "color"
+          "$description": "For supporting text that is less prominent than the default, e.g. metadata."
         }
       }
     }
-  }
+  },
+  "$type": "color"
 }

@@ -2,7 +2,10 @@
   "ams": {
     "image": {
       "aspect-ratio": {
-        "$value": "{ams.aspect-ratio.16-9}"
+        "$value": "{ams.aspect-ratio.16-9}",
+        "$extensions": {
+          "nl.amsterdam.type": "aspectRatio"
+        }
       }
     }
   }

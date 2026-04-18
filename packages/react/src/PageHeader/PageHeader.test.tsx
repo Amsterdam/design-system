@@ -282,6 +282,15 @@ describe('PageHeader', () => {
     }
   })
 
+  it('renders a short brand name', () => {
+    render(<PageHeader brandName="Application name" brandNameShort="App" />)
+
+    const component = screen.getByText('App')
+
+    expect(component).toBeInTheDocument()
+    expect(component).toHaveClass('ams-page-header__brand-name-short')
+  })
+
   it('renders a custom logo link component', () => {
     const CustomLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a data-test {...props} />
 
