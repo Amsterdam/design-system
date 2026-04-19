@@ -8,7 +8,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### ⚠ BREAKING CHANGES
 
-* **Progress List:** Make collapsing and expanding steps optional ([#2538](https://github.com/Amsterdam/design-system/issues/2538))
 * Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549))
 * **Grid, Page:** Make Page grey and Grid Cell white in Compact Mode ([#2398](https://github.com/Amsterdam/design-system/issues/2398))
 
