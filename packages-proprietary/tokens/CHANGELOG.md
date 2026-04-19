@@ -18,11 +18,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Table:** Add whitespace below Caption ([#2515](https://github.com/Amsterdam/design-system/issues/2515)) ([092c0ff](https://github.com/Amsterdam/design-system/commit/092c0fff4ebfd9e395caee721cb55732e57d7cc5))
 * **tokens:** Introduce `vi-` prefix for viewport-dependent component tokens ([#2502](https://github.com/Amsterdam/design-system/issues/2502)) ([90c19da](https://github.com/Amsterdam/design-system/commit/90c19da8f309eedb926bbd3f65f52990b880b661))
 
-
-### Bug Fixes
-
-* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549)) ([4a78276](https://github.com/Amsterdam/design-system/commit/4a78276e463498f2a6bfe417ec7fe1794ee1282c))
-
 ## [4.0.0]
 
 ### Deprecations

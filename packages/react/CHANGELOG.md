@@ -23,11 +23,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * Introduce Tab Navigation component ([#2552](https://github.com/Amsterdam/design-system/issues/2552)) ([1d6e0a3](https://github.com/Amsterdam/design-system/commit/1d6e0a32e856775e6d42879c71902d0aa5ddace8))
 * **Progress List:** Make collapsing and expanding steps optional ([#2538](https://github.com/Amsterdam/design-system/issues/2538)) ([9b4f489](https://github.com/Amsterdam/design-system/commit/9b4f4899881ee2bcfa46275d34194d3470d00446))
 
-
-### Bug Fixes
-
-* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549)) ([4a78276](https://github.com/Amsterdam/design-system/commit/4a78276e463498f2a6bfe417ec7fe1794ee1282c))
-
 ## [4.0.0]
 
 ### Deprecations
