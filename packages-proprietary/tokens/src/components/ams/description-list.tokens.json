@@ -8,7 +8,7 @@
         }
       },
       "column-gap": {
-        "$deprecated": "Use `ams.description-list.vi-medium.column-gap` instead. Will be removed on or after 2026-10-17.",
+        "$deprecated": "Use `ams.description-list.vi-medium.column-gap` instead. Will be removed on or after 2026-10-20.",
         "$value": "initial",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
@@ -37,7 +37,7 @@
         }
       },
       "row-gap": {
-        "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-03.",
+        "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-20.",
         "$value": "0",
         "$type": "dimension",
         "$extensions": {
@@ -129,7 +129,7 @@
       },
       "narrow": {
         "grid-template-columns": {
-          "$deprecated": "Use `ams.description-list.vi-medium.narrow.grid-template-columns` instead. Will be removed on or after 2026-10-17.",
+          "$deprecated": "Use `ams.description-list.vi-medium.narrow.grid-template-columns` instead. Will be removed on or after 2026-10-20.",
           "$value": "initial",
           "$extensions": {
             "nl.amsterdam.type": "gridTemplateColumns"
@@ -138,7 +138,7 @@
       },
       "medium": {
         "grid-template-columns": {
-          "$deprecated": "Use `ams.description-list.vi-medium.medium.grid-template-columns` instead. Will be removed on or after 2026-10-17.",
+          "$deprecated": "Use `ams.description-list.vi-medium.medium.grid-template-columns` instead. Will be removed on or after 2026-10-20.",
           "$value": "initial",
           "$extensions": {
             "nl.amsterdam.type": "gridTemplateColumns"
@@ -147,7 +147,7 @@
       },
       "wide": {
         "grid-template-columns": {
-          "$deprecated": "Use `ams.description-list.vi-medium.wide.grid-template-columns` instead. Will be removed on or after 2026-10-17.",
+          "$deprecated": "Use `ams.description-list.vi-medium.wide.grid-template-columns` instead. Will be removed on or after 2026-10-20.",
           "$value": "initial",
           "$extensions": {
             "nl.amsterdam.type": "gridTemplateColumns"
