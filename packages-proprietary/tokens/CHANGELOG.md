@@ -45,8 +45,8 @@ The following tokens have been deprecated and will be removed on or after 2026-1
 - `ams.grid.medium.column-count`, `ams.grid.medium.padding-inline`, `ams.grid.wide.column-count`, and `ams.grid.wide.padding-inline`
 - `ams.menu.wide.max-inline-size`, `ams.menu.wide.padding-block`, `ams.menu.wide.padding-inline`, and `ams.menu-link.wide.gap`
 - `ams.page-footer.menu.medium.padding-inline`, `ams.page-footer.menu.wide.padding-inline`
-- `ams.page-header.menu.medium.padding-inline`, `ams.page-header.menu.wide.padding-inline`
-- `ams.progress-list.step.medium.gap`, `ams.progress-list.substeps.step.indicator.medium.margin-inline-end`, and `ams.progress-list.step.medium.gap`
+- `ams.page-header.medium.padding-inline`, `ams.page-header.wide.padding-inline`
+- `ams.progress-list.step.medium.gap` and `ams.progress-list.substeps.step.indicator.medium.margin-inline-end`
 
 For tokens containing `*.medium.*` and `*.wide.*`, replace them with `*.vi-medium.*` and `*.vi-wide.*`.
 
