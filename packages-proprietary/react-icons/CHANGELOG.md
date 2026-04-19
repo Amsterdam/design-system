@@ -3,13 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v2.0.0...design-system-react-icons-v3.0.0) (2026-04-18)
-
-
-### ⚠ BREAKING CHANGES
-
-* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549))
-
 ## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v1.1.1...design-system-react-icons-v2.0.0) (2026-01-09)
 
 

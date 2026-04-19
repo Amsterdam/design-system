@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [4.0.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.3.0...design-system-css-v4.0.0) (2026-04-18)
+## [4.0.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.3.0...design-system-css-v4.0.0) (2026-04-20)
 
 
 ### ⚠ BREAKING CHANGES
@@ -23,11 +23,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Table:** Add whitespace below Caption ([#2515](https://github.com/Amsterdam/design-system/issues/2515)) ([092c0ff](https://github.com/Amsterdam/design-system/commit/092c0fff4ebfd9e395caee721cb55732e57d7cc5))
 * **tokens:** Introduce `vi-` prefix for viewport-dependent component tokens ([#2502](https://github.com/Amsterdam/design-system/issues/2502)) ([90c19da](https://github.com/Amsterdam/design-system/commit/90c19da8f309eedb926bbd3f65f52990b880b661))
 
-## [4.0.0]
-
 ### Deprecations
 
-The following deprecated CSS classes have been removed in this release:
+The following deprecated CSS classes have been removed:
 
 - `.ams-page-heading` and `.ams-page-heading--inverse`. Use `.ams-heading` instead.
 - `.ams-heading--6`. Use `.ams-heading--5` instead.
