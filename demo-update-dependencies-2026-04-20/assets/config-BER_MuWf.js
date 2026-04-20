@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-zsgVPwQN.js";import{t}from"./jsx-runtime-GmyBfqKJ.js";import{n,t as r}from"./Layout-CqpsqI1F.js";var i,a,o=e((()=>{n(),i=t(),a={decorators:[e=>(0,i.jsx)(r,{children:(0,i.jsx)(e,{})})],parameters:{layout:`fullscreen`,themes:{themeOverride:`Spacious`}}}}));export{o as n,a as t};
