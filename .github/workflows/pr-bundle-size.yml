@@ -25,10 +25,20 @@ jobs:
           cache: pnpm
           node-version-file: .nvmrc
 
+      - name: Create asset aggregates
+        run: |
+          mkdir -p packages-proprietary/temp
+          tar -czf packages-proprietary/temp/assets-fonts.tar.gz -C packages-proprietary/assets font
+          tar -czf packages-proprietary/temp/assets-others.tar.gz -C packages-proprietary/assets app-icons favicon icons logo manifest *.svg *.png *.jpg *.jpeg *.gif *.webp *.avif *.ico 2>/dev/null || true
+
       - name: Report bundle size
         uses: preactjs/compressed-size-action@66325aad6443cb7cf89c4bfcd414aea2367cda94 # v2.9.1
         with:
           build-script: build
           install-script: pnpm install --frozen-lockfile --ignore-scripts
-          pattern: "{packages/react/dist/index!(*.cjs).js,packages/css/dist/index.css,packages-proprietary/tokens/dist/!(*.theme).css}"
+          pattern: "{packages/react/dist/index!(*.cjs).js,packages/css/dist/index.css,packages-proprietary/tokens/dist/!(*.theme).css,packages-proprietary/react-icons/dist/index.esm.js,packages-proprietary/temp/assets-fonts.tar.gz,packages-proprietary/temp/assets-others.tar.gz}"
           strip-hash: "\\b\\w{8}\\."
+
+      - name: Clean up asset aggregates
+        if: always()
+        run: rm -f packages-proprietary/temp/assets-fonts.tar.gz packages-proprietary/temp/assets-others.tar.gz
