@@ -41,4 +41,4 @@ jobs:
 
       - name: Clean up asset aggregates
         if: always()
-        run: rm -rf packages-proprietary/temp/
+        run: rm -f packages-proprietary/temp/assets-fonts.tar.gz packages-proprietary/temp/assets-others.tar.gz
