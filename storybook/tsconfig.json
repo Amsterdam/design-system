@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
+    "noEmit": true,
     "skipLibCheck": true
   },
   "extends": "../tsconfig.json",
