@@ -71,12 +71,12 @@
       },
       "medium": {
         "inline-size": {
-          "$deprecated": "Use `ams.dialog.vi-medium.inline-size` instead. Will be removed on or after 2026-10-17.",
+          "$deprecated": "Use `ams.dialog.vi-medium.inline-size` instead. Will be removed on or after 2026-10-20.",
           "$value": "initial",
           "$type": "dimension"
         },
         "max-block-size": {
-          "$deprecated": "Use `ams.dialog.vi-medium.max-block-size` instead. Will be removed on or after 2026-10-17.",
+          "$deprecated": "Use `ams.dialog.vi-medium.max-block-size` instead. Will be removed on or after 2026-10-20.",
           "$value": "initial",
           "$type": "dimension"
         }
@@ -125,7 +125,7 @@
         },
         "medium": {
           "padding-block": {
-            "$deprecated": "Use `ams.dialog.header.vi-medium.padding-block` instead. Will be removed on or after 2026-10-17.",
+            "$deprecated": "Use `ams.dialog.header.vi-medium.padding-block` instead. Will be removed on or after 2026-10-20.",
             "$value": "initial",
             "$type": "dimension",
             "$extensions": {
@@ -133,7 +133,7 @@
             }
           },
           "padding-inline": {
-            "$deprecated": "Use `ams.dialog.header.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+            "$deprecated": "Use `ams.dialog.header.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
             "$value": "initial",
             "$type": "dimension",
             "$extensions": {
@@ -175,7 +175,7 @@
         },
         "medium": {
           "padding-inline": {
-            "$deprecated": "Use `ams.dialog.body.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+            "$deprecated": "Use `ams.dialog.body.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
             "$value": "initial",
             "$type": "dimension",
             "$extensions": {
@@ -210,7 +210,7 @@
         },
         "medium": {
           "padding-block": {
-            "$deprecated": "Use `ams.dialog.footer.vi-medium.padding-block` instead. Will be removed on or after 2026-10-17.",
+            "$deprecated": "Use `ams.dialog.footer.vi-medium.padding-block` instead. Will be removed on or after 2026-10-20.",
             "$value": "initial",
             "$type": "dimension",
             "$extensions": {
@@ -218,7 +218,7 @@
             }
           },
           "padding-inline": {
-            "$deprecated": "Use `ams.dialog.footer.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+            "$deprecated": "Use `ams.dialog.footer.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
             "$value": "initial",
             "$type": "dimension",
             "$extensions": {

@@ -194,7 +194,7 @@ Token JSON:
 
 ```jsonc
 "row-gap": {
-  "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-03.",
+  "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-20.",
   "$value": "0"
 }
 ```
@@ -202,7 +202,7 @@ Token JSON:
 Component CSS:
 
 ```css
-row-gap: var(--ams-description-list-row-gap); /* This token is @deprecated. Will be removed on or after 2026-10-03. */
+row-gap: var(--ams-description-list-row-gap); /* This token is @deprecated. Will be removed on or after 2026-10-20. */
 ```
 
 ### Renames that use `var()` fallback
@@ -215,7 +215,7 @@ Always add an inline deprecation comment next to the deprecated custom property 
 
 ```css
 padding-inline: var(
-  --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+  --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
   var(--ams-grid-vi-medium-padding-inline)
 );
 ```
@@ -225,7 +225,7 @@ padding-inline: var(
 ```jsonc
 "medium": {
   "padding-inline": {
-    "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+    "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
     "$value": "initial"
   }
 }

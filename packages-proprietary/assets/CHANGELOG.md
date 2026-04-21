@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.2.0...design-system-assets-v2.3.0) (2026-04-20)
+
+
+### Deprecations
+
+The following files have been deprecated and will be removed on or after 2026-10-20:
+
+- `packages-proprietary/assets/logo/amsterdam-english.svg`
+- `packages-proprietary/assets/logo/amsterdam.svg`
+- `packages-proprietary/assets/logo/ggd-amsterdam.svg`
+- `packages-proprietary/assets/logo/museum-weesp.svg`
+- `packages-proprietary/assets/logo/museum_weesp.svg`
+- `packages-proprietary/assets/logo/stadsarchief.svg`
+- `packages-proprietary/assets/logo/stadsbank-van-lening.svg`
+- `packages-proprietary/assets/logo/vga-verzekeringen.svg`
+
+Use `*-logo.svg` instead.
+
 ## [2.2.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.1.0...design-system-assets-v2.2.0) (2026-04-03)
 
 

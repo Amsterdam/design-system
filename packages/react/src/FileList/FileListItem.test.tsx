@@ -61,6 +61,23 @@ describe('FileListItem', () => {
     expect(onDelete).toHaveBeenCalledTimes(1)
   })
 
+  it('renders an image preview for image files', () => {
+    const createObjectURL = vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:test')
+
+    try {
+      const imageFile = new File(['image content'], 'photo.png', { type: 'image/png' })
+
+      render(<FileListItem file={imageFile} />)
+
+      const component = screen.getByRole('img', { name: 'photo.png' })
+
+      expect(component).toBeInTheDocument()
+      expect(component).toHaveAttribute('src', 'blob:test')
+    } finally {
+      createObjectURL.mockRestore()
+    }
+  })
+
   it('passes additional props', () => {
     render(<FileListItem aria-hidden="false" data-test="data-test" file={file} id="id" />)
 
