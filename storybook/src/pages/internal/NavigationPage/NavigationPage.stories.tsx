@@ -6,7 +6,17 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { MouseEvent } from 'react'
 
-import { Breadcrumb, Grid, Heading, TabNavigation } from '@amsterdam/design-system-react'
+import {
+  Breadcrumb,
+  Field,
+  FieldSet,
+  Grid,
+  Heading,
+  Label,
+  Select,
+  TabNavigation,
+  TextInput,
+} from '@amsterdam/design-system-react'
 import { useRef, useState } from 'react'
 
 import { commonMeta } from '../common/config'
@@ -97,6 +107,24 @@ const meta = {
           <Heading className="ams-mb-m" level={3}>
             {currentSubMenu.label}
           </Heading>
+          <FieldSet legend="Test Inline size">
+            <Field>
+              <Label htmlFor="input1">Wat is uw Voornaam?</Label>
+              <TextInput id="input1" size={32} />
+            </Field>
+            <Field>
+              <Label htmlFor="input2">Wat is uw achternaam?</Label>
+              <TextInput id="input2" size={64} />
+            </Field>
+            <Field>
+              <Label htmlFor="input3">Hoe mogen wij u aanspreken?</Label>
+              <Select id="input3">
+                <Select.Option value="heer">De heer</Select.Option>
+                <Select.Option value="mevrouw">Mevrouw</Select.Option>
+                <Select.Option value="anders">Anders</Select.Option>
+              </Select>
+            </Field>
+          </FieldSet>
         </Grid.Cell>
         <Grid.Cell
           span={{ narrow: 4, medium: 4, wide: 3 }}
