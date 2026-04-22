@@ -4,8 +4,10 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { AnchorHTMLAttributes, MouseEvent } from 'react'
 
 import { Grid, Heading, Label, Pagination, Row, Select, Table } from '@amsterdam/design-system-react'
+import { useState } from 'react'
 
 import type { SortOrder } from './common'
 
@@ -77,10 +79,27 @@ export const PaginationWithLinks: StoryObj = {
     const pageSize = 5
     const subset = bagAddresses.slice(0, 50)
     const totalPages = Math.ceil(subset.length / pageSize)
-    const currentParams = new URLSearchParams(window.location.search)
-    const page = Number(currentParams.get('pagina')) || 1
+    const [page, setPage] = useState(() => Number(new URLSearchParams(window.location.search).get('pagina')) || 1)
     const range = `(${(page - 1) * pageSize + 1}–${Math.min(page * pageSize, subset.length)})`
     const paginatedAddresses = subset.slice((page - 1) * pageSize, page * pageSize)
+
+    // Intercept pagination clicks so they don’t trigger a full page reload.
+    // Storybook-specific: a real reload would navigate the iframe to its own URL
+    // (`/iframe.html?…`), escaping the Storybook chrome around it.
+    // We let the browser handle modifier-clicks (cmd/ctrl/shift/alt or middle-click)
+    // so users can still open a page in a new tab.
+    // Otherwise we update the URL via History API and sync the React state.
+    const handlePaginationClick = (event: MouseEvent<HTMLAnchorElement>) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return
+      event.preventDefault()
+      const url = new URL(event.currentTarget.href, window.location.href)
+      window.history.pushState({}, '', url)
+      setPage(Number(url.searchParams.get('pagina')) || 1)
+    }
+
+    const PaginationLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => (
+      <a {...props} onClick={handlePaginationClick} />
+    )
 
     return (
       <Grid paddingBottom="x-large" paddingTop="large">
@@ -98,7 +117,12 @@ export const PaginationWithLinks: StoryObj = {
             <AddressTableBody addresses={paginatedAddresses} />
           </Table>
           <Row align="center">
-            <Pagination linkTemplate={paginationLinkTemplate} page={page} totalPages={totalPages} />
+            <Pagination
+              linkComponent={PaginationLink}
+              linkTemplate={paginationLinkTemplate}
+              page={page}
+              totalPages={totalPages}
+            />
           </Row>
         </Grid.Cell>
       </Grid>
