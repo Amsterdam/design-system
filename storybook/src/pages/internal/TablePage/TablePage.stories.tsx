@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Grid, Heading, Label, Row, Select, Table } from '@amsterdam/design-system-react'
+import { Grid, Heading, Label, Pagination, Row, Select, Table } from '@amsterdam/design-system-react'
 
 import type { SortOrder } from './common'
 
@@ -13,6 +13,12 @@ import { commonMeta } from '../common/config'
 import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from './common'
 
 const params = new URLSearchParams(window.location.search)
+
+const paginationLinkTemplate = (page: number) => {
+  const url = new URL(window.location.href)
+  url.searchParams.set('pagina', String(page))
+  return `?${url.searchParams.toString()}`
+}
 
 const meta = {
   ...commonMeta,
@@ -60,6 +66,40 @@ export const SortingWithSelect: StoryObj = {
             </Table.Header>
             <AddressTableBody addresses={addresses} />
           </Table>
+        </Grid.Cell>
+      </Grid>
+    )
+  },
+}
+
+export const PaginationWithLinks: StoryObj = {
+  render: () => {
+    const pageSize = 5
+    const subset = bagAddresses.slice(0, 50)
+    const totalPages = Math.ceil(subset.length / pageSize)
+    const currentParams = new URLSearchParams(window.location.search)
+    const page = Number(currentParams.get('pagina')) || 1
+    const range = `(${(page - 1) * pageSize + 1}–${Math.min(page * pageSize, subset.length)})`
+    const paginatedAddresses = subset.slice((page - 1) * pageSize, page * pageSize)
+
+    return (
+      <Grid paddingBottom="x-large" paddingTop="large">
+        <Grid.Cell className="ams-grid__cell--transparent" span="all">
+          <Heading level={1}>Vergunninghouders 2026/2027</Heading>
+        </Grid.Cell>
+        <Grid.Cell span="all">
+          <Table className="ams-mb-l">
+            <Table.Caption className="ams-mb-m">
+              <Heading level={2}>Gegevens per adres {range}</Heading>
+            </Table.Caption>
+            <Table.Header>
+              <AddressTableHeaderRow />
+            </Table.Header>
+            <AddressTableBody addresses={paginatedAddresses} />
+          </Table>
+          <Row align="center">
+            <Pagination linkTemplate={paginationLinkTemplate} page={page} totalPages={totalPages} />
+          </Row>
         </Grid.Cell>
       </Grid>
     )
