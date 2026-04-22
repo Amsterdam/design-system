@@ -34,13 +34,13 @@ export const AddressTableBody = ({ addresses }: AddressTableBodyProps) => (
           <Table.Row key={id}>
             <Table.HeaderCell scope="row">{index + 1}</Table.HeaderCell>
             <Table.Cell>{straat}</Table.Cell>
-            <Table.Cell>{huisnummer}</Table.Cell>
-            <Table.Cell>{huisletter}</Table.Cell>
+            <Table.Cell align="end">{huisnummer}</Table.Cell>
+            <Table.Cell align="center">{huisletter}</Table.Cell>
             <Table.Cell>{postcode}</Table.Cell>
             <Table.Cell>{gebruiksdoel?.replace(',', ', ')}</Table.Cell>
-            <Table.Cell>{aantalKamers}</Table.Cell>
-            <Table.Cell>{oppervlakte}</Table.Cell>
-            <Table.Cell>{bouwjaar}</Table.Cell>
+            <Table.Cell align="end">{aantalKamers}</Table.Cell>
+            <Table.Cell align="end">{oppervlakte}</Table.Cell>
+            <Table.Cell align="end">{bouwjaar}</Table.Cell>
             <Table.Cell>{status}</Table.Cell>
             <Table.Cell>{wozSoortObject?.replace(',', ', ')}</Table.Cell>
           </Table.Row>
