@@ -4,7 +4,8 @@
  */
 
 .ams-table {
-  overflow-x: auto;
+  overflow: auto hidden;
+  overscroll-behavior-x: contain;
 }
 
 .ams-table__table {

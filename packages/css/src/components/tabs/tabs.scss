@@ -14,7 +14,8 @@
 .ams-tabs__list {
   box-shadow: var(--ams-tabs-list-box-shadow);
   display: flex;
-  overflow-x: auto;
+  overflow: auto hidden;
+  overscroll-behavior-x: contain;
 }
 
 .ams-tabs__button {
