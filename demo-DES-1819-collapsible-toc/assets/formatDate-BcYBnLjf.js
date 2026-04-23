@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-zsgVPwQN.js";var t,n,r=e((()=>{t=new Intl.DateTimeFormat(`nl`,{day:`numeric`,month:`long`,year:`numeric`}),n=e=>t.format(e)}));export{r as n,n as t};
