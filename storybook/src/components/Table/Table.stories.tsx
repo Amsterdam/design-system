@@ -26,11 +26,11 @@ export const Default: Story = {
       <Table.Header key="header">
         <Table.Row>
           <Table.HeaderCell>Type</Table.HeaderCell>
-          <Table.HeaderCell>
+          <Table.HeaderCell align="end">
             Normale levertijd
             <br />1 week
           </Table.HeaderCell>
-          <Table.HeaderCell>
+          <Table.HeaderCell align="end">
             Spoed
             <br />2 werkdagen
           </Table.HeaderCell>
@@ -39,13 +39,13 @@ export const Default: Story = {
       <Table.Body key="body">
         <Table.Row>
           <Table.Cell>Paspoort</Table.Cell>
-          <Table.Cell>€ 77,85</Table.Cell>
-          <Table.Cell>€ 130,80</Table.Cell>
+          <Table.Cell align="end">€ 77,85</Table.Cell>
+          <Table.Cell align="end">€ 130,80</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>ID-kaart</Table.Cell>
-          <Table.Cell>€ 70,35</Table.Cell>
-          <Table.Cell>€ 123,30</Table.Cell>
+          <Table.Cell align="end">€ 70,35</Table.Cell>
+          <Table.Cell align="end">€ 123,30</Table.Cell>
         </Table.Row>
       </Table.Body>,
     ],
@@ -99,11 +99,11 @@ export const WithDescriptionInCaption: Story = {
       <Table.Header key="header">
         <Table.Row>
           <Table.HeaderCell>Type</Table.HeaderCell>
-          <Table.HeaderCell>
+          <Table.HeaderCell align="end">
             Normale levertijd
             <br />1 week
           </Table.HeaderCell>
-          <Table.HeaderCell>
+          <Table.HeaderCell align="end">
             Spoed
             <br />2 werkdagen
           </Table.HeaderCell>
@@ -112,13 +112,13 @@ export const WithDescriptionInCaption: Story = {
       <Table.Body key="body">
         <Table.Row>
           <Table.Cell>Paspoort</Table.Cell>
-          <Table.Cell>€ 77,85</Table.Cell>
-          <Table.Cell>€ 130,80</Table.Cell>
+          <Table.Cell align="end">€ 77,85</Table.Cell>
+          <Table.Cell align="end">€ 130,80</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>ID-kaart</Table.Cell>
-          <Table.Cell>€ 70,35</Table.Cell>
-          <Table.Cell>€ 123,30</Table.Cell>
+          <Table.Cell align="end">€ 70,35</Table.Cell>
+          <Table.Cell align="end">€ 123,30</Table.Cell>
         </Table.Row>
       </Table.Body>,
     ],
