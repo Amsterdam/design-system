@@ -74,7 +74,7 @@ export const SortingWithSelect: StoryObj = {
   },
 }
 
-export const PaginationWithLinks: StoryObj = {
+export const WithPagination: StoryObj = {
   render: () => {
     const pageSize = 5
     const subset = bagAddresses.slice(0, 50)
