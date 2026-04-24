@@ -1,0 +1,1 @@
+import{a as e,n as t,o as n,r,s as i,t as a}from"./PageFooter.stories-zWUnvbnj.js";n();export{a as CustomMenuHeading,t as Default,r as OnderzoekEnStatistiek,e as __namedExportsOrder,i as default};
