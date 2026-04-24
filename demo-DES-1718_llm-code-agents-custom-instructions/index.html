@@ -60,6 +60,14 @@
     
     <link href="./sb-addons/config-6/manager-bundle.js" rel="modulepreload" />
       <style>
+  /* TODO: remove this temporary workaround for Storybook's rendering of stories in Firefox 140 (ESR) when a fix has been released.
+   * Bug reports for Storybook: https://github.com/storybookjs/storybook/issues/33743, https://github.com/storybookjs/storybook/issues/33769
+   * Implemented workaround: https://github.com/storybookjs/storybook/issues/33769#issuecomment-3929210792
+   */
+  main[aria-labelledby="main-preview-heading"] > div {
+    place-content: stretch;
+  }
+
   /* Looks like we can’t configure our custom theme to keep the background of controls light in dark mode. */
   #panel-tab-content,
   input {
@@ -98,7 +106,7 @@
   "outline": true,
   "measure": true,
   "sidebarOnboardingChecklist": true,
-  "componentsManifest": true
+  "componentsManifest": false
 };
         
       
