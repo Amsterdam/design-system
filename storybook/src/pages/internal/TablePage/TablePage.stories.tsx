@@ -110,8 +110,15 @@ export const WithPagination: StoryObj = {
       setPage(clampPage(url.searchParams.get('pagina')))
     }
 
-    const PaginationLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => (
-      <a {...props} onClick={handlePaginationClick} />
+    const PaginationLink = ({ onClick, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
+      <a
+        {...props}
+        onClick={(event) => {
+          onClick?.(event)
+          if (event.defaultPrevented) return
+          handlePaginationClick(event)
+        }}
+      />
     )
 
     return (
