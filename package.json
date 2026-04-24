@@ -35,7 +35,7 @@
     "lint:js": "eslint .",
     "lint:package-json": "npmPkgJsonLint **/package.json",
     "lint:package-lock": "pnpm ls --recursive",
-    "lint-fix": "pnpm run --aggregate-output '/^lint-fix:.+$/' && npm run prettier",
+    "lint-fix": "pnpm run --aggregate-output '/^lint-fix:.+$/' && pnpm run prettier",
     "lint-fix:css": "stylelint --fix '**/*.{css,scss}'",
     "lint-fix:js": "eslint . --fix",
     "plop": "plop",
@@ -48,10 +48,10 @@
     "update:major": "npm-check-updates --upgrade --workspaces --cooldown 1 && pnpm install",
     "update:minor": "npm-check-updates --target minor --upgrade --workspaces --cooldown 1 && pnpm install",
     "update:patch": "npm-check-updates --target patch --upgrade --workspaces --cooldown 1 && pnpm install",
-    "watch:css": "npm run --workspace packages/css build:watch",
-    "watch:react": "npm run --workspace packages/react build:watch",
-    "watch:storybook": "npm run --workspace storybook start",
-    "watch:tokens": "npm run --workspace packages-proprietary/tokens build:watch"
+    "watch:css": "pnpm --filter @amsterdam/design-system-css run build:watch",
+    "watch:react": "pnpm --filter @amsterdam/design-system-react run build:watch",
+    "watch:storybook": "pnpm --filter @amsterdam/storybook run start",
+    "watch:tokens": "pnpm --filter @amsterdam/design-system-tokens run build:watch"
   },
   "devDependencies": {
     "@eslint/js": "9.39.4",
