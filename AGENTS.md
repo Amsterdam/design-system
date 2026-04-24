@@ -81,9 +81,12 @@ These rules override common agent defaults and apply across the repository:
 - **Never add backwards-compatibility fallbacks** (`@supports`, polyfills, feature detection) unless the task explicitly requests them. Make the simplest change that satisfies the task.
 - **Never bypass accessibility** — do not use `aria-label` for screen reader-only text; use the `ams-visually-hidden` helper instead, and never remove focus outlines or rely on colour alone to convey meaning.
 - **Never add features, abstractions, or refactors beyond the scope of the task.**
-- **Never add comments** unless the logic is genuinely non-obvious and cannot be simplified. Exception: JSDoc used for public APIs, props, and documentation that is required by package conventions is allowed.
+- **Never add comments** unless the logic is genuinely non-obvious and cannot be simplified — JSDoc for public APIs, props, and documentation required by package conventions is the explicit exception.
 
 Package-specific "never do" rules (for example, avoiding barrel imports within the React package, or Storybook testing practices) live in the per-package `AGENTS.md` files.
+
+A few critical rules — token usage, `ams-visually-hidden` for screen reader text, Conventional Commits — are intentionally repeated in per-package `AGENTS.md` files.
+Agents scoped to a single directory may only load the local file, so the reinforcement is deliberate; do not DRY these rules out.
 
 ## Where to change what
 
