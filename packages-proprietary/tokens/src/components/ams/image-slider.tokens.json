@@ -3,33 +3,33 @@
     "image-slider": {
       "gap": {
         "$value": "{ams.space.xs}",
-        "$type": "dimension",
         "$extensions": {
-          "nl.amsterdam.subtype": "space"
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "scroller": {
         "gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       },
       "thumbnails": {
         "gap": {
           "$value": "{ams.space.xs}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         },
         "thumbnail": {
@@ -38,26 +38,38 @@
             "$type": "color"
           },
           "cursor": {
-            "$value": "{ams.cursor.interactive}"
+            "$value": "{ams.cursor.interactive}",
+            "$extensions": {
+              "nl.amsterdam.type": "cursor"
+            }
           },
           "opacity": {
-            "$value": "40%"
+            "$value": "40%",
+            "$extensions": {
+              "nl.amsterdam.type": "opacity"
+            }
           },
           "outline-offset": {
             "$value": "{ams.focus.outline-offset}",
-            "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.subtype": "space"
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
             }
           },
           "in-view": {
             "opacity": {
-              "$value": "100%"
+              "$value": "100%",
+              "$extensions": {
+                "nl.amsterdam.type": "opacity"
+              }
             }
           },
           "hover": {
             "opacity": {
-              "$value": "100%"
+              "$value": "100%",
+              "$extensions": {
+                "nl.amsterdam.type": "opacity"
+              }
             }
           }
         }
@@ -65,9 +77,9 @@
       "figure": {
         "margin-block-end": {
           "$value": "{ams.space.m}",
-          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.subtype": "space"
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
           }
         }
       }

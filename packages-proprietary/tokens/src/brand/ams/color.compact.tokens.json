@@ -3,14 +3,13 @@
     "color": {
       "background": {
         "body": {
-          "$value": "#e8e8e8",
-          "$type": "color"
+          "$value": "#e8e8e8"
         },
         "default": {
-          "$value": "#ffffff",
-          "$type": "color"
+          "$value": "#ffffff"
         }
       }
     }
-  }
+  },
+  "$type": "color"
 }

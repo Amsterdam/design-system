@@ -24,16 +24,34 @@
   padding-inline: calc(var(--ams-grid-padding-inline) - var(--ams-menu-link-padding-inline));
 
   @media (min-width: $ams-breakpoint-medium) {
-    margin-inline: calc(var(--ams-grid-medium-padding-inline) * -1);
-    padding-inline: var(--ams-grid-medium-padding-inline);
+    margin-inline: calc(
+      var(
+          --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+          var(--ams-grid-vi-medium-padding-inline)
+        ) *
+        -1
+    );
+    padding-inline: var(
+      --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+      var(--ams-grid-vi-medium-padding-inline)
+    );
   }
 
   @media (min-width: $ams-breakpoint-wide) {
     display: none;
     margin-inline: 0; // Override negative margin above.
-    max-inline-size: var(--ams-menu-wide-max-inline-size);
-    padding-block: var(--ams-menu-wide-padding-block);
-    padding-inline: var(--ams-menu-wide-padding-inline);
+    max-inline-size: var(
+      --ams-menu-wide-max-inline-size /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+      var(--ams-menu-vi-wide-max-inline-size)
+    );
+    padding-block: var(
+      --ams-menu-wide-padding-block /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+      var(--ams-menu-vi-wide-padding-block)
+    );
+    padding-inline: var(
+      --ams-menu-wide-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+      var(--ams-menu-vi-wide-padding-inline)
+    );
   }
 }
 
@@ -83,30 +101,15 @@
     align-items: center;
     display: flex; // The links do stretch in the vertical layout of Menu.
     flex-direction: column;
-    gap: var(--ams-menu-link-wide-gap);
+    gap: var(
+      --ams-menu-link-wide-gap /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+      var(--ams-menu-link-vi-wide-gap)
+    );
     text-align: center;
 
     .ams-menu__icon {
       --ams-icon-font-size: var(--ams-icon-heading-2-font-size);
       --ams-icon-line-height: var(--ams-icon-heading-2-line-height);
     }
-  }
-}
-
-/** @deprecated The menu has a dark background now, so this is no longer needed. */
-.ams-menu__link--contrast {
-  color: var(--ams-menu-link-contrast-color);
-
-  &:hover {
-    color: var(--ams-menu-link-contrast-hover-color);
-  }
-}
-
-/** @deprecated The menu has a dark background now, so this is no longer needed. */
-.ams-menu__link--inverse {
-  color: var(--ams-menu-link-inverse-color);
-
-  &:hover {
-    color: var(--ams-menu-link-inverse-hover-color);
   }
 }

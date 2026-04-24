@@ -23,12 +23,6 @@ const meta = {
   args: {
     headingLevel: 3,
   },
-  argTypes: {
-    headingLevel: {
-      control: 'radio',
-      options: [2, 3, 4], // Level 1 is deprecated, the argTypes object can be removed when Level 1 is removed
-    },
-  },
 } satisfies Meta<typeof Accordion>
 
 export default meta
@@ -68,7 +62,7 @@ export const ExpandedByDefault: Story = {
       <Accordion.Section key={1} label={heading1}>
         <Paragraph>{paragraph1}</Paragraph>
       </Accordion.Section>,
-      <Accordion.Section expanded key={2} label={heading2}>
+      <Accordion.Section defaultExpanded key={2} label={heading2}>
         <Paragraph>{paragraph2}</Paragraph>
       </Accordion.Section>,
       <Accordion.Section key={3} label={heading3}>

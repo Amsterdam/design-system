@@ -35,7 +35,6 @@
 @use "hint/hint";
 @use "icon-button/icon-button";
 @use "icon/icon";
-@use "icon/icon.deprecated" as *;
 @use "image-slider/image-slider";
 @use "image/image";
 @use "invalid-form-alert/invalid-form-alert";
@@ -51,11 +50,11 @@
 @use "page/page";
 @use "page-footer/page-footer";
 @use "page-header/page-header";
-@use "page-heading/page-heading.deprecated" as *;
 @use "pagination/pagination";
 @use "paragraph/paragraph";
 @use "password-input/password-input";
 @use "progress-list/progress-list";
+@use "prose/prose";
 @use "radio/radio";
 @use "row/row";
 @use "search-field/search-field";
@@ -66,6 +65,7 @@
 @use "switch/switch";
 @use "table-of-contents/table-of-contents";
 @use "table/table";
+@use "tab-navigation/tab-navigation";
 @use "tabs/tabs";
 @use "text-area/text-area";
 @use "text-input/text-input";

@@ -205,6 +205,29 @@ describe('Tabs', () => {
     expect(firstButton).toHaveFocus()
   })
 
+  it('handles TabsList with non-Button children without throwing', () => {
+    const { container } = render(
+      <Tabs>
+        <Tabs.List>text content</Tabs.List>
+        <Tabs.Panel id="one">Content</Tabs.Panel>
+      </Tabs>,
+    )
+
+    const component = container.querySelector('.ams-tabs')
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('does not throw when Tabs.Button is rendered outside a Tabs provider', async () => {
+    const user = userEvent.setup()
+
+    render(<Tabs.Button aria-controls="test">Tab</Tabs.Button>)
+
+    const button = screen.getByRole('tab')
+
+    await expect(user.click(button)).resolves.toBeUndefined()
+  })
+
   it('passes additional props', () => {
     const { container } = render(<Tabs aria-hidden="false" data-test="data-test" id="id" />)
 

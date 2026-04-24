@@ -15,13 +15,31 @@
   row-gap: var(--ams-grid-row-gap-xl);
 
   @media (min-width: $ams-breakpoint-medium) {
-    grid-template-columns: repeat(var(--ams-grid-medium-column-count), 1fr);
-    padding-inline: var(--ams-grid-medium-padding-inline);
+    grid-template-columns: repeat(
+      var(
+        --ams-grid-medium-column-count /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+        var(--ams-grid-vi-medium-column-count)
+      ),
+      1fr
+    );
+    padding-inline: var(
+      --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+      var(--ams-grid-vi-medium-padding-inline)
+    );
   }
 
   @media (min-width: $ams-breakpoint-wide) {
-    grid-template-columns: repeat(var(--ams-grid-wide-column-count), 1fr);
-    padding-inline: var(--ams-grid-wide-padding-inline);
+    grid-template-columns: repeat(
+      var(
+        --ams-grid-wide-column-count /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+        var(--ams-grid-vi-wide-column-count)
+      ),
+      1fr
+    );
+    padding-inline: var(
+      --ams-grid-wide-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+      var(--ams-grid-vi-wide-padding-inline)
+    );
   }
 }
 
@@ -114,5 +132,23 @@
 @mixin ams-grid__cell--start-wide($i) {
   @media (min-width: $ams-breakpoint-wide) {
     grid-column-start: $i;
+  }
+}
+
+// Cell row span
+
+@mixin ams-grid__cell--row-span($i) {
+  grid-row: span $i;
+}
+
+@mixin ams-grid__cell--row-span-medium($i) {
+  @media (min-width: $ams-breakpoint-medium) {
+    grid-row: span $i;
+  }
+}
+
+@mixin ams-grid__cell--row-span-wide($i) {
+  @media (min-width: $ams-breakpoint-wide) {
+    grid-row: span $i;
   }
 }

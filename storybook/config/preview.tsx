@@ -5,6 +5,7 @@ import '@amsterdam/design-system-css/dist/index.css'
 
 import '../src/_styles/docs.css'
 import '../src/_styles/overrides.css'
+import '../src/_styles/tests.css'
 
 import type { PageProps } from '@amsterdam/design-system-react'
 import type { StoryContext, StoryFn } from '@storybook/react-vite'
@@ -77,7 +78,7 @@ export const parameters = {
     storySort: {
       order: [
         'Docs',
-        ['Introduction', 'Developer Guide', ['Getting Started']],
+        ['Introduction', ['Getting Started']],
         'Brand',
         'Components',
         ['Buttons', 'Containers', 'Feedback', 'Forms', 'Layout', 'Media', 'Navigation', 'Text'],
