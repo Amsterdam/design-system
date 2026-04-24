@@ -35,7 +35,7 @@
     "lint:js": "eslint .",
     "lint:package-json": "npmPkgJsonLint **/package.json",
     "lint:package-lock": "pnpm ls --recursive",
-    "lint-fix": "pnpm run --aggregate-output '/^lint-fix:.+$/' && npm run prettier",
+    "lint-fix": "pnpm run --aggregate-output '/^lint-fix:.+$/' && pnpm run prettier",
     "lint-fix:css": "stylelint --fix '**/*.{css,scss}'",
     "lint-fix:js": "eslint . --fix",
     "plop": "plop",
