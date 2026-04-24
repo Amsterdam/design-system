@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v4.0.0...design-system-css-v4.1.0) (2026-04-24)
+
+
+### Features
+
+* **Table:** Align Header Cells to the bottom ([#2583](https://github.com/Amsterdam/design-system/issues/2583)) ([27f5d26](https://github.com/Amsterdam/design-system/commit/27f5d261eed92b444e4c1a708a105146aa76ed82))
+* **Table:** Allow centering or right-aligning content of a Cell or Header Cell ([#2587](https://github.com/Amsterdam/design-system/issues/2587)) ([636eae7](https://github.com/Amsterdam/design-system/commit/636eae78d7e095f6af32911921c40337c87a3b7e))
+
+
+### Bug Fixes
+
+* **Field Set:** Don’t grow beyond container width for wide inputs or textareas ([#2581](https://github.com/Amsterdam/design-system/issues/2581)) ([3cb786a](https://github.com/Amsterdam/design-system/commit/3cb786a390a1d695f987aeb1889f197a665a169b))
+
 ## [4.0.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v3.3.0...design-system-css-v4.0.0) (2026-04-20)
 
 
