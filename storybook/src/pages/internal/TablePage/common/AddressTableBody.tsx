@@ -9,9 +9,10 @@ import type { BagAddress } from './bagAddresses'
 
 type AddressTableBodyProps = {
   addresses: BagAddress[]
+  firstRow?: number
 }
 
-export const AddressTableBody = ({ addresses }: AddressTableBodyProps) => (
+export const AddressTableBody = ({ addresses, firstRow = 1 }: AddressTableBodyProps) => (
   <Table.Body>
     {addresses.length ? (
       addresses.map(
@@ -32,7 +33,7 @@ export const AddressTableBody = ({ addresses }: AddressTableBodyProps) => (
           index,
         ) => (
           <Table.Row key={id}>
-            <Table.HeaderCell scope="row">{index + 1}</Table.HeaderCell>
+            <Table.HeaderCell scope="row">{firstRow + index}</Table.HeaderCell>
             <Table.Cell>{straat}</Table.Cell>
             <Table.Cell>{huisnummer}</Table.Cell>
             <Table.Cell>{huisletter}</Table.Cell>

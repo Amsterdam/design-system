@@ -87,7 +87,7 @@ export const WithPagination: StoryObj = {
             <Table.Header>
               <AddressTableHeaderRow />
             </Table.Header>
-            <AddressTableBody addresses={paginatedAddresses} />
+            <AddressTableBody addresses={paginatedAddresses} firstRow={firstRow} />
           </Table>
           <Row align="center">
             <Pagination
