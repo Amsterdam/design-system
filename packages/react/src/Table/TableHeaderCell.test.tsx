@@ -106,4 +106,22 @@ describe('TableHeaderCell', () => {
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })
+
+  it('renders an alignment modifier class when align is set', () => {
+    render(
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderCell align="end">Data</TableHeaderCell>
+            <TableHeaderCell align="center">Data</TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+      </Table>,
+    )
+
+    const [endCell, centerCell] = screen.getAllByRole('columnheader')
+
+    expect(endCell).toHaveClass('ams-table__header-cell--align-end')
+    expect(centerCell).toHaveClass('ams-table__header-cell--align-center')
+  })
 })

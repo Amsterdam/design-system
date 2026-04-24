@@ -2,10 +2,28 @@
   "ams": {
     "grid": {
       "padding-inline": {
-        "$value": "{ams.space.xl}",
+        "$value": "{ams.space.m}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
+        }
+      },
+      "vi-medium": {
+        "padding-inline": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "vi-wide": {
+        "padding-inline": {
+          "$value": "{ams.space.xl}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
         }
       },
       "cell": {

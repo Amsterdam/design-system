@@ -25,7 +25,7 @@
   "scripts": {
     "clean": "rimraf dist/",
     "build": "node build.js",
-    "build:watch": "chokidar --follow-symlinks --initial --command \"npm run build\" \"src/**/*.tokens.json\""
+    "build:watch": "chokidar --follow-symlinks --initial --command \"pnpm run build\" \"src/**/*.tokens.json\""
   },
   "devDependencies": {
     "change-case": "5.4.4",
