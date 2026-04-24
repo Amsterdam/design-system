@@ -1,8 +1,9 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 
 import * as TableStories from "./Table.stories.tsx";
+import * as TableCellStories from "./TableCell.stories.tsx";
 import README from "../../../../packages/css/src/components/table/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/table.tokens.json";
 
@@ -13,6 +14,18 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 <Markdown>{README}</Markdown>
 
 <Primary />
+
+## Subcomponents
+
+### Cell
+
+Holds a single value within a row.
+Use the `align` prop to align the content to the center or end of the cell.
+Apply the same value to all cells in the column and the matching `Table.HeaderCell`.
+
+<Canvas of={TableCellStories.Cell} />
+
+<Controls of={TableCellStories.Cell} />
 
 ## Examples
 
