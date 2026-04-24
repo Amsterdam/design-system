@@ -6,6 +6,7 @@
 import type { Meta } from '@storybook/react-vite'
 
 import { commonMeta } from '../common/config'
+import * as TablePageStories from './stories'
 
 const meta = {
   ...commonMeta,
@@ -14,5 +15,6 @@ const meta = {
 
 export default meta
 
-export { SortingWithSelect } from './stories/SortingWithSelect'
-export { WithPagination } from './stories/WithPagination'
+export const SortingWithSelect = TablePageStories.SortingWithSelect
+
+export const WithPagination = TablePageStories.WithPagination
