@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { AnchorHTMLAttributes, MouseEvent } from 'react'
 
 import { Grid, Heading, Label, Pagination, Row, Select, Table } from '@amsterdam/design-system-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import type { SortOrder } from './common'
 
@@ -87,6 +87,14 @@ export const WithPagination: StoryObj = {
     const [page, setPage] = useState(() => clampPage(new URLSearchParams(window.location.search).get('pagina')))
     const range = `(${(page - 1) * pageSize + 1}–${Math.min(page * pageSize, subset.length)})`
     const paginatedAddresses = subset.slice((page - 1) * pageSize, page * pageSize)
+
+    // Keep the React state in sync with the URL when the user navigates via
+    // the browser’s back/forward buttons.
+    useEffect(() => {
+      const handlePopState = () => setPage(clampPage(new URLSearchParams(window.location.search).get('pagina')))
+      window.addEventListener('popstate', handlePopState)
+      return () => window.removeEventListener('popstate', handlePopState)
+    }, [totalPages])
 
     // Intercept pagination clicks so they don’t trigger a full page reload.
     // Storybook-specific: a real reload would navigate the iframe to its own URL
