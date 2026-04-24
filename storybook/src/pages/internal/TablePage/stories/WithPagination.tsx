@@ -39,7 +39,6 @@ export const WithPagination: StoryObj = {
 
     const firstRow = (page - 1) * pageSize + 1
     const lastRow = Math.min(page * pageSize, addresses.length)
-    const range = `(${firstRow}–${lastRow})`
     const paginatedAddresses = addresses.slice(firstRow - 1, lastRow)
 
     // Keep the React state in sync with the URL when the user navigates via
@@ -83,7 +82,7 @@ export const WithPagination: StoryObj = {
         <Grid.Cell span="all">
           <Table className="ams-mb-l">
             <Table.Caption className="ams-mb-m">
-              <Heading level={2}>Gegevens per adres {range}</Heading>
+              <Heading level={2}>Gegevens per adres</Heading>
             </Table.Caption>
             <Table.Header>
               <AddressTableHeaderRow />
