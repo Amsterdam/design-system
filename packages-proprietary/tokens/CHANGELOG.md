@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.0.0...design-system-tokens-v4.0.1) (2026-04-24)
+
+
+### Bug Fixes
+
+* **Grid:** Set correct horizontal padding in Compact Mode ([#2582](https://github.com/Amsterdam/design-system/issues/2582)) ([049fa6c](https://github.com/Amsterdam/design-system/commit/049fa6c205e2a73f3a4eac66642e000e90aa8369))
+
 ## [4.0.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v3.4.0...design-system-tokens-v4.0.0) (2026-04-20)
 
 
