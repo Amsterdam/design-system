@@ -79,7 +79,12 @@ export const WithPagination: StoryObj = {
     const pageSize = 5
     const subset = bagAddresses.slice(0, 50)
     const totalPages = Math.ceil(subset.length / pageSize)
-    const [page, setPage] = useState(() => Number(new URLSearchParams(window.location.search).get('pagina')) || 1)
+    const clampPage = (value: string | null) => {
+      const parsed = Math.trunc(Number(value))
+      if (!Number.isFinite(parsed) || parsed < 1) return 1
+      return Math.min(parsed, totalPages)
+    }
+    const [page, setPage] = useState(() => clampPage(new URLSearchParams(window.location.search).get('pagina')))
     const range = `(${(page - 1) * pageSize + 1}–${Math.min(page * pageSize, subset.length)})`
     const paginatedAddresses = subset.slice((page - 1) * pageSize, page * pageSize)
 
@@ -94,7 +99,7 @@ export const WithPagination: StoryObj = {
       event.preventDefault()
       const url = new URL(event.currentTarget.href, window.location.href)
       window.history.pushState({}, '', url)
-      setPage(Number(url.searchParams.get('pagina')) || 1)
+      setPage(clampPage(url.searchParams.get('pagina')))
     }
 
     const PaginationLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => (
