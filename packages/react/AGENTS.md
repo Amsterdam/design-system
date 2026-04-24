@@ -11,6 +11,7 @@ Full conventions: [documentation/coding-conventions.md](documentation/coding-con
 Agent-critical points:
 
 - **Barrel imports**: barrel files (`index.ts`) exist for external consumers only. Never use them for imports within the same package — this causes cyclic dependencies. Import directly from the source file (e.g. `import type { HeadingProps } from '../Heading/Heading'`).
+- **Never use default exports** — use named exports only.
 - **ForwardRef**: wrap every component with `forwardRef` (imported directly from `'react'`, not via `React.forwardRef`). Set `displayName` on the result.
 - **restProps and clsx**: always destructure known props and spread `...restProps` onto the root element. Merge class names with `clsx('ams-<component-name>', className)` — never use template literals or string concatenation.
 - **Subcomponents**: keep in separate files (`GridCell.tsx` alongside `Grid.tsx`), each with their own test file. Do not export subcomponent values from the package barrel — only export their prop types.

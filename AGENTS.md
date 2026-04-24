@@ -75,7 +75,6 @@ These rules override common agent defaults and apply across the repository:
 
 - **Never use npm or yarn** — always use `pnpm` (see commands in [README.md](README.md)).
 - **Never add `import React from 'react'`** — the JSX transform handles this automatically.
-- **Never use default exports** — use named exports only.
 - **Never weaken TypeScript safety** — avoid `any`, do not disable strict checks, and use `import type` for type-only imports.
 - **Never hardcode design values** (colors, spacing, typography, radii, shadows) — use a CSS custom property backed by tokens; add or update tokens first if needed. This applies everywhere: SCSS files, Storybook stories (no inline `style` props with raw `px`/`rem`/hex values), and React components.
 - **Never add backwards-compatibility fallbacks** (`@supports`, polyfills, feature detection) unless the task explicitly requests them. Make the simplest change that satisfies the task.
