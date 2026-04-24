@@ -16,6 +16,21 @@ import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, s
 
 const params = new URLSearchParams(window.location.search)
 
+const paginationOptions = {
+  addresses: bagAddresses.slice(0, 50),
+  pageSize: 5,
+}
+
+const totalPaginationPages = Math.ceil(paginationOptions.addresses.length / paginationOptions.pageSize)
+
+const clampPage = (value: string | null) => {
+  const parsed = Math.trunc(Number(value))
+  if (!Number.isFinite(parsed) || parsed < 1) return 1
+  return Math.min(parsed, totalPaginationPages)
+}
+
+const getPageFromUrl = () => clampPage(new URLSearchParams(window.location.search).get('pagina'))
+
 const paginationLinkTemplate = (page: number) => {
   const url = new URL(window.location.href)
   url.searchParams.set('pagina', String(page))
@@ -76,25 +91,21 @@ export const SortingWithSelect: StoryObj = {
 
 export const WithPagination: StoryObj = {
   render: () => {
-    const pageSize = 5
-    const subset = bagAddresses.slice(0, 50)
-    const totalPages = Math.ceil(subset.length / pageSize)
-    const clampPage = (value: string | null) => {
-      const parsed = Math.trunc(Number(value))
-      if (!Number.isFinite(parsed) || parsed < 1) return 1
-      return Math.min(parsed, totalPages)
-    }
-    const [page, setPage] = useState(() => clampPage(new URLSearchParams(window.location.search).get('pagina')))
-    const range = `(${(page - 1) * pageSize + 1}–${Math.min(page * pageSize, subset.length)})`
-    const paginatedAddresses = subset.slice((page - 1) * pageSize, page * pageSize)
+    const { addresses, pageSize } = paginationOptions
+    const [page, setPage] = useState(getPageFromUrl)
+
+    const firstRow = (page - 1) * pageSize + 1
+    const lastRow = Math.min(page * pageSize, addresses.length)
+    const range = `(${firstRow}–${lastRow})`
+    const paginatedAddresses = addresses.slice(firstRow - 1, lastRow)
 
     // Keep the React state in sync with the URL when the user navigates via
     // the browser’s back/forward buttons.
     useEffect(() => {
-      const handlePopState = () => setPage(clampPage(new URLSearchParams(window.location.search).get('pagina')))
+      const handlePopState = () => setPage(getPageFromUrl())
       window.addEventListener('popstate', handlePopState)
       return () => window.removeEventListener('popstate', handlePopState)
-    }, [totalPages])
+    }, [])
 
     // Intercept pagination clicks so they don’t trigger a full page reload.
     // Storybook-specific: a real reload would navigate the iframe to its own URL
@@ -107,7 +118,7 @@ export const WithPagination: StoryObj = {
       event.preventDefault()
       const url = new URL(event.currentTarget.href, window.location.href)
       window.history.pushState({}, '', url)
-      setPage(clampPage(url.searchParams.get('pagina')))
+      setPage(getPageFromUrl())
     }
 
     const PaginationLink = ({ onClick, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
@@ -141,7 +152,7 @@ export const WithPagination: StoryObj = {
               linkComponent={PaginationLink}
               linkTemplate={paginationLinkTemplate}
               page={page}
-              totalPages={totalPages}
+              totalPages={totalPaginationPages}
             />
           </Row>
         </Grid.Cell>
