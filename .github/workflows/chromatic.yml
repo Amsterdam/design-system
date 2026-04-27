@@ -64,7 +64,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run Chromatic
-        uses: chromaui/action@5c6ec06f45a2117a25f07b1bf2b2f3009233fac8 # v16.3.0
+        uses: chromaui/action@cad40970f69e7a6a5bef4ddfe42c01309ba17cb1 # v16.6.0
         with:
           branchName: ${{ steps.pr-info.outputs.branch }}
           chromaticSha: ${{ steps.pr-info.outputs.sha }}
