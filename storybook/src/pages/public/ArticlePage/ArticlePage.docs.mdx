@@ -9,11 +9,19 @@ import * as ArticleStories from "./ArticlePage.stories.tsx";
 
 This page type is for news or similar kinds of articles.
 
-## Headings
+## Structure
 
-- Use a level 1 Heading for the title of the article.
-- Use level 2 Headings for the section titles.
+- The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the article content.
+- The article header contains the title, publication date, and lead paragraph.
+- A full-width hero [Image](/docs/components-media-image--docs) separates the header from the body.
+  It uses a 16:5 aspect ratio.
+- The title uses a level 1 Heading; each section uses a level 2 Heading.
+- The body ends with a [Link List](/docs/components-navigation-link--docs) of related articles.
+- A [Spotlight](/docs/components-containers-spotlight--docs) holds a newsletter call-to-action; all text and link components inside use `color="inverse"`.
+- The page closes with a Grid of [Cards](/docs/components-navigation-card--docs) referring to other recent news.
 
-## Spacing
+## Layout and spacing
 
-- Use the [Prose](/docs/utilities-css-prose--docs) utility class to automatically create vertical whitespace in the article body.
+- The Grids use the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
+- The [Prose](/docs/utilities-css-prose--docs) utility class automatically creates vertical whitespace in the article body.
+- For the spacing between components in the header area, refer to [Vertical space](/docs/docs-designer-guide-vertical-space--docs).
