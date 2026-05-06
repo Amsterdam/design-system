@@ -115,10 +115,10 @@ export const Default: StoryObj = {
           </Grid.Cell>
         </Grid>
       </main>
-      <Spotlight as="aside" color="green">
+      <Spotlight aria-labelledby="blijf-op-de-hoogte" as="aside" color="green">
         <Grid paddingVertical="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+            <Heading className="ams-mb-s" color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
               Blijf op de hoogte!
             </Heading>
             <Paragraph className="ams-mb-m" color="inverse">
@@ -131,10 +131,10 @@ export const Default: StoryObj = {
           </Grid.Cell>
         </Grid>
       </Spotlight>
-      <aside>
+      <aside aria-labelledby="meer-nieuws">
         <Grid gapVertical="large" paddingVertical="x-large">
           <Grid.Cell span="all">
-            <Heading level={2} size="level-1">
+            <Heading id="meer-nieuws" level={2} size="level-1">
               Meer nieuws
             </Heading>
           </Grid.Cell>
