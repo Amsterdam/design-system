@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-jRWAZmH_.js";import{Bt as t}from"./iframe-4XYqZW-b.js";import{n,t as r}from"./Layout-CBU93S7k.js";var i,a,o=e((()=>{n(),i=t(),a={decorators:[e=>(0,i.jsx)(r,{children:(0,i.jsx)(e,{})})],parameters:{layout:`fullscreen`,themes:{themeOverride:`Spacious`}}}}));export{o as n,a as t};
