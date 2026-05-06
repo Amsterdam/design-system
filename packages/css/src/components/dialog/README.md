@@ -10,6 +10,8 @@ A popup window in which the user must perform an action to proceed.
 - Use a dialog for short and non-frequent tasks.
   Consider using the main flow for regular tasks.
 - Wrap multiple buttons in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
+- Compose the Dialog from `Dialog.Header`, `Dialog.Body`, and `Dialog.Footer` sub-components.
+  Wire `aria-labelledby` on the root `Dialog` to the `id` of the heading inside `Dialog.Header`.
 - To open the Dialog, use `Dialog.open(dialogId)` from the React package.
 - To close it, either call the `Dialog.close` function or add a `<form>` as in the ‘confirmation’ example.
 - Dialog is a [query container](/docs/utilities-css-query-container--docs) for inline size, so that elements in it can adapt their appearance to the width of the dialog.
