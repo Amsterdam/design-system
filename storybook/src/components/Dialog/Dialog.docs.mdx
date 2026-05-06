@@ -16,18 +16,46 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Composition
+
+Compose a Dialog from sub-components: `Dialog.Header`, `Dialog.Body`, `Dialog.Footer`, and the optional `Dialog.CloseButton`.
+Wire `aria-labelledby` on the root `Dialog` to the `id` of the heading inside `Dialog.Header` so screen readers announce the dialog with its name.
+
+```tsx
+<Dialog aria-labelledby="dialog-label">
+  <Dialog.Header>
+    <Heading id="dialog-label" level={1} size="level-3">
+      Inloggen
+    </Heading>
+    <Dialog.CloseButton />
+  </Dialog.Header>
+  <Dialog.Body>…</Dialog.Body>
+  <Dialog.Footer>
+    <Button>Versturen</Button>
+  </Dialog.Footer>
+</Dialog>
+```
+
 ## Examples
 
 ### Asking to confirm
 
 Use a `form` when asking the user to confirm an action, e.g. through ‘OK’ and ‘Cancel’ buttons.
 Add `method="dialog"` to make the browser close the Dialog when the form is submitted.
-Wrap multiple Buttons in an [Action Group](/docs/components-layout-action-group--docs) and place it in the `footer`.
+Wrap multiple Buttons in an [Action Group](/docs/components-layout-action-group--docs) and place it in `Dialog.Footer`.
 Add an `id` to the form and use it in the `form` attribute of the buttons.
 Set a `value` on each button to identify which one was clicked.
 Consult [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog) for more information.
 
 <Canvas of={DialogStories.Confirmation} />
+
+## Migrating from the deprecated props
+
+The `heading`, `footer`, and `closeButtonLabel` props are deprecated and will be removed on or after 2026-11-06.
+Replace them with the composable sub-components shown above.
+The `Dialog.open(id)` and `Dialog.close(event)` static helpers are unaffected.
+
+<Canvas of={DialogStories.LegacyProps} />
 
 ## Design tokens
 
