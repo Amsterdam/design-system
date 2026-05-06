@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-jRWAZmH_.js";import{Bt as t}from"./iframe-4XYqZW-b.js";import{W as n,t as r}from"./src-B-zktP7m.js";var i=e((()=>{})),a,o,s=e((()=>{i(),r(),a=t(),o=()=>(0,a.jsx)(n,{className:`_ams-grid-columns-guide`,children:Array.from(Array(12).keys()).map(e=>(0,a.jsx)(n.Cell,{className:`_ams-grid-columns-guide__cell`},e))})}));export{s as n,o as t};
