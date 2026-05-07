@@ -23,18 +23,28 @@ Wire `aria-labelledby` on the root `Dialog` to the `id` of the heading inside `D
 
 ```tsx
 <Dialog aria-labelledby="dialog-label">
-  <Dialog.Header>
-    <Heading id="dialog-label" level={1} size="level-3">
-      Inloggen
-    </Heading>
-    <Dialog.CloseButton />
-  </Dialog.Header>
-  <Dialog.Body>…</Dialog.Body>
-  <Dialog.Footer>
-    <Button>Versturen</Button>
-  </Dialog.Footer>
+  <form>
+    <Dialog.Header>
+      <Heading id="dialog-label" level={1} size="level-3">
+        Inloggen
+      </Heading>
+      <Dialog.CloseButton />
+    </Dialog.Header>
+    <Dialog.Body>…</Dialog.Body>
+    <Dialog.Footer>
+      <Button>Versturen</Button>
+    </Dialog.Footer>
+  </form>
 </Dialog>
 ```
+
+## Keyboard support
+
+| key         | function                                                         |
+| :---------- | :--------------------------------------------------------------- |
+| Tab         | Moves focus to the next focusable element inside the dialog.     |
+| Shift + Tab | Moves focus to the previous focusable element inside the dialog. |
+| Escape      | Closes the dialog.                                               |
 
 ## Examples
 
@@ -60,3 +70,10 @@ The `Dialog.open(id)` and `Dialog.close(event)` static helpers are unaffected.
 ## Design tokens
 
 <DesignTokensTable tokens={tokens} />
+
+## See also
+
+- [HTMLDialogElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement)
+- [Return value](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/returnValue)
+- [Modal & Nonmodal Dialogs: When (& When Not) to Use Them](https://www.nngroup.com/articles/modal-nonmodal-dialog/)
+- [Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
