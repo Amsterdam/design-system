@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-zsgVPwQN.js";function t(e){return e.includes(`{`)?e.replace(/\{([^}]+)\}/g,(e,t)=>`var(--${t.replace(/\./g,`-`)})`):e}var n=e((()=>{}));export{n,t};
