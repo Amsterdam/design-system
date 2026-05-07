@@ -58,7 +58,7 @@ export default tseslint.config(
   // Global
   {
     name: 'amsterdam-design-system/global-ignores',
-    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/'],
+    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', '**/AGENTS.md'],
   },
   {
     name: 'amsterdam-design-system/language-options',
