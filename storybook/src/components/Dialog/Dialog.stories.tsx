@@ -13,8 +13,14 @@ const meta = {
   title: 'Components/Containers/Dialog',
   component: Dialog,
   argTypes: {
-    open: {
-      description: 'Whether the dialog box is active and available for interaction.',
+    closeButtonLabel: {
+      table: { disable: true },
+    },
+    footer: {
+      table: { disable: true },
+    },
+    heading: {
+      table: { disable: true },
     },
   },
   decorators: [
@@ -40,11 +46,11 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    'aria-labelledby': 'ams-dialog-default-heading',
+    'aria-labelledby': 'ams-dialog-example-heading',
     children: (
       <>
         <Dialog.Header>
-          <Heading id="ams-dialog-default-heading" level={1} size="level-3">
+          <Heading id="ams-dialog-example-heading" level={1} size="level-3">
             De gegevens zijn opgeslagen
           </Heading>
           <Dialog.CloseButton
@@ -69,7 +75,7 @@ export const Default: Story = {
         </Dialog.Footer>
       </>
     ),
-    id: 'ams-dialog-default',
+    id: 'ams-dialog-example',
   },
 }
 
@@ -115,14 +121,14 @@ export const Confirmation: Story = {
         </Dialog.Footer>
       </>
     ),
-    id: 'ams-dialog-asking-to-confirm',
+    id: 'ams-dialog-confirmation',
   },
 }
 
 /**
  * The `heading`, `footer`, and `closeButtonLabel` props are deprecated.
  * They will be removed on or after 2026-11-06.
- * Use the composable `Dialog.Header`, `Dialog.Body`, `Dialog.Footer`, and `Dialog.CloseButton` sub-components instead.
+ * Use the composable `Dialog.Header`, `Dialog.Body`, `Dialog.Footer`, and `Dialog.CloseButton` subcomponents instead.
  */
 export const LegacyProps: Story = {
   args: {
@@ -139,5 +145,16 @@ export const LegacyProps: Story = {
     ),
     heading: 'De gegevens zijn opgeslagen',
     id: 'ams-dialog-legacy',
+  },
+  argTypes: {
+    closeButtonLabel: {
+      table: { disable: false },
+    },
+    footer: {
+      table: { disable: false },
+    },
+    heading: {
+      table: { disable: false },
+    },
   },
 }
