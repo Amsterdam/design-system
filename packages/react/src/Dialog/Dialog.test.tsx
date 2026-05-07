@@ -3,9 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { MouseEvent } from 'react'
+
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { Dialog } from './Dialog'
 
@@ -114,6 +116,47 @@ describe('Dialog', () => {
   it.skip('has no accessible content when it is closed', () => {
     // We currently can't test this because dialog isn't properly supported in jsdom
     // https://github.com/jsdom/jsdom/issues/3294
+  })
+
+  it('Dialog.close calls close on the closest dialog element', () => {
+    const mockClose = vi.fn()
+    const event = {
+      currentTarget: {
+        closest: vi.fn().mockReturnValue({ close: mockClose }),
+      },
+    } as unknown as MouseEvent<HTMLButtonElement>
+
+    Dialog.close(event)
+
+    expect(event.currentTarget.closest).toHaveBeenCalledWith('dialog')
+    expect(mockClose).toHaveBeenCalled()
+  })
+
+  it('Dialog.close does nothing when there is no ancestor dialog element', () => {
+    const event = {
+      currentTarget: {
+        closest: vi.fn().mockReturnValue(null),
+      },
+    } as unknown as MouseEvent<HTMLButtonElement>
+
+    expect(() => Dialog.close(event)).not.toThrow()
+  })
+
+  it('Dialog.open calls showModal on the selected dialog element', () => {
+    const mockShowModal = vi.fn()
+    const dialog = document.createElement('dialog')
+    dialog.id = 'test-dialog'
+    dialog.showModal = mockShowModal
+    document.body.appendChild(dialog)
+
+    Dialog.open('#test-dialog')
+
+    expect(mockShowModal).toHaveBeenCalled()
+    dialog.remove()
+  })
+
+  it('Dialog.open does nothing when the selector does not match any element', () => {
+    expect(() => Dialog.open('#nonexistent-dialog')).not.toThrow()
   })
 
   it('passes additional props', () => {

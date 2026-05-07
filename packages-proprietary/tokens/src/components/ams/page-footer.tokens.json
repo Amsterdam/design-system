@@ -38,7 +38,7 @@
         },
         "medium": {
           "padding-inline": {
-            "$deprecated": "Use `ams.page-footer.menu.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-17.",
+            "$deprecated": "Use `ams.page-footer.menu.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
             "$value": "initial",
             "$extensions": {
               "nl.amsterdam.subtype": "space",
@@ -48,7 +48,7 @@
         },
         "wide": {
           "padding-inline": {
-            "$deprecated": "Use `ams.page-footer.menu.vi-wide.padding-inline` instead. Will be removed on or after 2026-10-17.",
+            "$deprecated": "Use `ams.page-footer.menu.vi-wide.padding-inline` instead. Will be removed on or after 2026-10-20.",
             "$value": "initial",
             "$extensions": {
               "nl.amsterdam.subtype": "space",

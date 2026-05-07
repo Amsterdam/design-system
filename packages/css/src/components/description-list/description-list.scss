@@ -23,7 +23,7 @@ $ams-description-list-breakpoint: 32rem;
   font-family: var(--ams-description-list-font-family);
   font-size: var(--ams-description-list-font-size);
   line-height: var(--ams-description-list-line-height);
-  row-gap: var(--ams-description-list-row-gap); /* This token is @deprecated. Will be removed on or after 2026-10-03. */
+  row-gap: var(--ams-description-list-row-gap); /* This token is @deprecated. Will be removed on or after 2026-10-20. */
 
   @include hyphenation;
   @include text-rendering;
@@ -82,7 +82,7 @@ $ams-description-list-breakpoint: 32rem;
   .ams-description-list__section {
     align-items: start;
     column-gap: var(
-      --ams-description-list-column-gap /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+      --ams-description-list-column-gap /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
       var(--ams-description-list-vi-medium-column-gap)
     );
     display: grid;
@@ -126,7 +126,7 @@ $ams-description-list-breakpoint: 32rem;
   .ams-description-list--narrow .ams-description-list__section {
     grid-template-columns: var(
       --ams-description-list-narrow-grid-template-columns
-        /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+        /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
       var(--ams-description-list-vi-medium-narrow-grid-template-columns)
     );
   }
@@ -135,7 +135,7 @@ $ams-description-list-breakpoint: 32rem;
   .ams-description-list--medium .ams-description-list__section {
     grid-template-columns: var(
       --ams-description-list-medium-grid-template-columns
-        /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+        /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
       var(--ams-description-list-vi-medium-medium-grid-template-columns)
     );
   }
@@ -144,7 +144,7 @@ $ams-description-list-breakpoint: 32rem;
   .ams-description-list--wide .ams-description-list__section {
     grid-template-columns: var(
       --ams-description-list-wide-grid-template-columns
-        /* This token is @deprecated. Will be removed on or after 2026-10-17. */,
+        /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
       var(--ams-description-list-vi-medium-wide-grid-template-columns)
     );
   }

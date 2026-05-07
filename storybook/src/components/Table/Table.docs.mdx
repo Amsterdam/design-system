@@ -1,8 +1,9 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 
 import * as TableStories from "./Table.stories.tsx";
+import * as TableCellStories from "./TableCell.stories.tsx";
 import README from "../../../../packages/css/src/components/table/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/table.tokens.json";
 
@@ -14,6 +15,18 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Primary />
 
+## Subcomponents
+
+### Cell
+
+Holds a single value within a row.
+Use the `align` prop to align the content to the center or end of the cell.
+Apply the same value to all cells in the column and the matching `Table.HeaderCell`.
+
+<Canvas of={TableCellStories.Cell} />
+
+<Controls of={TableCellStories.Cell} />
+
 ## Examples
 
 ### With footer and row headers
@@ -23,6 +36,14 @@ Use the scope attribute to help users of assistive technology distinguish betwee
 Use `Table.Footer` for a summary row.
 
 <Canvas of={TableStories.WithFooterAndRowHeaders} />
+
+### With description in caption
+
+Add a description to the caption to provide context like a source, date, or reading instructions.
+Use a small [Paragraph](/docs/components-text-paragraph--docs).
+Set `aria-labelledby` to keep only the heading as the table’s accessible name, or screen readers will read out the entire text.
+
+<Canvas of={TableStories.WithDescriptionInCaption} />
 
 ## Design tokens
 

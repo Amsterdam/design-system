@@ -35,8 +35,13 @@
       "caption": {
         "font-weight": {
           "$value": "{ams.typography.body-text.bold.font-weight}",
+          "$type": "fontWeight"
+        },
+        "margin-block-end": {
+          "$value": "{ams.space.s}",
+          "$type": "dimension",
           "$extensions": {
-            "nl.amsterdam.type": "fontWeight"
+            "nl.amsterdam.subtype": "space"
           }
         }
       },

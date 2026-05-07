@@ -18,8 +18,11 @@ tmp/
 # automatically use the correct indentation.
 pnpm-lock.yaml
 
-# Changelogs
+# Auto-generated changelogs
 CHANGELOG.md
+
+# Agent instructions (avoid confusing prettier-ignore comments)
+AGENTS.md
 
 # Handlebars templates
 *.hbs

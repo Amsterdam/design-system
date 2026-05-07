@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "storybook build --output-dir dist/ --config-dir config/ --quiet && touch dist/.nojekyll",
-    "build:chromatic": "IS_CHROMATIC=true npm run build",
+    "build:chromatic": "IS_CHROMATIC=true pnpm run build",
     "chromatic": "chromatic",
     "clean": "rimraf dist/",
     "lint": "tsc --noEmit --project ./tsconfig.json",
@@ -22,8 +22,7 @@
     "start": "storybook dev --config-dir config/ --port 6006"
   },
   "dependencies": {
-    "clsx": "2.1.1",
-    "html-react-parser": "6.0.1"
+    "clsx": "2.1.1"
   },
   "devDependencies": {
     "@amsterdam/design-system-assets": "workspace:*",
@@ -33,21 +32,21 @@
     "@amsterdam/design-system-tokens": "workspace:*",
     "@linus_janns/storybook-addon-html": "9.0.0",
     "@mdx-js/react": "3.1.1",
-    "@storybook/addon-a11y": "10.3.5",
-    "@storybook/addon-docs": "10.3.5",
-    "@storybook/addon-links": "10.3.5",
-    "@storybook/addon-themes": "10.3.5",
+    "@storybook/addon-a11y": "10.3.6",
+    "@storybook/addon-docs": "10.3.6",
+    "@storybook/addon-links": "10.3.6",
+    "@storybook/addon-themes": "10.3.6",
     "@storybook/mdx2-csf": "1.1.0",
-    "@storybook/react-vite": "10.3.5",
+    "@storybook/react-vite": "10.3.6",
     "@types/react": "18.3.28",
-    "@vitejs/plugin-react": "5.2.0",
-    "chromatic": "16.2.0",
+    "@vitejs/plugin-react": "6.0.1",
+    "chromatic": "16.7.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "remark-gfm": "4.0.1",
-    "storybook": "10.3.5",
-    "storybook-addon-pseudo-states": "10.3.5",
-    "vite": "8.0.8",
-    "vitest": "4.1.4"
+    "storybook": "10.3.6",
+    "storybook-addon-pseudo-states": "10.3.6",
+    "vite": "8.0.10",
+    "vitest": "4.1.5"
   }
 }

@@ -19,6 +19,7 @@
 
 .ams-table__caption {
   font-weight: var(--ams-table-caption-font-weight);
+  margin-block-end: var(--ams-table-caption-margin-block-end);
   text-align: start;
 }
 
@@ -33,4 +34,18 @@
 
 .ams-table__header-cell {
   font-weight: var(--ams-table-header-cell-font-weight);
+
+  .ams-table__header & {
+    vertical-align: bottom;
+  }
+}
+
+.ams-table__cell--align-center,
+.ams-table__header-cell--align-center {
+  text-align: center;
+}
+
+.ams-table__cell--align-end,
+.ams-table__header-cell--align-end {
+  text-align: end;
 }

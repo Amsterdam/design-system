@@ -17,18 +17,28 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Install pnpm
-        uses: pnpm/action-setup@08c4be7e2e672a47d11bd04269e27e5f3e8529cb # v6.0.0
+        uses: pnpm/action-setup@8912a9102ac27614460f54aedde9e1e7f9aec20d # v6.0.5
 
       - name: Set up Node.js version
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           cache: pnpm
           node-version-file: .nvmrc
+
+      - name: Create asset aggregates
+        run: |
+          mkdir -p packages-proprietary/temp
+          tar -czf packages-proprietary/temp/assets-fonts.tar.gz -C packages-proprietary/assets font
+          tar -czf packages-proprietary/temp/assets-others.tar.gz -C packages-proprietary/assets app-icons favicon icons logo manifest *.svg *.png *.jpg *.jpeg *.gif *.webp *.avif *.ico 2>/dev/null || true
 
       - name: Report bundle size
         uses: preactjs/compressed-size-action@66325aad6443cb7cf89c4bfcd414aea2367cda94 # v2.9.1
         with:
           build-script: build
           install-script: pnpm install --frozen-lockfile --ignore-scripts
-          pattern: "{packages/react/dist/index!(*.cjs).js,packages/css/dist/index.css,packages-proprietary/tokens/dist/!(*.theme).css}"
+          pattern: "{packages/react/dist/index!(*.cjs).js,packages/css/dist/index.css,packages-proprietary/tokens/dist/!(*.theme).css,packages-proprietary/react-icons/dist/index.esm.js,packages-proprietary/temp/assets-fonts.tar.gz,packages-proprietary/temp/assets-others.tar.gz}"
           strip-hash: "\\b\\w{8}\\."
+
+      - name: Clean up asset aggregates
+        if: always()
+        run: rm -f packages-proprietary/temp/assets-fonts.tar.gz packages-proprietary/temp/assets-others.tar.gz

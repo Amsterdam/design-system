@@ -3,11 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [4.0.0]
+## [4.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v4.0.0...design-system-react-v4.1.0) (2026-04-24)
+
+
+### Features
+
+* **Table:** Allow centering or right-aligning content of a Cell or Header Cell ([#2587](https://github.com/Amsterdam/design-system/issues/2587)) ([636eae7](https://github.com/Amsterdam/design-system/commit/636eae78d7e095f6af32911921c40337c87a3b7e))
+
+## [4.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v3.3.0...design-system-react-v4.0.0) (2026-04-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549))
+* **Grid, Page:** Make Page grey and Grid Cell white in Compact Mode ([#2398](https://github.com/Amsterdam/design-system/issues/2398))
+* **Icon:** Require an actual svg element for the svg prop ([#2433](https://github.com/Amsterdam/design-system/issues/2433))
+* **Progress List:** Make collapsing and expanding steps optional ([#2538](https://github.com/Amsterdam/design-system/issues/2538))
+
+### Features
+
+* **Accordion:** Rename `expanded` prop of Section to `defaultExpanded` ([#2550](https://github.com/Amsterdam/design-system/issues/2550)) ([fa05b6e](https://github.com/Amsterdam/design-system/commit/fa05b6ef346de5bfa1ac2e190f230320256c3834))
+* **Grid, Page:** Make Page grey and Grid Cell white in Compact Mode ([#2398](https://github.com/Amsterdam/design-system/issues/2398)) ([6b5bb5b](https://github.com/Amsterdam/design-system/commit/6b5bb5b2f7c273d35e25e18e29cfa6557d20c38f))
+* **Grid:** Add ‘flush’ appearance to Grid Cell ([#2536](https://github.com/Amsterdam/design-system/issues/2536)) ([75bdb6b](https://github.com/Amsterdam/design-system/commit/75bdb6b3a46be08ebce4050d96c140f9b463abad))
+* **Grid:** Allow cells to span multiple rows ([#2537](https://github.com/Amsterdam/design-system/issues/2537)) ([a6c8ce0](https://github.com/Amsterdam/design-system/commit/a6c8ce0cb5f3cdf58832f2b37349ca345f7f2540))
+* **Icon:** Require an actual svg element for the svg prop ([#2433](https://github.com/Amsterdam/design-system/issues/2433)) ([92cb191](https://github.com/Amsterdam/design-system/commit/92cb19164e8009fd6ecc44dfd75d5c3e8f603e44))
+* **Progress List:** Make collapsing and expanding steps optional ([#2538](https://github.com/Amsterdam/design-system/issues/2538)) ([9b4f489](https://github.com/Amsterdam/design-system/commit/9b4f4899881ee2bcfa46275d34194d3470d00446))
+* Introduce Tab Navigation component ([#2552](https://github.com/Amsterdam/design-system/issues/2552)) ([1d6e0a3](https://github.com/Amsterdam/design-system/commit/1d6e0a32e856775e6d42879c71902d0aa5ddace8))
 
 ### Deprecations
 
-The following deprecated API has been removed in this release:
+The following deprecated API has been removed:
 
 - The `PageHeading` component. Use a `Heading` instead.
 - The `color` prop of `Menu.Link`.
@@ -15,6 +40,10 @@ The following deprecated API has been removed in this release:
 - The `size` values `heading-0` and `heading-6` of `Icon`. Use `heading-1` and `heading-5` instead.
 - The `headingLevel` value `1` of `Accordion`. Use `2`, `3`, or `4` instead.
 - The `visuallyHiddenLabel`, `visuallyHiddenLabelId`, `nextVisuallyHiddenLabel`, and `previousVisuallyHiddenLabel` props of `Pagination`. Use `accessibleName`, `accessibleNameId`, `nextAccessibleName`, and `previousAccessibleName` instead.
+
+The following API has been deprecated and will be removed on or after 2026-10-20:
+
+- The `expanded` prop of `Accordion.Section`. Use `defaultExpanded` instead.
 
 ## [3.3.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v3.2.1...design-system-react-v3.3.0) (2026-04-03)
 

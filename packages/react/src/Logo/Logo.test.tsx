@@ -5,7 +5,7 @@
 
 import type { SVGProps } from 'react'
 
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
@@ -76,5 +76,53 @@ describe('Logo', () => {
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
+  })
+
+  it('renders the amsterdam-english brand logo', () => {
+    render(<Logo brand="amsterdam-english" />)
+
+    const component = screen.getByRole('img')
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders the museum-weesp brand logo', () => {
+    render(<Logo brand="museum-weesp" />)
+
+    const component = screen.getByRole('img')
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders the stadsarchief brand logo', () => {
+    render(<Logo brand="stadsarchief" />)
+
+    const component = screen.getByRole('img')
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders the stadsbank-van-lening brand logo', () => {
+    render(<Logo brand="stadsbank-van-lening" />)
+
+    const component = screen.getByRole('img')
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders the ggd-amsterdam-inspectie brand logo', () => {
+    render(<Logo brand="ggd-amsterdam-inspectie" />)
+
+    const component = screen.getByRole('img')
+
+    expect(component).toBeInTheDocument()
+  })
+
+  it('renders the vga-verzekeringen brand logo', () => {
+    render(<Logo brand="vga-verzekeringen" />)
+
+    const component = screen.getByRole('img')
+
+    expect(component).toBeInTheDocument()
   })
 })

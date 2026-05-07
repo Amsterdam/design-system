@@ -20,7 +20,7 @@ export type AccordionSectionProps = {
   defaultExpanded?: boolean
   /**
    * Whether the content is displayed initially.
-   * @deprecated Use the `defaultExpanded` prop instead. Will be removed on or after 2026-10-17.
+   * @deprecated Use the `defaultExpanded` prop instead. Will be removed on or after 2026-10-20.
    */
   expanded?: boolean
   /** The heading text. */
