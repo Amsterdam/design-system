@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-BneVvdWh.js";function t(e){return e.includes(`{`)?`var(--${e.replace(/[{}]/g,``).replace(/\./g,`-`)})`:e}var n=e((()=>{}));export{n,t};
