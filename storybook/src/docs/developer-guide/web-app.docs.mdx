@@ -7,7 +7,7 @@ import { WebAppIcons } from "../../_components/AppIcons/AppIcons";
 
 # Web app
 
-Turn a website into a Progressive Web App (PWA) with a web manifest and app icons.
+Turn a website into a progressive web app (PWA) with a web app manifest (web manifest hereafter) and app icons.
 
 Here’s how to publish a web app with the proper app names and icons.
 This set covers all combinations of common operating systems (Android, iOS, macOS, and Windows) and browsers (Chrome, Safari, Edge, and Firefox).
@@ -28,11 +28,11 @@ npm install @amsterdam/design-system-assets
 
 #### Copy or symlink assets
 
-Copy the app icons found in `node_modules/@amsterdam/design-system-assets/app-icons` and the Web Manifest from `node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest` to your project. Typically this is the `public` folder next to your `index.html`, though the right location depends on your project structure and build process.
+Copy the app icons found in `node_modules/@amsterdam/design-system-assets/app-icons` and the web manifest from `node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest` to your project. Typically this is the `public` folder next to your `index.html`, though the right location depends on your project structure and build process.
 
 Alternatively, on macOS and Linux you can create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) in your project that points to the package directory. An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
 
-Symlink the app icons and copy the [Web Manifest](https://github.com/Amsterdam/design-system/blob/develop/packages-proprietary/assets/manifest/app.webmanifest):
+Symlink the app icons and copy the [web manifest](https://github.com/Amsterdam/design-system/blob/develop/packages-proprietary/assets/manifest/app.webmanifest):
 
 ```sh
 # Change to the directory where you want to make the symlink. For example:
@@ -41,23 +41,25 @@ cd public
 # Symlink the app icons. The symlink file (the last argument) can be named anything you like.
 ln -s ../node_modules/@amsterdam/design-system-assets/app-icons app-icons
 
-# Copy the Web Manifest. Don't forget to edit it with the app's name.
+# Copy the web manifest. Don't forget to edit it with the app's name.
 cp ../node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.webmanifest
 ```
 
 **Important**: the target path (the first argument) is resolved relative to the directory containing the symlink, not your current shell directory. The simplest way to avoid surprises is to `cd` to that directory first, as in the example above.
 
-> Remove the symlink and the webmanifest without affecting the original files:
->
-> ```sh
-> # Note: do not include a trailing slash — that follows the symlink and unlink will refuse to remove a directory.
-> unlink app-icons
-> rm app.webmanifest
-> ```
+#### Remove symlink
+
+Remove the symlink and the web manifest without affecting the original files:
+
+```sh
+# Note: do not include a trailing slash — that follows the symlink and unlink will refuse to remove a directory.
+unlink app-icons
+rm app.webmanifest
+```
 
 #### Edit web manifest
 
-Make sure that the Web Manifest, stating the app's name and referencing the PNG icons, is available in the same location.
+Make sure that the web manifest, stating the app's name and referencing the PNG icons, is available in the same location.
 Edit the `app.webmanifest` file to include the app's name and the icons you want to use.
 For example:
 
@@ -107,7 +109,7 @@ Include `icons` object in `*.webmanifest` (see [How to use](#how-to-use)):
 }
 ```
 
-Link the Web Manifest in the `<head>`:
+Link the web manifest in the `<head>`:
 
 ```html
 <link rel="manifest" href="app.webmanifest" />
