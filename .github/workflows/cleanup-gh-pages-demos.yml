@@ -1,0 +1,68 @@
+# GitHub Actions workflow to clean up stale demo-* directories from gh-pages.
+# Runs on a weekly schedule and can be triggered manually.
+#
+# A directory `demo-X` is considered stale when no remote branch matches `X`
+# after stripping the leading `<prefix>/` segment from the branch name — the
+# same transformation feature-branch-deploy.yml applies when creating these
+# directories.
+
+name: Cleanup stale demo directories from gh-pages
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * 0" # Every Sunday at 03:00 UTC
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cleanup-gh-pages-demos
+  cancel-in-progress: false
+
+jobs:
+  cleanup-demos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out gh-pages branch
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: gh-pages
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Remove stale demo directories
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+
+          # Mirror the transformation feature-branch-deploy.yml applies:
+          # take each remote branch and strip everything up to and including
+          # the first '/'. The result is the directory suffix used in `demo-*`.
+          mapfile -t active_short_names < <(
+            git ls-remote --heads origin \
+              | awk '{print $2}' \
+              | sed -E 's|^refs/heads/||; s|^[^/]*/||'
+          )
+
+          for dir in demo-*/; do
+            dir="${dir%/}"
+            short_name="${dir#demo-}"
+            if printf '%s\n' "${active_short_names[@]}" | grep -Fxq -- "$short_name"; then
+              continue
+            fi
+            echo "Deleting stale demo: $dir (no active branch matches '$short_name')"
+            git rm -rq "$dir"
+          done
+
+      - name: Commit and push if any directories were removed
+        run: |
+          if git diff --cached --quiet; then
+            echo "No stale demo directories to remove."
+            exit 0
+          fi
+          git commit -m "chore: cleanup stale demo directories [ci skip]"
+          git push origin gh-pages
