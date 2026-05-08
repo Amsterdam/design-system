@@ -26,13 +26,16 @@ npm install @amsterdam/design-system-assets
 
 ### Link assets
 
-You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project.
-An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
+#### Copy or symlink assets
+
+Copy the icon assets found in `node_modules/@amsterdam/design-system-assets/favicon` to your project. Often the best place is the `public` folder, but the proper location might also be the root directory or any other directory where static files are stored. This depends on your project structure and build process.
+
+Alternatively, in macOS and Linux shells you can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) to your project. An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
 
 Symlinking [the entire favicon directory](https://github.com/Amsterdam/design-system/tree/develop/packages-proprietary/assets/favicon) can be done as follows:
 
 ```sh
-# `cd` to the directory where you want to make the symlinks. For example:
+# Change to the directory where you want to make the symlink. For example:
 cd public
 
 # Symlink the icons folder. The symlink file (the last argument) can be named anything you like.
@@ -49,7 +52,9 @@ ln -s ../node_modules/@amsterdam/design-system-assets/favicon favicon
 > unlink favicon
 > ```
 
-Then link all these assets by placing the following tags in the `<head>`:
+#### Linking in HTML
+
+Then link all these assets in the HTML by placing the following tags in the `<head>`:
 
 ```html
 <head>
@@ -61,9 +66,11 @@ Then link all these assets by placing the following tags in the `<head>`:
 </head>
 ```
 
+How this is done exactly depends on your project structure and build process. Follow the documentation of your framework or build tool for the best way to link static assets in the HTML.
+
 ### Submit Changes
 
-The symlink(s) and edited files can be committed to the repository.
+The copied files or symlink(s) can be committed to the repository.
 
 ## Examples
 

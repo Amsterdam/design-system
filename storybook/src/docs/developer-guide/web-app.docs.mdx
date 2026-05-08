@@ -26,13 +26,16 @@ npm install @amsterdam/design-system-assets
 
 ### Link assets
 
-You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project.
-An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
+#### Copy or symlink assets
+
+Copy the icon assets found in `node_modules/@amsterdam/design-system-assets/favicon` to your project. Often the best place is the `public` folder, but the proper location might also be the root directory or any other directory where static files are stored. This depends on your project structure and build process.
+
+Alternatively, in macOS and Linux shells you can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) to your project. An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
 
 Symlink the app icons and copy the [Web Manifest](https://github.com/Amsterdam/design-system/tree/develop/packages-proprietary/assets/app.manifest):
 
 ```sh
-# `cd` to the directory where you want to make the symlinks. For example:
+# Change to the directory where you want to make the symlink. For example:
 cd public
 
 # Symlink the app icons. The symlink file (the last argument) can be named anything you like.
@@ -53,6 +56,8 @@ cp ../node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.
 > rm app.webmanifest
 > ```
 
+#### Edit Web Manifest
+
 > Note: not all servers recognize the `.webmanifest` extension.
 > See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
 
@@ -71,7 +76,9 @@ For example:
 }
 ```
 
-Then link all these assets by placing the following tags in the `<head>`:
+#### Linking in HTML
+
+Then link all these assets in the HTML by placing the following tags in the `<head>`:
 
 ```html
 <head>
@@ -81,9 +88,11 @@ Then link all these assets by placing the following tags in the `<head>`:
 </head>
 ```
 
+How this is done exactly depends on your project structure and build process. Follow the documentation of your framework or build tool for the best way to link static assets in the HTML.
+
 ### Submit changes
 
-The symlink(s) and copied and edited files can be committed to the repository.
+The copied files or symlink(s) can be committed to the repository.
 
 ## Web app icons
 
