@@ -12,7 +12,7 @@ Represent the website in bookmarks, on home screens, in syndication and other to
 Here’s how to display a website icon (a favicon) in the web browser.
 This set covers all common browsers (Chrome, Safari, Edge, and Firefox).
 
-> There is separate documentation on [how to publish a web app with the proper app names and icons](/docs/docs-developer-guide-web-app--docs).
+**Note**: There is separate documentation on [how to publish a web app with the proper app names and icons](/docs/docs-developer-guide-web-app--docs).
 
 ## How to use
 
@@ -42,14 +42,16 @@ cd public
 ln -s ../node_modules/@amsterdam/design-system-assets/favicon favicon
 ```
 
-> Important: the target path (the first argument) is resolved relative to the directory containing the symlink, not your current shell directory. The simplest way to avoid surprises is to `cd` to that directory first, as in the example above.
+**Important**: the target path (the first argument) is resolved relative to the directory containing the symlink, not your current shell directory. The simplest way to avoid surprises is to `cd` to that directory first, as in the example above.
 
-> Remove the symlink without affecting the original files:
->
-> ```sh
-> # Note: do not include a trailing slash — that follows the symlink and unlink will refuse to remove a directory.
-> unlink favicon
-> ```
+#### Remove symlink
+
+Remove the symlink without affecting the original files:
+
+```sh
+# Note: do not include a trailing slash — that follows the symlink and unlink will refuse to remove a directory.
+unlink favicon
+```
 
 #### Link in HTML
 

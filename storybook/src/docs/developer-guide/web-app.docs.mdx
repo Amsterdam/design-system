@@ -12,7 +12,7 @@ Turn a website into a Progressive Web App (PWA) with a web manifest and app icon
 Here’s how to publish a web app with the proper app names and icons.
 This set covers all combinations of common operating systems (Android, iOS, macOS, and Windows) and browsers (Chrome, Safari, Edge, and Firefox).
 
-> There is separate documentation on [how to add a website icon (a “favicon”)](/docs/brand-assets-favicon--docs).
+**Note**: There is separate documentation on [how to add a website icon (a “favicon”)](/docs/brand-assets-favicon--docs).
 
 ## How to use
 
@@ -45,7 +45,7 @@ ln -s ../node_modules/@amsterdam/design-system-assets/app-icons app-icons
 cp ../node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.webmanifest
 ```
 
-> Important: the target path (the first argument) is resolved relative to the directory containing the symlink, not your current shell directory. The simplest way to avoid surprises is to `cd` to that directory first, as in the example above.
+**Important**: the target path (the first argument) is resolved relative to the directory containing the symlink, not your current shell directory. The simplest way to avoid surprises is to `cd` to that directory first, as in the example above.
 
 > Remove the symlink and the webmanifest without affecting the original files:
 >
@@ -86,8 +86,7 @@ Then link all these assets in the HTML by placing the following tags in the `<he
 
 How this is done exactly depends on your project structure and build process. Follow the documentation of your framework or build tool for the best way to link static assets in the HTML.
 
-> Note: not all servers recognize the `.webmanifest` extension.
-> See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
+**Note**: not all servers recognize the `.webmanifest` extension. See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
 
 ### Submit changes
 
@@ -114,8 +113,7 @@ Link the Web Manifest in the `<head>`:
 <link rel="manifest" href="app.webmanifest" />
 ```
 
-> Note: only include a Web Manifest if you want the website to be installable as a Progressive Web App (PWA).
-> Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/installation-prompt) on their device if a manifest is found.
+**Note**: only include a web manifest if you want the website to be installable as a progressive web app (PWA). Browsers [may prompt the user to install the app](https://web.dev/learn/pwa/installation-prompt) on their device if a manifest is found.
 
 ## Further reading
 
