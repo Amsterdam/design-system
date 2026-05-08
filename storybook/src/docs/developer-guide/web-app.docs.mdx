@@ -12,7 +12,7 @@ Turn a website into a Progressive Web App (PWA) with a web manifest and app icon
 Here’s how to publish a web app with the proper app names and icons.
 This set covers all combinations of common operating systems (Android, iOS, macOS, and Windows) and browsers (Chrome, Safari, Edge, and Firefox).
 
-> There is seperate documentation on [how to add a website icon (a “favicon”)](/docs/brand-assets-favicon--docs).
+> There is separate documentation on [how to add a website icon (a “favicon”)](/docs/brand-assets-favicon--docs).
 
 ## How to use
 
@@ -28,11 +28,11 @@ npm install @amsterdam/design-system-assets
 
 #### Copy or symlink assets
 
-Copy the icon assets found in `node_modules/@amsterdam/design-system-assets/favicon` to your project. Often the best place is the `public` folder, but the proper location might also be the root directory or any other directory where static files are stored. This depends on your project structure and build process.
+Copy the app icons found in `node_modules/@amsterdam/design-system-assets/app-icons` and the Web Manifest from `node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest` to your project. Typically this is the `public` folder next to your `index.html`, though the right location depends on your project structure and build process.
 
-Alternatively, in macOS and Linux shells you can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) to your project. An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
+Alternatively, on macOS and Linux you can create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) in your project that points to the package directory. An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
 
-Symlink the app icons and copy the [Web Manifest](https://github.com/Amsterdam/design-system/tree/develop/packages-proprietary/assets/app.manifest):
+Symlink the app icons and copy the [Web Manifest](https://github.com/Amsterdam/design-system/blob/develop/packages-proprietary/assets/manifest/app.webmanifest):
 
 ```sh
 # Change to the directory where you want to make the symlink. For example:
@@ -45,21 +45,17 @@ ln -s ../node_modules/@amsterdam/design-system-assets/app-icons app-icons
 cp ../node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.webmanifest
 ```
 
-> Important: the symlink, the last argument in the above command, cannot be a path, but can only be the file or directory name.
-> I.e. you need to be in the directory where you want to make the symbolic link.
+> Important: the target path (the first argument) is resolved relative to the directory containing the symlink, not your current shell directory. The simplest way to avoid surprises is to `cd` to that directory first, as in the example above.
 
 > Remove the symlink and the webmanifest without affecting the original files:
 >
 > ```sh
-> # May not be a path, but only the file or directory name without a trailing slash.
+> # Note: do not include a trailing slash — that follows the symlink and unlink will refuse to remove a directory.
 > unlink app-icons
 > rm app.webmanifest
 > ```
 
 #### Edit Web Manifest
-
-> Note: not all servers recognize the `.webmanifest` extension.
-> See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
 
 Make sure that the Web Manifest, stating the app's name and referencing the PNG icons, is available in the same location.
 Edit the `app.webmanifest` file to include the app's name and the icons you want to use.
@@ -89,6 +85,9 @@ Then link all these assets in the HTML by placing the following tags in the `<he
 ```
 
 How this is done exactly depends on your project structure and build process. Follow the documentation of your framework or build tool for the best way to link static assets in the HTML.
+
+> Note: not all servers recognize the `.webmanifest` extension.
+> See [Using a link element to link to a manifest on W3.org](https://www.w3.org/TR/appmanifest/#using-a-link-element-to-link-to-a-manifest) for more information.
 
 ### Submit changes
 
