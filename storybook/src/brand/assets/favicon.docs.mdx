@@ -42,10 +42,11 @@ ln -s ../node_modules/@amsterdam/design-system-assets/favicon favicon
 > Important: the symlink, the last argument in the above command, cannot be a path, but can only be the file or directory name.
 > I.e. you need to be in the directory where you want to make the symbolic link.
 
-> Note that undoing a symlink can be done by simply removing the created file or directory link:
+> Remove the symlink without affecting the original files by unlinking:
 >
 > ```sh
-> rm -r favicon
+> # May not be a path, but only the file or directory name without a trailing slash.
+> unlink favicon
 > ```
 
 Then link all these assets by placing the following tags in the `<head>`:

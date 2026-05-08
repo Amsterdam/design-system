@@ -45,10 +45,12 @@ cp ../node_modules/@amsterdam/design-system-assets/manifest/app.webmanifest app.
 > Important: the symlink, the last argument in the above command, cannot be a path, but can only be the file or directory name.
 > I.e. you need to be in the directory where you want to make the symbolic link.
 
-> Note that undoing a symlink can be done by simply removing the created file or directory link:
+> Remove the symlink and the webmanifest without affecting the original files:
 >
 > ```sh
-> rm -r app-icons app.webmanifest
+> # May not be a path, but only the file or directory name without a trailing slash.
+> unlink app-icons
+> rm app.webmanifest
 > ```
 
 > Note: not all servers recognize the `.webmanifest` extension.
