@@ -1,0 +1,13 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{Bt as t,J as n,w as r}from"./iframe-GPpKYZ6m.js";import{n as i,t as a}from"./renderComponentVariants-DrySL_XR.js";import{Y as o,t as s}from"./src-CIMZIyZE.js";import c,{n as l}from"./Field.stories-BNnvY0dp.js";var u,d,f,p;e((()=>{n(),s(),a(),l(),u=t(),d={...c,title:`Components/Forms/Field`},f={args:{children:[(0,u.jsx)(r,{htmlFor:`input-a1`,children:`Wat is uw achternaam?`},1),(0,u.jsx)(`input`,{id:`input-a1`,value:`Dijkstra`},2)]},render:e=>i(o,{args:e}),tags:[`!dev`,`!autodocs`]},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: [
+    // We use Label because \`<label>\` is inline and wouldn’t get the margin we want to test.
+    <Label htmlFor="input-a1" key={1}>
+        Wat is uw achternaam?
+      </Label>, <input id="input-a1" key={2} value="Dijkstra" />]
+  },
+  render: args => renderComponentVariants(Field, {
+    args
+  }),
+  tags: ['!dev', '!autodocs']
+}`,...f.parameters?.docs?.source}}},p=[`Test`]}))();export{f as Test,p as __namedExportsOrder,d as default};
