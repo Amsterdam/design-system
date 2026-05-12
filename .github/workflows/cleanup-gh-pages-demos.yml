@@ -1,17 +1,30 @@
 # GitHub Actions workflow to clean up stale demo-* directories from gh-pages.
-# Runs on a weekly schedule and can be triggered manually.
+#
+# Runs automatically after a major release (any release-please tag ending in
+# `.0.0`, e.g. `design-system-react-v4.0.0`) and can be triggered manually.
+# Major releases happen roughly every 3 months, so this is the natural cadence
+# for cleaning up demo previews.
 #
 # A directory `demo-X` is considered stale when no remote branch matches `X`
 # after stripping the leading `<prefix>/` segment from the branch name — the
 # same transformation feature-branch-deploy.yml applies when creating these
 # directories.
+#
+# Release-triggered runs always perform the deletion. Manual runs default to
+# `dry_run=true` (logs only); pass `dry_run=false` from the Actions UI to
+# perform the deletions and push the resulting commit.
 
 name: Cleanup stale demo directories from gh-pages
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 3 * * 0" # Every Sunday at 03:00 UTC
+    inputs:
+      dry_run:
+        description: "If true, only log what would be deleted."
+        required: false
+        default: "true"
+  release:
+    types: [published]
 
 permissions:
   contents: write
@@ -22,6 +35,8 @@ concurrency:
 
 jobs:
   cleanup-demos:
+    # Run on manual dispatch, or on a major-version release tag (ends in `.0.0`).
+    if: ${{ github.event_name == 'workflow_dispatch' || endsWith(github.event.release.tag_name, '.0.0') }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out gh-pages branch
@@ -35,6 +50,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Remove stale demo directories
+        env:
+          # Release-triggered runs always perform the deletion; manual runs
+          # honour the workflow input (defaults to dry-run).
+          DRY_RUN: ${{ github.event_name == 'release' && 'false' || github.event.inputs.dry_run || 'true' }}
         run: |
           set -euo pipefail
           shopt -s nullglob
@@ -42,11 +61,25 @@ jobs:
           # Mirror the transformation feature-branch-deploy.yml applies:
           # take each remote branch and strip everything up to and including
           # the first '/'. The result is the directory suffix used in `demo-*`.
+          #
+          # NOTE: `mapfile < <(...)` does NOT propagate failures from the
+          # process substitution under `set -e`. We capture into a tempfile
+          # first so a failed `git ls-remote` aborts the job instead of
+          # silently producing an empty list (which would mark every demo-*
+          # directory stale and delete them all).
+          ls_remote_out="$(mktemp)"
+          trap 'rm -f "$ls_remote_out"' EXIT
+          git ls-remote --heads origin > "$ls_remote_out"
+
           mapfile -t active_short_names < <(
-            git ls-remote --heads origin \
-              | awk '{print $2}' \
+            awk '{print $2}' "$ls_remote_out" \
               | sed -E 's|^refs/heads/||; s|^[^/]*/||'
           )
+
+          if [ "${#active_short_names[@]}" -eq 0 ]; then
+            echo "ERROR: remote branch list is empty — refusing to proceed." >&2
+            exit 2
+          fi
 
           for dir in demo-*/; do
             dir="${dir%/}"
@@ -54,12 +87,24 @@ jobs:
             if printf '%s\n' "${active_short_names[@]}" | grep -Fxq -- "$short_name"; then
               continue
             fi
+            if [ "$DRY_RUN" = "true" ]; then
+              echo "[DRY RUN] Would delete stale demo: $dir (no active branch matches '$short_name')"
+              continue
+            fi
             echo "Deleting stale demo: $dir (no active branch matches '$short_name')"
             git rm -rq "$dir"
           done
 
       - name: Commit and push if any directories were removed
+        env:
+          # Release-triggered runs always perform the deletion; manual runs
+          # honour the workflow input (defaults to dry-run).
+          DRY_RUN: ${{ github.event_name == 'release' && 'false' || github.event.inputs.dry_run || 'true' }}
         run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "[DRY RUN] Skipping commit and push."
+            exit 0
+          fi
           if git diff --cached --quiet; then
             echo "No stale demo directories to remove."
             exit 0

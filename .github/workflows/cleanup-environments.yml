@@ -42,6 +42,12 @@ jobs:
   cleanup-environments:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out scripts
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          sparse-checkout: .github/scripts
+          sparse-checkout-cone-mode: false
+
       - name: Set up Python
         uses: actions/setup-python@v5 # SHA pinned by Dependabot on first run
         with:
@@ -56,91 +62,7 @@ jobs:
           # dry-runs and listing still work; see permissions note above.
           GITHUB_TOKEN: ${{ secrets.ENV_ADMIN_TOKEN || secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
-          DRY_RUN: ${{ github.event.inputs.dry_run || 'true' }}
-          STALE_DAYS: ${{ github.event.inputs.stale_days || '0' }}
         run: |
-          import datetime
-          import os
-          import re
-          import sys
-
-          import requests
-
-          DEMO_PREFIX = "demo-"
-
-          token = os.environ["GITHUB_TOKEN"]
-          repo = os.environ["REPO"]
-          dry_run = os.environ.get("DRY_RUN", "true").lower() == "true"
-          stale_days = int(os.environ.get("STALE_DAYS", "0"))
-
-          headers = {
-              "Authorization": f"token {token}",
-              "Accept": "application/vnd.github+json",
-          }
-          api = f"https://api.github.com/repos/{repo}"
-
-          def paginate(url):
-              page = 1
-              sep = "&" if "?" in url else "?"
-              while True:
-                  r = requests.get(f"{url}{sep}per_page=100&page={page}", headers=headers)
-                  r.raise_for_status()
-                  yield r.json()
-                  if "next" not in r.links:
-                      break
-                  page += 1
-
-          # Build the set of branch "short names" — everything after the first '/'.
-          # feature-branch-deploy.yml uses this same transform to build env names.
-          short_names = set()
-          for batch in paginate(f"{api}/branches"):
-              for b in batch:
-                  short_names.add(re.sub(r"^[^/]*/", "", b["name"]))
-
-          # Collect all environments.
-          envs = []
-          for batch in paginate(f"{api}/environments"):
-              envs.extend(batch.get("environments", []))
-
-          now = datetime.datetime.now(datetime.timezone.utc)
-          to_delete = []
-
-          for env in envs:
-              name = env["name"]
-              # Only manage demo-* environments. Anything else requires manual review.
-              if not name.startswith(DEMO_PREFIX):
-                  continue
-              short = name[len(DEMO_PREFIX):]
-              if short in short_names:
-                  continue
-
-              updated_at = None
-              if env.get("updated_at"):
-                  updated_at = datetime.datetime.fromisoformat(
-                      env["updated_at"].replace("Z", "+00:00")
-                  )
-              if stale_days > 0 and updated_at and (now - updated_at).days < stale_days:
-                  continue
-
-              to_delete.append((name, updated_at))
-
-          if not to_delete:
-              print("No environments to delete.")
-              sys.exit(0)
-
-          failures = 0
-          for name, updated_at in to_delete:
-              label = "[DRY RUN] Would delete" if dry_run else "Deleting"
-              print(f"{label}: {name} (last updated: {updated_at})")
-              if dry_run:
-                  continue
-              r = requests.delete(f"{api}/environments/{name}", headers=headers)
-              if r.status_code == 204:
-                  print(f"  Deleted {name}")
-              else:
-                  print(f"  Failed to delete {name}: {r.status_code} {r.text}")
-                  failures += 1
-
-          if failures:
-              print(f"{failures} deletion(s) failed.")
-              sys.exit(1)
+          python .github/scripts/cleanup_environments.py \
+            ${{ (github.event.inputs.dry_run == 'false') && '--no-dry-run' || '--dry-run' }} \
+            --stale-days "${{ github.event.inputs.stale_days || '0' }}"
