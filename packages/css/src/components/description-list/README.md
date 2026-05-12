@@ -6,12 +6,9 @@ A collection of terms and their descriptions.
 
 ## Design
 
-In a narrow window, descriptions appear below their term.
-After that, they display in a two-column layout.
-The column for the terms is as wide as the longest term, without wrapping.
-Its width can be adjusted to be ‘large’ (50%), ‘medium’ (33%), or ‘small’ (20%), which also allows the terms to wrap.
-
-The term is set in bold text.
+- Description Lists have a vertical orientation when their parent Grid Cell is less than `32rem` wide (typically 512 pixels). Above this size, they change to a horizontal orientation, placing the descriptions to the right of their terms instead of below them.
+- The column for the terms is as wide as the longest term, without wrapping. Its width can be adjusted to be ‘large’ (50%), ‘medium’ (33%), or ‘small’ (20%), which also allows the terms to wrap.
+- The term is set in bold text.
 
 ## References
 

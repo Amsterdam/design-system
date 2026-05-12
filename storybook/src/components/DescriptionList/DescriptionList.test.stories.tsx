@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { ComponentProps } from 'react'
 
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 
@@ -18,6 +19,24 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
+
+type DescriptionListProps = ComponentProps<typeof DescriptionList>
+
+/**
+ * Wrapper used by the single Chromatic "Test" story:
+ * - first render example is identical to the original Test story (container context will fallback to Page or none)
+ * - then render example in a narrow container-query context
+ */
+const DescriptionListWithContainerQueryExamples = (props: DescriptionListProps) => (
+  <>
+    <DescriptionList {...props} />
+
+    {/* Description list in a narrow container */}
+    <div className="ams-inline-size-context" style={{ inlineSize: '31.99rem' }}>
+      <DescriptionList {...props} />
+    </div>
+  </>
+)
 
 export const Test: Story = {
   args: {
@@ -50,7 +69,7 @@ export const Test: Story = {
     ],
   },
   render: (args) =>
-    renderComponentVariants(DescriptionList, {
+    renderComponentVariants(DescriptionListWithContainerQueryExamples, {
       args,
     }),
   tags: ['!dev', '!autodocs'],

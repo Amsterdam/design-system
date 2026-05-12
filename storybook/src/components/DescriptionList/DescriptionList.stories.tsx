@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { Grid, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 
@@ -49,6 +49,22 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Orientation: Story = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  render: (args) => (
+    <Grid>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
+        <DescriptionList {...args} />
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }}>
+        <DescriptionList {...args} />
+      </Grid.Cell>
+    </Grid>
+  ),
+}
 
 export const MultipleDescriptions: Story = {
   args: {
