@@ -27,7 +27,6 @@ on:
 
 permissions:
   contents: read
-  deployments: write
   # NOTE: Deleting environments requires repo Administration: write, which is
   # NOT exposable on GITHUB_TOKEN via the workflow permissions block. Set the
   # ENV_ADMIN_TOKEN secret to a fine-grained PAT or GitHub App installation
