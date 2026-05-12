@@ -28,6 +28,11 @@ on:
 permissions:
   contents: read
   deployments: write
+  # NOTE: Deleting environments requires repo Administration: write, which is
+  # NOT exposable on GITHUB_TOKEN via the workflow permissions block. Set the
+  # ENV_ADMIN_TOKEN secret to a fine-grained PAT or GitHub App installation
+  # token with 'Administration: Read and write' on this repo. Without it, the
+  # delete step will return 403 once dry_run is set to false.
 
 concurrency:
   group: cleanup-environments
@@ -47,7 +52,9 @@ jobs:
 
       - name: Cleanup environments
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Falls through to GITHUB_TOKEN when the admin secret isn't set so
+          # dry-runs and listing still work; see permissions note above.
+          GITHUB_TOKEN: ${{ secrets.ENV_ADMIN_TOKEN || secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           DRY_RUN: ${{ github.event.inputs.dry_run || 'true' }}
           STALE_DAYS: ${{ github.event.inputs.stale_days || '0' }}
