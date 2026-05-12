@@ -3,7 +3,7 @@
 # Publishing
 
 We use a [Release Please GitHub Action](https://github.com/googleapis/release-please-action) to create changelogs and release PRs for all our packages.
-When the release PR is merged, that same action publishes the new release to npm and creates a release on GitHub. A separate “Main branch build and deploy” workflow keeps our main Storybook environment up to date with `main`.
+When the release PR is merged, the Publish workflow (specifically the `pnpm -r publish` step in `.github/workflows/publish.yml`) publishes the new release to npm, after Release Please reports `releases_created == 'true'`. Release Please itself creates the release PR and the GitHub release, but does not publish to npm. A separate “Main branch build and deploy” workflow keeps our main Storybook environment up to date with `main`.
 
 The [maintainers](./maintainers.md) can release new versions of our packages.
 If you want to have rights to publish as well, contact one of the maintainers.
