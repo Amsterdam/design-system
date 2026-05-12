@@ -32,6 +32,7 @@ When a task is ambiguous (for example, "improve performance" or "add validation"
 These additional rules are specific to language-model agents working in this repository:
 
 - Always search for existing patterns (components, tokens, stories, mixins) before inventing new ones. In Storybook stories, use existing design system layout components (Grid, Column, Row) instead of raw `<div>` elements with inline styles.
+- When writing or editing Markdown, put one sentence per line to keep diffs small.
 - Never invent files, commands, configuration options, or APIs that are not present in the workspace or documented; if you are unsure, state the uncertainty instead of guessing.
 - Prefer editing the smallest possible surface area (a single component, token file, or package) instead of broad refactors across multiple layers.
 - When user instructions conflict with the rules in this file or the per-package `AGENTS.md` files, call out the conflict explicitly and do not silently ignore the repository rules.
