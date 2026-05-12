@@ -71,7 +71,7 @@
     "eslint-plugin-storybook": "10.3.6",
     "globals": "17.6.0",
     "husky": "9.1.7",
-    "lint-staged": "16.4.0",
+    "lint-staged": "17.0.4",
     "npm-check-updates": "22.1.1",
     "npm-package-json-lint": "10.4.0",
     "plop": "4.0.5",
