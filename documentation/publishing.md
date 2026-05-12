@@ -3,7 +3,8 @@
 # Publishing
 
 We use a [Release Please GitHub Action](https://github.com/googleapis/release-please-action) to create changelogs and release PRs for all our packages.
-When the release PR is merged, the Publish workflow (specifically the `pnpm -r publish` step in `.github/workflows/publish.yml`) publishes the new release to npm, after Release Please reports `releases_created == 'true'`. Release Please itself creates the release PR and the GitHub release, but does not publish to npm. A separate “Main branch build and deploy” workflow keeps our main Storybook environment up to date with `main`.
+When the release PR is merged, the Publish workflow (specifically the `pnpm -r publish` step in `.github/workflows/publish.yml`) publishes the new release to npm, after Release Please reports `releases_created == 'true'`. Release Please itself creates the release PR and the GitHub release, but does not publish to npm.
+A separate “Main branch build and deploy” workflow keeps our main Storybook environment up to date with `main`.
 
 The [maintainers](./maintainers.md) can release new versions of our packages.
 If you want to have rights to publish as well, contact one of the maintainers.
@@ -60,17 +61,23 @@ git merge --ff-only origin/develop
 git push
 ```
 
-Pushing to `main` triggers the “Lint and test” workflow on GitHub. When this workflow completes successfully, it triggers the “Publish” workflow. On this first run, Release Please opens (or updates) a release PR. The workflow runs again later, after that PR is merged, to create the GitHub release and publish to npm.
+Pushing to `main` triggers the “Lint and test” workflow on GitHub. When this workflow completes successfully, it triggers the “Publish” workflow.
+On this first run, Release Please opens (or updates) a release PR. The workflow runs again later, after that PR is merged, to create the GitHub release and publish to npm.
 
 A separate “Main branch build and deploy” workflow runs in parallel and refreshes our main Storybook environment from the latest `main`.
 
 ### Review the release PR
 
-Review the release PR created by Release Please. Make sure to check the changelogs for the different packages. A commit might only be a breaking change for one package, but it will be marked as breaking for all affected packages.
+Review the release PR created by Release Please.
+Make sure to check the changelogs for the different packages.
+A commit might only be a breaking change for one package, but it will be marked as breaking for all affected packages.
 
-**Note**: Apply any updates to the changelog to both `CHANGELOG.md` and the PR description. Release Please uses the PR description to create the GitHub release notes.
+**Note**: Apply any updates to the changelog to both `CHANGELOG.md` and the PR description.
+Release Please uses the PR description to create the GitHub release notes.
 
-**Note**: Make sure all necessary peer dependencies get updated. Releases that only change Tokens or Assets may require extra steps for CSS or React. See below for details.
+**Note**: Make sure all necessary peer dependencies get updated.
+Releases that only change Tokens or Assets may require extra steps for CSS or React.
+See below for details.
 
 ### Approve and merge the release PR
 
@@ -95,13 +102,18 @@ If `develop` has progressed since the merge to `main`, this will produce a merge
 
 #### Don’t change the PR title
 
-The Release Please Action generates a release PR with a specific title (currently: `chore: release main`). On subsequent runs, the Action looks for an open PR with this exact title so it can update it instead of creating a duplicate. Changing the title breaks that lookup and can cause the Action to fail or create a second release PR.
+The Release Please Action generates a release PR with a specific title (currently: `chore: release main`).
+On subsequent runs, the Action looks for an open PR with this exact title so it can update it instead of creating a duplicate.
+Changing the title breaks that lookup and can cause the Action to fail or create a second release PR.
 
 #### Remove stale release labels
 
-Release Please uses labels to determine the status of a release. A release PR gets the label `autorelease: pending` or `autorelease: triggered`. When running the action again, the PR with those labels gets released, and the labels should be removed.
+Release Please uses labels to determine the status of a release.
+A release PR gets the label `autorelease: pending` or `autorelease: triggered`.
+When running the action again, the PR with those labels gets released, and the labels should be removed.
 
-However, due to GitHub API failures, it’s possible that the label was not removed correctly upon a previous release and Release Please thinks that the previous release is still pending. Release Please will not create a new release PR if it thinks there is a pending release.
+However, due to GitHub API failures, it’s possible that the label was not removed correctly upon a previous release and Release Please thinks that the previous release is still pending.
+Release Please will not create a new release PR if it thinks there is a pending release.
 
 To fix this, check whether any closed PRs still have the `autorelease: pending` or `autorelease: triggered` labels, and remove them.
 
@@ -109,7 +121,8 @@ To fix this, check whether any closed PRs still have the `autorelease: pending` 
 
 ## Dependencies between packages
 
-We’ve established dependencies between our packages to avoid version mismatches. For instance, our React package requires a specific version of our CSS package.
+We’ve established dependencies between our packages to avoid version mismatches.
+For instance, our React package requires a specific version of our CSS package.
 
 Here’s the dependency structure:
 
@@ -121,9 +134,13 @@ graph LR
   CSS --> React
 ```
 
-Managing these dependencies requires extra attention when publishing. We use [PNPM’s workspace feature](https://pnpm.io/workspaces#publishing-workspace-packages) to define dependencies between our packages. When we publish CSS and React, the latest specific versions of their dependencies get pinned: Tokens and Assets for CSS, and CSS and React Icons for React.
+Managing these dependencies requires extra attention when publishing.
+We use [PNPM’s workspace feature](https://pnpm.io/workspaces#publishing-workspace-packages) to define dependencies between our packages.
+When we publish CSS and React, the latest specific versions of their dependencies get pinned: Tokens and Assets for CSS, and CSS and React Icons for React.
 
-This setup works well when we update both CSS and React in a release. However, issues arise if a release only updates Tokens and Assets without changes to CSS or React. The latest version of CSS then depends on an older version of Tokens.
+This setup works well when we update both CSS and React in a release.
+However, issues arise if a release only updates Tokens and Assets without changes to CSS or React.
+The latest version of CSS then depends on an older version of Tokens.
 
 **Step-by-step example for dependency updates:**
 
