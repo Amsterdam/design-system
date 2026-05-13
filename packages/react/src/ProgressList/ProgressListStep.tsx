@@ -56,7 +56,7 @@ export const ProgressListStep = forwardRef(
     const { collapsible, headingLevel } = useContext(ProgressListContext)
     const isControlled = collapsible && collapsed !== undefined
     const [internalCollapsed, setInternalCollapsed] = useState(defaultCollapsed ?? status === 'completed')
-    const isCollapsed = isControlled ? (collapsed as boolean) : internalCollapsed
+    const isCollapsed = isControlled ? collapsed : internalCollapsed
 
     const iconSize = `heading-${headingLevel}` as IconProps['size']
     const panelId = useId()
