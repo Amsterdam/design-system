@@ -7,7 +7,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 # Spacing
 
 The design system offers various tools for adding white space around and between elements.
-They operate at different scales — from the entire page layout to individual elements — each serving a distinct purpose.
+They operate at different scales – from the entire page layout to individual elements – each serving a distinct purpose.
 This page explains which to use in each situation.
 
 ## Grid
@@ -17,18 +17,18 @@ It provides 4, 8, or 12 columns depending on the window width.
 Its children are Grid Cells that define how many columns they span and, optionally, where they start.
 
 Use Grid as the top-level layout container for every page.
+This makes Grid Cells the context for nearly all elements.
 A single page can have several consecutive Grids, which allows mixing in full-width elements.
-Do not nest Grids inside each other, and do not apply Gap utility classes to a Grid — it manages its own spacing.
 
 ## Row and Column
 
-[Row](/docs/components-layout-row--docs) and [Column](/docs/components-layout-column--docs) arrange a set of children with uniform spacing between them.
+[Row](/docs/components-layout-row--docs) and [Column](/docs/components-layout-column--docs) arrange a set of children with uniform spacing.
 They use CSS flexbox.
 Row places items side by side; Column stacks them vertically.
-Both provide a `gap` prop that maps to the [space design tokens](/docs/brand-design-tokens-space--docs) and alignment props for fine control over how children are positioned.
+Both create a gap between their elements and can align them in both directions.
 
-Employ them inside Grid Cells when a group of elements needs equal spacing between them.
-Do not use Column for editorial text — various element types require different amounts of space between them.
+Use them inside Grid Cells when a group of elements needs equal spacing between them.
+Do not use Column for editorial text – various element types require different amounts of space between them.
 Use [Prose](#prose) instead.
 
 ## Gap
@@ -62,5 +62,5 @@ Margin is the right choice for a single targeted override; Prose is the right ch
 
 ## See also
 
-- [Space design tokens](/docs/brand-design-tokens-space--docs) — the names and lengths for each available size
-- [Vertical space](/docs/docs-designer-guide-vertical-space--docs) — how much space to use between specific combinations
+- [Space design tokens](/docs/brand-design-tokens-space--docs) – the names and lengths for each available size.
+- [Vertical space](/docs/docs-designer-guide-vertical-space--docs) – how much space to use between specific combinations.
