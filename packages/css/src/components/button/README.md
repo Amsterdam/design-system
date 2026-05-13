@@ -14,6 +14,7 @@ Allows the user to perform an action or operate the interface.
 - Use the verb’s infinitive form, such as “Verwijderen” or “Opslaan”, not “Verwijder” or “Sla op”.
 - Use only 1 primary Button per screen.
 - Wrap 2 or more consecutive buttons and/or links in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
+- Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
 - Add `type="submit"` to make the Button submit a form.
 
 ## Relevant WCAG requirements
