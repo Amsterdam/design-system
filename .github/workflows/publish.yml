@@ -49,6 +49,12 @@ jobs:
         if: ${{ steps.release.outputs.releases_created == 'true' }}
         run: pnpm install --frozen-lockfile
 
+      # Reset any tree modifications from earlier steps so pnpm's git checks
+      # pass without us having to disable them with --no-git-checks.
+      - name: Reset working tree before publish
+        if: ${{ steps.release.outputs.releases_created == 'true' }}
+        run: git reset --hard HEAD && git clean -fd
+
       - name: Publish
         if: ${{ steps.release.outputs.releases_created == 'true' }}
         run: pnpm -r publish
