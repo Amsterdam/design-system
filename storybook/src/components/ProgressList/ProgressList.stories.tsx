@@ -86,40 +86,6 @@ export const Collapsible: Story = {
 }
 
 export const Controlled: Story = {
-  parameters: {
-    docs: {
-      source: {
-        code: `const [expandedIndex, setExpandedIndex] = useState(1)
-
-<ProgressList collapsible headingLevel={3}>
-  <ProgressList.Step
-    collapsed={expandedIndex !== 0}
-    heading="Aanvraag ingediend"
-    onToggle={(expanded) => setExpandedIndex(expanded ? 0 : null)}
-    status="completed"
-  >
-    <Paragraph>Uw aanvraag is op 2 januari 2026 ontvangen.</Paragraph>
-  </ProgressList.Step>
-  <ProgressList.Step
-    collapsed={expandedIndex !== 1}
-    heading="In behandeling"
-    onToggle={(expanded) => setExpandedIndex(expanded ? 1 : null)}
-    status="current"
-  >
-    <Paragraph>Een medewerker beoordeelt uw aanvraag en neemt contact met u op bij vragen.</Paragraph>
-  </ProgressList.Step>
-  <ProgressList.Step
-    collapsed={expandedIndex !== 2}
-    heading="Besluit"
-    onToggle={(expanded) => setExpandedIndex(expanded ? 2 : null)}
-  >
-    <Paragraph>U ontvangt het besluit binnen 8 weken na uw aanvraag.</Paragraph>
-  </ProgressList.Step>
-</ProgressList>`,
-        language: 'tsx',
-      },
-    },
-  },
   play: async ({ canvas, userEvent }) => {
     await userEvent.click(canvas.getByRole('button', { name: /Aanvraag ingediend/ }))
   },
