@@ -113,13 +113,20 @@ export const MemorableDateWithValidation: Story = {
           <Label htmlFor="input-b1" inFieldSet>
             Dag
           </Label>
-          <TextInput autoComplete="bday-day" id="input-b1" inputMode="numeric" name="dag" size={2} value={16} />
+          <TextInput autoComplete="bday-day" defaultValue={16} id="input-b1" inputMode="numeric" name="dag" size={2} />
         </Column>
         <Column gap="small">
           <Label htmlFor="input-b2" inFieldSet>
             Maand
           </Label>
-          <TextInput autoComplete="bday-month" id="input-b2" inputMode="numeric" name="maand" size={2} value={8} />
+          <TextInput
+            autoComplete="bday-month"
+            defaultValue={8}
+            id="input-b2"
+            inputMode="numeric"
+            name="maand"
+            size={2}
+          />
         </Column>
         <Column gap="small">
           <Label htmlFor="input-b3" inFieldSet>
