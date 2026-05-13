@@ -558,6 +558,18 @@ describe('ProgressListStep', () => {
       expect(screen.getByRole('listitem')).toHaveClass('ams-progress-list__step--collapsed')
     })
 
+    it('ignores defaultCollapsed when collapsed is provided', () => {
+      render(
+        <ProgressList collapsible headingLevel={3}>
+          <ProgressList.Step collapsed defaultCollapsed={false} heading="Test Step">
+            Content
+          </ProgressList.Step>
+        </ProgressList>,
+      )
+
+      expect(screen.getByRole('listitem')).toHaveClass('ams-progress-list__step--collapsed')
+    })
+
     it('responds to controlled prop changes', () => {
       const { rerender } = render(
         <ProgressList collapsible headingLevel={3}>
