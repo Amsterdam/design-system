@@ -17,3 +17,4 @@ This informs users that a new page will open and that they can either copy the l
   Ensure the emphasis is on one product, and divide the content into several pages if needed.
 - Use the verb’s infinitive form, such as “Kapotte parkeerautomaat melden”, not “Meld kapotte parkeerautomaat”.
 - For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.
+- Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.

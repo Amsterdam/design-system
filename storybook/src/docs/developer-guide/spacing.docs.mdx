@@ -1,0 +1,66 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Docs/Developer Guide/Spacing" />
+
+# Spacing
+
+The design system offers various tools for adding white space around and between elements.
+They operate at different scales – from the entire page layout to individual elements – each serving a distinct purpose.
+This page explains which to use in each situation.
+
+## Grid
+
+[Grid](/docs/components-layout-grid--docs) divides the page into areas and is the foundation of every [Page](/docs/components-containers-page--docs) layout.
+It provides 4, 8, or 12 columns depending on the window width.
+Its children are Grid Cells that define how many columns they span and, optionally, where they start.
+
+Use Grid as the top-level layout container for every page.
+This makes Grid Cells the context for nearly all elements.
+A single page can have several consecutive Grids, which allows mixing in full-width elements.
+
+## Row and Column
+
+[Row](/docs/components-layout-row--docs) and [Column](/docs/components-layout-column--docs) arrange a set of children with uniform spacing.
+They use CSS flexbox.
+Row places items side by side; Column stacks them vertically.
+Both create a gap between their elements and can align them in both directions.
+
+Use them inside Grid Cells when a group of elements needs equal spacing between them.
+Do not use Column for editorial text – various element types require different amounts of space between them.
+Use [Prose](#prose) instead.
+
+## Gap
+
+The [Gap](/docs/utilities-css-gap--docs) utility classes add equal white space between all children of the element it’s applied to.
+They use CSS grid layout and can be seen as a basic version of Column.
+
+## Margin
+
+The [Margin](/docs/utilities-css-margin--docs) utility classes create white space below a single element.
+Use it for individual or a few consecutive elements, where they need specific amounts of space below them.
+
+Refer to the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guidelines to find the recommended size for each combination.
+When the same spacing applies to all siblings, use Gap or Column instead, which avoids singling out the last element.
+
+## Prose
+
+[Prose](/docs/utilities-css-prose--docs) applies the recommended vertical spacing between all children of a container at once.
+Use it for editorial content, like rich-text output from a CMS, or any mix of headings, paragraphs, lists, etc.
+
+Margin is the right choice for a single targeted override; Prose is the right choice when spacing should be applied to a whole document.
+
+## Quick reference
+
+| Situation                         | Tool                                                                                                                             |
+| :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- |
+| Top-level page layout             | [Grid](/docs/components-layout-grid--docs)                                                                                       |
+| Equal spacing between siblings    | [Row](/docs/components-layout-row--docs), [Column](/docs/components-layout-column--docs) or [Gap](/docs/utilities-css-gap--docs) |
+| Space below one element           | [Margin](/docs/utilities-css-margin--docs)                                                                                       |
+| Editorial content (articles, CMS) | [Prose](/docs/utilities-css-prose--docs)                                                                                         |
+
+## See also
+
+- [Space design tokens](/docs/brand-design-tokens-space--docs) – the names and lengths for each available size.
+- [Vertical space](/docs/docs-designer-guide-vertical-space--docs) – how much space to use between specific combinations.

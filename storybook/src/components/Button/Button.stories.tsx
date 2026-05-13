@@ -101,7 +101,7 @@ export const TextWrapping: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ maxWidth: '16rem' }}>
+      <div style={{ maxInlineSize: '16rem' }}>
         <Story />
       </div>
     ),
