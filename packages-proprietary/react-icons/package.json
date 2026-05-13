@@ -29,8 +29,8 @@
     "directory": "packages-proprietary/react-icons"
   },
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "pnpm run clean && rollup -c",
+    "clean:dist": "rimraf dist",
+    "build": "pnpm run clean:dist && rollup -c",
     "generate": "svgr ../assets/icons && prettier --write src && eslint src --fix"
   },
   "devDependencies": {
