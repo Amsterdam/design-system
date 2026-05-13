@@ -174,5 +174,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ maxInlineSize: '44.375rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
   render,
 }
