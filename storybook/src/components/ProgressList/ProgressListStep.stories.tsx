@@ -48,6 +48,9 @@ export const Step: Story = {
     heading: 'Aanpassing ontwerp fietspad Entreegebied',
     status: 'current',
   },
+  argTypes: {
+    defaultCollapsed: { table: { disable: true } },
+  },
   render: ({ children, ...args }) => {
     const [, setArgs] = useArgs()
 
