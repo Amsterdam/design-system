@@ -62,9 +62,9 @@ export const ProgressListStep = forwardRef(
     const panelId = useId()
 
     const handleClick = () => {
-      const nextIsExpanded = isCollapsed
+      const willExpand = isCollapsed
       if (!isControlled) setInternalCollapsed(!isCollapsed)
-      onToggle?.(nextIsExpanded)
+      onToggle?.(willExpand)
     }
 
     return (
