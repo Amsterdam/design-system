@@ -24,8 +24,8 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const maxWidthDecorator: Decorator = (Story) => (
-  <div style={{ maxWidth: '20rem' }}>
+const maxInlineSizeDecorator: Decorator = (Story) => (
+  <div style={{ maxInlineSize: '20rem' }}>
     <Story />
   </div>
 )
@@ -60,5 +60,5 @@ export const Default: Story = {
       </Tabs.Panel>,
     ],
   },
-  decorators: [maxWidthDecorator],
+  decorators: [maxInlineSizeDecorator],
 }
