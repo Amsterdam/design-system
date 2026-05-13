@@ -5,9 +5,7 @@ packages:
   - "storybook"
 overrides:
   "@tootallnate/once@<3.0.1": ">=3.0.1"
-  "brace-expansion@<1.1.13": ">=1.1.13 <2"
   tar: ">=7.5.11"
-  "yaml@>=2.0.0 <2.8.3": ">=2.8.3"
 engineStrict: true
 savePrefix: ""
 allowBuilds:
