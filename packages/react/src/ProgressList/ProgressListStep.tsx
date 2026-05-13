@@ -17,12 +17,16 @@ import { AccessibleStatusText } from './AccessibleStatusText'
 import { ProgressListContext } from './ProgressListContext'
 
 export type ProgressListStepProps = {
-  /** Whether the step content is collapsed. When provided, the component is controlled. */
+  /**
+   * Whether the step content is collapsed.
+   * When provided, the component is controlled and internal state is ignored.
+   * Has no effect when `collapsible` is `false` on the parent.
+   */
   collapsed?: boolean
   /**
    * Whether the content is initially collapsed.
    * Defaults to `true` when `status` is `'completed'`, and `false` otherwise.
-   * Ignored if `collapsible` is `false`.
+   * Ignored when `collapsible` is `false` on the parent, or when `collapsed` is provided.
    */
   defaultCollapsed?: boolean
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
