@@ -62,13 +62,6 @@ export const Default: Story = {
   },
 }
 
-export const Level: Story = {
-  args: {
-    children: <Accordion.Section label={faqItems[0].label}>{faqItems[0].content}</Accordion.Section>,
-    headingLevel: 4,
-  },
-}
-
 export const ExpandedByDefault: Story = {
   args: {
     children: faqItems.map(({ content, label }, index) => (
