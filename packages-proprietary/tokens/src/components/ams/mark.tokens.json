@@ -3,7 +3,9 @@
     "mark": {
       "background-color": {
         "$value": "{ams.color.highlight.yellow}",
-        "$type": "color"
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
       }
     }
   }

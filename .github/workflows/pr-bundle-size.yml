@@ -1,0 +1,44 @@
+name: Bundle size report
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  compressed-size:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@91ab88e2619ed1f46221f0ba42d1492c02baf788 # v6.0.6
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          cache: pnpm
+          node-version-file: .nvmrc
+
+      - name: Create asset aggregates
+        run: |
+          mkdir -p packages-proprietary/temp
+          tar -czf packages-proprietary/temp/assets-fonts.tar.gz -C packages-proprietary/assets font
+          tar -czf packages-proprietary/temp/assets-others.tar.gz -C packages-proprietary/assets app-icons favicon icons logo manifest *.svg *.png *.jpg *.jpeg *.gif *.webp *.avif *.ico 2>/dev/null || true
+
+      - name: Report bundle size
+        uses: preactjs/compressed-size-action@66325aad6443cb7cf89c4bfcd414aea2367cda94 # v2.9.1
+        with:
+          build-script: build
+          install-script: pnpm install --frozen-lockfile --ignore-scripts
+          pattern: "{packages/react/dist/index!(*.cjs).js,packages/css/dist/index.css,packages-proprietary/tokens/dist/!(*.theme).css,packages-proprietary/react-icons/dist/index.esm.js,packages-proprietary/temp/assets-fonts.tar.gz,packages-proprietary/temp/assets-others.tar.gz}"
+          strip-hash: "\\b\\w{8}\\."
+
+      - name: Clean up asset aggregates
+        if: always()
+        run: rm -f packages-proprietary/temp/assets-fonts.tar.gz packages-proprietary/temp/assets-others.tar.gz

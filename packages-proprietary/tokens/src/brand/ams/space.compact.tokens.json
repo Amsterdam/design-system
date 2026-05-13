@@ -17,19 +17,31 @@
       },
       "m": {
         "$value": "clamp(0.75rem, 0.6786rem + 0.3571vw, 1rem)",
-        "$type": "dimension"
+        "$extensions": {
+          "nl.amsterdam.type": "dimension",
+          "nl.amsterdam.subtype": "space"
+        }
       },
       "l": {
         "$value": "clamp(1rem, 0.8571rem + 0.7143vw, 1.5rem)",
-        "$type": "dimension"
+        "$extensions": {
+          "nl.amsterdam.type": "dimension",
+          "nl.amsterdam.subtype": "space"
+        }
       },
       "xl": {
         "$value": "clamp(1.5rem, 1.2857rem + 1.0714vw, 2.25rem)",
-        "$type": "dimension"
+        "$extensions": {
+          "nl.amsterdam.type": "dimension",
+          "nl.amsterdam.subtype": "space"
+        }
       },
       "2xl": {
         "$value": "clamp(2rem, 1.7143rem + 1.4286vw, 3rem)",
-        "$type": "dimension"
+        "$extensions": {
+          "nl.amsterdam.type": "dimension",
+          "nl.amsterdam.subtype": "space"
+        }
       }
     }
   }

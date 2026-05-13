@@ -2,15 +2,22 @@
   "ams": {
     "typography": {
       "font-family": {
-        "$value": "'Amsterdam Sans', Arial, sans-serif",
-        "$type": "fontFamily"
+        "$value": ["Amsterdam Sans", "Arial", "sans-serif"],
+        "$type": "fontFamily",
+        "$description": "The corporate typeface with system fallbacks."
       },
       "hyphenate-limit-chars": {
-        "$value": "auto"
+        "$value": "auto",
+        "$description": "Lets the browser decide the minimum character count for hyphenation.",
+        "$extensions": {
+          "nl.amsterdam.type": "hyphenateLimitChars"
+        }
       },
       "body-text": {
+        "$description": "Text styles for running body copy. Font sizes scale fluidly between 320px and 1600px viewports.",
         "font-size": {
           "$value": "clamp(1.125rem, 1.0893rem + 0.1786vw, 1.25rem)",
+          "$description": "Scales from 18px to 20px.",
           "$extensions": {
             "nl.amsterdam.type": "fontSize"
           }
@@ -20,10 +27,11 @@
           "$type": "fontWeight"
         },
         "line-height": {
-          "$value": "1.6",
+          "$value": 1.6,
           "$extensions": {
-            "nl.amsterdam.type": "lineHeight"
-          }
+            "nl.amsterdam.subtype": "lineHeight"
+          },
+          "$type": "number"
         },
         "bold": {
           "font-weight": {
@@ -32,69 +40,85 @@
           }
         },
         "small": {
+          "$description": "For supporting text like captions and metadata.",
           "font-size": {
             "$value": {
               "value": 1,
               "unit": "rem"
             },
-            "$type": "dimension"
+            "$type": "dimension",
+            "$description": "Fixed at 16px; does not scale."
           },
           "line-height": {
-            "$value": "1.5",
+            "$value": 1.5,
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "large": {
+          "$description": "For introductory or lead text.",
           "font-size": {
             "$value": "clamp(1.3125rem, 1.2411rem + 0.3571vw, 1.5625rem)",
+            "$description": "Scales from 21px to 25px.",
             "$extensions": {
               "nl.amsterdam.type": "fontSize"
             }
           },
           "line-height": {
-            "$value": "1.5",
+            "$value": 1.5,
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "x-large": {
+          "$description": "For short prominent text, e.g. blockquotes.",
           "font-size": {
             "$value": "clamp(1.5rem, 1.3571rem + 0.7143vw, 2rem)",
+            "$description": "Scales from 24px to 32px.",
             "$extensions": {
               "nl.amsterdam.type": "fontSize"
             }
           },
           "line-height": {
-            "$value": "1.4",
+            "$value": 1.4,
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         }
       },
       "heading": {
+        "$description": "Text styles for section headings. Larger headings use tighter line-heights for visual balance.",
         "font-weight": {
           "$value": "800",
           "$type": "fontWeight"
         },
         "text-wrap": {
-          "$value": "balance"
+          "$value": "balance",
+          "$description": "Distributes heading text evenly across lines for a more balanced appearance.",
+          "$extensions": {
+            "nl.amsterdam.type": "textWrap"
+          }
         },
         "1": {
           "font-size": {
             "$value": "clamp(2rem, 1.7143rem + 1.4286vw, 3rem)",
+            "$description": "Scales from 32px to 48px.",
             "$extensions": {
               "nl.amsterdam.type": "fontSize"
             }
           },
           "line-height": {
-            "$value": "1.2",
+            "$value": 1.2,
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "2": {
@@ -105,10 +129,11 @@
             }
           },
           "line-height": {
-            "$value": "1.3",
+            "$value": 1.3,
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "3": {
@@ -119,10 +144,11 @@
             }
           },
           "line-height": {
-            "$value": "1.3",
+            "$value": 1.3,
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "4": {
@@ -133,10 +159,11 @@
             }
           },
           "line-height": {
-            "$value": "1.4",
+            "$value": 1.4,
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         },
         "5": {
@@ -147,10 +174,11 @@
             }
           },
           "line-height": {
-            "$value": "1.4",
+            "$value": 1.4,
             "$extensions": {
-              "nl.amsterdam.type": "lineHeight"
-            }
+              "nl.amsterdam.subtype": "lineHeight"
+            },
+            "$type": "number"
           }
         }
       }

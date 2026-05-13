@@ -101,7 +101,7 @@
       }
     ],
     "scss/dollar-variable-pattern": [
-      "^(ams)-[a-z0-9-]+$",
+      "^(ams|_ams)-[a-z0-9-]+$",
       {
         "ignore": "local"
       }

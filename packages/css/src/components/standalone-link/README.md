@@ -13,3 +13,4 @@ As a result, pages can have sections with either one or several links used inter
 - Use a Standalone Link for a single link on its own line of text.
 - Within running body text, use a regular Link instead.
 - For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.
+- Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.

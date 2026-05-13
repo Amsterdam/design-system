@@ -89,4 +89,22 @@ describe('TableCell', () => {
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })
+
+  it('renders an alignment modifier class when align is set', () => {
+    render(
+      <Table>
+        <TableBody>
+          <TableRow>
+            <TableCell align="end">Data</TableCell>
+            <TableCell align="center">Data</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>,
+    )
+
+    const [endCell, centerCell] = screen.getAllByRole('cell')
+
+    expect(endCell).toHaveClass('ams-table__cell--align-end')
+    expect(centerCell).toHaveClass('ams-table__cell--align-center')
+  })
 })

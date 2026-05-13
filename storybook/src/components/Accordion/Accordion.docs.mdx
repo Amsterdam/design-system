@@ -32,7 +32,7 @@ Changing the level also changes the visual size of the heading.
 
 ### Expanded by default
 
-If you want the contents of an Accordion Section to appear initially, pass the `expanded` property to the `Accordion.Section` component.
+If you want the contents of an Accordion Section to appear initially, pass the `defaultExpanded` property to the `Accordion.Section` component.
 
 <Canvas of={AccordionStories.ExpandedByDefault} />
 
@@ -62,6 +62,10 @@ Currently (28-6-2023), the `details` element has some accessibility problems.
 NVDA does not read Chrome and Edge’s collapsed and expanded status correctly.
 That’s why we chose not to use this native element.
 If these problems are solved, we could do this.
+
+## See also
+
+- [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
 ## Design tokens
 

@@ -1,0 +1,101 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/breakpoint" as *;
+@use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
+
+.ams-tab-navigation__list {
+  @include reset-ul;
+
+  box-shadow: var(--ams-tab-navigation-list-box-shadow);
+  display: flex;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+}
+
+@media (min-width: $ams-breakpoint-medium) {
+  .ams-tab-navigation--vertical {
+    @include hyphenation;
+
+    .ams-tab-navigation__list {
+      box-shadow: var(--ams-tab-navigation-list-vertical-box-shadow);
+      flex-direction: column;
+      overflow-x: visible;
+    }
+  }
+}
+
+.ams-tab-navigation__item {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.ams-tab-navigation__link {
+  align-items: center;
+  color: var(--ams-tab-navigation-link-color);
+  cursor: var(--ams-tab-navigation-link-cursor);
+  display: flex;
+  font-family: var(--ams-tab-navigation-link-font-family);
+  font-size: var(--ams-tab-navigation-link-font-size);
+  font-weight: var(--ams-tab-navigation-link-font-weight);
+  gap: var(--ams-tab-navigation-link-gap);
+  line-height: var(--ams-tab-navigation-link-line-height);
+  outline-offset: var(--ams-tab-navigation-link-outline-offset);
+  padding-block: var(--ams-tab-navigation-link-padding-block);
+  padding-inline: var(--ams-tab-navigation-link-padding-inline);
+  text-decoration-line: none;
+
+  &:hover {
+    color: var(--ams-tab-navigation-link-hover-color);
+  }
+
+  &:hover:not([aria-current="page"]) {
+    box-shadow: var(--ams-tab-navigation-link-hover-box-shadow);
+  }
+
+  &[aria-current="page"] {
+    box-shadow: var(--ams-tab-navigation-link-current-box-shadow);
+    font-weight: var(--ams-tab-navigation-link-current-font-weight);
+
+    @media (forced-colors: active) {
+      background-color: SelectedItem;
+    }
+  }
+
+  @media (min-width: $ams-breakpoint-medium) {
+    .ams-tab-navigation--vertical &:hover:not([aria-current="page"]) {
+      box-shadow: var(--ams-tab-navigation-link-vertical-hover-box-shadow);
+    }
+
+    .ams-tab-navigation--vertical &[aria-current="page"] {
+      box-shadow: var(--ams-tab-navigation-link-vertical-current-box-shadow);
+    }
+  }
+}
+
+.ams-tab-navigation__link-label-wrapper {
+  display: grid;
+}
+
+.ams-tab-navigation__link-label,
+.ams-tab-navigation__link-label-hidden {
+  display: initial;
+  grid-area: 1 / 1;
+}
+
+// This hidden label is used to prevent a layout shift when the link is current
+// and the link text becomes bold.
+.ams-tab-navigation__link-label-hidden {
+  font-weight: var(--ams-tab-navigation-link-current-font-weight);
+  pointer-events: none;
+  -webkit-user-select: none;
+
+  /* Safari support is added with the prefixed property. */
+  /* stylelint-disable-next-line plugin/use-baseline */
+  user-select: none;
+  visibility: hidden;
+}

@@ -74,7 +74,7 @@ export const WithHeadingAndParagraph: Story = {
   },
   decorators: [
     (Story) => (
-      <article style={{ maxWidth: '32rem' }}>
+      <article style={{ maxInlineSize: '32rem' }}>
         <Story />
       </article>
     ),

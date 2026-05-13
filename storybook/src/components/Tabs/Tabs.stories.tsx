@@ -3,71 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { Decorator } from '@storybook/react-vite'
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { PropsWithChildren, ReactNode } from 'react'
 
-import { Heading, Paragraph, Table } from '@amsterdam/design-system-react'
+import { Paragraph } from '@amsterdam/design-system-react'
 import { Tabs } from '@amsterdam/design-system-react/src'
-
-import { cityParts, exampleParagraph } from '../../_common/exampleContent'
-
-const slowPanelDelay = 1000
-
-const SlowPanel = ({ children }: PropsWithChildren) => {
-  console.log(`[ARTIFICIALLY SLOW] Adding a ${slowPanelDelay}ms delay…`)
-
-  let startTime = performance.now()
-  while (performance.now() - startTime < slowPanelDelay) {
-    /* Emulate slow code. */
-  }
-
-  return children
-}
-
-type TabContent = {
-  body: ReactNode
-  label: string
-}
-
-const tabsContent: Array<TabContent> = [
-  { body: exampleParagraph(), label: 'Gegevens' },
-  { body: exampleParagraph(), label: 'Aanslagen' },
-  {
-    body: (
-      <>
-        (This tab panel simulates a load time of {slowPanelDelay} milliseconds.)
-        <SlowPanel />
-      </>
-    ),
-    label: 'Documenten',
-  },
-  { body: exampleParagraph(), label: 'Acties' },
-]
-
-const defaultTabs = [
-  <Tabs.List key="tabsList">
-    {tabsContent.map(({ label }) => (
-      <Tabs.Button aria-controls={label} key={label}>
-        {label}
-      </Tabs.Button>
-    ))}
-  </Tabs.List>,
-  tabsContent.map(({ body, label }) => (
-    <Tabs.Panel id={label} key={label}>
-      <Heading className="ams-mb-xs" level={3}>
-        {label}
-      </Heading>
-      <Paragraph>{body}</Paragraph>
-    </Tabs.Panel>
-  )),
-]
 
 const meta = {
   title: 'Components/Containers/Tabs',
   component: Tabs,
-  args: {
-    children: defaultTabs,
-  },
   argTypes: {
     onTabChange: {
       action: 'clicked',
@@ -80,89 +24,41 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+const maxInlineSizeDecorator: Decorator = (Story) => (
+  <div style={{ maxInlineSize: '20rem' }}>
+    <Story />
+  </div>
+)
 
-export const WithInitialTab: Story = {
-  args: {
-    activeTab: 'Acties',
-  },
-}
-
-export const WithWideContent: Story = {
+export const Default: Story = {
   args: {
     children: [
-      <Tabs.List key="tabsList">
-        {cityParts.map((name) => (
-          <Tabs.Button aria-controls={name} key={name}>
-            {name}
-          </Tabs.Button>
-        ))}
+      <Tabs.List key="list">
+        <Tabs.Button aria-controls="west">West</Tabs.Button>
+        <Tabs.Button aria-controls="centrum">Centrum</Tabs.Button>
+        <Tabs.Button aria-controls="oost">Oost</Tabs.Button>
       </Tabs.List>,
-      cityParts.map((name) => (
-        <Tabs.Panel id={name} key={name}>
-          <Table>
-            <Table.Caption>
-              <Heading level={3}>
-                Voorbeeld van een tabel voor {name === 'Weesp' ? 'stadsgebied' : 'stadsdeel'} {name}
-              </Heading>
-            </Table.Caption>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell></Table.HeaderCell>
-                {Array.from({ length: 12 }, (_, index) => (
-                  <Table.HeaderCell key={`headercell-${index}`}>Kolom</Table.HeaderCell>
-                ))}
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {Array.from({ length: 3 }, (_, rowIndex) => (
-                <Table.Row key={rowIndex}>
-                  <Table.HeaderCell scope="row">Rij</Table.HeaderCell>
-                  {Array.from({ length: 12 }, (_, columnIndex) => (
-                    <Table.Cell key={columnIndex} style={{ textAlign: 'end' }}>
-                      {(rowIndex + 1) * (columnIndex + 1)}.000
-                    </Table.Cell>
-                  ))}
-                </Table.Row>
-              ))}
-            </Table.Body>
-          </Table>
-        </Tabs.Panel>
-      )),
+      <Tabs.Panel id="west" key="west">
+        <Paragraph>
+          Bos en Lommerplein 250
+          <br />
+          1055 EK Amsterdam
+        </Paragraph>
+      </Tabs.Panel>,
+      <Tabs.Panel id="centrum" key="centrum">
+        <Paragraph>
+          Amstel 1
+          <br />
+          1011 PN Amsterdam
+        </Paragraph>
+      </Tabs.Panel>,
+      <Tabs.Panel id="oost" key="oost">
+        <Paragraph>
+          Oranje-Vrijstaatplein 2<br />
+          1093 NG Amsterdam
+        </Paragraph>
+      </Tabs.Panel>,
     ],
   },
-}
-
-const tabsContentWithoutSlowPanel = tabsContent.filter(({ label }) => label !== 'Documenten')
-
-export const PreventTabsFromChanging: Story = {
-  args: {
-    children: [
-      <Tabs.List key="tabsList">
-        {tabsContentWithoutSlowPanel.map(({ label }) => (
-          <Tabs.Button
-            aria-controls={label}
-            key={label}
-            onClick={(e) => {
-              // eslint-disable-next-line no-alert
-              const confirmLeave = window.confirm('You have unsaved changes. Do you want to leave?')
-              if (!confirmLeave) {
-                e.preventDefault()
-              }
-            }}
-          >
-            {label}
-          </Tabs.Button>
-        ))}
-      </Tabs.List>,
-      tabsContentWithoutSlowPanel.map(({ body, label }) => (
-        <Tabs.Panel id={label} key={label}>
-          <Heading className="ams-mb-xs" level={3}>
-            {label}
-          </Heading>
-          <Paragraph>{body}</Paragraph>
-        </Tabs.Panel>
-      )),
-    ],
-  },
+  decorators: [maxInlineSizeDecorator],
 }

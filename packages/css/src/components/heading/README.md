@@ -19,6 +19,7 @@ Introduces a page section and describes the following content.
   - Most Headings on overview pages, e.g. Card, Table of Content, and ‘Link Blocks’, use a size of ‘level-3’.
   - The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
     Most of them can be given a different size if appropriate.
+- Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
 
 ## Relevant WCAG requirements
 

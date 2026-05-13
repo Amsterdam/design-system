@@ -8,6 +8,10 @@ import { describe, expect, it } from 'vitest'
 import { formatFileSize } from './formatFileSize'
 
 describe('formatFileSize', () => {
+  it('returns "0 bytes" for a file size of 0', () => {
+    expect(formatFileSize(0)).toBe('0 bytes')
+  })
+
   it('formats bytes correctly', () => {
     expect(formatFileSize(500)).toBe('500 bytes')
   })

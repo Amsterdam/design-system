@@ -3,7 +3,9 @@
     "logo": {
       "block-size": {
         "$value": "{ams.space.xl}",
-        "$type": "dimension"
+        "$extensions": {
+          "nl.amsterdam.type": "dimension"
+        }
       },
       "min-block-size": {
         "$value": {
@@ -21,7 +23,9 @@
       "subsite": {
         "color": {
           "$value": "{ams.color.text.default}",
-          "$type": "color"
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
         }
       },
       "title": {

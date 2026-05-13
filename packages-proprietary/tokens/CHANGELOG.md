@@ -3,11 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [4.0.0]
+## [4.0.1](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.0.0...design-system-tokens-v4.0.1) (2026-04-24)
+
+
+### Bug Fixes
+
+* **Grid:** Set correct horizontal padding in Compact Mode ([#2582](https://github.com/Amsterdam/design-system/issues/2582)) ([049fa6c](https://github.com/Amsterdam/design-system/commit/049fa6c205e2a73f3a4eac66642e000e90aa8369))
+
+## [4.0.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v3.4.0...design-system-tokens-v4.0.0) (2026-04-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549))
+* **Grid, Page:** Make Page grey and Grid Cell white in Compact Mode ([#2398](https://github.com/Amsterdam/design-system/issues/2398))
+
+### Features
+
+* **Grid, Page:** Make Page grey and Grid Cell white in Compact Mode ([#2398](https://github.com/Amsterdam/design-system/issues/2398)) ([6b5bb5b](https://github.com/Amsterdam/design-system/commit/6b5bb5b2f7c273d35e25e18e29cfa6557d20c38f))
+* Introduce Tab Navigation component ([#2552](https://github.com/Amsterdam/design-system/issues/2552)) ([1d6e0a3](https://github.com/Amsterdam/design-system/commit/1d6e0a32e856775e6d42879c71902d0aa5ddace8))
+* **Table:** Add whitespace below Caption ([#2515](https://github.com/Amsterdam/design-system/issues/2515)) ([092c0ff](https://github.com/Amsterdam/design-system/commit/092c0fff4ebfd9e395caee721cb55732e57d7cc5))
+* **tokens:** Introduce `vi-` prefix for viewport-dependent component tokens ([#2502](https://github.com/Amsterdam/design-system/issues/2502)) ([90c19da](https://github.com/Amsterdam/design-system/commit/90c19da8f309eedb926bbd3f65f52990b880b661))
 
 ### Deprecations
 
-The following deprecated tokens have been removed in this release:
+The following deprecated tokens have been removed:
 
 - `ams.accordion.button.font-family`, `ams.accordion.button.font-size`, `ams.accordion.button.font-weight`, `ams.accordion.button.line-height`, `ams.accordion.button.text-wrap`, `ams.accordion.panel.padding-block`, and `ams.accordion.panel.padding-inline`.
 - `ams.checkbox.hover.text-decoration-thickness`, `ams.checkbox.rectangle.checked.disabled.hover.*`, `ams.checkbox.rectangle.checked.hover.disabled-invalid.*`, `ams.checkbox.rectangle.hover.disabled-invalid.*`, `ams.checkbox.rectangle.indeterminate.disabled.hover.*`, and `ams.checkbox.rectangle.indeterminate.hover.disabled-invalid.*`.
@@ -21,6 +41,21 @@ The following deprecated tokens have been removed in this release:
 - `ams.table-of-contents.heading.*`.
 - `ams.time-input.calender-picker-indicator.*`, `ams.time-input.disabled.calender-picker-indicator.*`, and `ams.time-input.hover.calender-picker-indicator.*`.
 - `ams.typography.heading.0.*` and `ams.typography.heading.6.*`.
+
+The following tokens have been deprecated and will be removed on or after 2026-10-20:
+
+- `ams.description-list.column-gap`, `ams.description-list.row-gap`, `ams.description-list.narrow.grid-template-columns`,
+  `ams.description-list.medium.grid-template-columns`, and `ams.description-list.wide.grid-template-columns`
+- `ams.dialog.medium.inline-size`, `ams.dialog.medium.max-block-size`,
+  `ams.dialog.header.medium.padding-block`, `ams.dialog.header.medium.padding-inline`, `ams.dialog.body.medium.padding-inline`,
+  `ams.dialog.footer.medium.padding-block`, `ams.dialog.footer.medium.padding-inline`
+- `ams.grid.medium.column-count`, `ams.grid.medium.padding-inline`, `ams.grid.wide.column-count`, and `ams.grid.wide.padding-inline`
+- `ams.menu.wide.max-inline-size`, `ams.menu.wide.padding-block`, `ams.menu.wide.padding-inline`, and `ams.menu-link.wide.gap`
+- `ams.page-footer.menu.medium.padding-inline`, `ams.page-footer.menu.wide.padding-inline`
+- `ams.page-header.medium.padding-inline`, `ams.page-header.wide.padding-inline`
+- `ams.progress-list.step.medium.gap` and `ams.progress-list.substeps.step.indicator.medium.margin-inline-end`
+
+For tokens containing `*.medium.*` and `*.wide.*`, replace them with `*.vi-medium.*` and `*.vi-wide.*`.
 
 ## [3.4.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v3.3.0...design-system-tokens-v3.4.0) (2026-04-03)
 
