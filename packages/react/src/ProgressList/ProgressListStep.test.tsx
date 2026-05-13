@@ -551,8 +551,11 @@ describe('ProgressListStep', () => {
 
       fireEvent.click(button)
 
+      // onToggle receives the desired next expanded state (true = expand).
+      // The step stays collapsed because the controlled prop hasn't changed.
       expect(onToggle).toHaveBeenCalledTimes(1)
       expect(onToggle).toHaveBeenCalledWith(true)
+      expect(screen.getByRole('listitem')).toHaveClass('ams-progress-list__step--collapsed')
     })
 
     it('responds to controlled prop changes', () => {
