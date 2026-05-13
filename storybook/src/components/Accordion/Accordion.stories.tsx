@@ -54,8 +54,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: faqItems.map(({ content, label }, index) => (
-      <Accordion.Section key={index} label={label}>
+    children: faqItems.map(({ content, label }) => (
+      <Accordion.Section key={label} label={label}>
         {content}
       </Accordion.Section>
     )),
@@ -65,7 +65,7 @@ export const Default: Story = {
 export const ExpandedByDefault: Story = {
   args: {
     children: faqItems.map(({ content, label }, index) => (
-      <Accordion.Section defaultExpanded={index === 0} key={index} label={label}>
+      <Accordion.Section defaultExpanded={index === 0} key={label} label={label}>
         {content}
       </Accordion.Section>
     )),
@@ -74,8 +74,8 @@ export const ExpandedByDefault: Story = {
 
 export const ReduceLandmarks: Story = {
   args: {
-    children: faqItems.map(({ content, label }, index) => (
-      <Accordion.Section key={index} label={label}>
+    children: faqItems.map(({ content, label }) => (
+      <Accordion.Section key={label} label={label}>
         {content}
       </Accordion.Section>
     )),
