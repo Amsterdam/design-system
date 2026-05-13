@@ -2,7 +2,6 @@
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 import * as ProgressListStories from "./ProgressList.stories.tsx";
-import * as ProgressListStepStories from "./ProgressListStep.stories.tsx";
 import README from "../../../../packages/css/src/components/progress-list/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/progress-list.tokens.json";
 
@@ -16,22 +15,14 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
-## Subcomponents
-
-### Step
-
-Use the `collapsed` prop together with `onToggle` to control the collapsed state of a step from a parent component.
-This lets a parent component decide which steps are expanded — for example, to show only one step at a time.
-
-<Canvas of={ProgressListStepStories.Controlled} />
-
-When you omit `collapsed`, the step manages its own state using `defaultCollapsed`.
-
-<Canvas of={ProgressListStepStories.Step} />
-
-<Controls of={ProgressListStepStories.Step} />
-
 ## Examples
+
+### Controlled
+
+Use `collapsed` and `onToggle` on each step to let a parent component drive the expand/collapse state.
+The example below keeps only one step open at a time.
+
+<Canvas of={ProgressListStories.Controlled} />
 
 ### Collapsible
 
