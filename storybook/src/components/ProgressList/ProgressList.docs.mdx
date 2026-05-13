@@ -21,6 +21,11 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 ### Step
 
 Use the `collapsed` prop together with `onToggle` to control the collapsed state of a step from a parent component.
+This lets a parent component decide which steps are expanded — for example, to show only one step at a time.
+
+<Canvas of={ProgressListStepStories.Controlled} />
+
+When you omit `collapsed`, the step manages its own state using `defaultCollapsed`.
 
 <Canvas of={ProgressListStepStories.Step} />
 
