@@ -1,0 +1,12 @@
+{
+  "ams": {
+    "inline-size-context": {
+      "container-name": {
+        "$value": "ams-inline-size-context"
+      },
+      "container-type": {
+        "$value": "inline-size"
+      }
+    }
+  }
+}
