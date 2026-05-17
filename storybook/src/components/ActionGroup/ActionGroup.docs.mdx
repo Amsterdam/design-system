@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 
 import * as ActionGroupStories from "./ActionGroup.stories.tsx";
 import README from "../../../../packages/css/src/components/action-group/README.md?raw";
@@ -13,6 +13,18 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 <Markdown>{README}</Markdown>
 
 <Primary />
+
+<Controls />
+
+## Usage guidelines
+
+### When to use
+
+Both a [Button](/docs/components-buttons-button--docs) and a [Link](/docs/components-navigation-link--docs) can provide an ‘action’ in this context.
+
+If two or more Buttons or links are in a row, put the one for the primary action first and the other Buttons behind it.
+
+### When not to use
 
 ## Examples
 
@@ -29,6 +41,19 @@ Resize the pink rectangle to see this in action.
 An action that involves navigation should be a link.
 
 <Canvas of={ActionGroupStories.WithLink} />
+
+## Features
+
+Putting the primary action first keeps the order of Buttons consistent on both narrow and wide screens: if the Buttons do not fit next to each other, they get stacked vertically with the primary action on top.
+
+## Design choices
+
+Sighted users will read the primary action first, in line with the natural reading order.
+The same goes for users of screen readers, who will hear the primary action first, and users of a keyboard, who will focus the primary action first.
+
+## Accessibility
+
+Replace the default ‘group’ role with `role="toolbar"` for Button toolbars.
 
 ## Design tokens
 

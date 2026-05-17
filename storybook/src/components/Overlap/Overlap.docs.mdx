@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
 import * as OverlapStories from "./Overlap.stories.tsx";
 import README from "../../../../packages/css/src/components/overlap/README.md?raw";
 
@@ -8,18 +8,25 @@ import README from "../../../../packages/css/src/components/overlap/README.md?ra
 
 <Markdown>{README}</Markdown>
 
+<Primary />
+
+## Usage guidelines
+
+Use a sufficiently large image.
+The aspect ratio of 32:9 is most suitable.
+
+Follow [the general guidelines for images](/docs/components-media-image--docs).
+
 ## Examples
 
 ### Hero image with Search Field
 
 This allows for the use of a mood-setting image as a background.
 A [Grid](/docs/components-layout-grid--docs) provides horizontal space on both sides and columns for layout.
-Note: the library does not yet offer an option to vertically center the form.
 
-<Primary />
+Note: the library does not yet offer an option to vertically centre the form.
 
-## Guidelines
+## Related components
 
-- Follow [the general guidelines for images](/docs/components-media-image--docs#guidelines).
-- Use a sufficiently large image.
-  The aspect ratio of 32:9 is most suitable.
+- [Image](/docs/components-media-image--docs) – typically the background of an Overlap.
+- [Grid](/docs/components-layout-grid--docs) – often used to position content on top of the image.

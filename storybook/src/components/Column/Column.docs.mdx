@@ -12,19 +12,22 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Markdown>{README}</Markdown>
 
-## Guidelines
-
-- Wrap a Column around a set of elements that need the same amount of white space between them.
-- Five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
-  The medium gap is the default.
-- To add white space below a single element, you can add a [Margin Bottom](/docs/utilities-css-margin--docs) instead.
-- Align the elements horizontally or vertically through the alignment props.
-- Do not use it for text – various types of elements require different amounts of space between them.
-  Wrap editorial content in the [Prose](/docs/utilities-css-prose--docs) utility class to have all spacing set automatically.
-
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Wrap a Column around a set of elements that need the same amount of white space between them.
+
+### When not to use
+
+Do not use a Column for text – various types of elements require different amounts of space between them.
+Wrap editorial content in the [Prose](/docs/utilities-css-prose--docs) utility class to have all spacing set automatically.
+
+To add white space below a single element, use [Margin Bottom](/docs/utilities-css-margin--docs) instead.
 
 ## Examples
 
@@ -65,8 +68,16 @@ In this example, the Column uses a `<section>` element to group the heading and 
 
 <Canvas of={ColumnStories.ImproveSemantics} />
 
-## See also
+## Features
 
+Five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
+The medium gap is the default.
+
+Align the elements horizontally or vertically through the alignment props.
+
+## Related components
+
+- [Row](/docs/components-layout-row--docs) – stacks its children horizontally instead.
 - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for white space and when.
 
 ## Design tokens
