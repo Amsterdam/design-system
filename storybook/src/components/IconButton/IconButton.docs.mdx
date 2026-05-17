@@ -16,11 +16,23 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Choose an Icon Button instead of a regular Button when it must align with text.
+Match the size of the Icon Button to the surrounding text.
+
+### When not to use
+
+Only [functional icons](/docs/brand-assets-icons--docs#functional-icons) belong in an Icon Button.
+For other icons, use a [Button](/docs/components-buttons-button--docs) so that the user can read its label.
+
 ## Examples
 
 ### On a coloured background
 
-An Icon Button on a coloured background must set [the correct text colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
+An Icon Button on a coloured background must set [the correct text colour](/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
 We have light and dark background colours, and Icon Buttons behave differently on each.
 
 #### Contrast colour
@@ -36,6 +48,16 @@ Use the inverse colour on an azure, blue, green, magenta or purple background.
 It will make the icon white.
 
 <Canvas of={IconButtonStories.InverseColour} />
+
+## Accessibility
+
+An Icon Button still needs a label for screen reader users.
+Provide it through the `children` prop; it is read aloud even though it is not shown.
+
+## Related components
+
+- [Button](/docs/components-buttons-button--docs) – for actions that show a text label.
+- [Icon](/docs/components-media-icon--docs) – a non-interactive icon.
 
 ## Design tokens
 
