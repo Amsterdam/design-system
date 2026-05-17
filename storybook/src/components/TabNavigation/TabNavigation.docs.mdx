@@ -16,15 +16,18 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
-## Keyboard support
+## Usage guidelines
 
-The user can navigate the links with their keyboard:
+### When to use
 
-| key         | element                                        |
-| :---------- | :--------------------------------------------- |
-| Tab         | Go to the next element that can have focus     |
-| Shift + Tab | Go to the previous element that can have focus |
-| Enter       | Follow the link that has focus                 |
+Use Tab Navigation for navigating between pages that each have their own main content.
+Thanks to using links, every tab’s content has its own url that the user can open in a new window, share, or bookmark.
+
+Use the vertical orientation to stack links below each other, e.g. in a sidebar.
+
+### When not to use
+
+Use [Tabs](https://designsystem.amsterdam/?path=/docs/components-containers-tabs--docs) instead to switch between small pieces of secondary content without navigating away.
 
 ## Examples
 
@@ -51,6 +54,28 @@ The links scroll horizontally when their width exceeds the available space.
 
 One or two Tab Navigations can be used for large internal websites.
 [Here’s a template for that.](/story/pages-internal-navigation-page--default)
+
+## Features
+
+### Keyboard navigation
+
+The user can navigate the links with their keyboard:
+
+| Key         | Element                                        |
+| :---------- | :--------------------------------------------- |
+| Tab         | Go to the next element that can have focus     |
+| Shift + Tab | Go to the previous element that can have focus |
+| Enter       | Follow the link that has focus                 |
+
+## Design choices
+
+## Accessibility
+
+Add `aria-current="page"` to the link pointing to the current page.
+
+## Related components
+
+- [Tabs](/docs/components-containers-tabs--docs) – for switching between secondary content without navigating away.
 
 ## Design tokens
 

@@ -14,6 +14,18 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Primary />
 
+## Usage guidelines
+
+### When to use
+
+A Card needs more content than just a title.
+Add a short text and optionally an image and metadata.
+
+### When not to use
+
+This component is not the best option if the target content does not represent an article-like page.
+In that case, use a Heading, a Paragraph and a [Standalone Link](/docs/components-navigation-standalone-link--docs) instead.
+
 ## Examples
 
 ### With tagline
@@ -40,6 +52,39 @@ Position 4 to 8 tasks on a [Grid](/docs/components-layout-grid--docs); left-alig
 For a group of links without a description, use a [Link List](/docs/components-navigation-link--docs) instead.
 
 <Canvas of={CardStories.TopTasks} />
+
+## Features
+
+The mandatory title of a Card is a link within a Heading.
+The link is made active across the entire area of the Card.
+
+### Subcomponents
+
+Use the Card Heading, Card Heading Group and Card Image subcomponents.
+They apply the correct spacing.
+
+## Design choices
+
+## Accessibility
+
+Card Heading requires a `level`, because there is no sensible default.
+Visually, it has the size of a level 3 Heading by default.
+
+Screen reader users may navigate a page using headings and links.
+A Card works well in both approaches as its title carries a link.
+A screen reader reads the title first, followed by the rest of the content.
+
+The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
+
+## Content
+
+Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
+Use a small Paragraph for a publication date.
+
+## Related components
+
+- [Standalone Link](/docs/components-navigation-standalone-link--docs) – for a single link to a follow-up page when a Card is too much.
+- [Routing libraries](/docs/docs-developer-guide-routing-libraries--docs) – how to integrate links with external routing libraries.
 
 ## Design tokens
 

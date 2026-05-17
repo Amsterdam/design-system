@@ -26,6 +26,22 @@ On the page for the Story, you can change the size of the preview with the relat
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Include this component twice: one in the Page Header and one to the side of the Page.
+Set the `inWideWindow` prop to the latter to ensure only one of them is visible, and to get the correct appearance.
+
+This component must only be used in [Compact Mode](/docs/docs-developer-guide-modes--docs).
+
+### When not to use
+
+This component must not be used for public websites.
+They should offer navigation using the Page Header only.
+
+Do not use this component anywhere other than the Page Header and the side of the Page.
+
 ## Examples
 
 See the [Internal Home Page](/story/pages-internal-home-page--default) template for a full-page example.
@@ -38,6 +54,30 @@ Use the filled variant.
 <Canvas of={MenuStories.Link} />
 
 <Controls of={MenuStories.Link} />
+
+## Features
+
+## Design choices
+
+The menu has a blue background.
+Links have a white icon and a label.
+
+In a narrow window, the menu occupies the full width.
+The icon and label of the link sit next to each other.
+
+In a wide window, the menu has a maximum width of 8rem.
+It adds whitespace at the top to align with the baseline of Page Header.
+The icon is larger and positioned above the label.
+
+## Accessibility
+
+## Content
+
+Use filled icons for the links.
+
+## Related components
+
+- [Page Header](/docs/components-containers-page-header--docs) – contains one instance of the Menu.
 
 ## Design tokens
 
