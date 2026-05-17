@@ -16,6 +16,22 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Use a Dialog for short and non-frequent tasks.
+
+### When not to use
+
+Use Dialogs sparingly because they interrupt the user’s workflow.
+Consider using the main flow for regular tasks.
+
+To open the Dialog, use `Dialog.open(dialogId)` from the React package.
+To close it, either call the `Dialog.close` function or add a `<form>` as in the ‘confirmation’ example.
+
+Wrap multiple buttons in an [Action Group](/docs/components-layout-action-group--docs).
+
 ## Examples
 
 ### Asking to confirm
@@ -28,6 +44,24 @@ Set a `value` on each button to identify which one was clicked.
 Consult [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog) for more information.
 
 <Canvas of={DialogStories.Confirmation} />
+
+## Features
+
+### Keyboard navigation
+
+| Key         | Behaviour                                                        |
+| :---------- | :--------------------------------------------------------------- |
+| Tab         | Moves focus to the next focusable element inside the Dialog.     |
+| Shift + Tab | Moves focus to the previous focusable element inside the Dialog. |
+| Escape      | Closes the Dialog.                                               |
+
+## Design choices
+
+## Accessibility
+
+## Related components
+
+- [Action Group](/docs/components-layout-action-group--docs) – lays out multiple Buttons.
 
 ## Design tokens
 

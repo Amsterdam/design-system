@@ -1,6 +1,7 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
 import * as ProgressListStories from "./ProgressList.stories.tsx";
 import * as ProgressListStepStories from "./ProgressListStep.stories.tsx";
 import README from "../../../../packages/css/src/components/progress-list/README.md?raw";
@@ -16,13 +17,19 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
-## Subcomponents
+## Usage guidelines
 
-### Step
+### When to use
 
-<Canvas of={ProgressListStepStories.Step} />
+Assign a status to each step: _completed_ or _current_.
+Steps without a status are considered _upcoming_.
 
-<Controls of={ProgressListStepStories.Step} />
+Maintain a correct chronological order.
+Only one step may be _current_; preceding steps must be _completed_.
+
+Decide whether the user should be able to collapse and expand steps.
+
+Progress List must only be used on a white background.
 
 ## Examples
 
@@ -44,6 +51,22 @@ They are visually subordinate to their parent step: their indicators are smaller
 Don’t forget to set the `hasSubsteps` prop on the parent step.
 
 <Canvas of={ProgressListStories.WithSubsteps} />
+
+## Features
+
+### Subcomponents
+
+#### Step
+
+<Canvas of={ProgressListStepStories.Step} />
+
+<Controls of={ProgressListStepStories.Step} />
+
+## Design choices
+
+## Accessibility
+
+Choose the correct level for the headings of the steps.
 
 ## Design tokens
 

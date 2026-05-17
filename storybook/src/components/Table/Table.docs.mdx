@@ -15,17 +15,9 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Primary />
 
-## Subcomponents
+## Usage guidelines
 
-### Cell
-
-Holds a single value within a row.
-Use the `align` prop to align the content to the center or end of the cell.
-Apply the same value to all cells in the column and the matching `Table.HeaderCell`.
-
-<Canvas of={TableCellStories.Cell} />
-
-<Controls of={TableCellStories.Cell} />
+Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
 
 ## Examples
 
@@ -50,7 +42,27 @@ In this case, use a [Figure](/docs/components-media-figure--docs) and let the Ta
 
 <Canvas of={TableStories.InFigure} />
 
-## See also
+## Features
+
+### Subcomponents
+
+#### Cell
+
+Holds a single value within a row.
+Use the `align` prop to align the content to the center or end of the cell.
+Apply the same value to all cells in the column and the matching `Table.HeaderCell`.
+
+<Canvas of={TableCellStories.Cell} />
+
+<Controls of={TableCellStories.Cell} />
+
+## Accessibility
+
+Add a caption so users can find and understand the Table without reading its data.
+Use a [Heading](/docs/components-text-heading--docs) in the caption, at the level that fits the document outline.
+It becomes the Table’s accessible name, announced by screen readers on every encounter.
+
+## Related components
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 - [Table Page](/docs/pages-internal-table-page--docs) – various templates for large data tables in internal websites.

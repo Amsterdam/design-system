@@ -16,19 +16,43 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
-## Keyboard support
+## Usage guidelines
 
-The user can navigate the links with their keyboard:
+### When to use
 
-| key            | element                                        |
+Use Tabs to let related content fragments share a space on the current page.
+Each tab has a button that shows its content in a panel.
+
+The content of each tab must be usable independent of the others.
+
+### When not to use
+
+Do not use Tabs to toggle between large amounts of primary content.
+That would come down to navigating between pages.
+In this context, use [Tab Navigation](/docs/components-navigation-tab-navigation--docs) to offer the user the benefits of links.
+
+## Features
+
+### Keyboard navigation
+
+| Key            | Behaviour                                      |
 | :------------- | :--------------------------------------------- |
 | Enter or Space | Open or close the tab that has the focus       |
 | Tab            | Go to the next element that can have focus     |
-| Shift + Tab    | Go to the next element that can have focus     |
+| Shift + Tab    | Go to the previous element that can have focus |
 | Left arrow     | If the tabs have focus, go to the previous tab |
 | Right arrow    | If the tabs have focus, go to the next tab     |
 | Home           | If the tabs have focus, go to the first tab    |
 | End            | If the tabs have focus, go to the last tab     |
+
+## Accessibility
+
+Create a panel for each button.
+Add an `aria-controls` attribute to each button and match its value to the `id` of the associated panel.
+
+## Related components
+
+- [Tab Navigation](/docs/components-navigation-tab-navigation--docs) – when each tab should navigate to its own page.
 
 ## Design tokens
 
