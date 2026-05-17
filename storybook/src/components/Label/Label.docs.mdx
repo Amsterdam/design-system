@@ -16,6 +16,17 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Always associate a form element (such as an `input` or `textarea`) with a Label.
+
+Set `optional` to `true` if the input is not required.
+Use `hint` to show a custom hint text.
+
+### When not to use
+
 ## Examples
 
 ### Optional
@@ -45,6 +56,19 @@ Set `isPageHeading` to include an `h1` element to reflect this.
 When a Label is used in a Field inside a Field Set, use the `inFieldSet` prop to show it in a lighter style.
 
 <Canvas of={LabelStories.InAFieldSet} />
+
+## Features
+
+## Design choices
+
+## Accessibility
+
+Always associate a Label with its form control so screen readers announce them together.
+
+## Related components
+
+- [Field](/docs/components-forms-field--docs) – wraps a single input together with its Label.
+- [Field Set](/docs/components-forms-field-set--docs) – uses a legend instead of a Label to name a group of inputs.
 
 ## Design tokens
 

@@ -16,13 +16,19 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
-## Examples
+## Usage guidelines
 
-### Multiple
+### When to use
 
-Avoid adding functionality to allow selecting multiple options. Multi select is harder to use
-on desktop as they require the user to hold down the `Ctrl` or `Cmd` key while clicking on the options.
+Use a Select when the user must pick one option from a list that is too long to display as Radios.
+
+### When not to use
+
+Avoid adding functionality to allow selecting multiple options.
+Multi select is harder to use on desktop as they require the user to hold down the `Ctrl` or `Cmd` key while clicking on the options.
 It is recommended to use checkboxes instead.
+
+## Examples
 
 ### Grouped
 
@@ -56,6 +62,20 @@ If the Select can become invalid, add an Error Message and its `id` to the `aria
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 <Canvas of={SelectStories.InAFieldWithValidation} />
+
+## Features
+
+## Design choices
+
+## Accessibility
+
+Wrap a Select in a Field to associate it with a Label, description, and Error Message.
+
+## Related components
+
+- [Checkbox](/docs/components-forms-checkbox--docs) – use for multi-select interactions instead of a multi-Select.
+- [Radio](/docs/components-forms-radio--docs) – for short lists where one option must be selected.
+- [Field](/docs/components-forms-field--docs) – wraps a Select with its Label, description, and Error Message.
 
 ## Design tokens
 

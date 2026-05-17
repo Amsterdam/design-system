@@ -16,6 +16,25 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Use Checkboxes for one or multiple choices that do not exclude each other.
+Each Checkbox operates independently of other Checkboxes in a list at the same hierarchical level.
+Checking an additional Checkbox does not affect other selections in that list.
+
+Use a Checkbox to answer a closed question if multiple answers are possible.
+
+Use a group of Checkboxes to filter data on a page, in a menu, or within a component.
+
+A Checkbox can also be used for bulk selection or deselection of an entire list of Checkboxes.
+Still, it should be clear that the bulk selection Checkbox is at a different hierarchical level than the list being fully selected or deselected.
+
+### When not to use
+
+Use a [Radio](/docs/components-forms-radio--docs) when a user can select only one option from a list.
+
 ## Examples
 
 ### Long label
@@ -62,6 +81,28 @@ and `ams-checkbox__indeterminate-indicator` classes in its SVG markup.
 Websites for the City of Amsterdam must use the default icon.
 
 <Canvas of={CheckboxStories.WithCustomIcon} />
+
+## Features
+
+## Design choices
+
+A list of Checkboxes is vertically stacked to enhance readability and usability.
+
+## Accessibility
+
+Wrap a list of Checkboxes in a Field Set with a legend describing what the list is about.
+For example, if the Checkboxes are used to get answers to a question, the legend is the question.
+
+## Content
+
+A label starts with a capital letter.
+It does not have punctuation at the end if it is a single sentence, word, or fragment.
+It is written in the first person when asking the user to agree to the terms and conditions.
+
+## Related components
+
+- [Radio](/docs/components-forms-radio--docs) – when a user can select only one option from a list.
+- [Field Set](/docs/components-forms-field-set--docs) – groups several Checkboxes with a shared legend.
 
 ## Design tokens
 
