@@ -9,12 +9,7 @@ We publish each merge to the `main` branch to [designsystem.amsterdam](https://d
 ## Structure
 
 We write both docs and stories for each component.
-The docs display:
-
-1. The contents of the component’s `README.md` file.
-2. The primary story for the component.
-3. The controls for the component, which displays all args for the component.
-4. A canvas for every other story, each with an introduction.
+The documentation page for each component follows the content model in [component-docs.md](component-docs.md): rationale, Primary story, Controls, followed by a fixed order of structured sections.
 
 We write our documentation in English, the stories are in Dutch.
 
