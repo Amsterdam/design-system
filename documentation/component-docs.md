@@ -131,3 +131,12 @@ Examples: button labels use the verb’s infinitive form, link text describes th
 
 **Related components** is the exit point at the bottom of the body.
 List a handful of alternatives or companions, with a one-line reason for each.
+
+## Reference components
+
+These three components are worked examples of the content model.
+When in doubt, mirror the structure of the closest one.
+
+- [Accordion](../storybook/src/components/Accordion/Accordion.docs.mdx) – an interactive component with rich Features and Design choices.
+- [Button](../storybook/src/components/Button/Button.docs.mdx) – an interactive component with a Content section.
+- [Grid](../storybook/src/components/Grid/Grid.docs.mdx) – a structural component with Design choices that drive layout decisions.

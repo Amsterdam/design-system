@@ -16,23 +16,47 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Use an Accordion to keep secondary content collapsed by default, so the primary content of a page stays prominent.
+A typical example is a list of frequently asked questions.
+
+Use between 3 and 10 sections.
+Fewer is rarely worth the extra interaction; more makes the list hard to scan.
+
+### When not to use
+
+Don’t hide essential information in an Accordion.
+Users may not realise it is there.
+
+For long content that deserves its own page, split it across multiple pages instead.
+That often improves both usability and findability through search engines.
+
 ## Examples
 
 ### Expanded by default
 
-If you want the contents of an Accordion Section to appear initially, pass the `defaultExpanded` property to the `Accordion.Section` component.
+Pass `defaultExpanded` to a section to make it visible from the start.
+Use this sparingly – it works against the goal of keeping content collapsed.
 
 <Canvas of={AccordionStories.ExpandedByDefault} />
 
-### Limit the amount of accessibility landmarks
+### Reduce landmarks
 
-An Accordion Section renders a `section` element in HTML by default.
-Each of them introduces a landmark region, but having many of them on a page can confuse screen reader users.
-Let Accordions with 6 Sections or more render generic `div` elements through `sectionAs="div"`.
+An Accordion Section renders a `<section>` element by default, which creates a landmark region.
+Many landmarks on one page can be noisy for screen reader users.
+For Accordions with six or more sections, render generic `<div>` elements through `sectionAs="div"`.
 
 <Canvas of={AccordionStories.ReduceLandmarks} />
 
-## Keyboard navigation
+## Features
+
+The Accordion provides the heading and the show-or-hide behaviour.
+Section content can include formatted text, links, and other components.
+
+### Keyboard navigation
 
 | Key             | Behaviour                                                 |
 | :-------------- | :-------------------------------------------------------- |
@@ -41,7 +65,33 @@ Let Accordions with 6 Sections or more render generic `div` elements through `se
 | Down / Up arrow | Move focus to the next or previous section (wraps around) |
 | Home / End      | Move focus to the first or last section                   |
 
-## See also
+### Find in page
+
+Browser ‘Find in page’ (Ctrl+F or ⌘+F) does not search inside collapsed sections.
+If you can anticipate the search term, expand the relevant section automatically.
+
+## Design choices
+
+Section headings stay visible while their content collapses.
+This lets users scan every section label without expanding anything.
+
+Opening one section does not close the others.
+A user looking for a specific answer can leave related context open as they explore.
+
+## Accessibility
+
+Provide each section with a clear, descriptive label.
+Users cannot scan the content inside a collapsed section.
+
+Set `headingLevel` on the Accordion to match its position in the page hierarchy.
+All sections share that level.
+
+## Content
+
+Write labels that describe what the user will find inside the section.
+Use sentence case.
+
+## Related components
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
