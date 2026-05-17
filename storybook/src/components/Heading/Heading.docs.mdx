@@ -16,6 +16,17 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Headings help the user scan the structure of a page.
+They also introduce the content that follows them.
+
+Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
+
+### When not to use
+
 ## Examples
 
 ### Levels
@@ -63,7 +74,29 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
 
 <Canvas of={HeadingStories.WithIcon} />
 
-## See also
+## Features
+
+## Design choices
+
+Use the `size` prop to make a Heading visually larger or smaller, but sparingly and consistently.
+
+- Content pages, e.g. for articles, products, events etc. must not use the size prop on their Headings.
+- Most Headings on overview pages, e.g. Card, Table of Content, and ‘Link Blocks’, use a size of ‘level-3’.
+- The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
+  Most of them can be given a different size if appropriate.
+
+## Accessibility
+
+Users of screen readers often depend on headings to navigate a page.
+If the hierarchy is wrong, it can confuse them.
+That’s why it’s crucial to arrange headings properly.
+
+The `level` prop doesn’t have a default value; determine the correct level for each instance.
+
+- Every page should contain one heading with level 1.
+- Do not skip levels. For example, a level 2 Heading must be followed by one with level 3.
+
+## Related components
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 

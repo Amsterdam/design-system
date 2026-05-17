@@ -16,6 +16,12 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+### When not to use
+
 ## Examples
 
 ### Orientation
@@ -57,7 +63,20 @@ This ensures the colour of the text provides enough contrast.
 
 <Canvas of={DescriptionListStories.InverseColour} />
 
-## See also
+## Features
+
+## Design choices
+
+In a narrow window, descriptions appear below their term.
+After that, they display in a two-column layout.
+The column for the terms is as wide as the longest term, without wrapping.
+Its width can be adjusted to be ‘large’ (50%), ‘medium’ (33%), or ‘small’ (20%), which also allows the terms to wrap.
+
+The term is set in bold text.
+
+## Accessibility
+
+## Related components
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
