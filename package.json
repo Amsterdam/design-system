@@ -53,7 +53,7 @@
     "watch:tokens": "pnpm --filter @amsterdam/design-system-tokens run build:watch"
   },
   "devDependencies": {
-    "@eslint/js": "9.39.4",
+    "@eslint/js": "10.0.1",
     "@eslint/json": "1.2.0",
     "@eslint/markdown": "8.0.1",
     "@typescript-eslint/eslint-plugin": "8.59.2",
