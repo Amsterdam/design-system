@@ -26,6 +26,7 @@
   grid-row: 1;
   outline-offset: var(--ams-image-slider-scroller-outline-offset);
   overflow-x: auto;
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior-x: contain;
 
   /*
