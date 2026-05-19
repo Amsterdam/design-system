@@ -71,9 +71,9 @@ export default tseslint.config(
     ...eslintConfigPrettier,
   },
 
-  // JavaScript, TypeScript and React
+  // JavaScript and TypeScript
   {
-    name: 'amsterdam-design-system/javascript-typescript-react',
+    name: 'amsterdam-design-system/javascript-typescript',
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
     plugins: {
       '@typescript-eslint': tsPlugin,
@@ -81,7 +81,6 @@ export default tseslint.config(
       import: importPlugin,
       vitest,
       perfectionist,
-      react,
     },
     languageOptions: {
       parser: tsParser,
@@ -95,13 +94,11 @@ export default tseslint.config(
           extensions: ['js', 'mjs', 'jsx', 'ts', 'tsx'],
         },
       },
-      react: { version: 'detect' },
     },
     rules: {
       ...eslint.configs.recommended.rules,
       ...vitest.configs.recommended.rules,
       ...perfectionist.configs['recommended-natural'].rules,
-      ...react.configs.recommended.rules,
       ...tsPlugin.configs.recommended.rules,
 
       // TypeScript
@@ -210,8 +207,23 @@ export default tseslint.config(
       ],
       'perfectionist/sort-modules': 'off', // This impacts readability in a negative way. We want to decide the order of modules ourselves.
       'perfectionist/sort-union-types': 'off', // This causes more issues than it solves
+    },
+  },
 
-      // React
+  // React
+  {
+    name: 'amsterdam-design-system/react',
+    files: [
+      'packages/react/**/*.{js,jsx,ts,tsx}',
+      'packages-proprietary/react-icons/**/*.{js,jsx,ts,tsx}',
+      'storybook/**/*.{js,jsx,ts,tsx}',
+    ],
+    plugins: { react },
+    settings: {
+      react: { version: 'detect' },
+    },
+    rules: {
+      ...react.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
     },
   },
