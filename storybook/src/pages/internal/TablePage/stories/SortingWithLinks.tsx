@@ -1,0 +1,68 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { StoryObj } from '@storybook/react-vite'
+
+import { Grid, Heading, Link, Paragraph, Row, Table } from '@amsterdam/design-system-react'
+
+import type { SortOrder } from '../common'
+
+import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses } from '../common'
+
+const params = new URLSearchParams(window.location.search)
+
+const linkSortOptions: { label: string; value: SortOrder }[] = [
+  { label: 'Straat A-Z', value: 'straat-asc' },
+  { label: 'Postcode A-Z', value: 'postcode-asc' },
+  { label: 'Bouwjaar nieuw-oud', value: 'bouwjaar-desc' },
+]
+
+const sortLinkHref = (value: SortOrder) => {
+  const url = new URL(window.location.href)
+  url.searchParams.set('sort', value)
+  return `?${url.searchParams.toString()}`
+}
+
+export const SortingWithLinks: StoryObj = {
+  render: () => {
+    const sortOrder = (params.get('sort') ?? 'straat-asc') as SortOrder
+    const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
+
+    return (
+      <Grid paddingBottom="x-large" paddingTop="large">
+        <Grid.Cell className="ams-grid__cell--transparent" span="all">
+          <Heading level={1}>Vergunninghouders 2026/2027</Heading>
+        </Grid.Cell>
+        <Grid.Cell span="all">
+          <Paragraph className="ams-mb-m" size="large">
+            <Row align="end" alignVertical="center" wrap>
+              Sorteren op
+              {linkSortOptions.map(({ label, value }) =>
+                sortOrder === value ? (
+                  <strong aria-current="true" key={value}>
+                    {label}
+                  </strong>
+                ) : (
+                  <Link href={sortLinkHref(value)} key={value}>
+                    {label}
+                  </Link>
+                ),
+              )}
+            </Row>
+          </Paragraph>
+          <Table>
+            <Table.Caption className="ams-mb-m">
+              <Heading level={2}>Gegevens per adres</Heading>
+            </Table.Caption>
+            <Table.Header>
+              <AddressTableHeaderRow />
+            </Table.Header>
+            <AddressTableBody addresses={addresses} />
+          </Table>
+        </Grid.Cell>
+      </Grid>
+    )
+  },
+}
