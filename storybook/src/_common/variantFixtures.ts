@@ -11,9 +11,9 @@ import type { PropWithValues, VariantValue } from './renderComponentVariantTypes
 
 const hasIconFixture = { icon: ChevronDownIcon }
 
-const HEADING_SAMPLE = 'Amsterdam'
-const STRING_SAMPLE = 'Heldhaftig, vastberaden, barmhartig'
-const NUMBER_SAMPLE = 20
+export const HEADING_SAMPLE = 'Gemeente Amsterdam'
+export const STRING_SAMPLE = 'Heldhaftig, vastberaden, barmhartig'
+export const NUMBER_SAMPLE = 20
 
 const byPropName: Record<string, Omit<PropWithValues, 'name'>> = {
   color: {

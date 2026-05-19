@@ -8,7 +8,7 @@ import type { StrictInputType } from 'storybook/internal/csf'
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { describe, expect, it } from 'vitest'
 
-import { fixtureValuesFor } from './variantFixtures'
+import { fixtureValuesFor, HEADING_SAMPLE, NUMBER_SAMPLE, STRING_SAMPLE } from './variantFixtures'
 
 const argType = (overrides: { name: string } & Partial<StrictInputType>): StrictInputType => ({ ...overrides })
 
@@ -33,7 +33,7 @@ describe('fixtureValuesFor', () => {
   it('returns the Amsterdam heading sample for a heading prop', () => {
     expect(fixtureValuesFor(argType({ name: 'heading' }))).toEqual({
       hasIcon: null,
-      values: ['Kapers aan de poort, kanonskogels op de Dam: de aanval op Amsterdam'],
+      values: [HEADING_SAMPLE],
     })
   })
 
@@ -49,14 +49,14 @@ describe('fixtureValuesFor', () => {
   it('returns the number sample for a number-typed prop without a name match', () => {
     expect(fixtureValuesFor(argType({ name: 'count', type: { name: 'number' } }))).toEqual({
       hasIcon: null,
-      values: [42],
+      values: [NUMBER_SAMPLE],
     })
   })
 
   it('returns the string sample for a string-typed prop without a name match', () => {
     expect(fixtureValuesFor(argType({ name: 'label', type: { name: 'string' } }))).toEqual({
       hasIcon: null,
-      values: ['14 kades en bruggen hersteld in 2023'],
+      values: [STRING_SAMPLE],
     })
   })
 

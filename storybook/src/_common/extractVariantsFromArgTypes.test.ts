@@ -8,6 +8,7 @@ import type { StrictArgTypes, StrictInputType } from 'storybook/internal/csf'
 import { describe, expect, it } from 'vitest'
 
 import { extractVariantsFromArgTypes } from './extractVariantsFromArgTypes'
+import { HEADING_SAMPLE, NUMBER_SAMPLE, STRING_SAMPLE } from './variantFixtures'
 
 const argType = (overrides: { name: string } & Partial<StrictInputType>): StrictInputType => ({
   ...overrides,
@@ -34,13 +35,13 @@ describe('extractVariantsFromArgTypes', () => {
   it('substitutes the number fixture for a number prop', () => {
     const result = extractVariantsFromArgTypes(argTypes([argType({ name: 'count', type: { name: 'number' } })]))
 
-    expect(result).toEqual([{ hasIcon: null, name: 'count', values: [42] }])
+    expect(result).toEqual([{ hasIcon: null, name: 'count', values: [NUMBER_SAMPLE] }])
   })
 
   it('substitutes the string fixture for a string prop', () => {
     const result = extractVariantsFromArgTypes(argTypes([argType({ name: 'label', type: { name: 'string' } })]))
 
-    expect(result).toEqual([{ hasIcon: null, name: 'label', values: ['14 kades en bruggen hersteld in 2023'] }])
+    expect(result).toEqual([{ hasIcon: null, name: 'label', values: [STRING_SAMPLE] }])
   })
 
   it('returns empty values for types it cannot expand (e.g. ReactNode)', () => {
@@ -92,7 +93,7 @@ describe('extractVariantsFromArgTypes', () => {
       {
         hasIcon: null,
         name: 'heading',
-        values: ['Kapers aan de poort, kanonskogels op de Dam: de aanval op Amsterdam'],
+        values: [HEADING_SAMPLE],
       },
     ])
   })
