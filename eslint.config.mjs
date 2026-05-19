@@ -3,6 +3,7 @@ import json from '@eslint/json'
 import markdown from '@eslint/markdown'
 import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
+import { defineConfig } from 'eslint/config'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import baselineJs from 'eslint-plugin-baseline-js'
 import importPlugin from 'eslint-plugin-import'
@@ -12,7 +13,6 @@ import perfectionist from 'eslint-plugin-perfectionist'
 import react from 'eslint-plugin-react'
 import storybook from 'eslint-plugin-storybook'
 import globals from 'globals'
-import tseslint from 'typescript-eslint'
 
 const perfectionistCustomSizesGroups = {
   customGroups: [
@@ -54,7 +54,7 @@ const perfectionistCustomSizesGroups = {
   },
 }
 
-export default tseslint.config(
+export default defineConfig([
   // Global
   {
     name: 'amsterdam-design-system/global-ignores',
@@ -282,4 +282,4 @@ export default tseslint.config(
     },
   },
   storybook.configs['flat/recommended'],
-)
+])
