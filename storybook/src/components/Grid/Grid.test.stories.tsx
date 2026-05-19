@@ -23,13 +23,6 @@ export const Test: Story = {
   args: {
     children: [<Grid.Cell key={1} span="all" />, <Grid.Cell key={2} span="all" />],
   },
-  render: (args, context) =>
-    renderComponentVariants(
-      Grid,
-      {
-        args,
-      },
-      context,
-    ),
+  render: (args, context) => renderComponentVariants(Grid, { args }, context),
   tags: ['!dev', '!autodocs'],
 }

@@ -49,13 +49,6 @@ export const Test: Story = {
       </DescriptionList.Section>,
     ],
   },
-  render: (args, context) =>
-    renderComponentVariants(
-      DescriptionList,
-      {
-        args,
-      },
-      context,
-    ),
+  render: (args, context) => renderComponentVariants(DescriptionList, { args }, context),
   tags: ['!dev', '!autodocs'],
 }

@@ -27,13 +27,6 @@ export const Test: Story = {
       <div className="_ams-item" key={3} />,
     ],
   },
-  render: (args, context) =>
-    renderComponentVariants(
-      Row,
-      {
-        args,
-      },
-      context,
-    ),
+  render: (args, context) => renderComponentVariants(Row, { args }, context),
   tags: ['!dev', '!autodocs'],
 }

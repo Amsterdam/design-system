@@ -30,13 +30,6 @@ export const Test: Story = {
       <input id="input-a1" key={2} value="Dijkstra" />,
     ],
   },
-  render: (args, context) =>
-    renderComponentVariants(
-      Field,
-      {
-        args,
-      },
-      context,
-    ),
+  render: (args, context) => renderComponentVariants(Field, { args }, context),
   tags: ['!dev', '!autodocs'],
 }

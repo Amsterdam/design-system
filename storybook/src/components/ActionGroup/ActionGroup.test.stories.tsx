@@ -23,13 +23,6 @@ export const Test: Story = {
   args: {
     children: [<button key={1}>Stoppen</button>, <button key={2}>Verder</button>],
   },
-  render: (args, context) =>
-    renderComponentVariants(
-      ActionGroup,
-      {
-        args,
-      },
-      context,
-    ),
+  render: (args, context) => renderComponentVariants(ActionGroup, { args }, context),
   tags: ['!dev', '!autodocs'],
 }

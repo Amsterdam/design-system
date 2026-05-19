@@ -45,13 +45,6 @@ export const Test: Story = {
       </Breakout.Cell>,
     ],
   },
-  render: (args, context) =>
-    renderComponentVariants(
-      Breakout,
-      {
-        args,
-      },
-      context,
-    ),
+  render: (args, context) => renderComponentVariants(Breakout, { args }, context),
   tags: ['!dev', '!autodocs'],
 }
