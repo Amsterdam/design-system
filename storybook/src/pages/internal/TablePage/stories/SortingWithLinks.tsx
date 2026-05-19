@@ -6,6 +6,7 @@
 import type { StoryObj } from '@storybook/react-vite'
 
 import { Grid, Heading, Link, Paragraph, Row, Table } from '@amsterdam/design-system-react'
+import { Fragment } from 'react/jsx-runtime'
 
 import type { SortOrder } from '../common'
 
@@ -36,22 +37,26 @@ export const SortingWithLinks: StoryObj = {
           <Heading level={1}>Vergunninghouders 2026/2027</Heading>
         </Grid.Cell>
         <Grid.Cell span="all">
-          <Paragraph className="ams-mb-m" size="large">
-            <Row align="end" alignVertical="center" wrap>
-              Sorteren op
-              {linkSortOptions.map(({ label, value }) =>
+          <Row align="end" className="ams-mb-m">
+            <Paragraph size="large">
+              Sorteren op:{' '}
+              {linkSortOptions.map(({ label, value }, index) =>
                 sortOrder === value ? (
-                  <strong aria-current="true" key={value}>
-                    {label}
-                  </strong>
+                  <Fragment key={value}>
+                    <strong aria-current="true">{label}</strong>
+                    {index !== linkSortOptions.length - 1 && ', '}
+                  </Fragment>
                 ) : (
-                  <Link href={sortLinkHref(value)} key={value}>
-                    {label}
-                  </Link>
+                  <Fragment key={value}>
+                    <Link href={sortLinkHref(value)} key={value}>
+                      {label}
+                    </Link>
+                    {index !== linkSortOptions.length - 1 && ', '}
+                  </Fragment>
                 ),
               )}
-            </Row>
-          </Paragraph>
+            </Paragraph>
+          </Row>
           <Table>
             <Table.Caption className="ams-mb-m">
               <Heading level={2}>Gegevens per adres</Heading>
