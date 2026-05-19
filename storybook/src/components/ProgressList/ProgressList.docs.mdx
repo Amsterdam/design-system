@@ -20,11 +20,20 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 ### Step
 
+Each step in the list has a heading, a status, and optionally collapsible content.
+
 <Canvas of={ProgressListStepStories.Step} />
 
 <Controls of={ProgressListStepStories.Step} />
 
 ## Examples
+
+### Controlled
+
+Use `collapsed` and `onToggle` on each step to let a parent component drive the expand/collapse state.
+The example below keeps only one step open at a time.
+
+<Canvas of={ProgressListStories.Controlled} />
 
 ### Collapsible
 
