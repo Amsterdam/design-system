@@ -15,6 +15,8 @@ const meta = {
 
 export default meta
 
+export const SortingWithLinks = TablePageStories.SortingWithLinks
+
 export const SortingWithSelect = TablePageStories.SortingWithSelect
 
 export const WithPagination = TablePageStories.WithPagination
