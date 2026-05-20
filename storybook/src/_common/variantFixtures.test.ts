@@ -87,4 +87,22 @@ describe('fixtureValuesFor', () => {
       ),
     ).toBeUndefined()
   })
+
+  it('returns the string sample for an SBOtherType whose raw value mentions "string" (e.g. "string | number")', () => {
+    expect(fixtureValuesFor(argType({ name: 'label', type: { name: 'other', value: 'string | number' } }))).toEqual({
+      hasIcon: null,
+      values: [STRING_SAMPLE],
+    })
+  })
+
+  it('returns the number sample for an SBOtherType whose raw value mentions "number" but not "string"', () => {
+    expect(fixtureValuesFor(argType({ name: 'count', type: { name: 'other', value: 'number | bigint' } }))).toEqual({
+      hasIcon: null,
+      values: [NUMBER_SAMPLE],
+    })
+  })
+
+  it('returns undefined for an SBOtherType that mentions neither (e.g. "ReactNode")', () => {
+    expect(fixtureValuesFor(argType({ name: 'content', type: { name: 'other', value: 'ReactNode' } }))).toBeUndefined()
+  })
 })
