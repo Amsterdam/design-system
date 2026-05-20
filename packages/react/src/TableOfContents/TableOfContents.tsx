@@ -6,15 +6,22 @@
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useImperativeHandle, useRef } from 'react'
 
 import type { HeadingProps } from '../Heading'
 
+import { useKeyboardFocus } from '../common/useKeyboardFocus'
 import { Heading } from '../Heading'
+import { TableOfContentsContext } from './TableOfContentsContext'
 import { TableOfContentsLink } from './TableOfContentsLink'
 import { TableOfContentsList } from './TableOfContentsList'
 
 export type TableOfContentsProps = {
+  /**
+   * Whether list items that contain a nested list can be expanded and collapsed.
+   * @default false
+   */
+  collapsible?: boolean
   /** The text for the Heading. */
   heading?: string
   /**
@@ -22,22 +29,63 @@ export type TableOfContentsProps = {
    * Visually, it always has the size of a level 3 Heading.
    */
   headingLevel?: HeadingProps['level']
+  /**
+   * An accessible phrase used in the toggle button label when a section is expanded.
+   * @default Verberg submenu van
+   */
+  hideAccessibleLabel?: string
+  /**
+   * An accessible phrase used in the toggle button label when a section is collapsed.
+   * @default Toon submenu van
+   */
+  showAccessibleLabel?: string
 } & PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const TableOfContentsRoot = forwardRef(
   (
-    { children, className, heading, headingLevel = 2, ...restProps }: TableOfContentsProps,
+    {
+      children,
+      className,
+      collapsible = false,
+      heading,
+      headingLevel = 2,
+      hideAccessibleLabel,
+      showAccessibleLabel,
+      ...restProps
+    }: TableOfContentsProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
+    const innerRef = useRef<HTMLElement>(null)
+
+    useImperativeHandle(ref, () => innerRef.current as HTMLElement)
+
+    const { keyDown } = useKeyboardFocus(innerRef, {
+      focusableElements: ['.ams-table-of-contents__toggle:not([disabled])'],
+      rotating: true,
+    })
+
     return (
-      <nav {...restProps} className={clsx('ams-table-of-contents', className)} ref={ref}>
-        {heading && (
-          <Heading className="ams-table-of-contents__heading" level={headingLevel} size="level-3">
-            {heading}
-          </Heading>
-        )}
-        {children}
-      </nav>
+      <TableOfContentsContext.Provider
+        value={{
+          collapsible,
+          hideAccessibleLabel: hideAccessibleLabel ?? 'Verberg submenu van',
+          showAccessibleLabel: showAccessibleLabel ?? 'Toon submenu van',
+        }}
+      >
+        <nav
+          {...restProps}
+          className={clsx('ams-table-of-contents', collapsible && 'ams-table-of-contents--collapsible', className)}
+          onKeyDown={collapsible ? keyDown : undefined}
+          ref={innerRef}
+        >
+          {heading && (
+            <Heading className="ams-table-of-contents__heading" level={headingLevel} size="level-3">
+              {heading}
+            </Heading>
+          )}
+          {children}
+        </nav>
+      </TableOfContentsContext.Provider>
     )
   },
 )
