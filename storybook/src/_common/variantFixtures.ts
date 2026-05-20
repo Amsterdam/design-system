@@ -51,9 +51,20 @@ const mergeEnumWithFixture = (fixture: Omit<PropWithValues, 'name'>, enumValues:
   values: [...new Set([...enumValues, ...fixture.values])].sort(),
 })
 
+const primitiveFixture = (scalarName: string): Omit<PropWithValues, 'name'> | undefined => {
+  if (scalarName === 'number') return { hasIcon: null, values: [NUMBER_SAMPLE] }
+  if (scalarName === 'string') return { hasIcon: null, values: [STRING_SAMPLE] }
+  return undefined
+}
+
 /**
  * Returns design-system specific test values for a prop, or undefined when
  * the prop has no fixture (so the parser can fall back to argType.type).
+ *
+ * Union types (e.g. `string | number`) reach here as `SBUnionType`. We
+ * resolve them by preferring the string fixture when present, otherwise
+ * number — matching the behaviour the old `__docgenInfo`-based parser
+ * had for the literal type name `'string | number'`.
  */
 export const fixtureValuesFor = (argType: StrictInputType): Omit<PropWithValues, 'name'> | undefined => {
   const fixture = byPropName[argType.name]
@@ -65,13 +76,15 @@ export const fixtureValuesFor = (argType: StrictInputType): Omit<PropWithValues,
     return fixture
   }
 
-  const typeName = argType.type?.name
-  if (typeName === 'number') {
-    return { hasIcon: null, values: [NUMBER_SAMPLE] }
-  }
-  if (typeName === 'string') {
-    return { hasIcon: null, values: [STRING_SAMPLE] }
+  const type = argType.type
+  if (!type) return undefined
+
+  if (type.name === 'union') {
+    const memberNames = new Set(type.value.map((member) => member.name))
+    if (memberNames.has('string')) return primitiveFixture('string')
+    if (memberNames.has('number')) return primitiveFixture('number')
+    return undefined
   }
 
-  return undefined
+  return primitiveFixture(type.name)
 }

@@ -29,11 +29,15 @@ const valuesFromType = (argType: StrictInputType): VariantValue[] | undefined =>
  * { name, values, hasIcon } shape consumed by renderComponentVariants.
  *
  * Props disabled in the controls table (e.g. children, className, style)
- * are skipped — they're noise in the visual matrix.
+ * are skipped — they're noise in the visual matrix. `children` is also
+ * skipped unconditionally: even when a meta re-enables it for the docs
+ * panel, it's content, not a variant.
  */
+const isMatrixProp = (argType: StrictInputType): boolean => argType.name !== 'children' && !argType.table?.disable
+
 export const extractVariantsFromArgTypes = (argTypes: StrictArgTypes): PropWithValues[] =>
   Object.values(argTypes)
-    .filter((argType) => !argType.table?.disable)
+    .filter(isMatrixProp)
     .sort((a, b) => a.name.localeCompare(b.name))
     .map((argType) => {
       const fixture = fixtureValuesFor(argType)

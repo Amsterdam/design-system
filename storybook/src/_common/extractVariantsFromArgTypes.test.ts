@@ -46,10 +46,10 @@ describe('extractVariantsFromArgTypes', () => {
 
   it('returns empty values for types it cannot expand (e.g. ReactNode)', () => {
     const result = extractVariantsFromArgTypes(
-      argTypes([argType({ name: 'children', type: { name: 'other', value: 'ReactNode' } })]),
+      argTypes([argType({ name: 'content', type: { name: 'other', value: 'ReactNode' } })]),
     )
 
-    expect(result).toEqual([{ hasIcon: null, name: 'children', values: [] }])
+    expect(result).toEqual([{ hasIcon: null, name: 'content', values: [] }])
   })
 
   it('skips argTypes disabled in the controls table', () => {
@@ -61,6 +61,30 @@ describe('extractVariantsFromArgTypes', () => {
     )
 
     expect(result).toEqual([{ hasIcon: null, name: 'size', values: ['m', 's'] }])
+  })
+
+  it('skips the children argType even when a meta re-enables it', () => {
+    const result = extractVariantsFromArgTypes(
+      argTypes([
+        argType({ name: 'children', table: { disable: false }, type: { name: 'string' } }),
+        argType({ name: 'color', type: { name: 'enum', value: ['inverse'] } }),
+      ]),
+    )
+
+    expect(result.map((prop) => prop.name)).toEqual(['color'])
+  })
+
+  it('resolves a string | number union to the string fixture', () => {
+    const result = extractVariantsFromArgTypes(
+      argTypes([
+        argType({
+          name: 'label',
+          type: { name: 'union', value: [{ name: 'string' }, { name: 'number' }] },
+        }),
+      ]),
+    )
+
+    expect(result).toEqual([{ hasIcon: null, name: 'label', values: [STRING_SAMPLE] }])
   })
 
   it('sorts entries alphabetically by name', () => {

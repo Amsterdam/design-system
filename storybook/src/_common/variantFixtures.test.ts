@@ -63,4 +63,28 @@ describe('fixtureValuesFor', () => {
   it('returns undefined for props that have neither a name match nor a primitive type', () => {
     expect(fixtureValuesFor(argType({ name: 'onClick', type: { name: 'function' } }))).toBeUndefined()
   })
+
+  it('returns the string sample for a string | number union prop', () => {
+    expect(
+      fixtureValuesFor(
+        argType({ name: 'label', type: { name: 'union', value: [{ name: 'string' }, { name: 'number' }] } }),
+      ),
+    ).toEqual({ hasIcon: null, values: [STRING_SAMPLE] })
+  })
+
+  it('returns the number sample for a number-only union prop', () => {
+    expect(
+      fixtureValuesFor(
+        argType({ name: 'count', type: { name: 'union', value: [{ name: 'number' }, { name: 'symbol' }] } }),
+      ),
+    ).toEqual({ hasIcon: null, values: [NUMBER_SAMPLE] })
+  })
+
+  it('returns undefined for a union with no string or number members', () => {
+    expect(
+      fixtureValuesFor(
+        argType({ name: 'mystery', type: { name: 'union', value: [{ name: 'function' }, { name: 'symbol' }] } }),
+      ),
+    ).toBeUndefined()
+  })
 })
