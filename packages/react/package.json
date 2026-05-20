@@ -57,6 +57,7 @@
     "@testing-library/user-event": "14.6.1",
     "@vitejs/plugin-react": "6.0.1",
     "@vitest/coverage-v8": "4.1.6",
+    "eslint-plugin-react": "7.37.5",
     "jsdom": "26.1.0",
     "@types/react": "18.3.28",
     "@types/react-dom": "18.3.7",

@@ -10,9 +10,10 @@ import importPlugin from 'eslint-plugin-import'
 import vitest from '@vitest/eslint-plugin'
 import * as mdx from 'eslint-plugin-mdx'
 import perfectionist from 'eslint-plugin-perfectionist'
-import react from 'eslint-plugin-react'
 import storybook from 'eslint-plugin-storybook'
 import globals from 'globals'
+
+import reactConfig from './packages/react/eslint.config.mjs'
 
 const perfectionistCustomSizesGroups = {
   customGroups: [
@@ -61,6 +62,12 @@ export default defineConfig([
     ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', '**/AGENTS.md'],
   },
   {
+    name: 'amsterdam-design-system/linter-options',
+    linterOptions: {
+      reportUnusedDisableDirectives: 'error',
+    },
+  },
+  {
     name: 'amsterdam-design-system/language-options',
     languageOptions: {
       globals: { ...globals.browser, ...globals.es6, ...vitest.environments.env.globals },
@@ -75,18 +82,14 @@ export default defineConfig([
   {
     name: 'amsterdam-design-system/javascript-typescript',
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
+    extends: [eslint.configs.recommended, vitest.configs.recommended, perfectionist.configs['recommended-natural']],
     plugins: {
       '@typescript-eslint': tsPlugin,
       'baseline-js': baselineJs,
       import: importPlugin,
-      vitest,
-      perfectionist,
     },
     languageOptions: {
       parser: tsParser,
-      parserOptions: {
-        ecmaFeatures: { jsx: true },
-      },
     },
     settings: {
       'import/resolver': {
@@ -96,10 +99,7 @@ export default defineConfig([
       },
     },
     rules: {
-      ...eslint.configs.recommended.rules,
-      ...vitest.configs.recommended.rules,
-      ...perfectionist.configs['recommended-natural'].rules,
-      ...tsPlugin.configs.recommended.rules,
+      ...tsPlugin.configs.recommended.rules, // Spread (not extended) because the preset itself uses `extends`
 
       // TypeScript
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
@@ -130,12 +130,10 @@ export default defineConfig([
       'no-loop-func': 'error',
       'no-multi-str': 'error',
       'no-new-func': 'error',
-      'no-new-symbol': 'error',
       'no-new-wrappers': 'error',
       'no-octal-escape': 'error',
       'no-param-reassign': 'error',
       'no-return-assign': 'error',
-      'no-return-await': 'error',
       'no-self-compare': 'error',
       'no-sequences': 'error',
       'no-throw-literal': 'error',
@@ -210,36 +208,8 @@ export default defineConfig([
     },
   },
 
-  // React
-  {
-    name: 'amsterdam-design-system/react',
-    files: [
-      'packages/react/**/*.{js,jsx,ts,tsx}',
-      'packages-proprietary/react-icons/**/*.{js,jsx,ts,tsx}',
-      'storybook/**/*.{js,jsx,ts,tsx}',
-    ],
-    plugins: { react },
-    settings: {
-      react: { version: 'detect' },
-    },
-    rules: {
-      ...react.configs.recommended.rules,
-      'react/react-in-jsx-scope': 'off',
-    },
-  },
-
-  // Generated logo components
-  {
-    name: 'amsterdam-design-system/generated-logos',
-    files: ['packages/react/src/Logo/brands/*Logo.tsx'],
-    rules: {
-      'padding-line-between-statements': [
-        'error',
-        { blankLine: 'always', prev: 'const', next: 'expression' },
-        { blankLine: 'always', prev: 'expression', next: 'export' },
-      ],
-    },
-  },
+  // React (owned by packages/react/eslint.config.mjs)
+  ...reactConfig,
 
   // JSON
   {
