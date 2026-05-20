@@ -15,6 +15,11 @@ Every React component has to have a `README.md`.
 Like the CSS-specific documentation, here we can write the React-specific documentation if needed.
 If there is no React-specific documentation, this README.md should only contain a link to the generic documentation in `/packages/css/src/{component-name}/README.md`
 
+## Formatting
+
+Write Markdown with one sentence per line.
+This keeps diffs small and reviews focused on the sentences that actually changed.
+
 ## Documentation content and structure
 
 ### Generic documentation

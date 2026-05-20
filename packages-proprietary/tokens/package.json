@@ -15,7 +15,8 @@
   ],
   "private": false,
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,7 @@
     "directory": "packages-proprietary/tokens"
   },
   "scripts": {
-    "clean": "rimraf dist/",
+    "clean:dist": "rimraf dist/",
     "build": "node build.js",
     "build:watch": "chokidar --follow-symlinks --initial --command \"pnpm run build\" \"src/**/*.tokens.json\""
   },

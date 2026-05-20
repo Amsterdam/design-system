@@ -107,19 +107,26 @@ export const MemorableDateWithValidation: Story = {
   render: (args) => (
     <FieldSet aria-describedby="description-b error-b" invalid legend="Wanneer ben je geboren?">
       <Paragraph id="description-b">Bijvoorbeeld 1 1 2000.</Paragraph>
-      <ErrorMessage id="error-b">De datum moet in het verleden liggen.</ErrorMessage>
+      <ErrorMessage id="error-b">Vul alle drie de velden in.</ErrorMessage>
       <Row>
         <Column gap="small">
           <Label htmlFor="input-b1" inFieldSet>
             Dag
           </Label>
-          <TextInput autoComplete="bday-day" id="input-b1" inputMode="numeric" invalid name="dag" size={2} />
+          <TextInput autoComplete="bday-day" defaultValue={16} id="input-b1" inputMode="numeric" name="dag" size={2} />
         </Column>
         <Column gap="small">
           <Label htmlFor="input-b2" inFieldSet>
             Maand
           </Label>
-          <TextInput autoComplete="bday-month" id="input-b2" inputMode="numeric" invalid name="maand" size={2} />
+          <TextInput
+            autoComplete="bday-month"
+            defaultValue={8}
+            id="input-b2"
+            inputMode="numeric"
+            name="maand"
+            size={2}
+          />
         </Column>
         <Column gap="small">
           <Label htmlFor="input-b3" inFieldSet>

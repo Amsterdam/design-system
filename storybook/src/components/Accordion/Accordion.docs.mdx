@@ -12,23 +12,11 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Markdown>{README}</Markdown>
 
-Each accordion section has its unique name.
-Provide this name via the `label` property of the `Accordion.Section` component.
-
 <Primary />
 
 <Controls />
 
 ## Examples
-
-### Level
-
-There are 3 hierarchical levels of headings possible.
-There is no default value; determine the correct level for each instance.
-Every Accordion Section Heading in an Accordion has the same hierarchical level.
-Changing the level also changes the visual size of the heading.
-
-<Canvas of={AccordionStories.Level} />
 
 ### Expanded by default
 
@@ -44,24 +32,18 @@ Let Accordions with 6 Sections or more render generic `div` elements through `se
 
 <Canvas of={AccordionStories.ReduceLandmarks} />
 
-### Technical considerations
+## Keyboard navigation
 
-### The `Accordion` parent component
+| Key             | Behaviour                                                 |
+| :-------------- | :-------------------------------------------------------- |
+| Enter or Space  | Open or close the focused section                         |
+| Tab / Shift+Tab | Move to the next or previous focusable element            |
+| Down / Up arrow | Move focus to the next or previous section (wraps around) |
+| Home / End      | Move focus to the first or last section                   |
 
-The parent component is used for several reasons:
+## See also
 
-- It sets the spacing between Accordion Sections.
-- It allows you to set the same heading level for all Accordion Sections.
-- It allows you to set the same HTML element for all Accordion Sections.
-- It adds the extra keyboard navigation described in the guidelines.
-
-### The HTML `details` element
-
-Currently (28-6-2023), the `details` element has some accessibility problems.
-[For example, a heading in a summary is not adequately understood by screen readers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary#summaries_as_headings) and
-NVDA does not read Chrome and Edge’s collapsed and expanded status correctly.
-That’s why we chose not to use this native element.
-If these problems are solved, we could do this.
+- [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
 ## Design tokens
 

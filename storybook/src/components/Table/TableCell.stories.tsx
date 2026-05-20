@@ -39,6 +39,6 @@ type Story = StoryObj<typeof meta>
 export const Cell: Story = {
   args: {
     children: '€ 77,85',
-    style: { width: '8rem' },
+    style: { inlineSize: '8rem' },
   },
 }

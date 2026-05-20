@@ -12,43 +12,50 @@ Represent the website in bookmarks, on home screens, in syndication and other to
 Here’s how to display a website icon (a favicon) in the web browser.
 This set covers all common browsers (Chrome, Safari, Edge, and Firefox).
 
-> There is seperate documentation on [how to publish a web app with the proper app names and icons](/docs/docs-developer-guide-web-app--docs).
+**Note**: There is separate documentation on [how to publish a web app with the proper app names and icons](/docs/docs-developer-guide-web-app--docs).
 
 ## How to use
 
 ### Install assets
 
-First, install these assets as they come with the [Amsterdam Design System Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets):
+First, ensure that you have the [Amsterdam Design System Assets](https://www.npmjs.com/package/@amsterdam/design-system-assets) installed:
 
 ```sh
-npm i @amsterdam/design-system-assets
+npm install @amsterdam/design-system-assets
 ```
 
 ### Link assets
 
-You can manually [symlink (symbolic link)](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) and copy the files to the root or a `public` folder next to where the `index.html` is located in your project.
-An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
+#### Copy or symlink assets
+
+Copy the icon assets found in `node_modules/@amsterdam/design-system-assets/favicon` to your project. Typically this is the `public` folder next to your `index.html`, though the right location depends on your project structure and build process.
+
+Alternatively, on macOS and Linux you can create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link#POSIX_and_Unix-like_operating_systems) in your project that points to the package directory. An advantage of symlinking is that it tracks changes to the assets when there are package updates. Symlinks are basically shortcuts to files or directories.
 
 Symlinking [the entire favicon directory](https://github.com/Amsterdam/design-system/tree/develop/packages-proprietary/assets/favicon) can be done as follows:
 
 ```sh
-# `cd` to the directory where you want to make the symlinks. For example:
+# Change to the directory where you want to make the symlink. For example:
 cd public
 
 # Symlink the icons folder. The symlink file (the last argument) can be named anything you like.
 ln -s ../node_modules/@amsterdam/design-system-assets/favicon favicon
 ```
 
-> Important: the symlink, the last argument in the above command, cannot be a path, but can only be the file or directory name.
-> I.e. you need to be in the directory where you want to make the symbolic link.
+**Important**: the target path (the first argument) is resolved relative to the directory containing the symlink, not your current shell directory. The simplest way to avoid surprises is to `cd` to that directory first, as in the example above.
 
-> Note that undoing a symlink can be done by simply removing the created file or directory link:
->
-> ```sh
-> rm -r favicon
-> ```
+#### Remove symlink
 
-Then link all these assets by placing the following tags in the `<head>`:
+Remove the symlink without affecting the original files:
+
+```sh
+# Note: do not include a trailing slash – that follows the symlink and unlink will refuse to remove a directory.
+unlink favicon
+```
+
+#### Link in HTML
+
+Then link all these assets in the HTML by placing the following tags in the `<head>`:
 
 ```html
 <head>
@@ -60,9 +67,11 @@ Then link all these assets by placing the following tags in the `<head>`:
 </head>
 ```
 
-### Submit Changes
+How this is done exactly depends on your project structure and build process. Follow the documentation of your framework or build tool for the best way to link static assets in the HTML.
 
-The symlink(s) and edited files can be committed to the repository.
+### Submit changes
+
+The copied files or symlink(s) can be committed to the repository.
 
 ## Examples
 
@@ -86,7 +95,7 @@ Roughly 75% of browsers support SVG favicons, which are more efficient and versa
 <link rel="icon" type="image/svg+xml" href="icon.svg" />
 ```
 
-### Apple Touch Icon
+### Icon for Apple devices
 
 <AppleTouchIcon />
 

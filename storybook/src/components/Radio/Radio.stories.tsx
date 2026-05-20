@@ -83,7 +83,7 @@ export const InAFieldSet: Story = {
       optional
       role="radiogroup"
     >
-      <Paragraph id="description1">De laatstgenoemde melding.</Paragraph>
+      <Paragraph id="description1">Kies de categorie die het beste past.</Paragraph>
       {invalid && <ErrorMessage id="error1">Geef aan waar uw laatstgenoemde melding over gaat.</ErrorMessage>}
       <Column gap="x-small">
         <Radio invalid={invalid} name="about" value="horeca">
@@ -126,7 +126,7 @@ export const InAFieldSetWithValidation: Story = {
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
-      <Paragraph id="description2">De laatstgenoemde melding.</Paragraph>
+      <Paragraph id="description2">Kies de categorie die het beste past.</Paragraph>
       {invalid && <ErrorMessage id="error2">Geef aan waar uw laatstgenoemde melding over gaat.</ErrorMessage>}
       <Column gap="x-small">
         <Radio aria-required="true" invalid={invalid} name="about" value="horeca">

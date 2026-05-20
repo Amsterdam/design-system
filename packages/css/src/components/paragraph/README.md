@@ -10,6 +10,7 @@ Represents a paragraph of running text, form instructions, and other standalone 
   Start a new paragraph when the text shifts to a different topic or has its own purpose.
 - Consider whether a paragraph with more than 7 sentences or 140 words would be clearer if you divide the text into two paragraphs.
   Texts with not overly long paragraphs are easier to understand, and grouping makes information quicker to locate.
+- Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
 
 ## Relevant WCAG rules
 
