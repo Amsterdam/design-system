@@ -61,10 +61,16 @@ const primitiveFixture = (scalarName: string): Omit<PropWithValues, 'name'> | un
  * Returns design-system specific test values for a prop, or undefined when
  * the prop has no fixture (so the parser can fall back to argType.type).
  *
- * Union types (e.g. `string | number`) reach here as `SBUnionType`. We
- * resolve them by preferring the string fixture when present, otherwise
- * number — matching the behaviour the old `__docgenInfo`-based parser
- * had for the literal type name `'string | number'`.
+ * Storybook represents non-trivial unions in two different shapes:
+ *
+ *   • `SBUnionType` — explicit member array. Resolve by preferring the
+ *     string fixture when present, otherwise number.
+ *   • `SBOtherType` (`name: 'other'`, `value: '<raw type string>'`) —
+ *     used when the underlying analyser couldn't classify the union
+ *     into discrete members. In practice `react-docgen-typescript`
+ *     emits this for `string | number`, with `value === 'string | number'`.
+ *     Pattern-match the raw string to recover the same behaviour the old
+ *     `__docgenInfo`-based parser had.
  */
 export const fixtureValuesFor = (argType: StrictInputType): Omit<PropWithValues, 'name'> | undefined => {
   const fixture = byPropName[argType.name]
@@ -83,6 +89,12 @@ export const fixtureValuesFor = (argType: StrictInputType): Omit<PropWithValues,
     const memberNames = new Set(type.value.map((member) => member.name))
     if (memberNames.has('string')) return primitiveFixture('string')
     if (memberNames.has('number')) return primitiveFixture('number')
+    return undefined
+  }
+
+  if (type.name === 'other' && typeof type.value === 'string') {
+    if (/\bstring\b/.test(type.value)) return primitiveFixture('string')
+    if (/\bnumber\b/.test(type.value)) return primitiveFixture('number')
     return undefined
   }
 
