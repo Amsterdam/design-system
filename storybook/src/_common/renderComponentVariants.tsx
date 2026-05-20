@@ -3,80 +3,68 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { StoryContext } from '@storybook/react-vite'
 import type { ElementType } from 'react'
 
 import { createElement } from 'react'
 
-import type { renderComponentVariantsParams } from './renderComponentVariantTypes'
+import type { PropWithValues, renderComponentVariantsParams, VariantValue } from './renderComponentVariantTypes'
 
-import {
-  buildComponentProps,
-  completePropsWithDefaults,
-  extractPropsWithValues,
-  extractPropValues,
-  getDocgenInfo,
-} from './renderComponentVariantUtils'
+import { buildComponentProps } from './buildComponentProps'
+import { extractVariantsFromArgTypes } from './extractVariantsFromArgTypes'
+
+const extractSize = (propsWithValues: PropWithValues[]): { propName: string; values: (string | undefined)[] } => {
+  const sizeProp = propsWithValues.find((prop) => prop.name === 'size')
+  if (!sizeProp || sizeProp.values.length === 0) {
+    return { propName: 'size', values: [undefined] }
+  }
+  return {
+    propName: 'size',
+    values: sizeProp.values.map((value) => (typeof value === 'string' ? value : undefined)),
+  }
+}
 
 /**
- * Main function: generates all possible combinations ("variants")
- * of a component's props + states (hovered, disabled, etc.).
+ * Renders all combinations of a component's prop values × variant states
+ * (hovered, disabled, ...). Used by *.test.stories.tsx for Chromatic
+ * visual diffing.
  *
- * This helps avoid writing a Storybook story for every prop combination,
- * while still allowing Chromatic to capture screenshots for each.
+ * Prop values come from `context.argTypes` — Storybook's normalized
+ * manifest, populated by whichever docgen analyzer is configured.
  */
 export const renderComponentVariants = (
   component: ElementType,
   { args, layout = 'flex', variants = [] }: renderComponentVariantsParams,
+  context: StoryContext,
 ) => {
-  // Extract props from docgen metadata
-  const props = getDocgenInfo(component)?.props
+  const propsWithValues = extractVariantsFromArgTypes(context.argTypes)
+  const allVariants = [...variants, 'default']
+  const sizes = extractSize(propsWithValues)
 
-  // Always include a "default" variant
-  const allVariants = [...(variants || []), 'default']
-
-  // Build a list of props and their possible values
-  const propsAndValues = extractPropsWithValues(props)
-
-  // Fill the props with example data
-  const completePropsWithValues = completePropsWithDefaults(propsAndValues)
-
-  // Extract sizes, so we can run over them separately, we we want to test the combination of the props with sizes
-  const sizes = extractPropValues(completePropsWithValues, 'size')
-
-  /**
-   * Case 1: Component has no props with values.
-   * Just render one version for each variant (default, hovered, disabled, etc.).
-   */
-  if (completePropsWithValues.length === 0) {
-    const elements = allVariants.map((state) => (
-      <div key={state}>
-        {createElement(component, {
-          ...args,
-          ...(state === 'disabled' ? { [state]: true } : {}),
-          className: state === 'hovered' ? 'hover' : undefined,
-        })}
+  if (propsWithValues.length === 0) {
+    return (
+      <div>
+        {allVariants.map((state) => (
+          <div key={state}>
+            {createElement(component, {
+              ...args,
+              ...(state === 'disabled' ? { disabled: true } : {}),
+              className: state === 'hovered' ? 'hover' : undefined,
+            })}
+          </div>
+        ))}
       </div>
-    ))
-
-    return <div>{elements}</div>
+    )
   }
 
-  /**
-   * Case 2: Component has props with multiple values.
-   * Render a grid/flex layout containing all combinations of:
-   * - size (if present)
-   * - prop values (color, icon, etc.)
-   * - state (hovered, disabled, etc.)
-   */
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
-      {completePropsWithValues
-        // Skip the "size" prop here, we handle it separately via sizeArray
+      {propsWithValues
         .filter(({ name }) => name !== sizes.propName)
-        .flatMap(({ hasIcon, name, values }) => {
-          return sizes.values.map((size) =>
+        .flatMap(({ hasIcon, name, values }) =>
+          sizes.values.flatMap((size) =>
             allVariants.flatMap((state) =>
-              (values ?? []).flatMap((variant) => {
+              values.map((variant: VariantValue) => {
                 const key = `${size ?? 'none'}-${name}-${String(variant)}-${state}`
 
                 return (
@@ -98,7 +86,7 @@ export const renderComponentVariants = (
                         args,
                         hasIcon,
                         propName: name,
-                        size: typeof size === 'string' ? size : undefined,
+                        size,
                         sizePropName: sizes.propName,
                         state,
                         variant,
@@ -108,8 +96,8 @@ export const renderComponentVariants = (
                 )
               }),
             ),
-          )
-        })}
+          ),
+        )}
     </div>
   )
 }

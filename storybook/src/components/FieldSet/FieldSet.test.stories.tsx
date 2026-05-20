@@ -29,9 +29,6 @@ export const Test: Story = {
       </div>
     ),
   },
-  render: (args) =>
-    renderComponentVariants(FieldSet, {
-      args,
-    }),
+  render: (args, context) => renderComponentVariants(FieldSet, { args }, context),
   tags: ['!dev', '!autodocs'],
 }
