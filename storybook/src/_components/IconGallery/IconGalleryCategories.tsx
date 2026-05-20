@@ -63,8 +63,10 @@ export const DirectionIcons: Set<IconName> = new Set([
   'ArrowDownIcon',
   'ArrowForwardIcon',
   'ArrowUpIcon',
+  'ChevronBackwardDoubleIcon',
   'ChevronBackwardIcon',
   'ChevronDownIcon',
+  'ChevronForwardDoubleIcon',
   'ChevronForwardIcon',
   'ChevronUpIcon',
 ])
