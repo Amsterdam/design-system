@@ -1,0 +1,36 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { StatusBadge } from "../../_components/StatusBadge/StatusBadge";
+
+import * as CalendarStories from "./Calendar.stories.tsx";
+import README from "../../../../packages/css/src/components/calendar/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/calendar.tokens.json";
+
+import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
+
+<Meta of={CalendarStories} />
+
+<StatusBadge description="Proof of concept to explore DX and UX." status="poc" />
+
+<Markdown>{README}</Markdown>
+
+## Single date
+
+<Primary />
+
+## Date range
+
+Click a second date to select a range.
+
+<Canvas of={CalendarStories.Range} />
+
+## Navigation
+
+With links instead of buttons, the Calendar can be used to navigate, e.g. for an event page.
+
+<Canvas of={CalendarStories.WithLinks} />
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
