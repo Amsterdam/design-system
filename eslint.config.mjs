@@ -88,7 +88,6 @@ export default defineConfig([
     ...json.configs.recommended,
     name: 'amsterdam-design-system/json',
     files: ['**/*.json'],
-    ignores: ['**/pnpm-lock.yaml'],
     language: 'json/json',
   },
 
