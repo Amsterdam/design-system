@@ -18,6 +18,7 @@
     "no-caret-version-devDependencies": "error",
     "no-tilde-version-dependencies": "error",
     "no-tilde-version-devDependencies": "error",
+    "prefer-provenance": "error",
     "preferGlobal-type": "error",
     "private-type": "error",
     "repository-type": "error",

@@ -38,13 +38,17 @@ const config: StorybookConfig = {
     disableTelemetry: true,
   },
 
+  features: {
+    experimentalReactComponentMeta: true,
+  },
+
   framework: {
     name: '@storybook/react-vite',
     options: {},
   },
 
   staticDirs: ['../../packages-proprietary/assets'],
-  stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.@(ts|tsx)'],
 
   typescript: {
     reactDocgen: 'react-docgen-typescript',

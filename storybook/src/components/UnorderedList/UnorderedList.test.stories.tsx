@@ -34,9 +34,6 @@ export const Test: Story = {
       </UnorderedList.Item>,
     ],
   },
-  render: (args) =>
-    renderComponentVariants(UnorderedList, {
-      args,
-    }),
+  render: (args, context) => renderComponentVariants(UnorderedList, { args }, context),
   tags: ['!dev', '!autodocs'],
 }

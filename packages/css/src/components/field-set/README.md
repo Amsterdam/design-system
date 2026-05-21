@@ -2,14 +2,17 @@
 
 # Field Set
 
-A component to group related form inputs.
+Groups a set of Radio buttons or Checkboxes, or other related form fields.
 
 ## Guidelines
 
-- Use Field Set when you need to show a relationship between multiple form inputs. For example, you may need to group a set of text inputs into a single Field Set when asking for an address.
-- Set `optional` to `true` if all inputs in a Field Set are not required.
-- Use `hint` to show a custom hint text.
-- There’s no need to add white space between the children of a Field Set. The component does this automatically.
+- Group a collection of [Radio](/docs/components-forms-radio--docs) buttons or [Checkboxes](/docs/components-forms-checkbox--docs) into a Field Set.
+  This allows them to share a label, description, and error message, while each option still has its own label.
+- A Field Set can also express the relation between a group of inputs or other controls.
+  For instance, you might want to group several text inputs into one Field Set when requesting an address or various parts of a name.
+- Mark a Field Set as `optional` only for a list of Radios or Checkboxes, and if selecting any option is not necessary.
+- There’s no need to add white space between the children of a Field Set.
+  The component does this automatically.
 
 ## Relevant WCAG requirements
 

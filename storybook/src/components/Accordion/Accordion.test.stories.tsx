@@ -63,11 +63,15 @@ export const Test: Story = {
     await userEvent.click(accordionButton)
     await expect(accordionParagraph).not.toBeVisible()
   },
-  render: (args) => (
+  render: (args, context) => (
     <>
-      {renderComponentVariants(Accordion, {
-        args,
-      })}
+      {renderComponentVariants(
+        Accordion,
+        {
+          args,
+        },
+        context,
+      )}
       <Accordion.Section defaultExpanded label="Verhuizing doorgeven bij stadsloket">
         <p data-testid="expanded-paragraph">
           Veel Amsterdammers in de bijstand zijn huiverig om te gaan werken. Ze denken dat ze dan minder geld krijgen,

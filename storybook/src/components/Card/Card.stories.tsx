@@ -15,8 +15,8 @@ import { formatDate } from '../../_common/formatDate'
 
 const topTask = exampleTopTask()
 
-const maxWidthDecorator: Decorator = (Story) => (
-  <div style={{ maxWidth: '24rem' }}>
+const maxInlineSizeDecorator: Decorator = (Story) => (
+  <div style={{ maxInlineSize: '24rem' }}>
     <Story />
   </div>
 )
@@ -39,7 +39,7 @@ export const Default: Story = {
       <Paragraph key={2}>{topTask.description}</Paragraph>,
     ],
   },
-  decorators: [maxWidthDecorator],
+  decorators: [maxInlineSizeDecorator],
 }
 
 export const WithTagline: Story = {
@@ -55,7 +55,7 @@ export const WithTagline: Story = {
       </Paragraph>,
     ],
   },
-  decorators: [maxWidthDecorator],
+  decorators: [maxInlineSizeDecorator],
 }
 
 type WithImageProps = {
@@ -89,7 +89,7 @@ export const WithImage: WithImageStory = {
     tagline: { control: 'text' },
     text: { control: 'text' },
   },
-  decorators: [maxWidthDecorator],
+  decorators: [maxInlineSizeDecorator],
   render: ({ aspectRatio, date, heading, imageSrc, tagline, text, ...args }) => (
     <Card {...args}>
       <Card.Image alt="" aspectRatio={aspectRatio} src={imageSrc} />
