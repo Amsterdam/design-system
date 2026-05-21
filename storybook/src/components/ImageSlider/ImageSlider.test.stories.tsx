@@ -85,10 +85,10 @@ export const Test: Story = {
     await userEvent.click(thirdThumbnailButton)
     await expectOnlySlideVisible(slides, 2)
   },
-  render: (args) => (
+  render: (args, context) => (
     <>
       <ImageSlider {...args} data-testid="interaction-test" />
-      {renderComponentVariants(ImageSlider, { args })}
+      {renderComponentVariants(ImageSlider, { args }, context)}
     </>
   ),
   tags: ['!dev', '!autodocs'],
