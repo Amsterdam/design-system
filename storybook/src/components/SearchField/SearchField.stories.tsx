@@ -14,6 +14,7 @@ type InputProps = {
   invalid?: boolean
   label?: string
   placeholder?: string
+  value?: string
 }
 
 type StoryProps = InputProps & SearchFieldProps
@@ -58,7 +59,7 @@ export const WithPlaceholder: Story = {
   },
 }
 
-export const Controlled: unknown = {
+export const Controlled: Story = {
   args: {
     value: '',
   },
