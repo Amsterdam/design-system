@@ -8,12 +8,11 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 import baselineJs from 'eslint-plugin-baseline-js'
 import importPlugin from 'eslint-plugin-import'
 import vitest from '@vitest/eslint-plugin'
-import * as mdx from 'eslint-plugin-mdx'
 import perfectionist from 'eslint-plugin-perfectionist'
-import storybook from 'eslint-plugin-storybook'
 import globals from 'globals'
 
 import reactConfig from './packages/react/eslint.config.mjs'
+import storybookConfig from './storybook/eslint.config.mjs'
 
 const perfectionistCustomSizesGroups = {
   customGroups: [
@@ -234,22 +233,6 @@ export default defineConfig([
     },
   },
 
-  // MDX
-  {
-    name: 'amsterdam-design-system/mdx',
-    ...mdx.flat,
-    processor: mdx.createRemarkProcessor({
-      lintCodeBlocks: true,
-    }),
-  },
-  {
-    name: 'amsterdam-design-system/mdx-flat-code-block',
-    ...mdx.flatCodeBlocks,
-    rules: {
-      ...mdx.flatCodeBlocks.rules,
-      'react/jsx-no-undef': 'off',
-      'react/prop-types': 'off',
-    },
-  },
-  storybook.configs['flat/recommended'],
+  // MDX and Storybook (owned by storybook/eslint.config.mjs)
+  ...storybookConfig,
 ])
