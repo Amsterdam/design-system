@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DnJy8xQt.js";var t,n,r,i,a=e((()=>{t=[`9:16`,`3:4`,`1:1`,`4:3`,`16:9`,`16:5`],n=[`start`,`center`,`baseline`,`end`],r=n.filter(e=>e!==`baseline`),i=[`center`,`end`,`between`,`around`,`evenly`]}));export{i as a,a as i,n,r,t};
