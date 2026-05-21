@@ -1,4 +1,3 @@
-minimumReleaseAge: 1440 # Delay installing a newly published version of a package for 1440 minutes (1 day)
 packages:
   - "packages/*"
   - "packages-proprietary/*"
@@ -8,9 +7,6 @@ overrides:
   tar: ">=7.5.11"
 engineStrict: true
 savePrefix: ""
-allowBuilds:
-  "@bundled-es-modules/glob": false
-  "@parcel/watcher": false
-  esbuild: false
-  sharp: false
-  style-dictionary: false
+# Refuse to resolve transitive deps from git URLs, tarballs, or other non-registry sources.
+# Supply-chain hardening — see https://pnpm.io/supply-chain-security
+blockExoticSubdeps: true
