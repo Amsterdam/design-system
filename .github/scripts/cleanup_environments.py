@@ -75,6 +75,59 @@ def parse_updated_at(env: dict) -> datetime.datetime | None:
     return datetime.datetime.fromisoformat(raw.replace("Z", "+00:00"))
 
 
+def build_session(token: str) -> requests.Session:
+    session = requests.Session()
+    session.headers.update({
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    })
+    return session
+
+
+def select_obsolete(
+    envs: list[dict],
+    branch_short_names: set[str],
+    stale_days: int,
+    now: datetime.datetime,
+) -> list[tuple[str, datetime.datetime | None]]:
+    selected: list[tuple[str, datetime.datetime | None]] = []
+    for env in envs:
+        name = env["name"]
+        if not name.startswith(DEMO_PREFIX):
+            continue
+        if name[len(DEMO_PREFIX):] in branch_short_names:
+            continue
+        updated_at = parse_updated_at(env)
+        if stale_days > 0 and updated_at and (now - updated_at).days < stale_days:
+            continue
+        selected.append((name, updated_at))
+    return selected
+
+
+def delete_environments(
+    session: requests.Session,
+    api: str,
+    to_delete: list[tuple[str, datetime.datetime | None]],
+    *,
+    dry_run: bool,
+) -> int:
+    failures = 0
+    for name, updated_at in to_delete:
+        prefix = "[DRY RUN] Would delete" if dry_run else "Deleting"
+        print(f"{prefix}: {name} (last updated: {updated_at})")
+        if dry_run:
+            continue
+        encoded = urllib.parse.quote(name, safe="")
+        r = session.delete(f"{api}/environments/{encoded}", timeout=REQUEST_TIMEOUT)
+        if r.ok:
+            print(f"  Deleted {name}")
+        else:
+            print(f"  Failed to delete {name}: {r.status_code} {r.text}")
+            failures += 1
+    return failures
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument(
@@ -91,16 +144,9 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    token = os.environ["GITHUB_TOKEN"]
     repo = os.environ["REPO"]
     api = f"https://api.github.com/repos/{repo}"
-
-    session = requests.Session()
-    session.headers.update({
-        "Authorization": f"token {token}",
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-    })
+    session = build_session(os.environ["GITHUB_TOKEN"])
 
     branch_short_names = fetch_branch_short_names(session, api)
     if not branch_short_names:
@@ -108,19 +154,12 @@ def main() -> int:
         print("ERROR: branch list came back empty — refusing to proceed.", file=sys.stderr)
         return 2
 
-    now = datetime.datetime.now(datetime.timezone.utc)
-    to_delete: list[tuple[str, datetime.datetime | None]] = []
-
-    for env in fetch_environments(session, api):
-        name = env["name"]
-        if not name.startswith(DEMO_PREFIX):
-            continue
-        if name[len(DEMO_PREFIX):] in branch_short_names:
-            continue
-        updated_at = parse_updated_at(env)
-        if args.stale_days > 0 and updated_at and (now - updated_at).days < args.stale_days:
-            continue
-        to_delete.append((name, updated_at))
+    to_delete = select_obsolete(
+        fetch_environments(session, api),
+        branch_short_names,
+        args.stale_days,
+        datetime.datetime.now(datetime.timezone.utc),
+    )
 
     if not to_delete:
         print("No environments to delete.")
@@ -136,20 +175,7 @@ def main() -> int:
             print(f"  - {name}", file=sys.stderr)
         return 2
 
-    failures = 0
-    for name, updated_at in to_delete:
-        prefix = "[DRY RUN] Would delete" if args.dry_run else "Deleting"
-        print(f"{prefix}: {name} (last updated: {updated_at})")
-        if args.dry_run:
-            continue
-        encoded = urllib.parse.quote(name, safe="")
-        r = session.delete(f"{api}/environments/{encoded}", timeout=REQUEST_TIMEOUT)
-        if r.status_code == 204:
-            print(f"  Deleted {name}")
-        else:
-            print(f"  Failed to delete {name}: {r.status_code} {r.text}")
-            failures += 1
-
+    failures = delete_environments(session, api, to_delete, dry_run=args.dry_run)
     if failures:
         print(f"{failures} deletion(s) failed.", file=sys.stderr)
         return 1

@@ -50,8 +50,11 @@ concurrency:
 
 jobs:
   cleanup-demos:
-    # Run on manual dispatch, or on a major-version release tag (ends in `.0.0`).
-    if: ${{ github.event_name == 'workflow_dispatch' || endsWith(github.event.release.tag_name, '.0.0') }}
+    # Run on manual dispatch, or on a major-version release of a `design-system-*`
+    # package — tag format is `design-system-<pkg>-v<major>.<minor>.<patch>`, so
+    # the prefix scopes us to our release-please tags and the suffix scopes us to
+    # majors.
+    if: ${{ github.event_name == 'workflow_dispatch' || (startsWith(github.event.release.tag_name, 'design-system-') && endsWith(github.event.release.tag_name, '.0.0')) }}
     runs-on: ubuntu-latest
     env:
       # Release-triggered runs always perform the deletion; manual runs
@@ -80,11 +83,12 @@ jobs:
           # take each remote branch and strip everything up to and including
           # the first '/'. The result is the directory suffix used in `demo-*`.
           #
-          # NOTE: `mapfile < <(...)` does NOT propagate failures from the
-          # process substitution under `set -e`. We capture into a tempfile
-          # first so a failed `git ls-remote` aborts the job instead of
-          # silently producing an empty list (which would mark every demo-*
-          # directory stale and delete them all).
+          # NOTE: `mapfile < <(...)` does NOT propagate failures from a
+          # process substitution under `set -e`. Running `git ls-remote` into
+          # a tempfile first ensures that an auth/network failure on the
+          # remote fetch aborts the job. A failure inside the downstream
+          # awk|sed pipeline is still swallowed by mapfile, but the empty-list
+          # guard below catches the worst case (deleting every demo-*).
           ls_remote_out="$(mktemp)"
           trap 'rm -f "$ls_remote_out"' EXIT
           git ls-remote --heads origin > "$ls_remote_out"
