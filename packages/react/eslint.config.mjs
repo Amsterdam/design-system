@@ -1,15 +1,17 @@
 import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
 
 /* `reactPreset` is the un-scoped React rule set. Other packages that ship React code
  * (Storybook, the React-icons package) import it and apply it to their own globs.
  */
 export const reactPreset = {
-  plugins: { react },
+  plugins: { react, 'react-hooks': reactHooks },
   settings: {
     react: { version: 'detect' },
   },
   rules: {
     ...react.configs.recommended.rules,
+    ...reactHooks.configs.recommended.rules,
     'react/prop-types': 'off', // TypeScript types replace prop-types
     'react/react-in-jsx-scope': 'off',
   },
