@@ -21,11 +21,6 @@
     "pnpm": "^11"
   },
   "packageManager": "pnpm@11.1.3",
-  "workspaces": [
-    "./packages/*",
-    "./packages-proprietary/*",
-    "./storybook"
-  ],
   "scripts": {
     "build": "pnpm -r run build",
     "clean:dist": "pnpm -r run clean:dist",
