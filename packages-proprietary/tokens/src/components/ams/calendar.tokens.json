@@ -15,6 +15,10 @@
         "$value": "{ams.typography.body-text.font-weight}",
         "$type": "fontWeight"
       },
+      "inline-size": {
+        "$value": "20rem",
+        "$type": "dimension"
+      },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {

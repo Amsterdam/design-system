@@ -11,7 +11,7 @@
   font-family: var(--ams-calendar-font-family);
   font-size: var(--ams-calendar-font-size);
   font-weight: var(--ams-calendar-font-weight);
-  inline-size: 20rem;
+  inline-size: var(--ams-calendar-inline-size);
   line-height: var(--ams-calendar-line-height);
   max-inline-size: 100%;
 }
