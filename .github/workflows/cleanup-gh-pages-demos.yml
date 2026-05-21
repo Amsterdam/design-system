@@ -38,6 +38,10 @@ jobs:
     # Run on manual dispatch, or on a major-version release tag (ends in `.0.0`).
     if: ${{ github.event_name == 'workflow_dispatch' || endsWith(github.event.release.tag_name, '.0.0') }}
     runs-on: ubuntu-latest
+    env:
+      # Release-triggered runs always perform the deletion; manual runs
+      # honour the workflow input (defaults to dry-run).
+      DRY_RUN: ${{ github.event_name == 'release' && 'false' || github.event.inputs.dry_run || 'true' }}
     steps:
       - name: Check out gh-pages branch
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -50,10 +54,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Remove stale demo directories
-        env:
-          # Release-triggered runs always perform the deletion; manual runs
-          # honour the workflow input (defaults to dry-run).
-          DRY_RUN: ${{ github.event_name == 'release' && 'false' || github.event.inputs.dry_run || 'true' }}
         run: |
           set -euo pipefail
           shopt -s nullglob
@@ -96,10 +96,6 @@ jobs:
           done
 
       - name: Commit and push if any directories were removed
-        env:
-          # Release-triggered runs always perform the deletion; manual runs
-          # honour the workflow input (defaults to dry-run).
-          DRY_RUN: ${{ github.event_name == 'release' && 'false' || github.event.inputs.dry_run || 'true' }}
         run: |
           if [ "$DRY_RUN" = "true" ]; then
             echo "[DRY RUN] Skipping commit and push."
