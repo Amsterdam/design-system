@@ -74,7 +74,7 @@ export default defineConfig([
     name: 'amsterdam-design-system/language-options',
     files: jsAndTsFiles,
     languageOptions: {
-      globals: { ...globals.browser, ...globals.es6 },
+      globals: { ...globals.browser, ...globals.es6, ...globals.node },
     },
   },
 
