@@ -1,30 +1,33 @@
 import react from 'eslint-plugin-react'
 
-/* Imported and spread by the root `eslint.config.mjs`.
- * Globs stay root-relative because ESLint resolves them relative to the importing config.
+/* `reactPreset` is the un-scoped React rule set. Other packages that ship React code
+ * (Storybook, the React-icons package) import it and apply it to their own globs.
  */
-export default [
-  {
-    name: 'amsterdam-design-system/react',
-    files: [
-      'packages/react/**/*.{js,jsx,ts,tsx}',
-      'packages-proprietary/react-icons/**/*.{js,jsx,ts,tsx}',
-      'storybook/**/*.{js,jsx,ts,tsx}',
-    ],
-    plugins: { react },
-    languageOptions: {
-      parserOptions: {
-        ecmaFeatures: { jsx: true },
-      },
-    },
-    settings: {
-      react: { version: 'detect' },
-    },
-    rules: {
-      ...react.configs.recommended.rules,
-      'react/react-in-jsx-scope': 'off',
+export const reactPreset = {
+  plugins: { react },
+  languageOptions: {
+    parserOptions: {
+      ecmaFeatures: { jsx: true },
     },
   },
+  settings: {
+    react: { version: 'detect' },
+  },
+  rules: {
+    ...react.configs.recommended.rules,
+    'react/react-in-jsx-scope': 'off',
+  },
+}
+
+export default [
+  // React
+  {
+    name: 'amsterdam-design-system/react',
+    files: ['packages/react/**/*.{js,jsx,ts,tsx}'],
+    extends: [reactPreset],
+  },
+
+  // Logos in React
   {
     name: 'amsterdam-design-system/generated-logos',
     files: ['packages/react/src/Logo/brands/*Logo.tsx'],

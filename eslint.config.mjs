@@ -11,6 +11,7 @@ import vitest from '@vitest/eslint-plugin'
 import perfectionist from 'eslint-plugin-perfectionist'
 import globals from 'globals'
 
+import reactIconsConfig from './packages-proprietary/react-icons/eslint.config.mjs'
 import reactConfig from './packages/react/eslint.config.mjs'
 import storybookConfig from './storybook/eslint.config.mjs'
 
@@ -209,6 +210,9 @@ export default defineConfig([
 
   // React (owned by packages/react/eslint.config.mjs)
   ...reactConfig,
+
+  // React-icons (owned by packages-proprietary/react-icons/eslint.config.mjs)
+  ...reactIconsConfig,
 
   // JSON
   {
