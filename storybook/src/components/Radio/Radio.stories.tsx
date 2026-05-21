@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { MouseEvent as ReactMouseEvent } from 'react'
 
 import { Column, ErrorMessage, FieldSet, Paragraph } from '@amsterdam/design-system-react'
 import { Radio } from '@amsterdam/design-system-react/src'
@@ -49,8 +50,8 @@ const meta = {
   render: (args) => {
     const [, setArgs] = useArgs()
 
-    const handleClick = (event: any) => {
-      setArgs({ checked: event.target.checked })
+    const handleClick = (event: ReactMouseEvent<HTMLInputElement>) => {
+      setArgs({ checked: event.currentTarget.checked })
     }
 
     return <Radio onClick={handleClick} {...args} />

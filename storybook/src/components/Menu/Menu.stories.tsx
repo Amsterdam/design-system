@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { ReactElement } from 'react'
 
 import {
   BarChartFillIcon,
@@ -46,7 +47,7 @@ const menuItems = [
   },
 ]
 
-const withInWideWindowArg = (StoryFn: any) => {
+const withInWideWindowArg = (StoryFn: () => ReactElement) => {
   const [, updateArgs] = useArgs()
 
   useEffect(() => {
