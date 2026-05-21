@@ -61,6 +61,7 @@ jobs:
           # dry-runs and listing still work; see permissions note above.
           GITHUB_TOKEN: ${{ secrets.ENV_ADMIN_TOKEN || secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
+        # On schedule, github.event.inputs is empty, so this expression resolves to --dry-run.
         run: |
           python .github/scripts/cleanup_environments.py \
             ${{ (github.event.inputs.dry_run == 'false') && '--no-dry-run' || '--dry-run' }} \
