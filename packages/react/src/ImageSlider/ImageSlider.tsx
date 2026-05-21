@@ -50,14 +50,9 @@ export const ImageSlider = forwardRef(
     }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    if (images.length === 0) return null
-
     const [currentSlideId, setCurrentSlideId] = useState(0)
 
     const scrollerRef = useRef<HTMLDivElement>(null)
-
-    const isAtStart = currentSlideId === 0
-    const isAtEnd = currentSlideId === images.length - 1
 
     useEffect(() => {
       if (!scrollerRef.current) return undefined
@@ -85,6 +80,11 @@ export const ImageSlider = forwardRef(
 
       return () => window.removeEventListener('resize', handleResize)
     }, [currentSlideId])
+
+    if (images.length === 0) return null
+
+    const isAtStart = currentSlideId === 0
+    const isAtEnd = currentSlideId === images.length - 1
 
     return (
       <div {...restProps} aria-roledescription="carousel" className={clsx('ams-image-slider', className)} ref={ref}>
