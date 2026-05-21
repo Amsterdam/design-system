@@ -30,7 +30,8 @@ export const Radio = forwardRef(
     { children, className, icon = RadioIcon, id, invalid, ...restProps }: RadioProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
-    const inputId = id || useId()
+    const generatedId = useId()
+    const inputId = id || generatedId
 
     return (
       // This div is here because NVDA doesn't match the input to the label
