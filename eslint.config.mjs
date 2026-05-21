@@ -6,7 +6,7 @@ import tsPlugin from '@typescript-eslint/eslint-plugin'
 import { defineConfig } from 'eslint/config'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import baselineJs from 'eslint-plugin-baseline-js'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 import vitest from '@vitest/eslint-plugin'
 import perfectionist from 'eslint-plugin-perfectionist'
 import globals from 'globals'
@@ -86,13 +86,13 @@ export default defineConfig([
     plugins: {
       '@typescript-eslint': tsPlugin,
       'baseline-js': baselineJs,
-      import: importPlugin,
+      'import-x': importPlugin,
     },
     languageOptions: {
       parser: tsParser,
     },
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         typescript: true,
         node: { extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'] },
       },
@@ -168,10 +168,10 @@ export default defineConfig([
       ],
 
       // Import
-      'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
-      'import/newline-after-import': 'error',
-      'import/no-named-as-default': 'warn',
-      'import/no-cycle': 'warn',
+      'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+      'import-x/newline-after-import': 'error',
+      'import-x/no-named-as-default': 'warn',
+      'import-x/no-cycle': 'warn',
 
       // Perfectionist
       'perfectionist/sort-intersection-types': [
@@ -232,6 +232,7 @@ export default defineConfig([
     ...json.configs.recommended,
     name: 'amsterdam-design-system/json',
     files: ['**/*.json'],
+    ignores: ['**/pnpm-lock.yaml'],
     language: 'json/json',
   },
 
