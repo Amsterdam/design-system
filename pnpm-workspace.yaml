@@ -10,3 +10,12 @@ savePrefix: ""
 # Refuse to resolve transitive deps from git URLs, tarballs, or other non-registry sources.
 # Supply-chain hardening — see https://pnpm.io/supply-chain-security
 blockExoticSubdeps: true
+# Explicitly mark these dependencies' install scripts as ignored.
+# Under v11's default `strictDepBuilds: true`, packages with install scripts that
+# aren't listed here would cause `pnpm install` to fail with ERR_PNPM_IGNORED_BUILDS.
+# Setting `false` means: pnpm has been told not to run the script — neither runs nor errors.
+allowBuilds:
+  "@bundled-es-modules/glob": false
+  "@parcel/watcher": false
+  esbuild: false
+  style-dictionary: false
