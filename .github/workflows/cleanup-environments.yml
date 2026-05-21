@@ -53,7 +53,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install 'requests==2.32.3'
+        run: pip install --require-hashes -r .github/scripts/requirements.txt
 
       - name: Cleanup environments
         env:
