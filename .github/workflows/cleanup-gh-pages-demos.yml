@@ -13,6 +13,10 @@
 # Release-triggered runs always perform the deletion. Manual runs default to
 # `dry_run=true` (logs only); pass `dry_run=false` from the Actions UI to
 # perform the deletions and push the resulting commit.
+#
+# `stale_days` controls age-based skipping for stale directories, mirroring the
+# Python cleanup script: directories updated more recently than `stale_days` are
+# kept. `0` disables age filtering.
 
 name: Cleanup stale demo directories from gh-pages
 
@@ -23,6 +27,10 @@ on:
         description: "If true, only log what would be deleted."
         required: false
         default: "true"
+      stale_days:
+        description: "Only delete directories not updated in this many days (0 = ignore age)."
+        required: false
+        default: "0"
   release:
     types: [published]
 
@@ -42,6 +50,7 @@ jobs:
       # Release-triggered runs always perform the deletion; manual runs
       # honour the workflow input (defaults to dry-run).
       DRY_RUN: ${{ github.event_name == 'release' && 'false' || github.event.inputs.dry_run || 'true' }}
+      STALE_DAYS: ${{ github.event.inputs.stale_days || '0' }}
     steps:
       - name: Check out gh-pages branch
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -81,12 +90,32 @@ jobs:
             exit 2
           fi
 
+          case "$STALE_DAYS" in
+            ''|*[!0-9]*)
+              echo "ERROR: stale_days must be a non-negative integer, got '$STALE_DAYS'." >&2
+              exit 2
+              ;;
+          esac
+
           for dir in demo-*/; do
             dir="${dir%/}"
             short_name="${dir#demo-}"
             if printf '%s\n' "${active_short_names[@]}" | grep -Fxq -- "$short_name"; then
               continue
             fi
+
+            if [ "$STALE_DAYS" -gt 0 ]; then
+              now_epoch="$(date +%s)"
+              updated_epoch="$(git log -1 --format=%ct -- "$dir" || true)"
+              if [ -n "$updated_epoch" ]; then
+                age_days="$(( (now_epoch - updated_epoch) / 86400 ))"
+                if [ "$age_days" -lt "$STALE_DAYS" ]; then
+                  echo "Skipping stale demo updated ${age_days} day(s) ago (< ${STALE_DAYS}): $dir"
+                  continue
+                fi
+              fi
+            fi
+
             if [ "$DRY_RUN" = "true" ]; then
               echo "[DRY RUN] Would delete stale demo: $dir (no active branch matches '$short_name')"
               continue
