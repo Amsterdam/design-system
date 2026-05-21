@@ -33,7 +33,6 @@
     "lint-fix:css": "stylelint --fix '**/*.{css,scss}'",
     "lint-fix:js": "eslint . --fix",
     "plop": "plop",
-    "postinstall": "pnpm --filter=!storybook -r run build",
     "prepare": "husky",
     "prettier": "prettier --write .",
     "start": "pnpm run '/^watch:.+$/'",

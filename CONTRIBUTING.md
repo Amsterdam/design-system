@@ -169,7 +169,10 @@ To enable correct validation and to fix lint/style errors on save, add this to y
 ### Run storybook
 
 - Install dependencies: `pnpm install`
+- Build workspace packages: `pnpm build`
 - Run storybook: `pnpm start`
+
+Re-run `pnpm build` after pulling source changes — `pnpm install` is a no-op when the lockfile is unchanged, so it will not rebuild `dist/` for you.
 
 ### Run unit tests
 

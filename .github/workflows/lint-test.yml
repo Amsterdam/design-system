@@ -48,6 +48,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build workspace packages
+        run: pnpm build
+
       - name: "Continuous Integration: lint"
         run: |
           pnpm run --if-present lint
