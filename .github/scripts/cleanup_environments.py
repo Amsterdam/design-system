@@ -46,14 +46,11 @@ def _check(r: requests.Response) -> requests.Response:
 
 
 def paginate(session: requests.Session, url: str) -> Iterator[list | dict]:
-    page = 1
-    sep = "&" if "?" in url else "?"
-    while True:
-        r = _check(session.get(f"{url}{sep}per_page=100&page={page}", timeout=REQUEST_TIMEOUT))
+    next_url: str | None = f"{url}?per_page=100"
+    while next_url:
+        r = _check(session.get(next_url, timeout=REQUEST_TIMEOUT))
         yield r.json()
-        if "next" not in r.links:
-            return
-        page += 1
+        next_url = r.links.get("next", {}).get("url")
 
 
 def fetch_branch_short_names(session: requests.Session, api: str) -> set[str]:
