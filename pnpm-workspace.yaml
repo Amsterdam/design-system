@@ -14,3 +14,4 @@ allowBuilds:
   esbuild: false
   sharp: false
   style-dictionary: false
+  unrs-resolver: true

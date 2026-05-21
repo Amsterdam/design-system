@@ -5,16 +5,12 @@ import react from 'eslint-plugin-react'
  */
 export const reactPreset = {
   plugins: { react },
-  languageOptions: {
-    parserOptions: {
-      ecmaFeatures: { jsx: true },
-    },
-  },
   settings: {
     react: { version: 'detect' },
   },
   rules: {
     ...react.configs.recommended.rules,
+    'react/prop-types': 'off', // TypeScript types replace prop-types
     'react/react-in-jsx-scope': 'off',
   },
 }

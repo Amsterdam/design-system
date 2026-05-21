@@ -15,6 +15,9 @@ import reactIconsConfig from './packages-proprietary/react-icons/eslint.config.m
 import reactConfig from './packages/react/eslint.config.mjs'
 import storybookConfig from './storybook/eslint.config.mjs'
 
+const jsAndTsFiles = ['**/*.{js,jsx,ts,tsx}']
+const testFiles = ['**/*.{test,spec}.{js,jsx,ts,tsx}']
+
 const perfectionistCustomSizesGroups = {
   customGroups: [
     {
@@ -69,20 +72,17 @@ export default defineConfig([
   },
   {
     name: 'amsterdam-design-system/language-options',
+    files: jsAndTsFiles,
     languageOptions: {
-      globals: { ...globals.browser, ...globals.es6, ...vitest.environments.env.globals },
+      globals: { ...globals.browser, ...globals.es6 },
     },
-  },
-  {
-    name: 'eslint-config-prettier',
-    ...eslintConfigPrettier,
   },
 
   // JavaScript and TypeScript
   {
     name: 'amsterdam-design-system/javascript-typescript',
-    files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
-    extends: [eslint.configs.recommended, vitest.configs.recommended, perfectionist.configs['recommended-natural']],
+    files: jsAndTsFiles,
+    extends: [eslint.configs.recommended, perfectionist.configs['recommended-natural']],
     plugins: {
       '@typescript-eslint': tsPlugin,
       'baseline-js': baselineJs,
@@ -93,9 +93,8 @@ export default defineConfig([
     },
     settings: {
       'import/resolver': {
-        node: {
-          extensions: ['js', 'mjs', 'jsx', 'ts', 'tsx'],
-        },
+        typescript: true,
+        node: { extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'] },
       },
     },
     rules: {
@@ -105,8 +104,16 @@ export default defineConfig([
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-invalid-this': 'error',
+      '@typescript-eslint/no-loop-func': 'error',
       '@typescript-eslint/no-unsafe-function-type': 'warn',
+      '@typescript-eslint/no-unused-expressions': 'error',
       '@typescript-eslint/no-unused-vars': 'error',
+
+      // ESLint — core rules disabled in favour of the TS-aware variants above
+      'no-invalid-this': 'off',
+      'no-loop-func': 'off',
+      'no-unused-expressions': 'off',
 
       // ESLint
       'array-callback-return': [
@@ -125,9 +132,7 @@ export default defineConfig([
       'no-implicit-globals': 'error',
       'no-implied-eval': 'error',
       'no-inner-declarations': 'error',
-      'no-invalid-this': 'error',
       'no-lone-blocks': 'error',
-      'no-loop-func': 'error',
       'no-multi-str': 'error',
       'no-new-func': 'error',
       'no-new-wrappers': 'error',
@@ -138,8 +143,6 @@ export default defineConfig([
       'no-sequences': 'error',
       'no-throw-literal': 'error',
       'no-unmodified-loop-condition': 'error',
-      'no-unused-expressions': 'error',
-      'no-unused-vars': 'off', // This is handled by @typescript-eslint/no-unused-vars
       'no-useless-call': 'error',
       'no-useless-concat': 'error',
       'no-useless-return': 'error',
@@ -208,6 +211,16 @@ export default defineConfig([
     },
   },
 
+  // Tests
+  {
+    name: 'amsterdam-design-system/tests',
+    files: testFiles,
+    extends: [vitest.configs.recommended],
+    languageOptions: {
+      globals: { ...vitest.environments.env.globals },
+    },
+  },
+
   // React (owned by packages/react/eslint.config.mjs)
   ...reactConfig,
 
@@ -216,11 +229,10 @@ export default defineConfig([
 
   // JSON
   {
+    ...json.configs.recommended,
     name: 'amsterdam-design-system/json',
     files: ['**/*.json'],
-    plugins: { json },
     language: 'json/json',
-    ...json.configs.recommended,
   },
 
   // Markdown
@@ -239,4 +251,10 @@ export default defineConfig([
 
   // MDX and Storybook (owned by storybook/eslint.config.mjs)
   ...storybookConfig,
+
+  // Prettier — must be last so it can override stylistic rules from earlier presets
+  {
+    name: 'amsterdam-design-system/prettier',
+    ...eslintConfigPrettier,
+  },
 ])
