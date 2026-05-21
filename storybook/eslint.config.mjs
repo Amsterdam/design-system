@@ -33,6 +33,6 @@ export default [
     },
   },
 
-  // Storybook
-  storybook.configs['flat/recommended'],
+  // Storybook (preset is an array of three configs, each with its own `storybook:recommended:*` name)
+  ...storybook.configs['flat/recommended'],
 ]
