@@ -44,9 +44,9 @@ type BreakoutCellRowSpanAndStartProps = {
 export type BreakoutCellProps = {
   /** The HTML element to use. */
   readonly as?: BreakoutCellTag
-} & BreakoutCellRowSpanAndStartProps &
-  Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>> &
-  (BreakoutCellSpanAllProps | BreakoutCellSpanAndStartProps)
+} & Readonly<BreakoutCellRowSpanAndStartProps> &
+  Readonly<BreakoutCellSpanAllProps | BreakoutCellSpanAndStartProps> &
+  Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 export const BreakoutCell = forwardRef(
   (

@@ -15,7 +15,7 @@ import { generateAspectRatioClass } from './generateAspectRatioClass'
 export type ImageProps = {
   /** A textual description of the content of the image. */
   readonly alt: string
-} & AspectRatioProps &
+} & Readonly<AspectRatioProps> &
   Readonly<Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>>
 
 /**

@@ -9,7 +9,7 @@
 export const aspectRatioOptions = ['9:16', '3:4', '1:1', '4:3', '16:9', '16:5'] as const
 export type AspectRatioProps = {
   /** The aspect ratio to display media content in. */
-  aspectRatio?: (typeof aspectRatioOptions)[number]
+  readonly aspectRatio?: (typeof aspectRatioOptions)[number]
 }
 
 export const crossAlignOptions = ['start', 'center', 'baseline', 'end'] as const

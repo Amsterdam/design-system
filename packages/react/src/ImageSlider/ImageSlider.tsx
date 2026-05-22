@@ -19,7 +19,7 @@ import { debounce, scrollToCurrentSlideOnResize, scrollToSlide, setCurrentSlideI
 export type ImageSliderImageProps = {
   /** An optional caption displayed below the image. */
   readonly caption?: string
-} & ImageProps
+} & Readonly<ImageProps>
 
 export type ImageSliderProps = {
   /** Display buttons to navigate to the previous or next image. */

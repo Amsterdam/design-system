@@ -13,7 +13,7 @@ import { Image } from '../Image/Image'
 type ImageSliderSlideProps = {
   readonly currentSlideId: number
   readonly index: number
-} & ImageSliderImageProps
+} & Readonly<ImageSliderImageProps>
 
 export const ImageSliderSlide = ({
   alt,
