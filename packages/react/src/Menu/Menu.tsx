@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef, useId } from 'react'
@@ -24,11 +24,11 @@ export type MenuProps = {
 export const MenuRoot = forwardRef(
   (
     { accessibleName = 'Hoofdmenu', children, className, inWideWindow, ...restProps }: MenuProps,
-    ref: ForwardedRef<any>,
+    ref: ForwardedRef<HTMLElement>,
   ) => {
     // In a medium or narrow window, the Menu is a child of the `nav` of Page Header.
     // In a wide window, we render a `nav` element and the related accessibility features.
-    const Tag = inWideWindow ? 'nav' : 'div'
+    const Tag = (inWideWindow ? 'nav' : 'div') as ElementType
 
     const accessibleLabelId = useId()
 

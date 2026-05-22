@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -47,26 +47,27 @@ export type RowProps = {
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-row--docs Row docs at Amsterdam Design System}
  */
-export const Row = forwardRef(
-  (
-    { align, alignVertical, as: Tag = 'div', children, className, gap, wrap, ...restProps }: RowProps,
-    ref: ForwardedRef<any>,
-  ) => (
-    <Tag
-      {...restProps}
-      className={clsx(
-        'ams-row',
-        align && `ams-row--align-${align}`,
-        alignVertical && `ams-row--align-vertical-${alignVertical}`,
-        gap && `ams-row--gap-${gap}`,
-        wrap && 'ams-row--wrap',
-        className,
-      )}
-      ref={ref}
-    >
-      {children}
-    </Tag>
-  ),
+export const Row = forwardRef<HTMLElement, RowProps>(
+  ({ align, alignVertical, as, children, className, gap, wrap, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx(
+          'ams-row',
+          align && `ams-row--align-${align}`,
+          alignVertical && `ams-row--align-vertical-${alignVertical}`,
+          gap && `ams-row--gap-${gap}`,
+          wrap && 'ams-row--wrap',
+          className,
+        )}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 Row.displayName = 'Row'

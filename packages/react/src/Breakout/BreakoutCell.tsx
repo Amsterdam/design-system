@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -41,41 +41,34 @@ type BreakoutCellRowSpanAndStartProps = {
   rowStart?: BreakoutRowNumber | BreakoutRowNumbers
 }
 
+type BreakoutCellSpanKeys = 'colSpan' | 'colStart' | 'has' | 'rowSpan' | 'rowStart'
+
 export type BreakoutCellProps = {
   /** The HTML element to use. */
   as?: BreakoutCellTag
 } & BreakoutCellRowSpanAndStartProps &
-  PropsWithChildren<HTMLAttributes<HTMLElement>> &
+  PropsWithChildren<Omit<HTMLAttributes<HTMLElement>, BreakoutCellSpanKeys>> &
   (BreakoutCellSpanAllProp | BreakoutCellSpanAndStartProps)
 
-export const BreakoutCell = forwardRef(
-  (
-    {
-      as: Tag = 'div',
-      children,
-      className,
-      colSpan,
-      colStart,
-      has,
-      rowSpan,
-      rowStart,
-      ...restProps
-    }: BreakoutCellProps,
-    ref: ForwardedRef<any>,
-  ) => (
-    <Tag
-      {...restProps}
-      className={clsx(
-        'ams-breakout__cell',
-        breakoutCellClasses(colSpan, colStart, rowSpan, rowStart),
-        has && `ams-breakout__cell--has-${has}`,
-        className,
-      )}
-      ref={ref}
-    >
-      {children}
-    </Tag>
-  ),
+export const BreakoutCell = forwardRef<HTMLElement, BreakoutCellProps>(
+  ({ as, children, className, colSpan, colStart, has, rowSpan, rowStart, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx(
+          'ams-breakout__cell',
+          breakoutCellClasses(colSpan, colStart, rowSpan, rowStart),
+          has && `ams-breakout__cell--has-${has}`,
+          className,
+        )}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 BreakoutCell.displayName = 'Breakout.Cell'
