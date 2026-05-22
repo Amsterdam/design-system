@@ -1,4 +1,4 @@
-import { reactPreset } from '../../packages/react/eslint.config.mjs'
+import { reactPreset } from '../../packages/react/eslint.react.config.mjs'
 
 /* Imported and spread by the root `eslint.config.mjs`. */
 export default [
