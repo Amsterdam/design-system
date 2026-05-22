@@ -90,6 +90,13 @@ def validate_inputs(stale_days: int) -> None:
         raise ValueError("--stale-days must be a non-negative integer.")
 
 
+def get_required_env(name: str) -> str:
+    value = os.getenv(name)
+    if not value:
+        raise ValueError(f"required environment variable is missing: {name}")
+    return value
+
+
 def fetch_repo_state(session: requests.Session, api: str) -> tuple[set[str], list[dict]]:
     branch_short_names = fetch_branch_short_names(session, api)
     if not branch_short_names:
@@ -176,9 +183,15 @@ def main() -> int:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2
 
-    repo = os.environ["REPO"]
+    try:
+        repo = get_required_env("REPO")
+        token = get_required_env("GITHUB_TOKEN")
+    except ValueError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 2
+
     api = f"https://api.github.com/repos/{repo}"
-    session = build_session(os.environ["GITHUB_TOKEN"])
+    session = build_session(token)
 
     try:
         branch_short_names, envs = fetch_repo_state(session, api)

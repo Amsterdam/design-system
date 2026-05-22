@@ -6,9 +6,19 @@ shopt -s nullglob
 # - demo-X is stale when no active branch short name matches X.
 # - short name mirrors feature-branch-deploy: strip first <prefix>/.
 # - Nested previews (demo-foo/bar) are handled safely.
+#
+# Environment variables:
+# - DRY_RUN (default: true)
+# - STALE_DAYS (default: 0)
+# - I_REALLY_MEAN_IT (default: false)
+# - MAX_DELETES (default: 25)
 
 TARGET_DIR="${1:-.}"
 DEMO_PREFIX="demo-"
+DRY_RUN="${DRY_RUN:-true}"
+STALE_DAYS="${STALE_DAYS:-0}"
+I_REALLY_MEAN_IT="${I_REALLY_MEAN_IT:-false}"
+MAX_DELETES="${MAX_DELETES:-25}"
 
 validate_non_negative_int() {
   local name="$1"
@@ -35,6 +45,7 @@ validate_bool() {
 }
 
 validate_inputs() {
+  validate_bool "dry_run" "$DRY_RUN"
   validate_non_negative_int "stale_days" "$STALE_DAYS"
   validate_non_negative_int "MAX_DELETES" "$MAX_DELETES"
   validate_bool "i_really_mean_it" "$I_REALLY_MEAN_IT"
