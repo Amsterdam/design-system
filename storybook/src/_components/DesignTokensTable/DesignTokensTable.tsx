@@ -24,7 +24,7 @@ type DesignTokensTableRootProps = {
   readonly showDescriptions?: boolean
   /** The raw nested token object to display, typically imported directly from a JSON token file. */
   readonly tokens: Tokens
-} & HTMLAttributes<HTMLDivElement>
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
  * Compound component that renders a design token JSON file as a three-column table

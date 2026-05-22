@@ -15,7 +15,7 @@ type BorderSampleProps = {
   readonly lineStyle?: string
   /** A border-width token value, either a CSS value or a token reference. */
   readonly width?: string
-} & HTMLAttributes<HTMLDivElement>
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 export const BorderSample = ({ className, lineStyle, style, width, ...restProps }: BorderSampleProps) => {
   if (!lineStyle && !width) return null

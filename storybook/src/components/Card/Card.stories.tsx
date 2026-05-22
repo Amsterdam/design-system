@@ -65,7 +65,7 @@ type WithImageProps = {
   imageSrc: string
   tagline: string
   text: string
-} & ComponentProps<typeof Card>
+} & Readonly<ComponentProps<typeof Card>>
 
 type WithImageStory = StoryObj<WithImageProps>
 

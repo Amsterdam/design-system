@@ -13,7 +13,7 @@ import { formatTokenValue } from '../../_common/formatTokenValue'
 type SpaceSampleProps = {
   /** A spacing token value, either a CSS value or a token reference. */
   readonly value?: string
-} & HTMLAttributes<HTMLDivElement>
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 export const SpaceSample = ({ className, style, value, ...restProps }: SpaceSampleProps) => (
   <div

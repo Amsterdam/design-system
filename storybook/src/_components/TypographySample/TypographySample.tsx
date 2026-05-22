@@ -25,7 +25,7 @@ type TypographySampleProps = {
   readonly fontWeight?: string
   /** A line-height token value, either a CSS value or a token reference. */
   readonly lineHeight?: string
-} & HTMLAttributes<HTMLSpanElement>
+} & Readonly<HTMLAttributes<HTMLSpanElement>>
 
 export const TypographySample = ({
   className,

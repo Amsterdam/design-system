@@ -13,7 +13,7 @@ import { formatTokenValue } from '../../_common/formatTokenValue'
 type AspectRatioSampleProps = {
   /** An aspect ratio value, e.g. "16 / 9" or "1 / 1". */
   readonly value: string
-} & HTMLAttributes<HTMLDivElement>
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 export const AspectRatioSample = ({ className, style, value, ...restProps }: AspectRatioSampleProps) => (
   <div
