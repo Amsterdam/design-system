@@ -9,6 +9,12 @@ updates:
       interval: "weekly"
     cooldown:
       default-days: 1 # Wait for one day after release before updating a dependency
+    groups:
+      patch-and-minor-actions:
+        applies-to: "version-updates"
+        update-types:
+          - "patch"
+          - "minor"
     commit-message:
       prefix: chore
       include: scope

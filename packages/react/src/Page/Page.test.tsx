@@ -45,6 +45,14 @@ describe('Page', () => {
     expect(ref.current).toBe(component)
   })
 
+  it('renders the with-menu class when withMenu is true', () => {
+    const { container } = render(<Page withMenu />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-page--with-menu')
+  })
+
   it('passes additional props', () => {
     const { container } = render(<Page aria-hidden="false" data-test="data-test" id="id" />)
 

@@ -10,6 +10,7 @@ A quote appears differently from the main text to make it stand out.
 - Quote someone’s literal written or oral text.
 - A quote has a width of half or a whole column of text.
 - The component adds the correct quotation marks.
+- Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
 
 ## Relevant WCAG requirements
 

@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Table } from '@amsterdam/design-system-react/src'
+import { Heading, Paragraph, Table } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { default as tableMeta } from './Table.stories'
@@ -21,11 +21,17 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   args: {
+    'aria-labelledby': 'caption-heading',
     children: [
-      <Table.Caption key={1}>
-        <h3>Kosten voor de aanvraag</h3>
+      <Table.Caption key="caption">
+        <Heading id="caption-heading" level={3}>
+          Kosten voor de aanvraag
+        </Heading>
+        <Paragraph size="small">
+          Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
+        </Paragraph>
       </Table.Caption>,
-      <Table.Header key={2}>
+      <Table.Header key="header">
         <Table.Row>
           <Table.HeaderCell>Type</Table.HeaderCell>
           <Table.HeaderCell>
@@ -38,7 +44,7 @@ export const Test: Story = {
           </Table.HeaderCell>
         </Table.Row>
       </Table.Header>,
-      <Table.Body key={3}>
+      <Table.Body key="body">
         <Table.Row>
           <Table.Cell>Paspoort</Table.Cell>
           <Table.Cell>€ 77,85</Table.Cell>
@@ -52,6 +58,6 @@ export const Test: Story = {
       </Table.Body>,
     ],
   },
-  render: (args) => renderComponentVariants(Table, { args }),
+  render: (args, context) => renderComponentVariants(Table, { args }, context),
   tags: ['!dev', '!autodocs'],
 }

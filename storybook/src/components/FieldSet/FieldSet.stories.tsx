@@ -29,7 +29,6 @@ const meta = {
     hint: '',
     invalid: false,
     legend: 'Wat is uw naam?',
-    optional: false,
   },
   decorators: [
     (Story) => (

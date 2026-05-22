@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render } from '@testing-library/react'
+import { act, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createRef } from 'react'
 import { describe, expect, it, vi } from 'vitest'
@@ -151,6 +151,60 @@ describe('ImageSlider', () => {
     const { container } = render(<ImageSlider images={[]} />)
 
     expect(container).toBeEmptyDOMElement()
+  })
+
+  it('calls scrollToSlide when a thumbnail is clicked', async () => {
+    scrollTo.mockClear()
+    const user = userEvent.setup()
+
+    const { getAllByRole } = render(<ImageSlider images={images} />)
+
+    const thumbnails = getAllByRole('tab')
+
+    const scrollToCallCountAfterRender = scrollTo.mock.calls.length
+
+    await user.click(thumbnails[1])
+
+    expect(scrollTo).toHaveBeenCalledTimes(scrollToCallCountAfterRender + 1)
+  })
+
+  it('fires the IntersectionObserver callback and enables the previous button', async () => {
+    let observerCallback: ((entries: IntersectionObserverEntry[]) => void) | undefined
+
+    const originalIntersectionObserver = window.IntersectionObserver
+    window.IntersectionObserver = vi.fn(function (cb) {
+      observerCallback = cb
+      return {
+        disconnect: vi.fn(),
+        observe: vi.fn(),
+        root: null,
+        rootMargin: '',
+        takeRecords: vi.fn(),
+        thresholds: [],
+        unobserve: vi.fn(),
+      }
+    }) as unknown as typeof IntersectionObserver
+
+    try {
+      scrollTo.mockClear()
+      const user = userEvent.setup()
+
+      const { container, getByRole } = render(<ImageSlider controls images={images} />)
+
+      const scroller = container.querySelector('.ams-image-slider__scroller')!
+
+      act(() => {
+        observerCallback!([{ isIntersecting: true, target: scroller.children[1] } as IntersectionObserverEntry])
+      })
+
+      const previousButton = getByRole('button', { name: 'Vorige' })
+      expect(previousButton).not.toBeDisabled()
+
+      await user.click(previousButton)
+      expect(scrollTo).toHaveBeenCalled()
+    } finally {
+      window.IntersectionObserver = originalIntersectionObserver
+    }
   })
 
   it('passes additional props', () => {

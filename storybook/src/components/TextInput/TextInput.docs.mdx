@@ -100,13 +100,14 @@ We follow the advice against using `type="number"` by [NL Design System](https:/
 
 ### Size
 
-Make the width of the input appropriate for the information to be entered.
+Match the width of the input to the expected length of its content.
 Use the `size` attribute for this.
+The input won’t grow beyond the width of its container.
 
-Avoid making it too narrow – ensure the user has enough space to operate comfortably.
-This also gives browsers or extensions an opportunity to add an icon or button at the end.
+Avoid sizes that feel cramped: the user needs room to type and review comfortably.
+Extra space also leaves room for icons or buttons that browsers and extensions may add.
 
-We suggest a size of 15 for a phone number, 30 for an e-mail address, 40 for a web address, and 7 for a postal code.
+As a rule of thumb: 7 for a postal code, 15 for a phone number, 30 for an email address, and 40 for a web address.
 
 <Canvas of={TextInputStories.Size} />
 

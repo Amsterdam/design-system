@@ -3,10 +3,13 @@
 # Publishing
 
 We use a [Release Please GitHub Action](https://github.com/googleapis/release-please-action) to create changelogs and release PRs for all our packages.
-When the release PR is merged, that same action publishes the new release to npm, creates a release on GitHub, and deploys it to our main Storybook environment.
+When the release PR is merged, the Publish workflow (specifically the `pnpm -r publish` step in `.github/workflows/publish.yml`) publishes the new release to npm, after Release Please reports `releases_created == 'true'`. Release Please itself creates the release PR and the GitHub release, but does not publish to npm.
+A separate “Main branch build and deploy” workflow keeps our main Storybook environment up to date with `main`.
 
 The [maintainers](./maintainers.md) can release new versions of our packages.
 If you want to have rights to publish as well, contact one of the maintainers.
+
+The “Publish” workflow uses [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC), so individual maintainers don’t need personal npm credentials.
 
 ## Conventional commits
 
@@ -20,8 +23,8 @@ The titles of our PRs specify whether a change is:
 - a new feature (`feat`), a minor release, or
 - a breaking change (append an `!`), a major release.
 
-Use the `chore` type when updating development dependencies, changing configuration or updating documentation that isn’t about a component.
-Use the `fix` type for refactors, regular dependency updates or updates to documentation about components.
+Use the `chore` type for changes with no consumer-visible impact: development dependencies, configuration, or documentation that isn’t about a component.
+Use the `fix` type for changes that should reach consumers via a patch release: refactors, regular dependency updates, or updates to documentation about components.
 
 The PR title also describes the change in a clear, human-friendly way.
 This PR title becomes the description of a commit when we squash merge a feature branch PR into `develop`.
@@ -58,31 +61,33 @@ git merge --ff-only origin/develop
 git push
 ```
 
-The push to `main` triggers a GitHub Action, which creates a release PR.
+Pushing to `main` triggers the “Lint and test” workflow on GitHub. When this workflow completes successfully, it triggers the “Publish” workflow.
+On this first run, Release Please opens (or updates) a release PR. The workflow runs again later, after that PR is merged, to create the GitHub release and publish to npm.
 
-### Verify changelogs and dependencies
+A separate “Main branch build and deploy” workflow runs in parallel and refreshes our main Storybook environment from the latest `main`.
 
-Review this PR and make sure to check the changelogs for the different packages.
+### Review the release PR
+
+Review the release PR created by Release Please.
+Make sure to check the changelogs for the different packages.
 A commit might only be a breaking change for one package, but it will be marked as breaking for all affected packages.
 
-**Note**: Apply any updates to the changelog to both CHANGELOG.md and the PR description.
+**Note**: Apply any updates to the changelog to both `CHANGELOG.md` and the PR description.
 Release Please uses the PR description to create the GitHub release notes.
 
 **Note**: Make sure all necessary peer dependencies get updated.
 Releases that only change Tokens or Assets may require extra steps for CSS or React.
 See below for details.
 
-### Approve the pull request
+### Approve and merge the release PR
 
-Approve the PR, then merge it – no need to wait for the checks.
+Approve the release PR, then merge it – no need to wait for the checks, since the release PR only bumps versions and updates changelogs (no source code changes). The merge must be done manually; the workflow does not merge the PR automatically.
 
-The same Action will then publish the release to npm and GitHub.
-It also deploys the released version to our main Storybook environment.
+After merging, the “Publish” workflow runs again. Release Please now reports `releases_created == 'true'`, which gates the npm publish step, so the new versions are pushed to GitHub and npm.
 
 ### Merge back into develop
 
-When complete, the Action adds a new release commit to `main`.
-Locally merge this commit back into `develop` and push it to the remote:
+Merging the release PR adds the version bumps and changelog updates to `main` as a new commit, after which Release Please creates the corresponding GitHub release. Locally merge this commit back into `develop` and push it to the remote:
 
 ```sh
 git checkout develop
@@ -98,8 +103,8 @@ If `develop` has progressed since the merge to `main`, this will produce a merge
 #### Don’t change the PR title
 
 The Release Please Action generates a release PR with a specific title (currently: `chore: release main`).
-This PR title is verified on the second run of the Action.
-Changing this title can cause the Action to fail.
+On subsequent runs, the Action looks for an open PR with this exact title so it can update it instead of creating a duplicate.
+Changing the title breaks that lookup and can cause the Action to fail or create a second release PR.
 
 #### Remove stale release labels
 
@@ -137,11 +142,13 @@ This setup works well when we update both CSS and React in a release.
 However, issues arise if a release only updates Tokens and Assets without changes to CSS or React.
 The latest version of CSS then depends on an older version of Tokens.
 
-To resolve this, we can manually let CSS depend on the latest version of Tokens.
-We replace `"@amsterdam/design-system-tokens": "workspace:*"` with `"@amsterdam/design-system-tokens": "x.y.z"` and run `pnpm i` to update the lockfile.
-We then release a new version of our CSS package, with the correct peer dependency.
+**Step-by-step example for dependency updates:**
 
-After that, consider restoring the dynamic dependency (`workspace:*`) and updating the lockfile (`pnpm i`) accordingly.
+1. Release a new version of Tokens or Assets only.
+2. In the CSS package, update the dependency for Tokens or Assets from `"workspace:*"` to the new version number (e.g., `"x.y.z"`).
+3. Run `pnpm i` to update the lockfile.
+4. Release a new version of the CSS package, with the correct peer dependency.
+5. (Optional) Restore the dynamic dependency (`workspace:*`) in the CSS package and run `pnpm i` again.
+6. If needed, update and release React to depend on the new CSS version.
 
-The most extreme case requires us to release a new version of Tokens or Assets only, then update and release CSS, then update and release React.
 Although infrequent, this scenario might occur in the future.

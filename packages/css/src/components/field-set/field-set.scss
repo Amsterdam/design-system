@@ -11,6 +11,7 @@
   @include reset-fieldset;
 
   break-inside: avoid;
+  min-inline-size: 0; // Prevent growing to fit children with an intrinsic width (e.g. input[size], textarea[cols]).
 }
 
 // Default margin between all direct children of Field Set
