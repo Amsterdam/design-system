@@ -4,7 +4,8 @@ import { reactPreset } from '../../packages/react/eslint.react.config.mjs'
 export default [
   {
     name: 'amsterdam-design-system/react-icons',
-    files: ['packages-proprietary/react-icons/**/*.{js,jsx,ts,tsx}'],
+
     extends: [reactPreset],
+    files: ['packages-proprietary/react-icons/**/*.{js,jsx,ts,tsx}'],
   },
 ]
