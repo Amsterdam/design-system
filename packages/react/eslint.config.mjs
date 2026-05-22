@@ -1,8 +1,6 @@
 import react from 'eslint-plugin-react'
 
-/* `reactPreset` is the un-scoped React rule set. Other packages that ship React code
- * (Storybook, the React-icons package) import it and apply it to their own globs.
- */
+/* `The unscoped React ruleset. Other packages that ship React code apply it to their own globs. */
 export const reactPreset = {
   plugins: { react },
   settings: {
