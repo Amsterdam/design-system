@@ -1,10 +1,10 @@
 {
   "ams": {
     "inline-size-context": {
-      "name": {
+      "container-name": {
         "$value": "ams-inline-size-context"
       },
-      "type": {
+      "container-type": {
         "$value": "inline-size"
       }
     }
