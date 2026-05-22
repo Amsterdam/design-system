@@ -13,15 +13,15 @@ import { TabNavigationList } from './TabNavigationList'
 
 export type TabNavigationProps = {
   /** The accessible name for the navigation. */
-  accessibleName?: string
+  readonly accessibleName?: string
   /**
    * Connects the component with an internal element that defines its accessible name.
    * Note: must be unique for the page.
    */
-  accessibleNameId?: string
+  readonly accessibleNameId?: string
   /** The direction in which the links are laid out. */
-  orientation?: 'horizontal' | 'vertical'
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly orientation?: 'horizontal' | 'vertical'
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 const TabNavigationRoot = forwardRef(
   (

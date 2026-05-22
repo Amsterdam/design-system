@@ -10,10 +10,10 @@ import { forwardRef, useId } from 'react'
 
 type SearchFieldInputProps = {
   /** Whether the value fails a validation rule. */
-  invalid?: boolean
+  readonly invalid?: boolean
   /** Describes the field for screen readers. */
-  label?: string
-} & InputHTMLAttributes<HTMLInputElement>
+  readonly label?: string
+} & Readonly<InputHTMLAttributes<HTMLInputElement>>
 
 export const SearchFieldInput = forwardRef(
   (

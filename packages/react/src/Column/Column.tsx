@@ -21,23 +21,23 @@ export type ColumnProps = {
    * The vertical alignment of the items in the column.
    * @default start
    */
-  align?: MainAlign
+  readonly align?: MainAlign
   /**
    * The horizontal alignment of the items in the column.
    * @default stretch
    */
-  alignHorizontal?: CrossAlignForColumn
+  readonly alignHorizontal?: CrossAlignForColumn
   /**
    * The HTML element to use.
    * @default div
    */
-  as?: ColumnTag
+  readonly as?: ColumnTag
   /**
    * The amount of space between items.
    * @default medium
    */
-  gap?: ColumnGap
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly gap?: ColumnGap
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-column--docs Column docs at Amsterdam Design System}

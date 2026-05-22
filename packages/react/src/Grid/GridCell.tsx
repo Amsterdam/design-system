@@ -20,15 +20,15 @@ export type GridCellTag = (typeof gridCellTags)[number]
 
 type GridCellSpanAllProp = {
   /** Lets the cell span the full width of all grid variants. */
-  span: 'all'
-  start?: never
+  readonly span: 'all'
+  readonly start?: never
 }
 
 type GridCellSpanAndStartProps = {
   /** The amount of grid columns the cell spans. */
-  span?: GridColumnNumber | GridColumnNumbers
+  readonly span?: GridColumnNumber | GridColumnNumbers
   /** The index of the grid column the cell starts at. */
-  start?: GridColumnNumber | GridColumnNumbers
+  readonly start?: GridColumnNumber | GridColumnNumbers
 }
 
 export type GridCellProps = {
@@ -41,12 +41,12 @@ export type GridCellProps = {
    *
    * In Spacious Mode, cells are always transparent and without padding; this prop has no effect.
    */
-  appearance?: GridCellAppearance
+  readonly appearance?: GridCellAppearance
   /** The HTML tag to use. */
-  as?: GridCellTag
+  readonly as?: GridCellTag
   /** The amount of grid rows the cell spans. */
-  rowSpan?: GridRowNumber | GridRowNumbers
-} & PropsWithChildren<HTMLAttributes<HTMLElement>> &
+  readonly rowSpan?: GridRowNumber | GridRowNumbers
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>> &
   (GridCellSpanAllProp | GridCellSpanAndStartProps)
 
 export const GridCell = forwardRef(

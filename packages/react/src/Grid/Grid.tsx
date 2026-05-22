@@ -31,26 +31,26 @@ export const gridTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 
 export type GridTag = (typeof gridTags)[number]
 
 type GridPaddingVerticalProp = {
-  paddingBottom?: never
-  paddingTop?: never
+  readonly paddingBottom?: never
+  readonly paddingTop?: never
   /** The amount of space above and below. */
-  paddingVertical?: GridPadding
+  readonly paddingVertical?: GridPadding
 }
 
 type GridPaddingTopAndBottomProps = {
   /** The amount of space below. */
-  paddingBottom?: GridPadding
+  readonly paddingBottom?: GridPadding
   /** The amount of space above. */
-  paddingTop?: GridPadding
-  paddingVertical?: never
+  readonly paddingTop?: GridPadding
+  readonly paddingVertical?: never
 }
 
 export type GridProps = {
   /** The HTML tag to use. */
-  as?: GridTag
+  readonly as?: GridTag
   /** The amount of space between rows. */
-  gapVertical?: GridGap
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>> &
+  readonly gapVertical?: GridGap
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>> &
   (GridPaddingVerticalProp | GridPaddingTopAndBottomProps)
 
 const GridRoot = forwardRef(

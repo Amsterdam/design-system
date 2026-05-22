@@ -16,10 +16,10 @@ export type MenuProps = {
    * Only applies to the `inWideWindow` appearance: otherwise, the menu is in the Page Header, which ensures accessibility itself.
    * @default Hoofdmenu
    */
-  accessibleName?: string
+  readonly accessibleName?: string
   /** Hides the component on narrow windows. */
-  inWideWindow?: boolean
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly inWideWindow?: boolean
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 export const MenuRoot = forwardRef(
   (

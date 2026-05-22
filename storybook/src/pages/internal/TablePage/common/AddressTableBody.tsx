@@ -8,8 +8,8 @@ import { Table } from '@amsterdam/design-system-react'
 import type { BagAddress } from './bagAddresses'
 
 type AddressTableBodyProps = {
-  addresses: BagAddress[]
-  firstRow?: number
+  readonly addresses: BagAddress[]
+  readonly firstRow?: number
 }
 
 export const AddressTableBody = ({ addresses, firstRow = 1 }: AddressTableBodyProps) => (

@@ -21,28 +21,28 @@ export type RowProps = {
    * The horizontal alignment of the items in the row.
    * @default start
    */
-  align?: MainAlign
+  readonly align?: MainAlign
   /**
    * The vertical alignment of the items in the row.
    * @default stretch
    */
-  alignVertical?: CrossAlign
+  readonly alignVertical?: CrossAlign
   /**
    * The HTML element to use.
    * @default div
    */
-  as?: RowTag
+  readonly as?: RowTag
   /**
    * The amount of space between items.
    * @default medium
    */
-  gap?: RowGap
+  readonly gap?: RowGap
   /**
    * Whether items of the row can wrap onto multiple lines.
    * @default false
    */
-  wrap?: boolean
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly wrap?: boolean
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-row--docs Row docs at Amsterdam Design System}

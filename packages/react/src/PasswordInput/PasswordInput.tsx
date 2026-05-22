@@ -10,10 +10,9 @@ import { forwardRef } from 'react'
 
 export type PasswordInputProps = {
   /** Whether the value fails a validation rule. */
-  invalid?: boolean
-} & Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'aria-invalid' | 'autoCapitalize' | 'autoCorrect' | 'spellCheck' | 'type'
+  readonly invalid?: boolean
+} & Readonly<
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'autoCapitalize' | 'autoCorrect' | 'spellCheck' | 'type'>
 >
 
 /**

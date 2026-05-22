@@ -17,10 +17,10 @@ const wrapChildren = (size: ParagraphProps['size'], children: ReactNode) => {
 
 export type ParagraphProps = {
   /** Changes the text colour for readability on a dark background. */
-  color?: 'inverse'
+  readonly color?: 'inverse'
   /** The size of the text. */
-  size?: 'small' | 'large'
-} & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
+  readonly size?: 'small' | 'large'
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-paragraph--docs Paragraph docs at Amsterdam Design System}

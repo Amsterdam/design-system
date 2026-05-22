@@ -14,8 +14,8 @@ import { AccessibleStatusText } from './AccessibleStatusText'
 
 export type ProgressListSubstepProps = {
   /** The current progress state of the substep. */
-  status?: ProgressListStepProps['status']
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly status?: ProgressListStepProps['status']
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 export const ProgressListSubstep = forwardRef(
   ({ children, className, status, ...restProps }: ProgressListSubstepProps, ref: ForwardedRef<HTMLLIElement>) => {

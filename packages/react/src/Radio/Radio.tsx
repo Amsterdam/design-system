@@ -17,10 +17,10 @@ export type RadioProps = {
    * An icon to display instead of the default icon.
    * @default RadioIcon
    */
-  icon?: IconProps['svg']
+  readonly icon?: IconProps['svg']
   /** Whether the value fails a validation rule. */
-  invalid?: boolean
-} & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
+  readonly invalid?: boolean
+} & Readonly<PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-radio--docs Radio docs at Amsterdam Design System}

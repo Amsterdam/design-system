@@ -17,18 +17,18 @@ export type FieldSetProps = {
    * Whether the fieldset is nested inside another fieldset.
    * This will show the legend in a lighter style.
    */
-  inFieldSet?: boolean
+  readonly inFieldSet?: boolean
   /** Whether the field set has an input with a validation error. */
-  invalid?: boolean
+  readonly invalid?: boolean
   /** The text for the caption. */
-  legend: string
+  readonly legend: string
   /**
    * Render a level 1 heading in the legend.
    * Set this if the Field Set is the only content of the page.
    */
-  legendIsPageHeading?: boolean
+  readonly legendIsPageHeading?: boolean
 } & HintProps &
-  PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>>
+  Readonly<PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-field-set--docs Field Set docs at Amsterdam Design System}

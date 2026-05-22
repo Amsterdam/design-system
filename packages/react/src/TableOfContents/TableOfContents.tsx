@@ -16,13 +16,13 @@ import { TableOfContentsList } from './TableOfContentsList'
 
 export type TableOfContentsProps = {
   /** The text for the Heading. */
-  heading?: string
+  readonly heading?: string
   /**
    * The hierarchical level of the Heading within the document.
    * Visually, it always has the size of a level 3 Heading.
    */
-  headingLevel?: HeadingProps['level']
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly headingLevel?: HeadingProps['level']
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 const TableOfContentsRoot = forwardRef(
   (
