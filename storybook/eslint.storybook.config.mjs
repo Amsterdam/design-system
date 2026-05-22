@@ -1,7 +1,7 @@
 import * as mdx from 'eslint-plugin-mdx'
 import storybook from 'eslint-plugin-storybook'
 
-import { reactPreset } from '../packages/react/eslint.config.mjs'
+import { reactPreset } from '../packages/react/eslint.react.config.mjs'
 
 /* Imported and spread by the root `eslint.config.mjs`.
  * MDX lives here because every `.mdx` file in the repo is a Storybook doc — the plugin's

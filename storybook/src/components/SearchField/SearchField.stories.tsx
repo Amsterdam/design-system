@@ -5,7 +5,7 @@
 
 import type { SearchFieldProps } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { ChangeEvent as ReactChangeEvent } from 'react'
+import type { ChangeEvent } from 'react'
 
 import { SearchField } from '@amsterdam/design-system-react/src'
 import { useArgs } from 'storybook/preview-api'
@@ -66,7 +66,7 @@ export const Controlled: Story = {
   render: function Component({ invalid, label, placeholder }: InputProps) {
     const [args, setArgs] = useArgs()
 
-    const onValueChange = (event: ReactChangeEvent<HTMLInputElement>) => {
+    const onValueChange = (event: ChangeEvent<HTMLInputElement>) => {
       setArgs({ value: event.target.value })
     }
 
