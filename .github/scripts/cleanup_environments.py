@@ -98,7 +98,7 @@ def fetch_repo_state(session: requests.Session, api: str) -> tuple[set[str], lis
     return branch_short_names, envs
 
 
-def select_obsolete(
+def select_obsolete_envs(
     envs: list[dict],
     branch_short_names: set[str],
     stale_days: int,
@@ -131,15 +131,15 @@ def enforce_delete_cap(
     )
 
 
-def delete_environments(
+def delete_obsolete_envs(
     session: requests.Session,
     api: str,
-    to_delete: list[tuple[str, datetime.datetime | None]],
+    obsolete_envs: list[tuple[str, datetime.datetime | None]],
     *,
     dry_run: bool,
 ) -> int:
     failures = 0
-    for name, updated_at in to_delete:
+    for name, updated_at in obsolete_envs:
         prefix = "[DRY RUN] Would delete" if dry_run else "Deleting"
         print(f"{prefix}: {name} (last updated: {updated_at})")
         if dry_run:
@@ -186,7 +186,7 @@ def main() -> int:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2
 
-    obsolete_envs = select_obsolete(
+    obsolete_envs = select_obsolete_envs(
         envs,
         branch_short_names,
         args.stale_days,
@@ -205,7 +205,7 @@ def main() -> int:
             print(f"  - {name}", file=sys.stderr)
         return 2
 
-    failures = delete_environments(session, api, obsolete_envs, dry_run=args.dry_run)
+    failures = delete_obsolete_envs(session, api, obsolete_envs, dry_run=args.dry_run)
     if failures:
         print(f"{failures} deletion(s) failed.", file=sys.stderr)
         return 1
