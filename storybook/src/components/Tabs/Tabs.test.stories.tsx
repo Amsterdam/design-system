@@ -71,6 +71,6 @@ export const Test: Story = {
     await expect(canvas.getByTestId('aanslagen-panel')).toBeVisible()
     await expect(gegevensParagraph).not.toBeVisible()
   },
-  render: (args) => renderComponentVariants(Tabs, { args }),
+  render: (args, context) => renderComponentVariants(Tabs, { args }, context),
   tags: ['!dev', '!autodocs'],
 }

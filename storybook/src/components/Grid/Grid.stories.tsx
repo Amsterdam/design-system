@@ -69,6 +69,14 @@ const CellStoryTemplate: CellStory = {
 
 export const Default: Story = {
   ...StoryTemplate,
+  args: {
+    ...StoryTemplate.args,
+    children: [
+      <Grid.Cell className="_ams-item" key={1} span="all" />,
+      <Grid.Cell className="_ams-item" key={2} span={{ narrow: 4, medium: 4, wide: 8 }} />,
+      <Grid.Cell className="_ams-item" key={3} span={4} />,
+    ],
+  },
 }
 
 export const VerticalPadding: Story = {

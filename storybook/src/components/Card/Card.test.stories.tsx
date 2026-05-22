@@ -23,7 +23,7 @@ export const Test: Story = {
     <Card
       {...args}
       style={{
-        maxWidth: '24rem',
+        maxInlineSize: '24rem',
       }}
     >
       <Card.Image alt="" aspectRatio="4:3" src="https://picsum.photos/id/122/1280/720" />

@@ -13,3 +13,7 @@ Text in the list items is indented by a fixed distance.
 Items of an unordered list have square markers.
 There is extra white space between the items.
 This provides better distinction between the items, especially when they consist of multiple lines of text.
+
+## Guidelines
+
+- Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
