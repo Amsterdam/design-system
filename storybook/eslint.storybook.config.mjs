@@ -11,21 +11,24 @@ export default [
   // React (Storybook is React code)
   {
     name: 'amsterdam-design-system/storybook-react',
-    files: ['storybook/**/*.{js,jsx,ts,tsx}'],
+
     extends: [reactPreset],
+    files: ['storybook/**/*.{js,jsx,ts,tsx}'],
   },
 
   // MDX
   {
-    name: 'amsterdam-design-system/mdx',
     ...mdx.flat,
+    name: 'amsterdam-design-system/mdx',
+
     processor: mdx.createRemarkProcessor({
       lintCodeBlocks: true,
     }),
   },
   {
-    name: 'amsterdam-design-system/mdx-flat-code-block',
     ...mdx.flatCodeBlocks,
+    name: 'amsterdam-design-system/mdx-flat-code-block',
+
     rules: {
       ...mdx.flatCodeBlocks.rules,
       'react/jsx-no-undef': 'off',

@@ -79,7 +79,7 @@ export const coreRules = {
 export const baselineRules = {
   'baseline-js/use-baseline': [
     'error',
-    { available: 'widely', includeWebApis: { preset: 'type-aware' }, includeJsBuiltins: { preset: 'type-aware' } },
+    { available: 'widely', includeJsBuiltins: { preset: 'type-aware' }, includeWebApis: { preset: 'type-aware' } },
   ],
 }
 
@@ -87,8 +87,8 @@ export const baselineRules = {
 export const importRules = {
   'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
   'import-x/newline-after-import': 'error',
-  'import-x/no-named-as-default': 'warn',
   'import-x/no-cycle': 'warn',
+  'import-x/no-named-as-default': 'warn',
 }
 
 /* Perfectionist groups for component-prop sizes (small/medium/large/etc.). Shared between
@@ -97,34 +97,34 @@ export const importRules = {
 const perfectionistCustomSizesGroups = {
   customGroups: [
     {
+      elementNamePattern: '^(x-small|xs)$',
       groupName: 'x-small',
       selector: 'property',
-      elementNamePattern: '^(x-small|xs)$',
     },
     {
+      elementNamePattern: '^(small|s|narrow|phone|min|start)$',
       groupName: 'small',
       selector: 'property',
-      elementNamePattern: '^(small|s|narrow|phone|min|start)$',
     },
     {
+      elementNamePattern: '^(medium|m|tablet)$',
       groupName: 'medium',
       selector: 'property',
-      elementNamePattern: '^(medium|m|tablet)$',
     },
     {
+      elementNamePattern: '^(large|l|wide|desktop|max|end)$',
       groupName: 'large',
       selector: 'property',
-      elementNamePattern: '^(large|l|wide|desktop|max|end)$',
     },
     {
+      elementNamePattern: '^(x-large|xl)$',
       groupName: 'x-large',
       selector: 'property',
-      elementNamePattern: '^(x-large|xl)$',
     },
     {
+      elementNamePattern: '^(2x-large|2xl)$',
       groupName: '2x-large',
       selector: 'property',
-      elementNamePattern: '^(2x-large|2xl)$',
     },
   ],
   groups: ['x-small', 'small', 'medium', 'large', 'x-large', '2x-large'],
@@ -148,6 +148,7 @@ export const perfectionistRules = {
       type: 'natural',
     },
   ],
+  'perfectionist/sort-modules': 'off', // This impacts readability in a negative way. We want to decide the order of modules ourselves.
   'perfectionist/sort-object-types': ['error', perfectionistCustomSizesGroups],
   'perfectionist/sort-objects': [
     'error',
@@ -155,19 +156,19 @@ export const perfectionistRules = {
     {
       customGroups: [
         {
+          elementNamePattern: '^title$',
           groupName: 'title',
           selector: 'property',
-          elementNamePattern: '^title$',
         },
         {
+          elementNamePattern: '^component$',
           groupName: 'component',
           selector: 'property',
-          elementNamePattern: '^component$',
         },
       ],
       groups: ['title', 'component'],
+      partitionByNewLine: true,
     },
   ],
-  'perfectionist/sort-modules': 'off', // This impacts readability in a negative way. We want to decide the order of modules ourselves.
   'perfectionist/sort-union-types': 'off', // This causes more issues than it solves
 }
