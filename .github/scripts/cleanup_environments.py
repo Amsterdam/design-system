@@ -85,6 +85,19 @@ def build_session(token: str) -> requests.Session:
     return session
 
 
+def validate_inputs(stale_days: int) -> None:
+    if stale_days < 0:
+        raise ValueError("--stale-days must be a non-negative integer.")
+
+
+def fetch_repo_state(session: requests.Session, api: str) -> tuple[set[str], list[dict]]:
+    branch_short_names = fetch_branch_short_names(session, api)
+    if not branch_short_names:
+        raise RuntimeError("branch list came back empty - refusing to proceed.")
+    envs = fetch_environments(session, api)
+    return branch_short_names, envs
+
+
 def select_obsolete(
     envs: list[dict],
     branch_short_names: set[str],
@@ -103,6 +116,19 @@ def select_obsolete(
             continue
         selected.append((name, updated_at))
     return selected
+
+
+def enforce_delete_cap(
+    to_delete: list[tuple[str, datetime.datetime | None]],
+    *,
+    i_really_mean_it: bool,
+) -> None:
+    if len(to_delete) <= MAX_DELETES or i_really_mean_it:
+        return
+    raise RuntimeError(
+        f"would delete {len(to_delete)} environments (cap is {MAX_DELETES}). "
+        "Re-run with --i-really-mean-it to override."
+    )
 
 
 def delete_environments(
@@ -144,38 +170,42 @@ def main() -> int:
     )
     args = parser.parse_args()
 
+    try:
+        validate_inputs(args.stale_days)
+    except ValueError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 2
+
     repo = os.environ["REPO"]
     api = f"https://api.github.com/repos/{repo}"
     session = build_session(os.environ["GITHUB_TOKEN"])
 
-    branch_short_names = fetch_branch_short_names(session, api)
-    if not branch_short_names:
-        # Defensive: an empty set would mark every demo-* env as obsolete.
-        print("ERROR: branch list came back empty — refusing to proceed.", file=sys.stderr)
+    try:
+        branch_short_names, envs = fetch_repo_state(session, api)
+    except RuntimeError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
         return 2
 
-    to_delete = select_obsolete(
-        fetch_environments(session, api),
+    obsolete_envs = select_obsolete(
+        envs,
         branch_short_names,
         args.stale_days,
         datetime.datetime.now(datetime.timezone.utc),
     )
 
-    if not to_delete:
+    if not obsolete_envs:
         print("No environments to delete.")
         return 0
 
-    if len(to_delete) > MAX_DELETES and not args.i_really_mean_it:
-        print(
-            f"ERROR: would delete {len(to_delete)} environments (cap is {MAX_DELETES}). "
-            "Re-run with --i-really-mean-it to override.",
-            file=sys.stderr,
-        )
-        for name, _ in to_delete:
+    try:
+        enforce_delete_cap(obsolete_envs, i_really_mean_it=args.i_really_mean_it)
+    except RuntimeError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        for name, _ in obsolete_envs:
             print(f"  - {name}", file=sys.stderr)
         return 2
 
-    failures = delete_environments(session, api, to_delete, dry_run=args.dry_run)
+    failures = delete_environments(session, api, obsolete_envs, dry_run=args.dry_run)
     if failures:
         print(f"{failures} deletion(s) failed.", file=sys.stderr)
         return 1

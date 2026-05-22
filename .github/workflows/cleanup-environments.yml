@@ -22,6 +22,10 @@ on:
         description: "Only delete environments not updated in this many days (0 = ignore age)."
         required: false
         default: "0"
+      i_really_mean_it:
+        description: "Allow deleting more than MAX_DELETES environments in one run."
+        required: false
+        default: "false"
   schedule:
     - cron: "0 4 * * 0" # Every Sunday at 04:00 UTC
 
@@ -67,4 +71,5 @@ jobs:
         run: |
           python .github/scripts/cleanup_environments.py \
             ${{ (github.event.inputs.dry_run == 'false') && '--no-dry-run' || '--dry-run' }} \
-            --stale-days "${{ github.event.inputs.stale_days || '14' }}"
+            --stale-days "${{ github.event.inputs.stale_days || '14' }}" \
+            ${{ (github.event.inputs.i_really_mean_it == 'true') && '--i-really-mean-it' || '' }}
