@@ -55,7 +55,6 @@ export default defineConfig([
     settings: {
       'import-x/resolver': {
         typescript: true,
-        node: { extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'] },
       },
     },
     rules: {
