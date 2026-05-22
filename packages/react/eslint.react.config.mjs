@@ -1,6 +1,6 @@
 import react from 'eslint-plugin-react'
 
-/* `The unscoped React ruleset. Other packages that ship React code apply it to their own globs. */
+/* The unscoped React ruleset. Other packages that ship React code apply it to their own globs. */
 export const reactPreset = {
   plugins: { react },
   settings: {
