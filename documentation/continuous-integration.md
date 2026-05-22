@@ -29,7 +29,7 @@ We have used [pin-github-action](https://www.npmjs.com/package/pin-github-action
 Use this command to get the correct format:
 
 ```sh
-npx pin-github-action -c " {ref}" /path/to/workflow.yaml
+pnx pin-github-action -c " {ref}" /path/to/workflow.yaml
 ```
 
 ### Further reading

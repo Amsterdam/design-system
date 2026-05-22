@@ -49,6 +49,10 @@ jobs:
         if: ${{ steps.release.outputs.releases_created == 'true' }}
         run: pnpm install --frozen-lockfile
 
+      - name: Build packages
+        if: ${{ steps.release.outputs.releases_created == 'true' }}
+        run: pnpm --filter=!storybook -r run build
+
       # Reset any tree modifications from earlier steps so pnpm's git checks
       # pass without us having to disable them with --no-git-checks.
       - name: Reset working tree before publish
