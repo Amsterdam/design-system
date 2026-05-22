@@ -48,7 +48,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build workspace packages
+      - name: Build packages and Storybook
         env:
           STORYBOOK_BUILD_PATH: demo-${{ env.BRANCH_NAME }}
         run: pnpm build

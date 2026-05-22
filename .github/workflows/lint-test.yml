@@ -48,8 +48,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build workspace packages
-        run: pnpm build
+      - name: Build packages
+        run: pnpm --filter=!storybook -r run build
 
       - name: "Continuous Integration: lint"
         run: |

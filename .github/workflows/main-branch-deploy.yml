@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build workspace packages
+      - name: Build packages and Storybook
         run: pnpm build
 
       - name: Deploy to GitHub Pages
