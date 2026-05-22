@@ -64,120 +64,32 @@ jobs:
       I_REALLY_MEAN_IT: ${{ github.event.inputs.i_really_mean_it || 'false' }}
       MAX_DELETES: "25"
     steps:
+      - name: Check out cleanup scripts from workflow ref
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          sparse-checkout: .github/scripts
+          sparse-checkout-cone-mode: false
+          path: workflow-src
+
       - name: Check out gh-pages branch
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: gh-pages
+          path: gh-pages
 
       - name: Configure git
         run: |
+          cd gh-pages
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Remove stale demo directories
         run: |
-          set -euo pipefail
-          shopt -s nullglob
-
-          # Mirror the transformation feature-branch-deploy.yml applies:
-          # take each remote branch and strip everything up to and including
-          # the first '/'. The result is the directory suffix used in `demo-*`.
-          #
-          # NOTE: `mapfile < <(...)` does NOT propagate failures from a
-          # process substitution under `set -e`. Running `git ls-remote` into
-          # a tempfile first ensures that an auth/network failure on the
-          # remote fetch aborts the job. A failure inside the downstream
-          # awk|sed pipeline is still swallowed by mapfile, but the empty-list
-          # guard below catches the worst case (deleting every demo-*).
-          ls_remote_out="$(mktemp)"
-          trap 'rm -f "$ls_remote_out"' EXIT
-          git ls-remote --heads origin > "$ls_remote_out"
-
-          mapfile -t active_short_names < <(
-            awk '{print $2}' "$ls_remote_out" \
-              | sed -E 's|^refs/heads/||; s|^[^/]*/||'
-          )
-
-          if [ "${#active_short_names[@]}" -eq 0 ]; then
-            echo "ERROR: remote branch list is empty — refusing to proceed." >&2
-            exit 2
-          fi
-
-          case "$STALE_DAYS" in
-            ''|*[!0-9]*)
-              echo "ERROR: stale_days must be a non-negative integer, got '$STALE_DAYS'." >&2
-              exit 2
-              ;;
-          esac
-
-          case "$MAX_DELETES" in
-            ''|*[!0-9]*)
-              echo "ERROR: MAX_DELETES must be a non-negative integer, got '$MAX_DELETES'." >&2
-              exit 2
-              ;;
-          esac
-
-          case "$I_REALLY_MEAN_IT" in
-            true|false)
-              ;;
-            *)
-              echo "ERROR: i_really_mean_it must be 'true' or 'false', got '$I_REALLY_MEAN_IT'." >&2
-              exit 2
-              ;;
-          esac
-
-          now_epoch="$(date +%s)"
-          to_delete=()
-
-          for dir in demo-*/; do
-            dir="${dir%/}"
-            short_name="${dir#demo-}"
-            if printf '%s\n' "${active_short_names[@]}" | grep -Fxq -- "$short_name"; then
-              continue
-            fi
-
-            if [ "$STALE_DAYS" -gt 0 ]; then
-              updated_epoch="$(git log -1 --format=%ct -- "$dir" 2>/dev/null || true)"
-              if [ -z "$updated_epoch" ]; then
-                echo "Skipping stale demo with unknown updated time (age filter active): $dir"
-                continue
-              fi
-              age_days="$(( (now_epoch - updated_epoch) / 86400 ))"
-              if [ "$age_days" -lt "$STALE_DAYS" ]; then
-                echo "Skipping stale demo updated ${age_days} day(s) ago (< ${STALE_DAYS}): $dir"
-                continue
-              fi
-            fi
-
-            to_delete+=("$dir")
-          done
-
-          if [ "${#to_delete[@]}" -eq 0 ]; then
-            echo "No stale demo directories to remove."
-            exit 0
-          fi
-
-          if [ "${#to_delete[@]}" -gt "$MAX_DELETES" ] && [ "$I_REALLY_MEAN_IT" != "true" ]; then
-            echo "ERROR: would delete ${#to_delete[@]} directories (cap is ${MAX_DELETES})." >&2
-            echo "Re-run with i_really_mean_it=true to override." >&2
-            for dir in "${to_delete[@]}"; do
-              echo "  - ${dir}" >&2
-            done
-            exit 2
-          fi
-
-          for dir in "${to_delete[@]}"; do
-            short_name="${dir#demo-}"
-            if [ "$DRY_RUN" = "true" ]; then
-              echo "[DRY RUN] Would delete stale demo: $dir (no active branch matches '$short_name')"
-              continue
-            fi
-            echo "Deleting stale demo: $dir (no active branch matches '$short_name')"
-            git rm -rq "$dir"
-          done
+          bash workflow-src/.github/scripts/cleanup_gh_pages_demos.sh gh-pages
 
       - name: Commit and push if any directories were removed
         run: |
+          cd gh-pages
           if [ "$DRY_RUN" = "true" ]; then
             echo "[DRY RUN] Skipping commit and push."
             exit 0
