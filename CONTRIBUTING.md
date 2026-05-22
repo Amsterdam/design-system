@@ -172,7 +172,7 @@ To enable correct validation and to fix lint/style errors on save, add this to y
 - Build workspace packages: `pnpm build`
 - Run storybook: `pnpm start`
 
-Re-run `pnpm build` after pulling source changes — `pnpm install` is a no-op when the lockfile is unchanged, so it will not rebuild `dist/` for you.
+After pulling updates that include source changes, run `pnpm build` again to rebuild the packages.
 
 ### Run unit tests
 
