@@ -12,6 +12,5 @@ With a Menu, that becomes 120 rems (1.920 pixels).
 ## Guidelines
 
 - As a root layout component, it must be used for all websites for the City of Amsterdam.
-- Page provides a [CSS container query](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries) context, so components can adapt their appearance to its inline size.
-  Because Page has a maximum width, container queries are more accurate than [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries) here — they reflect the actual available space rather than the viewport width.
-  Container query contexts nest: a querying component typically matches the nearest ancestor context first, e.g. a [Grid Cell](/docs/components-layout-grid--docs). Page acts as the outermost catch-all.
+- Components placed inside Page can adapt their layout to the width of the Page itself, rather than the width of the browser window.
+  This uses a [CSS container query](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries).
