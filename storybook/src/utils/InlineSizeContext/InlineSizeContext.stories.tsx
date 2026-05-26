@@ -26,14 +26,14 @@ export const Default: Story = {
           background-color: var(--ams-color-highlight-yellow);
           padding: 1rem;
 
-          @container ams-inline-size-context (min-inline-size: 300px) {
+          @container ams-inline-size-context (min-inline-size: 20rem) {
             background-color: var(--ams-color-highlight-azure);
           }
         }
       `}</style>
-      <InlineSizeContext className="ams-inline-size-context _ams-resize-horizontal" style={{ inlineSize: '200px' }}>
+      <InlineSizeContext className="ams-inline-size-context _ams-resize-horizontal" style={{ inlineSize: '14rem' }}>
         <div className="ams-inline-size-context-demo">
-          <Paragraph>Below 300 px, the background is yellow. At 300 px and above, it is azure.</Paragraph>
+          <Paragraph>Below 20 rem, the background is yellow. At 20 rem and above, it is azure.</Paragraph>
         </div>
       </InlineSizeContext>
     </>
