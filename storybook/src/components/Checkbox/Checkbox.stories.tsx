@@ -4,7 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { MouseEvent as ReactMouseEvent } from 'react'
+import type { MouseEvent } from 'react'
 
 import { Column, ErrorMessage, FieldSet, Paragraph } from '@amsterdam/design-system-react'
 import { Checkbox } from '@amsterdam/design-system-react/src'
@@ -45,7 +45,7 @@ const meta = {
   render: (args) => {
     const [, setArgs] = useArgs()
 
-    const handleClick = (event: ReactMouseEvent<HTMLInputElement>) => {
+    const handleClick = (event: MouseEvent<HTMLInputElement>) => {
       setArgs({ checked: event.currentTarget.checked })
     }
 

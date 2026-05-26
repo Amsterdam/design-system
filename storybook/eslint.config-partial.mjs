@@ -1,7 +1,7 @@
 import * as mdx from 'eslint-plugin-mdx'
 import storybook from 'eslint-plugin-storybook'
 
-import { reactPreset } from '../packages/react/eslint.config.mjs'
+import { reactPreset } from '../packages/react/eslint.config-partial.mjs'
 
 /* Imported and spread by the root `eslint.config.mjs`.
  * MDX lives here because every `.mdx` file in the repo is a Storybook doc — the plugin's
@@ -18,15 +18,17 @@ export default [
 
   // MDX
   {
-    name: 'amsterdam-design-system/mdx',
     ...mdx.flat,
+    name: 'amsterdam-design-system/mdx',
+
     processor: mdx.createRemarkProcessor({
       lintCodeBlocks: true,
     }),
   },
   {
-    name: 'amsterdam-design-system/mdx-flat-code-block',
     ...mdx.flatCodeBlocks,
+    name: 'amsterdam-design-system/mdx-flat-code-block',
+
     rules: {
       ...mdx.flatCodeBlocks.rules,
       'react/jsx-no-undef': 'off',
