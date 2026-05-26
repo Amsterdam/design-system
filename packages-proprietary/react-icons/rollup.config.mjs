@@ -16,24 +16,24 @@ export default {
     {
       file: packageJson.main,
       format: 'cjs',
-      sourcemap: true,
       globals: outputGlobals,
+      sourcemap: true,
     },
     {
       file: packageJson.module,
       format: 'esm',
-      sourcemap: true,
       globals: outputGlobals,
+      sourcemap: true,
     },
   ],
   plugins: [
     peerDepsExternal(),
     resolve(),
     typescript({
-      includeDependencies: false,
       // Disables rpt2’s incremental cache to avoid an ENOENT race when multiple packages build in parallel
       // and rpt2 tries to rename its cache directory. Without this the build fails non-deterministically.
       clean: true,
+      includeDependencies: false,
     }),
   ],
 }
