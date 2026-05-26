@@ -5,6 +5,7 @@
 
 import type { SearchFieldProps } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { ChangeEvent } from 'react'
 
 import { SearchField } from '@amsterdam/design-system-react/src'
 import { useArgs } from 'storybook/preview-api'
@@ -13,6 +14,7 @@ type InputProps = {
   invalid?: boolean
   label?: string
   placeholder?: string
+  value?: string
 }
 
 type StoryProps = InputProps & SearchFieldProps
@@ -57,14 +59,14 @@ export const WithPlaceholder: Story = {
   },
 }
 
-export const Controlled: any = {
+export const Controlled: Story = {
   args: {
     value: '',
   },
   render: function Component({ invalid, label, placeholder }: InputProps) {
     const [args, setArgs] = useArgs()
 
-    const onValueChange = (event: any) => {
+    const onValueChange = (event: ChangeEvent<HTMLInputElement>) => {
       setArgs({ value: event.target.value })
     }
 
@@ -75,7 +77,7 @@ export const Controlled: any = {
           const formData = new FormData(e.currentTarget)
           const value = formData.get('search-box')
           // search actions should not be triggered without a value
-          if (value) {
+          if (typeof value === 'string' && value.trim()) {
             // eslint-disable-next-line no-alert
             alert(`Gezocht op '${value}'`)
           }
