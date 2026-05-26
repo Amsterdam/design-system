@@ -1,3 +1,5 @@
+# @license EUPL-1.2+
+# Copyright Gemeente Amsterdam
 """Delete obsolete `demo-*` GitHub Environments for a repo.
 
 A `demo-X` environment is obsolete when no remote branch matches `X` after

@@ -1,3 +1,6 @@
+# @license EUPL-1.2+
+# Copyright Gemeente Amsterdam
+
 # GitHub Actions workflow to clean up obsolete `demo-*` GitHub Environments.
 # Runs on a weekly schedule and can be triggered manually.
 #

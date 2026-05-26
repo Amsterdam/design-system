@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+#
+# @license EUPL-1.2+
+# Copyright Gemeente Amsterdam
+
 set -euo pipefail
 shopt -s nullglob
 
