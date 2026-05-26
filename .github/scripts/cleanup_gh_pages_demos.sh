@@ -138,10 +138,12 @@ select_obsolete_dirs_recursive() {
 
 select_obsolete_dirs() {
   local dir
+  local leaf
   for dir in "$TARGET_DIR"/"$DEMO_PREFIX"*/; do
     [ -d "$dir" ] || continue
     dir="${dir%/}"
-    select_obsolete_dirs_recursive "${dir#"$TARGET_DIR"/}" "${dir##*/$DEMO_PREFIX}"
+    leaf="${dir##*/}"
+    select_obsolete_dirs_recursive "${dir#"$TARGET_DIR"/}" "${leaf#"$DEMO_PREFIX"}"
   done
 }
 
