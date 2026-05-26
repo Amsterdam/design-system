@@ -38,7 +38,7 @@
         }
       },
       "container-name": {
-        "$value": "ams-dialog-containment-context ams-inline-size-context"
+        "$value": "ams-inline-size-context"
       },
       "container-type": {
         "$value": "inline-size"
