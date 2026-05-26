@@ -25,6 +25,7 @@ export const SortingWithSelect: StoryObj = {
         </Grid.Cell>
         <Grid.Cell span="all">
           <form
+            className="ams-mb-m"
             onSubmit={(e) => {
               e.preventDefault()
               const url = new URL(window.location.href)

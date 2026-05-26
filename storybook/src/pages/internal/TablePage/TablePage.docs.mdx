@@ -21,3 +21,17 @@ https://yourapp.amsterdam.nl/some-table-page?status=4&sort=name-asc&page-size=20
 ```
 
 This is why we use links and forms for table controls rather than buttons.
+
+## Sort and filter controls
+
+Place sort and filter controls in a row above the table, not inside the `<caption>`.
+The `<caption>` element provides the table’s accessible name, and its full subtree is part of that name: a `<select>` placed there would have its current value concatenated into the name on every announcement.
+`aria-describedby` does not override this – only the name itself does, and overriding a table’s name via ARIA risks browsers exposing it as a layout table.
+
+Two layouts are supported, both shown on this page:
+
+- **Sorting With Select** keeps the heading inside `<caption>` and renders the controls in a separate row above the table.
+  Use this when the heading may sit directly above the table.
+- **Sorting With Inline Select** places the heading and the controls in one visual row above the table, with a visually hidden `<caption>` carrying the heading text for the accessible name.
+  Use this when a single line with the heading on the start and the controls on the end is the preferred layout.
+  The heading text is duplicated for assistive technology; this is the trade-off for that visual.
