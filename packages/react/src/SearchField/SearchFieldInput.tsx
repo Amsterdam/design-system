@@ -20,7 +20,8 @@ export const SearchFieldInput = forwardRef(
     { className, dir, id, invalid, label = 'Zoeken', ...restProps }: SearchFieldInputProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
-    const inputId = id ?? useId()
+    const generatedId = useId()
+    const inputId = id ?? generatedId
 
     return (
       <>

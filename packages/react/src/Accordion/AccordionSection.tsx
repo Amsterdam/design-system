@@ -7,7 +7,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useContext, useEffect, useId, useState } from 'react'
+import { forwardRef, useContext, useEffect, useId, useRef, useState } from 'react'
 
 import type { IconProps } from '../Icon'
 
@@ -35,8 +35,10 @@ export const AccordionSection = forwardRef(
     const { headingLevel, sectionAs } = useContext(AccordionContext)
     const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? expanded ?? false)
 
+    // The deprecation warning fires once with the value passed on mount, so we read it through a ref to keep the effect dependency-free.
+    const initialExpandedRef = useRef(expanded)
     useEffect(() => {
-      if (expanded !== undefined) {
+      if (initialExpandedRef.current !== undefined) {
         console.warn('Accordion.Section: The `expanded` prop is deprecated. Use `defaultExpanded` instead.')
       }
     }, [])

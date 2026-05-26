@@ -6,7 +6,7 @@
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef, useEffect, useMemo, useState } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 
 import { TabsButton } from './TabsButton'
 import { TabsContext } from './TabsContext'
@@ -24,8 +24,9 @@ const TabsRoot = forwardRef(
   ({ activeTab, children, className, onTabChange, ...restProps }: TabsProps, ref: ForwardedRef<HTMLDivElement>) => {
     const [activeTabId, setActiveTabId] = useState<string>()
 
-    // Get all tab ids from TabsButtons on first render
-    const allTabIds = useMemo(() => {
+    // Get all tab ids from TabsButtons on first render. The lazy `useState` initializer
+    // captures `children` once on mount; later changes to `children` are intentionally ignored.
+    const [allTabIds] = useState<string[]>(() => {
       if (!Array.isArray(children)) return []
 
       // The first child of Tabs should be TabsList
@@ -46,7 +47,7 @@ const TabsRoot = forwardRef(
 
       // If there are no children, return an empty array
       return []
-    }, [])
+    })
 
     useEffect(() => {
       if (!activeTab) {
