@@ -3,7 +3,10 @@ import reactHooks from 'eslint-plugin-react-hooks'
 
 /* `The unscoped React ruleset. Other packages that ship React code apply it to their own globs. */
 export const reactPreset = {
-  plugins: { react, 'react-hooks': reactHooks },
+  plugins: {
+    react,
+    'react-hooks': reactHooks,
+  },
   rules: {
     ...react.configs.recommended.rules,
     ...reactHooks.configs.recommended.rules,
