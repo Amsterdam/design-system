@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { useEffect, useState } from 'react'
+import { useCallback, useSyncExternalStore } from 'react'
 
 // TODO: we should set the breakpoint in JS somewhere and render this and the sass variables from that
 export const BREAKPOINTS = {
@@ -25,25 +25,25 @@ type Breakpoint = keyof typeof BREAKPOINTS
  * @returns `true` if the viewport width meets or exceeds the breakpoint, `false` otherwise.
  */
 const useViewportHasMinWidth = (breakpoint: Breakpoint) => {
-  const [matches, setMatches] = useState(false)
+  const query = `(min-width: ${BREAKPOINTS[breakpoint]})`
 
-  useEffect(() => {
-    // Check for window object to avoid SSR issues
-    if (typeof window === 'undefined') return undefined
+  const subscribe = useCallback(
+    (callback: () => void) => {
+      if (typeof window === 'undefined') return () => {}
+      const media = window.matchMedia(query)
+      media.addEventListener('change', callback)
+      return () => media.removeEventListener('change', callback)
+    },
+    [query],
+  )
 
-    const query = `(min-width: ${BREAKPOINTS[breakpoint]})`
-    const media = window.matchMedia(query)
-    const listener = () => setMatches(media.matches)
+  const getSnapshot = useCallback(() => {
+    if (typeof window === 'undefined') return false
+    return window.matchMedia(query).matches
+  }, [query])
 
-    // Set initial state
-    setMatches(media.matches)
-
-    media.addEventListener('change', listener)
-
-    return () => media.removeEventListener('change', listener)
-  }, [breakpoint])
-
-  return matches
+  // SSR snapshot: assume the viewport does not match — components render their default state on the server
+  return useSyncExternalStore(subscribe, getSnapshot, () => false)
 }
 
 export default useViewportHasMinWidth
