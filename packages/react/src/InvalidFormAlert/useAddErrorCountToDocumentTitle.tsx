@@ -17,21 +17,26 @@ export const useAddErrorCountToDocumentTitle = (
   const originalTitleRef = useRef<string | null>(null)
 
   useEffect(() => {
-    // Capture the title we found on mount so we can restore it on unmount.
     originalTitleRef.current ??= document.title
-    const originalTitle = originalTitleRef.current
-
-    if (errors.length === 1) {
-      document.title = `(${errors.length} ${label.singular}) ${originalTitle}`
-    } else if (errors.length > 1) {
-      document.title = `(${errors.length} ${label.plural}) ${originalTitle}`
-    } else {
-      document.title = originalTitle
-    }
 
     return () => {
-      document.title = originalTitle
+      if (originalTitleRef.current === null) return
+
+      document.title = originalTitleRef.current
     }
+  }, [])
+
+  useEffect(() => {
+    const originalTitle = originalTitleRef.current ?? document.title
+    let nextTitle = originalTitle
+
+    if (errors.length === 1) {
+      nextTitle = `(${errors.length} ${label.singular}) ${originalTitle}`
+    } else if (errors.length > 1) {
+      nextTitle = `(${errors.length} ${label.plural}) ${originalTitle}`
+    }
+
+    document.title = nextTitle
   }, [errors.length, label.plural, label.singular])
 
   return null
