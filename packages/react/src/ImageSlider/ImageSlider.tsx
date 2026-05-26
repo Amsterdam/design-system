@@ -74,12 +74,14 @@ export const ImageSlider = forwardRef(
     }, [])
 
     useEffect(() => {
+      if (images.length === 0) return undefined
+
       const handleResize = debounce(() => scrollToCurrentSlideOnResize({ currentSlideId, ref: scrollerRef }), 100)
 
       window.addEventListener('resize', handleResize)
 
       return () => window.removeEventListener('resize', handleResize)
-    }, [currentSlideId])
+    }, [currentSlideId, images.length])
 
     if (images.length === 0) return null
 
