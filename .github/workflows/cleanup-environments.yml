@@ -23,7 +23,7 @@ on:
         required: false
         default: "0"
       i_really_mean_it:
-        description: "Allow deleting more than MAX_DELETES environments in one run."
+        description: "Allow deleting more than 25 environments in one run."
         required: false
         default: "false"
   schedule:

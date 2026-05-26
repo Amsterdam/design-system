@@ -19,8 +19,8 @@
 # Python cleanup script: directories updated more recently than `stale_days` are
 # kept. `0` disables age filtering.
 #
-# Safety guard: if more than MAX_DELETES stale demo directories are selected,
-# the job aborts unless `i_really_mean_it=true` is provided for manual runs.
+# Safety guard: if more than 25 stale demo directories are selected, the job
+# aborts unless `i_really_mean_it=true` is provided for manual runs.
 
 name: Cleanup stale demo directories from gh-pages
 
@@ -36,7 +36,7 @@ on:
         required: false
         default: "0"
       i_really_mean_it:
-        description: "Allow deleting more than MAX_DELETES directories in one run."
+        description: "Allow deleting more than 25 directories in one run."
         required: false
         default: "false"
   release:
@@ -63,7 +63,6 @@ jobs:
       DRY_RUN: ${{ github.event_name == 'release' && 'false' || github.event.inputs.dry_run || 'true' }}
       STALE_DAYS: ${{ github.event.inputs.stale_days || '0' }}
       I_REALLY_MEAN_IT: ${{ github.event.inputs.i_really_mean_it || 'false' }}
-      MAX_DELETES: "25"
     steps:
       - name: Check out cleanup scripts from workflow ref
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
