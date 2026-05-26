@@ -13,4 +13,4 @@ Turns an element into a [CSS container query](https://developer.mozilla.org/en-U
 - Apply this class to an element whose width should drive the layout of its descendants.
 - Descendants can then adapt responsively using `@container ams-inline-size-context (min-inline-size: …)`, instead of `@media (min-width: …)`.
 - [Page](/docs/components-containers-page--docs), [Grid Cell](/docs/components-layout-grid--docs), and [Dialog](/docs/components-containers-dialog--docs) already establish this context, so you don’t need the utility class on those components.
-- Override the default container name or type through the `--ams-inline-size-context-name` and `--ams-inline-size-context-type` custom properties if you need a component-specific container name.
+- Override the default container name or type with the `--ams-inline-size-context-name` and `--ams-inline-size-context-type` custom properties if you need a component-specific container name.
