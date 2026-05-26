@@ -15,7 +15,8 @@ export type SwitchProps = PropsWithChildren<InputHTMLAttributes<HTMLInputElement
  */
 export const Switch = forwardRef(
   ({ className, id, ...restProps }: SwitchProps, ref: ForwardedRef<HTMLInputElement>) => {
-    const inputId = id || useId()
+    const generatedId = useId()
+    const inputId = id || generatedId
 
     return (
       <div className={clsx('ams-switch', className)}>
