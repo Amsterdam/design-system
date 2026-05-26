@@ -16,3 +16,4 @@ allowBuilds:
   "@parcel/watcher": false
   esbuild: false
   style-dictionary: false
+  unrs-resolver: true

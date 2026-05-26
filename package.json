@@ -26,7 +26,7 @@
     "clean:dist": "pnpm -r run clean:dist",
     "lint": "pnpm run --aggregate-output '/^lint:.+$/' && pnpm -r --no-bail run lint",
     "lint:css": "stylelint --allow-empty-input --report-needless-disables '**/*.{css,scss}'",
-    "lint:js": "eslint . --report-unused-disable-directives",
+    "lint:js": "eslint .",
     "lint:package-json": "npmPkgJsonLint **/package.json",
     "lint:package-lock": "pnpm ls --recursive",
     "lint-fix": "pnpm run --aggregate-output '/^lint-fix:.+$/' && pnpm run prettier",
@@ -56,12 +56,10 @@
     "baseline-browser-mapping": "2.10.30",
     "eslint": "9.39.4",
     "eslint-config-prettier": "10.1.8",
+    "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-baseline-js": "0.6.2",
-    "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-mdx": "3.7.0",
+    "eslint-plugin-import-x": "4.16.2",
     "eslint-plugin-perfectionist": "5.9.0",
-    "eslint-plugin-react": "7.37.5",
-    "eslint-plugin-storybook": "10.4.0",
     "globals": "17.6.0",
     "husky": "9.1.7",
     "lint-staged": "17.0.5",
@@ -76,7 +74,6 @@
     "stylelint-plugin-use-baseline": "1.4.2",
     "stylelint-use-logical": "2.1.3",
     "stylelint-value-no-unknown-custom-properties": "6.1.1",
-    "typescript": "5.9.3",
-    "typescript-eslint": "8.59.3"
+    "typescript": "5.9.3"
   }
 }
