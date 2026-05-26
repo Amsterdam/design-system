@@ -12,5 +12,4 @@ With a Menu, that becomes 120 rems (1.920 pixels).
 ## Guidelines
 
 - As a root layout component, it must be used for all websites for the City of Amsterdam.
-- Components placed inside Page can adapt their layout to the width of the Page itself, rather than the width of the browser window.
-  This uses a [CSS container query](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries).
+- Page is a [query container](/docs/utilities-css-query-container--docs) for inline size, so that elements in it can adapt their appearance to the width of the page rather than that of the browser window.
