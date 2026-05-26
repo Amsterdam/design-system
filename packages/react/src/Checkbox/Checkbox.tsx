@@ -32,7 +32,8 @@ export const Checkbox = forwardRef(
     { children, className, icon = CheckboxIcon, id, indeterminate, invalid, ...restProps }: CheckboxProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
-    const inputId = id || useId()
+    const generatedId = useId()
+    const inputId = id || generatedId
     const innerRef = useRef<HTMLInputElement>(null)
 
     // use a passed ref if it's there, otherwise use innerRef

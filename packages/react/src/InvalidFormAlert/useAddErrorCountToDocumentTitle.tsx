@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 export const useAddErrorCountToDocumentTitle = (
   /** The list of error messages used to calculate the error count. */
@@ -14,21 +14,30 @@ export const useAddErrorCountToDocumentTitle = (
     singular: 'invoerfout',
   },
 ) => {
-  const [documentTitle, setDocumentTitle] = useState<string>()
+  const originalTitleRef = useRef<string | null>(null)
 
   useEffect(() => {
-    setDocumentTitle(document.title)
+    originalTitleRef.current ??= document.title
+
+    return () => {
+      if (originalTitleRef.current === null) return
+
+      document.title = originalTitleRef.current
+    }
   }, [])
 
-  if (!documentTitle) return null
+  useEffect(() => {
+    const originalTitle = originalTitleRef.current ?? document.title
+    let nextTitle = originalTitle
 
-  if (errors.length === 1) {
-    document.title = `(${errors.length} ${label.singular}) ${documentTitle}`
-  } else if (errors.length > 1) {
-    document.title = `(${errors.length} ${label.plural}) ${documentTitle}`
-  } else {
-    document.title = documentTitle
-  }
+    if (errors.length === 1) {
+      nextTitle = `(${errors.length} ${label.singular}) ${originalTitle}`
+    } else if (errors.length > 1) {
+      nextTitle = `(${errors.length} ${label.plural}) ${originalTitle}`
+    }
+
+    document.title = nextTitle
+  }, [errors.length, label.plural, label.singular])
 
   return null
 }
