@@ -2,29 +2,29 @@
 
 # Query Container
 
-Allows elements to adjust to the size or state of an ancestor container.
+Allows elements to adjust their appearance to the size or state of a containing element.
 
-Container queries are an alternative to media queries.
-They work against a designated parent element rather than the viewport.
-This parent is then the ‘container that can be queried’.
-A child element can then change its appearance based on a characteristic of the container.
+Container queries in CSS are an alternative to media queries.
+They work with a designated ancestor instead of the viewport.
+This is the ‘container that can be queried’.
+Elements can change their appearance based on a characteristic of that container.
 
 ## Class names
 
 One option is currently available:
 
-- `ams-query-container-inline-size` lets descendants query the width of the container.
+- `ams-query-container-inline-size` lets elements query the width of the container.
 
 ## Guidelines
 
 ### Inline size
 
-- In most cases you will not need this class.
-  [Grid Cell](/docs/components-layout-grid--docs), [Dialog](/docs/components-containers-dialog--docs) and [Page](/docs/components-containers-page--docs) are query containers for inline size by default.
-  Because they all use the same container name, container queries reference the nearest of these ancestors.
-  In practice, this works out of the box for most layouts.
-- If an element doesn’t have any of these components as an ancestor, the conditional styles never trigger.
-  To allow the container query to trigger, add this class to an appropriate ancestor:
+- Generally, you won’t need this class.
+  [Grid Cell](/docs/components-layout-grid--docs), [Dialog](/docs/components-containers-dialog--docs) and [Page](/docs/components-containers-page--docs) are default query containers for inline size.
+  Since they all share the same container name, container queries refer to the closest of these ancestors.
+  In practice, almost all elements sit in at least one of these containers.
+- However, if an element lacks any of them, the conditional styles will not activate.
+  To allow the container query to trigger, add this utility class to a suitable ancestor:
 
 ```html
 <div class="ams-query-container-inline-size">

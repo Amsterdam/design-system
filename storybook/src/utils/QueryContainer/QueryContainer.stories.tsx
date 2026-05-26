@@ -22,7 +22,7 @@ export const InlineSize: Story = {
   render: () => (
     <>
       <style>{`
-        ._ams-box-with-background-color {
+        ._ams-colored-box {
           background-color: var(--ams-color-highlight-yellow);
           padding: 1rem;
 
@@ -35,7 +35,7 @@ export const InlineSize: Story = {
         className="ams-query-container-inline-size _ams-resize-horizontal"
         style={{ inlineSize: '16rem' }}
       >
-        <div className="_ams-box-with-background-color">
+        <div className="_ams-colored-box">
           <Paragraph>This yellow background becomes lime if the query container is wider than 20rem.</Paragraph>
         </div>
       </QueryContainer>
