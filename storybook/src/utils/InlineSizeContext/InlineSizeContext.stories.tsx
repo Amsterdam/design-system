@@ -7,30 +7,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Paragraph } from '@amsterdam/design-system-react'
 
-import type { InlineSizeContextProps } from './InlineSizeContext'
-
 import { InlineSizeContext } from './InlineSizeContext'
-
-const render = ({ children }: InlineSizeContextProps) => (
-  <div className="ams-inline-size-context" style={{ maxInlineSize: '24rem' }}>
-    {children}
-  </div>
-)
 
 const meta = {
   title: 'Utilities/CSS/Inline Size Context',
   component: InlineSizeContext,
-  args: {
-    children: (
-      <Paragraph>
-        This Paragraph sits inside an Inline Size Context, which establishes a containment context of type
-        `inline-size`. Descendants can query its inline size:
-        <br />
-        <br />
-        <code>@container ams-inline-size-context (min-inline-size: …)</code>.
-      </Paragraph>
-    ),
-  },
 } satisfies Meta<typeof InlineSizeContext>
 
 export default meta
@@ -38,5 +19,23 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render,
+  render: () => (
+    <>
+      <style>{`
+        .ams-inline-size-context-demo {
+          background-color: var(--ams-color-highlight-yellow);
+          padding: 1rem;
+
+          @container ams-inline-size-context (min-inline-size: 300px) {
+            background-color: var(--ams-color-highlight-azure);
+          }
+        }
+      `}</style>
+      <InlineSizeContext className="ams-inline-size-context _ams-resize-horizontal" style={{ inlineSize: '200px' }}>
+        <div className="ams-inline-size-context-demo">
+          <Paragraph>Below 300 px, the background is yellow. At 300 px and above, it is azure.</Paragraph>
+        </div>
+      </InlineSizeContext>
+    </>
+  ),
 }
