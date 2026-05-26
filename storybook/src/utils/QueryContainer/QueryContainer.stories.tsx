@@ -22,21 +22,21 @@ export const InlineSize: Story = {
   render: () => (
     <>
       <style>{`
-        .ams-query-container-inline-size-demo {
+        ._ams-box-with-background-color {
           background-color: var(--ams-color-highlight-yellow);
           padding: 1rem;
 
           @container ams-query-container-inline-size (min-inline-size: 20rem) {
-            background-color: var(--ams-color-highlight-azure);
+            background-color: var(--ams-color-highlight-lime);
           }
         }
       `}</style>
       <QueryContainer
         className="ams-query-container-inline-size _ams-resize-horizontal"
-        style={{ inlineSize: '14rem' }}
+        style={{ inlineSize: '16rem' }}
       >
-        <div className="ams-query-container-inline-size-demo">
-          <Paragraph>Below 20 rem, the background is yellow. At 20 rem and above, it is azure.</Paragraph>
+        <div className="_ams-box-with-background-color">
+          <Paragraph>This yellow background becomes lime if the query container is wider than 20rem.</Paragraph>
         </div>
       </QueryContainer>
     </>

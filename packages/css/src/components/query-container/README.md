@@ -2,35 +2,42 @@
 
 # Query Container
 
-Turns an element into a query container so descendants can adapt to its size or state with [container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries).
+Allows elements to adjust to the size or state of an ancestor container.
+
+Container queries are an alternative to media queries.
+They work against a designated parent element rather than the viewport.
+This parent is then the ‘container that can be queried’.
+A child element can then change its appearance based on a characteristic of the container.
 
 ## Class names
 
 One option is currently available:
 
-- `ams-query-container-inline-size` – lets descendants query the element’s inline size.
+- `ams-query-container-inline-size` lets descendants query the width of the container.
 
 ## Guidelines
 
 ### Inline size
 
-- In most cases you will not need this class: [Grid Cell](/docs/components-layout-grid--docs), [Dialog](/docs/components-containers-dialog--docs) and ultimately [Page](/docs/components-containers-page--docs) already establish this query container.
-- Apply this class to an element whose width should drive the layout of its descendants.
-- Descendants can then adapt responsively with container queries.
+- In most cases you will not need this class.
+  [Grid Cell](/docs/components-layout-grid--docs), [Dialog](/docs/components-containers-dialog--docs) and [Page](/docs/components-containers-page--docs) are query containers for inline size by default.
+  Because they all use the same container name, container queries reference the nearest of these ancestors.
+  In practice, this works out of the box for most layouts.
+- If an element doesn’t have any of these components as an ancestor, the conditional styles never trigger.
+  To allow the container query to trigger, add this class to an appropriate ancestor:
 
-  ```css
-  .my-component {
-    @container ams-query-container-inline-size (min-inline-size: 40rem) {
-      /* responsive styles */
-    }
+```html
+<div class="ams-query-container-inline-size">
+  <div class="my-component">…</div>
+</div>
+```
+
+```css
+.my-component {
+  /* Base styles that apply at any width. */
+
+  @container ams-query-container-inline-size (min-inline-size: 40rem) {
+    /* Styles to apply if the container is 40rem wide or more. */
   }
-  ```
-
-- Override the default container name or type with custom properties if you need a component-specific container name.
-
-  ```css
-  .ams-query-container-inline-size {
-    --ams-query-container-inline-size-container-name: my-component;
-    --ams-query-container-inline-size-container-type: inline-size;
-  }
-  ```
+}
+```
