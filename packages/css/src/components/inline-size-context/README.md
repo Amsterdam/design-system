@@ -26,7 +26,7 @@ Gives an element a containment context that allows descendants to query its inli
 
   ```css
   .ams-inline-size-context {
-    --ams-inline-size-context-name: my-component;
-    --ams-inline-size-context-type: inline-size;
+    --ams-inline-size-context-container-name: my-component;
+    --ams-inline-size-context-container-type: inline-size;
   }
   ```
