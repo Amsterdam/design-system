@@ -10,10 +10,12 @@
 # same transformation feature-branch-deploy.yml applies when creating these
 # directories.
 #
-# Release-triggered runs force `dry_run=false`. Safety guards still apply and
-# may abort the run (for example: empty branch list or max-delete cap).
-# Manual runs default to `dry_run=true` (logs only); pass `dry_run=false` from
-# the Actions UI to perform deletions and push the resulting commit.
+# Release-triggered runs force `dry_run=false` and apply a 14-day grace
+# window so a demo deployed right before a major release isn't raced into
+# deletion. Safety guards still apply and may abort the run (for example:
+# empty branch list or max-delete cap). Manual runs default to `dry_run=true`
+# (logs only); pass `dry_run=false` from the Actions UI to perform deletions
+# and push the resulting commit.
 #
 # `stale_days` controls age-based skipping for stale directories, mirroring the
 # Python cleanup script: directories updated more recently than `stale_days` are
@@ -61,7 +63,10 @@ jobs:
       # Release-triggered runs always perform the deletion; manual runs
       # honour the workflow input (defaults to dry-run).
       DRY_RUN: ${{ github.event_name == 'release' && 'false' || github.event.inputs.dry_run || 'true' }}
-      STALE_DAYS: ${{ github.event.inputs.stale_days || '0' }}
+      # Release-triggered runs apply a 14-day grace window so a demo deployed
+      # right before a major release isn't raced into deletion. This mirrors
+      # the scheduled env-cleanup workflow. Manual dispatch honours the input.
+      STALE_DAYS: ${{ github.event_name == 'release' && '14' || github.event.inputs.stale_days || '0' }}
       I_REALLY_MEAN_IT: ${{ github.event.inputs.i_really_mean_it || 'false' }}
     steps:
       - name: Check out cleanup scripts from workflow ref
