@@ -52,10 +52,8 @@ type GridOwnProps = {
   gapVertical?: GridGap
 }
 
-type GridPaddingKeys = 'paddingBottom' | 'paddingTop' | 'paddingVertical'
-
 export type GridProps = GridOwnProps &
-  PropsWithChildren<Omit<HTMLAttributes<HTMLElement>, GridPaddingKeys>> &
+  PropsWithChildren<HTMLAttributes<HTMLElement>> &
   (GridPaddingTopAndBottomProps | GridPaddingVerticalProp)
 
 const GridRoot = forwardRef<HTMLElement, GridProps>(

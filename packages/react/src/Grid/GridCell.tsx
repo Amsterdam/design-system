@@ -48,10 +48,8 @@ type GridCellOwnProps = {
   rowSpan?: GridRowNumber | GridRowNumbers
 }
 
-type GridCellSpanKeys = 'span' | 'start'
-
 export type GridCellProps = GridCellOwnProps &
-  PropsWithChildren<Omit<HTMLAttributes<HTMLElement>, GridCellSpanKeys>> &
+  PropsWithChildren<HTMLAttributes<HTMLElement>> &
   (GridCellSpanAllProp | GridCellSpanAndStartProps)
 
 export const GridCell = forwardRef<HTMLElement, GridCellProps>(

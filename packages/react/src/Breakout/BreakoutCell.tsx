@@ -41,13 +41,11 @@ type BreakoutCellRowSpanAndStartProps = {
   rowStart?: BreakoutRowNumber | BreakoutRowNumbers
 }
 
-type BreakoutCellSpanKeys = 'colSpan' | 'colStart' | 'has' | 'rowSpan' | 'rowStart'
-
 export type BreakoutCellProps = {
   /** The HTML element to use. */
   as?: BreakoutCellTag
 } & BreakoutCellRowSpanAndStartProps &
-  PropsWithChildren<Omit<HTMLAttributes<HTMLElement>, BreakoutCellSpanKeys>> &
+  PropsWithChildren<HTMLAttributes<HTMLElement>> &
   (BreakoutCellSpanAllProp | BreakoutCellSpanAndStartProps)
 
 export const BreakoutCell = forwardRef<HTMLElement, BreakoutCellProps>(
