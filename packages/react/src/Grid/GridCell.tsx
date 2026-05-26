@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -31,7 +31,7 @@ type GridCellSpanAndStartProps = {
   start?: GridColumnNumber | GridColumnNumbers
 }
 
-export type GridCellProps = {
+type GridCellOwnProps = {
   /**
    * Controls the background of the Grid Cell.
    *
@@ -46,27 +46,31 @@ export type GridCellProps = {
   as?: GridCellTag
   /** The amount of grid rows the cell spans. */
   rowSpan?: GridRowNumber | GridRowNumbers
-} & PropsWithChildren<HTMLAttributes<HTMLElement>> &
+}
+
+export type GridCellProps = GridCellOwnProps &
+  PropsWithChildren<HTMLAttributes<HTMLElement>> &
   (GridCellSpanAllProp | GridCellSpanAndStartProps)
 
-export const GridCell = forwardRef(
-  (
-    { appearance, as: Tag = 'div', children, className, rowSpan, span, start, ...restProps }: GridCellProps,
-    ref: ForwardedRef<any>,
-  ) => (
-    <Tag
-      {...restProps}
-      className={clsx(
-        'ams-grid__cell',
-        appearance && `ams-grid__cell--${appearance}`,
-        gridCellClasses(span, start, rowSpan),
-        className,
-      )}
-      ref={ref}
-    >
-      {children}
-    </Tag>
-  ),
+export const GridCell = forwardRef<HTMLElement, GridCellProps>(
+  ({ appearance, as, children, className, rowSpan, span, start, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx(
+          'ams-grid__cell',
+          appearance && `ams-grid__cell--${appearance}`,
+          gridCellClasses(span, start, rowSpan),
+          className,
+        )}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 GridCell.displayName = 'Grid.Cell'
