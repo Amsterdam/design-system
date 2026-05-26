@@ -44,7 +44,7 @@ export const InvalidFormAlertWithErrors = forwardRef(
         innerRef.current.focus()
         setHasFocusedOnce(true)
       }
-    }, [innerRef])
+    }, [focusOnRender, hasFocusedOnce, setHasFocusedOnce])
 
     return (
       <Alert
