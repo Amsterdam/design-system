@@ -1,0 +1,14 @@
+{
+  "ams": {
+    "query-container": {
+      "inline-size": {
+        "container-name": {
+          "$value": "ams-query-container-inline-size"
+        },
+        "container-type": {
+          "$value": "inline-size"
+        }
+      }
+    }
+  }
+}

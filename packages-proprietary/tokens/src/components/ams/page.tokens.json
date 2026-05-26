@@ -8,7 +8,7 @@
         }
       },
       "container-name": {
-        "$value": "ams-inline-size-context"
+        "$value": "ams-query-container-inline-size"
       },
       "container-type": {
         "$value": "inline-size"
