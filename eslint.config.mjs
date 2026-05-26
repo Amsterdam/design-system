@@ -12,9 +12,9 @@ import { defineConfig } from 'eslint/config'
 import globals from 'globals'
 
 import { baselineRules, coreRules, importRules, perfectionistRules, tsRules } from './eslint.rules.mjs'
-import reactIconsConfig from './packages-proprietary/react-icons/eslint.react-icons.config.mjs'
-import reactConfig from './packages/react/eslint.react.config.mjs'
-import storybookConfig from './storybook/eslint.storybook.config.mjs'
+import reactIconsConfig from './packages-proprietary/react-icons/eslint.config-partial.mjs'
+import reactConfig from './packages/react/eslint.config-partial.mjs'
+import storybookConfig from './storybook/eslint.config-partial.mjs'
 
 const jsAndTsFiles = ['**/*.{js,jsx,mjs,ts,tsx}']
 const testFiles = ['**/*.{test,spec}.{js,jsx,ts,tsx}']
@@ -81,10 +81,10 @@ export default defineConfig([
     },
   },
 
-  // React (owned by packages/react/eslint.react.config.mjs)
+  // React (owned by packages/react/eslint.config-partial.mjs)
   ...reactConfig,
 
-  // React-icons (owned by packages-proprietary/react-icons/eslint.react-icons.config.mjs)
+  // React-icons (owned by packages-proprietary/react-icons/eslint.config-partial.mjs)
   ...reactIconsConfig,
 
   // JSON
@@ -111,7 +111,7 @@ export default defineConfig([
     },
   },
 
-  // MDX and Storybook (owned by storybook/eslint.storybook.config.mjs)
+  // MDX and Storybook (owned by storybook/eslint.config-partial.mjs)
   ...storybookConfig,
 
   // Prettier — must be last so it can override stylistic rules from earlier presets
