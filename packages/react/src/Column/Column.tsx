@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -42,25 +42,26 @@ export type ColumnProps = {
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-column--docs Column docs at Amsterdam Design System}
  */
-export const Column = forwardRef(
-  (
-    { align, alignHorizontal, as: Tag = 'div', children, className, gap, ...restProps }: ColumnProps,
-    ref: ForwardedRef<any>,
-  ) => (
-    <Tag
-      {...restProps}
-      className={clsx(
-        'ams-column',
-        align && `ams-column--align-${align}`,
-        alignHorizontal && `ams-column--align-horizontal-${alignHorizontal}`,
-        gap && `ams-column--gap-${gap}`,
-        className,
-      )}
-      ref={ref}
-    >
-      {children}
-    </Tag>
-  ),
+export const Column = forwardRef<HTMLElement, ColumnProps>(
+  ({ align, alignHorizontal, as, children, className, gap, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx(
+          'ams-column',
+          align && `ams-column--align-${align}`,
+          alignHorizontal && `ams-column--align-horizontal-${alignHorizontal}`,
+          gap && `ams-column--gap-${gap}`,
+          className,
+        )}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 Column.displayName = 'Column'

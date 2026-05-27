@@ -18,6 +18,7 @@ import storybookConfig from './storybook/eslint.config-partial.mjs'
 
 const jsAndTsFiles = ['**/*.{js,jsx,mjs,ts,tsx}']
 const testFiles = ['**/*.{test,spec}.{js,jsx,ts,tsx}']
+const nodeScriptFiles = ['**/*.{config,setup}.{js,mjs,ts}', '**/rollup.config.mjs', 'plopfile.mjs']
 
 export default defineConfig([
   // Global
@@ -38,7 +39,16 @@ export default defineConfig([
 
     files: jsAndTsFiles,
     languageOptions: {
-      globals: { ...globals.browser, ...globals.es6, ...globals.node },
+      globals: { ...globals.browser, ...globals.es6 },
+    },
+  },
+  {
+    // Keep Node globals scoped to tooling and config scripts.
+    name: 'amsterdam-design-system/node-language-options',
+
+    files: nodeScriptFiles,
+    languageOptions: {
+      globals: { ...globals.node },
     },
   },
 

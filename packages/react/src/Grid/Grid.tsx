@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -50,36 +50,28 @@ export type GridProps = {
   readonly as?: GridTag
   /** The amount of space between rows. */
   readonly gapVertical?: GridGap
-} & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>> &
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>> &
   (GridPaddingVerticalProp | GridPaddingTopAndBottomProps)
 
-const GridRoot = forwardRef(
-  (
-    {
-      as: Tag = 'div',
-      children,
-      className,
-      gapVertical,
-      paddingBottom,
-      paddingTop,
-      paddingVertical,
-      ...restProps
-    }: GridProps,
-    ref: ForwardedRef<any>,
-  ) => (
-    <Tag
-      {...restProps}
-      className={clsx(
-        'ams-grid',
-        gapVertical && `ams-grid--gap-vertical--${gapVertical}`,
-        paddingClasses('grid', paddingBottom, paddingTop, paddingVertical),
-        className,
-      )}
-      ref={ref}
-    >
-      {children}
-    </Tag>
-  ),
+const GridRoot = forwardRef<HTMLElement, GridProps>(
+  ({ as, children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx(
+          'ams-grid',
+          gapVertical && `ams-grid--gap-vertical--${gapVertical}`,
+          paddingClasses('grid', paddingBottom, paddingTop, paddingVertical),
+          className,
+        )}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 GridRoot.displayName = 'Grid'
