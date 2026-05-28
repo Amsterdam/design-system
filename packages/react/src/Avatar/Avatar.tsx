@@ -15,8 +15,8 @@ export const avatarColors = ['azure', 'green', 'lime', 'magenta', 'orange', 'yel
 type AvatarColor = (typeof avatarColors)[number]
 
 type AvatarContentProps = {
-  imageSrc?: string
-  initials: string
+  readonly imageSrc?: string
+  readonly initials: string
 }
 
 const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
@@ -33,12 +33,12 @@ const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
 
 export type AvatarProps = {
   /** The background colour. */
-  color?: AvatarColor
+  readonly color?: AvatarColor
   /** The url for the user’s image. Its centre will be displayed. Should be square and scaled down. */
-  imageSrc?: string
+  readonly imageSrc?: string
   /** The text content. Should be the user’s initials. The first two characters will be displayed. */
-  label: string
-} & HTMLAttributes<HTMLSpanElement>
+  readonly label: string
+} & Readonly<HTMLAttributes<HTMLSpanElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-avatar--docs Avatar docs at Amsterdam Design System}

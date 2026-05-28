@@ -17,10 +17,10 @@ export type AccordionProps = {
    * The hierarchical level of this Accordion’s Section Headings within the document.
    * There is no default value; determine the correct level for each instance.
    */
-  headingLevel: 2 | 3 | 4
+  readonly headingLevel: 2 | 3 | 4
   /** The HTML element to use for each Accordion Section. */
-  sectionAs?: 'div' | 'section'
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+  readonly sectionAs?: 'div' | 'section'
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 
 const AccordionRoot = forwardRef(
   (

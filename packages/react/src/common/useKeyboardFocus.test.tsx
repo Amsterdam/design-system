@@ -14,7 +14,7 @@ describe('useKeyboardFocus', () => {
   const onFocusTwoMock = vi.fn()
   const onFocusThreeMock = vi.fn()
 
-  const Component = ({ rotate = undefined }: { rotate?: boolean }) => {
+  const Component = ({ rotate = undefined }: { readonly rotate?: boolean }) => {
     const ref = useRef<HTMLDivElement>(null)
     const { keyDown } = useKeyboardFocus(ref, {
       rotating: rotate,
