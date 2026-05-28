@@ -43,7 +43,7 @@
 }
 
 ._ams-color-palette-name {
-  font-weight: 800;
+  font-weight: var(--ams-typography-body-text-bold-font-weight);
 }
 
 ._ams-color-palette-sample {
