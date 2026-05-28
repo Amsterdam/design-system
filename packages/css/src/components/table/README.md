@@ -2,7 +2,7 @@
 
 # Table
 
-Structures data in rows and columns to help users work with large amounts of information.
+Presents related values in rows and columns, from a compact reference table to a large data set users need to scan, sort, or filter.
 
 ## Guidelines
 
