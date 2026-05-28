@@ -14,8 +14,8 @@ type TableHeaderCellAlign = (typeof tableCellAlignOptions)[number]
 
 export type TableHeaderCellProps = {
   /** The horizontal alignment of the cell’s content. */
-  align?: TableHeaderCellAlign
-} & PropsWithChildren<Omit<ThHTMLAttributes<HTMLTableCellElement>, 'align'>>
+  readonly align?: TableHeaderCellAlign
+} & Readonly<PropsWithChildren<Omit<ThHTMLAttributes<HTMLTableCellElement>, 'align'>>>
 
 export const TableHeaderCell = forwardRef(
   ({ align, children, className, ...restProps }: TableHeaderCellProps, ref: ForwardedRef<HTMLTableCellElement>) => (

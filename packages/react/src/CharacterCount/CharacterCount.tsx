@@ -10,10 +10,10 @@ import { forwardRef } from 'react'
 
 export type CharacterCountProps = {
   /** The current length of the field’s value. */
-  length: number
+  readonly length: number
   /** The maximum length of the field’s value. */
-  maxLength: number
-} & HTMLAttributes<HTMLDivElement>
+  readonly maxLength: number
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-character-count--docs Character Count docs at Amsterdam Design System}

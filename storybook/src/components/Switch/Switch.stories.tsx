@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { MouseEvent } from 'react'
 
 import { Label } from '@amsterdam/design-system-react'
 import { Switch } from '@amsterdam/design-system-react/src'
@@ -31,8 +32,8 @@ const meta = {
   render: (args) => {
     const [, setArgs] = useArgs()
 
-    const handleClick = (event: any) => {
-      setArgs({ checked: event.target.checked })
+    const handleClick = (event: MouseEvent<HTMLInputElement>) => {
+      setArgs({ checked: event.currentTarget.checked })
     }
 
     return <Switch onClick={handleClick} {...args} />
@@ -56,8 +57,8 @@ export const WithLabel: Story = {
   render: (args) => {
     const [, setArgs] = useArgs()
 
-    const handleClick = (event: any) => {
-      setArgs({ checked: event.target.checked })
+    const handleClick = (event: MouseEvent<HTMLInputElement>) => {
+      setArgs({ checked: event.currentTarget.checked })
     }
 
     return (

@@ -10,10 +10,10 @@ import type { PageHeaderProps } from './PageHeader'
 import { Logo } from '../Logo'
 
 type LogoLinkContentProps = {
-  brandNameFullOrShort?: PageHeaderProps['brandName'] | PageHeaderProps['brandNameShort']
-  brandNameShort?: PageHeaderProps['brandNameShort']
-  logoAccessibleName?: PageHeaderProps['logoAccessibleName']
-  logoBrand: PageHeaderProps['logoBrand']
+  readonly brandNameFullOrShort?: PageHeaderProps['brandName'] | PageHeaderProps['brandNameShort']
+  readonly brandNameShort?: PageHeaderProps['brandNameShort']
+  readonly logoAccessibleName?: PageHeaderProps['logoAccessibleName']
+  readonly logoBrand: PageHeaderProps['logoBrand']
 }
 
 export const LogoLinkContent = ({

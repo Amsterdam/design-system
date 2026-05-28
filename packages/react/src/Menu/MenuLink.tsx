@@ -14,8 +14,8 @@ import { Icon } from '../Icon'
 
 export type MenuLinkProps = {
   /** The icon to display for the menu icon. Use the filled variant. */
-  icon: IconProps['svg']
-} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+  readonly icon: IconProps['svg']
+} & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
 
 export const MenuLink = forwardRef(
   ({ children, className, icon, ...restProps }: MenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {

@@ -3,18 +3,18 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, {{ attributes }}, PropsWithChildren } from 'react'
+import type { {{ attributes }}, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type {{pascalCase name}}Props = PropsWithChildren<{{ attributes }}<{{ type }}>>
+export type {{pascalCase name}}Props = Readonly<PropsWithChildren<{{ attributes }}<{{ type }}>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-TODO-ADD-GROUP-{{kebabCase name}}--docs {{pascalCase name}} docs at Amsterdam Design System}
  */
-export const {{pascalCase name}} = forwardRef(
-  ({ children, className, ...restProps }: {{pascalCase name}}Props, ref: ForwardedRef<{{ type }}>) => (
+export const {{pascalCase name}} = forwardRef<{{ type }}, {{pascalCase name}}Props>(
+  ({ children, className, ...restProps }, ref) => (
     <{{ tag }} {...restProps} className={clsx('ams-{{kebabCase name}}', className)} ref={ref}>
       {children}
     </{{ tag }}>

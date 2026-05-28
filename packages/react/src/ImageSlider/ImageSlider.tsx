@@ -18,21 +18,21 @@ import { debounce, scrollToCurrentSlideOnResize, scrollToSlide, setCurrentSlideI
 
 export type ImageSliderImageProps = {
   /** An optional caption displayed below the image. */
-  caption?: string
-} & ImageProps
+  readonly caption?: string
+} & Readonly<ImageProps>
 
 export type ImageSliderProps = {
   /** Display buttons to navigate to the previous or next image. */
-  controls?: boolean
+  readonly controls?: boolean
   /** Label for the image if you need to translate the alt text. */
-  imageLabel?: string
+  readonly imageLabel?: string
   /** The set of images to display. */
-  images: ImageSliderImageProps[]
+  readonly images: ImageSliderImageProps[]
   /** The label for the ‘next’ button */
-  nextLabel?: string
+  readonly nextLabel?: string
   /** The label for the ‘previous’ button */
-  previousLabel?: string
-} & HTMLAttributes<HTMLDivElement>
+  readonly previousLabel?: string
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
@@ -50,14 +50,9 @@ export const ImageSlider = forwardRef(
     }: ImageSliderProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    if (images.length === 0) return null
-
     const [currentSlideId, setCurrentSlideId] = useState(0)
 
     const scrollerRef = useRef<HTMLDivElement>(null)
-
-    const isAtStart = currentSlideId === 0
-    const isAtEnd = currentSlideId === images.length - 1
 
     useEffect(() => {
       if (!scrollerRef.current) return undefined
@@ -79,12 +74,19 @@ export const ImageSlider = forwardRef(
     }, [])
 
     useEffect(() => {
+      if (images.length === 0) return undefined
+
       const handleResize = debounce(() => scrollToCurrentSlideOnResize({ currentSlideId, ref: scrollerRef }), 100)
 
       window.addEventListener('resize', handleResize)
 
       return () => window.removeEventListener('resize', handleResize)
-    }, [currentSlideId])
+    }, [currentSlideId, images.length])
+
+    if (images.length === 0) return null
+
+    const isAtStart = currentSlideId === 0
+    const isAtEnd = currentSlideId === images.length - 1
 
     return (
       <div {...restProps} aria-roledescription="carousel" className={clsx('ams-image-slider', className)} ref={ref}>

@@ -10,8 +10,8 @@ import { forwardRef } from 'react'
 
 export type BlockquoteProps = {
   /** Changes the text colour for readability on a dark background. */
-  color?: 'inverse'
-} & PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>>
+  readonly color?: 'inverse'
+} & Readonly<PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-blockquote--docs Blockquote docs at Amsterdam Design System}
