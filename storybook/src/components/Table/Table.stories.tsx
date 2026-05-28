@@ -78,37 +78,37 @@ export const WithFooterAndRowHeaders: Story = {
   },
 }
 
-export const WithDescriptionInCaption: Story = {
-  args: {
-    'aria-labelledby': 'caption-heading',
-    children: [
-      <Table.Caption key="caption">
-        <Heading id="caption-heading" level={3}>
-          Kosten voor de aanvraag
-        </Heading>
-        <Paragraph size="small">
-          Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
-        </Paragraph>
-      </Table.Caption>,
-      <Table.Header key="header">
+export const WithExtraDescription: Story = {
+  render: () => (
+    <>
+      <Heading className="ams-mb-xs" level={3}>
+        Kosten voor de aanvraag
+      </Heading>
+      <Paragraph className="ams-mb-m" size="small">
+        Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
+      </Paragraph>
+      <Table>
+        <Table.Caption className="ams-visually-hidden">Kosten voor de aanvraag</Table.Caption>
+        <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Type</Table.HeaderCell>
           <Table.HeaderCell align="end">Normale levertijd</Table.HeaderCell>
           <Table.HeaderCell align="end">Met spoed</Table.HeaderCell>
-        </Table.Row>
-      </Table.Header>,
-      <Table.Body key="body">
-        <Table.Row>
-          <Table.Cell>Paspoort</Table.Cell>
-          <Table.Cell align="end">€ 77,85</Table.Cell>
-          <Table.Cell align="end">€ 130,80</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>ID-kaart</Table.Cell>
-          <Table.Cell align="end">€ 70,35</Table.Cell>
-          <Table.Cell align="end">€ 123,30</Table.Cell>
-        </Table.Row>
-      </Table.Body>,
-    ],
-  },
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Paspoort</Table.Cell>
+            <Table.Cell align="end">€ 77,85</Table.Cell>
+            <Table.Cell align="end">€ 130,80</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>ID-kaart</Table.Cell>
+            <Table.Cell align="end">€ 70,35</Table.Cell>
+            <Table.Cell align="end">€ 123,30</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
+    </>
+  ),
 }
