@@ -12,20 +12,20 @@ import { formatTokenValue } from '../../_common/formatTokenValue'
 
 type TypographySampleProps = {
   /** Whether to use the tokens for Compact Mode. */
-  compact?: boolean
+  readonly compact?: boolean
   /** A font-family token value, either a CSS value or a token reference. */
-  fontFamily?: string
+  readonly fontFamily?: string
   /**
    * A font-size token value, either a CSS value or a token reference.
    * Avoid `clamp` values — we want to display the given size on any viewport.
    * Use `rems` so the font size scales automatically if the user changes their browser's base font size.
    */
-  fontSize?: string
+  readonly fontSize?: string
   /** A font-weight token value, either a CSS value or a token reference. */
-  fontWeight?: string
+  readonly fontWeight?: string
   /** A line-height token value, either a CSS value or a token reference. */
-  lineHeight?: string
-} & HTMLAttributes<HTMLSpanElement>
+  readonly lineHeight?: string
+} & Readonly<HTMLAttributes<HTMLSpanElement>>
 
 export const TypographySample = ({
   className,

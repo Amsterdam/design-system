@@ -22,19 +22,19 @@ export type ProgressListStepProps = {
    * Defaults to `true` when `status` is `'completed'`, and `false` otherwise.
    * Ignored if `collapsible` is `false`.
    */
-  defaultCollapsed?: boolean
+  readonly defaultCollapsed?: boolean
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
-  hasSubsteps?: boolean
+  readonly hasSubsteps?: boolean
   /** The heading text for this step. */
-  heading: string
+  readonly heading: string
   /**
    * Callback fired when the step is expanded or collapsed. Receives the new expanded state.
    * Ignored if `collapsible` is `false`.
    */
-  onToggle?: (expanded: boolean) => void
+  readonly onToggle?: (expanded: boolean) => void
   /** The current progress state of the step. */
-  status?: 'current' | 'completed'
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly status?: 'current' | 'completed'
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 export const ProgressListStep = forwardRef(
   (

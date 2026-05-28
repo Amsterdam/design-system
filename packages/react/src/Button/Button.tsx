@@ -14,25 +14,25 @@ import { Icon } from '../Icon'
 
 type IconBeforeProp = {
   /** Shows the icon before the label. Requires a value for `icon`. Cannot be used together with `iconOnly`. */
-  iconBefore?: boolean
-  iconOnly?: never
+  readonly iconBefore?: boolean
+  readonly iconOnly?: never
 }
 
 type IconOnlyProp = {
-  iconBefore?: never
+  readonly iconBefore?: never
   /** Shows the icon without the label. Requires a value for `icon`. Cannot be used together with `iconBefore`. */
-  iconOnly?: boolean
+  readonly iconOnly?: boolean
 }
 
 type IconButtonProps = {
   /** Adds an icon to the button, showing it after the label. */
-  icon: IconProps['svg']
+  readonly icon: IconProps['svg']
 } & (IconBeforeProp | IconOnlyProp)
 
 type TextButtonProps = {
-  icon?: never
-  iconBefore?: never
-  iconOnly?: never
+  readonly icon?: never
+  readonly iconBefore?: never
+  readonly iconOnly?: never
 }
 
 export const buttonVariants = ['primary', 'secondary', 'tertiary'] as const
@@ -40,8 +40,8 @@ type ButtonVariant = (typeof buttonVariants)[number]
 
 export type ButtonProps = {
   /** The level of prominence. Use a primary button only once per page or section. */
-  variant?: ButtonVariant
-} & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> &
+  readonly variant?: ButtonVariant
+} & Readonly<PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>> &
   (IconButtonProps | TextButtonProps)
 
 /**

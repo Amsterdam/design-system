@@ -10,7 +10,7 @@ import { forwardRef, useImperativeHandle, useRef } from 'react'
 
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
-export type TabsListProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type TabsListProps = Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 
 export const TabsList = forwardRef(
   ({ children, className, ...restProps }: TabsListProps, ref: ForwardedRef<HTMLDivElement>) => {

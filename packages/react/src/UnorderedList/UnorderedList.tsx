@@ -12,12 +12,12 @@ import { UnorderedListItem } from './UnorderedListItem'
 
 export type UnorderedListProps = {
   /** Changes the text colour for readability on a dark background. */
-  color?: 'inverse'
+  readonly color?: 'inverse'
   /** Whether the list items show a marker. */
-  markers?: boolean
+  readonly markers?: boolean
   /** The size of the text. */
-  size?: 'small'
-} & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
+  readonly size?: 'small'
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLUListElement>>>
 
 const UnorderedListRoot = forwardRef(
   (

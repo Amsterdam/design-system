@@ -12,10 +12,10 @@ import { formatTokenValue } from '../../_common/formatTokenValue'
 
 type BorderSampleProps = {
   /** A border-style token value, either a CSS keyword or a token reference. */
-  lineStyle?: string
+  readonly lineStyle?: string
   /** A border-width token value, either a CSS value or a token reference. */
-  width?: string
-} & HTMLAttributes<HTMLDivElement>
+  readonly width?: string
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 export const BorderSample = ({ className, lineStyle, style, width, ...restProps }: BorderSampleProps) => {
   if (!lineStyle && !width) return null

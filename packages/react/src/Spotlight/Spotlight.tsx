@@ -16,10 +16,10 @@ type SpotlightColor = (typeof spotlightColors)[number]
 
 export type SpotlightProps = {
   /** The HTML element to use. */
-  as?: SpotlightTag
+  readonly as?: SpotlightTag
   /** The background colour. */
-  color?: SpotlightColor
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly color?: SpotlightColor
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-spotlight--docs Spotlight docs at Amsterdam Design System}

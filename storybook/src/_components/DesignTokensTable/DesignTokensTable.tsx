@@ -15,16 +15,16 @@ import { flattenTokens } from './flattenTokens'
 
 type DesignTokensTableRootProps = {
   /** Keys to omit from the (optionally path-narrowed) token group. */
-  exclude?: string[]
+  readonly exclude?: string[]
   /** Whether to hide the Example column entirely. */
-  hideExamples?: boolean
+  readonly hideExamples?: boolean
   /** Dot-separated path to a subtree, e.g. `"ams.inputs.hover"`. The path segments become the CSS variable prefix so that full names are preserved. */
-  path?: string
+  readonly path?: string
   /** Whether to show a Description column populated from the `$description` field. */
-  showDescriptions?: boolean
+  readonly showDescriptions?: boolean
   /** The raw nested token object to display, typically imported directly from a JSON token file. */
-  tokens: Tokens
-} & HTMLAttributes<HTMLDivElement>
+  readonly tokens: Tokens
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
  * Compound component that renders a design token JSON file as a three-column table
