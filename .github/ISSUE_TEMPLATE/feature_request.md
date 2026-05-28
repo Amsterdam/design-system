@@ -1,20 +1,32 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
-
+about: Suggest a new component, feature, or improvement
+title: ""
+labels: enhancement
+assignees: ""
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+<!-- @license CC0-1.0 -->
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+Thank you for contributing to the Amsterdam Design System!
+Please describe your idea so we can understand the problem it solves.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## Problem
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+(What problem are you trying to solve? For example: "I'm always frustrated when ...". Skip this if your request is not related to a problem.)
+
+## Proposed solution
+
+(Describe what you would like to happen.)
+
+## Alternatives considered
+
+(Describe any alternative solutions or workarounds you have considered.)
+
+## Additional context
+
+(Add anything else that helps, such as screenshots, references, or links to designs in Figma.)
+
+## Checklist
+
+- [ ] I searched existing issues and discussions for a similar request.

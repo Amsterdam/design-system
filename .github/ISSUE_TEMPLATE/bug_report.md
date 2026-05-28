@@ -1,38 +1,52 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
+about: Report something that is broken or behaves unexpectedly
+title: ""
+labels: bug
+assignees: ""
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+<!-- @license CC0-1.0 -->
 
-**To Reproduce**
-Steps to reproduce the behavior:
+Thank you for contributing to the Amsterdam Design System!
+Please fill in the sections below so we can understand and reproduce the issue quickly.
+
+## Summary
+
+(Briefly describe what goes wrong.)
+
+## Steps to reproduce
+
+(List the exact steps that lead to the problem.)
+
 1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+2. Click on '...'
+3. See the error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+## Expected behaviour
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+(Describe what you expected to happen.)
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+## Actual behaviour
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+(Describe what actually happens, including the exact text of any error messages.)
 
-**Additional context**
-Add any other context about the problem here.
+## Environment
+
+- Package and version: (e.g. @amsterdam/design-system-react v1.2.3)
+- Browser: (e.g. Chrome 124, Safari 17)
+- Operating system or device: (e.g. macOS 14, Windows 11, iPhone 15)
+
+## Screenshots or recording
+
+(If applicable, add screenshots or a screen recording. A link to a live reproduction, such as a Storybook story or CodeSandbox, helps the most.)
+
+## Additional context
+
+(Add anything else that might help, such as links to related issues or a possible cause.)
+
+## Checklist
+
+- [ ] I searched existing issues and this has not been reported yet.
+- [ ] I am using the latest version of the affected package.
+- [ ] I can reproduce this consistently.
