@@ -4,7 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { AnchorHTMLAttributes, MouseEvent } from 'react'
+import type { AnchorHTMLAttributes, ChangeEvent, FormEvent, MouseEvent } from 'react'
 
 import { Grid, Heading, Label, Pagination, Row, Select, Table } from '@amsterdam/design-system-react'
 import { useEffect, useState } from 'react'
@@ -21,7 +21,33 @@ const meta = {
 
 export default meta
 
+// Sorting with select
+
 const params = new URLSearchParams(window.location.search)
+
+/** Submits the surrounding form whenever the sort `Select` value changes, so no extra submit button is needed. */
+const handleSortChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  event.target.form?.requestSubmit()
+}
+
+/** Storybook only: persists the selected sort order in the URL query string by reloading the page. */
+const handleSortSubmit = (event: FormEvent<HTMLFormElement>) => {
+  event.preventDefault()
+
+  const sort = new FormData(event.currentTarget).get('sort')
+  if (typeof sort !== 'string') return
+
+  const url = new URL(window.location.href)
+  url.searchParams.set('sort', sort)
+  window.location.href = url.toString()
+}
+
+/** Pre-rendered `Select.Option` elements for the sort dropdown, kept outside the story so the JSX source stays readable. */
+const sortSelectOptions = sortOptions.map(({ label, value }) => (
+  <Select.Option key={value} value={value}>
+    {label}
+  </Select.Option>
+))
 
 export const SortingWithSelect: StoryObj = {
   render: () => {
@@ -36,22 +62,11 @@ export const SortingWithSelect: StoryObj = {
         <Grid.Cell span="all">
           <Row align="between" alignVertical="center" className="ams-mb-m" wrap>
             <Heading level={2}>Gegevens per adres</Heading>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault()
-                const url = new URL(window.location.href)
-                url.searchParams.set('sort', new FormData(e.currentTarget).get('sort') as string)
-                window.location.href = url.toString()
-              }}
-            >
+            <form onSubmit={handleSortSubmit}>
               <Row alignVertical="center" wrap>
                 <Label htmlFor="sort">Sorteren op</Label>
-                <Select defaultValue={sortOrder} id="sort" name="sort" onChange={(e) => e.target.form?.requestSubmit()}>
-                  {sortOptions.map(({ label, value }) => (
-                    <Select.Option key={value} value={value}>
-                      {label}
-                    </Select.Option>
-                  ))}
+                <Select defaultValue={sortOrder} id="sort" name="sort" onChange={handleSortChange}>
+                  {sortSelectOptions}
                 </Select>
               </Row>
             </form>
@@ -69,6 +84,8 @@ export const SortingWithSelect: StoryObj = {
   },
 }
 
+// With Pagination
+
 const paginationOptions = {
   addresses: bagAddresses.slice(0, 50),
   pageSize: 5,
@@ -76,19 +93,51 @@ const paginationOptions = {
 
 const totalPaginationPages = Math.ceil(paginationOptions.addresses.length / paginationOptions.pageSize)
 
+/** Coerces a query-string value to a page number within the valid range. */
 const clampPage = (value: string | null) => {
   const parsed = Math.trunc(Number(value))
   if (!Number.isFinite(parsed) || parsed < 1) return 1
   return Math.min(parsed, totalPaginationPages)
 }
 
+/** Reads the current page from the `pagina` query parameter, clamped to the valid range. */
 const getPageFromUrl = () => clampPage(new URLSearchParams(window.location.search).get('pagina'))
 
+/** Builds the `href` for a pagination link, preserving other query parameters. */
 const paginationLinkTemplate = (page: number) => {
   const url = new URL(window.location.href)
   url.searchParams.set('pagina', String(page))
   return `?${url.searchParams.toString()}`
 }
+
+/**
+ * Intercepts pagination clicks so they don't trigger a full page reload.
+ * Storybook only: a real reload would navigate the iframe to its own URL
+ * (`/iframe.html?…`), escaping the Storybook chrome around it.
+ * Modifier-clicks (cmd/ctrl/shift/alt or middle-click) fall through so users
+ * can still open the page in a new tab.
+ * Otherwise the URL is updated via the History API, and a synthetic `popstate`
+ * event keeps the listening React state in sync.
+ */
+const handlePaginationClick = (event: MouseEvent<HTMLAnchorElement>) => {
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return
+  event.preventDefault()
+  const url = new URL(event.currentTarget.href, window.location.href)
+  window.history.pushState({}, '', url)
+  window.dispatchEvent(new PopStateEvent('popstate'))
+}
+
+/** Anchor element wired to {@link handlePaginationClick}, used as the `linkComponent` of `Pagination`. */
+const PaginationLink = ({ onClick, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
+  <a
+    {...props}
+    onClick={(event) => {
+      onClick?.(event)
+      if (event.defaultPrevented) return
+      handlePaginationClick(event)
+    }}
+  />
+)
 
 export const WithPagination = () => {
   const { addresses, pageSize } = paginationOptions
@@ -98,38 +147,13 @@ export const WithPagination = () => {
   const lastRow = Math.min(page * pageSize, addresses.length)
   const paginatedAddresses = addresses.slice(firstRow - 1, lastRow)
 
-  // Keep the React state in sync with the URL when the user navigates via
-  // the browser's back/forward buttons.
+  // Sync React state with the URL, both for back/forward navigation
+  // and for the synthetic popstate dispatched in handlePaginationClick.
   useEffect(() => {
     const handlePopState = () => setPage(getPageFromUrl())
     window.addEventListener('popstate', handlePopState)
     return () => window.removeEventListener('popstate', handlePopState)
   }, [])
-
-  // Intercept pagination clicks so they don't trigger a full page reload.
-  // Storybook-specific: a real reload would navigate the iframe to its own URL
-  // (`/iframe.html?…`), escaping the Storybook chrome around it.
-  // We let the browser handle modifier-clicks (cmd/ctrl/shift/alt or middle-click)
-  // so users can still open a page in a new tab.
-  // Otherwise we update the URL via History API and sync the React state.
-  const handlePaginationClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return
-    event.preventDefault()
-    const url = new URL(event.currentTarget.href, window.location.href)
-    window.history.pushState({}, '', url)
-    setPage(getPageFromUrl())
-  }
-
-  const PaginationLink = ({ onClick, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a
-      {...props}
-      onClick={(event) => {
-        onClick?.(event)
-        if (event.defaultPrevented) return
-        handlePaginationClick(event)
-      }}
-    />
-  )
 
   return (
     <Grid paddingBottom="x-large" paddingTop="large">
