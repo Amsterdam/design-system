@@ -8,8 +8,8 @@ import type { PageHeaderMenuLinkProps } from '@amsterdam/design-system-react'
 import { SearchIcon } from '@amsterdam/design-system-react-icons'
 
 type PageHeaderMenuLink = {
-  label: string
-} & PageHeaderMenuLinkProps
+  readonly label: string
+} & Readonly<PageHeaderMenuLinkProps>
 
 export const pageHeaderMenuLinks: PageHeaderMenuLink[] = [
   {

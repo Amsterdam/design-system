@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -21,52 +21,53 @@ export type RowProps = {
    * The horizontal alignment of the items in the row.
    * @default start
    */
-  align?: MainAlign
+  readonly align?: MainAlign
   /**
    * The vertical alignment of the items in the row.
    * @default stretch
    */
-  alignVertical?: CrossAlign
+  readonly alignVertical?: CrossAlign
   /**
    * The HTML element to use.
    * @default div
    */
-  as?: RowTag
+  readonly as?: RowTag
   /**
    * The amount of space between items.
    * @default medium
    */
-  gap?: RowGap
+  readonly gap?: RowGap
   /**
    * Whether items of the row can wrap onto multiple lines.
    * @default false
    */
-  wrap?: boolean
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly wrap?: boolean
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-row--docs Row docs at Amsterdam Design System}
  */
-export const Row = forwardRef(
-  (
-    { align, alignVertical, as: Tag = 'div', children, className, gap, wrap, ...restProps }: RowProps,
-    ref: ForwardedRef<any>,
-  ) => (
-    <Tag
-      {...restProps}
-      className={clsx(
-        'ams-row',
-        align && `ams-row--align-${align}`,
-        alignVertical && `ams-row--align-vertical-${alignVertical}`,
-        gap && `ams-row--gap-${gap}`,
-        wrap && 'ams-row--wrap',
-        className,
-      )}
-      ref={ref}
-    >
-      {children}
-    </Tag>
-  ),
+export const Row = forwardRef<HTMLElement, RowProps>(
+  ({ align, alignVertical, as, children, className, gap, wrap, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx(
+          'ams-row',
+          align && `ams-row--align-${align}`,
+          alignVertical && `ams-row--align-vertical-${alignVertical}`,
+          gap && `ams-row--gap-${gap}`,
+          wrap && 'ams-row--wrap',
+          className,
+        )}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 Row.displayName = 'Row'

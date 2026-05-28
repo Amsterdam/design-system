@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -16,66 +16,57 @@ import { breakoutCellClasses } from './breakoutCellClasses'
 export const breakoutCellTags = ['article', 'div', 'section'] as const
 type BreakoutCellTag = (typeof breakoutCellTags)[number]
 
-type BreakoutCellSpanAllProp = {
+type BreakoutCellSpanAllProps = {
   /** Lets the cell span the full width of all grid variants. */
-  colSpan: 'all'
-  colStart?: never
+  readonly colSpan: 'all'
+  readonly colStart?: never
   /** The content of this cell.
    * The Cell containing the Spotlight expands horizontally and vertically to cover the adjacent gaps and margins.
    * The Cell containing the Image aligns itself to the bottom of the row, in case it is less tall than the text. */
-  has?: 'spotlight'
+  readonly has?: 'spotlight'
 }
 
 type BreakoutCellSpanAndStartProps = {
   /** The amount of grid columns the cell spans. */
-  colSpan?: 'all' | GridColumnNumber | GridColumnNumbers
+  readonly colSpan?: 'all' | GridColumnNumber | GridColumnNumbers
   /** The index of the grid column the cell starts at. */
-  colStart?: GridColumnNumber | GridColumnNumbers
-  has?: 'figure'
+  readonly colStart?: GridColumnNumber | GridColumnNumbers
+  readonly has?: 'figure'
 }
 
 type BreakoutCellRowSpanAndStartProps = {
   /** The amount of grid rows the cell spans. */
-  rowSpan?: BreakoutRowNumber | BreakoutRowNumbers
+  readonly rowSpan?: BreakoutRowNumber | BreakoutRowNumbers
   /** The index of the grid row the cell starts at. */
-  rowStart?: BreakoutRowNumber | BreakoutRowNumbers
+  readonly rowStart?: BreakoutRowNumber | BreakoutRowNumbers
 }
 
 export type BreakoutCellProps = {
   /** The HTML element to use. */
-  as?: BreakoutCellTag
-} & BreakoutCellRowSpanAndStartProps &
-  PropsWithChildren<HTMLAttributes<HTMLElement>> &
-  (BreakoutCellSpanAllProp | BreakoutCellSpanAndStartProps)
+  readonly as?: BreakoutCellTag
+} & Readonly<BreakoutCellRowSpanAndStartProps> &
+  Readonly<BreakoutCellSpanAllProps | BreakoutCellSpanAndStartProps> &
+  Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
-export const BreakoutCell = forwardRef(
-  (
-    {
-      as: Tag = 'div',
-      children,
-      className,
-      colSpan,
-      colStart,
-      has,
-      rowSpan,
-      rowStart,
-      ...restProps
-    }: BreakoutCellProps,
-    ref: ForwardedRef<any>,
-  ) => (
-    <Tag
-      {...restProps}
-      className={clsx(
-        'ams-breakout__cell',
-        breakoutCellClasses(colSpan, colStart, rowSpan, rowStart),
-        has && `ams-breakout__cell--has-${has}`,
-        className,
-      )}
-      ref={ref}
-    >
-      {children}
-    </Tag>
-  ),
+export const BreakoutCell = forwardRef<HTMLElement, BreakoutCellProps>(
+  ({ as, children, className, colSpan, colStart, has, rowSpan, rowStart, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx(
+          'ams-breakout__cell',
+          breakoutCellClasses(colSpan, colStart, rowSpan, rowStart),
+          has && `ams-breakout__cell--has-${has}`,
+          className,
+        )}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 BreakoutCell.displayName = 'Breakout.Cell'

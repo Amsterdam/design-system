@@ -18,10 +18,10 @@ export type ErrorMessageProps = {
    * An icon to display instead of the default icon.
    * @default WarningIcon
    */
-  icon?: IconProps['svg']
+  readonly icon?: IconProps['svg']
   /** An accessible phrase that screen readers announce before the error message. Should translate to something like ‘input error’. */
-  prefix?: string
-} & PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>
+  readonly prefix?: string
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-error-message--docs Error Message docs at Amsterdam Design System}

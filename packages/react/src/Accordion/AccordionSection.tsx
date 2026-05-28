@@ -17,15 +17,15 @@ import { AccordionContext } from './AccordionContext'
 
 export type AccordionSectionProps = {
   /** Whether the content is displayed initially. */
-  defaultExpanded?: boolean
+  readonly defaultExpanded?: boolean
   /**
    * Whether the content is displayed initially.
    * @deprecated Use the `defaultExpanded` prop instead. Will be removed on or after 2026-10-20.
    */
-  expanded?: boolean
+  readonly expanded?: boolean
   /** The heading text. */
-  label: string
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly label: string
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 export const AccordionSection = forwardRef(
   (

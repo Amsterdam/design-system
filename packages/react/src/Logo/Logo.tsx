@@ -34,8 +34,8 @@ export type LogoBrand = (typeof logoBrands)[number]
 
 export type LogoProps = {
   /** The name of the brand for which to display the logo, or configuration for a custom logo. */
-  brand?: LogoBrand | LogoBrandConfig
-} & SVGProps<SVGSVGElement>
+  readonly brand?: LogoBrand | LogoBrandConfig
+} & Readonly<SVGProps<SVGSVGElement>>
 
 export type LogoBrandConfig = {
   label: string

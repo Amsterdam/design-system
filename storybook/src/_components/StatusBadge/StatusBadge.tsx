@@ -8,9 +8,9 @@ import { Badge } from '@amsterdam/design-system-react/src'
 
 type StatusBadgeProps = {
   /** Describes the reason for the status or suggests an alternative for a deprecated component. */
-  description: string
+  readonly description: string
   /** The status of the component. Drives the badge colour: `'deprecated'` renders red, all others render orange. */
-  status: 'beta' | 'deprecated' | string
+  readonly status: 'beta' | 'deprecated' | string
 }
 
 /** Indicates the status of a component. Use this to prepare implementers for API changes. */

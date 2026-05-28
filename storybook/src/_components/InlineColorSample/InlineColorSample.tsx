@@ -30,7 +30,7 @@ const colors = {
  * Renders a small inline colour swatch for use in documentation prose.
  * @param color - The name of a colour from the Amsterdam design system palette.
  */
-export const InlineColorSample = ({ color }: { color: keyof typeof colors }) => (
+export const InlineColorSample = ({ color }: { readonly color: keyof typeof colors }) => (
   <span
     className={clsx('ams-inline-color-sample', color === 'white' && 'ams-inline-color-sample--white')}
     style={{ backgroundColor: `${colors[color]}` }}
