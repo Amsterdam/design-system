@@ -60,7 +60,9 @@ export const SortingWithSelect: StoryObj = {
           <Heading level={1}>Vergunninghouders 2026/2027</Heading>
         </Grid.Cell>
         <Grid.Cell span="all">
+          {/* Position the Heading and Select next to each other to save space. */}
           <Row align="between" alignVertical="center" className="ams-mb-m" wrap>
+            {/* Use a Heading instead of a Caption to allow a form in between. */}
             <Heading level={2}>Gegevens per adres</Heading>
             <form onSubmit={handleSortSubmit}>
               <Row alignVertical="center" wrap>
@@ -72,6 +74,7 @@ export const SortingWithSelect: StoryObj = {
             </form>
           </Row>
           <Table>
+            {/* Repeat the heading non-visually in the Caption for accessibility. */}
             <Table.Caption className="ams-visually-hidden">Gegevens per adres</Table.Caption>
             <Table.Header>
               <AddressTableHeaderRow />
@@ -162,6 +165,7 @@ export const WithPagination = () => {
       </Grid.Cell>
       <Grid.Cell span="all">
         <Table className="ams-mb-l">
+          {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
           <Table.Caption className="ams-mb-m">
             <Heading level={2}>Gegevens per adres</Heading>
           </Table.Caption>
