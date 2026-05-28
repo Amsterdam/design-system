@@ -15,15 +15,15 @@ import type { CalendarProps } from './Calendar'
 import { IconButton } from '../IconButton'
 
 export type CalendarMonthProps = {
-  disableNextMonth?: boolean
-  disableNextYear?: boolean
-  disablePreviousMonth?: boolean
-  disablePreviousYear?: boolean
-  goToNextMonth: () => void
-  goToNextYear: () => void
-  goToPreviousMonth: () => void
-  goToPreviousYear: () => void
-  month: Date
+  readonly disableNextMonth?: boolean
+  readonly disableNextYear?: boolean
+  readonly disablePreviousMonth?: boolean
+  readonly disablePreviousYear?: boolean
+  readonly goToNextMonth: () => void
+  readonly goToNextYear: () => void
+  readonly goToPreviousMonth: () => void
+  readonly goToPreviousYear: () => void
+  readonly month: Date
 } & Pick<
   CalendarProps,
   'locale' | 'nextMonthButtonLabel' | 'nextYearButtonLabel' | 'previousMonthButtonLabel' | 'previousYearButtonLabel'

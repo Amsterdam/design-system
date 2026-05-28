@@ -19,19 +19,19 @@ export type DateRange = {
 
 type CalendarBaseProps = {
   /** An extra class name. */
-  className?: string
+  readonly className?: string
   /** The month displayed when the Calendar first renders. Defaults to the current month. */
-  defaultMonth?: Date
+  readonly defaultMonth?: Date
   /** The locale used to format the weekday and month names. */
-  locale?: string
+  readonly locale?: string
   /** The accessible label for the button that navigates to the next month. */
-  nextMonthButtonLabel?: string
+  readonly nextMonthButtonLabel?: string
   /** The accessible label for the button that navigates to the next year. */
-  nextYearButtonLabel?: string
+  readonly nextYearButtonLabel?: string
   /** The accessible label for the button that navigates to the previous month. */
-  previousMonthButtonLabel?: string
+  readonly previousMonthButtonLabel?: string
   /** The accessible label for the button that navigates to the previous year. */
-  previousYearButtonLabel?: string
+  readonly previousYearButtonLabel?: string
 }
 
 type CalendarLinkProps = {

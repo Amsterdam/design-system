@@ -11,7 +11,7 @@ import type { CalendarProps, DateRange } from './Calendar'
 
 export type CalendarDatesProps = {
   /** The month to display. */
-  month: Date
+  readonly month: Date
 } & CalendarProps
 
 const isSameDay = (a: Date, b: Date) =>
