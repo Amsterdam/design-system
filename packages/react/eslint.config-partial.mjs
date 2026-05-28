@@ -10,7 +10,7 @@ export const reactPreset = {
   rules: {
     ...react.configs.recommended.rules,
     ...reactHooks.configs.recommended.rules,
-    'react/prefer-read-only-props': 'warn',
+    'react/prefer-read-only-props': 'error',
     'react/prop-types': 'off', // TypeScript types replace prop-types
     'react/react-in-jsx-scope': 'off',
   },
