@@ -17,12 +17,12 @@ type BadgeColor = (typeof badgeColors)[number]
 
 export type BadgeProps = {
   /** The background colour. */
-  color?: BadgeColor
+  readonly color?: BadgeColor
   /** The icon to show before the badge text. */
-  icon?: IconProps['svg']
+  readonly icon?: IconProps['svg']
   /** The text content. */
-  label: string | number
-} & HTMLAttributes<HTMLElement>
+  readonly label: string | number
+} & Readonly<HTMLAttributes<HTMLElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-badge--docs Badge docs at Amsterdam Design System}

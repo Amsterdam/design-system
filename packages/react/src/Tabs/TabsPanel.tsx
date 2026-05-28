@@ -12,8 +12,8 @@ import { TabsContext } from './TabsContext'
 
 export type TabsPanelProps = {
   /** The identifier of the Tab Panel. */
-  id: string
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+  readonly id: string
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 
 export const TabsPanel = forwardRef(
   ({ children, className, id, ...restProps }: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) => {

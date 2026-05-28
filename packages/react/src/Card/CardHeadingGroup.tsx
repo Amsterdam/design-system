@@ -12,8 +12,8 @@ import { Paragraph } from '../Paragraph'
 
 export type CardHeadingGroupProps = {
   /** A short phrase of text, e.g. to categorise the card. Displayed above the card heading. */
-  tagline: string
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly tagline: string
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 export const CardHeadingGroup = forwardRef(
   ({ children, className, tagline, ...restProps }: CardHeadingGroupProps, ref: ForwardedRef<HTMLElement>) => (

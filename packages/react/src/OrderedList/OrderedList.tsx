@@ -12,12 +12,12 @@ import { OrderedListItem } from './OrderedListItem'
 
 export type OrderedListProps = {
   /** Changes the text colour for readability on a dark background. */
-  color?: 'inverse'
+  readonly color?: 'inverse'
   /** Whether the list items show a marker. */
-  markers?: boolean
+  readonly markers?: boolean
   /** The size of the text. */
-  size?: 'small'
-} & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
+  readonly size?: 'small'
+} & Readonly<PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>>
 
 const OrderedListRoot = forwardRef(
   (

@@ -12,11 +12,11 @@ import type { ImageSliderProps } from './ImageSlider'
 import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
 
 export type ImageSliderThumbnailsProps = {
-  currentSlideId: number
-  imageLabel?: string
-  scrollToSlide: (id: number) => void
-  thumbnails: ImageSliderProps['images']
-} & HTMLAttributes<HTMLElement>
+  readonly currentSlideId: number
+  readonly imageLabel?: string
+  readonly scrollToSlide: (id: number) => void
+  readonly thumbnails: ImageSliderProps['images']
+} & Readonly<HTMLAttributes<HTMLElement>>
 
 export const ImageSliderThumbnails = ({
   currentSlideId,

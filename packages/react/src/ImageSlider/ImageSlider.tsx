@@ -18,21 +18,21 @@ import { debounce, scrollToCurrentSlideOnResize, scrollToSlide, setCurrentSlideI
 
 export type ImageSliderImageProps = {
   /** An optional caption displayed below the image. */
-  caption?: string
-} & ImageProps
+  readonly caption?: string
+} & Readonly<ImageProps>
 
 export type ImageSliderProps = {
   /** Display buttons to navigate to the previous or next image. */
-  controls?: boolean
+  readonly controls?: boolean
   /** Label for the image if you need to translate the alt text. */
-  imageLabel?: string
+  readonly imageLabel?: string
   /** The set of images to display. */
-  images: ImageSliderImageProps[]
+  readonly images: ImageSliderImageProps[]
   /** The label for the ‘next’ button */
-  nextLabel?: string
+  readonly nextLabel?: string
   /** The label for the ‘previous’ button */
-  previousLabel?: string
-} & HTMLAttributes<HTMLDivElement>
+  readonly previousLabel?: string
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
