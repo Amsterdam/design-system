@@ -32,7 +32,7 @@ const DescriptionListWithContainerQueryExamples = (props: DescriptionListProps) 
     <DescriptionList {...props} />
 
     {/* Description list in a narrow container */}
-    <div className="ams-inline-size-context" style={{ inlineSize: '31.99rem' }}>
+    <div className="ams-query-container-inline-size" style={{ inlineSize: '31.99rem' }}>
       <DescriptionList {...props} />
     </div>
   </>
