@@ -12,7 +12,7 @@ A popup window in which the user must perform an action to proceed.
 - Wrap multiple buttons in an [Action Group](https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs).
 - To open the Dialog, use `Dialog.open(dialogId)` from the React package.
 - To close it, either call the `Dialog.close` function or add a `<form>` as in the ‘confirmation’ example.
-- Dialog is a [query container](/docs/utilities-css-query-container--docs) for inline size, so that elements in it can adapt their appearance to the width of the dialog rather than that of the browser window.
+- Dialog is a [query container](/docs/utilities-css-query-container--docs) for inline size, so that elements in it can adapt their appearance to the width of the dialog.
 
 ## Keyboard support
 
