@@ -17,6 +17,4 @@ export default meta
 
 export const SortingWithSelect = TablePageStories.SortingWithSelect
 
-export const SortingWithInlineSelect = TablePageStories.SortingWithInlineSelect
-
 export const WithPagination = TablePageStories.WithPagination

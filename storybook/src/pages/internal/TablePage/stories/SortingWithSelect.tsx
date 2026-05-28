@@ -24,30 +24,30 @@ export const SortingWithSelect: StoryObj = {
           <Heading level={1}>Vergunninghouders 2026/2027</Heading>
         </Grid.Cell>
         <Grid.Cell span="all">
-          <form
-            className="ams-mb-m"
-            onSubmit={(e) => {
-              e.preventDefault()
-              const url = new URL(window.location.href)
-              url.searchParams.set('sort', new FormData(e.currentTarget).get('sort') as string)
-              window.location.href = url.toString()
-            }}
-          >
-            <Row align="end" alignVertical="center" wrap>
-              <Label htmlFor="sort">Sorteren op</Label>
-              <Select defaultValue={sortOrder} id="sort" name="sort" onChange={(e) => e.target.form?.requestSubmit()}>
-                {sortOptions.map(({ label, value }) => (
-                  <Select.Option key={value} value={value}>
-                    {label}
-                  </Select.Option>
-                ))}
-              </Select>
-            </Row>
-          </form>
+          <Row align="between" alignVertical="center" className="ams-mb-m" wrap>
+            <Heading level={2}>Gegevens per adres</Heading>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault()
+                const url = new URL(window.location.href)
+                url.searchParams.set('sort', new FormData(e.currentTarget).get('sort') as string)
+                window.location.href = url.toString()
+              }}
+            >
+              <Row alignVertical="center" wrap>
+                <Label htmlFor="sort">Sorteren op</Label>
+                <Select defaultValue={sortOrder} id="sort" name="sort" onChange={(e) => e.target.form?.requestSubmit()}>
+                  {sortOptions.map(({ label, value }) => (
+                    <Select.Option key={value} value={value}>
+                      {label}
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Row>
+            </form>
+          </Row>
           <Table>
-            <Table.Caption className="ams-mb-m">
-              <Heading level={2}>Gegevens per adres</Heading>
-            </Table.Caption>
+            <Table.Caption className="ams-visually-hidden">Gegevens per adres</Table.Caption>
             <Table.Header>
               <AddressTableHeaderRow />
             </Table.Header>
