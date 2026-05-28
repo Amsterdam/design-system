@@ -81,7 +81,7 @@ $ams-description-list-breakpoint: 32rem;
   /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
   text-wrap: var(--ams-description-list-term-text-wrap);
 
-  @container ams-query-container-inline-size (inline-size > #{$ams-description-list-breakpoint}) {
+  @container ams-query-container-inline-size (inline-size >= #{$ams-description-list-breakpoint}) {
     grid-column-start: 1;
 
     // Add margin for Terms that are longer than their Description(s)
@@ -116,7 +116,7 @@ $ams-description-list-breakpoint: 32rem;
   margin-block-end: var(--ams-description-list-description-margin-block-end);
   padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
-  @container ams-query-container-inline-size (inline-size > #{$ams-description-list-breakpoint}) {
+  @container ams-query-container-inline-size (inline-size >= #{$ams-description-list-breakpoint}) {
     grid-column-start: 2;
     padding-inline-start: 0;
 
@@ -130,7 +130,7 @@ $ams-description-list-breakpoint: 32rem;
 .ams-description-list__section {
   margin-block-end: var(--ams-description-list-section-margin-block-end);
 
-  @container ams-query-container-inline-size (inline-size > #{$ams-description-list-breakpoint}) {
+  @container ams-query-container-inline-size (inline-size >= #{$ams-description-list-breakpoint}) {
     grid-column: span 2;
 
     > :only-of-type {
@@ -152,7 +152,7 @@ $ams-description-list-breakpoint: 32rem;
   }
 }
 
-@container ams-query-container-inline-size (inline-size > #{$ams-description-list-breakpoint}) {
+@container ams-query-container-inline-size (inline-size >= #{$ams-description-list-breakpoint}) {
   .ams-description-list,
   .ams-description-list > .ams-description-list__section:last-child {
     > .ams-description-list__term:last-of-type {
