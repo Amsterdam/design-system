@@ -129,7 +129,7 @@
           }
         },
         "container-name": {
-          "$value": "ams-grid-cell-containment-context ams-inline-size-context"
+          "$value": "{ams.query-containers.inline-size.container-name}"
         },
         "container-type": {
           "$value": "inline-size"

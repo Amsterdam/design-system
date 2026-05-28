@@ -37,6 +37,12 @@
           "nl.amsterdam.type": "shadow"
         }
       },
+      "container-name": {
+        "$value": "{ams.query-containers.inline-size.container-name}"
+      },
+      "container-type": {
+        "$value": "inline-size"
+      },
       "gap": {
         "$value": "{ams.space.m}",
         "$extensions": {
