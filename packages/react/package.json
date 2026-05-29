@@ -61,7 +61,7 @@
     "@vitest/coverage-v8": "4.1.7",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.1.1",
-    "jsdom": "26.1.0",
+    "jsdom": "28.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "rollup": "4.60.4",
