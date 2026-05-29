@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Grid, Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
+import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 
@@ -51,18 +51,20 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const Orientation: Story = {
-  parameters: {
-    layout: 'fullscreen',
+  args: {
+    children: [
+      <DescriptionList.Term key={1}>Laagopgeleid</DescriptionList.Term>,
+      <DescriptionList.Description key={2}>Praktisch opgeleid</DescriptionList.Description>,
+      <DescriptionList.Term key={3}>Hoogopgeleid</DescriptionList.Term>,
+      <DescriptionList.Description key={4}>Theoretisch opgeleid</DescriptionList.Description>,
+      <DescriptionList.Term key={5}>Opleidingsniveau</DescriptionList.Term>,
+      <DescriptionList.Description key={6}>Onderwijsrichting</DescriptionList.Description>,
+    ],
   },
   render: (args) => (
-    <Grid>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
-        <DescriptionList {...args} />
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }}>
-        <DescriptionList {...args} />
-      </Grid.Cell>
-    </Grid>
+    <div className="ams-query-container-inline-size _ams-resize-horizontal" style={{ inlineSize: '18rem' }}>
+      <DescriptionList {...args} />
+    </div>
   ),
 }
 
