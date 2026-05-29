@@ -59,8 +59,11 @@ Apply the same value to all cells in the column and the matching `Table.HeaderCe
 ## Accessibility
 
 Add a caption so users can find and understand the Table without reading its data.
-Use a [Heading](/docs/components-text-heading--docs) in the caption, at the level that fits the document outline.
-It becomes the Table’s accessible name, announced by screen readers on every encounter.
+Use a [Heading](/docs/components-text-heading--docs) in it, at the level that fits the document outline.
+This creates the accessible name for the Table, which gets announced by screen readers on every encounter.
+
+To place content between the Heading and the Table, keep the Caption but hide it visually, then position the heading and content above the Table.
+Do not use ARIA relations; they hurt the Table’s semantics (see [this article](https://www.scottohara.me/blog/2019/04/19/tabled-tables.html)).
 
 ## Related components
 
