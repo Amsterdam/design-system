@@ -1,16 +1,17 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as AvatarStories from "./Avatar.stories.tsx";
-import README from "../../../../packages/css/src/components/avatar/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/avatar.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={AvatarStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={AvatarStories} />
 
 <Primary />
 

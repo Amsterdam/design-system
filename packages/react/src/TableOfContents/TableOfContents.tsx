@@ -45,6 +45,9 @@ const TableOfContentsRoot = forwardRef(
 TableOfContentsRoot.displayName = 'TableOfContents'
 
 /**
+ * A list of links corresponding to the content sections on the page.
+ * It helps users to easily navigate to different sections on the same page.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-table-of-contents--docs Table Of Contents docs at Amsterdam Design System}
  */
 export const TableOfContents = Object.assign(TableOfContentsRoot, {

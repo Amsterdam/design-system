@@ -24,6 +24,8 @@ export type HeadingProps = {
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>>
 
 /**
+ * Introduces a page section and describes the following content.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-heading--docs Heading docs at Amsterdam Design System}
  */
 export const Heading = forwardRef(

@@ -43,6 +43,12 @@ const OrderedListRoot = forwardRef(
 OrderedListRoot.displayName = 'OrderedList'
 
 /**
+ * An ordered list is a vertical group of related content with an order.
+ * This list can have 2 levels.
+ * The first level has numbers as list markers.
+ * The second level uses letters in alphabetical order.
+ * List items indent their text by a fixed distance.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-ordered-list--docs Ordered List docs at Amsterdam Design System}
  */
 export const OrderedList = Object.assign(OrderedListRoot, { Item: OrderedListItem })

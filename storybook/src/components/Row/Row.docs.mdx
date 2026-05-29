@@ -1,16 +1,17 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as RowStories from "./Row.stories.tsx";
-import README from "../../../../packages/css/src/components/row/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/row.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={RowStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={RowStories} />
 
 <Primary />
 

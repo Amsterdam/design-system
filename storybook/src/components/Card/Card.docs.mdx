@@ -1,16 +1,17 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as CardStories from "./Card.stories.tsx";
-import README from "../../../../packages/css/src/components/card/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/card.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={CardStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={CardStories} />
 
 <Primary />
 

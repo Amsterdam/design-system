@@ -41,6 +41,8 @@ export type AvatarProps = {
 } & Readonly<HTMLAttributes<HTMLSpanElement>>
 
 /**
+ * A circular badge representing a person.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-avatar--docs Avatar docs at Amsterdam Design System}
  */
 export const Avatar = forwardRef(

@@ -1,17 +1,18 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as ProgressListStories from "./ProgressList.stories.tsx";
 import * as ProgressListStepStories from "./ProgressListStep.stories.tsx";
-import README from "../../../../packages/css/src/components/progress-list/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/progress-list.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={ProgressListStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={ProgressListStories} />
 
 <Primary />
 

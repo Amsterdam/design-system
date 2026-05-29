@@ -19,6 +19,8 @@ export type TextInputProps = {
 } & Readonly<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid'>>
 
 /**
+ * A form field in which a user can enter text.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-text-input--docs Text Input docs at Amsterdam Design System}
  */
 export const TextInput = forwardRef(

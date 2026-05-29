@@ -1,9 +1,8 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as MenuStories from "./Menu.stories.tsx";
-import README from "../../../../packages/css/src/components/menu/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/menu.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
@@ -16,7 +15,9 @@ import { StatusBadge } from "../../_components/StatusBadge/StatusBadge.tsx";
 
 <Meta of={MenuStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={MenuStories} />
 
 **Note**: This component is responsive.
 The appearance of the examples depends on the width of your screen.

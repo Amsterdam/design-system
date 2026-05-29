@@ -1,12 +1,13 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 import * as OverlapStories from "./Overlap.stories.tsx";
-import README from "../../../../packages/css/src/components/overlap/README.md?raw";
 
 <Meta of={OverlapStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={OverlapStories} />
 
 <Primary />
 

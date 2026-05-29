@@ -1,17 +1,18 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as TableStories from "./Table.stories.tsx";
 import * as TableCellStories from "./TableCell.stories.tsx";
-import README from "../../../../packages/css/src/components/table/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/table.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={TableStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={TableStories} />
 
 <Primary />
 

@@ -11,6 +11,8 @@ import { forwardRef } from 'react'
 export type SkipLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 /**
+ * Allows skipping past recurring navigation blocks at the top of a page.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-skip-link--docs Skip Link docs at Amsterdam Design System}
  */
 export const SkipLink = forwardRef(

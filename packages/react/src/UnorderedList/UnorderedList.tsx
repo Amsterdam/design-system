@@ -45,6 +45,12 @@ const UnorderedListRoot = forwardRef(
 UnorderedListRoot.displayName = 'UnorderedList'
 
 /**
+ * A list is a vertical group of related content.
+ * This list can have 2 levels.
+ * The first level consists of squares.
+ * The second level consists of en dashes (–).
+ * Text in the list items is indented by a fixed distance.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-unordered-list--docs Unordered List docs at Amsterdam Design System}
  */
 export const UnorderedList = Object.assign(UnorderedListRoot, { Item: UnorderedListItem })

@@ -35,6 +35,8 @@ export type ImageSliderProps = {
 } & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
+ * Displays a small set of images in a limited space.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
  */
 export const ImageSlider = forwardRef(

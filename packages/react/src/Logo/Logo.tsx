@@ -78,6 +78,9 @@ const logoConfig: Record<LogoBrand, LogoBrandConfig> = {
 }
 
 /**
+ * The City’s logo combines an icon – the three Saint Andrew’s crosses – with a wordmark.
+ * It has a fixed colour, size, and position and is present on all our websites.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-logo--docs Logo docs at Amsterdam Design System}
  */
 export const Logo = forwardRef(

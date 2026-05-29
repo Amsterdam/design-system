@@ -1,16 +1,17 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as DateInputStories from "./DateInput.stories.tsx";
-import README from "../../../../packages/css/src/components/date-input/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/date-input.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={DateInputStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={DateInputStories} />
 
 <Primary />
 

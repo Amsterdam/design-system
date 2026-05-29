@@ -50,6 +50,8 @@ const TabNavigationRoot = forwardRef(
 TabNavigationRoot.displayName = 'TabNavigation'
 
 /**
+ * A horizontal or vertical list of links, styled as tabs, to navigate between a set of related pages.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-tab-navigation--docs Tab Navigation docs at Amsterdam Design System}
  */
 export const TabNavigation = Object.assign(TabNavigationRoot, {

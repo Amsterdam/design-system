@@ -16,6 +16,8 @@ export type CharacterCountProps = {
 } & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
+ * Help users know how much text they can enter when there is a limit on the number of characters.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-character-count--docs Character Count docs at Amsterdam Design System}
  */
 export const CharacterCount = forwardRef(

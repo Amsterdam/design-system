@@ -11,6 +11,9 @@ import { forwardRef, useId } from 'react'
 export type SwitchProps = PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
 
 /**
+ * A switch is a control element to toggle between two different states quickly.
+ * A switch applies to a page or the entire system, such as an on/off switch.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-switch--docs Switch docs at Amsterdam Design System}
  */
 export const Switch = forwardRef(

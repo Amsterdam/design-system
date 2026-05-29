@@ -1,12 +1,13 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 import * as BreakoutStories from "./Breakout.stories.tsx";
-import README from "../../../../packages/css/src/components/breakout/README.md?raw";
 
 <Meta of={BreakoutStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={BreakoutStories} />
 
 <Primary />
 

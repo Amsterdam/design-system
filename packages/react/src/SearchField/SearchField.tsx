@@ -26,6 +26,8 @@ const SearchFieldRoot = forwardRef(
 SearchFieldRoot.displayName = 'SearchField'
 
 /**
+ * Allows users to quickly find relevant content by entering a (part of a) word or phrase to search through the content.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-search-field--docs Search Field docs at Amsterdam Design System}
  */
 export const SearchField = Object.assign(SearchFieldRoot, { Button: SearchFieldButton, Input: SearchFieldInput })
