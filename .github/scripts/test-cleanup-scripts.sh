@@ -26,4 +26,9 @@ GITHUB_TOKEN="$(gh auth token)" REPO="Amsterdam/design-system" \
   python3 .github/scripts/cleanup_environments.py --dry-run --stale-days 14
 
 echo
+echo "== Test 3: deployment cleanup script (API dry-run) =="
+GITHUB_TOKEN="$(gh auth token)" REPO="Amsterdam/design-system" \
+  python3 .github/scripts/cleanup_deployments.py --dry-run --stale-days 14
+
+echo
 echo "Done."

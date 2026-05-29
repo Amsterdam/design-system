@@ -32,6 +32,54 @@ Use this command to get the correct format:
 pnx pin-github-action -c " {ref}" /path/to/workflow.yaml
 ```
 
+## Running cleanup workflows manually
+
+Use this runbook after a dry-run has completed and you want to perform actual cleanup.
+
+### Recommended method: GitHub Actions UI
+
+Use the Actions UI as the default operational path.
+It is explicit, auditable, and does not require local shell history.
+
+1. Open the repository Actions tab.
+2. Open one of these workflows:
+
+- `Cleanup stale demo directories from gh-pages`
+- `Cleanup obsolete environments`
+- `Cleanup obsolete deployments`
+
+1. Select **Run workflow**.
+2. Set `dry_run` to `false`.
+3. Optionally set `stale_days` and `i_really_mean_it`.
+4. Run the workflow and review logs.
+
+For environment cleanup, real deletion requires `ENV_ADMIN_TOKEN` with repository Administration read and write.
+Without that secret, dry-runs still work but real deletions return `403`.
+
+### CLI method (alternative)
+
+Use the GitHub CLI when you need terminal automation.
+
+```sh
+gh workflow run cleanup-gh-pages-demos.yml \
+ -R Amsterdam/design-system \
+ -f dry_run=false \
+ -f stale_days=14 \
+ -f i_really_mean_it=false
+
+gh workflow run cleanup-environments.yml \
+ -R Amsterdam/design-system \
+ -f dry_run=false \
+ -f stale_days=14 \
+ -f i_really_mean_it=false
+
+gh workflow run cleanup-deployments.yml \
+ -R Amsterdam/design-system \
+ -f dry_run=false \
+ -f stale_days=14 \
+ -f i_really_mean_it=false
+```
+
 ### Further reading
 
 - [Maturity levels of using GitHub Actions Securely](https://devopsjournal.io/blog/2021/12/11/GitHub-Actions-Maturity-Levels)
