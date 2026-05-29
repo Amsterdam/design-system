@@ -37,17 +37,23 @@ Use `Table.Footer` for a summary row.
 
 <Canvas of={TableStories.WithFooterAndRowHeaders} />
 
-### With description in caption
+### With heading and description
 
-Add a description to the caption to provide context like a source, date, or reading instructions.
-Use a small [Paragraph](/docs/components-text-paragraph--docs).
-Set `aria-labelledby` to keep only the heading as the table’s accessible name, or screen readers will read out the entire text.
+When the table needs context – a source, a date, or reading instructions – place a heading and a small paragraph above it and hide the caption visually.
 
-<Canvas of={TableStories.WithDescriptionInCaption} />
+<Canvas of={TableStories.WithHeadingAndDescription} />
+
+### With caption in figure
+
+The context can be positioned below the table as well.
+In this case, use a [Figure](/docs/components-media-figure--docs) and let the Table keep its Caption.
+
+<Canvas of={TableStories.InFigure} />
 
 ## See also
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
+- [Table Page](/docs/pages-internal-table-page--docs) – various templates for large data tables in internal websites.
 
 ## Design tokens
 

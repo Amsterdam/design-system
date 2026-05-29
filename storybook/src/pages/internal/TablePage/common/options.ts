@@ -2,7 +2,8 @@
  * @license EUPL-1.2+
  * Copyright Gemeente Amsterdam
  */
-export const sortOptions = [
+
+export const sortOptions: Array<{ label: string; value: string }> = [
   { label: 'Straat A-Z', value: 'straat-asc' },
   { label: 'Straat Z-A', value: 'straat-desc' },
   { label: 'Huisnummer oplopend', value: 'huisnummer-asc' },
