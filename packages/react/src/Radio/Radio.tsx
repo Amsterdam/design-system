@@ -17,10 +17,10 @@ export type RadioProps = {
    * An icon to display instead of the default icon.
    * @default RadioIcon
    */
-  icon?: IconProps['svg']
+  readonly icon?: IconProps['svg']
   /** Whether the value fails a validation rule. */
-  invalid?: boolean
-} & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
+  readonly invalid?: boolean
+} & Readonly<PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-radio--docs Radio docs at Amsterdam Design System}
@@ -30,7 +30,8 @@ export const Radio = forwardRef(
     { children, className, icon = RadioIcon, id, invalid, ...restProps }: RadioProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
-    const inputId = id || useId()
+    const generatedId = useId()
+    const inputId = id || generatedId
 
     return (
       // This div is here because NVDA doesn't match the input to the label

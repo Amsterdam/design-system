@@ -14,10 +14,10 @@ import { Icon } from '../Icon'
 
 export type PageHeaderMenuLinkProps = {
   /** Whether the link appears in the Page Header on narrow windows. */
-  fixed?: boolean
+  readonly fixed?: boolean
   /** An icon to display at the end of the label. */
-  icon?: IconProps['svg']
-} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+  readonly icon?: IconProps['svg']
+} & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
 
 export const PageHeaderMenuLink = forwardRef(
   (

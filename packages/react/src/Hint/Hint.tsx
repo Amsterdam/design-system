@@ -10,10 +10,10 @@ import { forwardRef } from 'react'
 
 type HintAndOptionalProps = {
   /** Show a custom hint text. */
-  hint?: string
-  inFieldSet?: boolean // Setting a description here will show it for the Label and FieldSet components in Storybook, which we do not want.
+  readonly hint?: string
+  readonly inFieldSet?: boolean // Setting a description here will show it for the Label and FieldSet components in Storybook, which we do not want.
   /** Appends the text '(niet verplicht)' to the label or legend if no hint is provided. Use when the associated inputs are optional. */
-  optional?: boolean
+  readonly optional?: boolean
 }
 
 const getHintText = ({ hint, optional }: HintAndOptionalProps) => {
@@ -26,7 +26,7 @@ const getHintText = ({ hint, optional }: HintAndOptionalProps) => {
   return null
 }
 
-export type HintProps = HintAndOptionalProps & PropsWithChildren<HTMLAttributes<HTMLElement>>
+export type HintProps = Readonly<HintAndOptionalProps> & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 export const Hint = forwardRef(
   ({ className, hint, inFieldSet, optional, ...restProps }: HintProps, ref: ForwardedRef<HTMLElement>) => {

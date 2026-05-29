@@ -1,0 +1,12 @@
+{
+  "ams": {
+    "query-containers": {
+      "$description": "Shared names for query containers established across the system. Components that establish a query container and consumers that query it should reference these names so they stay in sync.",
+      "inline-size": {
+        "container-name": {
+          "$value": "ams-query-container-inline-size"
+        }
+      }
+    }
+  }
+}
