@@ -40,7 +40,7 @@
     "@storybook/react-vite": "10.4.0",
     "@types/react": "18.3.28",
     "@vitejs/plugin-react": "6.0.1",
-    "chromatic": "16.10.1",
+    "chromatic": "17.1.0",
     "eslint-plugin-mdx": "3.7.1",
     "eslint-plugin-storybook": "10.4.1",
     "react": "18.3.1",
