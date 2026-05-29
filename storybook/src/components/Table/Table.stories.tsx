@@ -60,6 +60,7 @@ export const WithFooterAndRowHeaders: Story = {
       </Table.Header>,
       <Table.Body key="body">
         <Table.Row>
+          {/* Use a Header Cell with a scope for row headers. */}
           <Table.HeaderCell scope="row">Eerste 6 weken</Table.HeaderCell>
           <Table.Cell>€ 109,80 per week</Table.Cell>
         </Table.Row>
@@ -81,6 +82,7 @@ export const WithFooterAndRowHeaders: Story = {
 export const WithHeadingAndDescription: Story = {
   render: () => (
     <>
+      {/* Move the Heading outside the Table to have content between them. */}
       <Heading className="ams-mb-xs" level={3}>
         Kosten voor de aanvraag
       </Heading>
@@ -88,6 +90,7 @@ export const WithHeadingAndDescription: Story = {
         Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
       </Paragraph>
       <Table>
+        {/* Repeat the text of the Heading in a visually hidden Caption for accessibility. */}
         <Table.Caption className="ams-visually-hidden">Kosten voor de aanvraag</Table.Caption>
         <Table.Header>
           <Table.Row>
@@ -115,37 +118,38 @@ export const WithHeadingAndDescription: Story = {
 
 export const InFigure: Story = {
   render: () => (
-    <>
-      <Heading className="ams-mb-s" level={3}>
-        Kosten voor de aanvraag
-      </Heading>
-      <Figure>
-        <Table>
-          <Table.Caption className="ams-visually-hidden">Kosten voor de aanvraag</Table.Caption>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Type</Table.HeaderCell>
-              <Table.HeaderCell align="end">Normale levertijd</Table.HeaderCell>
-              <Table.HeaderCell align="end">Met spoed</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell>Paspoort</Table.Cell>
-              <Table.Cell align="end">€ 77,85</Table.Cell>
-              <Table.Cell align="end">€ 130,80</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>ID-kaart</Table.Cell>
-              <Table.Cell align="end">€ 70,35</Table.Cell>
-              <Table.Cell align="end">€ 123,30</Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table>
-        <Figure.Caption>
-          Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
-        </Figure.Caption>
-      </Figure>
-    </>
+    <Figure>
+      <Table>
+        <Table.Caption>
+          {/* In a Figure, the Heading can be in the Table Caption again. */}
+          <Heading className="ams-mb-s" level={3}>
+            Kosten voor de aanvraag
+          </Heading>
+        </Table.Caption>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Type</Table.HeaderCell>
+            <Table.HeaderCell align="end">Normale levertijd</Table.HeaderCell>
+            <Table.HeaderCell align="end">Met spoed</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Paspoort</Table.Cell>
+            <Table.Cell align="end">€ 77,85</Table.Cell>
+            <Table.Cell align="end">€ 130,80</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>ID-kaart</Table.Cell>
+            <Table.Cell align="end">€ 70,35</Table.Cell>
+            <Table.Cell align="end">€ 123,30</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
+      {/* A figure caption describes the content of the figure, in this case the table. */}
+      <Figure.Caption>
+        Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
+      </Figure.Caption>
+    </Figure>
   ),
 }
