@@ -2,7 +2,8 @@
 
 # Table
 
-Presents related values in rows and columns, from a compact reference table to a large data set users need to scan, sort, or filter.
+Presents related values in rows and columns.
+Suitable for both simple reference tables and to inspect large data sets.
 
 ## Guidelines
 
