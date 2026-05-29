@@ -26,14 +26,8 @@ export const Default: Story = {
       <Table.Header key="header">
         <Table.Row>
           <Table.HeaderCell>Type</Table.HeaderCell>
-          <Table.HeaderCell align="end">
-            Normale levertijd
-            <br />1 week
-          </Table.HeaderCell>
-          <Table.HeaderCell align="end">
-            Spoed
-            <br />2 werkdagen
-          </Table.HeaderCell>
+          <Table.HeaderCell align="end">Normale levertijd</Table.HeaderCell>
+          <Table.HeaderCell align="end">Met spoed</Table.HeaderCell>
         </Table.Row>
       </Table.Header>,
       <Table.Body key="body">
@@ -99,14 +93,8 @@ export const WithDescriptionInCaption: Story = {
       <Table.Header key="header">
         <Table.Row>
           <Table.HeaderCell>Type</Table.HeaderCell>
-          <Table.HeaderCell align="end">
-            Normale levertijd
-            <br />1 week
-          </Table.HeaderCell>
-          <Table.HeaderCell align="end">
-            Spoed
-            <br />2 werkdagen
-          </Table.HeaderCell>
+          <Table.HeaderCell align="end">Normale levertijd</Table.HeaderCell>
+          <Table.HeaderCell align="end">Met spoed</Table.HeaderCell>
         </Table.Row>
       </Table.Header>,
       <Table.Body key="body">
