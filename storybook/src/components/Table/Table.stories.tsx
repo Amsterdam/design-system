@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Figure, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Table } from '@amsterdam/design-system-react/src'
 
 const meta = {
@@ -78,7 +78,7 @@ export const WithFooterAndRowHeaders: Story = {
   },
 }
 
-export const WithExtraDescription: Story = {
+export const WithHeadingAndDescription: Story = {
   render: () => (
     <>
       <Heading className="ams-mb-xs" level={3}>
@@ -90,10 +90,10 @@ export const WithExtraDescription: Story = {
       <Table>
         <Table.Caption className="ams-visually-hidden">Kosten voor de aanvraag</Table.Caption>
         <Table.Header>
-        <Table.Row>
-          <Table.HeaderCell>Type</Table.HeaderCell>
-          <Table.HeaderCell align="end">Normale levertijd</Table.HeaderCell>
-          <Table.HeaderCell align="end">Met spoed</Table.HeaderCell>
+          <Table.Row>
+            <Table.HeaderCell>Type</Table.HeaderCell>
+            <Table.HeaderCell align="end">Normale levertijd</Table.HeaderCell>
+            <Table.HeaderCell align="end">Met spoed</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -109,6 +109,43 @@ export const WithExtraDescription: Story = {
           </Table.Row>
         </Table.Body>
       </Table>
+    </>
+  ),
+}
+
+export const InFigure: Story = {
+  render: () => (
+    <>
+      <Heading className="ams-mb-s" level={3}>
+        Kosten voor de aanvraag
+      </Heading>
+      <Figure>
+        <Table>
+          <Table.Caption className="ams-visually-hidden">Kosten voor de aanvraag</Table.Caption>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Type</Table.HeaderCell>
+              <Table.HeaderCell align="end">Normale levertijd</Table.HeaderCell>
+              <Table.HeaderCell align="end">Met spoed</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>Paspoort</Table.Cell>
+              <Table.Cell align="end">€ 77,85</Table.Cell>
+              <Table.Cell align="end">€ 130,80</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>ID-kaart</Table.Cell>
+              <Table.Cell align="end">€ 70,35</Table.Cell>
+              <Table.Cell align="end">€ 123,30</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table>
+        <Figure.Caption>
+          Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
+        </Figure.Caption>
+      </Figure>
     </>
   ),
 }
