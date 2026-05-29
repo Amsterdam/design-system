@@ -3,10 +3,23 @@
  * Copyright Gemeente Amsterdam
  */
 
-@use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
 @use "../../common/text-rendering" as *;
+
+/**
+ * CSS Custom properties cannot be used in container queries.
+ * We resort to Sass variables for our breakpoint values.
+ */
+
+/** The container width at which Description List toggles its orientation. */
+$ams-description-list-breakpoint: 32rem;
+
+@mixin horizontal-orientation {
+  @container ams-query-container-inline-size (inline-size >= #{$ams-description-list-breakpoint}) {
+    @content;
+  }
+}
 
 .ams-description-list {
   @include reset-dl;
@@ -21,7 +34,7 @@
   @include text-rendering;
 }
 
-@media (min-width: $ams-breakpoint-medium) {
+@include horizontal-orientation {
   .ams-description-list,
   .ams-description-list__section {
     align-items: start;
@@ -74,7 +87,7 @@
   /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
   text-wrap: var(--ams-description-list-term-text-wrap);
 
-  @media (min-width: $ams-breakpoint-medium) {
+  @include horizontal-orientation {
     grid-column-start: 1;
 
     // Add margin for Terms that are longer than their Description(s)
@@ -109,7 +122,7 @@
   margin-block-end: var(--ams-description-list-description-margin-block-end);
   padding-inline-start: var(--ams-description-list-description-padding-inline-start);
 
-  @media (min-width: $ams-breakpoint-medium) {
+  @include horizontal-orientation {
     grid-column-start: 2;
     padding-inline-start: 0;
 
@@ -123,7 +136,7 @@
 .ams-description-list__section {
   margin-block-end: var(--ams-description-list-section-margin-block-end);
 
-  @media (min-width: $ams-breakpoint-medium) {
+  @include horizontal-orientation {
     grid-column: span 2;
 
     > :only-of-type {
@@ -145,7 +158,7 @@
   }
 }
 
-@media (min-width: $ams-breakpoint-medium) {
+@include horizontal-orientation {
   .ams-description-list,
   .ams-description-list > .ams-description-list__section:last-child {
     > .ams-description-list__term:last-of-type {
