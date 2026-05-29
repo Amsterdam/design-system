@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{Bt as t,Ht as n,Vt as r}from"./iframe-Bp4LDOpI.js";import{n as i,t as a}from"./formatTokenValue-DDc3tUBi.js";var o=e((()=>{})),s,c,l=e((()=>{o(),r(),i(),s=n(),c=({className:e,style:n,value:r,...i})=>(0,s.jsx)(`div`,{...i,className:t(`_ams-aspect-ratio-sample`,`sb-unstyled`,e),style:{...n,aspectRatio:a(r)}})}));export{l as n,c as t};
