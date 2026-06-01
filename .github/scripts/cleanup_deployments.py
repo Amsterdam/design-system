@@ -104,6 +104,19 @@ def delete_obsolete_deployments(
     *,
     dry_run: bool,
 ) -> int:
+    def deactivate_deployment(deployment_id: int) -> bool:
+        status_url = f"{api}/deployments/{deployment_id}/statuses"
+        payload = {"state": "inactive", "auto_inactive": True}
+        status_response = session.post(status_url, json=payload, timeout=REQUEST_TIMEOUT)
+        if status_response.ok:
+            print(f"  Marked deployment {deployment_id} as inactive.")
+            return True
+        print(
+            f"  Failed to mark deployment {deployment_id} inactive: "
+            f"{status_response.status_code} {status_response.text}"
+        )
+        return False
+
     failures = 0
     for deployment_id, environment, updated_at in obsolete_deployments:
         prefix = "[DRY RUN] Would delete" if dry_run else "Deleting"
@@ -120,9 +133,22 @@ def delete_obsolete_deployments(
             print(f"  Deleted deployment {deployment_id}")
         elif r.status_code == 422:
             print(
-                f"  Skipping deployment {deployment_id}: GitHub reports it as not deletable "
-                "(typically still active)."
+                f"  Deployment {deployment_id} is not deletable yet (422). "
+                "Attempting to mark it inactive and retry deletion."
             )
+            if not deactivate_deployment(deployment_id):
+                failures += 1
+                continue
+
+            retry = session.delete(f"{api}/deployments/{deployment_id}", timeout=REQUEST_TIMEOUT)
+            if retry.ok:
+                print(f"  Deleted deployment {deployment_id} after deactivation")
+            else:
+                print(
+                    f"  Failed to delete deployment {deployment_id} after deactivation: "
+                    f"{retry.status_code} {retry.text}"
+                )
+                failures += 1
         else:
             print(f"  Failed to delete deployment {deployment_id}: {r.status_code} {r.text}")
             failures += 1
