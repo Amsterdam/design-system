@@ -32,6 +32,7 @@ from cleanup_common import (
     get_required_env,
     paginate,
     parse_updated_at,
+    REQUEST_TIMEOUT,
     validate_stale_days,
 )
 
