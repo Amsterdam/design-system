@@ -15,6 +15,12 @@ shopt -s nullglob
 # - DRY_RUN (default: true)
 # - STALE_DAYS (default: 0)
 # - I_REALLY_MEAN_IT (default: false)
+#
+# Dry run example:
+# DRY_RUN=true I_REALLY_MEAN_IT=false .github/scripts/cleanup_gh_pages_demos.sh
+# 
+# Actual run example (with safety cap):
+# DRY_RUN=false I_REALLY_MEAN_IT=true .github/scripts/cleanup_gh_pages_demos.sh
 
 TARGET_DIR="${1:-.}"
 DEMO_PREFIX="demo-"
