@@ -24,7 +24,6 @@
   "scripts": {
     "build": "pnpm -r run build",
     "clean:dist": "pnpm -r run clean:dist",
-    "clean:node-modules": "rimraf node_modules",
     "clean:git-ignored": "git clean -d -X -f",
     "clean:git-optimize": ".github/scripts/cleanup_git_repo.sh",
     "clean:git-all": "pnpm run clean:git-ignored && pnpm run clean:git-optimize",
