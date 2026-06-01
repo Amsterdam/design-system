@@ -26,7 +26,7 @@
     "clean:dist": "pnpm -r run clean:dist",
     "clean:git-ignored": "git clean -d -X -f",
     "clean:git-optimize": ".github/scripts/cleanup_git_repo.sh",
-    "clean:git-all": "pnpm run clean:git-ignored && pnpm run clean:git-optimize",
+    "clean:git": "pnpm run clean:git-ignored & pnpm run clean:git-optimize",
     "lint": "pnpm run --aggregate-output '/^lint:.+$/' && pnpm -r --no-bail run lint",
     "lint:css": "stylelint --allow-empty-input --report-needless-disables '**/*.{css,scss}'",
     "lint:js": "eslint .",
