@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { MouseEvent } from 'react'
 
-import { Breadcrumb, Grid, Heading, Paragraph, TableOfContents } from '@amsterdam/design-system-react'
+import { Grid, Heading, Paragraph, TableOfContents } from '@amsterdam/design-system-react'
 import { useState } from 'react'
 
 import type { HandbookPage } from './pages'
@@ -65,10 +65,6 @@ export const Default: StoryObj = {
             </TableOfContents>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
-            <Breadcrumb>
-              <Breadcrumb.Link href="#">Personeelsregeling</Breadcrumb.Link>
-              <Breadcrumb.Link href="#">Vaststellen en waarderen van functies</Breadcrumb.Link>
-            </Breadcrumb>
             <main className="ams-prose">
               <Heading level={1}>{currentPage.heading}</Heading>
               <Paragraph size="large">{currentPage.lead}</Paragraph>
