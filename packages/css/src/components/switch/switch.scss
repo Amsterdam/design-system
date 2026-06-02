@@ -12,10 +12,8 @@
 }
 
 .ams-switch__label {
-  --ams-switch-track-border-width: var(--ams-border-width-m);
-
-  // Keep at least 1px so a token set to 0 can’t hide the border. Used for the track and the thumb offset.
-  --_ams-switch-track-border-width: max(1px, var(--ams-switch-track-border-width));
+  // The effective border width, shared by the track border and the thumb offset. Floored in forced colors mode below.
+  --_ams-switch-label-border-width: var(--ams-switch-label-border-width);
 
   background-color: var(--ams-switch-background-color);
 
@@ -23,7 +21,7 @@
   border-color: transparent;
   border-radius: calc(var(--ams-switch-thumb-inline-size) * 2);
   border-style: solid;
-  border-width: var(--_ams-switch-track-border-width);
+  border-width: var(--_ams-switch-label-border-width);
   box-sizing: border-box;
   cursor: var(--ams-switch-cursor);
   display: inline-block;
@@ -31,6 +29,11 @@
   outline-offset: var(--ams-switch-outline-offset);
   transition: background-color 0.2s ease-in-out;
   vertical-align: middle;
+
+  // Keep at least 1px so a token set to 0 can’t hide the border.
+  @media (forced-colors: active) {
+    --_ams-switch-label-border-width: max(1px, var(--ams-switch-label-border-width));
+  }
 }
 
 .ams-switch__label::before {
@@ -59,7 +62,7 @@
 }
 
 .ams-switch__input:checked + .ams-switch__label::before {
-  transform: translate(calc(100% - 2 * var(--_ams-switch-track-border-width)));
+  transform: translate(calc(100% - 2 * var(--_ams-switch-label-border-width)));
 }
 
 .ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
