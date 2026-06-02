@@ -34,50 +34,28 @@ pnx pin-github-action -c " {ref}" /path/to/workflow.yaml
 
 ## Running cleanup workflows manually
 
-Use this runbook after a dry-run has completed and you want to perform actual cleanup.
+Three workflows prune artefacts left behind by feature-branch deploys:
 
-### Recommended method: GitHub Actions UI
+- `Cleanup stale demo directories from gh-pages` ([cleanup-gh-pages-demos.yml](../.github/workflows/cleanup-gh-pages-demos.yml))
+- `Cleanup obsolete environments` ([cleanup-environments.yml](../.github/workflows/cleanup-environments.yml))
+- `Cleanup obsolete deployments` ([cleanup-deployments.yml](../.github/workflows/cleanup-deployments.yml))
 
-Use the Actions UI as the default operational path.
-It is explicit, auditable, and does not require local shell history.
+Each runs on a schedule as a dry-run.
+To perform real deletions, dispatch from the Actions UI with `dry_run=false`.
+Common inputs: `stale_days`, `i_really_mean_it`, and (deployments only) `include_production`.
 
-1. Open the repository Actions tab.
-2. Open one of these workflows:
+Two gotchas:
 
-- `Cleanup stale demo directories from gh-pages`
-- `Cleanup obsolete environments`
-- `Cleanup obsolete deployments`
+- Environment cleanup needs an `ENV_ADMIN_TOKEN` secret with repository Administration read/write for real deletions; without it, dry-runs work but deletions return `403`.
+- `include_production=true` extends deployment cleanup to `github-pages` and `demo-develop`. The newest two deployments per environment are always protected as live + rollback target.
 
-1. Select **Run workflow**.
-2. Set `dry_run` to `false`.
-3. Optionally set `stale_days` and `i_really_mean_it`.
-4. Run the workflow and review logs.
-
-For environment cleanup, real deletion requires `ENV_ADMIN_TOKEN` with repository Administration read and write.
-Without that secret, dry-runs still work but real deletions return `403`.
-
-### CLI method (alternative)
-
-Use the GitHub CLI when you need terminal automation.
+### CLI alternative
 
 ```sh
-gh workflow run cleanup-gh-pages-demos.yml \
+gh workflow run <workflow-file> \
  -R Amsterdam/design-system \
  -f dry_run=false \
- -f stale_days=14 \
- -f i_really_mean_it=false
-
-gh workflow run cleanup-environments.yml \
- -R Amsterdam/design-system \
- -f dry_run=false \
- -f stale_days=14 \
- -f i_really_mean_it=false
-
-gh workflow run cleanup-deployments.yml \
- -R Amsterdam/design-system \
- -f dry_run=false \
- -f stale_days=14 \
- -f i_really_mean_it=false
+ -f stale_days=14
 ```
 
 ### Further reading
