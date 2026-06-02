@@ -1,13 +1,19 @@
 # @license EUPL-1.2+
 # Copyright Gemeente Amsterdam
 
-# GitHub Actions workflow to clean up obsolete `demo-*` GitHub Deployments.
+# GitHub Actions workflow to clean up obsolete GitHub Deployments.
 # Runs on a weekly schedule and can be triggered manually.
 #
-# A deployment targeting environment `demo-X` is considered obsolete when no
-# remote branch matches `X` after stripping the leading `<prefix>/` segment —
-# the same transformation feature-branch-deploy.yml applies when creating these
-# deployments. Other deployment environments are left alone.
+# Default scope: `demo-*` deployments whose branch is gone. A deployment
+# targeting environment `demo-X` is obsolete when no remote branch matches `X`
+# after stripping the leading `<prefix>/` segment — the same transformation
+# feature-branch-deploy.yml applies when creating these deployments.
+#
+# Optional scope (manual dispatch with `include_production=true`):
+# `github-pages` and `demo-develop`. Branch-existence does not apply (those
+# branches always exist); instead candidates must pass `stale_days`, and the
+# newest few deployments per env are protected as live + rollback target.
+# Scheduled runs never include production.
 #
 # The default `dry_run=true` only logs what would be deleted.
 # Pass `dry_run=false` from the Actions UI to perform deletions.
@@ -25,6 +31,10 @@ on:
         description: "Only delete deployments not updated in this many days (0 = ignore age)."
         required: false
         default: "0"
+      include_production:
+        description: "Also clean github-pages and demo-develop deployments. Off by default."
+        required: false
+        default: "false"
       i_really_mean_it:
         description: "Allow deleting more than 25 deployments in one run."
         required: false
@@ -62,11 +72,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
-        # On schedule, github.event.inputs is empty, so this resolves to --dry-run
-        # and --stale-days 14 — guarding against deleting a deployment created by
-        # an in-flight feature-branch deploy.
+        # On schedule, github.event.inputs is empty, so this resolves to
+        # --dry-run, --stale-days 14, no --include-production. Scheduled runs
+        # therefore only touch demo-* with the 14-day grace window.
         run: |
           python .github/scripts/cleanup_deployments.py \
             ${{ (github.event.inputs.dry_run == 'false') && '--no-dry-run' || '--dry-run' }} \
             --stale-days "${{ github.event.inputs.stale_days || '14' }}" \
+            ${{ (github.event.inputs.include_production == 'true') && '--include-production' || '' }} \
             ${{ (github.event.inputs.i_really_mean_it == 'true') && '--i-really-mean-it' || '' }}

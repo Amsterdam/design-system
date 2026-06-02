@@ -1,10 +1,18 @@
 # @license EUPL-1.2+
 # Copyright Gemeente Amsterdam
-"""Delete obsolete `demo-*` GitHub Deployments for a repo.
+"""Delete obsolete GitHub Deployments for a repo.
 
+Default scope (always on): `demo-*` deployments whose branch is gone.
 A deployment targeting environment `demo-X` is obsolete when no remote branch
 matches `X` after stripping the leading `<prefix>/` segment from the branch
 name — the same transform feature-branch-deploy.yml applies.
+
+Optional scope (--include-production): `github-pages` and `demo-develop`
+deployments. The branch-existence check doesn't apply (those branches always
+exist); instead candidates must pass --stale-days, and the KEEP_LATEST_PER_ENV
+newest deployments per env (by created_at) are protected as the live deploy +
+rollback target. GitHub auto-deactivates older deployments per env, so this
+is a cheap proxy for a per-deployment status check.
 
 Required env vars:
     GITHUB_TOKEN  Token with repository Deployments: write.
@@ -17,8 +25,8 @@ Safety guards:
 - Aborts if more than MAX_DELETES are slated for deletion, unless
   --i-really-mean-it is passed.
 - Candidate selection uses branch matching and stale_days filtering.
-- GitHub enforces deployment deletion eligibility; non-deletable deployments
-    (for example active ones) are skipped.
+- Production candidates are pre-filtered by deployment state to skip any
+  currently-live, in-progress, queued, or pending deployment.
 """
 from __future__ import annotations
 
@@ -40,6 +48,10 @@ from cleanup_common import (
 
 DEMO_PREFIX = "demo-"
 MAX_DELETES = 25
+PRODUCTION_ENVS = frozenset({"github-pages", "demo-develop"})
+# Newest N deployments per production env to protect: index 0 is the live
+# deploy, index 1 is the rollback target.
+KEEP_LATEST_PER_ENV = 2
 
 
 def fetch_deployments(session: requests.Session, api: str) -> list[dict]:
@@ -47,6 +59,21 @@ def fetch_deployments(session: requests.Session, api: str) -> list[dict]:
     for batch in paginate(session, f"{api}/deployments"):
         deployments.extend(batch)
     return deployments
+
+
+def collect_protected_production_ids(deployments: list[dict], keep_latest: int) -> set[int]:
+    by_env: dict[str, list[dict]] = {}
+    for deployment in deployments:
+        environment = deployment.get("environment") or ""
+        if environment in PRODUCTION_ENVS:
+            by_env.setdefault(environment, []).append(deployment)
+
+    protected: set[int] = set()
+    for env_deployments in by_env.values():
+        env_deployments.sort(key=lambda d: d.get("created_at") or "", reverse=True)
+        for deployment in env_deployments[:keep_latest]:
+            protected.add(deployment["id"])
+    return protected
 
 
 def fetch_repo_state(session: requests.Session, api: str) -> tuple[set[str], list[dict]]:
@@ -62,17 +89,28 @@ def select_obsolete_deployments(
     branch_short_names: set[str],
     stale_days: int,
     now: datetime.datetime,
+    *,
+    include_production: bool,
 ) -> list[tuple[int, str, datetime.datetime | None]]:
+    protected_production_ids: set[int] = (
+        collect_protected_production_ids(deployments, KEEP_LATEST_PER_ENV)
+        if include_production else set()
+    )
     selected: list[tuple[int, str, datetime.datetime | None]] = []
 
     for deployment in deployments:
         deployment_id = deployment["id"]
         environment = deployment.get("environment") or ""
 
-        if not environment.startswith(DEMO_PREFIX):
-            continue
-
-        if environment[len(DEMO_PREFIX):] in branch_short_names:
+        if environment in PRODUCTION_ENVS:
+            if not include_production:
+                continue
+            if deployment_id in protected_production_ids:
+                continue
+        elif environment.startswith(DEMO_PREFIX):
+            if environment[len(DEMO_PREFIX):] in branch_short_names:
+                continue
+        else:
             continue
 
         updated_at = parse_updated_at(deployment)
@@ -131,7 +169,20 @@ def delete_obsolete_deployments(
         r = session.delete(f"{api}/deployments/{deployment_id}", timeout=REQUEST_TIMEOUT)
         if r.ok:
             print(f"  Deleted deployment {deployment_id}")
-        elif r.status_code == 422:
+            continue
+
+        if environment in PRODUCTION_ENVS:
+            # Production candidates were pre-filtered to non-live states; any
+            # failure here is unexpected. Never deactivate — we will not flip
+            # a production deployment ourselves.
+            print(
+                f"  Failed to delete production deployment {deployment_id}: "
+                f"{r.status_code} {r.text}"
+            )
+            failures += 1
+            continue
+
+        if r.status_code == 422:
             print(
                 f"  Deployment {deployment_id} is not deletable yet (422). "
                 "Attempting to mark it inactive and retry deletion."
@@ -167,6 +218,13 @@ def main() -> int:
         help="Skip deployments updated more recently than this many days (0 = ignore age).",
     )
     parser.add_argument(
+        "--include-production", action="store_true",
+        help=(
+            f"Also consider production environments ({', '.join(sorted(PRODUCTION_ENVS))}). "
+            "Off by default. Candidates additionally must have a deletable latest status."
+        ),
+    )
+    parser.add_argument(
         "--i-really-mean-it", action="store_true",
         help=f"Allow deleting more than {MAX_DELETES} deployments in one run.",
     )
@@ -199,6 +257,7 @@ def main() -> int:
         branch_short_names,
         args.stale_days,
         datetime.datetime.now(datetime.timezone.utc),
+        include_production=args.include_production,
     )
 
     if not obsolete_deployments:
