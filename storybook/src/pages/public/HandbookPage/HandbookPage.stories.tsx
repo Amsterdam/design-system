@@ -17,6 +17,11 @@ import { findAncestors, findPage, pages } from './pages'
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Handbook Page',
+  parameters: {
+    ...commonMeta.parameters,
+    skipLinkLabel: 'Direct naar de inhoudsopgave',
+    skipLinkTargetId: 'inhoudsopgave',
+  },
 } satisfies Meta
 
 export default meta
@@ -58,15 +63,15 @@ export const Default: StoryObj = {
 
     return (
       <>
-        <SkipLink href={`#${currentPage.slug}`}>Inhoudsopgave overslaan</SkipLink>
-        <Grid id="inhoud" paddingVertical="x-large">
+        <Grid paddingVertical="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
-            <TableOfContents collapsible heading="Inhoudsopgave" key={currentSlug}>
+            <TableOfContents collapsible heading="Inhoudsopgave" id="inhoudsopgave" key={currentSlug}>
+              <SkipLink href="#inhoud">Inhoudsopgave overslaan</SkipLink>
               {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
             </TableOfContents>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
-            <main className="ams-prose" id={currentPage.slug}>
+            <main className="ams-prose" id="inhoud">
               <Heading level={1}>{currentPage.heading}</Heading>
               <Paragraph size="large">{currentPage.lead}</Paragraph>
               <Paragraph>{currentPage.body}</Paragraph>
