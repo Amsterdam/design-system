@@ -45,6 +45,7 @@ export const TableOfContentsLink = forwardRef(
   ) => {
     const { collapsible, hideAccessibleLabel, showAccessibleLabel } = useContext(TableOfContentsContext)
     const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? false)
+
     const panelId = useId()
     const buttonRef = useRef<HTMLButtonElement>(null)
     const itemRef = useRef<HTMLLIElement>(null)
@@ -63,6 +64,7 @@ export const TableOfContentsLink = forwardRef(
       }
     }
 
+    // Toggles the local expanded state and emits the new expanded state
     const handleClick = () => {
       const nextIsExpanded = !isExpanded
       moveFocusToToggleButton(nextIsExpanded)
