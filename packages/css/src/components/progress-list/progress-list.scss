@@ -295,9 +295,9 @@
 .ams-progress-list-substeps__connector {
   /* Cover underlying connector of parent step to prevent it from shining through. Our value for this token is white. */
   background-color: var(--ams-progress-list-substeps-step-connector-background-color);
-  border-color: var(--ams-progress-list-substeps-step-connector-border-inline-color);
-  border-style: var(--ams-progress-list-substeps-step-connector-border-inline-style);
-  border-width: var(--ams-progress-list-substeps-step-connector-border-inline-width);
+  border-inline-color: var(--ams-progress-list-substeps-step-connector-border-inline-color);
+  border-inline-style: var(--ams-progress-list-substeps-step-connector-border-inline-style);
+  border-inline-width: var(--ams-progress-list-substeps-step-connector-border-inline-width);
   margin-block-start: var(--ams-progress-list-substeps-step-connector-margin-block-start);
 
   @include connector;
