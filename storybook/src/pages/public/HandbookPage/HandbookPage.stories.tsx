@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { MouseEvent } from 'react'
 
-import { Grid, Heading, Paragraph, TableOfContents } from '@amsterdam/design-system-react'
+import { Grid, Heading, Paragraph, SkipLink, TableOfContents } from '@amsterdam/design-system-react'
 import { useState } from 'react'
 
 import type { HandbookPage } from './pages'
@@ -58,6 +58,7 @@ export const Default: StoryObj = {
 
     return (
       <>
+        <SkipLink href={`#${currentPage.slug}`}>Inhoudsopgave overslaan</SkipLink>
         <Grid id="inhoud" paddingVertical="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
             <TableOfContents collapsible heading="Inhoudsopgave" key={currentSlug}>
@@ -65,7 +66,7 @@ export const Default: StoryObj = {
             </TableOfContents>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
-            <main className="ams-prose">
+            <main className="ams-prose" id={currentPage.slug}>
               <Heading level={1}>{currentPage.heading}</Heading>
               <Paragraph size="large">{currentPage.lead}</Paragraph>
               <Paragraph>{currentPage.body}</Paragraph>
