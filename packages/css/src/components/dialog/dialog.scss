@@ -27,7 +27,7 @@ so do not apply these styles without an `open` attribute. */
 
   /* Ensure there always is a border in forced colors mode */
   @media (forced-colors: active) {
-    background-color: canvascolor;
+    background-color: Canvas;
     border-color: currentColor;
     border-style: solid;
     border-width: max(1px, var(--ams-dialog-border-width));
