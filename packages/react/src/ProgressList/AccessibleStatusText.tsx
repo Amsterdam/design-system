@@ -10,7 +10,7 @@ import type { ProgressListStepProps } from './ProgressListStep'
 import { ProgressListContext } from './ProgressListContext'
 
 type AccessibleStatusTextProps = {
-  status?: ProgressListStepProps['status']
+  readonly status?: ProgressListStepProps['status']
 }
 
 export const AccessibleStatusText = ({ status }: AccessibleStatusTextProps) => {

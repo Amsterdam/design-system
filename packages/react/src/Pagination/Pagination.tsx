@@ -16,31 +16,31 @@ import { Spacer } from './Spacer'
 
 export type PaginationProps = {
   /** The accessible name for the Pagination component. */
-  accessibleName?: string
+  readonly accessibleName?: string
   /**
    * Connects the component with an internal element that defines its accessible name.
    * Note: must be unique for the page.
    */
-  accessibleNameId?: string
+  readonly accessibleNameId?: string
   /** The React component to use for the links. */
-  linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+  readonly linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
   /** The template used to construct the link hrefs. */
-  linkTemplate: (page: number) => string
+  readonly linkTemplate: (page: number) => string
   /** The maximum amount of pages shown. Minimum value: 5. */
-  maxVisiblePages?: number
+  readonly maxVisiblePages?: number
   /** The accessible name for the link to the next page. */
-  nextAccessibleName?: string
+  readonly nextAccessibleName?: string
   /** The visible label for the link to the next page. */
-  nextLabel?: string
+  readonly nextLabel?: string
   /** The current page number. */
-  page?: number
+  readonly page?: number
   /** The accessible name for the link to the previous page. */
-  previousAccessibleName?: string
+  readonly previousAccessibleName?: string
   /** The visible label for the link to the previous page. */
-  previousLabel?: string
+  readonly previousLabel?: string
   /** The total amount of pages. */
-  totalPages: number
-} & HTMLAttributes<HTMLElement>
+  readonly totalPages: number
+} & Readonly<HTMLAttributes<HTMLElement>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-pagination--docs Pagination docs at Amsterdam Design System}

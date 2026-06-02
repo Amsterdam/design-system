@@ -10,8 +10,8 @@ import { forwardRef } from 'react'
 
 export type FieldProps = {
   /** Whether the field has an input with a validation error */
-  invalid?: boolean
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+  readonly invalid?: boolean
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-field--docs Field docs at Amsterdam Design System}

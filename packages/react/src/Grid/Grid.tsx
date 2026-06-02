@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -31,55 +31,47 @@ export const gridTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 
 export type GridTag = (typeof gridTags)[number]
 
 type GridPaddingVerticalProp = {
-  paddingBottom?: never
-  paddingTop?: never
+  readonly paddingBottom?: never
+  readonly paddingTop?: never
   /** The amount of space above and below. */
-  paddingVertical?: GridPadding
+  readonly paddingVertical?: GridPadding
 }
 
 type GridPaddingTopAndBottomProps = {
   /** The amount of space below. */
-  paddingBottom?: GridPadding
+  readonly paddingBottom?: GridPadding
   /** The amount of space above. */
-  paddingTop?: GridPadding
-  paddingVertical?: never
+  readonly paddingTop?: GridPadding
+  readonly paddingVertical?: never
 }
 
 export type GridProps = {
   /** The HTML tag to use. */
-  as?: GridTag
+  readonly as?: GridTag
   /** The amount of space between rows. */
-  gapVertical?: GridGap
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>> &
+  readonly gapVertical?: GridGap
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>> &
   (GridPaddingVerticalProp | GridPaddingTopAndBottomProps)
 
-const GridRoot = forwardRef(
-  (
-    {
-      as: Tag = 'div',
-      children,
-      className,
-      gapVertical,
-      paddingBottom,
-      paddingTop,
-      paddingVertical,
-      ...restProps
-    }: GridProps,
-    ref: ForwardedRef<any>,
-  ) => (
-    <Tag
-      {...restProps}
-      className={clsx(
-        'ams-grid',
-        gapVertical && `ams-grid--gap-vertical--${gapVertical}`,
-        paddingClasses('grid', paddingBottom, paddingTop, paddingVertical),
-        className,
-      )}
-      ref={ref}
-    >
-      {children}
-    </Tag>
-  ),
+const GridRoot = forwardRef<HTMLElement, GridProps>(
+  ({ as, children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx(
+          'ams-grid',
+          gapVertical && `ams-grid--gap-vertical--${gapVertical}`,
+          paddingClasses('grid', paddingBottom, paddingTop, paddingVertical),
+          className,
+        )}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 GridRoot.displayName = 'Grid'

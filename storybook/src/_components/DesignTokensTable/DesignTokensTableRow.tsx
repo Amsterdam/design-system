@@ -15,13 +15,13 @@ import { SpaceSample } from '../SpaceSample/SpaceSample'
 import { TypographySample } from '../TypographySample/TypographySample'
 
 type DesignTokensTableRowProps = {
-  deprecated?: string
-  description?: string
-  hideExamples?: boolean
-  name: string
-  showDescriptions?: boolean
-  type?: string
-  value: string
+  readonly deprecated?: string
+  readonly description?: string
+  readonly hideExamples?: boolean
+  readonly name: string
+  readonly showDescriptions?: boolean
+  readonly type?: string
+  readonly value: string
 }
 
 /**

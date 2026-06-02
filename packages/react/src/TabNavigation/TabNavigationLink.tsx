@@ -14,13 +14,13 @@ import { Icon } from '../Icon'
 
 export type TabNavigationLinkProps = {
   /** An icon to display before the link text. */
-  icon?: IconProps['svg']
+  readonly icon?: IconProps['svg']
   /**
    * The React component to use for the link.
    * Refs are not forwarded to custom link components.
    */
-  linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
-} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+  readonly linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+} & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
 
 export const TabNavigationLink = forwardRef(
   (

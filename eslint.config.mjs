@@ -1,261 +1,118 @@
 import eslint from '@eslint/js'
 import json from '@eslint/json'
 import markdown from '@eslint/markdown'
-import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
+import tsParser from '@typescript-eslint/parser'
+import vitest from '@vitest/eslint-plugin'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import baselineJs from 'eslint-plugin-baseline-js'
-import importPlugin from 'eslint-plugin-import'
-import vitest from '@vitest/eslint-plugin'
-import * as mdx from 'eslint-plugin-mdx'
+import importPlugin from 'eslint-plugin-import-x'
 import perfectionist from 'eslint-plugin-perfectionist'
-import react from 'eslint-plugin-react'
-import storybook from 'eslint-plugin-storybook'
+import { defineConfig } from 'eslint/config'
 import globals from 'globals'
-import tseslint from 'typescript-eslint'
 
-const perfectionistCustomSizesGroups = {
-  customGroups: [
-    {
-      groupName: 'x-small',
-      selector: 'property',
-      elementNamePattern: '^(x-small|xs)$',
-    },
-    {
-      groupName: 'small',
-      selector: 'property',
-      elementNamePattern: '^(small|s|narrow|phone|min|start)$',
-    },
-    {
-      groupName: 'medium',
-      selector: 'property',
-      elementNamePattern: '^(medium|m|tablet)$',
-    },
-    {
-      groupName: 'large',
-      selector: 'property',
-      elementNamePattern: '^(large|l|wide|desktop|max|end)$',
-    },
-    {
-      groupName: 'x-large',
-      selector: 'property',
-      elementNamePattern: '^(x-large|xl)$',
-    },
-    {
-      groupName: '2x-large',
-      selector: 'property',
-      elementNamePattern: '^(2x-large|2xl)$',
-    },
-  ],
-  groups: ['x-small', 'small', 'medium', 'large', 'x-large', '2x-large'],
-  useConfigurationIf: {
-    allNamesMatchPattern:
-      '^(x-small|xs|small|s|narrow|phone|min|start|medium|m|tablet|large|l|wide|desktop|max|x-large|xl|2x-large|2xl|end)$',
-  },
-}
+import { baselineRules, coreRules, importRules, perfectionistRules, tsRules } from './eslint.rules.mjs'
+import reactIconsConfig from './packages-proprietary/react-icons/eslint.config-partial.mjs'
+import reactConfig from './packages/react/eslint.config-partial.mjs'
+import storybookConfig from './storybook/eslint.config-partial.mjs'
 
-export default tseslint.config(
+const jsAndTsFiles = ['**/*.{js,jsx,mjs,ts,tsx}']
+const testFiles = ['**/*.{test,spec}.{js,jsx,ts,tsx}']
+const nodeScriptFiles = ['**/*.{config,setup}.{js,mjs,ts}', '**/rollup.config.mjs', 'plopfile.mjs']
+
+export default defineConfig([
   // Global
   {
     name: 'amsterdam-design-system/global-ignores',
+
     ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', '**/AGENTS.md'],
   },
   {
-    name: 'amsterdam-design-system/language-options',
-    languageOptions: {
-      globals: { ...globals.browser, ...globals.es6, ...vitest.environments.env.globals },
+    name: 'amsterdam-design-system/linter-options',
+
+    linterOptions: {
+      reportUnusedDisableDirectives: 'error',
     },
   },
   {
-    name: 'eslint-config-prettier',
-    ...eslintConfigPrettier,
+    name: 'amsterdam-design-system/language-options',
+
+    files: jsAndTsFiles,
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.es6 },
+    },
+  },
+  {
+    // Keep Node globals scoped to tooling and config scripts.
+    name: 'amsterdam-design-system/node-language-options',
+
+    files: nodeScriptFiles,
+    languageOptions: {
+      globals: { ...globals.node },
+    },
   },
 
   // JavaScript and TypeScript
   {
     name: 'amsterdam-design-system/javascript-typescript',
-    files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
+
+    extends: [eslint.configs.recommended, perfectionist.configs['recommended-natural']],
+    files: jsAndTsFiles,
+    languageOptions: {
+      parser: tsParser,
+    },
     plugins: {
       '@typescript-eslint': tsPlugin,
       'baseline-js': baselineJs,
-      import: importPlugin,
-      vitest,
-      perfectionist,
+      'import-x': importPlugin,
     },
+    rules: {
+      ...tsRules,
+      ...coreRules,
+      ...baselineRules,
+      ...importRules,
+      ...perfectionistRules,
+    },
+    settings: {
+      'import-x/resolver': {
+        typescript: true,
+      },
+    },
+  },
+
+  // Tests
+  {
+    name: 'amsterdam-design-system/tests',
+
+    extends: [vitest.configs.recommended],
+    files: testFiles,
     languageOptions: {
-      parser: tsParser,
-      parserOptions: {
-        ecmaFeatures: { jsx: true },
-      },
-    },
-    settings: {
-      'import/resolver': {
-        node: {
-          extensions: ['js', 'mjs', 'jsx', 'ts', 'tsx'],
-        },
-      },
-    },
-    rules: {
-      ...eslint.configs.recommended.rules,
-      ...vitest.configs.recommended.rules,
-      ...perfectionist.configs['recommended-natural'].rules,
-      ...tsPlugin.configs.recommended.rules,
-
-      // TypeScript
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-      '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-unsafe-function-type': 'warn',
-      '@typescript-eslint/no-unused-vars': 'error',
-
-      // ESLint
-      'array-callback-return': [
-        'error',
-        {
-          checkForEach: false,
-        },
-      ],
-      'block-scoped-var': 'error',
-      'consistent-return': 'error',
-      eqeqeq: 'error',
-      'no-alert': 'error',
-      'no-caller': 'error',
-      'no-constructor-return': 'error',
-      'no-eval': 'error',
-      'no-implicit-globals': 'error',
-      'no-implied-eval': 'error',
-      'no-inner-declarations': 'error',
-      'no-invalid-this': 'error',
-      'no-lone-blocks': 'error',
-      'no-loop-func': 'error',
-      'no-multi-str': 'error',
-      'no-new-func': 'error',
-      'no-new-symbol': 'error',
-      'no-new-wrappers': 'error',
-      'no-octal-escape': 'error',
-      'no-param-reassign': 'error',
-      'no-return-assign': 'error',
-      'no-return-await': 'error',
-      'no-self-compare': 'error',
-      'no-sequences': 'error',
-      'no-throw-literal': 'error',
-      'no-unmodified-loop-condition': 'error',
-      'no-unused-expressions': 'error',
-      'no-unused-vars': 'off', // This is handled by @typescript-eslint/no-unused-vars
-      'no-useless-call': 'error',
-      'no-useless-concat': 'error',
-      'no-useless-return': 'error',
-      'no-var': 'error',
-      'no-void': 'error',
-      'prefer-regex-literals': 'error',
-      radix: 'error',
-      'sort-imports': [
-        'error',
-        {
-          allowSeparatedGroups: false,
-          ignoreCase: true,
-          ignoreDeclarationSort: true,
-          ignoreMemberSort: false,
-        },
-      ],
-      yoda: 'error',
-
-      // Baseline JS
-      'baseline-js/use-baseline': [
-        'error',
-        { available: 'widely', includeWebApis: { preset: 'type-aware' }, includeJsBuiltins: { preset: 'type-aware' } },
-      ],
-
-      // Import
-      'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
-      'import/newline-after-import': 'error',
-      'import/no-named-as-default': 'warn',
-      'import/no-cycle': 'warn',
-
-      // Perfectionist
-      'perfectionist/sort-intersection-types': [
-        'error',
-        {
-          /* Storybook uses the first type definition it finds to generate controls.
-           * For example, if it finds the native HTML attribute `color` before a custom `color` prop, it will use that.
-           * This results in incorrect controls.
-           * Because we usually define our props in a type object, this rule will often prevent that issue. */
-          groups: ['object', 'named'],
-          order: 'asc',
-          type: 'natural',
-        },
-      ],
-      'perfectionist/sort-object-types': ['error', perfectionistCustomSizesGroups],
-      'perfectionist/sort-objects': [
-        'error',
-        perfectionistCustomSizesGroups,
-        {
-          customGroups: [
-            {
-              groupName: 'title',
-              selector: 'property',
-              elementNamePattern: '^title$',
-            },
-            {
-              groupName: 'component',
-              selector: 'property',
-              elementNamePattern: '^component$',
-            },
-          ],
-          groups: ['title', 'component'],
-        },
-      ],
-      'perfectionist/sort-modules': 'off', // This impacts readability in a negative way. We want to decide the order of modules ourselves.
-      'perfectionist/sort-union-types': 'off', // This causes more issues than it solves
+      globals: { ...vitest.environments.env.globals },
     },
   },
 
-  // React
-  {
-    name: 'amsterdam-design-system/react',
-    files: [
-      'packages/react/**/*.{js,jsx,ts,tsx}',
-      'packages-proprietary/react-icons/**/*.{js,jsx,ts,tsx}',
-      'storybook/**/*.{js,jsx,ts,tsx}',
-    ],
-    plugins: { react },
-    settings: {
-      react: { version: 'detect' },
-    },
-    rules: {
-      ...react.configs.recommended.rules,
-      'react/react-in-jsx-scope': 'off',
-    },
-  },
+  // React (owned by packages/react/eslint.config-partial.mjs)
+  ...reactConfig,
 
-  // Generated logo components
-  {
-    name: 'amsterdam-design-system/generated-logos',
-    files: ['packages/react/src/Logo/brands/*Logo.tsx'],
-    rules: {
-      'padding-line-between-statements': [
-        'error',
-        { blankLine: 'always', prev: 'const', next: 'expression' },
-        { blankLine: 'always', prev: 'expression', next: 'export' },
-      ],
-    },
-  },
+  // React-icons (owned by packages-proprietary/react-icons/eslint.config-partial.mjs)
+  ...reactIconsConfig,
 
   // JSON
   {
-    name: 'amsterdam-design-system/json',
-    files: ['**/*.json'],
-    plugins: { json },
-    language: 'json/json',
     ...json.configs.recommended,
+    name: 'amsterdam-design-system/json',
+
+    files: ['**/*.json'],
+    language: 'json/json',
   },
 
   // Markdown
   {
     name: 'amsterdam-design-system/markdown',
+
     files: ['**/*.md'],
-    plugins: { markdown },
     ignores: ['CHANGELOG.md'],
+    plugins: { markdown },
     processor: 'markdown/markdown',
     rules: {
       ...markdown.configs.recommended.rules,
@@ -264,22 +121,12 @@ export default tseslint.config(
     },
   },
 
-  // MDX
+  // MDX and Storybook (owned by storybook/eslint.config-partial.mjs)
+  ...storybookConfig,
+
+  // Prettier — must be last so it can override stylistic rules from earlier presets
   {
-    name: 'amsterdam-design-system/mdx',
-    ...mdx.flat,
-    processor: mdx.createRemarkProcessor({
-      lintCodeBlocks: true,
-    }),
+    name: 'amsterdam-design-system/prettier',
+    ...eslintConfigPrettier,
   },
-  {
-    name: 'amsterdam-design-system/mdx-flat-code-block',
-    ...mdx.flatCodeBlocks,
-    rules: {
-      ...mdx.flatCodeBlocks.rules,
-      'react/jsx-no-undef': 'off',
-      'react/prop-types': 'off',
-    },
-  },
-  storybook.configs['flat/recommended'],
-)
+])

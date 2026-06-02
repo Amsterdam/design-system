@@ -18,15 +18,15 @@ export type TableOfContentsLinkProps = {
    * Whether the nested list is initially expanded.
    * Ignored when the parent `TableOfContents` is not `collapsible` or when there is no nested list.
    */
-  defaultExpanded?: boolean
+  readonly defaultExpanded?: boolean
   /** The text for the link. */
-  label: string
+  readonly label: string
   /**
    * Callback fired when the nested list is expanded or collapsed. Receives the new expanded state.
    * Ignored when the parent `TableOfContents` is not `collapsible` or when there is no nested list.
    */
-  onToggle?: (expanded: boolean) => void
-} & AnchorHTMLAttributes<HTMLAnchorElement>
+  readonly onToggle?: (expanded: boolean) => void
+} & Readonly<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 // A Link is expandable when it has a `TableOfContents.List` as a direct child.
 const findListChild = (children: ReactNode): ReactElement | undefined => {

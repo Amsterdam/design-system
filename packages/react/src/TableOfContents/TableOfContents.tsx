@@ -21,25 +21,25 @@ export type TableOfContentsProps = {
    * Whether list items that contain a nested list can be expanded and collapsed.
    * @default false
    */
-  collapsible?: boolean
+  readonly collapsible?: boolean
   /** The text for the Heading. */
-  heading?: string
+  readonly heading?: string
   /**
    * The hierarchical level of the Heading within the document.
    * Visually, it always has the size of a level 3 Heading.
    */
-  headingLevel?: HeadingProps['level']
+  readonly headingLevel?: HeadingProps['level']
   /**
    * An accessible phrase used in the toggle button label when a section is expanded.
    * @default Verberg submenu van
    */
-  hideAccessibleLabel?: string
+  readonly hideAccessibleLabel?: string
   /**
    * An accessible phrase used in the toggle button label when a section is collapsed.
    * @default Toon submenu van
    */
-  showAccessibleLabel?: string
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly showAccessibleLabel?: string
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 const TableOfContentsRoot = forwardRef(
   (

@@ -128,6 +128,12 @@
             "nl.amsterdam.type": "color"
           }
         },
+        "container-name": {
+          "$value": "{ams.query-containers.inline-size.container-name}"
+        },
+        "container-type": {
+          "$value": "inline-size"
+        },
         "padding-block": {
           "$value": "initial",
           "$extensions": {

@@ -13,8 +13,8 @@ type TableCellAlign = (typeof tableCellAlignOptions)[number]
 
 export type TableCellProps = {
   /** The horizontal alignment of the cell’s content. */
-  align?: TableCellAlign
-} & PropsWithChildren<Omit<TdHTMLAttributes<HTMLTableCellElement>, 'align'>>
+  readonly align?: TableCellAlign
+} & Readonly<PropsWithChildren<Omit<TdHTMLAttributes<HTMLTableCellElement>, 'align'>>>
 
 export const TableCell = forwardRef(
   ({ align, children, className, ...restProps }: TableCellProps, ref: ForwardedRef<HTMLTableCellElement>) => (
