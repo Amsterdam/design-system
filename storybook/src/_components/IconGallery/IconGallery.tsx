@@ -31,8 +31,8 @@ const groupIcons = (icons: IconName[]) => {
 }
 
 type IconGalleryProps = {
-  excludeIcons?: Set<IconName> | IconName[]
-  icons?: Set<IconName> | IconName[]
+  readonly excludeIcons?: Set<IconName> | IconName[]
+  readonly icons?: Set<IconName> | IconName[]
 }
 
 const toSet = (value?: Set<IconName> | IconName[]): Set<IconName> | undefined => {

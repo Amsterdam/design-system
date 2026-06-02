@@ -16,12 +16,12 @@ type HeadingLevel = (typeof headingLevels)[number]
 
 export type HeadingProps = {
   /** Changes the text colour for readability on a dark background. */
-  color?: 'inverse'
+  readonly color?: 'inverse'
   /** The hierarchical level within the document. */
-  level: HeadingLevel
+  readonly level: HeadingLevel
   /** Uses larger or smaller text without changing its position in the heading hierarchy. */
-  size?: 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5'
-} & PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>
+  readonly size?: 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5'
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLHeadingElement>>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-heading--docs Heading docs at Amsterdam Design System}

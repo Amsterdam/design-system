@@ -11,9 +11,9 @@ import { Figure } from '../Figure/Figure'
 import { Image } from '../Image/Image'
 
 type ImageSliderSlideProps = {
-  currentSlideId: number
-  index: number
-} & ImageSliderImageProps
+  readonly currentSlideId: number
+  readonly index: number
+} & Readonly<ImageSliderImageProps>
 
 export const ImageSliderSlide = ({
   alt,

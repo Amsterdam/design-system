@@ -8,13 +8,10 @@ import type { ForwardedRef, OptionHTMLAttributes, PropsWithChildren } from 'reac
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type SelectOptionProps = OptionHTMLAttributes<HTMLOptionElement>
+export type SelectOptionProps = Readonly<PropsWithChildren<OptionHTMLAttributes<HTMLOptionElement>>>
 
 export const SelectOption = forwardRef(
-  (
-    { children, className, ...restProps }: PropsWithChildren<SelectOptionProps>,
-    ref: ForwardedRef<HTMLOptionElement>,
-  ) => (
+  ({ children, className, ...restProps }: SelectOptionProps, ref: ForwardedRef<HTMLOptionElement>) => (
     <option {...restProps} className={clsx('ams-select__option', className)} ref={ref}>
       {children}
     </option>

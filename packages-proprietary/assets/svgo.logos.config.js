@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 module.exports = {
   js2svg: {
     indent: 2,

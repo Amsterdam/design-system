@@ -71,6 +71,8 @@ $ams-grid-row-span-max: 4;
 
 .ams-grid__cell {
   background-color: var(--ams-grid-cell-background-color);
+  container-name: var(--ams-grid-cell-container-name);
+  container-type: var(--ams-grid-cell-container-type);
   padding-block: var(--ams-grid-cell-padding-block);
   padding-inline: var(--ams-grid-cell-padding-inline);
 }

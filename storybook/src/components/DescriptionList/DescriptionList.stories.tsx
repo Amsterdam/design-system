@@ -50,6 +50,24 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Orientation: Story = {
+  args: {
+    children: [
+      <DescriptionList.Term key={1}>Laagopgeleid</DescriptionList.Term>,
+      <DescriptionList.Description key={2}>Praktisch opgeleid</DescriptionList.Description>,
+      <DescriptionList.Term key={3}>Hoogopgeleid</DescriptionList.Term>,
+      <DescriptionList.Description key={4}>Theoretisch opgeleid</DescriptionList.Description>,
+      <DescriptionList.Term key={5}>Opleidingsniveau</DescriptionList.Term>,
+      <DescriptionList.Description key={6}>Onderwijsrichting</DescriptionList.Description>,
+    ],
+  },
+  render: (args) => (
+    <div className="ams-query-container-inline-size _ams-resize-horizontal" style={{ inlineSize: '18rem' }}>
+      <DescriptionList {...args} />
+    </div>
+  ),
+}
+
 export const MultipleDescriptions: Story = {
   args: {
     children: [

@@ -12,13 +12,13 @@ import { BreadcrumbLink } from './BreadcrumbLink'
 
 export type BreadcrumbProps = {
   /** The accessible name for the component. */
-  accessibleName?: string
+  readonly accessibleName?: string
   /**
    * Connects the component with an internal element that defines its accessible name.
    * Note: must be unique for the page.
    */
-  accessibleNameId?: string
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly accessibleNameId?: string
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 const BreadcrumbRoot = forwardRef(
   (

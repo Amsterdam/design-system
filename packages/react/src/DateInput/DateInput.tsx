@@ -13,10 +13,10 @@ type DateInputType = (typeof dateInputTypes)[number]
 
 export type DateInputProps = {
   /** Whether the value fails a validation rule. */
-  invalid?: boolean
+  readonly invalid?: boolean
   /** The kind of data that the user should provide. */
-  type?: DateInputType
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>
+  readonly type?: DateInputType
+} & Readonly<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
 /**
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-date-input--docs Date Input docs at Amsterdam Design System}

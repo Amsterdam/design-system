@@ -5,6 +5,8 @@
 
 .ams-page {
   background-color: var(--ams-page-background-color);
+  container-name: var(--ams-page-container-name);
+  container-type: var(--ams-page-container-type);
   margin-inline: auto;
   max-inline-size: var(--ams-page-max-inline-size);
   min-block-size: 100vh; /* Fallback for browsers that do not support dvh */

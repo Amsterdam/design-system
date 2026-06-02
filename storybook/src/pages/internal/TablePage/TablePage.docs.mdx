@@ -21,3 +21,17 @@ https://yourapp.amsterdam.nl/some-table-page?status=4&sort=name-asc&page-size=20
 ```
 
 This is why we use links and forms for table controls rather than buttons.
+
+## Sort and filter controls
+
+Place sort and filter controls in a row outside the table, never inside the `<caption>`.
+The `<caption>` provides the table’s accessible name, and its full subtree is part of that name: a `<select>` placed there would have its current value concatenated into the name on every announcement.
+
+There are two ways to lay this out, and both keep a `<caption>` on the table for its accessible name and data-table semantics:
+
+- **Controls above the table.** Add the controls in a row above the table and keep the caption visible inside it.
+  This is the simplest option and needs no extra markup.
+- **Controls inline after the heading (recommended).** Place a visible heading and the controls on one row above the table – the heading on the start, the controls on the end – and give the table a visually hidden `<caption>` carrying the same text.
+  The heading text is duplicated for assistive technology; this is the trade-off for placing the controls on the same line as the heading.
+
+The **Sorting With Select** story demonstrates the recommended layout.
