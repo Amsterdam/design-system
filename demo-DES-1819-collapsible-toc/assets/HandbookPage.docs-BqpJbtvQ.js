@@ -1,0 +1,7 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{Ut as t}from"./iframe-B2OMRNt5.js";import{r as n}from"./react-D9YbgL0d.js";import{c as r,f as i}from"./blocks-D7bnNnHY.js";import{t as a}from"./mdx-react-shim-sPe_I-OE.js";import{n as o,t as s}from"./HandbookPage.stories-B-NP-64G.js";function c(e){let t={a:`a`,code:`code`,h1:`h1`,p:`p`,...n(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[`
+`,`
+`,(0,u.jsx)(r,{of:s}),`
+`,(0,u.jsx)(t.h1,{id:`handbook-page`,children:`Handbook page`}),`
+`,(0,u.jsx)(t.p,{children:`Use this template for long-form reference content that is split across many short pages, such as a personnel handbook or a policy document.`}),`
+`,(0,u.jsxs)(t.p,{children:[`A collapsible `,(0,u.jsx)(t.a,{href:`/docs/components-navigation-table-of-contents--docs`,children:`Table of Contents`}),` on the left lists all pages, with the current page’s ancestors pre-expanded and `,(0,u.jsx)(t.code,{children:`aria-current="page"`}),` on the active link.
+The page content on the right uses the `,(0,u.jsx)(t.a,{href:`/docs/utilities-css-prose--docs`,children:`Prose`}),` utility class so headings, lead paragraphs, and body copy are spaced without hand-picked margins.`]})]})}function l(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,u.jsx)(t,{...e,children:(0,u.jsx)(c,{...e})}):c(e)}var u;e((()=>{u=t(),a(),i(),o()}))();export{l as default};
