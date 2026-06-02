@@ -17,8 +17,10 @@
   background-color: var(--ams-switch-background-color);
 
   // Using a transparent border to make sure the component is visible in forced colors mode.
-  border: var(--ams-switch-track-border-width) solid transparent;
+  border-color: transparent;
   border-radius: calc(var(--ams-switch-thumb-inline-size) * 2);
+  border-style: solid;
+  border-width: var(--ams-switch-track-border-width);
   box-sizing: border-box;
   cursor: var(--ams-switch-cursor);
   display: inline-block;

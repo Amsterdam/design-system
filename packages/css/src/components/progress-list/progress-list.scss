@@ -76,8 +76,9 @@
 .ams-progress-list__marker-shape {
   background-color: var(--ams-progress-list-step-marker-shape-background-color);
   block-size: var(--ams-progress-list-step-marker-shape-block-size);
-  border: var(--ams-progress-list-step-marker-shape-border-width)
-    var(--ams-progress-list-step-marker-shape-border-style) var(--ams-progress-list-step-marker-shape-border-color);
+  border-color: var(--ams-progress-list-step-marker-shape-border-color);
+  border-style: var(--ams-progress-list-step-marker-shape-border-style);
+  border-width: var(--ams-progress-list-step-marker-shape-border-width);
 
   /* Outline adds space between shape and connector */
   outline: var(--ams-progress-list-step-marker-shape-outline-width)
@@ -268,9 +269,9 @@
 .ams-progress-list-substeps__marker-shape {
   background-color: var(--ams-progress-list-substeps-step-marker-shape-background-color);
   block-size: var(--ams-progress-list-substeps-step-marker-shape-block-size);
-  border: var(--ams-progress-list-substeps-step-marker-shape-border-width)
-    var(--ams-progress-list-substeps-step-marker-shape-border-style)
-    var(--ams-progress-list-substeps-step-marker-shape-border-color);
+  border-color: var(--ams-progress-list-substeps-step-marker-shape-border-color);
+  border-style: var(--ams-progress-list-substeps-step-marker-shape-border-style);
+  border-width: var(--ams-progress-list-substeps-step-marker-shape-border-width);
 
   /* Outline is used to create space between shape and connector */
   outline: var(--ams-progress-list-substeps-step-marker-shape-outline-width)
@@ -294,9 +295,9 @@
 .ams-progress-list-substeps__connector {
   /* Cover underlying connector of parent step to prevent it from shining through. Our value for this token is white. */
   background-color: var(--ams-progress-list-substeps-step-connector-background-color);
-  border: var(--ams-progress-list-substeps-step-connector-border-inline-width)
-    var(--ams-progress-list-substeps-step-connector-border-inline-style)
-    var(--ams-progress-list-substeps-step-connector-border-inline-color);
+  border-color: var(--ams-progress-list-substeps-step-connector-border-inline-color);
+  border-style: var(--ams-progress-list-substeps-step-connector-border-inline-style);
+  border-width: var(--ams-progress-list-substeps-step-connector-border-inline-width);
   margin-block-start: var(--ams-progress-list-substeps-step-connector-margin-block-start);
 
   @include connector;
