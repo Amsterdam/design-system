@@ -30,3 +30,4 @@ Please describe your idea so we can understand the problem it solves.
 ## Checklist
 
 - [ ] I searched existing issues and discussions for a similar request.
+- [ ] I explored other ways to achieve what I want with [existing components and the documentation](https://designsystem.amsterdam/?path=/docs/docs-introduction--docs).
