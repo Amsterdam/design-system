@@ -1,0 +1,37 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
+import * as CalendarStories from "./Calendar.stories.tsx";
+import README from "../../../../packages/css/src/components/calendar/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/calendar.tokens.json";
+
+import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
+
+<Meta of={CalendarStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Links
+
+Each date can be a link, for example to a page that lists that day’s events.
+`linkTemplate` builds the target for a date; return `undefined` to render that date as plain text, or omit it to render a plain, non-interactive month.
+`linkComponent` lets a router supply its own link component, such as the one from Next.js.
+Screen readers announce each link with its full date, including the weekday, so a day number is never read out of context.
+
+In this example, weekends have no link and render as plain text.
+
+<Canvas of={CalendarStories.WeekendsWithoutLinks} />
+
+## Accessible name
+
+The Calendar renders as a `nav` landmark.
+Give it an accessible name with `accessibleName`, or set `accessibleNameId` to the `id` of an element that already labels it.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />

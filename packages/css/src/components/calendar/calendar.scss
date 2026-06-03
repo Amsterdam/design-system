@@ -1,0 +1,59 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+.ams-calendar {
+  display: inline-flex;
+  flex-direction: column;
+  font-family: var(--ams-calendar-font-family);
+  font-size: var(--ams-calendar-font-size);
+  font-weight: var(--ams-calendar-font-weight);
+  gap: var(--ams-calendar-gap);
+  inline-size: var(--ams-calendar-inline-size);
+  line-height: var(--ams-calendar-line-height);
+  max-inline-size: 100%;
+}
+
+.ams-calendar-header {
+  align-items: center;
+  display: flex;
+}
+
+.ams-calendar-caption {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.ams-calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.ams-calendar__weekday {
+  text-align: center;
+}
+
+.ams-calendar__day,
+.ams-calendar__day-link {
+  outline-offset: var(--ams-calendar-day-outline-offset);
+  text-align: center;
+}
+
+.ams-calendar__day-link {
+  color: var(--ams-calendar-day-link-color);
+  display: block;
+  text-decoration-line: var(--ams-calendar-day-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-calendar-day-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-calendar-day-link-text-underline-offset);
+
+  &:hover {
+    color: var(--ams-calendar-day-link-hover-color);
+    text-decoration-line: var(--ams-calendar-day-link-hover-text-decoration-line);
+  }
+}
+
+.ams-calendar__day--current,
+.ams-calendar__day-link--current {
+  font-weight: var(--ams-calendar-day-current-font-weight);
+}

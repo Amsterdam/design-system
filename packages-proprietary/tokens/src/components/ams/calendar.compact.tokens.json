@@ -1,0 +1,10 @@
+{
+  "ams": {
+    "calendar": {
+      "inline-size": {
+        "$value": "16rem",
+        "$type": "dimension"
+      }
+    }
+  }
+}
