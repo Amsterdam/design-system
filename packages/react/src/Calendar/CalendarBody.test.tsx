@@ -50,6 +50,12 @@ describe('CalendarBody', () => {
     expect(screen.getByText('15')).toBeInTheDocument()
   })
 
+  it('gives a plain-text date the same accessible weekday and date as a link', () => {
+    render(<CalendarBody linkTemplate={() => undefined} locale="nl-NL" month={june2026} />)
+
+    expect(screen.getByText('maandag 15 juni 2026')).toBeInTheDocument()
+  })
+
   it('renders plain text when no linkTemplate is given', () => {
     render(<CalendarBody locale="nl-NL" month={june2026} />)
 

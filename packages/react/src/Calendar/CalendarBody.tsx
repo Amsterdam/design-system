@@ -50,18 +50,6 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
         const isCurrent = isSameDay(date, today)
         const href = linkTemplate?.(date)
 
-        if (href === undefined) {
-          return (
-            <span
-              aria-current={isCurrent ? 'date' : undefined}
-              className={clsx('ams-calendar__day', isCurrent && 'ams-calendar__day--current')}
-              key={day}
-            >
-              {day}
-            </span>
-          )
-        }
-
         const accessibleDate = new Intl.DateTimeFormat(locale, {
           day: 'numeric',
           month: 'long',
@@ -69,15 +57,29 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
           year: 'numeric',
         }).format(date)
 
-        return (
-          <DateLink
-            aria-current={isCurrent ? 'date' : undefined}
-            className={clsx('ams-calendar__day-link', isCurrent && 'ams-calendar__day-link--current')}
-            href={href}
-            key={day}
-          >
+        const ariaCurrent = isCurrent ? 'date' : undefined
+        const className = clsx(
+          href !== undefined ? 'ams-calendar__day-link' : 'ams-calendar__day',
+          isCurrent && (href !== undefined ? 'ams-calendar__day-link--current' : 'ams-calendar__day--current'),
+        )
+        const dayContent = (
+          <>
             <span aria-hidden={true}>{day}</span>
             <span className="ams-visually-hidden">{accessibleDate}</span>
+          </>
+        )
+
+        if (href === undefined) {
+          return (
+            <span aria-current={ariaCurrent} className={className} key={day}>
+              {dayContent}
+            </span>
+          )
+        }
+
+        return (
+          <DateLink aria-current={ariaCurrent} className={className} href={href} key={day}>
+            {dayContent}
           </DateLink>
         )
       })}
