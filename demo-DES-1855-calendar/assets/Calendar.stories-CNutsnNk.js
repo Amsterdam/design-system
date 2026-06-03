@@ -1,5 +1,0 @@
-import{n as e,r as t}from"./chunk-DnJy8xQt.js";import{t as n,ut as r}from"./src-D336yN75.js";var i=t({Default:()=>o,WeekendsWithoutLinks:()=>s,__namedExportsOrder:()=>c,default:()=>a}),a,o,s,c,l=e((()=>{n(),a={title:`Components/Navigation/Calendar`,component:r,args:{linkTemplate:e=>`?date=${e.toISOString().slice(0,10)}`},argTypes:{locale:{table:{disable:!0}}}},o={},s={args:{linkTemplate:e=>e.getDay()===0||e.getDay()===6?void 0:`?date=${e.toISOString().slice(0,10)}`}},o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{}`,...o.parameters?.docs?.source}}},s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
-  args: {
-    linkTemplate: (date: Date) => date.getDay() === 0 || date.getDay() === 6 ? undefined : \`?date=\${date.toISOString().slice(0, 10)}\`
-  }
-}`,...s.parameters?.docs?.source}}},c=[`Default`,`WeekendsWithoutLinks`]}));l();export{o as Default,s as WeekendsWithoutLinks,c as __namedExportsOrder,a as default,l as n,i as t};
