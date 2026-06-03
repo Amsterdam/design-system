@@ -12,7 +12,7 @@ import { default as calendarMeta } from './Calendar.stories'
 
 const meta = {
   ...calendarMeta,
-  title: 'Calendar',
+  title: 'Components/Navigation/Calendar',
 } satisfies Meta<typeof Calendar>
 
 export default meta
