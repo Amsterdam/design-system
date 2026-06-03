@@ -30,7 +30,7 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
   const DateLink = linkComponent ?? DefaultDateLink
 
   return (
-    <div className="ams-calendar-body">
+    <div className="ams-calendar__body">
       {Array.from({ length: 7 }).map((_, index) => {
         const date = new Date(2026, 5, 1 + index) // 2026-06-01 is a Monday
         const weekday = new Intl.DateTimeFormat(locale, { weekday: 'short' }).format(date)

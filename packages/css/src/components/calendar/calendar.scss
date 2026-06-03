@@ -15,17 +15,17 @@
   max-inline-size: 100%;
 }
 
-.ams-calendar-header {
+.ams-calendar__header {
   align-items: center;
   display: flex;
 }
 
-.ams-calendar-caption {
+.ams-calendar__caption {
   margin-inline: auto;
   text-align: center;
 }
 
-.ams-calendar-body {
+.ams-calendar__body {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }

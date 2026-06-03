@@ -37,10 +37,10 @@ export const CalendarHeader = ({
   previousMonthButtonLabel = 'Vorige maand',
   previousYearButtonLabel = 'Vorig jaar',
 }: CalendarHeaderProps) => (
-  <div className="ams-calendar-header">
+  <div className="ams-calendar__header">
     <IconButton label={previousYearButtonLabel} onClick={goToPreviousYear} svg={ChevronBackwardDoubleIcon} />
     <IconButton label={previousMonthButtonLabel} onClick={goToPreviousMonth} svg={ChevronBackwardIcon} />
-    <span className="ams-calendar-caption">
+    <span className="ams-calendar__caption">
       {new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(month)}
     </span>
     <IconButton label={nextMonthButtonLabel} onClick={goToNextMonth} svg={ChevronForwardIcon} />
