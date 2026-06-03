@@ -6,7 +6,7 @@
 import type { AnchorHTMLAttributes } from 'react'
 
 import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { CalendarBody } from './CalendarBody'
 
@@ -14,6 +14,10 @@ const may2026 = new Date(2026, 4, 1)
 const june2026 = new Date(2026, 5, 1)
 
 describe('CalendarBody', () => {
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
   it('renders a link for each day in the month', () => {
     render(<CalendarBody linkTemplate={(date) => `/day/${date.getDate()}`} locale="nl-NL" month={june2026} />)
 
@@ -69,7 +73,9 @@ describe('CalendarBody', () => {
   })
 
   it('marks today as the current date', () => {
-    const today = new Date()
+    const today = new Date(2026, 5, 15)
+    vi.useFakeTimers()
+    vi.setSystemTime(today)
 
     render(<CalendarBody linkTemplate={(date) => `/day/${date.getDate()}`} locale="nl-NL" month={today} />)
 
