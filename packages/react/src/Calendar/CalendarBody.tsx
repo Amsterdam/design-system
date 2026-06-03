@@ -22,12 +22,13 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
 
   const firstWeekday = (new Date(year, monthIndex, 1).getDay() + 6) % 7
   const daysInMonth = new Date(year, monthIndex + 1, 0).getDate()
+  const weekdayFormatter = new Intl.DateTimeFormat(locale, { weekday: 'short' })
 
   return (
     <div className="ams-calendar__body">
       {Array.from({ length: 7 }).map((_, index) => {
         const date = new Date(2026, 5, 1 + index) // 2026-06-01 is a Monday
-        const weekday = new Intl.DateTimeFormat(locale, { weekday: 'short' }).format(date)
+        const weekday = weekdayFormatter.format(date)
 
         return (
           <span className="ams-calendar__weekday" key={`weekday-${index}`}>
