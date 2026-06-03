@@ -17,7 +17,45 @@ export type CalendarBodyProps = {
 const isSameDay = (a: Date, b: Date) =>
   a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate()
 
+const formatAccessibleDate = (date: Date, locale?: string) =>
+  new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', weekday: 'long', year: 'numeric' }).format(date)
+
 const DefaultDateLink = (anchorProps: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...anchorProps} />
+
+type CalendarDayProps = {
+  readonly date: Date
+  readonly isCurrent: boolean
+} & Pick<CalendarBodyProps, 'linkComponent' | 'linkTemplate' | 'locale'>
+
+const CalendarDay = ({ date, isCurrent, linkComponent, linkTemplate, locale }: CalendarDayProps) => {
+  const DateLink = linkComponent ?? DefaultDateLink
+  const href = linkTemplate?.(date)
+  const ariaCurrent = isCurrent ? 'date' : undefined
+  const content = (
+    <>
+      <span aria-hidden={true}>{date.getDate()}</span>
+      <span className="ams-visually-hidden">{formatAccessibleDate(date, locale)}</span>
+    </>
+  )
+
+  if (href === undefined) {
+    return (
+      <span aria-current={ariaCurrent} className={clsx('ams-calendar__day', isCurrent && 'ams-calendar__day--current')}>
+        {content}
+      </span>
+    )
+  }
+
+  return (
+    <DateLink
+      aria-current={ariaCurrent}
+      className={clsx('ams-calendar__day-link', isCurrent && 'ams-calendar__day-link--current')}
+      href={href}
+    >
+      {content}
+    </DateLink>
+  )
+}
 
 export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: CalendarBodyProps) => {
   const year = month.getFullYear()
@@ -26,8 +64,6 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
 
   const firstWeekday = (new Date(year, monthIndex, 1).getDay() + 6) % 7
   const daysInMonth = new Date(year, monthIndex + 1, 0).getDate()
-
-  const DateLink = linkComponent ?? DefaultDateLink
 
   return (
     <div className="ams-calendar__body">
@@ -45,42 +81,17 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
         <span key={`offset-${index}`} />
       ))}
       {Array.from({ length: daysInMonth }).map((_, index) => {
-        const day = index + 1
-        const date = new Date(year, monthIndex, day)
-        const isCurrent = isSameDay(date, today)
-        const href = linkTemplate?.(date)
-
-        const accessibleDate = new Intl.DateTimeFormat(locale, {
-          day: 'numeric',
-          month: 'long',
-          weekday: 'long',
-          year: 'numeric',
-        }).format(date)
-
-        const ariaCurrent = isCurrent ? 'date' : undefined
-        const className = clsx(
-          href !== undefined ? 'ams-calendar__day-link' : 'ams-calendar__day',
-          isCurrent && (href !== undefined ? 'ams-calendar__day-link--current' : 'ams-calendar__day--current'),
-        )
-        const dayContent = (
-          <>
-            <span aria-hidden={true}>{day}</span>
-            <span className="ams-visually-hidden">{accessibleDate}</span>
-          </>
-        )
-
-        if (href === undefined) {
-          return (
-            <span aria-current={ariaCurrent} className={className} key={day}>
-              {dayContent}
-            </span>
-          )
-        }
+        const date = new Date(year, monthIndex, index + 1)
 
         return (
-          <DateLink aria-current={ariaCurrent} className={className} href={href} key={day}>
-            {dayContent}
-          </DateLink>
+          <CalendarDay
+            date={date}
+            isCurrent={isSameDay(date, today)}
+            key={index}
+            linkComponent={linkComponent}
+            linkTemplate={linkTemplate}
+            locale={locale}
+          />
         )
       })}
     </div>
