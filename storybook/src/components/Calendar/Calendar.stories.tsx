@@ -7,11 +7,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Calendar } from '@amsterdam/design-system-react/src'
 
+// Format the local date as YYYY-MM-DD; `toISOString` would shift to UTC and could change the day.
+const formatDate = (date: Date) =>
+  `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+
 const meta = {
   title: 'Components/Navigation/Calendar',
   component: Calendar,
   args: {
-    linkTemplate: (date: Date): string | undefined => `?date=${date.toISOString().slice(0, 10)}`,
+    linkTemplate: (date: Date): string | undefined => `?date=${formatDate(date)}`,
   },
   argTypes: {
     locale: {
@@ -30,6 +34,6 @@ export const Default: Story = {}
 export const WeekendsWithoutLinks: Story = {
   args: {
     linkTemplate: (date: Date) =>
-      date.getDay() === 0 || date.getDay() === 6 ? undefined : `?date=${date.toISOString().slice(0, 10)}`,
+      date.getDay() === 0 || date.getDay() === 6 ? undefined : `?date=${formatDate(date)}`,
   },
 }
