@@ -15,7 +15,7 @@ export type CalendarProps = {
   /** A visually hidden heading that gives the Calendar an accessible name. */
   readonly accessibleName?: string
   /**
-   * Connects the Calendar to an element that defines its accessible name.
+   * Connects the Calendar with an internal element that defines its accessible name.
    * Note: must be unique for the page.
    */
   readonly accessibleNameId?: string
