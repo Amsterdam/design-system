@@ -1,0 +1,31 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{Wt as t}from"./iframe-XIjLlc0L.js";import{r as n}from"./react-BxLlkaiM.js";import{c as r,f as i,i as a,l as o,n as s,s as c}from"./blocks-BAJISd4_.js";import{n as l,t as u}from"./DesignTokensTable-BOCKXWWB.js";import{t as d}from"./mdx-react-shim-CnypUIkH.js";import{WeekendsWithoutLinks as f,n as p,t as m}from"./Calendar.stories-DTv9CH18.js";var h,g=e((()=>{h=`<!-- @license CC0-1.0 -->
+
+# Calendar
+
+A visual way to navigate between dates using a calendar view.
+
+## Guidelines
+
+- Use this for a collection of content grouped by date, e.g. an event calendar.
+- Use [Date Input](/docs/components-forms-date-input--docs) for selecting a date in the context of a form.
+`})),_,v,y=e((()=>{_={calendar:{"font-family":{$value:`{ams.typography.font-family}`,$type:`fontFamily`},"font-size":{$value:`{ams.typography.body-text.font-size}`,$extensions:{"nl.amsterdam.type":`fontSize`}},"font-weight":{$value:`{ams.typography.body-text.font-weight}`,$type:`fontWeight`},gap:{$value:`{ams.space.s}`,$type:`dimension`},"inline-size":{$value:`20rem`,$type:`dimension`},"line-height":{$value:`{ams.typography.body-text.line-height}`,$extensions:{"nl.amsterdam.type":`lineHeight`}},day:{"outline-offset":{$value:`{ams.focus.outline-offset}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},current:{"font-weight":{$value:`{ams.typography.body-text.bold.font-weight}`,$type:`fontWeight`}},link:{color:{$value:`{ams.links.color}`,$type:`color`},"text-decoration-line":{$value:`{ams.links.subtle.text-decoration-line}`,$extensions:{"nl.amsterdam.type":`textDecorationLine`}},"text-decoration-thickness":{$value:`{ams.links.text-decoration-thickness}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},"text-underline-offset":{$value:`{ams.links.text-underline-offset}`,$type:`dimension`,$extensions:{"nl.amsterdam.subtype":`space`}},hover:{color:{$value:`{ams.links.hover.color}`,$type:`color`},"text-decoration-line":{$value:`{ams.links.subtle.hover.text-decoration-line}`,$extensions:{"nl.amsterdam.type":`textDecorationLine`}}}}}}},v={ams:_}}));function b(e){let t={code:`code`,h2:`h2`,p:`p`,...n(),...e.components};return(0,S.jsxs)(S.Fragment,{children:[`
+`,`
+`,`
+`,`
+`,(0,S.jsx)(r,{of:m}),`
+`,(0,S.jsx)(c,{children:h}),`
+`,(0,S.jsx)(o,{}),`
+`,(0,S.jsx)(a,{}),`
+`,(0,S.jsx)(t.h2,{id:`links`,children:`Links`}),`
+`,(0,S.jsxs)(t.p,{children:[`Each date can be a link, for example to a page that lists that day’s events.
+`,(0,S.jsx)(t.code,{children:`linkTemplate`}),` builds the target for a date; return `,(0,S.jsx)(t.code,{children:`undefined`}),` to render that date as plain text, or omit it to render a plain, non-interactive month.
+`,(0,S.jsx)(t.code,{children:`linkComponent`}),` lets a router supply its own link component, such as the one from Next.js.
+Screen readers announce each link with its full date, including the weekday, so a day number is never read out of context.`]}),`
+`,(0,S.jsx)(t.p,{children:`In this example, weekends have no link and render as plain text.`}),`
+`,(0,S.jsx)(s,{of:f}),`
+`,(0,S.jsx)(t.h2,{id:`accessible-name`,children:`Accessible name`}),`
+`,(0,S.jsxs)(t.p,{children:[`The Calendar renders as a `,(0,S.jsx)(t.code,{children:`nav`}),` landmark.
+Give it an accessible name with `,(0,S.jsx)(t.code,{children:`accessibleName`}),`.
+The Calendar renders this name as a visually hidden heading and generates a unique `,(0,S.jsx)(t.code,{children:`id`}),` for it; pass `,(0,S.jsx)(t.code,{children:`accessibleNameId`}),` to set that `,(0,S.jsx)(t.code,{children:`id`}),` yourself.`]}),`
+`,(0,S.jsx)(t.h2,{id:`design-tokens`,children:`Design tokens`}),`
+`,(0,S.jsx)(u,{tokens:v})]})}function x(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,S.jsx)(t,{...e,children:(0,S.jsx)(b,{...e})}):b(e)}var S;e((()=>{S=t(),d(),i(),p(),g(),y(),l()}))();export{x as default};
