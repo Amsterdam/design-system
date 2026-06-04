@@ -1,0 +1,77 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/resets" as *;
+
+.ams-date-picker {
+  display: inline-flex;
+  flex-direction: column;
+  font-family: var(--ams-date-picker-font-family);
+  font-size: var(--ams-date-picker-font-size);
+  font-weight: var(--ams-date-picker-font-weight);
+  gap: var(--ams-date-picker-gap);
+  inline-size: var(--ams-date-picker-inline-size);
+  line-height: var(--ams-date-picker-line-height);
+  max-inline-size: 100%;
+}
+
+.ams-date-picker__header {
+  align-items: center;
+  display: flex;
+}
+
+.ams-date-picker__caption {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.ams-date-picker__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.ams-date-picker__row {
+  display: contents;
+}
+
+.ams-date-picker__weekday {
+  text-align: center;
+}
+
+.ams-date-picker__day {
+  @include reset-button;
+
+  background-color: transparent;
+  color: var(--ams-date-picker-day-color);
+  cursor: var(--ams-date-picker-day-cursor);
+  font: inherit;
+  inline-size: 100%;
+  outline-offset: var(--ams-date-picker-day-outline-offset);
+  text-align: center;
+
+  &:not([aria-disabled="true"]):hover {
+    background-color: var(--ams-date-picker-day-hover-background-color);
+    color: var(--ams-date-picker-day-hover-color);
+  }
+}
+
+.ams-date-picker__day--current {
+  font-weight: var(--ams-date-picker-day-current-font-weight);
+}
+
+.ams-date-picker__cell[aria-selected="true"] .ams-date-picker__day {
+  background-color: var(--ams-date-picker-day-selected-background-color);
+  color: var(--ams-date-picker-day-selected-color);
+
+  &:hover {
+    background-color: var(--ams-date-picker-day-selected-hover-background-color);
+  }
+}
+
+.ams-date-picker__day[aria-disabled="true"] {
+  color: var(--ams-date-picker-day-disabled-color);
+  cursor: var(--ams-date-picker-day-disabled-cursor);
+  text-decoration-line: var(--ams-date-picker-day-disabled-text-decoration-line);
+}

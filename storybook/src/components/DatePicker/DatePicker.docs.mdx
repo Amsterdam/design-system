@@ -1,0 +1,58 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+
+import * as DatePickerStories from "./DatePicker.stories.tsx";
+import README from "../../../../packages/css/src/components/date-picker/README.md?raw";
+import tokens from "../../../../packages-proprietary/tokens/src/components/ams/date-picker.tokens.json";
+
+import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
+
+<Meta of={DatePickerStories} />
+
+<Markdown>{README}</Markdown>
+
+<Primary />
+
+<Controls />
+
+## Controlled value
+
+The Date Picker is a controlled component: it keeps no selection of its own.
+Pass the current selection with `value` and update it in the `onChange` handler.
+
+In the default single mode, `value` is a `Date` or `null` and `onChange` receives the picked date.
+In range mode, set `mode="range"`; `value` is a `DateRange` (`{ start, end }`) and `onChange` receives the updated range.
+The first pick sets the start, the second sets the end, and picking before the start begins a new range.
+
+<Canvas of={DatePickerStories.Range} />
+
+## Limiting the selectable period
+
+Use `minDate` and `maxDate` to bound the selectable period.
+Dates outside the range cannot be selected, and the month and year navigation buttons stop at the edges of the range.
+
+<Canvas of={DatePickerStories.LimitedToOneMonth} />
+
+## Disabling individual dates
+
+Pass `isDateDisabled` to prevent selection of specific dates, such as ones that are unavailable.
+Disabled dates remain reachable with the keyboard and are announced, but they cannot be selected.
+
+<Canvas of={DatePickerStories.DisabledDates} />
+
+## Keyboard support
+
+The day grid follows the [WAI-ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/).
+Arrow keys move between days, Home and End jump to the start and end of the week, and Page Up and Page Down move between months (hold Shift for years).
+Enter or Space selects the focused day.
+Moving past the start or end of a month shows the adjacent month and keeps focus on the day.
+
+## Accessible name
+
+The grid takes its accessible name from the visible month caption, so screen readers announce which month is shown.
+Each day button is labelled with its full date, including the weekday, so a day number is never read out of context.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
