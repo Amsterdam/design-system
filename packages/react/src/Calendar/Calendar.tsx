@@ -6,8 +6,9 @@
 import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef, useId, useState } from 'react'
+import { forwardRef, useId } from 'react'
 
+import { useMonthNavigation } from '../common/useMonthNavigation'
 import { CalendarBody } from './CalendarBody'
 import { CalendarHeader } from './CalendarHeader'
 
@@ -73,12 +74,7 @@ export const Calendar = forwardRef(
     const generatedId = useId()
     const labelId = accessibleNameId || generatedId
 
-    const [month, setMonth] = useState<Date>(defaultMonth)
-
-    const goToPreviousYear = () => setMonth((current) => new Date(current.getFullYear() - 1, current.getMonth(), 1))
-    const goToPreviousMonth = () => setMonth((current) => new Date(current.getFullYear(), current.getMonth() - 1, 1))
-    const goToNextMonth = () => setMonth((current) => new Date(current.getFullYear(), current.getMonth() + 1, 1))
-    const goToNextYear = () => setMonth((current) => new Date(current.getFullYear() + 1, current.getMonth(), 1))
+    const { goToNextMonth, goToNextYear, goToPreviousMonth, goToPreviousYear, month } = useMonthNavigation(defaultMonth)
 
     return (
       <nav {...restProps} aria-labelledby={labelId} className={clsx('ams-calendar', className)} ref={ref}>

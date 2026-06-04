@@ -5,6 +5,7 @@
 
 import type { CalendarProps } from './Calendar'
 
+import { getDaysInMonth, getFirstWeekday, isSameDay } from '../common/dates'
 import { CalendarDay } from './CalendarDay'
 
 export type CalendarBodyProps = {
@@ -12,16 +13,13 @@ export type CalendarBodyProps = {
   readonly month: Date
 } & Pick<CalendarProps, 'linkComponent' | 'linkTemplate' | 'locale'>
 
-const isSameDay = (a: Date, b: Date) =>
-  a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate()
-
 export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: CalendarBodyProps) => {
   const year = month.getFullYear()
   const monthIndex = month.getMonth()
   const today = new Date()
 
-  const firstWeekday = (new Date(year, monthIndex, 1).getDay() + 6) % 7
-  const daysInMonth = new Date(year, monthIndex + 1, 0).getDate()
+  const firstWeekday = getFirstWeekday(year, monthIndex)
+  const daysInMonth = getDaysInMonth(year, monthIndex)
   const weekdayFormatter = new Intl.DateTimeFormat(locale, { weekday: 'short' })
 
   return (
