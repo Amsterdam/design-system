@@ -171,37 +171,12 @@ export const TopTasks: Story = {
   ),
 }
 
-export const Horizontal: Story = {
-  parameters: {
-    layout: 'fullscreen',
-  },
+export const HorizontalLayout: Story = {
   render: () => (
-    <Grid paddingVertical="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 12 }}>
-        <Card>
-          {newsCardChildren(
-            'Nederlands eerste houten woonwijk komt in Zuidoost',
-            'https://picsum.photos/id/122/1280/720',
-            'We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
-          )}
-        </Card>
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 12 }}>
-        <Card>
-          {newsCardChildren(
-            'Meer ruimte voor voetgangers in de binnenstad',
-            'https://picsum.photos/id/1015/1280/720',
-            'De komende jaren maken we straten autoluw, zodat er meer plek is om te lopen, te verblijven en te vergroenen.',
-          )}
-        </Card>
-      </Grid.Cell>
-    </Grid>
-  ),
-}
-
-export const HorizontalResizable: Story = {
-  render: () => (
-    <div className="ams-query-container-inline-size _ams-resize-horizontal" style={{ inlineSize: '40rem' }}>
+    <div
+      className="ams-query-container-inline-size _ams-resize-horizontal"
+      style={{ inlineSize: '56rem', maxInlineSize: '100%' }}
+    >
       <Card>
         {newsCardChildren(
           'Nederlands eerste houten woonwijk komt in Zuidoost',
