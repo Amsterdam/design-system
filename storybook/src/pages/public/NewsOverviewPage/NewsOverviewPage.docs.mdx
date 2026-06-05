@@ -1,0 +1,18 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+import * as NewsOverviewStories from "./NewsOverviewPage.stories.tsx";
+
+<Meta of={NewsOverviewStories} />
+
+# News overview page
+
+This page gives an overview of the latest news from the city.
+It helps residents quickly scan recent items and dive into the ones that interest them.
+
+The most recent articles are highlighted at the top in vertical Cards on a Grid.
+Each Card combines an image, a tagline, a heading that links to the article, and a short summary.
+
+Older articles follow under the ‘Meer nieuws’ heading as a stacked list of horizontal Cards.
+Because the Cards sit in wide Grid cells, they automatically switch to a horizontal layout, with the image beside the content.
+On narrow screens the same Cards fall back to their vertical layout.
