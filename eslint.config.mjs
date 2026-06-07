@@ -12,7 +12,7 @@ export default defineConfig([
   {
     name: 'amsterdam-design-system/global-ignores',
 
-    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', '**/AGENTS.md'],
+    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', '**/AGENTS.md', '**/CHANGELOG.md'],
   },
   {
     name: 'amsterdam-design-system/linter-options',
@@ -31,20 +31,18 @@ export default defineConfig([
     language: 'json/json',
   },
 
-  // Markdown
-  {
+  // Markdown — content linting with the GFM language and the recommended rules.
+  ...markdown.configs.recommended.map((config) => ({
+    ...config,
     name: 'amsterdam-design-system/markdown',
 
-    files: ['**/*.md'],
-    ignores: ['CHANGELOG.md'],
-    plugins: { markdown },
-    processor: 'markdown/markdown',
+    language: 'markdown/gfm',
     rules: {
-      ...markdown.configs.recommended.rules,
-      'markdown/line-length': 'off',
-      'markdown/no-inline-html': 'off',
+      ...config.rules,
+      // Off: false-positives on literal brackets (quote elisions, `[…]`); our docs use inline links.
+      'markdown/no-missing-label-refs': 'off',
     },
-  },
+  })),
 
   // MDX (owned by storybook/eslint.config-partial.mjs)
   ...storybookConfig,
