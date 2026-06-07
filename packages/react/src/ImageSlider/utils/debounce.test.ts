@@ -37,7 +37,7 @@ describe('debounce', () => {
 
   it('preserves the `this` context', () => {
     const context = {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // oxlint-disable-next-line @typescript-eslint/no-explicit-any
       fn(this: any) {
         return this.value
       },

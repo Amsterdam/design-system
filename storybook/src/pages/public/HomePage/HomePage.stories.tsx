@@ -14,7 +14,7 @@ import { newsSection, spotlightBlocks, topTaskSection } from './data'
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Home Page',
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args: unknown) => (
     <main id="inhoud">
       <h1 className="ams-visually-hidden">Homepage van de gemeente Amsterdam</h1>

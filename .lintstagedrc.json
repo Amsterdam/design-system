@@ -1,6 +1,8 @@
 {
   "composer.json": "composer validate",
   "package.json": "npmPkgJsonLint --allowEmptyTargets",
-  "*.{md,js,json,jsx,mdx,ts,tsx}": ["eslint --no-error-on-unmatched-pattern", "prettier --check"],
-  "*.{css,scss}": ["stylelint --allow-empty-input", "prettier --check"]
+  "*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}": ["oxlint", "eslint --no-error-on-unmatched-pattern"],
+  "*.{json,md,mdx}": "eslint --no-error-on-unmatched-pattern",
+  "*.{css,scss}": "stylelint --allow-empty-input",
+  "*.{css,scss,js,jsx,mjs,cjs,ts,tsx,mts,cts,json,md,yaml,yml,html}": "oxfmt --check --no-error-on-unmatched-pattern"
 }

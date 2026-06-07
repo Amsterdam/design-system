@@ -32,7 +32,7 @@
   "scripts": {
     "clean:dist": "rimraf dist",
     "build": "pnpm run clean:dist && rollup -c",
-    "generate": "svgr ../assets/icons && prettier --write src && eslint src --fix"
+    "generate": "svgr ../assets/icons && oxfmt --write src && eslint src --fix"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "16.0.3",

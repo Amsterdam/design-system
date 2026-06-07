@@ -120,7 +120,7 @@ Key agent expectations:
 - Before submitting work, cross-check the full definition-of-done checklist in [documentation/definition-of-done.md](documentation/definition-of-done.md).
 - Run the most specific relevant lint/test commands for the package you touched before relying on full `pnpm run lint` / `pnpm run test`.
 - Update relevant README, Storybook docs, and tests whenever behaviour, APIs, or visual contracts change.
-- Linting and formatting rules (ESLint, Stylelint, Prettier) are authoritative for code style — consult the configs ([eslint.config.mjs](eslint.config.mjs), [.stylelintrc.json](.stylelintrc.json), [.prettierrc.json](.prettierrc.json)) and use them as guidance when writing or reviewing code.
+- Linting and formatting rules (oxlint, ESLint, Stylelint, oxfmt) are authoritative for code style — consult the configs ([.oxlintrc.json](.oxlintrc.json), [eslint.config.mjs](eslint.config.mjs), [.stylelintrc.json](.stylelintrc.json), [.oxfmtrc.json](.oxfmtrc.json)) and use them as guidance when writing or reviewing code.
 
 ## Licensing
 

@@ -78,7 +78,7 @@ export const Controlled: Story = {
           const value = formData.get('search-box')
           // search actions should not be triggered without a value
           if (typeof value === 'string' && value.trim()) {
-            // eslint-disable-next-line no-alert
+            // oxlint-disable-next-line no-alert
             alert(`Gezocht op '${value}'`)
           }
         }}

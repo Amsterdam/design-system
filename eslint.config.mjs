@@ -4,9 +4,9 @@ import markdown from '@eslint/markdown'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
 import vitest from '@vitest/eslint-plugin'
-import eslintConfigPrettier from 'eslint-config-prettier'
 import baselineJs from 'eslint-plugin-baseline-js'
 import importPlugin from 'eslint-plugin-import-x'
+import oxlint from 'eslint-plugin-oxlint'
 import perfectionist from 'eslint-plugin-perfectionist'
 import { defineConfig } from 'eslint/config'
 import globals from 'globals'
@@ -124,9 +124,8 @@ export default defineConfig([
   // MDX and Storybook (owned by storybook/eslint.config-partial.mjs)
   ...storybookConfig,
 
-  // Prettier — must be last so it can override stylistic rules from earlier presets
-  {
-    name: 'amsterdam-design-system/prettier',
-    ...eslintConfigPrettier,
-  },
+  // Oxlint — must be last so it disables every rule already covered by oxlint (see .oxlintrc.json).
+  // The non-native rules oxlint can't run (perfectionist, baseline-js, JSON/Markdown/MDX, Storybook,
+  // react/prefer-read-only-props) stay enabled in ESLint.
+  ...oxlint.buildFromOxlintConfigFile('./.oxlintrc.json'),
 ])

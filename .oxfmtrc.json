@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 120,
+  "tabWidth": 2,
+  "singleQuote": false,
+  "semi": false,
+  "sortImports": false,
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    "node_modules/",
+    "build/",
+    "coverage/",
+    "dist/",
+    "tmp/",
+    ".swc/",
+    "pnpm-lock.yaml",
+    "CHANGELOG.md",
+    "AGENTS.md",
+    "*.hbs",
+    "*.mdx"
+  ],
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx", "*.mjs", "*.cjs", "*.ts", "*.tsx", "*.mts", "*.cts"],
+      "options": {
+        "singleQuote": true
+      }
+    }
+  ]
+}
