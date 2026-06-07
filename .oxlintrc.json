@@ -140,9 +140,242 @@
         "typescript/prefer-namespace-keyword": "error",
         "typescript/triple-slash-reference": "error",
         "typescript/consistent-type-definitions": ["error", "type"],
-        "typescript/consistent-type-imports": "error"
+        "typescript/consistent-type-imports": "error",
+        "perfectionist/sort-variable-declarations": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-intersection-types": [
+          "error",
+          {
+            "groups": ["object", "named"],
+            "order": "asc",
+            "type": "natural"
+          }
+        ],
+        "perfectionist/sort-import-attributes": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-export-attributes": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-heritage-clauses": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-array-includes": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-named-imports": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-named-exports": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-object-types": [
+          "error",
+          {
+            "customGroups": [
+              {
+                "elementNamePattern": "^(x-small|xs)$",
+                "groupName": "x-small",
+                "selector": "property"
+              },
+              {
+                "elementNamePattern": "^(small|s|narrow|phone|min|start)$",
+                "groupName": "small",
+                "selector": "property"
+              },
+              {
+                "elementNamePattern": "^(medium|m|tablet)$",
+                "groupName": "medium",
+                "selector": "property"
+              },
+              {
+                "elementNamePattern": "^(large|l|wide|desktop|max|end)$",
+                "groupName": "large",
+                "selector": "property"
+              },
+              {
+                "elementNamePattern": "^(x-large|xl)$",
+                "groupName": "x-large",
+                "selector": "property"
+              },
+              {
+                "elementNamePattern": "^(2x-large|2xl)$",
+                "groupName": "2x-large",
+                "selector": "property"
+              }
+            ],
+            "groups": ["x-small", "small", "medium", "large", "x-large", "2x-large"],
+            "useConfigurationIf": {
+              "allNamesMatchPattern": "^(x-small|xs|small|s|narrow|phone|min|start|medium|m|tablet|large|l|wide|desktop|max|x-large|xl|2x-large|2xl|end)$"
+            }
+          }
+        ],
+        "perfectionist/sort-union-types": "off",
+        "perfectionist/sort-switch-case": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-decorators": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-interfaces": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-jsx-props": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-modules": "off",
+        "perfectionist/sort-classes": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-exports": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-objects": [
+          "error",
+          {
+            "customGroups": [
+              {
+                "elementNamePattern": "^(x-small|xs)$",
+                "groupName": "x-small",
+                "selector": "property"
+              },
+              {
+                "elementNamePattern": "^(small|s|narrow|phone|min|start)$",
+                "groupName": "small",
+                "selector": "property"
+              },
+              {
+                "elementNamePattern": "^(medium|m|tablet)$",
+                "groupName": "medium",
+                "selector": "property"
+              },
+              {
+                "elementNamePattern": "^(large|l|wide|desktop|max|end)$",
+                "groupName": "large",
+                "selector": "property"
+              },
+              {
+                "elementNamePattern": "^(x-large|xl)$",
+                "groupName": "x-large",
+                "selector": "property"
+              },
+              {
+                "elementNamePattern": "^(2x-large|2xl)$",
+                "groupName": "2x-large",
+                "selector": "property"
+              }
+            ],
+            "groups": ["x-small", "small", "medium", "large", "x-large", "2x-large"],
+            "useConfigurationIf": {
+              "allNamesMatchPattern": "^(x-small|xs|small|s|narrow|phone|min|start|medium|m|tablet|large|l|wide|desktop|max|x-large|xl|2x-large|2xl|end)$"
+            }
+          },
+          {
+            "customGroups": [
+              {
+                "elementNamePattern": "^title$",
+                "groupName": "title",
+                "selector": "property"
+              },
+              {
+                "elementNamePattern": "^component$",
+                "groupName": "component",
+                "selector": "property"
+              }
+            ],
+            "groups": ["title", "component"],
+            "partitionByNewLine": true
+          }
+        ],
+        "perfectionist/sort-enums": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-sets": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "perfectionist/sort-maps": [
+          "error",
+          {
+            "type": "natural",
+            "order": "asc"
+          }
+        ],
+        "baseline-js/use-baseline": [
+          "error",
+          {
+            "available": "widely",
+            "includeJsBuiltins": {
+              "preset": "type-aware"
+            },
+            "includeWebApis": {
+              "preset": "type-aware"
+            }
+          }
+        ]
       },
-      "plugins": ["typescript", "import"]
+      "plugins": ["typescript", "import"],
+      "jsPlugins": ["eslint-plugin-perfectionist", "eslint-plugin-baseline-js"]
     },
     {
       "files": ["**/*.{test,spec}.{js,jsx,ts,tsx}"],
@@ -240,9 +473,20 @@
       "files": ["**/*.stories.{ts,tsx,js,jsx,mjs,cjs}", "**/*.story.{ts,tsx,js,jsx,mjs,cjs}"],
       "rules": {
         "import/no-anonymous-default-export": "off",
-        "react-hooks/rules-of-hooks": "off"
+        "react-hooks/rules-of-hooks": "off",
+        "storybook/await-interactions": "error",
+        "storybook/context-in-play-function": "error",
+        "storybook/default-exports": "error",
+        "storybook/hierarchy-separator": "warn",
+        "storybook/no-redundant-story-name": "warn",
+        "storybook/no-renderer-packages": "error",
+        "storybook/prefer-pascal-case": "warn",
+        "storybook/story-exports": "error",
+        "storybook/use-storybook-expect": "error",
+        "storybook/use-storybook-testing-library": "error"
       },
-      "plugins": ["react", "import"]
+      "plugins": ["react", "import"],
+      "jsPlugins": ["eslint-plugin-storybook"]
     }
   ]
 }
