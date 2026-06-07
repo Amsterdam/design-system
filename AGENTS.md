@@ -118,7 +118,7 @@ For details, rely on the official documentation and per-package instructions:
 Key agent expectations:
 
 - Before submitting work, cross-check the full definition-of-done checklist in [documentation/definition-of-done.md](documentation/definition-of-done.md).
-- Run the most specific relevant lint/test commands for the package you touched before relying on full `pnpm run lint` / `pnpm run test`.
+- Run the most specific relevant lint/test command — e.g. `oxlint` for JS/TS or `oxfmt --check` for formatting — before relying on the full `pnpm run lint` / `pnpm run test`.
 - Update relevant README, Storybook docs, and tests whenever behaviour, APIs, or visual contracts change.
 - Linting and formatting rules (oxlint, ESLint, Stylelint, oxfmt) are authoritative for code style — consult the configs ([.oxlintrc.json](.oxlintrc.json), [eslint.config.mjs](eslint.config.mjs), [.stylelintrc.json](.stylelintrc.json), [.oxfmtrc.json](.oxfmtrc.json)) and use them as guidance when writing or reviewing code.
 
@@ -160,12 +160,22 @@ All commands run from the repository root. Use `pnpm --filter <package-name>` to
 | Lint CSS only            | `pnpm run lint:css`          |
 | Lint JS/TS only          | `pnpm run lint:js`           |
 | Auto-fix lint + format   | `pnpm run lint-fix`          |
+| Format all files         | `pnpm run format`            |
 | Start Storybook          | `pnpm run watch:storybook`   |
 | Scaffold a new component | `pnpm run plop`              |
 
 Package-specific commands (lint, test, build, watch) are listed in each package `AGENTS.md`.
 
 Package filter names: `@amsterdam/design-system-tokens`, `@amsterdam/design-system-css`, `@amsterdam/design-system-react`, `@amsterdam/storybook`.
+
+### Linting and formatting
+
+Reach for the right tool, and let it do the work:
+
+- **oxlint** lints all JavaScript and TypeScript (including alphabetical sorting and Storybook rules, via its jsPlugins loader); **ESLint** lints only JSON, Markdown, and MDX; **Stylelint** lints CSS and SCSS; **oxfmt** formats every supported file type.
+- Never hand-format or hand-sort. Run `pnpm run format` (oxfmt) and `oxlint --fix`; formatting and import/object ordering are enforced, so do not spend effort reproducing them.
+- While iterating, run the fast targeted tool — `oxlint` (whole-repo JS/TS in seconds) or `oxfmt --write <files>` — instead of the full `pnpm run lint`, which also runs `tsc` per package and is much slower; save the full run for a final check.
+- The pre-commit hook (nano-staged) and CI run these automatically, so rely on that gate rather than re-checking each rule by hand.
 
 ## Git and contribution workflow
 
