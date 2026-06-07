@@ -55,7 +55,7 @@
     "eslint-plugin-baseline-js": "0.6.2",
     "eslint-plugin-perfectionist": "5.9.0",
     "husky": "9.1.7",
-    "lint-staged": "17.0.7",
+    "nano-staged": "1.0.2",
     "npm-check-updates": "22.2.2",
     "npm-package-json-lint": "10.4.0",
     "oxfmt": "0.53.0",

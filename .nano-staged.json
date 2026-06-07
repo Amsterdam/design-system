@@ -1,5 +1,4 @@
 {
-  "composer.json": "composer validate",
   "package.json": "npmPkgJsonLint --allowEmptyTargets",
   "*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}": "oxlint",
   "*.{json,md,mdx}": "eslint --no-error-on-unmatched-pattern",
