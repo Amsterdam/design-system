@@ -16,7 +16,7 @@ const exampleParagraph2 = exampleParagraph()
 const meta = {
   ...commonMeta,
   title: 'Pages/Internal/Home Page',
-  // oxlint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <Grid paddingBottom="x-large" paddingTop="large">
       <Grid.Cell appearance="transparent" span="all">

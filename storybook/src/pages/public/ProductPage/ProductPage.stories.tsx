@@ -20,7 +20,7 @@ import { commonMeta } from '../common/config'
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Product Page',
-  // oxlint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <>
       <Grid paddingTop="large">

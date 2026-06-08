@@ -91,7 +91,7 @@ const meta = {
 
 export default meta
 
-// oxlint-disable-next-line @typescript-eslint/no-unused-vars
+// oxlint-disable-next-line no-unused-vars
 const linkMeta = {
   component: Menu.Link,
 } satisfies Meta<typeof Menu.Link>
@@ -154,10 +154,10 @@ export const Link: LinkStory = {
     ),
   ],
   render: ({ children, ...args }) => {
-    /* oxlint-disable @typescript-eslint/no-unused-vars */
+    /* oxlint-disable no-unused-vars */
     // @ts-expect-error TypeScript does not infer the correct type here
     const { accessibleName, inWideWindow, ...linkArgs } = args
     return <Menu.Link {...linkArgs}>{children}</Menu.Link>
-    /* oxlint-enable @typescript-eslint/no-unused-vars */
+    /* oxlint-enable no-unused-vars */
   },
 }
