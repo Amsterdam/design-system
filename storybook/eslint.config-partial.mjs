@@ -17,11 +17,5 @@ export default [
   {
     ...mdx.flatCodeBlocks,
     name: 'amsterdam-design-system/mdx-flat-code-block',
-
-    rules: {
-      ...mdx.flatCodeBlocks.rules,
-      'react/jsx-no-undef': 'off',
-      'react/prop-types': 'off',
-    },
   },
 ]
