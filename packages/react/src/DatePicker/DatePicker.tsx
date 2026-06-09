@@ -179,6 +179,11 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
     }
   }
 
+  const onDayClick = (date: Date) => {
+    moveFocusTo(date)
+    selectDate(date)
+  }
+
   const onGridKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
@@ -230,7 +235,7 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
         locale={locale}
         month={month}
         onKeyDown={onGridKeyDown}
-        onSelectDate={selectDate}
+        onSelectDate={onDayClick}
       />
     </div>
   )

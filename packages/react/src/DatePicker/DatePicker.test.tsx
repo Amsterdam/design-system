@@ -86,6 +86,19 @@ describe('DatePicker', () => {
     expect(onChange).toHaveBeenCalledWith(new Date(2026, 2, 14))
   })
 
+  it('moves the roving tab stop to a clicked date', () => {
+    render(<DatePicker defaultMonth={march2026} onChange={noop} value={null} />)
+
+    const day = screen.getByRole('button', { name: 'zaterdag 14 maart 2026' })
+    fireEvent.click(day)
+
+    expect(day).toHaveFocus()
+    expect(day).toHaveAttribute('tabindex', '0')
+
+    fireEvent.keyDown(screen.getByRole('grid'), { key: 'ArrowRight' })
+    expect(screen.getByRole('button', { name: 'zondag 15 maart 2026' })).toHaveFocus()
+  })
+
   it('marks the selected date in the grid', () => {
     render(<DatePicker defaultMonth={march2026} onChange={noop} value={new Date(2026, 2, 14)} />)
 
