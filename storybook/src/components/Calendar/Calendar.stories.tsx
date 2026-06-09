@@ -27,7 +27,7 @@ const meta = {
       table: { disable: true },
     },
     linkTemplate: {
-      // Hidden
+      // Hidden as Storybook doesn’t offer UI for a function that returns a string or undefined.
       table: { disable: true },
     },
     locale: {
