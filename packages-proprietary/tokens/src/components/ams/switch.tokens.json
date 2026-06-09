@@ -25,6 +25,14 @@
         },
         "$type": "dimension"
       },
+      "label": {
+        "border-width": {
+          "$value": "{ams.border.width.m}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderWidth"
+          }
+        }
+      },
       "thumb": {
         "background-color": {
           "$value": "{ams.color.background.default}",

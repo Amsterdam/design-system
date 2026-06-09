@@ -46,7 +46,7 @@ jobs:
           fi
 
       - name: Check out branch
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           fetch-depth: 0
           ref: ${{ steps.pr-info.outputs.sha }}
@@ -67,7 +67,7 @@ jobs:
         run: pnpm --filter=!storybook -r run build
 
       - name: Run Chromatic
-        uses: chromaui/action@8ad69a40dea06755a3c6db290f300a39e011433b # v17.1.0
+        uses: chromaui/action@d92ea1ce501f70e8c34745b2c7888648150a368a # v17.2.0
         with:
           branchName: ${{ steps.pr-info.outputs.branch }}
           chromaticSha: ${{ steps.pr-info.outputs.sha }}

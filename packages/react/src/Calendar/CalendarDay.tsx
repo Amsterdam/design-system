@@ -22,9 +22,9 @@ const formatAccessibleDate = (date: Date, locale?: string) =>
 const DefaultDateLink = (anchorProps: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...anchorProps} />
 
 export const CalendarDay = ({ date, isCurrent, linkComponent, linkTemplate, locale }: CalendarDayProps) => {
+  const ariaCurrent = isCurrent ? 'date' : undefined
   const DateLink = linkComponent ?? DefaultDateLink
   const href = linkTemplate?.(date)
-  const ariaCurrent = isCurrent ? 'date' : undefined
 
   const content = (
     <>

@@ -4,9 +4,9 @@
  */
 
 import {
-  ChevronBackwardDoubleIcon,
   ChevronBackwardIcon,
-  ChevronForwardDoubleIcon,
+  ChevronDoubleBackwardIcon,
+  ChevronDoubleForwardIcon,
   ChevronForwardIcon,
 } from '@amsterdam/design-system-react-icons'
 
@@ -38,13 +38,13 @@ export const CalendarHeader = ({
   previousYearButtonLabel = 'Vorig jaar',
 }: CalendarHeaderProps) => (
   <div className="ams-calendar__header">
-    <IconButton label={previousYearButtonLabel} onClick={goToPreviousYear} svg={ChevronBackwardDoubleIcon} />
+    <IconButton label={previousYearButtonLabel} onClick={goToPreviousYear} svg={ChevronDoubleBackwardIcon} />
     <IconButton label={previousMonthButtonLabel} onClick={goToPreviousMonth} svg={ChevronBackwardIcon} />
     <span className="ams-calendar__caption">
       {new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(month)}
     </span>
     <IconButton label={nextMonthButtonLabel} onClick={goToNextMonth} svg={ChevronForwardIcon} />
-    <IconButton label={nextYearButtonLabel} onClick={goToNextYear} svg={ChevronForwardDoubleIcon} />
+    <IconButton label={nextYearButtonLabel} onClick={goToNextYear} svg={ChevronDoubleForwardIcon} />
   </div>
 )
 

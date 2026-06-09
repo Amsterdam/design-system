@@ -14,12 +14,12 @@ export type CalendarBodyProps = {
 } & Pick<CalendarProps, 'linkComponent' | 'linkTemplate' | 'locale'>
 
 export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: CalendarBodyProps) => {
-  const year = month.getFullYear()
-  const monthIndex = month.getMonth()
   const today = new Date()
+  const monthIndex = month.getMonth()
+  const year = month.getFullYear()
 
-  const firstWeekday = getFirstWeekday(year, monthIndex)
   const daysInMonth = getDaysInMonth(year, monthIndex)
+  const firstWeekday = getFirstWeekday(year, monthIndex)
   const weekdayFormatter = new Intl.DateTimeFormat(locale, { weekday: 'short' })
 
   return (
@@ -29,13 +29,13 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
         const weekday = weekdayFormatter.format(date)
 
         return (
-          <span className="ams-calendar__weekday" key={`weekday-${index}`}>
+          <span aria-hidden={true} className="ams-calendar__weekday" key={`weekday-${index}`}>
             {weekday}
           </span>
         )
       })}
       {Array.from({ length: firstWeekday }).map((_, index) => (
-        <span key={`offset-${index}`} />
+        <span aria-hidden={true} key={`offset-${index}`} />
       ))}
       {Array.from({ length: daysInMonth }).map((_, index) => {
         const date = new Date(year, monthIndex, index + 1)
@@ -44,7 +44,7 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
           <CalendarDay
             date={date}
             isCurrent={isSameDay(date, today)}
-            key={index}
+            key={date.getTime()}
             linkComponent={linkComponent}
             linkTemplate={linkTemplate}
             locale={locale}
