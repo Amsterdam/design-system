@@ -16,22 +16,41 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
-## Links
+## Examples
+
+### Building link urls
+
+This example for a `linkTemplate` function produces links like `?date=2026-12-04` for December 4, 2026:
+
+{/* prettier-ignore */}
+```ts
+const formatDate = (date: Date) =>
+  `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`
+
+const linkTemplate = (date: Date): string => `?date=${formatDate(date)}`
+```
+
+### Using links with routing libraries
+
+Check out the [developer guide](/docs/docs-developer-guide-routing-libraries--docs) on how to integrate links with external routing libraries.
+
+### Dates without links
 
 Each date can be a link, for example to a page that lists that day’s events.
 `linkTemplate` builds the target for a date; return `undefined` to render that date as plain text, or omit it to render a plain, non-interactive month.
 `linkComponent` lets a router supply its own link component, such as the one from Next.js.
-Screen readers announce each link with its full date, including the weekday, so a day number is never read out of context.
 
 In this example, weekends have no link and render as plain text.
 
-<Canvas of={CalendarStories.WeekendsWithoutLinks} />
+<Canvas of={CalendarStories.DatesWithoutLinks} />
 
-## Accessible name
+## Accessibility
 
 The Calendar renders as a `nav` landmark.
 Give it an accessible name with `accessibleName`.
 The Calendar renders this name as a visually hidden heading and generates a unique `id` for it; pass `accessibleNameId` to set that `id` yourself.
+
+Screen readers announce each link with its full date, including the weekday, so a day number is never read out of context.
 
 ## Design tokens
 

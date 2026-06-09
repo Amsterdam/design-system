@@ -13,7 +13,7 @@ import { CalendarBody } from './CalendarBody'
 import { CalendarHeader } from './CalendarHeader'
 
 export type CalendarProps = {
-  /** A visually hidden heading that gives the Calendar an accessible name. */
+  /** The text for the internal, visually hidden heading that gives the Calendar an accessible name. */
   readonly accessibleName?: string
   /**
    * Connects the Calendar with an internal element that defines its accessible name.

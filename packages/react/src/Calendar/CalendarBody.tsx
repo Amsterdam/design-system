@@ -14,12 +14,12 @@ export type CalendarBodyProps = {
 } & Pick<CalendarProps, 'linkComponent' | 'linkTemplate' | 'locale'>
 
 export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: CalendarBodyProps) => {
-  const year = month.getFullYear()
-  const monthIndex = month.getMonth()
   const today = new Date()
+  const monthIndex = month.getMonth()
+  const year = month.getFullYear()
 
-  const firstWeekday = getFirstWeekday(year, monthIndex)
   const daysInMonth = getDaysInMonth(year, monthIndex)
+  const firstWeekday = getFirstWeekday(year, monthIndex)
   const weekdayFormatter = new Intl.DateTimeFormat(locale, { weekday: 'short' })
 
   return (

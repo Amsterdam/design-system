@@ -43,7 +43,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const WeekendsWithoutLinks: Story = {
+export const DatesWithoutLinks: Story = {
   args: {
     linkTemplate: (date: Date) =>
       date.getDay() === 0 || date.getDay() === 6 ? undefined : `?date=${formatDate(date)}`,
