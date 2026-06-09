@@ -7,4 +7,5 @@ A visual way to navigate between dates using a calendar view.
 ## Guidelines
 
 - Use this for a collection of content grouped by date, e.g. an event calendar.
-- Use [Date Input](/docs/components-forms-date-input--docs) for selecting a date in the context of a form.
+- Display the month for the selected date; this may not be the current month.
+- Use [Date Input](/docs/components-forms-date-input--docs) instead to let the user select a date in the context of a form.
