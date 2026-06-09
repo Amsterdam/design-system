@@ -44,7 +44,7 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
           <CalendarDay
             date={date}
             isCurrent={isSameDay(date, today)}
-            key={index}
+            key={date.getTime()}
             linkComponent={linkComponent}
             linkTemplate={linkTemplate}
             locale={locale}
