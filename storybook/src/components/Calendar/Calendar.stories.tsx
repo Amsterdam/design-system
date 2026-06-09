@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { AnchorHTMLAttributes } from 'react'
 
 import { Calendar } from '@amsterdam/design-system-react/src'
 
@@ -11,10 +12,22 @@ import { Calendar } from '@amsterdam/design-system-react/src'
 const formatDate = (date: Date) =>
   `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
 
+// Prevent Storybook from navigating away when a date link is clicked.
+const PreventNavigationLink = ({ onClick, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
+  <a
+    {...props}
+    onClick={(event) => {
+      event.preventDefault()
+      onClick?.(event)
+    }}
+  />
+)
+
 const meta = {
   title: 'Components/Navigation/Calendar',
   component: Calendar,
   args: {
+    linkComponent: PreventNavigationLink,
     linkTemplate: (date: Date): string | undefined => `?date=${formatDate(date)}`,
   },
   argTypes: {
