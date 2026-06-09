@@ -4,9 +4,9 @@
  */
 
 import {
-  ChevronBackwardDoubleIcon,
   ChevronBackwardIcon,
-  ChevronForwardDoubleIcon,
+  ChevronDoubleBackwardIcon,
+  ChevronDoubleForwardIcon,
   ChevronForwardIcon,
 } from '@amsterdam/design-system-react-icons'
 
@@ -57,7 +57,7 @@ export const DatePickerHeader = ({
       disabled={disablePreviousYear}
       label={previousYearButtonLabel}
       onClick={goToPreviousYear}
-      svg={ChevronBackwardDoubleIcon}
+      svg={ChevronDoubleBackwardIcon}
     />
     <IconButton
       disabled={disablePreviousMonth}
@@ -78,7 +78,7 @@ export const DatePickerHeader = ({
       disabled={disableNextYear}
       label={nextYearButtonLabel}
       onClick={goToNextYear}
-      svg={ChevronForwardDoubleIcon}
+      svg={ChevronDoubleForwardIcon}
     />
   </div>
 )
