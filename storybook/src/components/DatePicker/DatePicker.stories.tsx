@@ -32,8 +32,24 @@ const meta = {
     value: null,
   },
   argTypes: {
+    defaultMonth: {
+      // Hidden as a Date control is awkward and can break the story.
+      table: { disable: true },
+    },
+    isDateDisabled: {
+      // Hidden as a function prop has no usable control.
+      table: { disable: true },
+    },
     locale: {
       // Hidden until we offer complete localisation examples.
+      table: { disable: true },
+    },
+    maxDate: {
+      // Hidden as a Date control is awkward and can break the story.
+      table: { disable: true },
+    },
+    minDate: {
+      // Hidden as a Date control is awkward and can break the story.
       table: { disable: true },
     },
     // The story wrappers own the mode and value, so these are not editable controls.
