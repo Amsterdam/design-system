@@ -30,7 +30,7 @@
 }
 
 .ams-avatar--has-image {
-  border: none;
+  border-style: none;
   inline-size: calc(
     var(--ams-avatar-line-height) * var(--ams-avatar-font-size) + 2 * var(--ams-avatar-padding-inline) + 2 *
       var(--ams-border-width-m)

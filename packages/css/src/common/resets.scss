@@ -14,7 +14,7 @@
 }
 
 @mixin reset-button {
-  border: none;
+  border-style: none;
   margin-block: 0; // [1]
   margin-inline: 0; // [1]
   padding-block: 0;
@@ -38,7 +38,7 @@
 }
 
 @mixin reset-fieldset {
-  border: none;
+  border-style: none;
   margin-inline: 0;
   padding-block: 0;
   padding-inline: 0;
