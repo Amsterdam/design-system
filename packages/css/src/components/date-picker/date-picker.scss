@@ -46,8 +46,11 @@
   background-color: transparent;
   color: var(--ams-date-picker-day-color);
   cursor: var(--ams-date-picker-day-cursor);
-  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
   inline-size: 100%;
+  line-height: inherit;
   outline-offset: var(--ams-date-picker-day-outline-offset);
   text-align: center;
 
