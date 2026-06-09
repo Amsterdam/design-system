@@ -72,8 +72,11 @@
     "plugin/use-baseline": [true, { "ignoreSelectors": ["nesting"] }],
     "property-disallowed-list": [
       [
+        "background",
+        "border",
         "contain-intrinsic-height",
         "contain-intrinsic-width",
+        "font",
         "inset",
         "margin",
         "padding",
