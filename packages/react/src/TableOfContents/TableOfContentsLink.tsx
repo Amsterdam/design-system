@@ -52,6 +52,8 @@ export const TableOfContentsLink = forwardRef(
 
     const listChild = findListChild(children)
     const isExpandable = collapsible && !!listChild
+    // Reuse a provided nested list id to keep aria-controls references stable.
+    const nestedListId = (listChild?.props as { id?: string } | undefined)?.id ?? panelId
 
     // When collapsing, if focus is inside the subtree that's about to be hidden, move it to the toggle button.
     const moveFocusToToggleButton = (nextIsExpanded: boolean) => {
@@ -76,7 +78,7 @@ export const TableOfContentsLink = forwardRef(
     const renderedChildren = isExpandable
       ? Children.map(children, (child) => {
           if (isValidElement(child) && child.type === TableOfContentsList) {
-            return cloneElement(child as ReactElement<{ id?: string }>, { id: panelId })
+            return cloneElement(child as ReactElement<{ id?: string }>, { id: nestedListId })
           }
           return child
         })
@@ -93,7 +95,7 @@ export const TableOfContentsLink = forwardRef(
       >
         {isExpandable && (
           <IconButton
-            aria-controls={panelId}
+            aria-controls={nestedListId}
             aria-expanded={isExpanded}
             className="ams-table-of-contents__toggle"
             label={`${isExpanded ? hideAccessibleLabel : showAccessibleLabel} ${label}`}
