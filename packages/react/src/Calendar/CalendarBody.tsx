@@ -29,7 +29,7 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
         const weekday = weekdayFormatter.format(date)
 
         return (
-          <span className="ams-calendar__weekday" key={`weekday-${index}`}>
+          <span aria-hidden={true} className="ams-calendar__weekday" key={`weekday-${index}`}>
             {weekday}
           </span>
         )
