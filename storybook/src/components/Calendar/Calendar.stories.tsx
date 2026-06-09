@@ -54,11 +54,30 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `<Calendar linkTemplate={(date: Date): string | undefined => \`?date=\${formatDate(date)}\`} />`,
+      },
+    },
+  },
+}
 
 export const DatesWithoutLinks: Story = {
   args: {
     linkTemplate: (date: Date) =>
       date.getDay() === 0 || date.getDay() === 6 ? undefined : `?date=${formatDate(date)}`,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Calendar
+  linkTemplate={(date: Date) =>
+    date.getDay() === 0 || date.getDay() === 6 ? undefined : \`?date=\${formatDate(date)}\`
+  }
+/>`,
+      },
+    },
   },
 }
