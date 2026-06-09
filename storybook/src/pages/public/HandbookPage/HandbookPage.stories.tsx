@@ -37,7 +37,7 @@ const renderTocList = (list: Array<HandbookPage>, options: RenderTocOptions) => 
     {list.map((page) => (
       <TableOfContents.Link
         aria-current={page.slug === options.currentSlug ? 'page' : undefined}
-        defaultExpanded={options.expandedSlugs.has(page.slug)}
+        defaultExpanded={page.slug === options.currentSlug || options.expandedSlugs.has(page.slug)}
         href={`#${page.slug}`}
         key={page.slug}
         label={page.heading}
