@@ -35,7 +35,7 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
         )
       })}
       {Array.from({ length: firstWeekday }).map((_, index) => (
-        <span key={`offset-${index}`} />
+        <span aria-hidden={true} key={`offset-${index}`} />
       ))}
       {Array.from({ length: daysInMonth }).map((_, index) => {
         const date = new Date(year, monthIndex, index + 1)
