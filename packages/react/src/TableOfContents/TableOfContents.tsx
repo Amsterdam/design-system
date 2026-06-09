@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ForwardedRef, HTMLAttributes, KeyboardEvent, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef, useImperativeHandle, useRef } from 'react'
@@ -60,9 +60,19 @@ const TableOfContentsRoot = forwardRef(
     useImperativeHandle(ref, () => innerRef.current as HTMLElement)
 
     const { keyDown } = useKeyboardFocus(innerRef, {
-      focusableElements: ['.ams-table-of-contents__toggle:not([disabled])'],
+      focusableElements: [
+        '.ams-table-of-contents__toggle:not([disabled]):not(.ams-table-of-contents__item--collapsed > .ams-table-of-contents__list .ams-table-of-contents__toggle)',
+      ],
       rotating: true,
     })
+
+    const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+      if (!(event.target instanceof Element) || !event.target.closest('.ams-table-of-contents__toggle')) {
+        return
+      }
+
+      keyDown(event)
+    }
 
     return (
       <TableOfContentsContext.Provider
@@ -75,7 +85,7 @@ const TableOfContentsRoot = forwardRef(
         <nav
           {...restProps}
           className={clsx('ams-table-of-contents', collapsible && 'ams-table-of-contents--collapsible', className)}
-          onKeyDown={collapsible ? keyDown : undefined}
+          onKeyDown={collapsible ? handleKeyDown : undefined}
           ref={innerRef}
         >
           {heading && (

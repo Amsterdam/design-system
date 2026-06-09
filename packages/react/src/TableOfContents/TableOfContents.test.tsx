@@ -208,6 +208,27 @@ describe('TableOfContents', () => {
       expect(nestedList).toHaveClass('ams-table-of-contents__list')
     })
 
+    it('preserves a custom nested list id for aria-controls', () => {
+      render(
+        <TableOfContents collapsible>
+          <TableOfContents.List>
+            <TableOfContents.Link defaultExpanded href="#a" label="A">
+              <TableOfContents.List id="custom-panel-id">
+                <TableOfContents.Link href="#a-1" label="A.1" />
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents>,
+      )
+
+      const button = screen.getByRole('button')
+      const nestedList = document.getElementById('custom-panel-id')
+
+      expect(button).toHaveAttribute('aria-controls', 'custom-panel-id')
+      expect(nestedList).toBeInTheDocument()
+      expect(nestedList).toHaveClass('ams-table-of-contents__list')
+    })
+
     it('calls onToggle with the new expanded state when the button is clicked', () => {
       const onToggle = vi.fn()
 
@@ -342,6 +363,66 @@ describe('TableOfContents', () => {
       await user.keyboard('{ArrowDown}')
 
       expect(firstButton).toHaveFocus()
+    })
+
+    it('skips hidden toggles when using arrow keys', async () => {
+      const user = userEvent.setup()
+
+      render(
+        <TableOfContents collapsible>
+          <TableOfContents.List>
+            <TableOfContents.Link href="#a" label="A">
+              <TableOfContents.List>
+                <TableOfContents.Link href="#b" label="B">
+                  <TableOfContents.List>
+                    <TableOfContents.Link href="#b-1" label="B.1" />
+                  </TableOfContents.List>
+                </TableOfContents.Link>
+              </TableOfContents.List>
+            </TableOfContents.Link>
+            <TableOfContents.Link href="#c" label="C">
+              <TableOfContents.List>
+                <TableOfContents.Link href="#c-1" label="C.1" />
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents>,
+      )
+
+      const firstButton = screen.getByRole('button', { name: /Toon submenu van A/ })
+      const visibleNextButton = screen.getByRole('button', { name: /Toon submenu van C/ })
+
+      firstButton.focus()
+      expect(firstButton).toHaveFocus()
+
+      await user.keyboard('{ArrowDown}')
+
+      expect(visibleNextButton).toHaveFocus()
+    })
+
+    it('does not move focus from links when using arrow keys', async () => {
+      const user = userEvent.setup()
+
+      render(
+        <TableOfContents collapsible>
+          <TableOfContents.List>
+            <TableOfContents.Link href="#a" label="A">
+              <TableOfContents.List>
+                <TableOfContents.Link href="#a-1" label="A.1" />
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents>,
+      )
+
+      const link = screen.getByRole('link', { name: 'A' })
+
+      link.focus()
+      expect(link).toHaveFocus()
+
+      await user.keyboard('{ArrowDown}')
+
+      expect(link).toHaveFocus()
     })
   })
 })
