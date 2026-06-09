@@ -1,0 +1,5 @@
+import{n as e,r as t}from"./chunk-DnJy8xQt.js";import{t as n,ut as r}from"./src-iWUwQSS6.js";var i=t({DatesWithoutLinks:()=>c,Default:()=>s,__namedExportsOrder:()=>l,default:()=>o}),a,o,s,c,l,u=e((()=>{n(),a=e=>`${e.getFullYear()}-${String(e.getMonth()+1).padStart(2,`0`)}-${String(e.getDate()).padStart(2,`0`)}`,o={title:`Components/Navigation/Calendar`,component:r,args:{linkTemplate:e=>`?date=${a(e)}`},argTypes:{defaultMonth:{table:{disable:!0}},linkComponent:{table:{disable:!0}},linkTemplate:{table:{disable:!0}},locale:{table:{disable:!0}}}},s={},c={args:{linkTemplate:e=>e.getDay()===0||e.getDay()===6?void 0:`?date=${a(e)}`}},s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{}`,...s.parameters?.docs?.source}}},c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+  args: {
+    linkTemplate: (date: Date) => date.getDay() === 0 || date.getDay() === 6 ? undefined : \`?date=\${formatDate(date)}\`
+  }
+}`,...c.parameters?.docs?.source}}},l=[`Default`,`DatesWithoutLinks`]}));u();export{c as DatesWithoutLinks,s as Default,l as __namedExportsOrder,o as default,u as n,i as t};
