@@ -18,6 +18,18 @@ const meta = {
     linkTemplate: (date: Date): string | undefined => `?date=${formatDate(date)}`,
   },
   argTypes: {
+    defaultMonth: {
+      // Hidden as enabling the control breaks the story with an error.
+      table: { disable: true },
+    },
+    linkComponent: {
+      // Hidden as enabling the control breaks the story with an error.
+      table: { disable: true },
+    },
+    linkTemplate: {
+      // Hidden
+      table: { disable: true },
+    },
     locale: {
       // Hidden until we offer complete localisation examples.
       table: { disable: true },
