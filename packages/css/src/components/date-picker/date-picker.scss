@@ -71,6 +71,15 @@
   &:hover {
     background-color: var(--ams-date-picker-day-selected-hover-background-color);
   }
+
+  @media (forced-colors: active) {
+    &,
+    & *,
+    &:hover {
+      background-color: Highlight;
+      color: HighlightText;
+    }
+  }
 }
 
 .ams-date-picker__day[aria-disabled="true"] {
