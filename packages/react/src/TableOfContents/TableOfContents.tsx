@@ -103,7 +103,7 @@ const TableOfContentsRoot = forwardRef(
 TableOfContentsRoot.displayName = 'TableOfContents'
 
 /**
- * Links to the sections of the current page.
+ * A navigation list for linking to sections on the current page, or between a set of related pages.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-table-of-contents--docs Table Of Contents docs at Amsterdam Design System}
  */

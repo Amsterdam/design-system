@@ -17,6 +17,22 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Use a Table of Contents for any list of navigation links that correspond to named sections of content: anchor links to sections on the current page, links to a set of related pages, or a deep multi-level tree for a handbook or documentation site.
+For the last case, use `collapsible` mode so branches can be expanded and collapsed — see the [Handbook Page](/docs/pages-public-handbook-page--docs) template.
+
+### When not to use
+
+Use a [Tab Navigation](/docs/components-navigation-tab-navigation--docs) when the user switches between views rather than navigating to distinct sections or pages.
+
+### How to use
+
+Give it a `heading` (such as 'Op deze pagina') and a `headingLevel` that fits the document outline.
+Set `aria-current="page"` on the link for the active section or page to highlight it and announce it to screen readers.
+
 ## Examples
 
 ### Multiple levels
@@ -25,10 +41,22 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 ### Collapsible
 
-Set the `collapsible` prop on the root to let each item with a nested list expand and collapse via a separate toggle button.
-Use `defaultExpanded` on a Link to pre-open the current page's ancestors, and `aria-current="page"` on the link itself to highlight it.
+Set `collapsible` on the root to add a separate toggle button to each item that has nested links.
+The toggle expands and collapses the nested list without following the link.
+Use `defaultExpanded` on a Link to pre-open its nested list when the component mounts, for example to show the ancestors of the current page.
 
 <Canvas of={TableOfContentsStories.Collapsible} />
+
+## Accessibility
+
+The component renders as a `nav` landmark.
+Set `aria-current="page"` on the link that represents the active section or page to help screen reader users identify their position.
+In collapsible mode, arrow keys navigate between the visible toggle buttons.
+
+## See also
+
+- [Handbook Page](/docs/pages-public-handbook-page--docs) – a two-column layout with a collapsible Table of Contents sidebar.
+- [Tab Navigation](/docs/components-navigation-tab-navigation--docs) – switches between views on the same page.
 
 ## Design tokens
 
