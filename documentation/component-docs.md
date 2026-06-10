@@ -64,7 +64,7 @@ Sections are optional: omit any section that has no meaningful content for the c
 6. **Features** – what the component does for you out of the box: states, keyboard behaviour, responsive behaviour, validation, etc. Pair with a Canvas where the feature is visual.
 7. **Design** – notable visual or interaction decisions worth explaining. Pair with a Canvas where the decision is visual.
 8. **Accessibility** – what the component does to meet accessibility requirements: the ARIA roles and patterns it implements, how it handles keyboard interaction, and which WCAG criteria it addresses. Omit the section if there is nothing meaningful to say.
-9. **Related components** – a short bullet list of links to alternatives or companions. Each bullet ends with a one-line reason.
+9. **See also** – a short bullet list of links to alternatives or companions. Each bullet ends with a one-line reason.
 10. **Design tokens** – the auto-generated table via `<DesignTokensTable tokens={tokens} />`.
 
 ### Skeleton
@@ -113,7 +113,7 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 ## Accessibility
 
-## Related components
+## See also
 
 ## Design tokens
 
@@ -150,7 +150,7 @@ Examples: which ARIA role the component uses, how keyboard interaction is implem
 Do not put composition instructions here; those belong in ‘How to use’.
 Omit the section if the component has no meaningful accessibility behaviour to describe beyond what the browser and standard HTML already provide.
 
-**Related components** is the exit point at the bottom of the body.
+**See also** is the exit point at the bottom of the body.
 List a handful of alternatives or companions, with a one-line reason for each.
 
 ## Reference components
