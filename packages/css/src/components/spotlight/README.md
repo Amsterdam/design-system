@@ -12,7 +12,7 @@ Emphasizes a section on a page through a distinctive background colour.
 - Use any of the [highlight colours](/docs/brand-design-tokens-colour--docs) for the background.
   The design system does not prescribe a meaning to any of these colours.
   The default is purple.
-  Select [the correct colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) for text and links against the background you choose.
+  Select [the correct colour](https://designsystem.amsterdam/?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) for text and links against the background you choose.
 - Find a fitting setup for the [amount and width of columns](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
 - By default, a Spotlight renders a `<div>` element in HTML.
   Use the `as` prop to make your markup more semantic.
