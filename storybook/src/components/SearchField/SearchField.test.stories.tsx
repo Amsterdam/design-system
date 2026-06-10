@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { StoryObj } from '@storybook/react-vite'
 
 import { SearchField } from '@amsterdam/design-system-react/src'
 import { expect, fn } from 'storybook/test'
@@ -13,7 +13,7 @@ import { default as searchFieldMeta } from './SearchField.stories'
 const meta = {
   ...searchFieldMeta,
   title: 'Components/Forms/Search Field',
-} satisfies Meta<typeof SearchField>
+} satisfies typeof searchFieldMeta
 
 export default meta
 
