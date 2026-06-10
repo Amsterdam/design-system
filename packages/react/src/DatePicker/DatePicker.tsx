@@ -101,6 +101,8 @@ const getInitialFocusedDate = (month: Date, selectedDate: Date | null): Date => 
 }
 
 /**
+ * A calendar grid for selecting a single date or a date range.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-date-picker--docs Date Picker docs at Amsterdam Design System}
  */
 export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<HTMLDivElement>) => {
