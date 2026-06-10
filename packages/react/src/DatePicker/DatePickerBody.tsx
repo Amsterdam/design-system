@@ -17,6 +17,8 @@ export type DatePickerBodyProps = {
   readonly focusedDate: Date
   /** Captures the focused day’s button so focus can follow keyboard navigation. */
   readonly focusedDayRef: RefObject<HTMLButtonElement>
+  /** Returns the label appended to a date’s accessible name, e.g. for the start or end of a range. */
+  readonly getBoundaryLabel: (date: Date) => string | undefined
   /** Whether a date cannot be selected. */
   readonly isDayDisabled: (date: Date) => boolean
   /** Whether a date is part of the current selection. */
@@ -35,6 +37,7 @@ export const DatePickerBody = ({
   captionId,
   focusedDate,
   focusedDayRef,
+  getBoundaryLabel,
   isDayDisabled,
   isDaySelected,
   locale,
@@ -82,6 +85,7 @@ export const DatePickerBody = ({
               <div className="ams-date-picker__cell" key={`empty-${weekIndex}-${dayIndex}`} role="gridcell" />
             ) : (
               <DatePickerDay
+                boundaryLabel={getBoundaryLabel(date)}
                 date={date}
                 focusedDayRef={isSameDay(date, focusedDate) ? focusedDayRef : undefined}
                 isCurrent={isSameDay(date, today)}

@@ -10,6 +10,8 @@ import { clsx } from 'clsx'
 import type { DatePickerProps } from './DatePicker'
 
 export type DatePickerDayProps = {
+  /** Text appended to the accessible name, e.g. to mark the start or end of a range. */
+  readonly boundaryLabel?: string
   /** The date to display. */
   readonly date: Date
   /** Captures this button when it holds the roving tab stop, so focus can follow keyboard navigation. */
@@ -26,10 +28,19 @@ export type DatePickerDayProps = {
   readonly onSelect: (date: Date) => void
 } & Pick<DatePickerProps, 'locale'>
 
-const formatAccessibleDate = (date: Date, locale?: string) =>
-  new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', weekday: 'long', year: 'numeric' }).format(date)
+const formatAccessibleDate = (date: Date, locale?: string, boundaryLabel?: string) => {
+  const fullDate = new Intl.DateTimeFormat(locale, {
+    day: 'numeric',
+    month: 'long',
+    weekday: 'long',
+    year: 'numeric',
+  }).format(date)
+
+  return boundaryLabel ? `${fullDate}, ${boundaryLabel}` : fullDate
+}
 
 export const DatePickerDay = ({
+  boundaryLabel,
   date,
   focusedDayRef,
   isCurrent,
@@ -50,7 +61,7 @@ export const DatePickerDay = ({
       type="button"
     >
       <span aria-hidden={true}>{date.getDate()}</span>
-      <span className="ams-visually-hidden">{formatAccessibleDate(date, locale)}</span>
+      <span className="ams-visually-hidden">{formatAccessibleDate(date, locale, boundaryLabel)}</span>
     </button>
   </div>
 )

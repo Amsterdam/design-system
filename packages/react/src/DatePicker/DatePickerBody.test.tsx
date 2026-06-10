@@ -17,6 +17,7 @@ const renderBody = () =>
       captionId="caption"
       focusedDate={march2026}
       focusedDayRef={createRef<HTMLButtonElement>()}
+      getBoundaryLabel={() => undefined}
       isDayDisabled={() => false}
       isDaySelected={() => false}
       locale="nl-NL"

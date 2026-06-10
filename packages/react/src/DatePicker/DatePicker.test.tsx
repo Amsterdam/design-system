@@ -147,6 +147,16 @@ describe('DatePicker', () => {
     expect(screen.getByRole('grid')).toHaveAttribute('aria-multiselectable', 'true')
   })
 
+  it('names the start and end dates of a range, leaving the days between unlabelled', () => {
+    const value: DateRange = { start: new Date(2026, 2, 10), end: new Date(2026, 2, 16) }
+
+    render(<DatePicker defaultMonth={march2026} mode="range" onChange={noop} value={value} />)
+
+    expect(screen.getByRole('button', { name: 'dinsdag 10 maart 2026, startdatum' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'maandag 16 maart 2026, einddatum' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'donderdag 12 maart 2026' })).toBeInTheDocument()
+  })
+
   it('does not select a disabled date', () => {
     const onChange = vi.fn()
 

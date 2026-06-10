@@ -53,6 +53,16 @@ type DatePickerBaseProps = {
    * @default Vorig jaar
    */
   readonly previousYearButtonLabel?: string
+  /**
+   * Appended to the accessible name of the date that ends the range.
+   * @default einddatum
+   */
+  readonly rangeEndAccessibleName?: string
+  /**
+   * Appended to the accessible name of the date that starts the range.
+   * @default startdatum
+   */
+  readonly rangeStartAccessibleName?: string
 } & Readonly<Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>>
 
 type DatePickerSingleProps = {
@@ -107,6 +117,8 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
     onChange,
     previousMonthButtonLabel,
     previousYearButtonLabel,
+    rangeEndAccessibleName = 'einddatum',
+    rangeStartAccessibleName = 'startdatum',
     value,
     ...restProps
   } = props
@@ -156,6 +168,24 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
     }
 
     return selection.value !== null && isSameDay(date, selection.value)
+  }
+
+  const getBoundaryLabel = (date: Date): string | undefined => {
+    if (selection.mode !== 'range') {
+      return undefined
+    }
+
+    const { start, end } = selection.value
+
+    if (start !== null && isSameDay(date, start)) {
+      return rangeStartAccessibleName
+    }
+
+    if (end !== null && isSameDay(date, end)) {
+      return rangeEndAccessibleName
+    }
+
+    return undefined
   }
 
   const selectDate = (date: Date) => {
@@ -230,6 +260,7 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
         captionId={captionId}
         focusedDate={focusedDate}
         focusedDayRef={focusedDayRef}
+        getBoundaryLabel={getBoundaryLabel}
         isDayDisabled={isDayDisabled}
         isDaySelected={isDaySelected}
         locale={locale}
