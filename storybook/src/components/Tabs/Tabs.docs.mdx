@@ -32,6 +32,11 @@ Do not use Tabs to toggle between large amounts of primary content.
 That would come down to navigating between pages.
 In this context, use [Tab Navigation](/docs/components-navigation-tab-navigation--docs) to offer the user the benefits of links.
 
+### How to use
+
+Create a panel for each button.
+Add an `aria-controls` attribute to each button and match its value to the `id` of the associated panel.
+
 ## Features
 
 ### Keyboard navigation
@@ -45,11 +50,6 @@ In this context, use [Tab Navigation](/docs/components-navigation-tab-navigation
 | Right arrow    | If the tabs have focus, go to the next tab     |
 | Home           | If the tabs have focus, go to the first tab    |
 | End            | If the tabs have focus, go to the last tab     |
-
-## Accessibility
-
-Create a panel for each button.
-Add an `aria-controls` attribute to each button and match its value to the `id` of the associated panel.
 
 ## Related components
 

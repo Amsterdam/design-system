@@ -31,6 +31,9 @@ Use a [Date Input](/docs/components-forms-date-input--docs) instead when the use
 
 Display the month for the selected date, which may not be the current month.
 
+Give it an accessible name with `accessibleName`.
+The Calendar renders this name as a visually hidden heading and generates a unique `id` for it; pass `accessibleNameId` to set that `id` yourself.
+
 ## Examples
 
 ### Dates without links
@@ -61,9 +64,6 @@ const linkTemplate = (date: Date): string => `?date=${formatDate(date)}`
 ## Accessibility
 
 The Calendar renders as a `nav` landmark.
-Give it an accessible name with `accessibleName`.
-The Calendar renders this name as a visually hidden heading and generates a unique `id` for it; pass `accessibleNameId` to set that `id` yourself.
-
 Screen readers announce each link with its full date, including the weekday, so a day number is never read out of context.
 
 ## Related components
