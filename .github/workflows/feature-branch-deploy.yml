@@ -29,22 +29,12 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
 
       - name: Create deployment
+        uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
         id: deployment
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENV_NAME: demo-${{ env.BRANCH_NAME }}
-        run: |
-          PAYLOAD=$(jq -n \
-            --arg ref "$GITHUB_SHA" \
-            --arg env "$ENV_NAME" \
-            '{ref: $ref, environment: $env, auto_merge: false, required_contexts: []}')
-          DEPLOYMENT_ID=$(gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            "/repos/$GITHUB_REPOSITORY/deployments" \
-            --input - \
-            --jq '.id' <<< "$PAYLOAD")
-          echo "deployment_id=$DEPLOYMENT_ID" >> "$GITHUB_OUTPUT"
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: demo-${{ env.BRANCH_NAME }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
@@ -84,22 +74,12 @@ jobs:
             curl -sf https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}/${{ github.sha }}.txt
 
       - name: Update deployment status
-        if: always() && steps.deployment.outputs.deployment_id != ''
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEPLOYMENT_ID: ${{ steps.deployment.outputs.deployment_id }}
-          ENV_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}
-          JOB_STATUS: ${{ job.status }}
-        run: |
-          if [ "$JOB_STATUS" = "success" ]; then STATE=success; else STATE=failure; fi
-          LOG_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-          PAYLOAD=$(jq -n \
-            --arg state "$STATE" \
-            --arg env_url "$ENV_URL" \
-            --arg log_url "$LOG_URL" \
-            '{state: $state, environment_url: $env_url, log_url: $log_url}')
-          gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            "/repos/$GITHUB_REPOSITORY/deployments/$DEPLOYMENT_ID/statuses" \
-            --input - <<< "$PAYLOAD"
+        uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          env: ${{ steps.deployment.outputs.env }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          env_url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}
