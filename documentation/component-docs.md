@@ -10,13 +10,11 @@ A content perspective – how to write for a component – is welcome where it a
 
 Each component has its documentation in two places.
 
-- The CSS package contains a short `README.md` at `packages/css/src/components/{kebab-case-name}/README.md`.
-  This file contains only the component’s rationale.
+- The React component at `packages/react/src/{PascalCaseName}/{PascalCaseName}.tsx` carries the component’s rationale in its TSDoc comment.
+  Storybook reads this via react-docgen and renders it on the documentation page.
+  It also surfaces in IDE tooltips when the component is used.
 - The Storybook documentation page is at `storybook/src/components/{PascalCaseName}/{PascalCaseName}.docs.mdx`.
-  This file imports the CSS README for the rationale and adds the structured sections below.
-
-The React package’s `README.md` is a single line that links to the CSS README.
-Add React-specific documentation only when needed.
+  This file renders the name and description from the component TSDoc and adds the structured sections below.
 
 ## Formatting
 
@@ -26,18 +24,19 @@ This keeps diffs small and reviews focused on the sentences that actually change
 Use sentence case for headings.
 Write component names in title case to help readers recognise them, e.g. ‘Card’ or ‘Form Field’.
 
-## The CSS README
+## The component TSDoc
 
-The CSS README contains only the component’s rationale: an H1 with the component name, followed by one short paragraph that explains what the component is and why it exists.
+The TSDoc comment on the exported component function contains the component’s rationale: one short paragraph that explains what the component is and why it exists.
 Do not put guidelines, WCAG references, or examples here.
 All other documentation lives in the Storybook MDX file, where it can be paired with stories.
 
-```md
-<!-- @license CC0-1.0 -->
+Place the description in the JSDoc block directly above the component declaration:
 
-# Component name
-
-One short paragraph that explains what the component is and why it exists.
+```tsx
+/**
+ * One short paragraph that explains what the component is and why it exists.
+ */
+export const ComponentName = forwardRef(/* ... */);
 ```
 
 ## The Storybook documentation page
@@ -49,7 +48,7 @@ Sections are optional: omit any section that has no meaningful content for the c
 
 ### Sections in order
 
-1. **Rationale** – rendered from the CSS README via `<Markdown>{README}</Markdown>`.
+1. **Title and description** – `<Title />` and `<Description of={…} />`, rendered from the component's TSDoc via react-docgen.
 2. **Primary story and Controls** – `<Primary />` and `<Controls />`.
 3. **Usage guidelines** – an H2 wrapping ‘When to use’, ‘When not to use’, and an optional list of best-practice bullets.
 4. **Examples** – an H2 with an H3 per variant. Each variant has a one-line caption above a `<Canvas of={…} />`.
@@ -68,16 +67,17 @@ Fill in the sections that apply, and delete any heading you cannot fill in meani
 ```mdx
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 import * as ComponentStories from "./Component.stories.tsx";
-import README from "../../../../packages/css/src/components/component/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/component.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={ComponentStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={ComponentStories} />
 
 <Primary />
 

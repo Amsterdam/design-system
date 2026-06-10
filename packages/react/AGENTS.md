@@ -31,10 +31,21 @@ Agent-critical points:
 All props must have JSDoc descriptions. Use `type` (not `interface`) for prop type definitions.
 Reuse existing shared types where they already exist; do not introduce new "common" prop types or helpers unless there is a clear, documented need.
 
-## README
+## TSDoc
 
-- Location: `src/<Name>/README.md`
-- Link to the CSS README for shared context; add React-specific usage notes only.
+Place a JSDoc block directly above the exported component declaration.
+Write one short paragraph that explains what the component is and why it exists.
+Do not include guidelines, WCAG references, or usage examples — those belong in the Storybook MDX file.
+Storybook reads this comment via react-docgen and renders it on the documentation page; it also surfaces in IDE tooltips.
+
+```tsx
+/**
+ * One short paragraph that explains what the component is and why it exists.
+ */
+export const ComponentName = forwardRef(...)
+```
+
+See [documentation/component-docs.md](../../documentation/component-docs.md) for the full convention.
 
 ## File locations
 
