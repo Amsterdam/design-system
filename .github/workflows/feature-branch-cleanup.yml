@@ -49,10 +49,21 @@ jobs:
           git commit -m "Remove feature branch folder"
           git push
 
-      - name: Deactivate deployment
-        uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
+      - name: Deactivate deployments
         if: always()
-        with:
-          step: deactivate-env
-          token: ${{ secrets.GITHUB_TOKEN }}
-          env: demo-${{ env.BRANCH_NAME }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENV_NAME: demo-${{ env.BRANCH_NAME }}
+        run: |
+          PAYLOAD=$(jq -n '{state: "inactive"}')
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/$GITHUB_REPOSITORY/deployments" \
+            -f environment="$ENV_NAME" \
+            --jq '.[].id' | while read -r id; do
+            gh api \
+              --method POST \
+              -H "Accept: application/vnd.github+json" \
+              "/repos/$GITHUB_REPOSITORY/deployments/$id/statuses" \
+              --input - <<< "$PAYLOAD"
+          done
