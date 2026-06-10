@@ -10,7 +10,7 @@ import { forwardRef, useEffect, useId, useRef, useState } from 'react'
 
 import { getDaysInMonth, isSameDay, isSameMonth, startOfDay } from '../common/dates'
 import { useMonthNavigation } from '../common/useMonthNavigation'
-import { DatePickerGrid } from './DatePickerGrid'
+import { DatePickerBody } from './DatePickerBody'
 import { DatePickerHeader } from './DatePickerHeader'
 import { getNextFocusDate, isOutOfBounds, isWithinRange, nextRange } from './utils'
 
@@ -226,7 +226,7 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
         previousMonthButtonLabel={previousMonthButtonLabel}
         previousYearButtonLabel={previousYearButtonLabel}
       />
-      <DatePickerGrid
+      <DatePickerBody
         captionId={captionId}
         focusedDate={focusedDate}
         focusedDayRef={focusedDayRef}

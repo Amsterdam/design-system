@@ -10,7 +10,7 @@ import type { DatePickerProps } from './DatePicker'
 import { getDaysInMonth, getFirstWeekday, isSameDay } from '../common/dates'
 import { DatePickerDay } from './DatePickerDay'
 
-export type DatePickerGridProps = {
+export type DatePickerBodyProps = {
   /** The `id` of the month caption that gives the grid its accessible name. */
   readonly captionId: string
   /** The date that currently holds the roving tab stop. */
@@ -29,7 +29,7 @@ export type DatePickerGridProps = {
   readonly onSelectDate: (date: Date) => void
 } & Pick<DatePickerProps, 'locale'>
 
-export const DatePickerGrid = ({
+export const DatePickerBody = ({
   captionId,
   focusedDate,
   focusedDayRef,
@@ -39,7 +39,7 @@ export const DatePickerGrid = ({
   month,
   onKeyDown,
   onSelectDate,
-}: DatePickerGridProps) => {
+}: DatePickerBodyProps) => {
   const year = month.getFullYear()
   const monthIndex = month.getMonth()
   const today = new Date()
@@ -58,7 +58,7 @@ export const DatePickerGrid = ({
   const weeks = Array.from({ length: cells.length / 7 }, (_, index) => cells.slice(index * 7, index * 7 + 7))
 
   return (
-    <div aria-labelledby={captionId} className="ams-date-picker__grid" onKeyDown={onKeyDown} role="grid">
+    <div aria-labelledby={captionId} className="ams-date-picker__body" onKeyDown={onKeyDown} role="grid">
       <div className="ams-date-picker__row" role="row">
         {Array.from({ length: 7 }).map((_, index) => (
           <span className="ams-date-picker__weekday" key={`weekday-${index}`} role="columnheader">
@@ -91,4 +91,4 @@ export const DatePickerGrid = ({
   )
 }
 
-DatePickerGrid.displayName = 'DatePickerGrid'
+DatePickerBody.displayName = 'DatePickerBody'
