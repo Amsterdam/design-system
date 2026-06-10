@@ -70,16 +70,50 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `const [value, setValue] = useState<Date | null>(null)
+
+<DatePicker onChange={setValue} value={value} />`,
+        language: 'tsx',
+      },
+    },
+  },
   render: (args) => <SingleDatePicker {...args} />,
 }
 
 export const Range: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `const [value, setValue] = useState<DateRange>({ start: null, end: null })
+
+<DatePicker mode="range" onChange={setValue} value={value} />`,
+        language: 'tsx',
+      },
+    },
+  },
   render: (args) => <RangeDatePicker {...args} />,
 }
 
 export const DisabledDates: Story = {
   args: {
     isDateDisabled: (date) => date.getDay() === 0 || date.getDay() === 6,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `const [value, setValue] = useState<Date | null>(null)
+
+<DatePicker
+  isDateDisabled={(date) => date.getDay() === 0 || date.getDay() === 6}
+  onChange={setValue}
+  value={value}
+/>`,
+        language: 'tsx',
+      },
+    },
   },
   render: (args) => <SingleDatePicker {...args} />,
 }
@@ -88,6 +122,22 @@ export const LimitedToOneMonth: Story = {
   args: {
     maxDate: new Date(2026, 2, 31),
     minDate: new Date(2026, 2, 1),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `const [value, setValue] = useState<Date | null>(null)
+
+<DatePicker
+  defaultMonth={new Date(2026, 2, 1)}
+  maxDate={new Date(2026, 2, 31)}
+  minDate={new Date(2026, 2, 1)}
+  onChange={setValue}
+  value={value}
+/>`,
+        language: 'tsx',
+      },
+    },
   },
   render: (args) => <SingleDatePicker {...args} defaultMonth={new Date(2026, 2, 1)} />,
 }
