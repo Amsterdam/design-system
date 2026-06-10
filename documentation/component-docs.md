@@ -56,7 +56,7 @@ Sections are optional: omit any section that has no meaningful content for the c
 
 1. **Title and description** – `<Title />` and `<Description of={…} />`, rendered from the component's TSDoc via react-docgen.
 2. **Primary story and Controls** – `<Primary />` and `<Controls />`.
-3. **Usage guidelines** – an H2 wrapping ‘When to use’, ‘When not to use’, and an optional list of best-practice bullets.
+3. **Usage guidelines** – an H2 wrapping ‘When to use’, ‘When not to use’, and optionally ‘How to use’.
 4. **Examples** – an H2 with an H3 per variant. Each variant has a one-line caption above a `<Canvas of={…} />`.
 5. **Features** – what the component does for you out of the box: states, keyboard behaviour, responsive behaviour, validation, etc. Pair with a Canvas where the feature is visual.
 6. **Design choices** – notable visual or interaction decisions worth explaining. Pair with a Canvas where the decision is visual.
@@ -95,6 +95,8 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 ### When not to use
 
+### How to use
+
 ## Examples
 
 ## Features
@@ -112,10 +114,11 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 ### Writing each section
 
-**Usage guidelines** answers ‘is this the right component for me?’
+**Usage guidelines** answers ‘is this the right component for me, and how do I use it correctly?’
 ‘When to use’ states the scenarios where the component is the right choice.
 ‘When not to use’ names alternative components or patterns for adjacent scenarios.
-Optional best-practice bullets cover do-and-don’t rules that are not about choosing the component, e.g. ‘use a single primary Button per screen’.
+‘How to use’ covers practical guidance for correct configuration and composition: count and placement rules, prop combinations, content constraints, do-and-don’t rules that are not about choosing the component.
+Add ‘How to use’ only when there is substantive guidance that clearly does not belong in the other two sub-sections; omit it for components where ‘When to use’ already captures everything the reader needs.
 
 **Examples** is the visual catalogue.
 Each H3 names a variant or state, followed by a one-line caption that says what the variant is for, followed by a `<Canvas of={…} />` block.

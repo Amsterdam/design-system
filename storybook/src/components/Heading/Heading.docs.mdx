@@ -24,9 +24,18 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 Headings help the user scan the structure of a page.
 They also introduce the content that follows them.
 
+### When not to use
+
+### How to use
+
 Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
 
-### When not to use
+Use the `size` prop to make a Heading visually larger or smaller, but sparingly and consistently.
+
+- Content pages, e.g. for articles, products, events etc. must not use the size prop on their Headings.
+- Most Headings on overview pages, e.g. Card, Table of Content, and 'Link Blocks', use a size of 'level-3'.
+- The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
+  Most of them can be given a different size if appropriate.
 
 ## Examples
 
@@ -76,15 +85,6 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
 <Canvas of={HeadingStories.WithIcon} />
 
 ## Features
-
-## Design choices
-
-Use the `size` prop to make a Heading visually larger or smaller, but sparingly and consistently.
-
-- Content pages, e.g. for articles, products, events etc. must not use the size prop on their Headings.
-- Most Headings on overview pages, e.g. Card, Table of Content, and ‘Link Blocks’, use a size of ‘level-3’.
-- The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
-  Most of them can be given a different size if appropriate.
 
 ## Accessibility
 
