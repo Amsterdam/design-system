@@ -3,9 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-const pickRandomContent = <T>(list: Array<T>): T => list[Math.floor(Math.random() * list.length)]
+export const districts: ReadonlyArray<string> = ['Centrum', 'Nieuw-West', 'Noord', 'Oost', 'Stadsgebied Weesp', 'West', 'Zuid', 'Zuidoost']
 
-export const cityParts = ['Centrum', 'Nieuw-West', 'Noord', 'Weesp', 'West', 'Westpoort', 'Zuid', 'Zuidoost']
+const pickRandomContent = <T>(list: Array<T>): T => list[Math.floor(Math.random() * list.length)]
 
 export const exampleAccordionHeading = () =>
   pickRandomContent([
