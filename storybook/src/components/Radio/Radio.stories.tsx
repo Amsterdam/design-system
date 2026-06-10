@@ -33,19 +33,14 @@ const meta = {
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
-    icon: {
-      table: { disable: true },
-    },
+    icon: { control: false }, // A React element has no usable controls panel widget.
     id: {
       description: 'The id of the input element. If not provided, a unique id will be generated.',
     },
     invalid: {
       description: 'Whether the value fails a validation rule.',
     },
-    onChange: {
-      action: 'clicked',
-      table: { disable: true },
-    },
+    onChange: { action: 'clicked' },
   },
   render: (args) => {
     const [, setArgs] = useArgs()
