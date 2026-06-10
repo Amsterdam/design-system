@@ -171,6 +171,8 @@ const PageHeaderRoot = forwardRef(
 PageHeaderRoot.displayName = 'PageHeader'
 
 /**
+ * Conveys the identity and authority of the website through a logo and optional navigation links.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page-header--docs Page Header docs at Amsterdam Design System}
  */
 export const PageHeader = Object.assign(PageHeaderRoot, {

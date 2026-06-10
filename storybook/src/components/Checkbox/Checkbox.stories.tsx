@@ -37,10 +37,7 @@ const meta = {
     id: {
       description: 'The id of the input element. If not provided, a unique id will be generated.',
     },
-    onChange: {
-      action: 'clicked',
-      table: { disable: true },
-    },
+    onChange: { action: 'clicked' },
   },
   render: (args) => {
     const [, setArgs] = useArgs()

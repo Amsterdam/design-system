@@ -1,20 +1,35 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as MarkStories from "./Mark.stories.tsx";
-import README from "../../../../packages/css/src/components/mark/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/mark.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={MarkStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={MarkStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use a maximum of 1 Mark per page.
+Limit the marked text to 1 sentence.
+
+### When not to use
+
+Do not use Mark in titles and subtitles.
+Use a significant and engaging title if the entire paragraph is important.
+
+Do not mark an entire paragraph.
 
 ## Examples
 

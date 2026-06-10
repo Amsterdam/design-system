@@ -38,6 +38,11 @@ const findListChild = (children: ReactNode): ReactElement | undefined => {
   return undefined
 }
 
+/**
+ * A link to a section of the current page within a Table of Contents.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-table-of-contents--docs Table of Contents docs at Amsterdam Design System}
+ */
 export const TableOfContentsLink = forwardRef(
   (
     { children, className, defaultExpanded, label, onToggle, ...restProps }: TableOfContentsLinkProps,

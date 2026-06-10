@@ -103,6 +103,8 @@ const TableOfContentsRoot = forwardRef(
 TableOfContentsRoot.displayName = 'TableOfContents'
 
 /**
+ * Links to the sections of the current page.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-table-of-contents--docs Table Of Contents docs at Amsterdam Design System}
  */
 export const TableOfContents = Object.assign(TableOfContentsRoot, {

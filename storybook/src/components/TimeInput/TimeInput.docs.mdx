@@ -1,20 +1,31 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as TimeInputStories from "./TimeInput.stories.tsx";
-import README from "../../../../packages/css/src/components/time-input/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/time-input.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={TimeInputStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={TimeInputStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use a Time Input when the user must enter a time of day.
+
+### How to use
+
+Wrap a Time Input in a Field to associate it with a Label, description, and Error Message.
 
 ## Examples
 
@@ -43,6 +54,17 @@ If the Time Input can become invalid, add an Error Message and its `id` to the `
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 <Canvas of={TimeInputStories.InAFieldWithValidation} />
+
+## Design
+
+This component uses a native time input, which is styled differently in different browsers and operating systems.
+Recreating the native functionality is quite difficult and prone to accessibility errors, which is why we’ve chosen not to do that.
+This does mean that this component does not look identical on all browsers and operating systems.
+
+## See also
+
+- [Date Input](/docs/components-forms-date-input--docs) – the counterpart for entering a date.
+- [Field](/docs/components-forms-field--docs) – wraps a Time Input with its Label, description, and Error Message.
 
 ## Design tokens
 

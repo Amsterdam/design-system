@@ -25,6 +25,8 @@ export type BadgeProps = {
 } & Readonly<HTMLAttributes<HTMLElement>>
 
 /**
+ * A prominent label that indicates a category, property or instruction.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-badge--docs Badge docs at Amsterdam Design System}
  */
 export const Badge = forwardRef(

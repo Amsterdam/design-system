@@ -45,6 +45,8 @@ export type RowProps = {
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
+ * Stacks its children horizontally with gaps between them and offers alignment options.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-row--docs Row docs at Amsterdam Design System}
  */
 export const Row = forwardRef<HTMLElement, RowProps>(

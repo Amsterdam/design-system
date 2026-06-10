@@ -15,6 +15,11 @@ export type TabsPanelProps = {
   readonly id: string
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 
+/**
+ * The content panel shown when its associated tab button is active.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-tabs--docs Tabs docs at Amsterdam Design System}
+ */
 export const TabsPanel = forwardRef(
   ({ children, className, id, ...restProps }: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) => {
     const { activeTabId } = useContext(TabsContext)

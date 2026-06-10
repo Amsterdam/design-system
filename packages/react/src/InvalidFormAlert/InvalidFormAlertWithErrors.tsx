@@ -20,6 +20,11 @@ type InvalidFormAlertWithErrorsProps = {
   readonly setHasFocusedOnce: Dispatch<SetStateAction<boolean>>
 } & Readonly<Omit<InvalidFormAlertProps, 'errorCountLabel'>>
 
+/**
+ * A variant of Invalid Form Alert that lists each error as a link to the affected field.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs Invalid Form Alert docs at Amsterdam Design System}
+ */
 export const InvalidFormAlertWithErrors = forwardRef(
   (
     {

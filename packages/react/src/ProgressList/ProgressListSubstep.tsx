@@ -17,6 +17,11 @@ export type ProgressListSubstepProps = {
   readonly status?: ProgressListStepProps['status']
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
+/**
+ * A substep nested within a Progress List step.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-progress-list--docs Progress List docs at Amsterdam Design System}
+ */
 export const ProgressListSubstep = forwardRef(
   ({ children, className, status, ...restProps }: ProgressListSubstepProps, ref: ForwardedRef<HTMLLIElement>) => {
     return (

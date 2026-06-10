@@ -28,6 +28,11 @@ const getHintText = ({ hint, optional }: HintAndOptionalProps) => {
 
 export type HintProps = Readonly<HintAndOptionalProps> & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
+/**
+ * Optional hint text or an 'optional' indicator associated with a form field.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-label--docs Label docs at Amsterdam Design System}
+ */
 export const Hint = forwardRef(
   ({ className, hint, inFieldSet, optional, ...restProps }: HintProps, ref: ForwardedRef<HTMLElement>) => {
     const hintText = getHintText({ hint, optional })

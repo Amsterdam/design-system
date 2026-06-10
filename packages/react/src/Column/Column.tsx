@@ -40,6 +40,8 @@ export type ColumnProps = {
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
+ * Stacks its children vertically with gaps between them and offers alignment options.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-column--docs Column docs at Amsterdam Design System}
  */
 export const Column = forwardRef<HTMLElement, ColumnProps>(

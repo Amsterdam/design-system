@@ -24,6 +24,8 @@ export type ErrorMessageProps = {
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>>
 
 /**
+ * Labels a validation error for a specific form field and explains how to resolve it.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-error-message--docs Error Message docs at Amsterdam Design System}
  */
 export const ErrorMessage = forwardRef(

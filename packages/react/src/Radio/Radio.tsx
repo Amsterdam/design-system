@@ -23,6 +23,8 @@ export type RadioProps = {
 } & Readonly<PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>>
 
 /**
+ * Allows users to select one option from a list.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-radio--docs Radio docs at Amsterdam Design System}
  */
 export const Radio = forwardRef(
