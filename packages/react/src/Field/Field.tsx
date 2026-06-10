@@ -14,6 +14,8 @@ export type FieldProps = {
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 
 /**
+ * Wraps a single input and its related elements. May indicate that the input has a validation error.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-field--docs Field docs at Amsterdam Design System}
  */
 export const Field = forwardRef(

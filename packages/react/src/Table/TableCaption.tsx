@@ -11,6 +11,11 @@ import { forwardRef } from 'react'
 
 export type TableCaptionProps = PropsWithChildren<HTMLAttributes<HTMLTableCaptionElement>>
 
+/**
+ * The caption of a Table, providing its accessible name.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-table--docs Table docs at Amsterdam Design System}
+ */
 export const TableCaption = forwardRef(
   ({ children, className, ...restProps }: TableCaptionProps, ref: ForwardedRef<HTMLTableCaptionElement>) => (
     <caption {...restProps} className={clsx('ams-table__caption', className)} ref={ref}>

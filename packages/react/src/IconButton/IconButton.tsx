@@ -28,6 +28,8 @@ export type IconButtonProps = {
 } & Readonly<ButtonHTMLAttributes<HTMLButtonElement>>
 
 /**
+ * An icon in a button that can be aligned with text.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-buttons-icon-button--docs Icon Button docs at Amsterdam Design System}
  */
 export const IconButton = forwardRef(

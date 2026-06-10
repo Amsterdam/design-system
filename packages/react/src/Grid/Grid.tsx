@@ -77,6 +77,8 @@ const GridRoot = forwardRef<HTMLElement, GridProps>(
 GridRoot.displayName = 'Grid'
 
 /**
+ * Divides the screen into columns to align the elements of a page.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}
  */
 export const Grid = Object.assign(GridRoot, { Cell: GridCell })

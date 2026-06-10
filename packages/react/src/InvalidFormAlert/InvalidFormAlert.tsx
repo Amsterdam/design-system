@@ -45,6 +45,8 @@ export type InvalidFormAlertProps = {
 } & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
+ * Summarises validation errors at the top of a page so users can review and correct them all.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs Invalid Form Alert docs at Amsterdam Design System}
  */
 export const InvalidFormAlert = forwardRef(

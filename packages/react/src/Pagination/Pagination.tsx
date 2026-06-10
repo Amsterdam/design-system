@@ -43,6 +43,8 @@ export type PaginationProps = {
 } & Readonly<HTMLAttributes<HTMLElement>>
 
 /**
+ * Navigates between multiple pages of content, indicating the current position in the set.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-pagination--docs Pagination docs at Amsterdam Design System}
  */
 export const Pagination = forwardRef(

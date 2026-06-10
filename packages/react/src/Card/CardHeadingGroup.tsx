@@ -15,6 +15,11 @@ export type CardHeadingGroupProps = {
   readonly tagline: string
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
+/**
+ * Groups a Card's heading with an optional tagline, ensuring screen readers encounter the heading first.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-card--docs Card docs at Amsterdam Design System}
+ */
 export const CardHeadingGroup = forwardRef(
   ({ children, className, tagline, ...restProps }: CardHeadingGroupProps, ref: ForwardedRef<HTMLElement>) => (
     <hgroup {...restProps} className={clsx('ams-card__heading-group', className)} ref={ref}>

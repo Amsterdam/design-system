@@ -11,6 +11,8 @@ import { forwardRef } from 'react'
 export type ActionGroupProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 /**
+ * Groups one or more related actions and manages their layout.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-action-group--docs Action Group docs at Amsterdam Design System}
  */
 export const ActionGroup = forwardRef(

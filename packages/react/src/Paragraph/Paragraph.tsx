@@ -23,6 +23,8 @@ export type ParagraphProps = {
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>>
 
 /**
+ * Represents a paragraph of running text, form instructions, and other standalone text fragments.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-paragraph--docs Paragraph docs at Amsterdam Design System}
  */
 export const Paragraph = forwardRef(

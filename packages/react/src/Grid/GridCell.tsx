@@ -49,6 +49,11 @@ export type GridCellProps = {
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>> &
   (GridCellSpanAllProp | GridCellSpanAndStartProps)
 
+/**
+ * One cell within the Grid, spanning one or more columns and optionally rows.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}
+ */
 export const GridCell = forwardRef<HTMLElement, GridCellProps>(
   ({ appearance, as, children, className, rowSpan, span, start, ...restProps }, ref) => {
     const Tag = (as ?? 'div') as ElementType

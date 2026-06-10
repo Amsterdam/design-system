@@ -17,7 +17,7 @@ Provides service information at the bottom of every page.
     Make it specific and tailor it to the website or page.
   - The second column contains links to other relevant sources.
   - The third column refers to newsletters, events, social media, etc.
-- Set [the inverse colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) on all text and links in this area.
+- Set [the inverse colour](https://designsystem.amsterdam/?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) on all text and links in this area.
 - If the Page Footer contains [Headings](https://designsystem.amsterdam/?path=/docs/components-text-heading--docs), give them level 2 and a size of ‘level-3’.
   A visually hidden heading to group them is not necessary – the footer’s landmark provides enough guidance.
 

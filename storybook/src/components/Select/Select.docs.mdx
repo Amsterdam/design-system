@@ -1,28 +1,39 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as SelectStories from "./Select.stories.tsx";
-import README from "../../../../packages/css/src/components/select/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/select.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={SelectStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={SelectStories} />
 
 <Primary />
 
 <Controls />
 
-## Examples
+## Usage guidelines
 
-### Multiple
+### When to use
 
-Avoid adding functionality to allow selecting multiple options. Multi select is harder to use
-on desktop as they require the user to hold down the `Ctrl` or `Cmd` key while clicking on the options.
+Use a Select when the user must pick one option from a list that is too long to display as Radios.
+
+### When not to use
+
+Avoid adding functionality to allow selecting multiple options.
+Multi select is harder to use on desktop as they require the user to hold down the `Ctrl` or `Cmd` key while clicking on the options.
 It is recommended to use checkboxes instead.
+
+### How to use
+
+Wrap a Select in a Field to associate it with a Label, description, and Error Message.
+
+## Examples
 
 ### Grouped
 
@@ -56,6 +67,12 @@ If the Select can become invalid, add an Error Message and its `id` to the `aria
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 <Canvas of={SelectStories.InAFieldWithValidation} />
+
+## See also
+
+- [Checkbox](/docs/components-forms-checkbox--docs) – use for multi-select interactions instead of a multi-Select.
+- [Radio](/docs/components-forms-radio--docs) – for short lists where one option must be selected.
+- [Field](/docs/components-forms-field--docs) – wraps a Select with its Label, description, and Error Message.
 
 ## Design tokens
 

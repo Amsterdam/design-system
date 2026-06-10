@@ -3,7 +3,16 @@
  * Copyright Gemeente Amsterdam
  */
 
-export const districts: ReadonlyArray<string> = ['Centrum', 'Nieuw-West', 'Noord', 'Oost', 'Stadsgebied Weesp', 'West', 'Zuid', 'Zuidoost']
+export const districts: ReadonlyArray<string> = [
+  'Centrum',
+  'Nieuw-West',
+  'Noord',
+  'Oost',
+  'Stadsgebied Weesp',
+  'West',
+  'Zuid',
+  'Zuidoost',
+]
 
 const pickRandomContent = <T>(list: Array<T>): T => list[Math.floor(Math.random() * list.length)]
 

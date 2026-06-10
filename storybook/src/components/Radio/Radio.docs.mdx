@@ -1,20 +1,53 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as RadioStories from "./Radio.stories.tsx";
-import README from "../../../../packages/css/src/components/radio/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/radio.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={RadioStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={RadioStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use a Radio when the user must select exactly one option from a list.
+
+### When not to use
+
+Use a [Checkbox](/docs/components-forms-checkbox--docs) when a user can select more than 1 option from a list.
+
+Do not assume that users will know how many options they can select based on the visual difference between Radios and Checkboxes alone.
+If needed, add a hint explaining this, for example, ‘Select one option’.
+
+### How to use
+
+Order Radios alphabetically by default.
+In some cases, it can be helpful to order them from most-to-least common options.
+For example, you could order options for ‘Where do you live?’ based on population size.
+However you should do this with extreme caution as it can reinforce bias.
+If in doubt, order alphabetically.
+
+Do not check a Radio initially.
+This prevents users from leaving the question unanswered.
+It also increases the chance of submitting a wrong answer.
+
+Wrap a list of Radios in a Field Set so they share a legend and any description or Error Message.
+
+### How to write
+
+Labels should be concise.
+Try to keep labels shorter than 4 words.
 
 ## Examples
 
@@ -51,6 +84,11 @@ Use `ams-radio__circle`, `ams-radio__hover-indicator` and `ams-radio__checked-in
 Websites for the City of Amsterdam must use the default icon.
 
 <Canvas of={RadioStories.WithCustomIcon} />
+
+## See also
+
+- [Checkbox](/docs/components-forms-checkbox--docs) – when a user can select more than one option.
+- [Field Set](/docs/components-forms-field-set--docs) – groups several Radios with a shared legend.
 
 ## Design tokens
 

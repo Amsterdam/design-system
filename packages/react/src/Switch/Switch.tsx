@@ -11,6 +11,8 @@ import { forwardRef, useId } from 'react'
 export type SwitchProps = PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
 
 /**
+ * Toggles a binary setting immediately, without requiring form submission.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-switch--docs Switch docs at Amsterdam Design System}
  */
 export const Switch = forwardRef(

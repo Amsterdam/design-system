@@ -13,6 +13,11 @@ export type FigureCaptionProps = {
   readonly color?: 'inverse'
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
+/**
+ * A caption that describes or credits the media content of a Figure.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-figure--docs Figure docs at Amsterdam Design System}
+ */
 export const FigureCaption = forwardRef(
   ({ children, className, color, ...restProps }: FigureCaptionProps, ref: ForwardedRef<HTMLElement>) => (
     <figcaption
