@@ -72,11 +72,14 @@ export const DatePickerBody = ({
       role="grid"
     >
       <div className="ams-date-picker__row" role="row">
-        {Array.from({ length: 7 }).map((_, index) => (
-          <span className="ams-date-picker__weekday" key={`weekday-${index}`} role="columnheader">
-            {weekdayFormatter.format(new Date(2026, 5, 1 + index))}
-          </span>
-        ))}
+        {Array.from({ length: 7 }).map((_, index) => {
+          const date = new Date(2026, 5, 1 + index) // 2026-06-01 is a Monday
+          return (
+            <span className="ams-date-picker__weekday" key={`weekday-${index}`} role="columnheader">
+              {weekdayFormatter.format(date)}
+            </span>
+          )
+        })}
       </div>
       {weeks.map((week, weekIndex) => (
         <div className="ams-date-picker__row" key={`week-${weekIndex}`} role="row">

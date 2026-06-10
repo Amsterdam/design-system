@@ -265,6 +265,14 @@ describe('DatePicker', () => {
     expect(day).toHaveFocus()
   })
 
+  it('ignores keys that are not navigation or selection keys', () => {
+    render(<DatePicker defaultMonth={march2026} onChange={noop} value={null} />)
+
+    fireEvent.keyDown(screen.getByRole('grid'), { key: 'a' })
+
+    expect(screen.getByText('maart 2026')).toBeInTheDocument()
+  })
+
   it('does not steal focus when it mounts', () => {
     render(<DatePicker defaultMonth={march2026} onChange={noop} value={null} />)
 

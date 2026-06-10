@@ -68,7 +68,7 @@ type DatePickerBaseProps = {
 type DatePickerSingleProps = {
   /** Selects a single date. This is the default mode. */
   readonly mode?: 'single'
-  /** Called when the user selects or clears the date. */
+  /** Called when the user selects a date. */
   readonly onChange: (value: Date | null) => void
   /** The currently selected date, or `null`. */
   readonly value: Date | null
@@ -222,12 +222,10 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
     }
 
     const nextFocusDate = getNextFocusDate(event.key, event.shiftKey, focusedDate)
-    if (nextFocusDate === undefined || isOutOfBounds(nextFocusDate, minDate, maxDate)) {
-      return
-    }
+    if (nextFocusDate === undefined) return
 
     event.preventDefault()
-    moveFocusTo(nextFocusDate)
+    if (!isOutOfBounds(nextFocusDate, minDate, maxDate)) moveFocusTo(nextFocusDate)
   }
 
   const year = month.getFullYear()
