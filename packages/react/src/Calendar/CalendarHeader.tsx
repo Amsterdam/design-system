@@ -25,6 +25,11 @@ export type CalendarHeaderProps = {
   'locale' | 'nextMonthButtonLabel' | 'nextYearButtonLabel' | 'previousMonthButtonLabel' | 'previousYearButtonLabel'
 >
 
+/**
+ * The navigation controls of a Calendar, showing the current month and year.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-calendar--docs Calendar docs at Amsterdam Design System}
+ */
 export const CalendarHeader = ({
   goToNextMonth,
   goToNextYear,

@@ -18,9 +18,6 @@ const meta = {
     invalid: false,
   },
   argTypes: {
-    defaultValue: {
-      table: { disable: true },
-    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },

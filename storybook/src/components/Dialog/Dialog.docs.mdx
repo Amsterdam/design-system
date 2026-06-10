@@ -1,20 +1,39 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as DialogStories from "./Dialog.stories.tsx";
-import README from "../../../../packages/css/src/components/dialog/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/dialog.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={DialogStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={DialogStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use a Dialog for short and non-frequent tasks.
+
+### When not to use
+
+Use Dialogs sparingly because they interrupt the user’s workflow.
+Consider using the main flow for regular tasks.
+
+### How to use
+
+To open the Dialog, use `Dialog.open(dialogId)` from the React package.
+To close it, either call the `Dialog.close` function or add a `<form>` as in the ‘confirmation’ example.
+
+Wrap multiple buttons in an [Action Group](/docs/components-layout-action-group--docs).
 
 ## Examples
 
@@ -28,6 +47,22 @@ Set a `value` on each button to identify which one was clicked.
 Consult [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog) for more information.
 
 <Canvas of={DialogStories.Confirmation} />
+
+## Features
+
+The Dialog is a [query container](/docs/utilities-css-query-container--docs) for inline size, so elements inside it can adapt their appearance to the width of the Dialog.
+
+### Keyboard navigation
+
+| Key         | Behaviour                                                        |
+| :---------- | :--------------------------------------------------------------- |
+| Tab         | Moves focus to the next focusable element inside the Dialog.     |
+| Shift + Tab | Moves focus to the previous focusable element inside the Dialog. |
+| Escape      | Closes the Dialog.                                               |
+
+## See also
+
+- [Action Group](/docs/components-layout-action-group--docs) – lays out multiple Buttons.
 
 ## Design tokens
 

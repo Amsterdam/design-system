@@ -1,24 +1,55 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as CalendarStories from "./Calendar.stories.tsx";
-import README from "../../../../packages/css/src/components/calendar/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/calendar.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={CalendarStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={CalendarStories} />
 
 <Primary />
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Use a Calendar to display a month view for content organised by date, such as an event calendar.
+
+### When not to use
+
+Use a [Date Input](/docs/components-forms-date-input--docs) instead when the user needs to select a date in the context of a form.
+
+### How to use
+
+Display the month for the selected date, which may not be the current month.
+
+Give it an accessible name with `accessibleName`.
+The Calendar renders this name as a visually hidden heading and generates a unique `id` for it; pass `accessibleNameId` to set that `id` yourself.
+
 ## Examples
 
-### Building link urls
+### Dates without links
+
+Each date can be a link, for example to a page that lists that day's events.
+`linkTemplate` builds the target for a date; return `undefined` to render the date as plain text, or omit `linkTemplate` entirely to render a plain, non-interactive month.
+
+<Canvas of={CalendarStories.DatesWithoutLinks} />
+
+## Features
+
+### Routing library integration
+
+Pass `linkComponent` to let a router supply its own link element, such as the one from Next.js.
+Use it together with `linkTemplate`.
+For more details, see the [routing libraries developer guide](/docs/docs-developer-guide-routing-libraries--docs).
 
 This example for a `linkTemplate` function produces links like `?date=2026-12-04` for December 4, 2026:
 
@@ -30,23 +61,14 @@ const formatDate = (date: Date) =>
 const linkTemplate = (date: Date): string => `?date=${formatDate(date)}`
 ```
 
-### Dates without links
-
-Each date can be a link, for example to a page that lists that day’s events.
-`linkTemplate` builds the target for a date; return `undefined` to render that date as plain text, or omit it to render a plain, non-interactive month.
-`linkComponent` lets a router supply its own link component, such as the one from Next.js.
-
-In this example, weekends have no link and render as plain text.
-
-<Canvas of={CalendarStories.DatesWithoutLinks} />
-
 ## Accessibility
 
 The Calendar renders as a `nav` landmark.
-Give it an accessible name with `accessibleName`.
-The Calendar renders this name as a visually hidden heading and generates a unique `id` for it; pass `accessibleNameId` to set that `id` yourself.
-
 Screen readers announce each link with its full date, including the weekday, so a day number is never read out of context.
+
+## See also
+
+- [Date Input](/docs/components-forms-date-input--docs) – lets the user select a date in the context of a form.
 
 ## Design tokens
 

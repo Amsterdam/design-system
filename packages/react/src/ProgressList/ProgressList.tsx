@@ -86,6 +86,8 @@ const ProgressListRoot = forwardRef(
 )
 
 /**
+ * Displays the progress of a sequence of steps, with optional additional details per step.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-progress-list--docs Progress List docs at Amsterdam Design System}
  */
 export const ProgressList = Object.assign(ProgressListRoot, {

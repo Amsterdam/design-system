@@ -26,6 +26,8 @@ const SearchFieldRoot = forwardRef(
 SearchFieldRoot.displayName = 'SearchField'
 
 /**
+ * Combines a text input and a submit button for searching page or site content.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-search-field--docs Search Field docs at Amsterdam Design System}
  */
 export const SearchField = Object.assign(SearchFieldRoot, { Button: SearchFieldButton, Input: SearchFieldInput })

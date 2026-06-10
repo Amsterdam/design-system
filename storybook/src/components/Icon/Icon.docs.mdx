@@ -1,21 +1,32 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as IconStories from "./Icon.stories.tsx";
-import README from "../../../../packages/css/src/components/icon/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/icon.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={IconStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
 
-## How to use
+<Description of={IconStories} />
 
-Use the React Icon component together with a React SVG component from `@amsterdam/design-system-react-icons`.
-Import this SVG component and use it like this:
+<Primary />
+
+<Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use an Icon to support textual interactive elements like buttons and links.
+Always try to provide accompanying text for an icon.
+
+Always wrap an SVG icon in an Icon component for proper styling and sizing.
+
+Use the React Icon component together with a React SVG component from `@amsterdam/design-system-react-icons`:
 
 ```tsx
 import { MailIcon } from "@amsterdam/design-system-react-icons";
@@ -23,9 +34,11 @@ import { MailIcon } from "@amsterdam/design-system-react-icons";
 <Icon svg={MailIcon} />;
 ```
 
-<Primary />
+### When not to use
 
-<Controls />
+Only use icons without accompanying text if they adhere to international standards, such as menu (hamburger icon), search (magnifying glass), next, previous, play, pause, etc.
+
+Our icons can only be used on websites where the City of Amsterdam is the main communicator.
 
 ## Examples
 
@@ -44,7 +57,7 @@ Use the `size` prop to pair an icon with small or large body text or with a head
 An icon is placed inside a container that has the same line height as text.
 This helps align the icon with the text.
 It also makes the container rectangular.
-Sometimes, it's better for the icon to be square, such as with the [Icon Button](/docs/components-buttons-icon-button--docs).
+Sometimes, it is better for the icon to be square, such as with the [Icon Button](/docs/components-buttons-icon-button--docs).
 
 <Canvas of={IconStories.Square} />
 
@@ -54,6 +67,28 @@ Use the inverse colour if the Icon sits on a dark background.
 This ensures the colour of the icon provides enough contrast.
 
 <Canvas of={IconStories.InverseColour} />
+
+## Features
+
+Icons have extra whitespace at their top and bottom to match the line height of text components.
+Specify the appropriate size to pair an icon with small or large body text or with a heading.
+[Read more in the typography documentation](/docs/brand-design-tokens-typography--docs).
+
+Icons are aligned to the left of the text by default and vertically centred to the middle of the first line of text.
+
+The icon defaults to the colour of the container it is in.
+
+## Design
+
+Icons are black or white.
+When used as part of an interactive element, they are blue.
+When disabled, they are grey.
+They must adhere to the same contrast ratio for accessibility as typography against a background colour.
+
+## See also
+
+- [Icon Button](/docs/components-buttons-icon-button--docs) – a button that consists of a single icon.
+- [Icons overview](/docs/brand-assets-icons--docs) – the full set of available icons.
 
 ## Design tokens
 

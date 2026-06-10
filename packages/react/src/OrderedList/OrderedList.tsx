@@ -43,6 +43,8 @@ const OrderedListRoot = forwardRef(
 OrderedListRoot.displayName = 'OrderedList'
 
 /**
+ * Presents a sequence of items where the order is meaningful.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-ordered-list--docs Ordered List docs at Amsterdam Design System}
  */
 export const OrderedList = Object.assign(OrderedListRoot, { Item: OrderedListItem })

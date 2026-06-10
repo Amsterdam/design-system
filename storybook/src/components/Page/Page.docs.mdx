@@ -1,20 +1,28 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as PageStories from "./Page.stories.tsx";
-import README from "../../../../packages/css/src/components/page/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/page.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={PageStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={PageStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+The Page component wraps the [Page Header](/docs/components-containers-page-header--docs), [Page Footer](/docs/components-containers-page-footer--docs), and the main content in between.
+As a root layout component, it must be used for all websites for the City of Amsterdam.
 
 ## Examples
 
@@ -27,6 +35,21 @@ This is an alternative to the approach using Link Lists, which is appropriate fo
 
 We can’t display the example here, as it requires Compact Mode to be enabled, which affects the example for the public Home Page template.
 Open the [full example page](/story/components-containers-page--with-menu) or see the [Home Page](/story/pages-internal-home-page--default) template for internal websites.
+
+## Features
+
+The Page is a [query container](/docs/utilities-css-query-container--docs) for inline size, so elements inside it can adapt their appearance to the width of the page.
+For elements inside a [Grid Cell](/docs/components-layout-grid--docs) or [Dialog](/docs/components-containers-dialog--docs), that nearer container takes precedence; the Page covers everything else.
+
+## Design
+
+The Page is centered horizontally and sets a maximum width of 90 rems (usually 1440 pixels).
+With a Menu, that becomes 120 rems (1920 pixels).
+
+## See also
+
+- [Page Header](/docs/components-containers-page-header--docs) – sits at the top of the Page.
+- [Page Footer](/docs/components-containers-page-footer--docs) – sits at the bottom of the Page.
 
 ## Design tokens
 

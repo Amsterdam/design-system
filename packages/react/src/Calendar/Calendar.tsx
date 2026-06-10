@@ -51,6 +51,8 @@ export type CalendarProps = {
 } & Readonly<HTMLAttributes<HTMLElement>>
 
 /**
+ * A visual way to navigate between dates using a calendar view.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-calendar--docs Calendar docs at Amsterdam Design System}
  */
 export const Calendar = forwardRef(

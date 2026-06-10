@@ -1,18 +1,47 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as PageFooterStories from "./PageFooter.stories.tsx";
-import README from "../../../../packages/css/src/components/page-footer/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/page-footer.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={PageFooterStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={PageFooterStories} />
 
 <Primary />
+
+## Usage guidelines
+
+### When to use
+
+The Page Footer must be used on all websites for the City of Amsterdam.
+It must be the same on every page of the website.
+
+### How to use
+
+The content section is required for public websites, but not for internal ones.
+It offers space for various practical links:
+
+- The first column focuses on contact information.
+  Make it specific and tailor it to the website or page.
+- The second column contains links to other relevant sources.
+- The third column refers to newsletters, events, social media, etc.
+
+The menu is for links to privacy policies, cookie statements, and other information about the website itself.
+
+Set [the inverse colour](/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) on all text and links in this area.
+
+If the Page Footer contains [Headings](/docs/components-text-heading--docs), give them level 2 and a size of 'level-3'.
+A visually hidden heading to group them is not necessary – the footer's landmark provides enough guidance.
+
+The menu includes a visually hidden heading for screen reader users.
+The default heading text is 'Over deze website'.
+Customize it when the menu serves a different purpose, or the interface language is not Dutch.
 
 ## Examples
 
@@ -29,6 +58,11 @@ For an English website, update the visually hidden heading to ‘Support links�
 If your website is in Dutch, but the default heading of ‘Over deze website’ doesn’t reflect the content of the menu, choose a different heading as well.
 
 <Canvas of={PageFooterStories.CustomMenuHeading} />
+
+## See also
+
+- [Page](/docs/components-containers-page--docs) – contains the Page Footer.
+- [Page Header](/docs/components-containers-page-header--docs) – sits at the top of the Page.
 
 ## Design tokens
 

@@ -45,6 +45,8 @@ const UnorderedListRoot = forwardRef(
 UnorderedListRoot.displayName = 'UnorderedList'
 
 /**
+ * Groups related items where the order does not matter.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-unordered-list--docs Unordered List docs at Amsterdam Design System}
  */
 export const UnorderedList = Object.assign(UnorderedListRoot, { Item: UnorderedListItem })

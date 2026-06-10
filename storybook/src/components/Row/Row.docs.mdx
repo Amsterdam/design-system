@@ -1,27 +1,27 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as RowStories from "./Row.stories.tsx";
-import README from "../../../../packages/css/src/components/row/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/row.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={RowStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
 
-## Guidelines
-
-- Wrap a Row around a set of elements that need the same amount of white space between them.
-- Five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
-  The medium gap is the default.
-- Align the elements horizontally or vertically through the alignment props.
+<Description of={RowStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Wrap a Row around a set of elements that need the same amount of white space between them.
 
 ## Examples
 
@@ -46,7 +46,7 @@ This example ensures that the spaces between and around all items are equally wi
 
 #### End-align a single child
 
-To align a single component to the right (in left-to-right languages), wrap it in a `<Row>` and set the `align` prop to `end`.
+To align a single component to the right (in left-to-right languages), wrap it in a Row and set the `align` prop to `end`.
 
 <Canvas of={RowStories.EndAlignASingleChild} />
 
@@ -86,8 +86,16 @@ Items that may not fit together on a single line should be allowed to wrap onto 
 
 <Canvas of={RowStories.Wrapping} />
 
+## Features
+
+Five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
+The medium gap is the default.
+
+Align the elements horizontally or vertically through the alignment props.
+
 ## See also
 
+- [Column](/docs/components-layout-column--docs) – stacks its children vertically instead.
 - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for white space and when.
 
 ## Design tokens

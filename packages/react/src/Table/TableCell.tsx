@@ -16,6 +16,11 @@ export type TableCellProps = {
   readonly align?: TableCellAlign
 } & Readonly<PropsWithChildren<Omit<TdHTMLAttributes<HTMLTableCellElement>, 'align'>>>
 
+/**
+ * A data cell within a Table row.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-table--docs Table docs at Amsterdam Design System}
+ */
 export const TableCell = forwardRef(
   ({ align, children, className, ...restProps }: TableCellProps, ref: ForwardedRef<HTMLTableCellElement>) => (
     <td
