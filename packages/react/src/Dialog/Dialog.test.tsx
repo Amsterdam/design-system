@@ -7,11 +7,19 @@ import type { MouseEvent } from 'react'
 
 import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { Dialog } from './Dialog'
 
 describe('Dialog', () => {
+  beforeEach(() => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
   it('renders', () => {
     render(<Dialog heading="Test heading" open />)
 
@@ -167,5 +175,140 @@ describe('Dialog', () => {
     expect(component).toHaveAttribute('aria-hidden', 'false')
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
+  })
+
+  describe('composable API', () => {
+    it('renders children directly without a built-in header or body wrapper', () => {
+      const { container } = render(
+        <Dialog aria-labelledby="label" open>
+          <Dialog.Header>
+            <h1 id="label">Composable</h1>
+          </Dialog.Header>
+          <Dialog.Body>Body content</Dialog.Body>
+        </Dialog>,
+      )
+
+      const dialog = screen.getByRole('dialog')
+      const headers = container.querySelectorAll('header.ams-dialog__header')
+      const bodies = container.querySelectorAll('div.ams-dialog__body')
+
+      expect(dialog).toHaveAttribute('aria-labelledby', 'label')
+      expect(headers).toHaveLength(1)
+      expect(bodies).toHaveLength(1)
+    })
+
+    it('renders Dialog.Header, Dialog.Body, and Dialog.Footer with the right BEM classes', () => {
+      render(
+        <Dialog aria-labelledby="label" open>
+          <Dialog.Header>
+            <h1 id="label">Heading</h1>
+          </Dialog.Header>
+          <Dialog.Body>Body</Dialog.Body>
+          <Dialog.Footer>
+            <button>OK</button>
+          </Dialog.Footer>
+        </Dialog>,
+      )
+
+      expect(screen.getByRole('banner')).toHaveClass('ams-dialog__header')
+      expect(screen.getByRole('contentinfo')).toHaveClass('ams-dialog__footer')
+      expect(screen.getByText('Body').closest('div')).toHaveClass('ams-dialog__body')
+    })
+
+    it('renders Dialog.CloseButton with a default Sluiten label', () => {
+      render(
+        <Dialog aria-labelledby="label" open>
+          <Dialog.Header>
+            <h1 id="label">Heading</h1>
+            <Dialog.CloseButton />
+          </Dialog.Header>
+        </Dialog>,
+      )
+
+      expect(screen.getByRole('button', { name: 'Sluiten' })).toBeInTheDocument()
+    })
+
+    it('does not warn when only the composable API is used', () => {
+      const warnSpy = vi.spyOn(console, 'warn')
+
+      render(
+        <Dialog aria-labelledby="label" open>
+          <Dialog.Header>
+            <h1 id="label">Heading</h1>
+          </Dialog.Header>
+        </Dialog>,
+      )
+
+      expect(warnSpy).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('deprecation warnings', () => {
+    it('warns when the heading prop is used', () => {
+      const warnSpy = vi.spyOn(console, 'warn')
+
+      render(<Dialog heading="Test heading" open />)
+
+      expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('`heading` prop is deprecated'))
+    })
+
+    it('warns when the footer prop is used', () => {
+      const warnSpy = vi.spyOn(console, 'warn')
+
+      render(<Dialog footer={<button>OK</button>} heading="Test heading" open />)
+
+      expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('`footer` prop is deprecated'))
+    })
+
+    it('warns when the closeButtonLabel prop is used', () => {
+      const warnSpy = vi.spyOn(console, 'warn')
+
+      render(<Dialog closeButtonLabel="Close" heading="Test heading" open />)
+
+      expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('`closeButtonLabel` prop is deprecated'))
+    })
+
+    it('warns when the composable API is used without an accessible name', () => {
+      const warnSpy = vi.spyOn(console, 'warn')
+
+      render(
+        <Dialog open>
+          <Dialog.Header>
+            <h1>Heading</h1>
+          </Dialog.Header>
+        </Dialog>,
+      )
+
+      expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('provide an accessible name'))
+    })
+
+    it('does not warn about the accessible name when aria-label is provided', () => {
+      const warnSpy = vi.spyOn(console, 'warn')
+
+      render(
+        <Dialog aria-label="Heading" open>
+          <Dialog.Header>
+            <h1>Heading</h1>
+          </Dialog.Header>
+        </Dialog>,
+      )
+
+      expect(warnSpy).not.toHaveBeenCalledWith(expect.stringContaining('provide an accessible name'))
+    })
+  })
+
+  describe('mixed legacy and composable usage', () => {
+    it('renders only the body wrapper from heading; footer prop still works alongside', () => {
+      const { container } = render(
+        <Dialog footer={<button>Legacy footer</button>} heading="Legacy heading" open>
+          <p>Content</p>
+        </Dialog>,
+      )
+
+      // Legacy heading triggers built-in header AND body wrapper
+      expect(container.querySelectorAll('div.ams-dialog__body')).toHaveLength(1)
+      // Legacy footer prop renders its own footer
+      expect(screen.getByRole('contentinfo')).toHaveTextContent('Legacy footer')
+    })
   })
 })
