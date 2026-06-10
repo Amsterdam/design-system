@@ -8,13 +8,17 @@ A content perspective – how to write for a component – is welcome where it a
 
 ## Where to place the documentation files
 
-Each component has its documentation in two places.
+Each React component has its documentation in two places.
 
 - The React component at `packages/react/src/{PascalCaseName}/{PascalCaseName}.tsx` carries the component’s rationale in its TSDoc comment.
   Storybook reads this via react-docgen and renders it on the documentation page.
   It also surfaces in IDE tooltips when the component is used.
 - The Storybook documentation page is at `storybook/src/components/{PascalCaseName}/{PascalCaseName}.docs.mdx`.
   This file renders the name and description from the component TSDoc and adds the structured sections below.
+
+CSS-only utilities (documented under `storybook/src/utils/`) have no React component, so there is no TSDoc to read from.
+Their rationale stays in a `README.md` in the CSS package, imported and rendered with `<Markdown>{README}</Markdown>` in place of `<Title />` and `<Description />`.
+If a utility ever gains a React component, migrate it to the TSDoc approach at that point.
 
 ## Formatting
 
@@ -25,6 +29,8 @@ Use sentence case for headings.
 Write component names in title case to help readers recognise them, e.g. ‘Card’ or ‘Form Field’.
 
 ## The component TSDoc
+
+This section applies to React components only; CSS-only utilities keep their CSS README (see above).
 
 The TSDoc comment on the exported component function contains the component’s rationale: one short paragraph that explains what the component is and why it exists.
 Do not put guidelines, WCAG references, or examples here.
