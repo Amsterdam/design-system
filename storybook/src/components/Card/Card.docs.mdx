@@ -27,6 +27,16 @@ Add a short text and optionally an image and metadata.
 This component is not the best option if the target content does not represent an article-like page.
 In that case, use a Heading, a Paragraph and a [Standalone Link](/docs/components-navigation-standalone-link--docs) instead.
 
+### How to use
+
+Card Heading requires a `level`, because there is no sensible default.
+The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
+
+### How to write
+
+Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
+Use a small Paragraph for a publication date.
+
 ## Examples
 
 ### With tagline
@@ -68,19 +78,9 @@ They apply the correct spacing.
 
 ## Accessibility
 
-Card Heading requires a `level`, because there is no sensible default.
-Visually, it has the size of a level 3 Heading by default.
-
-Screen reader users may navigate a page using headings and links.
-A Card works well in both approaches as its title carries a link.
-A screen reader reads the title first, followed by the rest of the content.
-
-The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
-
-## Content
-
-Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
-Use a small Paragraph for a publication date.
+Visually, Card Heading has the size of a level 3 Heading by default.
+Screen reader users can navigate by heading or by link; a Card supports both because its title is a heading that contains a link.
+A screen reader reads the title first, then the rest of the content.
 
 ## Related components
 

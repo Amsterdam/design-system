@@ -33,7 +33,18 @@ Use a [Standalone Link](/docs/components-navigation-standalone-link--docs) or a 
 Use only one primary Button per screen.
 The primary variant draws attention to the most important action; multiple primaries dilute that signal.
 
+Set `type="submit"` to make the Button submit the surrounding form.
+
 Wrap two or more Buttons or links that sit next to each other in an [Action Group](/docs/components-layout-action-group--docs).
+
+Always provide a short, descriptive label that names the action.
+For icon-only Buttons, supply the label through the `children` prop – it is read by screen readers even though it is not shown.
+
+### How to write
+
+Write a short label that names the action.
+Use the verb's infinitive form in Dutch, e.g. 'Verwijderen' or 'Opslaan', not 'Verwijder' or 'Sla op'.
+Avoid generic labels like 'Klik hier' or 'OK'.
 
 ## Examples
 
@@ -88,27 +99,12 @@ The label may wrap over multiple lines when no shorter text is available, when t
 The Button handles its own focus, hover, active, and disabled states.
 On narrow screens or with longer labels, it wraps text without losing alignment.
 
-Set `type="submit"` to make the Button submit the surrounding form.
-
 ## Design
 
 The three variants form a hierarchy of importance: primary, secondary, tertiary.
 This lets a screen present one clear focal action without ranking every other Button against it.
 
 The icon size stays constant regardless of the label length, so a row of Buttons aligns visually even when their text differs.
-
-## Accessibility
-
-Always provide a short, descriptive label that names the action.
-For icon-only Buttons, supply the label through the `children` prop – it is read by screen readers even though it is not shown.
-
-Use `type="submit"` only when the Button submits a form; otherwise keep the default `type="button"`.
-
-## Content
-
-Write a short label that names the action.
-Use the verb’s infinitive form in Dutch, e.g. ‘Verwijderen’ or ‘Opslaan’, not ‘Verwijder’ or ‘Sla op’.
-Avoid generic labels like ‘Klik hier’ or ‘OK’.
 
 ## Related components
 

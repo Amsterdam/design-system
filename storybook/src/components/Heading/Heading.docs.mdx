@@ -32,6 +32,10 @@ Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-pr
 
 Use the `size` prop to make a Heading visually larger or smaller, but sparingly and consistently.
 
+The `level` prop has no default; determine the correct level for each instance.
+Every page should have one Heading with level 1.
+Do not skip levels: a level 2 Heading must be followed by level 3, not level 4.
+
 - Content pages, e.g. for articles, products, events etc. must not use the size prop on their Headings.
 - Most Headings on overview pages, e.g. Card, Table of Content, and 'Link Blocks', use a size of 'level-3'.
 - The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
@@ -88,14 +92,8 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
 
 ## Accessibility
 
-Users of screen readers often depend on headings to navigate a page.
-If the hierarchy is wrong, it can confuse them.
-That’s why it’s crucial to arrange headings properly.
-
-The `level` prop doesn’t have a default value; determine the correct level for each instance.
-
-- Every page should contain one heading with level 1.
-- Do not skip levels. For example, a level 2 Heading must be followed by one with level 3.
+Screen reader users navigate by heading to understand page structure.
+An incorrect hierarchy disrupts their mental model of the page.
 
 ## Related components
 

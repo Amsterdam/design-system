@@ -38,6 +38,12 @@ The Grid manages its own gaps; the utility classes interfere with that.
 
 Follow the [optimal sizes of Grid Cells](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells) for typical page sections.
 
+Use the `as` prop to give a Grid or a Grid Cell a meaningful HTML element when one applies.
+For example, set a top-level Cell that holds the main content of the page to `as="main"`, or a sidebar Cell to `as="aside"`.
+
+Ensure the `span` and `start` values for a cell never exceed the number of columns available at that breakpoint.
+The browser would add columns to fit, which breaks the layout.
+
 ## Examples
 
 The grey strokes in the examples below indicate the columns of the grid.
@@ -142,14 +148,6 @@ A single, shared rhythm of columns across the page keeps content predictable for
 The 4, 8, and 12 column counts halve cleanly into 2, 3, 4, and 6 subdivisions, so the same content can be arranged consistently across breakpoints.
 
 The full rationale lives in the [Grid developer guide](/docs/docs-developer-guide-grid--docs).
-
-## Accessibility
-
-Use the `as` prop to give a Grid or a Grid Cell a meaningful HTML element when one applies.
-For example, set a top-level Cell that holds the main content of the page to `as="main"`, or a sidebar Cell to `as="aside"`.
-
-Ensure the `span` and `start` values for a cell never exceed the number of columns available at that breakpoint.
-The browser would add columns to fit, which breaks the layout.
 
 ## Related components
 
