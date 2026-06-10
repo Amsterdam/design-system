@@ -1,32 +1,46 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as FileInputStories from "./FileInput.stories.tsx";
-import README from "../../../../packages/css/src/components/file-input/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/file-input.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={FileInputStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={FileInputStories} />
 
 <Primary />
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Use a File Input when users need to attach one or more files from their device.
+
+### How to use
+
+Wrap a File Input in a Field to associate it with a Label and description.
+
 ## Examples
 
 ### Multiple files
 
-Allow multiple files to be selected. The label will update to show the number of files selected.
+Allow multiple files to be selected.
+The label will update to show the number of files selected.
 
 <Canvas of={FileInputStories.MultipleFiles} />
 
 ### Restrict file types
 
-Limit the types of files that can be selected. Some examples are `image/*`, `video/*`, or `audio/*`. To limit to a specific file type, use the MIME type, such as `application/pdf`.
+Limit the types of files that can be selected.
+Some examples are `image/*`, `video/*`, or `audio/*`.
+To limit to a specific file type, use the MIME type, such as `application/pdf`.
 
 - [MDN File Input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#limiting_accepted_file_types): More examples
 
@@ -45,6 +59,15 @@ If you don’t need the description, remove its Paragraph and the `aria-describe
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 <Canvas of={FileInputStories.InAField} />
+
+## Design
+
+The filename label and button are displayed in the language of the browser and can vary between browsers and operating systems.
+
+## See also
+
+- [File List](/docs/components-forms-file-list--docs) – shows the files that the user has selected.
+- [Field](/docs/components-forms-field--docs) – wraps a File Input with its Label and description.
 
 ## Design tokens
 

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -20,15 +20,15 @@ export type GridCellTag = (typeof gridCellTags)[number]
 
 type GridCellSpanAllProp = {
   /** Lets the cell span the full width of all grid variants. */
-  span: 'all'
-  start?: never
+  readonly span: 'all'
+  readonly start?: never
 }
 
 type GridCellSpanAndStartProps = {
   /** The amount of grid columns the cell spans. */
-  span?: GridColumnNumber | GridColumnNumbers
+  readonly span?: GridColumnNumber | GridColumnNumbers
   /** The index of the grid column the cell starts at. */
-  start?: GridColumnNumber | GridColumnNumbers
+  readonly start?: GridColumnNumber | GridColumnNumbers
 }
 
 export type GridCellProps = {
@@ -41,32 +41,38 @@ export type GridCellProps = {
    *
    * In Spacious Mode, cells are always transparent and without padding; this prop has no effect.
    */
-  appearance?: GridCellAppearance
+  readonly appearance?: GridCellAppearance
   /** The HTML tag to use. */
-  as?: GridCellTag
+  readonly as?: GridCellTag
   /** The amount of grid rows the cell spans. */
-  rowSpan?: GridRowNumber | GridRowNumbers
-} & PropsWithChildren<HTMLAttributes<HTMLElement>> &
+  readonly rowSpan?: GridRowNumber | GridRowNumbers
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>> &
   (GridCellSpanAllProp | GridCellSpanAndStartProps)
 
-export const GridCell = forwardRef(
-  (
-    { appearance, as: Tag = 'div', children, className, rowSpan, span, start, ...restProps }: GridCellProps,
-    ref: ForwardedRef<any>,
-  ) => (
-    <Tag
-      {...restProps}
-      className={clsx(
-        'ams-grid__cell',
-        appearance && `ams-grid__cell--${appearance}`,
-        gridCellClasses(span, start, rowSpan),
-        className,
-      )}
-      ref={ref}
-    >
-      {children}
-    </Tag>
-  ),
+/**
+ * One cell within the Grid, spanning one or more columns and optionally rows.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}
+ */
+export const GridCell = forwardRef<HTMLElement, GridCellProps>(
+  ({ appearance, as, children, className, rowSpan, span, start, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx(
+          'ams-grid__cell',
+          appearance && `ams-grid__cell--${appearance}`,
+          gridCellClasses(span, start, rowSpan),
+          className,
+        )}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 GridCell.displayName = 'Grid.Cell'

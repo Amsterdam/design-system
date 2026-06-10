@@ -15,7 +15,8 @@
   ],
   "private": false,
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,6 @@
   "devDependencies": {
     "change-case": "5.4.4",
     "chokidar-cli": "3.0.0",
-    "style-dictionary": "5.4.0"
+    "style-dictionary": "5.4.3"
   }
 }

@@ -12,8 +12,8 @@ import { formatTokenValue } from '../../_common/formatTokenValue'
 
 type ColorSampleProps = {
   /** A colour token value, either a CSS value or a token reference. */
-  value: string
-} & HTMLAttributes<HTMLDivElement>
+  readonly value: string
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 export const ColorSample = ({ className, style, value, ...restProps }: ColorSampleProps) => {
   if (!value || value === 'currentColor') return null

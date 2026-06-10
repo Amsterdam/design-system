@@ -90,11 +90,6 @@ You shouldn’t need a reset stylesheet.
 Do not change the base font-size – e.g. through `html { font-size: 62.5% }`.
 Our typography system expects `1rem` to be the browser default of 16 pixels.
 
-#### Use extra bold text
-
-We only use the regular and extra bold weights of our font, Amsterdam Sans.
-Apply `font-weight: var(--ams-typography-body-text-bold-font-weight)` to elements that display bold text like `b`, `strong`, and `dt`.
-
 ## Updating
 
 We follow semantic versioning and publish a [change log](https://github.com/Amsterdam/design-system/blob/main/packages/css/CHANGELOG.md) to guide you through updates.

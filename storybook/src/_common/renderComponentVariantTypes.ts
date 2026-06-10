@@ -6,57 +6,26 @@
 import type { IconProps } from '@amsterdam/design-system-react'
 import type { Meta } from '@storybook/react-vite'
 
-export type renderComponentVariantsParams = {
-  args: Meta['args'] // Storybook args applied to every instance
-  layout?: 'flex' | 'grid' // The layout were the variants will be rendered
-  variants?: string[] // Extra "states" (e.g. disabled, hovered)
-}
-
-export type PropType = {
-  defaultValue?: { value: string }
-  description?: string
-  name: string
-  required?: boolean
-  type?: {
-    name: string
-    value: {
-      value: string
-    }[]
-  }
-}
-
-export type DocgenInfo = {
-  props?: Record<string, PropType>
-}
+export type VariantValue = string | number | boolean | IconProps['svg']
 
 export type PropWithValues = {
+  hasIcon: { icon: IconProps['svg'] } | null
   name: string
-  propType: string | undefined
-  values: string[] | number[] | boolean[] | IconProps['svg'][]
+  values: VariantValue[]
 }
 
-export type CompletePropsWithValues = (
-  | {
-      hasIcon: null
-      name: string
-      values: PropWithValues['values']
-    }
-  | {
-      hasIcon: {
-        icon: IconProps['svg']
-      }
-      name: string
-      values: PropWithValues['values']
-    }
-)[]
+export type renderComponentVariantsParams = {
+  args: Meta['args']
+  layout?: 'flex' | 'grid'
+  variants?: string[]
+}
 
 export type BuildComponentPropsParams = {
   args: Meta['args']
   hasIcon?: { icon: IconProps['svg'] } | null
   propName: string
   size?: string | undefined
-  sizePropName: string | string[]
+  sizePropName: string
   state: string
-  values?: PropWithValues['values']
-  variant: string | number | boolean | IconProps['svg']
+  variant: VariantValue
 }

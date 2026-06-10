@@ -1,20 +1,27 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as AvatarStories from "./Avatar.stories.tsx";
-import README from "../../../../packages/css/src/components/avatar/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/avatar.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={AvatarStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={AvatarStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Show an Avatar for the user of the website, or to associate a person with a content item.
 
 ## Examples
 
@@ -31,6 +38,14 @@ The center of the image will be visible; provide a square image if possible.
 A user icon displays if no label and image are provided.
 
 <Canvas of={AvatarStories.FallbackIcon} />
+
+## Design
+
+The Avatar contains 1 or 2 initial letters from the person’s full name, a picture, or a generic icon.
+
+To personalize the Avatar, the user can be allowed to choose one of the [highlight colours](/docs/brand-design-tokens-colour--docs).
+The default is purple.
+The design system does not define a meaning to any of these background colours.
 
 ## Design tokens
 

@@ -12,6 +12,11 @@ import type { GridCellProps } from '../Grid'
 
 import { Grid } from '../Grid'
 
+/**
+ * A Grid Cell within the Page Header that renders navigation links only on narrow windows.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page-header--docs Page Header docs at Amsterdam Design System}
+ */
 export const PageHeaderGridCellNarrowWindowOnly = forwardRef(
   ({ children, className, ...restProps }: GridCellProps, ref: ForwardedRef<HTMLElement>) => (
     <Grid.Cell

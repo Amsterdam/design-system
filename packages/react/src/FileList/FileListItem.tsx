@@ -15,10 +15,15 @@ import { formatFileType } from '../common/formatFileType'
 import { Icon } from '../Icon'
 
 export type FileListItemProps = {
-  file: File
-  onDelete?: () => void
-} & HTMLAttributes<HTMLLIElement>
+  readonly file: File
+  readonly onDelete?: () => void
+} & Readonly<HTMLAttributes<HTMLLIElement>>
 
+/**
+ * Represents a single uploaded file within a File List, with its details and an optional delete action.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}
+ */
 export const FileListItem = forwardRef(
   ({ className, file, onDelete, ...restProps }: FileListItemProps, ref: ForwardedRef<HTMLLIElement>) => (
     <li {...restProps} className={clsx('ams-file-list__item', className)} ref={ref}>

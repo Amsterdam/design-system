@@ -21,16 +21,16 @@ type LinkListLinkSize = (typeof linkListLinkSizes)[number]
 
 export type LinkListLinkProps = {
   /** Changes the text colour for readability on a light or dark background. */
-  color?: LinkListLinkColor
+  readonly color?: LinkListLinkColor
   /**
    * An icon to display instead of the default chevron.
    * Don’t mix custom icons with chevrons in one list.
    * @default ChevronForwardIcon
    */
-  icon?: IconProps['svg']
+  readonly icon?: IconProps['svg']
   /** The size of the text. Use the same size for all items in the list. */
-  size?: LinkListLinkSize
-} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+  readonly size?: LinkListLinkSize
+} & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
 
 /** One link with a Link List. */
 export const LinkListLink = forwardRef(

@@ -1,20 +1,42 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as SearchFieldStories from "./SearchField.stories.tsx";
-import README from "../../../../packages/css/src/components/search-field/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/search-field.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={SearchFieldStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={SearchFieldStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use a Search Field where the user needs to search through the content of the page or website.
+
+### How to use
+
+You can use `autofocus` to place focus directly on a search field when the user arrives on a page.
+However, use this feature with caution, as it can have negative consequences:
+
+- For screen reader users, this may result in skipping important content above the search field.
+- On smaller devices, the use of `autofocus` may automatically scroll the page to the search field, potentially causing users to miss previous content.
+- On touchscreen devices, this can trigger the keyboard to appear immediately, hiding important content.
+
+Use `autofocus` only if the search field is at the beginning of a page and there are no other elements on a page that a user might want to interact with first.
+
+For more information: [Accessibility Tips: Be Cautious When Using Autofocus](https://www.boia.org/blog/accessibility-tips-be-cautious-when-using-autofocus)
+
+Provide a label that describes the purpose of the search.
 
 ## Examples
 
@@ -31,6 +53,21 @@ However, it can be controlled by React.
 If you enter a value in this search field and use the search Button or the Enter key, you will receive a notification.
 
 <Canvas of={SearchFieldStories.Controlled} />
+
+## Features
+
+Users can initiate a search by using the search button or the Enter key.
+
+Both `autocomplete` and `spellcheck` are turned off by default.
+These features can be disruptive for a user searching for part of a word, and `autocomplete` may interfere with an Autosuggest component.
+
+## Accessibility
+
+The component uses `role="search"` for the search landmark role.
+
+## See also
+
+- [Text Input](/docs/components-forms-text-input--docs) – for free-text input that isn’t a search.
 
 ## Design tokens
 

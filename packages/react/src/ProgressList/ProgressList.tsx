@@ -23,23 +23,23 @@ export type ProgressListProps = {
    * Whether the steps can be expanded and collapsed.
    * @default false
    */
-  collapsible?: boolean
+  readonly collapsible?: boolean
   /**
    * An accessible phrase that screen readers announce before a completed step heading.
    * @default Klaar
    */
-  completedAccessibleText?: string
+  readonly completedAccessibleText?: string
   /**
    * An accessible phrase that screen readers announce before a current step heading.
    * @default Bezig
    */
-  currentAccessibleText?: string
+  readonly currentAccessibleText?: string
   /**
    * The hierarchical level of this Progress List’s Headings within the document.
    * There is no default value; determine the correct level for this instance.
    */
-  headingLevel: ProgressListHeadingLevel
-} & PropsWithChildren<HTMLAttributes<HTMLOListElement>>
+  readonly headingLevel: ProgressListHeadingLevel
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLOListElement>>>
 
 const ProgressListRoot = forwardRef(
   (
@@ -86,6 +86,8 @@ const ProgressListRoot = forwardRef(
 )
 
 /**
+ * Displays the progress of a sequence of steps, with optional additional details per step.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-progress-list--docs Progress List docs at Amsterdam Design System}
  */
 export const ProgressList = Object.assign(ProgressListRoot, {

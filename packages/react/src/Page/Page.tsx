@@ -18,10 +18,12 @@ export type PageProps = {
    *   - `ams-page__area--body`
    *   - `ams-page__area--footer`
    */
-  withMenu?: boolean
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+  readonly withMenu?: boolean
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 
 /**
+ * Contains the entire website.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page--docs Page docs at Amsterdam Design System}
  */
 export const Page = forwardRef(

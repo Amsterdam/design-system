@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { MouseEvent } from 'react'
 
 import { Column, ErrorMessage, FieldSet, Paragraph } from '@amsterdam/design-system-react'
 import { Radio } from '@amsterdam/design-system-react/src'
@@ -32,25 +33,20 @@ const meta = {
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
-    icon: {
-      table: { disable: true },
-    },
+    icon: { control: false }, // A React element has no usable controls panel widget.
     id: {
       description: 'The id of the input element. If not provided, a unique id will be generated.',
     },
     invalid: {
       description: 'Whether the value fails a validation rule.',
     },
-    onChange: {
-      action: 'clicked',
-      table: { disable: true },
-    },
+    onChange: { action: 'clicked' },
   },
   render: (args) => {
     const [, setArgs] = useArgs()
 
-    const handleClick = (event: any) => {
-      setArgs({ checked: event.target.checked })
+    const handleClick = (event: MouseEvent<HTMLInputElement>) => {
+      setArgs({ checked: event.currentTarget.checked })
     }
 
     return <Radio onClick={handleClick} {...args} />
@@ -83,7 +79,7 @@ export const InAFieldSet: Story = {
       optional
       role="radiogroup"
     >
-      <Paragraph id="description1">De laatstgenoemde melding.</Paragraph>
+      <Paragraph id="description1">Kies de categorie die het beste past.</Paragraph>
       {invalid && <ErrorMessage id="error1">Geef aan waar uw laatstgenoemde melding over gaat.</ErrorMessage>}
       <Column gap="x-small">
         <Radio invalid={invalid} name="about" value="horeca">
@@ -126,7 +122,7 @@ export const InAFieldSetWithValidation: Story = {
       legend="Waar gaat uw melding over?"
       role="radiogroup"
     >
-      <Paragraph id="description2">De laatstgenoemde melding.</Paragraph>
+      <Paragraph id="description2">Kies de categorie die het beste past.</Paragraph>
       {invalid && <ErrorMessage id="error2">Geef aan waar uw laatstgenoemde melding over gaat.</ErrorMessage>}
       <Column gap="x-small">
         <Radio aria-required="true" invalid={invalid} name="about" value="horeca">

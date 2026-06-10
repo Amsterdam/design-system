@@ -10,13 +10,14 @@ import { forwardRef } from 'react'
 
 export type PasswordInputProps = {
   /** Whether the value fails a validation rule. */
-  invalid?: boolean
-} & Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'aria-invalid' | 'autoCapitalize' | 'autoCorrect' | 'spellCheck' | 'type'
+  readonly invalid?: boolean
+} & Readonly<
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'autoCapitalize' | 'autoCorrect' | 'spellCheck' | 'type'>
 >
 
 /**
+ * Helps users enter a password.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-password-input--docs Password Input docs at Amsterdam Design System}
  */
 export const PasswordInput = forwardRef(

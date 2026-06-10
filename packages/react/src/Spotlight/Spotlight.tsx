@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -16,20 +16,26 @@ type SpotlightColor = (typeof spotlightColors)[number]
 
 export type SpotlightProps = {
   /** The HTML element to use. */
-  as?: SpotlightTag
+  readonly as?: SpotlightTag
   /** The background colour. */
-  color?: SpotlightColor
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly color?: SpotlightColor
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
+ * Emphasizes a section on a page through a distinctive background colour.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-spotlight--docs Spotlight docs at Amsterdam Design System}
  */
-export const Spotlight = forwardRef(
-  ({ as: Tag = 'div', children, className, color, ...restProps }: SpotlightProps, ref: ForwardedRef<any>) => (
-    <Tag {...restProps} className={clsx('ams-spotlight', color && `ams-spotlight--${color}`, className)} ref={ref}>
-      {children}
-    </Tag>
-  ),
+export const Spotlight = forwardRef<HTMLElement, SpotlightProps>(
+  ({ as, children, className, color, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag {...restProps} className={clsx('ams-spotlight', color && `ams-spotlight--${color}`, className)} ref={ref}>
+        {children}
+      </Tag>
+    )
+  },
 )
 
 Spotlight.displayName = 'Spotlight'

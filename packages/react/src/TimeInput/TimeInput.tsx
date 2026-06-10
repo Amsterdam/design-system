@@ -10,10 +10,12 @@ import { forwardRef } from 'react'
 
 export type TimeInputProps = {
   /** Whether the value fails a validation rule. */
-  invalid?: boolean
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>
+  readonly invalid?: boolean
+} & Readonly<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
 /**
+ * Helps users enter time.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-time-input--docs Time Input docs at Amsterdam Design System}
  */
 export const TimeInput = forwardRef(

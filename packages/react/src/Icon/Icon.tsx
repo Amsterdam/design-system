@@ -30,16 +30,19 @@ type IconSvg = SvgElement | ((props: SvgProps) => SvgElement)
 
 export type IconProps = {
   /** Changes the icon colour for readability on a dark background. */
-  color?: 'inverse'
+  readonly color?: 'inverse'
   /** The size of the icon. Choose the size of the corresponding body text or heading. */
-  size?: IconSize
+  readonly size?: IconSize
   /** Whether the icon container should be made square. */
-  square?: boolean
+  readonly square?: boolean
   /** The component rendering the icon’s markup. */
-  svg: IconSvg
-} & HTMLAttributes<HTMLSpanElement>
+  readonly svg: IconSvg
+} & Readonly<HTMLAttributes<HTMLSpanElement>>
 
 /**
+ * A visual symbol that represents an idea, theme, or action.
+ * Icons communicate a message at a glance and draw attention to important – often interactive – information.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-icon--docs Icon docs at Amsterdam Design System}
  * @see {@link https://designsystem.amsterdam/?path=/docs/brand-assets-icons--docs Icons overview at Amsterdam Design System}
  */

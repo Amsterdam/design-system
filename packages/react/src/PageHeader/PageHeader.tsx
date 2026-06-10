@@ -21,40 +21,40 @@ import { PageHeaderMenuLink } from './PageHeaderMenuLink'
 
 export type PageHeaderProps = {
   /** The name of the application. */
-  brandName?: string
+  readonly brandName?: string
   /**
    * A shorter form of the name of the application.
    * Provide this only together with a `brandName`.
    */
-  brandNameShort?: string
+  readonly brandNameShort?: string
   /** The accessible name of the logo. */
-  logoAccessibleName?: string
+  readonly logoAccessibleName?: string
   /** The name of the brand for which to display the logo. */
-  logoBrand?: LogoBrand | LogoBrandConfig
+  readonly logoBrand?: LogoBrand | LogoBrandConfig
   /** The url for the link on the logo. */
-  logoLink?: string
+  readonly logoLink?: string
   /** The React component to use for the logo link. */
-  logoLinkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+  readonly logoLinkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
   /** The accessible text for the link on the logo. */
-  logoLinkTitle?: string
+  readonly logoLinkTitle?: string
   /** An icon to display instead of the default icon. */
-  menuButtonIcon?: IconProps['svg']
+  readonly menuButtonIcon?: IconProps['svg']
   /** The visible text for the menu button. */
-  menuButtonText?: string
+  readonly menuButtonText?: string
   /** The text for screen readers when the button hides the menu. */
-  menuButtonTextForHide?: string
+  readonly menuButtonTextForHide?: string
   /** The text for screen readers when the button shows the menu. */
-  menuButtonTextForShow?: string
+  readonly menuButtonTextForShow?: string
   /** A slot for the menu items. Use PageHeader.MenuLink here. */
-  menuItems?: ReactNode
+  readonly menuItems?: ReactNode
   /**
    * The accessible label for the navigation section.
    * @default Hoofdmenu
    */
-  navigationLabel?: string
+  readonly navigationLabel?: string
   /** Whether the menu button is visible on wide screens.  */
-  noMenuButtonOnWideWindow?: boolean
-} & HTMLAttributes<HTMLElement>
+  readonly noMenuButtonOnWideWindow?: boolean
+} & Readonly<HTMLAttributes<HTMLElement>>
 
 const PageHeaderRoot = forwardRef(
   (
@@ -171,6 +171,8 @@ const PageHeaderRoot = forwardRef(
 PageHeaderRoot.displayName = 'PageHeader'
 
 /**
+ * Conveys the identity and authority of the website through a logo and optional navigation links.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page-header--docs Page Header docs at Amsterdam Design System}
  */
 export const PageHeader = Object.assign(PageHeaderRoot, {

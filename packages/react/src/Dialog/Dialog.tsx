@@ -13,12 +13,12 @@ import { IconButton } from '../IconButton'
 
 export type DialogProps = {
   /** The label for the button that dismisses the Dialog. */
-  closeButtonLabel?: string
+  readonly closeButtonLabel?: string
   /** Content for the footer, often one Button or an Action Group containing more of them. */
-  footer?: ReactNode
+  readonly footer?: ReactNode
   /** The text for the Heading. */
-  heading: string
-} & PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>>
+  readonly heading: string
+} & Readonly<PropsWithChildren<DialogHTMLAttributes<HTMLDialogElement>>>
 
 const closeDialog = (event: MouseEvent<HTMLButtonElement>) => event.currentTarget.closest('dialog')?.close()
 const openDialog = (id: string) => (document.querySelector(id) as HTMLDialogElement)?.showModal()
@@ -44,6 +44,8 @@ const DialogRoot = forwardRef(
 DialogRoot.displayName = 'Dialog'
 
 /**
+ * A popup window in which the user must perform an action to proceed.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-dialog--docs Dialog docs at Amsterdam Design System}
  */
 export const Dialog = Object.assign(DialogRoot, {

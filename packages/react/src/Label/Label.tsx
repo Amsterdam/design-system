@@ -18,16 +18,18 @@ export type LabelProps = {
    * Whether the label is nested inside a fieldset.
    * This will show the label in a lighter style.
    */
-  inFieldSet?: boolean
+  readonly inFieldSet?: boolean
   /**
    * Render a level 1 heading around the label.
    * Set this if the Field is the only content of the page.
    */
-  isPageHeading?: boolean
+  readonly isPageHeading?: boolean
 } & HintProps &
-  PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>>
+  Readonly<PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>>>
 
 /**
+ * Describes a form control.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-label--docs Label docs at Amsterdam Design System}
  */
 export const Label = forwardRef(

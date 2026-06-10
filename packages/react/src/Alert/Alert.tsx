@@ -21,28 +21,28 @@ type Severity = 'error' | 'success' | 'warning'
 
 export type AlertProps = {
   /** Whether the user can dismiss the Alert. Adds a button to its top right. */
-  closeable?: boolean
+  readonly closeable?: boolean
   /** The label for the button that dismisses the Alert. */
-  closeButtonLabel?: string
+  readonly closeButtonLabel?: string
   /** The text for the Heading. */
-  heading: string
+  readonly heading: string
   /**
    * The id of the Heading element, which is used to label the Alert.
    * Can be set to `null` to explicitly remove the label.
    * Note: must be unique for the page.
    */
-  headingId?: string | null
+  readonly headingId?: string | null
   /**
    * The hierarchical level of the Alert’s Heading within the document.
    * There is no default value; determine the correct level for each instance.
    * The size of the heading is fixed at level 3.
    */
-  headingLevel: HeadingProps['level']
+  readonly headingLevel: HeadingProps['level']
   /** A function to run when dismissing. */
-  onClose?: () => void
+  readonly onClose?: () => void
   /** The significance of the message conveyed. */
-  severity?: Severity
-} & PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+  readonly severity?: Severity
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 
 const iconSvgBySeverity: Record<Severity, IconProps['svg']> = {
   error: ErrorFillIcon,
@@ -51,6 +51,8 @@ const iconSvgBySeverity: Record<Severity, IconProps['svg']> = {
 }
 
 /**
+ * Informs the user of a significant or time-sensitive message without interrupting their task.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-alert--docs Alert docs at Amsterdam Design System}
  */
 export const Alert = forwardRef(

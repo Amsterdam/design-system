@@ -38,6 +38,10 @@ const config: StorybookConfig = {
     disableTelemetry: true,
   },
 
+  features: {
+    experimentalReactComponentMeta: true,
+  },
+
   framework: {
     name: '@storybook/react-vite',
     options: {},

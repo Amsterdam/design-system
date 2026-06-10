@@ -10,8 +10,13 @@ import { forwardRef, useImperativeHandle, useRef } from 'react'
 
 import { useKeyboardFocus } from '../common/useKeyboardFocus'
 
-export type TabsListProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type TabsListProps = Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 
+/**
+ * The list of tab buttons within a Tabs component.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-tabs--docs Tabs docs at Amsterdam Design System}
+ */
 export const TabsList = forwardRef(
   ({ children, className, ...restProps }: TabsListProps, ref: ForwardedRef<HTMLDivElement>) => {
     const innerRef = useRef<HTMLDivElement>(null)

@@ -23,28 +23,30 @@ export type InvalidFormAlertProps = {
    * This is used to show the error count in the document title.
    * @default { plural: 'invoerfouten', singular: 'invoerfout' }
    */
-  errorCountLabel?: { plural: string; singular: string }
+  readonly errorCountLabel?: { plural: string; singular: string }
   /** The list of error messages to display. */
-  errors: ErrorLink[]
+  readonly errors: ErrorLink[]
   /**
    * Whether the component receives focus on first render
    * @default true
    */
-  focusOnRender?: boolean
+  readonly focusOnRender?: boolean
   /**
    * The text for the Heading.
    * @default Verbeter de fouten voor u verder gaat
    */
-  heading?: string
+  readonly heading?: string
   /**
    * The hierarchical level of the Invalid Form Alert’s Heading within the document.
    * There is no default value; determine the correct level for each instance.
    * The size of the heading is fixed at level 3.
    */
-  headingLevel: HeadingProps['level']
-} & HTMLAttributes<HTMLDivElement>
+  readonly headingLevel: HeadingProps['level']
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
+ * Summarises validation errors at the top of a page so users can review and correct them all.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs Invalid Form Alert docs at Amsterdam Design System}
  */
 export const InvalidFormAlert = forwardRef(

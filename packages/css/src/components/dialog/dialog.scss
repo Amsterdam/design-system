@@ -18,12 +18,24 @@ so do not apply these styles without an `open` attribute. */
   border-width: var(--ams-dialog-border-width);
   box-shadow: var(--ams-dialog-box-shadow);
   box-sizing: border-box;
+  container-name: var(--ams-dialog-container-name);
+  container-type: var(--ams-dialog-container-type);
   display: flex; // We’d like to use CSS Grid here, but that doesn’t work as expected in Safari.
   flex-direction: column;
   gap: var(--ams-dialog-gap);
   inline-size: var(--ams-dialog-inline-size);
   max-block-size: var(--ams-dialog-max-block-size);
   max-inline-size: var(--ams-dialog-max-inline-size);
+
+  // Ensure there always is a border in forced colors mode.
+  @media (forced-colors: active) {
+    background-color: Canvas;
+    border-color: currentColor;
+    border-style: solid;
+
+    // Keep at least 1px so a token set to 0 can’t hide the border.
+    border-width: max(1px, var(--ams-dialog-border-width));
+  }
 
   @media (min-width: $ams-breakpoint-medium) {
     inline-size: var(
@@ -41,7 +53,7 @@ so do not apply these styles without an `open` attribute. */
    * @see https://caniuse.com/mdn-css_selectors_backdrop_inherit_from_originating_element
    */
   &::backdrop {
-    background: var(--ams-dialog-backdrop-background-color, rgb(24 24 24 / 62.5%));
+    background-color: var(--ams-dialog-backdrop-background-color, rgb(24 24 24 / 62.5%));
   }
 }
 
@@ -52,6 +64,13 @@ so do not apply these styles without an `open` attribute. */
   justify-content: space-between;
   padding-block: var(--ams-dialog-header-padding-block);
   padding-inline: var(--ams-dialog-header-padding-inline);
+
+  /* Use a border in forced colors mode for visual hierarchy and demarkating the scrollable body */
+  @media (forced-colors: active) {
+    border-block-end-color: currentColor;
+    border-block-end-style: solid;
+    border-block-end-width: 1px;
+  }
 
   @media (min-width: $ams-breakpoint-medium) {
     padding-block: var(
@@ -67,6 +86,7 @@ so do not apply these styles without an `open` attribute. */
 
 .ams-dialog__body {
   overflow-y: auto;
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior-y: contain;
   padding-block: var(--ams-dialog-body-padding-block);
   padding-inline: var(--ams-dialog-body-padding-inline);
@@ -82,6 +102,13 @@ so do not apply these styles without an `open` attribute. */
 .ams-dialog__footer {
   padding-block: var(--ams-dialog-footer-padding-block);
   padding-inline: var(--ams-dialog-footer-padding-inline);
+
+  /* Use a border in forced colors mode for visual hierarchy and demarkating the scrollable body */
+  @media (forced-colors: active) {
+    border-block-start-color: currentColor;
+    border-block-start-style: solid;
+    border-block-start-width: 1px;
+  }
 
   @media (min-width: $ams-breakpoint-medium) {
     padding-block: var(

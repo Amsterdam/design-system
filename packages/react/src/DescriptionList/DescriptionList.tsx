@@ -17,10 +17,10 @@ type DescriptionListTermsWidth = (typeof descriptionListTermsWidths)[number]
 
 export type DescriptionListProps = {
   /** Changes the text colour for readability on a dark background. */
-  color?: 'inverse'
+  readonly color?: 'inverse'
   /* The width of the column containing the terms. */
-  termsWidth?: DescriptionListTermsWidth
-} & PropsWithChildren<HTMLAttributes<HTMLDListElement>>
+  readonly termsWidth?: DescriptionListTermsWidth
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLDListElement>>>
 
 const DescriptionListRoot = forwardRef(
   (
@@ -45,6 +45,8 @@ const DescriptionListRoot = forwardRef(
 DescriptionListRoot.displayName = 'DescriptionList'
 
 /**
+ * A collection of terms and their descriptions.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-description-list--docs Description List docs at Amsterdam Design System}
  */
 export const DescriptionList = Object.assign(DescriptionListRoot, {

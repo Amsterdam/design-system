@@ -9,6 +9,12 @@ updates:
       interval: "weekly"
     cooldown:
       default-days: 1 # Wait for one day after release before updating a dependency
+    groups:
+      patch-and-minor-actions:
+        applies-to: "version-updates"
+        update-types:
+          - "patch"
+          - "minor"
     commit-message:
       prefix: chore
       include: scope
@@ -39,3 +45,11 @@ updates:
       prefix: fix
       prefix-development: chore
       include: scope
+    ignore:
+      # jsdom 27+ changed accessible name computation, dropping the space between
+      # sibling text fragments (e.g. visually-hidden text + adjacent text or SVG
+      # aria-label). This breaks getByRole({ name }) in our Pagination and
+      # PageHeader tests. Real browsers are unaffected. Remove once the upstream
+      # fix lands: https://github.com/eps1lon/dom-accessibility-api/issues/1087
+      - dependency-name: "jsdom"
+        versions: [">=27"]

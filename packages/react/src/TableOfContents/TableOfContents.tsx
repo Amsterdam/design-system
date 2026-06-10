@@ -16,13 +16,13 @@ import { TableOfContentsList } from './TableOfContentsList'
 
 export type TableOfContentsProps = {
   /** The text for the Heading. */
-  heading?: string
+  readonly heading?: string
   /**
    * The hierarchical level of the Heading within the document.
    * Visually, it always has the size of a level 3 Heading.
    */
-  headingLevel?: HeadingProps['level']
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly headingLevel?: HeadingProps['level']
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 const TableOfContentsRoot = forwardRef(
   (
@@ -45,6 +45,8 @@ const TableOfContentsRoot = forwardRef(
 TableOfContentsRoot.displayName = 'TableOfContents'
 
 /**
+ * Links to the sections of the current page.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-table-of-contents--docs Table Of Contents docs at Amsterdam Design System}
  */
 export const TableOfContents = Object.assign(TableOfContentsRoot, {

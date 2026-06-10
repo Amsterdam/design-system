@@ -11,11 +11,14 @@ import { forwardRef, useId } from 'react'
 export type SwitchProps = PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
 
 /**
+ * Toggles a binary setting immediately, without requiring form submission.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-switch--docs Switch docs at Amsterdam Design System}
  */
 export const Switch = forwardRef(
   ({ className, id, ...restProps }: SwitchProps, ref: ForwardedRef<HTMLInputElement>) => {
-    const inputId = id || useId()
+    const generatedId = useId()
+    const inputId = id || generatedId
 
     return (
       <div className={clsx('ams-switch', className)}>

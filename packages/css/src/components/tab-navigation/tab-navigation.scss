@@ -13,6 +13,7 @@
   box-shadow: var(--ams-tab-navigation-list-box-shadow);
   display: flex;
   overflow-x: auto;
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
 }

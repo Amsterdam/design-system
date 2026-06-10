@@ -13,8 +13,8 @@ import { SelectOptionGroup } from './SelectOptionGroup'
 
 export type SelectProps = {
   /** Whether the value fails a validation rule. */
-  invalid?: boolean
-} & PropsWithChildren<Omit<SelectHTMLAttributes<HTMLSelectElement>, 'aria-invalid'>>
+  readonly invalid?: boolean
+} & Readonly<PropsWithChildren<Omit<SelectHTMLAttributes<HTMLSelectElement>, 'aria-invalid'>>>
 
 const SelectRoot = forwardRef(
   ({ children, className, invalid, ...restProps }: SelectProps, ref: ForwardedRef<HTMLSelectElement>) => (
@@ -27,6 +27,8 @@ const SelectRoot = forwardRef(
 SelectRoot.displayName = 'Select'
 
 /**
+ * A form control that allows users to select one or more options from a list.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-select--docs Select docs at Amsterdam Design System}
  */
 export const Select = Object.assign(SelectRoot, { Group: SelectOptionGroup, Option: SelectOption })

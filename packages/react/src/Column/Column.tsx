@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -21,46 +21,49 @@ export type ColumnProps = {
    * The vertical alignment of the items in the column.
    * @default start
    */
-  align?: MainAlign
+  readonly align?: MainAlign
   /**
    * The horizontal alignment of the items in the column.
    * @default stretch
    */
-  alignHorizontal?: CrossAlignForColumn
+  readonly alignHorizontal?: CrossAlignForColumn
   /**
    * The HTML element to use.
    * @default div
    */
-  as?: ColumnTag
+  readonly as?: ColumnTag
   /**
    * The amount of space between items.
    * @default medium
    */
-  gap?: ColumnGap
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly gap?: ColumnGap
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
+ * Stacks its children vertically with gaps between them and offers alignment options.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-column--docs Column docs at Amsterdam Design System}
  */
-export const Column = forwardRef(
-  (
-    { align, alignHorizontal, as: Tag = 'div', children, className, gap, ...restProps }: ColumnProps,
-    ref: ForwardedRef<any>,
-  ) => (
-    <Tag
-      {...restProps}
-      className={clsx(
-        'ams-column',
-        align && `ams-column--align-${align}`,
-        alignHorizontal && `ams-column--align-horizontal-${alignHorizontal}`,
-        gap && `ams-column--gap-${gap}`,
-        className,
-      )}
-      ref={ref}
-    >
-      {children}
-    </Tag>
-  ),
+export const Column = forwardRef<HTMLElement, ColumnProps>(
+  ({ align, alignHorizontal, as, children, className, gap, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx(
+          'ams-column',
+          align && `ams-column--align-${align}`,
+          alignHorizontal && `ams-column--align-horizontal-${alignHorizontal}`,
+          gap && `ams-column--gap-${gap}`,
+          className,
+        )}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 Column.displayName = 'Column'

@@ -21,6 +21,8 @@ const FigureRoot = forwardRef(({ children, className, ...restProps }: FigureProp
 FigureRoot.displayName = 'Figure'
 
 /**
+ * Groups media content with a caption that describes it.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-figure--docs Figure docs at Amsterdam Design System}
  */
 export const Figure = Object.assign(FigureRoot, { Caption: FigureCaption })

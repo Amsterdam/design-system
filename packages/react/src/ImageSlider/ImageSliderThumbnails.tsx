@@ -12,12 +12,17 @@ import type { ImageSliderProps } from './ImageSlider'
 import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
 
 export type ImageSliderThumbnailsProps = {
-  currentSlideId: number
-  imageLabel?: string
-  scrollToSlide: (id: number) => void
-  thumbnails: ImageSliderProps['images']
-} & HTMLAttributes<HTMLElement>
+  readonly currentSlideId: number
+  readonly imageLabel?: string
+  readonly scrollToSlide: (id: number) => void
+  readonly thumbnails: ImageSliderProps['images']
+} & Readonly<HTMLAttributes<HTMLElement>>
 
+/**
+ * A thumbnail strip for navigating between slides in an Image Slider.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
+ */
 export const ImageSliderThumbnails = ({
   currentSlideId,
   imageLabel,

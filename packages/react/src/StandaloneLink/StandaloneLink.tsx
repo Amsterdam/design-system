@@ -15,15 +15,17 @@ import { Icon } from '../Icon'
 
 export type StandaloneLinkProps = {
   /** Changes the text colour for readability on a light or dark background. */
-  color?: 'contrast' | 'inverse'
+  readonly color?: 'contrast' | 'inverse'
   /**
    * The icon to show before the link text.
    * @default ChevronForwardIcon
    */
-  icon?: IconProps['svg']
-} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>
+  readonly icon?: IconProps['svg']
+} & Readonly<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>>
 
 /**
+ * A navigation element that is separated from the text around it.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-standalone-link--docs Standalone Link docs at Amsterdam Design System}
  */
 export const StandaloneLink = forwardRef(

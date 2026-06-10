@@ -15,11 +15,16 @@ import { LinkList } from '../LinkList'
 
 type InvalidFormAlertWithErrorsProps = {
   /** Whether the component has set focus once. */
-  hasFocusedOnce: boolean
+  readonly hasFocusedOnce: boolean
   /** Callback to let parent component know whether focus has been set once. */
-  setHasFocusedOnce: Dispatch<SetStateAction<boolean>>
-} & Omit<InvalidFormAlertProps, 'errorCountLabel'>
+  readonly setHasFocusedOnce: Dispatch<SetStateAction<boolean>>
+} & Readonly<Omit<InvalidFormAlertProps, 'errorCountLabel'>>
 
+/**
+ * A variant of Invalid Form Alert that lists each error as a link to the affected field.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs Invalid Form Alert docs at Amsterdam Design System}
+ */
 export const InvalidFormAlertWithErrors = forwardRef(
   (
     {
@@ -44,7 +49,7 @@ export const InvalidFormAlertWithErrors = forwardRef(
         innerRef.current.focus()
         setHasFocusedOnce(true)
       }
-    }, [innerRef])
+    }, [focusOnRender, hasFocusedOnce, setHasFocusedOnce])
 
     return (
       <Alert

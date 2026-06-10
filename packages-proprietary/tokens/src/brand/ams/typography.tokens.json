@@ -35,7 +35,7 @@
         },
         "bold": {
           "font-weight": {
-            "$value": "800",
+            "$value": "700",
             "$type": "fontWeight"
           }
         },
@@ -95,7 +95,7 @@
       "heading": {
         "$description": "Text styles for section headings. Larger headings use tighter line-heights for visual balance.",
         "font-weight": {
-          "$value": "800",
+          "$value": "700",
           "$type": "fontWeight"
         },
         "text-wrap": {

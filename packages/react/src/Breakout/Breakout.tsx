@@ -41,6 +41,8 @@ const BreakoutRoot = forwardRef(
 BreakoutRoot.displayName = 'Breakout'
 
 /**
+ * A composition that lets a figure – e.g. an image, video or map – break out of a Spotlight.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-breakout--docs Breakout docs at Amsterdam Design System}
  */
 export const Breakout = Object.assign(BreakoutRoot, { Cell: BreakoutCell })

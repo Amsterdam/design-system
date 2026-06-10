@@ -12,9 +12,14 @@ import { TabsContext } from './TabsContext'
 
 export type TabsButtonProps = {
   /** The identifier of the corresponding tab panel. */
-  'aria-controls': string
-} & PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>
+  readonly 'aria-controls': string
+} & Readonly<PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>>
 
+/**
+ * A tab button that reveals its associated panel when activated.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-tabs--docs Tabs docs at Amsterdam Design System}
+ */
 export const TabsButton = forwardRef(
   (
     { 'aria-controls': ariaControls, children, className, onClick, ...restProps }: TabsButtonProps,

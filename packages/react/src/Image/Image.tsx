@@ -14,11 +14,13 @@ import { generateAspectRatioClass } from './generateAspectRatioClass'
 
 export type ImageProps = {
   /** A textual description of the content of the image. */
-  alt: string
-} & AspectRatioProps &
-  Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>
+  readonly alt: string
+} & Readonly<AspectRatioProps> &
+  Readonly<Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>>
 
 /**
+ * Displays an image.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image--docs Image docs at Amsterdam Design System}
  */
 export const Image = forwardRef(

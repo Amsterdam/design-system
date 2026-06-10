@@ -13,15 +13,15 @@ import { TabNavigationList } from './TabNavigationList'
 
 export type TabNavigationProps = {
   /** The accessible name for the navigation. */
-  accessibleName?: string
+  readonly accessibleName?: string
   /**
    * Connects the component with an internal element that defines its accessible name.
    * Note: must be unique for the page.
    */
-  accessibleNameId?: string
+  readonly accessibleNameId?: string
   /** The direction in which the links are laid out. */
-  orientation?: 'horizontal' | 'vertical'
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly orientation?: 'horizontal' | 'vertical'
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 const TabNavigationRoot = forwardRef(
   (
@@ -50,6 +50,8 @@ const TabNavigationRoot = forwardRef(
 TabNavigationRoot.displayName = 'TabNavigation'
 
 /**
+ * A horizontal or vertical list of links, styled as tabs, to navigate between a set of related pages.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-tab-navigation--docs Tab Navigation docs at Amsterdam Design System}
  */
 export const TabNavigation = Object.assign(TabNavigationRoot, {

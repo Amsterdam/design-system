@@ -34,14 +34,8 @@ export const Test: Story = {
       <Table.Header key="header">
         <Table.Row>
           <Table.HeaderCell>Type</Table.HeaderCell>
-          <Table.HeaderCell>
-            Normale levertijd
-            <br />1 week
-          </Table.HeaderCell>
-          <Table.HeaderCell>
-            Spoed
-            <br />2 werkdagen
-          </Table.HeaderCell>
+          <Table.HeaderCell>Normale levertijd</Table.HeaderCell>
+          <Table.HeaderCell>Met spoed</Table.HeaderCell>
         </Table.Row>
       </Table.Header>,
       <Table.Body key="body">
@@ -58,6 +52,6 @@ export const Test: Story = {
       </Table.Body>,
     ],
   },
-  render: (args) => renderComponentVariants(Table, { args }),
+  render: (args, context) => renderComponentVariants(Table, { args }, context),
   tags: ['!dev', '!autodocs'],
 }

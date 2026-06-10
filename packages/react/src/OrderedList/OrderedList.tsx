@@ -12,12 +12,12 @@ import { OrderedListItem } from './OrderedListItem'
 
 export type OrderedListProps = {
   /** Changes the text colour for readability on a dark background. */
-  color?: 'inverse'
+  readonly color?: 'inverse'
   /** Whether the list items show a marker. */
-  markers?: boolean
+  readonly markers?: boolean
   /** The size of the text. */
-  size?: 'small'
-} & PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>
+  readonly size?: 'small'
+} & Readonly<PropsWithChildren<OlHTMLAttributes<HTMLOListElement>>>
 
 const OrderedListRoot = forwardRef(
   (
@@ -43,6 +43,8 @@ const OrderedListRoot = forwardRef(
 OrderedListRoot.displayName = 'OrderedList'
 
 /**
+ * Presents a sequence of items where the order is meaningful.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-ordered-list--docs Ordered List docs at Amsterdam Design System}
  */
 export const OrderedList = Object.assign(OrderedListRoot, { Item: OrderedListItem })

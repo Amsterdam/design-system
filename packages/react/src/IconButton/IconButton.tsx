@@ -18,16 +18,18 @@ export type IconButtonColor = (typeof iconButtonColors)[number]
 
 export type IconButtonProps = {
   /** Changes the text colour for readability on a light or dark background. */
-  color?: IconButtonColor
+  readonly color?: IconButtonColor
   /** The accessible text for the button. Will be announced by screen readers. Should describe the button’s action. */
-  label: string
+  readonly label: string
   /** The size of the icon. Match it to the text that the Icon Buttons aligns with. */
-  size?: IconProps['size']
+  readonly size?: IconProps['size']
   /** The component rendering the icon’s markup. */
-  svg?: IconProps['svg']
-} & ButtonHTMLAttributes<HTMLButtonElement>
+  readonly svg?: IconProps['svg']
+} & Readonly<ButtonHTMLAttributes<HTMLButtonElement>>
 
 /**
+ * An icon in a button that can be aligned with text.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-buttons-icon-button--docs Icon Button docs at Amsterdam Design System}
  */
 export const IconButton = forwardRef(

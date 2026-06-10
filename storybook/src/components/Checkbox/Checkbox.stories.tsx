@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { MouseEvent } from 'react'
 
 import { Column, ErrorMessage, FieldSet, Paragraph } from '@amsterdam/design-system-react'
 import { Checkbox } from '@amsterdam/design-system-react/src'
@@ -36,16 +37,13 @@ const meta = {
     id: {
       description: 'The id of the input element. If not provided, a unique id will be generated.',
     },
-    onChange: {
-      action: 'clicked',
-      table: { disable: true },
-    },
+    onChange: { action: 'clicked' },
   },
   render: (args) => {
     const [, setArgs] = useArgs()
 
-    const handleClick = (event: any) => {
-      setArgs({ checked: event.target.checked })
+    const handleClick = (event: MouseEvent<HTMLInputElement>) => {
+      setArgs({ checked: event.currentTarget.checked })
     }
 
     return <Checkbox onClick={handleClick} {...args} />

@@ -1,20 +1,27 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as UnorderedListStories from "./UnorderedList.stories.tsx";
-import README from "../../../../packages/css/src/components/unordered-list/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/unordered-list.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={UnorderedListStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={UnorderedListStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
 
 ## Examples
 
@@ -53,6 +60,12 @@ We use a smaller font size for text in a Figure Caption and for metadata like da
 When using a list in small text, set the prop for each item in the list.
 
 <Canvas of={UnorderedListStories.SmallText} />
+
+## Design
+
+Items of an unordered list have square markers.
+There is extra white space between the items.
+This provides better distinction between the items, especially when they consist of multiple lines of text.
 
 ## See also
 

@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { ReactElement } from 'react'
 
 import {
   BarChartFillIcon,
@@ -46,7 +47,7 @@ const menuItems = [
   },
 ]
 
-const withInWideWindowArg = (StoryFn: any) => {
+const withInWideWindowArg = (StoryFn: () => ReactElement) => {
   const [, updateArgs] = useArgs()
 
   useEffect(() => {
@@ -75,8 +76,8 @@ const meta = {
   },
   argTypes: {
     inWideWindow: {
-      control: { disable: true },
-      description: `This props gets automatically updated in Storybook. Is \`true\` when the viewport is wider than ${BREAKPOINTS.wide}.`,
+      control: false,
+      description: `This prop gets automatically updated in Storybook. It is \`true\` when the viewport is wider than ${BREAKPOINTS.wide}.`,
       table: { category: 'Derived' },
     },
   },

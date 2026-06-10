@@ -28,20 +28,25 @@ export type ProgressListStepProps = {
    * Defaults to `true` when `status` is `'completed'`, and `false` otherwise.
    * Ignored when `collapsible` is `false` on the parent, or when `collapsed` is provided.
    */
-  defaultCollapsed?: boolean
+  readonly defaultCollapsed?: boolean
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
-  hasSubsteps?: boolean
+  readonly hasSubsteps?: boolean
   /** The heading text for this step. */
-  heading: string
+  readonly heading: string
   /**
    * Callback fired when the step is expanded or collapsed. Receives the new expanded state.
    * Ignored if `collapsible` is `false`.
    */
-  onToggle?: (expanded: boolean) => void
+  readonly onToggle?: (expanded: boolean) => void
   /** The current progress state of the step. */
-  status?: 'current' | 'completed'
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly status?: 'current' | 'completed'
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
+/**
+ * A single step within a Progress List, showing its status and optional detail content.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-progress-list--docs Progress List docs at Amsterdam Design System}
+ */
 export const ProgressListStep = forwardRef(
   (
     {

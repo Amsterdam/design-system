@@ -12,13 +12,13 @@ import { BreadcrumbLink } from './BreadcrumbLink'
 
 export type BreadcrumbProps = {
   /** The accessible name for the component. */
-  accessibleName?: string
+  readonly accessibleName?: string
   /**
    * Connects the component with an internal element that defines its accessible name.
    * Note: must be unique for the page.
    */
-  accessibleNameId?: string
-} & PropsWithChildren<HTMLAttributes<HTMLElement>>
+  readonly accessibleNameId?: string
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 const BreadcrumbRoot = forwardRef(
   (
@@ -42,6 +42,8 @@ const BreadcrumbRoot = forwardRef(
 BreadcrumbRoot.displayName = 'Breadcrumb'
 
 /**
+ * Shows the location of the page within the hierarchy of a website and allows navigating between levels.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-breadcrumb--docs Breadcrumb docs at Amsterdam Design System}
  */
 export const Breadcrumb = Object.assign(BreadcrumbRoot, { Link: BreadcrumbLink })

@@ -1,17 +1,18 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as TableStories from "./Table.stories.tsx";
 import * as TableCellStories from "./TableCell.stories.tsx";
-import README from "../../../../packages/css/src/components/table/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/table.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={TableStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={TableStories} />
 
 <Primary />
 
@@ -27,6 +28,18 @@ Apply the same value to all cells in the column and the matching `Table.HeaderCe
 
 <Controls of={TableCellStories.Cell} />
 
+## Usage guidelines
+
+### How to use
+
+Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
+
+Add a caption so users can find and understand the Table without reading its data.
+Use a [Heading](/docs/components-text-heading--docs) in it, at the level that fits the document outline.
+
+To place content between the Heading and the Table, keep the Caption but hide it visually, then position the heading and content above the Table.
+Do not use ARIA relations; they hurt the Table's semantics (see [this article](https://www.scottohara.me/blog/2019/04/19/tabled-tables.html)).
+
 ## Examples
 
 ### With footer and row headers
@@ -37,17 +50,27 @@ Use `Table.Footer` for a summary row.
 
 <Canvas of={TableStories.WithFooterAndRowHeaders} />
 
-### With description in caption
+### With heading and description
 
-Add a description to the caption to provide context like a source, date, or reading instructions.
-Use a small [Paragraph](/docs/components-text-paragraph--docs).
-Set `aria-labelledby` to keep only the heading as the table’s accessible name, or screen readers will read out the entire text.
+When the table needs context – a source, a date, or reading instructions – place a heading and a small paragraph above it and hide the caption visually.
 
-<Canvas of={TableStories.WithDescriptionInCaption} />
+<Canvas of={TableStories.WithHeadingAndDescription} />
+
+### With caption in figure
+
+The context can be positioned below the table as well.
+In this case, use a [Figure](/docs/components-media-figure--docs) and let the Table keep its Caption.
+
+<Canvas of={TableStories.InFigure} />
+
+## Accessibility
+
+A Table caption creates the accessible name for the Table, announced by screen readers on every encounter.
 
 ## See also
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
+- [Table Page](/docs/pages-internal-table-page--docs) – various templates for large data tables in internal websites.
 
 ## Design tokens
 

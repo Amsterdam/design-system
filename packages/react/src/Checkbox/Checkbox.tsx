@@ -17,14 +17,16 @@ export type CheckboxProps = {
    * An icon to display instead of the default icon.
    * @default CheckboxIcon
    */
-  icon?: IconProps['svg']
+  readonly icon?: IconProps['svg']
   /** Allows being neither checked nor unchecked. */
-  indeterminate?: boolean
+  readonly indeterminate?: boolean
   /** Whether the value fails a validation rule. */
-  invalid?: boolean
-} & PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
+  readonly invalid?: boolean
+} & Readonly<PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>>
 
 /**
+ * Allows users to make a selection or agree to terms.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-checkbox--docs Checkbox docs at Amsterdam Design System}
  */
 export const Checkbox = forwardRef(
@@ -32,7 +34,8 @@ export const Checkbox = forwardRef(
     { children, className, icon = CheckboxIcon, id, indeterminate, invalid, ...restProps }: CheckboxProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
-    const inputId = id || useId()
+    const generatedId = useId()
+    const inputId = id || generatedId
     const innerRef = useRef<HTMLInputElement>(null)
 
     // use a passed ref if it's there, otherwise use innerRef
