@@ -13,6 +13,10 @@ import { default as calendarMeta } from './Calendar.stories'
 const meta = {
   ...calendarMeta,
   title: 'Components/Navigation/Calendar',
+  argTypes: {
+    ...calendarMeta.argTypes,
+    locale: { control: false, table: { disable: true } },
+  },
 } satisfies Meta<typeof Calendar>
 
 export default meta
@@ -20,6 +24,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  args: {
+    locale: 'nl',
+  },
   render: (args, context) => renderComponentVariants(Calendar, { args }, context),
   tags: ['!dev', '!autodocs'],
 }
