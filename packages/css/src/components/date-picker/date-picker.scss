@@ -32,10 +32,12 @@
   grid-template-columns: repeat(7, 1fr);
 }
 
+// display: contents makes the row's children direct participants in the parent
+// 7-column grid. Modern browsers (Chrome 85+, Firefox 98+, Safari 17.4+) keep
+// elements with explicit ARIA roles in the accessibility tree even with
+// display: contents, so role="row" is still announced correctly.
 .ams-date-picker__row {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: repeat(7, 1fr);
+  display: contents;
 }
 
 .ams-date-picker__weekday {
