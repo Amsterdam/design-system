@@ -14,8 +14,7 @@ export type BlockquoteProps = {
 } & Readonly<PropsWithChildren<BlockquoteHTMLAttributes<HTMLQuoteElement>>>
 
 /**
- * We use blockquotes to emphasize citations.
- * A quote appears differently from the main text to make it stand out.
+ * Marks a passage as a quotation, set apart from the surrounding text.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-blockquote--docs Blockquote docs at Amsterdam Design System}
  */

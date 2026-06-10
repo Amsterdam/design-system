@@ -32,7 +32,9 @@ Write component names in title case to help readers recognise them, e.g. ‘Card
 
 This section applies to React components only; CSS-only utilities keep their CSS README (see above).
 
-The TSDoc comment on the exported component function contains the component’s rationale: one short paragraph that explains what the component is and why it exists.
+The TSDoc comment on the exported component function contains the component’s rationale: one or two sentences that describe what the component is and why it exists in the design system.
+Keep it focused on the component’s unique role; omit usage hints, visual and implementation details, and content guidance.
+Do not open with the component’s own name — the title shown above it already provides that context.
 Do not put guidelines, WCAG references, or examples here.
 All other documentation lives in the Storybook MDX file, where it can be paired with stories.
 

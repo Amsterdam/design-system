@@ -34,13 +34,15 @@ Reuse existing shared types where they already exist; do not introduce new "comm
 ## TSDoc
 
 Place a JSDoc block directly above the exported component declaration.
-Write one short paragraph that explains what the component is and why it exists.
+Write one or two sentences that describe what the component is and why it exists in the design system.
+Keep it focused on the component's unique role; omit usage hints, visual and implementation details, and content guidance.
+Do not open with the component's own name — the title shown above it already provides that context.
 Do not include guidelines, WCAG references, or usage examples — those belong in the Storybook MDX file.
 Storybook reads this comment via react-docgen and renders it on the documentation page; it also surfaces in IDE tooltips.
 
 ```tsx
 /**
- * One short paragraph that explains what the component is and why it exists.
+ * One or two sentences that describe what the component is and why it exists.
  */
 export const ComponentName = forwardRef(...)
 ```
