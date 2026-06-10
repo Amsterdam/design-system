@@ -36,6 +36,11 @@ export type ProgressListStepProps = {
   readonly status?: 'current' | 'completed'
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
+/**
+ * A single step within a Progress List, showing its status and optional detail content.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-progress-list--docs Progress List docs at Amsterdam Design System}
+ */
 export const ProgressListStep = forwardRef(
   (
     {

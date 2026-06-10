@@ -17,6 +17,11 @@ export type MenuLinkProps = {
   readonly icon: IconProps['svg']
 } & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
 
+/**
+ * A navigation link within a Menu.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-menu--docs Menu docs at Amsterdam Design System}
+ */
 export const MenuLink = forwardRef(
   ({ children, className, icon, ...restProps }: MenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
     return (

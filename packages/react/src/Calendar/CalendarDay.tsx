@@ -21,6 +21,11 @@ const formatAccessibleDate = (date: Date, locale?: string) =>
 
 const DefaultDateLink = (anchorProps: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...anchorProps} />
 
+/**
+ * A single day within the Calendar grid, rendered as a link.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-calendar--docs Calendar docs at Amsterdam Design System}
+ */
 export const CalendarDay = ({ date, isCurrent, linkComponent, linkTemplate, locale }: CalendarDayProps) => {
   const ariaCurrent = isCurrent ? 'date' : undefined
   const DateLink = linkComponent ?? DefaultDateLink
