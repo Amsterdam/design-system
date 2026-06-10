@@ -51,7 +51,6 @@ AccordionRoot.displayName = 'Accordion'
 
 /**
  * A list of headings that each show or hide associated content.
- * Use it to present non-essential content on demand, keeping important content immediately visible.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-accordion--docs Accordion docs at Amsterdam Design System}
  */

@@ -45,8 +45,7 @@ export type InvalidFormAlertProps = {
 } & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
- * Use this component at the top of a page to summarise any errors a user has made.
- * When a user makes an error, you must show both a Invalid Form Alert and an Error Message above each answer that contains an error.
+ * Summarises validation errors at the top of a page so users can review and correct them all.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs Invalid Form Alert docs at Amsterdam Design System}
  */

@@ -14,8 +14,7 @@ export type LinkProps = {
 } & Readonly<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>>
 
 /**
- * A link is a navigation element and can be used independently or inline with text.
- * It is the lightweight variant for navigation.
+ * Inline navigation for use within text or alongside other content.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-link--docs Link docs at Amsterdam Design System}
  */

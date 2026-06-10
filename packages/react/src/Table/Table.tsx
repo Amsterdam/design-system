@@ -32,7 +32,6 @@ TableRoot.displayName = 'Table'
 
 /**
  * Presents related values in rows and columns.
- * Suitable for both simple reference tables and to inspect large data sets.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-table--docs Table docs at Amsterdam Design System}
  */

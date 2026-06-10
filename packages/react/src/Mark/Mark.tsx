@@ -11,8 +11,7 @@ import { forwardRef } from 'react'
 export type MarkProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 /**
- * Highlights a text fragment using a yellow background.
- * Provides strong emphasis on the text and draws attention to it.
+ * Highlights a text fragment to draw the reader's attention to it.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-mark--docs Mark docs at Amsterdam Design System}
  */
