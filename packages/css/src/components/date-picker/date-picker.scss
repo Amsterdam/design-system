@@ -35,7 +35,7 @@
 .ams-date-picker__row {
   display: grid;
   grid-column: 1 / -1;
-  grid-template-columns: subgrid;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .ams-date-picker__weekday {
