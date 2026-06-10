@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-DnJy8xQt.js";import{Wt as t}from"./iframe-CbMc4OWd.js";var n=e((()=>{})),r,i,a=e((()=>{n(),r=t(),i=({children:e})=>(0,r.jsx)(`code`,{className:`_ams-code sb-unstyled`,children:e})}));export{a as n,i as t};
