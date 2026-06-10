@@ -234,6 +234,7 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
         isDaySelected={isDaySelected}
         locale={locale}
         month={month}
+        multiselectable={selection.mode === 'range'}
         onKeyDown={onGridKeyDown}
         onSelectDate={onDayClick}
       />

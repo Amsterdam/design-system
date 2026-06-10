@@ -137,6 +137,16 @@ describe('DatePicker', () => {
     expect(screen.getAllByRole('gridcell', { selected: true })).toHaveLength(3)
   })
 
+  it('marks the grid as multiselectable only in range mode', () => {
+    const { rerender } = render(<DatePicker defaultMonth={march2026} onChange={noop} value={null} />)
+
+    expect(screen.getByRole('grid')).not.toHaveAttribute('aria-multiselectable')
+
+    rerender(<DatePicker defaultMonth={march2026} mode="range" onChange={noop} value={{ start: null, end: null }} />)
+
+    expect(screen.getByRole('grid')).toHaveAttribute('aria-multiselectable', 'true')
+  })
+
   it('does not select a disabled date', () => {
     const onChange = vi.fn()
 

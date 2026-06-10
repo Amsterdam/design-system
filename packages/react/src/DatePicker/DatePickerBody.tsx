@@ -23,6 +23,8 @@ export type DatePickerBodyProps = {
   readonly isDaySelected: (date: Date) => boolean
   /** The month to display. */
   readonly month: Date
+  /** Whether more than one date can be selected, as in range mode. */
+  readonly multiselectable?: boolean
   /** Handles keyboard navigation within the grid. */
   readonly onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => void
   /** Selects a date. */
@@ -37,6 +39,7 @@ export const DatePickerBody = ({
   isDaySelected,
   locale,
   month,
+  multiselectable,
   onKeyDown,
   onSelectDate,
 }: DatePickerBodyProps) => {
@@ -58,7 +61,13 @@ export const DatePickerBody = ({
   const weeks = Array.from({ length: cells.length / 7 }, (_, index) => cells.slice(index * 7, index * 7 + 7))
 
   return (
-    <div aria-labelledby={captionId} className="ams-date-picker__body" onKeyDown={onKeyDown} role="grid">
+    <div
+      aria-labelledby={captionId}
+      aria-multiselectable={multiselectable || undefined}
+      className="ams-date-picker__body"
+      onKeyDown={onKeyDown}
+      role="grid"
+    >
       <div className="ams-date-picker__row" role="row">
         {Array.from({ length: 7 }).map((_, index) => (
           <span className="ams-date-picker__weekday" key={`weekday-${index}`} role="columnheader">
