@@ -18,6 +18,14 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Controls />
 
+## Subcomponents
+
+### Step
+
+<Canvas of={ProgressListStepStories.Step} />
+
+<Controls of={ProgressListStepStories.Step} />
+
 ## Usage guidelines
 
 ### When to use
@@ -56,16 +64,6 @@ They are visually subordinate to their parent step: their indicators are smaller
 Don’t forget to set the `hasSubsteps` prop on the parent step.
 
 <Canvas of={ProgressListStories.WithSubsteps} />
-
-## Features
-
-### Subcomponents
-
-#### Step
-
-<Canvas of={ProgressListStepStories.Step} />
-
-<Controls of={ProgressListStepStories.Step} />
 
 ## Design
 
