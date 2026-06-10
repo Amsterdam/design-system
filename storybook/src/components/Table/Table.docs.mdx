@@ -16,6 +16,18 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 <Primary />
 
+## Subcomponents
+
+### Cell
+
+Holds a single value within a row.
+Use the `align` prop to align the content to the center or end of the cell.
+Apply the same value to all cells in the column and the matching `Table.HeaderCell`.
+
+<Canvas of={TableCellStories.Cell} />
+
+<Controls of={TableCellStories.Cell} />
+
 ## Usage guidelines
 
 ### How to use
@@ -50,20 +62,6 @@ The context can be positioned below the table as well.
 In this case, use a [Figure](/docs/components-media-figure--docs) and let the Table keep its Caption.
 
 <Canvas of={TableStories.InFigure} />
-
-## Features
-
-### Subcomponents
-
-#### Cell
-
-Holds a single value within a row.
-Use the `align` prop to align the content to the center or end of the cell.
-Apply the same value to all cells in the column and the matching `Table.HeaderCell`.
-
-<Canvas of={TableCellStories.Cell} />
-
-<Controls of={TableCellStories.Cell} />
 
 ## Accessibility
 
