@@ -56,14 +56,13 @@ Sections are optional: omit any section that has no meaningful content for the c
 
 1. **Title and description** – `<Title />` and `<Description of={…} />`, rendered from the component's TSDoc via react-docgen.
 2. **Primary story and Controls** – `<Primary />` and `<Controls />`.
-3. **Usage guidelines** – an H2 wrapping ‘When to use’, ‘When not to use’, and optionally ‘How to use’.
+3. **Usage guidelines** – an H2 with up to four H3 subsections: ‘When to use’, ‘When not to use’, ‘How to use’, and ‘How to write’.
 4. **Examples** – an H2 with an H3 per variant. Each variant has a one-line caption above a `<Canvas of={…} />`.
 5. **Features** – what the component does for you out of the box: states, keyboard behaviour, responsive behaviour, validation, etc. Pair with a Canvas where the feature is visual.
 6. **Design** – notable visual or interaction decisions worth explaining. Pair with a Canvas where the decision is visual.
-7. **Accessibility** – what developers must do when composing with this component, e.g. ‘always provide a label’ or ‘choose the right heading level’. Do not list WCAG criteria here.
-8. **Content** – writing guidance, only for components with user-visible text such as Button, Heading, Link, and Alert. Omit otherwise.
-9. **Related components** – a short bullet list of links to alternatives or companions. Each bullet ends with a one-line reason.
-10. **Design tokens** – the auto-generated table via `<DesignTokensTable tokens={tokens} />`.
+7. **Accessibility** – what the component does to meet accessibility requirements: the ARIA roles and patterns it implements, how it handles keyboard interaction, and which WCAG criteria it addresses. Omit the section if there is nothing meaningful to say.
+8. **Related components** – a short bullet list of links to alternatives or companions. Each bullet ends with a one-line reason.
+9. **Design tokens** – the auto-generated table via `<DesignTokensTable tokens={tokens} />`.
 
 ### Skeleton
 
@@ -97,6 +96,8 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 ### How to use
 
+### How to write
+
 ## Examples
 
 ## Features
@@ -117,8 +118,11 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 **Usage guidelines** answers ‘is this the right component for me, and how do I use it correctly?’
 ‘When to use’ states the scenarios where the component is the right choice.
 ‘When not to use’ names alternative components or patterns for adjacent scenarios.
-‘How to use’ covers practical guidance for correct configuration and composition: count and placement rules, prop combinations, content constraints, do-and-don’t rules that are not about choosing the component.
-Add ‘How to use’ only when there is substantive guidance that clearly does not belong in the other two sub-sections; omit it for components where ‘When to use’ already captures everything the reader needs.
+‘How to use’ covers practical guidance for correct configuration and composition: count and placement rules, prop combinations, required props or wrapping elements, do-and-don’t rules that are not about choosing the component.
+This subsection is also the right place for accessibility requirements that developers must satisfy when composing the component, such as providing a label or choosing a heading level.
+Add it only when there is substantive guidance that clearly does not belong in the other subsections; omit it for components where ‘When to use’ already captures everything the reader needs.
+‘How to write’ covers writing guidance for components with user-visible text: label conventions, tone, sentence case, when to use abbreviations.
+Include it only for components where content choices noticeably affect usability or accessibility, such as Button, Heading, Link, and Alert.
 
 **Examples** is the visual catalogue.
 Each H3 names a variant or state, followed by a one-line caption that says what the variant is for, followed by a `<Canvas of={…} />` block.
@@ -131,12 +135,10 @@ Embed a Canvas when the feature is observable in a story.
 Examples: why three button levels, why a four-pixel border on the left of an Alert, why headings are decoupled from semantic levels.
 Keep it short and pair with a Canvas when the choice is visible.
 
-**Accessibility** is composition guidance for developers.
-Examples: ‘always associate a Label with a TextInput’, ‘wrap an input and its message in a Field’, ‘choose the heading level that matches the page hierarchy’.
-Do not list WCAG criteria; the component handles them internally, and a list of links does not help developers using it.
-
-**Content** is for components with user-visible text.
-Examples: button labels use the verb’s infinitive form, link text describes the destination, alert titles are short and specific.
+**Accessibility** describes what the component does for accessibility.
+Examples: which ARIA role the component uses, how keyboard interaction is implemented, how the component creates accessible names or announces state changes.
+Do not put composition instructions here; those belong in ‘How to use’.
+Omit the section if the component has no meaningful accessibility behaviour to describe beyond what the browser and standard HTML already provide.
 
 **Related components** is the exit point at the bottom of the body.
 List a handful of alternatives or companions, with a one-line reason for each.
