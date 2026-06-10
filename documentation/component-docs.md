@@ -59,7 +59,7 @@ Sections are optional: omit any section that has no meaningful content for the c
 3. **Usage guidelines** – an H2 wrapping ‘When to use’, ‘When not to use’, and optionally ‘How to use’.
 4. **Examples** – an H2 with an H3 per variant. Each variant has a one-line caption above a `<Canvas of={…} />`.
 5. **Features** – what the component does for you out of the box: states, keyboard behaviour, responsive behaviour, validation, etc. Pair with a Canvas where the feature is visual.
-6. **Design choices** – notable visual or interaction decisions worth explaining. Pair with a Canvas where the decision is visual.
+6. **Design** – notable visual or interaction decisions worth explaining. Pair with a Canvas where the decision is visual.
 7. **Accessibility** – what developers must do when composing with this component, e.g. ‘always provide a label’ or ‘choose the right heading level’. Do not list WCAG criteria here.
 8. **Content** – writing guidance, only for components with user-visible text such as Button, Heading, Link, and Alert. Omit otherwise.
 9. **Related components** – a short bullet list of links to alternatives or companions. Each bullet ends with a one-line reason.
@@ -101,7 +101,7 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 
 ## Features
 
-## Design choices
+## Design
 
 ## Accessibility
 
@@ -127,7 +127,7 @@ Each H3 names a variant or state, followed by a one-line caption that says what 
 Examples: built-in keyboard interactions, focus management, hover and disabled states, responsive behaviour, native validation hooks, dark or compact mode support.
 Embed a Canvas when the feature is observable in a story.
 
-**Design choices** explains decisions a reader might otherwise question.
+**Design** explains decisions a reader might otherwise question.
 Examples: why three button levels, why a four-pixel border on the left of an Alert, why headings are decoupled from semantic levels.
 Keep it short and pair with a Canvas when the choice is visible.
 
@@ -146,6 +146,6 @@ List a handful of alternatives or companions, with a one-line reason for each.
 These three components are worked examples of the content model.
 When in doubt, mirror the structure of the closest one.
 
-- [Accordion](../storybook/src/components/Accordion/Accordion.docs.mdx) – an interactive component with rich Features and Design choices.
+- [Accordion](../storybook/src/components/Accordion/Accordion.docs.mdx) – an interactive component with rich Features and Design.
 - [Button](../storybook/src/components/Button/Button.docs.mdx) – an interactive component with a Content section.
-- [Grid](../storybook/src/components/Grid/Grid.docs.mdx) – a structural component with Design choices that drive layout decisions.
+- [Grid](../storybook/src/components/Grid/Grid.docs.mdx) – a structural component with Design that drive layout decisions.
