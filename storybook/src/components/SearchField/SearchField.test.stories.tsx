@@ -13,7 +13,7 @@ import { default as searchFieldMeta } from './SearchField.stories'
 const meta = {
   ...searchFieldMeta,
   title: 'Components/Forms/Search Field',
-} satisfies Meta<typeof SearchField>
+} satisfies Meta
 
 export default meta
 
