@@ -76,7 +76,7 @@ const meta = {
   },
   argTypes: {
     inWideWindow: {
-      control: { disable: true },
+      control: false,
       description: `This props gets automatically updated in Storybook. Is \`true\` when the viewport is wider than ${BREAKPOINTS.wide}.`,
       table: { category: 'Derived' },
     },
