@@ -93,7 +93,6 @@ export const TableOfContentsLink = forwardRef(
       <li
         className={clsx(
           'ams-table-of-contents__item',
-          isExpandable && 'ams-table-of-contents__item--expandable',
           isExpandable && !isExpanded && 'ams-table-of-contents__item--collapsed',
         )}
         ref={itemRef}
