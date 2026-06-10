@@ -31,22 +31,10 @@ const meta = {
     linkTemplate: (date: Date): string | undefined => `?date=${formatDate(date)}`,
   },
   argTypes: {
-    defaultMonth: {
-      // Hidden as enabling the control breaks the story with an error.
-      table: { disable: true },
-    },
-    linkComponent: {
-      // Hidden as enabling the control breaks the story with an error.
-      table: { disable: true },
-    },
-    linkTemplate: {
-      // Hidden as Storybook doesn’t offer UI for a function that returns a string or undefined.
-      table: { disable: true },
-    },
-    locale: {
-      // Hidden until we offer complete localisation examples.
-      table: { disable: true },
-    },
+    defaultMonth: { control: false }, // Enabling the control breaks the story with an error.
+    linkComponent: { control: false }, // Enabling the control breaks the story with an error.
+    linkTemplate: { control: false }, // A function returning string or undefined has no usable controls panel widget.
+    locale: { control: false }, // Shown for reference only; localisation examples to follow.
   },
 } satisfies Meta<typeof Calendar>
 

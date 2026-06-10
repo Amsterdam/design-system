@@ -32,36 +32,14 @@ const meta = {
     value: null,
   },
   argTypes: {
-    defaultMonth: {
-      // Hidden as a Date control is awkward and can break the story.
-      table: { disable: true },
-    },
-    isDateDisabled: {
-      // Hidden as a function prop has no usable control.
-      table: { disable: true },
-    },
-    locale: {
-      // Hidden until we offer complete localisation examples.
-      table: { disable: true },
-    },
-    maxDate: {
-      // Hidden as a Date control is awkward and can break the story.
-      table: { disable: true },
-    },
-    minDate: {
-      // Hidden as a Date control is awkward and can break the story.
-      table: { disable: true },
-    },
-    // The story wrappers own the mode and value, so these are not editable controls.
-    mode: {
-      table: { disable: true },
-    },
-    onChange: {
-      table: { disable: true },
-    },
-    value: {
-      table: { disable: true },
-    },
+    defaultMonth: { control: false }, // A Date object has no usable controls panel widget and can break the story.
+    isDateDisabled: { control: false }, // A function prop has no usable controls panel widget.
+    locale: { control: false }, // Shown for reference only; localisation examples to follow.
+    maxDate: { control: false }, // A Date object has no usable controls panel widget and can break the story.
+    minDate: { control: false }, // A Date object has no usable controls panel widget and can break the story.
+    mode: { control: false }, // The story wrapper owns this prop.
+    onChange: { control: false }, // The story wrapper owns this prop.
+    value: { control: false }, // The story wrapper owns this prop.
   },
 } satisfies Meta<typeof DatePicker>
 
