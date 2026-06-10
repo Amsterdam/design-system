@@ -27,6 +27,11 @@ export type AccordionSectionProps = {
   readonly label: string
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
+/**
+ * One collapsible section within an Accordion, pairing a heading with its associated content.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-accordion--docs Accordion docs at Amsterdam Design System}
+ */
 export const AccordionSection = forwardRef(
   (
     { children, className, defaultExpanded, expanded, label, ...restProps }: AccordionSectionProps,

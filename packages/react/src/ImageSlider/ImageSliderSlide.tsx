@@ -15,6 +15,11 @@ type ImageSliderSlideProps = {
   readonly index: number
 } & Readonly<ImageSliderImageProps>
 
+/**
+ * One image within an Image Slider.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
+ */
 export const ImageSliderSlide = ({
   alt,
   aspectRatio,

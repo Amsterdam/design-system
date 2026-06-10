@@ -13,6 +13,11 @@ export type CalendarBodyProps = {
   readonly month: Date
 } & Pick<CalendarProps, 'linkComponent' | 'linkTemplate' | 'locale'>
 
+/**
+ * The day grid within a Calendar, showing all days of the current month.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-calendar--docs Calendar docs at Amsterdam Design System}
+ */
 export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: CalendarBodyProps) => {
   const today = new Date()
   const monthIndex = month.getMonth()

@@ -15,6 +15,11 @@ type SearchFieldInputProps = {
   readonly label?: string
 } & Readonly<InputHTMLAttributes<HTMLInputElement>>
 
+/**
+ * The text input within a Search Field.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-search-field--docs Search Field docs at Amsterdam Design System}
+ */
 export const SearchFieldInput = forwardRef(
   (
     { className, dir, id, invalid, label = 'Zoeken', ...restProps }: SearchFieldInputProps,

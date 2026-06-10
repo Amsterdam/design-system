@@ -26,6 +26,11 @@ export type PageFooterMenuProps = {
   readonly headingLevel?: HeadingProps['level']
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLUListElement>>>
 
+/**
+ * The link menu within a Page Footer, with a visually hidden heading for screen readers.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page-footer--docs Page Footer docs at Amsterdam Design System}
+ */
 export const PageFooterMenu = forwardRef(
   (
     { children, className, heading = 'Over deze website', headingLevel = 2, ...restProps }: PageFooterMenuProps,
