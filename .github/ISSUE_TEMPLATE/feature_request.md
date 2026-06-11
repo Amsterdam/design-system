@@ -3,7 +3,6 @@ name: Feature request
 about: Suggest a new component, feature, or improvement
 title: ""
 labels: enhancement
-assignees: ""
 ---
 
 <!-- @license CC0-1.0 -->
