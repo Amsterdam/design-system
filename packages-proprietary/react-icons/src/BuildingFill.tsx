@@ -5,7 +5,6 @@ const SvgBuildingFill = (props: SVGProps<SVGSVGElement>) => (
     <path
       clipRule="evenodd"
       d="M20 23V1H4v22zM8 5h3v3H8zm3 5H8v3h3zm-3 5h3v3H8zm8-10h-3v3h3zm-3 5h3v3h-3zm3 5h-3v3h3z"
-      fill="#202020"
       fillRule="evenodd"
     />
   </svg>

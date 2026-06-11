@@ -13,7 +13,7 @@ export default {
     {
       name: 'removeAttrs',
       params: {
-        attrs: 'svg:fill',
+        attrs: '*:fill',
       },
     },
     'removeDimensions',

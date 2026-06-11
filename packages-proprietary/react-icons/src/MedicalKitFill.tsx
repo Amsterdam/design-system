@@ -5,7 +5,6 @@ const SvgMedicalKitFill = (props: SVGProps<SVGSVGElement>) => (
     <path
       clipRule="evenodd"
       d="M17 2.5H7v4H2.5v15h19v-15H17zm-2 4v-2H9v2zm-3.95 4v2.65H8.4v2h2.65v2.65h2v-2.65h2.65v-2h-2.65V10.5z"
-      fill="#000"
       fillRule="evenodd"
     />
   </svg>

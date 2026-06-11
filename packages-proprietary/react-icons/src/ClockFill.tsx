@@ -5,7 +5,6 @@ const SvgClockFill = (props: SVGProps<SVGSVGElement>) => (
     <path
       clipRule="evenodd"
       d="M12 23c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11M11 5v7.414l3.293 3.293 1.414-1.414L13 11.586V5z"
-      fill="#202020"
       fillRule="evenodd"
     />
   </svg>

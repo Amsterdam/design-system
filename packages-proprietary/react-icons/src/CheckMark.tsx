@@ -5,7 +5,6 @@ const SvgCheckMark = (props: SVGProps<SVGSVGElement>) => (
     <path
       clipRule="evenodd"
       d="M8.642 17.032 20.014 4 21.5 5.304 8.677 20 2.5 13.243l1.456-1.338z"
-      fill="#202020"
       fillRule="evenodd"
     />
   </svg>

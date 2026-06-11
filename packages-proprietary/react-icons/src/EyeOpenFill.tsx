@@ -5,7 +5,6 @@ const SvgEyeOpenFill = (props: SVGProps<SVGSVGElement>) => (
     <path
       clipRule="evenodd"
       d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8m15 0a4 4 0 1 1-8 0 4 4 0 0 1 8 0"
-      fill="#202020"
       fillRule="evenodd"
     />
   </svg>
