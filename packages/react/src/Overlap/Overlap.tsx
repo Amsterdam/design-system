@@ -11,6 +11,8 @@ import { forwardRef } from 'react'
 export type OverlapProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
 /**
+ * Displays two or more components on top of each other.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-overlap--docs Overlap docs at Amsterdam Design System}
  */
 export const Overlap = forwardRef(

@@ -21,6 +21,9 @@ export type MenuProps = {
   readonly inWideWindow?: boolean
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
+/**
+ * A primary navigation leading to key areas of a website.
+ */
 export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
   ({ accessibleName = 'Hoofdmenu', children, className, inWideWindow, ...restProps }, ref) => {
     // In a medium or narrow window, the Menu is a child of the `nav` of Page Header.

@@ -1,20 +1,40 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as ImageSliderStories from "./ImageSlider.stories.tsx";
-import README from "../../../../packages/css/src/components/image-slider/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/image-slider.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={ImageSliderStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={ImageSliderStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use an Image Slider for a series of images that belong together.
+
+### When not to use
+
+Assume that some or many users will not navigate between the slides and only see the first image.
+Display all images separately if you want each of them to receive attention.
+
+### How to use
+
+Provide at least 2 images and at most 5.
+Feature the most essential image first.
+
+A full-width Image Slider should run from one edge of the [Page](/docs/components-containers-page--docs) container to the other; position it next to a Grid, not in a Cell spanning all columns.
+Smaller sliders are fine in a Grid Cell.
 
 ## Examples
 
@@ -33,6 +53,18 @@ Keep captions short – they take up vertical space, especially on mobile.
 Consistent caption lengths across images help avoid large layout shifts when sliding.
 
 <Canvas of={ImageSliderStories.WithCaptions} />
+
+## Design
+
+The first or selected image shows at its maximum size.
+Every image displays a thumbnail at about 20% of its width.
+Users can use buttons, thumbnails, or swiping to navigate between the images.
+The buttons are not displayed on a narrow touch device.
+The images do not slide automatically.
+
+## See also
+
+- [Image](/docs/components-media-image--docs) – guidelines for individual images.
 
 ## Design tokens
 

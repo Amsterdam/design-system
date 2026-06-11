@@ -22,6 +22,8 @@ export type PageProps = {
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 
 /**
+ * Contains the entire website.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page--docs Page docs at Amsterdam Design System}
  */
 export const Page = forwardRef(

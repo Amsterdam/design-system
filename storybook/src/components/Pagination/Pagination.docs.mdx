@@ -1,22 +1,40 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as PaginationStories from "./Pagination.stories.tsx";
-import README from "../../../../packages/css/src/components/pagination/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/pagination.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={PaginationStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={PaginationStories} />
 
 <Primary />
 
 <Controls />
 
-## How to use
+## Usage guidelines
+
+### When to use
+
+Use Pagination only when an overview list is too long to display on a single page.
+Place Pagination below the overview list.
+
+Pagination can be combined with a count at the top of the page indicating “Page # of ##.”
+
+### When not to use
+
+Pagination should not be displayed if there is only one page.
+
+### How to use
+
+Make sure that the visible and accessible labels for the 'previous' and 'next' buttons convey the same meaning at all times – e.g. don't update one and forget the other.
+
+## Examples
 
 ### Specifying a link template
 
@@ -45,6 +63,11 @@ const LinkComponent = (props) => <NextLink {...props} />
 
 return <Pagination linkComponent={LinkComponent} />
 ```
+
+## Features
+
+Start a page with an overview list at the top after changing the page.
+Redirect users to the first page if they enter a URL with a page number that doesn’t exist.
 
 ## Design tokens
 

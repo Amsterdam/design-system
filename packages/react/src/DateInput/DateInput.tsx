@@ -19,6 +19,8 @@ export type DateInputProps = {
 } & Readonly<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>
 
 /**
+ * Helps users enter a date.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-date-input--docs Date Input docs at Amsterdam Design System}
  */
 export const DateInput = forwardRef(

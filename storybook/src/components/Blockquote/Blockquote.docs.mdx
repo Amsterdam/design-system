@@ -1,20 +1,34 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as BlockquoteStories from "./Blockquote.stories.tsx";
-import README from "../../../../packages/css/src/components/blockquote/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/blockquote.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={BlockquoteStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={BlockquoteStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Quote someone’s literal written or oral text.
+
+Give a Blockquote a width of half or a whole column of text.
+Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace around it.
+
+### How to use
+
+If the citation is in a language other than that of the surrounding content, indicate so through the `lang` attribute.
 
 ## Examples
 
@@ -24,6 +38,10 @@ Use the inverse colour if the Blockquote sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
 <Canvas of={BlockquoteStories.InverseColour} />
+
+## Features
+
+The component adds the correct quotation marks.
 
 ## See also
 

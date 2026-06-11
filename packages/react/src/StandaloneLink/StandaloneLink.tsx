@@ -24,6 +24,8 @@ export type StandaloneLinkProps = {
 } & Readonly<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>>
 
 /**
+ * A navigation element that is separated from the text around it.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-standalone-link--docs Standalone Link docs at Amsterdam Design System}
  */
 export const StandaloneLink = forwardRef(

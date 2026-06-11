@@ -23,6 +23,9 @@ export const argTypes = {
   className: {
     table: { disable: true },
   },
+  defaultValue: { control: false },
+  onChange: { control: false },
+  onSubmit: { control: false },
   style: {
     table: { disable: true },
   },
@@ -69,6 +72,9 @@ export const parameters = {
     codePanel: true,
     controls: {
       sort: 'alpha', // Sorts controls in the Controls doc block – https://github.com/storybookjs/storybook/issues/25386#issuecomment-1905468177
+    },
+    toc: {
+      headingSelector: 'h2, h3',
     },
   },
   html: {

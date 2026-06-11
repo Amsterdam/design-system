@@ -75,7 +75,7 @@ export const EndAlignASingleChildRtl: Story = {
     dir: 'rtl',
   },
   argTypes: {
-    dir: { table: { disable: true } },
+    dir: { control: false }, // Set by this story.
   },
 }
 

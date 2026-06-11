@@ -16,6 +16,8 @@ export type PasswordInputProps = {
 >
 
 /**
+ * Helps users enter a password.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-password-input--docs Password Input docs at Amsterdam Design System}
  */
 export const PasswordInput = forwardRef(

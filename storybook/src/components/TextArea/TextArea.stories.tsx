@@ -27,9 +27,6 @@ const meta = {
       },
       description: 'The width, expressed in the average number of characters.',
     },
-    defaultValue: {
-      table: { disable: true },
-    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },

@@ -45,6 +45,8 @@ export type ButtonProps = {
   (IconButtonProps | TextButtonProps)
 
 /**
+ * Allows the user to perform an action or operate the interface.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-buttons-button--docs Button docs at Amsterdam Design System}
  */
 export const Button = forwardRef(

@@ -28,6 +28,8 @@ export type LabelProps = {
   Readonly<PropsWithChildren<LabelHTMLAttributes<HTMLLabelElement>>>
 
 /**
+ * Describes a form control.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-label--docs Label docs at Amsterdam Design System}
  */
 export const Label = forwardRef(
