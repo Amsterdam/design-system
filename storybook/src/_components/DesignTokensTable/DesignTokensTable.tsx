@@ -26,10 +26,6 @@ type DesignTokensTableRootProps = {
   readonly tokens: Tokens
 } & Readonly<HTMLAttributes<HTMLDivElement>>
 
-/**
- * Compound component that renders a design token JSON file as a three-column table
- * (CSS variable name, value, visual example).
- */
 const DesignTokensTableRoot = ({
   className,
   exclude,
@@ -111,6 +107,9 @@ const DesignTokensTableRoot = ({
 
 DesignTokensTableRoot.displayName = 'DesignTokensTable'
 
+/**
+ * Renders a design token JSON file as a three-column table (CSS variable name, value, visual example).
+ */
 export const DesignTokensTable = Object.assign(DesignTokensTableRoot, {
   Row: DesignTokensTableRow,
 })
