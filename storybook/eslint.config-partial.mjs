@@ -1,4 +1,5 @@
 import * as mdx from 'eslint-plugin-mdx'
+import perfectionist from 'eslint-plugin-perfectionist'
 import storybook from 'eslint-plugin-storybook'
 
 import { reactPreset } from '../packages/react/eslint.config-partial.mjs'
@@ -24,6 +25,15 @@ export default [
     processor: mdx.createRemarkProcessor({
       lintCodeBlocks: true,
     }),
+  },
+  {
+    name: 'amsterdam-design-system/mdx-imports',
+
+    files: ['**/*.mdx'],
+    plugins: { perfectionist },
+    rules: {
+      'perfectionist/sort-imports': ['error', { order: 'asc', type: 'natural' }],
+    },
   },
   {
     ...mdx.flatCodeBlocks,
