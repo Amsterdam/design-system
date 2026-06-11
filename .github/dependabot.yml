@@ -53,3 +53,18 @@ updates:
       # fix lands: https://github.com/eps1lon/dom-accessibility-api/issues/1087
       - dependency-name: "jsdom"
         versions: [">=27"]
+  - package-ecosystem: "pip"
+    directory: "/.github/scripts"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 1 # Wait for one day after release before updating a dependency
+    groups:
+      patch-and-minor-python:
+        applies-to: "version-updates"
+        update-types:
+          - "patch"
+          - "minor"
+    commit-message:
+      prefix: chore
+      include: scope
