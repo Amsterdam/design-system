@@ -13,9 +13,7 @@ const meta = {
   title: 'Components/Containers/Dialog',
   component: Dialog,
   argTypes: {
-    footer: {
-      table: { disable: true },
-    },
+    footer: { control: false }, // A React element has no usable controls panel widget.
     heading: {
       description: 'The text for the heading.',
     },

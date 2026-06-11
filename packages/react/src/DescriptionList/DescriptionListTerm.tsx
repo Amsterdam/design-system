@@ -10,6 +10,11 @@ import { forwardRef } from 'react'
 
 export type DescriptionListTermProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
+/**
+ * The term or label in a Description List.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-description-list--docs Description List docs at Amsterdam Design System}
+ */
 export const DescriptionListTerm = forwardRef(
   ({ children, className, ...restProps }: DescriptionListTermProps, ref: ForwardedRef<HTMLElement>) => (
     <dt {...restProps} className={clsx('ams-description-list__term', className)} ref={ref}>

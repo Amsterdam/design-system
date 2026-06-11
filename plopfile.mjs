@@ -13,11 +13,6 @@ export default function (plop) {
         type: 'add',
       },
       {
-        path: 'packages/css/src/components/{{kebabCase name}}/README.md',
-        templateFile: 'plop-templates/style.docs.md.hbs',
-        type: 'add',
-      },
-      {
         path: 'packages/css/src/components/index.scss',
         pattern: `/* Append here */`,
         template: `@use "{{kebabCase name}}/{{kebabCase name}}";`,
@@ -31,11 +26,6 @@ export default function (plop) {
       {
         path: 'packages/react/src/{{pascalCase name}}/{{pascalCase name}}.test.tsx',
         templateFile: 'plop-templates/react.test.tsx.hbs',
-        type: 'add',
-      },
-      {
-        path: 'packages/react/src/{{pascalCase name}}/README.md',
-        templateFile: 'plop-templates/react.docs.md.hbs',
         type: 'add',
       },
       {
@@ -71,6 +61,11 @@ export default function (plop) {
       {
         message: "component's name",
         name: 'name',
+        type: 'input',
+      },
+      {
+        message: 'one-sentence description (rendered in the docs page and IDE tooltips)',
+        name: 'description',
         type: 'input',
       },
       {

@@ -1,22 +1,31 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as DescriptionListStories from "./DescriptionList.stories.tsx";
-import README from "../../../../packages/css/src/components/description-list/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/description-list.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={DescriptionListStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={DescriptionListStories} />
 
 <Primary />
 
 <Controls />
 
+## Usage guidelines
+
 ## Examples
+
+### Orientation
+
+Resize the following example to see the Description List adapt its layout to the available width.
+
+<Canvas of={DescriptionListStories.Orientation} />
 
 ### Multiple descriptions
 
@@ -50,6 +59,16 @@ Use the inverse colour if the Description List sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
 <Canvas of={DescriptionListStories.InverseColour} />
+
+## Design
+
+The terms and descriptions stack vertically by default.
+They sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough — at least `32rem`.
+
+The column for the terms is as wide as the longest term, without wrapping.
+Its width can be adjusted to ‘large’ (50%), ‘medium’ (33%), or ‘small’ (20%), which also allows the terms to wrap.
+
+The term is set in bold text.
 
 ## See also
 

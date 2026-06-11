@@ -13,6 +13,11 @@ export type TableOfContentsLinkProps = {
   readonly label: string
 } & Readonly<AnchorHTMLAttributes<HTMLAnchorElement>>
 
+/**
+ * A link to a section of the current page within a Table of Contents.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-table-of-contents--docs Table of Contents docs at Amsterdam Design System}
+ */
 export const TableOfContentsLink = forwardRef(
   ({ children, className, label, ...restProps }: TableOfContentsLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
     <li className="ams-table-of-contents__item">

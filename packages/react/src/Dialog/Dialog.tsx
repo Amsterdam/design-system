@@ -44,6 +44,8 @@ const DialogRoot = forwardRef(
 DialogRoot.displayName = 'Dialog'
 
 /**
+ * A popup window in which the user must perform an action to proceed.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-dialog--docs Dialog docs at Amsterdam Design System}
  */
 export const Dialog = Object.assign(DialogRoot, {

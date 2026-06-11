@@ -1,28 +1,57 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as DateInputStories from "./DateInput.stories.tsx";
-import README from "../../../../packages/css/src/components/date-input/README.md?raw";
 import tokens from "../../../../packages-proprietary/tokens/src/components/ams/date-input.tokens.json";
 
 import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={DateInputStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={DateInputStories} />
 
 <Primary />
 
 <Controls />
 
-## Asking for memorable or easy to find dates
+## Usage guidelines
+
+### When to use
+
+Use a Date Input when the user must enter a calendar date and the date picker provided by the browser is appropriate.
+
+### When not to use
 
 When asking for a date that is easy to remember or find, like a birthday or passport expiration date,
 use a Field Set with separate Text Inputs for day, month, and year.
 This approach is easier to use than using a Date Input component.
 
 For more information on this pattern, see the [gov.uk](https://design-system.service.gov.uk/components/date-input/) and [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/wanneer-welk-form-element/iedereen-kan-invullen) documentation.
+
+Avoid disabling input fields.
+They cause usability and accessibility problems.
+Disabled fields are often skipped by screen readers.
+This makes it hard for users who rely on assistive technologies to understand the form’s content.
+They are not included in form submissions, which can lead to incomplete or missing data.
+
+Alternatives:
+
+1. Use the `readonly` attribute.
+   This makes a field uneditable but keeps it accessible and included in form submissions.
+2. Display data as plain text or within a non-input element like a `span` or `div`.
+3. Use conditional logic to hide or show fields based on user interaction.
+   This ensures all necessary fields are accessible and editable when needed.
+4. Use a label or text to explain why a field is not editable if you must disable it temporarily.
+   This helps the user understand the context.
+
+### How to use
+
+Wrap a Date Input in a Field to associate it with a Label, description, and Error Message.
+
+## Examples
 
 ### Memorable date
 
@@ -34,13 +63,11 @@ To show validation errors, add `invalid` and an [Error Message](/docs/components
 Make sure to connect the Error Message to the Field Set, otherwise this won’t be read by a screen reader.
 Additionally, apply the `invalid` prop to the Text Inputs to visually indicate the error.
 Only use the `invalid` prop on Text Inputs that have errors.
-For example, only mark the 'year' input as invalid if the year is not provided.
+For example, only mark the ‘year’ input as invalid if the year is not provided.
 
 See the [gov.uk](https://design-system.service.gov.uk/components/date-input/#error-messages) documentation on validation for this pattern.
 
 <Canvas of={DateInputStories.MemorableDateWithValidation} />
-
-## Examples of the Date Input
 
 ### Date and time
 
@@ -65,23 +92,6 @@ To highlight the error even more, the parent [Field](/docs/components-forms-fiel
 A field that can not (yet) be used is indicated with a grey border.
 It will not respond to interactions, e.g. with the mouse or keyboard.
 
-Avoid disabling input fields.
-They cause usability and accessibility problems.
-
-Disabled fields are often skipped by screen readers.
-This makes it hard for the user who rely on assistive technologies to understand the form’s content.
-They are not included in form submissions, which can lead to incomplete or missing data.
-
-Alternatives:
-
-1. Use the `readonly` attribute.
-   This makes a field uneditable but keeps it accessible and included in form submissions.
-2. Display data as plain text or within a non-input element like a `span` or `div`.
-3. Use conditional logic to hide or show fields based on user interaction.
-   This ensures all necessary fields are accessible and editable when needed.
-4. Use a label or text to explain why a field is not editable if you must disable it temporarily.
-   This helps the user understand the context.
-
 <Canvas of={DateInputStories.Disabled} />
 
 ### In a Field
@@ -101,6 +111,19 @@ If the Date Input can become invalid, add an Error Message and its `id` to the `
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 <Canvas of={DateInputStories.InAFieldWithValidation} />
+
+## Design
+
+This component uses a native date input, which is styled differently in different browsers and operating systems.
+Recreating the native functionality is quite difficult and prone to accessibility errors, which is why we’ve chosen not to do that.
+This does mean that this component does not look identical on all browsers and operating systems.
+
+## See also
+
+- [Calendar](/docs/components-navigation-calendar--docs) – navigate between dates using a calendar view.
+- [Field](/docs/components-forms-field--docs) – wraps a single input with its Label, description, and Error Message.
+- [Field Set](/docs/components-forms-field-set--docs) – use with three Text Inputs for memorable dates instead of a Date Input.
+- [Time Input](/docs/components-forms-time-input--docs) – the counterpart for entering a time.
 
 ## Design tokens
 

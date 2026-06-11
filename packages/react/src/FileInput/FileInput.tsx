@@ -11,6 +11,8 @@ import { forwardRef } from 'react'
 export type FileInputProps = InputHTMLAttributes<HTMLInputElement>
 
 /**
+ * Allows the user to upload one or more files from their device.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-input--docs File Input docs at Amsterdam Design System}
  */
 export const FileInput = forwardRef(

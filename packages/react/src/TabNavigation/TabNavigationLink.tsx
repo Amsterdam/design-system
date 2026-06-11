@@ -22,6 +22,11 @@ export type TabNavigationLinkProps = {
   readonly linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
 } & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
 
+/**
+ * A tab link within a Tab Navigation.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-tab-navigation--docs Tab Navigation docs at Amsterdam Design System}
+ */
 export const TabNavigationLink = forwardRef(
   (
     { children, className, icon, linkComponent, ...restProps }: TabNavigationLinkProps,

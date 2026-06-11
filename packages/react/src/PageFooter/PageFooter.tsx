@@ -25,6 +25,8 @@ const PageFooterRoot = forwardRef(
 PageFooterRoot.displayName = 'PageFooter'
 
 /**
+ * Provides service information at the bottom of every page.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page-footer--docs Page Footer docs at Amsterdam Design System}
  */
 export const PageFooter = Object.assign(PageFooterRoot, {

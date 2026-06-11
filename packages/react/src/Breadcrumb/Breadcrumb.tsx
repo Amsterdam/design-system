@@ -42,6 +42,8 @@ const BreadcrumbRoot = forwardRef(
 BreadcrumbRoot.displayName = 'Breadcrumb'
 
 /**
+ * Shows the location of the page within the hierarchy of a website and allows navigating between levels.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-breadcrumb--docs Breadcrumb docs at Amsterdam Design System}
  */
 export const Breadcrumb = Object.assign(BreadcrumbRoot, { Link: BreadcrumbLink })

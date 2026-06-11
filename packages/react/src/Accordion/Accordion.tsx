@@ -50,6 +50,8 @@ const AccordionRoot = forwardRef(
 AccordionRoot.displayName = 'Accordion'
 
 /**
+ * A list of headings that each show or hide associated content.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-accordion--docs Accordion docs at Amsterdam Design System}
  */
 export const Accordion = Object.assign(AccordionRoot, { Section: AccordionSection })

@@ -11,6 +11,8 @@ import { forwardRef } from 'react'
 export type CallToActionLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 /**
+ * A link that stands out visually and encourages the user to take a specific action.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-call-to-action-link--docs CallToActionLink docs at Amsterdam Design System}
  */
 export const CallToActionLink = forwardRef(

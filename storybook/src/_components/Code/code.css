@@ -6,8 +6,10 @@
 /*  Replicates the styles of the Code preview in Storybook Docs */
 ._ams-code {
   background-color: rgb(247 250 252);
-  border: 1px solid rgb(236 244 249);
+  border-color: rgb(236 244 249);
   border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
   color: rgb(46 52 56 / 90%);
   display: inline-block;
 

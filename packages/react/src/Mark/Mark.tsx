@@ -11,6 +11,8 @@ import { forwardRef } from 'react'
 export type MarkProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 /**
+ * Highlights a text fragment to draw the reader's attention to it.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-text-mark--docs Mark docs at Amsterdam Design System}
  */
 export const Mark = forwardRef(({ children, className, ...restProps }: MarkProps, ref: ForwardedRef<HTMLElement>) => (

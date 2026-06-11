@@ -19,6 +19,8 @@ export type ImageProps = {
   Readonly<Omit<ImgHTMLAttributes<HTMLImageElement>, 'children'>>
 
 /**
+ * Displays an image.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image--docs Image docs at Amsterdam Design System}
  */
 export const Image = forwardRef(

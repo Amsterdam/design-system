@@ -10,6 +10,11 @@ import { forwardRef } from 'react'
 
 export type BreadcrumbLinkProps = AnchorHTMLAttributes<HTMLAnchorElement>
 
+/**
+ * One step in the breadcrumb trail, linking to a page in the hierarchy.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-breadcrumb--docs Breadcrumb docs at Amsterdam Design System}
+ */
 export const BreadcrumbLink = forwardRef(
   ({ children, className, ...restProps }: BreadcrumbLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
     <li className="ams-breadcrumb__item">
