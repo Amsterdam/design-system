@@ -7,5 +7,5 @@ contact_links:
     url: https://github.com/Amsterdam/design-system/discussions
     about: Use GitHub Discussions for questions, ideas, and general feedback.
   - name: Contact the design system team
-    url: mailto:designsystem@amsterdam.nl
-    about: For design or UX questions, email the Amsterdam Design System team.
+    url: https://github.com/Amsterdam/design-system/blob/develop/CONTRIBUTING.md
+    about: For design or UX questions, email designsystem@amsterdam.nl.
