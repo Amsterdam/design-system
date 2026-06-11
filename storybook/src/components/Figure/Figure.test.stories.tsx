@@ -12,7 +12,7 @@ import { default as figureMeta } from './Figure.stories'
 const meta = {
   ...figureMeta,
   title: 'Components/Media/Figure',
-} satisfies Meta<typeof Figure.Caption>
+} satisfies Meta<typeof Figure>
 
 export default meta
 

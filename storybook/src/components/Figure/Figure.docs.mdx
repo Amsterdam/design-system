@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/figure.tokens.json";
 
 import * as FigureStories from "./Figure.stories.tsx";
+import * as FigureCaptionStories from "./FigureCaption.stories.tsx";
 
 <Meta of={FigureStories} />
 
@@ -15,7 +16,13 @@ import * as FigureStories from "./Figure.stories.tsx";
 
 <Primary />
 
-<Controls />
+## Subcomponents
+
+### Caption
+
+<Canvas of={FigureCaptionStories.Caption} />
+
+<Controls of={FigureCaptionStories.Caption} />
 
 ## Examples
 
