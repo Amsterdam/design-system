@@ -38,6 +38,9 @@ export const LearnableIcons: Set<IconName> = new Set([
   'PrintFillIcon',
   'PrintIcon',
   'RedoIcon',
+  'RefreshIcon',
+  'RotateClockwiseIcon',
+  'RotateCounterClockwiseIcon',
   'SaveFillIcon',
   'SaveIcon',
   'ShareIcon',
@@ -47,6 +50,8 @@ export const LearnableIcons: Set<IconName> = new Set([
   'UserAccountFillIcon',
   'UserAccountIcon',
   'WiFiIcon',
+  'ZoomInIcon',
+  'ZoomOutIcon',
 ])
 
 export const BrandIcons: Set<IconName> = new Set([
