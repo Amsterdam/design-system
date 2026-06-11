@@ -6,6 +6,8 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/tab-navigation.tokens.json";
 
 import * as TabNavigationStories from "./TabNavigation.stories.tsx";
+import * as TabNavigationLinkStories from "./TabNavigationLink.stories.tsx";
+import * as TabNavigationListStories from "./TabNavigationList.stories.tsx";
 
 <Meta of={TabNavigationStories} />
 
@@ -16,6 +18,18 @@ import * as TabNavigationStories from "./TabNavigation.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Link
+
+<Canvas of={TabNavigationLinkStories.Link} />
+
+<Controls of={TabNavigationLinkStories.Link} />
+
+### List
+
+<Canvas of={TabNavigationListStories.List} />
 
 ## Usage guidelines
 

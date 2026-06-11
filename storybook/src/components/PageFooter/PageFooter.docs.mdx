@@ -6,6 +6,9 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/page-footer.tokens.json";
 
 import * as PageFooterStories from "./PageFooter.stories.tsx";
+import * as PageFooterMenuStories from "./PageFooterMenu.stories.tsx";
+import * as PageFooterMenuLinkStories from "./PageFooterMenuLink.stories.tsx";
+import * as PageFooterSpotlightStories from "./PageFooterSpotlight.stories.tsx";
 
 <Meta of={PageFooterStories} />
 
@@ -14,6 +17,22 @@ import * as PageFooterStories from "./PageFooter.stories.tsx";
 <Description of={PageFooterStories} />
 
 <Primary />
+
+## Subcomponents
+
+### Menu
+
+<Canvas of={PageFooterMenuStories.Menu} />
+
+<Controls of={PageFooterMenuStories.Menu} />
+
+### Menu Link
+
+<Canvas of={PageFooterMenuLinkStories.MenuLink} />
+
+### Spotlight
+
+<Canvas of={PageFooterSpotlightStories.Spotlight} />
 
 ## Usage guidelines
 

@@ -6,6 +6,8 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/select.tokens.json";
 
 import * as SelectStories from "./Select.stories.tsx";
+import * as SelectGroupStories from "./SelectGroup.stories.tsx";
+import * as SelectOptionStories from "./SelectOption.stories.tsx";
 
 <Meta of={SelectStories} />
 
@@ -16,6 +18,16 @@ import * as SelectStories from "./Select.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Group
+
+<Canvas of={SelectGroupStories.Group} />
+
+### Option
+
+<Canvas of={SelectOptionStories.Option} />
 
 ## Usage guidelines
 

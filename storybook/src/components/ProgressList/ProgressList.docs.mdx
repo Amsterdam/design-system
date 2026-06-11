@@ -7,6 +7,8 @@ import tokens from "#tokens/components/ams/progress-list.tokens.json";
 
 import * as ProgressListStories from "./ProgressList.stories.tsx";
 import * as ProgressListStepStories from "./ProgressListStep.stories.tsx";
+import * as ProgressListSubstepStories from "./ProgressListSubstep.stories.tsx";
+import * as ProgressListSubstepsStories from "./ProgressListSubsteps.stories.tsx";
 
 <Meta of={ProgressListStories} />
 
@@ -27,6 +29,16 @@ Each step in the list has a heading, a status, and optionally collapsible conten
 <Canvas of={ProgressListStepStories.Step} />
 
 <Controls of={ProgressListStepStories.Step} />
+
+### Substeps
+
+<Canvas of={ProgressListSubstepsStories.Substeps} />
+
+### Substep
+
+<Canvas of={ProgressListSubstepStories.Substep} />
+
+<Controls of={ProgressListSubstepStories.Substep} />
 
 ## Usage guidelines
 

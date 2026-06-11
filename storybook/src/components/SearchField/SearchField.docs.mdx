@@ -6,6 +6,8 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/search-field.tokens.json";
 
 import * as SearchFieldStories from "./SearchField.stories.tsx";
+import * as SearchFieldButtonStories from "./SearchFieldButton.stories.tsx";
+import * as SearchFieldInputStories from "./SearchFieldInput.stories.tsx";
 
 <Meta of={SearchFieldStories} />
 
@@ -16,6 +18,20 @@ import * as SearchFieldStories from "./SearchField.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Button
+
+<Canvas of={SearchFieldButtonStories.Button} />
+
+<Controls of={SearchFieldButtonStories.Button} />
+
+### Input
+
+<Canvas of={SearchFieldInputStories.Input} />
+
+<Controls of={SearchFieldInputStories.Input} />
 
 ## Usage guidelines
 

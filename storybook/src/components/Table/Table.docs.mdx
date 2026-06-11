@@ -6,7 +6,13 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/table.tokens.json";
 
 import * as TableStories from "./Table.stories.tsx";
+import * as TableBodyStories from "./TableBody.stories.tsx";
+import * as TableCaptionStories from "./TableCaption.stories.tsx";
 import * as TableCellStories from "./TableCell.stories.tsx";
+import * as TableFooterStories from "./TableFooter.stories.tsx";
+import * as TableHeaderStories from "./TableHeader.stories.tsx";
+import * as TableHeaderCellStories from "./TableHeaderCell.stories.tsx";
+import * as TableRowStories from "./TableRow.stories.tsx";
 
 <Meta of={TableStories} />
 
@@ -27,6 +33,32 @@ Apply the same value to all cells in the column and the matching `Table.HeaderCe
 <Canvas of={TableCellStories.Cell} />
 
 <Controls of={TableCellStories.Cell} />
+
+### Body
+
+<Canvas of={TableBodyStories.Body} />
+
+### Caption
+
+<Canvas of={TableCaptionStories.Caption} />
+
+### Footer
+
+<Canvas of={TableFooterStories.Footer} />
+
+### Header
+
+<Canvas of={TableHeaderStories.Header} />
+
+### Header Cell
+
+<Canvas of={TableHeaderCellStories.HeaderCell} />
+
+<Controls of={TableHeaderCellStories.HeaderCell} />
+
+### Row
+
+<Canvas of={TableRowStories.Row} />
 
 ## Usage guidelines
 

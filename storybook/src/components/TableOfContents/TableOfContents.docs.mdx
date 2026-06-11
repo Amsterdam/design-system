@@ -6,6 +6,8 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/table-of-contents.tokens.json";
 
 import * as TableOfContentsStories from "./TableOfContents.stories.tsx";
+import * as TableOfContentsLinkStories from "./TableOfContentsLink.stories.tsx";
+import * as TableOfContentsListStories from "./TableOfContentsList.stories.tsx";
 
 <Meta of={TableOfContentsStories} />
 
@@ -16,6 +18,18 @@ import * as TableOfContentsStories from "./TableOfContents.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Link
+
+<Canvas of={TableOfContentsLinkStories.Link} />
+
+<Controls of={TableOfContentsLinkStories.Link} />
+
+### List
+
+<Canvas of={TableOfContentsListStories.List} />
 
 ## Usage guidelines
 

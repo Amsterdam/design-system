@@ -6,6 +6,9 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/description-list.tokens.json";
 
 import * as DescriptionListStories from "./DescriptionList.stories.tsx";
+import * as DescriptionListDescriptionStories from "./DescriptionListDescription.stories.tsx";
+import * as DescriptionListSectionStories from "./DescriptionListSection.stories.tsx";
+import * as DescriptionListTermStories from "./DescriptionListTerm.stories.tsx";
 
 <Meta of={DescriptionListStories} />
 
@@ -16,6 +19,20 @@ import * as DescriptionListStories from "./DescriptionList.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Description
+
+<Canvas of={DescriptionListDescriptionStories.Description} />
+
+### Section
+
+<Canvas of={DescriptionListSectionStories.Section} />
+
+### Term
+
+<Canvas of={DescriptionListTermStories.Term} />
 
 ## Usage guidelines
 

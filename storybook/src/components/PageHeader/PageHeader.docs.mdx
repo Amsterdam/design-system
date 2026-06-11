@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/page-header.tokens.json";
 
 import * as PageHeaderStories from "./PageHeader.stories.tsx";
+import * as PageHeaderMenuLinkStories from "./PageHeaderMenuLink.stories.tsx";
 
 <Meta of={PageHeaderStories} />
 
@@ -16,6 +17,14 @@ import * as PageHeaderStories from "./PageHeader.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Menu Link
+
+<Canvas of={PageHeaderMenuLinkStories.MenuLink} />
+
+<Controls of={PageHeaderMenuLinkStories.MenuLink} />
 
 ## Usage guidelines
 

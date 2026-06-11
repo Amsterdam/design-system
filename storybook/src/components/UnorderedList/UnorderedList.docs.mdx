@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/unordered-list.tokens.json";
 
 import * as UnorderedListStories from "./UnorderedList.stories.tsx";
+import * as UnorderedListItemStories from "./UnorderedListItem.stories.tsx";
 
 <Meta of={UnorderedListStories} />
 
@@ -16,6 +17,12 @@ import * as UnorderedListStories from "./UnorderedList.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Item
+
+<Canvas of={UnorderedListItemStories.Item} />
 
 ## Usage guidelines
 

@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/ordered-list.tokens.json";
 
 import * as OrderedListStories from "./OrderedList.stories.tsx";
+import * as OrderedListItemStories from "./OrderedListItem.stories.tsx";
 
 <Meta of={OrderedListStories} />
 
@@ -16,6 +17,12 @@ import * as OrderedListStories from "./OrderedList.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Item
+
+<Canvas of={OrderedListItemStories.Item} />
 
 ## Usage guidelines
 

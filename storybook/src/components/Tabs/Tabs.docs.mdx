@@ -6,6 +6,9 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/tabs.tokens.json";
 
 import * as TabsStories from "./Tabs.stories.tsx";
+import * as TabsButtonStories from "./TabsButton.stories.tsx";
+import * as TabsListStories from "./TabsList.stories.tsx";
+import * as TabsPanelStories from "./TabsPanel.stories.tsx";
 
 <Meta of={TabsStories} />
 
@@ -16,6 +19,24 @@ import * as TabsStories from "./Tabs.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Button
+
+<Canvas of={TabsButtonStories.Button} />
+
+<Controls of={TabsButtonStories.Button} />
+
+### List
+
+<Canvas of={TabsListStories.List} />
+
+### Panel
+
+<Canvas of={TabsPanelStories.Panel} />
+
+<Controls of={TabsPanelStories.Panel} />
 
 ## Usage guidelines
 

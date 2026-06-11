@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/grid.tokens.json";
 
 import * as GridStories from "./Grid.stories";
+import * as GridCellStories from "./GridCell.stories.tsx";
 
 <Meta of={GridStories} />
 
@@ -16,6 +17,14 @@ import * as GridStories from "./Grid.stories";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Cell
+
+<Canvas of={GridCellStories.Cell} />
+
+<Controls of={GridCellStories.Cell} />
 
 ## Usage guidelines
 

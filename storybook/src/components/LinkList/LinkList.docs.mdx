@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/link-list.tokens.json";
 
 import * as LinkListStories from "./LinkList.stories.tsx";
+import * as LinkListLinkStories from "./LinkListLink.stories.tsx";
 
 <Meta of={LinkListStories} />
 
@@ -14,6 +15,14 @@ import * as LinkListStories from "./LinkList.stories.tsx";
 <Description of={LinkListStories} />
 
 <Primary />
+
+## Subcomponents
+
+### Link
+
+<Canvas of={LinkListLinkStories.Link} />
+
+<Controls of={LinkListLinkStories.Link} />
 
 ## Usage guidelines
 
