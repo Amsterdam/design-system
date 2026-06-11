@@ -7,11 +7,22 @@ import type { AnchorHTMLAttributes, ForwardedRef, ReactElement, ReactNode } from
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { Children, cloneElement, forwardRef, isValidElement, useContext, useId, useRef, useState } from 'react'
+import {
+  Children,
+  cloneElement,
+  forwardRef,
+  isValidElement,
+  useContext,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from 'react'
 
 import { IconButton } from '../IconButton'
 import { TableOfContentsContext } from './TableOfContentsContext'
 import { TableOfContentsList } from './TableOfContentsList'
+import { TableOfContentsListContext } from './TableOfContentsListContext'
 
 export type TableOfContentsLinkProps = {
   /**
@@ -49,16 +60,24 @@ export const TableOfContentsLink = forwardRef(
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
     const { collapsible, hideAccessibleLabel, showAccessibleLabel } = useContext(TableOfContentsContext)
-    const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? false)
+    const collapsedByDefault = useContext(TableOfContentsListContext)
+    const listChild = findListChild(children)
+    const childListProps = listChild?.props as { collapsed?: boolean; id?: string } | undefined
+    const collapsedForThisLink = childListProps?.collapsed ?? collapsedByDefault
+    const expandedByDefault = defaultExpanded ?? !collapsedForThisLink
+    const [isExpanded, setIsExpanded] = useState(expandedByDefault)
+
+    useEffect(() => {
+      setIsExpanded(expandedByDefault)
+    }, [expandedByDefault])
 
     const panelId = useId()
     const buttonRef = useRef<HTMLButtonElement>(null)
     const itemRef = useRef<HTMLLIElement>(null)
 
-    const listChild = findListChild(children)
     const isExpandable = collapsible && !!listChild
     // Reuse a provided nested list id to keep aria-controls references stable.
-    const nestedListId = (listChild?.props as { id?: string } | undefined)?.id ?? panelId
+    const nestedListId = childListProps?.id ?? panelId
 
     // When collapsing, if focus is inside the subtree that's about to be hidden, move it to the toggle button.
     const moveFocusToToggleButton = (nextIsExpanded: boolean) => {

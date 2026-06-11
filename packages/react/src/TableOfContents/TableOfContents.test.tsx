@@ -136,11 +136,129 @@ describe('TableOfContents', () => {
       expect(item).toHaveClass('ams-table-of-contents__item--collapsed')
     })
 
+    it('honours list collapsed=false by expanding nested items by default', () => {
+      render(
+        <TableOfContents collapsible>
+          <TableOfContents.List collapsed={false}>
+            <TableOfContents.Link href="#a" label="A">
+              <TableOfContents.List>
+                <TableOfContents.Link href="#b" label="B">
+                  <TableOfContents.List>
+                    <TableOfContents.Link href="#b-1" label="B.1" />
+                  </TableOfContents.List>
+                </TableOfContents.Link>
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents>,
+      )
+
+      const buttons = screen.getAllByRole('button')
+
+      expect(buttons).toHaveLength(2)
+      expect(buttons[0]).toHaveAttribute('aria-expanded', 'true')
+      expect(buttons[1]).toHaveAttribute('aria-expanded', 'true')
+    })
+
+    it('lets nested lists override collapsed defaults', () => {
+      render(
+        <TableOfContents collapsible>
+          <TableOfContents.List collapsed={false}>
+            <TableOfContents.Link href="#a" label="A">
+              <TableOfContents.List>
+                <TableOfContents.Link href="#b" label="B">
+                  <TableOfContents.List collapsed>
+                    <TableOfContents.Link href="#b-1" label="B.1" />
+                  </TableOfContents.List>
+                </TableOfContents.Link>
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents>,
+      )
+
+      const buttons = screen.getAllByRole('button')
+
+      expect(buttons).toHaveLength(2)
+      expect(buttons[0]).toHaveAttribute('aria-expanded', 'true')
+      expect(buttons[1]).toHaveAttribute('aria-expanded', 'false')
+    })
+
+    it('re-applies nested collapsed overrides after rerender', () => {
+      const { rerender } = render(
+        <TableOfContents collapsible>
+          <TableOfContents.List collapsed={false}>
+            <TableOfContents.Link href="#a" label="A">
+              <TableOfContents.List>
+                <TableOfContents.Link href="#b" label="B">
+                  <TableOfContents.List>
+                    <TableOfContents.Link aria-current="page" href="#b-1" label="B.1" />
+                  </TableOfContents.List>
+                </TableOfContents.Link>
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents>,
+      )
+
+      let buttons = screen.getAllByRole('button')
+
+      expect(buttons).toHaveLength(2)
+      expect(buttons[0]).toHaveAttribute('aria-expanded', 'true')
+      expect(buttons[1]).toHaveAttribute('aria-expanded', 'true')
+
+      rerender(
+        <TableOfContents collapsible>
+          <TableOfContents.List collapsed={false}>
+            <TableOfContents.Link href="#a" label="A">
+              <TableOfContents.List>
+                <TableOfContents.Link href="#b" label="B">
+                  <TableOfContents.List collapsed>
+                    <TableOfContents.Link aria-current="page" href="#b-1" label="B.1" />
+                  </TableOfContents.List>
+                </TableOfContents.Link>
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents>,
+      )
+
+      buttons = screen.getAllByRole('button')
+
+      expect(buttons).toHaveLength(2)
+      expect(buttons[0]).toHaveAttribute('aria-expanded', 'true')
+      expect(buttons[1]).toHaveAttribute('aria-expanded', 'false')
+    })
+
+    it("honours collapsed on a link's direct nested list", () => {
+      render(
+        <TableOfContents collapsible>
+          <TableOfContents.List collapsed={false}>
+            <TableOfContents.Link href="#s2" label="S2">
+              <TableOfContents.List>
+                <TableOfContents.Link href="#s2-2" label="S2.2">
+                  <TableOfContents.List collapsed>
+                    <TableOfContents.Link aria-current="page" href="#s2-2-1" label="S2.2.1" />
+                  </TableOfContents.List>
+                </TableOfContents.Link>
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents>,
+      )
+
+      const buttons = screen.getAllByRole('button')
+
+      expect(buttons).toHaveLength(2)
+      expect(buttons[0]).toHaveAttribute('aria-expanded', 'true')
+      expect(buttons[1]).toHaveAttribute('aria-expanded', 'false')
+    })
+
     it('honours defaultExpanded', () => {
       render(
         <TableOfContents collapsible>
-          <TableOfContents.List>
-            <TableOfContents.Link defaultExpanded href="#a" label="A">
+          <TableOfContents.List collapsed={false}>
+            <TableOfContents.Link defaultExpanded={false} href="#a" label="A">
               <TableOfContents.List>
                 <TableOfContents.Link href="#a-1" label="A.1" />
               </TableOfContents.List>
@@ -151,8 +269,8 @@ describe('TableOfContents', () => {
 
       const button = screen.getByRole('button')
 
-      expect(button).toHaveAttribute('aria-expanded', 'true')
-      expect(button).toHaveAccessibleName('Verberg submenu van A')
+      expect(button).toHaveAttribute('aria-expanded', 'false')
+      expect(button).toHaveAccessibleName('Toon submenu van A')
     })
 
     it('toggles aria-expanded and the collapsed class on click', () => {
