@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgBirdHouseFill = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M12 11a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5" fill="#000" />
     <path
       clipRule="evenodd"

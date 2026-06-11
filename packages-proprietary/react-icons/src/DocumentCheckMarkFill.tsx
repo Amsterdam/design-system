@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgDocumentCheckMarkFill = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       clipRule="evenodd"
       d="M4 21.5h10.5l.044-.07-4.651-5.796 3.899-3.13 1.533 1.91L18 11.538V2.5H4zm3-13h8v-2H7zm5 4H7v-2h5z"

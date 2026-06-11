@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgMegaphoneFill = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="m22.398 14.596-1.362 1.463-2.52-2.347c.556-.382 1.01-.9 1.315-1.507zM23 9.414l-.001 2h-2.87a4 4 0 0 0 0-2zM22.398 6.231l-2.567 2.39a4 4 0 0 0-1.314-1.507l2.52-2.345z"
       fill="#000"

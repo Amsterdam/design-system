@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgLink = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M15.74 13.104a2.915 2.915 0 0 1-4.28 0 3.2 3.2 0 0 1-.554-.8l-1.882.786a5.3 5.3 0 0 0 1.009 1.52c1.97 2.082 5.165 2.082 7.135 0l2.854-3.014c1.97-2.08 1.97-5.454 0-7.535s-5.165-2.081-7.135 0l-.778.821 1.443 1.49.762-.804a2.915 2.915 0 0 1 4.281 0c1.182 1.248 1.182 3.273 0 4.521z"
       fill="#202020"

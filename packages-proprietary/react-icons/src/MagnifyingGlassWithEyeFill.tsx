@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgMagnifyingGlassWithEyeFill = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M10.096 2.5q.682.001 1.33.116c-.385.31-.72.632-1.007.937-.322.345-.6.688-.83 1.001a5.59 5.59 0 0 0-5.063 5.562c0 3.077 2.501 5.586 5.57 5.586a5.5 5.5 0 0 0 3.15-.985 5.4 5.4 0 0 0 1.438-1.443 5.6 5.6 0 0 0 .462-.802 6.4 6.4 0 0 0 2.233-.187 7.5 7.5 0 0 1-1.256 2.442l5.327 5.331-1.438 1.442-5.318-5.341a7.43 7.43 0 0 1-4.598 1.574c-4.193 0-7.596-3.413-7.596-7.617S5.903 2.5 10.096 2.5"
       fill="#000"

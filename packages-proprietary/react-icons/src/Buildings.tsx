@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgBuildings = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M4.25 7.5h2v2h-2zM6.25 11h-2v2h2zM6.25 14.5h-2v2h2zM9.75 7.5h-2v2h2zM7.75 11h2v2h-2zM7.75 14.5h2v2h-2zM14.25 11h2v2h-2zM14.25 14.5h2v2h-2zM19.75 11h-2v2h2zM19.75 14.5h-2v2h2z"
       fill="#202020"

@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgDuplicate = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M15 13.5h-2V11h-2.5V9H13V6.5h2V9h2.5v2H15z" fill="#202020" />
     <path
       clipRule="evenodd"

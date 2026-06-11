@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgCertificateFill = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       clipRule="evenodd"
       d="M4 22V2h16v11.464a4.34 4.34 0 0 0-2.73-.964c-2.305 0-4.27 1.813-4.27 4.167 0 1.02.375 1.946.985 2.662L12.875 22zM7 6h10v2H7zm7 4H7v2h7zm-7 4h4.79v2H7z"

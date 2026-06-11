@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgMapMarkerOnMapFill = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M12 10c.557 0 1.009-.448 1.009-1S12.557 8 12 8s-1.009.448-1.009 1 .452 1 1.009 1" fill="#000" />
     <path
       clipRule="evenodd"

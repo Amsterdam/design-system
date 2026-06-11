@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgPerson = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       clipRule="evenodd"
       d="M16.747 6.75a4.75 4.75 0 1 1-9.5 0 4.75 4.75 0 0 1 9.5 0m-4.75 2.75a2.75 2.75 0 1 0 0-5.5 2.75 2.75 0 0 0 0 5.5"

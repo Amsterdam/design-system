@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgCookie = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M9 8.481a1.501 1.501 0 1 1-3.002.002A1.501 1.501 0 0 1 9 8.481M12.75 13.237a1 1 0 1 0-.001-2.001 1 1 0 0 0 .001 2.001M10.25 14.74a2.5 2.5 0 0 1-2.5 2.502c-1.38 0-2.5-1.12-2.5-2.503a2.5 2.5 0 0 1 2.5-2.503c1.38 0 2.5 1.12 2.5 2.503M17 16.492a1.501 1.501 0 1 1-3.002.001A1.501 1.501 0 0 1 17 16.491"
       fill="#000"

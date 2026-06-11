@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgPlusCircle = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M11 11V6h2v5h5v2h-5v5h-2v-5H6v-2z" fill="#000" />
     <path
       clipRule="evenodd"

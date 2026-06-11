@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgClock = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M13 11.586V5h-2v7.414l3.293 3.293 1.414-1.414z" fill="#202020" />
     <path
       clipRule="evenodd"

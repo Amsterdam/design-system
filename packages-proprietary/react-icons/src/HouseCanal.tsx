@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgHouseCanal = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M8.1 11h2.5v2.5H8.1zM15.5 11H13v2.5h2.5zM13 16h2.5v2.5H13z" fill="#000" />
     <path
       clipRule="evenodd"

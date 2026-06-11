@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgSpeechBalloonNotification = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M21.5 5.021c0 1.669-1.343 3.021-3 3.021s-3-1.352-3-3.02c0-1.67 1.343-3.022 3-3.022s3 1.353 3 3.021"
       fill="#202020"

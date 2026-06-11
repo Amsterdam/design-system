@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgCityPass = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M4.5 16.5h6v-2h-6zM16.086 9.5l-3.934 3.934 1.414 1.414 3.934-3.934V14.5h2v-7h-7v2z" fill="#000" />
     <path
       clipRule="evenodd"

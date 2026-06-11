@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgPersonsWithEuroCoin = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M12.002 12.79c.844 0 1.601.348 2.163.896l-1.244 1.277c-.26-.253-.58-.39-.919-.39-.474 0-.953.294-1.222.788h2.069v1.784H10.78c.269.494.748.789 1.222.789.338 0 .66-.138.919-.391l1.244 1.277a3.1 3.1 0 0 1-2.163.896c-1.55 0-2.755-1.135-3.113-2.572h-.49v-1.783h.49c.358-1.436 1.563-2.571 3.113-2.571"
       fill="#000"

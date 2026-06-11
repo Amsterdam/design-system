@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgPenFill = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="m17.1 12.44-1.457-1.45-1.303 4.409-10.307 2.66 5.372-5.372a1.75 1.75 0 1 0-1.086-1.035l-5.473 5.473L5.57 6.667 9.999 5.37 8.542 3.92 9.968 2.5l8.558 8.52z"
       fill="#181818"

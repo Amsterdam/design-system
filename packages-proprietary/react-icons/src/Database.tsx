@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgDatabase = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="m8.371 17.365 1.867.225A1 1 0 0 1 10 19.576l-1.868-.225a1 1 0 0 1 .24-1.986M8.412 9.865l1.867.225a1 1 0 0 1-.238 1.986l-1.868-.225a1 1 0 0 1 .24-1.986"
       fill="#000"

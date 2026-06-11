@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgCalendarFill = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M17 2v2h4v3H3V4h4V2h2v2h6V2z" fill="#202020" />
     <path
       clipRule="evenodd"

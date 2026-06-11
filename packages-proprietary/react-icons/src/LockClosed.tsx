@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgLockClosed = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M13.25 14.65c0 .5-.293.931-.717 1.131L13 17.65h-2l.467-1.869a1.25 1.25 0 1 1 1.783-1.131" fill="#000" />
     <path
       clipRule="evenodd"

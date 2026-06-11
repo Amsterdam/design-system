@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgVolumeOff = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       clipRule="evenodd"
       d="m14 21.5-7-5H2.5v-9H7l7-5zm-6.36-12H4.5v5h3.14L12 17.613V6.387z"

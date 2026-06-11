@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgPrintFill = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M8.675 4.968h6.65v1.48h-6.65zM9.15 15.578h4.125v1.48H9.15z" fill="#000" />
     <path
       clipRule="evenodd"

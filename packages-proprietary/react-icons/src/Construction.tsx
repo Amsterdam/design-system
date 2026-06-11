@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgConstruction = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M14.063 4.5c0 1.104-.9 2-2.011 2-1.11 0-2.01-.896-2.01-2s.9-2 2.01-2 2.011.895 2.011 2" fill="#202020" />
     <path
       clipRule="evenodd"

@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgDocumentWithPencilFill = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="m20.106 5.12-2.648-2.204.47-.566c.3-.37.73-.59 1.21-.63h.13c.4 0 .78.13 1.09.39.73.6.84 1.69.23 2.43zM8.357 13.9l7.825-9.444 2.648 2.205-7.813 9.429-3.38 1.39.71-3.58z"
       fill="#202020"

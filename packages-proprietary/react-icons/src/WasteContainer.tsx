@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgWasteContainer = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       clipRule="evenodd"
       d="M14.248 2.03c-.53.52-.857 1.336-.396 2h-5.87a1 1 0 0 0-.99.86l-.868 4.39h10.291l-.578-2.924c.64.379 1.416.41 2-.087l.703 3.76L17.853 23H4.686L4 10.03l1.012-5.418a3 3 0 0 1 2.97-2.582zM6.621 21h9.298l.595-10.22H6.025z"

@@ -1,15 +1,7 @@
 import type { SVGProps } from 'react'
 
 const SvgPersonInWheelchair = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height={24}
-    width={24}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M10 6.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5M10.972 10.221V7.919H8.917v8.441h6.199l2.261 2.702c.35.419.969.49 1.406.164l2.056-1.535a1.02 1.02 0 0 0 .205-1.433 1.03 1.03 0 0 0-1.439-.204l-1.274.951-2.252-2.691h-5.107v-2.046h4.625c.568 0 1.028-.459 1.028-1.024s-.46-1.023-1.028-1.023z"
       fill="#202020"
