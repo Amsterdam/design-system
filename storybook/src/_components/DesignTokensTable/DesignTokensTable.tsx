@@ -108,7 +108,7 @@ const DesignTokensTableRoot = ({
 DesignTokensTableRoot.displayName = 'DesignTokensTable'
 
 /**
- * Renders a design token JSON file as a three-column table (CSS variable name, value, visual example).
+ * Renders a design token JSON file as a table with CSS variable name, value, and optional description/visual example columns.
  */
 export const DesignTokensTable = Object.assign(DesignTokensTableRoot, {
   Row: DesignTokensTableRow,
