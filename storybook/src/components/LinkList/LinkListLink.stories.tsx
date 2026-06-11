@@ -57,3 +57,17 @@ export const Link: Story = {
     icon: <HouseIcon />,
   },
 }
+
+export const ContrastColour: Story = {
+  args: {
+    ...Link.args,
+    color: 'contrast',
+  },
+}
+
+export const InverseColour: Story = {
+  args: {
+    ...Link.args,
+    color: 'inverse',
+  },
+}
