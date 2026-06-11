@@ -104,12 +104,12 @@
 }
 
 .ams-table-of-contents--collapsible {
-  --_ams-table-of-contents-toggle-column-size: calc(1em * var(--ams-table-of-contents-line-height));
+  --_ams-table-of-contents-toggle-column-inline-size: calc(1em * var(--ams-table-of-contents-line-height));
 }
 
 .ams-table-of-contents--collapsible .ams-table-of-contents__item {
   display: grid; /* Aligns labels of items with and without a toggle button. */
-  grid-template-columns: var(--_ams-table-of-contents-toggle-column-size) 1fr;
+  grid-template-columns: var(--_ams-table-of-contents-toggle-column-inline-size) 1fr;
 }
 
 .ams-table-of-contents--collapsible .ams-table-of-contents__link {
