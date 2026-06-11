@@ -103,13 +103,12 @@
   }
 }
 
-/* Use grid layout so labels of items without a toggle button align with labels of items that have one. */
 .ams-table-of-contents--collapsible {
   --_ams-table-of-contents-toggle-column-size: calc(1em * var(--ams-table-of-contents-line-height));
 }
 
 .ams-table-of-contents--collapsible .ams-table-of-contents__item {
-  display: grid;
+  display: grid; /* Aligns labels of items with and without a toggle button. */
   grid-template-columns: var(--_ams-table-of-contents-toggle-column-size) 1fr;
 }
 
@@ -118,6 +117,6 @@
 }
 
 .ams-table-of-contents--collapsible .ams-table-of-contents__item > .ams-table-of-contents__list {
-  grid-column: 1 / -1;
-  padding-inline-start: calc(var(--_ams-table-of-contents-toggle-column-size) + var(--ams-table-of-contents-item-gap));
+  grid-column: 2;
+  padding-inline-start: 0; /* override the nested-list rule */
 }
