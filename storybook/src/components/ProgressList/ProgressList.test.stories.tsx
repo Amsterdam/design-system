@@ -130,18 +130,26 @@ export const Test: Story = {
         </ProgressList.Step>
       </ProgressList>
 
-      {/* Collapsible, collapsed last step with substeps: connector hidden */}
+      {/* Collapsible steps with substeps: collapsed last step (connector hidden) and collapsed current step (dashed connector) */}
       <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="2026" status="completed">
           <Paragraph>Content for 2026.</Paragraph>
         </ProgressList.Step>
-        <ProgressList.Step heading="2027" status="current">
+        <ProgressList.Step defaultCollapsed hasSubsteps heading="2027" status="current">
           <Paragraph>Content for 2027.</Paragraph>
+          <ProgressList.Substeps>
+            <ProgressList.Substep status="completed">
+              <Paragraph>Substep one</Paragraph>
+            </ProgressList.Substep>
+            <ProgressList.Substep>
+              <Paragraph>Substep two</Paragraph>
+            </ProgressList.Substep>
+          </ProgressList.Substeps>
         </ProgressList.Step>
         <ProgressList.Step defaultCollapsed hasSubsteps heading="2028">
           <Paragraph>Content for 2028.</Paragraph>
           <ProgressList.Substeps>
-            <ProgressList.Substep status="completed">
+            <ProgressList.Substep>
               <Paragraph>Substep one</Paragraph>
             </ProgressList.Substep>
             <ProgressList.Substep>
