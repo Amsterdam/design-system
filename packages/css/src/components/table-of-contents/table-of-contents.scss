@@ -8,22 +8,21 @@
 @use "../../common/text-rendering" as *;
 
 .ams-table-of-contents {
-  display: flex;
-  flex-direction: column;
   font-family: var(--ams-table-of-contents-font-family);
   font-size: var(--ams-table-of-contents-font-size);
   font-weight: var(--ams-table-of-contents-font-weight);
-  gap: var(--ams-table-of-contents-gap);
   line-height: var(--ams-table-of-contents-line-height);
+}
+
+.ams-table-of-contents__heading {
+  margin-block-end: var(--ams-table-of-contents-heading-margin-block-end);
 }
 
 .ams-table-of-contents__list {
   @include reset-ul;
 
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: var(--ams-table-of-contents-list-gap);
 
   @include hyphenation;
   @include text-rendering;
@@ -34,8 +33,21 @@
   }
 }
 
+.ams-table-of-contents__item {
+  column-gap: var(--ams-table-of-contents-item-gap);
+  display: flex;
+  flex-wrap: wrap;
+  margin-block-end: var(--ams-table-of-contents-item-margin-block-end);
+
+  &:last-child {
+    margin-block-end: 0;
+  }
+}
+
 .ams-table-of-contents__link {
   color: var(--ams-table-of-contents-link-color);
+  flex: 1;
+  min-inline-size: 0;
   outline-offset: var(--ams-table-of-contents-link-outline-offset);
   text-decoration-line: var(--ams-table-of-contents-link-text-decoration-line);
   text-decoration-thickness: var(--ams-table-of-contents-link-text-decoration-thickness);
@@ -45,4 +57,63 @@
     color: var(--ams-table-of-contents-link-hover-color);
     text-decoration-line: var(--ams-table-of-contents-link-hover-text-decoration-line);
   }
+
+  &[aria-current="page"] {
+    color: var(--ams-table-of-contents-link-current-color);
+    font-weight: var(--ams-table-of-contents-link-current-font-weight);
+  }
+}
+
+.ams-table-of-contents__toggle {
+  color: var(--ams-table-of-contents-toggle-color);
+  flex: none;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--ams-table-of-contents-toggle-hover-color);
+  }
+}
+
+.ams-table-of-contents__toggle svg {
+  transition: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: rotate var(--ams-table-of-contents-toggle-icon-transition-duration)
+      var(--ams-table-of-contents-toggle-icon-transition-timing-function);
+  }
+}
+
+.ams-table-of-contents__toggle[aria-expanded="true"] svg {
+  rotate: -180deg;
+}
+
+.ams-table-of-contents__item > .ams-table-of-contents__list {
+  flex-basis: 100%;
+}
+
+.ams-table-of-contents__item--collapsed > .ams-table-of-contents__list {
+  display: none;
+
+  @media print {
+    display: flex;
+  }
+}
+
+/* Use grid layout so labels of items without a toggle button align with labels of items that have one. */
+.ams-table-of-contents--collapsible {
+  --_ams-table-of-contents-toggle-column-size: calc(1em * var(--ams-table-of-contents-line-height));
+}
+
+.ams-table-of-contents--collapsible .ams-table-of-contents__item {
+  display: grid;
+  grid-template-columns: var(--_ams-table-of-contents-toggle-column-size) 1fr;
+}
+
+.ams-table-of-contents--collapsible .ams-table-of-contents__link {
+  grid-column: 2;
+}
+
+.ams-table-of-contents--collapsible .ams-table-of-contents__item > .ams-table-of-contents__list {
+  grid-column: 1 / -1;
+  padding-inline-start: calc(var(--_ams-table-of-contents-toggle-column-size) + var(--ams-table-of-contents-item-gap));
 }

@@ -1,0 +1,24 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+import * as HandbookPageStories from "./HandbookPage.stories";
+
+<Meta of={HandbookPageStories} />
+
+# Handbook page
+
+Use this template for long-form reference content that is split across many short pages, such as a personnel handbook or a policy document.
+
+## Structure
+
+- The page uses a two-column [Grid](/docs/components-layout-grid--docs) layout.
+- The left column holds a collapsible [Table of Contents](/docs/components-navigation-table-of-contents--docs) showing the full document tree.
+  - A [Skip Link](/docs/components-navigation-skip-link--docs) inside the Table of Contents lets keyboard users bypass it and jump straight to the content.
+  - Set `aria-current="page"` on the active link and `defaultExpanded` on its ancestors so the current position is pre-expanded on load.
+- The right column contains a `main` element using the [Prose](/docs/utilities-css-prose--docs) utility class.
+  - Each page opens with a level 1 [Heading](/docs/components-text-heading--docs), followed by a large lead [Paragraph](/docs/components-text-paragraph--docs) and body text.
+
+## Layout and spacing
+
+- The Grid uses the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
+- The Prose utility class handles vertical spacing within the content area automatically.
