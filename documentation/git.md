@@ -131,6 +131,16 @@ This will also ensure the local `develop` branch is current.
 That adds one commit to your branch, containing all changes since the first divergence of your branches with `develop`.
 If merge conflicts arise, they can be more complex than with a rebase, but each can be resolved at once.
 
+## Maintain your local clone
+
+Over time, the local clone accumulates ignored build artefacts, unreachable Git objects, and stale remote-tracking branches that can slow everyday Git operations.
+Run `pnpm run clean:git` occasionally — or whenever the clone feels sluggish — to tidy up:
+
+- `clean:git-ignored` removes ignored files and directories (`git clean -d -X -f`), including `node_modules` and build output; you will need to reinstall.
+- `clean:git-optimize` compacts unreachable objects (`git gc --prune=now`) and prunes remote-tracking branches whose remotes are gone (`git remote prune origin`).
+
+This only affects your local clone; nothing is pushed.
+
 ## Git CLI shortcuts
 
 For users of Git via the CLI, it may be helpful to create aliases for some commonly used git commands.
@@ -139,12 +149,15 @@ For example:
 
 ```sh
 alias gcd="git checkout develop"
+alias gci="git clean -d -X -f"
 alias gcp="git checkout -"
+alias ggc="git gc --prune=now"
 alias gh="git push"
 alias ghf="git push origin --force-with-lease"
 alias gl="git log -3"
 alias gp="git fetch --prune; git pull"
 alias gpb="git branch --merged | grep -v "\*" | grep -Ev "(\*|main|develop)" | xargs -n 1 git branch -d"
+alias gpo="git remote prune origin"
 alias gpr="git pull --rebase"
 alias gra="git rebase --abort"
 alias grc="git rebase --continue"
