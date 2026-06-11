@@ -19,6 +19,14 @@
           "nl.amsterdam.type": "fontWeight"
         }
       },
+      "gap": {
+        "$value": "initial",
+        "$deprecated": "Use `ams.table-of-contents.heading.margin-block-end` instead. Will be removed on or after 2026-12-12.",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
@@ -36,6 +44,14 @@
         }
       },
       "list": {
+        "gap": {
+          "$value": "initial",
+          "$deprecated": "Use `ams.table-of-contents.item.margin-block-end` instead. Will be removed on or after 2026-12-12.",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
         "list": {
           "padding-block-start": {
             "$value": "{ams.space.xs}",
