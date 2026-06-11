@@ -130,7 +130,7 @@ export const Test: Story = {
         </ProgressList.Step>
       </ProgressList>
 
-      {/* Collapsible, collapsed last step with substeps: connector hidden */}
+      {/* Collapsible steps with substeps: collapsed last step (connector hidden) and collapsed current step (dashed connector) */}
       <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step heading="2026" status="completed">
           <Paragraph>Content for 2026.</Paragraph>
