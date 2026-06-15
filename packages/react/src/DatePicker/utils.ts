@@ -8,25 +8,31 @@ import type { DateRange } from './DatePicker'
 import { getDaysInMonth, startOfDay } from '../common/dates'
 
 /** Whether the date is before `minDate` or after `maxDate` (comparing by day). */
-export const isOutOfBounds = (date: Date, minDate?: Date, maxDate?: Date) =>
-  (minDate !== undefined && startOfDay(date) < startOfDay(minDate)) ||
-  (maxDate !== undefined && startOfDay(date) > startOfDay(maxDate))
+export const isOutOfBounds = (date: Date, minDate?: Date, maxDate?: Date) => {
+  const beforeMin = minDate !== undefined && startOfDay(date) < startOfDay(minDate)
+  const afterMax = maxDate !== undefined && startOfDay(date) > startOfDay(maxDate)
+  return beforeMin || afterMax
+}
 
 /** Whether the date falls strictly between the range’s start and end. */
-export const isWithinRange = (date: Date, { start, end }: DateRange) =>
-  start !== null && end !== null && startOfDay(date) > startOfDay(start) && startOfDay(date) < startOfDay(end)
+export const isWithinRange = (date: Date, { start, end }: DateRange) => {
+  if (start === null || end === null) return false
+  const afterStart = startOfDay(date) > startOfDay(start)
+  const beforeEnd = startOfDay(date) < startOfDay(end)
+  return afterStart && beforeEnd
+}
 
 /**
  * Computes the next range when a date is picked.
  * Starts a fresh range when there is no start yet, when the range is already complete,
- * or when the picked date precedes the current start; otherwise it completes the range.
+ * or when the picked date is on or before the current start; otherwise it completes the range.
  */
 export const nextRange = ({ start, end }: DateRange, date: Date): DateRange => {
   if (start === null || end !== null) {
     return { start: date, end: null }
   }
 
-  if (startOfDay(date) < startOfDay(start)) {
+  if (startOfDay(date) <= startOfDay(start)) {
     return { start: date, end: null }
   }
 
