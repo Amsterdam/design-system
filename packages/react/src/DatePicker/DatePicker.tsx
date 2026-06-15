@@ -69,7 +69,7 @@ type DatePickerSingleProps = {
   /** Selects a single date. This is the default mode. */
   readonly mode?: 'single'
   /** Called when the user selects a date. */
-  readonly onChange: (value: Date | null) => void
+  readonly onChange: (value: Date) => void
   /** The currently selected date, or `null`. */
   readonly value: Date | null
 }

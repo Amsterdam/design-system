@@ -25,10 +25,15 @@ export type DatePickerHeaderProps = {
   readonly disablePreviousMonth?: boolean
   /** Disables the button that navigates to the previous year. */
   readonly disablePreviousYear?: boolean
+  /** Navigates to the next month. */
   readonly goToNextMonth: () => void
+  /** Navigates to the next year. */
   readonly goToNextYear: () => void
+  /** Navigates to the previous month. */
   readonly goToPreviousMonth: () => void
+  /** Navigates to the previous year. */
   readonly goToPreviousYear: () => void
+  /** The currently displayed month. */
   readonly month: Date
 } & Pick<
   DatePickerProps,
