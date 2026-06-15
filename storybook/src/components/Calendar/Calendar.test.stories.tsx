@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Calendar } from '@amsterdam/design-system-react/src'
 
+import { mockDate } from '../../_common/mockDate'
 import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { default as calendarMeta } from './Calendar.stories'
 
@@ -28,19 +29,7 @@ export const Test: Story = {
     defaultMonth: new Date(2026, 11, 31),
     locale: 'nl',
   },
-  beforeEach: () => {
-    const RealDate = Date
-    const fixedMs = +new RealDate(2026, 11, 31)
-    const MockDate = new Proxy(RealDate, {
-      apply: (_target, _thisArg, args) => (args.length === 0 ? new RealDate(fixedMs) : new RealDate(...(args as []))),
-      construct: (_target, args) => (args.length === 0 ? new RealDate(fixedMs) : Reflect.construct(RealDate, args)),
-    })
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ;(globalThis as any).Date = MockDate
-    return () => {
-      globalThis.Date = RealDate
-    }
-  },
+  beforeEach: () => mockDate(new Date(2026, 11, 31)),
   render: (args, context) => renderComponentVariants(Calendar, { args }, context),
   tags: ['!dev', '!autodocs'],
 }
