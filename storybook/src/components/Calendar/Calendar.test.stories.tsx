@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Calendar } from '@amsterdam/design-system-react/src'
+import { vi } from '@storybook/test'
 
 import { renderComponentVariants } from '../../_common/renderComponentVariants'
 import { default as calendarMeta } from './Calendar.stories'
@@ -25,7 +26,13 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   args: {
+    defaultMonth: new Date(2026, 11, 31),
     locale: 'nl',
+  },
+  beforeEach: () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date(2026, 11, 31))
+    return () => vi.useRealTimers()
   },
   render: (args, context) => renderComponentVariants(Calendar, { args }, context),
   tags: ['!dev', '!autodocs'],
