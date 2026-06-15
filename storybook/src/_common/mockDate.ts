@@ -10,14 +10,18 @@
  */
 export const mockDate = (date: Date): (() => void) => {
   const RealDate = Date
+
   const fixedMs = date.getTime()
+
   const MockDate = new Proxy(RealDate, {
-    apply: (_target, _thisArg, args) => (args.length === 0 ? new RealDate(fixedMs) : new RealDate(...(args as []))),
+    apply: () => new RealDate(fixedMs).toString(),
     construct: (_target, args) => (args.length === 0 ? new RealDate(fixedMs) : Reflect.construct(RealDate, args)),
+    get: (target, prop) => (prop === 'now' ? () => fixedMs : target[prop as keyof typeof RealDate]),
   })
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ;(globalThis as any).Date = MockDate
+
+  Object.defineProperty(globalThis, 'Date', { configurable: true, value: MockDate, writable: true })
+
   return () => {
-    globalThis.Date = RealDate
+    Object.defineProperty(globalThis, 'Date', { configurable: true, value: RealDate, writable: true })
   }
 }
