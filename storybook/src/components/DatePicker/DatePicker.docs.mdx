@@ -39,9 +39,17 @@ In the default single mode, `value` is a `Date` or `null` and `onChange` receive
 In range mode, set `mode="range"`; `value` is a `DateRange` (`{ start, end }`) and `onChange` receives the updated range.
 The first pick sets the start, the second sets the end, and picking before the start begins a new range.
 
+If you set `minDate` or `maxDate`, ensure the initial `value` falls within those bounds — the component does not clamp or validate the incoming value.
+
+## Design
+
+The Date Picker is intentionally an inline component.
+Finding the optimal date is a focused task for the user; placing it directly on the page makes it easier to use and gives it the space and attention it deserves.
+If the layout truly has no room, placing the Date Picker inside a modal [Dialog](/docs/components-dialogs-dialog--docs) is an acceptable last resort.
+
 ## Examples
 
-### Range selection
+### Range
 
 Set `mode="range"` to let users pick a start and end date.
 The Date Picker itself does not communicate that a range is expected — use a label, heading, or instruction to make this clear.
@@ -53,22 +61,27 @@ Any click after the range is complete starts over.
 
 <Canvas of={DatePickerStories.Range} />
 
-### Limiting the selectable period
-
-Use `minDate` and `maxDate` to bound the selectable period.
-Dates outside the range cannot be selected, and the month and year navigation buttons stop at the edges of the range.
-
-When the bounds fall within the current month, dates outside them appear disabled: they are struck through and cannot be selected, but remain reachable by keyboard.
-When the bounds align with month edges, all dates are selectable and only the navigation buttons are affected.
-
-<Canvas of={DatePickerStories.WithinMonthBounds} />
-
-### Disabling individual dates
+### Disabled dates
 
 Pass `isDateDisabled` to prevent selection of specific dates, such as ones that are unavailable.
 Disabled dates remain reachable with the keyboard and are announced, but they cannot be selected.
 
 <Canvas of={DatePickerStories.DisabledDates} />
+
+### Within-month bounds
+
+Use `minDate` and `maxDate` to bound the selectable period.
+Dates outside the range cannot be selected, and the month and year navigation buttons stop at the edges of the range.
+
+When the bounds fall within the current month, dates outside them appear disabled: they are struck through and cannot be selected, but remain reachable by keyboard.
+
+<Canvas of={DatePickerStories.WithinMonthBounds} />
+
+### Limited to one month
+
+When `minDate` and `maxDate` align with month edges, all dates remain selectable — only the navigation buttons are disabled.
+
+<Canvas of={DatePickerStories.LimitedToOneMonth} />
 
 ## Features
 
