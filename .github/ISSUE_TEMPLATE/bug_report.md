@@ -7,45 +7,24 @@ labels: bug
 
 <!-- @license CC0-1.0 -->
 
-Thank you for contributing to the Amsterdam Design System!
-Please fill in the sections below so we can understand and reproduce the issue quickly.
+Thanks for taking the time to report a bug!
+A few details below help us track it down faster, but don't worry if you can't fill in everything.
 
-## Summary
+## What's going wrong
 
-(Briefly describe what goes wrong.)
+Briefly describe what happens, and what you expected to happen instead.
 
 ## Steps to reproduce
-
-(List the exact steps that lead to the problem.)
 
 1. Go to '...'
 2. Click on '...'
 3. See the error
 
-## Expected behaviour
-
-(Describe what you expected to happen.)
-
-## Actual behaviour
-
-(Describe what actually happens, including the exact text of any error messages.)
-
 ## Environment
 
 - Package and version: (e.g. @amsterdam/design-system-react v1.2.3)
-- Browser: (e.g. Chrome 124, Safari 17)
-- Operating system or device: (e.g. macOS 14, Windows 11, iPhone 15)
+- Browser and operating system: (e.g. Chrome 124 on macOS 14)
 
-## Screenshots or recording
+## Anything else?
 
-(If applicable, add screenshots or a screen recording. A link to a live reproduction, such as a Storybook story or CodeSandbox, helps the most.)
-
-## Additional context
-
-(Add anything else that might help, such as links to related issues or a possible cause.)
-
-## Checklist
-
-- [ ] I searched existing issues and this has not been reported yet.
-- [ ] I am using the latest version of the affected package.
-- [ ] I can reproduce this consistently.
+Screenshots, a recording, a link to a live reproduction (such as a Storybook story or CodeSandbox), or any other context are always welcome.

@@ -7,26 +7,14 @@ labels: enhancement
 
 <!-- @license CC0-1.0 -->
 
-Thank you for contributing to the Amsterdam Design System!
-Please describe your idea so we can understand the problem it solves.
+Thanks for sharing your idea!
+Tell us as much as you can, and we'll help fill in the rest.
 
-## Problem
+## What would you like to see?
 
-(What problem are you trying to solve? For example: "I'm always frustrated when ...". Skip this if your request is not related to a problem.)
+Describe your idea, and the problem it solves if there is one.
+For example: "I'm always frustrated when ...".
 
-## Proposed solution
+## Anything else?
 
-(Describe what you would like to happen.)
-
-## Alternatives considered
-
-(Describe any alternative solutions or workarounds you have considered.)
-
-## Additional context
-
-(Add anything else that helps, such as screenshots, references, or links to designs in Figma.)
-
-## Checklist
-
-- [ ] I searched existing issues and discussions for a similar request.
-- [ ] I explored other ways to achieve what I want with [existing components and the documentation](https://designsystem.amsterdam/?path=/docs/docs-introduction--docs).
+Alternatives you've already considered, screenshots, references, or links to designs in Figma are all welcome.
