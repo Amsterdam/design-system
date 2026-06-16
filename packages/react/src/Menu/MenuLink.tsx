@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -15,6 +15,11 @@ import { Icon } from '../Icon'
 export type MenuLinkProps = {
   /** The icon to display for the menu icon. Use the filled variant. */
   readonly icon: IconProps['svg']
+  /**
+   * The React component to use for the link.
+   * Refs are not forwarded to custom link components.
+   */
+  readonly linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
 } & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
 
 /**
@@ -23,13 +28,15 @@ export type MenuLinkProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-menu--docs Menu docs at Amsterdam Design System}
  */
 export const MenuLink = forwardRef(
-  ({ children, className, icon, ...restProps }: MenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+  ({ children, className, icon, linkComponent, ...restProps }: MenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+    const Tag = linkComponent || 'a'
+
     return (
       <li>
-        <a {...restProps} className={clsx('ams-menu__link', className)} ref={ref}>
+        <Tag {...restProps} className={clsx('ams-menu__link', className)} {...(!linkComponent && { ref })}>
           <Icon className="ams-menu__icon" svg={icon} />
           {children}
-        </a>
+        </Tag>
       </li>
     )
   },

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
+import type { AnchorHTMLAttributes, ComponentType, ForwardedRef } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -11,6 +11,11 @@ import { forwardRef } from 'react'
 export type TableOfContentsLinkProps = {
   /** The text for the link. */
   readonly label: string
+  /**
+   * The React component to use for the link.
+   * Refs are not forwarded to custom link components.
+   */
+  readonly linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
 } & Readonly<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 /**
@@ -19,14 +24,21 @@ export type TableOfContentsLinkProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-table-of-contents--docs Table of Contents docs at Amsterdam Design System}
  */
 export const TableOfContentsLink = forwardRef(
-  ({ children, className, label, ...restProps }: TableOfContentsLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
-    <li className="ams-table-of-contents__item">
-      <a {...restProps} className={clsx('ams-table-of-contents__link', className)} ref={ref}>
-        {label}
-      </a>
-      {children}
-    </li>
-  ),
+  (
+    { children, className, label, linkComponent, ...restProps }: TableOfContentsLinkProps,
+    ref: ForwardedRef<HTMLAnchorElement>,
+  ) => {
+    const Tag = linkComponent || 'a'
+
+    return (
+      <li className="ams-table-of-contents__item">
+        <Tag {...restProps} className={clsx('ams-table-of-contents__link', className)} {...(!linkComponent && { ref })}>
+          {label}
+        </Tag>
+        {children}
+      </li>
+    )
+  },
 )
 
 TableOfContentsLink.displayName = 'TableOfContents.Link'
