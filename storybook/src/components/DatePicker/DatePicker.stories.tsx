@@ -96,6 +96,30 @@ export const DisabledDates: Story = {
   render: (args) => <SingleDatePicker {...args} />,
 }
 
+export const WithinMonthBounds: Story = {
+  args: {
+    maxDate: new Date(2026, 2, 20),
+    minDate: new Date(2026, 2, 10),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `const [value, setValue] = useState<Date | null>(null)
+
+<DatePicker
+  defaultMonth={new Date(2026, 2, 1)}
+  maxDate={new Date(2026, 2, 20)}
+  minDate={new Date(2026, 2, 10)}
+  onChange={setValue}
+  value={value}
+/>`,
+        language: 'tsx',
+      },
+    },
+  },
+  render: (args) => <SingleDatePicker {...args} defaultMonth={new Date(2026, 2, 1)} />,
+}
+
 export const LimitedToOneMonth: Story = {
   args: {
     maxDate: new Date(2026, 2, 31),
