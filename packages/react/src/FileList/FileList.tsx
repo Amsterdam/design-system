@@ -16,7 +16,7 @@ export type FileListProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>>
  * An overview of files, showing their name, type, size, and a preview.
  */
 export const FileListRoot = forwardRef(
-  ({ children, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLOListElement>) => (
+  ({ children, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLUListElement>) => (
     <ul {...restProps} className={clsx('ams-file-list', className)} ref={ref}>
       {children}
     </ul>
