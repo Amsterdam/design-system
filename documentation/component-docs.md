@@ -77,8 +77,9 @@ Fill in the sections that apply, and delete any heading you cannot fill in meani
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/component.tokens.json";
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/component.tokens.json";
+
 import * as ComponentStories from "./Component.stories.tsx";
 
 <Meta of={ComponentStories} />

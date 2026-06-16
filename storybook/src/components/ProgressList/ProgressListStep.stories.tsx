@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Paragraph } from '@amsterdam/design-system-react'
 import { ProgressList } from '@amsterdam/design-system-react/src'
 
-import { exampleParagraph } from '../../_common/exampleContent'
+import { exampleParagraph } from '#storybook/_common/exampleContent'
 
 const meta = {
   title: 'Components/Containers/Progress List',

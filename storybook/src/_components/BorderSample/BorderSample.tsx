@@ -7,7 +7,7 @@ import type { CSSProperties, HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
 
-import { formatTokenValue } from '../../_common/formatTokenValue'
+import { formatTokenValue } from '#storybook/_common/formatTokenValue'
 
 import './border-sample.css'
 
