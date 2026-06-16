@@ -25,8 +25,16 @@ const meta = {
     invalid: false,
   },
   argTypes: {
+    defaultValue: {
+      control: false,
+      table: { disable: false },
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
+    },
+    onChange: {
+      control: false,
+      table: { disable: false },
     },
   },
 } satisfies Meta<typeof Select>
