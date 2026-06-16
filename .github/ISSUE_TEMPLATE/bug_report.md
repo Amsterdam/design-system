@@ -8,16 +8,16 @@ labels: bug
 <!-- @license CC0-1.0 -->
 
 Thanks for taking the time to report a bug!
-A few details below help us track it down faster, but don't worry if you can't fill in everything.
+A few details below help us track it down faster, but don’t worry if you can’t fill in everything.
 
-## What's going wrong
+## What’s going wrong
 
 Briefly describe what happens, and what you expected to happen instead.
 
 ## Steps to reproduce
 
-1. Go to '...'
-2. Click on '...'
+1. Go to …
+2. Click on …
 3. See the error
 
 ## Environment
