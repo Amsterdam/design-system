@@ -24,12 +24,14 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+const testDate = new Date(2026, 11, 31)
+
 export const Test: Story = {
   args: {
-    defaultMonth: new Date(2026, 11, 31),
+    defaultMonth: new Date(testDate),
     locale: 'nl',
   },
-  beforeEach: () => mockDate(new Date(2026, 11, 31)),
+  beforeEach: () => mockDate(testDate),
   render: (args, context) => renderComponentVariants(Calendar, { args }, context),
   tags: ['!dev', '!autodocs'],
 }
