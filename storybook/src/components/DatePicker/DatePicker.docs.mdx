@@ -57,12 +57,9 @@ Use `minDate` and `maxDate` to bound the selectable period.
 Dates outside the range cannot be selected, and the month and year navigation buttons stop at the edges of the range.
 
 When the bounds fall within the current month, dates outside them appear disabled: they are struck through and cannot be selected, but remain reachable by keyboard.
-
-<Canvas of={DatePickerStories.WithinMonthBounds} />
-
 When the bounds align with month edges, all dates are selectable and only the navigation buttons are affected.
 
-<Canvas of={DatePickerStories.LimitedToOneMonth} />
+<Canvas of={DatePickerStories.WithinMonthBounds} />
 
 ### Disabling individual dates
 
