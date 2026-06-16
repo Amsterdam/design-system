@@ -32,14 +32,14 @@ const meta = {
     value: null,
   },
   argTypes: {
-    defaultMonth: { control: false }, // A Date object has no usable controls panel widget and can break the story.
-    isDateDisabled: { control: false }, // A function prop has no usable controls panel widget.
-    locale: { control: false }, // Shown for reference only; localisation examples to follow.
-    maxDate: { control: false }, // A Date object has no usable controls panel widget and can break the story.
-    minDate: { control: false }, // A Date object has no usable controls panel widget and can break the story.
-    mode: { control: false }, // The story wrapper owns this prop.
-    onChange: { control: false }, // The story wrapper owns this prop.
-    value: { control: false }, // The story wrapper owns this prop.
+    defaultMonth: { control: false }, // No usable Storybook control for Date objects; configured directly in each story.
+    isDateDisabled: { control: false }, // No usable Storybook control for function props.
+    locale: { control: false }, // Localisation examples to follow; hidden for now.
+    maxDate: { control: false }, // No usable Storybook control for Date objects; configured directly in each story.
+    minDate: { control: false }, // No usable Storybook control for Date objects; configured directly in each story.
+    mode: { table: { disable: true } }, // Owned by the story's state wrapper; not a user-configurable control.
+    onChange: { table: { disable: true } }, // Owned by the story's state wrapper; not a user-configurable control.
+    value: { table: { disable: true } }, // Owned by the story's state wrapper; not a user-configurable control.
   },
 } satisfies Meta<typeof DatePicker>
 
