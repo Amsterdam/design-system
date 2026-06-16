@@ -1,26 +1,43 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/switch.tokens.json";
 
 import * as SwitchStories from "./Switch.stories.tsx";
-import README from "../../../../packages/css/src/components/switch/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/switch.tokens.json";
-
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={SwitchStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={SwitchStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use a Switch to toggle between two different states.
+It is a binary action.
+The action takes place immediately when the user operates the switch.
+
+### How to use
+
+A Switch must have a label, and in most cases, this label should be visible.
 
 ## Examples
 
 ### With Label
 
 <Canvas of={SwitchStories.WithLabel} />
+
+## See also
+
+- [Checkbox](/docs/components-forms-checkbox--docs) – when the choice is part of a form rather than an instant setting.
 
 ## Design tokens
 

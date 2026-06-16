@@ -1,46 +1,76 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/button.tokens.json";
 
 import * as ButtonStories from "./Button.stories.tsx";
-import README from "../../../../packages/css/src/components/button/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/button.tokens.json";
-
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={ButtonStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={ButtonStories} />
 
 <Primary />
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Use a Button to start an action, submit a form, or change the state of the interface.
+
+### When not to use
+
+Don’t use a Button to navigate to another page.
+Use a [Standalone Link](/docs/components-navigation-standalone-link--docs) or a [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) instead, or an inline [Link](/docs/components-navigation-link--docs) in running text.
+
+### How to use
+
+Use only one primary Button per screen.
+The primary variant draws attention to the most important action; multiple primaries dilute that signal.
+
+Set `type="submit"` to make the Button submit the surrounding form.
+
+Wrap two or more Buttons or links that sit next to each other in an [Action Group](/docs/components-layout-action-group--docs).
+
+Always provide a short, descriptive label that names the action.
+For icon-only Buttons, supply the label through the `children` prop – it is read by screen readers even though it is not shown.
+
+### How to write
+
+Write a short label that names the action.
+Use the verb's infinitive form in Dutch, e.g. 'Verwijderen' or 'Opslaan', not 'Verwijder' or 'Sla op'.
+Avoid generic labels like 'Klik hier' or 'OK'.
+
 ## Examples
 
 ### Primary
 
-A primary button draws attention to the most important call to action.
+A primary Button draws attention to the most important call to action.
 
 <Canvas of={ButtonStories.Primary} />
 
 ### Secondary
 
-Use a secondary button for other actions.
+Use a secondary Button for other actions.
 
 <Canvas of={ButtonStories.Secondary} />
 
 ### Tertiary
 
-Tertiary buttons can be used to distinguish their importance from secondary buttons.
-They are also a good choice for buttons with an icon only.
+Tertiary Buttons distinguish themselves from secondary Buttons when even less emphasis is needed.
+They are also the choice for icon-only Buttons.
 
 <Canvas of={ButtonStories.Tertiary} />
 
 ### With icon
 
-Add an icon if it makes it easier or faster to understand its purpose.
-The icon will appear after the label.
+Add an icon if it makes the Button’s purpose easier or faster to recognise.
+The icon appears after the label by default.
 
 <Canvas of={ButtonStories.WithIcon} />
 
@@ -52,21 +82,36 @@ The icon can also appear before the label.
 
 ### With icon only
 
-A button can even consist of just an icon, but only one of our [functional icons](/docs/brand-assets-icons--docs#functional-icons).
-You must still provide a label to describe the button to users of screen readers.
-If the icon-only button must align with text, use an [Icon Button](/docs/components-buttons-icon-button--docs) instead.
+A Button can consist of just an icon, but only one of our [functional icons](/docs/brand-assets-icons--docs#functional-icons).
+You must still provide a label for screen reader users.
+If the icon-only Button must align with surrounding text, use an [Icon Button](/docs/components-buttons-icon-button--docs) instead.
 
 <Canvas of={ButtonStories.WithIconOnly} />
 
 ### Text wrapping
 
-The label may occasionally wrap over multiple lines.
-This can happen if no shorter text is available, two buttons sit next to each other on a narrow screen, or the user has configured a large font on their device.
+The label may wrap over multiple lines when no shorter text is available, when two Buttons sit next to each other on a narrow screen, or when the user has configured a large font on their device.
 
 <Canvas of={ButtonStories.TextWrapping} />
 
+## Features
+
+The Button handles its own focus, hover, active, and disabled states.
+On narrow screens or with longer labels, it wraps text without losing alignment.
+
+## Design
+
+The three variants form a hierarchy of importance: primary, secondary, tertiary.
+This lets a screen present one clear focal action without ranking every other Button against it.
+
+The icon size stays constant regardless of the label length, so a row of Buttons aligns visually even when their text differs.
+
 ## See also
 
+- [Icon Button](/docs/components-buttons-icon-button--docs) – an icon-only button aligned with surrounding text.
+- [Standalone Link](/docs/components-navigation-standalone-link--docs) – for navigation to another page.
+- [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) – a prominent link styled like a Button.
+- [Action Group](/docs/components-layout-action-group--docs) – lays out multiple Buttons and links.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
 ## Design tokens

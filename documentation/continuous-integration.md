@@ -32,6 +32,32 @@ Use this command to get the correct format:
 pnx pin-github-action -c " {ref}" /path/to/workflow.yaml
 ```
 
+## Running cleanup workflows manually
+
+Three workflows prune artefacts left behind by feature-branch deploys:
+
+- `Cleanup stale demo directories from gh-pages` ([cleanup-gh-pages-demos.yml](../.github/workflows/cleanup-gh-pages-demos.yml))
+- `Cleanup obsolete environments` ([cleanup-environments.yml](../.github/workflows/cleanup-environments.yml))
+- `Cleanup obsolete deployments` ([cleanup-deployments.yml](../.github/workflows/cleanup-deployments.yml))
+
+Each runs on a schedule as a dry-run.
+To perform real deletions, dispatch from the Actions UI with `dry_run=false`.
+Common inputs: `stale_days`, `i_really_mean_it`, and (deployments only) `include_production`.
+
+Two gotchas:
+
+- Environment cleanup needs an `ENV_ADMIN_TOKEN` secret with repository Administration read/write for real deletions; without it, dry-runs work but deletions return `403`.
+- `include_production=true` extends deployment cleanup to `github-pages` and `demo-develop`. The newest two deployments per environment are always protected as live + rollback target.
+
+### CLI alternative
+
+```sh
+gh workflow run <workflow-file> \
+ -R Amsterdam/design-system \
+ -f dry_run=false \
+ -f stale_days=14
+```
+
 ### Further reading
 
 - [Maturity levels of using GitHub Actions Securely](https://devopsjournal.io/blog/2021/12/11/GitHub-Actions-Maturity-Levels)

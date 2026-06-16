@@ -39,7 +39,7 @@ const meta = {
     },
     onChange: {
       action: 'clicked',
-      table: { disable: true },
+      table: { disable: false },
     },
   },
   render: (args) => {

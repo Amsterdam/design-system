@@ -50,6 +50,8 @@ export const MenuRoot = forwardRef<HTMLElement, MenuProps>(
 MenuRoot.displayName = 'Menu'
 
 /**
+ * A primary navigation leading to key areas of a website.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-menu--docs Menu docs at Amsterdam Design System}
  */
 export const Menu = Object.assign(MenuRoot, { Link: MenuLink })

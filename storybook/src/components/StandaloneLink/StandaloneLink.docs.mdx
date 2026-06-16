@@ -1,20 +1,35 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/standalone-link.tokens.json";
 
 import * as StandaloneLinkStories from "./StandaloneLink.stories.tsx";
-import README from "../../../../packages/css/src/components/standalone-link/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/standalone-link.tokens.json";
-
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={StandaloneLinkStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={StandaloneLinkStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use a Standalone Link for a single link on its own line of text.
+
+### When not to use
+
+Within running body text, use a regular [Link](/docs/components-navigation-link--docs) instead.
+
+For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.
+
+Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-prose--docs) to add vertical whitespace.
 
 ## Examples
 
@@ -33,7 +48,7 @@ If it helps understand the link, a different icon than the default chevron can b
 
 ### On a coloured background
 
-A Standalone Link on a coloured background must set [the correct text colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
+A Standalone Link on a coloured background must set [the correct text colour](/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
 We have lighter and darker background colours, and links behave differently on each.
 
 #### Contrast colour
@@ -49,6 +64,17 @@ Use the inverse colour on an azure, blue, green, magenta or purple background.
 It will make the Standalone Link white.
 
 <Canvas of={StandaloneLinkStories.InverseColour} />
+
+## Design
+
+The Standalone Link has a chevron icon at the start to signify that it is a link.
+This also makes it visually identical to a single link in a [Link List](/docs/components-navigation-link-list--docs).
+As a result, pages can have sections with either one or several links used interchangeably; they look alike, and their semantics are correct.
+
+## See also
+
+- [Link](/docs/components-navigation-link--docs) – for inline links in running text.
+- [Link List](/docs/components-navigation-link-list--docs) – for a collection of related links.
 
 ## Design tokens
 

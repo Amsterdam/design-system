@@ -19,6 +19,8 @@ export type TextAreaProps = {
 } & Readonly<Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'aria-invalid'>>
 
 /**
+ * A form field that allows the user to input text over multiple lines.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-text-area--docs Text Area docs at Amsterdam Design System}
  */
 export const TextArea = forwardRef(

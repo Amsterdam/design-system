@@ -1,26 +1,54 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/link.tokens.json";
 
 import * as LinkStories from "./Link.stories.tsx";
-import README from "../../../../packages/css/src/components/link/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/link.tokens.json";
-
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={LinkStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={LinkStories} />
 
 <Primary />
 
 <Controls />
 
+## Usage guidelines
+
+### When to use
+
+Use a Link in the following cases:
+
+- To navigate to another page within the website.
+- To navigate to another website (see [External links](#external-links) under Accessibility).
+- To navigate to an element on the same page.
+- To link to emails or phone numbers (start the link with `mailto:` or `tel:`).
+
+An icon can be added to links, positioned after the link.
+
+### When not to use
+
+A Link is a navigation component.
+Use a Button instead of a Link when an action is desired.
+
+For a link on its own line of text, use the [Standalone Link](/docs/components-navigation-standalone-link--docs).
+
+Too many links on the same page may confuse the user.
+
+### How to use
+
+Always include `rel="external"` for an external link.
+Avoid `target="_blank"`, but use `rel="external noopener"` if necessary.
+
 ## Examples
 
 ### On a coloured background
 
-A Link on a coloured background must set [the correct text colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
+A Link on a coloured background must set [the correct text colour](/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
 We have lighter and darker background colours, and links behave differently on each.
 
 #### Contrast colour
@@ -36,6 +64,16 @@ Use the inverse colour on an azure, blue, green, magenta or purple background.
 It will make the Link white.
 
 <Canvas of={LinkStories.InverseColour} />
+
+## Design
+
+We discourage using styles for visited links because they often make the page less clear and navigation more challenging.
+It is not part of navigation elements that are frequently scanned.
+
+## See also
+
+- [Standalone Link](/docs/components-navigation-standalone-link--docs) – for a single link on its own line of text.
+- [Routing libraries](/docs/docs-developer-guide-routing-libraries--docs) – how to integrate links with external routing libraries.
 
 ## Design tokens
 

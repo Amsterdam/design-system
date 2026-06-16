@@ -33,10 +33,11 @@ Then import and use the components in your JSX.
 
 <!-- prettier-ignore -->
 ```tsx
+import { Paragraph } from "@amsterdam/design-system-react"
+
 import "@amsterdam/design-system-assets/font/index.css"
 import "@amsterdam/design-system-css/dist/index.css"
 import "@amsterdam/design-system-tokens/dist/index.css"
-import { Paragraph } from "@amsterdam/design-system-react"
 
 const App = () => (
   <Paragraph>Hello, world!</Paragraph>

@@ -18,6 +18,11 @@ export type ImageSliderThumbnailsProps = {
   readonly thumbnails: ImageSliderProps['images']
 } & Readonly<HTMLAttributes<HTMLElement>>
 
+/**
+ * A thumbnail strip for navigating between slides in an Image Slider.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-media-image-slider--docs Image Slider docs at Amsterdam Design System}
+ */
 export const ImageSliderThumbnails = ({
   currentSlideId,
   imageLabel,

@@ -7,7 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
 
-import { exampleParagraph } from '../../../_common/exampleContent'
+import { exampleParagraph } from '#storybook/_common/exampleContent'
+
 import { commonMeta } from '../common/config'
 
 const exampleParagraph1 = exampleParagraph()

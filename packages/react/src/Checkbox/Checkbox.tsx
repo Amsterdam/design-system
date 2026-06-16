@@ -25,6 +25,8 @@ export type CheckboxProps = {
 } & Readonly<PropsWithChildren<Omit<InputHTMLAttributes<HTMLInputElement>, 'aria-invalid' | 'type'>>>
 
 /**
+ * Allows users to make a selection or agree to terms.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-checkbox--docs Checkbox docs at Amsterdam Design System}
  */
 export const Checkbox = forwardRef(

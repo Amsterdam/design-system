@@ -1,19 +1,40 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
-import * as {{pascalCase name}}Stories from "./{{pascalCase name}}.stories.tsx";
-import README from "../../../../packages/css/src/components/{{kebabCase name}}/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/{{kebabCase name}}.tokens.json";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/{{kebabCase name}}.tokens.json";
+import * as {{pascalCase name}}Stories from "./{{pascalCase name}}.stories.tsx";
 
 <Meta of={{curlyBefore}}{{pascalCase name}}Stories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={{curlyBefore}}{{pascalCase name}}Stories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+### When not to use
+
+### How to use
+
+### How to write
+
+## Examples
+
+## Features
+
+## Design
+
+## Accessibility
+
+## See also
 
 ## Design tokens
 

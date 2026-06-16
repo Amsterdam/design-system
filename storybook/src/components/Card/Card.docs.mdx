@@ -1,18 +1,46 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/card.tokens.json";
 
 import * as CardStories from "./Card.stories.tsx";
-import README from "../../../../packages/css/src/components/card/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/card.tokens.json";
-
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={CardStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={CardStories} />
 
 <Primary />
+
+## Subcomponents
+
+Use the Card Heading, Card Heading Group and Card Image subcomponents.
+They apply the correct spacing.
+
+## Usage guidelines
+
+### When to use
+
+A Card needs more content than just a title.
+Add a short text and optionally an image and metadata.
+
+### When not to use
+
+This component is not the best option if the target content does not represent an article-like page.
+In that case, use a Heading, a Paragraph and a [Standalone Link](/docs/components-navigation-standalone-link--docs) instead.
+
+### How to use
+
+Card Heading requires a `level`, because there is no sensible default.
+The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
+
+### How to write
+
+Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
+Use a small Paragraph for a publication date.
 
 ## Examples
 
@@ -37,9 +65,25 @@ Only use decorative images with `alt=""` here. Screen readers will not read the 
 A set of cards can be used to present links to frequently accessed interactions.
 A short title and description are enough to guide the user to the page they need.
 Position 4 to 8 tasks on a [Grid](/docs/components-layout-grid--docs); left-align them and do not skip cells.
-For a group of links without a description, use a [Link List](/docs/components-navigation-link--docs) instead.
+For a group of links without a description, use a [Link List](/docs/components-navigation-link-list--docs) instead.
 
 <Canvas of={CardStories.TopTasks} />
+
+## Features
+
+The mandatory title of a Card is a link within a Heading.
+The link is made active across the entire area of the Card.
+
+## Accessibility
+
+Visually, Card Heading has the size of a level 3 Heading by default.
+Screen reader users can navigate by heading or by link; a Card supports both because its title is a heading that contains a link.
+A screen reader reads the title first, then the rest of the content.
+
+## See also
+
+- [Standalone Link](/docs/components-navigation-standalone-link--docs) – for a single link to a follow-up page when a Card is too much.
+- [Routing libraries](/docs/docs-developer-guide-routing-libraries--docs) – how to integrate links with external routing libraries.
 
 ## Design tokens
 

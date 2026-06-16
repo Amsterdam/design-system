@@ -1,20 +1,43 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/breadcrumb.tokens.json";
 
 import * as BreadcrumbStories from "./Breadcrumb.stories.tsx";
-import README from "../../../../packages/css/src/components/breadcrumb/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/breadcrumb.tokens.json";
-
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={BreadcrumbStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={BreadcrumbStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use a Breadcrumb to show where the current page sits within the hierarchy of the website and to let users navigate between levels.
+
+### When not to use
+
+Don’t use a Breadcrumb on pages that contain forms.
+It can distract users from completing the form, or be confused with a progress indicator.
+
+A Breadcrumb should not have more than 5 items.
+
+### How to write
+
+The first item links to the home page, with ‘Home’ as its text.
+This applies to Dutch websites as well.
+
+## See also
+
+- [Routing libraries](/docs/docs-developer-guide-routing-libraries--docs) – how to integrate links with external routing libraries.
 
 ## Design tokens
 

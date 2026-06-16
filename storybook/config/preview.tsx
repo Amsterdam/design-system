@@ -1,12 +1,3 @@
-import '@amsterdam/design-system-tokens/dist/index.css'
-import '@amsterdam/design-system-tokens/dist/compact.theme.css'
-import '@amsterdam/design-system-assets/font/index.css'
-import '@amsterdam/design-system-css/dist/index.css'
-
-import '../src/_styles/docs.css'
-import '../src/_styles/overrides.css'
-import '../src/_styles/tests.css'
-
 import type { PageProps } from '@amsterdam/design-system-react'
 import type { StoryContext, StoryFn } from '@storybook/react-vite'
 
@@ -16,11 +7,31 @@ import { clsx } from 'clsx'
 
 import { viewports } from './viewports'
 
+import '@amsterdam/design-system-tokens/dist/index.css'
+import '@amsterdam/design-system-tokens/dist/compact.theme.css'
+import '@amsterdam/design-system-assets/font/index.css'
+import '@amsterdam/design-system-css/dist/index.css'
+import '../src/_styles/docs.css'
+import '../src/_styles/overrides.css'
+import '../src/_styles/tests.css'
+
 export const argTypes = {
   children: {
     table: { disable: true },
   },
   className: {
+    table: { disable: true },
+  },
+  defaultValue: {
+    control: false,
+    table: { disable: true },
+  },
+  onChange: {
+    control: false,
+    table: { disable: true },
+  },
+  onSubmit: {
+    control: false,
     table: { disable: true },
   },
   style: {
@@ -69,6 +80,9 @@ export const parameters = {
     codePanel: true,
     controls: {
       sort: 'alpha', // Sorts controls in the Controls doc block – https://github.com/storybookjs/storybook/issues/25386#issuecomment-1905468177
+    },
+    toc: {
+      headingSelector: 'h2, h3',
     },
   },
   html: {

@@ -1,0 +1,111 @@
+# @license EUPL-1.2+
+# Copyright Gemeente Amsterdam
+
+# GitHub Actions workflow to clean up stale demo-* directories from gh-pages.
+#
+# Runs automatically after a major release (any release-please tag ending in
+# `.0.0`, e.g. `design-system-react-v4.0.0`) and can be triggered manually.
+# Major releases happen roughly every 3 months, so this is the natural cadence
+# for cleaning up demo previews.
+#
+# A directory `demo-X` is considered stale when no remote branch matches `X`
+# after stripping the leading `<prefix>/` segment from the branch name — the
+# same transformation feature-branch-deploy.yml applies when creating these
+# directories.
+#
+# Release-triggered runs force `dry_run=false` and apply a 14-day grace
+# window so a demo deployed right before a major release isn't raced into
+# deletion. Safety guards still apply and may abort the run (for example:
+# empty branch list or max-delete cap). Manual runs default to `dry_run=true`
+# (logs only); pass `dry_run=false` from the Actions UI to perform deletions
+# and push the resulting commit.
+#
+# `stale_days` controls age-based skipping for stale directories, mirroring the
+# Python cleanup script: directories updated more recently than `stale_days` are
+# kept. `0` disables age filtering.
+#
+# Safety guard: if more than 25 stale demo directories are selected, the job
+# aborts unless `i_really_mean_it=true` is provided for manual runs.
+
+name: Cleanup stale demo directories from gh-pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "If true, only log what would be deleted."
+        required: false
+        default: "true"
+      stale_days:
+        description: "Only delete directories not updated in this many days (0 = ignore age)."
+        required: false
+        default: "0"
+      i_really_mean_it:
+        description: "Allow deleting more than 25 directories in one run."
+        required: false
+        default: "false"
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cleanup-gh-pages-demos
+  cancel-in-progress: false
+
+jobs:
+  cleanup-demos:
+    # Run on manual dispatch, or on a major-version release of a `design-system-*`
+    # package — tag format is `design-system-<pkg>-v<major>.<minor>.<patch>`, so
+    # the prefix scopes us to our release-please tags and the suffix scopes us to
+    # majors.
+    if: ${{ github.event_name == 'workflow_dispatch' || (startsWith(github.event.release.tag_name, 'design-system-') && endsWith(github.event.release.tag_name, '.0.0')) }}
+    runs-on: ubuntu-latest
+    env:
+      # Release-triggered runs always perform the deletion; manual runs
+      # honour the workflow input (defaults to dry-run).
+      DRY_RUN: ${{ github.event_name == 'release' && 'false' || github.event.inputs.dry_run || 'true' }}
+      # Release-triggered runs apply a 14-day grace window so a demo deployed
+      # right before a major release isn't raced into deletion. This mirrors
+      # the scheduled env-cleanup workflow. Manual dispatch honours the input.
+      STALE_DAYS: ${{ github.event_name == 'release' && '14' || github.event.inputs.stale_days || '0' }}
+      I_REALLY_MEAN_IT: ${{ github.event.inputs.i_really_mean_it || 'false' }}
+    steps:
+      - name: Check out cleanup scripts from workflow ref
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          sparse-checkout: .github/scripts
+          sparse-checkout-cone-mode: false
+          path: workflow-src
+
+      - name: Check out gh-pages branch
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+          path: gh-pages
+
+      - name: Configure git
+        run: |
+          cd gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Remove stale demo directories
+        run: |
+          bash workflow-src/.github/scripts/cleanup_gh_pages_demos.sh gh-pages
+
+      - name: Commit and push if any directories were removed
+        run: |
+          cd gh-pages
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "[DRY RUN] Skipping commit and push."
+            exit 0
+          fi
+          if git diff --cached --quiet; then
+            echo "No stale demo directories to remove."
+            exit 0
+          fi
+          git commit -m "chore: cleanup stale demo directories [ci skip]"
+          git push origin gh-pages

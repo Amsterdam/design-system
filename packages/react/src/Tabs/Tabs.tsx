@@ -78,6 +78,8 @@ const TabsRoot = forwardRef(
 TabsRoot.displayName = 'Tabs'
 
 /**
+ * Discloses related pieces of content in a secondary area on the page.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-tabs--docs Tabs docs at Amsterdam Design System}
  */
 export const Tabs = Object.assign(TabsRoot, {

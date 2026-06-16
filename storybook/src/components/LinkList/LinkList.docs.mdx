@@ -1,18 +1,29 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/link-list.tokens.json";
 
 import * as LinkListStories from "./LinkList.stories.tsx";
-import README from "../../../../packages/css/src/components/link-list/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/link-list.tokens.json";
-
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={LinkListStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={LinkListStories} />
 
 <Primary />
+
+## Usage guidelines
+
+### When to use
+
+Use a Link List to present multiple links within a theme.
+
+### When not to use
+
+For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.
 
 ## Examples
 
@@ -49,7 +60,7 @@ Any attributes and the `ref` are passed on to the `<a>` element.
 
 ### On a coloured background
 
-A Link on a coloured background must set [the correct text colour](?path=/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
+A Link on a coloured background must set [the correct text colour](/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
 We have lighter and darker background colours, and links behave differently on each.
 
 #### Contrast colour
@@ -66,8 +77,16 @@ It will make the Link white.
 
 <Canvas of={LinkListStories.InverseColour} />
 
+## Design
+
+Every list item starts with a chevron.
+It emphasizes the list structure and thematic coherence.
+The chevron is part of the link.
+Therefore, it is blue and clickable.
+
 ## See also
 
+- [Link](/docs/components-navigation-link--docs) – for individual links.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
 ## Design tokens

@@ -10,6 +10,11 @@ import { forwardRef } from 'react'
 
 export type TableBodyProps = PropsWithChildren<HTMLAttributes<HTMLTableSectionElement>>
 
+/**
+ * The body section of a Table, containing the data rows.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-table--docs Table docs at Amsterdam Design System}
+ */
 export const TableBody = forwardRef(
   ({ children, className, ...restProps }: TableBodyProps, ref: ForwardedRef<HTMLTableSectionElement>) => (
     <tbody {...restProps} className={clsx('ams-table__body', className)} ref={ref}>

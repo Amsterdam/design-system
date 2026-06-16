@@ -1,13 +1,12 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import { StatusBadge } from "#storybook/_components/StatusBadge/StatusBadge.tsx";
+import tokens from "#tokens/components/ams/menu.tokens.json";
 
 import * as MenuStories from "./Menu.stories.tsx";
-import README from "../../../../packages/css/src/components/menu/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/menu.tokens.json";
-
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
-import { StatusBadge } from "../../_components/StatusBadge/StatusBadge.tsx";
 
 <StatusBadge
   description="We’re experimenting with this component; feedback is welcome. Expect changes in future iterations."
@@ -16,7 +15,9 @@ import { StatusBadge } from "../../_components/StatusBadge/StatusBadge.tsx";
 
 <Meta of={MenuStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={MenuStories} />
 
 **Note**: This component is responsive.
 The appearance of the examples depends on the width of your screen.
@@ -25,6 +26,26 @@ On the page for the Story, you can change the size of the preview with the relat
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Include this component twice: one in the Page Header and one to the side of the Page.
+Set the `inWideWindow` prop to the latter to ensure only one of them is visible, and to get the correct appearance.
+
+This component must only be used in [Compact Mode](/docs/docs-developer-guide-modes--docs).
+
+### When not to use
+
+This component must not be used for public websites.
+They should offer navigation using the Page Header only.
+
+Do not use this component anywhere other than the Page Header and the side of the Page.
+
+### How to write
+
+Use filled icons for the links.
 
 ## Examples
 
@@ -38,6 +59,22 @@ Use the filled variant.
 <Canvas of={MenuStories.Link} />
 
 <Controls of={MenuStories.Link} />
+
+## Design
+
+The menu has a blue background.
+Links have a white icon and a label.
+
+In a narrow window, the menu occupies the full width.
+The icon and label of the link sit next to each other.
+
+In a wide window, the menu has a maximum width of 8rem.
+It adds whitespace at the top to align with the baseline of Page Header.
+The icon is larger and positioned above the label.
+
+## See also
+
+- [Page Header](/docs/components-containers-page-header--docs) – contains one instance of the Menu.
 
 ## Design tokens
 

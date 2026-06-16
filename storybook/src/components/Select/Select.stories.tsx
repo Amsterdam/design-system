@@ -8,29 +8,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { Select } from '@amsterdam/design-system-react/src'
 
-const optionList = [
-  <Select.Option key="1" value="1">
-    Centrum
-  </Select.Option>,
-  <Select.Option key="2" value="2">
-    Noord
-  </Select.Option>,
-  <Select.Option key="3" value="3">
-    West
-  </Select.Option>,
-  <Select.Option disabled key="4" value="4">
-    Westpoort
-  </Select.Option>,
-  <Select.Option key="6" value="5">
-    Nieuw-West
-  </Select.Option>,
-  <Select.Option key="7" value="6">
-    Zuid
-  </Select.Option>,
-  <Select.Option key="8" value="7">
-    Zuidoost
-  </Select.Option>,
-]
+import { districts } from '#storybook/_common/exampleContent'
+
+const optionList = [...districts, 'Westpoort'].sort().map((district) => (
+  <Select.Option disabled={district === 'Westpoort'} key={district} value={district}>
+    {district}
+  </Select.Option>
+))
 
 const meta = {
   title: 'Components/Forms/Select',
@@ -41,8 +25,14 @@ const meta = {
     invalid: false,
   },
   argTypes: {
+    defaultValue: {
+      table: { disable: false },
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
+    },
+    onChange: {
+      table: { disable: false },
     },
   },
 } satisfies Meta<typeof Select>

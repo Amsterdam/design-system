@@ -1,20 +1,39 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/field.tokens.json";
 
 import * as FieldStories from "./Field.stories.tsx";
-import README from "../../../../packages/css/src/components/field/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/field.tokens.json";
-
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={FieldStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={FieldStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Use a Field to wrap a single input together with its Label, description, and Error Message.
+
+### When not to use
+
+Use [Field Set](/docs/components-forms-field-set--docs) to wrap multiple inputs.
+
+### How to use
+
+Do not use rich text (such as links or lists) in descriptions.
+Some screen readers, like VoiceOver, skip over rich text when reading out descriptions.
+For more information, see [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/descriptions/inhoud/).
+
+Connect each related element to the input through `aria-describedby` so screen readers announce them.
 
 ## Examples
 
@@ -24,12 +43,6 @@ A Field can have a description.
 Make sure to connect this description to the input in the Field,
 otherwise it won’t be read by a screen reader.
 Add an `aria-describedby` attribute to the input and provide the `id` of the describing element as its value.
-
-#### No rich text
-
-Do not use rich text (such as links or lists) in descriptions.
-Some screen readers, like VoiceOver, skip over rich text when reading out descriptions.
-For more information, see [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/descriptions/inhoud/).
 
 <Canvas of={FieldStories.WithDescription} />
 
@@ -51,6 +64,17 @@ Fields can be nested inside a Field Set.
 Use the `inFieldSet` prop on the Labels of the Fields to show them in a lighter style.
 
 <Canvas of={FieldStories.InAFieldSet} />
+
+## Features
+
+There’s no need to add white space between the children of a Field.
+The component does this automatically.
+
+## See also
+
+- [Field Set](/docs/components-forms-field-set--docs) – wraps multiple inputs.
+- [Label](/docs/components-forms-label--docs) – names the input inside the Field.
+- [Error Message](/docs/components-forms-error-message--docs) – describes a validation error for the input.
 
 ## Design tokens
 

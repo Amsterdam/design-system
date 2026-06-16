@@ -1,30 +1,34 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/column.tokens.json";
 
 import * as ColumnStories from "./Column.stories.tsx";
-import README from "../../../../packages/css/src/components/column/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/column.tokens.json";
-
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={ColumnStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
 
-## Guidelines
-
-- Wrap a Column around a set of elements that need the same amount of white space between them.
-- Five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
-  The medium gap is the default.
-- To add white space below a single element, you can add a [Margin Bottom](/docs/utilities-css-margin--docs) instead.
-- Align the elements horizontally or vertically through the alignment props.
-- Do not use it for text – various types of elements require different amounts of space between them.
-  Wrap editorial content in the [Prose](/docs/utilities-css-prose--docs) utility class to have all spacing set automatically.
+<Description of={ColumnStories} />
 
 <Primary />
 
 <Controls />
+
+## Usage guidelines
+
+### When to use
+
+Wrap a Column around a set of elements that need the same amount of white space between them.
+
+### When not to use
+
+Do not use a Column for text – various types of elements require different amounts of space between them.
+Wrap editorial content in the [Prose](/docs/utilities-css-prose--docs) utility class to have all spacing set automatically.
+
+To add white space below a single element, use [Margin Bottom](/docs/utilities-css-margin--docs) instead.
 
 ## Examples
 
@@ -65,8 +69,16 @@ In this example, the Column uses a `<section>` element to group the heading and 
 
 <Canvas of={ColumnStories.ImproveSemantics} />
 
+## Features
+
+Five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
+The medium gap is the default.
+
+Align the elements horizontally or vertically through the alignment props.
+
 ## See also
 
+- [Row](/docs/components-layout-row--docs) – stacks its children horizontally instead.
 - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for white space and when.
 
 ## Design tokens

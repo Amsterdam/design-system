@@ -3,12 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './color-sample.css'
 import type { HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
 
-import { formatTokenValue } from '../../_common/formatTokenValue'
+import { formatTokenValue } from '#storybook/_common/formatTokenValue'
+
+import './color-sample.css'
 
 type ColorSampleProps = {
   /** A colour token value, either a CSS value or a token reference. */

@@ -15,6 +15,11 @@ export type TabsButtonProps = {
   readonly 'aria-controls': string
 } & Readonly<PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>>
 
+/**
+ * A tab button that reveals its associated panel when activated.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-tabs--docs Tabs docs at Amsterdam Design System}
+ */
 export const TabsButton = forwardRef(
   (
     { 'aria-controls': ariaControls, children, className, onClick, ...restProps }: TabsButtonProps,

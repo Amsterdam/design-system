@@ -27,6 +27,8 @@ const SelectRoot = forwardRef(
 SelectRoot.displayName = 'Select'
 
 /**
+ * A form control that allows users to select one or more options from a list.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-select--docs Select docs at Amsterdam Design System}
  */
 export const Select = Object.assign(SelectRoot, { Group: SelectOptionGroup, Option: SelectOption })

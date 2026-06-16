@@ -33,7 +33,7 @@ const meta = {
       description: 'Describes the field for screen readers.',
     },
     onSubmit: {
-      table: { disable: true },
+      table: { disable: false },
     },
     placeholder: {
       description: 'Displayed while the field is empty.',

@@ -1,16 +1,18 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Markdown, Meta, Primary } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/progress-list.tokens.json";
+
 import * as ProgressListStories from "./ProgressList.stories.tsx";
 import * as ProgressListStepStories from "./ProgressListStep.stories.tsx";
-import README from "../../../../packages/css/src/components/progress-list/README.md?raw";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/progress-list.tokens.json";
-
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
 
 <Meta of={ProgressListStories} />
 
-<Markdown>{README}</Markdown>
+<Title />
+
+<Description of={ProgressListStories} />
 
 <Primary />
 
@@ -23,6 +25,24 @@ import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTok
 <Canvas of={ProgressListStepStories.Step} />
 
 <Controls of={ProgressListStepStories.Step} />
+
+## Usage guidelines
+
+### When to use
+
+Assign a status to each step: _completed_ or _current_.
+Steps without a status are considered _upcoming_.
+
+Maintain a correct chronological order.
+Only one step may be _current_; preceding steps must be _completed_.
+
+Decide whether the user should be able to collapse and expand steps.
+
+Progress List must only be used on a white background.
+
+### How to use
+
+Choose the correct level for the headings of the steps.
 
 ## Examples
 

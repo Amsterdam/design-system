@@ -22,6 +22,8 @@ export type SpotlightProps = {
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
+ * Emphasizes a section on a page through a distinctive background colour.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-spotlight--docs Spotlight docs at Amsterdam Design System}
  */
 export const Spotlight = forwardRef<HTMLElement, SpotlightProps>(
