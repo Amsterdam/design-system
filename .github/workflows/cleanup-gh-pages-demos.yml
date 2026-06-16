@@ -73,14 +73,14 @@ jobs:
       I_REALLY_MEAN_IT: ${{ github.event.inputs.i_really_mean_it || 'false' }}
     steps:
       - name: Check out cleanup scripts from workflow ref
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           sparse-checkout: .github/scripts
           sparse-checkout-cone-mode: false
           path: workflow-src
 
       - name: Check out gh-pages branch
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           ref: gh-pages
           fetch-depth: 0
