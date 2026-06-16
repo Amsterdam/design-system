@@ -36,7 +36,7 @@ describe('FileList', () => {
   })
 
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLOListElement>()
+    const ref = createRef<HTMLUListElement>()
 
     render(<FileList ref={ref} />)
 

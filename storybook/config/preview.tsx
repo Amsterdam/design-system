@@ -23,9 +23,18 @@ export const argTypes = {
   className: {
     table: { disable: true },
   },
-  defaultValue: { control: false },
-  onChange: { control: false },
-  onSubmit: { control: false },
+  defaultValue: {
+    control: false,
+    table: { disable: true },
+  },
+  onChange: {
+    control: false,
+    table: { disable: true },
+  },
+  onSubmit: {
+    control: false,
+    table: { disable: true },
+  },
   style: {
     table: { disable: true },
   },
