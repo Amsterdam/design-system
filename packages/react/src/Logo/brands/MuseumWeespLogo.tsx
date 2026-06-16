@@ -13,7 +13,7 @@ const MuseumWeespLogo = forwardRef((props: SVGProps<SVGSVGElement>, ref: Forward
     height="2.5rem"
     ref={ref}
     role="img"
-    viewBox="0 0 112.558 40"
+    viewBox="0 0 113.256 40"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
