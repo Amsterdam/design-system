@@ -9,7 +9,7 @@ import { Paragraph } from '@amsterdam/design-system-react'
 import { ProgressList } from '@amsterdam/design-system-react/src'
 import { useArgs } from 'storybook/preview-api'
 
-import { exampleParagraph } from '../../_common/exampleContent'
+import { exampleParagraph } from '#storybook/_common/exampleContent'
 
 const meta = {
   title: 'Components/Containers/Progress List',

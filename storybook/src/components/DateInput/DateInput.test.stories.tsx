@@ -7,7 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { DateInput } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../_common/renderComponentVariants'
+import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
+
 import { default as dateInputMeta } from './DateInput.stories'
 
 const meta = {

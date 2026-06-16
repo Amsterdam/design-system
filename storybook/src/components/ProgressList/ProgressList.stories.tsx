@@ -10,7 +10,7 @@ import { ProgressList } from '@amsterdam/design-system-react/src'
 import { progressListHeadingLevels } from '@amsterdam/design-system-react/src/ProgressList/ProgressList'
 import { useState } from 'react'
 
-import { exampleParagraph, exampleUnorderedList } from '../../_common/exampleContent'
+import { exampleParagraph, exampleUnorderedList } from '#storybook/_common/exampleContent'
 
 const paragraphs = Array.from({ length: 6 }, () => exampleParagraph())
 

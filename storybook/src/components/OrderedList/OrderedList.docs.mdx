@@ -2,10 +2,10 @@
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
-import * as OrderedListStories from "./OrderedList.stories.tsx";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/ordered-list.tokens.json";
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/ordered-list.tokens.json";
 
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
+import * as OrderedListStories from "./OrderedList.stories.tsx";
 
 <Meta of={OrderedListStories} />
 
