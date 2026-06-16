@@ -59,14 +59,17 @@ describe('nextRange', () => {
     })
   })
 
-  it('restarts when picking before or on the current start', () => {
+  it('restarts when picking before the current start', () => {
     expect(nextRange({ start: new Date(2026, 2, 10), end: null }, new Date(2026, 2, 5))).toEqual({
       start: new Date(2026, 2, 5),
       end: null,
     })
+  })
+
+  it('completes a one-day range when picking the same date as the start', () => {
     expect(nextRange({ start: new Date(2026, 2, 10), end: null }, new Date(2026, 2, 10))).toEqual({
       start: new Date(2026, 2, 10),
-      end: null,
+      end: new Date(2026, 2, 10),
     })
   })
 

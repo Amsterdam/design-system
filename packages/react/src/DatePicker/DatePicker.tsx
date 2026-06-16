@@ -178,14 +178,12 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
     }
 
     const { start, end } = selection.value
+    const isStart = start !== null && isSameDay(date, start)
+    const isEnd = end !== null && isSameDay(date, end)
 
-    if (start !== null && isSameDay(date, start)) {
-      return rangeStartAccessibleName
-    }
-
-    if (end !== null && isSameDay(date, end)) {
-      return rangeEndAccessibleName
-    }
+    if (isStart && isEnd) return `${rangeStartAccessibleName}, ${rangeEndAccessibleName}`
+    if (isStart) return rangeStartAccessibleName
+    if (isEnd) return rangeEndAccessibleName
 
     return undefined
   }

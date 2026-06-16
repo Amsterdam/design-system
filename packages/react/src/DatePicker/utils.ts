@@ -25,14 +25,14 @@ export const isWithinRange = (date: Date, { start, end }: DateRange) => {
 /**
  * Computes the next range when a date is picked.
  * Starts a fresh range when there is no start yet, when the range is already complete,
- * or when the picked date is on or before the current start; otherwise it completes the range.
+ * or when the picked date precedes the current start; otherwise it completes the range.
  */
 export const nextRange = ({ start, end }: DateRange, date: Date): DateRange => {
   if (start === null || end !== null) {
     return { start: date, end: null }
   }
 
-  if (startOfDay(date) <= startOfDay(start)) {
+  if (startOfDay(date) < startOfDay(start)) {
     return { start: date, end: null }
   }
 
