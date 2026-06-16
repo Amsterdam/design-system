@@ -1,1 +1,0 @@
-import{i as e}from"./preload-helper-xPQekRTU.js";import{t}from"./jsx-runtime-BqsN2jGA.js";import{t as n,vt as r}from"./src-CbwpQdt5.js";var i=e((()=>{})),a,o,s=e((()=>{i(),n(),a=t(),o=()=>(0,a.jsx)(r,{className:`_ams-grid-columns-guide`,children:Array.from(Array(12).keys()).map(e=>(0,a.jsx)(r.Cell,{className:`_ams-grid-columns-guide__cell`},e))})}));export{s as n,o as t};
