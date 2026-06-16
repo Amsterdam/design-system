@@ -41,8 +41,13 @@ The first pick sets the start, the second sets the end, and picking before the s
 
 ### Range selection
 
-The Date Picker itself does not communicate that a range selection is expected.
-Use a label, heading, or instructional text to tell users they need to pick two dates.
+Set `mode="range"` to let users pick a start and end date.
+The Date Picker itself does not communicate that a range is expected — use a label, heading, or instruction to make this clear.
+
+The user picks the start date first.
+A second click on a later date completes the range; clicking the same date completes a one-day range.
+Clicking a date before the current start discards the selection and begins a new range from that date.
+Any click after the range is complete starts over.
 
 <Canvas of={DatePickerStories.Range} />
 
