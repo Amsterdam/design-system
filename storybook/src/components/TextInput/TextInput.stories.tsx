@@ -19,7 +19,6 @@ const meta = {
   },
   argTypes: {
     defaultValue: {
-      control: false,
       table: { disable: false },
     },
     disabled: {
@@ -29,7 +28,6 @@ const meta = {
       description: 'Whether the value fails a validation rule.',
     },
     onChange: {
-      control: false,
       table: { disable: false },
     },
     size: {

@@ -33,7 +33,6 @@ const meta = {
       },
     },
     onChange: {
-      control: false,
       table: { disable: false },
     },
   },

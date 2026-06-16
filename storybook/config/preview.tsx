@@ -24,12 +24,15 @@ export const argTypes = {
     table: { disable: true },
   },
   defaultValue: {
+    control: false,
     table: { disable: true },
   },
   onChange: {
+    control: false,
     table: { disable: true },
   },
   onSubmit: {
+    control: false,
     table: { disable: true },
   },
   style: {
