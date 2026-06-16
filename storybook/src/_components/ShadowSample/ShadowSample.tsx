@@ -3,12 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './shadow-sample.css'
 import type { HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
 
 import { formatTokenValue } from '../../_common/formatTokenValue'
+
+import './shadow-sample.css'
 
 type ShadowSampleProps = {
   /** A box-shadow token value, either a CSS value or containing token references. */

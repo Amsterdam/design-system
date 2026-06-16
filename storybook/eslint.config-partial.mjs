@@ -1,4 +1,5 @@
 import * as mdx from 'eslint-plugin-mdx'
+import perfectionist from 'eslint-plugin-perfectionist'
 import storybook from 'eslint-plugin-storybook'
 
 import { reactPreset } from '../packages/react/eslint.config-partial.mjs'
@@ -33,6 +34,32 @@ export default [
       ...mdx.flatCodeBlocks.rules,
       'react/jsx-no-undef': 'off',
       'react/prop-types': 'off',
+    },
+  },
+
+  // MDX — import sorting (MDX stays in ESLint even after the oxlint migration)
+  {
+    name: 'amsterdam-design-system/mdx-imports',
+
+    files: ['**/*.mdx'],
+    plugins: { perfectionist },
+    rules: {
+      'perfectionist/sort-imports': [
+        'error',
+        {
+          groups: [
+            'type-import',
+            ['value-builtin', 'value-external'],
+            ['type-parent', 'type-sibling', 'type-index'],
+            ['value-parent', 'value-sibling', 'value-index'],
+            'side-effect',
+            'unknown',
+          ],
+          newlinesBetween: 1,
+          order: 'asc',
+          type: 'natural',
+        },
+      ],
     },
   },
 

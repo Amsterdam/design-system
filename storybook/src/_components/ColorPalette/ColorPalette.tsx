@@ -3,11 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './color-palette.css'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
+
+import './color-palette.css'
 
 type ColorPaletteProps = PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>, 'className'>>
 
