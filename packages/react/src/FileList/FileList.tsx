@@ -12,9 +12,6 @@ import { FileListItem } from './FileListItem'
 
 export type FileListProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
-/**
- * An overview of files, showing their name, type, size, and a preview.
- */
 export const FileListRoot = forwardRef(
   ({ children, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLUListElement>) => (
     <ul {...restProps} className={clsx('ams-file-list', className)} ref={ref}>
@@ -26,6 +23,8 @@ export const FileListRoot = forwardRef(
 FileListRoot.displayName = 'FileList'
 
 /**
+ * An overview of files, showing their name, type, size, and a preview.
+ *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-file-list--docs File List docs at Amsterdam Design System}
  */
 export const FileList = Object.assign(FileListRoot, {
