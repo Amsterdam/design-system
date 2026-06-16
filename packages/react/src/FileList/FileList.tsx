@@ -13,7 +13,7 @@ import { FileListItem } from './FileListItem'
 export type FileListProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 export const FileListRoot = forwardRef(
-  ({ children, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLOListElement>) => (
+  ({ children, className, ...restProps }: FileListProps, ref: ForwardedRef<HTMLUListElement>) => (
     <ul {...restProps} className={clsx('ams-file-list', className)} ref={ref}>
       {children}
     </ul>
