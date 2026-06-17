@@ -15,11 +15,26 @@ import { formatDate } from '#storybook/_common/formatDate'
 
 const topTask = exampleTopTask()
 
+// A query container at the column width, so Cards resolve their layout against this width
+// (not the wide Storybook Page) and stay vertical below the horizontal breakpoint.
 const maxInlineSizeDecorator: Decorator = (Story) => (
-  <div style={{ maxInlineSize: '24rem' }}>
+  <div className="ams-query-container-inline-size" style={{ maxInlineSize: '24rem' }}>
     <Story />
   </div>
 )
+
+const newsCardChildren = (heading: string, imageSrc: string, text: string) => [
+  <Card.Image alt="" key="image" src={imageSrc} />,
+  <Card.HeadingGroup key="heading" tagline="Nieuws">
+    <Card.Heading level={2}>
+      <Card.Link href="/">{heading}</Card.Link>
+    </Card.Heading>
+  </Card.HeadingGroup>,
+  <Column gap="small" key="content">
+    <Paragraph>{text}</Paragraph>
+    <Paragraph size="small">{formatDate(Date.now())}</Paragraph>
+  </Column>,
+]
 
 const meta = {
   title: 'Components/Navigation/Card',
@@ -71,7 +86,6 @@ type WithImageStory = StoryObj<WithImageProps>
 
 export const WithImage: WithImageStory = {
   args: {
-    aspectRatio: '4:3',
     date: formatDate(Date.now()),
     heading: 'Nederlands eerste houten woonwijk komt in Zuidoost',
     imageSrc: 'https://picsum.photos/480/360',
@@ -152,5 +166,47 @@ export const TopTasks: Story = {
         </Card>
       </Grid.Cell>
     </Grid>
+  ),
+}
+
+export const Horizontal: Story = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  render: () => (
+    <Grid paddingVertical="x-large">
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 12 }}>
+        <Card>
+          {newsCardChildren(
+            'Nederlands eerste houten woonwijk komt in Zuidoost',
+            'https://picsum.photos/id/122/1280/720',
+            'We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
+          )}
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 12 }}>
+        <Card>
+          {newsCardChildren(
+            'Meer ruimte voor voetgangers in de binnenstad',
+            'https://picsum.photos/id/1015/1280/720',
+            'De komende jaren maken we straten autoluw, zodat er meer plek is om te lopen, te verblijven en te vergroenen.',
+          )}
+        </Card>
+      </Grid.Cell>
+    </Grid>
+  ),
+}
+
+export const HorizontalResizable: Story = {
+  render: () => (
+    <div className="ams-query-container-inline-size _ams-resize-horizontal" style={{ inlineSize: '40rem' }}>
+      <Card>
+        {newsCardChildren(
+          'Nederlands eerste houten woonwijk komt in Zuidoost',
+          'https://picsum.photos/id/122/1280/720',
+          'We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
+        )}
+      </Card>
+    </div>
   ),
 }

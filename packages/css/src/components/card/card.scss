@@ -3,6 +3,20 @@
  * Copyright Gemeente Amsterdam
  */
 
+/**
+ * CSS Custom properties cannot be used in container queries.
+ * We resort to Sass variables for our breakpoint values.
+ */
+
+/** The container width at which a Card with an image switches to a horizontal layout. */
+$ams-card-horizontal-breakpoint: 32rem;
+
+@mixin horizontal-layout {
+  @container ams-query-container-inline-size (inline-size > #{$ams-card-horizontal-breakpoint}) {
+    @content;
+  }
+}
+
 .ams-card {
   display: grid;
   outline-offset: var(--ams-card-outline-offset);
@@ -26,6 +40,32 @@
 
   > .ams-card__image:not(:last-child) {
     margin-block-end: var(--ams-card-image-margin-block-end);
+  }
+}
+
+@include horizontal-layout {
+  /*
+   * Only Cards that contain an image switch to a horizontal layout: the image in the first column,
+   * the remaining content in the second. Cards without an image are left unchanged.
+   * It is okay to use the :has() pseudo-class here, because the layout falls back to the vertical
+   * default in browsers that do not support it.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
+  .ams-card:has(> .ams-card__image) {
+    column-gap: var(--ams-card-horizontal-column-gap);
+    grid-template-columns: var(--ams-card-horizontal-grid-template-columns);
+
+    > .ams-card__image {
+      block-size: 100%;
+      grid-column-start: 1;
+      grid-row: 1 / 9; // Stretch across all content rows; `1 / -1` does not span implicit rows.
+      margin-block-end: 0; // The column gap handles the spacing in this layout.
+      min-block-size: 0; // Let the content column, not the image, drive the row heights.
+    }
+
+    > :not(.ams-card__image) {
+      grid-column-start: 2;
+    }
   }
 }
 

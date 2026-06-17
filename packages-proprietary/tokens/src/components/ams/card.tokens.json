@@ -26,6 +26,21 @@
           }
         }
       },
+      "horizontal": {
+        "column-gap": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "grid-template-columns": {
+          "$value": "1fr 2fr",
+          "$extensions": {
+            "nl.amsterdam.type": "gridTemplateColumns"
+          }
+        }
+      },
       "image": {
         "margin-block-end": {
           "$value": "{ams.space.s}",

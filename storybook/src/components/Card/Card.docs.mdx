@@ -60,6 +60,18 @@ Only use decorative images with `alt=""` here. Screen readers will not read the 
 
 <Canvas of={CardStories.WithImage} />
 
+### Horizontal layout
+
+A Card with an image switches to a horizontal layout, with the image beside the content, when its container is wide enough.
+This is driven by container queries, so the Card adapts to the space available rather than the viewport.
+Place the Card in a [Grid](/docs/components-layout-grid--docs) cell or another inline-size query container to enable this.
+
+<Canvas of={CardStories.Horizontal} />
+
+Resize the container below to see the Card switch between the vertical and horizontal layouts at the breakpoint.
+
+<Canvas of={CardStories.HorizontalResizable} />
+
 ### Top tasks
 
 A set of cards can be used to present links to frequently accessed interactions.
