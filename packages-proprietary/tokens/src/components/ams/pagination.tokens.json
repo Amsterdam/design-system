@@ -19,11 +19,29 @@
           "nl.amsterdam.type": "fontWeight"
         }
       },
+      "gap": {
+        "$value": "initial",
+        "$extensions": {
+          "nl.amsterdam.external": true,
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
           "nl.amsterdam.subtype": "lineHeight",
           "nl.amsterdam.type": "number"
+        }
+      },
+      "list": {
+        "gap": {
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
         }
       },
       "link": {
@@ -74,14 +92,6 @@
             "nl.amsterdam.type": "dimension"
           }
         },
-        "current": {
-          "font-weight": {
-            "$value": "{ams.typography.body-text.bold.font-weight}",
-            "$extensions": {
-              "nl.amsterdam.type": "fontWeight"
-            }
-          }
-        },
         "hover": {
           "color": {
             "$value": "{ams.links.hover.color}",
@@ -93,6 +103,14 @@
             "$value": "{ams.links.subtle.hover.text-decoration-line}",
             "$extensions": {
               "nl.amsterdam.type": "textDecorationLine"
+            }
+          }
+        },
+        "current": {
+          "font-weight": {
+            "$value": "{ams.typography.body-text.bold.font-weight}",
+            "$extensions": {
+              "nl.amsterdam.type": "fontWeight"
             }
           }
         }
