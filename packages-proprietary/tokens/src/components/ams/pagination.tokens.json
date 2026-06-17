@@ -51,6 +51,13 @@
             "nl.amsterdam.type": "color"
           }
         },
+        "font-weight": {
+          "$value": "inherit",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.type": "fontWeight"
+          }
+        },
         "gap": {
           "$value": "{ams.space.xs}",
           "$extensions": {
@@ -58,9 +65,31 @@
             "nl.amsterdam.type": "dimension"
           }
         },
+        "min-block-size": {
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "min-inline-size": {
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.type": "dimension"
+          }
+        },
         "outline-offset": {
           "$value": "{ams.focus.outline-offset}",
           "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-block": {
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.external": true,
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }

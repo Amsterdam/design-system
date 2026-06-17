@@ -28,8 +28,12 @@
 .ams-pagination__link {
   color: var(--ams-pagination-link-color);
   display: inline-flex;
+  font-weight: var(--ams-pagination-link-font-weight);
   gap: var(--ams-pagination-link-gap);
+  min-block-size: var(--ams-pagination-link-min-block-size);
+  min-inline-size: var(--ams-pagination-link-min-inline-size);
   outline-offset: var(--ams-pagination-link-outline-offset);
+  padding-block: var(--ams-pagination-link-padding-block);
   padding-inline: var(--ams-pagination-link-padding-inline);
   text-decoration-line: var(--ams-pagination-link-text-decoration-line);
   text-decoration-thickness: var(--ams-pagination-link-text-decoration-thickness);
