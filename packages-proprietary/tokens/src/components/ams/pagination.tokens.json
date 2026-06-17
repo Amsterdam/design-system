@@ -143,6 +143,30 @@
             }
           }
         }
+      },
+      "ellipsis": {
+        "color": {
+          "$value": "inherit",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "padding-block": {
+          "$value": "{ams.pagination.link.padding-block}",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-inline": {
+          "$value": "0",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
       }
     }
   }

@@ -58,6 +58,13 @@
   display: inline; // Override the default 'hidden' attribute, showing the visible label when CSS loads
 }
 
+.ams-pagination__ellipsis {
+  color: var(--ams-pagination-ellipsis-color);
+  display: inline-flex;
+  padding-block: var(--ams-pagination-ellipsis-padding-block);
+  padding-inline: var(--ams-pagination-ellipsis-padding-inline);
+}
+
 .ams-pagination__link[aria-current="page"] {
   font-weight: var(--ams-pagination-link-current-font-weight);
 

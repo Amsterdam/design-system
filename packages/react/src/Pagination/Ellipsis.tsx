@@ -3,4 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
-export const Ellipsis = () => <li aria-hidden>{'\u2026'}</li>
+export const Ellipsis = () => (
+  <li aria-hidden>
+    <span className="ams-pagination__ellipsis">{'\u2026'}</span>
+  </li>
+)
