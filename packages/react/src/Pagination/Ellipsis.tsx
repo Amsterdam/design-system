@@ -3,4 +3,4 @@
  * Copyright Gemeente Amsterdam
  */
 
-export const Spacer = () => <li aria-hidden>{'\u2026'}</li>
+export const Ellipsis = () => <li aria-hidden>{'\u2026'}</li>

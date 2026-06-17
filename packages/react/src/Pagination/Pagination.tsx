@@ -10,9 +10,9 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 import { Icon } from '../Icon'
+import { Ellipsis } from './Ellipsis'
 import { getRange } from './getRange'
 import { LinkItem } from './LinkItem'
-import { Spacer } from './Spacer'
 
 export type PaginationProps = {
   /** The accessible name for the Pagination component. */
@@ -73,7 +73,7 @@ export const Pagination = forwardRef(
 
     const Link = linkComponent
 
-    // Get array of page numbers and / or spacers
+    // Get array of page numbers and / or ellipses
     const range = getRange(page, totalPages, maxVisiblePages)
 
     return (
@@ -96,17 +96,17 @@ export const Pagination = forwardRef(
           </Link>
         )}
         <ol className="ams-pagination__list">
-          {range.map((pageNumberOrSpacer) =>
-            typeof pageNumberOrSpacer === 'number' ? (
+          {range.map((pageNumberOrEllipsis) =>
+            typeof pageNumberOrEllipsis === 'number' ? (
               <LinkItem
                 currentPage={page}
-                key={pageNumberOrSpacer}
+                key={pageNumberOrEllipsis}
                 linkComponent={linkComponent}
                 linkTemplate={linkTemplate}
-                pageNumber={pageNumberOrSpacer}
+                pageNumber={pageNumberOrEllipsis}
               />
             ) : (
-              <Spacer key={pageNumberOrSpacer} />
+              <Ellipsis key={pageNumberOrEllipsis} />
             ),
           )}
         </ol>

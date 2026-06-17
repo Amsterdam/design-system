@@ -51,7 +51,7 @@ describe('Pagination', () => {
     })
   })
 
-  it('should render the pages including one (last) spacer in the correct location when totalPages > maxVisiblePages', () => {
+  it('should render the pages including one (last) ellipsis in the correct location when totalPages > maxVisiblePages', () => {
     render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={1} totalPages={10} />)
 
     const listItem = screen.getAllByRole('listitem', { hidden: true })
@@ -63,7 +63,7 @@ describe('Pagination', () => {
     })
   })
 
-  it('should render the pages including the two spacers in the correct location when totalPages > maxVisiblePages and current page > 4', () => {
+  it('should render the pages including two ellipses in the correct location when totalPages > maxVisiblePages and current page > 4', () => {
     render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={6} totalPages={10} />)
 
     const listItem = screen.getAllByRole('listitem', { hidden: true })
@@ -75,7 +75,7 @@ describe('Pagination', () => {
     })
   })
 
-  it('should render the pages including one (first) spacer in the correct location when totalPages > maxVisiblePages and page > maxVisiblePages', () => {
+  it('should render the pages including one (first) ellipsis in the correct location when totalPages > maxVisiblePages and page > maxVisiblePages', () => {
     render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={7} totalPages={10} />)
 
     const listItem = screen.getAllByRole('listitem', { hidden: true })
