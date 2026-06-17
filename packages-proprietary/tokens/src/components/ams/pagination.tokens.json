@@ -45,6 +45,13 @@
         }
       },
       "link": {
+        "background-color": {
+          "$value": "initial",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.type": "color"
+          }
+        },
         "color": {
           "$value": "{ams.links.color}",
           "$extensions": {
@@ -122,6 +129,13 @@
           }
         },
         "hover": {
+          "background-color": {
+            "$value": "initial",
+            "$extensions": {
+              "nl.amsterdam.external": true,
+              "nl.amsterdam.type": "color"
+            }
+          },
           "color": {
             "$value": "{ams.links.hover.color}",
             "$extensions": {
@@ -136,10 +150,40 @@
           }
         },
         "current": {
+          "background-color": {
+            "$value": "initial",
+            "$extensions": {
+              "nl.amsterdam.external": true,
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "color": {
+            "$value": "{ams.pagination.link.color}",
+            "$extensions": {
+              "nl.amsterdam.external": true,
+              "nl.amsterdam.type": "color"
+            }
+          },
           "font-weight": {
             "$value": "{ams.typography.body-text.bold.font-weight}",
             "$extensions": {
               "nl.amsterdam.type": "fontWeight"
+            }
+          },
+          "hover": {
+            "background-color": {
+              "$value": "initial",
+              "$extensions": {
+                "nl.amsterdam.external": true,
+                "nl.amsterdam.type": "color"
+              }
+            },
+            "color": {
+              "$value": "{ams.pagination.link.hover.color}",
+              "$extensions": {
+                "nl.amsterdam.external": true,
+                "nl.amsterdam.type": "color"
+              }
             }
           }
         }
