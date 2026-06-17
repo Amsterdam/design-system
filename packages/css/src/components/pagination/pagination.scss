@@ -25,6 +25,17 @@
   gap: var(--ams-pagination-list-gap);
 }
 
+.ams-pagination__link,
+.ams-pagination__relative-link {
+  @include text-rendering;
+
+  // Override for icon size
+  span.ams-icon svg {
+    block-size: 1rem;
+    inline-size: 1rem;
+  }
+}
+
 .ams-pagination__link {
   background-color: var(--ams-pagination-link-background-color);
   color: var(--ams-pagination-link-color);
@@ -41,8 +52,6 @@
   text-underline-offset: var(--ams-pagination-link-text-underline-offset);
   touch-action: manipulation;
 
-  @include text-rendering;
-
   &:hover {
     background-color: var(--ams-pagination-link-hover-background-color);
     color: var(--ams-pagination-link-hover-color);
@@ -53,16 +62,36 @@
     background-color: var(--ams-pagination-link-active-background-color);
     color: var(--ams-pagination-link-active-color);
   }
-
-  // Override for icon size
-  span.ams-icon svg {
-    block-size: 1rem;
-    inline-size: 1rem;
-  }
 }
 
 .ams-pagination__link-label {
   display: inline; // Override the default 'hidden' attribute, showing the visible label when CSS loads
+}
+
+.ams-pagination__relative-link {
+  background-color: var(--ams-pagination-relative-link-background-color);
+  color: var(--ams-pagination-relative-link-color);
+  display: inline-flex;
+  font-weight: var(--ams-pagination-relative-link-font-weight);
+  gap: var(--ams-pagination-relative-link-gap);
+  outline-offset: var(--ams-pagination-relative-link-outline-offset);
+  padding-block: var(--ams-pagination-relative-link-padding-block);
+  padding-inline: var(--ams-pagination-relative-link-padding-inline);
+  text-decoration-line: var(--ams-pagination-relative-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-pagination-relative-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-pagination-relative-link-text-underline-offset);
+  touch-action: manipulation;
+
+  &:hover {
+    background-color: var(--ams-pagination-relative-link-hover-background-color);
+    color: var(--ams-pagination-relative-link-hover-color);
+    text-decoration-line: var(--ams-pagination-relative-link-hover-text-decoration-line);
+  }
+
+  &:active {
+    background-color: var(--ams-pagination-relative-link-active-background-color);
+    color: var(--ams-pagination-relative-link-active-color);
+  }
 }
 
 .ams-pagination__ellipsis {

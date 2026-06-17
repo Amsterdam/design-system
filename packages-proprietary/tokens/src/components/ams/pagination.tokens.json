@@ -204,6 +204,123 @@
           }
         }
       },
+      "relative-link": {
+        "background-color": {
+          "$value": "{ams.pagination.link.background-color}",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "color": {
+          "$value": "{ams.pagination.link.color}",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "font-weight": {
+          "$value": "{ams.pagination.link.font-weight}",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.type": "fontWeight"
+          }
+        },
+        "gap": {
+          "$value": "{ams.pagination.link.gap}",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "outline-offset": {
+          "$value": "{ams.pagination.link.outline-offset}",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-block": {
+          "$value": "{ams.pagination.link.padding-block}",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-inline": {
+          "$value": "{ams.pagination.link.padding-inline}",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "text-decoration-line": {
+          "$value": "{ams.pagination.link.text-decoration-line}",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.type": "textDecorationLine"
+          }
+        },
+        "text-decoration-thickness": {
+          "$value": "{ams.pagination.link.text-decoration-thickness}",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "text-underline-offset": {
+          "$value": "{ams.pagination.link.text-underline-offset}",
+          "$extensions": {
+            "nl.amsterdam.external": true,
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "hover": {
+          "background-color": {
+            "$value": "{ams.pagination.link.hover.background-color}",
+            "$extensions": {
+              "nl.amsterdam.external": true,
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "color": {
+            "$value": "{ams.pagination.link.hover.color}",
+            "$extensions": {
+              "nl.amsterdam.external": true,
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "text-decoration-line": {
+            "$value": "{ams.pagination.link.hover.text-decoration-line}",
+            "$extensions": {
+              "nl.amsterdam.external": true,
+              "nl.amsterdam.type": "textDecorationLine"
+            }
+          }
+        },
+        "active": {
+          "background-color": {
+            "$value": "{ams.pagination.link.active.background-color}",
+            "$extensions": {
+              "nl.amsterdam.external": true,
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "color": {
+            "$value": "{ams.pagination.link.active.color}",
+            "$extensions": {
+              "nl.amsterdam.external": true,
+              "nl.amsterdam.type": "color"
+            }
+          }
+        }
+      },
       "ellipsis": {
         "color": {
           "$value": "inherit",

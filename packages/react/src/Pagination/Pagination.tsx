@@ -87,7 +87,7 @@ export const Pagination = forwardRef(
           {accessibleName || 'Paginering'}
         </span>
         {page !== 1 && (
-          <Link className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
+          <Link className="ams-pagination__link ams-pagination__relative-link" href={linkTemplate(page - 1)} rel="prev">
             <Icon svg={ChevronBackwardIcon} />
             <span className="ams-visually-hidden">{previousAccessibleName || 'Vorige pagina'}</span>
             <span aria-hidden className="ams-pagination__link-label" hidden>
@@ -111,7 +111,7 @@ export const Pagination = forwardRef(
           )}
         </ol>
         {page !== totalPages && (
-          <Link className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
+          <Link className="ams-pagination__link ams-pagination__relative-link" href={linkTemplate(page + 1)} rel="next">
             <span className="ams-visually-hidden">{nextAccessibleName || 'Volgende pagina'}</span>
             <span aria-hidden className="ams-pagination__link-label" hidden>
               {nextLabel}
