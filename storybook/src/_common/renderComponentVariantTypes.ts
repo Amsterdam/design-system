@@ -21,6 +21,8 @@ export type renderComponentVariantsParams = {
 }
 
 export type BuildComponentPropsParams = {
+  acceptsAccessibleName: boolean
+  acceptsAccessibleNameId: boolean
   args: Meta['args']
   hasIcon?: { icon: IconProps['svg'] } | null
   propName: string
