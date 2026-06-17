@@ -149,6 +149,22 @@
             }
           }
         },
+        "active": {
+          "background-color": {
+            "$value": "initial",
+            "$extensions": {
+              "nl.amsterdam.external": true,
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "color": {
+            "$value": "{ams.pagination.link.color}",
+            "$extensions": {
+              "nl.amsterdam.external": true,
+              "nl.amsterdam.type": "color"
+            }
+          }
+        },
         "current": {
           "background-color": {
             "$value": "initial",

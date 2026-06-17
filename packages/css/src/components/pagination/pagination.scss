@@ -49,6 +49,11 @@
     text-decoration-line: var(--ams-pagination-link-hover-text-decoration-line);
   }
 
+  &:active {
+    background-color: var(--ams-pagination-link-active-background-color);
+    color: var(--ams-pagination-link-active-color);
+  }
+
   // Override for icon size
   span.ams-icon svg {
     block-size: 1rem;
