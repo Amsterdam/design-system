@@ -1,0 +1,32 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import * as EventsStories from "./EventsPage.stories.tsx";
+
+<Meta of={EventsStories} />
+
+# Events page
+
+A template for finding and browsing activities, such as a city events calendar.
+It is a rebuild of [activiteiten.amsterdam.nl](https://activiteiten.amsterdam.nl) using only design system components.
+
+## Layout
+
+The page keeps a single DOM order at every breakpoint.
+Only the Grid column placement changes, so the visual order never diverges from the reading and tab order.
+The filter panel sits in the left column on wide screens and stacks above the results on narrow screens.
+
+The results column is shown two ways.
+`Default` uses a single, scannable column of full-width rows, which suits homogeneous content where people compare dates and locations.
+`Cards` arranges the same activities in a card grid, laid out as a subgrid so the cards line up on the page’s columns next to the taller filter panel.
+The same `Card` switches between a horizontal and a vertical layout based on the width of its container, so neither view changes the DOM.
+
+## Accessibility
+
+- The main region has `id="inhoud"`, the target of the page’s skip link.
+- The keyword search is a `role=search` landmark; date, district, and category filters are grouped with fieldsets and legends.
+- The result count sits in a polite live region (`role=status`); in an implementation that updates the results in place, changing this text announces the new count.
+- Each activity is a list item with a heading that links to its detail page, and its date is marked up with a `time` element.
+- The Calendar is date navigation: each day links to the activities on that day.
+- The empty state offers a way to recover instead of leaving the user at a dead end.
