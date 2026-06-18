@@ -21,8 +21,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const iconNames = Object.keys(Icons) as (keyof typeof Icons)[]
-
+const iconNames = (Object.keys(Icons) as (keyof typeof Icons)[]).sort((a, b) => a.localeCompare(b))
 export const Test: Story = {
   render: (args, context) => (
     <div className="_ams-tests-stack">
