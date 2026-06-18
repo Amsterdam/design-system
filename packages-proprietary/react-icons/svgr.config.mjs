@@ -12,11 +12,11 @@ ${variables.exports};
 `
 
   const comment = deprecatedIconComment(variables.componentName.replace(/^Svg/, ''))
+  const component = statements.find((statement) => statement.type === 'VariableDeclaration')
 
-  if (comment) {
+  if (comment && component) {
     // Two-line gap in the synthetic loc keeps a blank line above the comment.
     const value = comment.slice(2, -2)
-    const component = statements.at(-2)
 
     component.loc = { start: { column: 0, line: 1 }, end: { column: 0, line: 1 } }
     component.trailingComments = [
