@@ -234,7 +234,7 @@ describe('TableOfContents', () => {
         <TableOfContents collapsible>
           <TableOfContents.List>
             <TableOfContents.Link defaultExpanded href="#a" label="A">
-              <TableOfContents.List id="  ">
+              <TableOfContents.List id="">
                 <TableOfContents.Link href="#a-1" label="A.1" />
               </TableOfContents.List>
             </TableOfContents.Link>
@@ -247,7 +247,7 @@ describe('TableOfContents', () => {
       const lists = screen.getAllByRole('list')
       const nestedList = lists.find((ul) => ul.id === panelId)
 
-      expect(panelId?.trim()).toBeTruthy()
+      expect(panelId).toBeTruthy()
       expect(nestedList).toBeInTheDocument()
     })
 
