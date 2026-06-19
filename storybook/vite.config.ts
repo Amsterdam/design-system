@@ -4,6 +4,7 @@
  */
 
 import react from '@vitejs/plugin-react'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -11,4 +12,10 @@ export default defineConfig({
     devSourcemap: true,
   },
   plugins: [react()],
+  resolve: {
+    alias: {
+      '#storybook': fileURLToPath(new URL('src', import.meta.url)),
+      '#tokens': fileURLToPath(new URL('../packages-proprietary/tokens/src', import.meta.url)),
+    },
+  },
 })

@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './inline-color-sample.css'
 import { clsx } from 'clsx'
+
+import './inline-color-sample.css'
 
 /** Hardcoded subset of the Amsterdam design system colour palette, keyed by colour name. */
 const colors = {

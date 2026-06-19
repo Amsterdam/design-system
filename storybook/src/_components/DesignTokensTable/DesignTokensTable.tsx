@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './design-tokens-table.css'
 import type { HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
@@ -12,6 +11,8 @@ import type { Tokens } from './DesignTokensTable.types'
 
 import { DesignTokensTableRow } from './DesignTokensTableRow'
 import { flattenTokens } from './flattenTokens'
+
+import './design-tokens-table.css'
 
 type DesignTokensTableRootProps = {
   /** Keys to omit from the (optionally path-narrowed) token group. */

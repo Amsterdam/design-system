@@ -40,6 +40,8 @@ export const renderComponentVariants = (
   const propsWithValues = extractVariantsFromArgTypes(context.argTypes)
   const allVariants = [...variants, 'default']
   const sizes = extractSize(propsWithValues)
+  const acceptsAccessibleName = 'accessibleName' in context.argTypes
+  const acceptsAccessibleNameId = 'accessibleNameId' in context.argTypes
 
   if (propsWithValues.length === 0) {
     return (
@@ -49,6 +51,8 @@ export const renderComponentVariants = (
             {createElement(component, {
               ...args,
               ...(state === 'disabled' ? { disabled: true } : {}),
+              ...(acceptsAccessibleName && { accessibleName: state }),
+              ...(acceptsAccessibleNameId && { accessibleNameId: `variant-${state}` }),
               className: state === 'hovered' ? 'hover' : undefined,
             })}
           </div>
@@ -83,6 +87,8 @@ export const renderComponentVariants = (
                     {createElement(
                       component,
                       buildComponentProps({
+                        acceptsAccessibleName,
+                        acceptsAccessibleNameId,
                         args,
                         hasIcon,
                         propName: name,

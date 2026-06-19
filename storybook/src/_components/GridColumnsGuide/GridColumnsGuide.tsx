@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './grid-columns-guide.css'
 import { Grid } from '@amsterdam/design-system-react/src'
+
+import './grid-columns-guide.css'
 
 export const GridColumnsGuide = () => (
   <Grid className="_ams-grid-columns-guide">

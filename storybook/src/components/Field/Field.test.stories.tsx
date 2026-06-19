@@ -8,7 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Label } from '@amsterdam/design-system-react'
 import { Field } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../_common/renderComponentVariants'
+import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
+
 import { default as fieldMeta } from './Field.stories'
 
 const meta = {

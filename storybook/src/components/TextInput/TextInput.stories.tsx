@@ -18,11 +18,17 @@ const meta = {
     invalid: false,
   },
   argTypes: {
+    defaultValue: {
+      table: { disable: false },
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
     invalid: {
       description: 'Whether the value fails a validation rule.',
+    },
+    onChange: {
+      table: { disable: false },
     },
     size: {
       control: { min: 0, type: 'number' },

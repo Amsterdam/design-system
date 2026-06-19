@@ -7,8 +7,9 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Calendar } from '@amsterdam/design-system-react/src'
 
-import { mockDate } from '../../_common/mockDate'
-import { renderComponentVariants } from '../../_common/renderComponentVariants'
+import { mockDate } from '#storybook/_common/mockDate'
+import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
+
 import { default as calendarMeta } from './Calendar.stories'
 
 const meta = {
