@@ -22,7 +22,7 @@ const meta = {
       },
       options: [undefined, true, false],
     },
-    defaultCollapsed: { table: { disable: true } },
+    defaultCollapsed: { control: false },
     onToggle: { action: 'toggled' },
     status: {
       control: {
