@@ -12,6 +12,7 @@
   font-family: var(--ams-pagination-font-family);
   font-size: var(--ams-pagination-font-size);
   font-weight: var(--ams-pagination-font-weight);
+  gap: var(--ams-pagination-gap);
   justify-content: center;
   line-height: var(--ams-pagination-line-height);
 }
@@ -21,25 +22,12 @@
 
   display: flex;
   flex-wrap: wrap;
+  gap: var(--ams-pagination-list-gap);
 }
 
-.ams-pagination__link {
-  color: var(--ams-pagination-link-color);
-  display: inline-flex;
-  gap: var(--ams-pagination-link-gap);
-  outline-offset: var(--ams-pagination-link-outline-offset);
-  padding-inline: var(--ams-pagination-link-padding-inline);
-  text-decoration-line: var(--ams-pagination-link-text-decoration-line);
-  text-decoration-thickness: var(--ams-pagination-link-text-decoration-thickness);
-  text-underline-offset: var(--ams-pagination-link-text-underline-offset);
-  touch-action: manipulation;
-
+.ams-pagination__link,
+.ams-pagination__relative-link {
   @include text-rendering;
-
-  &:hover {
-    color: var(--ams-pagination-link-hover-color);
-    text-decoration-line: var(--ams-pagination-link-hover-text-decoration-line);
-  }
 
   // Override for icon size
   span.ams-icon svg {
@@ -48,14 +36,79 @@
   }
 }
 
+.ams-pagination__link {
+  background-color: var(--ams-pagination-link-background-color);
+  color: var(--ams-pagination-link-color);
+  display: inline-flex;
+  font-weight: var(--ams-pagination-link-font-weight);
+  gap: var(--ams-pagination-link-gap);
+  min-block-size: var(--ams-pagination-link-min-block-size);
+  min-inline-size: var(--ams-pagination-link-min-inline-size);
+  outline-offset: var(--ams-pagination-link-outline-offset);
+  padding-block: var(--ams-pagination-link-padding-block);
+  padding-inline: var(--ams-pagination-link-padding-inline);
+  text-decoration-line: var(--ams-pagination-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-pagination-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-pagination-link-text-underline-offset);
+  touch-action: manipulation;
+
+  &:hover {
+    background-color: var(--ams-pagination-link-hover-background-color);
+    color: var(--ams-pagination-link-hover-color);
+    text-decoration-line: var(--ams-pagination-link-hover-text-decoration-line);
+  }
+
+  &:active {
+    background-color: var(--ams-pagination-link-active-background-color);
+    color: var(--ams-pagination-link-active-color);
+  }
+}
+
 .ams-pagination__link-label {
   display: inline; // Override the default 'hidden' attribute, showing the visible label when CSS loads
 }
 
+.ams-pagination__relative-link {
+  background-color: var(--ams-pagination-relative-link-background-color);
+  color: var(--ams-pagination-relative-link-color);
+  display: inline-flex;
+  font-weight: var(--ams-pagination-relative-link-font-weight);
+  gap: var(--ams-pagination-relative-link-gap);
+  outline-offset: var(--ams-pagination-relative-link-outline-offset);
+  padding-block: var(--ams-pagination-relative-link-padding-block);
+  padding-inline: var(--ams-pagination-relative-link-padding-inline);
+  text-decoration-line: var(--ams-pagination-relative-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-pagination-relative-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-pagination-relative-link-text-underline-offset);
+  touch-action: manipulation;
+
+  &:hover {
+    background-color: var(--ams-pagination-relative-link-hover-background-color);
+    color: var(--ams-pagination-relative-link-hover-color);
+    text-decoration-line: var(--ams-pagination-relative-link-hover-text-decoration-line);
+  }
+
+  &:active {
+    background-color: var(--ams-pagination-relative-link-active-background-color);
+    color: var(--ams-pagination-relative-link-active-color);
+  }
+}
+
+.ams-pagination__ellipsis {
+  color: var(--ams-pagination-ellipsis-color);
+  display: inline-flex;
+  padding-block: var(--ams-pagination-ellipsis-padding-block);
+  padding-inline: var(--ams-pagination-ellipsis-padding-inline);
+}
+
 .ams-pagination__link[aria-current="page"] {
+  background-color: var(--ams-pagination-link-current-background-color);
+  color: var(--ams-pagination-link-current-color);
   font-weight: var(--ams-pagination-link-current-font-weight);
 
   &:hover {
+    background-color: var(--ams-pagination-link-current-hover-background-color);
+    color: var(--ams-pagination-link-current-hover-color);
     text-decoration: none;
   }
 }

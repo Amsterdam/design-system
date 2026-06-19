@@ -13,7 +13,7 @@ const meta = {
   args: {
     linkTemplate: (page) => `#?pagina=${page}`,
     maxVisiblePages: 7,
-    page: 1,
+    page: 5,
     totalPages: 10,
   },
   argTypes: {

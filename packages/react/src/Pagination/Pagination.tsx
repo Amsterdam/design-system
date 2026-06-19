@@ -10,9 +10,9 @@ import { clsx } from 'clsx'
 import { forwardRef, useId } from 'react'
 
 import { Icon } from '../Icon'
+import { Ellipsis } from './Ellipsis'
 import { getRange } from './getRange'
 import { LinkItem } from './LinkItem'
-import { Spacer } from './Spacer'
 
 const DefaultLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />
 
@@ -77,7 +77,7 @@ export const Pagination = forwardRef(
 
     const Link = linkComponent
 
-    // Get array of page numbers and / or spacers
+    // Get array of page numbers and / or ellipses
     const range = getRange(page, totalPages, maxVisiblePages)
 
     const labelId = accessibleNameId || generatedId
@@ -88,7 +88,7 @@ export const Pagination = forwardRef(
           {accessibleName || 'Paginering'}
         </span>
         {page !== 1 && (
-          <Link className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
+          <Link className="ams-pagination__link ams-pagination__relative-link" href={linkTemplate(page - 1)} rel="prev">
             <Icon svg={ChevronBackwardIcon} />
             <span className="ams-visually-hidden">{previousAccessibleName || 'Vorige pagina'}</span>
             <span aria-hidden className="ams-pagination__link-label" hidden>
@@ -97,22 +97,22 @@ export const Pagination = forwardRef(
           </Link>
         )}
         <ol className="ams-pagination__list">
-          {range.map((pageNumberOrSpacer) =>
-            typeof pageNumberOrSpacer === 'number' ? (
+          {range.map((pageNumberOrEllipsis) =>
+            typeof pageNumberOrEllipsis === 'number' ? (
               <LinkItem
                 currentPage={page}
-                key={pageNumberOrSpacer}
+                key={pageNumberOrEllipsis}
                 linkComponent={linkComponent}
                 linkTemplate={linkTemplate}
-                pageNumber={pageNumberOrSpacer}
+                pageNumber={pageNumberOrEllipsis}
               />
             ) : (
-              <Spacer key={pageNumberOrSpacer} />
+              <Ellipsis key={pageNumberOrEllipsis} />
             ),
           )}
         </ol>
         {page !== totalPages && (
-          <Link className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
+          <Link className="ams-pagination__link ams-pagination__relative-link" href={linkTemplate(page + 1)} rel="next">
             <span className="ams-visually-hidden">{nextAccessibleName || 'Volgende pagina'}</span>
             <span aria-hidden className="ams-pagination__link-label" hidden>
               {nextLabel}
