@@ -14,6 +14,8 @@ import { getRange } from './getRange'
 import { LinkItem } from './LinkItem'
 import { Spacer } from './Spacer'
 
+const DefaultLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />
+
 export type PaginationProps = {
   /** The accessible name for the Pagination component. */
   readonly accessibleName?: string
@@ -53,7 +55,7 @@ export const Pagination = forwardRef(
       accessibleName,
       accessibleNameId,
       className,
-      linkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
+      linkComponent = DefaultLink,
       linkTemplate,
       maxVisiblePages = 7,
       nextAccessibleName,
