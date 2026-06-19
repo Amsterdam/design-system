@@ -7,24 +7,12 @@ import { Meta } from "@storybook/addon-docs/blocks";
 # Routing libraries
 
 Our link components render a native anchor (`<a>`) by default.
-To integrate a routing library — such as Next.js or React Router — pass its link component to the `linkComponent` prop.
-The design system keeps its own styling, class names, and structure, and only swaps the underlying anchor for the component you provide.
-
-Any anchor attributes you set on the design system component — `href`, `target`, `data-*`, and so on — are passed straight through to your `linkComponent`.
-So in most cases you can pass the routing library’s link component directly, without writing a wrapper.
-
-Provide a _stable_ `linkComponent`: a component defined at module level, or one created with `useCallback`.
-Defining it inline (for example `linkComponent={(props) => <NextLink {...props} />}`) creates a new component type on every render, which forces React to unmount and remount the link — losing focus and other state in the process.
-
-Refs are forwarded only to intrinsic elements — the default `<a>`, or a string tag such as `linkComponent="a"` — not to a custom `linkComponent`, which may not accept one.
-If you need a ref to a custom link component, set it on that component directly.
-
-Some examples for common routing libraries:
+To integrate a routing library such as Next.js or React Router, pass its link component.
 
 ## Next.js
 
 Modern Next.js link components render their own anchor and accept a `className` and children.
-You can therefore pass `NextLink` directly as the `linkComponent` and give the `href` to the design system component, which passes it through:
+You can pass `NextLink` directly as the `linkComponent` and give the `href` to the design system component, which passes it through:
 
 {/* prettier-ignore */}
 ```tsx
@@ -41,8 +29,7 @@ This replaces the deprecated `legacyBehavior` and `passHref` props, which are no
 
 ## React Router
 
-React Router lets you hook into its routing with [the useLinkClickHandler hook](https://reactrouter.com/en/main/hooks/use-link-click-handler).
-Wrap it in a hook that returns a `linkComponent`, like so:
+For React Router, wrap [the useLinkClickHandler hook](https://reactrouter.com/en/main/hooks/use-link-click-handler) in a hook that returns a link component, like so:
 
 {/* prettier-ignore */}
 ```jsx
@@ -80,3 +67,15 @@ const Example = () => {
 
 `useCallback` keeps the component reference stable across renders, so the link is not remounted.
 Composing `onClick` preserves any handler passed to the design system component, and the `defaultPrevented` check lets that handler opt out of client-side navigation when needed.
+
+## Good to know
+
+The design system components keep their own styling, class names, and structure, and only swap the underlying anchor for the component you provide.
+Any anchor attributes like `href`, `target`, and `data-*` are passed straight through to your `linkComponent`.
+So in most cases you can pass the routing library’s link component directly, without writing a wrapper.
+
+Provide a _stable_ `linkComponent`: one that is defined at module level, or one created with `useCallback`.
+Defining it inline (for example `linkComponent={(props) => <NextLink {...props} />}`) would create a new component type on every render, which forces React to unmount and remount the link, losing focus and other state in the process.
+
+Refs are forwarded only to intrinsic elements – the default `<a>`, or a string tag such as `linkComponent="a"` – not to a custom `linkComponent`, which may not accept one.
+If you need a ref to a custom link component, set it on that component directly.
