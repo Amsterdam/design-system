@@ -35,13 +35,12 @@
 
 .ams-table-of-contents__item {
   column-gap: var(--ams-table-of-contents-item-gap);
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr; /* The collapsible variant adds a leading column for the toggle button. */
 }
 
 .ams-table-of-contents__link {
   color: var(--ams-table-of-contents-link-color);
-  flex: 1;
   min-inline-size: 0;
   outline-offset: var(--ams-table-of-contents-link-outline-offset);
   text-decoration-line: var(--ams-table-of-contents-link-text-decoration-line);
@@ -61,7 +60,6 @@
 
 .ams-table-of-contents__button {
   color: var(--ams-table-of-contents-button-color);
-  flex: none;
 
   &:hover {
     background-color: transparent;
@@ -82,10 +80,6 @@
   rotate: -180deg;
 }
 
-.ams-table-of-contents__item > .ams-table-of-contents__list {
-  flex-basis: 100%;
-}
-
 .ams-table-of-contents__item--collapsed > .ams-table-of-contents__list {
   display: none;
 
@@ -98,7 +92,7 @@
   --_ams-table-of-contents-button-column-inline-size: calc(1em * var(--ams-table-of-contents-line-height));
 
   .ams-table-of-contents__item {
-    display: grid; /* Aligns labels of items with and without a toggle button. */
+    /* Add a leading column for the toggle button so labels align with and without one. */
     grid-template-columns: var(--_ams-table-of-contents-button-column-inline-size) 1fr;
   }
 
