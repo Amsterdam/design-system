@@ -21,6 +21,17 @@ const meta = {
     ),
     heading: 'Op deze pagina',
   },
+  argTypes: {
+    collapsible: {
+      control: { type: 'boolean' },
+    },
+    hideAccessibleLabel: {
+      control: { type: 'text' },
+    },
+    showAccessibleLabel: {
+      control: { type: 'text' },
+    },
+  },
 } satisfies Meta<typeof TableOfContents>
 
 export default meta
@@ -58,6 +69,43 @@ export const MultipleLevels: Story = {
         <TableOfContents.Link href="#section-6" label="Moeilijke woordenboek (inclusief niet te gebruiken)" />
       </TableOfContents.List>
     ),
+    heading: 'Inhoudsopgave',
+  },
+}
+
+export const Collapsible: Story = {
+  args: {
+    children: (
+      <TableOfContents.List>
+        <TableOfContents.Link href="#s1" label="Inleiding" />
+        <TableOfContents.Link defaultExpanded href="#s2" label="Vaststellen en waarderen van functies">
+          <TableOfContents.List>
+            <TableOfContents.Link href="#s2-1" label="Algemeen" />
+            <TableOfContents.Link defaultExpanded href="#s2-2" label="Waardering van functies">
+              <TableOfContents.List>
+                <TableOfContents.Link aria-current="page" href="#s2-2-1" label="Methode" />
+                <TableOfContents.Link href="#s2-2-2" label="Procedure" />
+                <TableOfContents.Link href="#s2-2-3" label="Bezwaar" />
+              </TableOfContents.List>
+            </TableOfContents.Link>
+            <TableOfContents.Link href="#s2-3" label="Herwaardering">
+              <TableOfContents.List>
+                <TableOfContents.Link href="#s2-3-1" label="Aanleiding" />
+                <TableOfContents.Link href="#s2-3-2" label="Procedure" />
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents.Link>
+        <TableOfContents.Link href="#s3" label="Salaristoelagen">
+          <TableOfContents.List>
+            <TableOfContents.Link href="#s3-1" label="Functioneringstoelage" />
+            <TableOfContents.Link href="#s3-2" label="Arbeidsmarkttoelage" />
+          </TableOfContents.List>
+        </TableOfContents.Link>
+        <TableOfContents.Link href="#s4" label="Vergoedingen" />
+      </TableOfContents.List>
+    ),
+    collapsible: true,
     heading: 'Inhoudsopgave',
   },
 }

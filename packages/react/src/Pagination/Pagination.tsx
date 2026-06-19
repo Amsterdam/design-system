@@ -7,7 +7,7 @@ import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes 
 
 import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useId } from 'react'
 
 import { Icon } from '../Icon'
 import { Ellipsis } from './Ellipsis'
@@ -66,6 +66,8 @@ export const Pagination = forwardRef(
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
+    const generatedId = useId()
+
     // Don't show pagination if you only have one page
     if (totalPages <= 1) {
       return null
@@ -76,14 +78,11 @@ export const Pagination = forwardRef(
     // Get array of page numbers and / or ellipses
     const range = getRange(page, totalPages, maxVisiblePages)
 
+    const labelId = accessibleNameId || generatedId
+
     return (
-      <nav
-        {...restProps}
-        aria-labelledby={accessibleNameId || 'ams-pagination-a11y-label'}
-        className={clsx('ams-pagination', className)}
-        ref={ref}
-      >
-        <span className="ams-visually-hidden" id={accessibleNameId || 'ams-pagination-a11y-label'}>
+      <nav {...restProps} aria-labelledby={labelId} className={clsx('ams-pagination', className)} ref={ref}>
+        <span className="ams-visually-hidden" id={labelId}>
           {accessibleName || 'Paginering'}
         </span>
         {page !== 1 && (

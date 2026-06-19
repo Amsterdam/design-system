@@ -115,6 +115,21 @@ describe('Pagination', () => {
     expect(component).toHaveAttribute('aria-labelledby', 'custom-id')
   })
 
+  it('generates a unique fallback id when none is provided', () => {
+    render(
+      <>
+        <Pagination linkTemplate={linkTemplate} totalPages={10} />
+        <Pagination linkTemplate={linkTemplate} totalPages={10} />
+      </>,
+    )
+
+    const [first, second] = screen.getAllByRole('navigation', { name: 'Paginering' })
+
+    expect(first).toHaveAttribute('aria-labelledby')
+    expect(second).toHaveAttribute('aria-labelledby')
+    expect(first.getAttribute('aria-labelledby')).not.toBe(second.getAttribute('aria-labelledby'))
+  })
+
   it('should not render when totalPages is 1 or less', () => {
     render(<Pagination linkTemplate={linkTemplate} totalPages={1} />)
 
