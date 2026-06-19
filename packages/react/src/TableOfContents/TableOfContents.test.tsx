@@ -93,6 +93,18 @@ describe('TableOfContents', () => {
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
   })
 
+  it('labels the navigation landmark with its heading', () => {
+    render(
+      <TableOfContents heading="Op deze pagina">
+        <TableOfContents.List>
+          <TableOfContents.Link href="#a" label="A" />
+        </TableOfContents.List>
+      </TableOfContents>,
+    )
+
+    expect(screen.getByRole('navigation')).toHaveAccessibleName('Op deze pagina')
+  })
+
   describe('when collapsible', () => {
     it('renders a toggle button only for items with a nested list', () => {
       render(

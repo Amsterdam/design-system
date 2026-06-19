@@ -6,7 +6,7 @@
 import type { ForwardedRef, HTMLAttributes, KeyboardEvent, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef, useImperativeHandle, useRef } from 'react'
+import { forwardRef, useId, useImperativeHandle, useRef } from 'react'
 
 import type { HeadingProps } from '../Heading'
 
@@ -59,6 +59,8 @@ const TableOfContentsRoot = forwardRef(
 
     useImperativeHandle(ref, () => innerRef.current as HTMLElement)
 
+    const headingId = useId()
+
     // Arrow keys rotate focus across the toggle buttons. The second `:not()` excludes toggles inside a
     // collapsed subtree: those lists are `display: none`, so focusing them would move focus nowhere and
     // leave navigation stuck. Its `> … ` combinator keeps the collapsed item's own toggle in the set so
@@ -87,13 +89,14 @@ const TableOfContentsRoot = forwardRef(
         }}
       >
         <nav
+          aria-labelledby={heading ? headingId : undefined}
           {...restProps}
           className={clsx('ams-table-of-contents', collapsible && 'ams-table-of-contents--collapsible', className)}
           onKeyDown={collapsible ? handleKeyDown : undefined}
           ref={innerRef}
         >
           {heading && (
-            <Heading className="ams-table-of-contents__heading" level={headingLevel} size="level-3">
+            <Heading className="ams-table-of-contents__heading" id={headingId} level={headingLevel} size="level-3">
               {heading}
             </Heading>
           )}
