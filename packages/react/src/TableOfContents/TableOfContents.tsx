@@ -59,6 +59,10 @@ const TableOfContentsRoot = forwardRef(
 
     useImperativeHandle(ref, () => innerRef.current as HTMLElement)
 
+    // Arrow keys rotate focus across the toggle buttons. The second `:not()` excludes toggles inside a
+    // collapsed subtree: those lists are `display: none`, so focusing them would move focus nowhere and
+    // leave navigation stuck. Its `> … ` combinator keeps the collapsed item's own toggle in the set so
+    // it can still be reopened.
     const { keyDown } = useKeyboardFocus(innerRef, {
       focusableElements: [
         '.ams-table-of-contents__toggle:not([disabled]):not(.ams-table-of-contents__item--collapsed > .ams-table-of-contents__list .ams-table-of-contents__toggle)',
