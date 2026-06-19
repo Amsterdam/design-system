@@ -57,8 +57,10 @@ export const TableOfContentsLink = forwardRef(
 
     const listChild = findListChild(children)
     const isExpandable = collapsible && !!listChild
-    // Reuse a provided nested list id to keep aria-controls references stable.
-    const nestedListId = (listChild?.props as { id?: string } | undefined)?.id ?? panelId
+    // Reuse a provided nested list id to keep aria-controls references stable, but ignore a blank
+    // id so aria-controls never points at an empty string.
+    const providedListId = (listChild?.props as { id?: string } | undefined)?.id
+    const nestedListId = providedListId?.trim() ? providedListId : panelId
 
     // When collapsing, if focus is inside the subtree that's about to be hidden, move it to the toggle button.
     const moveFocusToToggleButton = (nextIsExpanded: boolean) => {
