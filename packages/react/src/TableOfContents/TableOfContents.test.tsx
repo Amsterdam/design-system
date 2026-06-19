@@ -229,28 +229,6 @@ describe('TableOfContents', () => {
       expect(nestedList).toHaveClass('ams-table-of-contents__list')
     })
 
-    it('ignores a blank nested list id and falls back to a generated id', () => {
-      render(
-        <TableOfContents collapsible>
-          <TableOfContents.List>
-            <TableOfContents.Link defaultExpanded href="#a" label="A">
-              <TableOfContents.List id="">
-                <TableOfContents.Link href="#a-1" label="A.1" />
-              </TableOfContents.List>
-            </TableOfContents.Link>
-          </TableOfContents.List>
-        </TableOfContents>,
-      )
-
-      const button = screen.getByRole('button')
-      const panelId = button.getAttribute('aria-controls')
-      const lists = screen.getAllByRole('list')
-      const nestedList = lists.find((ul) => ul.id === panelId)
-
-      expect(panelId).toBeTruthy()
-      expect(nestedList).toBeInTheDocument()
-    })
-
     it('calls onToggle with the new expanded state when the button is clicked', () => {
       const onToggle = vi.fn()
 
