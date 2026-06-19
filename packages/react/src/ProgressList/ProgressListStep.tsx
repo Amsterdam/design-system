@@ -22,7 +22,7 @@ export type ProgressListStepProps = {
    * When provided, the component is controlled and internal state is ignored.
    * Has no effect when `collapsible` is `false` on the parent.
    */
-  collapsed?: boolean
+  readonly collapsed?: boolean
   /**
    * Whether the content is initially collapsed.
    * Defaults to `true` when `status` is `'completed'`, and `false` otherwise.
