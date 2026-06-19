@@ -6,7 +6,7 @@
 import type { AnchorHTMLAttributes, ElementType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef, useEffect, useId, useState } from 'react'
+import { forwardRef, useId, useState } from 'react'
 
 import type { IconProps } from '../Icon'
 import type { LogoBrand } from '../Logo'
@@ -18,6 +18,8 @@ import { LogoLinkContent } from './LogoLinkContent'
 import { PageHeaderGridCellNarrowWindowOnly } from './PageHeaderGridCellNarrowWindowOnly'
 import { PageHeaderMenuIcon } from './PageHeaderMenuIcon'
 import { PageHeaderMenuLink } from './PageHeaderMenuLink'
+
+const DefaultLogoLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />
 
 export type PageHeaderProps = {
   /** The name of the application. */
@@ -66,7 +68,7 @@ const PageHeaderRoot = forwardRef(
       logoAccessibleName,
       logoBrand = 'amsterdam',
       logoLink = '/',
-      logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
+      logoLinkComponent = DefaultLogoLink,
       logoLinkTitle,
       menuButtonIcon,
       menuButtonText = 'Menu',
@@ -79,25 +81,21 @@ const PageHeaderRoot = forwardRef(
     }: PageHeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
-    const [open, setOpen] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
 
     const viewportHasMinWidth = useViewportHasMinWidth('wide')
     const accessibleLabelId = useId()
     const hasMegaMenu = Boolean(children)
     const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
 
+    // The menu is closed while its button is hidden, since there is then no control to open it.
+    const open = menuOpen && !(noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow)
+
     const LogoLink = logoLinkComponent
 
     // Use short brand name if no full brand name is (invalidly) provided
     const brandNameFullOrShort = brandName || brandNameShort
     const logoLinkContentProps = { brandNameFullOrShort, brandNameShort, logoAccessibleName, logoBrand }
-
-    useEffect(() => {
-      // Close the menu when the menu button disappears
-      if (noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow) {
-        setOpen(false)
-      }
-    }, [hasMegaMenuOnWideWindow, noMenuButtonOnWideWindow])
 
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
@@ -132,7 +130,7 @@ const PageHeaderRoot = forwardRef(
                     aria-controls="ams-page-header-mega-menu"
                     aria-expanded={open}
                     className="ams-page-header__mega-menu-button"
-                    onClick={() => setOpen(!open)}
+                    onClick={() => setMenuOpen(!open)}
                     type="button"
                   >
                     <span aria-hidden="true" className="ams-page-header__mega-menu-button-label">
