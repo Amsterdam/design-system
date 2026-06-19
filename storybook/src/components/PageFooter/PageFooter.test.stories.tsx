@@ -5,6 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { Paragraph } from '@amsterdam/design-system-react'
 import { PageFooter } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
@@ -24,10 +25,7 @@ export const Test: Story = {
   args: {
     children: [
       <PageFooter.Spotlight key={1}>
-        <ul>
-          <li>Contactformulier</li>
-          <li>Adressen en openingstijden</li>
-        </ul>
+        <Paragraph color="inverse">Adressen en openingstijden</Paragraph>
       </PageFooter.Spotlight>,
       <PageFooter.Menu key={2}>
         <PageFooter.MenuLink href="#">Over deze site</PageFooter.MenuLink>
