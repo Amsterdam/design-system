@@ -10,4 +10,9 @@ const SvgCogwheelFill = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
+/**
+ * @deprecated The ‘CogwheelFill’ icon will be removed on or after 2026-05-01.
+ * Use ‘SettingsFill’ instead.
+ */
 export default SvgCogwheelFill

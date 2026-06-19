@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 export { default as AirplaneIcon } from './Airplane'
 export { default as AppleIcon } from './Apple'
 export { default as AppleFillIcon } from './AppleFill'

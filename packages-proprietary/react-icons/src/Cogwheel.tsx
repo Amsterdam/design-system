@@ -14,4 +14,9 @@ const SvgCogwheel = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
+/**
+ * @deprecated The ‘Cogwheel’ icon will be removed on or after 2026-05-01.
+ * Use ‘Settings’ instead.
+ */
 export default SvgCogwheel

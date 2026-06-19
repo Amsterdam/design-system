@@ -10,4 +10,9 @@ const SvgCheckMarkCircle = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
+/**
+ * @deprecated The ‘CheckMarkCircle’ icon will be removed on or after 2026-05-01.
+ * Use ‘Success’ instead.
+ */
 export default SvgCheckMarkCircle
