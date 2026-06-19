@@ -162,41 +162,6 @@ Some component tokens vary by viewport breakpoint and follow [CSS logical proper
 
 Components can also use `narrow`, `medium` or `wide` keys without the `vi` prefix when the dimension is intrinsic to the component and not tied to the active viewport breakpoint.
 
-#### Theming hooks with `initial` and `inherit`
-
-Some component tokens have a CSS-wide keyword (`initial` or `inherit`) as their value rather than a concrete brand reference.
-These are deliberate hooks: the design system declares a token slot for downstream consumers (such as NL Design System theme authors) to fill, without applying a default visual in the Amsterdam brand.
-
-Choose between `initial` and `inherit` based on whether the CSS property inherits by default:
-
-- Use `initial` for properties that do not inherit, such as `background-color`, `gap`, `padding-*`, and `min-block-size`.
-  Its initial value matches the visual of ‘property not set’ – transparent for `background-color`, `0` for `gap`, `auto` for `min-block-size` – so the Amsterdam theme stays visually unchanged.
-- Use `inherit` for properties that inherit, such as `color`, `font-weight`, and `font-family`.
-  `initial` would freeze these to the browser’s canvas defaults (`canvastext` for `color`, `normal` for `font-weight`) and break the cascade from parent elements.
-
-Mark these tokens with `$extensions.nl.amsterdam.external: true` (see [External](#external)) so the open intent is explicit and machine-detectable.
-
-Example:
-
-```jsonc
-"link": {
-  "background-color": {
-    "$value": "initial",
-    "$extensions": {
-      "nl.amsterdam.external": true,
-      "nl.amsterdam.type": "color"
-    }
-  },
-  "font-weight": {
-    "$value": "inherit",
-    "$extensions": {
-      "nl.amsterdam.external": true,
-      "nl.amsterdam.type": "fontWeight"
-    }
-  }
-}
-```
-
 ### Overriding tokens
 
 This package allows the creation of a theme to reuse our components for a different brand.
@@ -344,28 +309,6 @@ We add a subtype for certain types to further specify their purpose and preview.
 #### Hint
 
 An `$extensions.nl.amsterdam.hint` indicates special handling for internal use.
-
-#### External
-
-An `$extensions.nl.amsterdam.external` set to `true` marks a token whose value isn’t a concrete Amsterdam brand choice.
-These tokens exist for downstream consumers (NL Design System theme authors and other adopters of our component code) to override.
-
-Mark a token as external when its value is either:
-
-- A CSS-wide keyword (`initial` or `inherit`) – see [Theming hooks with `initial` and `inherit`](#theming-hooks-with-initial-and-inherit).
-- A reference to another token within the same component, which provides a sensible default that follows the base token but can be overridden independently.
-
-```jsonc
-"current": {
-  "color": {
-    "$value": "{ams.pagination.link.color}",
-    "$extensions": {
-      "nl.amsterdam.external": true,
-      "nl.amsterdam.type": "color"
-    }
-  }
-}
-```
 
 ### Descriptions
 
