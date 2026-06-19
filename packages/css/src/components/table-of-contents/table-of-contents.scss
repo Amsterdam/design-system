@@ -59,26 +59,26 @@
   }
 }
 
-.ams-table-of-contents__toggle {
-  color: var(--ams-table-of-contents-toggle-color);
+.ams-table-of-contents__button {
+  color: var(--ams-table-of-contents-button-color);
   flex: none;
 
   &:hover {
     background-color: transparent;
-    color: var(--ams-table-of-contents-toggle-hover-color);
+    color: var(--ams-table-of-contents-button-hover-color);
   }
 }
 
-.ams-table-of-contents__toggle svg {
+.ams-table-of-contents__button svg {
   transition: none;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: rotate var(--ams-table-of-contents-toggle-icon-transition-duration)
-      var(--ams-table-of-contents-toggle-icon-transition-timing-function);
+    transition: rotate var(--ams-table-of-contents-button-icon-transition-duration)
+      var(--ams-table-of-contents-button-icon-transition-timing-function);
   }
 }
 
-.ams-table-of-contents__toggle[aria-expanded="true"] svg {
+.ams-table-of-contents__button[aria-expanded="true"] svg {
   rotate: -180deg;
 }
 
@@ -95,7 +95,7 @@
 }
 
 .ams-table-of-contents--collapsible {
-  --_ams-table-of-contents-toggle-column-inline-size: calc(1em * var(--ams-table-of-contents-line-height));
+  --_ams-table-of-contents-button-column-inline-size: calc(1em * var(--ams-table-of-contents-line-height));
 
   .ams-table-of-contents__list {
     grid-column: 2;
@@ -104,7 +104,7 @@
 
   .ams-table-of-contents__item {
     display: grid; /* Aligns labels of items with and without a toggle button. */
-    grid-template-columns: var(--_ams-table-of-contents-toggle-column-inline-size) 1fr;
+    grid-template-columns: var(--_ams-table-of-contents-button-column-inline-size) 1fr;
   }
 
   .ams-table-of-contents__link {

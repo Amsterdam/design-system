@@ -67,13 +67,13 @@ const TableOfContentsRoot = forwardRef(
     // it can still be reopened.
     const { keyDown } = useKeyboardFocus(innerRef, {
       focusableElements: [
-        '.ams-table-of-contents__toggle:not([disabled]):not(.ams-table-of-contents__item--collapsed > .ams-table-of-contents__list .ams-table-of-contents__toggle)',
+        '.ams-table-of-contents__button:not([disabled]):not(.ams-table-of-contents__item--collapsed > .ams-table-of-contents__list .ams-table-of-contents__button)',
       ],
       rotating: true,
     })
 
     const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-      if (!(event.target instanceof Element) || !event.target.closest('.ams-table-of-contents__toggle')) {
+      if (!(event.target instanceof Element) || !event.target.closest('.ams-table-of-contents__button')) {
         return
       }
 

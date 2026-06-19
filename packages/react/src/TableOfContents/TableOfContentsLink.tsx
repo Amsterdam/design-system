@@ -54,7 +54,7 @@ export const TableOfContentsLink = forwardRef(
           <IconButton
             aria-controls={nestedListId}
             aria-expanded={isExpanded}
-            className="ams-table-of-contents__toggle"
+            className="ams-table-of-contents__button"
             label={`${isExpanded ? hideAccessibleLabel : showAccessibleLabel} ${label}`}
             onClick={handleToggle}
             ref={buttonRef}

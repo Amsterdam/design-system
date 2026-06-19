@@ -130,7 +130,7 @@
           }
         }
       },
-      "toggle": {
+      "button": {
         "color": {
           "$value": "{ams.color.interactive.default}",
           "$extensions": {
