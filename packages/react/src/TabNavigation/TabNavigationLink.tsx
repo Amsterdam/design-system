@@ -32,11 +32,11 @@ export const TabNavigationLink = forwardRef(
     { children, className, icon, linkComponent, ...restProps }: TabNavigationLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
-    const Link = linkComponent || 'a'
+    const Tag = linkComponent || 'a'
 
     return (
       <li className="ams-tab-navigation__item">
-        <Link
+        <Tag
           {...restProps}
           className={clsx('ams-tab-navigation__link', className)}
           {...((!linkComponent || typeof linkComponent === 'string') && { ref })}
@@ -48,7 +48,7 @@ export const TabNavigationLink = forwardRef(
             </span>
             <span className="ams-tab-navigation__link-label">{children}</span>
           </span>
-        </Link>
+        </Tag>
       </li>
     )
   },
