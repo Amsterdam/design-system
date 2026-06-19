@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef, HTMLAttributes } from 'react'
 
 import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
@@ -14,6 +14,8 @@ import { Ellipsis } from './Ellipsis'
 import { getRange } from './getRange'
 import { LinkItem } from './LinkItem'
 
+const DefaultLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />
+
 export type PaginationProps = {
   /** The accessible name for the Pagination component. */
   readonly accessibleName?: string
@@ -22,8 +24,8 @@ export type PaginationProps = {
    * Note: must be unique for the page.
    */
   readonly accessibleNameId?: string
-  /** The React component to use for the links. */
-  readonly linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+  /** The React component or intrinsic element to use for the links. */
+  readonly linkComponent?: ElementType
   /** The template used to construct the link hrefs. */
   readonly linkTemplate: (page: number) => string
   /** The maximum amount of pages shown. Minimum value: 5. */
@@ -53,7 +55,7 @@ export const Pagination = forwardRef(
       accessibleName,
       accessibleNameId,
       className,
-      linkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
+      linkComponent = DefaultLink,
       linkTemplate,
       maxVisiblePages = 7,
       nextAccessibleName,
