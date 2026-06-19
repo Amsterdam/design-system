@@ -9,9 +9,4 @@ const SvgBell = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
-
-/**
- * @deprecated The ‘Bell’ icon will be removed on or after 2026-07-09.
- * Use ‘Notification’ instead.
- */
 export default SvgBell
