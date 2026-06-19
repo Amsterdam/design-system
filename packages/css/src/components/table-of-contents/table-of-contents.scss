@@ -17,10 +17,6 @@
   line-height: var(--ams-table-of-contents-line-height);
 }
 
-.ams-table-of-contents__heading {
-  margin-block-end: var(--ams-table-of-contents-heading-margin-block-end);
-}
-
 .ams-table-of-contents__list {
   @include reset-ul;
 
@@ -41,11 +37,6 @@
   column-gap: var(--ams-table-of-contents-item-gap);
   display: flex;
   flex-wrap: wrap;
-  margin-block-end: var(--ams-table-of-contents-item-margin-block-end);
-
-  &:last-child {
-    margin-block-end: 0;
-  }
 }
 
 .ams-table-of-contents__link {
@@ -108,7 +99,7 @@
 
   .ams-table-of-contents__list {
     grid-column: 2;
-    padding-inline-start: 0; /* override the nested-list rule */
+    padding-inline-start: 0; /* Overrides the nested-list rule. */
   }
 
   .ams-table-of-contents__item {

@@ -20,8 +20,7 @@
         }
       },
       "gap": {
-        "$value": "initial",
-        "$deprecated": "Use `ams.table-of-contents.heading.margin-block-end` instead. Will be removed on or after 2026-12-12.",
+        "$value": "{ams.space.s}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
@@ -34,19 +33,9 @@
           "nl.amsterdam.type": "number"
         }
       },
-      "heading": {
-        "margin-block-end": {
-          "$value": "{ams.space.s}",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space",
-            "nl.amsterdam.type": "dimension"
-          }
-        }
-      },
       "list": {
         "gap": {
-          "$value": "initial",
-          "$deprecated": "Use `ams.table-of-contents.item.margin-block-end` instead. Will be removed on or after 2026-12-12.",
+          "$value": "{ams.space.s}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
@@ -72,13 +61,6 @@
       "item": {
         "gap": {
           "$value": "{ams.space.xs}",
-          "$extensions": {
-            "nl.amsterdam.subtype": "space",
-            "nl.amsterdam.type": "dimension"
-          }
-        },
-        "margin-block-end": {
-          "$value": "{ams.space.s}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
