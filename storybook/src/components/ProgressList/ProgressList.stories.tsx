@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { ProgressList } from '@amsterdam/design-system-react/src'
 import { progressListHeadingLevels } from '@amsterdam/design-system-react/src/ProgressList/ProgressList'
+import { useState } from 'react'
 
 import { exampleParagraph, exampleUnorderedList } from '#storybook/_common/exampleContent'
 
@@ -81,6 +82,77 @@ export const Collapsible: Story = {
       </ProgressList.Step>,
     ],
     collapsible: true,
+  },
+}
+
+export const Controlled: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `const [expandedIndex, setExpandedIndex] = useState<number | null>(1)
+
+<ProgressList collapsible headingLevel={3}>
+  <ProgressList.Step
+    collapsed={expandedIndex !== 0}
+    heading="Aanvraag ingediend"
+    onToggle={(expanded) => setExpandedIndex(expanded ? 0 : null)}
+    status="completed"
+  >
+    <Paragraph>Uw aanvraag is op 2 januari 2026 ontvangen.</Paragraph>
+  </ProgressList.Step>
+  <ProgressList.Step
+    collapsed={expandedIndex !== 1}
+    heading="In behandeling"
+    onToggle={(expanded) => setExpandedIndex(expanded ? 1 : null)}
+    status="current"
+  >
+    <Paragraph>Een medewerker beoordeelt uw aanvraag en neemt contact met u op bij vragen.</Paragraph>
+  </ProgressList.Step>
+  <ProgressList.Step
+    collapsed={expandedIndex !== 2}
+    heading="Besluit"
+    onToggle={(expanded) => setExpandedIndex(expanded ? 2 : null)}
+  >
+    <Paragraph>U ontvangt het besluit binnen 8 weken na uw aanvraag.</Paragraph>
+  </ProgressList.Step>
+</ProgressList>`,
+        language: 'tsx',
+      },
+    },
+  },
+  play: async ({ canvas, userEvent }) => {
+    await userEvent.click(canvas.getByRole('button', { name: /Aanvraag ingediend/ }))
+  },
+  render: () => {
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(1)
+
+    return (
+      <ProgressList collapsible headingLevel={3}>
+        <ProgressList.Step
+          collapsed={expandedIndex !== 0}
+          heading="Aanvraag ingediend"
+          onToggle={(expanded) => setExpandedIndex(expanded ? 0 : null)}
+          status="completed"
+        >
+          <Paragraph>Uw aanvraag is op 2 januari 2026 ontvangen.</Paragraph>
+        </ProgressList.Step>
+        <ProgressList.Step
+          collapsed={expandedIndex !== 1}
+          heading="In behandeling"
+          onToggle={(expanded) => setExpandedIndex(expanded ? 1 : null)}
+          status="current"
+        >
+          <Paragraph>Een medewerker beoordeelt uw aanvraag en neemt contact met u op bij vragen.</Paragraph>
+        </ProgressList.Step>
+        <ProgressList.Step
+          collapsed={expandedIndex !== 2}
+          heading="Besluit"
+          onToggle={(expanded) => setExpandedIndex(expanded ? 2 : null)}
+        >
+          <Paragraph>U ontvangt het besluit binnen 8 weken na uw aanvraag.</Paragraph>
+        </ProgressList.Step>
+      </ProgressList>
+    )
   },
 }
 

@@ -22,6 +22,8 @@ import * as ProgressListStepStories from "./ProgressListStep.stories.tsx";
 
 ### Step
 
+Each step in the list has a heading, a status, and optionally collapsible content.
+
 <Canvas of={ProgressListStepStories.Step} />
 
 <Controls of={ProgressListStepStories.Step} />
@@ -30,21 +32,26 @@ import * as ProgressListStepStories from "./ProgressListStep.stories.tsx";
 
 ### When to use
 
-Assign a status to each step: _completed_ or _current_.
-Steps without a status are considered _upcoming_.
-
-Maintain a correct chronological order.
-Only one step may be _current_; preceding steps must be _completed_.
-
-Decide whether the user should be able to collapse and expand steps.
-
-Progress List must only be used on a white background.
+Use a Progress List to show the status of a multi-step process, such as the handling of a permit application or the phases of a construction project.
 
 ### How to use
 
-Choose the correct level for the headings of the steps.
+Assign a status to each step: `completed` or `current`.
+Steps without a status are considered _upcoming_.
+Only one step may be `current`; all preceding steps must be `completed`.
+
+Choose a `headingLevel` that fits the document outline.
+
+Use on a white background only.
 
 ## Examples
+
+### Controlled
+
+Use `collapsed` and `onToggle` on each step to let a parent component drive the expand/collapse state.
+The example below keeps only one step open at a time.
+
+<Canvas of={ProgressListStories.Controlled} />
 
 ### Collapsible
 
@@ -64,6 +71,11 @@ They are visually subordinate to their parent step: their indicators are smaller
 Don’t forget to set the `hasSubsteps` prop on the parent step.
 
 <Canvas of={ProgressListStories.WithSubsteps} />
+
+## Accessibility
+
+The status is conveyed visually through both colour and an icon, and via screen reader text.
+You can customize the screen reader text with `completedAccessibleText` and `currentAccessibleText` (defaults: ‘Klaar’ and ‘Bezig’).
 
 ## Design tokens
 
