@@ -1,0 +1,14 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{t}from"./jsx-runtime-BqsN2jGA.js";import{E as n,a as r,f as i,i as a,l as o,m as s,n as c,u as l}from"./blocks-CBqOVGZT.js";import{n as u,t as d}from"./DesignTokensTable-CDGbYqJn.js";import{t as f}from"./mdx-react-shim-D1Hhh8wq.js";import{MultipleLevels as p,n as m,t as h}from"./TableOfContents.stories-qttS0lNI.js";var g,_,v=e((()=>{g={"table-of-contents":{"font-family":{$value:`{ams.typography.font-family}`,$extensions:{"nl.amsterdam.type":`fontFamily`}},"font-size":{$value:`{ams.typography.body-text.font-size}`,$extensions:{"nl.amsterdam.type":`fontSize`}},"font-weight":{$value:`{ams.typography.body-text.font-weight}`,$extensions:{"nl.amsterdam.type":`fontWeight`}},gap:{$value:`{ams.space.s}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"line-height":{$value:`{ams.typography.body-text.line-height}`,$extensions:{"nl.amsterdam.subtype":`lineHeight`,"nl.amsterdam.type":`number`}},link:{color:{$value:`{ams.links.color}`,$extensions:{"nl.amsterdam.type":`color`}},"outline-offset":{$value:`{ams.focus.outline-offset}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"text-decoration-line":{$value:`{ams.links.subtle.text-decoration-line}`,$extensions:{"nl.amsterdam.type":`textDecorationLine`}},"text-decoration-thickness":{$value:`{ams.links.text-decoration-thickness}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"text-underline-offset":{$value:`{ams.links.text-underline-offset}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},hover:{color:{$value:`{ams.links.hover.color}`,$extensions:{"nl.amsterdam.type":`color`}},"text-decoration-line":{$value:`{ams.links.subtle.hover.text-decoration-line}`,$extensions:{"nl.amsterdam.type":`textDecorationLine`}}}},list:{gap:{$value:`{ams.space.s}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},list:{"padding-block-start":{$value:`{ams.space.s}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}},"padding-inline-start":{$value:`{ams.space.l}`,$extensions:{"nl.amsterdam.subtype":`space`,"nl.amsterdam.type":`dimension`}}}}}},_={ams:g}}));function y(e){let t={h2:`h2`,h3:`h3`,...n(),...e.components};return(0,x.jsxs)(x.Fragment,{children:[`
+`,`
+`,`
+`,`
+`,(0,x.jsx)(o,{of:h}),`
+`,(0,x.jsx)(i,{}),`
+`,(0,x.jsx)(r,{of:h}),`
+`,(0,x.jsx)(l,{}),`
+`,(0,x.jsx)(a,{}),`
+`,(0,x.jsx)(t.h2,{id:`examples`,children:`Examples`}),`
+`,(0,x.jsx)(t.h3,{id:`multiple-levels`,children:`Multiple levels`}),`
+`,(0,x.jsx)(c,{of:p}),`
+`,(0,x.jsx)(t.h2,{id:`design-tokens`,children:`Design tokens`}),`
+`,(0,x.jsx)(d,{tokens:_})]})}function b(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,x.jsx)(t,{...e,children:(0,x.jsx)(y,{...e})}):y(e)}var x;e((()=>{x=t(),f(),s(),u(),v(),m()}))();export{b as default};
