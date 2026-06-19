@@ -9,8 +9,8 @@ import { Layout } from './Layout'
 
 export const commonMeta = {
   decorators: [
-    (Story, { parameters }) => (
-      <Layout skipLinkLabel={parameters['skipLinkLabel']} skipLinkTargetId={parameters['skipLinkTargetId']}>
+    (Story) => (
+      <Layout>
         <Story />
       </Layout>
     ),

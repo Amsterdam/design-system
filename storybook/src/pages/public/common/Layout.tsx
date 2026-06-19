@@ -10,18 +10,11 @@ import { PageFooter, SkipLink } from '@amsterdam/design-system-react'
 import { Default as PageFooterStory } from '../../../components/PageFooter/PageFooter.stories'
 import { AppHeader } from './AppHeader'
 
-type LayoutProps = {
-  readonly skipLinkLabel?: string
-  readonly skipLinkTargetId?: string
-} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
+type LayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export const Layout = ({
-  children,
-  skipLinkLabel = 'Direct naar inhoud',
-  skipLinkTargetId = 'inhoud',
-}: LayoutProps) => (
+export const Layout = ({ children }: LayoutProps) => (
   <>
-    <SkipLink href={`#${skipLinkTargetId}`}>{skipLinkLabel}</SkipLink>
+    <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
     <AppHeader />
     {children}
     <PageFooter>{PageFooterStory.args?.children}</PageFooter>
