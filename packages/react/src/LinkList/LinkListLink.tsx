@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren } from 'react'
 
 import { ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
@@ -28,6 +28,11 @@ export type LinkListLinkProps = {
    * @default ChevronForwardIcon
    */
   readonly icon?: IconProps['svg']
+  /**
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to a plain anchor (the default, or `linkComponent="a"`), not to any other `linkComponent`.
+   */
+  readonly linkComponent?: ElementType
   /** The size of the text. Use the same size for all items in the list. */
   readonly size?: LinkListLinkSize
 } & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
@@ -35,24 +40,26 @@ export type LinkListLinkProps = {
 /** One link with a Link List. */
 export const LinkListLink = forwardRef(
   (
-    { children, className, color, icon = ChevronForwardIcon, size, ...restProps }: LinkListLinkProps,
+    { children, className, color, icon = ChevronForwardIcon, linkComponent, size, ...restProps }: LinkListLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
+    const Tag = linkComponent || 'a'
+
     return (
       <li>
-        <a
+        <Tag
+          {...restProps}
           className={clsx(
             'ams-link-list__link',
             color && `ams-link-list__link--${color}`,
             size && `ams-link-list__link--${size}`,
             className,
           )}
-          ref={ref}
-          {...restProps}
+          {...((!linkComponent || linkComponent === 'a') && { ref })}
         >
           <Icon size={size} svg={icon} />
           {children}
-        </a>
+        </Tag>
       </li>
     )
   },

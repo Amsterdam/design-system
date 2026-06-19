@@ -3,16 +3,18 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef, HTMLAttributes } from 'react'
 
 import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useId } from 'react'
 
 import { Icon } from '../Icon'
+import { Ellipsis } from './Ellipsis'
 import { getRange } from './getRange'
 import { LinkItem } from './LinkItem'
-import { Spacer } from './Spacer'
+
+const DefaultLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />
 
 export type PaginationProps = {
   /** The accessible name for the Pagination component. */
@@ -22,8 +24,8 @@ export type PaginationProps = {
    * Note: must be unique for the page.
    */
   readonly accessibleNameId?: string
-  /** The React component to use for the links. */
-  readonly linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+  /** The React component or intrinsic element to use for the links. */
+  readonly linkComponent?: ElementType
   /** The template used to construct the link hrefs. */
   readonly linkTemplate: (page: number) => string
   /** The maximum amount of pages shown. Minimum value: 5. */
@@ -53,7 +55,7 @@ export const Pagination = forwardRef(
       accessibleName,
       accessibleNameId,
       className,
-      linkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
+      linkComponent = DefaultLink,
       linkTemplate,
       maxVisiblePages = 7,
       nextAccessibleName,
@@ -66,6 +68,8 @@ export const Pagination = forwardRef(
     }: PaginationProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
+    const generatedId = useId()
+
     // Don't show pagination if you only have one page
     if (totalPages <= 1) {
       return null
@@ -73,21 +77,18 @@ export const Pagination = forwardRef(
 
     const Link = linkComponent
 
-    // Get array of page numbers and / or spacers
+    // Get array of page numbers and / or ellipses
     const range = getRange(page, totalPages, maxVisiblePages)
 
+    const labelId = accessibleNameId || generatedId
+
     return (
-      <nav
-        {...restProps}
-        aria-labelledby={accessibleNameId || 'ams-pagination-a11y-label'}
-        className={clsx('ams-pagination', className)}
-        ref={ref}
-      >
-        <span className="ams-visually-hidden" id={accessibleNameId || 'ams-pagination-a11y-label'}>
+      <nav {...restProps} aria-labelledby={labelId} className={clsx('ams-pagination', className)} ref={ref}>
+        <span className="ams-visually-hidden" id={labelId}>
           {accessibleName || 'Paginering'}
         </span>
         {page !== 1 && (
-          <Link className="ams-pagination__link" href={linkTemplate(page - 1)} rel="prev">
+          <Link className="ams-pagination__link ams-pagination__relative-link" href={linkTemplate(page - 1)} rel="prev">
             <Icon svg={ChevronBackwardIcon} />
             <span className="ams-visually-hidden">{previousAccessibleName || 'Vorige pagina'}</span>
             <span aria-hidden className="ams-pagination__link-label" hidden>
@@ -96,22 +97,22 @@ export const Pagination = forwardRef(
           </Link>
         )}
         <ol className="ams-pagination__list">
-          {range.map((pageNumberOrSpacer) =>
-            typeof pageNumberOrSpacer === 'number' ? (
+          {range.map((pageNumberOrEllipsis) =>
+            typeof pageNumberOrEllipsis === 'number' ? (
               <LinkItem
                 currentPage={page}
-                key={pageNumberOrSpacer}
+                key={pageNumberOrEllipsis}
                 linkComponent={linkComponent}
                 linkTemplate={linkTemplate}
-                pageNumber={pageNumberOrSpacer}
+                pageNumber={pageNumberOrEllipsis}
               />
             ) : (
-              <Spacer key={pageNumberOrSpacer} />
+              <Ellipsis key={pageNumberOrEllipsis} />
             ),
           )}
         </ol>
         {page !== totalPages && (
-          <Link className="ams-pagination__link" href={linkTemplate(page + 1)} rel="next">
+          <Link className="ams-pagination__link ams-pagination__relative-link" href={linkTemplate(page + 1)} rel="next">
             <span className="ams-visually-hidden">{nextAccessibleName || 'Volgende pagina'}</span>
             <span aria-hidden className="ams-pagination__link-label" hidden>
               {nextLabel}

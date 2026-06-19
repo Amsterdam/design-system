@@ -35,6 +35,22 @@ To close it, either call the `Dialog.close` function or add a `<form>` as in the
 
 Wrap multiple buttons in an [Action Group](/docs/components-layout-action-group--docs).
 
+#### Focusing a specific element
+
+When a Dialog opens (and no element has `autofocus`), the browser places focus on the first focusable element inside it.
+In this component that is the close button, which is a safe default: the user can read the Dialog before acting.
+
+To give another element the initial focus instead, add the `autofocus` attribute to it, or the `autoFocus` prop in React.
+Use this for the single element you expect the user to act on first, such as a text field or the primary Button.
+
+Moving the initial focus has risks, so choose that element with care:
+
+- Focus that lands past the heading and body text can cause screen reader users to skip the explanation above it. Only move focus when one element clearly comes first.
+- Don’t place focus on a destructive or irreversible action. A user confirming by reflex with Enter or Space could lose data. In the confirmation example below, focus the option that keeps the user’s data safe.
+- On touchscreen devices, autofocus on a text field opens the on-screen keyboard immediately, which can hide part of the Dialog.
+
+For more information: [MDN: the dialog element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#accessibility).
+
 ## Examples
 
 ### Asking to confirm

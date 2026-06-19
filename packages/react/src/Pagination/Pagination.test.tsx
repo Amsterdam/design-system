@@ -51,7 +51,7 @@ describe('Pagination', () => {
     })
   })
 
-  it('should render the pages including one (last) spacer in the correct location when totalPages > maxVisiblePages', () => {
+  it('should render the pages including one (last) ellipsis in the correct location when totalPages > maxVisiblePages', () => {
     render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={1} totalPages={10} />)
 
     const listItem = screen.getAllByRole('listitem', { hidden: true })
@@ -63,7 +63,7 @@ describe('Pagination', () => {
     })
   })
 
-  it('should render the pages including the two spacers in the correct location when totalPages > maxVisiblePages and current page > 4', () => {
+  it('should render the pages including two ellipses in the correct location when totalPages > maxVisiblePages and current page > 4', () => {
     render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={6} totalPages={10} />)
 
     const listItem = screen.getAllByRole('listitem', { hidden: true })
@@ -75,7 +75,7 @@ describe('Pagination', () => {
     })
   })
 
-  it('should render the pages including one (first) spacer in the correct location when totalPages > maxVisiblePages and page > maxVisiblePages', () => {
+  it('should render the pages including one (first) ellipsis in the correct location when totalPages > maxVisiblePages and page > maxVisiblePages', () => {
     render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={7} totalPages={10} />)
 
     const listItem = screen.getAllByRole('listitem', { hidden: true })
@@ -85,6 +85,14 @@ describe('Pagination', () => {
     range.forEach((item, index) => {
       expect(listItem[index]).toHaveTextContent(item)
     })
+  })
+
+  it('renders the ellipsis element class on the ellipsis', () => {
+    render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={1} totalPages={10} />)
+
+    const ellipsis = screen.getByText('…')
+
+    expect(ellipsis).toHaveClass('ams-pagination__ellipsis')
   })
 
   it('should set aria-current to true on the current page', () => {
@@ -113,6 +121,21 @@ describe('Pagination', () => {
     const component = screen.getByRole('navigation', { name: 'Paginering' })
 
     expect(component).toHaveAttribute('aria-labelledby', 'custom-id')
+  })
+
+  it('generates a unique fallback id when none is provided', () => {
+    render(
+      <>
+        <Pagination linkTemplate={linkTemplate} totalPages={10} />
+        <Pagination linkTemplate={linkTemplate} totalPages={10} />
+      </>,
+    )
+
+    const [first, second] = screen.getAllByRole('navigation', { name: 'Paginering' })
+
+    expect(first).toHaveAttribute('aria-labelledby')
+    expect(second).toHaveAttribute('aria-labelledby')
+    expect(first.getAttribute('aria-labelledby')).not.toBe(second.getAttribute('aria-labelledby'))
   })
 
   it('should not render when totalPages is 1 or less', () => {
@@ -145,6 +168,16 @@ describe('Pagination', () => {
     expect(previousLink).toHaveAttribute('rel', 'prev')
     expect(nextLink).toHaveTextContent('next')
     expect(nextLink).toHaveAttribute('rel', 'next')
+  })
+
+  it('renders the relative-link element class on the previous and next links', () => {
+    render(<Pagination linkTemplate={linkTemplate} page={4} totalPages={10} />)
+
+    const previousLink = screen.getByRole('link', { name: 'Vorige pagina' })
+    const nextLink = screen.getByRole('link', { name: 'Volgende pagina' })
+
+    expect(previousLink).toHaveClass('ams-pagination__relative-link')
+    expect(nextLink).toHaveClass('ams-pagination__relative-link')
   })
 
   it('renders an accessible name for the navigation', () => {

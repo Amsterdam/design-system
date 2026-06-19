@@ -283,6 +283,46 @@ describe('PageHeader', () => {
     }
   })
 
+  it('keeps the mega menu closed after its button reappears', async () => {
+    let changeListener: (() => void) | undefined
+    const mediaQueryList = {
+      addEventListener: vi.fn((_event: string, listener: () => void) => {
+        changeListener = listener
+      }),
+      matches: false,
+      removeEventListener: vi.fn(),
+    }
+
+    const originalMatchMedia = window.matchMedia
+    window.matchMedia = vi.fn().mockReturnValue(mediaQueryList as unknown as MediaQueryList)
+
+    try {
+      const user = userEvent.setup()
+      const { container } = render(<PageHeader noMenuButtonOnWideWindow>Test</PageHeader>)
+
+      const menuButton = screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' })
+      await user.click(menuButton)
+
+      // Cross the 'wide' breakpoint: the button is hidden and the menu closes
+      mediaQueryList.matches = true
+      act(() => {
+        changeListener?.()
+      })
+
+      expect(container.querySelector('.ams-page-header__mega-menu')).toHaveClass('ams-page-header__mega-menu--closed')
+
+      // Cross back below the breakpoint: the menu must stay closed, not reopen on its own
+      mediaQueryList.matches = false
+      act(() => {
+        changeListener?.()
+      })
+
+      expect(container.querySelector('.ams-page-header__mega-menu')).toHaveClass('ams-page-header__mega-menu--closed')
+    } finally {
+      window.matchMedia = originalMatchMedia
+    }
+  })
+
   it('renders a short brand name', () => {
     render(<PageHeader brandName="Application name" brandNameShort="App" />)
 

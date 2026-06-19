@@ -1,8 +1,3 @@
-/**
- * @license EUPL-1.2+
- * Copyright Gemeente Amsterdam
- */
-
 export { default as AmsterdamEnglishLogo } from './AmsterdamEnglishLogo'
 export { default as AmsterdamLogo } from './AmsterdamLogo'
 export { default as GgdAmsterdamInspectieLogo } from './GgdAmsterdamInspectieLogo'
