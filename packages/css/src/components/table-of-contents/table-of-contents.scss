@@ -20,7 +20,6 @@
 .ams-table-of-contents__list {
   @include reset-ul;
 
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: var(--ams-table-of-contents-list-gap);
@@ -34,8 +33,15 @@
   }
 }
 
+.ams-table-of-contents__item {
+  column-gap: var(--ams-table-of-contents-item-gap);
+  display: grid;
+  grid-template-columns: 1fr; /* The collapsible variant adds a leading column for the toggle button. */
+}
+
 .ams-table-of-contents__link {
   color: var(--ams-table-of-contents-link-color);
+  min-inline-size: 0;
   outline-offset: var(--ams-table-of-contents-link-outline-offset);
   text-decoration-line: var(--ams-table-of-contents-link-text-decoration-line);
   text-decoration-thickness: var(--ams-table-of-contents-link-text-decoration-thickness);
@@ -44,5 +50,58 @@
   &:hover {
     color: var(--ams-table-of-contents-link-hover-color);
     text-decoration-line: var(--ams-table-of-contents-link-hover-text-decoration-line);
+  }
+
+  &[aria-current="page"] {
+    color: var(--ams-table-of-contents-link-current-color);
+    font-weight: var(--ams-table-of-contents-link-current-font-weight);
+  }
+}
+
+.ams-table-of-contents__button {
+  color: var(--ams-table-of-contents-button-color);
+
+  &:hover {
+    background-color: transparent;
+    color: var(--ams-table-of-contents-button-hover-color);
+  }
+}
+
+.ams-table-of-contents__button svg {
+  transition: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: rotate var(--ams-table-of-contents-button-icon-transition-duration)
+      var(--ams-table-of-contents-button-icon-transition-timing-function);
+  }
+}
+
+.ams-table-of-contents__button[aria-expanded="true"] svg {
+  rotate: -180deg;
+}
+
+.ams-table-of-contents__item--collapsed > .ams-table-of-contents__list {
+  display: none;
+
+  @media print {
+    display: flex;
+  }
+}
+
+.ams-table-of-contents--collapsible {
+  --_ams-table-of-contents-button-column-inline-size: calc(1em * var(--ams-table-of-contents-line-height));
+
+  .ams-table-of-contents__item {
+    /* Add a leading column for the toggle button so labels align with and without one. */
+    grid-template-columns: var(--_ams-table-of-contents-button-column-inline-size) 1fr;
+  }
+
+  .ams-table-of-contents__item > .ams-table-of-contents__list {
+    grid-column: 2;
+    padding-inline-start: 0; /* Overrides the nested-list rule. */
+  }
+
+  .ams-table-of-contents__link {
+    grid-column: 2;
   }
 }

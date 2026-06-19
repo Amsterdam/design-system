@@ -33,6 +33,40 @@
           "nl.amsterdam.type": "number"
         }
       },
+      "list": {
+        "gap": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "list": {
+          "padding-block-start": {
+            "$value": "{ams.space.xs}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-inline-start": {
+            "$value": "{ams.space.m}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        }
+      },
+      "item": {
+        "gap": {
+          "$value": "{ams.space.xs}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
       "link": {
         "color": {
           "$value": "{ams.links.color}",
@@ -67,6 +101,20 @@
             "nl.amsterdam.type": "dimension"
           }
         },
+        "current": {
+          "color": {
+            "$value": "{ams.links.color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "font-weight": {
+            "$value": "{ams.typography.heading.font-weight}",
+            "$extensions": {
+              "nl.amsterdam.type": "fontWeight"
+            }
+          }
+        },
         "hover": {
           "color": {
             "$value": "{ams.links.hover.color}",
@@ -82,27 +130,30 @@
           }
         }
       },
-      "list": {
-        "gap": {
-          "$value": "{ams.space.s}",
+      "button": {
+        "color": {
+          "$value": "{ams.color.interactive.default}",
           "$extensions": {
-            "nl.amsterdam.subtype": "space",
-            "nl.amsterdam.type": "dimension"
+            "nl.amsterdam.type": "color"
           }
         },
-        "list": {
-          "padding-block-start": {
-            "$value": "{ams.space.s}",
+        "hover": {
+          "color": {
+            "$value": "{ams.color.interactive.hover}",
             "$extensions": {
-              "nl.amsterdam.subtype": "space",
-              "nl.amsterdam.type": "dimension"
+              "nl.amsterdam.type": "color"
             }
+          }
+        },
+        "icon": {
+          "transition-duration": {
+            "$value": "0.3s",
+            "$type": "duration"
           },
-          "padding-inline-start": {
-            "$value": "{ams.space.l}",
+          "transition-timing-function": {
+            "$value": "ease",
             "$extensions": {
-              "nl.amsterdam.subtype": "space",
-              "nl.amsterdam.type": "dimension"
+              "nl.amsterdam.type": "transitionTimingFunction"
             }
           }
         }
