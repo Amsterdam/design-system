@@ -97,14 +97,14 @@
 .ams-table-of-contents--collapsible {
   --_ams-table-of-contents-button-column-inline-size: calc(1em * var(--ams-table-of-contents-line-height));
 
-  .ams-table-of-contents__list {
-    grid-column: 2;
-    padding-inline-start: 0; /* Overrides the nested-list rule. */
-  }
-
   .ams-table-of-contents__item {
     display: grid; /* Aligns labels of items with and without a toggle button. */
     grid-template-columns: var(--_ams-table-of-contents-button-column-inline-size) 1fr;
+  }
+
+  .ams-table-of-contents__item > .ams-table-of-contents__list {
+    grid-column: 2;
+    padding-inline-start: 0; /* Overrides the nested-list rule. */
   }
 
   .ams-table-of-contents__link {
