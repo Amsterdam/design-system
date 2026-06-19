@@ -87,6 +87,14 @@ describe('Pagination', () => {
     })
   })
 
+  it('renders the ellipsis element class on the ellipsis', () => {
+    render(<Pagination linkTemplate={linkTemplate} maxVisiblePages={7} page={1} totalPages={10} />)
+
+    const ellipsis = screen.getByText('…')
+
+    expect(ellipsis).toHaveClass('ams-pagination__ellipsis')
+  })
+
   it('should set aria-current to true on the current page', () => {
     render(<Pagination linkTemplate={linkTemplate} page={4} totalPages={10} />)
 
@@ -160,6 +168,16 @@ describe('Pagination', () => {
     expect(previousLink).toHaveAttribute('rel', 'prev')
     expect(nextLink).toHaveTextContent('next')
     expect(nextLink).toHaveAttribute('rel', 'next')
+  })
+
+  it('renders the relative-link element class on the previous and next links', () => {
+    render(<Pagination linkTemplate={linkTemplate} page={4} totalPages={10} />)
+
+    const previousLink = screen.getByRole('link', { name: 'Vorige pagina' })
+    const nextLink = screen.getByRole('link', { name: 'Volgende pagina' })
+
+    expect(previousLink).toHaveClass('ams-pagination__relative-link')
+    expect(nextLink).toHaveClass('ams-pagination__relative-link')
   })
 
   it('renders an accessible name for the navigation', () => {
