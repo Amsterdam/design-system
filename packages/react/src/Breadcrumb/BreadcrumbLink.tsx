@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ComponentType, ForwardedRef } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -13,7 +13,7 @@ export type BreadcrumbLinkProps = {
    * The React component to use for the link.
    * Refs are not forwarded to custom link components.
    */
-  readonly linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+  readonly linkComponent?: ElementType
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
 /**

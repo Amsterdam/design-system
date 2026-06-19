@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef, HTMLAttributes } from 'react'
 
 import { ChevronBackwardIcon, ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
@@ -23,7 +23,7 @@ export type PaginationProps = {
    */
   readonly accessibleNameId?: string
   /** The React component to use for the links. */
-  readonly linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+  readonly linkComponent?: ElementType
   /** The template used to construct the link hrefs. */
   readonly linkTemplate: (page: number) => string
   /** The maximum amount of pages shown. Minimum value: 5. */

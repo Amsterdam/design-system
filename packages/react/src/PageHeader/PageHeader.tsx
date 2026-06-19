@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef, useEffect, useId, useState } from 'react'
@@ -34,7 +34,7 @@ export type PageHeaderProps = {
   /** The url for the link on the logo. */
   readonly logoLink?: string
   /** The React component to use for the logo link. */
-  readonly logoLinkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+  readonly logoLinkComponent?: ElementType
   /** The accessible text for the link on the logo. */
   readonly logoLinkTitle?: string
   /** An icon to display instead of the default icon. */
