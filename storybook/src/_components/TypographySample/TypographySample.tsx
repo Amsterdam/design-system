@@ -5,10 +5,11 @@
 
 import type { HTMLAttributes } from 'react'
 
-import './typography-sample.css'
 import { clsx } from 'clsx'
 
-import { formatTokenValue } from '../../_common/formatTokenValue'
+import { formatTokenValue } from '#storybook/_common/formatTokenValue'
+
+import './typography-sample.css'
 
 type TypographySampleProps = {
   /** Whether to use the tokens for Compact Mode. */

@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { TextArea } from '@amsterdam/design-system-react/src'
 
-import { exampleParagraph } from '../../_common/exampleContent'
+import { exampleParagraph } from '#storybook/_common/exampleContent'
 
 const paragraph = exampleParagraph()
 
@@ -27,8 +27,14 @@ const meta = {
       },
       description: 'The width, expressed in the average number of characters.',
     },
+    defaultValue: {
+      table: { disable: false },
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
+    },
+    onChange: {
+      table: { disable: false },
     },
     resize: {
       control: {

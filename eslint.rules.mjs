@@ -63,15 +63,6 @@ export const coreRules = {
   'no-void': 'error',
   'prefer-regex-literals': 'error',
   radix: 'error',
-  'sort-imports': [
-    'error',
-    {
-      allowSeparatedGroups: false,
-      ignoreCase: true,
-      ignoreDeclarationSort: true,
-      ignoreMemberSort: false,
-    },
-  ],
   yoda: 'error',
 }
 
@@ -136,6 +127,24 @@ const perfectionistCustomSizesGroups = {
 
 /* Perfectionist sort rules with project-specific group definitions. */
 export const perfectionistRules = {
+  'perfectionist/sort-imports': [
+    'error',
+    {
+      groups: [
+        'type-import',
+        ['value-builtin', 'value-external'],
+        ['type-internal', 'value-internal'],
+        ['type-parent', 'type-sibling', 'type-index'],
+        ['value-parent', 'value-sibling', 'value-index'],
+        'side-effect',
+        'unknown',
+      ],
+      internalPattern: ['^#storybook/', '^#tokens/'],
+      newlinesBetween: 1,
+      order: 'asc',
+      type: 'natural',
+    },
+  ],
   'perfectionist/sort-intersection-types': [
     'error',
     {

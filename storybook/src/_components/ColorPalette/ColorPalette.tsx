@@ -3,25 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './color-palette.css'
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
+import './color-palette.css'
+
 type ColorPaletteProps = PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>, 'className'>>
 
-/**
- * Compound component for displaying a colour palette in documentation.
- * Use `ColorPalette.Swatch` to group related tones and `ColorPalette.Tile` to show an individual colour.
- *
- * @example
- * <ColorPalette>
- *   <ColorPalette.Swatch name="azure">
- *     <ColorPalette.Tile color="#009de6" level="100" />
- *   </ColorPalette.Swatch>
- * </ColorPalette>
- */
 const ColorPaletteRoot = forwardRef(
   ({ children, ...restProps }: ColorPaletteProps, ref: ForwardedRef<HTMLDivElement>) => (
     <div {...restProps} className="_ams-color-palette" ref={ref}>
@@ -65,6 +55,17 @@ const ColorPaletteTile = ({ color, level }: ColorPaletteTileProps) =>
 
 ColorPaletteTile.displayName = 'ColorPalette.Tile'
 
+/**
+ * Displays a colour palette in documentation.
+ * Use `ColorPalette.Swatch` to group related tones and `ColorPalette.Tile` to show an individual colour.
+ *
+ * @example
+ * <ColorPalette>
+ *   <ColorPalette.Swatch name="azure">
+ *     <ColorPalette.Tile color="#009de6" level="100" />
+ *   </ColorPalette.Swatch>
+ * </ColorPalette>
+ */
 export const ColorPalette = Object.assign(ColorPaletteRoot, {
   Swatch: ColorPaletteSwatch,
   Tile: ColorPaletteTile,

@@ -5,7 +5,8 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { renderComponentVariants } from '../../_common/renderComponentVariants'
+import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
+
 import { Code } from './Code'
 
 const meta = {

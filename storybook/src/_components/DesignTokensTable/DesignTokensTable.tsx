@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './design-tokens-table.css'
 import type { HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
@@ -12,6 +11,8 @@ import type { Tokens } from './DesignTokensTable.types'
 
 import { DesignTokensTableRow } from './DesignTokensTableRow'
 import { flattenTokens } from './flattenTokens'
+
+import './design-tokens-table.css'
 
 type DesignTokensTableRootProps = {
   /** Keys to omit from the (optionally path-narrowed) token group. */
@@ -26,10 +27,6 @@ type DesignTokensTableRootProps = {
   readonly tokens: Tokens
 } & Readonly<HTMLAttributes<HTMLDivElement>>
 
-/**
- * Compound component that renders a design token JSON file as a three-column table
- * (CSS variable name, value, visual example).
- */
 const DesignTokensTableRoot = ({
   className,
   exclude,
@@ -111,6 +108,9 @@ const DesignTokensTableRoot = ({
 
 DesignTokensTableRoot.displayName = 'DesignTokensTable'
 
+/**
+ * Renders a design token JSON file as a table with CSS variable name, value, and optional description/visual example columns.
+ */
 export const DesignTokensTable = Object.assign(DesignTokensTableRoot, {
   Row: DesignTokensTableRow,
 })

@@ -7,7 +7,9 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Calendar } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../_common/renderComponentVariants'
+import { mockDate } from '#storybook/_common/mockDate'
+import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
+
 import { default as calendarMeta } from './Calendar.stories'
 
 const meta = {
@@ -23,10 +25,14 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+const testDate = new Date(2026, 11, 31)
+
 export const Test: Story = {
   args: {
+    defaultMonth: new Date(testDate),
     locale: 'nl',
   },
+  beforeEach: () => mockDate(testDate),
   render: (args, context) => renderComponentVariants(Calendar, { args }, context),
   tags: ['!dev', '!autodocs'],
 }
