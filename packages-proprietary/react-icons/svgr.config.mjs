@@ -1,4 +1,4 @@
-import { deprecatedIconComments } from './deprecations.mjs'
+import { deprecatedIconComment } from './deprecations.mjs'
 import { indexTemplate } from './indexTemplate.mjs'
 
 // Matches SVGR’s default output, but adds the `@deprecated` JSDoc comment for
@@ -10,8 +10,7 @@ ${variables.interfaces};
 const ${variables.componentName} = (${variables.props}) => ${variables.jsx};
 ${variables.exports};
 `
-
-  const comment = deprecatedIconComments[variables.componentName.replace(/^Svg/, '')]
+  const comment = deprecatedIconComment(variables.componentName.replace(/^Svg/, ''))
   const component = statements.find((statement) => statement.type === 'VariableDeclaration')
 
   if (comment && component) {

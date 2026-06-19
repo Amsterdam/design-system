@@ -43,17 +43,21 @@ for (const [iconName, { removeOnOrAfter }] of Object.entries(deprecatedIcons)) {
   }
 }
 
-// The `@deprecated` JSDoc comment for each deprecated icon, keyed by file
-// basename.
-/** @type {Record<string, string>} */
-export const deprecatedIconComments = Object.fromEntries(
-  Object.entries(deprecatedIcons).map(([iconName, { removeOnOrAfter, replacement }]) => [
-    iconName,
-    [
-      '/**',
-      ` * @deprecated The ‘${iconName}’ icon will be removed on or after ${removeOnOrAfter}.`,
-      ` * Use ‘${replacement}’ instead.`,
-      ' */',
-    ].join('\n'),
-  ]),
-)
+/**
+ * Builds the `@deprecated` JSDoc comment for an icon, or `undefined` if it is
+ * not deprecated.
+ *
+ * @param {string} iconName File basename of the icon, e.g. `TrashBin`.
+ */
+export const deprecatedIconComment = (iconName) => {
+  const deprecation = deprecatedIcons[iconName]
+
+  if (!deprecation) return undefined
+
+  return [
+    '/**',
+    ` * @deprecated The ‘${iconName}’ icon will be removed on or after ${deprecation.removeOnOrAfter}.`,
+    ` * Use ‘${deprecation.replacement}’ instead.`,
+    ' */',
+  ].join('\n')
+}
