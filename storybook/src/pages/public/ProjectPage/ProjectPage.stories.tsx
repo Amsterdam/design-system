@@ -30,7 +30,7 @@ const images = [268, 12, 267, 164, 128].map((id) => ({
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Project Page',
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <>
       <Grid paddingTop="large">

@@ -1,31 +1,18 @@
-import eslint from '@eslint/js'
 import json from '@eslint/json'
 import markdown from '@eslint/markdown'
-import tsPlugin from '@typescript-eslint/eslint-plugin'
-import tsParser from '@typescript-eslint/parser'
-import vitest from '@vitest/eslint-plugin'
-import eslintConfigPrettier from 'eslint-config-prettier'
-import baselineJs from 'eslint-plugin-baseline-js'
-import importPlugin from 'eslint-plugin-import-x'
-import perfectionist from 'eslint-plugin-perfectionist'
 import { defineConfig } from 'eslint/config'
-import globals from 'globals'
 
-import { baselineRules, coreRules, importRules, perfectionistRules, tsRules } from './eslint.rules.mjs'
-import reactIconsConfig from './packages-proprietary/react-icons/eslint.config-partial.mjs'
-import reactConfig from './packages/react/eslint.config-partial.mjs'
 import storybookConfig from './storybook/eslint.config-partial.mjs'
 
-const jsAndTsFiles = ['**/*.{js,jsx,mjs,ts,tsx}']
-const testFiles = ['**/*.{test,spec}.{js,jsx,ts,tsx}']
-const nodeScriptFiles = ['**/*.{config,setup}.{js,mjs,ts}', '**/rollup.config.mjs', 'plopfile.mjs']
-
+/* ESLint only lints the languages oxlint cannot: JSON, Markdown and MDX.
+ * All JavaScript/TypeScript linting (including perfectionist, baseline-js and Storybook rules) is
+ * handled by oxlint via its native plugins and the jsPlugins loader — see `.oxlintrc.json`.
+ */
 export default defineConfig([
-  // Global
   {
     name: 'amsterdam-design-system/global-ignores',
 
-    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', '**/AGENTS.md'],
+    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', '**/AGENTS.md', '**/CHANGELOG.md'],
   },
   {
     name: 'amsterdam-design-system/linter-options',
@@ -34,68 +21,6 @@ export default defineConfig([
       reportUnusedDisableDirectives: 'error',
     },
   },
-  {
-    name: 'amsterdam-design-system/language-options',
-
-    files: jsAndTsFiles,
-    languageOptions: {
-      globals: { ...globals.browser, ...globals.es6 },
-    },
-  },
-  {
-    // Keep Node globals scoped to tooling and config scripts.
-    name: 'amsterdam-design-system/node-language-options',
-
-    files: nodeScriptFiles,
-    languageOptions: {
-      globals: { ...globals.node },
-    },
-  },
-
-  // JavaScript and TypeScript
-  {
-    name: 'amsterdam-design-system/javascript-typescript',
-
-    extends: [eslint.configs.recommended, perfectionist.configs['recommended-natural']],
-    files: jsAndTsFiles,
-    languageOptions: {
-      parser: tsParser,
-    },
-    plugins: {
-      '@typescript-eslint': tsPlugin,
-      'baseline-js': baselineJs,
-      'import-x': importPlugin,
-    },
-    rules: {
-      ...tsRules,
-      ...coreRules,
-      ...baselineRules,
-      ...importRules,
-      ...perfectionistRules,
-    },
-    settings: {
-      'import-x/resolver': {
-        typescript: true,
-      },
-    },
-  },
-
-  // Tests
-  {
-    name: 'amsterdam-design-system/tests',
-
-    extends: [vitest.configs.recommended],
-    files: testFiles,
-    languageOptions: {
-      globals: { ...vitest.environments.env.globals },
-    },
-  },
-
-  // React (owned by packages/react/eslint.config-partial.mjs)
-  ...reactConfig,
-
-  // React-icons (owned by packages-proprietary/react-icons/eslint.config-partial.mjs)
-  ...reactIconsConfig,
 
   // JSON
   {
@@ -106,27 +31,19 @@ export default defineConfig([
     language: 'json/json',
   },
 
-  // Markdown
-  {
+  // Markdown — content linting with the GFM language and the recommended rules.
+  ...markdown.configs.recommended.map((config) => ({
+    ...config,
     name: 'amsterdam-design-system/markdown',
 
-    files: ['**/*.md'],
-    ignores: ['CHANGELOG.md'],
-    plugins: { markdown },
-    processor: 'markdown/markdown',
+    language: 'markdown/gfm',
     rules: {
-      ...markdown.configs.recommended.rules,
-      'markdown/line-length': 'off',
-      'markdown/no-inline-html': 'off',
+      ...config.rules,
+      // Off: false-positives on literal brackets (quote elisions, `[…]`); our docs use inline links.
+      'markdown/no-missing-label-refs': 'off',
     },
-  },
+  })),
 
-  // MDX and Storybook (owned by storybook/eslint.config-partial.mjs)
+  // MDX (owned by storybook/eslint.config-partial.mjs)
   ...storybookConfig,
-
-  // Prettier — must be last so it can override stylistic rules from earlier presets
-  {
-    name: 'amsterdam-design-system/prettier',
-    ...eslintConfigPrettier,
-  },
 ])

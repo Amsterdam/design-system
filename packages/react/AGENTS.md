@@ -17,7 +17,7 @@ Agent-critical points:
 - **Subcomponents**: keep in separate files (`GridCell.tsx` alongside `Grid.tsx`), each with their own test file. Do not export subcomponent values from the package barrel — only export their prop types.
 - **Screen reader text**: use `ams-visually-hidden` — not `aria-label` (not reliably auto-translated). Other ARIA attributes (`aria-describedby`, `aria-expanded`, `role`) are fine.
 - **Styling imports**: never import CSS or SCSS files inside a React component. Components should emit class names only; styling comes from the design system CSS package and consumer/app-level styles (including Storybook globals).
-- **Dependencies and config**: do not introduce new runtime dependencies (UI libraries, state managers, date libraries, etc.) or change ESLint, TypeScript, Vitest, or Storybook configuration unless explicitly requested for the task.
+- **Dependencies and config**: do not introduce new runtime dependencies (UI libraries, state managers, date libraries, etc.) or change oxlint, oxfmt, ESLint (JSON/Markdown/MDX), TypeScript, Vitest, or Storybook configuration unless explicitly requested for the task.
 - **Component typing style**: do not use `React.FC` or `React.VFC`; prefer plain function components wrapped in `forwardRef` with explicit props types.
 
 ## CSS class names

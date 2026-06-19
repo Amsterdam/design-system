@@ -44,7 +44,7 @@ Place the description in the JSDoc block directly above the component declaratio
 /**
  * One short paragraph that explains what the component is and why it exists.
  */
-export const ComponentName = forwardRef(/* ... */);
+export const ComponentName = forwardRef(/* ... */)
 ```
 
 ## The Storybook documentation page
@@ -75,12 +75,12 @@ Fill in the sections that apply, and delete any heading you cannot fill in meani
 ```mdx
 {/* @license CC0-1.0 */}
 
-import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks"
 
-import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
-import tokens from "#tokens/components/ams/component.tokens.json";
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable"
+import tokens from "#tokens/components/ams/component.tokens.json"
 
-import * as ComponentStories from "./Component.stories.tsx";
+import * as ComponentStories from "./Component.stories.tsx"
 
 <Meta of={ComponentStories} />
 

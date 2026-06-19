@@ -20,7 +20,7 @@ import type { ProseProps } from './Prose'
 
 import { Prose } from './Prose'
 
-//eslint-disable-next-line @typescript-eslint/no-unused-vars -- Required to render source code in Storybook.
+//oxlint-disable-next-line no-unused-vars -- Required to render source code in Storybook.
 const render = (props: ProseProps) => (
   <article className="ams-prose">
     <Heading level={1}>Werkzaamheden aan de Oranje Loper</Heading>

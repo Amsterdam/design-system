@@ -1,0 +1,7 @@
+{
+  "package.json": "npmPkgJsonLint --allowEmptyTargets",
+  "*.{js,jsx,mjs,cjs,ts,tsx,mts,cts}": "oxlint",
+  "*.{json,md,mdx}": "eslint --no-error-on-unmatched-pattern",
+  "*.{css,scss}": "stylelint --allow-empty-input",
+  "*.{css,scss,js,jsx,mjs,cjs,ts,tsx,mts,cts,json,md,yaml,yml,html}": "oxfmt --check --no-error-on-unmatched-pattern"
+}

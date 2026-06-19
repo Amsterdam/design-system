@@ -144,7 +144,7 @@ You can use any editor you like, but if you use [Visual Studio Code](https://cod
 - [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [MDX](https://marketplace.visualstudio.com/items?itemName=silvenon.mdx)
-- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Oxc](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode)
 - [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 
 To enable correct validation and to fix lint/style errors on save, add this to your VSCode `settings.json`:
@@ -157,9 +157,10 @@ To enable correct validation and to fix lint/style errors on save, add this to y
   "stylelint.validate": ["css", "scss"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
+    "source.fixAll.oxc": true,
     "source.fixAll.stylelint": true
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.formatOnSave": true
 }
 ```

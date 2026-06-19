@@ -47,7 +47,7 @@ export const LandingPage: StoryObj = {
       </Layout>
     ),
   ],
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -88,7 +88,7 @@ export const SingleQuestion: StoryObj = {
       </FormLayout>
     ),
   ],
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <>
       {/* The back link is in its own Grid, because it should be outside of the main section. */}
@@ -173,7 +173,7 @@ export const SingleQuestionWithSubquestions: StoryObj = {
       </FormLayout>
     ),
   ],
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <>
       {/* The back link is in its own Grid, because it should be outside of the main section. */}
@@ -263,7 +263,7 @@ export const MultipleQuestions: StoryObj = {
       </FormLayout>
     ),
   ],
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <>
       {/* The back link is in its own Grid, because it should be outside of the main section. */}
@@ -340,7 +340,7 @@ export const WithValidationError: StoryObj = {
       </FormLayout>
     ),
   ],
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <>
       {/* The back link is in its own Grid, because it should be outside of the main section. */}

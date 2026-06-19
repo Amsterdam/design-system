@@ -1,22 +1,11 @@
 import * as mdx from 'eslint-plugin-mdx'
 import perfectionist from 'eslint-plugin-perfectionist'
-import storybook from 'eslint-plugin-storybook'
-
-import { reactPreset } from '../packages/react/eslint.config-partial.mjs'
 
 /* Imported and spread by the root `eslint.config.mjs`.
- * MDX lives here because every `.mdx` file in the repo is a Storybook doc — the plugin's
- * default globs determine the effective scope.
+ * Every `.mdx` file in the repo is a Storybook doc — the plugin's default globs determine the
+ * effective scope. JavaScript/TypeScript and Storybook rules live in oxlint (see `.oxlintrc.json`).
  */
 export default [
-  // React (Storybook is React code)
-  {
-    name: 'amsterdam-design-system/storybook-react',
-
-    extends: [reactPreset],
-    files: ['storybook/**/*.{js,jsx,ts,tsx}'],
-  },
-
   // MDX
   {
     ...mdx.flat,
@@ -29,12 +18,6 @@ export default [
   {
     ...mdx.flatCodeBlocks,
     name: 'amsterdam-design-system/mdx-flat-code-block',
-
-    rules: {
-      ...mdx.flatCodeBlocks.rules,
-      'react/jsx-no-undef': 'off',
-      'react/prop-types': 'off',
-    },
   },
 
   // MDX — import sorting (MDX stays in ESLint even after the oxlint migration)
@@ -64,7 +47,4 @@ export default [
       ],
     },
   },
-
-  // Storybook (preset is an array of three configs, each with its own `storybook:recommended:*` name)
-  ...storybook.configs['flat/recommended'],
 ]

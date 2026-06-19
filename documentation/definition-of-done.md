@@ -27,7 +27,7 @@
 - `prefers-reduced-motion` is used if it includes animation.
 - Content does not overflow or get cut off when the provided CSS snippet is applied. See [WCAG 1.4.12](https://www.w3.org/TR/WCAG22/#text-spacing). Use the Stylus plugin in [Chrome](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/) to make this easier.
 
-```
+```css
 * {
   line-height: 1.5 !important;
   letter-spacing: 0.12em !important;
@@ -60,7 +60,7 @@ p {
 - Unit tests have been written and pass.
 - A test story renders all component variants for visual regression testing.
 - Visual changes in Chromatic have been reviewed and approved.
-- ESLint, Stylelint, and Prettier report no errors.
+- oxlint, ESLint, Stylelint, and oxfmt report no errors.
 
 ### For pages
 

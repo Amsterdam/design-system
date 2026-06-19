@@ -47,7 +47,7 @@ const getLinks = (links: string[]) =>
   )
 
 export const Default: StoryObj = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <>
       <Grid paddingTop="large">
@@ -85,7 +85,7 @@ export const Default: StoryObj = {
 }
 
 export const WithTopTasks: StoryObj = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <>
       <Grid paddingTop="large">
@@ -138,7 +138,7 @@ export const WithTopTasks: StoryObj = {
 }
 
 export const WithInteractiveElement: StoryObj = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <>
       <Grid paddingTop="large">
@@ -199,7 +199,7 @@ export const WithInteractiveElement: StoryObj = {
 }
 
 export const WithImageGallery: StoryObj = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <>
       <Grid paddingTop="large">
@@ -357,7 +357,7 @@ export const WithImageGallery: StoryObj = {
 }
 
 export const SubnavigationPage: StoryObj = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line no-unused-vars
   render: (args) => (
     <>
       <Grid paddingTop="large">
