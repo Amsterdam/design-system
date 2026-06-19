@@ -81,15 +81,22 @@ const PageHeaderRoot = forwardRef(
     }: PageHeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
-    const [menuOpen, setMenuOpen] = useState(false)
+    const [open, setOpen] = useState(false)
 
     const viewportHasMinWidth = useViewportHasMinWidth('wide')
     const accessibleLabelId = useId()
     const hasMegaMenu = Boolean(children)
     const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
+    const menuButtonHidden = noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow
 
-    // The menu is closed while its button is hidden, since there is then no control to open it.
-    const open = menuOpen && !(noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow)
+    // Close the menu when its button is hidden, and keep it closed when the button returns: there is then no control to reopen it.
+    const [menuButtonWasHidden, setMenuButtonWasHidden] = useState(menuButtonHidden)
+    if (menuButtonHidden !== menuButtonWasHidden) {
+      setMenuButtonWasHidden(menuButtonHidden)
+      if (menuButtonHidden) {
+        setOpen(false)
+      }
+    }
 
     const LogoLink = logoLinkComponent
 
@@ -130,7 +137,7 @@ const PageHeaderRoot = forwardRef(
                     aria-controls="ams-page-header-mega-menu"
                     aria-expanded={open}
                     className="ams-page-header__mega-menu-button"
-                    onClick={() => setMenuOpen(!open)}
+                    onClick={() => setOpen((wasOpen) => !wasOpen)}
                     type="button"
                   >
                     <span aria-hidden="true" className="ams-page-header__mega-menu-button-label">
