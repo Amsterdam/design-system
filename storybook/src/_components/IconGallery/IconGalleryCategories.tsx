@@ -52,7 +52,9 @@ export const LearnableIcons: Set<IconName> = new Set([
   'UserAccountFillIcon',
   'UserAccountIcon',
   'WiFiIcon',
+  'ZoomInFillIcon',
   'ZoomInIcon',
+  'ZoomOutFillIcon',
   'ZoomOutIcon',
 ])
 
