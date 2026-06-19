@@ -318,9 +318,7 @@ describe('TableOfContents', () => {
       expect(button).toHaveAccessibleName('Hide A')
     })
 
-    it('moves focus to the toggle button when collapsing a subtree that contains focus', async () => {
-      const user = userEvent.setup()
-
+    it('moves focus to the toggle button when collapsing a subtree that contains focus', () => {
       render(
         <TableOfContents collapsible>
           <TableOfContents.List>
@@ -340,9 +338,29 @@ describe('TableOfContents', () => {
 
       expect(nestedLink).toHaveFocus()
 
-      await user.click(button)
+      // Use `fireEvent.click`, which does not focus the button first, mirroring platforms where
+      // clicking a button leaves focus in place. Focus then moves to the toggle only because the
+      // component restores it before hiding the subtree, which is the behaviour under test.
+      fireEvent.click(button)
 
       expect(button).toHaveFocus()
+    })
+
+    it('preserves non-list children of an expandable link', () => {
+      render(
+        <TableOfContents collapsible>
+          <TableOfContents.List>
+            <TableOfContents.Link defaultExpanded href="#a" label="A">
+              <span>Extra content</span>
+              <TableOfContents.List>
+                <TableOfContents.Link href="#a-1" label="A.1" />
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents>,
+      )
+
+      expect(screen.getByText('Extra content')).toBeInTheDocument()
     })
 
     it('sets focus on toggle buttons when using arrow keys', async () => {
