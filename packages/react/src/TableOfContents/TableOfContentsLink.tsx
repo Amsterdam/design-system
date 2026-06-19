@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
@@ -22,6 +22,11 @@ export type TableOfContentsLinkProps = {
   /** The text for the link. */
   readonly label: string
   /**
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to a plain anchor (the default, or `linkComponent="a"`), not to any other `linkComponent`.
+   */
+  readonly linkComponent?: ElementType
+  /**
    * Callback fired when the nested list is expanded or collapsed. Receives the new expanded state.
    * Ignored when the parent `TableOfContents` is not `collapsible` or when there is no nested list.
    */
@@ -35,12 +40,14 @@ export type TableOfContentsLinkProps = {
  */
 export const TableOfContentsLink = forwardRef(
   (
-    { children, className, defaultExpanded, label, onToggle, ...restProps }: TableOfContentsLinkProps,
+    { children, className, defaultExpanded, label, linkComponent, onToggle, ...restProps }: TableOfContentsLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
     const { hideAccessibleLabel, showAccessibleLabel } = useContext(TableOfContentsContext)
     const { buttonRef, handleToggle, isExpandable, isExpanded, itemRef, nestedListId, renderedChildren } =
       useCollapsibleItem({ children, defaultExpanded, onToggle })
+
+    const Tag = linkComponent || 'a'
 
     return (
       <li
@@ -61,9 +68,13 @@ export const TableOfContentsLink = forwardRef(
             svg={ChevronDownIcon}
           />
         )}
-        <a {...restProps} className={clsx('ams-table-of-contents__link', className)} ref={ref}>
+        <Tag
+          {...restProps}
+          className={clsx('ams-table-of-contents__link', className)}
+          {...((!linkComponent || linkComponent === 'a') && { ref })}
+        >
           {label}
-        </a>
+        </Tag>
         {renderedChildren}
       </li>
     )
