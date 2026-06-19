@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 // Icons whose component is deprecated, by file basename (e.g. `TrashBin`,
 // exported as `TrashBinIcon`). Adds an `@deprecated` comment to the component.
 export const deprecatedIcons = {
