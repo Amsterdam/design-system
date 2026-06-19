@@ -39,8 +39,10 @@ export const LearnableIcons: Set<IconName> = new Set([
   'PrintIcon',
   'RedoIcon',
   'RefreshIcon',
+  'RotateClockwiseFillIcon',
   'RotateClockwiseIcon',
-  'RotateCounterClockwiseIcon',
+  'RotateCounterclockwiseFillIcon',
+  'RotateCounterclockwiseIcon',
   'SaveFillIcon',
   'SaveIcon',
   'ShareIcon',
@@ -117,6 +119,7 @@ export const KeyboardKeyIcons: Set<IconName> = new Set([
   'KeyboardKeyShiftIcon',
 ])
 
+// @ts-expect-error - These icons are deprecated and will be removed in the future.
 export const DeprecatedIcons: Set<IconName> = new Set([
   'BellFillIcon',
   'BellIcon',
