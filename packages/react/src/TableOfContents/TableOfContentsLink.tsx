@@ -3,26 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ForwardedRef, ReactElement, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import {
-  Children,
-  cloneElement,
-  forwardRef,
-  isValidElement,
-  useContext,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from 'react'
+import { forwardRef, useContext } from 'react'
 
 import { IconButton } from '../IconButton'
 import { TableOfContentsContext } from './TableOfContentsContext'
-import { TableOfContentsList } from './TableOfContentsList'
-import { TableOfContentsListContext } from './TableOfContentsListContext'
+import { useCollapsibleItem } from './useCollapsibleItem'
 
 export type TableOfContentsLinkProps = {
   /**
@@ -33,21 +22,16 @@ export type TableOfContentsLinkProps = {
   /** The text for the link. */
   readonly label: string
   /**
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to a plain anchor (the default, or `linkComponent="a"`), not to any other `linkComponent`.
+   */
+  readonly linkComponent?: ElementType
+  /**
    * Callback fired when the nested list is expanded or collapsed. Receives the new expanded state.
    * Ignored when the parent `TableOfContents` is not `collapsible` or when there is no nested list.
    */
   readonly onToggle?: (expanded: boolean) => void
 } & Readonly<AnchorHTMLAttributes<HTMLAnchorElement>>
-
-// A Link is expandable when it has a `TableOfContents.List` as a direct child.
-const findListChild = (children: ReactNode): ReactElement | undefined => {
-  for (const child of Children.toArray(children)) {
-    if (isValidElement(child) && child.type === TableOfContentsList) {
-      return child
-    }
-  }
-  return undefined
-}
 
 /**
  * A link to a section of the current page within a Table of Contents.
@@ -56,57 +40,14 @@ const findListChild = (children: ReactNode): ReactElement | undefined => {
  */
 export const TableOfContentsLink = forwardRef(
   (
-    { children, className, defaultExpanded, label, onToggle, ...restProps }: TableOfContentsLinkProps,
+    { children, className, defaultExpanded, label, linkComponent, onToggle, ...restProps }: TableOfContentsLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
-    const { collapsible, hideAccessibleLabel, showAccessibleLabel } = useContext(TableOfContentsContext)
-    const collapsedByDefault = useContext(TableOfContentsListContext)
-    const listChild = findListChild(children)
-    const childListProps = listChild?.props as { collapsed?: boolean; id?: string } | undefined
-    const collapsedForThisLink = childListProps?.collapsed ?? collapsedByDefault
-    const expandedByDefault = defaultExpanded ?? !collapsedForThisLink
-    const [isExpanded, setIsExpanded] = useState(expandedByDefault)
+    const { hideAccessibleLabel, showAccessibleLabel } = useContext(TableOfContentsContext)
+    const { buttonRef, handleToggle, isExpandable, isExpanded, itemRef, nestedListId, renderedChildren } =
+      useCollapsibleItem({ children, defaultExpanded, onToggle })
 
-    useEffect(() => {
-      setIsExpanded(expandedByDefault)
-    }, [expandedByDefault])
-
-    const panelId = useId()
-    const buttonRef = useRef<HTMLButtonElement>(null)
-    const itemRef = useRef<HTMLLIElement>(null)
-
-    const isExpandable = collapsible && !!listChild
-    // Reuse a provided nested list id to keep aria-controls references stable.
-    const nestedListId = childListProps?.id ?? panelId
-
-    // When collapsing, if focus is inside the subtree that's about to be hidden, move it to the toggle button.
-    const moveFocusToToggleButton = (nextIsExpanded: boolean) => {
-      if (!nextIsExpanded && itemRef.current && document.activeElement instanceof HTMLElement) {
-        const list = itemRef.current.querySelector('.ams-table-of-contents__list')
-
-        if (list?.contains(document.activeElement)) {
-          buttonRef.current?.focus()
-        }
-      }
-    }
-
-    // Toggles the local expanded state and emits the new expanded state
-    const handleClick = () => {
-      const nextIsExpanded = !isExpanded
-      moveFocusToToggleButton(nextIsExpanded)
-      setIsExpanded(nextIsExpanded)
-      onToggle?.(nextIsExpanded)
-    }
-
-    // When expandable, clone the nested list so it receives the id referenced by aria-controls.
-    const renderedChildren = isExpandable
-      ? Children.map(children, (child) => {
-          if (isValidElement(child) && child.type === TableOfContentsList) {
-            return cloneElement(child as ReactElement<{ id?: string }>, { id: nestedListId })
-          }
-          return child
-        })
-      : children
+    const Tag = linkComponent || 'a'
 
     return (
       <li
@@ -120,16 +61,20 @@ export const TableOfContentsLink = forwardRef(
           <IconButton
             aria-controls={nestedListId}
             aria-expanded={isExpanded}
-            className="ams-table-of-contents__toggle"
+            className="ams-table-of-contents__button"
             label={`${isExpanded ? hideAccessibleLabel : showAccessibleLabel} ${label}`}
-            onClick={handleClick}
+            onClick={handleToggle}
             ref={buttonRef}
             svg={ChevronDownIcon}
           />
         )}
-        <a {...restProps} className={clsx('ams-table-of-contents__link', className)} ref={ref}>
+        <Tag
+          {...restProps}
+          className={clsx('ams-table-of-contents__link', className)}
+          {...((!linkComponent || linkComponent === 'a') && { ref })}
+        >
           {label}
-        </a>
+        </Tag>
         {renderedChildren}
       </li>
     )

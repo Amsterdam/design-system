@@ -10,7 +10,7 @@ import { HouseIcon, PhoneIcon, SpeechBalloonEllipsisIcon } from '@amsterdam/desi
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { LinkList } from '@amsterdam/design-system-react/src'
 
-import { exampleLinkList } from '../../_common/exampleContent'
+import { exampleLinkList } from '#storybook/_common/exampleContent'
 
 const linkList = exampleLinkList()
 

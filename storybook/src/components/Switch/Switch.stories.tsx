@@ -24,7 +24,10 @@ const meta = {
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
     },
-    onChange: { action: 'clicked' },
+    onChange: {
+      action: 'clicked',
+      table: { disable: false },
+    },
   },
   render: (args) => {
     const [, setArgs] = useArgs()

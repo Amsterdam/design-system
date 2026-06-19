@@ -1,10 +1,10 @@
 {/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
-import * as {{pascalCase name}}Stories from "./{{pascalCase name}}.stories.tsx";
-import tokens from "../../../../packages-proprietary/tokens/src/components/ams/{{kebabCase name}}.tokens.json";
 
-import { DesignTokensTable } from "../../_components/DesignTokensTable/DesignTokensTable";
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/{{kebabCase name}}.tokens.json";
+import * as {{pascalCase name}}Stories from "./{{pascalCase name}}.stories.tsx";
 
 <Meta of={{curlyBefore}}{{pascalCase name}}Stories} />
 

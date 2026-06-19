@@ -10,8 +10,8 @@ import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
-import { exampleTopTask } from '../../_common/exampleContent'
-import { formatDate } from '../../_common/formatDate'
+import { exampleTopTask } from '#storybook/_common/exampleContent'
+import { formatDate } from '#storybook/_common/formatDate'
 
 const topTask = exampleTopTask()
 

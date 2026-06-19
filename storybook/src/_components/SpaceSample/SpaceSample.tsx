@@ -3,12 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './space-sample.css'
 import type { HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
 
-import { formatTokenValue } from '../../_common/formatTokenValue'
+import { formatTokenValue } from '#storybook/_common/formatTokenValue'
+
+import './space-sample.css'
 
 type SpaceSampleProps = {
   /** A spacing token value, either a CSS value or a token reference. */

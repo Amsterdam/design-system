@@ -3,6 +3,10 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "noEmit": true,
+    "paths": {
+      "#storybook/*": ["./src/*"],
+      "#tokens/*": ["../packages-proprietary/tokens/src/*"]
+    },
     "skipLibCheck": true
   },
   "extends": "../tsconfig.json",

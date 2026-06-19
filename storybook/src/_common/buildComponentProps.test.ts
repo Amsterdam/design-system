@@ -74,4 +74,20 @@ describe('buildComponentProps', () => {
     })
     expect(result).toMatchObject({ icon: ChevronDownIcon, iconBefore: true })
   })
+
+  it('omits accessibleName and accessibleNameId when the flags are not set', () => {
+    const result = buildComponentProps(baseParams)
+    expect(result).not.toHaveProperty('accessibleName')
+    expect(result).not.toHaveProperty('accessibleNameId')
+  })
+
+  it('injects a unique accessibleName derived from the variant when the flag is set', () => {
+    const result = buildComponentProps({ ...baseParams, acceptsAccessibleName: true })
+    expect(result).toMatchObject({ accessibleName: 'none-color-primary-default' })
+  })
+
+  it('injects a unique accessibleNameId derived from the variant when the flag is set', () => {
+    const result = buildComponentProps({ ...baseParams, acceptsAccessibleNameId: true })
+    expect(result).toMatchObject({ accessibleNameId: 'variant-none-color-primary-default' })
+  })
 })

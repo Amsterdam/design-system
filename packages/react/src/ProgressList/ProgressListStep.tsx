@@ -18,9 +18,15 @@ import { ProgressListContext } from './ProgressListContext'
 
 export type ProgressListStepProps = {
   /**
+   * Whether the step content is collapsed.
+   * When provided, the component is controlled and internal state is ignored.
+   * Has no effect when `collapsible` is `false` on the parent.
+   */
+  readonly collapsed?: boolean
+  /**
    * Whether the content is initially collapsed.
    * Defaults to `true` when `status` is `'completed'`, and `false` otherwise.
-   * Ignored if `collapsible` is `false`.
+   * Ignored when `collapsible` is `false` on the parent, or when `collapsed` is provided.
    */
   readonly defaultCollapsed?: boolean
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
@@ -46,6 +52,7 @@ export const ProgressListStep = forwardRef(
     {
       children,
       className,
+      collapsed,
       defaultCollapsed,
       hasSubsteps,
       heading,
@@ -56,16 +63,17 @@ export const ProgressListStep = forwardRef(
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     const { collapsible, headingLevel } = useContext(ProgressListContext)
-    const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed ?? status === 'completed')
+    const isControlled = collapsible && collapsed !== undefined
+    const [internalCollapsed, setInternalCollapsed] = useState(defaultCollapsed ?? status === 'completed')
+    const isCollapsed = isControlled ? collapsed : internalCollapsed
 
     const iconSize = `heading-${headingLevel}` as IconProps['size']
     const panelId = useId()
 
-    // Toggles the local collapsed state and emits the new expanded state
     const handleClick = () => {
-      const nextIsExpanded = isCollapsed
-      setIsCollapsed(!isCollapsed)
-      onToggle?.(nextIsExpanded)
+      const willExpand = isCollapsed
+      if (!isControlled) setInternalCollapsed(!isCollapsed)
+      onToggle?.(willExpand)
     }
 
     return (

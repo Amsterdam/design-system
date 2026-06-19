@@ -93,6 +93,18 @@ describe('TableOfContents', () => {
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
   })
 
+  it('labels the navigation landmark with its heading', () => {
+    render(
+      <TableOfContents heading="Op deze pagina">
+        <TableOfContents.List>
+          <TableOfContents.Link href="#a" label="A" />
+        </TableOfContents.List>
+      </TableOfContents>,
+    )
+
+    expect(screen.getByRole('navigation')).toHaveAccessibleName('Op deze pagina')
+  })
+
   describe('when collapsible', () => {
     it('renders a toggle button only for items with a nested list', () => {
       render(
@@ -254,7 +266,7 @@ describe('TableOfContents', () => {
       expect(buttons[1]).toHaveAttribute('aria-expanded', 'false')
     })
 
-    it('honours defaultExpanded', () => {
+    it('lets defaultExpanded override the list collapsed default', () => {
       render(
         <TableOfContents collapsible>
           <TableOfContents.List collapsed={false}>
@@ -271,6 +283,25 @@ describe('TableOfContents', () => {
 
       expect(button).toHaveAttribute('aria-expanded', 'false')
       expect(button).toHaveAccessibleName('Toon submenu van A')
+    })
+
+    it('honours defaultExpanded', () => {
+      render(
+        <TableOfContents collapsible>
+          <TableOfContents.List>
+            <TableOfContents.Link defaultExpanded href="#a" label="A">
+              <TableOfContents.List>
+                <TableOfContents.Link href="#a-1" label="A.1" />
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents>,
+      )
+
+      const button = screen.getByRole('button')
+
+      expect(button).toHaveAttribute('aria-expanded', 'true')
+      expect(button).toHaveAccessibleName('Verberg submenu van A')
     })
 
     it('toggles aria-expanded and the collapsed class on click', () => {
@@ -414,9 +445,7 @@ describe('TableOfContents', () => {
       expect(button).toHaveAccessibleName('Hide A')
     })
 
-    it('moves focus to the toggle button when collapsing a subtree that contains focus', async () => {
-      const user = userEvent.setup()
-
+    it('moves focus to the toggle button when collapsing a subtree that contains focus', () => {
       render(
         <TableOfContents collapsible>
           <TableOfContents.List>
@@ -436,9 +465,29 @@ describe('TableOfContents', () => {
 
       expect(nestedLink).toHaveFocus()
 
-      await user.click(button)
+      // Use `fireEvent.click`, which does not focus the button first, mirroring platforms where
+      // clicking a button leaves focus in place. Focus then moves to the toggle only because the
+      // component restores it before hiding the subtree, which is the behaviour under test.
+      fireEvent.click(button)
 
       expect(button).toHaveFocus()
+    })
+
+    it('preserves non-list children of an expandable link', () => {
+      render(
+        <TableOfContents collapsible>
+          <TableOfContents.List>
+            <TableOfContents.Link defaultExpanded href="#a" label="A">
+              <span>Extra content</span>
+              <TableOfContents.List>
+                <TableOfContents.Link href="#a-1" label="A.1" />
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          </TableOfContents.List>
+        </TableOfContents>,
+      )
+
+      expect(screen.getByText('Extra content')).toBeInTheDocument()
     })
 
     it('sets focus on toggle buttons when using arrow keys', async () => {

@@ -3,12 +3,13 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './aspect-ratio-sample.css'
 import type { HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
 
-import { formatTokenValue } from '../../_common/formatTokenValue'
+import { formatTokenValue } from '#storybook/_common/formatTokenValue'
+
+import './aspect-ratio-sample.css'
 
 type AspectRatioSampleProps = {
   /** An aspect ratio value, e.g. "16 / 9" or "1 / 1". */

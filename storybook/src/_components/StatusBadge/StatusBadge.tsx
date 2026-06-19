@@ -3,8 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './status-badge.css'
 import { Badge } from '@amsterdam/design-system-react/src'
+
+import './status-badge.css'
 
 type StatusBadgeProps = {
   /** Describes the reason for the status or suggests an alternative for a deprecated component. */

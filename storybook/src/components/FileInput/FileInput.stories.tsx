@@ -32,6 +32,9 @@ const meta = {
         type: 'boolean',
       },
     },
+    onChange: {
+      table: { disable: false },
+    },
   },
 } satisfies Meta<typeof FileInput>
 

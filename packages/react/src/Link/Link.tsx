@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -11,6 +11,11 @@ import { forwardRef } from 'react'
 export type LinkProps = {
   /** Changes the text colour for readability on a light or dark background. */
   readonly color?: 'contrast' | 'inverse'
+  /**
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to a plain anchor (the default, or `linkComponent="a"`), not to any other `linkComponent`.
+   */
+  readonly linkComponent?: ElementType
 } & Readonly<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>>
 
 /**
@@ -19,11 +24,19 @@ export type LinkProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-link--docs Link docs at Amsterdam Design System}
  */
 export const Link = forwardRef(
-  ({ children, className, color, ...restProps }: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
-    <a {...restProps} className={clsx('ams-link', color && `ams-link--${color}`, className)} ref={ref}>
-      {children}
-    </a>
-  ),
+  ({ children, className, color, linkComponent, ...restProps }: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+    const Tag = linkComponent || 'a'
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx('ams-link', color && `ams-link--${color}`, className)}
+        {...((!linkComponent || linkComponent === 'a') && { ref })}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 Link.displayName = 'Link'

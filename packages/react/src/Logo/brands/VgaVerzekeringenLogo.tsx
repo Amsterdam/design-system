@@ -1,7 +1,3 @@
-/**
- * @license EUPL-1.2+
- * Copyright Gemeente Amsterdam
- */
 import type { ForwardedRef, SVGProps } from 'react'
 
 import { forwardRef } from 'react'
@@ -13,7 +9,7 @@ const VgaVerzekeringenLogo = forwardRef((props: SVGProps<SVGSVGElement>, ref: Fo
     height="2.5rem"
     ref={ref}
     role="img"
-    viewBox="0 0 134.884 40"
+    viewBox="0 0 135.81 40"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >

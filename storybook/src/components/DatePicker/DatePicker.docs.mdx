@@ -1,0 +1,108 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/date-picker.tokens.json";
+
+import * as DatePickerStories from "./DatePicker.stories.tsx";
+
+<Meta of={DatePickerStories} />
+
+<Title />
+
+<Description of={DatePickerStories} />
+
+<Primary />
+
+<Controls />
+
+**Note**: Some props are excluded from the controls panel: `mode`, `onChange`, and `value` are managed by the story’s state wrapper; `defaultMonth`, `isDateDisabled`, `locale`, `maxDate`, and `minDate` have no suitable control widget for their type.
+
+## Usage guidelines
+
+### When to use
+
+Use a Date Picker when someone needs to choose a date or date range from a visible calendar, for example to book an appointment.
+
+### When not to use
+
+- Use a [Date Input](/docs/components-forms-date-input--docs) when the user knows the date and can type it into a form field.
+- Use a [Calendar](/docs/components-navigation-calendar--docs) to browse content grouped by date, such as an events calendar.
+
+### How to use
+
+The Date Picker is a controlled component: it keeps no selection of its own.
+Pass the current selection with `value` and update it in the `onChange` handler.
+
+In the default single mode, `value` is a `Date` or `null` and `onChange` receives the picked date.
+In range mode, set `mode="range"`; `value` is a `DateRange` (`{ start, end }`) and `onChange` receives the updated range.
+The first pick sets the start, the second sets the end, and picking before the start begins a new range.
+
+If you set `minDate` or `maxDate`, ensure the initial `value` falls within those bounds — the component does not clamp or validate the incoming value.
+
+## Design
+
+The Date Picker is intentionally an inline component.
+Finding the optimal date is a focused task for the user; placing it directly on the page makes it easier to use and gives it the space and attention it deserves.
+If the layout truly has no room, placing the Date Picker inside a modal [Dialog](/docs/components-dialogs-dialog--docs) is an acceptable last resort.
+
+## Examples
+
+### Range
+
+Set `mode="range"` to let users pick a start and end date.
+The Date Picker itself does not communicate that a range is expected — use a label, heading, or instruction to make this clear.
+
+The user picks the start date first.
+A second click on a later date completes the range; clicking the same date completes a one-day range.
+Clicking a date before the current start discards the selection and begins a new range from that date.
+Any click after the range is complete starts over.
+
+<Canvas of={DatePickerStories.Range} />
+
+### Disabled dates
+
+Pass `isDateDisabled` to prevent selection of specific dates, such as ones that are unavailable.
+Disabled dates remain reachable with the keyboard and are announced, but they cannot be selected.
+
+<Canvas of={DatePickerStories.DisabledDates} />
+
+### Within-month bounds
+
+Use `minDate` and `maxDate` to bound the selectable period.
+Dates outside the range cannot be selected, and the month and year navigation buttons stop at the edges of the range.
+
+When the bounds fall within the current month, dates outside them appear disabled: they are struck through and cannot be selected, but remain reachable by keyboard.
+
+<Canvas of={DatePickerStories.WithinMonthBounds} />
+
+### Limited to one month
+
+When `minDate` and `maxDate` align with month edges, all dates remain selectable — only the navigation buttons are disabled.
+
+<Canvas of={DatePickerStories.LimitedToOneMonth} />
+
+## Features
+
+### Keyboard navigation
+
+The day grid follows the [WAI-ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/).
+Arrow keys move between days, Home and End jump to the start and end of the week, and Page Up and Page Down move between months — hold Shift for years.
+Enter or Space selects the focused day.
+Moving past the end of a month shows the adjacent month and keeps focus on the day.
+
+## Accessibility
+
+The grid takes its accessible name from the visible month caption, so screen readers announce which month is shown.
+Each day button is labelled with its full date, including the weekday, so a day number is never read out of context.
+In range mode, the start and end dates are announced as such; override `rangeStartAccessibleName` and `rangeEndAccessibleName` to localise these.
+
+## See also
+
+- [Date Input](/docs/components-forms-date-input--docs) – lets the user type a known date into a form field.
+- [Calendar](/docs/components-navigation-calendar--docs) – displays content organised by date in a month view.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />

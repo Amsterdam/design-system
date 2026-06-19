@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Blockquote } from '@amsterdam/design-system-react/src'
 
-import { exampleQuote } from '../../_common/exampleContent'
+import { exampleQuote } from '#storybook/_common/exampleContent'
 
 const quote = exampleQuote()
 

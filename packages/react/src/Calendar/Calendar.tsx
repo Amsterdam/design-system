@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes } from 'react'
+import type { ElementType, ForwardedRef, HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef, useId } from 'react'
@@ -23,7 +23,7 @@ export type CalendarProps = {
   /** The month shown when the Calendar first renders. Defaults to the current month. */
   readonly defaultMonth?: Date
   /** The component to render each date link with. Defaults to a plain anchor. */
-  readonly linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+  readonly linkComponent?: ElementType
   /** Builds the link target for a date. Return `undefined` to render the date as plain text. */
   readonly linkTemplate?: (date: Date) => string | undefined
   /** The locale used to format the weekday and month names. */

@@ -3,14 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-import './vertical-space-finder.css'
-
 import type { HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
 import { useState } from 'react'
 
 import { componentsAbove, componentsBelow, spaceSizeLabel, verticalSpace } from './config'
+
+import './vertical-space-finder.css'
 
 export const VerticalSpaceFinder = ({ className, ...restProps }: HTMLAttributes<HTMLDivElement>) => {
   const [above, setAbove] = useState('')

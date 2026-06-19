@@ -3,12 +3,18 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export type PageFooterMenuLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
+export type PageFooterMenuLinkProps = {
+  /**
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to a plain anchor (the default, or `linkComponent="a"`), not to any other `linkComponent`.
+   */
+  readonly linkComponent?: ElementType
+} & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
 
 /**
  * A link within the Page Footer menu.
@@ -16,13 +22,24 @@ export type PageFooterMenuLinkProps = PropsWithChildren<AnchorHTMLAttributes<HTM
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-page-footer--docs Page Footer docs at Amsterdam Design System}
  */
 export const PageFooterMenuLink = forwardRef(
-  ({ children, className, ...restProps }: PageFooterMenuLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => (
-    <li className="ams-page-footer__menu-item">
-      <a {...restProps} className={clsx('ams-page-footer__menu-link', className)} ref={ref}>
-        {children}
-      </a>
-    </li>
-  ),
+  (
+    { children, className, linkComponent, ...restProps }: PageFooterMenuLinkProps,
+    ref: ForwardedRef<HTMLAnchorElement>,
+  ) => {
+    const Tag = linkComponent || 'a'
+
+    return (
+      <li className="ams-page-footer__menu-item">
+        <Tag
+          {...restProps}
+          className={clsx('ams-page-footer__menu-link', className)}
+          {...((!linkComponent || linkComponent === 'a') && { ref })}
+        >
+          {children}
+        </Tag>
+      </li>
+    )
+  },
 )
 
 PageFooterMenuLink.displayName = 'PageFooter.MenuLink'

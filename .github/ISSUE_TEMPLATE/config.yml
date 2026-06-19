@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://app.zerocopter.com/en/cvd/fc5dad1c-27ee-4571-880b-438dc672d178
+    about: Do not file a public issue for security problems. Report them privately through the Zerocopter form.
+  - name: Ask a question or share an idea
+    url: https://github.com/Amsterdam/design-system/discussions
+    about: Use GitHub Discussions for questions, ideas, and general feedback.
+  - name: Contact the design system team
+    url: https://github.com/Amsterdam/design-system/blob/develop/CONTRIBUTING.md
+    about: For design or UX questions, email designsystem@amsterdam.nl.

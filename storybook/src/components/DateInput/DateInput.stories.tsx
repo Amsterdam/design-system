@@ -16,8 +16,14 @@ const meta = {
     invalid: false,
   },
   argTypes: {
+    defaultValue: {
+      table: { disable: false },
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
+    },
+    onChange: {
+      table: { disable: false },
     },
   },
 } satisfies Meta<typeof DateInput>

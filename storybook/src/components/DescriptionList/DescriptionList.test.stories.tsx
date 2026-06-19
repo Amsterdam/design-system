@@ -8,7 +8,8 @@ import type { ComponentProps } from 'react'
 
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../_common/renderComponentVariants'
+import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
+
 import { default as descriptionListMeta } from './DescriptionList.stories'
 
 const meta = {

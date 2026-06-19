@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef } from 'react'
 
 import { ChevronForwardIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
@@ -21,6 +21,11 @@ export type StandaloneLinkProps = {
    * @default ChevronForwardIcon
    */
   readonly icon?: IconProps['svg']
+  /**
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to a plain anchor (the default, or `linkComponent="a"`), not to any other `linkComponent`.
+   */
+  readonly linkComponent?: ElementType
 } & Readonly<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>>
 
 /**
@@ -30,18 +35,22 @@ export type StandaloneLinkProps = {
  */
 export const StandaloneLink = forwardRef(
   (
-    { children, className, color, icon = ChevronForwardIcon, ...restProps }: StandaloneLinkProps,
+    { children, className, color, icon = ChevronForwardIcon, linkComponent, ...restProps }: StandaloneLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
-  ) => (
-    <a
-      {...restProps}
-      className={clsx('ams-standalone-link', color && `ams-standalone-link--${color}`, className)}
-      ref={ref}
-    >
-      <Icon svg={icon} />
-      {children}
-    </a>
-  ),
+  ) => {
+    const Tag = linkComponent || 'a'
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx('ams-standalone-link', color && `ams-standalone-link--${color}`, className)}
+        {...((!linkComponent || linkComponent === 'a') && { ref })}
+      >
+        <Icon svg={icon} />
+        {children}
+      </Tag>
+    )
+  },
 )
 
 StandaloneLink.displayName = 'StandaloneLink'

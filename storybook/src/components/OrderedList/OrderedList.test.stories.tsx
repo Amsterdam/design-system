@@ -7,7 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { OrderedList } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../_common/renderComponentVariants'
+import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
+
 import { default as orderedListMeta } from './OrderedList.stories'
 
 const meta = {

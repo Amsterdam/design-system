@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { Select } from '@amsterdam/design-system-react/src'
 
-import { districts } from '../../_common/exampleContent'
+import { districts } from '#storybook/_common/exampleContent'
 
 const optionList = [...districts, 'Westpoort'].sort().map((district) => (
   <Select.Option disabled={district === 'Westpoort'} key={district} value={district}>
@@ -25,8 +25,14 @@ const meta = {
     invalid: false,
   },
   argTypes: {
+    defaultValue: {
+      table: { disable: false },
+    },
     disabled: {
       description: 'Prevents interaction. Avoid if possible.',
+    },
+    onChange: {
+      table: { disable: false },
     },
   },
 } satisfies Meta<typeof Select>

@@ -1,0 +1,103 @@
+{
+  "ams": {
+    "date-picker": {
+      "font-family": {
+        "$value": "{ams.calendar.font-family}",
+        "$type": "fontFamily"
+      },
+      "font-size": {
+        "$value": "{ams.calendar.font-size}",
+        "$extensions": {
+          "nl.amsterdam.type": "fontSize"
+        }
+      },
+      "font-weight": {
+        "$value": "{ams.calendar.font-weight}",
+        "$type": "fontWeight"
+      },
+      "gap": {
+        "$value": "{ams.calendar.gap}",
+        "$type": "dimension"
+      },
+      "inline-size": {
+        "$value": "{ams.calendar.inline-size}",
+        "$type": "dimension"
+      },
+      "line-height": {
+        "$value": "{ams.calendar.line-height}",
+        "$extensions": {
+          "nl.amsterdam.type": "lineHeight"
+        }
+      },
+      "day": {
+        "color": {
+          "$value": "{ams.color.interactive.default}",
+          "$type": "color"
+        },
+        "cursor": {
+          "$value": "{ams.cursor.interactive}",
+          "$extensions": {
+            "nl.amsterdam.type": "cursor"
+          }
+        },
+        "outline-offset": {
+          "$value": "{ams.calendar.day.outline-offset}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
+        "current": {
+          "font-weight": {
+            "$value": "{ams.calendar.day.current.font-weight}",
+            "$type": "fontWeight"
+          }
+        },
+        "disabled": {
+          "color": {
+            "$value": "{ams.color.interactive.disabled}",
+            "$type": "color"
+          },
+          "cursor": {
+            "$value": "{ams.cursor.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "cursor"
+            }
+          },
+          "text-decoration-line": {
+            "$value": "line-through",
+            "$extensions": {
+              "nl.amsterdam.type": "textDecorationLine"
+            }
+          }
+        },
+        "hover": {
+          "background-color": {
+            "$value": "rgb(0 70 153 / 12.5%)",
+            "$type": "color"
+          },
+          "color": {
+            "$value": "{ams.color.interactive.hover}",
+            "$type": "color"
+          }
+        },
+        "selected": {
+          "background-color": {
+            "$value": "{ams.color.interactive.default}",
+            "$type": "color"
+          },
+          "color": {
+            "$value": "{ams.color.interactive.inverse}",
+            "$type": "color"
+          },
+          "hover": {
+            "background-color": {
+              "$value": "{ams.color.interactive.hover}",
+              "$type": "color"
+            }
+          }
+        }
+      }
+    }
+  }
+}

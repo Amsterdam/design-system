@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, PropsWithChildren } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -16,10 +16,10 @@ export type TabNavigationLinkProps = {
   /** An icon to display before the link text. */
   readonly icon?: IconProps['svg']
   /**
-   * The React component to use for the link.
-   * Refs are not forwarded to custom link components.
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to a plain anchor (the default, or `linkComponent="a"`), not to any other `linkComponent`.
    */
-  readonly linkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+  readonly linkComponent?: ElementType
 } & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
 
 /**
@@ -32,11 +32,15 @@ export const TabNavigationLink = forwardRef(
     { children, className, icon, linkComponent, ...restProps }: TabNavigationLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
-    const Link = linkComponent || 'a'
+    const Tag = linkComponent || 'a'
 
     return (
       <li className="ams-tab-navigation__item">
-        <Link {...restProps} className={clsx('ams-tab-navigation__link', className)} {...(!linkComponent && { ref })}>
+        <Tag
+          {...restProps}
+          className={clsx('ams-tab-navigation__link', className)}
+          {...((!linkComponent || linkComponent === 'a') && { ref })}
+        >
           {icon && <Icon svg={icon} />}
           <span className="ams-tab-navigation__link-label-wrapper">
             <span aria-hidden="true" className="ams-tab-navigation__link-label-hidden" hidden>
@@ -44,7 +48,7 @@ export const TabNavigationLink = forwardRef(
             </span>
             <span className="ams-tab-navigation__link-label">{children}</span>
           </span>
-        </Link>
+        </Tag>
       </li>
     )
   },

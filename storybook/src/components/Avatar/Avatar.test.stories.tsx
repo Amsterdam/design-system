@@ -7,7 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Avatar } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../_common/renderComponentVariants'
+import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
+
 import { default as avatarMeta } from './Avatar.stories'
 
 const meta = {

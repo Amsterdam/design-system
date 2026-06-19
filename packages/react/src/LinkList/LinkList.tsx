@@ -12,7 +12,6 @@ import { LinkListLink } from './LinkListLink'
 
 export type LinkListProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
-/** A collection of related links. */
 const LinkListRoot = forwardRef(
   ({ children, className, ...restProps }: LinkListProps, ref: ForwardedRef<HTMLUListElement>) => {
     return (

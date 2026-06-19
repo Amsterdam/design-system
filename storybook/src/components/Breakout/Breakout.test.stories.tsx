@@ -8,7 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '../../_common/renderComponentVariants'
+import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
+
 import { default as breakoutMeta } from './Breakout.stories'
 
 const meta = {

@@ -1,12 +1,3 @@
-import '@amsterdam/design-system-tokens/dist/index.css'
-import '@amsterdam/design-system-tokens/dist/compact.theme.css'
-import '@amsterdam/design-system-assets/font/index.css'
-import '@amsterdam/design-system-css/dist/index.css'
-
-import '../src/_styles/docs.css'
-import '../src/_styles/overrides.css'
-import '../src/_styles/tests.css'
-
 import type { PageProps } from '@amsterdam/design-system-react'
 import type { StoryContext, StoryFn } from '@storybook/react-vite'
 
@@ -16,6 +7,14 @@ import { clsx } from 'clsx'
 
 import { viewports } from './viewports'
 
+import '@amsterdam/design-system-tokens/dist/index.css'
+import '@amsterdam/design-system-tokens/dist/compact.theme.css'
+import '@amsterdam/design-system-assets/font/index.css'
+import '@amsterdam/design-system-css/dist/index.css'
+import '../src/_styles/docs.css'
+import '../src/_styles/overrides.css'
+import '../src/_styles/tests.css'
+
 export const argTypes = {
   children: {
     table: { disable: true },
@@ -23,9 +22,18 @@ export const argTypes = {
   className: {
     table: { disable: true },
   },
-  defaultValue: { control: false },
-  onChange: { control: false },
-  onSubmit: { control: false },
+  defaultValue: {
+    control: false,
+    table: { disable: true },
+  },
+  onChange: {
+    control: false,
+    table: { disable: true },
+  },
+  onSubmit: {
+    control: false,
+    table: { disable: true },
+  },
   style: {
     table: { disable: true },
   },

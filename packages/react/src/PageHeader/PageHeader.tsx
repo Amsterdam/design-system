@@ -3,10 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ComponentType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ElementType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef, useEffect, useId, useState } from 'react'
+import { forwardRef, useId, useState } from 'react'
 
 import type { IconProps } from '../Icon'
 import type { LogoBrand } from '../Logo'
@@ -18,6 +18,8 @@ import { LogoLinkContent } from './LogoLinkContent'
 import { PageHeaderGridCellNarrowWindowOnly } from './PageHeaderGridCellNarrowWindowOnly'
 import { PageHeaderMenuIcon } from './PageHeaderMenuIcon'
 import { PageHeaderMenuLink } from './PageHeaderMenuLink'
+
+const DefaultLogoLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />
 
 export type PageHeaderProps = {
   /** The name of the application. */
@@ -33,8 +35,8 @@ export type PageHeaderProps = {
   readonly logoBrand?: LogoBrand | LogoBrandConfig
   /** The url for the link on the logo. */
   readonly logoLink?: string
-  /** The React component to use for the logo link. */
-  readonly logoLinkComponent?: ComponentType<AnchorHTMLAttributes<HTMLAnchorElement>>
+  /** The React component or intrinsic element to use for the logo link. */
+  readonly logoLinkComponent?: ElementType
   /** The accessible text for the link on the logo. */
   readonly logoLinkTitle?: string
   /** An icon to display instead of the default icon. */
@@ -66,7 +68,7 @@ const PageHeaderRoot = forwardRef(
       logoAccessibleName,
       logoBrand = 'amsterdam',
       logoLink = '/',
-      logoLinkComponent = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />,
+      logoLinkComponent = DefaultLogoLink,
       logoLinkTitle,
       menuButtonIcon,
       menuButtonText = 'Menu',
@@ -85,19 +87,22 @@ const PageHeaderRoot = forwardRef(
     const accessibleLabelId = useId()
     const hasMegaMenu = Boolean(children)
     const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
+    const menuButtonHidden = noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow
+
+    // Close the menu when its button is hidden, and keep it closed when the button returns: there is then no control to reopen it.
+    const [menuButtonWasHidden, setMenuButtonWasHidden] = useState(menuButtonHidden)
+    if (menuButtonHidden !== menuButtonWasHidden) {
+      setMenuButtonWasHidden(menuButtonHidden)
+      if (menuButtonHidden) {
+        setOpen(false)
+      }
+    }
 
     const LogoLink = logoLinkComponent
 
     // Use short brand name if no full brand name is (invalidly) provided
     const brandNameFullOrShort = brandName || brandNameShort
     const logoLinkContentProps = { brandNameFullOrShort, brandNameShort, logoAccessibleName, logoBrand }
-
-    useEffect(() => {
-      // Close the menu when the menu button disappears
-      if (noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow) {
-        setOpen(false)
-      }
-    }, [hasMegaMenuOnWideWindow, noMenuButtonOnWideWindow])
 
     return (
       <header {...restProps} className={clsx('ams-page-header', className)} ref={ref}>
@@ -132,7 +137,7 @@ const PageHeaderRoot = forwardRef(
                     aria-controls="ams-page-header-mega-menu"
                     aria-expanded={open}
                     className="ams-page-header__mega-menu-button"
-                    onClick={() => setOpen(!open)}
+                    onClick={() => setOpen((wasOpen) => !wasOpen)}
                     type="button"
                   >
                     <span aria-hidden="true" className="ams-page-header__mega-menu-button-label">
