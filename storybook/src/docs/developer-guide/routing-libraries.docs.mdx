@@ -16,7 +16,8 @@ So in most cases you can pass the routing library’s link component directly, w
 Provide a _stable_ `linkComponent`: a component defined at module level, or one created with `useCallback`.
 Defining it inline (for example `linkComponent={(props) => <NextLink {...props} />}`) creates a new component type on every render, which forces React to unmount and remount the link — losing focus and other state in the process.
 
-Refs are forwarded only to intrinsic elements — the default `<a>`, or a string tag such as `linkComponent="a"` — not to a custom `linkComponent`.
+Refs are forwarded only to intrinsic elements — the default `<a>`, or a string tag such as `linkComponent="a"` — not to a custom `linkComponent`, which may not accept one.
+If you need a ref to a custom link component, set it on that component directly.
 
 Some examples for common routing libraries:
 
