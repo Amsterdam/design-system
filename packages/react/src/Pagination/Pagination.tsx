@@ -22,7 +22,7 @@ export type PaginationProps = {
    * Note: must be unique for the page.
    */
   readonly accessibleNameId?: string
-  /** The React component to use for the links. */
+  /** The React component or intrinsic element to use for the links. */
   readonly linkComponent?: ElementType
   /** The template used to construct the link hrefs. */
   readonly linkTemplate: (page: number) => string

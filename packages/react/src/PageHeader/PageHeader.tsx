@@ -33,7 +33,7 @@ export type PageHeaderProps = {
   readonly logoBrand?: LogoBrand | LogoBrandConfig
   /** The url for the link on the logo. */
   readonly logoLink?: string
-  /** The React component to use for the logo link. */
+  /** The React component or intrinsic element to use for the logo link. */
   readonly logoLinkComponent?: ElementType
   /** The accessible text for the link on the logo. */
   readonly logoLinkTitle?: string
