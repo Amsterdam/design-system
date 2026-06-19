@@ -3,15 +3,15 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnchorHTMLAttributes, ForwardedRef, ReactElement, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ForwardedRef } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { Children, cloneElement, forwardRef, isValidElement, useContext, useId, useRef, useState } from 'react'
+import { forwardRef, useContext } from 'react'
 
 import { IconButton } from '../IconButton'
 import { TableOfContentsContext } from './TableOfContentsContext'
-import { TableOfContentsList } from './TableOfContentsList'
+import { useCollapsibleItem } from './useCollapsibleItem'
 
 export type TableOfContentsLinkProps = {
   /**
@@ -28,16 +28,6 @@ export type TableOfContentsLinkProps = {
   readonly onToggle?: (expanded: boolean) => void
 } & Readonly<AnchorHTMLAttributes<HTMLAnchorElement>>
 
-// A Link is expandable when it has a `TableOfContents.List` as a direct child.
-const findListChild = (children: ReactNode): ReactElement | undefined => {
-  for (const child of Children.toArray(children)) {
-    if (isValidElement(child) && child.type === TableOfContentsList) {
-      return child
-    }
-  }
-  return undefined
-}
-
 /**
  * A link to a section of the current page within a Table of Contents.
  *
@@ -48,48 +38,9 @@ export const TableOfContentsLink = forwardRef(
     { children, className, defaultExpanded, label, onToggle, ...restProps }: TableOfContentsLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
-    const { collapsible, hideAccessibleLabel, showAccessibleLabel } = useContext(TableOfContentsContext)
-    const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? false)
-
-    const panelId = useId()
-    const buttonRef = useRef<HTMLButtonElement>(null)
-    const itemRef = useRef<HTMLLIElement>(null)
-
-    const listChild = findListChild(children)
-    const isExpandable = collapsible && !!listChild
-    // Reuse a provided nested list id to keep aria-controls references stable, but ignore a blank
-    // id so aria-controls never points at an empty string.
-    const providedListId = (listChild?.props as { id?: string } | undefined)?.id
-    const nestedListId = providedListId?.trim() ? providedListId : panelId
-
-    // When collapsing, if focus is inside the subtree that's about to be hidden, move it to the toggle button.
-    const moveFocusToToggleButton = (nextIsExpanded: boolean) => {
-      if (!nextIsExpanded && itemRef.current && document.activeElement instanceof HTMLElement) {
-        const list = itemRef.current.querySelector('.ams-table-of-contents__list')
-
-        if (list?.contains(document.activeElement)) {
-          buttonRef.current?.focus()
-        }
-      }
-    }
-
-    // Toggles the local expanded state and emits the new expanded state
-    const handleClick = () => {
-      const nextIsExpanded = !isExpanded
-      moveFocusToToggleButton(nextIsExpanded)
-      setIsExpanded(nextIsExpanded)
-      onToggle?.(nextIsExpanded)
-    }
-
-    // When expandable, clone the nested list so it receives the id referenced by aria-controls.
-    const renderedChildren = isExpandable
-      ? Children.map(children, (child) => {
-          if (isValidElement(child) && child.type === TableOfContentsList) {
-            return cloneElement(child as ReactElement<{ id?: string }>, { id: nestedListId })
-          }
-          return child
-        })
-      : children
+    const { hideAccessibleLabel, showAccessibleLabel } = useContext(TableOfContentsContext)
+    const { buttonRef, handleToggle, isExpandable, isExpanded, itemRef, nestedListId, renderedChildren } =
+      useCollapsibleItem({ children, defaultExpanded, onToggle })
 
     return (
       <li
@@ -105,7 +56,7 @@ export const TableOfContentsLink = forwardRef(
             aria-expanded={isExpanded}
             className="ams-table-of-contents__toggle"
             label={`${isExpanded ? hideAccessibleLabel : showAccessibleLabel} ${label}`}
-            onClick={handleClick}
+            onClick={handleToggle}
             ref={buttonRef}
             svg={ChevronDownIcon}
           />
