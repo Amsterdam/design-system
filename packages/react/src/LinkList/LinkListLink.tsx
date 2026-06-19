@@ -48,6 +48,7 @@ export const LinkListLink = forwardRef(
     return (
       <li>
         <Tag
+          {...restProps}
           className={clsx(
             'ams-link-list__link',
             color && `ams-link-list__link--${color}`,
@@ -55,7 +56,6 @@ export const LinkListLink = forwardRef(
             className,
           )}
           {...((!linkComponent || typeof linkComponent === 'string') && { ref })}
-          {...restProps}
         >
           <Icon size={size} svg={icon} />
           {children}
