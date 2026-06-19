@@ -10,8 +10,8 @@ import { forwardRef } from 'react'
 
 export type SkipLinkProps = {
   /**
-   * The React component to use for the link.
-   * Refs are not forwarded to custom link components.
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to intrinsic elements, not to custom components.
    */
   readonly linkComponent?: ElementType
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
@@ -29,7 +29,7 @@ export const SkipLink = forwardRef(
       <Tag
         {...restProps}
         className={clsx('ams-skip-link', 'ams-visually-hidden', className)}
-        {...(!linkComponent && { ref })}
+        {...((!linkComponent || typeof linkComponent === 'string') && { ref })}
       >
         {children}
       </Tag>

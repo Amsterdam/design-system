@@ -12,8 +12,8 @@ export type TableOfContentsLinkProps = {
   /** The text for the link. */
   readonly label: string
   /**
-   * The React component to use for the link.
-   * Refs are not forwarded to custom link components.
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to intrinsic elements, not to custom components.
    */
   readonly linkComponent?: ElementType
 } & Readonly<AnchorHTMLAttributes<HTMLAnchorElement>>
@@ -32,7 +32,11 @@ export const TableOfContentsLink = forwardRef(
 
     return (
       <li className="ams-table-of-contents__item">
-        <Tag {...restProps} className={clsx('ams-table-of-contents__link', className)} {...(!linkComponent && { ref })}>
+        <Tag
+          {...restProps}
+          className={clsx('ams-table-of-contents__link', className)}
+          {...((!linkComponent || typeof linkComponent === 'string') && { ref })}
+        >
           {label}
         </Tag>
         {children}

@@ -12,8 +12,8 @@ export type LinkProps = {
   /** Changes the text colour for readability on a light or dark background. */
   readonly color?: 'contrast' | 'inverse'
   /**
-   * The React component to use for the link.
-   * Refs are not forwarded to custom link components.
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to intrinsic elements, not to custom components.
    */
   readonly linkComponent?: ElementType
 } & Readonly<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>>
@@ -31,7 +31,7 @@ export const Link = forwardRef(
       <Tag
         {...restProps}
         className={clsx('ams-link', color && `ams-link--${color}`, className)}
-        {...(!linkComponent && { ref })}
+        {...((!linkComponent || typeof linkComponent === 'string') && { ref })}
       >
         {children}
       </Tag>

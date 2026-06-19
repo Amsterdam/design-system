@@ -22,8 +22,8 @@ export type StandaloneLinkProps = {
    */
   readonly icon?: IconProps['svg']
   /**
-   * The React component to use for the link.
-   * Refs are not forwarded to custom link components.
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to intrinsic elements, not to custom components.
    */
   readonly linkComponent?: ElementType
 } & Readonly<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'>>
@@ -44,7 +44,7 @@ export const StandaloneLink = forwardRef(
       <Tag
         {...restProps}
         className={clsx('ams-standalone-link', color && `ams-standalone-link--${color}`, className)}
-        {...(!linkComponent && { ref })}
+        {...((!linkComponent || typeof linkComponent === 'string') && { ref })}
       >
         <Icon svg={icon} />
         {children}

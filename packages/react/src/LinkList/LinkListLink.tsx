@@ -29,8 +29,8 @@ export type LinkListLinkProps = {
    */
   readonly icon?: IconProps['svg']
   /**
-   * The React component to use for the link.
-   * Refs are not forwarded to custom link components.
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to intrinsic elements, not to custom components.
    */
   readonly linkComponent?: ElementType
   /** The size of the text. Use the same size for all items in the list. */
@@ -54,7 +54,7 @@ export const LinkListLink = forwardRef(
             size && `ams-link-list__link--${size}`,
             className,
           )}
-          {...(!linkComponent && { ref })}
+          {...((!linkComponent || typeof linkComponent === 'string') && { ref })}
           {...restProps}
         >
           <Icon size={size} svg={icon} />

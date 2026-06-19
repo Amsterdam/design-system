@@ -18,8 +18,8 @@ export type PageHeaderMenuLinkProps = {
   /** An icon to display at the end of the label. */
   readonly icon?: IconProps['svg']
   /**
-   * The React component to use for the link.
-   * Refs are not forwarded to custom link components.
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to intrinsic elements, not to custom components.
    */
   readonly linkComponent?: ElementType
 } & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
@@ -33,7 +33,11 @@ export const PageHeaderMenuLink = forwardRef(
 
     return (
       <li className={clsx('ams-page-header__menu-item', fixed && 'ams-page-header__menu-item--fixed')}>
-        <Tag {...restProps} className={clsx('ams-page-header__menu-link', className)} {...(!linkComponent && { ref })}>
+        <Tag
+          {...restProps}
+          className={clsx('ams-page-header__menu-link', className)}
+          {...((!linkComponent || typeof linkComponent === 'string') && { ref })}
+        >
           {children}
           {icon && <Icon svg={icon} />}
         </Tag>

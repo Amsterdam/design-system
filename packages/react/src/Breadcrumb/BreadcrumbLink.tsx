@@ -10,8 +10,8 @@ import { forwardRef } from 'react'
 
 export type BreadcrumbLinkProps = {
   /**
-   * The React component to use for the link.
-   * Refs are not forwarded to custom link components.
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to intrinsic elements, not to custom components.
    */
   readonly linkComponent?: ElementType
 } & AnchorHTMLAttributes<HTMLAnchorElement>
@@ -27,7 +27,11 @@ export const BreadcrumbLink = forwardRef(
 
     return (
       <li className="ams-breadcrumb__item">
-        <Tag {...restProps} className={clsx('ams-breadcrumb__link', className)} {...(!linkComponent && { ref })}>
+        <Tag
+          {...restProps}
+          className={clsx('ams-breadcrumb__link', className)}
+          {...((!linkComponent || typeof linkComponent === 'string') && { ref })}
+        >
           {children}
         </Tag>
       </li>

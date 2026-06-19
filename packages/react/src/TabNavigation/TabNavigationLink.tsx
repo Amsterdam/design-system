@@ -16,8 +16,8 @@ export type TabNavigationLinkProps = {
   /** An icon to display before the link text. */
   readonly icon?: IconProps['svg']
   /**
-   * The React component to use for the link.
-   * Refs are not forwarded to custom link components.
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to intrinsic elements, not to custom components.
    */
   readonly linkComponent?: ElementType
 } & Readonly<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>>
@@ -36,7 +36,11 @@ export const TabNavigationLink = forwardRef(
 
     return (
       <li className="ams-tab-navigation__item">
-        <Link {...restProps} className={clsx('ams-tab-navigation__link', className)} {...(!linkComponent && { ref })}>
+        <Link
+          {...restProps}
+          className={clsx('ams-tab-navigation__link', className)}
+          {...((!linkComponent || typeof linkComponent === 'string') && { ref })}
+        >
           {icon && <Icon svg={icon} />}
           <span className="ams-tab-navigation__link-label-wrapper">
             <span aria-hidden="true" className="ams-tab-navigation__link-label-hidden" hidden>

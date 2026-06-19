@@ -10,8 +10,8 @@ import { forwardRef } from 'react'
 
 export type CallToActionLinkProps = {
   /**
-   * The React component to use for the link.
-   * Refs are not forwarded to custom link components.
+   * The React component or intrinsic element to use for the link.
+   * Refs are forwarded only to intrinsic elements, not to custom components.
    */
   readonly linkComponent?: ElementType
 } & PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>>
@@ -29,7 +29,11 @@ export const CallToActionLink = forwardRef(
     const Tag = linkComponent || 'a'
 
     return (
-      <Tag {...restProps} className={clsx('ams-call-to-action-link', className)} {...(!linkComponent && { ref })}>
+      <Tag
+        {...restProps}
+        className={clsx('ams-call-to-action-link', className)}
+        {...((!linkComponent || typeof linkComponent === 'string') && { ref })}
+      >
         {children}
       </Tag>
     )
