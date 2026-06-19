@@ -35,13 +35,12 @@ To close it, either call the `Dialog.close` function or add a `<form>` as in the
 
 Wrap multiple buttons in an [Action Group](/docs/components-layout-action-group--docs).
 
-### Setting the initial focus
+#### Focusing a specific element
 
 When a Dialog opens (and no element has `autofocus`), the browser places focus on the first focusable element inside it.
 In this component that is the close button, which is a safe default: the user can read the Dialog before acting.
 
-To give another element the initial focus instead, add the `autofocus` attribute to it.
-In React, set the `autoFocus` prop on that element.
+To give another element the initial focus instead, add the `autofocus` attribute to it, or the `autoFocus` prop in React.
 Use this for the single element you expect the user to act on first, such as a text field or the primary Button.
 
 Moving the initial focus has risks, so choose that element with care:
