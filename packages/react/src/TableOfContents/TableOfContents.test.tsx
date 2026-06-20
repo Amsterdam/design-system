@@ -148,10 +148,10 @@ describe('TableOfContents', () => {
       expect(item).toHaveClass('ams-table-of-contents__item--collapsed')
     })
 
-    it('honours list collapsed=false by expanding nested items by default', () => {
+    it('honours list defaultCollapsed=false by expanding nested items by default', () => {
       render(
         <TableOfContents collapsible>
-          <TableOfContents.List collapsed={false}>
+          <TableOfContents.List defaultCollapsed={false}>
             <TableOfContents.Link href="#a" label="A">
               <TableOfContents.List>
                 <TableOfContents.Link href="#b" label="B">
@@ -172,14 +172,14 @@ describe('TableOfContents', () => {
       expect(buttons[1]).toHaveAttribute('aria-expanded', 'true')
     })
 
-    it('lets nested lists override collapsed defaults', () => {
+    it('lets nested lists override defaultCollapsed', () => {
       render(
         <TableOfContents collapsible>
-          <TableOfContents.List collapsed={false}>
+          <TableOfContents.List defaultCollapsed={false}>
             <TableOfContents.Link href="#a" label="A">
               <TableOfContents.List>
                 <TableOfContents.Link href="#b" label="B">
-                  <TableOfContents.List collapsed>
+                  <TableOfContents.List defaultCollapsed>
                     <TableOfContents.Link href="#b-1" label="B.1" />
                   </TableOfContents.List>
                 </TableOfContents.Link>
@@ -196,10 +196,10 @@ describe('TableOfContents', () => {
       expect(buttons[1]).toHaveAttribute('aria-expanded', 'false')
     })
 
-    it('re-applies nested collapsed overrides after rerender', () => {
+    it('re-applies nested defaultCollapsed overrides after rerender', () => {
       const { rerender } = render(
         <TableOfContents collapsible>
-          <TableOfContents.List collapsed={false}>
+          <TableOfContents.List defaultCollapsed={false}>
             <TableOfContents.Link href="#a" label="A">
               <TableOfContents.List>
                 <TableOfContents.Link href="#b" label="B">
@@ -221,11 +221,11 @@ describe('TableOfContents', () => {
 
       rerender(
         <TableOfContents collapsible>
-          <TableOfContents.List collapsed={false}>
+          <TableOfContents.List defaultCollapsed={false}>
             <TableOfContents.Link href="#a" label="A">
               <TableOfContents.List>
                 <TableOfContents.Link href="#b" label="B">
-                  <TableOfContents.List collapsed>
+                  <TableOfContents.List defaultCollapsed>
                     <TableOfContents.Link aria-current="page" href="#b-1" label="B.1" />
                   </TableOfContents.List>
                 </TableOfContents.Link>
@@ -242,14 +242,14 @@ describe('TableOfContents', () => {
       expect(buttons[1]).toHaveAttribute('aria-expanded', 'false')
     })
 
-    it("honours collapsed on a link's direct nested list", () => {
+    it("honours defaultCollapsed on a link's direct nested list", () => {
       render(
         <TableOfContents collapsible>
-          <TableOfContents.List collapsed={false}>
+          <TableOfContents.List defaultCollapsed={false}>
             <TableOfContents.Link href="#s2" label="S2">
               <TableOfContents.List>
                 <TableOfContents.Link href="#s2-2" label="S2.2">
-                  <TableOfContents.List collapsed>
+                  <TableOfContents.List defaultCollapsed>
                     <TableOfContents.Link aria-current="page" href="#s2-2-1" label="S2.2.1" />
                   </TableOfContents.List>
                 </TableOfContents.Link>
@@ -266,10 +266,10 @@ describe('TableOfContents', () => {
       expect(buttons[1]).toHaveAttribute('aria-expanded', 'false')
     })
 
-    it('lets defaultExpanded override the list collapsed default', () => {
+    it('lets defaultExpanded override the list defaultCollapsed', () => {
       render(
         <TableOfContents collapsible>
-          <TableOfContents.List collapsed={false}>
+          <TableOfContents.List defaultCollapsed={false}>
             <TableOfContents.Link defaultExpanded={false} href="#a" label="A">
               <TableOfContents.List>
                 <TableOfContents.Link href="#a-1" label="A.1" />

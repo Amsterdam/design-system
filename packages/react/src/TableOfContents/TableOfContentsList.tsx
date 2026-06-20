@@ -12,11 +12,11 @@ import { TableOfContentsListContext } from './TableOfContentsListContext'
 
 export type TableOfContentsListProps = {
   /**
-   * Whether descendant items with nested lists are collapsed by default.
+   * Whether descendant items with nested lists start collapsed.
    * Inherits from the parent list when omitted.
    * @default true
    */
-  readonly collapsed?: boolean
+  readonly defaultCollapsed?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 /**
@@ -25,9 +25,12 @@ export type TableOfContentsListProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-table-of-contents--docs Table of Contents docs at Amsterdam Design System}
  */
 export const TableOfContentsList = forwardRef(
-  ({ children, className, collapsed, ...restProps }: TableOfContentsListProps, ref: ForwardedRef<HTMLUListElement>) => {
+  (
+    { children, className, defaultCollapsed, ...restProps }: TableOfContentsListProps,
+    ref: ForwardedRef<HTMLUListElement>,
+  ) => {
     const parentCollapsed = useContext(TableOfContentsListContext)
-    const collapsedByDefault = collapsed ?? parentCollapsed
+    const collapsedByDefault = defaultCollapsed ?? parentCollapsed
 
     return (
       <TableOfContentsListContext.Provider value={collapsedByDefault}>

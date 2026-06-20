@@ -5,7 +5,7 @@
 
 import type { ReactElement, ReactNode } from 'react'
 
-import { Children, cloneElement, isValidElement, useContext, useEffect, useId, useRef, useState } from 'react'
+import { Children, cloneElement, isValidElement, useContext, useId, useRef, useState } from 'react'
 
 import { TableOfContentsContext } from './TableOfContentsContext'
 import { TableOfContentsList } from './TableOfContentsList'
@@ -40,19 +40,23 @@ export const useCollapsibleItem = ({ children, defaultExpanded, onToggle }: UseC
   const collapsedByDefault = useContext(TableOfContentsListContext)
 
   const listChild = findListChild(children)
-  const childListProps = listChild?.props as { collapsed?: boolean; id?: string } | undefined
+  const childListProps = listChild?.props as { defaultCollapsed?: boolean; id?: string } | undefined
 
-  // A Link follows its direct nested list's `collapsed` prop, falling back to the default inherited
-  // from the surrounding list; an explicit `defaultExpanded` on the Link overrides both.
-  const collapsedForThisLink = childListProps?.collapsed ?? collapsedByDefault
+  // A Link follows its direct nested list's `defaultCollapsed` prop, falling back to the default
+  // inherited from the surrounding list; an explicit `defaultExpanded` on the Link overrides both.
+  const collapsedForThisLink = childListProps?.defaultCollapsed ?? collapsedByDefault
   const expandedByDefault = defaultExpanded ?? !collapsedForThisLink
 
   const [isExpanded, setIsExpanded] = useState(expandedByDefault)
 
-  // Re-sync when the resolved default changes, for example when a parent list flips its `collapsed` value.
-  useEffect(() => {
+  // Re-sync when the resolved default changes, for example when a parent list flips its
+  // `defaultCollapsed` value. Adjusting state during render keeps it in step without an extra effect.
+  // See https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes
+  const [previousExpandedByDefault, setPreviousExpandedByDefault] = useState(expandedByDefault)
+  if (expandedByDefault !== previousExpandedByDefault) {
+    setPreviousExpandedByDefault(expandedByDefault)
     setIsExpanded(expandedByDefault)
-  }, [expandedByDefault])
+  }
 
   const panelId = useId()
   const buttonRef = useRef<HTMLButtonElement>(null)

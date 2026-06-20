@@ -33,12 +33,12 @@ describe('TableOfContentsList', () => {
     expect(component).toHaveClass('ams-table-of-contents__list extra')
   })
 
-  it('does not render collapsed as an HTML attribute', () => {
-    render(<TableOfContents.List collapsed={false} />)
+  it('does not render defaultCollapsed as an HTML attribute', () => {
+    render(<TableOfContents.List defaultCollapsed={false} />)
 
     const component = screen.getByRole('list')
 
-    expect(component).not.toHaveAttribute('collapsed')
+    expect(component).not.toHaveAttribute('defaultcollapsed')
   })
 
   it('renders its subcomponent', () => {
