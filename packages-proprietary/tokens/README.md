@@ -180,6 +180,9 @@ We deprecate tokens using the DTCG `$deprecated` field. The [official definition
 
 In ADS, `$deprecated` should be a string so consumers always get a reason + migration path.
 
+A deprecated token keeps working until it is removed, so it must always hold a real value — never `initial` or another guaranteed-invalid value.
+Consumers may read the custom property directly, and an invalid value resolves to the CSS property’s initial value (for example `0`), silently breaking their layout.
+
 ### Deprecation message format
 
 - Always include a removal date: `Will be removed on or after YYYY-MM-DD.`
@@ -220,20 +223,28 @@ padding-inline: var(
 );
 ```
 
-2. In the token JSON, mark the old token as deprecated and set its `$value` to the CSS-wide keyword `initial`:
+2. In the token JSON, mark the old token as deprecated and set its `$value` to a reference to the replacement token:
 
 ```jsonc
 "medium": {
   "padding-inline": {
     "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
-    "$value": "initial"
+    "$value": "{ams.grid.vi-medium.padding-inline}"
   }
 }
 ```
 
-Why `initial`? Per CSS `var()` rules, when a custom property is [not set or is set to a CSS-wide keyword](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/var#syntax) like `initial`, the fallback value is used. This makes the replacement token the default while keeping the deprecated token visible and overrideable.
+This builds to `--ams-grid-medium-padding-inline: var(--ams-grid-vi-medium-padding-inline)`, so the deprecated token resolves to exactly the same value as its replacement.
 
-Only apply this `initial` rule when the deprecated token is used in a `var(--deprecated, <fallback>)` pattern.
+Why a reference? The deprecated token must keep a real value, because consumers may read the custom property directly — `var(--ams-grid-medium-padding-inline)`, without our fallback — for example to line their own elements up with the Grid’s padding.
+A reference gives them that value while everything else keeps working:
+
+- The component’s `var(--deprecated, <fallback>)` resolves to the same value, so the rendered result is unchanged.
+- Overrides keep cascading: because the deprecated token points at the replacement, an override of the replacement — such as a Compact Mode override of `--ams-grid-vi-medium-padding-inline` — flows through to the deprecated token automatically.
+- Downstream overrides of the old name still take precedence, because the component CSS reads it first.
+
+**Never set the deprecated token’s `$value` to `initial`.**
+For a custom property, `initial` is the [guaranteed-invalid value](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/var#syntax): it makes the `var(--deprecated, <fallback>)` fallback fire, so our own component styles look fine, but any consumer reading the deprecated custom property directly gets the property’s initial value instead — for example `0` for `padding-inline` — which silently breaks their layout.
 
 ### Deprecations without a 1:1 replacement
 
