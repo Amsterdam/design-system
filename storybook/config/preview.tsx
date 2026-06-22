@@ -1,7 +1,9 @@
 import type { PageProps } from '@amsterdam/design-system-react'
 import type { StoryContext, StoryFn } from '@storybook/react-vite'
+import type { ComponentProps } from 'react'
 
 import { Page } from '@amsterdam/design-system-react'
+import { DocsContainer } from '@storybook/addon-docs/blocks'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { clsx } from 'clsx'
 
@@ -71,6 +73,16 @@ export const decorators = [
   }),
 ]
 
+// Append the City’s three crosses as a centered footer beneath every docs page.
+const DocsContainerWithFooter = ({ children, ...props }: ComponentProps<typeof DocsContainer>) => (
+  <DocsContainer {...props}>
+    {children}
+    <div aria-hidden="true" style={{ fontSize: '18px', padding: '4rem 0 1rem', textAlign: 'center' }}>
+      ×××
+    </div>
+  </DocsContainer>
+)
+
 export const parameters = {
   backgrounds: { disable: true },
   controls: {
@@ -78,6 +90,7 @@ export const parameters = {
   },
   docs: {
     codePanel: true,
+    container: DocsContainerWithFooter,
     controls: {
       sort: 'alpha', // Sorts controls in the Controls doc block – https://github.com/storybookjs/storybook/issues/25386#issuecomment-1905468177
     },
