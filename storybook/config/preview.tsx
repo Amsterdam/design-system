@@ -77,7 +77,7 @@ export const decorators = [
 const DocsContainerWithFooter = ({ children, ...props }: ComponentProps<typeof DocsContainer>) => (
   <DocsContainer {...props}>
     {children}
-    <div aria-hidden="true" style={{ fontSize: '18px', padding: '4rem 0 1rem', textAlign: 'center' }}>
+    <div aria-hidden="true" className="_ams-docs-footer">
       ×××
     </div>
   </DocsContainer>
