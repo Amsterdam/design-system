@@ -236,12 +236,28 @@ padding-inline: var(
 
 This builds to `--ams-grid-medium-padding-inline: var(--ams-grid-vi-medium-padding-inline)`, so the deprecated token resolves to exactly the same value as its replacement.
 
+3. If the replacement token is overridden in a theme layer (for example Compact Mode), add the deprecated token to that layer’s tokens file as well, pointing at the same replacement:
+
+```jsonc
+// grid.compact.tokens.json
+"medium": {
+  "padding-inline": {
+    "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
+    "$value": "{ams.grid.vi-medium.padding-inline}"
+  }
+}
+```
+
+CSS substitutes `var()` inside a custom property at the scope where that property is _declared_, not where it is read.
+A deprecated alias declared only on `:root` / `.ams-theme` is frozen to the base value, so a Compact Mode override of the replacement (on `.ams-theme--compact`) would not reach it, and the component — which reads the deprecated token first — would render the default value in Compact Mode.
+Re-declaring the alias inside the layer makes it re-resolve to that layer’s value.
+
 Why a reference? The deprecated token must keep a real value, because consumers may read the custom property directly — `var(--ams-grid-medium-padding-inline)`, without our fallback — for example to line their own elements up with the Grid’s padding.
 A reference gives them that value while everything else keeps working:
 
 - The component’s `var(--deprecated, <fallback>)` resolves to the same value, so the rendered result is unchanged.
-- Overrides keep cascading: because the deprecated token points at the replacement, an override of the replacement — such as a Compact Mode override of `--ams-grid-vi-medium-padding-inline` — flows through to the deprecated token automatically.
 - Downstream overrides of the old name still take precedence, because the component CSS reads it first.
+- An override of the replacement flows through only when it is set at the same scope as the alias (for example globally on `:root`); a scoped theme override such as Compact Mode needs the alias re-declared in that layer, as in step 3.
 
 **Never set the deprecated token’s `$value` to `initial`.**
 For a custom property, `initial` is the [guaranteed-invalid value](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/var#syntax): it makes the `var(--deprecated, <fallback>)` fallback fire, so our own component styles look fine, but any consumer reading the deprecated custom property directly gets the property’s initial value instead — for example `0` for `padding-inline` — which silently breaks their layout.
