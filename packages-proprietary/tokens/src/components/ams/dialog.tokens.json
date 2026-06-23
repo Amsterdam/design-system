@@ -14,7 +14,7 @@
         }
       },
       "border-radius": {
-        "$value": "0",
+        "$value": "initial",
         "$extensions": {
           "nl.amsterdam.type": "borderRadius"
         }
@@ -32,7 +32,7 @@
         }
       },
       "box-shadow": {
-        "$value": "none",
+        "$value": "initial",
         "$extensions": {
           "nl.amsterdam.type": "shadow"
         }
