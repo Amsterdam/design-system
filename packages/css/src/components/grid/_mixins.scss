@@ -14,30 +14,18 @@
 
   @media (min-width: $ams-breakpoint-medium) {
     grid-template-columns: repeat(
-      var(
-        --ams-grid-medium-column-count /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
-        var(--ams-grid-vi-medium-column-count)
-      ),
+      var(--ams-grid-medium-column-count /* @deprecated */, var(--ams-grid-vi-medium-column-count)),
       1fr
     );
-    padding-inline: var(
-      --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
-      var(--ams-grid-vi-medium-padding-inline)
-    );
+    padding-inline: var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline));
   }
 
   @media (min-width: $ams-breakpoint-wide) {
     grid-template-columns: repeat(
-      var(
-        --ams-grid-wide-column-count /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
-        var(--ams-grid-vi-wide-column-count)
-      ),
+      var(--ams-grid-wide-column-count /* @deprecated */, var(--ams-grid-vi-wide-column-count)),
       1fr
     );
-    padding-inline: var(
-      --ams-grid-wide-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
-      var(--ams-grid-vi-wide-padding-inline)
-    );
+    padding-inline: var(--ams-grid-wide-padding-inline /* @deprecated */, var(--ams-grid-vi-wide-padding-inline));
   }
 }
 

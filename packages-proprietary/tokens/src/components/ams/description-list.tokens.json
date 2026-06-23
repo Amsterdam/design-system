@@ -9,7 +9,7 @@
       },
       "column-gap": {
         "$deprecated": "Use `ams.description-list.vi-medium.column-gap` instead. Will be removed on or after 2026-10-20.",
-        "$value": "initial",
+        "$value": "{ams.description-list.vi-medium.column-gap}",
         "$extensions": {
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
@@ -130,7 +130,7 @@
       "narrow": {
         "grid-template-columns": {
           "$deprecated": "Use `ams.description-list.vi-medium.narrow.grid-template-columns` instead. Will be removed on or after 2026-10-20.",
-          "$value": "initial",
+          "$value": "{ams.description-list.vi-medium.narrow.grid-template-columns}",
           "$extensions": {
             "nl.amsterdam.type": "gridTemplateColumns"
           }
@@ -139,7 +139,7 @@
       "medium": {
         "grid-template-columns": {
           "$deprecated": "Use `ams.description-list.vi-medium.medium.grid-template-columns` instead. Will be removed on or after 2026-10-20.",
-          "$value": "initial",
+          "$value": "{ams.description-list.vi-medium.medium.grid-template-columns}",
           "$extensions": {
             "nl.amsterdam.type": "gridTemplateColumns"
           }
@@ -148,7 +148,7 @@
       "wide": {
         "grid-template-columns": {
           "$deprecated": "Use `ams.description-list.vi-medium.wide.grid-template-columns` instead. Will be removed on or after 2026-10-20.",
-          "$value": "initial",
+          "$value": "{ams.description-list.vi-medium.wide.grid-template-columns}",
           "$extensions": {
             "nl.amsterdam.type": "gridTemplateColumns"
           }

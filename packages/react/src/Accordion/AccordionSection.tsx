@@ -44,7 +44,9 @@ export const AccordionSection = forwardRef(
     const initialExpandedRef = useRef(expanded)
     useEffect(() => {
       if (initialExpandedRef.current !== undefined) {
-        console.warn('Accordion.Section: The `expanded` prop is deprecated. Use `defaultExpanded` instead.')
+        console.warn(
+          '@deprecated The `expanded` prop of Accordion Section has been renamed. Use `defaultExpanded` instead.',
+        )
       }
     }, [])
 

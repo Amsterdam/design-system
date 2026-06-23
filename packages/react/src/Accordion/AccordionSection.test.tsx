@@ -99,7 +99,7 @@ describe('AccordionSection', () => {
     )
 
     expect(spy).toHaveBeenCalledWith(
-      'Accordion.Section: The `expanded` prop is deprecated. Use `defaultExpanded` instead.',
+      '@deprecated The `expanded` prop of Accordion Section has been renamed. Use `defaultExpanded` instead.',
     )
 
     spy.mockRestore()
