@@ -123,7 +123,7 @@
       },
       "cell": {
         "background-color": {
-          "$value": "initial",
+          "$value": "transparent",
           "$extensions": {
             "nl.amsterdam.type": "color"
           }
@@ -135,13 +135,13 @@
           "$value": "inline-size"
         },
         "padding-block": {
-          "$value": "initial",
+          "$value": "0",
           "$extensions": {
             "nl.amsterdam.type": "dimension"
           }
         },
         "padding-inline": {
-          "$value": "initial",
+          "$value": "0",
           "$extensions": {
             "nl.amsterdam.type": "dimension"
           }
