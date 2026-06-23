@@ -187,7 +187,7 @@ End every message with a removal date: `Will be removed on or after YYYY-MM-DD.`
 Keep the old name intact during the deprecation window, while adding the new name for the same value.
 Wire the rename through a `var()` fallback, so downstream overrides of the old name keep working.
 
-1. Point the old token’s `$value` at the replacement, so it resolves to the same value:
+1. Point the deprecated token’s `$value` at the replacement, so it resolves to the same value:
 
 ```jsonc
 "medium": {
@@ -198,7 +198,7 @@ Wire the rename through a `var()` fallback, so downstream overrides of the old n
 }
 ```
 
-2. In the component CSS, reference the old token first, with the replacement as the fallback:
+2. In the component CSS, reference the deprecated token first, with the replacement as the fallback:
    Add an inline deprecation comment next to each use of the token in the component stylesheet.
 
 ```css
@@ -209,9 +209,8 @@ padding-inline: var(
 );
 ```
 
-3. If a theme overrides the replacement (for example Compact Mode), copy the old token’s entry from step 2 into that theme’s tokens file too.
-   Until the old token is removed, every theme that overrides the replacement must also declare the deprecated token.
-   If Compact Mode overrides the replacement but does not also declare the deprecated token, the deprecated token keeps the Spacious value, which the component then reads before the fallback.
+3. If a theme overrides the replacement (for example Compact Mode), copy the deprecated token’s entry from step 2 into that theme’s tokens file too.
+   If the theme does not also declare the deprecated token, it keeps its base value, which the component stylesheet then reads before the theme’s fallback.
 
 ### Removing a token
 
