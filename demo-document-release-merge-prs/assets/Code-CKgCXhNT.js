@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{t}from"./jsx-runtime-BqsN2jGA.js";var n=e((()=>{})),r,i,a=e((()=>{n(),r=t(),i=({children:e})=>(0,r.jsx)(`code`,{className:`_ams-code sb-unstyled`,children:e})}));export{a as n,i as t};
