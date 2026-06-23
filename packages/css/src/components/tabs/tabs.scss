@@ -18,6 +18,7 @@
   overflow-y: hidden;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
 }
 
 .ams-tabs__button {
@@ -35,6 +36,7 @@
   outline-offset: var(--ams-tabs-button-outline-offset);
   padding-block: var(--ams-tabs-button-padding-block);
   padding-inline: var(--ams-tabs-button-padding-inline);
+  scroll-snap-align: start;
 
   &:disabled {
     color: var(--ams-tabs-button-disabled-color);
