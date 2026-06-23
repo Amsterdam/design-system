@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v4.1.0...design-system-react-v4.2.0) (2026-06-23)
+
+
+### Features
+
+* **Calendar:** Add Calendar component ([#2659](https://github.com/Amsterdam/design-system/issues/2659)) ([03e51f3](https://github.com/Amsterdam/design-system/commit/03e51f3bfff4062f9523a57e3aad920c324665ff))
+* **Date Picker:** Add Date Picker component ([#2660](https://github.com/Amsterdam/design-system/issues/2660)) ([b7c5a10](https://github.com/Amsterdam/design-system/commit/b7c5a1091aeafac1b3f75f657c2dce7e92c5da50))
+* **Pagination:** Add tokens and elements for theming, active state, ellipsis, and relative-link ([#2690](https://github.com/Amsterdam/design-system/issues/2690)) ([f1ad13a](https://github.com/Amsterdam/design-system/commit/f1ad13a5ec9f8dca214090eff8064a0b2e5b24d8))
+* **Progress List:** Add controlled `collapsed` prop to Step ([#2551](https://github.com/Amsterdam/design-system/issues/2551)) ([440a1fa](https://github.com/Amsterdam/design-system/commit/440a1fa227fdc81f2f7d63705aba977d86c8fa2f))
+* **React:** Make all link components work with routing libraries ([#2687](https://github.com/Amsterdam/design-system/issues/2687)) ([02e4f10](https://github.com/Amsterdam/design-system/commit/02e4f1018be8e5c0916620f00d8207cbde947ec2))
+* **Table of Contents:** Make items with nested lists optionally collapsible ([#2584](https://github.com/Amsterdam/design-system/issues/2584)) ([cf6871b](https://github.com/Amsterdam/design-system/commit/cf6871b51dedb727255708425c3a9723965b9169))
+
+
+### Bug Fixes
+
+* **deps:** Bump @babel/runtime from 7.29.2 to 7.29.7 in the patch-and-minor-dependencies group ([#2650](https://github.com/Amsterdam/design-system/issues/2650)) ([957f17f](https://github.com/Amsterdam/design-system/commit/957f17f9044114d07bca3701ee0d7bdef1c623ba))
+* Enforce React hooks rules and fix violations across components ([#2638](https://github.com/Amsterdam/design-system/issues/2638)) ([6330c91](https://github.com/Amsterdam/design-system/commit/6330c9104c23c886e815037e4866b9dd83cff231))
+* **File List:** Correct forwarded ref type ([#2680](https://github.com/Amsterdam/design-system/issues/2680)) ([9ab7668](https://github.com/Amsterdam/design-system/commit/9ab766844c8d6a5d27e6dc233574eeb2f2d36457))
+* **Logo:** Apply proprietary licence to generated brand logo components ([#2689](https://github.com/Amsterdam/design-system/issues/2689)) ([fe3e4d2](https://github.com/Amsterdam/design-system/commit/fe3e4d2a46337c54dca8a849e9ad0b7a39232509))
+* **Logo:** Keep logo clear of the clipping edge to prevent cut-off ([#2683](https://github.com/Amsterdam/design-system/issues/2683)) ([b6cccd6](https://github.com/Amsterdam/design-system/commit/b6cccd61f2dfc6f622a45f1c9c4dbbc22abf58a5))
+* **Page Header, Pagination:** Use stable default link components ([#2705](https://github.com/Amsterdam/design-system/issues/2705)) ([fe87d54](https://github.com/Amsterdam/design-system/commit/fe87d54a0d5ab5ce88d306ef0adad8eff0d63241))
+* **Pagination:** Generate a unique fallback id for the accessible name ([#2692](https://github.com/Amsterdam/design-system/issues/2692)) ([54f4db9](https://github.com/Amsterdam/design-system/commit/54f4db90786ade48faeadd9f824ff7fe6bc9d948))
+* **React:** Type forwarded refs as HTML elements ([#2643](https://github.com/Amsterdam/design-system/issues/2643)) ([466625d](https://github.com/Amsterdam/design-system/commit/466625dabfd4f6324ffb56f1583620c6e806a249))
+
 ## [4.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v4.0.0...design-system-react-v4.1.0) (2026-04-24)
 
 

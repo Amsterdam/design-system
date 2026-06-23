@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v2.0.0...design-system-react-icons-v2.1.0) (2026-06-23)
+
+
+### Features
+
+* **assets:** Add new icons for bridge, litter bin, market stall, refresh, rotate, speech balloon, theatrical masks, and zoom ([#2697](https://github.com/Amsterdam/design-system/issues/2697)) ([c298468](https://github.com/Amsterdam/design-system/commit/c2984683d31069a0b90b961de3a0b0a3ad0a712d))
+* **Icon:** Add double backward and forward chevron icons ([#2658](https://github.com/Amsterdam/design-system/issues/2658)) ([ec67467](https://github.com/Amsterdam/design-system/commit/ec67467e95d93744cebd4216bb40acb5cdfee0d5))
+
+
+### Bug Fixes
+
+* **build:** Disable rpt2 rolling cache to prevent ENOENT on parallel builds ([#2481](https://github.com/Amsterdam/design-system/issues/2481)) ([1026123](https://github.com/Amsterdam/design-system/commit/1026123dc32f45b73aff76ec50fe6885d4623fc0))
+
 ## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v1.1.1...design-system-react-icons-v2.0.0) (2026-01-09)
 
 
