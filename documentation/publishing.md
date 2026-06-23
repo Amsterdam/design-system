@@ -61,7 +61,7 @@ git merge --ff-only origin/develop
 git push
 ```
 
-**Optional**: To leave a reviewable record of each promotion, open a draft pull request from `develop` into `main` before you run `git push`.
+**Optional**: To leave a reviewable record of each promotion, open a draft pull request from `develop` into `main` before the final `git push` to `main`.
 This doesn’t interfere with the release PR that Release Please creates.
 GitHub will mark the pull request as merged automatically when you push.
 
