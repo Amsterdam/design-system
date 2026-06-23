@@ -9,7 +9,7 @@ import { Card, Grid, Heading, Overlap, Paragraph, Spotlight, StandaloneLink } fr
 
 import { Default as OverlapStory } from '../../../components/Overlap/Overlap.stories'
 import { commonMeta } from '../common/config'
-import { newsSection, spotlightBlocks, topTaskSection } from './data'
+import { newsSection, spotlightSections, topTaskSection } from './data'
 
 const meta = {
   ...commonMeta,
@@ -38,7 +38,7 @@ const meta = {
       </Grid>
       <Spotlight>
         <Grid paddingVertical="x-large">
-          {spotlightBlocks.map(({ title, description, link }) => (
+          {spotlightSections.map(({ title, description, link }) => (
             <Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 6 }}>
               <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 {title}
