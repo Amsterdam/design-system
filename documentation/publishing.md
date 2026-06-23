@@ -61,6 +61,10 @@ git merge --ff-only origin/develop
 git push
 ```
 
+**Optional**: To leave a reviewable record of each promotion, open a draft pull request from `develop` into `main` before the final `git push` to `main`.
+This doesn’t interfere with the release PR that Release Please creates.
+GitHub will mark the pull request as merged automatically when you push.
+
 Pushing to `main` triggers the “Lint and test” workflow on GitHub. When this workflow completes successfully, it triggers the “Publish” workflow.
 On this first run, Release Please opens (or updates) a release PR. The workflow runs again later, after that PR is merged, to create the GitHub release and publish to npm.
 
@@ -97,6 +101,10 @@ git push
 ```
 
 If `develop` has progressed since the merge to `main`, this will produce a merge commit.
+
+If a [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) prevents you from pushing directly to `develop`, you won’t be able to complete the merge-back with a direct push.
+If you have admin access, you can temporarily disable the rule, merge, and re-enable it.
+Alternatively, create a pull request to merge `main` into `develop`.
 
 ### Gotchas
 
