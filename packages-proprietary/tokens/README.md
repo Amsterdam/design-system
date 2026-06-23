@@ -176,95 +176,61 @@ Note that redefining the value of a token is a much better approach than redecla
 
 ## Deprecating tokens
 
-We deprecate tokens using the DTCG `$deprecated` field. The [official definition](https://www.designtokens.org/tr/drafts/format/#deprecated) allows `$deprecated` to be `true`, `false` or a string explanation.
+A deprecated token keeps working until it is removed, so it must always hold a real value.
 
-In ADS, `$deprecated` should be a string so consumers always get a reason + migration path.
+We provide a reason and a migration path through the DTCG `$deprecated` field.
+When there is a direct replacement, start the message with ``Use `<replacement-token>` instead.``
+End every message with a removal date: `Will be removed on or after YYYY-MM-DD.`
 
-A deprecated token keeps working until it is removed, so it must always hold a real value — never `initial` or another guaranteed-invalid value.
-Consumers may read the custom property directly, and an invalid value resolves to the CSS property’s initial value (for example `0`), silently breaking their layout.
+### Renaming a token
 
-### Deprecation message format
+Keep the old name intact during the deprecation window, while adding the new name for the same value.
+Wire the rename through a `var()` fallback, so downstream overrides of the old name keep working.
 
-- Always include a removal date: `Will be removed on or after YYYY-MM-DD.`
-- If there is a direct replacement, start with: ``Use `<replacement-token>` instead.``
-
-### Simple deprecation (no fallback)
-
-If a deprecated token is still used directly, keep its existing `$value` until removal.
-Also add a deprecation comment next to the token usage in the consuming CSS.
-
-Token JSON:
+1. Point the old token’s `$value` at the replacement, so it resolves to the same value:
 
 ```jsonc
-"row-gap": {
-  "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-20.",
-  "$value": "0"
+"medium": {
+  "padding-inline": {
+    "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
+    "$value": "{ams.grid.vi-medium.padding-inline}"
+  }
 }
 ```
 
-Component CSS:
-
-```css
-row-gap: var(--ams-description-list-row-gap); /* This token is @deprecated. Will be removed on or after 2026-10-20. */
-```
-
-### Renames that use `var()` fallback
-
-When a token is renamed but we still want (downstream) overrides of the old token to keep working, we implement the rename through CSS `var()` fallback.
-
-Always add an inline deprecation comment next to the deprecated custom property inside the `var()` call.
-
-1. Update the component CSS to reference the deprecated token first, and the replacement token as the fallback:
+2. In the component CSS, reference the old token first, with the replacement as the fallback:
+   Add an inline deprecation comment next to each use of the token in the component stylesheet.
 
 ```css
 padding-inline: var(
-  --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+  --ams-grid-medium-padding-inline
+    /* @deprecated Use `--ams-grid-vi-medium-padding-inline` instead. Will be removed on or after 2026-10-20. */,
   var(--ams-grid-vi-medium-padding-inline)
 );
 ```
 
-2. In the token JSON, mark the old token as deprecated and set its `$value` to a reference to the replacement token:
+3. If a theme overrides the replacement (for example Compact Mode), copy the old token’s entry from step 2 into that theme’s tokens file too.
+   Until the old token is removed, every theme that overrides the replacement must also declare the deprecated token.
+   If Compact Mode overrides the replacement but does not also declare the deprecated token, the deprecated token keeps the Spacious value, which the component then reads before the fallback.
+
+### Removing a token
+
+A removal will always be a breaking change, so it must be part of a major release.
+Plan the deprecation early, as it must stay in place for at least six months.
+The value of the token cannot change during the deprecation window, as we consider visual consequences for downstream users a breaking change.
 
 ```jsonc
-"medium": {
-  "padding-inline": {
-    "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
-    "$value": "{ams.grid.vi-medium.padding-inline}"
-  }
+"row-gap": {
+  "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-20.",
+  "$value": "(unchanged value)"
 }
 ```
 
-This builds to `--ams-grid-medium-padding-inline: var(--ams-grid-vi-medium-padding-inline)`, so the deprecated token resolves to exactly the same value as its replacement.
+Surface the deprecation in the stylesheet as well.
 
-3. If the replacement token is overridden in a theme layer (for example Compact Mode), add the deprecated token to that layer’s tokens file as well, pointing at the same replacement:
-
-```jsonc
-// grid.compact.tokens.json
-"medium": {
-  "padding-inline": {
-    "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
-    "$value": "{ams.grid.vi-medium.padding-inline}"
-  }
-}
+```css
+row-gap: var(--ams-description-list-row-gap); /* @deprecated Will be removed on or after 2026-10-20. */
 ```
-
-CSS substitutes `var()` inside a custom property at the scope where that property is _declared_, not where it is read.
-A deprecated alias declared only on `:root` / `.ams-theme` is frozen to the base value, so a Compact Mode override of the replacement (on `.ams-theme--compact`) would not reach it, and the component — which reads the deprecated token first — would render the default value in Compact Mode.
-Re-declaring the alias inside the layer makes it re-resolve to that layer’s value.
-
-Why a reference? The deprecated token must keep a real value, because consumers may read the custom property directly — `var(--ams-grid-medium-padding-inline)`, without our fallback — for example to line their own elements up with the Grid’s padding.
-A reference gives them that value while everything else keeps working:
-
-- The component’s `var(--deprecated, <fallback>)` resolves to the same value, so the rendered result is unchanged.
-- Downstream overrides of the old name still take precedence, because the component CSS reads it first.
-- An override of the replacement flows through only when it is set at the same scope as the alias (for example globally on `:root`); a scoped theme override such as Compact Mode needs the alias re-declared in that layer, as in step 3.
-
-**Never set the deprecated token’s `$value` to `initial`.**
-For a custom property, `initial` is the [guaranteed-invalid value](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/var#syntax): it makes the `var(--deprecated, <fallback>)` fallback fire, so our own component styles look fine, but any consumer reading the deprecated custom property directly gets the property’s initial value instead — for example `0` for `padding-inline` — which silently breaks their layout.
-
-### Deprecations without a 1:1 replacement
-
-If there is no 1:1 replacement (design/behavior changed), keep the existing `$value` until removal and update the consuming CSS/markup before deleting the token.
 
 ## Token types
 
