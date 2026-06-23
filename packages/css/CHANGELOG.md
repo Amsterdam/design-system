@@ -10,7 +10,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **Calendar:** Add Calendar component ([#2659](https://github.com/Amsterdam/design-system/issues/2659)) ([03e51f3](https://github.com/Amsterdam/design-system/commit/03e51f3bfff4062f9523a57e3aad920c324665ff))
 * **Date Picker:** Add Date Picker component ([#2660](https://github.com/Amsterdam/design-system/issues/2660)) ([b7c5a10](https://github.com/Amsterdam/design-system/commit/b7c5a1091aeafac1b3f75f657c2dce7e92c5da50))
-* Decrease font weight for all bold text ([#2647](https://github.com/Amsterdam/design-system/issues/2647)) ([d0bac44](https://github.com/Amsterdam/design-system/commit/d0bac44d15f40c53f6640564a1f08698ad4b44e9))
 * **Description List:** Use container width instead of viewport to switch orientation ([#2539](https://github.com/Amsterdam/design-system/issues/2539)) ([144f229](https://github.com/Amsterdam/design-system/commit/144f2298169c3e578ecaf5980e305cbc3bfceb18))
 * **Dialog, Grid Cell, Page:** Add containment context to allow container-based layouts ([#2562](https://github.com/Amsterdam/design-system/issues/2562)) ([7e4fc6a](https://github.com/Amsterdam/design-system/commit/7e4fc6af2ad12c1a0778513269922b2f2ab5f148))
 * **Dialog:** Improve inner and outer borders in forced colors mode ([#2645](https://github.com/Amsterdam/design-system/issues/2645)) ([9b06204](https://github.com/Amsterdam/design-system/commit/9b06204d97e2ee546b1d52001825bcf0ae3388a9))

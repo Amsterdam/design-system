@@ -26,7 +26,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **Page Header, Pagination:** Use stable default link components ([#2705](https://github.com/Amsterdam/design-system/issues/2705)) ([fe87d54](https://github.com/Amsterdam/design-system/commit/fe87d54a0d5ab5ce88d306ef0adad8eff0d63241))
 * **Pagination:** Generate a unique fallback id for the accessible name ([#2692](https://github.com/Amsterdam/design-system/issues/2692)) ([54f4db9](https://github.com/Amsterdam/design-system/commit/54f4db90786ade48faeadd9f824ff7fe6bc9d948))
 * **React:** Type forwarded refs as HTML elements ([#2643](https://github.com/Amsterdam/design-system/issues/2643)) ([466625d](https://github.com/Amsterdam/design-system/commit/466625dabfd4f6324ffb56f1583620c6e806a249))
-* **tokens:** Restore real values to deprecated tokens ([#2707](https://github.com/Amsterdam/design-system/issues/2707)) ([6363654](https://github.com/Amsterdam/design-system/commit/6363654e98312aed6e5f9b053300f5d02424f99f))
 
 ## [4.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v4.0.0...design-system-react-v4.1.0) (2026-04-24)
 

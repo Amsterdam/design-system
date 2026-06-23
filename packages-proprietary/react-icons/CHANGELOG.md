@@ -3,12 +3,8 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v2.0.0...design-system-react-icons-v3.0.0) (2026-06-23)
+## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v2.0.0...design-system-react-icons-v2.1.0) (2026-06-23)
 
-
-### ⚠ BREAKING CHANGES
-
-* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549))
 
 ### Features
 
@@ -19,8 +15,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * **build:** Disable rpt2 rolling cache to prevent ENOENT on parallel builds ([#2481](https://github.com/Amsterdam/design-system/issues/2481)) ([1026123](https://github.com/Amsterdam/design-system/commit/1026123dc32f45b73aff76ec50fe6885d4623fc0))
-* Remove deprecated tokens, classes and components for v4.0.0 ([#2549](https://github.com/Amsterdam/design-system/issues/2549)) ([4a78276](https://github.com/Amsterdam/design-system/commit/4a78276e463498f2a6bfe417ec7fe1794ee1282c))
-* **tokens:** Restore real values to deprecated tokens ([#2707](https://github.com/Amsterdam/design-system/issues/2707)) ([6363654](https://github.com/Amsterdam/design-system/commit/6363654e98312aed6e5f9b053300f5d02424f99f))
 
 ## [2.0.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v1.1.1...design-system-react-icons-v2.0.0) (2026-01-09)
 
