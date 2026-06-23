@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v4.1.0...design-system-css-v4.2.0) (2026-06-23)
+
+
+### Features
+
+* **Calendar:** Add Calendar component ([#2659](https://github.com/Amsterdam/design-system/issues/2659)) ([03e51f3](https://github.com/Amsterdam/design-system/commit/03e51f3bfff4062f9523a57e3aad920c324665ff))
+* **Date Picker:** Add Date Picker component ([#2660](https://github.com/Amsterdam/design-system/issues/2660)) ([b7c5a10](https://github.com/Amsterdam/design-system/commit/b7c5a1091aeafac1b3f75f657c2dce7e92c5da50))
+* Decrease font weight for all bold text ([#2647](https://github.com/Amsterdam/design-system/issues/2647)) ([d0bac44](https://github.com/Amsterdam/design-system/commit/d0bac44d15f40c53f6640564a1f08698ad4b44e9))
+* **Description List:** Use container width instead of viewport to switch orientation ([#2539](https://github.com/Amsterdam/design-system/issues/2539)) ([144f229](https://github.com/Amsterdam/design-system/commit/144f2298169c3e578ecaf5980e305cbc3bfceb18))
+* **Dialog, Grid Cell, Page:** Add containment context to allow container-based layouts ([#2562](https://github.com/Amsterdam/design-system/issues/2562)) ([7e4fc6a](https://github.com/Amsterdam/design-system/commit/7e4fc6af2ad12c1a0778513269922b2f2ab5f148))
+* **Dialog:** Improve inner and outer borders in forced colors mode ([#2645](https://github.com/Amsterdam/design-system/issues/2645)) ([9b06204](https://github.com/Amsterdam/design-system/commit/9b06204d97e2ee546b1d52001825bcf0ae3388a9))
+* **Pagination:** Add tokens and elements for theming, active state, ellipsis, and relative-link ([#2690](https://github.com/Amsterdam/design-system/issues/2690)) ([f1ad13a](https://github.com/Amsterdam/design-system/commit/f1ad13a5ec9f8dca214090eff8064a0b2e5b24d8))
+* **Table of Contents:** Make items with nested lists optionally collapsible ([#2584](https://github.com/Amsterdam/design-system/issues/2584)) ([cf6871b](https://github.com/Amsterdam/design-system/commit/cf6871b51dedb727255708425c3a9723965b9169))
+* **Table, Table Page:** Document caption requirement & add inline sorting controls demo ([#2646](https://github.com/Amsterdam/design-system/issues/2646)) ([76eb785](https://github.com/Amsterdam/design-system/commit/76eb785601a8ab93e5ab2157e959aaaaebcec606))
+
+
+### Bug Fixes
+
+* **Progress List:** Show dashed connector for collapsed current step with substeps ([#2673](https://github.com/Amsterdam/design-system/issues/2673)) ([2de7762](https://github.com/Amsterdam/design-system/commit/2de77629ad5ff327e5cf09c1b75787de2529fe3d))
+* **Switch:** Keep the track border visible in forced colors mode ([#2656](https://github.com/Amsterdam/design-system/issues/2656)) ([b402c31](https://github.com/Amsterdam/design-system/commit/b402c31cc326c1cea0524fcd4da96ded54a56a88))
+* **tokens:** Restore real values to deprecated tokens ([#2707](https://github.com/Amsterdam/design-system/issues/2707)) ([6363654](https://github.com/Amsterdam/design-system/commit/6363654e98312aed6e5f9b053300f5d02424f99f))
+
 ## [4.1.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v4.0.0...design-system-css-v4.1.0) (2026-04-24)
 
 

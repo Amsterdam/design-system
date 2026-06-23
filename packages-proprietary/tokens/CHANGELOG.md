@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.0.1...design-system-tokens-v4.1.0) (2026-06-23)
+
+
+### Features
+
+* **Calendar:** Add Calendar component ([#2659](https://github.com/Amsterdam/design-system/issues/2659)) ([03e51f3](https://github.com/Amsterdam/design-system/commit/03e51f3bfff4062f9523a57e3aad920c324665ff))
+* **Date Picker:** Add Date Picker component ([#2660](https://github.com/Amsterdam/design-system/issues/2660)) ([b7c5a10](https://github.com/Amsterdam/design-system/commit/b7c5a1091aeafac1b3f75f657c2dce7e92c5da50))
+* Decrease font weight for all bold text ([#2647](https://github.com/Amsterdam/design-system/issues/2647)) ([d0bac44](https://github.com/Amsterdam/design-system/commit/d0bac44d15f40c53f6640564a1f08698ad4b44e9))
+* **Dialog, Grid Cell, Page:** Add containment context to allow container-based layouts ([#2562](https://github.com/Amsterdam/design-system/issues/2562)) ([7e4fc6a](https://github.com/Amsterdam/design-system/commit/7e4fc6af2ad12c1a0778513269922b2f2ab5f148))
+* **Pagination:** Add tokens and elements for theming, active state, ellipsis, and relative-link ([#2690](https://github.com/Amsterdam/design-system/issues/2690)) ([f1ad13a](https://github.com/Amsterdam/design-system/commit/f1ad13a5ec9f8dca214090eff8064a0b2e5b24d8))
+* **Table of Contents:** Make items with nested lists optionally collapsible ([#2584](https://github.com/Amsterdam/design-system/issues/2584)) ([cf6871b](https://github.com/Amsterdam/design-system/commit/cf6871b51dedb727255708425c3a9723965b9169))
+
+
+### Bug Fixes
+
+* **Switch:** Keep the track border visible in forced colors mode ([#2656](https://github.com/Amsterdam/design-system/issues/2656)) ([b402c31](https://github.com/Amsterdam/design-system/commit/b402c31cc326c1cea0524fcd4da96ded54a56a88))
+* **tokens:** Restore real values to deprecated tokens ([#2707](https://github.com/Amsterdam/design-system/issues/2707)) ([6363654](https://github.com/Amsterdam/design-system/commit/6363654e98312aed6e5f9b053300f5d02424f99f))
+
 ## [4.0.1](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.0.0...design-system-tokens-v4.0.1) (2026-04-24)
 
 

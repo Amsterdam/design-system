@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.3.0...design-system-assets-v2.4.0) (2026-06-23)
+
+
+### Features
+
+* **assets:** Add new icons for bridge, litter bin, market stall, refresh, rotate, speech balloon, theatrical masks, and zoom ([#2697](https://github.com/Amsterdam/design-system/issues/2697)) ([c298468](https://github.com/Amsterdam/design-system/commit/c2984683d31069a0b90b961de3a0b0a3ad0a712d))
+* **Icon:** Add double backward and forward chevron icons ([#2658](https://github.com/Amsterdam/design-system/issues/2658)) ([ec67467](https://github.com/Amsterdam/design-system/commit/ec67467e95d93744cebd4216bb40acb5cdfee0d5))
+
+
+### Bug Fixes
+
+* **Logo:** Keep logo clear of the clipping edge to prevent cut-off ([#2683](https://github.com/Amsterdam/design-system/issues/2683)) ([b6cccd6](https://github.com/Amsterdam/design-system/commit/b6cccd61f2dfc6f622a45f1c9c4dbbc22abf58a5))
+* Remove obsolete font format files (.eot and .woff) ([#2609](https://github.com/Amsterdam/design-system/issues/2609)) ([db0dc6e](https://github.com/Amsterdam/design-system/commit/db0dc6ee14e60f7ddcb20ed7af4e4e2d7455828d))
+
 ## [2.3.0](https://github.com/Amsterdam/design-system/compare/design-system-assets-v2.2.0...design-system-assets-v2.3.0) (2026-04-20)
 
 
