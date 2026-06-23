@@ -25,6 +25,7 @@ window.IntersectionObserver = vi.fn(function () {
     observe: vi.fn(),
     root: null,
     rootMargin: '',
+    scrollMargin: '',
     takeRecords: vi.fn(),
     thresholds: [],
     unobserve: vi.fn(),
