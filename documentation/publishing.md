@@ -102,9 +102,9 @@ git push
 
 If `develop` has progressed since the merge to `main`, this will produce a merge commit.
 
-Chances are that a [branch protection rule](https://github.com/Amsterdam/design-system/settings/rules) prevents you from pushing directly to `develop`.
-One way around that is to disable the rule temporarily, merge, and re-enable it.
-Another is to create a pull request to merge `main` into `develop`.
+If a [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) prevents you from pushing directly to `develop`, you won’t be able to complete the merge-back with a direct push.
+If you have admin access, you can temporarily disable the rule, merge, and re-enable it.
+Alternatively, create a pull request to merge `main` into `develop`.
 
 ### Gotchas
 
