@@ -209,8 +209,8 @@ padding-inline: var(
 );
 ```
 
-3. If a theme overrides the replacement (for example Compact Mode), copy the deprecated token’s entry from step 2 into that theme’s tokens file too.
-   If the theme does not also declare the deprecated token, it keeps its base value, which the component stylesheet then reads before the theme’s fallback.
+3. If a theme overrides the replacement (for example Compact Mode), overriding the replacement token is enough because the deprecated token references it.
+   Only repeat the deprecated token in a theme tokens file if you need to override the deprecated token itself for legacy consumers.
 
 ### Removing a token
 
