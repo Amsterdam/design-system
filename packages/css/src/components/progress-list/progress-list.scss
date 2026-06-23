@@ -38,10 +38,7 @@
   gap: var(--ams-progress-list-step-gap);
 
   @media (min-width: $ams-breakpoint-medium) {
-    gap: var(
-      --ams-progress-list-step-medium-gap /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
-      var(--ams-progress-list-step-vi-medium-gap)
-    );
+    gap: var(--ams-progress-list-step-medium-gap /* @deprecated */, var(--ams-progress-list-step-vi-medium-gap));
   }
 }
 
@@ -244,16 +241,14 @@
 
   @media (min-width: $ams-breakpoint-medium) {
     margin-inline-end: var(
-      --ams-progress-list-substeps-step-indicator-medium-margin-inline-end
-        /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+      --ams-progress-list-substeps-step-indicator-medium-margin-inline-end /* @deprecated */,
       var(--ams-progress-list-substeps-step-indicator-vi-medium-margin-inline-end)
     );
     margin-inline-start: calc(
       -1 *
-        var(
-          --ams-progress-list-step-medium-gap /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
-          var(--ams-progress-list-step-vi-medium-gap)
-        ) - var(--ams-progress-list-step-marker-shape-block-size)
+        var(--ams-progress-list-step-medium-gap /* @deprecated */, var(--ams-progress-list-step-vi-medium-gap)) - var(
+          --ams-progress-list-step-marker-shape-block-size
+        )
     );
   }
 }

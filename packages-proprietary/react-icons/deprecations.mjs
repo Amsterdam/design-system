@@ -44,8 +44,7 @@ for (const [iconName, { removeOnOrAfter }] of Object.entries(deprecatedIcons)) {
 }
 
 /**
- * Builds the `@deprecated` JSDoc comment for an icon, or `undefined` if it is
- * not deprecated.
+ * Builds the `@deprecated` JSDoc comment for an icon, or `undefined` if it is not deprecated.
  *
  * @param {string} iconName File basename of the icon, e.g. `TrashBin`.
  */

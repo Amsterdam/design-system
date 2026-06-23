@@ -199,14 +199,10 @@ Wire the rename through a `var()` fallback, so downstream overrides of the old n
 ```
 
 2. In the component CSS, reference the deprecated token first, with the replacement as the fallback:
-   Add an inline deprecation comment next to each use of the token in the component stylesheet.
+   Mark the deprecation in the component stylesheet as well; no need to copy the details from the tokens file.
 
 ```css
-padding-inline: var(
-  --ams-grid-medium-padding-inline
-    /* @deprecated Use `--ams-grid-vi-medium-padding-inline` instead. Will be removed on or after 2026-10-20. */,
-  var(--ams-grid-vi-medium-padding-inline)
-);
+padding-inline: var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline));
 ```
 
 3. If a theme overrides the replacement (for example Compact Mode), overriding the replacement token is enough because the deprecated token references it.
