@@ -15,6 +15,9 @@
   box-shadow: var(--ams-tabs-list-box-shadow);
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  overscroll-behavior-x: contain;
 }
 
 .ams-tabs__button {
@@ -80,4 +83,7 @@
 
 .ams-tabs__panel {
   overflow-x: auto;
+  overflow-y: hidden;
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  overscroll-behavior-x: contain;
 }
