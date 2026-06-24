@@ -18,6 +18,7 @@ import {
   InvalidFormAlert,
   Label,
   OrderedList,
+  Page,
   Paragraph,
   Radio,
   StandaloneLink,
@@ -42,9 +43,11 @@ export default meta
 export const LandingPage: StoryObj = {
   decorators: [
     (Story) => (
-      <Layout>
-        <Story />
-      </Layout>
+      <Page>
+        <Layout>
+          <Story />
+        </Layout>
+      </Page>
     ),
   ],
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

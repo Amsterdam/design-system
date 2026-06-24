@@ -19,14 +19,6 @@ const meta = {
       table: { readonly: true },
     },
   },
-  decorators: [
-    (Story) => (
-      // Mimic what we do in preview.tsx, where the decorator doesn’t render a Page for stories of Page.
-      <div lang="nl">
-        <Story />
-      </div>
-    ),
-  ],
   parameters: {
     layout: 'fullscreen',
   },

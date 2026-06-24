@@ -1,0 +1,36 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Decorator } from '@storybook/react-vite'
+
+import { Page } from '@amsterdam/design-system-react'
+
+/**
+ * Wraps a story in a Page, for its max-width, centring and container context.
+ * Use for page-spanning components like Page Header, Grid and Spotlight.
+ */
+export const pageDecorator: Decorator = (Story) => (
+  <Page>
+    <Story />
+  </Page>
+)
+
+/**
+ * Constrains a story to a given maximum width.
+ */
+export const maxInlineSizeDecorator = (maxInlineSize: string): Decorator =>
+  function WithMaxInlineSize(Story) {
+    return (
+      <div style={{ maxInlineSize }}>
+        <Story />
+      </div>
+    )
+  }
+
+/**
+ * Constrains a story to 37.5rem, the `sizes` breakpoint of the media stories.
+ * Use for media components like Image, Figure and Image Slider.
+ */
+export const mediaDecorator = maxInlineSizeDecorator('37.5rem')

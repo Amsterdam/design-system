@@ -10,12 +10,15 @@ import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { LogInIcon, PlusIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
 
+import { pageDecorator } from '#storybook/_common/decorators'
+
 import ExampleLogo from '../Logo/ExampleLogo'
 import { collapsibleMenuItems, headerMenuItems } from './content'
 
 const meta = {
   title: 'Components/Containers/Page Header',
   component: PageHeader,
+  decorators: [pageDecorator],
 } satisfies Meta<typeof PageHeader>
 
 export default meta
