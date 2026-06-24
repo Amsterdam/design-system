@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{t}from"./jsx-runtime-BqsN2jGA.js";import{A as n,J as r}from"./index.esm-B-5WaH62.js";var i,a,o,s,c=e((()=>{r(),i=t(),a=e=>(0,i.jsx)(n,{children:(0,i.jsx)(e,{})}),o=e=>function(t){return(0,i.jsx)(`div`,{style:{maxInlineSize:e},children:(0,i.jsx)(t,{})})},s=o(`37.5rem`)}));export{s as n,a as r,c as t};
