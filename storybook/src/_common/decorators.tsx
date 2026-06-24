@@ -4,6 +4,7 @@
  */
 
 import type { Decorator } from '@storybook/react-vite'
+import type { CSSProperties } from 'react'
 
 import { Page } from '@amsterdam/design-system-react'
 
@@ -20,7 +21,7 @@ export const pageDecorator: Decorator = (Story) => (
 /**
  * Constrains a story to a given maximum width.
  */
-export const maxInlineSizeDecorator = (maxInlineSize: string): Decorator =>
+export const maxInlineSizeDecorator = (maxInlineSize: CSSProperties['maxInlineSize']): Decorator =>
   function WithMaxInlineSize(Story) {
     return (
       <div style={{ maxInlineSize }}>
