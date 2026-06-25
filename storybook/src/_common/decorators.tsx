@@ -9,13 +9,15 @@ import type { CSSProperties } from 'react'
 import { Page } from '@amsterdam/design-system-react'
 
 /**
- * Wraps a story in a Page, for its max-width, centring and container context.
+ * Wraps a story in a Page inside the body, for its max-width, centring and container context.
  * Use for page-spanning components like Page Header, Grid and Spotlight.
  */
-export const pageDecorator: Decorator = (Story) => (
-  <Page>
-    <Story />
-  </Page>
+export const wrapInPage: Decorator = (Story) => (
+  <div className="ams-body">
+    <Page>
+      <Story />
+    </Page>
+  </div>
 )
 
 /**
@@ -34,4 +36,4 @@ export const maxInlineSizeDecorator = (maxInlineSize: CSSProperties['maxInlineSi
  * Constrains a story to 37.5rem, the `sizes` breakpoint of the media stories.
  * Use for media components like Image, Figure and Image Slider.
  */
-export const mediaDecorator = maxInlineSizeDecorator('37.5rem')
+export const wrapNarrow = maxInlineSizeDecorator('37.5rem')

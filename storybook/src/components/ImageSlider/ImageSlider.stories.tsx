@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { ImageSlider } from '@amsterdam/design-system-react/src'
 
-import { mediaDecorator } from '#storybook/_common/decorators'
+import { wrapNarrow } from '#storybook/_common/decorators'
 
 const meta = {
   title: 'Components/Media/Image Slider',
@@ -37,7 +37,7 @@ const meta = {
       },
     ],
   },
-  decorators: [mediaDecorator],
+  decorators: [wrapNarrow],
 } satisfies Meta<typeof ImageSlider>
 
 export default meta

@@ -7,12 +7,12 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Image } from '@amsterdam/design-system-react/src'
 
-import { mediaDecorator } from '#storybook/_common/decorators'
+import { wrapNarrow } from '#storybook/_common/decorators'
 
 const meta = {
   title: 'Components/Media/Image',
   component: Image,
-  decorators: [mediaDecorator],
+  decorators: [wrapNarrow],
 } satisfies Meta<typeof Image>
 
 export default meta

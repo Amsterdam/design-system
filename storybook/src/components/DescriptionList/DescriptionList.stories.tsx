@@ -9,7 +9,7 @@ import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 
-import { pageDecorator } from '#storybook/_common/decorators'
+import { wrapInPage } from '#storybook/_common/decorators'
 
 const meta = {
   title: 'Components/Text/Description List',
@@ -44,7 +44,7 @@ const meta = {
       options: [undefined, ...descriptionListTermsWidths],
     },
   },
-  decorators: [pageDecorator],
+  decorators: [wrapInPage],
 } satisfies Meta<typeof DescriptionList>
 
 export default meta

@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Image, Paragraph, Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 
-import { pageDecorator } from '#storybook/_common/decorators'
+import { wrapInPage } from '#storybook/_common/decorators'
 
 import { gridGapAndPaddingArgTypes } from '../Grid/Grid.argTypes'
 
@@ -16,7 +16,7 @@ const meta = {
   title: 'Components/Layout/Breakout',
   component: Breakout,
   argTypes: gridGapAndPaddingArgTypes,
-  decorators: [pageDecorator],
+  decorators: [wrapInPage],
 } satisfies Meta<typeof Breakout>
 
 export default meta
