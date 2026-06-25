@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{t}from"./jsx-runtime-BqsN2jGA.js";import{A as n,J as r}from"./index.esm-B-6ya9b3.js";var i,a,o=e((()=>{r(),i=t(),a=e=>(0,i.jsx)(`div`,{className:`ams-body`,children:(0,i.jsx)(n,{children:(0,i.jsx)(e,{})})})}));export{a as n,o as t};
