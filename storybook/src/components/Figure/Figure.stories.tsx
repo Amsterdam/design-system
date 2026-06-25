@@ -8,7 +8,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Image } from '@amsterdam/design-system-react'
 import { Figure } from '@amsterdam/design-system-react/src'
 
-import { wrapNarrow } from '#storybook/_common/decorators'
 import { exampleCaption } from '#storybook/_common/exampleContent'
 
 const caption = exampleCaption()
@@ -28,7 +27,13 @@ const meta = {
       options: [undefined, 'inverse'],
     },
   },
-  decorators: [wrapNarrow],
+  decorators: [
+    (Story) => (
+      <div style={{ maxInlineSize: '37.5rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
   render: ({ children, ...args }) => (
     <Figure>
       <Image

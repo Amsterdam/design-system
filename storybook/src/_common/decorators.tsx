@@ -4,7 +4,6 @@
  */
 
 import type { Decorator } from '@storybook/react-vite'
-import type { CSSProperties } from 'react'
 
 import { Page } from '@amsterdam/design-system-react'
 
@@ -19,21 +18,3 @@ export const wrapInPage: Decorator = (Story) => (
     </Page>
   </div>
 )
-
-/**
- * Constrains a story to a given maximum width.
- */
-export const maxInlineSizeDecorator = (maxInlineSize: CSSProperties['maxInlineSize']): Decorator =>
-  function WithMaxInlineSize(Story) {
-    return (
-      <div style={{ maxInlineSize }}>
-        <Story />
-      </div>
-    )
-  }
-
-/**
- * Constrains a story to 37.5rem, the `sizes` breakpoint of the media stories.
- * Use for media components like Image, Figure and Image Slider.
- */
-export const wrapNarrow = maxInlineSizeDecorator('37.5rem')

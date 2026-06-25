@@ -7,12 +7,16 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Image } from '@amsterdam/design-system-react/src'
 
-import { wrapNarrow } from '#storybook/_common/decorators'
-
 const meta = {
   title: 'Components/Media/Image',
   component: Image,
-  decorators: [wrapNarrow],
+  decorators: [
+    (Story) => (
+      <div style={{ maxInlineSize: '37.5rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Image>
 
 export default meta
