@@ -33,6 +33,12 @@
           },
           "$type": "number"
         },
+        "light": {
+          "font-weight": {
+            "$value": "300",
+            "$type": "fontWeight"
+          }
+        },
         "bold": {
           "font-weight": {
             "$value": "700",

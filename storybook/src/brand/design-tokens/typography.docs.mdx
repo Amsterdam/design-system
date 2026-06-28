@@ -38,17 +38,18 @@ Do not combine tokens of different sizes.
 
 ### Font weight
 
-The font weight can be regular, bold, or black.
+The font weight can be light, regular, bold, or black.
 
 | CSS variable                                        | Value | Example                                                                                                                                                         |
 | :-------------------------------------------------- | :---: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `var(--ams-typography-body-text-light-font-weight)` |  300  | <TypographySample fontSize="1.25rem" fontWeight="var(--ams-typography-body-text-light-font-weight)" lineHeight="var(--ams-typography-body-text-line-height)" /> |
 | `var(--ams-typography-body-text-font-weight)`       |  400  | <TypographySample fontSize="1.25rem" fontWeight="var(--ams-typography-body-text-font-weight)" lineHeight="var(--ams-typography-body-text-line-height)" />       |
 | `var(--ams-typography-body-text-bold-font-weight)`  |  700  | <TypographySample fontSize="1.25rem" fontWeight="var(--ams-typography-body-text-bold-font-weight)" lineHeight="var(--ams-typography-body-text-line-height)" />  |
 | `var(--ams-typography-body-text-black-font-weight)` |  900  | <TypographySample fontSize="1.25rem" fontWeight="var(--ams-typography-body-text-black-font-weight)" lineHeight="var(--ams-typography-body-text-line-height)" /> |
 
-None of our components use the black weight yet.
-You might apply it to a component of your own by referencing its token as the `font-weight`.
-Reserve this weight for short, prominent display text; it is much heavier than bold.
+None of our components use the light or black weight yet.
+You might apply either to a component of your own by referencing its token as the `font-weight`.
+Reserve the black weight for short, prominent display text; it is much heavier than bold.
 
 ## Headings
 
