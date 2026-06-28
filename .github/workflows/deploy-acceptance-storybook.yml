@@ -1,6 +1,6 @@
 # Based on https://evilmartians.com/chronicles/super-github-pages-budget-frontend-staging-with-storybook-and-more
 
-name: Feature branch build and deploy
+name: Deploy acceptance Storybook
 
 on:
   push:

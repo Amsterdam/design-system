@@ -1,6 +1,6 @@
 # Based on https://evilmartians.com/chronicles/super-github-pages-budget-frontend-staging-with-storybook-and-more
 
-name: Feature branch cleanup
+name: Remove acceptance Storybook
 
 on:
   pull_request:

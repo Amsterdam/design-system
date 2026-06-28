@@ -1,13 +1,13 @@
 # @license EUPL-1.2+
 # Copyright Gemeente Amsterdam
 
-# GitHub Actions workflow to clean up obsolete GitHub Deployments.
+# GitHub Actions workflow to clean up stale GitHub Deployments.
 # Runs on a weekly schedule and can be triggered manually.
 #
 # Default scope: `demo-*` deployments whose branch is gone. A deployment
-# targeting environment `demo-X` is obsolete when no remote branch matches `X`
+# targeting environment `demo-X` is stale when no remote branch matches `X`
 # after stripping the leading `<prefix>/` segment — the same transformation
-# feature-branch-deploy.yml applies when creating these deployments.
+# deploy-acceptance-storybook.yml applies when creating these deployments.
 #
 # Optional scope (manual dispatch with `include_production=true`):
 # `github-pages` and `demo-develop`. Branch-existence does not apply (those
@@ -18,7 +18,7 @@
 # The default `dry_run=true` only logs what would be deleted.
 # Pass `dry_run=false` from the Actions UI to perform deletions.
 
-name: Cleanup obsolete deployments
+name: Remove stale deployments
 
 on:
   workflow_dispatch:
@@ -47,7 +47,7 @@ permissions:
   deployments: write
 
 concurrency:
-  group: cleanup-deployments
+  group: remove-stale-deployments
   cancel-in-progress: false
 
 jobs:

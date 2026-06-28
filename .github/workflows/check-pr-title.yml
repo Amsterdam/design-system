@@ -1,6 +1,6 @@
 # https://github.com/marketplace/actions/semantic-pull-request
 
-name: PR title validation
+name: Check PR title
 
 on:
   pull_request_target:

@@ -1,4 +1,4 @@
-name: Bundle size report
+name: Check bundle size
 
 on:
   pull_request:

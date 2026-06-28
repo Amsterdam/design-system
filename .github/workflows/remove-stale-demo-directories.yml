@@ -10,7 +10,7 @@
 #
 # A directory `demo-X` is considered stale when no remote branch matches `X`
 # after stripping the leading `<prefix>/` segment from the branch name — the
-# same transformation feature-branch-deploy.yml applies when creating these
+# same transformation deploy-acceptance-storybook.yml applies when creating these
 # directories.
 #
 # Release-triggered runs force `dry_run=false` and apply a 14-day grace
@@ -27,7 +27,7 @@
 # Safety guard: if more than 25 stale demo directories are selected, the job
 # aborts unless `i_really_mean_it=true` is provided for manual runs.
 
-name: Cleanup stale demo directories from gh-pages
+name: Remove stale demo directories
 
 on:
   workflow_dispatch:
@@ -51,7 +51,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: cleanup-gh-pages-demos
+  group: remove-stale-demo-directories
   cancel-in-progress: false
 
 jobs:
