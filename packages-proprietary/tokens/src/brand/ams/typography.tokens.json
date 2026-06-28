@@ -39,6 +39,12 @@
             "$type": "fontWeight"
           }
         },
+        "black": {
+          "font-weight": {
+            "$value": "900",
+            "$type": "fontWeight"
+          }
+        },
         "small": {
           "$description": "For supporting text like captions and metadata.",
           "font-size": {
