@@ -45,6 +45,12 @@
             "$type": "fontWeight"
           }
         },
+        "extra-bold": {
+          "font-weight": {
+            "$value": "800",
+            "$type": "fontWeight"
+          }
+        },
         "black": {
           "font-weight": {
             "$value": "900",
