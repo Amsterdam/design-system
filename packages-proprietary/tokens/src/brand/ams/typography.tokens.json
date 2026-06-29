@@ -13,6 +13,14 @@
           "nl.amsterdam.type": "hyphenateLimitChars"
         }
       },
+      "italic": {
+        "font-style": {
+          "$value": "italic",
+          "$extensions": {
+            "nl.amsterdam.type": "fontStyle"
+          }
+        }
+      },
       "body-text": {
         "$description": "Text styles for running body copy. Font sizes scale fluidly between 320px and 1600px viewports.",
         "font-size": {
