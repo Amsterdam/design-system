@@ -5,6 +5,9 @@
 
 .ams-table {
   overflow-x: auto;
+  overflow-y: hidden;
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  overscroll-behavior-x: contain;
 }
 
 .ams-table__table {

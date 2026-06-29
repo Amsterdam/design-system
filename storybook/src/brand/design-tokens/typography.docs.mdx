@@ -38,12 +38,19 @@ Do not combine tokens of different sizes.
 
 ### Font weight
 
-The font weight can either be regular or bold.
+The font weight can be light, regular, bold, extra bold, or black.
 
-| CSS variable                                       | Value | Example                                                                                                                                                        |
-| :------------------------------------------------- | :---: | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `var(--ams-typography-body-text-font-weight)`      |  400  | <TypographySample fontSize="1.25rem" fontWeight="var(--ams-typography-body-text-font-weight)" lineHeight="var(--ams-typography-body-text-line-height)" />      |
-| `var(--ams-typography-body-text-bold-font-weight)` |  700  | <TypographySample fontSize="1.25rem" fontWeight="var(--ams-typography-body-text-bold-font-weight)" lineHeight="var(--ams-typography-body-text-line-height)" /> |
+| CSS variable                                             | Value | Example                                                                                                                                                              |
+| :------------------------------------------------------- | :---: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `var(--ams-typography-body-text-light-font-weight)`      |  300  | <TypographySample fontSize="1.25rem" fontWeight="var(--ams-typography-body-text-light-font-weight)" lineHeight="var(--ams-typography-body-text-line-height)" />      |
+| `var(--ams-typography-body-text-font-weight)`            |  400  | <TypographySample fontSize="1.25rem" fontWeight="var(--ams-typography-body-text-font-weight)" lineHeight="var(--ams-typography-body-text-line-height)" />            |
+| `var(--ams-typography-body-text-bold-font-weight)`       |  700  | <TypographySample fontSize="1.25rem" fontWeight="var(--ams-typography-body-text-bold-font-weight)" lineHeight="var(--ams-typography-body-text-line-height)" />       |
+| `var(--ams-typography-body-text-extra-bold-font-weight)` |  800  | <TypographySample fontSize="1.25rem" fontWeight="var(--ams-typography-body-text-extra-bold-font-weight)" lineHeight="var(--ams-typography-body-text-line-height)" /> |
+| `var(--ams-typography-body-text-black-font-weight)`      |  900  | <TypographySample fontSize="1.25rem" fontWeight="var(--ams-typography-body-text-black-font-weight)" lineHeight="var(--ams-typography-body-text-line-height)" />      |
+
+None of our components use the light, extra bold, or black weight yet.
+You can apply any of these to a component of your own by referencing its token as the `font-weight`.
+Reserve the black weight for short, prominent display text; it is much heavier than bold.
 
 ## Headings
 
@@ -89,6 +96,14 @@ If it is not available, we use Arial or the generic sans-serif instead.
 | CSS variable                        |                Value                |
 | :---------------------------------- | :---------------------------------: |
 | `var(--ams-typography-font-family)` | 'Amsterdam Sans', Arial, sans-serif |
+
+### Font style
+
+Text is upright by default, but can be set in italics as well.
+
+| CSS variable                              | Value  | Example                                                                  |
+| :---------------------------------------- | :----- | :----------------------------------------------------------------------- |
+| `var(--ams-typography-italic-font-style)` | italic | <TypographySample fontStyle="var(--ams-typography-italic-font-style)" /> |
 
 ### Hyphenation
 

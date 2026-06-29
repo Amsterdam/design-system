@@ -13,6 +13,14 @@
           "nl.amsterdam.type": "hyphenateLimitChars"
         }
       },
+      "italic": {
+        "font-style": {
+          "$value": "italic",
+          "$extensions": {
+            "nl.amsterdam.type": "fontStyle"
+          }
+        }
+      },
       "body-text": {
         "$description": "Text styles for running body copy. Font sizes scale fluidly between 320px and 1600px viewports.",
         "font-size": {
@@ -33,9 +41,27 @@
           },
           "$type": "number"
         },
+        "light": {
+          "font-weight": {
+            "$value": "300",
+            "$type": "fontWeight"
+          }
+        },
         "bold": {
           "font-weight": {
             "$value": "700",
+            "$type": "fontWeight"
+          }
+        },
+        "extra-bold": {
+          "font-weight": {
+            "$value": "800",
+            "$type": "fontWeight"
+          }
+        },
+        "black": {
+          "font-weight": {
+            "$value": "900",
             "$type": "fontWeight"
           }
         },
