@@ -13,11 +13,9 @@ import { Page } from '@amsterdam/design-system-react'
  * Use for page-spanning components like Page Header, Grid and Spotlight.
  */
 export const wrapInPage: Decorator = (Story) => (
-  <div className="ams-body">
-    <Page>
-      <Story />
-    </Page>
-  </div>
+  <Page>
+    <Story />
+  </Page>
 )
 
 type Size = '16rem' | '24rem' | '32rem' | '7-of-12-columns' | 'vi-medium'

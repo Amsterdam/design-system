@@ -47,7 +47,7 @@ export const decorators = [
 
     return (
       <div
-        className={clsx('_ams-story-root', {
+        className={clsx('ams-body _ams-body--storybook', {
           '_ams-page-background--dark': args['color'] === 'inverse',
           '_ams-page-background--light': args['color'] === 'contrast',
         })}
@@ -92,7 +92,7 @@ export const parameters = {
     },
   },
   html: {
-    root: '._ams-story-root',
+    root: '.ams-body',
   },
   options: {
     storySort: {
