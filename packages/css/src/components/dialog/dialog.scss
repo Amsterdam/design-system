@@ -54,6 +54,19 @@ so do not apply these styles without an `open` attribute. */
   }
 }
 
+/*
+ * showModal() makes content inert but doesn’t lock scrolling: gestures over
+ * the ::backdrop still scroll the page. overflow: hidden on the body (not
+ * html) suppresses this because body overflow propagates to the viewport.
+ * Wrapped in @supports as a progressive enhancement; iOS Safari still needs
+ * JS for a hard guarantee on touch.
+ */
+@supports selector(:has(*)) {
+  .ams-body:has(.ams-dialog:modal) {
+    overflow: hidden;
+  }
+}
+
 .ams-dialog__header {
   align-items: flex-start;
   display: flex;
