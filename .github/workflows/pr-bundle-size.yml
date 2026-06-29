@@ -32,7 +32,7 @@ jobs:
           tar -czf packages-proprietary/temp/assets-others.tar.gz -C packages-proprietary/assets app-icons favicon icons logo manifest *.svg *.png *.jpg *.jpeg *.gif *.webp *.avif *.ico 2>/dev/null || true
 
       - name: Report bundle size
-        uses: preactjs/compressed-size-action@66325aad6443cb7cf89c4bfcd414aea2367cda94 # v2.9.1
+        uses: preactjs/compressed-size-action@f322c295dde06a1cb7ccaef105732dd8a726d1d9 # v2.10.0
         with:
           build-script: build
           install-script: pnpm install --frozen-lockfile --ignore-scripts
