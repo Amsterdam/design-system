@@ -33,9 +33,21 @@
           },
           "$type": "number"
         },
+        "light": {
+          "font-weight": {
+            "$value": "300",
+            "$type": "fontWeight"
+          }
+        },
         "bold": {
           "font-weight": {
             "$value": "700",
+            "$type": "fontWeight"
+          }
+        },
+        "extra-bold": {
+          "font-weight": {
+            "$value": "800",
             "$type": "fontWeight"
           }
         },
