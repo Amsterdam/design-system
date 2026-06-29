@@ -48,6 +48,40 @@ Expanding it with the region subtag `nl-NL` is not necessary:
 > Avoid region, script or other subtags except where they add useful distinguishing information.
 > – [W3C Internationalization Activity](https://www.w3.org/International/articles/language-tags/)
 
+## Localise components
+
+Calendar and Date Picker have a `locale` prop that formats their output.
+They use it to render weekday names, month names, and accessible date labels in the chosen language.
+
+The prop accepts a [BCP 47 language tag](https://www.w3.org/International/articles/language-tags/).
+Unlike the HTML `lang` attribute, including a region subtag is appropriate here — the JavaScript `Intl` API can produce different output for different regional variants of the same language.
+
+When you omit `locale`, both default to `nl-NL`.
+The following locales have been tested:
+
+- `nl-NL` — Nederlands (Dutch), the default
+- `en-GB` — English (English)
+- `de-DE` — Deutsch (German)
+- `fr-FR` — Français (French)
+- `tr-TR` — Türkçe (Turkish)
+- `ar-MA` — العربية (Arabic)
+
+For right-to-left languages like Arabic, also add `dir="rtl"` to the supporting component or to a containing element.
+Supporting components also have accessible names and navigation button labels — localise those too:
+
+```tsx
+<Calendar
+  accessibleName="التقويم"
+  dir="rtl"
+  linkTemplate={linkTemplate}
+  locale="ar-MA"
+  nextMonthButtonLabel="الشهر التالي"
+  nextYearButtonLabel="السنة التالية"
+  previousMonthButtonLabel="الشهر السابق"
+  previousYearButtonLabel="السنة السابقة"
+/>
+```
+
 ## Relevant WCAG requirements
 
 - [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): indicate in which language non-language text is

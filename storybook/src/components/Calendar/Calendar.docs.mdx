@@ -34,6 +34,30 @@ Display the month for the selected date, which may not be the current month.
 Give it an accessible name with `accessibleName`.
 The Calendar renders this name as a visually hidden heading and generates a unique `id` for it; pass `accessibleNameId` to set that `id` yourself.
 
+#### Localisation
+
+The Calendar defaults to Dutch.
+Set `locale`, `accessibleName`, and the navigation button label props to use a different language; add `dir="rtl"` for right-to-left scripts such as Arabic.
+The default value of `accessibleName` is 'Kalender'; update it so screen readers announce the landmark in the right language.
+See the [Language developer guide](/docs/docs-developer-guide-language--docs) for the supported locales.
+
+If your app uses Calendar in multiple places with the same language, a small wrapper component avoids repeating these props:
+
+```tsx
+const ArabicCalendar = (props: CalendarProps) => (
+  <Calendar
+    accessibleName="التقويم"
+    dir="rtl"
+    locale="ar-MA"
+    nextMonthButtonLabel="الشهر التالي"
+    nextYearButtonLabel="السنة التالية"
+    previousMonthButtonLabel="الشهر السابق"
+    previousYearButtonLabel="السنة السابقة"
+    {...props}
+  />
+);
+```
+
 ## Examples
 
 ### Dates without links
