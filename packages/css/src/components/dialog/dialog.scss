@@ -62,7 +62,7 @@ so do not apply these styles without an `open` attribute. */
  * JS for a hard guarantee on touch.
  */
 @supports selector(:has(*)) {
-  .ams-body:has(dialog:modal) {
+  .ams-body:has(.ams-dialog:modal) {
     overflow: hidden;
   }
 }
