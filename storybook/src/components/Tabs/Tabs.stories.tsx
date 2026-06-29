@@ -3,11 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Decorator } from '@storybook/react-vite'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Tabs } from '@amsterdam/design-system-react/src'
+
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 
 const meta = {
   title: 'Components/Containers/Tabs',
@@ -23,12 +24,6 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
-
-const maxInlineSizeDecorator: Decorator = (Story) => (
-  <div style={{ maxInlineSize: '20rem' }}>
-    <Story />
-  </div>
-)
 
 export const Default: Story = {
   args: {
@@ -60,5 +55,5 @@ export const Default: Story = {
       </Tabs.Panel>,
     ],
   },
-  decorators: [maxInlineSizeDecorator],
+  decorators: [maximiseInlineSize('24rem')],
 }

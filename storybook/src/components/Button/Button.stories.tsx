@@ -9,6 +9,8 @@ import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { Button } from '@amsterdam/design-system-react/src'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
+
 const meta = {
   title: 'Components/Buttons/Button',
   component: Button,
@@ -99,11 +101,5 @@ export const TextWrapping: Story = {
   args: {
     children: 'Vergunningsaanvraag verzenden',
   },
-  decorators: [
-    (Story) => (
-      <div style={{ maxInlineSize: '16rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [maximiseInlineSize('16rem')],
 }
