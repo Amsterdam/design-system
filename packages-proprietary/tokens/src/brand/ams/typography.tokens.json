@@ -16,7 +16,6 @@
       "italic": {
         "font-style": {
           "$value": "italic",
-          "$description": "Sets text in the italic style, for example to offset alt text from the surrounding copy.",
           "$extensions": {
             "nl.amsterdam.type": "fontStyle"
           }
