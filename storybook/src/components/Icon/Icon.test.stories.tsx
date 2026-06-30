@@ -33,6 +33,12 @@ export const Test: Story = {
           <Icon key={name} size="heading-2" svg={Icons[name]} />
         ))}
       </div>
+      <span>All icons in RTL</span>
+      <div className="_ams-tests-grid" dir="rtl">
+        {iconNames.map((name) => (
+          <Icon key={name} size="heading-2" svg={Icons[name]} />
+        ))}
+      </div>
     </div>
   ),
   tags: ['!dev', '!autodocs'],
