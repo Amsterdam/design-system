@@ -25,15 +25,15 @@ const iconNames = (Object.keys(Icons) as (keyof typeof Icons)[]).sort((a, b) => 
 export const Test: Story = {
   render: (args, context) => (
     <div className="_ams-tests-stack">
-      <span>Variants of Icon component</span>
+      <p>Variants of Icon component</p>
       {renderComponentVariants(Icon, { args }, context)}
-      <span>All icons</span>
+      <p>All icons</p>
       <div className="_ams-tests-grid">
         {iconNames.map((name) => (
           <Icon key={name} size="heading-2" svg={Icons[name]} />
         ))}
       </div>
-      <span>All icons in RTL</span>
+      <p>All icons in RTL</p>
       <div className="_ams-tests-grid" dir="rtl">
         {iconNames.map((name) => (
           <Icon key={name} size="heading-2" svg={Icons[name]} />
