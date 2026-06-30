@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-CT_b8DTk.js";function t(e){return e.includes(`{`)?e.replace(/\{([^}]+)\}/g,(e,t)=>`var(--${t.replace(/\./g,`-`)})`):e}var n=e((()=>{}));export{n,t};
