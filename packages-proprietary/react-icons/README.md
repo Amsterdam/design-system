@@ -36,7 +36,7 @@ If you render an icon component directly, without wrapping it in `Icon`, you are
 Add a rule along these lines, scoped to wherever you render the icon:
 
 ```css
-your-icon-wrapper:dir(rtl) svg[data-directional="true"] {
+.your-icon-wrapper:dir(rtl) svg[data-directional="true"] {
   transform: scaleX(-1);
 }
 ```
