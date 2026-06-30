@@ -11,6 +11,12 @@ import { describe, expect, it, vi } from 'vitest'
 import type { ImageSliderProps } from './ImageSlider'
 
 import { ImageSlider } from './ImageSlider'
+import { scrollToCurrentSlideOnResize } from './utils'
+
+vi.mock('./utils', async () => ({
+  ...(await vi.importActual('./utils')),
+  scrollToCurrentSlideOnResize: vi.fn(),
+}))
 
 // Mock implementation of IntersectionObserver
 window.IntersectionObserver = vi.fn(function () {
@@ -204,6 +210,20 @@ describe('ImageSlider', () => {
       expect(scrollTo).toHaveBeenCalled()
     } finally {
       window.IntersectionObserver = originalIntersectionObserver
+    }
+  })
+
+  it('calls scrollToCurrentSlideOnResize after a window resize event', () => {
+    vi.useFakeTimers()
+    try {
+      render(<ImageSlider images={images} />)
+      act(() => {
+        window.dispatchEvent(new Event('resize'))
+        vi.advanceTimersByTime(100)
+      })
+      expect(scrollToCurrentSlideOnResize).toHaveBeenCalled()
+    } finally {
+      vi.useRealTimers()
     }
   })
 

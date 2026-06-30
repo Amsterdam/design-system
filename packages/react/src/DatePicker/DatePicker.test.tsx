@@ -157,6 +157,15 @@ describe('DatePicker', () => {
     expect(screen.getByRole('button', { name: 'donderdag 12 maart 2026' })).toBeInTheDocument()
   })
 
+  it('names a single-day range with both start and end labels', () => {
+    const sameDay = new Date(2026, 2, 10)
+    const value: DateRange = { start: sameDay, end: sameDay }
+
+    render(<DatePicker defaultMonth={march2026} mode="range" onChange={noop} value={value} />)
+
+    expect(screen.getByRole('button', { name: 'dinsdag 10 maart 2026, startdatum, einddatum' })).toBeInTheDocument()
+  })
+
   it('does not select a disabled date', () => {
     const onChange = vi.fn()
 

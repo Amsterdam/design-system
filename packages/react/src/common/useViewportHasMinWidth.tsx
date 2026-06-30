@@ -29,6 +29,7 @@ const useViewportHasMinWidth = (breakpoint: Breakpoint) => {
 
   const subscribe = useCallback(
     (callback: () => void) => {
+      /* v8 ignore next -- No window object in a server-side rendering environment */
       if (typeof window === 'undefined') return () => {}
       const media = window.matchMedia(query)
       media.addEventListener('change', callback)
@@ -38,12 +39,15 @@ const useViewportHasMinWidth = (breakpoint: Breakpoint) => {
   )
 
   const getSnapshot = useCallback(() => {
+    /* v8 ignore next -- No window object in a server-side rendering environment */
     if (typeof window === 'undefined') return false
     return window.matchMedia(query).matches
   }, [query])
 
-  // SSR snapshot: assume the viewport does not match — components render their default state on the server
-  return useSyncExternalStore(subscribe, getSnapshot, () => false)
+  /* v8 ignore next -- SSR snapshot: assume the viewport does not match; components render their default state on the server */
+  const getServerSnapshot = () => false
+
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 }
 
 export default useViewportHasMinWidth
