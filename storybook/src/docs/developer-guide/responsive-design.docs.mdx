@@ -62,6 +62,7 @@ This helps printed and PDF outputs look more like the web page.
 #### With Sass
 
 Import the variables from [src/common/breakpoint.scss](https://github.com/Amsterdam/design-system/blob/main/packages/css/src/common/breakpoint.scss) in the CSS package.
+Use `min-width` for the media query.
 
 ```css
 .my-component {
@@ -127,12 +128,13 @@ Components that live inside a query container can adapt their own layout too.
 
 Write `@container` rules in your CSS to style elements based on their container’s inline size.
 Choose the width that best fits the component – container queries don’t need to use our two breakpoint values.
+Use `min-inline-size` and the range syntax for the media query.
 
 ```css
 .my-component {
   /* Styles for narrow containers */
 
-  @container ams-query-container-inline-size (min-width: 32rem) {
+  @container ams-query-container-inline-size (inline-size >= 32rem) {
     /* Overrides for wider containers */
   }
 }
@@ -142,7 +144,7 @@ If your component can appear both inside and outside one of these named containe
 
 ```css
 .my-component {
-  @container (min-width: 37.5rem) {
+  @container (inline-size >= 37.5rem) {
     /* Styles when any ancestor container is at least 600px wide */
   }
 }

@@ -26,7 +26,7 @@ export const InlineSize: Story = {
           background-color: var(--ams-color-highlight-yellow);
           padding: 1rem;
 
-          @container ams-query-container-inline-size (min-inline-size: 20rem) {
+          @container ams-query-container-inline-size (inline-size >= 20rem) {
             background-color: var(--ams-color-highlight-lime);
           }
         }
