@@ -74,7 +74,8 @@ Some icons imply a reading direction or depict movement that follows the reader'
 These icons must be horizontally flipped when rendered in a right-to-left (RTL) context.
 Others — universal symbols, physical objects held in the right hand, and media transport controls — must remain unchanged.
 
-The CSS package applies `transform: scaleX(-1)` to any icon SVG that carries the attribute `data-directional="true"`, is rendered inside the `Icon` component's `.ams-icon` wrapper, and has a computed direction of RTL (`:dir(rtl)`).
+The CSS package applies `transform: scaleX(-1)` to any icon SVG that carries the attribute `data-directional="true"` and is rendered inside the `Icon` component's `.ams-icon` wrapper, when that wrapper has a computed direction of RTL (`:dir(rtl)`).
+`:dir(rtl)` is evaluated on the `.ams-icon` wrapper, not the `<svg>` itself — applying it directly to an `<svg>` element relies on cross-namespace directionality inheritance (HTML into SVG) that is unspecified and handled inconsistently across browsers.
 The attribute is set directly on the root `<svg>` element of the source file in `packages-proprietary/assets/icons`; SVGR carries it through to the generated `react-icons` component unchanged, the same way it carries through `viewBox` or `xmlns`.
 The CSS rule is scoped to `.ams-icon` so it stays consistent with the rest of the icon stylesheet; an icon rendered without the `Icon` wrapper does not get RTL mirroring from this package — see the [react-icons package README](../react-icons/README.md#right-to-left-mirroring) if you need it without the wrapper.
 
