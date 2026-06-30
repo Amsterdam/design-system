@@ -9,6 +9,8 @@ import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 
+import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
+
 const meta = {
   title: 'Components/Text/Description List',
   component: DescriptionList,
@@ -42,13 +44,7 @@ const meta = {
       options: [undefined, ...descriptionListTermsWidths],
     },
   },
-  decorators: [
-    (Story) => (
-      <div className="ams-query-container-inline-size">
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [wrapInInlineSizeQueryContainer()],
 } satisfies Meta<typeof DescriptionList>
 
 export default meta
@@ -68,11 +64,7 @@ export const Orientation: Story = {
       <DescriptionList.Description key={6}>Onderwijsrichting</DescriptionList.Description>,
     ],
   },
-  render: (args) => (
-    <div className="ams-query-container-inline-size _ams-resize-horizontal" style={{ inlineSize: '18rem' }}>
-      <DescriptionList {...args} />
-    </div>
-  ),
+  decorators: [wrapInInlineSizeQueryContainer('_ams-resize-horizontal', { inlineSize: '18rem' })],
 }
 
 export const MultipleDescriptions: Story = {

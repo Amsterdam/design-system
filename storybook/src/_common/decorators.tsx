@@ -4,9 +4,23 @@
  */
 
 import type { Decorator } from '@storybook/react-vite'
-import type { ElementType } from 'react'
+import type { CSSProperties, ElementType } from 'react'
 
 import { Page } from '@amsterdam/design-system-react'
+import { clsx } from 'clsx'
+
+/**
+ * Wraps a story in an inline-size query container, for components that use container queries.
+ * Use for components like Description List.
+ */
+export const wrapInInlineSizeQueryContainer = (className?: string, style?: CSSProperties): Decorator => {
+  const InlineSizeQueryContainerDecorator: Decorator = (Story) => (
+    <div className={clsx('ams-query-container-inline-size', className)} style={style}>
+      <Story />
+    </div>
+  )
+  return InlineSizeQueryContainerDecorator
+}
 
 /**
  * Wraps a story in a Page inside the body, for its max-width, centring and container context.
