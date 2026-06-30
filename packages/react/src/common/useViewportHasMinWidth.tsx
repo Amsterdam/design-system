@@ -45,7 +45,9 @@ const useViewportHasMinWidth = (breakpoint: Breakpoint) => {
   }, [query])
 
   /* v8 ignore next -- SSR snapshot: assume the viewport does not match; components render their default state on the server */
-  return useSyncExternalStore(subscribe, getSnapshot, () => false)
+  const getServerSnapshot = () => false
+
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 }
 
 export default useViewportHasMinWidth
