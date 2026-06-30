@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Heading } from '@amsterdam/design-system-react'
 import * as Icons from '@amsterdam/design-system-react-icons'
-import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
+import { Column, Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 
 const DEPRECATED_HEADING_SIZES = ['heading-0', 'heading-6']
@@ -109,4 +109,22 @@ export const InverseColour: Story = {
   args: {
     color: 'inverse',
   },
+}
+
+export const RightToLeft: Story = {
+  args: {
+    svg: Icons.ArrowForwardIcon,
+  },
+  render: (args) => (
+    <Row gap="large">
+      <Column gap="x-small">
+        <Paragraph>Left-to-right</Paragraph>
+        <Icon {...args} />
+      </Column>
+      <Column dir="rtl" gap="x-small">
+        <Paragraph>Right-to-left</Paragraph>
+        <Icon {...args} />
+      </Column>
+    </Row>
+  ),
 }
