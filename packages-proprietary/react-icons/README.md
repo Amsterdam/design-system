@@ -36,10 +36,13 @@ If you render an icon component directly, without wrapping it in `Icon`, you are
 Add a rule along these lines, scoped to wherever you render the icon:
 
 ```css
-your-icon-wrapper svg[data-directional="true"]:dir(rtl) {
+your-icon-wrapper:dir(rtl) svg[data-directional="true"] {
   transform: scaleX(-1);
 }
 ```
+
+Apply `:dir(rtl)` to the wrapper, not the `<svg>` itself.
+Directionality determination is defined per document language, and SVG has its own rules distinct from HTML's — applying `:dir()` directly to an `<svg>` element relies on unspecified cross-namespace inheritance behaviour that browsers handle inconsistently.
 
 See the [icon contribution guide](https://github.com/Amsterdam/design-system/blob/develop/packages-proprietary/assets/CONTRIBUTING.md#right-to-left-rtl-mirroring) for which icons carry the attribute and why.
 

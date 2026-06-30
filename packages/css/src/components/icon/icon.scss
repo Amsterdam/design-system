@@ -21,7 +21,7 @@
     inline-size: 1em;
   }
 
-  svg[data-directional="true"]:dir(rtl) {
+  &:dir(rtl) svg[data-directional="true"] {
     transform: scaleX(-1);
   }
 }
