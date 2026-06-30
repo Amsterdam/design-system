@@ -3,23 +3,18 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
 import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 import { exampleTopTask } from '#storybook/_common/exampleContent'
 import { formatDate } from '#storybook/_common/formatDate'
 
 const topTask = exampleTopTask()
-
-const maxInlineSizeDecorator: Decorator = (Story) => (
-  <div style={{ maxInlineSize: '24rem' }}>
-    <Story />
-  </div>
-)
 
 const meta = {
   title: 'Components/Navigation/Card',
@@ -39,7 +34,7 @@ export const Default: Story = {
       <Paragraph key={2}>{topTask.description}</Paragraph>,
     ],
   },
-  decorators: [maxInlineSizeDecorator],
+  decorators: [maximiseInlineSize('24rem')],
 }
 
 export const WithTagline: Story = {
@@ -55,7 +50,7 @@ export const WithTagline: Story = {
       </Paragraph>,
     ],
   },
-  decorators: [maxInlineSizeDecorator],
+  decorators: [maximiseInlineSize('24rem')],
 }
 
 type WithImageProps = {
@@ -89,7 +84,7 @@ export const WithImage: WithImageStory = {
     tagline: { control: 'text' },
     text: { control: 'text' },
   },
-  decorators: [maxInlineSizeDecorator],
+  decorators: [maximiseInlineSize('24rem')],
   render: ({ aspectRatio, date, heading, imageSrc, tagline, text, ...args }) => (
     <Card {...args}>
       <Card.Image alt="" aspectRatio={aspectRatio} src={imageSrc} />

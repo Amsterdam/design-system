@@ -8,9 +8,12 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Grid, Image, SearchField } from '@amsterdam/design-system-react'
 import { Overlap } from '@amsterdam/design-system-react/src'
 
+import { wrapInPage } from '#storybook/_common/decorators'
+
 const meta = {
   title: 'Components/Layout/Overlap',
   component: Overlap,
+  decorators: [wrapInPage],
 } satisfies Meta<typeof Overlap>
 
 export default meta

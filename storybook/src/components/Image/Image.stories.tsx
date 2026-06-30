@@ -7,9 +7,12 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Image } from '@amsterdam/design-system-react/src'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
+
 const meta = {
   title: 'Components/Media/Image',
   component: Image,
+  decorators: [maximiseInlineSize('vi-medium')],
 } satisfies Meta<typeof Image>
 
 export default meta

@@ -10,6 +10,8 @@ import { DownloadIcon } from '@amsterdam/design-system-react-icons'
 import * as Icons from '@amsterdam/design-system-react-icons'
 import { StandaloneLink } from '@amsterdam/design-system-react/src'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
+
 const meta = {
   title: 'Components/Navigation/Standalone Link',
   component: StandaloneLink,
@@ -72,13 +74,7 @@ export const WithHeadingAndParagraph: Story = {
   args: {
     children: 'Bekijk alle werkzaamheden',
   },
-  decorators: [
-    (Story) => (
-      <article style={{ maxInlineSize: '32rem' }}>
-        <Story />
-      </article>
-    ),
-  ],
+  decorators: [maximiseInlineSize('32rem', 'article')],
   render: ({ children, ...args }) => (
     <article>
       <Heading className="ams-mb-s" level={2} size="level-3">

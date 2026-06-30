@@ -1,8 +1,6 @@
-import type { PageProps } from '@amsterdam/design-system-react'
 import type { StoryContext, StoryFn } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
-import { Page } from '@amsterdam/design-system-react'
 import { DocsContainer } from '@storybook/addon-docs/blocks'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { clsx } from 'clsx'
@@ -41,34 +39,29 @@ export const argTypes = {
   },
 }
 
-// Wrap in Page, set language to Dutch for Canvas and Stories
+// Set the language to Dutch and apply the page background overrides for Canvas and Stories.
+// Components that need a realistic Page or a width constraint add that themselves through a decorator.
 export const decorators = [
   (Story: StoryFn, context: StoryContext) => {
-    const { component, args } = context
-    if (component?.displayName === 'Page') {
-      return <Story />
-    }
-
-    const withMenu: PageProps['withMenu'] = context.title.startsWith('Pages/Internal')
+    const { args } = context
 
     return (
-      <Page
-        className={clsx({
+      <div
+        className={clsx('ams-body _ams-body--storybook', {
           '_ams-page-background--dark': args['color'] === 'inverse',
           '_ams-page-background--light': args['color'] === 'contrast',
         })}
         lang="nl"
-        withMenu={withMenu}
       >
         <Story />
-      </Page>
+      </div>
     )
   },
   withThemeByClassName({
     defaultTheme: 'Spacious',
     themes: {
-      Compact: 'ams-body ams-theme--compact',
-      Spacious: 'ams-body',
+      Compact: 'ams-theme--compact',
+      Spacious: '',
     },
   }),
 ]
@@ -99,7 +92,7 @@ export const parameters = {
     },
   },
   html: {
-    root: '.ams-page',
+    root: '.ams-body',
   },
   options: {
     storySort: {

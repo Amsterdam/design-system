@@ -139,6 +139,11 @@
   min-block-size: initial;
 }
 
+/* Remove the grey body background in Compact Mode from the story canvas. */
+._ams-body--storybook {
+  --ams-body-background-color: transparent;
+}
+
 /* Override to make sure the default transparent border isn't shown in forced colors mode. */
 .innerZoomElementWrapper.innerZoomElementWrapper > div {
   @media (forced-colors: active) {

@@ -9,6 +9,7 @@ import { Blockquote, Grid, Heading, Paragraph, StandaloneLink } from '@amsterdam
 import { Spotlight } from '@amsterdam/design-system-react/src'
 import { spotlightColors } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
 
+import { wrapInPage } from '#storybook/_common/decorators'
 import { exampleQuote } from '#storybook/_common/exampleContent'
 
 const quote = exampleQuote()
@@ -24,6 +25,7 @@ const meta = {
       options: [undefined, ...spotlightColors],
     },
   },
+  decorators: [wrapInPage],
 } satisfies Meta<typeof Spotlight>
 
 export default meta

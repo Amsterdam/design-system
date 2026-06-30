@@ -18,9 +18,12 @@ import {
 } from '@amsterdam/design-system-react-icons'
 import { PageFooter } from '@amsterdam/design-system-react/src'
 
+import { wrapInPage } from '#storybook/_common/decorators'
+
 const meta = {
   title: 'Components/Containers/Page Footer',
   component: PageFooter,
+  decorators: [wrapInPage],
 } satisfies Meta<typeof PageFooter>
 
 export default meta

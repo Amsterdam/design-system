@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Image } from '@amsterdam/design-system-react'
 import { Figure } from '@amsterdam/design-system-react/src'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 import { exampleCaption } from '#storybook/_common/exampleContent'
 
 const caption = exampleCaption()
@@ -27,6 +28,7 @@ const meta = {
       options: [undefined, 'inverse'],
     },
   },
+  decorators: [maximiseInlineSize('vi-medium')],
   render: ({ children, ...args }) => (
     <Figure>
       <Image

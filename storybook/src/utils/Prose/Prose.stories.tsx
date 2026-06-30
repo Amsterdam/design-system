@@ -16,6 +16,8 @@ import {
   UnorderedList,
 } from '@amsterdam/design-system-react'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
+
 import type { ProseProps } from './Prose'
 
 import { Prose } from './Prose'
@@ -174,12 +176,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  decorators: [
-    (Story) => (
-      <div style={{ maxInlineSize: '44.375rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [maximiseInlineSize('7-of-12-columns')],
   render,
 }

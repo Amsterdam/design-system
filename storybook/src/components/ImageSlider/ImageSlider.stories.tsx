@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { ImageSlider } from '@amsterdam/design-system-react/src'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
+
 const meta = {
   title: 'Components/Media/Image Slider',
   component: ImageSlider,
@@ -35,6 +37,7 @@ const meta = {
       },
     ],
   },
+  decorators: [maximiseInlineSize('vi-medium')],
 } satisfies Meta<typeof ImageSlider>
 
 export default meta
