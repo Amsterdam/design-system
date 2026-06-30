@@ -78,7 +78,11 @@ export const ImageSlider = forwardRef(
     useEffect(() => {
       if (images.length === 0) return undefined
 
-      const handleResize = debounce(() => scrollToCurrentSlideOnResize({ currentSlideId, ref: scrollerRef }), 100)
+      const handleResize = debounce(
+        /* v8 ignore next -- The callback only fires after a debounce delay; window resize events never occur in jsdom */
+        () => scrollToCurrentSlideOnResize({ currentSlideId, ref: scrollerRef }),
+        100,
+      )
 
       window.addEventListener('resize', handleResize)
 

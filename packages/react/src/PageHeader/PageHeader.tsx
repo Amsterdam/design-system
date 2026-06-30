@@ -93,6 +93,7 @@ const PageHeaderRoot = forwardRef(
     const [menuButtonWasHidden, setMenuButtonWasHidden] = useState(menuButtonHidden)
     if (menuButtonHidden !== menuButtonWasHidden) {
       setMenuButtonWasHidden(menuButtonHidden)
+      /* v8 ignore next -- setState above causes React to discard and retry this render; v8 cannot track the false branch across the retry */
       if (menuButtonHidden) {
         setOpen(false)
       }

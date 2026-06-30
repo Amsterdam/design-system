@@ -49,4 +49,24 @@ describe('useIsAfterBreakpoint', () => {
     const { result } = renderHook(() => useViewportHasMinWidth('wide'))
     expect(result.current).toBe(true)
   })
+
+  it('removes the event listener when the hook unmounts', () => {
+    const removeEventListener = vi.fn()
+    vi.mocked(window.matchMedia).mockImplementation((query) => ({
+      addEventListener: vi.fn(),
+      matches: testMatchFunction(query),
+      removeEventListener,
+    }))
+
+    const { unmount } = renderHook(() => useViewportHasMinWidth('medium'))
+    unmount()
+
+    expect(removeEventListener).toHaveBeenCalled()
+
+    vi.mocked(window.matchMedia).mockImplementation((query) => ({
+      addEventListener: vi.fn(),
+      matches: testMatchFunction(query),
+      removeEventListener: vi.fn(),
+    }))
+  })
 })
