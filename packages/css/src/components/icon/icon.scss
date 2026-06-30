@@ -20,10 +20,10 @@
     fill: currentColor;
     inline-size: 1em;
   }
-}
 
-svg[data-directional="true"]:dir(rtl) {
-  transform: scaleX(-1);
+  svg[data-directional="true"]:dir(rtl) {
+    transform: scaleX(-1);
+  }
 }
 
 .ams-icon--inverse {
