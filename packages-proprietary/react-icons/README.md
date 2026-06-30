@@ -27,6 +27,25 @@ import { SearchIcon } from "@amsterdam/design-system-react-icons"
 export const App = () => <Icon svg={SearchIcon} />
 ```
 
+## Right-to-left mirroring
+
+Some icons (arrows, vehicles, speech balloons, and similar) carry a `data-directional="true"` attribute on their root `<svg>` element and are meant to be horizontally mirrored in a right-to-left (RTL) context.
+When you render an icon through the `Icon` component, this mirroring is handled automatically by `@amsterdam/design-system-css`'s `.ams-icon` styles.
+
+If you render an icon component directly, without wrapping it in `Icon`, you are responsible for the mirroring yourself.
+Add a rule along these lines, scoped to wherever you render the icon:
+
+```css
+.your-icon-wrapper:dir(rtl) svg[data-directional="true"] {
+  transform: scaleX(-1);
+}
+```
+
+Apply `:dir(rtl)` to the wrapper, not the `<svg>` itself.
+Directionality determination is defined per document language, and SVG has its own rules distinct from HTML's — applying `:dir()` directly to an `<svg>` element relies on unspecified cross-namespace inheritance behaviour that browsers handle inconsistently.
+
+See the [icon contribution guide](https://github.com/Amsterdam/design-system/blob/develop/packages-proprietary/assets/CONTRIBUTING.md#right-to-left-rtl-mirroring) for which icons carry the attribute and why.
+
 ## Updating
 
 When updating to a new release of this package, check the [change log](https://github.com/Amsterdam/design-system/blob/develop/packages-proprietary/react-icons/CHANGELOG.md) for breaking changes.

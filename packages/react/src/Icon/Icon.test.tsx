@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { WarningIcon } from '@amsterdam/design-system-react-icons'
+import { ArrowBackwardIcon, WarningIcon } from '@amsterdam/design-system-react-icons'
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
@@ -101,6 +101,22 @@ describe('Icon', () => {
     const icon = container.querySelector(':only-child')
 
     expect(ref.current).toBe(icon)
+  })
+
+  it('renders the data-directional attribute for a directional icon', () => {
+    const { container } = render(<Icon svg={ArrowBackwardIcon} />)
+
+    const svg = container.querySelector(':only-child svg')
+
+    expect(svg).toHaveAttribute('data-directional', 'true')
+  })
+
+  it('does not render the data-directional attribute for a non-directional icon', () => {
+    const { container } = render(<Icon svg={WarningIcon} />)
+
+    const svg = container.querySelector(':only-child svg')
+
+    expect(svg).not.toHaveAttribute('data-directional')
   })
 
   it('passes additional props', () => {
