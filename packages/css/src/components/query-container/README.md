@@ -36,7 +36,7 @@ One option is currently available:
 .my-component {
   /* Base styles that apply at any width. */
 
-  @container ams-query-container-inline-size (min-inline-size: 40rem) {
+  @container ams-query-container-inline-size (inline-size >= 40rem) {
     /* Styles to apply if the container is 40rem wide or more. */
   }
 }
