@@ -22,6 +22,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const iconNames = (Object.keys(Icons) as (keyof typeof Icons)[]).sort((a, b) => a.localeCompare(b))
+const directionalIconNames = iconNames.filter((name) => Icons[name]({}).props['data-directional'] === 'true')
+
 export const Test: Story = {
   render: (args, context) => (
     <div className="_ams-tests-stack">
@@ -33,9 +35,9 @@ export const Test: Story = {
           <Icon key={name} size="heading-2" svg={Icons[name]} />
         ))}
       </div>
-      <p>All icons in RTL</p>
+      <p>Directional icons in RTL</p>
       <div className="_ams-tests-grid" dir="rtl">
-        {iconNames.map((name) => (
+        {directionalIconNames.map((name) => (
           <Icon key={name} size="heading-2" svg={Icons[name]} />
         ))}
       </div>
