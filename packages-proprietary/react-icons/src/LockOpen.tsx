@@ -1,7 +1,14 @@
 import type { SVGProps } from 'react'
 
 const SvgLockOpen = (props: SVGProps<SVGSVGElement>) => (
-  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg
+    aria-hidden="true"
+    data-directional="true"
+    focusable="false"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
     <path d="M12.533 15.781a1.25 1.25 0 1 0-1.066 0L11 17.65h2z" />
     <path
       clipRule="evenodd"

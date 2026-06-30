@@ -22,6 +22,10 @@
   }
 }
 
+svg[data-directional="true"]:dir(rtl) {
+  transform: scaleX(-1);
+}
+
 .ams-icon--inverse {
   color: var(--ams-icon-inverse-color);
 }
