@@ -7,10 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { AnchorHTMLAttributes } from 'react'
 
 import { Calendar } from '@amsterdam/design-system-react/src'
-import { useEffect } from 'react'
-import { useArgs } from 'storybook/preview-api'
 
-import { localeSourceTransform } from '#storybook/_common/locale'
+import { localeArgTypes, localeSourceTransform, SyncDirFromLocale } from '#storybook/_common/locale'
 
 // Format the local date as YYYY-MM-DD; `toISOString` would shift to UTC and could change the day.
 const formatDate = (date: Date) =>
@@ -36,45 +34,13 @@ const meta = {
   },
   argTypes: {
     defaultMonth: { control: false }, // Enabling the control breaks the story with an error.
-    dir: {
-      control: {
-        labels: { undefined: 'ltr (default)' },
-        type: 'inline-radio',
-      },
-      description: 'Derived from `locale`; set to `rtl` automatically when Arabic is selected.',
-      options: [undefined, 'rtl'],
-      table: { readonly: true },
-    },
+    dir: localeArgTypes.dir,
     linkComponent: { control: false }, // Enabling the control breaks the story with an error.
     linkTemplate: { control: false }, // A function returning string or undefined has no usable controls panel widget.
-    locale: {
-      control: {
-        labels: {
-          'ar-MA': 'العربية (Arabic)',
-          'de-DE': 'Deutsch (German)',
-          'en-GB': 'English (English)',
-          'fr-FR': 'Français (French)',
-          'tr-TR': 'Türkçe (Turkish)',
-          undefined: 'Nederlands (Dutch)',
-        },
-        type: 'select',
-      },
-      options: [undefined, 'en-GB', 'de-DE', 'fr-FR', 'tr-TR', 'ar-MA'],
-    },
+    locale: localeArgTypes.locale,
   },
-  decorators: [
-    (Story) => {
-      const [{ dir, locale }, updateArgs] = useArgs()
-      useEffect(() => {
-        const derivedDir = locale === 'ar-MA' ? 'rtl' : undefined
-        if (dir !== derivedDir) updateArgs({ dir: derivedDir })
-      }, [locale]) // eslint-disable-line react-hooks/exhaustive-deps
-      return <Story />
-    },
-  ],
-  // `dir` is derived from `locale` here so the Calendar responds instantly.
-  // The decorator above keeps args.dir in sync for the controls panel, but that
-  // update travels through Storybook's async channel and arrives later.
+  decorators: [SyncDirFromLocale],
+  // `dir` is derived synchronously here for an instant visual response; SyncDirFromLocale updates the controls panel via Storybook's async channel.
   render: (args) => <Calendar {...args} dir={args.locale === 'ar-MA' ? 'rtl' : undefined} />,
 } satisfies Meta<typeof Calendar>
 
