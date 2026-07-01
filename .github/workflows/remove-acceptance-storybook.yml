@@ -14,7 +14,7 @@ permissions:
 env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 jobs:
-  remove_stale_pages:
+  remove-demo-directory:
     runs-on: ubuntu-latest
     if: ${{ github.actor != 'dependabot[bot]' }}
     steps:

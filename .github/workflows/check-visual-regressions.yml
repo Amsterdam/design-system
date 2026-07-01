@@ -10,7 +10,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  chromatic:
+  run-chromatic:
     name: Run Chromatic
     runs-on: ubuntu-latest
     if: |

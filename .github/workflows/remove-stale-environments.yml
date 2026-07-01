@@ -45,7 +45,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  cleanup-environments:
+  remove-environments:
     runs-on: ubuntu-latest
     steps:
       - name: Check out scripts

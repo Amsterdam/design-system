@@ -55,7 +55,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  cleanup-demos:
+  remove-demo-directories:
     # Run on manual dispatch, or on a major-version release of a `design-system-*`
     # package — tag format is `design-system-<pkg>-v<major>.<minor>.<patch>`, so
     # the prefix scopes us to our release-please tags and the suffix scopes us to

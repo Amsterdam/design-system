@@ -51,7 +51,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  cleanup-deployments:
+  remove-deployments:
     runs-on: ubuntu-latest
     steps:
       - name: Check out scripts
