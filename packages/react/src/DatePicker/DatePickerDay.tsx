@@ -30,7 +30,18 @@ export type DatePickerDayProps = {
   readonly onSelect: (date: Date) => void
 } & Pick<DatePickerProps, 'locale'>
 
-const formatDayNumber = (date: Date, locale?: string) => new Intl.NumberFormat(locale).format(date.getDate())
+const dayNumberFormatters = new Map<string | undefined, Intl.NumberFormat>()
+
+const formatDayNumber = (date: Date, locale?: string) => {
+  let formatter = dayNumberFormatters.get(locale)
+
+  if (!formatter) {
+    formatter = new Intl.NumberFormat(locale)
+    dayNumberFormatters.set(locale, formatter)
+  }
+
+  return formatter.format(date.getDate())
+}
 
 const formatAccessibleDate = (date: Date, locale?: string, boundaryLabel?: string) => {
   const fullDate = new Intl.DateTimeFormat(locale, {
