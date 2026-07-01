@@ -17,7 +17,8 @@ import * as DatePickerStories from "./DatePicker.stories.tsx";
 
 <Controls />
 
-**Note**: Some props are excluded from the controls panel: `mode`, `onChange`, and `value` are managed by the story’s state wrapper; `defaultMonth`, `isDateDisabled`, `locale`, `maxDate`, and `minDate` have no suitable control widget for their type.
+**Note**: Some props are excluded from the controls panel: `mode`, `onChange`, and `value` are managed by the story’s state wrapper; `defaultMonth`, `isDateDisabled`, `maxDate`, and `minDate` have no suitable control widget for their type.
+The `dir` and the navigation and accessible-name labels are read-only and follow `locale`, so the controls show a fully localised Date Picker; set them yourself in your app.
 
 ## Usage guidelines
 
@@ -40,6 +41,36 @@ In range mode, set `mode="range"`; `value` is a `DateRange` (`{ start, end }`) a
 The first pick sets the start, the second sets the end, and picking before the start begins a new range.
 
 If you set `minDate` or `maxDate`, ensure the initial `value` falls within those bounds — the component does not clamp or validate the incoming value.
+
+#### Localisation
+
+The Date Picker renders weekday names, the month caption, and the accessible date labels in the language of `locale`, which defaults to `nl-NL`.
+It does not translate the rest: set `nextMonthButtonLabel`, `nextYearButtonLabel`, `previousMonthButtonLabel`, and `previousYearButtonLabel` in the same language, or they stay Dutch and screen readers announce a mix.
+In range mode, also localise `rangeStartAccessibleName` and `rangeEndAccessibleName`; they are appended to the start and end dates when those are announced.
+For right-to-left scripts such as Arabic, also add `dir="rtl"`.
+Try the `locale` control above to preview each language; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
+
+If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props:
+
+```tsx
+import type { DatePickerProps } from "@amsterdam/design-system-react";
+
+import { DatePicker } from "@amsterdam/design-system-react";
+
+const ArabicDatePicker = (props: DatePickerProps) => (
+  <DatePicker
+    dir="rtl"
+    locale="ar-MA"
+    nextMonthButtonLabel="الشهر التالي"
+    nextYearButtonLabel="السنة التالية"
+    previousMonthButtonLabel="الشهر السابق"
+    previousYearButtonLabel="السنة السابقة"
+    rangeEndAccessibleName="تاريخ النهاية"
+    rangeStartAccessibleName="تاريخ البداية"
+    {...props}
+  />
+);
+```
 
 ## Design
 

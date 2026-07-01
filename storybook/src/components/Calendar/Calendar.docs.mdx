@@ -17,6 +17,9 @@ import * as CalendarStories from "./Calendar.stories.tsx";
 
 <Controls />
 
+**Note**: `dir` and the navigation and accessible-name labels are read-only here and follow `locale`, so the controls show a fully localised Calendar.
+In your own app you set them yourself.
+
 ## Usage guidelines
 
 ### When to use
@@ -33,6 +36,34 @@ Display the month for the selected date, which may not be the current month.
 
 Give it an accessible name with `accessibleName`.
 The Calendar renders this name as a visually hidden heading and generates a unique `id` for it; pass `accessibleNameId` to set that `id` yourself.
+
+#### Localisation
+
+The Calendar renders weekday names, the month caption, and the accessible date labels in the language of `locale`, which defaults to `nl-NL`.
+It does not translate the rest: set `accessibleName`, `nextMonthButtonLabel`, `nextYearButtonLabel`, `previousMonthButtonLabel`, and `previousYearButtonLabel` in the same language, or they stay Dutch and screen readers announce a mix.
+For right-to-left scripts such as Arabic, also add `dir="rtl"`.
+Try the `locale` control above to preview each language; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
+
+If your app uses Calendar in multiple places with the same language, a small wrapper component avoids repeating these props:
+
+```tsx
+import type { CalendarProps } from "@amsterdam/design-system-react";
+
+import { Calendar } from "@amsterdam/design-system-react";
+
+const ArabicCalendar = (props: CalendarProps) => (
+  <Calendar
+    accessibleName="التقويم"
+    dir="rtl"
+    locale="ar-MA"
+    nextMonthButtonLabel="الشهر التالي"
+    nextYearButtonLabel="السنة التالية"
+    previousMonthButtonLabel="الشهر السابق"
+    previousYearButtonLabel="السنة السابقة"
+    {...props}
+  />
+);
+```
 
 ## Examples
 

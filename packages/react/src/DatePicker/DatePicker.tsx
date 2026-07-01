@@ -27,7 +27,7 @@ type DatePickerBaseProps = {
   readonly defaultMonth?: Date
   /** Prevents selection of individual dates, e.g. dates that are unavailable. They remain reachable by keyboard. */
   readonly isDateDisabled?: (date: Date) => boolean
-  /** The locale used to format the weekday names, the month caption, and the accessible date labels. */
+  /** BCP 47 language tag for the weekday names, month caption, and accessible date labels. Defaults to `'nl-NL'`. */
   readonly locale?: string
   /** The latest selectable date. Also bounds month navigation. */
   readonly maxDate?: Date

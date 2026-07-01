@@ -1,0 +1,99 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Docs/Developer Guide/Localisation" />
+
+# Localisation
+
+Localisation covers two related tasks.
+Declare the language of your content so browsers and assistive technologies interpret it correctly, and tell components which language and region to format their output in.
+
+## Language
+
+Declare the human language of your content with the HTML `lang` attribute.
+This helps browsers, screen readers, and search engines interpret it correctly.
+
+### Specify the language for the entire document
+
+It is mandatory to explicitly indicate in which language the content of your page is.
+With the correct language set, your website will work better.
+Screen readers will know what language to use for speech.
+It is also helpful for search engine optimization (SEO).
+
+Specify the language on your website’s `<html>` element.
+After all, the contents of elements in the `<head>`, such as `title` and `meta`, also contain content in the same language.
+That is outside the scope of the components of the design system.
+That is why you have to remember to do this properly yourself.
+
+```html
+<html lang="nl">
+  …
+</html>
+```
+
+### Highlight elements in another language
+
+If a specific element is in another language, indicate this there.
+
+For example, for a link to an English site or page in a menu:
+
+```html
+<nav>
+  <ul>
+    <li><a href="https://mijn.amsterdam.nl/">My Amsterdam</a></li>
+    <li><a href="https://www.amsterdam.nl/en/" lang="en">English site</a></li>
+  </ul>
+</nav>
+```
+
+### Do not specify the region
+
+The language tag `nl` is sufficient.
+Expanding it with the region subtag `nl-NL` is not necessary:
+
+> The golden rule when creating language tags is to keep the tag as short as possible.
+> Avoid region, script or other subtags except where they add useful distinguishing information.
+> – [W3C Internationalization Activity](https://www.w3.org/International/articles/language-tags/)
+
+## Locale
+
+Some components render their own text, such as weekday and month names.
+Set the language and region they format it in with the `locale` prop.
+
+### Localise components
+
+The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) render weekday names, month names, and accessible date labels in the language of their `locale` prop.
+When you omit it, both default to `nl-NL`.
+
+The prop accepts a [BCP 47 language tag](https://www.w3.org/International/articles/language-tags/).
+Unlike the HTML `lang` attribute, including a region subtag is appropriate here — the JavaScript `Intl` API can produce different output for different regional variants of the same language.
+
+These locales have been tested:
+
+- `nl-NL` — Nederlands (Dutch), the default
+- `en-GB` — English
+- `de-DE` — Deutsch (German)
+- `fr-FR` — Français (French)
+- `tr-TR` — Türkçe (Turkish)
+- `ar-MA` — العربية (Arabic)
+
+`locale` only drives the text that `Intl` generates.
+Both components also have accessible names and navigation button labels that stay in their default language until you translate them, so set those in the same language to avoid a mix.
+For right-to-left languages like Arabic, also add `dir="rtl"` to the component or to a containing element.
+
+```tsx
+<Calendar
+  accessibleName="التقويم"
+  dir="rtl"
+  locale="ar-MA"
+  nextMonthButtonLabel="الشهر التالي"
+  nextYearButtonLabel="السنة التالية"
+  previousMonthButtonLabel="الشهر السابق"
+  previousYearButtonLabel="السنة السابقة"
+/>
+```
+
+## Relevant WCAG requirements
+
+- [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): indicate the language of any passage or phrase that differs from the page’s default language
