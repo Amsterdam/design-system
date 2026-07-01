@@ -1,4 +1,4 @@
-name: Bundle size report
+name: Check bundle size
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  compressed-size:
+  report-bundle-size:
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
 

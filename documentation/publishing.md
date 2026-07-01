@@ -3,13 +3,13 @@
 # Publishing
 
 We use a [Release Please GitHub Action](https://github.com/googleapis/release-please-action) to create changelogs and release PRs for all our packages.
-When the release PR is merged, the Publish workflow (specifically the `pnpm -r publish` step in `.github/workflows/publish.yml`) publishes the new release to npm, after Release Please reports `releases_created == 'true'`. Release Please itself creates the release PR and the GitHub release, but does not publish to npm.
-A separate “Main branch build and deploy” workflow keeps our main Storybook environment up to date with `main`.
+When the release PR is merged, the “Publish packages” workflow (specifically the `pnpm -r publish` step in `.github/workflows/publish-packages.yml`) publishes the new release to npm, after Release Please reports `releases_created == 'true'`. Release Please itself creates the release PR and the GitHub release, but does not publish to npm.
+A separate “Deploy production Storybook” workflow keeps our main Storybook environment up to date with `main`.
 
 The [maintainers](./maintainers.md) can release new versions of our packages.
 If you want to have rights to publish as well, contact one of the maintainers.
 
-The “Publish” workflow uses [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC), so individual maintainers don’t need personal npm credentials.
+The “Publish packages” workflow uses [npm trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC), so individual maintainers don’t need personal npm credentials.
 
 ## Conventional commits
 
@@ -65,10 +65,10 @@ git push
 This doesn’t interfere with the release PR that Release Please creates.
 GitHub will mark the pull request as merged automatically when you push.
 
-Pushing to `main` triggers the “Lint and test” workflow on GitHub. When this workflow completes successfully, it triggers the “Publish” workflow.
+Pushing to `main` triggers the “Check build and tests” workflow on GitHub. When this workflow completes successfully, it triggers the “Publish packages” workflow.
 On this first run, Release Please opens (or updates) a release PR. The workflow runs again later, after that PR is merged, to create the GitHub release and publish to npm.
 
-A separate “Main branch build and deploy” workflow runs in parallel and refreshes our main Storybook environment from the latest `main`.
+A separate “Deploy production Storybook” workflow runs in parallel and refreshes our main Storybook environment from the latest `main`.
 
 ### Review the release PR
 
@@ -87,7 +87,7 @@ See below for details.
 
 Approve the release PR, then merge it – no need to wait for the checks, since the release PR only bumps versions and updates changelogs (no source code changes). The merge must be done manually; the workflow does not merge the PR automatically.
 
-After merging, the “Publish” workflow runs again. Release Please now reports `releases_created == 'true'`, which gates the npm publish step, so the new versions are pushed to GitHub and npm.
+After merging, the “Publish packages” workflow runs again. Release Please now reports `releases_created == 'true'`, which gates the npm publish step, so the new versions are pushed to GitHub and npm.
 
 ### Merge back into develop
 

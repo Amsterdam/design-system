@@ -1,4 +1,4 @@
-name: Coverage report
+name: Check test coverage
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  coverage:
+  report-test-coverage:
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
 
@@ -34,7 +34,7 @@ jobs:
       - name: Run tests with coverage
         run: pnpm --filter @amsterdam/design-system-react test
 
-      - name: Report coverage
+      - name: Report test coverage
         uses: davelosert/vitest-coverage-report-action@3c054a2d2e2ca45446417ad5d6d5eb33092af8f1 # v2.12.1
         with:
           json-summary-path: packages/react/coverage/coverage-summary.json

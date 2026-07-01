@@ -2,6 +2,8 @@
 
 # Continuous integration
 
+For an overview of every workflow and how they fit together, see the [workflows README](../.github/workflows/README.md).
+
 ## Commit hashes for GitHub Actions
 
 We use a commit hash instead of a version number to specify which release of a GitHub Action we use in our workflows.
@@ -36,9 +38,9 @@ pnx pin-github-action -c " {ref}" /path/to/workflow.yaml
 
 Three workflows prune artefacts left behind by feature-branch deploys:
 
-- `Cleanup stale demo directories from gh-pages` ([cleanup-gh-pages-demos.yml](../.github/workflows/cleanup-gh-pages-demos.yml))
-- `Cleanup obsolete environments` ([cleanup-environments.yml](../.github/workflows/cleanup-environments.yml))
-- `Cleanup obsolete deployments` ([cleanup-deployments.yml](../.github/workflows/cleanup-deployments.yml))
+- `Remove stale demo directories` ([remove-stale-demo-directories.yml](../.github/workflows/remove-stale-demo-directories.yml))
+- `Remove stale environments` ([remove-stale-environments.yml](../.github/workflows/remove-stale-environments.yml))
+- `Remove stale deployments` ([remove-stale-deployments.yml](../.github/workflows/remove-stale-deployments.yml))
 
 Each runs on a schedule as a dry-run.
 To perform real deletions, dispatch from the Actions UI with `dry_run=false`.

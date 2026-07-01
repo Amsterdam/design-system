@@ -1,18 +1,18 @@
 # @license EUPL-1.2+
 # Copyright Gemeente Amsterdam
 
-# GitHub Actions workflow to clean up obsolete `demo-*` GitHub Environments.
+# GitHub Actions workflow to clean up stale `demo-*` GitHub Environments.
 # Runs on a weekly schedule and can be triggered manually.
 #
-# A `demo-X` environment is considered obsolete when no remote branch matches
+# A `demo-X` environment is considered stale when no remote branch matches
 # `X` after stripping the leading `<prefix>/` segment — the same transformation
-# feature-branch-deploy.yml applies when creating these environments. Other
+# deploy-acceptance-storybook.yml applies when creating these environments. Other
 # environment names are left alone.
 #
 # The default `dry_run=true` only logs what would be deleted. Pass
 # `dry_run=false` from the Actions UI to perform the deletions.
 
-name: Cleanup obsolete environments
+name: Remove stale environments
 
 on:
   workflow_dispatch:
@@ -41,11 +41,11 @@ permissions:
   # delete step will return 403 once dry_run is set to false.
 
 concurrency:
-  group: cleanup-environments
+  group: remove-stale-environments
   cancel-in-progress: false
 
 jobs:
-  cleanup-environments:
+  remove-environments:
     runs-on: ubuntu-latest
     steps:
       - name: Check out scripts
@@ -62,7 +62,7 @@ jobs:
       - name: Install dependencies
         run: "pip install --only-binary=:all: --require-hashes -r .github/scripts/requirements.txt"
 
-      - name: Cleanup environments
+      - name: Remove environments
         env:
           # Falls through to GITHUB_TOKEN when the admin secret isn't set so
           # dry-runs and listing still work; see permissions note above.

@@ -1,8 +1,8 @@
-name: Publish
+name: Publish packages
 
 on:
   workflow_run:
-    workflows: [Lint and test]
+    workflows: ["Check build and tests"]
     types: [completed]
     branches: [main]
 

@@ -1,6 +1,6 @@
 # Based on https://evilmartians.com/chronicles/super-github-pages-budget-frontend-staging-with-storybook-and-more
 
-name: Feature branch build and deploy
+name: Deploy acceptance Storybook
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
           BRANCH_NAME=$(echo $RAW_BRANCH_NAME | sed 's/[^/]*\///')
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
-      - name: Check out
+      - name: Check out branch
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Create deployment
@@ -57,7 +57,7 @@ jobs:
         run: |
           touch ./storybook/dist/${{ github.sha }}.txt
 
-      - name: Pushing to pages branch
+      - name: Push to pages branch
         uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4.8.0
         with:
           branch: gh-pages

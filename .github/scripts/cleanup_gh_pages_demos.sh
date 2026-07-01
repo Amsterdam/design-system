@@ -8,7 +8,7 @@ shopt -s nullglob
 
 # Cleanup rules:
 # - demo-X is stale when no active branch short name matches X.
-# - short name mirrors feature-branch-deploy: strip first <prefix>/.
+# - short name mirrors deploy-acceptance-storybook: strip first <prefix>/.
 # - Nested previews (demo-foo/bar) are handled safely.
 #
 # Environment variables:

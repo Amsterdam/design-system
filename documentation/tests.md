@@ -11,7 +11,7 @@ We test our components to ensure their quality and prevent unintended changes.
 | Principle | Check specific properties of a component.                           |
 | Example   | Does the button still have className `.button-primary` as expected? |
 
-Unit tests are written using [Vitest](https://vitest.dev) and [React Testing Library](https://github.com/testing-library/react-testing-library). These tests run on every [pull request](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/lint-test.yml).
+Unit tests are written using [Vitest](https://vitest.dev) and [React Testing Library](https://github.com/testing-library/react-testing-library). These tests run on every [pull request](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/check-build-and-tests.yml).
 All components must have their own unit tests, which are located in a separate file named `component.test.tsx`.
 
 ## Interaction tests
@@ -54,8 +54,8 @@ Accessibility tests are not configured on a component basis. The accessibility r
 
 With each pull request there are two actions:
 
-1. [Unit Tests](https://github.com/Amsterdam/design-system/actions/workflows/lint-test.yml)
-2. [Interaction, Visual, Accessibility tests](https://github.com/Amsterdam/design-system/actions/workflows/chromatic.yml)
+1. [Unit Tests](https://github.com/Amsterdam/design-system/actions/workflows/check-build-and-tests.yml)
+2. [Interaction, Visual, Accessibility tests](https://github.com/Amsterdam/design-system/actions/workflows/check-visual-regressions.yml)
 
 The interaction, visual, and accessibility tests are run by [Chromatic](https://chromatic.com). Chromatic runs these tests on each story labeled ‘Test’. If any changes are detected, they must be approved before merging the pull request. You can accept changes directly through the Chromatic dashboard. Once the changes are accepted, the pull request can be merged.
 
@@ -63,13 +63,13 @@ These actions are required to succeed before merging a pull-request.
 
 ### Chromatic configuration
 
-Chromatic uses two tokens to run: a project ID and a [secret token](https://www.chromatic.com/manage?appId=68db9df886b46f139748c074&view=configure). The project ID is public within the [repo](https://github.com/Amsterdam/design-system/blob/develop/storybook/chromatic.config.json), while the secret token is used in the [workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/chromatic.yml).
+Chromatic uses two tokens to run: a project ID and a [secret token](https://www.chromatic.com/manage?appId=68db9df886b46f139748c074&view=configure). The project ID is public within the [repo](https://github.com/Amsterdam/design-system/blob/develop/storybook/chromatic.config.json), while the secret token is used in the [workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/check-visual-regressions.yml).
 
 The secret is configured in two places: [within the repo secrets](https://github.com/Amsterdam/design-system/settings/secrets/actions) and the Dependabot secrets. Since Dependabot does not have default access to repo secrets, separate secrets for Dependabot are configured on the [Dependabot secrets configuration page](https://github.com/Amsterdam/design-system/settings/secrets/dependabot).
 
 Chromatic also uses a [GitHub App](https://github.com/apps/chromatic-com) to integrate with the repository. This app was installed by the enablement team, which is also part of our team within Chromatic. Occasionally, the enablement team may need to refresh the connection.
 
-On every pull request, the [workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/chromatic.yml) builds Storybook and publishes it to Chromatic, where the tests are run. The test status is displayed in the pull request through the app integration.
+On every pull request, the [workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/check-visual-regressions.yml) builds Storybook and publishes it to Chromatic, where the tests are run. The test status is displayed in the pull request through the app integration.
 
 #### How to get access
 
