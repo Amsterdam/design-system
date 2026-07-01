@@ -251,7 +251,14 @@ export const localeSourceTransform =
       propName(a).localeCompare(propName(b)),
     )
     const multiLine = props.length > 1 || props.some((prop) => prop.includes('\n'))
-    const jsx = multiLine ? `<${componentName}\n  ${props.join('\n  ')}\n/>` : `<${componentName} ${props[0] ?? ''} />`
+    let jsx
+    if (props.length === 0) {
+      jsx = `<${componentName} />`
+    } else if (multiLine) {
+      jsx = `<${componentName}\n  ${props.join('\n  ')}\n/>`
+    } else {
+      jsx = `<${componentName} ${props[0]} />`
+    }
 
     return prefix ? `${prefix}\n\n${jsx}` : jsx
   }
