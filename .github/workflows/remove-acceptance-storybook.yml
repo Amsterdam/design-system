@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Create branch name without text before first forward slash
         run: |
-          BRANCH_NAME=$(echo "$RAW_BRANCH_NAME" | sed 's/[^/]*\///')
+          BRANCH_NAME=$(printf '%s' "$RAW_BRANCH_NAME" | sed 's/[^/]*\///')
           echo "BRANCH_NAME=$BRANCH_NAME" >> "$GITHUB_ENV"
 
       - name: Check out branch to access .nvmrc
