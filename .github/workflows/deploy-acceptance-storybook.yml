@@ -13,6 +13,9 @@ permissions:
   contents: write
   deployments: write
 
+env:
+  RAW_BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }}
@@ -23,9 +26,8 @@ jobs:
     steps:
       - name: Create branch name without text before first forward slash
         run: |
-          RAW_BRANCH_NAME=${{ github.head_ref || github.ref_name }}
-          BRANCH_NAME=$(echo $RAW_BRANCH_NAME | sed 's/[^/]*\///')
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          BRANCH_NAME=$(printf '%s' "$RAW_BRANCH_NAME" | sed 's/[^/]*\///')
+          echo "BRANCH_NAME=$BRANCH_NAME" >> "$GITHUB_ENV"
 
       - name: Check out branch
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -73,7 +75,7 @@ jobs:
           max_attempts: 40
           retry_wait_seconds: 15
           command: |
-            curl -sf https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}/${{ github.sha }}.txt
+            curl -sf "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-$BRANCH_NAME/${{ github.sha }}.txt"
 
       - name: Update deployment status
         uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
