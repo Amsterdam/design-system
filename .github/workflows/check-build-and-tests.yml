@@ -8,10 +8,12 @@ on:
 permissions:
   contents: read
 
-# Cancel superseded runs for pull requests only. Runs for pushes to main must
-# always complete: the publish-packages workflow triggers on their completion.
+# Cancel superseded runs for pull requests only. Runs for pushes to main fall
+# back to their run id, forming a unique group: they never cancel or queue
+# behind each other and always complete — the publish-packages workflow
+# triggers on their completion.
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
