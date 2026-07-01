@@ -73,7 +73,7 @@ jobs:
           max_attempts: 40
           retry_wait_seconds: 15
           command: |
-            curl -sf https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-${{ env.BRANCH_NAME }}/${{ github.sha }}.txt
+            curl -sf "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/demo-$BRANCH_NAME/${{ github.sha }}.txt"
 
       - name: Update deployment status
         uses: bobheadxi/deployments@648679e8e4915b27893bd7dbc35cb504dc915bc8 # v1.5.0
