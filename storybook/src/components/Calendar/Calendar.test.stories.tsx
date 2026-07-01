@@ -7,8 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Calendar } from '@amsterdam/design-system-react/src'
 
+import { calendarLocaleProps, localeTranslations } from '#storybook/_common/locale'
 import { mockDate } from '#storybook/_common/mockDate'
-import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
 import { default as calendarMeta } from './Calendar.stories'
 
@@ -27,12 +27,20 @@ type Story = StoryObj<typeof meta>
 
 const testDate = new Date(2026, 11, 31)
 
+// One fully localised Calendar per supported locale, so Chromatic captures the translated weekday
+// and month names for every language and the right-to-left layout for Arabic. `calendarLocaleProps`
+// applies the derived direction and labels; `locale` drives the `Intl`-formatted dates.
 export const Test: Story = {
   args: {
     defaultMonth: new Date(testDate),
-    locale: 'nl',
   },
   beforeEach: () => mockDate(testDate),
-  render: (args, context) => renderComponentVariants(Calendar, { args }, context),
+  render: (args) => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ams-space-l)' }}>
+      {localeTranslations.map(({ locale }) => (
+        <Calendar key={locale ?? 'nl-NL'} {...args} {...calendarLocaleProps(locale)} locale={locale} />
+      ))}
+    </div>
+  ),
   tags: ['!dev', '!autodocs'],
 }
