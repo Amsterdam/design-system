@@ -16,6 +16,7 @@ env:
 jobs:
   remove-demo-directory:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     if: ${{ github.actor != 'dependabot[bot]' }}
     steps:
       - name: Create branch name without text before first forward slash

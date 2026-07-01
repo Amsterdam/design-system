@@ -7,10 +7,17 @@ permissions:
   contents: read
   pull-requests: write
 
+# A new push to the PR makes the run in flight obsolete – cancel it.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   report-bundle-size:
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    # This job builds the packages twice: once for the base branch and once for the PR.
+    timeout-minutes: 20
 
     steps:
       - name: Check out branch

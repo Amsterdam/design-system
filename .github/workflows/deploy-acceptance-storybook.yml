@@ -20,6 +20,8 @@ jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
+    # A hung run would hold the concurrency lock above and block deploys of newer commits.
+    timeout-minutes: 30
     if: ${{ github.actor != 'dependabot[bot]' }}
     steps:
       - name: Create branch name without text before first forward slash
