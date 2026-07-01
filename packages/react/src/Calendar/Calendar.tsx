@@ -26,7 +26,7 @@ export type CalendarProps = {
   readonly linkComponent?: ElementType
   /** Builds the link target for a date. Return `undefined` to render the date as plain text. */
   readonly linkTemplate?: (date: Date) => string | undefined
-  /** BCP 47 language tag for the weekday and month names. Defaults to `'nl-NL'`. */
+  /** BCP 47 language tag for the weekday names, month caption, and accessible date labels. Defaults to `'nl-NL'`. */
   readonly locale?: string
   /**
    * The accessible label for the button that navigates to the next month.

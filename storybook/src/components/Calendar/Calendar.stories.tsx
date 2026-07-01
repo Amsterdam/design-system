@@ -8,7 +8,12 @@ import type { AnchorHTMLAttributes } from 'react'
 
 import { Calendar } from '@amsterdam/design-system-react/src'
 
-import { localeArgTypes, localeSourceTransform, SyncDirFromLocale } from '#storybook/_common/locale'
+import {
+  calendarLocaleArgTypes,
+  calendarLocaleProps,
+  localeSourceTransform,
+  SyncLocaleArgs,
+} from '#storybook/_common/locale'
 
 // Format the local date as YYYY-MM-DD; `toISOString` would shift to UTC and could change the day.
 const formatDate = (date: Date) =>
@@ -33,15 +38,15 @@ const meta = {
     linkTemplate: (date: Date): string | undefined => `?date=${formatDate(date)}`,
   },
   argTypes: {
+    ...calendarLocaleArgTypes,
     defaultMonth: { control: false }, // Enabling the control breaks the story with an error.
-    dir: localeArgTypes.dir,
     linkComponent: { control: false }, // Enabling the control breaks the story with an error.
     linkTemplate: { control: false }, // A function returning string or undefined has no usable controls panel widget.
-    locale: localeArgTypes.locale,
   },
-  decorators: [SyncDirFromLocale],
-  // `dir` is derived synchronously here for an instant visual response; SyncDirFromLocale updates the controls panel via Storybook's async channel.
-  render: (args) => <Calendar {...args} dir={args.locale === 'ar-MA' ? 'rtl' : undefined} />,
+  decorators: [SyncLocaleArgs],
+  parameters: { localeVariant: 'calendar' },
+  // Apply the locale labels and direction synchronously for an instant visual response; SyncLocaleArgs mirrors them into the controls panel through the async channel of Storybook.
+  render: (args) => <Calendar {...args} {...calendarLocaleProps(args.locale)} />,
 } satisfies Meta<typeof Calendar>
 
 export default meta
@@ -52,10 +57,8 @@ export const Default: Story = {
   parameters: {
     docs: {
       source: {
-        transform: localeSourceTransform('Calendar', (dir, locale) => [
-          dir,
+        transform: localeSourceTransform('Calendar', 'calendar', [
           'linkTemplate={(date: Date): string | undefined => `?date=${formatDate(date)}`}',
-          locale,
         ]),
       },
     },
@@ -70,10 +73,8 @@ export const DatesWithoutLinks: Story = {
   parameters: {
     docs: {
       source: {
-        transform: localeSourceTransform('Calendar', (dir, locale) => [
-          dir,
+        transform: localeSourceTransform('Calendar', 'calendar', [
           'linkTemplate={(date: Date) =>\n    date.getDay() === 0 || date.getDay() === 6 ? undefined : `?date=${formatDate(date)}`\n  }',
-          locale,
         ]),
       },
     },

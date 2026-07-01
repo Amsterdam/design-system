@@ -50,30 +50,29 @@ Expanding it with the region subtag `nl-NL` is not necessary:
 
 ## Localise components
 
-Calendar and Date Picker have a `locale` prop that formats their output.
-They use it to render weekday names, month names, and accessible date labels in the chosen language.
+The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) render weekday names, month names, and accessible date labels in the language of their `locale` prop.
+When you omit it, both default to `nl-NL`.
 
 The prop accepts a [BCP 47 language tag](https://www.w3.org/International/articles/language-tags/).
 Unlike the HTML `lang` attribute, including a region subtag is appropriate here — the JavaScript `Intl` API can produce different output for different regional variants of the same language.
 
-When you omit `locale`, both default to `nl-NL`.
-The following locales have been tested:
+These locales have been tested:
 
 - `nl-NL` — Nederlands (Dutch), the default
-- `en-GB` — English (English)
+- `en-GB` — English
 - `de-DE` — Deutsch (German)
 - `fr-FR` — Français (French)
 - `tr-TR` — Türkçe (Turkish)
 - `ar-MA` — العربية (Arabic)
 
-For right-to-left languages like Arabic, also add `dir="rtl"` to the supporting component or to a containing element.
-Supporting components also have accessible names and navigation button labels — localise those too:
+`locale` only drives the text that `Intl` generates.
+Both components also have accessible names and navigation button labels that stay in their default language until you translate them, so set those in the same language to avoid a mix.
+For right-to-left languages like Arabic, also add `dir="rtl"` to the component or to a containing element.
 
 ```tsx
 <Calendar
   accessibleName="التقويم"
   dir="rtl"
-  linkTemplate={linkTemplate}
   locale="ar-MA"
   nextMonthButtonLabel="الشهر التالي"
   nextYearButtonLabel="السنة التالية"

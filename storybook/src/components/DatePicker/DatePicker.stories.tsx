@@ -9,7 +9,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { DatePicker } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 
-import { localeArgTypes, localeSourceTransform, SyncDirFromLocale } from '#storybook/_common/locale'
+import {
+  datePickerLocaleArgTypes,
+  datePickerLocaleProps,
+  datePickerRangeLocaleArgTypes,
+  localeSourceTransform,
+  SyncLocaleArgs,
+} from '#storybook/_common/locale'
 
 type ControlledProps = Omit<DatePickerProps, 'mode' | 'onChange' | 'value'>
 
@@ -34,17 +40,19 @@ const meta = {
     value: null,
   },
   argTypes: {
+    ...datePickerLocaleArgTypes,
     defaultMonth: { control: false }, // No usable Storybook control for Date objects; configured directly in each story.
-    dir: localeArgTypes.dir,
     isDateDisabled: { control: false }, // No usable Storybook control for function props.
-    locale: localeArgTypes.locale,
     maxDate: { control: false }, // No usable Storybook control for Date objects; configured directly in each story.
     minDate: { control: false }, // No usable Storybook control for Date objects; configured directly in each story.
     mode: { table: { disable: true } }, // Owned by the story's state wrapper; not a user-configurable control.
     onChange: { table: { disable: true } }, // Owned by the story's state wrapper; not a user-configurable control.
     value: { table: { disable: true } }, // Owned by the story's state wrapper; not a user-configurable control.
   },
-  decorators: [SyncDirFromLocale],
+  decorators: [SyncLocaleArgs],
+  parameters: { localeVariant: 'datePicker' },
+  // Apply the locale labels and direction synchronously for an instant visual response; SyncLocaleArgs mirrors them into the controls panel through the async channel of Storybook.
+  render: (args) => <SingleDatePicker {...args} {...datePickerLocaleProps(args.locale)} />,
 } satisfies Meta<typeof DatePicker>
 
 export default meta
@@ -57,28 +65,31 @@ export const Default: Story = {
       source: {
         transform: localeSourceTransform(
           'DatePicker',
-          (dir, locale) => [dir, locale, 'onChange={setValue}', 'value={value}'],
+          'datePicker',
+          ['onChange={setValue}', 'value={value}'],
           'const [value, setValue] = useState<Date | null>(null)',
         ),
       },
     },
   },
-  render: (args) => <SingleDatePicker {...args} dir={args.locale === 'ar-MA' ? 'rtl' : undefined} />,
 }
 
 export const Range: Story = {
+  argTypes: datePickerRangeLocaleArgTypes,
   parameters: {
     docs: {
       source: {
         transform: localeSourceTransform(
           'DatePicker',
-          (dir, locale) => [dir, locale, 'mode="range"', 'onChange={setValue}', 'value={value}'],
+          'datePickerRange',
+          ['mode="range"', 'onChange={setValue}', 'value={value}'],
           'const [value, setValue] = useState<DateRange>({ start: null, end: null })',
         ),
       },
     },
+    localeVariant: 'datePickerRange',
   },
-  render: (args) => <RangeDatePicker {...args} dir={args.locale === 'ar-MA' ? 'rtl' : undefined} />,
+  render: (args) => <RangeDatePicker {...args} {...datePickerLocaleProps(args.locale, true)} />,
 }
 
 export const DisabledDates: Story = {
@@ -90,10 +101,9 @@ export const DisabledDates: Story = {
       source: {
         transform: localeSourceTransform(
           'DatePicker',
-          (dir, locale) => [
-            dir,
+          'datePicker',
+          [
             'isDateDisabled={(date) => date.getDay() === 0 || date.getDay() === 6}',
-            locale,
             'onChange={setValue}',
             'value={value}',
           ],
@@ -102,7 +112,6 @@ export const DisabledDates: Story = {
       },
     },
   },
-  render: (args) => <SingleDatePicker {...args} dir={args.locale === 'ar-MA' ? 'rtl' : undefined} />,
 }
 
 export const WithinMonthBounds: Story = {
@@ -115,10 +124,9 @@ export const WithinMonthBounds: Story = {
       source: {
         transform: localeSourceTransform(
           'DatePicker',
-          (dir, locale) => [
+          'datePicker',
+          [
             'defaultMonth={new Date(2026, 2, 1)}',
-            dir,
-            locale,
             'maxDate={new Date(2026, 2, 20)}',
             'minDate={new Date(2026, 2, 10)}',
             'onChange={setValue}',
@@ -130,7 +138,7 @@ export const WithinMonthBounds: Story = {
     },
   },
   render: (args) => (
-    <SingleDatePicker {...args} defaultMonth={new Date(2026, 2, 1)} dir={args.locale === 'ar-MA' ? 'rtl' : undefined} />
+    <SingleDatePicker {...args} {...datePickerLocaleProps(args.locale)} defaultMonth={new Date(2026, 2, 1)} />
   ),
 }
 
@@ -144,10 +152,9 @@ export const LimitedToOneMonth: Story = {
       source: {
         transform: localeSourceTransform(
           'DatePicker',
-          (dir, locale) => [
+          'datePicker',
+          [
             'defaultMonth={new Date(2026, 2, 1)}',
-            dir,
-            locale,
             'maxDate={new Date(2026, 2, 31)}',
             'minDate={new Date(2026, 2, 1)}',
             'onChange={setValue}',
@@ -159,6 +166,6 @@ export const LimitedToOneMonth: Story = {
     },
   },
   render: (args) => (
-    <SingleDatePicker {...args} defaultMonth={new Date(2026, 2, 1)} dir={args.locale === 'ar-MA' ? 'rtl' : undefined} />
+    <SingleDatePicker {...args} {...datePickerLocaleProps(args.locale)} defaultMonth={new Date(2026, 2, 1)} />
   ),
 }

@@ -18,6 +18,7 @@ import * as DatePickerStories from "./DatePicker.stories.tsx";
 <Controls />
 
 **Note**: Some props are excluded from the controls panel: `mode`, `onChange`, and `value` are managed by the story’s state wrapper; `defaultMonth`, `isDateDisabled`, `maxDate`, and `minDate` have no suitable control widget for their type.
+The `dir` and the navigation and accessible-name labels are read-only and follow `locale`, so the controls show a fully localised Date Picker; set them yourself in your app.
 
 ## Usage guidelines
 
@@ -43,14 +44,19 @@ If you set `minDate` or `maxDate`, ensure the initial `value` falls within those
 
 #### Localisation
 
-The Date Picker defaults to Dutch.
-Set `locale` and the navigation button label props to use a different language; add `dir="rtl"` for right-to-left scripts such as Arabic.
-In range mode, also localise `rangeStartAccessibleName` and `rangeEndAccessibleName`.
-See the [Language developer guide](/docs/docs-developer-guide-language--docs) for the supported locales.
+The Date Picker renders weekday names, the month caption, and the accessible date labels in the language of `locale`, which defaults to `nl-NL`.
+It does not translate the rest: set `nextMonthButtonLabel`, `nextYearButtonLabel`, `previousMonthButtonLabel`, and `previousYearButtonLabel` in the same language, or they stay Dutch and screen readers announce a mix.
+In range mode, also localise `rangeStartAccessibleName` and `rangeEndAccessibleName`; they are appended to the start and end dates when those are announced.
+For right-to-left scripts such as Arabic, also add `dir="rtl"`.
+Try the `locale` control above to preview each language; see the [Language developer guide](/docs/docs-developer-guide-language--docs) for the tested locales.
 
 If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props:
 
 ```tsx
+import type { DatePickerProps } from "@amsterdam/design-system-react";
+
+import { DatePicker } from "@amsterdam/design-system-react";
+
 const ArabicDatePicker = (props: DatePickerProps) => (
   <DatePicker
     dir="rtl"
