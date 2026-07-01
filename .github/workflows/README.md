@@ -91,6 +91,6 @@ The supporting scripts live in [`.github/scripts`](../scripts).
 - **`workflow_run` runs on the default branch.**
   Publish always executes from `develop`, then checks out `main` itself; this is intentional and noted inline in the file.
 - **Required status checks follow job names, not workflow names.**
-  Branch protection refers to a check by its job name, and the job names were left unchanged during the rename, so the required checks carry over. Verify them in the repository settings after renaming all the same.
+  Branch protection and rulesets refer to a check by its job's `name:` (or its id, if the job has no `name:`) — never the workflow's name or file. If you rename a job that's a required check, update the required status checks in the repository settings in the same change, or the check gets stuck on “Expected — waiting for status” forever.
 - **Chromatic only snapshots the story named “Test”.**
   That is a Storybook convention unrelated to any workflow name; see the [testing documentation](../../documentation/tests.md).
