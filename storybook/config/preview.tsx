@@ -39,11 +39,19 @@ export const argTypes = {
   },
 }
 
-// Set the language to Dutch and apply the page background overrides for Canvas and Stories.
+// Set the page language and apply the page background overrides for Canvas and Stories.
 // Components that need a realistic Page or a width constraint add that themselves through a decorator.
 export const decorators = [
   (Story: StoryFn, context: StoryContext) => {
-    const { args } = context
+    const { args, parameters } = context
+
+    // The language of the story frame, so localised examples announce and hyphenate correctly and
+    // any `:lang()`-based styling resolves. In priority order:
+    //   1. `parameters.lang` — a story or component pins a fixed language;
+    //   2. the language subtag of the `locale` arg — a story with a locale control; `lang` tracks it;
+    //   3. `'nl'` — the Dutch default.
+    const locale = args['locale']
+    const lang = parameters['lang'] ?? (typeof locale === 'string' ? locale.split('-')[0] : undefined) ?? 'nl'
 
     return (
       <div
@@ -51,7 +59,7 @@ export const decorators = [
           '_ams-page-background--dark': args['color'] === 'inverse',
           '_ams-page-background--light': args['color'] === 'contrast',
         })}
-        lang="nl"
+        lang={lang}
       >
         <Story />
       </div>
