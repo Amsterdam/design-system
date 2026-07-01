@@ -204,15 +204,15 @@ export const SyncLocaleArgs: Decorator = (Story, { parameters }) => {
   const [{ locale }, updateArgs] = useArgs()
   const variant: LocaleVariant = parameters['localeVariant'] ?? 'calendar'
 
+  // Re-applies whenever `locale` changes; `updateArgs` and `variant` are stable, so they never
+  // trigger it on their own.
   useEffect(() => {
     updateArgs(
       variant === 'calendar'
         ? calendarLocaleProps(locale)
         : datePickerLocaleProps(locale, variant === 'datePickerRange'),
     )
-    // Depend only on `locale`: the derived values are a pure function of it, and depending on them
-    // as well would loop through `updateArgs`.
-  }, [locale]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [locale, updateArgs, variant])
 
   return <Story />
 }
