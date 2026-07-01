@@ -10,6 +10,7 @@ import {
   addMonths,
   addYears,
   endOfWeek,
+  getListSeparator,
   getNextFocusDate,
   isOutOfBounds,
   isWithinRange,
@@ -129,5 +130,22 @@ describe('getNextFocusDate', () => {
   it('returns undefined for keys that do not move focus', () => {
     expect(getNextFocusDate('Enter', false, new Date(2026, 2, 15))).toBeUndefined()
     expect(getNextFocusDate(' ', false, new Date(2026, 2, 15))).toBeUndefined()
+  })
+})
+
+describe('getListSeparator', () => {
+  it('uses an ASCII comma for Latin-script locales', () => {
+    expect(getListSeparator('nl-NL')).toBe(', ')
+    expect(getListSeparator('en-GB')).toBe(', ')
+  })
+
+  it('uses the Arabic comma for Arabic-script locales', () => {
+    // The separator is U+060C followed by a space, matching the comma Intl places inside Arabic dates.
+    expect(getListSeparator('ar-MA')).toBe('، ')
+    expect(getListSeparator('ar-EG')).toBe('، ')
+  })
+
+  it('falls back to an ASCII comma when no locale is given', () => {
+    expect(getListSeparator()).toBe(', ')
   })
 })

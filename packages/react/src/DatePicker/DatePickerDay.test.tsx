@@ -28,6 +28,27 @@ describe('DatePickerDay', () => {
     expect(screen.getByRole('button', { name: 'zaterdag 14 maart 2026' })).toBeInTheDocument()
   })
 
+  it('appends the boundary label to the accessible name', () => {
+    render(<DatePickerDay {...defaultProps} boundaryLabel="startdatum" />)
+
+    expect(screen.getByRole('button', { name: 'zaterdag 14 maart 2026, startdatum' })).toBeInTheDocument()
+  })
+
+  it('localises the visible day number so it matches the announced date', () => {
+    render(<DatePickerDay {...defaultProps} locale="ar-EG" />)
+
+    // ar-EG uses Arabic-Indic digits, so the visible number and the announced date agree.
+    expect(screen.getByText('١٤')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'السبت، ١٤ مارس ٢٠٢٦' })).toBeInTheDocument()
+  })
+
+  it('joins the boundary label with the Arabic comma for Arabic locales', () => {
+    render(<DatePickerDay {...defaultProps} boundaryLabel="تاريخ البدء" locale="ar-EG" />)
+
+    // U+060C keeps the appended label consistent with the comma inside the Arabic date.
+    expect(screen.getByRole('button', { name: 'السبت، ١٤ مارس ٢٠٢٦، تاريخ البدء' })).toBeInTheDocument()
+  })
+
   it('marks today with aria-current', () => {
     render(<DatePickerDay {...defaultProps} isCurrent />)
 

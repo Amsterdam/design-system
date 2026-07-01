@@ -16,6 +16,8 @@ export type CalendarDayProps = {
   readonly isCurrent: boolean
 } & Pick<CalendarProps, 'linkComponent' | 'linkTemplate' | 'locale'>
 
+const formatDayNumber = (date: Date, locale?: string) => new Intl.NumberFormat(locale).format(date.getDate())
+
 const formatAccessibleDate = (date: Date, locale?: string) =>
   new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', weekday: 'long', year: 'numeric' }).format(date)
 
@@ -33,7 +35,7 @@ export const CalendarDay = ({ date, isCurrent, linkComponent, linkTemplate, loca
 
   const content = (
     <>
-      <span aria-hidden={true}>{date.getDate()}</span>
+      <span aria-hidden={true}>{formatDayNumber(date, locale)}</span>
       <span className="ams-visually-hidden">{formatAccessibleDate(date, locale)}</span>
     </>
   )
