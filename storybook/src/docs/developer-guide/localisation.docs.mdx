@@ -2,11 +2,19 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
-<Meta title="Docs/Developer Guide/Language" />
+<Meta title="Docs/Developer Guide/Localisation" />
 
-# Language
+# Localisation
 
-## Specify the language for the entire document
+Localisation covers two related tasks.
+Declare the language of your content so browsers and assistive technologies interpret it correctly, and tell components which language and region to format their output in.
+
+## Language
+
+Declare the human language of your content with the HTML `lang` attribute.
+This helps browsers, screen readers, and search engines interpret it correctly.
+
+### Specify the language for the entire document
 
 It is mandatory to explicitly indicate in which language the content of your page is.
 With the correct language set, your website will work better.
@@ -24,7 +32,7 @@ That is why you have to remember to do this properly yourself.
 </html>
 ```
 
-## Highlight elements in another language
+### Highlight elements in another language
 
 If a specific element is in another language, indicate this there.
 
@@ -39,7 +47,7 @@ For example, for a link to an English site or page in a menu:
 </nav>
 ```
 
-## Do not specify the region
+### Do not specify the region
 
 The language tag `nl` is sufficient.
 Expanding it with the region subtag `nl-NL` is not necessary:
@@ -48,7 +56,12 @@ Expanding it with the region subtag `nl-NL` is not necessary:
 > Avoid region, script or other subtags except where they add useful distinguishing information.
 > – [W3C Internationalization Activity](https://www.w3.org/International/articles/language-tags/)
 
-## Localise components
+## Locale
+
+Some components render their own text, such as weekday and month names.
+Set the language and region they format it in with the `locale` prop.
+
+### Localise components
 
 The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) render weekday names, month names, and accessible date labels in the language of their `locale` prop.
 When you omit it, both default to `nl-NL`.

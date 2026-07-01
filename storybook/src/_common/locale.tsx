@@ -149,7 +149,7 @@ export const localeArgTypes = {
       type: 'select',
     },
     description:
-      'BCP 47 language tag. Sets the weekday and month names and the accessible date labels, and here also applies the matching navigation and accessible-name labels below. See the Language developer guide for the tested locales.',
+      'BCP 47 language tag. Sets the weekday and month names and the accessible date labels, and here also applies the matching navigation and accessible-name labels below. See the Localisation developer guide for the tested locales.',
     options: [undefined, 'en-GB', 'de-DE', 'fr-FR', 'tr-TR', 'ar-MA'],
   },
 } as const
