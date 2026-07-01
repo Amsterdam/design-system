@@ -35,10 +35,11 @@ jobs:
         id: pr-info
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_REF: ${{ github.head_ref }}
         run: |
           if [ "${{ github.event_name }}" == "pull_request" ]; then
-            echo "sha=${{ github.event.pull_request.head.sha }}" >> $GITHUB_OUTPUT
-            echo "branch=${{ github.head_ref }}" >> $GITHUB_OUTPUT
+            echo "sha=${{ github.event.pull_request.head.sha }}" >> "$GITHUB_OUTPUT"
+            echo "branch=$HEAD_REF" >> "$GITHUB_OUTPUT"
           else
             PR_DATA=$(gh pr view ${{ github.event.issue.number }} --json headRefOid,headRefName --repo ${{ github.repository }})
             echo "sha=$(echo "$PR_DATA" | jq -r '.headRefOid')" >> $GITHUB_OUTPUT

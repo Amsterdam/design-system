@@ -12,7 +12,7 @@ permissions:
   deployments: write
 
 env:
-  BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+  RAW_BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 jobs:
   remove-demo-directory:
     runs-on: ubuntu-latest
@@ -20,9 +20,8 @@ jobs:
     steps:
       - name: Create branch name without text before first forward slash
         run: |
-          RAW_BRANCH_NAME=${{ github.head_ref || github.ref_name }}
-          BRANCH_NAME=$(echo $RAW_BRANCH_NAME | sed 's/[^/]*\///')
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          BRANCH_NAME=$(echo "$RAW_BRANCH_NAME" | sed 's/[^/]*\///')
+          echo "BRANCH_NAME=$BRANCH_NAME" >> "$GITHUB_ENV"
 
       - name: Check out branch to access .nvmrc
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
