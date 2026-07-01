@@ -9,6 +9,13 @@ permissions:
   contents: read
   pull-requests: write
 
+# A newer Chromatic run for the same PR makes the one in flight obsolete – cancel it to save snapshots.
+# Only qualifying events may cancel: this workflow triggers on every PR comment, and the job’s `if`
+# only filters after the concurrency group has been entered.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.event.issue.number }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || (startsWith(github.event.comment.body, '/chromatic test') && contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)) }}
+
 jobs:
   run-chromatic:
     name: Run Chromatic

@@ -12,6 +12,11 @@ on:
 permissions:
   pull-requests: read
 
+# A new push or title edit makes the run in flight obsolete – cancel it.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   validate-pr-title:
     name: Validate PR title
