@@ -17,6 +17,7 @@ concurrency:
 jobs:
   install:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Check out branch
@@ -36,6 +37,7 @@ jobs:
 
   build-lint-test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     needs: install
 
     steps:
