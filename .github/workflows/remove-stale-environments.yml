@@ -62,7 +62,7 @@ jobs:
       - name: Install dependencies
         run: "pip install --only-binary=:all: --require-hashes -r .github/scripts/requirements.txt"
 
-      - name: Cleanup environments
+      - name: Remove environments
         env:
           # Falls through to GITHUB_TOKEN when the admin secret isn't set so
           # dry-runs and listing still work; see permissions note above.

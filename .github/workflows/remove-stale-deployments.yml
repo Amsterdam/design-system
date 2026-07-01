@@ -68,7 +68,7 @@ jobs:
       - name: Install dependencies
         run: "pip install --only-binary=:all: --require-hashes -r .github/scripts/requirements.txt"
 
-      - name: Cleanup deployments
+      - name: Remove deployments
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
