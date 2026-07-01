@@ -42,8 +42,8 @@ jobs:
             echo "branch=$HEAD_REF" >> "$GITHUB_OUTPUT"
           else
             PR_DATA=$(gh pr view ${{ github.event.issue.number }} --json headRefOid,headRefName --repo ${{ github.repository }})
-            echo "sha=$(echo "$PR_DATA" | jq -r '.headRefOid')" >> $GITHUB_OUTPUT
-            echo "branch=$(echo "$PR_DATA" | jq -r '.headRefName')" >> $GITHUB_OUTPUT
+            echo "sha=$(echo "$PR_DATA" | jq -r '.headRefOid')" >> "$GITHUB_OUTPUT"
+            echo "branch=$(echo "$PR_DATA" | jq -r '.headRefName')" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Check out branch
