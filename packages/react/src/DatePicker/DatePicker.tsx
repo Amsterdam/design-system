@@ -12,7 +12,7 @@ import { getDaysInMonth, isSameDay, isSameMonth, startOfDay } from '../common/da
 import { useMonthNavigation } from '../common/useMonthNavigation'
 import { DatePickerBody } from './DatePickerBody'
 import { DatePickerHeader } from './DatePickerHeader'
-import { getNextFocusDate, isOutOfBounds, isWithinRange, nextRange } from './utils'
+import { getListSeparator, getNextFocusDate, isOutOfBounds, isWithinRange, nextRange } from './utils'
 
 /** A start and end date. Either side may be `null` while the range is being chosen. */
 export type DateRange = {
@@ -181,7 +181,7 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
     const isStart = start !== null && isSameDay(date, start)
     const isEnd = end !== null && isSameDay(date, end)
 
-    if (isStart && isEnd) return `${rangeStartAccessibleName}, ${rangeEndAccessibleName}`
+    if (isStart && isEnd) return `${rangeStartAccessibleName}${getListSeparator(locale)}${rangeEndAccessibleName}`
     if (isStart) return rangeStartAccessibleName
     if (isEnd) return rangeEndAccessibleName
 

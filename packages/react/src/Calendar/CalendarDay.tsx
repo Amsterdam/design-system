@@ -16,6 +16,19 @@ export type CalendarDayProps = {
   readonly isCurrent: boolean
 } & Pick<CalendarProps, 'linkComponent' | 'linkTemplate' | 'locale'>
 
+const dayNumberFormatters = new Map<string | undefined, Intl.NumberFormat>()
+
+const formatDayNumber = (date: Date, locale?: string) => {
+  let formatter = dayNumberFormatters.get(locale)
+
+  if (!formatter) {
+    formatter = new Intl.NumberFormat(locale)
+    dayNumberFormatters.set(locale, formatter)
+  }
+
+  return formatter.format(date.getDate())
+}
+
 const formatAccessibleDate = (date: Date, locale?: string) =>
   new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', weekday: 'long', year: 'numeric' }).format(date)
 
@@ -33,7 +46,7 @@ export const CalendarDay = ({ date, isCurrent, linkComponent, linkTemplate, loca
 
   const content = (
     <>
-      <span aria-hidden={true}>{date.getDate()}</span>
+      <span aria-hidden={true}>{formatDayNumber(date, locale)}</span>
       <span className="ams-visually-hidden">{formatAccessibleDate(date, locale)}</span>
     </>
   )

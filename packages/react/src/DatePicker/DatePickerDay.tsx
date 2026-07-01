@@ -9,6 +9,8 @@ import { clsx } from 'clsx'
 
 import type { DatePickerProps } from './DatePicker'
 
+import { getListSeparator } from './utils'
+
 export type DatePickerDayProps = {
   /** Text appended to the accessible name, e.g. to mark the start or end of a range. */
   readonly boundaryLabel?: string
@@ -28,6 +30,19 @@ export type DatePickerDayProps = {
   readonly onSelect: (date: Date) => void
 } & Pick<DatePickerProps, 'locale'>
 
+const dayNumberFormatters = new Map<string | undefined, Intl.NumberFormat>()
+
+const formatDayNumber = (date: Date, locale?: string) => {
+  let formatter = dayNumberFormatters.get(locale)
+
+  if (!formatter) {
+    formatter = new Intl.NumberFormat(locale)
+    dayNumberFormatters.set(locale, formatter)
+  }
+
+  return formatter.format(date.getDate())
+}
+
 const formatAccessibleDate = (date: Date, locale?: string, boundaryLabel?: string) => {
   const fullDate = new Intl.DateTimeFormat(locale, {
     day: 'numeric',
@@ -36,7 +51,7 @@ const formatAccessibleDate = (date: Date, locale?: string, boundaryLabel?: strin
     year: 'numeric',
   }).format(date)
 
-  return boundaryLabel ? `${fullDate}, ${boundaryLabel}` : fullDate
+  return boundaryLabel ? `${fullDate}${getListSeparator(locale)}${boundaryLabel}` : fullDate
 }
 
 export const DatePickerDay = ({
@@ -60,7 +75,7 @@ export const DatePickerDay = ({
       tabIndex={isFocused ? 0 : -1}
       type="button"
     >
-      <span aria-hidden={true}>{date.getDate()}</span>
+      <span aria-hidden={true}>{formatDayNumber(date, locale)}</span>
       <span className="ams-visually-hidden">{formatAccessibleDate(date, locale, boundaryLabel)}</span>
     </button>
   </div>
