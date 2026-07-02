@@ -1,9 +1,0 @@
-import{i as e}from"./preload-helper-CT_b8DTk.js";import{n as t,t as n}from"./renderComponentVariants-BBedZNRR.js";import{dn as r,t as i}from"./src-Byr4S8_c.js";import a,{n as o}from"./Blockquote.stories-Do76_MK0.js";var s,c,l;e((()=>{i(),n(),o(),s={...a,title:`Components/Text/Blockquote`},c={args:{children:`Voor Amsterdam was de Jordaan één oproer en één fort. De Amsterdammer begreep de Jordaner niet, die zelden uit zijn buurt komt, soms niet uit zijn straat, wiens stad haar eigen plattegrond heeft, een stad in een stad.`},render:(e,n)=>t(r,{args:e},n),tags:[`!dev`,`!autodocs`]},c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
-  args: {
-    children: 'Voor Amsterdam was de Jordaan één oproer en één fort. De Amsterdammer begreep de Jordaner niet, die zelden uit zijn buurt komt, soms niet uit zijn straat, wiens stad haar eigen plattegrond heeft, een stad in een stad.'
-  },
-  render: (args, context) => renderComponentVariants(Blockquote, {
-    args
-  }, context),
-  tags: ['!dev', '!autodocs']
-}`,...c.parameters?.docs?.source}}},l=[`Test`]}))();export{c as Test,l as __namedExportsOrder,s as default};
