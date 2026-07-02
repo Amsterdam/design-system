@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Card, Paragraph } from '@amsterdam/design-system-react'
 import { OrderedList } from '@amsterdam/design-system-react/src'
 
+import { inverseColorArgType } from '#storybook/_common/argTypes'
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 import { exampleOrderedList } from '#storybook/_common/exampleContent'
 
@@ -23,20 +24,14 @@ const meta = {
     start: undefined,
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
+    color: inverseColorArgType,
     reversed: {
       control: 'boolean',
       description: 'Numbers the items from the highest value down.',
     },
     size: {
       control: {
-        labels: { small: 'small', undefined: 'medium' },
+        labels: { undefined: 'medium (default)' },
         type: 'radio',
       },
       options: ['small', undefined],

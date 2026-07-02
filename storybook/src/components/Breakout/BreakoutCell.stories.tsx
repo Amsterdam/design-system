@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Breakout } from '@amsterdam/design-system-react/src'
+import { breakoutCellTags } from '@amsterdam/design-system-react/src/Breakout/BreakoutCell'
 
 import { GridColumnsGuide } from '#storybook/_components/GridColumnsGuide/GridColumnsGuide'
 
@@ -14,20 +15,28 @@ const meta = {
   component: Breakout.Cell,
   argTypes: {
     as: {
-      control: { type: 'radio' },
-      options: ['article', 'div', 'section'],
+      control: {
+        labels: { undefined: 'div (default)' },
+        type: 'radio',
+      },
+      options: [undefined, ...breakoutCellTags],
     },
+    // The span and start props take a number, ‘all’, or an object of numbers per grid variant – no control expresses that.
     colSpan: {
-      control: { max: 12, min: 1, type: 'number' },
+      control: false,
     },
     colStart: {
-      control: { max: 12, min: 1, type: 'number' },
+      control: false,
+    },
+    // The allowed value differs per span variant – a control would mislead, the description explains it.
+    has: {
+      control: false,
     },
     rowSpan: {
-      control: { max: 4, min: 1, type: 'number' },
+      control: false,
     },
     rowStart: {
-      control: { max: 4, min: 1, type: 'number' },
+      control: false,
     },
   },
   decorators: [

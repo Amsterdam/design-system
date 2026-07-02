@@ -9,15 +9,15 @@ import { Grid, Heading, Menu, PageFooter, PageHeader, Paragraph, SkipLink } from
 import { SettingsFillIcon } from '@amsterdam/design-system-react-icons'
 import { Page } from '@amsterdam/design-system-react/src'
 
+import { derivedArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Containers/Page',
   component: Page,
   argTypes: {
-    withMenu: {
-      description:
-        'This prop updates automatically to prevent an invalid appearance: a Menu can only be used in Compact Mode.',
-      table: { readonly: true },
-    },
+    withMenu: derivedArgType(
+      'This prop updates automatically to prevent an invalid appearance: a Menu can only be used in Compact Mode.',
+    ),
   },
   parameters: {
     layout: 'fullscreen',

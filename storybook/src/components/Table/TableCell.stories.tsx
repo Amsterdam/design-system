@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     align: {
       control: {
-        labels: { undefined: 'start' },
+        labels: { undefined: 'start (default)' },
         type: 'radio',
       },
       options: [undefined, 'center', 'end'],

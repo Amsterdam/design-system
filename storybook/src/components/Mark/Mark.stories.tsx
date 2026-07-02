@@ -22,6 +22,7 @@ export const Default: Story = {
   args: {
     children: 'Wat vinden Amsterdammers belangrijk?',
   },
+  // Only this story renders a single Mark whose text the control drives – the other story composes many instances.
   argTypes: {
     children: {
       description: 'The text to mark.',

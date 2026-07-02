@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { MailIcon } from '@amsterdam/design-system-react-icons'
 import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 
+import { inverseColorArgType } from '#storybook/_common/argTypes'
 import { exampleParagraph } from '#storybook/_common/exampleContent'
 
 const paragraph = exampleParagraph()
@@ -23,16 +24,10 @@ const meta = {
       description: 'The paragraph text.',
       table: { disable: false },
     },
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
+    color: inverseColorArgType,
     size: {
       control: {
-        labels: { large: 'large', small: 'small', undefined: 'medium' },
+        labels: { undefined: 'medium (default)' },
         type: 'radio',
       },
       options: ['small', undefined, 'large'],

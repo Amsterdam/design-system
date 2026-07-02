@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Card, Heading, Paragraph } from '@amsterdam/design-system-react'
 import { Column } from '@amsterdam/design-system-react/src'
-import { columnGapSizes } from '@amsterdam/design-system-react/src/Column/Column'
+import { columnGapSizes, columnTags } from '@amsterdam/design-system-react/src/Column/Column'
 import { crossAlignOptionsForColumn, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
 
 const ThreeItems = [
@@ -26,22 +26,29 @@ const meta = {
   argTypes: {
     align: {
       control: {
-        labels: { undefined: 'start' },
-        type: 'radio',
+        labels: { undefined: 'start (default)' },
+        type: 'select',
       },
       options: [undefined, ...mainAlignOptions],
     },
     alignHorizontal: {
       control: {
-        labels: { undefined: 'stretch' },
+        labels: { undefined: 'stretch (default)' },
         type: 'radio',
       },
       options: [undefined, ...crossAlignOptionsForColumn],
     },
+    as: {
+      control: {
+        labels: { undefined: 'div (default)' },
+        type: 'radio',
+      },
+      options: [undefined, ...columnTags],
+    },
     gap: {
       control: {
-        labels: { undefined: 'medium' },
-        type: 'radio',
+        labels: { undefined: 'medium (default)' },
+        type: 'select',
       },
       options: [undefined, ...columnGapSizes],
     },
