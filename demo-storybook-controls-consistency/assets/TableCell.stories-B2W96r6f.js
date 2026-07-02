@@ -1,5 +1,0 @@
-import{i as e}from"./preload-helper-CT_b8DTk.js";import{t}from"./jsx-runtime-BCDDjCIb.js";import{g as n,t as r}from"./src-C1A9rIMv.js";var i,a,o,s,c=e((()=>{r(),i=t(),a={title:`Components/Containers/Table`,component:n.Cell,argTypes:{align:{control:{labels:{undefined:`start (default)`},type:`radio`},options:[void 0,`center`,`end`]},children:{control:`text`,description:`The content of the cell.`,table:{disable:!1}}},decorators:[e=>(0,i.jsx)(n,{style:{minInlineSize:`16rem`},children:(0,i.jsx)(n.Body,{children:(0,i.jsx)(n.Row,{children:(0,i.jsx)(e,{})})})})]},o={args:{children:`€ 77,85`}},o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
-  args: {
-    children: '€ 77,85'
-  }
-}`,...o.parameters?.docs?.source}}},s=[`Cell`]}));c();export{o as Cell,s as __namedExportsOrder,a as default,c as t};
