@@ -8,10 +8,17 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { {{pascalCase name}} } from '@amsterdam/design-system-react/src'
 
 const meta = {
-  title: '{{titleCase name}}',
+  title: 'Components/TODO-ADD-GROUP/{{titleCase name}}',
   component: {{pascalCase name}},
   args: {
     children: 'Nieuw component',
+  },
+  // Configure controls following documentation/storybook.md.
+  argTypes: {
+    children: {
+      description: 'Any content for this component.',
+      table: { disable: false },
+    },
   },
 } satisfies Meta<typeof {{pascalCase name}}>
 
