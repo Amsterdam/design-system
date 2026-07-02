@@ -76,7 +76,30 @@ const formatDeprecatedProps: ArgTypesEnhancer = ({ component, argTypes }) => {
   )
 }
 
-export const argTypesEnhancers = [formatDeprecatedProps]
+// Show `@default` JSDoc tags in the ‘Default’ column of the controls tables, unless docgen already
+// derived a default value from the code itself.
+// The tags reach the docgen info through `shouldIncludePropTagMap` in main.ts.
+const formatDefaultValues: ArgTypesEnhancer = ({ component, argTypes }) => {
+  const docgenProps = (component as ComponentWithDocgen | null)?.__docgenInfo?.props
+
+  if (!docgenProps) {
+    return argTypes
+  }
+
+  return Object.fromEntries(
+    Object.entries(argTypes).map(([name, argType]) => {
+      const defaultValue = docgenProps[name]?.tags?.['default']
+
+      if (defaultValue === undefined || argType.table?.defaultValue !== undefined) {
+        return [name, argType]
+      }
+
+      return [name, { ...argType, table: { ...argType.table, defaultValue: { summary: defaultValue } } }]
+    }),
+  )
+}
+
+export const argTypesEnhancers = [formatDefaultValues, formatDeprecatedProps]
 
 // Set the page language and apply the page background overrides for Canvas and Stories.
 // Components that need a realistic Page or a width constraint add that themselves through a decorator.
@@ -126,6 +149,7 @@ const DocsContainerWithFooter = ({ children, ...props }: ComponentProps<typeof D
 export const parameters = {
   backgrounds: { disable: true },
   controls: {
+    expanded: true, // Shows the description and default columns in the Controls addon
     sort: 'alpha', // Sorts controls in the Controls addon
   },
   docs: {
