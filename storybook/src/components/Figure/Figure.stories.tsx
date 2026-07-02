@@ -15,22 +15,10 @@ const caption = exampleCaption()
 
 const meta = {
   title: 'Components/Media/Figure',
-  component: Figure.Caption,
-  args: {
-    children: caption,
-  },
-  argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
-  },
+  component: Figure,
   decorators: [maximiseInlineSize('vi-medium')],
-  render: ({ children, ...args }) => (
-    <Figure>
+  render: (args) => (
+    <Figure {...args}>
       <Image
         alt=""
         aspectRatio="16:5"
@@ -38,10 +26,10 @@ const meta = {
         src="https://picsum.photos/1440/450"
         srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
       />
-      <Figure.Caption {...args}>{children}</Figure.Caption>
+      <Figure.Caption>{caption}</Figure.Caption>
     </Figure>
   ),
-} satisfies Meta<typeof Figure.Caption>
+} satisfies Meta<typeof Figure>
 
 export default meta
 
@@ -50,7 +38,16 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const InverseColour: Story = {
-  args: {
-    color: 'inverse',
-  },
+  render: (args) => (
+    <Figure {...args}>
+      <Image
+        alt=""
+        aspectRatio="16:5"
+        sizes="(max-width: 37.5rem) 640px, (max-width: 72.5rem) 1280px, 1440px"
+        src="https://picsum.photos/1440/450"
+        srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
+      />
+      <Figure.Caption color="inverse">{caption}</Figure.Caption>
+    </Figure>
+  ),
 }

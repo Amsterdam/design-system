@@ -141,7 +141,7 @@ export const localeArgTypes = {
       labels: {
         'ar-MA': 'العربية (Arabic)',
         'de-DE': 'Deutsch (German)',
-        'en-GB': 'English (English)',
+        'en-GB': 'English (British)',
         'fr-FR': 'Français (French)',
         'tr-TR': 'Türkçe (Turkish)',
         undefined: 'Nederlands (Dutch)',

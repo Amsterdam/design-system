@@ -7,6 +7,7 @@ import { StatusBadge } from "#storybook/_components/StatusBadge/StatusBadge.tsx"
 import tokens from "#tokens/components/ams/menu.tokens.json";
 
 import * as MenuStories from "./Menu.stories.tsx";
+import * as MenuLinkStories from "./MenuLink.stories.tsx";
 
 <StatusBadge
   description="We’re experimenting with this component; feedback is welcome. Expect changes in future iterations."
@@ -26,6 +27,17 @@ On the page for the Story, you can change the size of the preview with the relat
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Link
+
+Each link in the Menu can be given a target url, a label and one of our [icons](/docs/brand-assets-icons--docs).
+Use the filled variant.
+
+<Canvas of={MenuLinkStories.Link} />
+
+<Controls of={MenuLinkStories.Link} />
 
 ## Usage guidelines
 
@@ -50,15 +62,6 @@ Use filled icons for the links.
 ## Examples
 
 See the [Internal Home Page](/story/pages-internal-home-page--default) template for a full-page example.
-
-### Link
-
-Each link in the Menu can be given a target url, a label and one of our [icons](/docs/brand-assets-icons--docs).
-Use the filled variant.
-
-<Canvas of={MenuStories.Link} />
-
-<Controls of={MenuStories.Link} />
 
 ## Design
 

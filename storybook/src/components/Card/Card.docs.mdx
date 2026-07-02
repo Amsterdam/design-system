@@ -1,11 +1,15 @@
 {/* @license CC0-1.0 */}
 
-import { Canvas, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
 import tokens from "#tokens/components/ams/card.tokens.json";
 
 import * as CardStories from "./Card.stories.tsx";
+import * as CardHeadingStories from "./CardHeading.stories.tsx";
+import * as CardHeadingGroupStories from "./CardHeadingGroup.stories.tsx";
+import * as CardImageStories from "./CardImage.stories.tsx";
+import * as CardLinkStories from "./CardLink.stories.tsx";
 
 <Meta of={CardStories} />
 
@@ -15,10 +19,46 @@ import * as CardStories from "./Card.stories.tsx";
 
 <Primary />
 
+This component has no props to configure.
+
 ## Subcomponents
 
-Use the Card Heading, Card Heading Group and Card Image subcomponents.
-They apply the correct spacing.
+### Heading
+
+Contains the name and link of the Card.
+Accepts all props of a regular Heading.
+Set its `level` to fit the document outline.
+
+<Canvas of={CardHeadingStories.Heading} />
+
+<Controls of={CardHeadingStories.Heading} />
+
+### Heading Group
+
+Displays a `tagline` above the heading.
+
+<Canvas of={CardHeadingGroupStories.HeadingGroup} />
+
+<Controls of={CardHeadingGroupStories.HeadingGroup} />
+
+### Image
+
+The image of the Card.
+It accepts all props of a regular Image, such as `aspectRatio`.
+
+<Canvas of={CardImageStories.Image} />
+
+<Controls of={CardImageStories.Image} />
+
+### Link
+
+Makes the entire Card clickable.
+Place it inside the Heading.
+Set `linkComponent` to integrate with a routing library.
+
+<Canvas of={CardLinkStories.Link} />
+
+<Controls of={CardLinkStories.Link} />
 
 ## Usage guidelines
 

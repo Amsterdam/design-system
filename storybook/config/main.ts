@@ -58,6 +58,7 @@ const config: StorybookConfig = {
         `${path.resolve(repoRoot, 'packages-proprietary/react-icons/src')}/**/*.tsx`,
       ],
       shouldExtractLiteralValuesFromEnum: true,
+      shouldIncludePropTagMap: true, // Provides JSDoc tags like `@deprecated` to the argTypes enhancer in preview.tsx
       shouldRemoveUndefinedFromOptional: true,
       tsconfigPath: 'tsconfig.docgen.json',
     },

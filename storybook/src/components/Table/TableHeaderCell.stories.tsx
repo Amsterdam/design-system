@@ -9,7 +9,7 @@ import { Table } from '@amsterdam/design-system-react/src'
 
 const meta = {
   title: 'Components/Containers/Table',
-  component: Table.Cell,
+  component: Table.HeaderCell,
   argTypes: {
     align: {
       control: {
@@ -20,29 +20,34 @@ const meta = {
     },
     children: {
       control: 'text',
-      description: 'The content of the cell.',
+      description: 'The text for the column header.',
       table: { disable: false },
     },
   },
   decorators: [
     (Story) => (
       <Table style={{ minInlineSize: '16rem' }}>
-        <Table.Body>
+        <Table.Header>
           <Table.Row>
             <Story />
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>West</Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>
     ),
   ],
-} satisfies Meta<typeof Table.Cell>
+} satisfies Meta<typeof Table.HeaderCell>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Cell: Story = {
+export const HeaderCell: Story = {
   args: {
-    children: '€ 77,85',
+    children: 'Stadsdeel',
   },
 }

@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { GridCellProps } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Paragraph } from '@amsterdam/design-system-react'
@@ -26,21 +25,7 @@ const meta = {
 
 export default meta
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const cellMeta = {
-  component: Grid.Cell,
-  argTypes: {
-    span: {
-      control: { max: 12, min: 1, type: 'number' },
-    },
-    start: {
-      control: { max: 12, min: 1, type: 'number' },
-    },
-  },
-} satisfies Meta<typeof Grid.Cell>
-
 type Story = StoryObj<typeof meta>
-type CellStory = StoryObj<typeof cellMeta>
 
 const StoryTemplate: Story = {
   args: {
@@ -54,20 +39,6 @@ const StoryTemplate: Story = {
       </>
     ),
   ],
-}
-
-const CellStoryTemplate: CellStory = {
-  decorators: [
-    (Story) => (
-      <>
-        <GridColumnsGuide />
-        <Grid paddingVertical="x-large">
-          <Story />
-        </Grid>
-      </>
-    ),
-  ],
-  render: ({ children, ...args }) => <Grid.Cell {...args}>{children}</Grid.Cell>,
 }
 
 export const Default: Story = {
@@ -101,14 +72,6 @@ export const VerticalGap: Story = {
   },
 }
 
-export const SpanColumns: CellStory = {
-  ...CellStoryTemplate,
-  args: {
-    className: '_ams-item',
-    span: 4,
-  },
-}
-
 export const SpanRows: Story = {
   ...StoryTemplate,
   args: {
@@ -117,31 +80,6 @@ export const SpanRows: Story = {
       <Grid.Cell className="_ams-item" key={2} span={{ narrow: 2, medium: 6, wide: 10 }} />,
       <Grid.Cell className="_ams-item" key={3} span={{ narrow: 2, medium: 6, wide: 10 }} />,
     ],
-  },
-}
-
-export const SpanResponsively: CellStory = {
-  ...CellStoryTemplate,
-  args: {
-    className: '_ams-item',
-    span: { narrow: 4, medium: 6, wide: 8 },
-  },
-}
-
-export const SpanAllColumns: CellStory = {
-  ...CellStoryTemplate,
-  args: {
-    className: '_ams-item',
-    span: 'all',
-  },
-}
-
-export const StartPosition: CellStory = {
-  ...CellStoryTemplate,
-  args: {
-    className: '_ams-item',
-    span: 3,
-    start: { narrow: 2, medium: 4, wide: 6 },
   },
 }
 
@@ -162,12 +100,4 @@ export const BackgroundInCompactMode: Story = {
     ],
   },
   decorators: undefined,
-}
-
-export const ImproveSemantics: CellStory = {
-  ...CellStoryTemplate,
-  args: {
-    as: 'section',
-  },
-  render: ({ as }: GridCellProps) => <Grid.Cell as={as} className="_ams-item" span="all" />,
 }

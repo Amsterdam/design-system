@@ -1,5 +1,6 @@
 import type { StoryContext, StoryFn } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
+import type { ArgTypesEnhancer } from 'storybook/internal/types'
 
 import { DocsContainer } from '@storybook/addon-docs/blocks'
 import { withThemeByClassName } from '@storybook/addon-themes'
@@ -38,6 +39,44 @@ export const argTypes = {
     table: { disable: true },
   },
 }
+
+type ComponentWithDocgen = {
+  __docgenInfo?: {
+    props?: Record<string, { tags?: Record<string, string> }>
+  }
+}
+
+// Surface `@deprecated` JSDoc tags in the controls tables: lead the prop description with a bold
+// notice and group the prop under a ‘Deprecated’ category at the bottom of the table.
+// The tags reach the docgen info through `shouldIncludePropTagMap` in main.ts.
+const formatDeprecatedProps: ArgTypesEnhancer = ({ component, argTypes }) => {
+  const docgenProps = (component as ComponentWithDocgen | null)?.__docgenInfo?.props
+
+  if (!docgenProps) {
+    return argTypes
+  }
+
+  return Object.fromEntries(
+    Object.entries(argTypes).map(([name, argType]) => {
+      const deprecated = docgenProps[name]?.tags?.['deprecated']
+
+      if (deprecated === undefined) {
+        return [name, argType]
+      }
+
+      return [
+        name,
+        {
+          ...argType,
+          description: [`**Deprecated.** ${deprecated}`.trim(), argType.description].filter(Boolean).join('\n\n'),
+          table: { ...argType.table, category: 'Deprecated' },
+        },
+      ]
+    }),
+  )
+}
+
+export const argTypesEnhancers = [formatDeprecatedProps]
 
 // Set the page language and apply the page background overrides for Canvas and Stories.
 // Components that need a realistic Page or a width constraint add that themselves through a decorator.

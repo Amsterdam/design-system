@@ -7,6 +7,7 @@ import tokens from "#tokens/components/ams/table.tokens.json";
 
 import * as TableStories from "./Table.stories.tsx";
 import * as TableCellStories from "./TableCell.stories.tsx";
+import * as TableHeaderCellStories from "./TableHeaderCell.stories.tsx";
 
 <Meta of={TableStories} />
 
@@ -16,7 +17,12 @@ import * as TableCellStories from "./TableCell.stories.tsx";
 
 <Primary />
 
+This component has no props to configure.
+
 ## Subcomponents
+
+A Table is composed of a Caption, a Header containing Header Cells, a Body, an optional Footer, and Rows of Cells.
+Caption, Header, Body, Footer, and Row have no props of their own; the example above shows each of them in place.
 
 ### Cell
 
@@ -27,6 +33,15 @@ Apply the same value to all cells in the column and the matching `Table.HeaderCe
 <Canvas of={TableCellStories.Cell} />
 
 <Controls of={TableCellStories.Cell} />
+
+### Header Cell
+
+Labels the column of values below it.
+Use the `align` prop to match the alignment of the column’s cells.
+
+<Canvas of={TableHeaderCellStories.HeaderCell} />
+
+<Controls of={TableHeaderCellStories.HeaderCell} />
 
 ## Usage guidelines
 

@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/link-list.tokens.json";
 
 import * as LinkListStories from "./LinkList.stories.tsx";
+import * as LinkListLinkStories from "./LinkListLink.stories.tsx";
 
 <Meta of={LinkListStories} />
 
@@ -14,6 +15,19 @@ import * as LinkListStories from "./LinkList.stories.tsx";
 <Description of={LinkListStories} />
 
 <Primary />
+
+This component has no props to configure.
+
+## Subcomponents
+
+### Link
+
+The Link List Link renders both the `<li>` and `<a>` elements.
+Any attributes and the `ref` are passed on to the `<a>` element.
+
+<Canvas of={LinkListLinkStories.Link} />
+
+<Controls of={LinkListLinkStories.Link} />
 
 ## Usage guidelines
 
@@ -48,16 +62,6 @@ When using a list in small text, set the prop for each item in the list.
 
 <Canvas of={LinkListStories.SmallText} />
 
-### Link
-
-This example of a single link allows using the controls below.
-The Link List Link renders both the `<li>` and `<a>` elements.
-Any attributes and the `ref` are passed on to the `<a>` element.
-
-<Canvas of={LinkListStories.Link} />
-
-<Controls of={LinkListStories.Link} />
-
 ### On a coloured background
 
 A Link on a coloured background must set [the correct text colour](/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) to provide enough contrast.
@@ -68,14 +72,14 @@ We have lighter and darker background colours, and links behave differently on e
 Use the contrast colour on a lime, orange or yellow background.
 It will make the Link black.
 
-<Canvas of={LinkListStories.ContrastColour} />
+<Canvas of={LinkListLinkStories.ContrastColour} />
 
 #### Inverse colour
 
 Use the inverse colour on an azure, blue, green, magenta or purple background.
 It will make the Link white.
 
-<Canvas of={LinkListStories.InverseColour} />
+<Canvas of={LinkListLinkStories.InverseColour} />
 
 ## Design
 

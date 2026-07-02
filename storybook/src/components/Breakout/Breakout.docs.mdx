@@ -3,6 +3,7 @@
 import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import * as BreakoutStories from "./Breakout.stories.tsx";
+import * as BreakoutCellStories from "./BreakoutCell.stories.tsx";
 
 <Meta of={BreakoutStories} />
 
@@ -13,6 +14,17 @@ import * as BreakoutStories from "./Breakout.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Cell
+
+Positions content in the Breakout grid through its `colSpan`, `colStart`, `rowSpan`, and `rowStart` props.
+Use `as` to change the HTML element.
+
+<Canvas of={BreakoutCellStories.Cell} />
+
+<Controls of={BreakoutCellStories.Cell} />
 
 ## Usage guidelines
 

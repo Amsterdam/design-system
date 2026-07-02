@@ -7,6 +7,7 @@ import tokens from "#tokens/components/ams/file-list.tokens.json";
 
 import FileInputWithFileList from "./FileInputWithFileList?raw";
 import * as FileListStories from "./FileList.stories.tsx";
+import * as FileListItemStories from "./FileListItem.stories.tsx";
 
 <Meta of={FileListStories} />
 
@@ -15,6 +16,19 @@ import * as FileListStories from "./FileList.stories.tsx";
 <Description of={FileListStories} />
 
 <Primary />
+
+This component has no props to configure.
+
+## Subcomponents
+
+### Item
+
+Represents a selected `file`.
+Provide an `onDelete` callback to let users remove it from the list.
+
+<Canvas of={FileListItemStories.Item} />
+
+<Controls of={FileListItemStories.Item} />
 
 ## Usage guidelines
 

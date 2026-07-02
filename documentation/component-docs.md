@@ -44,7 +44,7 @@ Place the description in the JSDoc block directly above the component declaratio
 /**
  * One short paragraph that explains what the component is and why it exists.
  */
-export const ComponentName = forwardRef(/* ... */);
+export const ComponentName = forwardRef(/* … */);
 ```
 
 ## The Storybook documentation page
@@ -58,13 +58,20 @@ Sections are optional: omit any section that has no meaningful content for the c
 
 1. **Title and description** – `<Title />` and `<Description of={…} />`, rendered from the component’s TSDoc via react-docgen.
 2. **Primary story and Controls** – `<Primary />` and `<Controls />`.
-3. **Subcomponents** – if the component has named subcomponents, an H2 with an H3 per subcomponent. Each H3 includes a brief description and a `<Canvas>` and `<Controls>` pair. Omit if there are none.
+   If the component has no props of its own, replace `<Controls />` with the sentence ‘This component has no props to configure.’ – an empty table would suggest missing documentation, and omitting the block silently would leave readers guessing.
+3. **Subcomponents** – if the component has named subcomponents, an H2 that names all of them, with an H3 for each subcomponent that offers choices of its own.
+   Omit if there are none.
 4. **Usage guidelines** – an H2 with up to four H3 subsections: ‘When to use’, ‘When not to use’, ‘How to use’, and ‘How to write’.
-5. **Examples** – an H2 with an H3 per variant. Each variant has a one-line caption above a `<Canvas of={…} />`.
-6. **Features** – what the component does for you out of the box: states, keyboard behaviour, responsive behaviour, validation, etc. Pair with a Canvas where the feature is visual.
-7. **Design** – notable visual or interaction decisions worth explaining. Pair with a Canvas where the decision is visual.
-8. **Accessibility** – what the component does to meet accessibility requirements: the ARIA roles and patterns it implements, how it handles keyboard interaction, and which WCAG criteria it addresses. Omit the section if there is nothing meaningful to say.
-9. **See also** – a short bullet list of links to alternatives or companions. Each bullet ends with a one-line reason.
+5. **Examples** – an H2 with an H3 per variant.
+   Each variant has a one-line caption above a `<Canvas of={…} />`.
+6. **Features** – what the component does for you out of the box: states, keyboard behaviour, responsive behaviour, validation, etc.
+   Pair with a Canvas where the feature is visual.
+7. **Design** – notable visual or interaction decisions worth explaining.
+   Pair with a Canvas where the decision is visual.
+8. **Accessibility** – what the component does to meet accessibility requirements: the ARIA roles and patterns it implements, how it handles keyboard interaction, and which WCAG criteria it addresses.
+   Omit the section if there is nothing meaningful to say.
+9. **See also** – a short bullet list of links to alternatives or companions.
+   Each bullet ends with a one-line reason.
 10. **Design tokens** – the auto-generated table via `<DesignTokensTable tokens={tokens} />`.
 
 ### Skeleton
@@ -124,7 +131,9 @@ import * as ComponentStories from "./Component.stories.tsx";
 ### Writing each section
 
 **Subcomponents** introduces named subcomponents that consumers use alongside the primary component.
-List each one under its own H3 with a brief description and a `<Canvas>` and `<Controls>` pair so developers can explore its API immediately.
+Open with a sentence or two that names every subcomponent, so readers can verify the inventory is complete against the API.
+Give a subcomponent its own H3 – with a brief description and a `<Canvas>` and `<Controls>` pair – only when it offers a decision the parent’s stories don’t already show: a prop to set, a variant to choose, or a placement rule to follow.
+A subcomponent that only ever appears one way is covered by the opening sentence and the examples that show it in place; a separate demo would restate the obvious.
 
 **Usage guidelines** answers ‘is this the right component for me, and how do I use it correctly?’
 ‘When to use’ states the scenarios where the component is the right choice.

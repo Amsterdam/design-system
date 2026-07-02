@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/grid.tokens.json";
 
 import * as GridStories from "./Grid.stories";
+import * as GridCellStories from "./GridCell.stories.tsx";
 
 <Meta of={GridStories} />
 
@@ -16,6 +17,18 @@ import * as GridStories from "./Grid.stories";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Cell
+
+Every direct child of a Grid must be a Cell.
+Size and position it with the `span` and `start` props, which accept responsive values.
+Its `appearance` controls the background in Compact Mode.
+
+<Canvas of={GridCellStories.Cell} />
+
+<Controls of={GridCellStories.Cell} />
 
 ## Usage guidelines
 
@@ -74,7 +87,7 @@ Use `verticalGap` to adjust or remove it.
 A cell defaults to spanning one column.
 Use the `span` prop to make a cell span more columns.
 
-<Canvas of={GridStories.SpanColumns} />
+<Canvas of={GridCellStories.SpanColumns} />
 
 ### Span rows
 
@@ -90,13 +103,13 @@ The number of columns or rows a cell covers can vary with the window width.
 Use the `span` or `rowSpan` prop with three values for narrow, medium, and wide windows.
 E.g. `span={{ narrow: 4, medium: 5, wide: 7 }}` makes the cell span all 4 columns on narrow windows, 5 of 8 on medium, and 7 of 12 on wide.
 
-<Canvas of={GridStories.SpanResponsively} />
+<Canvas of={GridCellStories.SpanResponsively} />
 
 ### Span all columns
 
 To stretch a cell to all available columns – whether 4, 8, or 12 – use `span="all"`.
 
-<Canvas of={GridStories.SpanAllColumns} />
+<Canvas of={GridCellStories.SpanAllColumns} />
 
 ### Start position
 
@@ -105,7 +118,7 @@ The `start` prop sets an explicit starting position, useful to align cells acros
 
 The starting position can be responsive too: `start={{ narrow: 2, medium: 4, wide: 6 }}`.
 
-<Canvas of={GridStories.StartPosition} />
+<Canvas of={GridCellStories.StartPosition} />
 
 ### Background in Compact Mode
 
@@ -125,7 +138,7 @@ This example appears best with Compact Mode active in the toolbar above.
 Both Grid and Grid Cell render a `<div>` by default.
 Use the `as` prop on either to make the markup more semantic.
 
-<Canvas of={GridStories.ImproveSemantics} />
+<Canvas of={GridCellStories.ImproveSemantics} />
 
 ## Features
 
@@ -157,7 +170,8 @@ Column widths, gaps, and margins scale continuously between breakpoints; only th
 
 ### Spacious and Compact Mode
 
-In Spacious Mode, gaps between columns use the `xl` space token — from 36 to 60 pixels between windows 320 and 1440 pixels wide.
+In Spacious Mode, gaps between columns use the `xl` space token.
+It grows from 36 to 60 pixels between windows 320 and 1440 pixels wide.
 In Compact Mode, the same token scales from 16 to 24 pixels to accommodate denser layouts.
 
 Margins use the `l` token on the narrow grid in Spacious Mode (`xl` in Compact), `xl` on medium, and `2xl` on wide.
@@ -218,15 +232,16 @@ The Figma grid styles are in the shared library under 'Grid styles'.
 
 ### Windows or screens
 
-The breakpoints respond to the browser window width, not the screen resolution.
-On most devices the two coincide, but a browser window can be narrower than the screen — for example when two apps share a tablet screen side by side.
+The breakpoints respond to the width of the browser window, not of the screen.
+The two often coincide, but a window can easily be narrower than the screen it is on.
+Many people keep a window at a fraction of a large monitor, and a tablet can show two apps side by side.
 
 ## Relationship with text
 
 [Text sizes](/docs/brand-design-tokens-typography--docs) scale with the window width in sync with the grid, so typography and layout stay proportional across all screen sizes.
 
 The breakpoints also respond to the effective text size.
-When a user zooms in or sets a larger system font, the breakpoints kick in earlier — the number of columns adjusts before content overflows its cells.
+When a user zooms in or sets a larger system font, the breakpoints kick in earlier, which may decrease the number of columns.
 
 ## See also
 
