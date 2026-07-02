@@ -14,8 +14,8 @@ const meta = {
   component: Dialog,
   argTypes: {
     footer: { control: false }, // A React element has no usable controls panel widget.
-    heading: {
-      description: 'The text for the heading.',
+    id: {
+      description: 'The id of the dialog element. Use it to open the dialog.',
     },
     open: {
       description: 'Whether the dialog box is active and available for interaction.',

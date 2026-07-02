@@ -9,8 +9,11 @@ import type { CSSProperties, ReactNode } from 'react'
 import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { LogInIcon, PlusIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
+import { logoBrands } from '@amsterdam/design-system-react/src/Logo/Logo'
 
+import { linkComponentArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 import ExampleLogo from '../Logo/ExampleLogo'
 import { collapsibleMenuItems, headerMenuItems } from './content'
@@ -18,6 +21,24 @@ import { collapsibleMenuItems, headerMenuItems } from './content'
 const meta = {
   title: 'Components/Containers/Page Header',
   component: PageHeader,
+  argTypes: {
+    logoBrand: {
+      control: {
+        labels: { undefined: 'amsterdam (default)' },
+        type: 'select',
+      },
+      options: [undefined, ...logoBrands.filter((brand) => brand !== 'amsterdam')],
+    },
+    logoLinkComponent: linkComponentArgType,
+    menuButtonIcon: {
+      ...iconArgType(),
+      control: {
+        labels: { undefined: 'default icon' },
+        type: 'select',
+      },
+    },
+    menuItems: { control: false },
+  },
   decorators: [wrapInPage],
 } satisfies Meta<typeof PageHeader>
 

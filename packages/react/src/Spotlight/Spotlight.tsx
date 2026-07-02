@@ -15,7 +15,10 @@ export const spotlightColors = ['azure', 'green', 'lime', 'magenta', 'orange', '
 type SpotlightColor = (typeof spotlightColors)[number]
 
 export type SpotlightProps = {
-  /** The HTML element to use. */
+  /**
+   * The HTML element to use.
+   * @default div
+   */
   readonly as?: SpotlightTag
   /** The background colour. */
   readonly color?: SpotlightColor

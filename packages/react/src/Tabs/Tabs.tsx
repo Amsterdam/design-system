@@ -16,7 +16,7 @@ import { TabsPanel } from './TabsPanel'
 export type TabsProps = {
   /** The identifier of the initially active Tab. Corresponds to its Panel `id` value. */
   readonly activeTab?: string
-  /* Provides the id of the activated Panel. */
+  /** A function to run when another Tab is activated. Provides the id of its Panel. */
   readonly onTabChange?: (panelId: string) => void
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 

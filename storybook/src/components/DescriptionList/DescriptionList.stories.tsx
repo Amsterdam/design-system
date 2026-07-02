@@ -9,6 +9,7 @@ import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 
+import { inverseColorArgType } from '#storybook/_common/argTypes'
 import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
 
 const meta = {
@@ -29,16 +30,10 @@ const meta = {
     ],
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
+    color: inverseColorArgType,
     termsWidth: {
       control: {
-        labels: { undefined: 'auto' },
+        labels: { undefined: 'auto (default)' },
         type: 'radio',
       },
       options: [undefined, ...descriptionListTermsWidths],

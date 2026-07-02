@@ -15,10 +15,15 @@ import type { CalendarProps } from './Calendar'
 import { IconButton } from '../IconButton'
 
 export type CalendarHeaderProps = {
+  /** Navigates to the next month. */
   readonly goToNextMonth: () => void
+  /** Navigates to the next year. */
   readonly goToNextYear: () => void
+  /** Navigates to the previous month. */
   readonly goToPreviousMonth: () => void
+  /** Navigates to the previous year. */
   readonly goToPreviousYear: () => void
+  /** The currently displayed month. */
   readonly month: Date
 } & Pick<
   CalendarProps,

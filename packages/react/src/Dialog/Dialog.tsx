@@ -12,7 +12,7 @@ import { Heading } from '../Heading'
 import { IconButton } from '../IconButton'
 
 export type DialogProps = {
-  /** The label for the button that dismisses the Dialog. */
+  /** The label for the button that dismisses the dialog. */
   readonly closeButtonLabel?: string
   /** Content for the footer, often one Button or an Action Group containing more of them. */
   readonly footer?: ReactNode

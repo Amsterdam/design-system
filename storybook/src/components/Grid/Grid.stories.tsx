@@ -7,7 +7,9 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Grid } from '@amsterdam/design-system-react/src'
+import { gridTags } from '@amsterdam/design-system-react/src/Grid/Grid'
 
+import { asArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
 import { GridColumnsGuide } from '#storybook/_components/GridColumnsGuide/GridColumnsGuide'
 
@@ -16,7 +18,10 @@ import { gridGapAndPaddingArgTypes } from './Grid.argTypes'
 const meta = {
   title: 'Components/Layout/Grid',
   component: Grid,
-  argTypes: gridGapAndPaddingArgTypes,
+  argTypes: {
+    ...gridGapAndPaddingArgTypes,
+    as: asArgType(gridTags),
+  },
   decorators: [wrapInPage],
   parameters: {
     layout: 'fullscreen',

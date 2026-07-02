@@ -8,15 +8,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Tabs } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Containers/Tabs',
   component: Tabs.Button,
   argTypes: {
-    children: {
-      control: 'text',
-      description: 'The text for the tab.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The text for the tab.'),
   },
   decorators: [
     (Story) => (

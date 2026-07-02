@@ -10,6 +10,7 @@ import { Column, Icon, Row } from '@amsterdam/design-system-react'
 import { MailIcon } from '@amsterdam/design-system-react-icons'
 import { Heading } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType, headingLevelArgType, inverseColorArgType } from '#storybook/_common/argTypes'
 import { exampleHeading } from '#storybook/_common/exampleContent'
 
 const heading = exampleHeading()
@@ -22,16 +23,15 @@ const meta = {
     level: 1,
   },
   argTypes: {
-    children: {
-      description: 'The heading text.',
-      table: { disable: false },
-    },
-    color: {
+    children: childrenArgType('The heading text.'),
+    color: inverseColorArgType,
+    level: headingLevelArgType(),
+    size: {
       control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
+        labels: { undefined: 'matches level (default)' },
+        type: 'select',
       },
-      options: [undefined, 'inverse'],
+      options: [undefined, 'level-1', 'level-2', 'level-3', 'level-4', 'level-5'],
     },
   },
 } satisfies Meta<typeof Heading>
@@ -88,17 +88,6 @@ export const WithIcon: Story = {
   args: {
     children: 'Heading text',
     level: 3,
-  },
-  argTypes: {
-    level: {
-      options: [1, 2, 3, 4],
-    },
-    size: {
-      control: {
-        labels: { undefined: 'not set' },
-      },
-      options: [undefined, 'level-1', 'level-2', 'level-3', 'level-4', 'level-5'],
-    },
   },
   render: ({ children, ...args }) => {
     let iconSize

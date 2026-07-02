@@ -16,7 +16,10 @@ import { Icon } from '../Icon'
 import { AccordionContext } from './AccordionContext'
 
 export type AccordionSectionProps = {
-  /** Whether the content is displayed initially. */
+  /**
+   * Whether the content is displayed initially.
+   * @default false
+   */
   readonly defaultExpanded?: boolean
   /**
    * Whether the content is displayed initially.

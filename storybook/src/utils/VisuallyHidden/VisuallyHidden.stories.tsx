@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Paragraph } from '@amsterdam/design-system-react'
 
+import { childrenArgType } from '#storybook/_common/argTypes'
+
 import type { VisuallyHiddenProps } from './VisuallyHidden'
 
 import { VisuallyHidden } from './VisuallyHidden'
@@ -28,10 +30,7 @@ const meta = {
     children: 'Here is the paragraph that is visually hidden. A screen reader will pick it up and read it to its user.',
   },
   argTypes: {
-    children: {
-      description: 'The content to hide visually.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The content to hide visually.'),
   },
 } satisfies Meta<typeof VisuallyHidden>
 

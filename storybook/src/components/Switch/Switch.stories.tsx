@@ -10,6 +10,8 @@ import { Label } from '@amsterdam/design-system-react'
 import { Switch } from '@amsterdam/design-system-react/src'
 import { useArgs } from 'storybook/preview-api'
 
+import { checkedArgType, disabledArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Forms/Switch',
   component: Switch,
@@ -18,14 +20,10 @@ const meta = {
     disabled: false,
   },
   argTypes: {
-    checked: {
-      description: 'Whether the control is initially checked.',
-    },
-    disabled: {
-      description: 'Prevents interaction. Avoid if possible.',
-    },
+    checked: checkedArgType,
+    disabled: disabledArgType,
     onChange: {
-      action: 'clicked',
+      action: 'changed',
       table: { disable: false },
     },
   },

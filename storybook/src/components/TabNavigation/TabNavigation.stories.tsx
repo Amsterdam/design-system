@@ -26,8 +26,11 @@ const meta = {
   component: TabNavigation,
   argTypes: {
     orientation: {
-      control: { type: 'inline-radio' },
-      options: ['horizontal', 'vertical'],
+      control: {
+        labels: { undefined: 'horizontal (default)' },
+        type: 'inline-radio',
+      },
+      options: [undefined, 'vertical'],
     },
   },
 } satisfies Meta<typeof TabNavigation>

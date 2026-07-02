@@ -8,6 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Link, Paragraph } from '@amsterdam/design-system-react'
 import { Accordion } from '@amsterdam/design-system-react/src'
 
+import { headingLevelArgType } from '#storybook/_common/argTypes'
+
 const faqItems = [
   {
     content: (
@@ -45,6 +47,9 @@ const meta = {
   component: Accordion,
   args: {
     headingLevel: 3,
+  },
+  argTypes: {
+    headingLevel: headingLevelArgType([2, 3, 4]),
   },
 } satisfies Meta<typeof Accordion>
 

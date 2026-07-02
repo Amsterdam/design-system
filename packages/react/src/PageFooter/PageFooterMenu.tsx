@@ -20,7 +20,7 @@ export type PageFooterMenuProps = {
    */
   readonly heading?: string
   /**
-   * The hierarchical level of the Footer Menu’s Heading within the document.
+   * The hierarchical level of the Heading within the document.
    * The default value is 2. This will almost always be correct – but verify this yourself.
    */
   readonly headingLevel?: HeadingProps['level']

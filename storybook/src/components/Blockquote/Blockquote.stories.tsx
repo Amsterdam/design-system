@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Blockquote } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType, inverseColorArgType } from '#storybook/_common/argTypes'
 import { exampleQuote } from '#storybook/_common/exampleContent'
 
 const quote = exampleQuote()
@@ -18,17 +19,8 @@ const meta = {
     children: quote,
   },
   argTypes: {
-    children: {
-      description: 'The text for the quote.',
-      table: { disable: false },
-    },
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
+    children: childrenArgType('The text for the quote.'),
+    color: inverseColorArgType,
   },
 } satisfies Meta<typeof Blockquote>
 

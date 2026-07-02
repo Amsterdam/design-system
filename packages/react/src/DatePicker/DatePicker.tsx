@@ -23,7 +23,7 @@ export type DateRange = {
 }
 
 type DatePickerBaseProps = {
-  /** The month shown when the Date Picker first renders. Defaults to the current month. */
+  /** The month shown on first render. Defaults to the current month. */
   readonly defaultMonth?: Date
   /** Prevents selection of individual dates, e.g. dates that are unavailable. They remain reachable by keyboard. */
   readonly isDateDisabled?: (date: Date) => boolean

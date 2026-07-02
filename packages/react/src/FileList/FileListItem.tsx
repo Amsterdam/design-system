@@ -15,7 +15,9 @@ import { formatFileType } from '../common/formatFileType'
 import { Icon } from '../Icon'
 
 export type FileListItemProps = {
+  /** The file to display. Shows its name, type, and size, and a thumbnail for images. */
   readonly file: File
+  /** A function to run when the user removes the file. Adds a delete button. */
   readonly onDelete?: () => void
 } & Readonly<HTMLAttributes<HTMLLIElement>>
 

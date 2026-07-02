@@ -46,7 +46,10 @@ type GridPaddingTopAndBottomProps = {
 }
 
 export type GridProps = {
-  /** The HTML tag to use. */
+  /**
+   * The HTML tag to use.
+   * @default div
+   */
   readonly as?: GridTag
   /** The amount of space between rows. */
   readonly gapVertical?: GridGap
