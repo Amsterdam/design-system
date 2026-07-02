@@ -43,7 +43,7 @@ const meta = {
         labels: { undefined: 'div (default)' },
         type: 'radio',
       },
-      options: [undefined, ...columnTags],
+      options: [undefined, ...columnTags.filter((tag) => tag !== 'div')],
     },
     gap: {
       control: {

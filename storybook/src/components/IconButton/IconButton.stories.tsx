@@ -36,7 +36,7 @@ const meta = {
         type: 'select',
       },
       mapping: Icons,
-      options: [undefined, ...Object.keys(Icons)],
+      options: [undefined, ...Object.keys(Icons).filter((name) => name !== 'CloseIcon')],
     },
   },
 } satisfies Meta<typeof IconButton>

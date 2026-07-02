@@ -23,7 +23,7 @@ const meta = {
         labels: { undefined: 'div (default)' },
         type: 'select',
       },
-      options: [undefined, ...spotlightTags],
+      options: [undefined, ...spotlightTags.filter((tag) => tag !== 'div')],
     },
     color: {
       control: {

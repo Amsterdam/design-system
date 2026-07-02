@@ -19,7 +19,7 @@ const meta = {
         labels: { undefined: 'div (default)' },
         type: 'radio',
       },
-      options: [undefined, ...breakoutCellTags],
+      options: [undefined, ...breakoutCellTags.filter((tag) => tag !== 'div')],
     },
     // The span and start props also take ‘all’ or an object of numbers per grid variant – the
     // number controls cover the common case, matching Grid Cell.

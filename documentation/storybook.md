@@ -83,6 +83,7 @@ Set `control.type` explicitly whenever you provide `options` – don’t rely on
    Set `min`, `max`, and `step` when the type or the component’s behaviour constrains them.
 5. For an optional prop, include `undefined` in the options and label it with the effective default value: `labels: { undefined: 'medium (default)' }`.
    This teaches users the default instead of hiding it.
+   Remove the default value from the options themselves, so it doesn’t appear twice: `options: [undefined, ...tags.filter((tag) => tag !== 'div')]`.
 6. Only offer options that the prop’s type allows, and offer all of them.
    If a story deliberately shows a subset, add a comment explaining why.
 7. For an icon prop, use the shared icon arg type from `storybook/src/_common/argTypes.ts`.

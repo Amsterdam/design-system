@@ -32,6 +32,7 @@ const meta = {
         labels: { undefined: 'ChevronForwardIcon (default)' },
         type: 'select',
       },
+      options: iconArgType.options.filter((option) => option !== 'ChevronForwardIcon'),
     },
     linkComponent: linkComponentArgType,
     size: {

@@ -24,7 +24,7 @@ const meta = {
         labels: { undefined: 'div (default)' },
         type: 'select',
       },
-      options: [undefined, ...gridTags],
+      options: [undefined, ...gridTags.filter((tag) => tag !== 'div')],
     },
   },
   decorators: [wrapInPage],

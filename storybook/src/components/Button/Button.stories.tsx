@@ -47,7 +47,7 @@ const meta = {
         labels: { undefined: 'primary (default)' },
         type: 'radio',
       },
-      options: [undefined, ...buttonVariants],
+      options: [undefined, ...buttonVariants.filter((variant) => variant !== 'primary')],
     },
   },
 } satisfies Meta<typeof Button>

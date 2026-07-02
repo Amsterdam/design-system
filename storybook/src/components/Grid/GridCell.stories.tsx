@@ -26,7 +26,7 @@ const meta = {
         labels: { undefined: 'div (default)' },
         type: 'select',
       },
-      options: [undefined, ...gridCellTags],
+      options: [undefined, ...gridCellTags.filter((tag) => tag !== 'div')],
     },
     span: {
       control: { max: 12, min: 1, type: 'number' },

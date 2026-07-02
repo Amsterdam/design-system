@@ -26,7 +26,7 @@ const meta = {
         labels: { undefined: 'amsterdam (default)' },
         type: 'select',
       },
-      options: [undefined, ...logoBrands],
+      options: [undefined, ...logoBrands.filter((brand) => brand !== 'amsterdam')],
     },
     logoLinkComponent: linkComponentArgType,
     menuButtonIcon: {
