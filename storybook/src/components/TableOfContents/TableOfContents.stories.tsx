@@ -27,7 +27,7 @@ const meta = {
     collapsible: {
       control: { type: 'boolean' },
     },
-    headingLevel: headingLevelArgType(),
+    headingLevel: headingLevelArgType([1, 2, 3, 4], 2),
     hideAccessibleLabel: {
       control: { type: 'text' },
     },

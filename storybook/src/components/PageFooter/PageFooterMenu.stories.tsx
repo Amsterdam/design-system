@@ -14,7 +14,7 @@ const meta = {
   component: PageFooter.Menu,
   argTypes: {
     // A level 1 heading never belongs in the footer, so this offers a subset of the allowed levels.
-    headingLevel: headingLevelArgType([2, 3, 4]),
+    headingLevel: headingLevelArgType([2, 3, 4], 2),
   },
   decorators: [
     (Story) => (
