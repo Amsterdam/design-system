@@ -12,6 +12,11 @@ const meta = {
   title: 'Components/Containers/Page Header',
   component: PageHeader.MenuLink,
   argTypes: {
+    children: {
+      control: 'text',
+      description: 'The link text.',
+      table: { disable: false },
+    },
     icon: {
       control: {
         labels: { undefined: 'none' },

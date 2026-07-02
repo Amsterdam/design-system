@@ -12,6 +12,11 @@ const meta = {
   title: 'Components/Navigation/Tab Navigation',
   component: TabNavigation.Link,
   argTypes: {
+    children: {
+      control: 'text',
+      description: 'The link text.',
+      table: { disable: false },
+    },
     icon: {
       control: {
         labels: { undefined: 'none' },

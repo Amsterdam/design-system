@@ -18,6 +18,11 @@ const meta = {
       },
       options: [undefined, 'center', 'end'],
     },
+    children: {
+      control: 'text',
+      description: 'The content of the cell.',
+      table: { disable: false },
+    },
   },
   decorators: [
     (Story) => (

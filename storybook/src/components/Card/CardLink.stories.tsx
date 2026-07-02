@@ -10,6 +10,13 @@ import { Card } from '@amsterdam/design-system-react/src'
 const meta = {
   title: 'Components/Navigation/Card',
   component: Card.Link,
+  argTypes: {
+    children: {
+      control: 'text',
+      description: 'The link text.',
+      table: { disable: false },
+    },
+  },
   decorators: [
     (Story) => (
       <Card>

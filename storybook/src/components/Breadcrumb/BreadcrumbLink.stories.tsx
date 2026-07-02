@@ -10,6 +10,13 @@ import { Breadcrumb } from '@amsterdam/design-system-react/src'
 const meta = {
   title: 'Components/Navigation/Breadcrumb',
   component: Breadcrumb.Link,
+  argTypes: {
+    children: {
+      control: 'text',
+      description: 'The link text.',
+      table: { disable: false },
+    },
+  },
   decorators: [
     (Story) => (
       <Breadcrumb>

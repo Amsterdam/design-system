@@ -11,6 +11,13 @@ import { Tabs } from '@amsterdam/design-system-react/src'
 const meta = {
   title: 'Components/Containers/Tabs',
   component: Tabs.Button,
+  argTypes: {
+    children: {
+      control: 'text',
+      description: 'The text for the tab.',
+      table: { disable: false },
+    },
+  },
   decorators: [
     (Story) => (
       <Tabs>

@@ -14,6 +14,11 @@ const meta = {
   title: 'Components/Media/Figure',
   component: Figure.Caption,
   argTypes: {
+    children: {
+      control: 'text',
+      description: 'The text for the caption.',
+      table: { disable: false },
+    },
     color: {
       control: {
         labels: { undefined: 'default' },

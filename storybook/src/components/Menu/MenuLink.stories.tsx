@@ -13,6 +13,11 @@ const meta = {
   title: 'Components/Navigation/Menu',
   component: Menu.Link,
   argTypes: {
+    children: {
+      control: 'text',
+      description: 'The link text.',
+      table: { disable: false },
+    },
     icon: {
       control: { type: 'select' },
       mapping: Icons,

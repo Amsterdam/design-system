@@ -18,6 +18,11 @@ const meta = {
       },
       options: [undefined, 'center', 'end'],
     },
+    children: {
+      control: 'text',
+      description: 'The text for the column header.',
+      table: { disable: false },
+    },
   },
   decorators: [
     (Story) => (

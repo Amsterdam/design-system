@@ -13,6 +13,11 @@ const meta = {
   title: 'Components/Navigation/Link List',
   component: LinkList.Link,
   argTypes: {
+    children: {
+      control: 'text',
+      description: 'The link text.',
+      table: { disable: false },
+    },
     color: {
       control: {
         labels: { undefined: 'default' },

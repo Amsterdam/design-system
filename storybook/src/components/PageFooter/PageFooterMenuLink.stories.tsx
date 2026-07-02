@@ -10,6 +10,13 @@ import { PageFooter } from '@amsterdam/design-system-react/src'
 const meta = {
   title: 'Components/Containers/Page Footer',
   component: PageFooter.MenuLink,
+  argTypes: {
+    children: {
+      control: 'text',
+      description: 'The link text.',
+      table: { disable: false },
+    },
+  },
   decorators: [
     (Story) => (
       <PageFooter>
