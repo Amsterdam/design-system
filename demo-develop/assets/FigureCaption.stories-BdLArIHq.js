@@ -1,0 +1,5 @@
+import{i as e}from"./preload-helper-CT_b8DTk.js";import{t}from"./jsx-runtime-BCDDjCIb.js";import{J as n,x as r}from"./index.esm-1Moq2lOI.js";import{t as i,wt as a}from"./src-WTHeVh_X.js";import{m as o,r as s}from"./exampleContent-CFoxZuYq.js";var c,l,u,d,f=e((()=>{n(),i(),o(),c=t(),l={title:`Components/Media/Figure`,component:a.Caption,argTypes:{children:{control:`text`,description:`The text for the caption.`,table:{disable:!1}},color:{control:{labels:{undefined:`default`},type:`radio`},options:[void 0,`inverse`]}},render:({children:e,...t})=>(0,c.jsxs)(a,{children:[(0,c.jsx)(r,{alt:``,aspectRatio:`16:5`,sizes:`(max-width: 37.5rem) 640px, (max-width: 72.5rem) 1280px, 1440px`,src:`https://picsum.photos/1440/450`,srcSet:`https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w`}),(0,c.jsx)(a.Caption,{...t,children:e})]})},u={args:{children:s()}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: exampleCaption()
+  }
+}`,...u.parameters?.docs?.source}}},d=[`Caption`]}));f();export{u as Caption,d as __namedExportsOrder,l as default,f as t};
