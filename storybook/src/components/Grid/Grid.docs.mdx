@@ -83,7 +83,7 @@ Use `verticalGap` to adjust or remove it.
 A cell defaults to spanning one column.
 Use the `span` prop to make a cell span more columns.
 
-<Canvas of={GridStories.SpanColumns} />
+<Canvas of={GridCellStories.SpanColumns} />
 
 ### Span rows
 
@@ -99,13 +99,13 @@ The number of columns or rows a cell covers can vary with the window width.
 Use the `span` or `rowSpan` prop with three values for narrow, medium, and wide windows.
 E.g. `span={{ narrow: 4, medium: 5, wide: 7 }}` makes the cell span all 4 columns on narrow windows, 5 of 8 on medium, and 7 of 12 on wide.
 
-<Canvas of={GridStories.SpanResponsively} />
+<Canvas of={GridCellStories.SpanResponsively} />
 
 ### Span all columns
 
 To stretch a cell to all available columns – whether 4, 8, or 12 – use `span="all"`.
 
-<Canvas of={GridStories.SpanAllColumns} />
+<Canvas of={GridCellStories.SpanAllColumns} />
 
 ### Start position
 
@@ -114,7 +114,7 @@ The `start` prop sets an explicit starting position, useful to align cells acros
 
 The starting position can be responsive too: `start={{ narrow: 2, medium: 4, wide: 6 }}`.
 
-<Canvas of={GridStories.StartPosition} />
+<Canvas of={GridCellStories.StartPosition} />
 
 ### Background in Compact Mode
 
@@ -134,7 +134,7 @@ This example appears best with Compact Mode active in the toolbar above.
 Both Grid and Grid Cell render a `<div>` by default.
 Use the `as` prop on either to make the markup more semantic.
 
-<Canvas of={GridStories.ImproveSemantics} />
+<Canvas of={GridCellStories.ImproveSemantics} />
 
 ## Features
 

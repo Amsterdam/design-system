@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { GridCellProps } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Paragraph } from '@amsterdam/design-system-react'
@@ -55,4 +56,40 @@ type Story = StoryObj<typeof meta>
 export const Cell: Story = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   args: { children: <Paragraph>Cell content</Paragraph>, span: 4 } as any,
+}
+
+export const SpanColumns: Story = {
+  args: {
+    className: '_ams-item',
+    span: 4,
+  },
+}
+
+export const SpanResponsively: Story = {
+  args: {
+    className: '_ams-item',
+    span: { narrow: 4, medium: 6, wide: 8 },
+  },
+}
+
+export const SpanAllColumns: Story = {
+  args: {
+    className: '_ams-item',
+    span: 'all',
+  },
+}
+
+export const StartPosition: Story = {
+  args: {
+    className: '_ams-item',
+    span: 3,
+    start: { narrow: 2, medium: 4, wide: 6 },
+  },
+}
+
+export const ImproveSemantics: Story = {
+  args: {
+    as: 'section',
+  },
+  render: ({ as }: GridCellProps) => <Grid.Cell as={as} className="_ams-item" span="all" />,
 }
