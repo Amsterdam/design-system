@@ -9,7 +9,7 @@ import * as Icons from '@amsterdam/design-system-react-icons'
 import { Badge } from '@amsterdam/design-system-react/src'
 import { badgeColors } from '@amsterdam/design-system-react/src/Badge/Badge'
 
-import { iconArgType } from '#storybook/_common/argTypes'
+import { colorArgType, iconArgType } from '#storybook/_common/argTypes'
 
 const meta = {
   title: 'Components/Feedback/Badge',
@@ -18,13 +18,7 @@ const meta = {
     label: 'Tip',
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'green (default)' },
-        type: 'select',
-      },
-      options: [undefined, ...badgeColors],
-    },
+    color: colorArgType(badgeColors, 'green'),
     icon: iconArgType,
   },
 } satisfies Meta<typeof Badge>

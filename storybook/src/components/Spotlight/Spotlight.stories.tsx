@@ -9,7 +9,7 @@ import { Blockquote, Grid, Heading, Paragraph, StandaloneLink } from '@amsterdam
 import { Spotlight } from '@amsterdam/design-system-react/src'
 import { spotlightColors, spotlightTags } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
 
-import { asArgType } from '#storybook/_common/argTypes'
+import { asArgType, colorArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
 import { exampleQuote } from '#storybook/_common/exampleContent'
 
@@ -20,13 +20,7 @@ const meta = {
   component: Spotlight,
   argTypes: {
     as: asArgType(spotlightTags),
-    color: {
-      control: {
-        labels: { undefined: 'purple (default)' },
-        type: 'select',
-      },
-      options: [undefined, ...spotlightColors],
-    },
+    color: colorArgType(spotlightColors, 'purple'),
   },
   decorators: [wrapInPage],
 } satisfies Meta<typeof Spotlight>
