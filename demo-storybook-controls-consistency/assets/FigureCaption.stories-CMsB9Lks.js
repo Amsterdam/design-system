@@ -1,5 +1,0 @@
-import{i as e}from"./preload-helper-CT_b8DTk.js";import{t}from"./jsx-runtime-BCDDjCIb.js";import{J as n,x as r}from"./index.esm-C1B5jpGm.js";import{Ot as i,t as a}from"./src-DdayVKJz.js";import{l as o,u as s}from"./argTypes-J67b33k4.js";import{m as c,r as l}from"./exampleContent-CFoxZuYq.js";var u,d,f,p,m=e((()=>{n(),a(),o(),c(),u=t(),d={title:`Components/Media/Figure`,component:i.Caption,argTypes:{children:{control:`text`,description:`The text for the caption.`,table:{disable:!1}},color:s},render:({children:e,...t})=>(0,u.jsxs)(i,{children:[(0,u.jsx)(r,{alt:``,aspectRatio:`16:5`,sizes:`(max-width: 37.5rem) 640px, (max-width: 72.5rem) 1280px, 1440px`,src:`https://picsum.photos/1440/450`,srcSet:`https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w`}),(0,u.jsx)(i.Caption,{...t,children:e})]})},f={args:{children:l()}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
-  args: {
-    children: exampleCaption()
-  }
-}`,...f.parameters?.docs?.source}}},p=[`Caption`]}));m();export{f as Caption,p as __namedExportsOrder,d as default,m as t};
