@@ -21,22 +21,23 @@ const meta = {
       },
       options: [undefined, ...breakoutCellTags],
     },
-    // The span and start props take a number, ‘all’, or an object of numbers per grid variant – no control expresses that.
+    // The span and start props also take ‘all’ or an object of numbers per grid variant – the
+    // number controls cover the common case, matching Grid Cell.
     colSpan: {
-      control: false,
+      control: { max: 12, min: 1, type: 'number' },
     },
     colStart: {
-      control: false,
+      control: { max: 12, min: 1, type: 'number' },
     },
     // The allowed value differs per span variant – a control would mislead, the description explains it.
     has: {
       control: false,
     },
     rowSpan: {
-      control: false,
+      control: { max: 4, min: 1, type: 'number' },
     },
     rowStart: {
-      control: false,
+      control: { max: 4, min: 1, type: 'number' },
     },
   },
   decorators: [
