@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Grid } from '@amsterdam/design-system-react/src'
 import { gridCellTags } from '@amsterdam/design-system-react/src/Grid/GridCell'
 
+import { asArgType } from '#storybook/_common/argTypes'
 import { GridColumnsGuide } from '#storybook/_components/GridColumnsGuide/GridColumnsGuide'
 
 const meta = {
@@ -21,13 +22,7 @@ const meta = {
       },
       options: [undefined, 'flush', 'transparent'],
     },
-    as: {
-      control: {
-        labels: { undefined: 'div (default)' },
-        type: 'select',
-      },
-      options: [undefined, ...gridCellTags.filter((tag) => tag !== 'div')],
-    },
+    as: asArgType(gridCellTags),
     span: {
       control: { max: 12, min: 1, type: 'number' },
     },

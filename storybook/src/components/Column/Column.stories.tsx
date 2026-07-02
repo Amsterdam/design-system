@@ -10,6 +10,8 @@ import { Column } from '@amsterdam/design-system-react/src'
 import { columnGapSizes, columnTags } from '@amsterdam/design-system-react/src/Column/Column'
 import { crossAlignOptionsForColumn, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
 
+import { asArgType } from '#storybook/_common/argTypes'
+
 const ThreeItems = [
   <div className="_ams-item" key={0} />,
   <div className="_ams-item" key={1} />,
@@ -38,13 +40,7 @@ const meta = {
       },
       options: [undefined, ...crossAlignOptionsForColumn],
     },
-    as: {
-      control: {
-        labels: { undefined: 'div (default)' },
-        type: 'radio',
-      },
-      options: [undefined, ...columnTags.filter((tag) => tag !== 'div')],
-    },
+    as: asArgType(columnTags),
     gap: {
       control: {
         labels: { undefined: 'medium (default)' },

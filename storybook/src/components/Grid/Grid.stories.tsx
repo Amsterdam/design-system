@@ -9,6 +9,7 @@ import { Paragraph } from '@amsterdam/design-system-react'
 import { Grid } from '@amsterdam/design-system-react/src'
 import { gridTags } from '@amsterdam/design-system-react/src/Grid/Grid'
 
+import { asArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
 import { GridColumnsGuide } from '#storybook/_components/GridColumnsGuide/GridColumnsGuide'
 
@@ -19,13 +20,7 @@ const meta = {
   component: Grid,
   argTypes: {
     ...gridGapAndPaddingArgTypes,
-    as: {
-      control: {
-        labels: { undefined: 'div (default)' },
-        type: 'select',
-      },
-      options: [undefined, ...gridTags.filter((tag) => tag !== 'div')],
-    },
+    as: asArgType(gridTags),
   },
   decorators: [wrapInPage],
   parameters: {

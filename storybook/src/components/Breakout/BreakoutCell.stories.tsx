@@ -8,19 +8,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Breakout } from '@amsterdam/design-system-react/src'
 import { breakoutCellTags } from '@amsterdam/design-system-react/src/Breakout/BreakoutCell'
 
+import { asArgType } from '#storybook/_common/argTypes'
 import { GridColumnsGuide } from '#storybook/_components/GridColumnsGuide/GridColumnsGuide'
 
 const meta = {
   title: 'Components/Layout/Breakout',
   component: Breakout.Cell,
   argTypes: {
-    as: {
-      control: {
-        labels: { undefined: 'div (default)' },
-        type: 'radio',
-      },
-      options: [undefined, ...breakoutCellTags.filter((tag) => tag !== 'div')],
-    },
+    as: asArgType(breakoutCellTags),
     // The span and start props also take ‘all’ or an object of numbers per grid variant – the
     // number controls cover the common case, matching Grid Cell.
     colSpan: {

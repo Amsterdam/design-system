@@ -5,6 +5,22 @@
 
 import * as Icons from '@amsterdam/design-system-react-icons'
 
+/**
+ * An `as` prop offering the component’s allowed tags, which default to `div`.
+ * Picks a radio or select control based on the number of options.
+ */
+export const asArgType = (tags: readonly string[]) => {
+  const options = [undefined, ...tags.filter((tag) => tag !== 'div')]
+
+  return {
+    control: {
+      labels: { undefined: 'div (default)' },
+      type: options.length > 5 ? ('select' as const) : ('radio' as const),
+    },
+    options,
+  }
+}
+
 /** The native `checked` attribute of checkable inputs. */
 export const checkedArgType = {
   description: 'Whether the control is checked.',

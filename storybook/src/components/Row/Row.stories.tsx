@@ -11,6 +11,8 @@ import { Row } from '@amsterdam/design-system-react/src'
 import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
 import { rowGapSizes, rowTags } from '@amsterdam/design-system-react/src/Row/Row'
 
+import { asArgType } from '#storybook/_common/argTypes'
+
 const ThreeItems = [
   <div className="_ams-item" key={0} />,
   <div className="_ams-item" key={1} />,
@@ -40,13 +42,7 @@ const meta = {
       },
       options: [undefined, ...crossAlignOptions],
     },
-    as: {
-      control: {
-        labels: { undefined: 'div (default)' },
-        type: 'radio',
-      },
-      options: [undefined, ...rowTags.filter((tag) => tag !== 'div')],
-    },
+    as: asArgType(rowTags),
     gap: {
       control: {
         labels: { undefined: 'medium (default)' },
