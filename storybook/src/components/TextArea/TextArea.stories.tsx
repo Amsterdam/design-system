@@ -23,7 +23,7 @@ const meta = {
   },
   argTypes: {
     cols: {
-      control: { min: 0, type: 'number' },
+      control: { min: 1, type: 'number' },
       description: 'The width, expressed in the average number of characters.',
     },
     defaultValue: {
