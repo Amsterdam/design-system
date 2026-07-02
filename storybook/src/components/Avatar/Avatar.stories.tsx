@@ -19,6 +19,7 @@ const meta = {
     color: {
       control: {
         labels: { undefined: 'purple (default)' },
+        type: 'select',
       },
       options: [undefined, ...avatarColors],
     },

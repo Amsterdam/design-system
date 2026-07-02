@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Image } from '@amsterdam/design-system-react'
 import { Figure } from '@amsterdam/design-system-react/src'
 
+import { inverseColorArgType } from '#storybook/_common/argTypes'
 import { exampleCaption } from '#storybook/_common/exampleContent'
 
 const meta = {
@@ -19,13 +20,7 @@ const meta = {
       description: 'The text for the caption.',
       table: { disable: false },
     },
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
+    color: inverseColorArgType,
   },
   render: ({ children, ...args }) => (
     <Figure>

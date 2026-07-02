@@ -18,8 +18,9 @@ const meta = {
     aspectRatio: '16:9',
   },
   argTypes: {
+    // The prop is optional, but without a ratio the demo element has no height, so `undefined` is not offered.
     aspectRatio: {
-      control: 'radio',
+      control: { type: 'select' },
       options: aspectRatioOptions,
     },
   },

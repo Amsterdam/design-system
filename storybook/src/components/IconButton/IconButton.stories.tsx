@@ -9,6 +9,8 @@ import * as Icons from '@amsterdam/design-system-react-icons'
 import { IconButton } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 
+import { contrastInverseColorArgType, disabledArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Buttons/Icon Button',
   component: IconButton,
@@ -18,29 +20,23 @@ const meta = {
     size: undefined,
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
-    },
-    disabled: {
-      description: 'Prevents interaction. Avoid if possible.',
-    },
+    color: contrastInverseColorArgType,
+    disabled: disabledArgType,
     size: {
       control: {
-        labels: { undefined: 'default' },
+        labels: { undefined: 'medium body text (default)' },
         type: 'select',
       },
       options: [undefined, ...iconSizes],
     },
+    // The shared icon arg type doesn’t fit here: this prop defaults to an icon (CloseIcon) instead of none.
     svg: {
       control: {
+        labels: { undefined: 'CloseIcon (default)' },
         type: 'select',
       },
       mapping: Icons,
-      options: Object.keys(Icons),
+      options: [undefined, ...Object.keys(Icons)],
     },
   },
 } satisfies Meta<typeof IconButton>

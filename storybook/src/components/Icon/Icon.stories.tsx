@@ -10,7 +10,7 @@ import * as Icons from '@amsterdam/design-system-react-icons'
 import { Column, Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 
-const DEPRECATED_HEADING_SIZES = ['heading-0', 'heading-6']
+import { inverseColorArgType, requiredIconArgType } from '#storybook/_common/argTypes'
 
 const meta = {
   title: 'Components/Media/Icon',
@@ -19,27 +19,15 @@ const meta = {
     svg: Icons.MailIcon,
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
+    color: inverseColorArgType,
     size: {
       control: {
-        labels: { undefined: 'default' },
+        labels: { undefined: 'medium body text (default)' },
         type: 'select',
       },
       options: [undefined, ...iconSizes],
     },
-    svg: {
-      control: {
-        type: 'select',
-      },
-      mapping: Icons,
-      options: Object.keys(Icons),
-    },
+    svg: requiredIconArgType,
   },
 } satisfies Meta<typeof Icon>
 
@@ -51,9 +39,11 @@ export const Default: Story = {}
 
 export const WithBodyText: Story = {
   argTypes: {
+    // This story pairs the Icon with body text, so it offers only the body text sizes, in ascending order.
     size: {
       control: {
         labels: { undefined: 'medium (default)' },
+        type: 'radio',
       },
       options: ['small', undefined, 'large'],
     },
@@ -81,8 +71,10 @@ export const WithAHeading: Story = {
     size: 'heading-3',
   },
   argTypes: {
+    // This story pairs the Icon with a Heading, so it offers only the heading sizes.
     size: {
-      options: [...iconSizes.filter((size) => size.startsWith('heading-') && !DEPRECATED_HEADING_SIZES.includes(size))],
+      control: { type: 'radio' },
+      options: iconSizes.filter((size) => size.startsWith('heading-')),
     },
   },
   render: (args) => {

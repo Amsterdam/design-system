@@ -6,9 +6,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { CloseIcon } from '@amsterdam/design-system-react-icons'
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { Button } from '@amsterdam/design-system-react/src'
+import { buttonVariants } from '@amsterdam/design-system-react/src/Button/Button'
 
+import { disabledArgType, iconArgType } from '#storybook/_common/argTypes'
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 
 const meta = {
@@ -23,17 +24,8 @@ const meta = {
     variant: 'primary',
   },
   argTypes: {
-    disabled: {
-      description: 'Prevents interaction. Avoid if possible.',
-    },
-    icon: {
-      control: {
-        labels: { undefined: 'none' },
-        type: 'select',
-      },
-      mapping: Icons,
-      options: [undefined, ...Object.keys(Icons)],
-    },
+    disabled: disabledArgType,
+    icon: iconArgType,
     iconBefore: {
       control: {
         type: 'boolean',
@@ -49,6 +41,13 @@ const meta = {
       if: {
         arg: 'icon',
       },
+    },
+    variant: {
+      control: {
+        labels: { undefined: 'primary (default)' },
+        type: 'radio',
+      },
+      options: [undefined, ...buttonVariants],
     },
   },
 } satisfies Meta<typeof Button>
