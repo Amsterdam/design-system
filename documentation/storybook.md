@@ -65,8 +65,8 @@ Follow these guidelines:
    Leave the arg out instead.
 3. Hide args with `table: { disable: true }` in the `argTypes` object if they don’t apply to the story, e.g. if the story composes multiple instances of the component.
    We don’t hide ‘less relevant’ args in other cases, not even in stories that focus on a single prop.
-4. Be aware that changing an arg value changes the rendered output, and thereby Chromatic snapshots.
-   Changing only argTypes does not, with one exception: test stories derive their variant matrix from argTypes – see [Test stories](#test-stories).
+4. Note that the args and argTypes of the meta feed the Test story, which is the only story Chromatic snapshots – see [Test stories](#test-stories).
+   Changing them can therefore change snapshots; the args of individual stories don’t reach Chromatic.
 
 ### Choosing a control
 
