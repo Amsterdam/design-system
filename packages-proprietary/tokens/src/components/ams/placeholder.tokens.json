@@ -1,5 +1,224 @@
 {
   "ams": {
-    "placeholder": {}
+    "placeholder": {
+      "background-color": {
+        "$value": "#d1d1d1",
+        "$description": "A neutral grey that stands in for the content being loaded.",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "card": {
+        "heading": {
+          "font-size": {
+            "$value": "{ams.heading.3.font-size}",
+            "$description": "The heading of a Card uses size level 3 by default.",
+            "$extensions": {
+              "nl.amsterdam.type": "fontSize"
+            }
+          },
+          "line-height": {
+            "$value": "{ams.heading.3.line-height}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "lineHeight",
+              "nl.amsterdam.type": "number"
+            }
+          },
+          "margin-block-end": {
+            "$value": "{ams.card.heading.margin-block-end}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "image": {
+          "aspect-ratio": {
+            "$value": "{ams.image.aspect-ratio}",
+            "$extensions": {
+              "nl.amsterdam.type": "aspectRatio"
+            }
+          },
+          "margin-block-end": {
+            "$value": "{ams.card.image.margin-block-end}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        }
+      },
+      "heading": {
+        "font-size": {
+          "$value": "{ams.heading.2.font-size}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "inline-size": {
+          "$value": "55%",
+          "$description": "Represents a heading of a few words that does not span the full width.",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.heading.2.line-height}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
+        }
+      },
+      "last-line": {
+        "inline-size": {
+          "$value": "67%",
+          "$description": "The last line of a paragraph is usually not full width.",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "line": {
+        "font-size": {
+          "$value": "{ams.paragraph.font-size}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.paragraph.line-height}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
+        }
+      },
+      "list": {
+        "gap": {
+          "$value": "{ams.unordered-list.gap}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "item": {
+          "column-gap": {
+            "$value": {
+              "value": 0.5,
+              "unit": "rem"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.hint": "Together with the item padding and the marker width, starts the line at the 2.5rem text indent of Unordered List.",
+              "nl.amsterdam.subtype": "space"
+            }
+          },
+          "padding-inline-start": {
+            "$value": "{ams.unordered-list.item.margin-inline-start}",
+            "$extensions": {
+              "nl.amsterdam.hint": "Starts the marker where the marker of Unordered List renders.",
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "line": {
+          "alternate": {
+            "inline-size": {
+              "$value": "45%",
+              "$description": "Even list items are shorter, approximating natural variation in item lengths.",
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
+            }
+          },
+          "inline-size": {
+            "$value": "60%",
+            "$description": "List items are usually shorter than full lines of text.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "marker": {
+          "block-size": {
+            "$value": {
+              "value": 0.375,
+              "unit": "rem"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.hint": "Approximates the size of the bullet of Unordered List."
+            }
+          },
+          "inline-size": {
+            "$value": {
+              "value": 0.375,
+              "unit": "rem"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.hint": "Approximates the size of the bullet of Unordered List."
+            }
+          }
+        }
+      },
+      "table": {
+        "cell": {
+          "padding-block": {
+            "$value": "{ams.table.cell.padding-block}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-inline": {
+            "$value": "{ams.table.cell.padding-inline}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "header": {
+          "line": {
+            "inline-size": {
+              "$value": "50%",
+              "$description": "Header cells usually contain a short term.",
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
+            }
+          }
+        },
+        "line": {
+          "alternate": {
+            "inline-size": {
+              "$value": "65%",
+              "$description": "Even columns are shorter, approximating natural variation in cell contents.",
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
+            }
+          },
+          "inline-size": {
+            "$value": "80%",
+            "$description": "Cell contents usually do not span the full column width.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "row": {
+          "border-block-end": {
+            "$value": "{ams.table.cell.border-block-end}",
+            "$extensions": {
+              "nl.amsterdam.type": "border"
+            }
+          }
+        }
+      }
+    }
   }
 }
