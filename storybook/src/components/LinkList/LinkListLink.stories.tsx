@@ -8,12 +8,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { HouseIcon } from '@amsterdam/design-system-react-icons'
 import { LinkList } from '@amsterdam/design-system-react/src'
 
-import { childrenArgType, textSizeArgType } from '#storybook/_common/argTypes'
 import {
+  childrenArgType,
   contrastInverseColorArgType,
   hrefArgType,
   iconArgType,
   linkComponentArgType,
+  textSizeArgType,
 } from '#storybook/_common/argTypes'
 
 const meta = {
