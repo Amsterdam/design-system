@@ -25,7 +25,7 @@
 .ams-placeholder__marker {
   background-color: var(--ams-placeholder-background-color);
 
-  // A background set to a system colour does remain visible in forced-colors mode.
+  // A background set to a system colour remains visible in forced-colors mode.
   @media (forced-colors: active) {
     background-color: GrayText;
   }
@@ -91,13 +91,13 @@
   inline-size: var(--ams-placeholder-table-line-inline-size);
 }
 
-.ams-placeholder__table-row--header .ams-placeholder__line {
-  inline-size: var(--ams-placeholder-table-header-line-inline-size);
-}
-
 .ams-placeholder--card .ams-placeholder__line:last-child,
 .ams-placeholder--paragraph .ams-placeholder__line:last-child {
   inline-size: var(--ams-placeholder-last-line-inline-size);
+}
+
+.ams-placeholder__table-row--header .ams-placeholder__table-cell .ams-placeholder__line {
+  inline-size: var(--ams-placeholder-table-header-line-inline-size);
 }
 
 .ams-placeholder__list-item:nth-child(even) .ams-placeholder__line {
