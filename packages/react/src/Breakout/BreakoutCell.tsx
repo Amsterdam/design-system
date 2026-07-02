@@ -28,9 +28,15 @@ type BreakoutCellSpanAllProps = {
 }
 
 type BreakoutCellSpanAndStartProps = {
-  /** The amount of grid columns the cell spans. */
+  /**
+   * The amount of grid columns the cell spans.
+   * Accepts a number, an object of numbers per grid variant – narrow, medium, and wide – or ‘all’ to span the full width.
+   */
   readonly colSpan?: 'all' | GridColumnNumber | GridColumnNumbers
-  /** The index of the grid column the cell starts at. */
+  /**
+   * The index of the grid column the cell starts at.
+   * Accepts a number or an object of numbers per grid variant.
+   */
   readonly colStart?: GridColumnNumber | GridColumnNumbers
   /**
    * Marks that this cell contains a Figure.
@@ -40,9 +46,15 @@ type BreakoutCellSpanAndStartProps = {
 }
 
 type BreakoutCellRowSpanAndStartProps = {
-  /** The amount of grid rows the cell spans. */
+  /**
+   * The amount of grid rows the cell spans.
+   * Accepts a number or an object of numbers per grid variant.
+   */
   readonly rowSpan?: BreakoutRowNumber | BreakoutRowNumbers
-  /** The index of the grid row the cell starts at. */
+  /**
+   * The index of the grid row the cell starts at.
+   * Accepts a number or an object of numbers per grid variant.
+   */
   readonly rowStart?: BreakoutRowNumber | BreakoutRowNumbers
 }
 

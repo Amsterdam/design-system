@@ -25,9 +25,15 @@ type GridCellSpanAllProp = {
 }
 
 type GridCellSpanAndStartProps = {
-  /** The amount of grid columns the cell spans. */
+  /**
+   * The amount of grid columns the cell spans.
+   * Accepts a number, an object of numbers per grid variant – narrow, medium, and wide – or ‘all’ to span the full width.
+   */
   readonly span?: GridColumnNumber | GridColumnNumbers
-  /** The index of the grid column the cell starts at. */
+  /**
+   * The index of the grid column the cell starts at.
+   * Accepts a number or an object of numbers per grid variant.
+   */
   readonly start?: GridColumnNumber | GridColumnNumbers
 }
 
@@ -47,7 +53,10 @@ export type GridCellProps = {
    * @default div
    */
   readonly as?: GridCellTag
-  /** The amount of grid rows the cell spans. */
+  /**
+   * The amount of grid rows the cell spans.
+   * Accepts a number or an object of numbers per grid variant.
+   */
   readonly rowSpan?: GridRowNumber | GridRowNumbers
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>> &
   (GridCellSpanAllProp | GridCellSpanAndStartProps)
