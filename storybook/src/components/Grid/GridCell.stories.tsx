@@ -50,9 +50,7 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof meta>
-
-// Typing example stories against a minimal meta keeps the union of `span` and `start` values intact.
+// Typing stories against a minimal meta keeps the union of `span` and `start` values intact.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const cellMeta = {
   component: Grid.Cell,
@@ -68,9 +66,8 @@ const cellMeta = {
 
 type CellStory = StoryObj<typeof cellMeta>
 
-export const Cell: Story = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  args: { children: <Paragraph>Cell content</Paragraph>, span: 4 } as any,
+export const Cell: CellStory = {
+  args: { children: <Paragraph>Cell content</Paragraph>, span: 4 },
 }
 
 export const SpanColumns: CellStory = {
