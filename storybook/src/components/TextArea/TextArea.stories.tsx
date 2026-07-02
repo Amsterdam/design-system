@@ -41,7 +41,7 @@ const meta = {
       options: [undefined, 'none', 'horizontal', 'vertical'],
     },
     rows: {
-      control: { min: 0, type: 'number' },
+      control: { min: 1, type: 'number' },
       description: 'The number of lines to show.',
     },
   },
