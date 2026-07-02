@@ -1,0 +1,10 @@
+import{a as e,i as t,s as n}from"./preload-helper-CT_b8DTk.js";import{t as r}from"./react-BTu_umhU.js";import{t as i}from"./jsx-runtime-BCDDjCIb.js";import{F as a,G as o,R as s,n as c,p as l,v as u}from"./index.esm-Cyk4q9Yv.js";import{H as d,Q as f,U as p,t as m}from"./src-DHECvulO.js";var h=e({Default:()=>C,__namedExportsOrder:()=>w,default:()=>S}),g,_,v,y,b,x,S,C,w,T=t((()=>{o(),m(),p(),g=n(r()),_=i(),v=n(r()),{useArgs:y}=__STORYBOOK_MODULE_PREVIEW_API__,b=[{href:`#`,icon:(0,_.jsx)(a,{}),text:`Dashboard`},{href:`#`,icon:(0,_.jsx)(u,{}),text:`Projecten`},{href:`#`,icon:(0,_.jsx)(l,{}),text:`Rapportages`},{href:`#`,icon:(0,_.jsx)(c,{}),text:`Analyses`},{href:`#`,icon:(0,_.jsx)(s,{}),text:`Instellingen`}],x=e=>{let[,t]=y();return(0,g.useEffect)(()=>{if(typeof window>`u`||!window.matchMedia)return;let e=window.matchMedia(`(min-width: ${d.wide})`);t({inWideWindow:e.matches});let n=e=>t({inWideWindow:e.matches});return e.addEventListener(`change`,n),()=>e.removeEventListener(`change`,n)},[t]),(0,_.jsx)(e,{})},S={title:`Components/Navigation/Menu`,component:f,args:{inWideWindow:!1},argTypes:{inWideWindow:{control:!1,description:`This prop gets automatically updated in Storybook. It is \`true\` when the viewport is wider than ${d.wide}.`,table:{category:`Derived`}}},decorators:[x],parameters:{themes:{themeOverride:`Compact`}}},C={args:{children:b.map(({text:e,...t})=>(0,v.createElement)(f.Link,{...t,key:e},e))}},C.parameters={...C.parameters,docs:{...C.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: menuItems.map(({
+      text,
+      ...restProps
+    }) => <Menu.Link {...restProps} key={text}>
+        {text}
+      </Menu.Link>)
+  }
+}`,...C.parameters?.docs?.source}}},w=[`Default`]}));T();export{C as Default,w as __namedExportsOrder,S as default,T as n,h as t};
