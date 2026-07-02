@@ -58,7 +58,7 @@ Sections are optional: omit any section that has no meaningful content for the c
 
 1. **Title and description** – `<Title />` and `<Description of={…} />`, rendered from the component’s TSDoc via react-docgen.
 2. **Primary story and Controls** – `<Primary />` and `<Controls />`.
-3. **Subcomponents** – if the component has named subcomponents, an H2 with an H3 per subcomponent. Each H3 includes a brief description and a `<Canvas>` and `<Controls>` pair. Omit if there are none.
+3. **Subcomponents** – if the component has named subcomponents, an H2 that names all of them, with an H3 for each subcomponent that offers choices of its own. Omit if there are none.
 4. **Usage guidelines** – an H2 with up to four H3 subsections: ‘When to use’, ‘When not to use’, ‘How to use’, and ‘How to write’.
 5. **Examples** – an H2 with an H3 per variant. Each variant has a one-line caption above a `<Canvas of={…} />`.
 6. **Features** – what the component does for you out of the box: states, keyboard behaviour, responsive behaviour, validation, etc. Pair with a Canvas where the feature is visual.
@@ -124,7 +124,9 @@ import * as ComponentStories from "./Component.stories.tsx";
 ### Writing each section
 
 **Subcomponents** introduces named subcomponents that consumers use alongside the primary component.
-List each one under its own H3 with a brief description and a `<Canvas>` and `<Controls>` pair so developers can explore its API immediately.
+Open with a sentence or two that names every subcomponent, so readers can verify the inventory is complete against the API.
+Give a subcomponent its own H3 – with a brief description and a `<Canvas>` and `<Controls>` pair – only when it offers a decision the parent’s stories don’t already show: a prop to set, a variant to choose, or a placement rule to follow.
+A subcomponent that only ever appears one way is covered by the opening sentence and the examples that show it in place; a separate demo would restate the obvious.
 
 **Usage guidelines** answers ‘is this the right component for me, and how do I use it correctly?’
 ‘When to use’ states the scenarios where the component is the right choice.
