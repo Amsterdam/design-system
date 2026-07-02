@@ -35,6 +35,12 @@ describe('sortLiteralUnionValues', () => {
     expect(result?.type).toEqual({ name: 'enum', value: [1, 2, 3, 4] })
   })
 
+  it('tolerates an enum type without values', () => {
+    const result = enhance({ type: { name: 'enum' } as never })
+
+    expect(result?.type).toEqual({ name: 'enum' })
+  })
+
   it('orders a string type summary by the control’s options', () => {
     const result = enhance({
       options: [undefined, 'small', 'medium', 'large'],

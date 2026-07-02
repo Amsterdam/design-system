@@ -40,7 +40,12 @@ const sortArgType = (argType: StrictInputType): StrictInputType => {
     sorted.options = [...sorted.options].sort(compareNumbers)
   }
 
-  if (typeof sorted.type === 'object' && sorted.type?.name === 'enum' && sorted.type.value.every(isNumeric)) {
+  if (
+    typeof sorted.type === 'object' &&
+    sorted.type?.name === 'enum' &&
+    Array.isArray(sorted.type.value) &&
+    sorted.type.value.every(isNumeric)
+  ) {
     sorted.type = { ...sorted.type, value: [...sorted.type.value].sort(compareNumbers) }
   }
 
