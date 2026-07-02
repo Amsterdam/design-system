@@ -26,7 +26,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Table>
+      <Table style={{ minInlineSize: '16rem' }}>
         <Table.Header>
           <Table.Row>
             <Story />

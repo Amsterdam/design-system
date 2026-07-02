@@ -26,7 +26,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Table>
+      <Table style={{ minInlineSize: '16rem' }}>
         <Table.Body>
           <Table.Row>
             <Story />
@@ -45,11 +45,4 @@ export const Cell: Story = {
   args: {
     children: '€ 77,85',
   },
-  decorators: [
-    (Story) => (
-      <div style={{ inlineSize: '8rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
 }
