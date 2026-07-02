@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Card, Paragraph } from '@amsterdam/design-system-react'
 import { UnorderedList } from '@amsterdam/design-system-react/src'
 
-import { inverseColorArgType } from '#storybook/_common/argTypes'
+import { inverseColorArgType, textSizeArgType } from '#storybook/_common/argTypes'
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 import { exampleUnorderedList } from '#storybook/_common/exampleContent'
 
@@ -25,13 +25,7 @@ const meta = {
   },
   argTypes: {
     color: inverseColorArgType,
-    size: {
-      control: {
-        labels: { undefined: 'medium (default)' },
-        type: 'radio',
-      },
-      options: ['small', undefined],
-    },
+    size: textSizeArgType(['small', undefined]),
   },
 } satisfies Meta<typeof UnorderedList>
 
