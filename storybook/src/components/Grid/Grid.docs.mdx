@@ -22,6 +22,10 @@ import * as GridCellStories from "./GridCell.stories.tsx";
 
 ### Cell
 
+Every direct child of a Grid must be a Cell.
+Size and position it with the `span` and `start` props, which accept responsive values.
+Its `appearance` controls the background in Compact Mode.
+
 <Canvas of={GridCellStories.Cell} />
 
 <Controls of={GridCellStories.Cell} />

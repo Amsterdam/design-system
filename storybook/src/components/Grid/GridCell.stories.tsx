@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { GridCellProps } from '@amsterdam/design-system-react/src'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Paragraph } from '@amsterdam/design-system-react'
@@ -53,33 +52,49 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+// Typing example stories against a minimal meta keeps the union of `span` and `start` values intact.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const cellMeta = {
+  component: Grid.Cell,
+  argTypes: {
+    span: {
+      control: { max: 12, min: 1, type: 'number' },
+    },
+    start: {
+      control: { max: 12, min: 1, type: 'number' },
+    },
+  },
+} satisfies Meta<typeof Grid.Cell>
+
+type CellStory = StoryObj<typeof cellMeta>
+
 export const Cell: Story = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   args: { children: <Paragraph>Cell content</Paragraph>, span: 4 } as any,
 }
 
-export const SpanColumns: Story = {
+export const SpanColumns: CellStory = {
   args: {
     className: '_ams-item',
     span: 4,
   },
 }
 
-export const SpanResponsively: Story = {
+export const SpanResponsively: CellStory = {
   args: {
     className: '_ams-item',
     span: { narrow: 4, medium: 6, wide: 8 },
   },
 }
 
-export const SpanAllColumns: Story = {
+export const SpanAllColumns: CellStory = {
   args: {
     className: '_ams-item',
     span: 'all',
   },
 }
 
-export const StartPosition: Story = {
+export const StartPosition: CellStory = {
   args: {
     className: '_ams-item',
     span: 3,
@@ -87,9 +102,10 @@ export const StartPosition: Story = {
   },
 }
 
-export const ImproveSemantics: Story = {
+export const ImproveSemantics: CellStory = {
   args: {
     as: 'section',
+    className: '_ams-item',
+    span: 'all',
   },
-  render: ({ as }: GridCellProps) => <Grid.Cell as={as} className="_ams-item" span="all" />,
 }

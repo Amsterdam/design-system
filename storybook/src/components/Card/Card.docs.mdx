@@ -23,11 +23,16 @@ import * as CardLinkStories from "./CardLink.stories.tsx";
 
 ### Heading
 
+Contains the name and link of the Card.
+It accepts all props of a regular Heading – set its `level` to fit the document outline.
+
 <Canvas of={CardHeadingStories.Heading} />
 
 <Controls of={CardHeadingStories.Heading} />
 
 ### Heading Group
+
+Displays a `tagline` above the heading.
 
 <Canvas of={CardHeadingGroupStories.HeadingGroup} />
 
@@ -35,13 +40,21 @@ import * as CardLinkStories from "./CardLink.stories.tsx";
 
 ### Image
 
+The image of the Card.
+It accepts all props of a regular Image, such as `aspectRatio`.
+
 <Canvas of={CardImageStories.Image} />
 
 <Controls of={CardImageStories.Image} />
 
 ### Link
 
+Makes the entire Card clickable.
+Set `linkComponent` to integrate with a routing library.
+
 <Canvas of={CardLinkStories.Link} />
+
+<Controls of={CardLinkStories.Link} />
 
 ## Usage guidelines
 

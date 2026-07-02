@@ -6,8 +6,6 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/select.tokens.json";
 
 import * as SelectStories from "./Select.stories.tsx";
-import * as SelectGroupStories from "./SelectGroup.stories.tsx";
-import * as SelectOptionStories from "./SelectOption.stories.tsx";
 
 <Meta of={SelectStories} />
 
@@ -21,13 +19,8 @@ import * as SelectOptionStories from "./SelectOption.stories.tsx";
 
 ## Subcomponents
 
-### Group
-
-<Canvas of={SelectGroupStories.Group} />
-
-### Option
-
-<Canvas of={SelectOptionStories.Option} />
+Provide the choices of the Select with Option subcomponents, and group related choices with a Group.
+They render the native `<option>` and `<optgroup>` elements and accept their standard attributes only.
 
 ## Usage guidelines
 

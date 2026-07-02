@@ -7,7 +7,6 @@ import tokens from "#tokens/components/ams/table-of-contents.tokens.json";
 
 import * as TableOfContentsStories from "./TableOfContents.stories.tsx";
 import * as TableOfContentsLinkStories from "./TableOfContentsLink.stories.tsx";
-import * as TableOfContentsListStories from "./TableOfContentsList.stories.tsx";
 
 <Meta of={TableOfContentsStories} />
 
@@ -21,15 +20,17 @@ import * as TableOfContentsListStories from "./TableOfContentsList.stories.tsx";
 
 ## Subcomponents
 
+Lists nest Links to form the hierarchy of the Table of Contents.
+The List has no props of its own; the ‘Multiple levels’ example shows how to nest one.
+
 ### Link
+
+Points to a section or page; provide its text through the `label` prop.
+Use `defaultExpanded` to initially show its nested list when the Table of Contents is collapsible.
 
 <Canvas of={TableOfContentsLinkStories.Link} />
 
 <Controls of={TableOfContentsLinkStories.Link} />
-
-### List
-
-<Canvas of={TableOfContentsListStories.List} />
 
 ## Usage guidelines
 

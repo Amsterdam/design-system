@@ -8,7 +8,6 @@ import tokens from "#tokens/components/ams/page-footer.tokens.json";
 import * as PageFooterStories from "./PageFooter.stories.tsx";
 import * as PageFooterMenuStories from "./PageFooterMenu.stories.tsx";
 import * as PageFooterMenuLinkStories from "./PageFooterMenuLink.stories.tsx";
-import * as PageFooterSpotlightStories from "./PageFooterSpotlight.stories.tsx";
 
 <Meta of={PageFooterStories} />
 
@@ -20,7 +19,13 @@ import * as PageFooterSpotlightStories from "./PageFooterSpotlight.stories.tsx";
 
 ## Subcomponents
 
+The Spotlight subcomponent provides the blue area at the top of the Page Footer.
+It has no props of its own; the example above shows it in place.
+
 ### Menu
+
+Presents the links in the Spotlight.
+Its visually hidden `heading` describes the menu for users of assistive technology.
 
 <Canvas of={PageFooterMenuStories.Menu} />
 
@@ -28,11 +33,12 @@ import * as PageFooterSpotlightStories from "./PageFooterSpotlight.stories.tsx";
 
 ### Menu Link
 
+Navigates to a page.
+Set `linkComponent` to integrate with a routing library.
+
 <Canvas of={PageFooterMenuLinkStories.MenuLink} />
 
-### Spotlight
-
-<Canvas of={PageFooterSpotlightStories.Spotlight} />
+<Controls of={PageFooterMenuLinkStories.MenuLink} />
 
 ## Usage guidelines
 
