@@ -13,7 +13,7 @@ import { default as placeholderMeta } from './Placeholder.stories'
 
 const meta = {
   ...placeholderMeta,
-  title: 'Components/TODO-ADD-GROUP/Placeholder',
+  title: 'Components/Feedback/Placeholder',
 } satisfies Meta<typeof Placeholder>
 
 export default meta
@@ -21,6 +21,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args, context) => renderComponentVariants(Placeholder, { args }, context),
+  render: (args, context) => renderComponentVariants(Placeholder, { args, layout: 'grid' }, context),
   tags: ['!dev', '!autodocs'],
 }
