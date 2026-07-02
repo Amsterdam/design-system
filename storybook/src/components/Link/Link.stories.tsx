@@ -8,7 +8,12 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Link } from '@amsterdam/design-system-react/src'
 
-import { contrastInverseColorArgType, hrefArgType, linkComponentArgType } from '#storybook/_common/argTypes'
+import {
+  childrenArgType,
+  contrastInverseColorArgType,
+  hrefArgType,
+  linkComponentArgType,
+} from '#storybook/_common/argTypes'
 
 type Story = StoryObj<typeof Link>
 
@@ -20,10 +25,7 @@ const meta = {
     href: '#',
   },
   argTypes: {
-    children: {
-      description: 'The link text.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The link text.'),
     color: contrastInverseColorArgType,
     href: hrefArgType,
     linkComponent: linkComponentArgType,

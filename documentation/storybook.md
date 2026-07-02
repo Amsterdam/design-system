@@ -125,17 +125,15 @@ Children of React components are often React components themselves, which isn’
 However, sometimes it is useful to add `children` to the controls.
 For example, when the child is a simple string (like in the default Button component story).
 
-To do this, you can override the default like so:
+To do this, use the shared arg type:
 
 ```txt
 argTypes: {
-  children: {
-    table: { disable: false },
-  },
+  children: childrenArgType('The text content.'),
 },
 ```
 
-A short argTypes `description` such as ‘The text content.’ is welcome here – `children` has no JSDoc of its own.
+It unhides the arg, offers a text control, and sets the description – `children` has no JSDoc of its own.
 
 ## Best practices for stories
 

@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { HouseIcon } from '@amsterdam/design-system-react-icons'
 import { LinkList } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType } from '#storybook/_common/argTypes'
 import {
   contrastInverseColorArgType,
   hrefArgType,
@@ -19,11 +20,7 @@ const meta = {
   title: 'Components/Navigation/Link List',
   component: LinkList.Link,
   argTypes: {
-    children: {
-      control: 'text',
-      description: 'The link text.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The link text.'),
     color: contrastInverseColorArgType,
     href: hrefArgType,
     icon: {

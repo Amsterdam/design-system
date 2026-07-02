@@ -8,17 +8,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { PieChartFillIcon } from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
 
-import { hrefArgType, linkComponentArgType, requiredIconArgType } from '#storybook/_common/argTypes'
+import { childrenArgType, hrefArgType, linkComponentArgType, requiredIconArgType } from '#storybook/_common/argTypes'
 
 const meta = {
   title: 'Components/Navigation/Menu',
   component: Menu.Link,
   argTypes: {
-    children: {
-      control: 'text',
-      description: 'The link text.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The link text.'),
     href: hrefArgType,
     icon: requiredIconArgType,
     linkComponent: linkComponentArgType,

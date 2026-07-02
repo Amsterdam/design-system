@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Label } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Forms/Label',
   component: Label,
@@ -15,10 +17,7 @@ const meta = {
     optional: false,
   },
   argTypes: {
-    children: {
-      description: 'The text content.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The text content.'),
   },
 } satisfies Meta<typeof Label>
 

@@ -9,6 +9,7 @@ import { Heading, Paragraph } from '@amsterdam/design-system-react'
 import { DownloadIcon } from '@amsterdam/design-system-react-icons'
 import { StandaloneLink } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType } from '#storybook/_common/argTypes'
 import {
   contrastInverseColorArgType,
   hrefArgType,
@@ -25,10 +26,7 @@ const meta = {
     href: '#',
   },
   argTypes: {
-    children: {
-      description: 'The link text.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The link text.'),
     color: contrastInverseColorArgType,
     href: hrefArgType,
     icon: {

@@ -7,17 +7,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { PageHeader } from '@amsterdam/design-system-react/src'
 
-import { hrefArgType, iconArgType, linkComponentArgType } from '#storybook/_common/argTypes'
+import { childrenArgType, hrefArgType, iconArgType, linkComponentArgType } from '#storybook/_common/argTypes'
 
 const meta = {
   title: 'Components/Containers/Page Header',
   component: PageHeader.MenuLink,
   argTypes: {
-    children: {
-      control: 'text',
-      description: 'The link text.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The link text.'),
     href: hrefArgType,
     icon: iconArgType,
     linkComponent: linkComponentArgType,

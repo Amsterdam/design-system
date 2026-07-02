@@ -10,7 +10,7 @@ import { Column, Icon, Row } from '@amsterdam/design-system-react'
 import { MailIcon } from '@amsterdam/design-system-react-icons'
 import { Heading } from '@amsterdam/design-system-react/src'
 
-import { headingLevelArgType, inverseColorArgType } from '#storybook/_common/argTypes'
+import { childrenArgType, headingLevelArgType, inverseColorArgType } from '#storybook/_common/argTypes'
 import { exampleHeading } from '#storybook/_common/exampleContent'
 
 const heading = exampleHeading()
@@ -23,10 +23,7 @@ const meta = {
     level: 1,
   },
   argTypes: {
-    children: {
-      description: 'The heading text.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The heading text.'),
     color: inverseColorArgType,
     level: headingLevelArgType(),
     size: {

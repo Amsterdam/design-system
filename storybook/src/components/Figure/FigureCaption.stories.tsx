@@ -8,18 +8,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Image } from '@amsterdam/design-system-react'
 import { Figure } from '@amsterdam/design-system-react/src'
 
-import { inverseColorArgType } from '#storybook/_common/argTypes'
+import { childrenArgType, inverseColorArgType } from '#storybook/_common/argTypes'
 import { exampleCaption } from '#storybook/_common/exampleContent'
 
 const meta = {
   title: 'Components/Media/Figure',
   component: Figure.Caption,
   argTypes: {
-    children: {
-      control: 'text',
-      description: 'The text for the caption.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The text for the caption.'),
     color: inverseColorArgType,
   },
   render: ({ children, ...args }) => (

@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Table } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Containers/Table',
   component: Table.HeaderCell,
@@ -18,11 +20,7 @@ const meta = {
       },
       options: [undefined, 'center', 'end'],
     },
-    children: {
-      control: 'text',
-      description: 'The text for the column header.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The text for the column header.'),
   },
   decorators: [
     (Story) => (

@@ -21,10 +21,37 @@ export const asArgType = (tags: readonly string[]) => {
   }
 }
 
+/**
+ * A `children` prop whose content is a simple string.
+ * Unhides the globally hidden arg and offers a text control.
+ */
+export const childrenArgType = (description: string) =>
+  ({
+    control: 'text',
+    description,
+    table: { disable: false },
+  }) as const
+
 /** The native `checked` attribute of checkable inputs. */
 export const checkedArgType = {
   description: 'Whether the control is checked.',
 } as const
+
+/**
+ * A colour prop offering the component’s palette. Labels `undefined` with the default colour.
+ * Picks a radio or select control based on the number of options.
+ */
+export const colorArgType = (colors: readonly string[], defaultColor: string) => {
+  const options = [undefined, ...colors.filter((color) => color !== defaultColor)]
+
+  return {
+    control: {
+      labels: { undefined: `${defaultColor} (default)` },
+      type: options.length > 5 ? ('select' as const) : ('radio' as const),
+    },
+    options,
+  }
+}
 
 /** A colour prop offering `contrast` and `inverse` for readability on a light or dark background. */
 export const contrastInverseColorArgType = {

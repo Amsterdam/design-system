@@ -10,7 +10,7 @@ import { Column, ErrorMessage, FieldSet, Paragraph } from '@amsterdam/design-sys
 import { Checkbox } from '@amsterdam/design-system-react/src'
 import { useArgs } from 'storybook/preview-api'
 
-import { checkedArgType, disabledArgType, idArgType } from '#storybook/_common/argTypes'
+import { checkedArgType, childrenArgType, disabledArgType, idArgType } from '#storybook/_common/argTypes'
 
 import CustomIcon from './CustomIcon'
 
@@ -26,10 +26,7 @@ const meta = {
   },
   argTypes: {
     checked: checkedArgType,
-    children: {
-      description: 'The text for the label.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The text for the label.'),
     disabled: disabledArgType,
     id: idArgType,
     onChange: {
