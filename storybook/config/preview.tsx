@@ -6,6 +6,7 @@ import { DocsContainer } from '@storybook/addon-docs/blocks'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { clsx } from 'clsx'
 
+import { sortLiteralUnionValues } from './sortLiteralUnionValues'
 import { viewports } from './viewports'
 
 import '@amsterdam/design-system-tokens/dist/index.css'
@@ -99,7 +100,7 @@ const formatDefaultValues: ArgTypesEnhancer = ({ component, argTypes }) => {
   )
 }
 
-export const argTypesEnhancers = [formatDefaultValues, formatDeprecatedProps]
+export const argTypesEnhancers = [formatDefaultValues, formatDeprecatedProps, sortLiteralUnionValues]
 
 // Set the page language and apply the page background overrides for Canvas and Stories.
 // Components that need a realistic Page or a width constraint add that themselves through a decorator.
