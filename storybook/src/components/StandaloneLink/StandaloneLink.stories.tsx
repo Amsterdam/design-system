@@ -29,14 +29,7 @@ const meta = {
     children: childrenArgType('The link text.'),
     color: contrastInverseColorArgType,
     href: hrefArgType,
-    icon: {
-      ...iconArgType,
-      control: {
-        labels: { undefined: 'ChevronForwardIcon (default)' },
-        type: 'select',
-      },
-      options: iconArgType.options.filter((option) => option !== 'ChevronForwardIcon'),
-    },
+    icon: iconArgType('ChevronForwardIcon'),
     linkComponent: linkComponentArgType,
   },
 } satisfies Meta<typeof StandaloneLink>

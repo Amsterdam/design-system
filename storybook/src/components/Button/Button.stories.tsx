@@ -25,7 +25,7 @@ const meta = {
   },
   argTypes: {
     disabled: disabledArgType,
-    icon: iconArgType,
+    icon: iconArgType(),
     iconBefore: {
       control: {
         type: 'boolean',

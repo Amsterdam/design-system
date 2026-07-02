@@ -15,7 +15,7 @@ const meta = {
   argTypes: {
     children: childrenArgType('The link text.'),
     href: hrefArgType,
-    icon: iconArgType,
+    icon: iconArgType(),
     linkComponent: linkComponentArgType,
   },
   decorators: [

@@ -5,11 +5,10 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { IconButton } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 
-import { contrastInverseColorArgType, disabledArgType } from '#storybook/_common/argTypes'
+import { contrastInverseColorArgType, disabledArgType, iconArgType } from '#storybook/_common/argTypes'
 
 const meta = {
   title: 'Components/Buttons/Icon Button',
@@ -29,15 +28,7 @@ const meta = {
       },
       options: [undefined, ...iconSizes],
     },
-    // The shared icon arg type doesn’t fit here: this prop defaults to an icon (CloseIcon) instead of none.
-    svg: {
-      control: {
-        labels: { undefined: 'CloseIcon (default)' },
-        type: 'select',
-      },
-      mapping: Icons,
-      options: [undefined, ...Object.keys(Icons).filter((name) => name !== 'CloseIcon')],
-    },
+    svg: iconArgType('CloseIcon'),
   },
 } satisfies Meta<typeof IconButton>
 

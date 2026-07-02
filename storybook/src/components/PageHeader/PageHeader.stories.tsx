@@ -30,7 +30,7 @@ const meta = {
     },
     logoLinkComponent: linkComponentArgType,
     menuButtonIcon: {
-      ...iconArgType,
+      ...iconArgType(),
       control: {
         labels: { undefined: 'default icon' },
         type: 'select',

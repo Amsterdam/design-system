@@ -19,7 +19,7 @@ const meta = {
   },
   argTypes: {
     color: colorArgType(badgeColors, 'green'),
-    icon: iconArgType,
+    icon: iconArgType(),
   },
 } satisfies Meta<typeof Badge>
 

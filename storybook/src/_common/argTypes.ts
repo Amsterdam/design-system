@@ -75,27 +75,36 @@ export const disabledArgType = {
   description: 'Prevents interaction. Avoid if possible.',
 } as const
 
-/** A heading level prop. Pass the levels the component accepts. */
-export const headingLevelArgType = (options: readonly number[] = [1, 2, 3, 4]) =>
-  ({
-    control: { type: 'radio' },
-    options: [...options],
-  }) as const
+/**
+ * A heading level prop. Pass the levels the component accepts.
+ * For an optional prop, pass its default level as well; `undefined` then gets offered and labelled with it.
+ */
+export const headingLevelArgType = (options: readonly number[] = [1, 2, 3, 4], defaultLevel?: number) => ({
+  control: {
+    ...(defaultLevel !== undefined && { labels: { undefined: `${defaultLevel} (default)` } }),
+    type: 'radio' as const,
+  },
+  options:
+    defaultLevel === undefined ? [...options] : [undefined, ...options.filter((level) => level !== defaultLevel)],
+})
 
 /** The native `href` attribute of links. */
 export const hrefArgType = {
   description: 'The url for the link.',
 } as const
 
-/** An optional icon prop. Offers all icons by name, labelling `undefined` as ‘none’. */
-export const iconArgType = {
+/**
+ * An optional icon prop. Offers all icons by name.
+ * Labels `undefined` as ‘none’, or with the name of the default icon if one is passed.
+ */
+export const iconArgType = (defaultIcon?: string) => ({
   control: {
-    labels: { undefined: 'none' },
-    type: 'select',
+    labels: { undefined: defaultIcon ? `${defaultIcon} (default)` : 'none' },
+    type: 'select' as const,
   },
   mapping: Icons,
-  options: [undefined, ...Object.keys(Icons)],
-} as const
+  options: [undefined, ...Object.keys(Icons).filter((name) => name !== defaultIcon)],
+})
 
 /** The native `id` attribute of form controls that generate one when it isn’t provided. */
 export const idArgType = {
@@ -115,6 +124,16 @@ export const inverseColorArgType = {
 export const linkComponentArgType = {
   control: false,
 } as const
+
+/** A text size prop, whose default is medium. Pass the options in ascending order, `undefined` for medium. */
+export const textSizeArgType = (options: readonly (string | undefined)[]) =>
+  ({
+    control: {
+      labels: { undefined: 'medium (default)' },
+      type: 'radio',
+    },
+    options: [...options],
+  }) as const
 
 /** A required icon prop. Offers all icons by name. */
 export const requiredIconArgType = {

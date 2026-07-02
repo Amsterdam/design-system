@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { HouseIcon } from '@amsterdam/design-system-react-icons'
 import { LinkList } from '@amsterdam/design-system-react/src'
 
-import { childrenArgType } from '#storybook/_common/argTypes'
+import { childrenArgType, textSizeArgType } from '#storybook/_common/argTypes'
 import {
   contrastInverseColorArgType,
   hrefArgType,
@@ -23,22 +23,9 @@ const meta = {
     children: childrenArgType('The link text.'),
     color: contrastInverseColorArgType,
     href: hrefArgType,
-    icon: {
-      ...iconArgType,
-      control: {
-        labels: { undefined: 'ChevronForwardIcon (default)' },
-        type: 'select',
-      },
-      options: iconArgType.options.filter((option) => option !== 'ChevronForwardIcon'),
-    },
+    icon: iconArgType('ChevronForwardIcon'),
     linkComponent: linkComponentArgType,
-    size: {
-      control: {
-        labels: { undefined: 'medium (default)' },
-        type: 'radio',
-      },
-      options: ['small', undefined, 'large'],
-    },
+    size: textSizeArgType(['small', undefined, 'large']),
   },
   decorators: [
     (Story) => (
