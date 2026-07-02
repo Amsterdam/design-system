@@ -12,7 +12,7 @@ const meta = {
   component: SearchField.Input,
   argTypes: {
     invalid: {
-      control: { type: 'boolean' },
+      table: { disable: true },
     },
     label: {
       control: { type: 'text' },
