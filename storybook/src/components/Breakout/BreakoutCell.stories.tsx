@@ -5,7 +5,6 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Paragraph } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 
 import { GridColumnsGuide } from '#storybook/_components/GridColumnsGuide/GridColumnsGuide'
@@ -35,18 +34,17 @@ const meta = {
     (Story) => (
       <>
         <GridColumnsGuide />
-        <Breakout>
-          <Breakout.Cell className="_ams-item" colSpan={2} colStart={1} rowStart={1}>
-            <Paragraph>Cell 1</Paragraph>
-          </Breakout.Cell>
-          <Breakout.Cell className="_ams-item" colSpan={2} colStart={1} rowStart={2}>
-            <Paragraph>Cell 2</Paragraph>
-          </Breakout.Cell>
+        <Breakout paddingVertical="x-large">
+          <Breakout.Cell className="_ams-item" colSpan={2} colStart={1} rowStart={1} />
+          <Breakout.Cell className="_ams-item" colSpan={2} colStart={1} rowStart={2} />
           <Story />
         </Breakout>
       </>
     ),
   ],
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof Breakout.Cell>
 
 export default meta
@@ -61,9 +59,8 @@ type CellStory = StoryObj<typeof cellMeta>
 
 export const Cell: CellStory = {
   args: {
-    children: <Paragraph>Cell content</Paragraph>,
     className: '_ams-item--highlight',
-    colSpan: 2,
+    colSpan: 4,
     colStart: 3,
     rowSpan: 2,
     rowStart: 1,

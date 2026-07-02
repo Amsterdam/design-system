@@ -170,7 +170,8 @@ Column widths, gaps, and margins scale continuously between breakpoints; only th
 
 ### Spacious and Compact Mode
 
-In Spacious Mode, gaps between columns use the `xl` space token — from 36 to 60 pixels between windows 320 and 1440 pixels wide.
+In Spacious Mode, gaps between columns use the `xl` space token.
+It grows from 36 to 60 pixels between windows 320 and 1440 pixels wide.
 In Compact Mode, the same token scales from 16 to 24 pixels to accommodate denser layouts.
 
 Margins use the `l` token on the narrow grid in Spacious Mode (`xl` in Compact), `xl` on medium, and `2xl` on wide.
@@ -231,15 +232,16 @@ The Figma grid styles are in the shared library under 'Grid styles'.
 
 ### Windows or screens
 
-The breakpoints respond to the browser window width, not the screen resolution.
-On most devices the two coincide, but a browser window can be narrower than the screen — for example when two apps share a tablet screen side by side.
+The breakpoints respond to the width of the browser window, not of the screen.
+The two often coincide, but a window can easily be narrower than the screen it is on.
+Many people keep a window at a fraction of a large monitor, and a tablet can show two apps side by side.
 
 ## Relationship with text
 
 [Text sizes](/docs/brand-design-tokens-typography--docs) scale with the window width in sync with the grid, so typography and layout stay proportional across all screen sizes.
 
 The breakpoints also respond to the effective text size.
-When a user zooms in or sets a larger system font, the breakpoints kick in earlier — the number of columns adjusts before content overflows its cells.
+When a user zooms in or sets a larger system font, the breakpoints kick in earlier, which may decrease the number of columns.
 
 ## See also
 

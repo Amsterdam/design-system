@@ -67,16 +67,17 @@ The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/do
 When you omit it, both default to `nl-NL`.
 
 The prop accepts a [BCP 47 language tag](https://www.w3.org/International/articles/language-tags/).
-Unlike the HTML `lang` attribute, including a region subtag is appropriate here — the JavaScript `Intl` API can produce different output for different regional variants of the same language.
+Unlike the HTML `lang` attribute, including a region subtag is appropriate here.
+The JavaScript `Intl` API can produce different output for different regional variants of the same language.
 
 These locales have been tested:
 
-- `nl-NL` — Nederlands (Dutch), the default
-- `en-GB` — English
-- `de-DE` — Deutsch (German)
-- `fr-FR` — Français (French)
-- `tr-TR` — Türkçe (Turkish)
-- `ar-MA` — العربية (Arabic)
+- `nl-NL` – Nederlands (Dutch), the default
+- `en-GB` – English
+- `de-DE` – Deutsch (German)
+- `fr-FR` – Français (French)
+- `tr-TR` – Türkçe (Turkish)
+- `ar-MA` – العربية (Arabic)
 
 `locale` only drives the text that `Intl` generates.
 Both components also have accessible names and navigation button labels that stay in their default language until you translate them, so set those in the same language to avoid a mix.

@@ -5,7 +5,6 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Paragraph } from '@amsterdam/design-system-react'
 import { Grid } from '@amsterdam/design-system-react/src'
 
 import { GridColumnsGuide } from '#storybook/_components/GridColumnsGuide/GridColumnsGuide'
@@ -67,7 +66,11 @@ const cellMeta = {
 type CellStory = StoryObj<typeof cellMeta>
 
 export const Cell: CellStory = {
-  args: { children: <Paragraph>Cell content</Paragraph>, span: 4 },
+  args: {
+    children: <div />,
+    className: '_ams-item',
+    span: 4,
+  },
 }
 
 export const SpanColumns: CellStory = {
