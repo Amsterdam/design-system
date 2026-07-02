@@ -16,8 +16,10 @@ const meta = {
   },
   argTypes: {
     children: {
+      description: 'The text content.',
       table: { disable: false },
     },
+    icon: { control: false }, // A component type has no usable controls panel widget.
   },
 } satisfies Meta<typeof ErrorMessage>
 

@@ -12,7 +12,6 @@ const meta = {
   component: Label,
   args: {
     children: 'Label',
-    hint: '',
     optional: false,
   },
   argTypes: {

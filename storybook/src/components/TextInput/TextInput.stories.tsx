@@ -9,6 +9,8 @@ import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-
 import { textInputTypes } from '@amsterdam/design-system-react/dist/TextInput/TextInput'
 import { TextInput } from '@amsterdam/design-system-react/src'
 
+import { disabledArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Forms/Text Input',
   component: TextInput,
@@ -21,12 +23,7 @@ const meta = {
     defaultValue: {
       table: { disable: false },
     },
-    disabled: {
-      description: 'Prevents interaction. Avoid if possible.',
-    },
-    invalid: {
-      description: 'Whether the value fails a validation rule.',
-    },
+    disabled: disabledArgType,
     onChange: {
       table: { disable: false },
     },

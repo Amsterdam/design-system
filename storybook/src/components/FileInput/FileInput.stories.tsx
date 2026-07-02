@@ -8,6 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { FileInput } from '@amsterdam/design-system-react/src'
 
+import { disabledArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Forms/File Input',
   component: FileInput,
@@ -21,16 +23,11 @@ const meta = {
       control: {
         type: 'text',
       },
+      description: 'The file types that the user can select.',
     },
-    disabled: {
-      control: {
-        type: 'boolean',
-      },
-    },
+    disabled: disabledArgType,
     multiple: {
-      control: {
-        type: 'boolean',
-      },
+      description: 'Allows selecting more than one file.',
     },
     onChange: {
       table: { disable: false },

@@ -8,6 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { PasswordInput } from '@amsterdam/design-system-react/src'
 
+import { disabledArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Forms/Password Input',
   component: PasswordInput,
@@ -19,9 +21,7 @@ const meta = {
     defaultValue: {
       table: { disable: false },
     },
-    disabled: {
-      description: 'Prevents interaction. Avoid if possible.',
-    },
+    disabled: disabledArgType,
     onChange: {
       table: { disable: false },
     },

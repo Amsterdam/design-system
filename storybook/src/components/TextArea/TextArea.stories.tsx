@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { TextArea } from '@amsterdam/design-system-react/src'
 
+import { disabledArgType } from '#storybook/_common/argTypes'
 import { exampleParagraph } from '#storybook/_common/exampleContent'
 
 const paragraph = exampleParagraph()
@@ -22,32 +23,26 @@ const meta = {
   },
   argTypes: {
     cols: {
-      control: {
-        type: 'number',
-      },
+      control: { min: 0, type: 'number' },
       description: 'The width, expressed in the average number of characters.',
     },
     defaultValue: {
       table: { disable: false },
     },
-    disabled: {
-      description: 'Prevents interaction. Avoid if possible.',
-    },
+    disabled: disabledArgType,
     onChange: {
       table: { disable: false },
     },
     resize: {
       control: {
-        labels: { horizontal: 'horizontal', none: 'none', undefined: 'default', vertical: 'vertical' },
+        labels: { undefined: 'both (default)' },
         type: 'radio',
       },
       options: [undefined, 'none', 'horizontal', 'vertical'],
     },
     rows: {
-      control: {
-        type: 'number',
-      },
-      description: 'The number of lines to show',
+      control: { min: 0, type: 'number' },
+      description: 'The number of lines to show.',
     },
   },
 } satisfies Meta<typeof TextArea>
