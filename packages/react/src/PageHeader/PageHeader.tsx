@@ -54,7 +54,7 @@ export type PageHeaderProps = {
    * @default Hoofdmenu
    */
   readonly navigationLabel?: string
-  /** Whether the menu button is visible on wide screens.  */
+  /** Hides the menu button on wide windows. */
   readonly noMenuButtonOnWideWindow?: boolean
 } & Readonly<HTMLAttributes<HTMLElement>>
 

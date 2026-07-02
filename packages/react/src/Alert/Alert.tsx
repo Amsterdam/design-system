@@ -20,20 +20,20 @@ import { Row } from '../Row'
 type Severity = 'error' | 'success' | 'warning'
 
 export type AlertProps = {
-  /** Whether the user can dismiss the Alert. Adds a button to its top right. */
+  /** Whether the user can dismiss the alert. Adds a button to its top right. */
   readonly closeable?: boolean
-  /** The label for the button that dismisses the Alert. */
+  /** The label for the button that dismisses the alert. */
   readonly closeButtonLabel?: string
   /** The text for the Heading. */
   readonly heading: string
   /**
-   * The id of the Heading element, which is used to label the Alert.
+   * The id of the Heading element, which is used to label the alert.
    * Can be set to `null` to explicitly remove the label.
    * Note: must be unique for the page.
    */
   readonly headingId?: string | null
   /**
-   * The hierarchical level of the Alert’s Heading within the document.
+   * The hierarchical level of the Heading within the document.
    * There is no default value; determine the correct level for each instance.
    * The size of the heading is fixed at level 3.
    */

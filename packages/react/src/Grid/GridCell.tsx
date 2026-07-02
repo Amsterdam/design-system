@@ -33,7 +33,7 @@ type GridCellSpanAndStartProps = {
 
 export type GridCellProps = {
   /**
-   * Controls the background of the Grid Cell.
+   * Controls the background of the cell.
    *
    * In Compact Mode, cells have a background colour and padding to set them apart.
    * The flush variant removes the padding but keeps the background colour.
@@ -42,7 +42,10 @@ export type GridCellProps = {
    * In Spacious Mode, cells are always transparent and without padding; this prop has no effect.
    */
   readonly appearance?: GridCellAppearance
-  /** The HTML tag to use. */
+  /**
+   * The HTML tag to use.
+   * @default div
+   */
   readonly as?: GridCellTag
   /** The amount of grid rows the cell spans. */
   readonly rowSpan?: GridRowNumber | GridRowNumbers

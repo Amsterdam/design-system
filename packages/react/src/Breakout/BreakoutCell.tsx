@@ -20,9 +20,10 @@ type BreakoutCellSpanAllProps = {
   /** Lets the cell span the full width of all grid variants. */
   readonly colSpan: 'all'
   readonly colStart?: never
-  /** The content of this cell.
-   * The Cell containing the Spotlight expands horizontally and vertically to cover the adjacent gaps and margins.
-   * The Cell containing the Image aligns itself to the bottom of the row, in case it is less tall than the text. */
+  /**
+   * Marks that this cell contains a Spotlight.
+   * The cell then expands horizontally and vertically to cover the adjacent gaps and margins.
+   */
   readonly has?: 'spotlight'
 }
 
@@ -31,6 +32,10 @@ type BreakoutCellSpanAndStartProps = {
   readonly colSpan?: 'all' | GridColumnNumber | GridColumnNumbers
   /** The index of the grid column the cell starts at. */
   readonly colStart?: GridColumnNumber | GridColumnNumbers
+  /**
+   * Marks that this cell contains a Figure.
+   * The cell then aligns itself to the bottom of the row, in case it is less tall than the text.
+   */
   readonly has?: 'figure'
 }
 
@@ -42,7 +47,10 @@ type BreakoutCellRowSpanAndStartProps = {
 }
 
 export type BreakoutCellProps = {
-  /** The HTML element to use. */
+  /**
+   * The HTML element to use.
+   * @default div
+   */
   readonly as?: BreakoutCellTag
 } & Readonly<BreakoutCellRowSpanAndStartProps> &
   Readonly<BreakoutCellSpanAllProps | BreakoutCellSpanAndStartProps> &

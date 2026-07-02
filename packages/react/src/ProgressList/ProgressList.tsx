@@ -35,7 +35,7 @@ export type ProgressListProps = {
    */
   readonly currentAccessibleText?: string
   /**
-   * The hierarchical level of this Progress List’s Headings within the document.
+   * The hierarchical level of the step Headings within the document.
    * There is no default value; determine the correct level for this instance.
    */
   readonly headingLevel: ProgressListHeadingLevel

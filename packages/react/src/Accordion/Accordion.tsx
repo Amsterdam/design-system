@@ -14,11 +14,11 @@ import { AccordionSection } from './AccordionSection'
 
 export type AccordionProps = {
   /**
-   * The hierarchical level of this Accordion’s Section Headings within the document.
+   * The hierarchical level of the Section Headings within the document.
    * There is no default value; determine the correct level for each instance.
    */
   readonly headingLevel: 2 | 3 | 4
-  /** The HTML element to use for each Accordion Section. */
+  /** The HTML element to use for each Section. */
   readonly sectionAs?: 'div' | 'section'
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 

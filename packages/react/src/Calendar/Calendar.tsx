@@ -13,14 +13,14 @@ import { CalendarBody } from './CalendarBody'
 import { CalendarHeader } from './CalendarHeader'
 
 export type CalendarProps = {
-  /** The text for the internal, visually hidden heading that gives the Calendar an accessible name. */
+  /** The text for the internal, visually hidden heading that gives the component an accessible name. */
   readonly accessibleName?: string
   /**
-   * Connects the Calendar with an internal element that defines its accessible name.
+   * Connects the component with an internal element that defines its accessible name.
    * Note: must be unique for the page.
    */
   readonly accessibleNameId?: string
-  /** The month shown when the Calendar first renders. Defaults to the current month. */
+  /** The month shown on first render. Defaults to the current month. */
   readonly defaultMonth?: Date
   /** The component to render each date link with. Defaults to a plain anchor. */
   readonly linkComponent?: ElementType
