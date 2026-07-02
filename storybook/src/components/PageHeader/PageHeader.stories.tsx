@@ -11,8 +11,9 @@ import { LogInIcon, PlusIcon, SearchIcon } from '@amsterdam/design-system-react-
 import { PageHeader } from '@amsterdam/design-system-react/src'
 import { logoBrands } from '@amsterdam/design-system-react/src/Logo/Logo'
 
-import { iconArgType, linkComponentArgType } from '#storybook/_common/argTypes'
+import { linkComponentArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 import ExampleLogo from '../Logo/ExampleLogo'
 import { collapsibleMenuItems, headerMenuItems } from './content'

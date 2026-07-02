@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import * as Icons from '@amsterdam/design-system-react-icons'
+// Note: the icon arg types live in iconArgTypes.ts – they pull in the entire icon package.
 
 /**
  * An `as` prop offering the component’s allowed tags, which default to `div`.
@@ -93,19 +93,6 @@ export const hrefArgType = {
   description: 'The url for the link.',
 } as const
 
-/**
- * An optional icon prop. Offers all icons by name.
- * Labels `undefined` as ‘none’, or with the name of the default icon if one is passed.
- */
-export const iconArgType = (defaultIcon?: string) => ({
-  control: {
-    labels: { undefined: defaultIcon ? `${defaultIcon} (default)` : 'none' },
-    type: 'select' as const,
-  },
-  mapping: Icons,
-  options: [undefined, ...Object.keys(Icons).filter((name) => name !== defaultIcon)],
-})
-
 /** The native `id` attribute of form controls that generate one when it isn’t provided. */
 export const idArgType = {
   description: 'The id of the input element. If not provided, a unique id will be generated.',
@@ -134,10 +121,3 @@ export const textSizeArgType = (options: readonly (string | undefined)[]) =>
     },
     options: [...options],
   }) as const
-
-/** A required icon prop. Offers all icons by name. */
-export const requiredIconArgType = {
-  control: { type: 'select' },
-  mapping: Icons,
-  options: Object.keys(Icons),
-} as const

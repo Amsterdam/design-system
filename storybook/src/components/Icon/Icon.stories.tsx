@@ -10,7 +10,8 @@ import * as Icons from '@amsterdam/design-system-react-icons'
 import { Column, Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 
-import { inverseColorArgType, requiredIconArgType } from '#storybook/_common/argTypes'
+import { inverseColorArgType } from '#storybook/_common/argTypes'
+import { requiredIconArgType } from '#storybook/_common/iconArgTypes'
 
 const meta = {
   title: 'Components/Media/Icon',

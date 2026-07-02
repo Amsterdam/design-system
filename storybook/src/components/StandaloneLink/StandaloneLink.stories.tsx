@@ -13,10 +13,10 @@ import {
   childrenArgType,
   contrastInverseColorArgType,
   hrefArgType,
-  iconArgType,
   linkComponentArgType,
 } from '#storybook/_common/argTypes'
 import { maximiseInlineSize } from '#storybook/_common/decorators'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 const meta = {
   title: 'Components/Navigation/Standalone Link',

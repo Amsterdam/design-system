@@ -9,8 +9,9 @@ import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import { Button } from '@amsterdam/design-system-react/src'
 import { buttonVariants } from '@amsterdam/design-system-react/src/Button/Button'
 
-import { disabledArgType, iconArgType } from '#storybook/_common/argTypes'
+import { disabledArgType } from '#storybook/_common/argTypes'
 import { maximiseInlineSize } from '#storybook/_common/decorators'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 const meta = {
   title: 'Components/Buttons/Button',

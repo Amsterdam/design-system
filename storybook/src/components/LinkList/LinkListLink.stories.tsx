@@ -12,10 +12,10 @@ import {
   childrenArgType,
   contrastInverseColorArgType,
   hrefArgType,
-  iconArgType,
   linkComponentArgType,
   textSizeArgType,
 } from '#storybook/_common/argTypes'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 const meta = {
   title: 'Components/Navigation/Link List',

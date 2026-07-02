@@ -8,7 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { IconButton } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
 
-import { contrastInverseColorArgType, disabledArgType, iconArgType } from '#storybook/_common/argTypes'
+import { contrastInverseColorArgType, disabledArgType } from '#storybook/_common/argTypes'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 const meta = {
   title: 'Components/Buttons/Icon Button',
