@@ -1,0 +1,5 @@
+import{i as e}from"./preload-helper-CT_b8DTk.js";import{t}from"./jsx-runtime-BCDDjCIb.js";import{g as n,t as r}from"./src-BJpMt5QP.js";var i,a,o,s,c=e((()=>{r(),i=t(),a={title:`Components/Containers/Table`,component:n.HeaderCell,argTypes:{align:{control:{labels:{undefined:`start`},type:`radio`},options:[void 0,`center`,`end`]}},decorators:[e=>(0,i.jsxs)(n,{children:[(0,i.jsx)(n.Header,{children:(0,i.jsx)(n.Row,{children:(0,i.jsx)(e,{})})}),(0,i.jsx)(n.Body,{children:(0,i.jsx)(n.Row,{children:(0,i.jsx)(n.Cell,{children:`West`})})})]})]},o={args:{children:`Stadsdeel`}},o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: 'Stadsdeel'
+  }
+}`,...o.parameters?.docs?.source}}},s=[`HeaderCell`]}));c();export{o as HeaderCell,s as __namedExportsOrder,a as default,c as t};
