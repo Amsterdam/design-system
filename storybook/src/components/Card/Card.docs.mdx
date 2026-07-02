@@ -19,12 +19,15 @@ import * as CardLinkStories from "./CardLink.stories.tsx";
 
 <Primary />
 
+This component has no props to configure.
+
 ## Subcomponents
 
 ### Heading
 
 Contains the name and link of the Card.
-It accepts all props of a regular Heading – set its `level` to fit the document outline.
+Accepts all props of a regular Heading.
+Set its `level` to fit the document outline.
 
 <Canvas of={CardHeadingStories.Heading} />
 
@@ -50,6 +53,7 @@ It accepts all props of a regular Image, such as `aspectRatio`.
 ### Link
 
 Makes the entire Card clickable.
+Place it inside the Heading.
 Set `linkComponent` to integrate with a routing library.
 
 <Canvas of={CardLinkStories.Link} />
