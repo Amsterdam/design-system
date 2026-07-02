@@ -1,6 +1,0 @@
-import{i as e}from"./preload-helper-CT_b8DTk.js";import{t}from"./jsx-runtime-BCDDjCIb.js";import{_n as n,t as r}from"./src-DaT4QjpU.js";import{f as i,s as a,u as o}from"./argTypes-QdTB_aqP.js";var s,c,l,u,d=e((()=>{r(),o(),s=t(),c={title:`Components/Navigation/Breadcrumb`,component:n.Link,argTypes:{children:{control:`text`,description:`The link text.`,table:{disable:!1}},href:a,linkComponent:i},decorators:[e=>(0,s.jsx)(n,{children:(0,s.jsx)(e,{})})]},l={args:{children:`Home`,href:`#`}},l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
-  args: {
-    children: 'Home',
-    href: '#'
-  }
-}`,...l.parameters?.docs?.source}}},u=[`Link`]}));d();export{l as Link,u as __namedExportsOrder,c as default,d as t};
