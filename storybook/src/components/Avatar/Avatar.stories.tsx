@@ -8,6 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Avatar } from '@amsterdam/design-system-react/src'
 import { avatarColors } from '@amsterdam/design-system-react/src/Avatar/Avatar'
 
+import { colorArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Feedback/Avatar',
   component: Avatar,
@@ -16,12 +18,7 @@ const meta = {
     label: 'DS',
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'purple (default)' },
-      },
-      options: [undefined, ...avatarColors],
-    },
+    color: colorArgType(avatarColors, 'purple'),
   },
 } satisfies Meta<typeof Avatar>
 

@@ -7,10 +7,16 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Heading, Paragraph } from '@amsterdam/design-system-react'
 import { DownloadIcon } from '@amsterdam/design-system-react-icons'
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { StandaloneLink } from '@amsterdam/design-system-react/src'
 
+import {
+  childrenArgType,
+  contrastInverseColorArgType,
+  hrefArgType,
+  linkComponentArgType,
+} from '#storybook/_common/argTypes'
 import { maximiseInlineSize } from '#storybook/_common/decorators'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 const meta = {
   title: 'Components/Navigation/Standalone Link',
@@ -20,35 +26,11 @@ const meta = {
     href: '#',
   },
   argTypes: {
-    children: {
-      description: 'The link text.',
-      table: { disable: false },
-    },
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
-    },
-    href: {
-      description: 'The url for the link.',
-      name: 'href',
-      type: { name: 'string', required: false },
-    },
-    icon: {
-      control: {
-        labels: { undefined: 'none' },
-        type: 'select',
-      },
-      mapping: Icons,
-      options: [undefined, ...Object.keys(Icons)],
-      table: {
-        defaultValue: {
-          summary: 'ChevronForwardIcon',
-        },
-      },
-    },
+    children: childrenArgType('The link text.'),
+    color: contrastInverseColorArgType,
+    href: hrefArgType,
+    icon: iconArgType('ChevronForwardIcon'),
+    linkComponent: linkComponentArgType,
   },
 } satisfies Meta<typeof StandaloneLink>
 

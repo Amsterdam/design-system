@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { TableOfContents } from '@amsterdam/design-system-react/src'
 
+import { headingLevelArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Navigation/Table of Contents',
   component: TableOfContents,
@@ -25,6 +27,7 @@ const meta = {
     collapsible: {
       control: { type: 'boolean' },
     },
+    headingLevel: headingLevelArgType([1, 2, 3, 4], 2),
     hideAccessibleLabel: {
       control: { type: 'text' },
     },

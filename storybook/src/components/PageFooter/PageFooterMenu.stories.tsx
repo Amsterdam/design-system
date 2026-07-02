@@ -7,14 +7,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { PageFooter } from '@amsterdam/design-system-react/src'
 
+import { headingLevelArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Containers/Page Footer',
   component: PageFooter.Menu,
   argTypes: {
-    headingLevel: {
-      control: { type: 'radio' },
-      options: [2, 3, 4],
-    },
+    // A level 1 heading never belongs in the footer, so this offers a subset of the allowed levels.
+    headingLevel: headingLevelArgType([2, 3, 4], 2),
   },
   decorators: [
     (Story) => (

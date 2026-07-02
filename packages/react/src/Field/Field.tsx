@@ -9,7 +9,7 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 export type FieldProps = {
-  /** Whether the field has an input with a validation error */
+  /** Whether the field has an input with a validation error. */
   readonly invalid?: boolean
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
 

@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Card } from '@amsterdam/design-system-react/src'
+import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 const meta = {
   title: 'Components/Navigation/Card',
@@ -16,7 +17,7 @@ const meta = {
         labels: { undefined: 'none' },
         type: 'select',
       },
-      options: [undefined, '1:1', '4:3', '16:9', '16:5'],
+      options: [undefined, ...aspectRatioOptions],
     },
   },
   decorators: [

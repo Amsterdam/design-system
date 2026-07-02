@@ -7,8 +7,9 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Blockquote, Grid, Heading, Paragraph, StandaloneLink } from '@amsterdam/design-system-react'
 import { Spotlight } from '@amsterdam/design-system-react/src'
-import { spotlightColors } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
+import { spotlightColors, spotlightTags } from '@amsterdam/design-system-react/src/Spotlight/Spotlight'
 
+import { asArgType, colorArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
 import { exampleQuote } from '#storybook/_common/exampleContent'
 
@@ -18,12 +19,8 @@ const meta = {
   title: 'Components/Containers/Spotlight',
   component: Spotlight,
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'purple (default)' },
-      },
-      options: [undefined, ...spotlightColors],
-    },
+    as: asArgType(spotlightTags),
+    color: colorArgType(spotlightColors, 'purple'),
   },
   decorators: [wrapInPage],
 } satisfies Meta<typeof Spotlight>

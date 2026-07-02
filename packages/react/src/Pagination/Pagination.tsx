@@ -17,7 +17,7 @@ import { LinkItem } from './LinkItem'
 const DefaultLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a {...props} />
 
 export type PaginationProps = {
-  /** The accessible name for the Pagination component. */
+  /** The accessible name for the component. */
   readonly accessibleName?: string
   /**
    * Connects the component with an internal element that defines its accessible name.

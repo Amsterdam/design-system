@@ -17,6 +17,7 @@ export type TableOfContentsLinkProps = {
   /**
    * Whether the nested list is initially expanded.
    * Ignored when the parent `TableOfContents` is not `collapsible` or when there is no nested list.
+   * @default false
    */
   readonly defaultExpanded?: boolean
   /** The text for the link. */

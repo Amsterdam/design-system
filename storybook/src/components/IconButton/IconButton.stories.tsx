@@ -5,9 +5,11 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { IconButton } from '@amsterdam/design-system-react/src'
 import { iconSizes } from '@amsterdam/design-system-react/src/Icon/Icon'
+
+import { contrastInverseColorArgType, disabledArgType } from '#storybook/_common/argTypes'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 const meta = {
   title: 'Components/Buttons/Icon Button',
@@ -18,30 +20,16 @@ const meta = {
     size: undefined,
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
-    },
-    disabled: {
-      description: 'Prevents interaction. Avoid if possible.',
-    },
+    color: contrastInverseColorArgType,
+    disabled: disabledArgType,
     size: {
       control: {
-        labels: { undefined: 'default' },
+        labels: { undefined: 'medium body text (default)' },
         type: 'select',
       },
       options: [undefined, ...iconSizes],
     },
-    svg: {
-      control: {
-        type: 'select',
-      },
-      mapping: Icons,
-      options: Object.keys(Icons),
-    },
+    svg: iconArgType('CloseIcon'),
   },
 } satisfies Meta<typeof IconButton>
 

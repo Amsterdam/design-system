@@ -9,7 +9,9 @@ import { Avatar, Heading, StandaloneLink } from '@amsterdam/design-system-react'
 import { PencilIcon } from '@amsterdam/design-system-react-icons'
 import { Row } from '@amsterdam/design-system-react/src'
 import { crossAlignOptions, mainAlignOptions } from '@amsterdam/design-system-react/src/common/types'
-import { rowGapSizes } from '@amsterdam/design-system-react/src/Row/Row'
+import { rowGapSizes, rowTags } from '@amsterdam/design-system-react/src/Row/Row'
+
+import { asArgType } from '#storybook/_common/argTypes'
 
 const ThreeItems = [
   <div className="_ams-item" key={0} />,
@@ -23,26 +25,28 @@ const meta = {
   args: {
     children: ThreeItems,
     className: '_ams-row',
+    wrap: false,
   },
   argTypes: {
     align: {
       control: {
-        labels: { undefined: 'start' },
-        type: 'radio',
+        labels: { undefined: 'start (default)' },
+        type: 'select',
       },
       options: [undefined, ...mainAlignOptions],
     },
     alignVertical: {
       control: {
-        labels: { undefined: 'stretch' },
+        labels: { undefined: 'stretch (default)' },
         type: 'radio',
       },
       options: [undefined, ...crossAlignOptions],
     },
+    as: asArgType(rowTags),
     gap: {
       control: {
-        labels: { undefined: 'medium' },
-        type: 'radio',
+        labels: { undefined: 'medium (default)' },
+        type: 'select',
       },
       options: [undefined, ...rowGapSizes],
     },

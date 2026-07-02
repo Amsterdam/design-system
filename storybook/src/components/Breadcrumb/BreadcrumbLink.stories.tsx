@@ -7,15 +7,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Breadcrumb } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType, hrefArgType, linkComponentArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Navigation/Breadcrumb',
   component: Breadcrumb.Link,
   argTypes: {
-    children: {
-      control: 'text',
-      description: 'The link text.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The link text.'),
+    href: hrefArgType,
+    linkComponent: linkComponentArgType,
   },
   decorators: [
     (Story) => (

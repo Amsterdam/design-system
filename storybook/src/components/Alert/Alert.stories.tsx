@@ -8,6 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Link, Paragraph } from '@amsterdam/design-system-react'
 import { Alert } from '@amsterdam/design-system-react/src'
 
+import { headingLevelArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Feedback/Alert',
   component: Alert,
@@ -17,9 +19,17 @@ const meta = {
     headingLevel: 2,
   },
   argTypes: {
+    closeButtonLabel: {
+      if: { arg: 'closeable' },
+    },
+    headingLevel: headingLevelArgType(),
+    onClose: {
+      control: false,
+    },
     severity: {
       control: {
-        labels: { undefined: 'information' },
+        labels: { undefined: 'information (default)' },
+        type: 'radio',
       },
       options: [undefined, 'success', 'warning', 'error'],
     },

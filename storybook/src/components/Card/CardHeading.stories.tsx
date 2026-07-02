@@ -7,20 +7,20 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Card } from '@amsterdam/design-system-react/src'
 
+import { headingLevelArgType, inverseColorArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Navigation/Card',
   component: Card.Heading,
   argTypes: {
-    level: {
-      control: { type: 'radio' },
-      options: [1, 2, 3, 4, 5, 6],
-    },
+    color: inverseColorArgType,
+    level: headingLevelArgType(),
     size: {
       control: {
         labels: { undefined: 'level-3 (default)' },
         type: 'select',
       },
-      options: [undefined, 'level-1', 'level-2', 'level-3', 'level-4', 'level-5'],
+      options: [undefined, 'level-1', 'level-2', 'level-4', 'level-5'],
     },
   },
   decorators: [

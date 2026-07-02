@@ -18,7 +18,7 @@ type DescriptionListTermsWidth = (typeof descriptionListTermsWidths)[number]
 export type DescriptionListProps = {
   /** Changes the text colour for readability on a dark background. */
   readonly color?: 'inverse'
-  /* The width of the column containing the terms. */
+  /** The width of the column containing the terms. */
   readonly termsWidth?: DescriptionListTermsWidth
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLDListElement>>>
 
