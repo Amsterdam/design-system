@@ -1,0 +1,61 @@
+# This repository adheres to the publiccode.yml standard by including this
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/publiccodeyml/publiccode.yml
+
+publiccodeYmlVersion: "0.5"
+
+name: Amsterdam Design System
+url: https://github.com/Amsterdam/design-system.git
+landingURL: https://designsystem.amsterdam
+softwareType: library
+
+platforms:
+  - web
+
+developmentStatus: stable
+
+description:
+  en:
+    shortDescription: >-
+      Reusable components, patterns and guidelines powering the City of
+      Amsterdam's digital services.
+
+    longDescription: |
+      This is the guide for the user interfaces of all digital products and
+      services provided by the City of Amsterdam. It offers reusable
+      components, patterns and guides for teams that work on Amsterdam's
+      websites, helping everyone work faster and better, with more time to
+      create value. To citizens and businesses, all channels look the same
+      and work similarly; they are broadly accessible and evoke trust.
+
+      The project provides libraries for CSS, React, and design tokens, and
+      is part of the NL Design System community initiative that promotes
+      shared, reusable components across Dutch government websites.
+
+    features:
+      - Design tokens
+      - CSS components
+      - React components
+      - Icons
+
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: Gemeente Amsterdam
+
+intendedAudience:
+  countries:
+    - NL
+  scope:
+    - government
+
+localisation:
+  availableLanguages:
+    - en
+  localisationReady: false
+
+maintenance:
+  type: internal
+  contacts:
+    - name: Design System Team
+      email: designsystem@amsterdam.nl
+      affiliation: Gemeente Amsterdam
