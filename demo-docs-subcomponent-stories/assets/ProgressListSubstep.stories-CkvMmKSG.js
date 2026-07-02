@@ -1,0 +1,6 @@
+import{i as e}from"./preload-helper-CT_b8DTk.js";import{t}from"./jsx-runtime-BCDDjCIb.js";import{J as n,P as r}from"./index.esm-DhDznrbq.js";import{N as i,t as a}from"./src-5OcE2PBB.js";var o,s,c,l,u=e((()=>{n(),a(),o=t(),s={title:`Components/Containers/Progress List`,component:i.Substep,argTypes:{status:{control:{labels:{undefined:`default`},type:`radio`},options:[void 0,`current`,`completed`]}},decorators:[e=>(0,o.jsx)(i,{collapsible:!0,headingLevel:3,children:(0,o.jsx)(i.Step,{hasSubsteps:!0,heading:`2027`,status:`current`,children:(0,o.jsx)(i.Substeps,{children:(0,o.jsx)(e,{})})})})]},c={args:{children:(0,o.jsx)(r,{children:`Juni: Raadhuisstraat, Westermarkt en Rozengracht`}),status:`current`}},c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: <Paragraph>Juni: Raadhuisstraat, Westermarkt en Rozengracht</Paragraph>,
+    status: 'current'
+  }
+}`,...c.parameters?.docs?.source}}},l=[`Substep`]}));u();export{c as Substep,l as __namedExportsOrder,s as default,u as t};
