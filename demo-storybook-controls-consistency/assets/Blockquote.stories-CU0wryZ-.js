@@ -1,5 +1,0 @@
-import{a as e,i as t}from"./preload-helper-CT_b8DTk.js";import{t as n,yn as r}from"./src-DTFagzSm.js";import{d as i,f as a,r as o}from"./argTypes-CX0Ca9AC.js";import{m as s,u as c}from"./exampleContent-CFoxZuYq.js";var l=e({Default:()=>d,InverseColour:()=>f,__namedExportsOrder:()=>p,default:()=>u}),u,d,f,p,m=t((()=>{n(),i(),s(),u={title:`Components/Text/Blockquote`,component:r,args:{children:c()},argTypes:{children:o(`The text for the quote.`),color:a}},d={},f={args:{color:`inverse`}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{}`,...d.parameters?.docs?.source}}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
-  args: {
-    color: 'inverse'
-  }
-}`,...f.parameters?.docs?.source}}},p=[`Default`,`InverseColour`]}));m();export{d as Default,f as InverseColour,p as __namedExportsOrder,u as default,m as n,l as t};
