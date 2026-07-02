@@ -49,7 +49,9 @@ const meta = {
 
 export default meta
 
-// Typing stories against a minimal meta keeps the union of the span and start values intact.
+// Typing the story against a minimal meta keeps the union of BreakoutCellProps intact:
+// StoryObj<typeof meta> collapses `colSpan: 'all'` and the numeric span-and-start variant
+// into an impossible intersection.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const cellMeta = {
   component: Breakout.Cell,
