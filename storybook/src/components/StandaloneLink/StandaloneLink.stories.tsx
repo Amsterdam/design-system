@@ -7,9 +7,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Heading, Paragraph } from '@amsterdam/design-system-react'
 import { DownloadIcon } from '@amsterdam/design-system-react-icons'
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { StandaloneLink } from '@amsterdam/design-system-react/src'
 
+import {
+  contrastInverseColorArgType,
+  hrefArgType,
+  iconArgType,
+  linkComponentArgType,
+} from '#storybook/_common/argTypes'
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 
 const meta = {
@@ -24,31 +29,16 @@ const meta = {
       description: 'The link text.',
       table: { disable: false },
     },
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
-    },
-    href: {
-      description: 'The url for the link.',
-      name: 'href',
-      type: { name: 'string', required: false },
-    },
+    color: contrastInverseColorArgType,
+    href: hrefArgType,
     icon: {
+      ...iconArgType,
       control: {
-        labels: { undefined: 'none' },
+        labels: { undefined: 'ChevronForwardIcon (default)' },
         type: 'select',
       },
-      mapping: Icons,
-      options: [undefined, ...Object.keys(Icons)],
-      table: {
-        defaultValue: {
-          summary: 'ChevronForwardIcon',
-        },
-      },
     },
+    linkComponent: linkComponentArgType,
   },
 } satisfies Meta<typeof StandaloneLink>
 

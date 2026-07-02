@@ -6,8 +6,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { HouseIcon } from '@amsterdam/design-system-react-icons'
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { LinkList } from '@amsterdam/design-system-react/src'
+
+import {
+  contrastInverseColorArgType,
+  hrefArgType,
+  iconArgType,
+  linkComponentArgType,
+} from '#storybook/_common/argTypes'
 
 const meta = {
   title: 'Components/Navigation/Link List',
@@ -18,24 +24,19 @@ const meta = {
       description: 'The link text.',
       table: { disable: false },
     },
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
-    },
+    color: contrastInverseColorArgType,
+    href: hrefArgType,
     icon: {
+      ...iconArgType,
       control: {
-        labels: { undefined: 'none' },
+        labels: { undefined: 'ChevronForwardIcon (default)' },
         type: 'select',
       },
-      mapping: Icons,
-      options: [undefined, ...Object.keys(Icons)],
     },
+    linkComponent: linkComponentArgType,
     size: {
       control: {
-        labels: { undefined: 'medium' },
+        labels: { undefined: 'medium (default)' },
         type: 'radio',
       },
       options: ['small', undefined, 'large'],

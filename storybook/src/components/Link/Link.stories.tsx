@@ -8,6 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Paragraph } from '@amsterdam/design-system-react'
 import { Link } from '@amsterdam/design-system-react/src'
 
+import { contrastInverseColorArgType, hrefArgType, linkComponentArgType } from '#storybook/_common/argTypes'
+
 type Story = StoryObj<typeof Link>
 
 const meta = {
@@ -22,18 +24,9 @@ const meta = {
       description: 'The link text.',
       table: { disable: false },
     },
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
-    },
-    href: {
-      description: 'The url for the link.',
-      name: 'href',
-      type: { name: 'string', required: false },
-    },
+    color: contrastInverseColorArgType,
+    href: hrefArgType,
+    linkComponent: linkComponentArgType,
   },
   decorators: [
     (Story, { args }) => (

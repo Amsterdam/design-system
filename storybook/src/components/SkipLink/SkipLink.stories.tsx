@@ -8,6 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Paragraph } from '@amsterdam/design-system-react'
 import { SkipLink } from '@amsterdam/design-system-react/src'
 
+import { hrefArgType, linkComponentArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Navigation/Skip Link',
   component: SkipLink,
@@ -21,8 +23,9 @@ const meta = {
       table: { disable: false },
     },
     href: {
-      description: 'The url for the link. References an anchor on the current page.',
+      description: `${hrefArgType.description} References an anchor on the current page.`,
     },
+    linkComponent: linkComponentArgType,
   },
 } satisfies Meta<typeof SkipLink>
 

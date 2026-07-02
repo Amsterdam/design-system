@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Breadcrumb } from '@amsterdam/design-system-react/src'
 
+import { hrefArgType, linkComponentArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Navigation/Breadcrumb',
   component: Breadcrumb.Link,
@@ -16,6 +18,8 @@ const meta = {
       description: 'The link text.',
       table: { disable: false },
     },
+    href: hrefArgType,
+    linkComponent: linkComponentArgType,
   },
   decorators: [
     (Story) => (

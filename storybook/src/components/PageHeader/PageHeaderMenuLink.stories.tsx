@@ -5,8 +5,9 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
+
+import { hrefArgType, iconArgType, linkComponentArgType } from '#storybook/_common/argTypes'
 
 const meta = {
   title: 'Components/Containers/Page Header',
@@ -17,14 +18,9 @@ const meta = {
       description: 'The link text.',
       table: { disable: false },
     },
-    icon: {
-      control: {
-        labels: { undefined: 'none' },
-        type: 'select',
-      },
-      mapping: Icons,
-      options: [undefined, ...Object.keys(Icons)],
-    },
+    href: hrefArgType,
+    icon: iconArgType,
+    linkComponent: linkComponentArgType,
   },
   decorators: [(Story) => <PageHeader menuItems={<Story />} />],
   render: ({ children, ...args }) => <PageHeader.MenuLink {...args}>{children}</PageHeader.MenuLink>,

@@ -5,8 +5,9 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { TabNavigation } from '@amsterdam/design-system-react/src'
+
+import { hrefArgType, iconArgType, linkComponentArgType } from '#storybook/_common/argTypes'
 
 const meta = {
   title: 'Components/Navigation/Tab Navigation',
@@ -17,14 +18,9 @@ const meta = {
       description: 'The link text.',
       table: { disable: false },
     },
-    icon: {
-      control: {
-        labels: { undefined: 'none' },
-        type: 'select',
-      },
-      mapping: Icons,
-      options: [undefined, ...Object.keys(Icons)],
-    },
+    href: hrefArgType,
+    icon: iconArgType,
+    linkComponent: linkComponentArgType,
   },
   decorators: [
     (Story) => (

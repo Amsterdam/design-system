@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { CallToActionLink } from '@amsterdam/design-system-react/src'
 
+import { hrefArgType, linkComponentArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Navigation/Call to Action Link',
   component: CallToActionLink,
@@ -19,11 +21,8 @@ const meta = {
       description: 'The link text.',
       table: { disable: false },
     },
-    href: {
-      description: 'The url for the link.',
-      name: 'href',
-      type: { name: 'string', required: false },
-    },
+    href: hrefArgType,
+    linkComponent: linkComponentArgType,
   },
 } satisfies Meta<typeof CallToActionLink>
 

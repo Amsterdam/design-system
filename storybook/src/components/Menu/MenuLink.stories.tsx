@@ -6,8 +6,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { PieChartFillIcon } from '@amsterdam/design-system-react-icons'
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
+
+import { hrefArgType, linkComponentArgType, requiredIconArgType } from '#storybook/_common/argTypes'
 
 const meta = {
   title: 'Components/Navigation/Menu',
@@ -18,11 +19,9 @@ const meta = {
       description: 'The link text.',
       table: { disable: false },
     },
-    icon: {
-      control: { type: 'select' },
-      mapping: Icons,
-      options: Object.keys(Icons),
-    },
+    href: hrefArgType,
+    icon: requiredIconArgType,
+    linkComponent: linkComponentArgType,
   },
   decorators: [
     (Story) => (
