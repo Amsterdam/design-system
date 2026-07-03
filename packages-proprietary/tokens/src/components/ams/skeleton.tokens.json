@@ -8,44 +8,12 @@
           "nl.amsterdam.type": "color"
         }
       },
-      "card": {
-        "heading": {
-          "font-size": {
-            "$value": "{ams.heading.3.font-size}",
-            "$description": "The heading of a Card uses size level 3 by default.",
-            "$extensions": {
-              "nl.amsterdam.type": "fontSize"
-            }
-          },
-          "line-height": {
-            "$value": "{ams.heading.3.line-height}",
-            "$extensions": {
-              "nl.amsterdam.subtype": "lineHeight",
-              "nl.amsterdam.type": "number"
-            }
-          },
-          "margin-block-end": {
-            "$value": "{ams.card.heading.margin-block-end}",
-            "$extensions": {
-              "nl.amsterdam.subtype": "space",
-              "nl.amsterdam.type": "dimension"
-            }
-          }
-        },
-        "image": {
-          "aspect-ratio": {
-            "$value": "{ams.image.aspect-ratio}",
-            "$extensions": {
-              "nl.amsterdam.type": "aspectRatio"
-            }
-          },
-          "margin-block-end": {
-            "$value": "{ams.card.image.margin-block-end}",
-            "$extensions": {
-              "nl.amsterdam.subtype": "space",
-              "nl.amsterdam.type": "dimension"
-            }
-          }
+      "gap": {
+        "$value": "{ams.space.s}",
+        "$description": "The space between the parts composed inside a Skeleton, e.g. an image, a heading and a paragraph.",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
         }
       },
       "heading": {
@@ -67,6 +35,14 @@
           "$extensions": {
             "nl.amsterdam.subtype": "lineHeight",
             "nl.amsterdam.type": "number"
+          }
+        }
+      },
+      "image": {
+        "aspect-ratio": {
+          "$value": "{ams.image.aspect-ratio}",
+          "$extensions": {
+            "nl.amsterdam.type": "aspectRatio"
           }
         }
       },

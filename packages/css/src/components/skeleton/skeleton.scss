@@ -13,9 +13,19 @@
 .ams-skeleton {
   display: flex;
   flex-direction: column;
+  gap: var(--ams-skeleton-gap);
 }
 
-.ams-skeleton--list {
+.ams-skeleton__heading,
+.ams-skeleton__paragraph,
+.ams-skeleton__table {
+  display: flex;
+  flex-direction: column;
+}
+
+.ams-skeleton__list {
+  display: flex;
+  flex-direction: column;
   row-gap: var(--ams-skeleton-list-gap);
 }
 
@@ -31,33 +41,20 @@
 }
 
 .ams-skeleton__image {
-  aspect-ratio: var(--ams-skeleton-card-image-aspect-ratio);
-  margin-block-end: var(--ams-skeleton-card-image-margin-block-end);
+  aspect-ratio: var(--ams-skeleton-image-aspect-ratio);
 }
 
-.ams-skeleton__line {
-  @include text-line(var(--ams-skeleton-line-font-size), var(--ams-skeleton-line-line-height));
-}
-
-// The heading appearance is a single line, sized like a Heading 2.
-.ams-skeleton--heading .ams-skeleton__line {
+// A line’s size comes from the group it sits in, so one primitive serves every appearance.
+.ams-skeleton__heading .ams-skeleton__line {
   @include text-line(var(--ams-skeleton-heading-font-size), var(--ams-skeleton-heading-line-height));
 
   inline-size: var(--ams-skeleton-heading-inline-size);
 }
 
-// A Card heading line is sized like Card.Heading (level 3), set apart from the body lines.
-.ams-skeleton--card .ams-skeleton__line--heading {
-  @include text-line(var(--ams-skeleton-card-heading-font-size), var(--ams-skeleton-card-heading-line-height));
-
-  inline-size: var(--ams-skeleton-heading-inline-size);
-}
-
-.ams-skeleton--card .ams-skeleton__line--heading:not(:last-child) {
-  margin-block-end: calc(
-    (var(--ams-skeleton-card-heading-line-height) - 1) / 2 * var(--ams-skeleton-card-heading-font-size) +
-      var(--ams-skeleton-card-heading-margin-block-end)
-  );
+.ams-skeleton__list .ams-skeleton__line,
+.ams-skeleton__paragraph .ams-skeleton__line,
+.ams-skeleton__table .ams-skeleton__line {
+  @include text-line(var(--ams-skeleton-line-font-size), var(--ams-skeleton-line-line-height));
 }
 
 .ams-skeleton__list-item {
@@ -94,8 +91,7 @@
   inline-size: var(--ams-skeleton-table-line-inline-size);
 }
 
-.ams-skeleton--card .ams-skeleton__line:last-child,
-.ams-skeleton--paragraph .ams-skeleton__line:last-child {
+.ams-skeleton__paragraph .ams-skeleton__line:last-child {
   inline-size: var(--ams-skeleton-last-line-inline-size);
 }
 

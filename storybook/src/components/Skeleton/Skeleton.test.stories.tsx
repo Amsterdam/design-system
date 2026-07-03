@@ -7,8 +7,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Skeleton } from '@amsterdam/design-system-react/src'
 
-import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
-
 import { default as skeletonMeta } from './Skeleton.stories'
 
 const meta = {
@@ -21,6 +19,20 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args, context) => renderComponentVariants(Skeleton, { args, layout: 'grid' }, context),
+  render: () => (
+    <div style={{ display: 'grid', gap: 'var(--ams-space-l)', maxInlineSize: '24rem' }}>
+      <Skeleton>
+        <Skeleton.Image />
+        <Skeleton.Heading lines={2} />
+        <Skeleton.Paragraph />
+      </Skeleton>
+      <Skeleton>
+        <Skeleton.List />
+      </Skeleton>
+      <Skeleton>
+        <Skeleton.Table />
+      </Skeleton>
+    </div>
+  ),
   tags: ['!dev', '!autodocs'],
 }
