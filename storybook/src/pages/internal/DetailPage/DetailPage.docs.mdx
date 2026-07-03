@@ -1,0 +1,23 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import * as DetailStories from "./DetailPage.stories.tsx";
+
+<Meta of={DetailStories} />
+
+# Detail page
+
+A detail page presents the data of a single object – an address in this example.
+The [Description List](/docs/components-text-description-list--docs) is the component of choice for this.
+
+## One component, two orientations
+
+The example renders the exact same Description List twice: once in a Grid Cell spanning 9 columns and once in a cell spanning 3.
+On a wide window, the list in the wide cell places terms and descriptions side by side, while the list in the narrow cell stacks them.
+
+This works through the [query container](/docs/utilities-css-query-container--docs) that Grid Cell establishes.
+The Description List queries the width of that container instead of the window: it uses the horizontal orientation when its container is at least `32rem` wide.
+Page and Dialog establish the same container, so the component adapts to the space it actually gets, wherever it is used.
+
+Resize the window to see both lists respond to the changing widths of their cells.
