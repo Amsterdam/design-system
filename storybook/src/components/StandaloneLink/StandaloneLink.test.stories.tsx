@@ -13,7 +13,7 @@ import { default as standaloneLinkMeta } from './StandaloneLink.stories'
 
 const meta = {
   ...standaloneLinkMeta,
-  title: 'Components/StandaloneLink',
+  title: 'Components/Navigation/Standalone Link',
 } satisfies Meta<typeof StandaloneLink>
 
 export default meta
