@@ -19,7 +19,6 @@
   row-gap: var(--ams-skeleton-list-gap);
 }
 
-.ams-skeleton__heading,
 .ams-skeleton__image,
 .ams-skeleton__line,
 .ams-skeleton__marker {
@@ -31,23 +30,6 @@
   }
 }
 
-.ams-skeleton__heading {
-  @include text-line(var(--ams-skeleton-heading-font-size), var(--ams-skeleton-heading-line-height));
-
-  inline-size: var(--ams-skeleton-heading-inline-size);
-}
-
-.ams-skeleton--card .ams-skeleton__heading {
-  @include text-line(var(--ams-skeleton-card-heading-font-size), var(--ams-skeleton-card-heading-line-height));
-}
-
-.ams-skeleton--card .ams-skeleton__heading:not(:last-child) {
-  margin-block-end: calc(
-    (var(--ams-skeleton-card-heading-line-height) - 1) / 2 * var(--ams-skeleton-card-heading-font-size) +
-      var(--ams-skeleton-card-heading-margin-block-end)
-  );
-}
-
 .ams-skeleton__image {
   aspect-ratio: var(--ams-skeleton-card-image-aspect-ratio);
   margin-block-end: var(--ams-skeleton-card-image-margin-block-end);
@@ -55,6 +37,27 @@
 
 .ams-skeleton__line {
   @include text-line(var(--ams-skeleton-line-font-size), var(--ams-skeleton-line-line-height));
+}
+
+// The heading appearance is a single line, sized like a Heading 2.
+.ams-skeleton--heading .ams-skeleton__line {
+  @include text-line(var(--ams-skeleton-heading-font-size), var(--ams-skeleton-heading-line-height));
+
+  inline-size: var(--ams-skeleton-heading-inline-size);
+}
+
+// A Card heading line is sized like Card.Heading (level 3), set apart from the body lines.
+.ams-skeleton--card .ams-skeleton__line--heading {
+  @include text-line(var(--ams-skeleton-card-heading-font-size), var(--ams-skeleton-card-heading-line-height));
+
+  inline-size: var(--ams-skeleton-heading-inline-size);
+}
+
+.ams-skeleton--card .ams-skeleton__line--heading:not(:last-child) {
+  margin-block-end: calc(
+    (var(--ams-skeleton-card-heading-line-height) - 1) / 2 * var(--ams-skeleton-card-heading-font-size) +
+      var(--ams-skeleton-card-heading-margin-block-end)
+  );
 }
 
 .ams-skeleton__list-item {

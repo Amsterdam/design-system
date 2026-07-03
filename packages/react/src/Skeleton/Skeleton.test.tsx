@@ -80,19 +80,18 @@ describe('Skeleton', () => {
     expect(container.querySelectorAll('.ams-skeleton__line')).toHaveLength(5)
   })
 
-  it('renders a single heading block for a heading', () => {
+  it('renders a single line for a heading', () => {
     const { container } = render(<Skeleton appearance="heading" />)
 
-    expect(container.querySelectorAll('.ams-skeleton__heading')).toHaveLength(1)
-    expect(container.querySelectorAll('.ams-skeleton__line')).toHaveLength(0)
+    expect(container.querySelectorAll('.ams-skeleton__line')).toHaveLength(1)
   })
 
-  it('renders an image, a heading, and the number of lines for a card', () => {
+  it('renders an image, a heading line, and the number of lines for a card', () => {
     const { container } = render(<Skeleton appearance="card" lines={2} />)
 
     expect(container.querySelectorAll('.ams-skeleton__image')).toHaveLength(1)
-    expect(container.querySelectorAll('.ams-skeleton__heading')).toHaveLength(1)
-    expect(container.querySelectorAll('.ams-skeleton__line')).toHaveLength(2)
+    expect(container.querySelectorAll('.ams-skeleton__line--heading')).toHaveLength(1)
+    expect(container.querySelectorAll('.ams-skeleton__line:not(.ams-skeleton__line--heading)')).toHaveLength(2)
   })
 
   it('renders a marker and a line for each list item', () => {

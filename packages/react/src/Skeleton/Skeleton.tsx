@@ -80,11 +80,11 @@ export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
       {appearance === 'card' && (
         <>
           <div className="ams-skeleton__image" />
-          <div className="ams-skeleton__heading" />
+          <div className="ams-skeleton__line ams-skeleton__line--heading" />
           {renderLines(lines)}
         </>
       )}
-      {appearance === 'heading' && <div className="ams-skeleton__heading" />}
+      {appearance === 'heading' && <div className="ams-skeleton__line" />}
       {appearance === 'list' && renderListItems(lines)}
       {appearance === 'paragraph' && renderLines(lines)}
       {appearance === 'table' && renderTableRows(rows, columns)}
