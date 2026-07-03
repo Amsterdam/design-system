@@ -1,6 +1,6 @@
 {
   "ams": {
-    "placeholder": {
+    "skeleton": {
       "background-color": {
         "$value": "#d1d1d1",
         "$description": "A neutral grey that stands in for the content being loaded.",

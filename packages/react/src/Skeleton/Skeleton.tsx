@@ -8,15 +8,15 @@ import type { HTMLAttributes } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-export const placeholderAppearances = ['card', 'heading', 'list', 'paragraph', 'table'] as const
-type PlaceholderAppearance = (typeof placeholderAppearances)[number]
+export const skeletonAppearances = ['card', 'heading', 'list', 'paragraph', 'table'] as const
+type SkeletonAppearance = (typeof skeletonAppearances)[number]
 
-export type PlaceholderProps = {
+export type SkeletonProps = {
   /**
    * The kind of content to mimic.
    * @default paragraph
    */
-  readonly appearance?: PlaceholderAppearance
+  readonly appearance?: SkeletonAppearance
   /**
    * The number of columns. Applies to the table appearance.
    * @default 3
@@ -35,28 +35,28 @@ export type PlaceholderProps = {
 } & Readonly<HTMLAttributes<HTMLDivElement>>
 
 const renderLines = (count: number) =>
-  Array.from({ length: count }, (_, index) => <div className="ams-placeholder__line" key={index} />)
+  Array.from({ length: count }, (_, index) => <div className="ams-skeleton__line" key={index} />)
 
 const renderListItems = (count: number) =>
   Array.from({ length: count }, (_, index) => (
-    <div className="ams-placeholder__list-item" key={index}>
-      <div className="ams-placeholder__marker" />
-      <div className="ams-placeholder__line" />
+    <div className="ams-skeleton__list-item" key={index}>
+      <div className="ams-skeleton__marker" />
+      <div className="ams-skeleton__line" />
     </div>
   ))
 
 const renderTableCells = (count: number) =>
   Array.from({ length: count }, (_, index) => (
-    <div className="ams-placeholder__table-cell" key={index}>
-      <div className="ams-placeholder__line" />
+    <div className="ams-skeleton__table-cell" key={index}>
+      <div className="ams-skeleton__line" />
     </div>
   ))
 
 const renderTableRows = (rowCount: number, columnCount: number) => (
   <>
-    <div className="ams-placeholder__table-row ams-placeholder__table-row--header">{renderTableCells(columnCount)}</div>
+    <div className="ams-skeleton__table-row ams-skeleton__table-row--header">{renderTableCells(columnCount)}</div>
     {Array.from({ length: rowCount }, (_, index) => (
-      <div className="ams-placeholder__table-row" key={index}>
+      <div className="ams-skeleton__table-row" key={index}>
         {renderTableCells(columnCount)}
       </div>
     ))}
@@ -67,24 +67,24 @@ const renderTableRows = (rowCount: number, columnCount: number) => (
  * Grey shapes that stand in for content while it loads.
  * Mimics the dimensions of the final content, limiting layout shifts when it arrives.
  *
- * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-placeholder--docs Placeholder docs at Amsterdam Design System}
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-skeleton--docs Skeleton docs at Amsterdam Design System}
  */
-export const Placeholder = forwardRef<HTMLDivElement, PlaceholderProps>(
+export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
   ({ appearance = 'paragraph', className, columns = 3, lines = 3, rows = 3, ...restProps }, ref) => (
     <div
       aria-hidden
       {...restProps}
-      className={clsx('ams-placeholder', `ams-placeholder--${appearance}`, className)}
+      className={clsx('ams-skeleton', `ams-skeleton--${appearance}`, className)}
       ref={ref}
     >
       {appearance === 'card' && (
         <>
-          <div className="ams-placeholder__image" />
-          <div className="ams-placeholder__heading" />
+          <div className="ams-skeleton__image" />
+          <div className="ams-skeleton__heading" />
           {renderLines(lines)}
         </>
       )}
-      {appearance === 'heading' && <div className="ams-placeholder__heading" />}
+      {appearance === 'heading' && <div className="ams-skeleton__heading" />}
       {appearance === 'list' && renderListItems(lines)}
       {appearance === 'paragraph' && renderLines(lines)}
       {appearance === 'table' && renderTableRows(rows, columns)}
@@ -92,4 +92,4 @@ export const Placeholder = forwardRef<HTMLDivElement, PlaceholderProps>(
   ),
 )
 
-Placeholder.displayName = 'Placeholder'
+Skeleton.displayName = 'Skeleton'

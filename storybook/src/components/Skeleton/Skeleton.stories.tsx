@@ -5,21 +5,21 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Placeholder } from '@amsterdam/design-system-react/src'
-import { placeholderAppearances } from '@amsterdam/design-system-react/src/Placeholder/Placeholder'
+import { Skeleton } from '@amsterdam/design-system-react/src'
+import { skeletonAppearances } from '@amsterdam/design-system-react/src/Skeleton/Skeleton'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 
 const meta = {
-  title: 'Components/Feedback/Placeholder',
-  component: Placeholder,
+  title: 'Components/Feedback/Skeleton',
+  component: Skeleton,
   argTypes: {
     appearance: {
       control: {
         labels: { undefined: 'paragraph (default)' },
         type: 'radio',
       },
-      options: [undefined, ...placeholderAppearances.filter((appearance) => appearance !== 'paragraph')],
+      options: [undefined, ...skeletonAppearances.filter((appearance) => appearance !== 'paragraph')],
     },
     columns: {
       control: { min: 1, step: 1, type: 'number' },
@@ -33,7 +33,7 @@ const meta = {
       if: { arg: 'appearance', eq: 'table' },
     },
   },
-} satisfies Meta<typeof Placeholder>
+} satisfies Meta<typeof Skeleton>
 
 export default meta
 

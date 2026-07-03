@@ -1,0 +1,111 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+// Sizes a block like a line of text: as tall as its font size, with the leading divided over both margins.
+// A stack of these blocks occupies exactly as much space as the same number of lines of the mimicked text.
+@mixin text-line($font-size, $line-height) {
+  block-size: $font-size;
+  margin-block: calc((#{$line-height} - 1) / 2 * #{$font-size});
+}
+
+.ams-skeleton {
+  display: flex;
+  flex-direction: column;
+}
+
+.ams-skeleton--list {
+  row-gap: var(--ams-skeleton-list-gap);
+}
+
+.ams-skeleton__heading,
+.ams-skeleton__image,
+.ams-skeleton__line,
+.ams-skeleton__marker {
+  background-color: var(--ams-skeleton-background-color);
+
+  // A background set to a system colour remains visible in forced-colors mode.
+  @media (forced-colors: active) {
+    background-color: GrayText;
+  }
+}
+
+.ams-skeleton__heading {
+  @include text-line(var(--ams-skeleton-heading-font-size), var(--ams-skeleton-heading-line-height));
+
+  inline-size: var(--ams-skeleton-heading-inline-size);
+}
+
+.ams-skeleton--card .ams-skeleton__heading {
+  @include text-line(var(--ams-skeleton-card-heading-font-size), var(--ams-skeleton-card-heading-line-height));
+}
+
+.ams-skeleton--card .ams-skeleton__heading:not(:last-child) {
+  margin-block-end: calc(
+    (var(--ams-skeleton-card-heading-line-height) - 1) / 2 * var(--ams-skeleton-card-heading-font-size) +
+      var(--ams-skeleton-card-heading-margin-block-end)
+  );
+}
+
+.ams-skeleton__image {
+  aspect-ratio: var(--ams-skeleton-card-image-aspect-ratio);
+  margin-block-end: var(--ams-skeleton-card-image-margin-block-end);
+}
+
+.ams-skeleton__line {
+  @include text-line(var(--ams-skeleton-line-font-size), var(--ams-skeleton-line-line-height));
+}
+
+.ams-skeleton__list-item {
+  align-items: center;
+  column-gap: var(--ams-skeleton-list-item-column-gap);
+  display: flex;
+  padding-inline-start: var(--ams-skeleton-list-item-padding-inline-start);
+}
+
+.ams-skeleton__marker {
+  block-size: var(--ams-skeleton-list-marker-block-size);
+  flex: none;
+  inline-size: var(--ams-skeleton-list-marker-inline-size);
+}
+
+.ams-skeleton__table-row {
+  border-block-end: var(--ams-skeleton-table-row-border-block-end);
+  display: flex;
+}
+
+.ams-skeleton__table-cell {
+  flex: 1;
+  padding-block: var(--ams-skeleton-table-cell-padding-block);
+  padding-inline: var(--ams-skeleton-table-cell-padding-inline);
+}
+
+// Line lengths vary per position, deterministically approximating the ragged shape of real content.
+
+.ams-skeleton__list-item .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-list-line-inline-size);
+}
+
+.ams-skeleton__table-cell .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-table-line-inline-size);
+}
+
+.ams-skeleton--card .ams-skeleton__line:last-child,
+.ams-skeleton--paragraph .ams-skeleton__line:last-child {
+  inline-size: var(--ams-skeleton-last-line-inline-size);
+}
+
+.ams-skeleton__table-row--header .ams-skeleton__table-cell .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-table-header-line-inline-size);
+}
+
+.ams-skeleton__list-item:nth-child(even) .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-list-line-alternate-inline-size);
+}
+
+.ams-skeleton__table-row:not(.ams-skeleton__table-row--header)
+  .ams-skeleton__table-cell:nth-child(even)
+  .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-table-line-alternate-inline-size);
+}

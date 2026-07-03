@@ -3,15 +3,15 @@
 import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
-import tokens from "#tokens/components/ams/placeholder.tokens.json";
+import tokens from "#tokens/components/ams/skeleton.tokens.json";
 
-import * as PlaceholderStories from "./Placeholder.stories.tsx";
+import * as SkeletonStories from "./Skeleton.stories.tsx";
 
-<Meta of={PlaceholderStories} />
+<Meta of={SkeletonStories} />
 
 <Title />
 
-<Description of={PlaceholderStories} />
+<Description of={SkeletonStories} />
 
 <Primary />
 
@@ -21,31 +21,31 @@ import * as PlaceholderStories from "./Placeholder.stories.tsx";
 
 ### When to use
 
-Show a Placeholder while loading content that takes a noticeable time to arrive – roughly between 1 and 10 seconds.
+Show a Skeleton while loading content that takes a noticeable time to arrive – roughly between 1 and 10 seconds.
 Use it when you know the shape of the expected content, so the grey blocks can approximate it.
 This makes waiting feel shorter and prepares users for the page structure.
 
 ### When not to use
 
-Do not show a Placeholder for waits shorter than about a second: a flash of grey blocks is more distracting than helpful.
+Do not show a Skeleton for waits shorter than about a second: a flash of grey blocks is more distracting than helpful.
 For a process with a known duration or progress, such as a file upload, show actual progress information instead.
-Never use a Placeholder for content that is already available – render that content immediately.
+Never use a Skeleton for content that is already available – render that content immediately.
 Avoid combining it with other loading indicators in the same view.
 
 ### How to use
 
-Choose the appearance that matches the component the Placeholder stands in for: a Card, a Heading of level 2, an Unordered List, a Paragraph, or a Table.
+Choose the appearance that matches the component the Skeleton stands in for: a Card, a Heading of level 2, an Unordered List, a Paragraph, or a Table.
 Set `lines`, `rows`, and `columns` to approximate the amount of content you expect.
-Render the Placeholder in the same container as the content that will replace it, so both are equally wide.
+Render the Skeleton in the same container as the content that will replace it, so both are equally wide.
 
-The Placeholder itself is hidden from assistive technologies.
+The Skeleton itself is hidden from assistive technologies.
 You must announce the loading state in another way to meet [WCAG 4.1.3](https://www.w3.org/TR/WCAG22/#status-messages).
 Provide a status message outside the loading region and mark that region with `aria-busy`:
 
 ```html
 <div class="ams-visually-hidden" role="status">De zoekresultaten worden geladen</div>
 <section aria-busy="true">
-  <!-- Placeholders -->
+  <!-- Skeletons -->
 </section>
 ```
 
@@ -57,30 +57,30 @@ When the content has loaded, set `aria-busy` to `false` and update or clear the 
 
 Stands in for a Card, with an image, a heading, and a few lines of text.
 
-<Canvas of={PlaceholderStories.Card} />
+<Canvas of={SkeletonStories.Card} />
 
 ### Heading
 
 Stands in for a Heading, sized to a level 2 heading.
 
-<Canvas of={PlaceholderStories.Heading} />
+<Canvas of={SkeletonStories.Heading} />
 
 ### List
 
 Stands in for an Unordered List, with a marker and a shorter line for each item.
 
-<Canvas of={PlaceholderStories.List} />
+<Canvas of={SkeletonStories.List} />
 
 ### Table
 
 Stands in for a Table, with a header row and evenly divided columns.
 
-<Canvas of={PlaceholderStories.Table} />
+<Canvas of={SkeletonStories.Table} />
 
 ## Features
 
 The dimensions of the blocks derive from the design tokens of the components they mimic.
-Replacing a Placeholder with the real content therefore barely shifts the layout.
+Replacing a Skeleton with the real content therefore barely shifts the layout.
 
 Line lengths vary deterministically – for example, the last line of a paragraph is shorter, and list items alternate in length.
 This looks natural yet renders identically on every request, which keeps server-side rendering consistent and visual regression tests stable.

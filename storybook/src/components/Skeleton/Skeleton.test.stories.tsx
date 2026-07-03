@@ -5,22 +5,22 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Placeholder } from '@amsterdam/design-system-react/src'
+import { Skeleton } from '@amsterdam/design-system-react/src'
 
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
-import { default as placeholderMeta } from './Placeholder.stories'
+import { default as skeletonMeta } from './Skeleton.stories'
 
 const meta = {
-  ...placeholderMeta,
-  title: 'Components/Feedback/Placeholder',
-} satisfies Meta<typeof Placeholder>
+  ...skeletonMeta,
+  title: 'Components/Feedback/Skeleton',
+} satisfies Meta<typeof Skeleton>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args, context) => renderComponentVariants(Placeholder, { args, layout: 'grid' }, context),
+  render: (args, context) => renderComponentVariants(Skeleton, { args, layout: 'grid' }, context),
   tags: ['!dev', '!autodocs'],
 }
