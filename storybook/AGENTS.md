@@ -89,3 +89,4 @@ Installing this addon also enables the MCP `run-story-tests` tool, so a connecte
 
 The `@storybook/addon-mcp` addon (registered in `config/main.ts`) serves a Model Context Protocol endpoint at `http://localhost:6006/mcp` while `pnpm run watch:storybook` is running; the URL follows the dev-server port.
 It exposes the components, props, stories, and docs of the design system to MCP-capable AI agents such as GitHub Copilot, so agents reuse existing components instead of inventing markup.
+No single MCP config file works across editors, so we do not commit editor-specific config; per-tool connection steps live in the AI assistance developer-guide page (`src/docs/developer-guide/ai-assistance.docs.mdx`).
