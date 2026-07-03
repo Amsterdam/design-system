@@ -71,7 +71,14 @@ Chromatic runs automatically when a draft PR is marked as ready for review. To t
 
 ## Unit tests
 
-Utility functions in `src/_common/` have unit tests (`*.test.ts`) run by Vitest (config: `vitest.config.ts`). When adding or modifying utilities, ensure tests are added or updated.
+Utility functions in `src/_common/` have unit tests (`*.test.ts`) run by Vitest (config: `vitest.config.ts`, the `unit` project). When adding or modifying utilities, ensure tests are added or updated.
+
+## Component tests (Vitest)
+
+`@storybook/addon-vitest` runs stories as tests in a headless browser via Vitest (the `storybook` project in `vitest.config.ts`).
+Run them with `pnpm --filter @amsterdam/storybook test:storybook`; this needs the Playwright Chromium binary (`pnpm --filter @amsterdam/storybook exec playwright install chromium`).
+They are intentionally excluded from the default `pnpm test` and CI to avoid duplicating the Chromatic visual and interaction checks, so `pnpm test` runs only the `unit` project.
+Installing this addon also enables the MCP `run-story-tests` tool, so a connected agent can run component and accessibility tests and self-correct.
 
 ## Configuration
 
