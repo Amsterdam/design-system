@@ -1,0 +1,204 @@
+{
+  "ams": {
+    "modal-dialog": {
+      "background-color": {
+        "$value": "{ams.color.background.default}",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "border-color": {
+        "$value": "{ams.modal-dialog.background-color}",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "border-radius": {
+        "$value": "0",
+        "$extensions": {
+          "nl.amsterdam.type": "borderRadius"
+        }
+      },
+      "border-style": {
+        "$value": "solid",
+        "$extensions": {
+          "nl.amsterdam.type": "borderStyle"
+        }
+      },
+      "border-width": {
+        "$value": "{ams.border.width.m}",
+        "$extensions": {
+          "nl.amsterdam.type": "borderWidth"
+        }
+      },
+      "box-shadow": {
+        "$value": "none",
+        "$extensions": {
+          "nl.amsterdam.type": "shadow"
+        }
+      },
+      "container-name": {
+        "$value": "{ams.query-containers.inline-size.container-name}"
+      },
+      "container-type": {
+        "$value": "inline-size"
+      },
+      "gap": {
+        "$value": "{ams.space.m}",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "inline-size": {
+        "$value": "calc(100% - 2 * {ams.space.l})",
+        "$extensions": {
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "max-block-size": {
+        "$value": "calc(100dvh - 2 * {ams.space.l})",
+        "$extensions": {
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "max-inline-size": {
+        "$value": {
+          "value": 48,
+          "unit": "rem"
+        },
+        "$type": "dimension"
+      },
+      "vi-medium": {
+        "inline-size": {
+          "$value": "calc(100% - 2 * {ams.space.xl})",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "max-block-size": {
+          "$value": "calc(100dvh - 2 * {ams.space.xl})",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
+      "backdrop": {
+        "background-color": {
+          "$value": "rgb(24 24 24 / 62.5%)",
+          "$type": "color"
+        }
+      },
+      "header": {
+        "column-gap": {
+          "$value": "{ams.space.m}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-block": {
+          "$value": "{ams.space.l} 0",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-inline": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "row-gap": {
+          "$value": "{ams.space.xs}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "vi-medium": {
+          "padding-block": {
+            "$value": "{ams.space.xl} 0",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-inline": {
+            "$value": "{ams.space.xl}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        }
+      },
+      "body": {
+        "min-block-size": {
+          "$value": {
+            "value": 3,
+            "unit": "rem"
+          },
+          "$type": "dimension"
+        },
+        "padding-block": {
+          "$value": "0",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
+        "padding-inline": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "vi-medium": {
+          "padding-inline": {
+            "$value": "{ams.space.xl}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        }
+      },
+      "footer": {
+        "padding-block": {
+          "$value": "0 {ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "padding-inline": {
+          "$value": "{ams.space.l}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "vi-medium": {
+          "padding-block": {
+            "$value": "0 {ams.space.xl}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-inline": {
+            "$value": "{ams.space.xl}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        }
+      }
+    }
+  }
+}
