@@ -6,6 +6,7 @@ import { DocsContainer } from '@storybook/addon-docs/blocks'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { clsx } from 'clsx'
 
+import { collapseInlineObjects } from './collapseInlineObjects'
 import { sortLiteralUnionValues } from './sortLiteralUnionValues'
 import { viewports } from './viewports'
 
@@ -159,12 +160,22 @@ export const parameters = {
     controls: {
       sort: 'alpha', // Sorts controls in the Controls doc block – https://github.com/storybookjs/storybook/issues/25386#issuecomment-1905468177
     },
+    source: {
+      // Collapse the multi-line object and array props that the source generator expands (see the module).
+      transform: collapseInlineObjects,
+    },
     toc: {
       headingSelector: 'h2, h3',
     },
   },
   html: {
     root: '.ams-body',
+  },
+  // Widen the Code Panel’s line budget. Without this, react-element-to-jsx-string – which generates the
+  // source for stories with a `render` function – puts every element with more than one attribute onto
+  // multiple lines. Keeping attributes inline until a line reaches this length shows more code at once.
+  jsx: {
+    maxInlineAttributesLineLength: 120,
   },
   options: {
     storySort: {
