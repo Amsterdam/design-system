@@ -52,6 +52,15 @@ describe('collapseInlineObjects', () => {
     expect(result).toContain('<Component\n')
   })
 
+  it('leaves a multi-line function prop untouched', () => {
+    const input = `<Button onClick={(event) => {
+  event.preventDefault()
+  submit()
+}} />`
+
+    expect(collapseInlineObjects(input)).toBe(input)
+  })
+
   it('does not treat a `>` inside an arrow function or string as the end of the tag', () => {
     const input = `<Field onSubmit={() => {}} label="a > b" data={[
   1,

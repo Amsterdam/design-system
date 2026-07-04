@@ -38,13 +38,23 @@ const matchBracket = (code: string, openIndex: number): number => {
 
 const collapseWhitespace = (text: string) => text.replace(/\s*\n\s*/g, ' ')
 
-// Collapse each multi-line attribute value (`name={…}`) onto a single line.
+// Return the first non-whitespace character at or after `index`, or '' at the end of the input.
+const firstNonSpaceAt = (code: string, index: number): string => {
+  let i = index
+  while (i < code.length && /\s/.test(code[i] ?? '')) i++
+  return code[i] ?? ''
+}
+
+// Collapse multi-line object and array attribute values (`name={{…}}` / `name={[…]}`) onto a single
+// line. Other expression props are left alone, so a multi-line function body is not flattened into an
+// unreadable single line.
 const collapseValues = (code: string): string => {
   let out = ''
   let i = 0
 
   while (i < code.length) {
-    if (code[i] === '=' && code[i + 1] === '{') {
+    // `code[i + 1]` is the expression container brace; peek past it for an object or array literal.
+    if (code[i] === '=' && code[i + 1] === '{' && ['[', '{'].includes(firstNonSpaceAt(code, i + 2))) {
       const end = matchBracket(code, i + 1)
 
       if (end !== -1) {
@@ -90,6 +100,32 @@ const findTagEnd = (code: string, ltIndex: number): number => {
   return -1
 }
 
+// Does a newline sit inside a bracketed expression or string (depth > 0), as in a multi-line function
+// body? Such tags are left as they are so their inner formatting is not flattened onto one line.
+const hasNestedNewline = (tag: string): boolean => {
+  let depth = 0
+  let quote: string | null = null
+
+  for (let i = 0; i < tag.length; i++) {
+    const character = tag[i]
+
+    if (character === '\n' && (depth > 0 || quote)) {
+      return true
+    } else if (quote) {
+      if (character === '\\') i++
+      else if (character === quote) quote = null
+    } else if (character === '"' || character === "'" || character === '`') {
+      quote = character
+    } else if (character === '{' || character === '[') {
+      depth++
+    } else if (character === '}' || character === ']') {
+      depth--
+    }
+  }
+
+  return false
+}
+
 // Re-join opening tags that only wrapped because a value did – but keep tags that genuinely overflow.
 const collapseTags = (code: string): string => {
   let out = ''
@@ -102,7 +138,7 @@ const collapseTags = (code: string): string => {
       if (end !== -1) {
         const tag = code.slice(i, end + 1)
 
-        if (tag.includes('\n')) {
+        if (tag.includes('\n') && !hasNestedNewline(tag)) {
           const indent = out.length - out.lastIndexOf('\n') - 1
           const collapsed = collapseWhitespace(tag)
             .replace(/\s+>$/, '>')
