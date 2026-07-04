@@ -1,0 +1,133 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/skeleton.tokens.json";
+
+import * as SkeletonStories from "./Skeleton.stories.tsx";
+
+<Meta of={SkeletonStories} />
+
+<Title />
+
+<Description of={SkeletonStories} />
+
+<Primary />
+
+The Skeleton container takes only the parts you compose inside it and hides them from assistive technologies.
+Each part has its own options, documented under Subcomponents.
+
+The container itself has no props to configure.
+
+## Subcomponents
+
+Compose a Skeleton from its parts: Skeleton.Image, Skeleton.Heading, Skeleton.Paragraph, Skeleton.List, and Skeleton.Table.
+Skeleton.Image is a single block; the others render one or more lines, sized to the text they stand in for.
+Set the `lines`, `rows`, and `columns` props to approximate the amount of content you expect.
+
+### Heading
+
+Lines the size of a Heading.
+Set `lines` above one for a heading that wraps onto several lines.
+
+<Canvas of={SkeletonStories.Heading} />
+
+<Controls of={SkeletonStories.Heading} />
+
+### Paragraph
+
+Lines the size of body text.
+Their lengths vary in sets of three, and the last line is shorter, approximating the ragged end of a paragraph.
+
+<Canvas of={SkeletonStories.Paragraph} />
+
+<Controls of={SkeletonStories.Paragraph} />
+
+### List
+
+Body-text lines, each with a marker, indented like an Unordered List.
+
+<Canvas of={SkeletonStories.List} />
+
+<Controls of={SkeletonStories.List} />
+
+### Table
+
+A grid of cells with a header row.
+
+<Canvas of={SkeletonStories.Table} />
+
+<Controls of={SkeletonStories.Table} />
+
+### Image
+
+A block that stands in for an image.
+Set the `aspectRatio` prop to match the image that will replace it; it defaults to 16:9.
+
+<Canvas of={SkeletonStories.Image} />
+
+<Controls of={SkeletonStories.Image} />
+
+## Usage guidelines
+
+### When to use
+
+Show a Skeleton while loading content that takes a noticeable time to arrive – roughly between 1 and 10 seconds.
+Compose the parts to mirror the content to come, so the grey blocks prepare users for the page structure and waiting feels shorter.
+
+### When not to use
+
+Do not show a Skeleton for waits shorter than about a second: a flash of grey blocks is more distracting than helpful.
+For a process with a known duration or progress, such as a file upload, show actual progress information instead.
+Never use a Skeleton for content that is already available – render that content immediately.
+Avoid combining it with other loading indicators in the same view.
+
+### How to use
+
+Nest the parts you need inside a Skeleton, in the order the real content will appear.
+Match the number of lines, rows, and columns to the expected content, so replacing the Skeleton barely shifts the layout.
+Render a Skeleton only while its content is loading, and replace it with the content – or an empty or error state – as soon as that content arrives.
+
+A Skeleton is decorative and hidden from assistive technologies, so it stays silent on its own.
+Announcing the loading state is the job of the region that holds the content, not of each Skeleton – otherwise a list of ten Skeletons would announce ten times.
+Mark that region with `aria-busy` while it loads, and give it a single, always-present status message whose text changes from a loading message to the result:
+
+```html
+<section aria-busy="true">
+  <p class="ams-visually-hidden" role="status">Zoekresultaten worden geladen</p>
+  <!-- ten Skeletons while loading -->
+</section>
+```
+
+When the content has loaded, replace the Skeletons with it, set `aria-busy` to `false`, and change the status message – for example to ‘10 resultaten gevonden’.
+A Loading Region component that wraps this pattern is planned.
+
+## Features
+
+The dimensions of the lines derive from the design tokens of the text they mimic: Skeleton.Heading follows Heading 2, and the other parts follow body text.
+Each line is exactly as tall as its line of text, so a part occupies the same height as the content it stands in for and the layout barely shifts once that content arrives.
+
+Line lengths vary deterministically – paragraph lines in sets of three with a shorter last line, alternating list and table widths.
+This looks natural yet renders identically on every request, which keeps server-side rendering consistent and visual regression tests stable.
+
+## Design
+
+The blocks use a single neutral grey that reads as a quiet backdrop rather than content.
+The space between composed parts is a generic gap rather than the exact margins of any one component, keeping the Skeleton reusable in any layout.
+This first version is intentionally static; a subtle loading animation may be added later.
+
+## Accessibility
+
+A Skeleton renders with `aria-hidden="true"`, so screen readers skip the grey blocks entirely.
+Because the loading announcement belongs to the region that is loading rather than to each block, the Skeleton stays silent; the application announces the state once for the region, as shown under ‘How to use’, to meet [WCAG 4.1.3](https://www.w3.org/TR/WCAG22/#status-messages).
+A Loading Region component to encapsulate that pattern is planned.
+In forced colours mode, the blocks remain visible through the system colour for disabled text.
+
+## See also
+
+- [Paragraph](/docs/components-text-paragraph--docs), [Heading](/docs/components-text-heading--docs), and [Table](/docs/components-containers-table--docs), the components a Skeleton stands in for.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />

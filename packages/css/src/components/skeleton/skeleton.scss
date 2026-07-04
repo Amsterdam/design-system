@@ -1,0 +1,153 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+// Sizes a block like a line of text: as tall as its font size, with the leading divided over both margins.
+// A stack of these blocks occupies exactly as much space as the same number of lines of the mimicked text.
+@mixin text-line($font-size, $line-height) {
+  block-size: $font-size;
+  margin-block: calc((#{$line-height} - 1) / 2 * #{$font-size});
+}
+
+.ams-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-skeleton-gap);
+}
+
+.ams-skeleton__heading,
+.ams-skeleton__paragraph,
+.ams-skeleton__table {
+  display: flex;
+  flex-direction: column;
+}
+
+.ams-skeleton__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--ams-skeleton-list-gap);
+}
+
+.ams-skeleton__image,
+.ams-skeleton__line,
+.ams-skeleton__marker {
+  background-color: var(--ams-skeleton-background-color);
+
+  // A background set to a system colour remains visible in forced-colors mode.
+  @media (forced-colors: active) {
+    background-color: GrayText;
+  }
+}
+
+.ams-skeleton__image {
+  aspect-ratio: var(--ams-skeleton-image-aspect-ratio);
+}
+
+// A line’s size comes from the group it sits in, so one primitive serves every appearance.
+.ams-skeleton__heading .ams-skeleton__line {
+  @include text-line(var(--ams-skeleton-heading-font-size), var(--ams-skeleton-heading-line-height));
+
+  inline-size: var(--ams-skeleton-heading-inline-size);
+}
+
+.ams-skeleton__list .ams-skeleton__line,
+.ams-skeleton__paragraph .ams-skeleton__line,
+.ams-skeleton__table .ams-skeleton__line {
+  @include text-line(var(--ams-skeleton-line-font-size), var(--ams-skeleton-line-line-height));
+}
+
+.ams-skeleton__list-item {
+  align-items: center;
+  column-gap: var(--ams-skeleton-list-item-column-gap);
+  display: flex;
+  padding-inline-start: var(--ams-skeleton-list-item-padding-inline-start);
+}
+
+.ams-skeleton__marker {
+  block-size: var(--ams-skeleton-list-marker-block-size);
+  flex: none;
+  inline-size: var(--ams-skeleton-list-marker-inline-size);
+}
+
+.ams-skeleton__table-row {
+  border-block-end: var(--ams-skeleton-table-row-border-block-end);
+  display: flex;
+}
+
+.ams-skeleton__table-cell {
+  flex: 1;
+  padding-block: var(--ams-skeleton-table-cell-padding-block);
+  padding-inline: var(--ams-skeleton-table-cell-padding-inline);
+}
+
+// Line lengths vary per position, deterministically approximating the ragged shape of real content.
+
+// The last (or single) line of a heading or paragraph is shorter than the rest.
+.ams-skeleton__heading .ams-skeleton__line:last-child {
+  inline-size: var(--ams-skeleton-heading-last-line-inline-size);
+}
+
+// A paragraph varies its line lengths in sets of three, so a longer paragraph does not read as a stack of
+// equal bars. The last (or single) line overrides this to the shorter last-line width below.
+.ams-skeleton__paragraph .ams-skeleton__line:nth-child(3n + 1) {
+  inline-size: var(--ams-skeleton-paragraph-line-average-inline-size);
+}
+
+.ams-skeleton__paragraph .ams-skeleton__line:nth-child(3n + 2) {
+  inline-size: var(--ams-skeleton-paragraph-line-inline-size);
+}
+
+.ams-skeleton__paragraph .ams-skeleton__line:nth-child(3n) {
+  inline-size: var(--ams-skeleton-paragraph-line-alternate-inline-size);
+}
+
+.ams-skeleton__paragraph .ams-skeleton__line:last-child {
+  inline-size: var(--ams-skeleton-line-last-line-inline-size);
+}
+
+// A list varies its item lengths in sets of three; the third is the average of the first two.
+.ams-skeleton__list-item:nth-child(3n + 1) .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-list-line-inline-size);
+}
+
+.ams-skeleton__list-item:nth-child(3n + 2) .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-list-line-alternate-inline-size);
+}
+
+.ams-skeleton__list-item:nth-child(3n) .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-list-line-average-inline-size);
+}
+
+// A table varies its cell lengths across columns and rotates the pattern per row, so cells vary down a
+// column too. Every body cell is wider than the header, whose cells are uniformly short.
+.ams-skeleton__table-row--header .ams-skeleton__table-cell .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-table-header-line-inline-size);
+}
+
+.ams-skeleton__table-row:not(.ams-skeleton__table-row--header):nth-child(odd)
+  .ams-skeleton__table-cell:nth-child(3n + 1)
+  .ams-skeleton__line,
+.ams-skeleton__table-row:not(.ams-skeleton__table-row--header):nth-child(even)
+  .ams-skeleton__table-cell:nth-child(3n + 2)
+  .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-table-line-inline-size);
+}
+
+.ams-skeleton__table-row:not(.ams-skeleton__table-row--header):nth-child(odd)
+  .ams-skeleton__table-cell:nth-child(3n + 2)
+  .ams-skeleton__line,
+.ams-skeleton__table-row:not(.ams-skeleton__table-row--header):nth-child(even)
+  .ams-skeleton__table-cell:nth-child(3n)
+  .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-table-line-alternate-inline-size);
+}
+
+.ams-skeleton__table-row:not(.ams-skeleton__table-row--header):nth-child(odd)
+  .ams-skeleton__table-cell:nth-child(3n)
+  .ams-skeleton__line,
+.ams-skeleton__table-row:not(.ams-skeleton__table-row--header):nth-child(even)
+  .ams-skeleton__table-cell:nth-child(3n + 1)
+  .ams-skeleton__line {
+  inline-size: var(--ams-skeleton-table-line-average-inline-size);
+}

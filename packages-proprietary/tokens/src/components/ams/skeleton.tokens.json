@@ -1,0 +1,256 @@
+{
+  "ams": {
+    "skeleton": {
+      "background-color": {
+        "$value": "#d1d1d1",
+        "$description": "A neutral grey that stands in for the content being loaded.",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "gap": {
+        "$value": "{ams.space.s}",
+        "$description": "The space between the parts composed inside a Skeleton, e.g. an image, a heading and a paragraph.",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "heading": {
+        "font-size": {
+          "$value": "{ams.heading.2.font-size}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "inline-size": {
+          "$value": "60%",
+          "$description": "A heading is usually a few words that do not span the full width.",
+          "$extensions": {
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.heading.2.line-height}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
+        },
+        "last-line": {
+          "inline-size": {
+            "$value": "70%",
+            "$description": "The last (or single) line of a heading is shorter than the rest.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        }
+      },
+      "image": {
+        "aspect-ratio": {
+          "$value": "{ams.image.aspect-ratio}",
+          "$extensions": {
+            "nl.amsterdam.type": "aspectRatio"
+          }
+        }
+      },
+      "line": {
+        "font-size": {
+          "$value": "{ams.paragraph.font-size}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.paragraph.line-height}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
+        },
+        "last-line": {
+          "inline-size": {
+            "$value": "50%",
+            "$description": "The last (or single) line is shorter than the rest.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        }
+      },
+      "list": {
+        "gap": {
+          "$value": "{ams.unordered-list.gap}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "item": {
+          "column-gap": {
+            "$value": {
+              "value": 0.5,
+              "unit": "rem"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.hint": "Together with the item padding and the marker width, starts the line at the 2.5rem text indent of Unordered List.",
+              "nl.amsterdam.subtype": "space"
+            }
+          },
+          "padding-inline-start": {
+            "$value": "{ams.unordered-list.item.margin-inline-start}",
+            "$extensions": {
+              "nl.amsterdam.hint": "Starts the marker where the marker of Unordered List renders.",
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "line": {
+          "alternate": {
+            "inline-size": {
+              "$value": "50%",
+              "$description": "The second item in each set of three, approximating natural variation in item lengths.",
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
+            }
+          },
+          "average": {
+            "inline-size": {
+              "$value": "60%",
+              "$description": "The third item in each set of three: the average of the other two.",
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
+            }
+          },
+          "inline-size": {
+            "$value": "70%",
+            "$description": "The first item in each set of three.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "marker": {
+          "block-size": {
+            "$value": {
+              "value": 0.375,
+              "unit": "rem"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.hint": "Approximates the size of the bullet of Unordered List."
+            }
+          },
+          "inline-size": {
+            "$value": {
+              "value": 0.375,
+              "unit": "rem"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.hint": "Approximates the size of the bullet of Unordered List."
+            }
+          }
+        }
+      },
+      "paragraph": {
+        "line": {
+          "alternate": {
+            "inline-size": {
+              "$value": "80%",
+              "$description": "The narrowest of the three paragraph line widths.",
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
+            }
+          },
+          "average": {
+            "inline-size": {
+              "$value": "90%",
+              "$description": "The average of the other two paragraph line widths.",
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
+            }
+          },
+          "inline-size": {
+            "$value": "100%",
+            "$description": "The widest paragraph line, spanning the full column.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        }
+      },
+      "table": {
+        "cell": {
+          "padding-block": {
+            "$value": "{ams.table.cell.padding-block}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-inline": {
+            "$value": "{ams.table.cell.padding-inline}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "header": {
+          "line": {
+            "inline-size": {
+              "$value": "50%",
+              "$description": "Header cells usually contain a short term.",
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
+            }
+          }
+        },
+        "line": {
+          "alternate": {
+            "inline-size": {
+              "$value": "70%",
+              "$description": "One of three cell widths, rotated per row so cells vary down a column too; all are wider than the header.",
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
+            }
+          },
+          "average": {
+            "inline-size": {
+              "$value": "80%",
+              "$description": "The average of the other two cell widths.",
+              "$extensions": {
+                "nl.amsterdam.type": "dimension"
+              }
+            }
+          },
+          "inline-size": {
+            "$value": "90%",
+            "$description": "The widest cell width.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "row": {
+          "border-block-end": {
+            "$value": "{ams.table.cell.border-block-end}",
+            "$extensions": {
+              "nl.amsterdam.type": "border"
+            }
+          }
+        }
+      }
+    }
+  }
+}
