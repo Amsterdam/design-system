@@ -70,6 +70,11 @@ export const derivedArgType = (description: string) =>
     table: { category: 'Derived', readonly: true },
   }) as const
 
+/** The native `id` attribute of a dialog element, used to target it when opening. */
+export const dialogIdArgType = {
+  description: 'The id of the dialog element. Use it to open the dialog.',
+} as const
+
 /** The native `disabled` attribute of interactive elements. */
 export const disabledArgType = {
   description: 'Prevents interaction. Avoid if possible.',

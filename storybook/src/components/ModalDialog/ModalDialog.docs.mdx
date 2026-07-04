@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/modal-dialog.tokens.json";
 
 import * as ModalDialogStories from "./ModalDialog.stories.tsx";
+import * as ModalDialogHeaderStories from "./ModalDialogHeader.stories.tsx";
 
 <Meta of={ModalDialogStories} />
 
@@ -20,6 +21,7 @@ import * as ModalDialogStories from "./ModalDialog.stories.tsx";
 ## Subcomponents
 
 Compose a Modal Dialog from its Header, Body, and Footer subcomponents.
+The Body holds the main content of the dialog and has no props of its own; the examples below show it in place.
 
 ### Header
 
@@ -27,10 +29,9 @@ The Header contains the title of the dialog and always renders a button to dismi
 Pass `closeButtonAccessibleName` to translate the name of that button for screen readers, and `closeButtonIcon` to display [an icon](/docs/components-media-icon--docs) other than the default cross.
 Any content you add to the Header – a [Heading](/docs/components-text-heading--docs), a subtitle, or both – stacks to the left of the close button.
 
-### Body
+<Canvas of={ModalDialogHeaderStories.Header} />
 
-The Body holds the main content of the dialog.
-It scrolls if its content is taller than the available space, while the Header and Footer remain visible.
+<Controls of={ModalDialogHeaderStories.Header} />
 
 ### Footer
 
@@ -60,7 +61,7 @@ Use heading level 1: a Modal Dialog is a new layer that covers the page, so its 
 
 To open the dialog, use `ModalDialog.open` from the React package.
 It takes a CSS selector, so include the `#` when referencing an id: `ModalDialog.open('#my-dialog')`.
-Alternatively, render the dialog conditionally and control it with the `open` prop and the `onClose` event – see [the ‘Controlled’ example](#controlling-the-dialog-with-state).
+Alternatively, keep the dialog rendered and control it with the `open` prop and the `onClose` event – see [the ‘Controlled’ example](#controlling-the-dialog-with-state).
 
 To close it, call the `ModalDialog.close` function from a button inside the dialog, or add a `<form method="dialog">` as in [the ‘Asking to confirm’ example](#asking-to-confirm).
 The Escape key always closes the dialog as well.
@@ -78,7 +79,7 @@ Use this for the single element you expect the user to act on first, such as a t
 Moving the initial focus has risks, so choose that element with care:
 
 - Focus that lands past the heading and body text can cause screen reader users to skip the explanation above it. Only move focus when one element clearly comes first.
-- Don’t place focus on a destructive or irreversible action. A user confirming by reflex with Enter or Space could lose data. In the confirmation example below, focus the option that keeps the user’s data safe.
+- Don’t place focus on a destructive or irreversible action. A user confirming by reflex with Enter or Space could lose data. When asking to confirm, focus the option that keeps the user’s data safe.
 - On touchscreen devices, autofocus on a text field opens the on-screen keyboard immediately, which can hide part of the dialog.
 
 For more information: [MDN: the dialog element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#accessibility).
@@ -110,9 +111,10 @@ Pass `closeButtonIcon` to the Header to display a different icon in the close bu
 
 ### Controlling the dialog with state
 
-Render the dialog conditionally and pass a boolean to the `open` prop to open and close it from your application’s state.
+Keep the dialog rendered and pass a boolean to the `open` prop to open and close it from your application’s state.
 The component calls `showModal()` and `close()` on the dialog element for you.
 Listen to the `onClose` event to synchronise your state when the dialog closes itself, e.g. through the Escape key.
+Don’t render the dialog conditionally: unmounting it while open skips the `close` event and the browser’s focus restoration.
 
 <Canvas of={ModalDialogStories.Controlled} />
 
@@ -126,6 +128,7 @@ Both the dialog and its Body can scroll.
 If the content of the Body is taller than the available space, the Body scrolls while the Header and Footer remain visible.
 In vertically short windows, or with strongly enlarged text, the Body keeps a minimum height and the dialog itself scrolls instead.
 This keeps all content reachable, up to a text size of 400%.
+A scrolling Body is keyboard-focusable, so its content can always be scrolled with the arrow keys.
 
 ### Keyboard navigation
 

@@ -12,6 +12,8 @@ import { ModalDialog } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 import { action } from 'storybook/actions'
 
+import { dialogIdArgType } from '#storybook/_common/argTypes'
+
 const openButtonDecorator: Decorator = (Story, { args }) => (
   <>
     <Button
@@ -30,10 +32,7 @@ const meta = {
   title: 'Components/Containers/Modal Dialog',
   component: ModalDialog,
   argTypes: {
-    children: { control: false }, // A React element has no usable controls panel widget.
-    id: {
-      description: 'The id of the dialog element. Use it to open the dialog.',
-    },
+    id: dialogIdArgType,
   },
 } satisfies Meta<typeof ModalDialog>
 
