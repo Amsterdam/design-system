@@ -14,7 +14,8 @@ import { SkeletonList } from './SkeletonList'
 import { SkeletonParagraph } from './SkeletonParagraph'
 import { SkeletonTable } from './SkeletonTable'
 
-export type SkeletonProps = Readonly<PropsWithChildren<HTMLAttributes<HTMLDivElement>>>
+// A Skeleton is always hidden from assistive technologies, so `aria-hidden` is not a consumer option.
+export type SkeletonProps = Readonly<PropsWithChildren<Omit<HTMLAttributes<HTMLDivElement>, 'aria-hidden'>>>
 
 const SkeletonRoot = forwardRef(
   ({ children, className, ...restProps }: SkeletonProps, ref: ForwardedRef<HTMLDivElement>) => (

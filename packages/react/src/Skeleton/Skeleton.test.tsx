@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ComponentProps } from 'react'
+
 import { render } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
@@ -53,8 +55,9 @@ describe('Skeleton', () => {
     expect(component).toHaveAttribute('aria-hidden', 'true')
   })
 
-  it('stays hidden from assistive technologies even when a consumer tries to unset it', () => {
-    const { container } = render(<Skeleton aria-hidden={false} />)
+  it('stays hidden from assistive technologies even when a value slips in through untyped props', () => {
+    // `aria-hidden` is omitted from the props, so cast to reach the element the way an untyped consumer could.
+    const { container } = render(<Skeleton {...({ 'aria-hidden': false } as ComponentProps<'div'>)} />)
 
     const component = container.querySelector(':only-child')
 
