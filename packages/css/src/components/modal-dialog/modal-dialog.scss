@@ -78,7 +78,9 @@ Content elements – e.g. a heading and a subtitle – stack without needing a w
   align-items: start;
   column-gap: var(--ams-modal-dialog-header-column-gap);
   display: grid;
-  grid-template-columns: 1fr auto;
+
+  /* minmax(0, 1fr) lets long content wrap instead of pushing the close button out of view. */
+  grid-template-columns: minmax(0, 1fr) auto;
   padding-block: var(--ams-modal-dialog-header-padding-block);
   padding-inline: var(--ams-modal-dialog-header-padding-inline);
   row-gap: var(--ams-modal-dialog-header-row-gap);
@@ -110,10 +112,12 @@ Content elements – e.g. a heading and a subtitle – stack without needing a w
   /* Keep a minimum height so the header and footer can never crowd out the body entirely.
   If less space is available, the dialog itself scrolls. */
   min-block-size: var(--ams-modal-dialog-body-min-block-size);
-  overflow-x: hidden;
+
+  /* Let wide content scroll horizontally instead of clipping it. */
+  overflow-x: auto;
   overflow-y: auto;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
-  overscroll-behavior-y: contain;
+  overscroll-behavior: contain;
   padding-block: var(--ams-modal-dialog-body-padding-block);
   padding-inline: var(--ams-modal-dialog-body-padding-inline);
 
