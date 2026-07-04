@@ -130,7 +130,23 @@ const hasNestedNewline = (tag: string): boolean => {
   return false
 }
 
-// Re-join opening tags that only wrapped because a value did – but keep tags that genuinely overflow.
+// Does the opening tag carry an object or array prop (`name={{…}}` / `name={[…]}`)? Those are the tags
+// the source generator wrapped only because it always expands such values, so those are the ones worth
+// re-joining. A tag a story author wrapped by hand in `docs.source.code` carries no such prop and is left
+// alone.
+const hasObjectOrArrayProp = (tag: string): boolean => {
+  for (let i = 0; i < tag.length; i++) {
+    if (tag[i] === '=' && tag[i + 1] === '{' && ['[', '{'].includes(firstNonSpaceAt(tag, i + 2))) {
+      return true
+    }
+  }
+
+  return false
+}
+
+// Re-join an opening tag only when it wrapped because an object or array value forced it multi-line,
+// recognised by the tag still carrying such a prop. Tags that genuinely overflow, that hold a nested
+// multi-line expression, or that an author wrapped by hand are left as they are.
 const collapseTags = (code: string): string => {
   let out = ''
   let i = 0
@@ -142,7 +158,7 @@ const collapseTags = (code: string): string => {
       if (end !== -1) {
         const tag = code.slice(i, end + 1)
 
-        if (tag.includes('\n') && !hasNestedNewline(tag)) {
+        if (tag.includes('\n') && !hasNestedNewline(tag) && hasObjectOrArrayProp(tag)) {
           const indent = out.length - out.lastIndexOf('\n') - 1
           const collapsed = collapseWhitespace(tag)
             .replace(/\s+>$/, '>')

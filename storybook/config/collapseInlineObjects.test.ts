@@ -52,6 +52,15 @@ describe('collapseInlineObjects', () => {
     expect(result).toContain('<Component\n')
   })
 
+  it('leaves a multi-line tag without object or array props untouched', () => {
+    const input = `<Alert
+  heading="Let op"
+  severity="warning"
+>`
+
+    expect(collapseInlineObjects(input)).toBe(input)
+  })
+
   it('leaves a multi-line function prop untouched', () => {
     const input = `<Button onClick={(event) => {
   event.preventDefault()
