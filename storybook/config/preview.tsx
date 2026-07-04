@@ -6,7 +6,7 @@ import { DocsContainer } from '@storybook/addon-docs/blocks'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { clsx } from 'clsx'
 
-import { collapseInlineObjects } from './collapseInlineObjects'
+import { collapseInlineObjects, maxInlineWidth } from './collapseInlineObjects'
 import { sortLiteralUnionValues } from './sortLiteralUnionValues'
 import { viewports } from './viewports'
 
@@ -175,7 +175,7 @@ export const parameters = {
   // source for stories with a `render` function – puts every element with more than one attribute onto
   // multiple lines. Keeping attributes inline until a line reaches this length shows more code at once.
   jsx: {
-    maxInlineAttributesLineLength: 120,
+    maxInlineAttributesLineLength: maxInlineWidth,
   },
   options: {
     storySort: {

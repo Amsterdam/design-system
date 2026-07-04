@@ -10,7 +10,11 @@
 // collapse each multi-line attribute value onto one line, then re-join the opening tags that only
 // wrapped because of it – unless the result would exceed the line-length budget.
 
-const maxWidth = 120
+/**
+ * Line-length budget for the Code Panel. Also fed to `parameters.jsx.maxInlineAttributesLineLength` in
+ * preview, so the source generator’s attribute wrapping and this transform’s tag re-joining agree.
+ */
+export const maxInlineWidth = 120
 
 // Walk from an opening bracket (`{` or `[`) to its match, skipping over string contents.
 const matchBracket = (code: string, openIndex: number): number => {
@@ -144,7 +148,7 @@ const collapseTags = (code: string): string => {
             .replace(/\s+>$/, '>')
             .replace(/\s+\/>$/, ' />')
 
-          if (indent + collapsed.length <= maxWidth) {
+          if (indent + collapsed.length <= maxInlineWidth) {
             out += collapsed
             i = end + 1
             continue
