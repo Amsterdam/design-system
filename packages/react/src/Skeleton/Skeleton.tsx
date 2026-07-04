@@ -18,7 +18,7 @@ export type SkeletonProps = Readonly<PropsWithChildren<HTMLAttributes<HTMLDivEle
 
 const SkeletonRoot = forwardRef(
   ({ children, className, ...restProps }: SkeletonProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div aria-hidden {...restProps} className={clsx('ams-skeleton', className)} ref={ref}>
+    <div {...restProps} aria-hidden className={clsx('ams-skeleton', className)} ref={ref}>
       {children}
     </div>
   ),

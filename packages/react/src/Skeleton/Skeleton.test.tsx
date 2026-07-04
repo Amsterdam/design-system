@@ -53,6 +53,14 @@ describe('Skeleton', () => {
     expect(component).toHaveAttribute('aria-hidden', 'true')
   })
 
+  it('stays hidden from assistive technologies even when a consumer tries to unset it', () => {
+    const { container } = render(<Skeleton aria-hidden={false} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveAttribute('aria-hidden', 'true')
+  })
+
   it('composes its subcomponents', () => {
     const { container } = render(
       <Skeleton>
