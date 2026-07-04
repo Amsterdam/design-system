@@ -24,6 +24,11 @@ export type ModalDialogHeaderProps = {
   readonly closeButtonIcon?: IconProps['svg']
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
+/**
+ * The header of a Modal Dialog. It contains the title and always renders a button that dismisses the dialog.
+ *
+ * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-modal-dialog--docs Modal Dialog docs at Amsterdam Design System}
+ */
 export const ModalDialogHeader = forwardRef(
   (
     {

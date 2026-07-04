@@ -11,26 +11,26 @@ import { ModalDialogHeader } from './ModalDialogHeader'
 
 describe('ModalDialogHeader', () => {
   it('renders', () => {
-    const { container } = render(<ModalDialogHeader>Header content</ModalDialogHeader>)
+    render(<ModalDialogHeader>Header content</ModalDialogHeader>)
 
-    const component = container.querySelector('header')
+    const component = screen.getByRole('banner')
 
     expect(component).toBeInTheDocument()
     expect(component).toHaveTextContent('Header content')
   })
 
   it('renders a design system BEM class name', () => {
-    const { container } = render(<ModalDialogHeader />)
+    render(<ModalDialogHeader />)
 
-    const component = container.querySelector('header')
+    const component = screen.getByRole('banner')
 
     expect(component).toHaveClass('ams-modal-dialog__header')
   })
 
   it('renders an extra class name', () => {
-    const { container } = render(<ModalDialogHeader className="extra" />)
+    render(<ModalDialogHeader className="extra" />)
 
-    const component = container.querySelector('header')
+    const component = screen.getByRole('banner')
 
     expect(component).toHaveClass('ams-modal-dialog__header extra')
   })
@@ -38,15 +38,15 @@ describe('ModalDialogHeader', () => {
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLElement>()
 
-    const { container } = render(<ModalDialogHeader ref={ref} />)
+    render(<ModalDialogHeader ref={ref} />)
 
-    expect(ref.current).toBe(container.querySelector('header'))
+    expect(ref.current).toBe(screen.getByRole('banner'))
   })
 
   it('passes additional props', () => {
-    const { container } = render(<ModalDialogHeader data-test="data-test" id="id" />)
+    render(<ModalDialogHeader data-test="data-test" id="id" />)
 
-    const component = container.querySelector('header')
+    const component = screen.getByRole('banner')
 
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
@@ -84,15 +84,15 @@ describe('ModalDialogHeader', () => {
     })
 
     it('renders after the content', () => {
-      const { container } = render(
+      render(
         <ModalDialogHeader>
           <h1>Titel</h1>
         </ModalDialogHeader>,
       )
 
-      const header = container.querySelector('header')
+      const header = screen.getByRole('banner')
 
-      expect(header?.lastElementChild).toBe(screen.getByRole('button', { name: 'Sluiten' }))
+      expect(header.lastElementChild).toBe(screen.getByRole('button', { name: 'Sluiten' }))
     })
 
     it('closes the dialog containing the header on click', () => {

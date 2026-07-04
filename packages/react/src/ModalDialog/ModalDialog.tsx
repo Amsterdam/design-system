@@ -49,7 +49,7 @@ const ModalDialogRoot = forwardRef(
     useEffect(() => {
       if (!ariaLabel && !ariaLabelledBy) {
         console.warn(
-          'ModalDialog: provide an accessible name. Pass `aria-labelledby` referencing the `id` of the heading in `ModalDialog.Header`, or use `aria-label`.',
+          'ModalDialog: provide an accessible name. Pass `aria-labelledby` referencing the `id` of the heading in `ModalDialog.Header`.',
         )
       }
     }, [ariaLabel, ariaLabelledBy])
