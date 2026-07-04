@@ -33,7 +33,11 @@ const showNonModally = (dialog: HTMLDialogElement | null) => {
 const inFlow: CSSProperties = { position: 'static' }
 
 /* Simulates a vertically short window to test the scrolling of dialog and body. */
-const shortWindow: CSSProperties = { ...inFlow, '--ams-modal-dialog-max-block-size': '12rem' } as CSSProperties
+const shortWindow: CSSProperties = {
+  ...inFlow,
+  '--ams-modal-dialog-max-block-size': '12rem',
+  '--ams-modal-dialog-vi-medium-max-block-size': '12rem',
+} as CSSProperties
 
 const longText =
   'Veel Amsterdammers in de bijstand zijn huiverig om te gaan werken. Ze denken dat ze dan minder geld krijgen, ' +
