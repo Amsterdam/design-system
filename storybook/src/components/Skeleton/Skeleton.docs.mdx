@@ -103,12 +103,6 @@ Mark that region with `aria-busy` while it loads, and give it a single, always-p
 When the content has loaded, replace the Skeletons with it, set `aria-busy` to `false`, and change the status message – for example to ‘10 resultaten gevonden’.
 A Loading Region component that wraps this pattern is planned.
 
-#### Customising the animation
-
-The animation is set through one custom property, `--ams-skeleton-animation`, which holds a CSS `animation` shorthand.
-Override it to suit your theme: change the duration or timing function to adjust the pace, point it at your own `@keyframes` to replace the motion, or set it to `none` to switch it off.
-Users who prefer reduced motion never see the animation, whatever you set it to.
-
 ## Features
 
 The dimensions of the lines derive from the design tokens of the text they mimic: Skeleton.Heading follows Heading 2, and the other parts follow body text.
@@ -122,18 +116,12 @@ This looks natural yet renders identically on every request, which keeps server-
 The blocks use a single neutral grey that reads as a quiet backdrop rather than content.
 The space between composed parts is a generic gap rather than the exact margins of any one component, keeping the Skeleton reusable in any layout.
 
-A subtle animation signals that loading is under way.
-Rather than a shimmer or a pulse, a deterministically scattered band of small translucent squares – four shades that lighten and darken whatever colour shows through – runs across each block from left to right, pauses briefly, and then repeats.
-Its leading edge is ragged and its gaps widen behind it, so the band trails off like a comet tail; the rows line up with the text height, and the scatter is fixed rather than random, so the motif stays recognisable on every request.
-The whole animation sits behind a single design token, so a theme can point it at its own keyframes or switch it off.
-
 ## Accessibility
 
 A Skeleton renders with `aria-hidden="true"`, so screen readers skip the grey blocks entirely.
 Because the loading announcement belongs to the region that is loading rather than to each block, the Skeleton stays silent; the application announces the state once for the region, as shown under ‘How to use’, to meet [WCAG 4.1.3](https://www.w3.org/TR/WCAG22/#status-messages).
 A Loading Region component to encapsulate that pattern is planned.
-The animation runs only for users who have not asked for reduced motion; everyone else sees the static blocks.
-In forced colours mode, the blocks remain visible through the system colour for disabled text, and the animation is dropped because its shades would not survive the colour override.
+In forced colours mode, the blocks remain visible through the system colour for disabled text.
 
 ## See also
 
