@@ -23,12 +23,8 @@ import { commonMeta } from '../common/config'
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Article Page',
-} satisfies Meta
-
-export default meta
-
-export const Default: StoryObj = {
-  render: () => (
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
     <>
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -183,4 +179,8 @@ export const Default: StoryObj = {
       </aside>
     </>
   ),
-}
+} satisfies Meta
+
+export default meta
+
+export const Default: StoryObj = {}
