@@ -1,6 +1,10 @@
 {
   "ams": {
     "skeleton": {
+      "animation": {
+        "$value": "ams-skeleton-run 2.2s linear infinite",
+        "$description": "The loading animation, as a CSS `animation` shorthand referencing a keyframes name. Override this token to give the Skeleton a different animation – point it at your own `@keyframes` – or set it to `none` to switch the animation off."
+      },
       "background-color": {
         "$value": "#d1d1d1",
         "$description": "A neutral grey that stands in for the content being loaded.",

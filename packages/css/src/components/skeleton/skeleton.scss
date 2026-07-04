@@ -3,6 +3,10 @@
  * Copyright Gemeente Amsterdam
  */
 
+// The running loading animation lives in its own file; it emits the `@media (prefers-reduced-motion)`
+// block and the keyframes, and shares no Sass with the rules below.
+@use "animation";
+
 // Sizes a block like a line of text: as tall as its font size, with the leading divided over both margins.
 // A stack of these blocks occupies exactly as much space as the same number of lines of the mimicked text.
 @mixin text-line($font-size, $line-height) {

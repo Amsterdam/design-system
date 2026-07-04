@@ -1,0 +1,144 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+// The four shades of the squares in the running animation: three translucent whites that lighten and one
+// translucent black that darkens whatever surface colour shows through, so the squares suit any background
+// rather than one fixed grey and read as mostly light with the occasional darker fleck. They are baked in
+// rather than tokenised: a theme that wants a different look overrides the whole animation through the
+// `--ams-skeleton-animation` token.
+$_ams-skeleton-highlight-color: rgb(255 255 255 / 32%);
+$_ams-skeleton-highlight-soft-color: rgb(255 255 255 / 24%);
+$_ams-skeleton-highlight-softer-color: rgb(255 255 255 / 12%);
+$_ams-skeleton-shadow-color: rgb(0 0 0 / 8%);
+
+// The loading animation. A deterministically scattered band of 8×8px squares, translucent so they read as
+// lighter and darker patches of whatever surface shows through, runs across each surface from left to
+// right, then pauses off-screen before it restarts. The leading edge is staggered rather than a straight
+// front, so it does not read as a wall of blocks, and the gaps widen towards the back so the band trails
+// off like a long comet tail; the rows differ in length and spacing so the scatter never looks regular.
+// The field repeats every five rows, so it fills a surface of any height. Each square is one background
+// layer: a vertical gradient paints an 8px band – set 4px down an 8px-wide, 80px-tall tile that repeats
+// down the surface, giving each square a 4px block margin on both sides – positioned into one of the five
+// rows. The 16px row pitch matches the line height of body text, so one row of squares lands on each
+// mimicked line. The animation itself is a single token, so a theme can swap it for its own keyframes or
+// switch it off; reduced-motion users keep the plain surfaces.
+@media (prefers-reduced-motion: no-preference) {
+  .ams-skeleton__image,
+  .ams-skeleton__line,
+  .ams-skeleton__marker {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ams-skeleton__image::after,
+  .ams-skeleton__line::after,
+  .ams-skeleton__marker::after {
+    animation: var(--ams-skeleton-animation);
+    background-image:
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-softer-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-shadow-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-soft-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-softer-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-soft-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-shadow-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-soft-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-softer-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-shadow-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-soft-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-softer-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-shadow-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-soft-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-softer-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-softer-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-soft-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-shadow-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-soft-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-softer-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-shadow-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-soft-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-softer-color 4px 12px, transparent 12px),
+      linear-gradient(transparent 0 4px, $_ams-skeleton-highlight-color 4px 12px, transparent 12px);
+    background-position:
+      258px 0,
+      242px 0,
+      220px 0,
+      190px 0,
+      148px 0,
+      92px 0,
+      24px 0,
+      214px 16px,
+      196px 16px,
+      172px 16px,
+      140px 16px,
+      96px 16px,
+      40px 16px,
+      244px 32px,
+      226px 32px,
+      202px 32px,
+      170px 32px,
+      128px 32px,
+      74px 32px,
+      8px 32px,
+      226px 48px,
+      206px 48px,
+      180px 48px,
+      146px 48px,
+      100px 48px,
+      44px 48px,
+      200px 64px,
+      182px 64px,
+      158px 64px,
+      126px 64px,
+      84px 64px;
+    background-repeat: repeat-y;
+    background-size: 8px 80px;
+    content: "";
+    inset-block-end: 0;
+    inset-block-start: var(--_ams-skeleton-run-inset-block-start, 0);
+    inset-inline: 0;
+    position: absolute;
+  }
+
+  // A heading line is taller than a body line – tall enough for two rows of squares – but the scatter is
+  // anchored to the top, so the second row is clipped. Shifting the scatter up by half of the line’s
+  // surplus over two row pitches (32px) centres those two rows vertically, keeping the 8px gap, and leaves
+  // any third row fully clipped.
+  .ams-skeleton__heading .ams-skeleton__line::after {
+    --_ams-skeleton-run-inset-block-start: calc((var(--ams-skeleton-heading-font-size) - 32px) / 2);
+  }
+
+  // The translucent squares still tint the system colour in forced-colors mode, so the band is dropped there.
+  @media (forced-colors: active) {
+    .ams-skeleton__image::after,
+    .ams-skeleton__line::after,
+    .ams-skeleton__marker::after {
+      content: none;
+    }
+  }
+}
+
+// The band spans 266px (the foremost square starts at 258px and is 8px wide), so it starts and ends fully
+// off-screen. It runs across in the first stretch, then holds off the right edge for the closing pause.
+@keyframes ams-skeleton-run {
+  0% {
+    transform: translateX(-266px);
+  }
+
+  75% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
