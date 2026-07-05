@@ -38,6 +38,7 @@ const meta = {
       },
     },
     menuItems: { control: false },
+    onOpenChange: { action: 'openChange' },
   },
   decorators: [wrapInPage],
 } satisfies Meta<typeof PageHeader>
