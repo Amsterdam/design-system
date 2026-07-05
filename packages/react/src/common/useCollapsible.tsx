@@ -15,7 +15,7 @@ type UseCollapsibleProps = {
   fallback?: boolean
   /**
    * Whether the collapsible behaviour is active at all. When `false`, the state is inert:
-   * `value` is never read and `toggle` does nothing. Defaults to `true`.
+   * `value` no longer affects the returned state and `toggle` does nothing. Defaults to `true`.
    */
   gate?: boolean
   /** Fired on every toggle with the next value. Fires in both controlled and uncontrolled modes. */
