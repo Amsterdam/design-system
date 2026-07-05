@@ -359,4 +359,199 @@ describe('PageHeader', () => {
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })
+
+  it('calls onOpenChange with the new state when the menu button is clicked', async () => {
+    const onOpenChange = vi.fn()
+    const user = userEvent.setup()
+
+    const { container } = render(<PageHeader onOpenChange={onOpenChange}>Test</PageHeader>)
+
+    const menuButton = screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' })
+
+    await user.click(menuButton)
+
+    expect(onOpenChange).toHaveBeenCalledTimes(1)
+    expect(onOpenChange).toHaveBeenCalledWith(true)
+    expect(container.querySelector('.ams-page-header__mega-menu')).not.toHaveClass('ams-page-header__mega-menu--closed')
+
+    await user.click(menuButton)
+
+    expect(onOpenChange).toHaveBeenLastCalledWith(false)
+  })
+
+  it('opens the mega menu on mount when defaultOpen is set', () => {
+    const { container } = render(<PageHeader defaultOpen>Test</PageHeader>)
+
+    expect(container.querySelector('.ams-page-header__mega-menu')).not.toHaveClass('ams-page-header__mega-menu--closed')
+  })
+
+  it('fires onOpenChange when the open mega menu is force-closed on a wide window', async () => {
+    let changeListener: (() => void) | undefined
+    const mediaQueryList = {
+      addEventListener: vi.fn((_event: string, listener: () => void) => {
+        changeListener = listener
+      }),
+      matches: false,
+      removeEventListener: vi.fn(),
+    }
+
+    const originalMatchMedia = window.matchMedia
+    window.matchMedia = vi.fn().mockReturnValue(mediaQueryList as unknown as MediaQueryList)
+
+    try {
+      const onOpenChange = vi.fn()
+      const user = userEvent.setup()
+      render(
+        <PageHeader noMenuButtonOnWideWindow onOpenChange={onOpenChange}>
+          Test
+        </PageHeader>,
+      )
+
+      const menuButton = screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' })
+      await user.click(menuButton)
+
+      expect(onOpenChange).toHaveBeenLastCalledWith(true)
+
+      // Simulate the viewport crossing the 'wide' breakpoint: the button hides and the menu force-closes.
+      mediaQueryList.matches = true
+      act(() => {
+        changeListener?.()
+      })
+
+      expect(onOpenChange).toHaveBeenLastCalledWith(false)
+    } finally {
+      window.matchMedia = originalMatchMedia
+    }
+  })
+
+  describe('when controlled', () => {
+    it('renders the mega menu open when open is true', () => {
+      const { container } = render(<PageHeader open>Test</PageHeader>)
+
+      expect(container.querySelector('.ams-page-header__mega-menu')).not.toHaveClass(
+        'ams-page-header__mega-menu--closed',
+      )
+      expect(screen.getByRole('button', { hidden: true })).toHaveAttribute('aria-expanded', 'true')
+    })
+
+    it('renders the mega menu closed when open is false', () => {
+      const { container } = render(<PageHeader open={false}>Test</PageHeader>)
+
+      expect(container.querySelector('.ams-page-header__mega-menu')).toHaveClass('ams-page-header__mega-menu--closed')
+    })
+
+    it('does not toggle internally when controlled', async () => {
+      const user = userEvent.setup()
+
+      const { container } = render(<PageHeader open={false}>Test</PageHeader>)
+
+      const menuButton = screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' })
+
+      await user.click(menuButton)
+
+      expect(container.querySelector('.ams-page-header__mega-menu')).toHaveClass('ams-page-header__mega-menu--closed')
+    })
+
+    it('calls onOpenChange with the desired next state without changing itself', async () => {
+      const onOpenChange = vi.fn()
+      const user = userEvent.setup()
+
+      const { container } = render(
+        <PageHeader onOpenChange={onOpenChange} open={false}>
+          Test
+        </PageHeader>,
+      )
+
+      await user.click(screen.getByRole('button', { hidden: true, name: 'Laat navigatiemenu zien' }))
+
+      expect(onOpenChange).toHaveBeenCalledTimes(1)
+      expect(onOpenChange).toHaveBeenCalledWith(true)
+      expect(container.querySelector('.ams-page-header__mega-menu')).toHaveClass('ams-page-header__mega-menu--closed')
+    })
+
+    it('responds to open prop changes', () => {
+      const { container, rerender } = render(<PageHeader open={false}>Test</PageHeader>)
+
+      expect(container.querySelector('.ams-page-header__mega-menu')).toHaveClass('ams-page-header__mega-menu--closed')
+
+      rerender(<PageHeader open>Test</PageHeader>)
+
+      expect(container.querySelector('.ams-page-header__mega-menu')).not.toHaveClass(
+        'ams-page-header__mega-menu--closed',
+      )
+    })
+
+    it('ignores defaultOpen when open is provided', () => {
+      const { container } = render(
+        <PageHeader defaultOpen open={false}>
+          Test
+        </PageHeader>,
+      )
+
+      expect(container.querySelector('.ams-page-header__mega-menu')).toHaveClass('ams-page-header__mega-menu--closed')
+    })
+
+    it('notifies but does not change itself when force-closed on a wide window', () => {
+      let changeListener: (() => void) | undefined
+      const mediaQueryList = {
+        addEventListener: vi.fn((_event: string, listener: () => void) => {
+          changeListener = listener
+        }),
+        matches: false,
+        removeEventListener: vi.fn(),
+      }
+
+      const originalMatchMedia = window.matchMedia
+      window.matchMedia = vi.fn().mockReturnValue(mediaQueryList as unknown as MediaQueryList)
+
+      try {
+        const onOpenChange = vi.fn()
+        const { container } = render(
+          <PageHeader noMenuButtonOnWideWindow onOpenChange={onOpenChange} open>
+            Test
+          </PageHeader>,
+        )
+
+        // Cross the 'wide' breakpoint so the button hides while the parent still controls `open` as true.
+        mediaQueryList.matches = true
+        act(() => {
+          changeListener?.()
+        })
+
+        // The component requests a close via the callback but leaves the visual state to the parent.
+        expect(onOpenChange).toHaveBeenCalledWith(false)
+        expect(container.querySelector('.ams-page-header__mega-menu')).not.toHaveClass(
+          'ams-page-header__mega-menu--closed',
+        )
+      } finally {
+        window.matchMedia = originalMatchMedia
+      }
+    })
+  })
+
+  describe('controlled/uncontrolled switch warning', () => {
+    it('warns when switching from uncontrolled to controlled', () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+      const { rerender } = render(<PageHeader>Test</PageHeader>)
+
+      rerender(<PageHeader open>Test</PageHeader>)
+
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('uncontrolled to controlled'))
+
+      warn.mockRestore()
+    })
+
+    it('warns when switching from controlled to uncontrolled', () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+      const { rerender } = render(<PageHeader open>Test</PageHeader>)
+
+      rerender(<PageHeader>Test</PageHeader>)
+
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('controlled to uncontrolled'))
+
+      warn.mockRestore()
+    })
+  })
 })

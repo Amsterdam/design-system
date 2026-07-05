@@ -6,7 +6,7 @@
 import type { AnchorHTMLAttributes, ElementType, ForwardedRef, HTMLAttributes, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef, useId, useState } from 'react'
+import { forwardRef, useEffect, useId, useRef, useState } from 'react'
 
 import type { IconProps } from '../Icon'
 import type { LogoBrand } from '../Logo'
@@ -29,6 +29,12 @@ export type PageHeaderProps = {
    * Provide this only together with a `brandName`.
    */
   readonly brandNameShort?: string
+  /**
+   * Whether the mega menu is open initially.
+   * Ignored when `open` is provided.
+   * @default false
+   */
+  readonly defaultOpen?: boolean
   /** The accessible name of the logo. */
   readonly logoAccessibleName?: string
   /** The name of the brand for which to display the logo. */
@@ -56,6 +62,13 @@ export type PageHeaderProps = {
   readonly navigationLabel?: string
   /** Hides the menu button on wide windows. */
   readonly noMenuButtonOnWideWindow?: boolean
+  /** Callback fired when the mega menu is opened or closed. Receives the new open state. */
+  readonly onOpenChange?: (open: boolean) => void
+  /**
+   * Whether the mega menu is open.
+   * When provided, the component is controlled and internal state is ignored.
+   */
+  readonly open?: boolean
 } & Readonly<HTMLAttributes<HTMLElement>>
 
 const PageHeaderRoot = forwardRef(
@@ -65,6 +78,7 @@ const PageHeaderRoot = forwardRef(
       brandNameShort,
       children,
       className,
+      defaultOpen,
       logoAccessibleName,
       logoBrand = 'amsterdam',
       logoLink = '/',
@@ -77,11 +91,15 @@ const PageHeaderRoot = forwardRef(
       menuItems,
       navigationLabel = 'Hoofdmenu',
       noMenuButtonOnWideWindow,
+      onOpenChange,
+      open,
       ...restProps
     }: PageHeaderProps,
     ref: ForwardedRef<HTMLElement>,
   ) => {
-    const [open, setOpen] = useState(false)
+    const isControlled = open !== undefined
+    const [internalOpen, setInternalOpen] = useState(defaultOpen ?? false)
+    const isOpen = isControlled ? open : internalOpen
 
     const viewportHasMinWidth = useViewportHasMinWidth('wide')
     const accessibleLabelId = useId()
@@ -89,14 +107,45 @@ const PageHeaderRoot = forwardRef(
     const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
     const menuButtonHidden = noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow
 
-    // Close the menu when its button is hidden, and keep it closed when the button returns: there is then no control to reopen it.
+    // Warn once when the component flips between controlled and uncontrolled, mirroring React’s guardrail for inputs.
+    const wasControlledRef = useRef(isControlled)
+    useEffect(() => {
+      if (wasControlledRef.current !== isControlled) {
+        console.warn(
+          `PageHeader is changing from ${
+            wasControlledRef.current ? 'controlled to uncontrolled' : 'uncontrolled to controlled'
+          }. Decide for its lifetime: pass \`open\` for controlled, or leave it undefined for uncontrolled.`,
+        )
+        wasControlledRef.current = isControlled
+      }
+    }, [isControlled])
+
+    // Close the menu when its button hides on a wide window, and keep it closed when the button returns: there is then
+    // no control to reopen it. Adjusting state while rendering is the recommended pattern for this internal reset.
     const [menuButtonWasHidden, setMenuButtonWasHidden] = useState(menuButtonHidden)
     if (menuButtonHidden !== menuButtonWasHidden) {
       setMenuButtonWasHidden(menuButtonHidden)
-      /* v8 ignore next -- setState above causes React to discard and retry this render; v8 cannot track the false branch across the retry */
-      if (menuButtonHidden) {
-        setOpen(false)
+      if (menuButtonHidden && isOpen && !isControlled) {
+        setInternalOpen(false)
       }
+    }
+
+    // Notify a listening parent when hiding the button force-closes the menu. This runs in an effect so it never
+    // updates a controlled parent during render; the refs capture the hide transition and the prior open state.
+    const wasMenuButtonHiddenRef = useRef(menuButtonHidden)
+    const wasOpenRef = useRef(isOpen)
+    useEffect(() => {
+      if (!wasMenuButtonHiddenRef.current && menuButtonHidden && wasOpenRef.current) {
+        onOpenChange?.(false)
+      }
+      wasMenuButtonHiddenRef.current = menuButtonHidden
+      wasOpenRef.current = isOpen
+    }, [isOpen, menuButtonHidden, onOpenChange])
+
+    const handleMenuButtonClick = () => {
+      const nextOpen = !isOpen
+      if (!isControlled) setInternalOpen(nextOpen)
+      onOpenChange?.(nextOpen)
     }
 
     const LogoLink = logoLinkComponent
@@ -136,20 +185,22 @@ const PageHeaderRoot = forwardRef(
                 >
                   <button
                     aria-controls="ams-page-header-mega-menu"
-                    aria-expanded={open}
+                    aria-expanded={isOpen}
                     className="ams-page-header__mega-menu-button"
-                    onClick={() => setOpen((wasOpen) => !wasOpen)}
+                    onClick={handleMenuButtonClick}
                     type="button"
                   >
                     <span aria-hidden="true" className="ams-page-header__mega-menu-button-label">
                       {menuButtonText}
                     </span>
-                    <span className="ams-visually-hidden">{open ? menuButtonTextForHide : menuButtonTextForShow}</span>
+                    <span className="ams-visually-hidden">
+                      {isOpen ? menuButtonTextForHide : menuButtonTextForShow}
+                    </span>
                     <Icon
                       svg={
                         menuButtonIcon ?? (
                           <PageHeaderMenuIcon
-                            className={clsx('ams-page-header__menu-icon', open && 'ams-page-header__menu-icon--open')}
+                            className={clsx('ams-page-header__menu-icon', isOpen && 'ams-page-header__menu-icon--open')}
                           />
                         )
                       }
@@ -161,7 +212,7 @@ const PageHeaderRoot = forwardRef(
 
             {hasMegaMenu && (
               <div
-                className={clsx('ams-page-header__mega-menu', !open && 'ams-page-header__mega-menu--closed')}
+                className={clsx('ams-page-header__mega-menu', !isOpen && 'ams-page-header__mega-menu--closed')}
                 id="ams-page-header-mega-menu"
               >
                 {children}
