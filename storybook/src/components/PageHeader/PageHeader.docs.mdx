@@ -90,7 +90,31 @@ If the collapsible menu contains [Headings](/docs/components-text-heading--docs)
 
 By default the Page Header keeps track of whether the collapsible menu is open.
 Set `defaultOpen` to have it open on the first render.
-To control it yourself – for example to close the menu when the route changes – pass `open` and update it from the `onOpenChange` callback.
+
+To control the menu yourself, pass `open` and update it from the `onOpenChange` callback.
+This matters most in a single-page app: the Page Header stays mounted while navigating, so the menu would otherwise stay open after someone follows a link inside it.
+Keep the open state in your own component and close it whenever the route changes:
+
+{/* prettier-ignore */}
+```tsx
+function Header() {
+  const { pathname } = useLocation() // The current route from your router
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [previousPathname, setPreviousPathname] = useState(pathname)
+
+  // Close the collapsible menu whenever the route changes
+  if (pathname !== previousPathname) {
+    setPreviousPathname(pathname)
+    setMenuOpen(false)
+  }
+
+  return (
+    <PageHeader onOpenChange={setMenuOpen} open={menuOpen}>
+      {/* Collapsible menu content */}
+    </PageHeader>
+  )
+}
+```
 
 ## Examples
 
