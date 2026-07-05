@@ -5,8 +5,9 @@
 
 import type { ReactElement, ReactNode } from 'react'
 
-import { Children, cloneElement, isValidElement, useContext, useId, useRef, useState } from 'react'
+import { Children, cloneElement, isValidElement, useContext, useId, useRef } from 'react'
 
+import { useCollapsible } from '../common/useCollapsible'
 import { TableOfContentsContext } from './TableOfContentsContext'
 import { TableOfContentsList } from './TableOfContentsList'
 
@@ -23,20 +24,21 @@ const findListChild = (children: ReactNode): ReactElement | undefined => {
 type UseCollapsibleItemProps = {
   children: ReactNode
   defaultExpanded?: boolean
+  expanded?: boolean
   onToggle?: (expanded: boolean) => void
 }
 
 /**
  * Drives the collapsible behaviour of a `TableOfContents.Link` that wraps a nested list: it tracks the
- * expanded state, links the toggle button to the nested list through a stable `aria-controls` id, and
- * restores focus to the toggle when collapsing a subtree that holds focus.
+ * expanded state (controlled via `expanded` or uncontrolled via `defaultExpanded`), links the toggle
+ * button to the nested list through a stable `aria-controls` id, and restores focus to the toggle when
+ * collapsing a subtree that holds focus.
  *
  * Returns the refs, state, and rendered children the link needs; it deliberately leaves the markup and
  * the accessible label text to the component.
  */
-export const useCollapsibleItem = ({ children, defaultExpanded, onToggle }: UseCollapsibleItemProps) => {
+export const useCollapsibleItem = ({ children, defaultExpanded, expanded, onToggle }: UseCollapsibleItemProps) => {
   const { collapsible } = useContext(TableOfContentsContext)
-  const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? false)
 
   const panelId = useId()
   const buttonRef = useRef<HTMLButtonElement>(null)
@@ -44,6 +46,14 @@ export const useCollapsibleItem = ({ children, defaultExpanded, onToggle }: UseC
 
   const listChild = findListChild(children)
   const isExpandable = collapsible && !!listChild
+
+  const [isExpanded, toggle] = useCollapsible({
+    defaultValue: defaultExpanded,
+    gate: isExpandable,
+    onToggle,
+    value: expanded,
+  })
+
   // Reuse a provided nested list id to keep aria-controls references stable, but ignore a blank
   // id so aria-controls never points at an empty string.
   const providedListId = (listChild?.props as { id?: string } | undefined)?.id
@@ -60,12 +70,10 @@ export const useCollapsibleItem = ({ children, defaultExpanded, onToggle }: UseC
     }
   }
 
-  // Toggles the local expanded state and emits the new expanded state
+  // Restore focus before the toggle hides the subtree, then toggle the (controlled or internal) state.
   const handleToggle = () => {
-    const nextIsExpanded = !isExpanded
-    moveFocusToToggleButton(nextIsExpanded)
-    setIsExpanded(nextIsExpanded)
-    onToggle?.(nextIsExpanded)
+    moveFocusToToggleButton(!isExpanded)
+    toggle()
   }
 
   // When expandable, clone the nested list so it receives the id referenced by aria-controls.
