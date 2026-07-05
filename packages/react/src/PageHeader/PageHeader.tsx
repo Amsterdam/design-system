@@ -103,6 +103,7 @@ const PageHeaderRoot = forwardRef(
 
     const viewportHasMinWidth = useViewportHasMinWidth('wide')
     const accessibleLabelId = useId()
+    const megaMenuId = useId()
     const hasMegaMenu = Boolean(children)
     const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
     const menuButtonHidden = noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow
@@ -184,7 +185,7 @@ const PageHeaderRoot = forwardRef(
                   hidden // Hide the list item containing the menu button until its CSS loads. If it doesn't load, the menu will always be visible.
                 >
                   <button
-                    aria-controls="ams-page-header-mega-menu"
+                    aria-controls={megaMenuId}
                     aria-expanded={isOpen}
                     className="ams-page-header__mega-menu-button"
                     onClick={handleMenuButtonClick}
@@ -213,7 +214,7 @@ const PageHeaderRoot = forwardRef(
             {hasMegaMenu && (
               <div
                 className={clsx('ams-page-header__mega-menu', !isOpen && 'ams-page-header__mega-menu--closed')}
-                id="ams-page-header-mega-menu"
+                id={megaMenuId}
               >
                 {children}
               </div>
