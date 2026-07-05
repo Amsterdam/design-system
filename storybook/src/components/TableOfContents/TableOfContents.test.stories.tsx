@@ -22,10 +22,11 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   play: async ({ canvas, userEvent }) => {
     const toggle = canvas.getByRole('button', { name: /Salaristoelagen/ })
-    const nestedLink = canvas.getByRole('link', { name: 'Functioneringstoelage' })
-
-    // The nested list is hidden with `display: none` until its toggle is clicked, so this asserts the
+    // The nested link starts hidden with `display: none`, so it is outside the accessibility tree and
+    // must be queried with `hidden: true`. Asserting visibility before and after the click covers the
     // real CSS show/hide contract that the class-name-only unit tests cannot reach.
+    const nestedLink = canvas.getByRole('link', { hidden: true, name: 'Functioneringstoelage' })
+
     await expect(nestedLink).not.toBeVisible()
 
     await userEvent.click(toggle)
