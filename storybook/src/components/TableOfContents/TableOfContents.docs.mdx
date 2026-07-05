@@ -27,6 +27,7 @@ The List has no props of its own; the ‘Multiple levels’ example shows how to
 
 Points to a section or page; provide its text through the `label` prop.
 Use `defaultExpanded` to initially show its nested list when the Table of Contents is collapsible.
+To drive the expanded state from your own code, pass `expanded` together with `onToggle` instead.
 
 <Canvas of={TableOfContentsLinkStories.Link} />
 
@@ -61,6 +62,14 @@ The toggle expands and collapses the nested list without following the link.
 Use `defaultExpanded` on a Link to pre-open its nested list when the component mounts, for example to show the ancestors of the current page.
 
 <Canvas of={TableOfContentsStories.Collapsible} />
+
+### Controlled
+
+Each Link manages its own expanded state by default.
+To drive that state yourself, pass `expanded` to a Link and update it from its `onToggle` callback.
+This example keeps a single branch open at a time by expanding the clicked branch and collapsing the others.
+
+<Canvas of={TableOfContentsStories.Controlled} />
 
 ## Accessibility
 

@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { TableOfContents } from '@amsterdam/design-system-react/src'
+import { useState } from 'react'
 
 import { headingLevelArgType } from '#storybook/_common/argTypes'
 
@@ -110,5 +111,46 @@ export const Collapsible: Story = {
     ),
     collapsible: true,
     heading: 'Inhoudsopgave',
+  },
+}
+
+export const Controlled: Story = {
+  args: {
+    collapsible: true,
+    heading: 'Inhoudsopgave',
+  },
+  render: (args) => {
+    const [expandedBranch, setExpandedBranch] = useState<string | null>('functies')
+
+    return (
+      <TableOfContents {...args}>
+        <TableOfContents.List>
+          <TableOfContents.Link href="#s1" label="Inleiding" />
+          <TableOfContents.Link
+            expanded={expandedBranch === 'functies'}
+            href="#s2"
+            label="Vaststellen en waarderen van functies"
+            onToggle={(expanded) => setExpandedBranch(expanded ? 'functies' : null)}
+          >
+            <TableOfContents.List>
+              <TableOfContents.Link href="#s2-1" label="Algemeen" />
+              <TableOfContents.Link href="#s2-2" label="Waardering van functies" />
+            </TableOfContents.List>
+          </TableOfContents.Link>
+          <TableOfContents.Link
+            expanded={expandedBranch === 'toelagen'}
+            href="#s3"
+            label="Salaristoelagen"
+            onToggle={(expanded) => setExpandedBranch(expanded ? 'toelagen' : null)}
+          >
+            <TableOfContents.List>
+              <TableOfContents.Link href="#s3-1" label="Functioneringstoelage" />
+              <TableOfContents.Link href="#s3-2" label="Arbeidsmarkttoelage" />
+            </TableOfContents.List>
+          </TableOfContents.Link>
+          <TableOfContents.Link href="#s4" label="Vergoedingen" />
+        </TableOfContents.List>
+      </TableOfContents>
+    )
   },
 }
