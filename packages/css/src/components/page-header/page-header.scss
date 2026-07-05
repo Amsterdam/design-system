@@ -64,7 +64,12 @@
 
 .ams-page-header__logo-container {
   flex-shrink: 0;
-  inline-size: 0.75rem;
+
+  /* Crops the logo to its emblem (the three Saint Andrew's crosses), hiding the wordmark that follows it.
+  0.875rem sits roughly midway between the emblem's right edge (~0.735rem) and the wordmark's left edge
+  (~1.027rem) in the logo's own coordinate space, so the crop has margin on both sides and doesn't depend
+  on sub-pixel rounding to land in the right place. */
+  inline-size: 0.875rem;
   overflow: hidden;
 
   @media (min-width: $ams-breakpoint-medium) {
