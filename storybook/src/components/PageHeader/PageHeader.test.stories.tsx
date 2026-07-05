@@ -58,6 +58,13 @@ export const Test: Story = {
     expect(exampleChildren).toBeVisible()
     await userEvent.click(canvas.getByTestId('mega-menu-link'))
     expect(exampleChildren).not.toBeVisible()
+
+    // Every link’s default is prevented, so clicking the logo never navigates the story away.
+    const logoLink = pageHeader.querySelector('a')
+    if (logoLink) {
+      await userEvent.click(logoLink)
+    }
+    expect(menuButton).toBeInTheDocument()
   },
   render: (args) => {
     const [open, setOpen] = useState(false)
@@ -69,7 +76,8 @@ export const Test: Story = {
           data-testid="interaction-test"
           {...args}
           onClick={(event) => {
-            if ((event.target as HTMLElement).closest('.ams-page-header__mega-menu a')) {
+            // Keep any Page Header link (logo, inline menu, mega menu) from navigating, and close the menu.
+            if ((event.target as HTMLElement).closest('a')) {
               event.preventDefault()
               setOpen(false)
             }

@@ -50,8 +50,9 @@ const meta = {
       <PageHeader
         {...args}
         onClick={(event) => {
-          // The mega menu links are placeholders; keep them from navigating and close the menu instead.
-          if ((event.target as HTMLElement).closest('.ams-page-header__mega-menu a')) {
+          // The links are placeholders; keep any Page Header link (logo, inline menu, mega menu) from
+          // navigating, and close the mega menu the way an app would on navigation.
+          if ((event.target as HTMLElement).closest('a')) {
             event.preventDefault()
             setOpen(false)
           }
