@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { LogInIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
 import { logoBrands } from '@amsterdam/design-system-react/src/Logo/Logo'
+import { useState } from 'react'
 import { expect } from 'storybook/test'
 
 import type { PageHeaderStory } from './PageHeader.stories'
@@ -46,43 +47,69 @@ export const Test: Story = {
 
     if (!menuButton) return
 
+    // Open and close the mega menu with the menu button.
     await userEvent.click(menuButton)
     expect(exampleChildren).toBeVisible()
     await userEvent.click(menuButton)
     expect(exampleChildren).not.toBeVisible()
+
+    // Reopen, then close it by clicking a link inside the mega menu (controlled close, no navigation).
+    await userEvent.click(menuButton)
+    expect(exampleChildren).toBeVisible()
+    await userEvent.click(canvas.getByTestId('mega-menu-link'))
+    expect(exampleChildren).not.toBeVisible()
   },
-  render: (args) => (
-    <>
-      {/* Interaction test */}
-      <PageHeader data-testid="interaction-test" {...args}>
-        <ul>
-          <li data-testid="children">English</li>
-        </ul>
-      </PageHeader>
+  render: (args) => {
+    const [open, setOpen] = useState(false)
 
-      {/* All public stories, sorted by key for deterministic order */}
-      {Object.keys(pageHeaderStories)
-        .filter((key) => key !== '__namedExportsOrder') // This gets added by babel-plugin-named-exports-order
-        .sort()
-        .map((key) => {
-          const story = pageHeaderStories[key]
-          return story ? <PageHeader key={key} {...story.args} /> : null
-        })}
-
-      {/* All logo brands */}
-      {logoBrands.map((brand) => (
+    return (
+      <>
+        {/* Interaction test: controlled open so a mega-menu link can close the menu instead of navigating */}
         <PageHeader
-          brandName="Voorbeeld"
-          key={brand}
-          logoBrand={brand}
-          menuItems={
-            <PageHeader.MenuLink fixed href="#" icon={LogInIcon}>
-              Inloggen
-            </PageHeader.MenuLink>
-          }
-        />
-      ))}
-    </>
-  ),
+          data-testid="interaction-test"
+          {...args}
+          onClick={(event) => {
+            if ((event.target as HTMLElement).closest('.ams-page-header__mega-menu a')) {
+              event.preventDefault()
+              setOpen(false)
+            }
+          }}
+          onOpenChange={setOpen}
+          open={open}
+        >
+          <ul>
+            <li data-testid="children">
+              <a data-testid="mega-menu-link" href="#/should-not-navigate">
+                English
+              </a>
+            </li>
+          </ul>
+        </PageHeader>
+
+        {/* All public stories, sorted by key for deterministic order */}
+        {Object.keys(pageHeaderStories)
+          .filter((key) => key !== '__namedExportsOrder') // This gets added by babel-plugin-named-exports-order
+          .sort()
+          .map((key) => {
+            const story = pageHeaderStories[key]
+            return story ? <PageHeader key={key} {...story.args} /> : null
+          })}
+
+        {/* All logo brands */}
+        {logoBrands.map((brand) => (
+          <PageHeader
+            brandName="Voorbeeld"
+            key={brand}
+            logoBrand={brand}
+            menuItems={
+              <PageHeader.MenuLink fixed href="#" icon={LogInIcon}>
+                Inloggen
+              </PageHeader.MenuLink>
+            }
+          />
+        ))}
+      </>
+    )
+  },
   tags: ['!dev', '!autodocs'],
 }

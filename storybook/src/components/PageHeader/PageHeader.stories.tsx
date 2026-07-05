@@ -10,6 +10,7 @@ import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { LogInIcon, PlusIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
 import { logoBrands } from '@amsterdam/design-system-react/src/Logo/Logo'
+import { useState } from 'react'
 
 import { linkComponentArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
@@ -41,6 +42,28 @@ const meta = {
     onOpenChange: { action: 'openChange' },
   },
   decorators: [wrapInPage],
+  // Control the mega menu so these example links can close it on click, the way an app would on navigation.
+  render: (args) => {
+    const [open, setOpen] = useState(false)
+
+    return (
+      <PageHeader
+        {...args}
+        onClick={(event) => {
+          // The mega menu links are placeholders; keep them from navigating and close the menu instead.
+          if ((event.target as HTMLElement).closest('.ams-page-header__mega-menu a')) {
+            event.preventDefault()
+            setOpen(false)
+          }
+        }}
+        onOpenChange={(nextOpen) => {
+          setOpen(nextOpen)
+          args.onOpenChange?.(nextOpen)
+        }}
+        open={open}
+      />
+    )
+  },
 } satisfies Meta<typeof PageHeader>
 
 export default meta
