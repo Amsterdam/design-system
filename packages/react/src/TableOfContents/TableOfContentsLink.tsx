@@ -16,10 +16,16 @@ import { useCollapsibleItem } from './useCollapsibleItem'
 export type TableOfContentsLinkProps = {
   /**
    * Whether the nested list is initially expanded.
-   * Ignored when the parent `TableOfContents` is not `collapsible` or when there is no nested list.
+   * Ignored when the parent `TableOfContents` is not `collapsible`, when there is no nested list, or when `expanded` is provided.
    * @default false
    */
   readonly defaultExpanded?: boolean
+  /**
+   * Whether the nested list is expanded.
+   * When provided, the component is controlled and internal state is ignored.
+   * Ignored when the parent `TableOfContents` is not `collapsible` or when there is no nested list.
+   */
+  readonly expanded?: boolean
   /** The text for the link. */
   readonly label: string
   /**
@@ -41,12 +47,21 @@ export type TableOfContentsLinkProps = {
  */
 export const TableOfContentsLink = forwardRef(
   (
-    { children, className, defaultExpanded, label, linkComponent, onToggle, ...restProps }: TableOfContentsLinkProps,
+    {
+      children,
+      className,
+      defaultExpanded,
+      expanded,
+      label,
+      linkComponent,
+      onToggle,
+      ...restProps
+    }: TableOfContentsLinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
     const { hideAccessibleLabel, showAccessibleLabel } = useContext(TableOfContentsContext)
     const { buttonRef, handleToggle, isExpandable, isExpanded, itemRef, nestedListId, renderedChildren } =
-      useCollapsibleItem({ children, defaultExpanded, onToggle })
+      useCollapsibleItem({ children, defaultExpanded, expanded, onToggle })
 
     const Tag = linkComponent || 'a'
 

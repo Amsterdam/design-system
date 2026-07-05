@@ -6,6 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { TableOfContents } from '@amsterdam/design-system-react/src'
+import { expect } from 'storybook/test'
 
 import { default as tableOfContentsMeta } from './TableOfContents.stories'
 
@@ -19,6 +20,19 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  play: async ({ canvas, userEvent }) => {
+    const toggle = canvas.getByRole('button', { name: /Salaristoelagen/ })
+    // The nested link starts hidden with `display: none`, so it is outside the accessibility tree and
+    // must be queried with `hidden: true`. Asserting visibility before and after the click covers the
+    // real CSS show/hide contract that the class-name-only unit tests cannot reach.
+    const nestedLink = canvas.getByRole('link', { hidden: true, name: 'Functioneringstoelage' })
+
+    await expect(nestedLink).not.toBeVisible()
+
+    await userEvent.click(toggle)
+
+    await expect(nestedLink).toBeVisible()
+  },
   render: () => (
     <div className="_ams-tests-stack">
       <TableOfContents heading="Op deze pagina">
