@@ -61,7 +61,7 @@ Use on a white background only.
 
 ### Controlled
 
-Use `collapsed` and `onToggle` on each step to let a parent component drive the expand/collapse state.
+Use `expanded` and `onToggle` on each step to let a parent component drive the expand/collapse state.
 The example below keeps only one step open at a time.
 
 <Canvas of={ProgressListStories.Controlled} />
@@ -71,7 +71,7 @@ The example below keeps only one step open at a time.
 Set `collapsible` to `true` to let users expand and collapse the content of each step.
 Current and upcoming steps then start expanded.
 Completed ones are initially collapsed.
-Use the `defaultCollapsed` prop on a step to override the default behaviour.
+Use the `defaultExpanded` prop on a step to override the default behaviour.
 The `onToggle` callback emits the expanded state whenever it changes.
 
 <Canvas of={ProgressListStories.Collapsible} />
