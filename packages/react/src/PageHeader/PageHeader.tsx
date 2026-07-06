@@ -99,11 +99,11 @@ const PageHeaderRoot = forwardRef(
   ) => {
     const isControlled = open !== undefined
 
-    const isWideViewport = useViewportHasMinWidth('wide')
+    const isWideWindow = useViewportHasMinWidth('wide')
     const accessibleLabelId = useId()
     const megaMenuId = useId()
     const hasMegaMenu = Boolean(children)
-    const hasMegaMenuOnWideWindow = hasMegaMenu && isWideViewport
+    const hasMegaMenuOnWideWindow = hasMegaMenu && isWideWindow
     const isMenuButtonHidden = noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow
 
     // Don't start open when the menu button is hidden on a wide window: there would then be no control to close it.
