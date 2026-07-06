@@ -6,21 +6,14 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # AI assistance
 
-Many teams now build interfaces with an AI coding assistant.
-We run a Model Context Protocol (MCP) server so your assistant can work with the real Amsterdam Design System: our components, their properties, our stories, and our documentation.
-With it connected, the assistant reuses existing components with the correct properties, variants, and accessibility patterns, instead of inventing markup that only looks similar.
+We run a MCP server to let your assistant work with the real Amsterdam Design System.
 
 ## Why connect your assistant
 
-Without this context, an assistant guesses.
-It writes generic HTML, invents property names, and misses our accessibility and language conventions.
+This server exposes our components and their features, as well as our stories and documentation.
+Without this context, an assistant guesses: it writes generic HTML, invents property names, and misses our accessibility and language conventions.
 
-With it connected, the assistant:
-
-- reaches for an existing component instead of rebuilding one;
-- uses the correct properties and variants, taken from the current release;
-- follows our accessibility patterns and Dutch-language defaults.
-
+With it, the assistant builds with existing components, using the correct properties, variants, and accessibility patterns from the current release.
 This keeps what you ship consistent with the rest of the City’s services, with less review and rework.
 
 ## What the server exposes
@@ -33,21 +26,16 @@ The hosted server gives your assistant a small set of tools, which it calls on i
 
 You simply ask for what you want to build.
 
-Contributors who run Storybook locally also get tools to preview stories and follow our story-writing conventions.
-
 ## The endpoint
 
-The server speaks the Model Context Protocol over Streamable HTTP, at the path `/mcp`.
-
-Most people should use the hosted endpoint.
-It needs no setup, tracks our `main` branch, and is public, so any tool can connect without signing in:
+Our hosted endpoint needs no setup, tracks our `main` branch, and is public, so any tool can connect:
 
 {/* prettier-ignore */}
 ```sh
 https://main--68db9df886b46f139748c074.chromatic.com/mcp
 ```
 
-Contributors working on the design system itself can instead use the local endpoint, available while `pnpm run watch:storybook` is running:
+Contributors can use the local endpoint while `pnpm run watch:storybook` is running:
 
 {/* prettier-ignore */}
 ```sh
@@ -58,73 +46,11 @@ The local URL follows your Storybook port; if you run it on another port, change
 
 ## Connect your tool
 
-The snippets below use the hosted endpoint.
+Any MCP-capable assistant can connect.
+Use your tool’s MCP settings to add a server over Streamable HTTP at the hosted endpoint above.
 Contributors can swap in `http://localhost:6006/mcp` to use a local Storybook.
 
-One thing to watch: Visual Studio Code uses the key `servers`, while most other tools use `mcpServers`.
-Use the snippet that matches your tool.
-
-### GitHub Copilot
-
-In Visual Studio Code, add a workspace file `.vscode/mcp.json`:
-
-{/* prettier-ignore */}
-```json
-{
-  "servers": {
-    "amsterdam-design-system": {
-      "type": "http",
-      "url": "https://main--68db9df886b46f139748c074.chromatic.com/mcp"
-    }
-  }
-}
-```
-
-In a JetBrains IDE such as WebStorm, open the GitHub Copilot plugin’s settings and add an MCP server with the URL above.
-Connecting Copilot to MCP servers in JetBrains IDEs is newer than in Visual Studio Code; if you do not see the option, update the plugin and check its release notes.
-
-### JetBrains AI Assistant or Junie
-
-For AI Assistant (WebStorm or IntelliJ 2025.2 and later), go to Settings → Tools → AI Assistant → Model Context Protocol (MCP) and add a server with the URL above.
-
-For Junie, add a project file `.junie/mcp/mcp.json`:
-
-{/* prettier-ignore */}
-```json
-{
-  "mcpServers": {
-    "amsterdam-design-system": {
-      "url": "https://main--68db9df886b46f139748c074.chromatic.com/mcp"
-    }
-  }
-}
-```
-
-### Cursor
-
-Add a project file `.cursor/mcp.json`:
-
-{/* prettier-ignore */}
-```json
-{
-  "mcpServers": {
-    "amsterdam-design-system": {
-      "url": "https://main--68db9df886b46f139748c074.chromatic.com/mcp"
-    }
-  }
-}
-```
-
-### Claude Code
-
-Run:
-
-{/* prettier-ignore */}
-```sh
-claude mcp add --transport http amsterdam-design-system https://main--68db9df886b46f139748c074.chromatic.com/mcp
-```
-
-Or add a project file `.mcp.json`:
+Many tools read this configuration from a JSON file, and most accept this shape:
 
 {/* prettier-ignore */}
 ```json
@@ -138,36 +64,21 @@ Or add a project file `.mcp.json`:
 }
 ```
 
-### Another tool
-
-Any MCP-capable assistant can connect.
-Use your tool’s own MCP settings to add a server over Streamable HTTP at the endpoint above.
-Most tools accept this shape:
-
-{/* prettier-ignore */}
-```json
-{
-  "mcpServers": {
-    "amsterdam-design-system": {
-      "type": "http",
-      "url": "https://main--68db9df886b46f139748c074.chromatic.com/mcp"
-    }
-  }
-}
-```
+The exact key, file name, and file location differ per tool; check your tool’s MCP documentation for the specifics.
 
 ## Example prompts
 
 Once connected, ask for what you want in plain language:
 
-- “Build a contact form with the Amsterdam Design System: a name field, an email field, and a submit button.”
+- “Build a contact form with ADS: a name and email field and a submit button.”
 - “Show me the properties and variants of the Alert component.”
 - “Replace this hand-built card with the design system’s Card component.”
 - “Lay out this page with Grid and Column from the design system.”
+- “Should I use a Button or a Link component for this interaction?”
 
 ## Good to know
 
-- The hosted endpoint tracks the `main` branch, so your assistant works with our latest released components and properties.
+- The hosted endpoint tracks the `main` branch, so your assistant works with our latest released API.
 - It draws on our stories and documentation, so richer stories lead to better answers.
 - Component support starts with React; other technologies follow as the Storybook MCP server adds them.
 - This page always lists the current endpoint; if a connection stops working, check here for the latest address.
