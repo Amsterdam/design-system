@@ -8,6 +8,8 @@ import type { ForwardedRef, HTMLAttributes, KeyboardEvent } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef, useEffect, useId, useRef, useState } from 'react'
 
+import type { IconProps } from '../Icon'
+
 import { getDaysInMonth, isSameDay, isSameMonth, startOfDay } from '../common/dates'
 import { useMonthNavigation } from '../common/useMonthNavigation'
 import { DatePickerBody } from './DatePickerBody'
@@ -34,20 +36,40 @@ type DatePickerBaseProps = {
   /** The earliest selectable date. Also bounds month navigation. */
   readonly minDate?: Date
   /**
+   * The icon for the button that navigates to the next month.
+   * @default ChevronForwardIcon
+   */
+  readonly nextMonthButtonIcon?: IconProps['svg']
+  /**
    * The accessible label for the button that navigates to the next month.
    * @default Volgende maand
    */
   readonly nextMonthButtonLabel?: string
+  /**
+   * The icon for the button that navigates to the next year.
+   * @default ChevronDoubleForwardIcon
+   */
+  readonly nextYearButtonIcon?: IconProps['svg']
   /**
    * The accessible label for the button that navigates to the next year.
    * @default Volgend jaar
    */
   readonly nextYearButtonLabel?: string
   /**
+   * The icon for the button that navigates to the previous month.
+   * @default ChevronBackwardIcon
+   */
+  readonly previousMonthButtonIcon?: IconProps['svg']
+  /**
    * The accessible label for the button that navigates to the previous month.
    * @default Vorige maand
    */
   readonly previousMonthButtonLabel?: string
+  /**
+   * The icon for the button that navigates to the previous year.
+   * @default ChevronDoubleBackwardIcon
+   */
+  readonly previousYearButtonIcon?: IconProps['svg']
   /**
    * The accessible label for the button that navigates to the previous year.
    * @default Vorig jaar
@@ -114,10 +136,14 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
     maxDate,
     minDate,
     mode,
+    nextMonthButtonIcon,
     nextMonthButtonLabel,
+    nextYearButtonIcon,
     nextYearButtonLabel,
     onChange,
+    previousMonthButtonIcon,
     previousMonthButtonLabel,
+    previousYearButtonIcon,
     previousYearButtonLabel,
     rangeEndAccessibleName = 'einddatum',
     rangeStartAccessibleName = 'startdatum',
@@ -249,9 +275,13 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
         goToPreviousYear={goToPreviousYear}
         locale={locale}
         month={month}
+        nextMonthButtonIcon={nextMonthButtonIcon}
         nextMonthButtonLabel={nextMonthButtonLabel}
+        nextYearButtonIcon={nextYearButtonIcon}
         nextYearButtonLabel={nextYearButtonLabel}
+        previousMonthButtonIcon={previousMonthButtonIcon}
         previousMonthButtonLabel={previousMonthButtonLabel}
+        previousYearButtonIcon={previousYearButtonIcon}
         previousYearButtonLabel={previousYearButtonLabel}
       />
       <DatePickerBody

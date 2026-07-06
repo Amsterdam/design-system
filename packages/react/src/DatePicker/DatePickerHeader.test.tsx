@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
 import { DatePickerHeader } from './DatePickerHeader'
@@ -59,5 +59,31 @@ describe('DatePickerHeader', () => {
     render(<DatePickerHeader {...defaultProps} nextMonthButtonLabel="Volgende" />)
 
     expect(screen.getByRole('button', { name: 'Volgende' })).toBeInTheDocument()
+  })
+
+  it('renders directional default icons so they mirror in a right-to-left context', () => {
+    const { container } = render(<DatePickerHeader {...defaultProps} />)
+
+    // The default chevrons carry `data-directional`, so the Icon styles flip them under `dir="rtl"`.
+    expect(container.querySelectorAll('svg[data-directional="true"]')).toHaveLength(4)
+  })
+
+  it('uses custom navigation button icons', () => {
+    render(
+      <DatePickerHeader
+        {...defaultProps}
+        nextMonthButtonIcon={<svg data-testid="next-month" />}
+        nextYearButtonIcon={<svg data-testid="next-year" />}
+        previousMonthButtonIcon={<svg data-testid="previous-month" />}
+        previousYearButtonIcon={<svg data-testid="previous-year" />}
+      />,
+    )
+
+    expect(within(screen.getByRole('button', { name: 'Vorig jaar' })).getByTestId('previous-year')).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('button', { name: 'Vorige maand' })).getByTestId('previous-month'),
+    ).toBeInTheDocument()
+    expect(within(screen.getByRole('button', { name: 'Volgende maand' })).getByTestId('next-month')).toBeInTheDocument()
+    expect(within(screen.getByRole('button', { name: 'Volgend jaar' })).getByTestId('next-year')).toBeInTheDocument()
   })
 })

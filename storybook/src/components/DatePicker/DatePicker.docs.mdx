@@ -48,7 +48,7 @@ The component does not clamp or validate the incoming value.
 The Date Picker renders weekday names, the month caption, and the accessible date labels in the language of `locale`, which defaults to `nl-NL`.
 It does not translate the rest: set `nextMonthButtonLabel`, `nextYearButtonLabel`, `previousMonthButtonLabel`, and `previousYearButtonLabel` in the same language, or they stay Dutch and screen readers announce a mix.
 In range mode, also localise `rangeStartAccessibleName` and `rangeEndAccessibleName`; they are appended to the start and end dates when those are announced.
-For right-to-left scripts such as Arabic, also add `dir="rtl"`.
+For right-to-left scripts such as Arabic, also add `dir="rtl"`; this mirrors the layout and the navigation chevrons.
 Try the `locale` control above to preview each language; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
 
 If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props:
@@ -125,6 +125,17 @@ The day grid follows the [WAI-ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg
 Arrow keys move between days, Home and End jump to the start and end of the week, and Page Up and Page Down move between months; hold Shift for years.
 Enter or Space selects the focused day.
 Moving past the end of a month shows the adjacent month and keeps focus on the day.
+
+### Custom navigation icons
+
+By default, the month and year navigation buttons use the Amsterdam chevron icons, so Amsterdam websites need to set nothing.
+Other [NL Design System](https://nldesignsystem.nl/) organisations can match their own iconography with `previousYearButtonIcon`, `previousMonthButtonIcon`, `nextMonthButtonIcon`, and `nextYearButtonIcon`.
+Each accepts the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
+
+For a right-to-left script such as Arabic, the buttons need to point the other way.
+The default chevrons flip automatically because they carry a `data-directional="true"` attribute; the Icon styles mirror any icon with that attribute under `dir="rtl"`.
+Give your own icons the same attribute so they flip too.
+See the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for more on right-to-left support.
 
 ## Accessibility
 

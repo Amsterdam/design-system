@@ -95,6 +95,12 @@ For right-to-left languages like Arabic, also add `dir="rtl"` to the component o
 />
 ```
 
+### Mirror navigation icons
+
+In a right-to-left context, the Calendar and Date Picker navigation buttons must point the other way.
+Their default chevrons handle this on their own: each carries a `data-directional="true"` attribute on its root `<svg>`, and the [Icon](/docs/components-media-icon--docs) styles mirror any icon with that attribute under `dir="rtl"`.
+If you replace them through `previousYearButtonIcon`, `previousMonthButtonIcon`, `nextMonthButtonIcon`, or `nextYearButtonIcon`, give your own icons the same attribute so they flip as well.
+
 ## Relevant WCAG requirements
 
 - [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts): indicate the language of any passage or phrase that differs from the page’s default language
