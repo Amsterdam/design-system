@@ -23,6 +23,9 @@ const meta = {
   title: 'Components/Containers/Page Header',
   component: PageHeader,
   argTypes: {
+    // The render below controls the mega menu, so live `open`/`defaultOpen` controls can't behave like the
+    // real uncontrolled props. Disable them; a story can still set either through its `args`.
+    defaultOpen: { control: false },
     logoBrand: {
       control: {
         labels: { undefined: 'amsterdam (default)' },
@@ -40,10 +43,11 @@ const meta = {
     },
     menuItems: { control: false },
     onOpenChange: { action: 'openChange' },
+    open: { control: false },
   },
   decorators: [wrapInPage],
   // Control the mega menu so these example links can close it on click, the way an app would on navigation.
-  // Seed from `defaultOpen` and defer to a provided `open` arg so the public API still drives the story.
+  // Seed from `defaultOpen` and defer to a provided `open` arg so a story can still set them through args.
   render: (args) => {
     const [open, setOpen] = useState(args.defaultOpen ?? false)
 
