@@ -211,6 +211,24 @@ describe('PageHeader', () => {
     expect(openMegaMenu).not.toHaveClass('ams-page-header__mega-menu--closed')
   })
 
+  it('gives each mega menu a unique id that its own button controls', () => {
+    const { container } = render(
+      <>
+        <PageHeader>Menu one</PageHeader>
+        <PageHeader>Menu two</PageHeader>
+      </>,
+    )
+
+    const megaMenus = container.querySelectorAll('.ams-page-header__mega-menu')
+    const menuButtons = container.querySelectorAll('.ams-page-header__mega-menu-button')
+
+    expect(megaMenus).toHaveLength(2)
+    expect(megaMenus[0].id).toBeTruthy()
+    expect(megaMenus[0].id).not.toBe(megaMenus[1].id)
+    expect(menuButtons[0]).toHaveAttribute('aria-controls', megaMenus[0].id)
+    expect(menuButtons[1]).toHaveAttribute('aria-controls', megaMenus[1].id)
+  })
+
   it('updates the menu button text for screen readers when the menu is opened and closed', async () => {
     const user = userEvent.setup()
 
