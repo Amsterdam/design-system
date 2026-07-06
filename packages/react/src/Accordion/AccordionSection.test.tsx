@@ -53,6 +53,35 @@ describe('AccordionSection', () => {
     expect(sectionContent).not.toHaveClass('ams-accordion__panel--expanded')
   })
 
+  it('calls onToggle with the new expanded state when the button is clicked', () => {
+    const onToggle = vi.fn()
+
+    render(
+      <Accordion.Section label={testLabel} onToggle={onToggle}>
+        {testContent}
+      </Accordion.Section>,
+    )
+
+    const button = screen.getByRole('button', { name: testLabel })
+
+    fireEvent.click(button)
+
+    expect(onToggle).toHaveBeenCalledTimes(1)
+    expect(onToggle).toHaveBeenCalledWith(true)
+
+    fireEvent.click(button)
+
+    expect(onToggle).toHaveBeenLastCalledWith(false)
+  })
+
+  it('does not throw when onToggle is not provided', () => {
+    render(<Accordion.Section label={testLabel}>{testContent}</Accordion.Section>)
+
+    const button = screen.getByRole('button', { name: testLabel })
+
+    expect(() => fireEvent.click(button)).not.toThrow()
+  })
+
   it('adds --expanded class when defaultExpanded prop is true', () => {
     const { getByText } = render(
       <Accordion.Section defaultExpanded label={testLabel}>

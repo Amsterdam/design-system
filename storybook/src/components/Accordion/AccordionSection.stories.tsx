@@ -13,6 +13,9 @@ import { exampleAccordionHeading, exampleParagraph } from '#storybook/_common/ex
 const meta = {
   title: 'Components/Containers/Accordion',
   component: Accordion.Section,
+  argTypes: {
+    onToggle: { action: 'toggled' },
+  },
   decorators: [
     (Story) => (
       <Accordion headingLevel={3}>
