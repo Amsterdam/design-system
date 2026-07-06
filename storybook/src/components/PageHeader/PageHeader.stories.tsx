@@ -43,8 +43,9 @@ const meta = {
   },
   decorators: [wrapInPage],
   // Control the mega menu so these example links can close it on click, the way an app would on navigation.
+  // Seed from `defaultOpen` and defer to a provided `open` arg so the public API still drives the story.
   render: (args) => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(args.defaultOpen ?? false)
 
     return (
       <PageHeader
@@ -52,7 +53,7 @@ const meta = {
         onClick={(event) => {
           // The links are placeholders; keep any Page Header link (logo, inline menu, mega menu) from
           // navigating, and close the mega menu the way an app would on navigation.
-          if ((event.target as HTMLElement).closest('a')) {
+          if (event.target instanceof Element && event.target.closest('a')) {
             event.preventDefault()
             setOpen(false)
           }
@@ -61,7 +62,7 @@ const meta = {
           setOpen(nextOpen)
           args.onOpenChange?.(nextOpen)
         }}
-        open={open}
+        open={args.open ?? open}
       />
     )
   },

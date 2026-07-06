@@ -77,7 +77,7 @@ export const Test: Story = {
           {...args}
           onClick={(event) => {
             // Keep any Page Header link (logo, inline menu, mega menu) from navigating, and close the menu.
-            if ((event.target as HTMLElement).closest('a')) {
+            if (event.target instanceof Element && event.target.closest('a')) {
               event.preventDefault()
               setOpen(false)
             }
