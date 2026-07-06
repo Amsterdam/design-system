@@ -1,0 +1,30 @@
+name: Check workflows
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+# A new push to the PR makes the run in flight obsolete – cancel it.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  lint-workflows:
+    name: Lint workflow files
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      # Runs actionlint over .github/workflows. shellcheck ships on the runner,
+      # so run: scripts are linted too. The action is pinned by digest, but the
+      # actionlint binary it downloads is deliberately left unpinned: each run
+      # picks up the latest release, so new checks and fixes arrive without
+      # maintenance. Add `version: x.y.z` below if you need reproducible runs.
+      - name: Run actionlint
+        uses: raven-actions/actionlint@3d39aea434753780c3b3d4a1a31c854b4dbf49d7 # v2.2.0
