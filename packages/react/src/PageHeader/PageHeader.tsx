@@ -99,15 +99,15 @@ const PageHeaderRoot = forwardRef(
   ) => {
     const isControlled = open !== undefined
 
-    const viewportHasMinWidth = useViewportHasMinWidth('wide')
+    const isWideViewport = useViewportHasMinWidth('wide')
     const accessibleLabelId = useId()
     const megaMenuId = useId()
     const hasMegaMenu = Boolean(children)
-    const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
-    const menuButtonHidden = noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow
+    const hasMegaMenuOnWideWindow = hasMegaMenu && isWideViewport
+    const isMenuButtonHidden = noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow
 
     // Don't start open when the menu button is hidden on a wide window: there would then be no control to close it.
-    const [internalOpen, setInternalOpen] = useState((defaultOpen ?? false) && !menuButtonHidden)
+    const [internalOpen, setInternalOpen] = useState((defaultOpen ?? false) && !isMenuButtonHidden)
     const isOpen = isControlled ? open : internalOpen
 
     // Warn once when the component flips between controlled and uncontrolled, mirroring React’s guardrail for inputs.
@@ -125,25 +125,25 @@ const PageHeaderRoot = forwardRef(
 
     // Close the menu when its button hides on a wide window, and keep it closed when the button returns: there is then
     // no control to reopen it. Adjusting state while rendering is the recommended pattern for this internal reset.
-    const [menuButtonWasHidden, setMenuButtonWasHidden] = useState(menuButtonHidden)
-    if (menuButtonHidden !== menuButtonWasHidden) {
-      setMenuButtonWasHidden(menuButtonHidden)
-      if (menuButtonHidden && isOpen && !isControlled) {
+    const [wasMenuButtonHidden, setWasMenuButtonHidden] = useState(isMenuButtonHidden)
+    if (isMenuButtonHidden !== wasMenuButtonHidden) {
+      setWasMenuButtonHidden(isMenuButtonHidden)
+      if (isMenuButtonHidden && isOpen && !isControlled) {
         setInternalOpen(false)
       }
     }
 
     // Notify a listening parent when hiding the button force-closes the menu. This runs in an effect so it never
     // updates a controlled parent during render; the refs capture the hide transition and the prior open state.
-    const wasMenuButtonHiddenRef = useRef(menuButtonHidden)
+    const wasMenuButtonHiddenRef = useRef(isMenuButtonHidden)
     const wasOpenRef = useRef(isOpen)
     useEffect(() => {
-      if (!wasMenuButtonHiddenRef.current && menuButtonHidden && wasOpenRef.current) {
+      if (!wasMenuButtonHiddenRef.current && isMenuButtonHidden && wasOpenRef.current) {
         onOpenChange?.(false)
       }
-      wasMenuButtonHiddenRef.current = menuButtonHidden
+      wasMenuButtonHiddenRef.current = isMenuButtonHidden
       wasOpenRef.current = isOpen
-    }, [isOpen, menuButtonHidden, onOpenChange])
+    }, [isOpen, isMenuButtonHidden, onOpenChange])
 
     const handleMenuButtonClick = () => {
       const nextOpen = !isOpen
