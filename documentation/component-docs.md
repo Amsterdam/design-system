@@ -163,6 +163,23 @@ Omit the section if the component has no meaningful accessibility behaviour to d
 **See also** is the exit point at the bottom of the body.
 List a handful of alternatives or companions, with a one-line reason for each.
 
+## Deprecated props
+
+Storybook surfaces `@deprecated` props on its own: the `formatDeprecatedProps` enhancer in `storybook/config/preview.tsx` leads a prop’s Controls description with a bold ‘Deprecated.’ notice and moves it into a ‘Deprecated’ category at the bottom of the table.
+
+When a story’s render only wires the canonical prop, such as a controlled wrapper that syncs `expanded`, set `control: false` on each deprecated prop in its `argTypes`.
+This keeps them listed with their deprecation notice but stops Storybook from offering a control that does nothing when toggled.
+
+```tsx
+const meta = {
+  argTypes: {
+    collapsed: { control: false },
+    defaultCollapsed: { control: false },
+  },
+  // …
+};
+```
+
 ## Reference components
 
 These three components are worked examples of the content model.
