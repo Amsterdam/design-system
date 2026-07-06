@@ -31,7 +31,7 @@ export type ProgressListStepProps = {
   /**
    * Whether the content is initially displayed.
    * Defaults to `false` when `status` is `'completed'`, and `true` otherwise.
-   * Ignored when `collapsible` is `false` on the parent, or when `expanded` is provided.
+   * Ignored when `collapsible` is `false` on the parent, or when `expanded` (or the deprecated `collapsed`) is provided.
    */
   readonly defaultExpanded?: boolean
   /**
