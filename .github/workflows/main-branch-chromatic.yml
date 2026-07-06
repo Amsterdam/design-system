@@ -42,6 +42,6 @@ jobs:
         with:
           # Changes reaching main are already reviewed on their PR, so accept
           # them as the new baseline rather than leaving the build unreviewed.
-          autoAcceptChanges: main
+          autoAcceptChanges: 'main'
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: storybook
