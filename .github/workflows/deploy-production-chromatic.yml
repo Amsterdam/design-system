@@ -1,4 +1,4 @@
-name: Main branch Chromatic
+name: Deploy production Chromatic
 
 # Publishes Storybook to Chromatic on every push to main so the public
 # permalink (https://main--<appid>.chromatic.com) and its MCP server stay
