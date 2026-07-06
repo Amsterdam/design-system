@@ -3,7 +3,7 @@
 # GitHub Actions workflows
 
 This folder holds every continuous integration and delivery workflow for the design system.
-There are thirteen of them, but they only do four kinds of work, and the file name now starts with the verb for that kind.
+There are fourteen of them, but they only do four kinds of work, and the file name now starts with the verb for that kind.
 Job ids and step names follow the same rule — a verb first, and a name that matches what actually happens — so keep new ones consistent with their neighbours rather than inventing a new style.
 Reading them by responsibility is the quickest way to understand the whole picture.
 
@@ -24,6 +24,7 @@ Changes reach `main` through a release pull request, which is what triggers the 
 | Check test coverage           | Every pull request                                             | Run the React tests with coverage and post a summary comment.                                                                              |
 | Check bundle size             | Every pull request                                             | Report the compressed size change of the published bundles.                                                                                |
 | Check PR title                | Pull request opened, edited, or synchronized                   | Enforce a Conventional Commit title (`feat`, `fix`, `chore`) so release-please can read it.                                                |
+| Check workflows               | Every pull request                                             | Lint the Actions workflow files themselves with actionlint, including shellcheck on their `run:` scripts.                                  |
 | Deploy acceptance Storybook   | Push to any branch except `main`; pull request reopened        | Build Storybook and publish a per-branch preview to `gh-pages` under `demo-<branch>`. Records a GitHub Deployment and Environment.         |
 | Deploy production Storybook   | Push to `main`                                                 | Build Storybook and publish the live documentation site to the `gh-pages` root.                                                            |
 | Deploy production Chromatic   | Push to `main`                                                 | Publish Storybook to Chromatic and auto-accept the snapshots as the new baseline, keeping the public permalink and its MCP server in sync. |
@@ -40,6 +41,7 @@ Changes reach `main` through a release pull request, which is what triggers the 
 The **Check** workflows run together and gate the merge.
 **Check build and tests** builds the packages and runs the linters and unit tests.
 **Check visual regressions** takes Chromatic snapshots, the coverage and bundle-size workflows post their reports as comments, and the title check validates the pull request title.
+**Check workflows** lints the Actions workflow files themselves.
 
 At the same time, **Deploy acceptance Storybook** publishes a live Storybook preview for the branch at `demo-<branch>` on GitHub Pages.
 
