@@ -15,6 +15,9 @@ const meta = {
   title: 'Components/Containers/Progress List',
   component: ProgressList.Step,
   argTypes: {
+    // This story only wires the canonical `expanded` control; the deprecated props stay documented but non-interactive.
+    collapsed: { control: false },
+    defaultCollapsed: { control: false },
     defaultExpanded: { control: false },
     expanded: {
       control: {
