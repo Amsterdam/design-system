@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-CT_b8DTk.js";import{G as t,W as n}from"./index.esm-Cyk4q9Yv.js";var r,i,a=e((()=>{t(),r=e=>({control:{labels:{undefined:e?`${e} (default)`:`none`},type:`select`},mapping:n,options:[void 0,...Object.keys(n).filter(t=>t!==e)]}),i={control:{type:`select`},mapping:n,options:Object.keys(n)}}));export{a as n,i as r,r as t};
