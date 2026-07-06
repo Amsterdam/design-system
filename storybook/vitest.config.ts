@@ -36,6 +36,8 @@ export default defineConfig({
             instances: [{ browser: 'chromium' }],
             provider: playwright({}),
           },
+          // Story tests only; the unit project owns the *.test.ts files.
+          exclude: ['config/**/*.test.ts', 'src/**/*.test.ts'],
           name: 'storybook',
         },
       },
