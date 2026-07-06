@@ -88,7 +88,6 @@ export const ProgressListStep = forwardRef(
       onToggle,
       value: controlledExpanded,
     })
-    const isCollapsed = !isExpanded
 
     // Warn once for each deprecated prop passed on mount, read through a ref to keep the effect dependency-free.
     const deprecatedPropsRef = useRef({ collapsed, defaultCollapsed })
@@ -114,7 +113,7 @@ export const ProgressListStep = forwardRef(
         className={clsx(
           className,
           'ams-progress-list__step',
-          collapsible && isCollapsed && 'ams-progress-list__step--collapsed',
+          collapsible && !isExpanded && 'ams-progress-list__step--collapsed',
           hasSubsteps && 'ams-progress-list__step--has-substeps',
           status && `ams-progress-list__step--${status}`,
         )}
@@ -134,7 +133,7 @@ export const ProgressListStep = forwardRef(
             {collapsible ? (
               <button
                 aria-controls={panelId}
-                aria-expanded={!isCollapsed}
+                aria-expanded={isExpanded}
                 className="ams-progress-list__button"
                 onClick={toggle}
                 type="button"
