@@ -385,6 +385,28 @@ describe('PageHeader', () => {
     expect(container.querySelector('.ams-page-header__mega-menu')).not.toHaveClass('ams-page-header__mega-menu--closed')
   })
 
+  it('does not open on mount with defaultOpen when the menu button is hidden on a wide window', () => {
+    const originalMatchMedia = window.matchMedia
+    window.matchMedia = vi.fn().mockReturnValue({
+      addEventListener: vi.fn(),
+      matches: true, // wide window
+      removeEventListener: vi.fn(),
+    } as unknown as MediaQueryList)
+
+    try {
+      const { container } = render(
+        <PageHeader defaultOpen noMenuButtonOnWideWindow>
+          Test
+        </PageHeader>,
+      )
+
+      // There is no menu button on a wide window, so the menu must not start open.
+      expect(container.querySelector('.ams-page-header__mega-menu')).toHaveClass('ams-page-header__mega-menu--closed')
+    } finally {
+      window.matchMedia = originalMatchMedia
+    }
+  })
+
   it('fires onOpenChange when the open mega menu is force-closed on a wide window', async () => {
     let changeListener: (() => void) | undefined
     const mediaQueryList = {

@@ -98,8 +98,6 @@ const PageHeaderRoot = forwardRef(
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const isControlled = open !== undefined
-    const [internalOpen, setInternalOpen] = useState(defaultOpen ?? false)
-    const isOpen = isControlled ? open : internalOpen
 
     const viewportHasMinWidth = useViewportHasMinWidth('wide')
     const accessibleLabelId = useId()
@@ -107,6 +105,10 @@ const PageHeaderRoot = forwardRef(
     const hasMegaMenu = Boolean(children)
     const hasMegaMenuOnWideWindow = hasMegaMenu && viewportHasMinWidth
     const menuButtonHidden = noMenuButtonOnWideWindow && hasMegaMenuOnWideWindow
+
+    // Don't start open when the menu button is hidden on a wide window: there would then be no control to close it.
+    const [internalOpen, setInternalOpen] = useState((defaultOpen ?? false) && !menuButtonHidden)
+    const isOpen = isControlled ? open : internalOpen
 
     // Warn once when the component flips between controlled and uncontrolled, mirroring React’s guardrail for inputs.
     const wasControlledRef = useRef(isControlled)
