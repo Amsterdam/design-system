@@ -208,7 +208,7 @@ export const Default: StoryObj = {
 
       <Heading className="ams-mb-s" level={2}>Geen DigiD?</Heading>
       <UnorderedList className="ams-mb-xl">
-        <UnorderedList.Item>Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigID aan.</UnorderedList.Item>
+        <UnorderedList.Item>Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigiD aan.</UnorderedList.Item>
         <UnorderedList.Item>
           {/* download hints the browser to save the PDF rather than open it in a new tab. */}
           Lees eerst{' '}

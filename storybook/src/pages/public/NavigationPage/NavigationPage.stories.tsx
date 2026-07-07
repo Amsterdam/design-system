@@ -417,7 +417,7 @@ export const WithImageGallery: StoryObj = {
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading className="ams-mb-s" level={2} size="level-3">Coalitieakkoord</Heading>
         <Paragraph className="ams-mb-s">
-          In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026.
+          In dit akkoord staan de plannen en visie van de coalitie PvdA, GroenLinks en D66 voor 2022-2026.
         </Paragraph>
         <StandaloneLink href="#">Coalitieakkoord en Uitvoeringsagenda</StandaloneLink>
       </Grid.Cell>
