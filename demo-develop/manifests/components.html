@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.0s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -3466,7 +3466,7 @@ The icon size stays constant regardless of the label length, so a row of Buttons
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Calendar</h2>
       <div class="badges">
-        <label for="c-15-components-navigation-calendar-props" class="badge ok as-toggle">10 prop types</label>
+        <label for="c-15-components-navigation-calendar-props" class="badge ok as-toggle">14 prop types</label>
         
         <label for="c-15-components-navigation-calendar-stories" class="badge ok as-toggle">2 stories</label>
         <label for="c-15-components-navigation-calendar-docs" class="badge ok as-toggle">1 doc</label>
@@ -3495,7 +3495,7 @@ The icon size stays constant regardless of the label length, so a row of Buttons
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
-              <span class="badge ok">10 prop types</span>
+              <span class="badge ok">14 prop types</span>
             </div>
             <pre><code>Component: node_modules/@amsterdam/design-system-react/src/index.ts::Calendar</code></pre>
             <pre><code>Props:</code></pre>
@@ -3531,9 +3531,21 @@ linkTemplate?: (date: Date) =&gt; string | undefined
 locale?: string = &#39;nl-NL&#39;
 
 /**
+ * The icon for the button that navigates to the next month.
+ * Not for use within Amsterdam.
+ */
+nextMonthButtonIcon?: IconSvg | undefined = ChevronForwardIcon
+
+/**
  * The accessible label for the button that navigates to the next month.
  */
 nextMonthButtonLabel?: string = Volgende maand
+
+/**
+ * The icon for the button that navigates to the next year.
+ * Not for use within Amsterdam.
+ */
+nextYearButtonIcon?: IconSvg | undefined = ChevronDoubleForwardIcon
 
 /**
  * The accessible label for the button that navigates to the next year.
@@ -3541,9 +3553,21 @@ nextMonthButtonLabel?: string = Volgende maand
 nextYearButtonLabel?: string = Volgend jaar
 
 /**
+ * The icon for the button that navigates to the previous month.
+ * Not for use within Amsterdam.
+ */
+previousMonthButtonIcon?: IconSvg | undefined = ChevronBackwardIcon
+
+/**
  * The accessible label for the button that navigates to the previous month.
  */
 previousMonthButtonLabel?: string = Vorige maand
+
+/**
+ * The icon for the button that navigates to the previous year.
+ * Not for use within Amsterdam.
+ */
+previousYearButtonIcon?: IconSvg | undefined = ChevronDoubleBackwardIcon
 
 /**
  * The accessible label for the button that navigates to the previous year.
@@ -3644,7 +3668,7 @@ The Calendar renders this name as a visually hidden heading and generates a uniq
 
 The Calendar renders weekday names, the month caption, and the accessible date labels in the language of `locale`, which defaults to `nl-NL`.
 It does not translate the rest: set `accessibleName`, `nextMonthButtonLabel`, `nextYearButtonLabel`, `previousMonthButtonLabel`, and `previousYearButtonLabel` in the same language, or they stay Dutch and screen readers announce a mix.
-For right-to-left scripts such as Arabic, also add `dir=&quot;rtl&quot;`.
+For right-to-left scripts such as Arabic, also add `dir=&quot;rtl&quot;`; this mirrors the layout and the navigation chevrons.
 Try the `locale` control above to preview each language; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
 
 If your app uses Calendar in multiple places with the same language, a small wrapper component avoids repeating these props:
@@ -3694,6 +3718,12 @@ const formatDate = (date: Date) =&gt;
 
 const linkTemplate = (date: Date): string =&gt; `?date=${formatDate(date)}`
 ```
+
+### Custom navigation icons
+
+Different navigation icons can be used through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
+Websites for Amsterdam must use the default icons.
+For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
 ## Accessibility
 
@@ -5598,7 +5628,7 @@ This does mean that this component does not look identical on all browsers and o
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> DatePicker</h2>
       <div class="badges">
-        <label for="c-25-components-forms-date-picker-props" class="badge ok as-toggle">14 prop types</label>
+        <label for="c-25-components-forms-date-picker-props" class="badge ok as-toggle">18 prop types</label>
         
         <label for="c-25-components-forms-date-picker-stories" class="badge ok as-toggle">5 stories</label>
         <label for="c-25-components-forms-date-picker-docs" class="badge ok as-toggle">1 doc</label>
@@ -5627,7 +5657,7 @@ This does mean that this component does not look identical on all browsers and o
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
-              <span class="badge ok">14 prop types</span>
+              <span class="badge ok">18 prop types</span>
             </div>
             <pre><code>Component: node_modules/@amsterdam/design-system-react/src/index.ts::DatePicker</code></pre>
             <pre><code>Props:</code></pre>
@@ -5662,9 +5692,21 @@ minDate?: Date
 mode?: &quot;range&quot;
 
 /**
+ * The icon for the button that navigates to the next month.
+ * Not for use within Amsterdam.
+ */
+nextMonthButtonIcon?: IconSvg | undefined = ChevronForwardIcon
+
+/**
  * The accessible label for the button that navigates to the next month.
  */
 nextMonthButtonLabel?: string = Volgende maand
+
+/**
+ * The icon for the button that navigates to the next year.
+ * Not for use within Amsterdam.
+ */
+nextYearButtonIcon?: IconSvg | undefined = ChevronDoubleForwardIcon
 
 /**
  * The accessible label for the button that navigates to the next year.
@@ -5677,9 +5719,21 @@ nextYearButtonLabel?: string = Volgend jaar
 onChange: (value: DateRange) =&gt; void
 
 /**
+ * The icon for the button that navigates to the previous month.
+ * Not for use within Amsterdam.
+ */
+previousMonthButtonIcon?: IconSvg | undefined = ChevronBackwardIcon
+
+/**
  * The accessible label for the button that navigates to the previous month.
  */
 previousMonthButtonLabel?: string = Vorige maand
+
+/**
+ * The icon for the button that navigates to the previous year.
+ * Not for use within Amsterdam.
+ */
+previousYearButtonIcon?: IconSvg | undefined = ChevronDoubleBackwardIcon
 
 /**
  * The accessible label for the button that navigates to the previous year.
@@ -5841,7 +5895,7 @@ The component does not clamp or validate the incoming value.
 The Date Picker renders weekday names, the month caption, and the accessible date labels in the language of `locale`, which defaults to `nl-NL`.
 It does not translate the rest: set `nextMonthButtonLabel`, `nextYearButtonLabel`, `previousMonthButtonLabel`, and `previousYearButtonLabel` in the same language, or they stay Dutch and screen readers announce a mix.
 In range mode, also localise `rangeStartAccessibleName` and `rangeEndAccessibleName`; they are appended to the start and end dates when those are announced.
-For right-to-left scripts such as Arabic, also add `dir=&quot;rtl&quot;`.
+For right-to-left scripts such as Arabic, also add `dir=&quot;rtl&quot;`; this mirrors the layout and the navigation chevrons.
 Try the `locale` control above to preview each language; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
 
 If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props:
@@ -5918,6 +5972,12 @@ The day grid follows the [WAI-ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg
 Arrow keys move between days, Home and End jump to the start and end of the week, and Page Up and Page Down move between months; hold Shift for years.
 Enter or Space selects the focused day.
 Moving past the end of a month shows the adjacent month and keeps focus on the day.
+
+### Custom navigation icons
+
+Different navigation icons can be used through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
+Websites for Amsterdam must use the default icons.
+For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
 ## Accessibility
 
@@ -27811,6 +27871,15 @@ For right-to-left languages like Arabic, also add `dir=&quot;rtl&quot;` to the c
   previousYearButtonLabel=&quot;السنة السابقة&quot;
 /&gt;
 ```
+
+### Mirror directional icons
+
+Icons that imply a reading direction or depict movement that follows the reader’s natural flow flip in a right-to-left context.
+
+The design system’s own directional icons handle this automatically: each carries a `data-directional=&quot;true&quot;` attribute on its root `&lt;svg&gt;`, and the [Icon](/docs/components-media-icon--docs) styles mirror any icon with that attribute under `dir=&quot;rtl&quot;`.
+
+The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
+When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
 
 ## Relevant WCAG requirements
 
