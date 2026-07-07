@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { FormEvent } from 'react'
 
 import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from '@amsterdam/design-system-react'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { commonMeta } from '../common/config'
 
@@ -61,7 +61,17 @@ const meta = {
   render: ({ initialPhase }: LoadingPageArgs) => {
     const [phase, setPhase] = useState<Phase>(initialPhase)
     const [query, setQuery] = useState(initialQuery)
-    const loadedTimeout = useRef<ReturnType<typeof setTimeout>>()
+    const loadedTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+    // Clear a pending swap if the story unmounts, so it never updates state after it is gone.
+    useEffect(
+      () => () => {
+        if (loadedTimeout.current) {
+          clearTimeout(loadedTimeout.current)
+        }
+      },
+      [],
+    )
 
     const search = (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault()
@@ -73,7 +83,9 @@ const meta = {
 
       // Show the placeholders, then swap in the results after a short delay. Clear any pending swap first,
       // so a second search cannot flip an earlier one to loaded while this one is still loading.
-      clearTimeout(loadedTimeout.current)
+      if (loadedTimeout.current) {
+        clearTimeout(loadedTimeout.current)
+      }
       setPhase('loading')
       loadedTimeout.current = setTimeout(() => setPhase('loaded'), 3000)
     }
