@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.0s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -3532,6 +3532,7 @@ locale?: string = &#39;nl-NL&#39;
 
 /**
  * The icon for the button that navigates to the next month.
+ * Not for use within Amsterdam.
  */
 nextMonthButtonIcon?: IconSvg | undefined = ChevronForwardIcon
 
@@ -3542,6 +3543,7 @@ nextMonthButtonLabel?: string = Volgende maand
 
 /**
  * The icon for the button that navigates to the next year.
+ * Not for use within Amsterdam.
  */
 nextYearButtonIcon?: IconSvg | undefined = ChevronDoubleForwardIcon
 
@@ -3552,6 +3554,7 @@ nextYearButtonLabel?: string = Volgend jaar
 
 /**
  * The icon for the button that navigates to the previous month.
+ * Not for use within Amsterdam.
  */
 previousMonthButtonIcon?: IconSvg | undefined = ChevronBackwardIcon
 
@@ -3562,6 +3565,7 @@ previousMonthButtonLabel?: string = Vorige maand
 
 /**
  * The icon for the button that navigates to the previous year.
+ * Not for use within Amsterdam.
  */
 previousYearButtonIcon?: IconSvg | undefined = ChevronDoubleBackwardIcon
 
@@ -3717,14 +3721,9 @@ const linkTemplate = (date: Date): string =&gt; `?date=${formatDate(date)}`
 
 ### Custom navigation icons
 
-By default, the month and year navigation buttons use the Amsterdam chevron icons, so Amsterdam websites need to set nothing.
-Other [NL Design System](https://nldesignsystem.nl/) organisations can match their own iconography with `previousYearButtonIcon`, `previousMonthButtonIcon`, `nextMonthButtonIcon`, and `nextYearButtonIcon`.
-Each accepts the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
-
-For a right-to-left script such as Arabic, the buttons need to point the other way.
-The default chevrons flip automatically because they carry a `data-directional=&quot;true&quot;` attribute; the Icon styles mirror any icon with that attribute under `dir=&quot;rtl&quot;`.
-Give your own icons the same attribute so they flip too.
-See the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for more on right-to-left support.
+Other [NL Design System](https://nldesignsystem.nl/) organisations can replace the navigation chevrons through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
+Websites for Amsterdam must use the default icons.
+For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
 ## Accessibility
 
@@ -5694,6 +5693,7 @@ mode?: &quot;range&quot;
 
 /**
  * The icon for the button that navigates to the next month.
+ * Not for use within Amsterdam.
  */
 nextMonthButtonIcon?: IconSvg | undefined = ChevronForwardIcon
 
@@ -5704,6 +5704,7 @@ nextMonthButtonLabel?: string = Volgende maand
 
 /**
  * The icon for the button that navigates to the next year.
+ * Not for use within Amsterdam.
  */
 nextYearButtonIcon?: IconSvg | undefined = ChevronDoubleForwardIcon
 
@@ -5719,6 +5720,7 @@ onChange: (value: DateRange) =&gt; void
 
 /**
  * The icon for the button that navigates to the previous month.
+ * Not for use within Amsterdam.
  */
 previousMonthButtonIcon?: IconSvg | undefined = ChevronBackwardIcon
 
@@ -5729,6 +5731,7 @@ previousMonthButtonLabel?: string = Vorige maand
 
 /**
  * The icon for the button that navigates to the previous year.
+ * Not for use within Amsterdam.
  */
 previousYearButtonIcon?: IconSvg | undefined = ChevronDoubleBackwardIcon
 
@@ -5972,14 +5975,9 @@ Moving past the end of a month shows the adjacent month and keeps focus on the d
 
 ### Custom navigation icons
 
-By default, the month and year navigation buttons use the Amsterdam chevron icons, so Amsterdam websites need to set nothing.
-Other [NL Design System](https://nldesignsystem.nl/) organisations can match their own iconography with `previousYearButtonIcon`, `previousMonthButtonIcon`, `nextMonthButtonIcon`, and `nextYearButtonIcon`.
-Each accepts the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
-
-For a right-to-left script such as Arabic, the buttons need to point the other way.
-The default chevrons flip automatically because they carry a `data-directional=&quot;true&quot;` attribute; the Icon styles mirror any icon with that attribute under `dir=&quot;rtl&quot;`.
-Give your own icons the same attribute so they flip too.
-See the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for more on right-to-left support.
+Other [NL Design System](https://nldesignsystem.nl/) organisations can replace the navigation chevrons through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
+Websites for Amsterdam must use the default icons.
+For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
 ## Accessibility
 
@@ -27874,11 +27872,12 @@ For right-to-left languages like Arabic, also add `dir=&quot;rtl&quot;` to the c
 /&gt;
 ```
 
-### Mirror navigation icons
+### Mirror directional icons
 
-In a right-to-left context, the Calendar and Date Picker navigation buttons must point the other way.
-Their default chevrons handle this on their own: each carries a `data-directional=&quot;true&quot;` attribute on its root `&lt;svg&gt;`, and the [Icon](/docs/components-media-icon--docs) styles mirror any icon with that attribute under `dir=&quot;rtl&quot;`.
-If you replace them through `previousYearButtonIcon`, `previousMonthButtonIcon`, `nextMonthButtonIcon`, or `nextYearButtonIcon`, give your own icons the same attribute so they flip as well.
+Some icons point in a direction — chevrons and arrows, for example — and must flip in a right-to-left context.
+The design system’s own directional icons handle this automatically: each carries a `data-directional=&quot;true&quot;` attribute on its root `&lt;svg&gt;`, and the [Icon](/docs/components-media-icon--docs) styles mirror any icon with that attribute under `dir=&quot;rtl&quot;`.
+The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
+When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
 
 ## Relevant WCAG requirements
 
