@@ -50,6 +50,46 @@ const sortSelectOptions = sortOptions.map(({ label, value }) => (
 ))
 
 export const SortingWithSelect: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, dropping JSX
+        // comments and expanding the map. Provide the source by hand so the guidance stays in the panel.
+        code: `<Grid paddingBottom="x-large" paddingTop="large">
+  <Grid.Cell className="ams-grid__cell--transparent" span="all">
+    <Heading level={1}>Vergunninghouders 2026/2027</Heading>
+  </Grid.Cell>
+  <Grid.Cell span="all">
+    {/* Position the Heading and Select next to each other to save space. */}
+    <Row align="between" alignVertical="center" className="ams-mb-m" wrap>
+      {/* Use a Heading instead of a Caption to allow a form in between. */}
+      <Heading level={2}>Gegevens per adres</Heading>
+      <form onSubmit={handleSortSubmit}>
+        <Row alignVertical="center" wrap>
+          <Label htmlFor="sort">Sorteren op</Label>
+          {/* Submitting the form on change avoids a separate submit button (see handleSortChange). */}
+          <Select defaultValue={sortOrder} id="sort" name="sort" onChange={handleSortChange}>
+            {sortOptions.map(({ label, value }) => (
+              <Select.Option key={value} value={value}>{label}</Select.Option>
+            ))}
+          </Select>
+        </Row>
+      </form>
+    </Row>
+    <Table>
+      {/* Repeat the heading non-visually in the Caption for accessibility. */}
+      <Table.Caption className="ams-visually-hidden">Gegevens per adres</Table.Caption>
+      <Table.Header>
+        <AddressTableHeaderRow />
+      </Table.Header>
+      <AddressTableBody addresses={addresses} />
+    </Table>
+  </Grid.Cell>
+</Grid>`,
+        language: 'tsx',
+      },
+    },
+  },
   render: () => {
     const sortOrder = (params.get('sort') ?? 'straat-asc') as SortOrder
     const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
@@ -185,4 +225,44 @@ export const WithPagination = () => {
       </Grid.Cell>
     </Grid>
   )
+}
+
+WithPagination.parameters = {
+  docs: {
+    source: {
+      // The Code Panel regenerates a `render` story’s source from the rendered tree, dropping JSX
+      // comments. Provide the source by hand so the guidance below stays visible in the panel.
+      code: `<Grid paddingBottom="x-large" paddingTop="large">
+  <Grid.Cell className="ams-grid__cell--transparent" span="all">
+    <Heading level={1}>Vergunninghouders 2026/2027</Heading>
+  </Grid.Cell>
+  <Grid.Cell span="all">
+    <Table className="ams-mb-l">
+      {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
+      <Table.Caption className="ams-mb-m">
+        <Heading level={2}>Gegevens per adres</Heading>
+      </Table.Caption>
+      <Table.Header>
+        <AddressTableHeaderRow />
+      </Table.Header>
+      <AddressTableBody addresses={paginatedAddresses} firstRow={firstRow} />
+    </Table>
+    <Row align="center">
+      {/*
+       * Pagination renders links, so pages stay shareable and open in a new tab. linkTemplate builds each
+       * href; linkComponent lets you pass your router’s link. Here a small wrapper keeps navigation inside
+       * Storybook rather than reloading the iframe – see PaginationLink and handlePaginationClick.
+       */}
+      <Pagination
+        linkComponent={PaginationLink}
+        linkTemplate={paginationLinkTemplate}
+        page={page}
+        totalPages={totalPaginationPages}
+      />
+    </Row>
+  </Grid.Cell>
+</Grid>`,
+      language: 'tsx',
+    },
+  },
 }
