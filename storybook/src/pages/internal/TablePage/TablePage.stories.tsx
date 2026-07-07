@@ -56,7 +56,7 @@ export const SortingWithSelect: StoryObj = {
         // The Code Panel regenerates a `render` story’s source from the rendered tree, dropping JSX
         // comments and expanding the map. Provide the source by hand so the guidance stays in the panel.
         code: `<Grid paddingBottom="x-large" paddingTop="large">
-  <Grid.Cell className="ams-grid__cell--transparent" span="all">
+  <Grid.Cell appearance="transparent" span="all">
     <Heading level={1}>Vergunninghouders 2026/2027</Heading>
   </Grid.Cell>
   <Grid.Cell span="all">
@@ -96,7 +96,7 @@ export const SortingWithSelect: StoryObj = {
 
     return (
       <Grid paddingBottom="x-large" paddingTop="large">
-        <Grid.Cell className="ams-grid__cell--transparent" span="all">
+        <Grid.Cell appearance="transparent" span="all">
           <Heading level={1}>Vergunninghouders 2026/2027</Heading>
         </Grid.Cell>
         <Grid.Cell span="all">
@@ -200,7 +200,7 @@ export const WithPagination = () => {
 
   return (
     <Grid paddingBottom="x-large" paddingTop="large">
-      <Grid.Cell className="ams-grid__cell--transparent" span="all">
+      <Grid.Cell appearance="transparent" span="all">
         <Heading level={1}>Vergunninghouders 2026/2027</Heading>
       </Grid.Cell>
       <Grid.Cell span="all">
@@ -233,7 +233,7 @@ WithPagination.parameters = {
       // The Code Panel regenerates a `render` story’s source from the rendered tree, dropping JSX
       // comments. Provide the source by hand so the guidance below stays visible in the panel.
       code: `<Grid paddingBottom="x-large" paddingTop="large">
-  <Grid.Cell className="ams-grid__cell--transparent" span="all">
+  <Grid.Cell appearance="transparent" span="all">
     <Heading level={1}>Vergunninghouders 2026/2027</Heading>
   </Grid.Cell>
   <Grid.Cell span="all">

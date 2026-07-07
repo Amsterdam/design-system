@@ -11,6 +11,7 @@ import {
   Grid,
   Heading,
   Link,
+  OrderedList,
   Paragraph,
   UnorderedList,
 } from '@amsterdam/design-system-react'
@@ -67,11 +68,11 @@ const meta = {
             Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
             regelingen.
           </Paragraph>
-          <UnorderedList className="ams-mb-xl">
-            <UnorderedList.Item>Ontdek welke regelingen u hier kunt aanvragen.</UnorderedList.Item>
-            <UnorderedList.Item>Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.</UnorderedList.Item>
-            <UnorderedList.Item>Hierna moet u inloggen met uw DigiD.</UnorderedList.Item>
-          </UnorderedList>
+          <OrderedList className="ams-mb-xl">
+            <OrderedList.Item>Ontdek welke regelingen u hier kunt aanvragen.</OrderedList.Item>
+            <OrderedList.Item>Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.</OrderedList.Item>
+            <OrderedList.Item>Hierna moet u inloggen met uw DigiD.</OrderedList.Item>
+          </OrderedList>
           <CallToActionLink className="ams-mb-xl" href="#">
             Start de check en vraag aan
           </CallToActionLink>
@@ -197,11 +198,11 @@ export const Default: StoryObj = {
         Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
         regelingen.
       </Paragraph>
-      <UnorderedList className="ams-mb-xl">
-        <UnorderedList.Item>Ontdek welke regelingen u hier kunt aanvragen.</UnorderedList.Item>
-        <UnorderedList.Item>Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.</UnorderedList.Item>
-        <UnorderedList.Item>Hierna moet u inloggen met uw DigiD.</UnorderedList.Item>
-      </UnorderedList>
+      <OrderedList className="ams-mb-xl">
+        <OrderedList.Item>Ontdek welke regelingen u hier kunt aanvragen.</OrderedList.Item>
+        <OrderedList.Item>Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.</OrderedList.Item>
+        <OrderedList.Item>Hierna moet u inloggen met uw DigiD.</OrderedList.Item>
+      </OrderedList>
       {/* A prominent call to action for the main task on the page. */}
       <CallToActionLink className="ams-mb-xl" href="#">Start de check en vraag aan</CallToActionLink>
 

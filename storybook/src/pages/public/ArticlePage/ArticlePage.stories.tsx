@@ -40,7 +40,9 @@ const meta = {
             <Heading className="ams-mb-s" level={1}>
               Met korting van A naar B op de deelscooter of -bakfiets
             </Heading>
-            <Paragraph className="ams-mb-xl">29 juli 2025</Paragraph>
+            <Paragraph className="ams-mb-xl">
+              <time dateTime="2025-07-29">29 juli 2025</time>
+            </Paragraph>
             <Paragraph size="large">
               Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
               -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -127,56 +129,54 @@ const meta = {
           </Grid.Cell>
         </Grid>
       </Spotlight>
-      <aside aria-labelledby="meer-nieuws">
-        <Grid gapVertical="large" paddingVertical="x-large">
-          <Grid.Cell span="all">
-            <Heading id="meer-nieuws" level={2} size="level-1">
-              Meer nieuws
-            </Heading>
-          </Grid.Cell>
-          <Grid.Cell span={4}>
-            <Card>
-              <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
-              <Card.HeadingGroup tagline="Nieuws">
-                <Card.Heading level={3}>
-                  <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
-                </Card.Heading>
-              </Card.HeadingGroup>
-              <Paragraph>
-                U kunt &apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
-                te maken met het verduurzamen van woningen.
-              </Paragraph>
-            </Card>
-          </Grid.Cell>
-          <Grid.Cell span={4}>
-            <Card>
-              <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
-              <Card.HeadingGroup tagline="Nieuws">
-                <Card.Heading level={3}>
-                  <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
-                </Card.Heading>
-              </Card.HeadingGroup>
-              <Paragraph>
-                We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
-              </Paragraph>
-            </Card>
-          </Grid.Cell>
-          <Grid.Cell span={4}>
-            <Card>
-              <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
-              <Card.HeadingGroup tagline="Nieuws">
-                <Card.Heading level={3}>
-                  <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
-                </Card.Heading>
-              </Card.HeadingGroup>
-              <Paragraph>
-                Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
-                halen in het centrum.
-              </Paragraph>
-            </Card>
-          </Grid.Cell>
-        </Grid>
-      </aside>
+      <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="large" paddingVertical="x-large">
+        <Grid.Cell span="all">
+          <Heading id="meer-nieuws" level={2} size="level-1">
+            Meer nieuws
+          </Heading>
+        </Grid.Cell>
+        <Grid.Cell span={4}>
+          <Card>
+            <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
+            <Card.HeadingGroup tagline="Nieuws">
+              <Card.Heading level={3}>
+                <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
+              </Card.Heading>
+            </Card.HeadingGroup>
+            <Paragraph>
+              U kunt &apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
+              te maken met het verduurzamen van woningen.
+            </Paragraph>
+          </Card>
+        </Grid.Cell>
+        <Grid.Cell span={4}>
+          <Card>
+            <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
+            <Card.HeadingGroup tagline="Nieuws">
+              <Card.Heading level={3}>
+                <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
+              </Card.Heading>
+            </Card.HeadingGroup>
+            <Paragraph>
+              We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+            </Paragraph>
+          </Card>
+        </Grid.Cell>
+        <Grid.Cell span={4}>
+          <Card>
+            <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
+            <Card.HeadingGroup tagline="Nieuws">
+              <Card.Heading level={3}>
+                <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
+              </Card.Heading>
+            </Card.HeadingGroup>
+            <Paragraph>
+              Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
+              halen in het centrum.
+            </Paragraph>
+          </Card>
+        </Grid.Cell>
+      </Grid>
     </>
   ),
 } satisfies Meta
@@ -203,7 +203,9 @@ export const Default: StoryObj = {
     <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-s" level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
-        <Paragraph className="ams-mb-xl">29 juli 2025</Paragraph>
+        <Paragraph className="ams-mb-xl">
+          <time dateTime="2025-07-29">29 juli 2025</time>
+        </Paragraph>
         <Paragraph size="large">
           Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters
           en -bakfietsen.
@@ -275,49 +277,47 @@ export const Default: StoryObj = {
       </Grid.Cell>
     </Grid>
   </Spotlight>
-  {/* Related articles in their own labelled aside, outside the article’s <main>. */}
-  <aside aria-labelledby="meer-nieuws">
-    <Grid gapVertical="large" paddingVertical="x-large">
-      <Grid.Cell span="all">
-        <Heading id="meer-nieuws" level={2} size="level-1">Meer nieuws</Heading>
-      </Grid.Cell>
-      <Grid.Cell span={4}>
-        <Card>
-          <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
-          <Card.HeadingGroup tagline="Nieuws">
-            <Card.Heading level={3}>
-              <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
-            </Card.Heading>
-          </Card.HeadingGroup>
-          <Paragraph>
-            U kunt 's avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
-          </Paragraph>
-        </Card>
-      </Grid.Cell>
-      <Grid.Cell span={4}>
-        <Card>
-          <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
-          <Card.HeadingGroup tagline="Nieuws">
-            <Card.Heading level={3}>
-              <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
-            </Card.Heading>
-          </Card.HeadingGroup>
-          <Paragraph>We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.</Paragraph>
-        </Card>
-      </Grid.Cell>
-      <Grid.Cell span={4}>
-        <Card>
-          <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
-          <Card.HeadingGroup tagline="Nieuws">
-            <Card.Heading level={3}>
-              <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
-            </Card.Heading>
-          </Card.HeadingGroup>
-          <Paragraph>Afvalboten, bakfietsen en ondergrondse containers in het centrum.</Paragraph>
-        </Card>
-      </Grid.Cell>
-    </Grid>
-  </aside>
+  {/* Related articles as a labelled aside (Grid as="aside"), outside the article’s <main>. */}
+  <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="large" paddingVertical="x-large">
+    <Grid.Cell span="all">
+      <Heading id="meer-nieuws" level={2} size="level-1">Meer nieuws</Heading>
+    </Grid.Cell>
+    <Grid.Cell span={4}>
+      <Card>
+        <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
+        <Card.HeadingGroup tagline="Nieuws">
+          <Card.Heading level={3}>
+            <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
+          </Card.Heading>
+        </Card.HeadingGroup>
+        <Paragraph>
+          U kunt 's avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
+        </Paragraph>
+      </Card>
+    </Grid.Cell>
+    <Grid.Cell span={4}>
+      <Card>
+        <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
+        <Card.HeadingGroup tagline="Nieuws">
+          <Card.Heading level={3}>
+            <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
+          </Card.Heading>
+        </Card.HeadingGroup>
+        <Paragraph>We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.</Paragraph>
+      </Card>
+    </Grid.Cell>
+    <Grid.Cell span={4}>
+      <Card>
+        <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
+        <Card.HeadingGroup tagline="Nieuws">
+          <Card.Heading level={3}>
+            <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
+          </Card.Heading>
+        </Card.HeadingGroup>
+        <Paragraph>Afvalboten, bakfietsen en ondergrondse containers in het centrum.</Paragraph>
+      </Card>
+    </Grid.Cell>
+  </Grid>
 </>`,
         language: 'tsx',
       },

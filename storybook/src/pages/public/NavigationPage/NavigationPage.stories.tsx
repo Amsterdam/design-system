@@ -277,7 +277,7 @@ export const WithInteractiveElement: StoryObj = {
           <Heading className="ams-mb-m" color="inverse" level={2} size="level-3">Parkeertarieven</Heading>
           {/* An interactive element in the page: a search field. On the dark Spotlight, its links take color="inverse". */}
           <SearchField className="ams-mb-m">
-            <SearchField.Input placeholder="Zoek op adres" />
+            <SearchField.Input label="Zoek op adres" placeholder="Zoek op adres" />
             <SearchField.Button />
           </SearchField>
           <LinkList>
@@ -334,7 +334,7 @@ export const WithInteractiveElement: StoryObj = {
                 Parkeertarieven
               </Heading>
               <SearchField className="ams-mb-m">
-                <SearchField.Input placeholder="Zoek op adres" />
+                <SearchField.Input label="Zoek op adres" placeholder="Zoek op adres" />
                 <SearchField.Button />
               </SearchField>
               <LinkList>
@@ -492,7 +492,7 @@ export const WithImageGallery: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
-      <main id="inhoud" key={2}>
+      <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
