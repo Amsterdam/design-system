@@ -128,14 +128,9 @@ Moving past the end of a month shows the adjacent month and keeps focus on the d
 
 ### Custom navigation icons
 
-By default, the month and year navigation buttons use the Amsterdam chevron icons, so Amsterdam websites need to set nothing.
-Other [NL Design System](https://nldesignsystem.nl/) organisations can match their own iconography with `previousYearButtonIcon`, `previousMonthButtonIcon`, `nextMonthButtonIcon`, and `nextYearButtonIcon`.
-Each accepts the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
-
-For a right-to-left script such as Arabic, the buttons need to point the other way.
-The default chevrons flip automatically because they carry a `data-directional="true"` attribute; the Icon styles mirror any icon with that attribute under `dir="rtl"`.
-Give your own icons the same attribute so they flip too.
-See the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for more on right-to-left support.
+Other [NL Design System](https://nldesignsystem.nl/) organisations can replace the navigation chevrons through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
+Websites for Amsterdam must use the default icons.
+For right-to-left scripts, give a custom icon a `data-directional="true"` attribute so it mirrors like the default chevrons; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
 ## Accessibility
 

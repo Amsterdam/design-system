@@ -42,6 +42,10 @@ const meta = {
     defaultMonth: { control: false }, // Enabling the control breaks the story with an error.
     linkComponent: { control: false }, // Enabling the control breaks the story with an error.
     linkTemplate: { control: false }, // A function returning string or undefined has no usable controls panel widget.
+    nextMonthButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
+    nextYearButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
+    previousMonthButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
+    previousYearButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
   },
   decorators: [SyncLocaleArgs],
   parameters: { localeVariant: 'calendar' },

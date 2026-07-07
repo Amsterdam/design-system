@@ -95,11 +95,12 @@ For right-to-left languages like Arabic, also add `dir="rtl"` to the component o
 />
 ```
 
-### Mirror navigation icons
+### Mirror directional icons
 
-In a right-to-left context, the Calendar and Date Picker navigation buttons must point the other way.
-Their default chevrons handle this on their own: each carries a `data-directional="true"` attribute on its root `<svg>`, and the [Icon](/docs/components-media-icon--docs) styles mirror any icon with that attribute under `dir="rtl"`.
-If you replace them through `previousYearButtonIcon`, `previousMonthButtonIcon`, `nextMonthButtonIcon`, or `nextYearButtonIcon`, give your own icons the same attribute so they flip as well.
+Some icons point in a direction — chevrons and arrows, for example — and must flip in a right-to-left context.
+The design system’s own directional icons handle this automatically: each carries a `data-directional="true"` attribute on its root `<svg>`, and the [Icon](/docs/components-media-icon--docs) styles mirror any icon with that attribute under `dir="rtl"`.
+The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
+When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
 
 ## Relevant WCAG requirements
 

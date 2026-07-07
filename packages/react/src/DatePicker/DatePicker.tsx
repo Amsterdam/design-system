@@ -37,6 +37,7 @@ type DatePickerBaseProps = {
   readonly minDate?: Date
   /**
    * The icon for the button that navigates to the next month.
+   * Not for use within Amsterdam.
    * @default ChevronForwardIcon
    */
   readonly nextMonthButtonIcon?: IconProps['svg']
@@ -47,6 +48,7 @@ type DatePickerBaseProps = {
   readonly nextMonthButtonLabel?: string
   /**
    * The icon for the button that navigates to the next year.
+   * Not for use within Amsterdam.
    * @default ChevronDoubleForwardIcon
    */
   readonly nextYearButtonIcon?: IconProps['svg']
@@ -57,6 +59,7 @@ type DatePickerBaseProps = {
   readonly nextYearButtonLabel?: string
   /**
    * The icon for the button that navigates to the previous month.
+   * Not for use within Amsterdam.
    * @default ChevronBackwardIcon
    */
   readonly previousMonthButtonIcon?: IconProps['svg']
@@ -67,6 +70,7 @@ type DatePickerBaseProps = {
   readonly previousMonthButtonLabel?: string
   /**
    * The icon for the button that navigates to the previous year.
+   * Not for use within Amsterdam.
    * @default ChevronDoubleBackwardIcon
    */
   readonly previousYearButtonIcon?: IconProps['svg']

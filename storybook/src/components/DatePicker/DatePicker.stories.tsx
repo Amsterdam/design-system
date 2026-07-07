@@ -46,7 +46,11 @@ const meta = {
     maxDate: { control: false }, // No usable Storybook control for Date objects; configured directly in each story.
     minDate: { control: false }, // No usable Storybook control for Date objects; configured directly in each story.
     mode: { table: { disable: true } }, // Owned by the story's state wrapper; not a user-configurable control.
+    nextMonthButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
+    nextYearButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
     onChange: { table: { disable: true } }, // Owned by the story's state wrapper; not a user-configurable control.
+    previousMonthButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
+    previousYearButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
     value: { table: { disable: true } }, // Owned by the story's state wrapper; not a user-configurable control.
   },
   decorators: [SyncLocaleArgs],
