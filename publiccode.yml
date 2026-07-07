@@ -23,16 +23,23 @@ description:
       Amsterdam’s digital services.
 
     longDescription: |
-      This is the guide for the user interfaces of all digital products and
-      services provided by the City of Amsterdam. It offers reusable
-      components, patterns and guides for teams that work on Amsterdam's
-      websites, helping everyone work faster and better, with more time to
-      create value. To citizens and businesses, all channels look the same
-      and work similarly; they are broadly accessible and evoke trust.
+      The Amsterdam Design System is a collaborative, open-source toolkit
+      that includes components, patterns, design tokens, and guidelines.
+      It is designed to be accessible, responsive, robust, and adaptable
+      to various tech stacks, so teams don’t need to build their
+      frontends from scratch for every project.
 
-      The project provides libraries for CSS, React, and design tokens, and
-      is part of the NL Design System community initiative that promotes
-      shared, reusable components across Dutch government websites.
+      Our designers, developers, and suppliers use it to help citizens
+      and other users recognise and trust our websites, making our
+      digital services straightforward and enjoyable to use.
+
+      We actively maintain the library and release new versions steadily.
+      The project offers distinct packages for CSS, React, design tokens,
+      and icons. Input from users contributes to the system’s development
+      for everyone’s benefit.
+
+      As part of the NL Design System community, other public organizations
+      in the Netherlands customise these components for their own services.
 
     features:
       - Design tokens
