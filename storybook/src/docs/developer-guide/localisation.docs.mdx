@@ -97,8 +97,10 @@ For right-to-left languages like Arabic, also add `dir="rtl"` to the component o
 
 ### Mirror directional icons
 
-Some icons point in a direction — chevrons and arrows, for example — and must flip in a right-to-left context.
+Icons that imply a reading direction or depict movement that follows the reader’s natural flow flip in a right-to-left context.
+
 The design system’s own directional icons handle this automatically: each carries a `data-directional="true"` attribute on its root `<svg>`, and the [Icon](/docs/components-media-icon--docs) styles mirror any icon with that attribute under `dir="rtl"`.
+
 The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
 When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
 
