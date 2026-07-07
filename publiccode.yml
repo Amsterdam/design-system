@@ -53,7 +53,7 @@ intendedAudience:
 localisation:
   availableLanguages:
     - en
-  localisationReady: false
+  localisationReady: true
 
 maintenance:
   type: internal
