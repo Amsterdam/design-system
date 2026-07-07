@@ -4,7 +4,7 @@
 # metadata file that makes public software easily discoverable.
 # More info at https://github.com/publiccodeyml/publiccode.yml
 
-publiccodeYmlVersion: "0.5"
+publiccodeYmlVersion: "0.7"
 
 name: Amsterdam Design System
 url: https://github.com/Amsterdam/design-system.git
