@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1500,7 +1500,9 @@ const meta = {
             &lt;Heading className=&quot;ams-mb-s&quot; level={1}&gt;
               Met korting van A naar B op de deelscooter of -bakfiets
             &lt;/Heading&gt;
-            &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;29 juli 2025&lt;/Paragraph&gt;
+            &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+              &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
+            &lt;/Paragraph&gt;
             &lt;Paragraph size=&quot;large&quot;&gt;
               Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
               -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -1587,63 +1589,201 @@ const meta = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
-      &lt;aside aria-labelledby=&quot;meer-nieuws&quot;&gt;
-        &lt;Grid gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
-              Meer nieuws
-            &lt;/Heading&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={4}&gt;
-            &lt;Card&gt;
-              &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
-              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Paragraph&gt;
-                U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
-                te maken met het verduurzamen van woningen.
-              &lt;/Paragraph&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={4}&gt;
-            &lt;Card&gt;
-              &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
-              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Paragraph&gt;
-                We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
-              &lt;/Paragraph&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={4}&gt;
-            &lt;Card&gt;
-              &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
-              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Paragraph&gt;
-                Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
-                halen in het centrum.
-              &lt;/Paragraph&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid&gt;
-      &lt;/aside&gt;
+      &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+            Meer nieuws
+          &lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
+              te maken met het verduurzamen van woningen.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
+              halen in het centrum.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
     &lt;/&gt;
   ),
 } satisfies Meta
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        code: `&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Nieuws&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;main id=&quot;inhoud&quot;&gt;
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+          &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
+        &lt;/Paragraph&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters
+          en -bakfietsen.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/*
+     * A full-width hero image. srcSet lets the browser pick a size for the viewport, loading=&quot;lazy&quot; defers
+     * loading until it is near the viewport, and aspectRatio reserves its space so the layout does not jump.
+     */}
+    &lt;Image
+      alt=&quot;&quot;
+      aspectRatio=&quot;16:5&quot;
+      loading=&quot;lazy&quot;
+      src=&quot;https://picsum.photos/1440/450&quot;
+      srcSet=&quot;https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w&quot;
+    /&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/* ams-prose applies article typography and vertical rhythm to the headings, paragraphs, and links. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Paragraph&gt;
+          U kunt gebruikmaken van de kortingsacties via Amsterdam Bereikbaar. De actie geldt voor
+          Amsterdammers en forenzen van en naar Amsterdam, en is te activeren tot 6 oktober.
+        &lt;/Paragraph&gt;
+        &lt;Heading level={2}&gt;Meer deelvervoer&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Het gebruik van deelvervoer groeit snel. Vanwege de grote vraag is besloten het aantal
+          deelscooters te verhogen van 1.200 naar 1.500 stuks. Op de{&#39; &#39;}
+          &lt;Link href=&quot;https://kaart.amsterdam.nl/deelvervoer&quot;&gt;Kaart deelvervoer Amsterdam&lt;/Link&gt; ziet u waar
+          bij u in de buurt deelvervoer wordt aangeboden.
+        &lt;/Paragraph&gt;
+        &lt;Heading level={2}&gt;Evenementen in de stad&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Deelvervoer is ook handig tijdens evenementen. Zo werden er op 21 juni, de dag van het festival Op
+          de Ring, bijna 12.000 ritten gemaakt met de deelscooter en deelbakfiets.
+        &lt;/Paragraph&gt;
+        &lt;Heading level={2}&gt;Verkeershinder ontwijken&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Daarnaast kunt u met deelscooters en -bakfietsen verkeershinder omzeilen. Deze zomer vinden er veel
+          werkzaamheden plaats in en rond de stad, waaronder op grote delen van de ring A10.
+        &lt;/Paragraph&gt;
+        &lt;Heading level={2}&gt;Meer weten&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Gebruikmaken van de kortingsacties? Kijk dan op{&#39; &#39;}
+          &lt;Link href=&quot;https://www.amsterdambereikbaar.nl&quot;&gt;Amsterdam Bereikbaar&lt;/Link&gt;. Wilt u meer weten over
+          deelvervoer in de stad? Ga dan naar &lt;Link href=&quot;https://www.amsterdam.nl/deelvervoer/&quot;&gt;Deelvervoer&lt;/Link&gt;.
+        &lt;/Paragraph&gt;
+        &lt;Heading level={2}&gt;Lees ook&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Sociale huurders kunnen gratis e-bike uitproberen&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelveenseweg ruim 5 weken dicht voor gemotoriseerd verkeer&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Groot onderhoud A4 vanaf 11 juli: houd rekening met flinke vertraging&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/main&gt;
+  {/* A newsletter call-out set apart as a labelled aside (aria-labelledby) on a green Spotlight. */}
+  &lt;Spotlight aria-labelledby=&quot;blijf-op-de-hoogte&quot; as=&quot;aside&quot; color=&quot;green&quot;&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/* color=&quot;inverse&quot; adapts the heading, text, and link to the dark Spotlight background. */}
+        &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;
+          Blijf op de hoogte!
+        &lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
+          Schrijf u nu in voor de Nieuwsbrief Amsterdam en ontvang wekelijks nieuws, tips en mooie verhalen.
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Ik wil de nieuwsbrief&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/Spotlight&gt;
+  {/* Related articles as a labelled aside (Grid as=&quot;aside&quot;), outside the article’s &lt;main&gt;. */}
+  &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;Meer nieuws&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={4}&gt;
+      &lt;Card&gt;
+        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+          &lt;Card.Heading level={3}&gt;
+            &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+          &lt;/Card.Heading&gt;
+        &lt;/Card.HeadingGroup&gt;
+        &lt;Paragraph&gt;
+          U kunt &#39;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
+        &lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={4}&gt;
+      &lt;Card&gt;
+        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+          &lt;Card.Heading level={3}&gt;
+            &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+          &lt;/Card.Heading&gt;
+        &lt;/Card.HeadingGroup&gt;
+        &lt;Paragraph&gt;We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.&lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={4}&gt;
+      &lt;Card&gt;
+        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+          &lt;Card.Heading level={3}&gt;
+            &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+          &lt;/Card.Heading&gt;
+        &lt;/Card.HeadingGroup&gt;
+        &lt;Paragraph&gt;Afvalboten, bakfietsen en ondergrondse containers in het centrum.&lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -1703,7 +1843,9 @@ export const Default: StoryObj = {}
           &lt;Heading className=&quot;ams-mb-s&quot; level={1}&gt;
             Met korting van A naar B op de deelscooter of -bakfiets
           &lt;/Heading&gt;
-          &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;29 juli 2025&lt;/Paragraph&gt;
+          &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+            &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
+          &lt;/Paragraph&gt;
           &lt;Paragraph size=&quot;large&quot;&gt;
             Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
             -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -1790,56 +1932,54 @@ export const Default: StoryObj = {}
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
-    &lt;aside aria-labelledby=&quot;meer-nieuws&quot;&gt;
-      &lt;Grid gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
-            Meer nieuws
-          &lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
-              te maken met het verduurzamen van woningen.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
-              halen in het centrum.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-    &lt;/aside&gt;
+    &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+          Meer nieuws
+        &lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;
+            U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
+            te maken met het verduurzamen van woningen.
+          &lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;
+            We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+          &lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;
+            Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
+            halen in het centrum.
+          &lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
   &lt;/&gt;
 );</code></pre>
             </div>
@@ -9629,7 +9769,75 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments and expands each `map` into repeated blocks. Provide the source by hand so the
+        // guidance stays visible and the `map` pattern reads the way a developer would write it.
+        code: `&lt;main id=&quot;inhoud&quot;&gt;
+  {/*
+   * The homepage’s visible headings start at the section level, so give the page one visually hidden
+   * h1. Screen readers still announce a page title and the heading outline keeps a single top level.
+   */}
+  &lt;h1 className=&quot;ams-visually-hidden&quot;&gt;Homepage van de gemeente Amsterdam&lt;/h1&gt;
+  {/* A hero that overlaps a full-width image with the block beneath it – see the Overlap component. */}
+  &lt;Overlap&gt;{/* … */}&lt;/Overlap&gt;
+  &lt;Grid gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
+      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    {topTaskSection.tasks.map(({ title, description }) =&gt; (
+      &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+        &lt;Card&gt;
+          {/* Card.Link stretches over the whole Card, so the entire card is one clickable link. */}
+          &lt;Card.Heading level={3}&gt;
+            &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+          &lt;/Card.Heading&gt;
+          &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+    ))}
+  &lt;/Grid&gt;
+  &lt;Spotlight&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {spotlightSections.map(({ title, description, link }) =&gt; (
+        &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+          {/* On the dark Spotlight, color=&quot;inverse&quot; switches text and links to their light variant. */}
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;{title}&lt;/Heading&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;{description}&lt;/Paragraph&gt;
+          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;{link}&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid&gt;
+  &lt;/Spotlight&gt;
+  &lt;Grid gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    {newsSection.items.map(({ title, description, image }) =&gt; (
+      &lt;Grid.Cell key={title} span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
+          {/* Card.HeadingGroup adds a short tagline above the card’s heading. */}
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+    ))}
+  &lt;/Grid&gt;
+&lt;/main&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -9895,7 +10103,45 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        code: `&lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+  {/*
+   * appearance=&quot;transparent&quot; removes the cell’s background and padding, so the page title sits directly
+   * on the page instead of looking like one of the content blocks the other cells form.
+   */}
+  &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+    &lt;Heading level={1}&gt;Titel van de pagina&lt;/Heading&gt;
+  &lt;/Grid.Cell&gt;
+  {/*
+   * This is a layout demo: the empty cells stand in for content blocks. Their blockSize only gives them
+   * a height to show here – on a real page the content sets the height. What matters is the responsive
+   * span: how many of the grid’s columns a cell fills at narrow, medium, and wide widths. That is what
+   * makes the cells reflow into different rows as the window changes.
+   */}
+  &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }} style={{ blockSize: &#39;12rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 1, medium: 3, wide: 4 }} style={{ blockSize: &#39;10rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }}&gt;
+    &lt;Paragraph&gt;Voorbeeldtekst in een contentblok.&lt;/Paragraph&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+    &lt;Paragraph&gt;Voorbeeldtekst in een contentblok.&lt;/Paragraph&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ blockSize: &#39;8rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ blockSize: &#39;8rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 3, medium: 2, wide: 4 }} style={{ blockSize: &#39;6rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 1, medium: 4, wide: 4 }} style={{ blockSize: &#39;8rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }} style={{ blockSize: &#39;6rem&#39; }} /&gt;
+&lt;/Grid&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -12861,6 +13107,51 @@ const getLinks = (links: string[]) =&gt;
   )
 
 export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments and expands each `map`. Provide the source by hand so the guidance stays visible and
+        // the `map` and `getLinks` patterns read the way a developer would write them.
+        code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
+
+&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Burgerzaken&lt;/Heading&gt;
+      &lt;Paragraph size=&quot;large&quot;&gt;
+        Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een
+        geboorte aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
+      &lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+    {/*
+     * Two columns of link groups. On the even-indexed cells, start pins them to the content column; the
+     * odd-indexed cells (start undefined) fall in beside them.
+     */}
+    {burgerzakenLinks.map(({ heading, links }, index) =&gt; (
+      &lt;Grid.Cell
+        key={heading}
+        span={{ narrow: 4, medium: 4, wide: 5 }}
+        start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+      &gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;{heading}&lt;/Heading&gt;
+        {getLinks(links)}
+      &lt;/Grid.Cell&gt;
+    ))}
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
@@ -12899,6 +13190,61 @@ export const Default: StoryObj = {
 }
 
 export const WithTopTasks: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
+
+&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Leefomgeving&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    {/* The two most important tasks get a full Card each; the groups below are plain heading + links. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Card&gt;
+        &lt;Card.Heading level={2}&gt;
+          &lt;Card.Link href=&quot;/&quot;&gt;Doe een melding&lt;/Card.Link&gt;
+        &lt;/Card.Heading&gt;
+        &lt;Paragraph&gt;
+          Meld overlast van geluid of afval op straat. U kunt ook kapotte dingen melden of iets dat we
+          moeten opruimen.
+        &lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+      &lt;Card&gt;
+        &lt;Card.Heading level={2}&gt;
+          &lt;Card.Link href=&quot;/&quot;&gt;Kondig een demonstratie of manifestatie aan&lt;/Card.Link&gt;
+        &lt;/Card.Heading&gt;
+        &lt;Paragraph&gt;Een demonstratie of manifestatie meldt u vooraf bij de gemeente.&lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+    {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
+    {topTaskLinks.map(({ heading, links }, index) =&gt; (
+      &lt;Grid.Cell
+        key={heading}
+        span={{ narrow: 4, medium: 4, wide: 5 }}
+        start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+      &gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;{heading}&lt;/Heading&gt;
+        {getLinks(links)}
+      &lt;/Grid.Cell&gt;
+    ))}
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
@@ -12952,6 +13298,62 @@ export const WithTopTasks: StoryObj = {
 }
 
 export const WithInteractiveElement: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
+
+&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;main id=&quot;inhoud&quot;&gt;
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Parkeren&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot; size=&quot;large&quot;&gt;
+          Vind informatie over parkeervergunningen, parkeertarieven en betaald parkeren in Amsterdam.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {parkerenLinks.map(({ heading, links }, index) =&gt; (
+        &lt;Grid.Cell
+          key={heading}
+          span={{ narrow: 4, medium: 4, wide: 5 }}
+          start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+        &gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;{heading}&lt;/Heading&gt;
+          {getLinks(links)}
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid&gt;
+    &lt;Spotlight&gt;
+      &lt;Grid paddingVertical=&quot;large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Parkeertarieven&lt;/Heading&gt;
+          {/* An interactive element in the page: a search field. On the dark Spotlight, its links take color=&quot;inverse&quot;. */}
+          &lt;SearchField className=&quot;ams-mb-m&quot;&gt;
+            &lt;SearchField.Input label=&quot;Zoek op adres&quot; placeholder=&quot;Zoek op adres&quot; /&gt;
+            &lt;SearchField.Button /&gt;
+          &lt;/SearchField&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Tarieven stadsgebied Weesp&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Parkeren op feestdagen&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:9&quot; className=&quot;ams-mb-2xl&quot; src=&quot;https://picsum.photos/id/133/1440/810&quot; /&gt;
+  &lt;/main&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
@@ -12992,7 +13394,7 @@ export const WithInteractiveElement: StoryObj = {
                 Parkeertarieven
               &lt;/Heading&gt;
               &lt;SearchField className=&quot;ams-mb-m&quot;&gt;
-                &lt;SearchField.Input placeholder=&quot;Zoek op adres&quot; /&gt;
+                &lt;SearchField.Input label=&quot;Zoek op adres&quot; placeholder=&quot;Zoek op adres&quot; /&gt;
                 &lt;SearchField.Button /&gt;
               &lt;/SearchField&gt;
               &lt;LinkList&gt;
@@ -13013,6 +13415,132 @@ export const WithInteractiveElement: StoryObj = {
 }
 
 export const WithImageGallery: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        code: `&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bestuur en Organisatie&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;main id=&quot;inhoud&quot;&gt;
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;College van burgemeester en wethouders&lt;/Heading&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Het college van burgemeester en wethouders is verantwoordelijk voor het dagelijks bestuur van de
+          gemeente Amsterdam.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/* A full-width banner image spans all columns; aspectRatio keeps it from shifting the layout. */}
+    &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Burgemeester en wethouders&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
+          gemeentesecretaris.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * The image gallery. Each card spans 4 columns; the computed start lays them out two per row on
+       * medium ([1, 5]) and three per row on wide ([1, 5, 9]) screens.
+       */}
+      {persons.map(({ imageSource, name, role }, index) =&gt; (
+        &lt;Grid.Cell
+          key={name}
+          span={4}
+          start={{ narrow: 1, medium: [1, 5][index % 2], wide: [1, 5, 9][index % 3] }}
+        &gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src={imageSource} /&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;{role} {name}&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Portefeuilleverdeling&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
+          Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders.
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Portefeuilleverdeling&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Coalitieakkoord&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
+          In dit akkoord staan de plannen en visie van de coalitie PvdA, GroenLinks en D66 voor 2022-2026.
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Coalitieakkoord en Uitvoeringsagenda&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Spotlight&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/* On the dark Spotlight, color=&quot;inverse&quot; switches the heading and links to their light variant. */}
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Persberichten en nieuws&lt;/Heading&gt;
+          &lt;LinkList className=&quot;ams-mb-m&quot;&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+              Proef elektrische fietsen voor sociale huurders op Strandeiland en Centrumeiland
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Definitief ontwerp voor nieuwe Jaap Eden IJshal&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer persberichten&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Besluiten B en W&lt;/Heading&gt;
+          &lt;LinkList className=&quot;ams-mb-m&quot;&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 9 juli 2025&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 2 juli 2025&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 25 juni 2025&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer besluiten B en W&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Pers en woordvoering&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;Voor vragen van journalisten aan de afdeling Bestuursvoorlichting.&lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Pers en woordvoering&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Meer over het college&lt;/Heading&gt;
+        &lt;LinkList className=&quot;ams-mb-m&quot;&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Vervangingsregeling en locoburgemeesters&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Gedragscode&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Declaraties en dienstreizen&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Geschenkenregister college van B&amp;W&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Contact&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;Een bericht voor het college van burgemeester en wethouders kunt u:&lt;/Paragraph&gt;
+        &lt;UnorderedList&gt;
+          &lt;UnorderedList.Item&gt;sturen naar Postbus 202, 1000 AE Amsterdam&lt;/UnorderedList.Item&gt;
+          &lt;UnorderedList.Item&gt;afgeven bij 1 van de &lt;Link href=&quot;#&quot;&gt;stadsloketten&lt;/Link&gt;&lt;/UnorderedList.Item&gt;
+          &lt;UnorderedList.Item&gt;mailen met het &lt;Link href=&quot;#&quot;&gt;contactformulier&lt;/Link&gt;&lt;/UnorderedList.Item&gt;
+        &lt;/UnorderedList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Rechtenvrije foto’s&lt;/Heading&gt;
+        &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/main&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
@@ -13024,7 +13552,7 @@ export const WithImageGallery: StoryObj = {
           &lt;/Breadcrumb&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
-      &lt;main id=&quot;inhoud&quot; key={2}&gt;
+      &lt;main id=&quot;inhoud&quot;&gt;
         &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
             &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
@@ -13171,6 +13699,105 @@ export const WithImageGallery: StoryObj = {
 }
 
 export const SubnavigationPage: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
+
+&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Onderwerp&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;main id=&quot;inhoud&quot;&gt;
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Onderwerp&lt;/Heading&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Amsterdam wil een nieuwe traditie starten om met oud en nieuw naar een centrale nieuwjaarsviering
+          te gaan in plaats van zelf vuurwerk af te steken.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+    &lt;Grid paddingVertical=&quot;large&quot;&gt;
+      {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;L2 Paragraaf titel&lt;/Heading&gt;
+        &lt;Paragraph&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
+      {burgerzakenLinks.slice(0, 6).map(({ heading, links }, index) =&gt; (
+        &lt;Grid.Cell
+          key={heading}
+          span={{ narrow: 4, medium: 4, wide: 5 }}
+          start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+        &gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;{heading}&lt;/Heading&gt;
+          {getLinks(links)}
+        &lt;/Grid.Cell&gt;
+      ))}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;Titel&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;Titel&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;Titel&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;Titel&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Spotlight color=&quot;magenta&quot;&gt;
+      &lt;Grid paddingVertical=&quot;large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Titel&lt;/Heading&gt;
+          &lt;Paragraph color=&quot;inverse&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Titel&lt;/Heading&gt;
+          &lt;Paragraph color=&quot;inverse&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    &lt;Grid paddingVertical=&quot;large&quot;&gt;
+      {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;L2 Paragraaf titel&lt;/Heading&gt;
+        &lt;Paragraph&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {burgerzakenLinks.slice(4, 8).map(({ heading, links }, index) =&gt; (
+        &lt;Grid.Cell
+          key={heading}
+          span={{ narrow: 4, medium: 4, wide: 5 }}
+          start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+        &gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;{heading}&lt;/Heading&gt;
+          {getLinks(links)}
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid&gt;
+  &lt;/main&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
@@ -13468,7 +14095,7 @@ export const SubnavigationPage: StoryObj = {
               Parkeertarieven
             &lt;/Heading&gt;
             &lt;SearchField className=&quot;ams-mb-m&quot;&gt;
-              &lt;SearchField.Input placeholder=&quot;Zoek op adres&quot; /&gt;
+              &lt;SearchField.Input label=&quot;Zoek op adres&quot; placeholder=&quot;Zoek op adres&quot; /&gt;
               &lt;SearchField.Button /&gt;
             &lt;/SearchField&gt;
             &lt;LinkList&gt;
@@ -13504,7 +14131,7 @@ export const SubnavigationPage: StoryObj = {
         &lt;/Breadcrumb&gt;
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
-    &lt;main id=&quot;inhoud&quot; key={2}&gt;
+    &lt;main id=&quot;inhoud&quot;&gt;
       &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
@@ -13971,7 +14598,75 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments and resolves the interactive state. Provide the source by hand so the guidance stays
+        // visible and the layout reads the way a developer would write it.
+        code: `&lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+  &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+    &lt;Breadcrumb&gt;
+      &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+      &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Projecten&lt;/Breadcrumb.Link&gt;
+    &lt;/Breadcrumb&gt;
+    &lt;Heading level={1}&gt;Naam van het project&lt;/Heading&gt;
+  &lt;/Grid.Cell&gt;
+  {/*
+   * The main project navigation. rowSpan={2} lets this one cell sit beside both the subnavigation and
+   * the content below it; appearance=&quot;flush&quot; drops the cell padding so the tabs align with the grid.
+   * accessibleName labels the nav for screen readers, and aria-current=&quot;page&quot; marks the active link.
+   */}
+  &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
+    &lt;TabNavigation accessibleName=&quot;Navigatie voor dit project&quot; orientation=&quot;vertical&quot;&gt;
+      &lt;TabNavigation.List&gt;
+        {menuItems.map(({ icon, label, slug }) =&gt; (
+          &lt;TabNavigation.Link
+            aria-current={currentMenuSlug === slug ? &#39;page&#39; : undefined}
+            href={\`/projecten/42/\${slug}\`}
+            icon={icon}
+            key={slug}
+            onClick={(e) =&gt; handleMenuItemClick(e, slug)}
+          &gt;
+            {label}
+          &lt;/TabNavigation.Link&gt;
+        ))}
+      &lt;/TabNavigation.List&gt;
+    &lt;/TabNavigation&gt;
+  &lt;/Grid.Cell&gt;
+  {/*
+   * The subnavigation scrolls sideways when it overflows. Keep a ref to its list so selecting another
+   * main menu item can reset the scroll back to the start (see handleMenuItemClick).
+   */}
+  &lt;Grid.Cell appearance=&quot;flush&quot; span={{ narrow: 4, medium: 6, wide: 10 }} start={{ narrow: 1, medium: 3, wide: 3 }}&gt;
+    &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+      &lt;TabNavigation.List ref={subMenuListRef}&gt;
+        {subMenuItems.map(({ label, slug }) =&gt; (
+          &lt;TabNavigation.Link
+            aria-current={currentSubMenuSlug === slug ? &#39;page&#39; : undefined}
+            href={\`/projecten/42/\${currentMenuSlug}/\${slug}\`}
+            key={slug}
+            onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
+          &gt;
+            {label}
+          &lt;/TabNavigation.Link&gt;
+        ))}
+      &lt;/TabNavigation.List&gt;
+    &lt;/TabNavigation&gt;
+  &lt;/Grid.Cell&gt;
+  {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
+  &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 3, wide: 3 }}&gt;
+    &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;{currentMenu.label}&lt;/Heading&gt;
+    &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }} /&gt;
+&lt;/Grid&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -16547,13 +17242,13 @@ These props cannot be overridden.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  18 | import { commonMeta } from &#39;../common/config&#39;
-  19 |
-&gt; 20 | const meta = {
+  19 | import { commonMeta } from &#39;../common/config&#39;
+  20 |
+&gt; 21 | const meta = {
      | ^
-  21 |   ...commonMeta,
-  22 |   title: &#39;Pages/Public/Product Page&#39;,
-  23 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  22 |   ...commonMeta,
+  23 |   title: &#39;Pages/Public/Product Page&#39;,
+  24 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 ./src/pages/public/ProductPage/ProductPage.stories.tsx:
 /**
@@ -16569,6 +17264,7 @@ import {
   Grid,
   Heading,
   Link,
+  OrderedList,
   Paragraph,
   UnorderedList,
 } from &#39;@amsterdam/design-system-react&#39;
@@ -16625,11 +17321,11 @@ const meta = {
             Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
             regelingen.
           &lt;/Paragraph&gt;
-          &lt;UnorderedList className=&quot;ams-mb-xl&quot;&gt;
-            &lt;UnorderedList.Item&gt;Ontdek welke regelingen u hier kunt aanvragen.&lt;/UnorderedList.Item&gt;
-            &lt;UnorderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/UnorderedList.Item&gt;
-            &lt;UnorderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/UnorderedList.Item&gt;
-          &lt;/UnorderedList&gt;
+          &lt;OrderedList className=&quot;ams-mb-xl&quot;&gt;
+            &lt;OrderedList.Item&gt;Ontdek welke regelingen u hier kunt aanvragen.&lt;/OrderedList.Item&gt;
+            &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
+            &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
+          &lt;/OrderedList&gt;
           &lt;CallToActionLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;
             Start de check en vraag aan
           &lt;/CallToActionLink&gt;
@@ -16709,7 +17405,118 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        code: `&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Stadspas&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
+    {/* The title and lead span the wide intro column. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-xl&quot; level={1}&gt;Gratis laptop of tablet voor de basisschool aanvragen&lt;/Heading&gt;
+      &lt;Paragraph size=&quot;large&quot;&gt;
+        U krijgt per huishouden 1 keer per 5 schooljaren een gratis laptop of tablet op de basisschool.
+      &lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+    {/* The body sits in a narrower cell, indented one column on wider screens, for a comfortable reading measure. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Voorwaarden&lt;/Heading&gt;
+      &lt;UnorderedList className=&quot;ams-mb-xl&quot;&gt;
+        &lt;UnorderedList.Item&gt;U woont in Amsterdam of Weesp.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;U heeft een &lt;Link href=&quot;#&quot;&gt;laag inkomen en weinig vermogen&lt;/Link&gt;.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;U ontvangt kinderbijslag of pleegoudervergoeding voor uw kind.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;Uw kind gaat naar de basisschool.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;Uw kind is nu 10, 11 of 12 jaar.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;Uw kind woont bij u in huis.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;
+          Uw huishouden heeft de afgelopen 4 schooljaren geen gratis laptop of tablet voor een kind op de
+          basisschool gehad.
+        &lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;Uw kind doet eerst een computercursus.&lt;/UnorderedList.Item&gt;
+      &lt;/UnorderedList&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Aanvragen&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+        Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
+        regelingen.
+      &lt;/Paragraph&gt;
+      &lt;OrderedList className=&quot;ams-mb-xl&quot;&gt;
+        &lt;OrderedList.Item&gt;Ontdek welke regelingen u hier kunt aanvragen.&lt;/OrderedList.Item&gt;
+        &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
+        &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
+      &lt;/OrderedList&gt;
+      {/* A prominent call to action for the main task on the page. */}
+      &lt;CallToActionLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Geen DigiD?&lt;/Heading&gt;
+      &lt;UnorderedList className=&quot;ams-mb-xl&quot;&gt;
+        &lt;UnorderedList.Item&gt;Ga naar &lt;Link href=&quot;#&quot;&gt;www.digid.nl&lt;/Link&gt; en vraag uw DigiD aan.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;
+          {/* download hints the browser to save the PDF rather than open it in a new tab. */}
+          Lees eerst{&#39; &#39;}
+          &lt;Link download href=&quot;#&quot;&gt;Toelichting Gratis laptop of tablet basisschool Schooljaar 2024-2025.pdf&lt;/Link&gt;{&#39; &#39;}
+          en{&#39; &#39;}
+          &lt;Link download href=&quot;#&quot;&gt;Aanvraag gratis laptop of tablet basisschool schooljaar 2024-2025.pdf&lt;/Link&gt;.
+        &lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;
+          Of: bel &lt;Link href=&quot;tel:+31202526000&quot;&gt;020 252 6000&lt;/Link&gt; en vraag een formulier aan per post.
+        &lt;/UnorderedList.Item&gt;
+      &lt;/UnorderedList&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Vragen?&lt;/Heading&gt;
+      &lt;UnorderedList className=&quot;ams-mb-xl&quot;&gt;
+        &lt;UnorderedList.Item&gt;Bel ons op 020 252 6000.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;Hulp nodig bij het aanvragen? Ga naar Buurtteam Amsterdam.&lt;/UnorderedList.Item&gt;
+      &lt;/UnorderedList&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Zo lang duurt het&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+        Na de aanvraag krijgt u binnen 8 weken een reactie. We vertellen u dan of u recht hebt op de regeling
+        of niet. Het kan dus even duren voor u van ons hoort.
+      &lt;/Paragraph&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Zonder computerles geen laptop&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+        Als uw kind recht heeft op een laptop, moet het een computerles volgen. De les is verplicht, ook als
+        uw kind in het verleden al zo’n les heeft gedaan.
+      &lt;/Paragraph&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Maak binnen 2 weken een afspraak&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+        U krijgt een brief met een aanmeldcode om aan te melden en een afspraak te maken. Bewaar deze brief
+        goed. Ga naar &lt;Link href=&quot;#&quot;&gt;Aanmelden Cyberschool&lt;/Link&gt;. Vul de aanmeldcode in en kies zelf uw
+        stadsdeel, datum en tijd. U hebt een e-mailadres of telefoonnummer nodig. U krijgt een bevestiging
+        van uw afspraak.
+      &lt;/Paragraph&gt;
+      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+        Als u geen afspraak maakt, deelt de gemeente u in. U krijgt dan wel een uitnodiging. Na de
+        computerles krijgt u een code om in de webshop een laptop of tablet uit te kiezen.
+      &lt;/Paragraph&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Afspraak aanpassen&lt;/Heading&gt;
+      &lt;Paragraph&gt;
+        Pas uw afspraak aan als u niet kunt of als u de les gemist heeft. Bel hiervoor met Cybersoek:{&#39; &#39;}
+        &lt;Link href=&quot;tel:+31206934582&quot;&gt;020 6934 582&lt;/Link&gt;.
+      &lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -16737,6 +17544,7 @@ export const Default: StoryObj = {}
     Grid,
     Heading,
     Link,
+    OrderedList,
     Paragraph,
     UnorderedList,
 } from "@amsterdam/design-system-react";</code></pre>
@@ -16796,11 +17604,11 @@ export const Default: StoryObj = {}
           Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
           regelingen.
         &lt;/Paragraph&gt;
-        &lt;UnorderedList className=&quot;ams-mb-xl&quot;&gt;
-          &lt;UnorderedList.Item&gt;Ontdek welke regelingen u hier kunt aanvragen.&lt;/UnorderedList.Item&gt;
-          &lt;UnorderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/UnorderedList.Item&gt;
-          &lt;UnorderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/UnorderedList.Item&gt;
-        &lt;/UnorderedList&gt;
+        &lt;OrderedList className=&quot;ams-mb-xl&quot;&gt;
+          &lt;OrderedList.Item&gt;Ontdek welke regelingen u hier kunt aanvragen.&lt;/OrderedList.Item&gt;
+          &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
+          &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
+        &lt;/OrderedList&gt;
         &lt;CallToActionLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;
           Start de check en vraag aan
         &lt;/CallToActionLink&gt;
@@ -17610,7 +18418,164 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel. Repetitive
+        // sections are shortened with `{/* … */}` markers to keep the timeline and grid patterns readable.
+        code: `&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      {/* ImageSlider takes an array of images; each entry has an alt text, an aspectRatio, and a src. */}
+      &lt;ImageSlider images={images} /&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wat&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+        Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;.
+        Er komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
+      &lt;/Paragraph&gt;
+      &lt;StandaloneLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;Lees meer over Centrumeiland&lt;/StandaloneLink&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Waar&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+        Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland
+        van IJburg en ligt tussen Haveneiland en Strandeiland.
+      &lt;/Paragraph&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wanneer&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
+        De bouwwerkzaamheden op Centrumeiland zijn in volle gang. We verwachten dat bijna alle woningen en
+        voorzieningen klaar zijn in 2028.
+      &lt;/Paragraph&gt;
+      {/*
+       * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot; the one
+       * in progress, and a step with no status is still to come. hasSubsteps nests a ProgressList.Substeps.
+       */}
+      &lt;ProgressList headingLevel={3}&gt;
+        &lt;ProgressList.Step hasSubsteps heading=&quot;2021&quot; status=&quot;completed&quot;&gt;
+          &lt;ProgressList.Substeps&gt;
+            &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+              &lt;Paragraph&gt;Landmaken voor de Noordoever en Noordpunt, start oktober.&lt;/Paragraph&gt;
+            &lt;/ProgressList.Substep&gt;
+          &lt;/ProgressList.Substeps&gt;
+        &lt;/ProgressList.Step&gt;
+        {/* … more completed years (2022–2025), each a Step with completed Substeps … */}
+        &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+          &lt;ProgressList.Substeps&gt;
+            &lt;ProgressList.Substep&gt;
+              &lt;Paragraph&gt;Oplevering Zuidoever (ecologische oever).&lt;/Paragraph&gt;
+            &lt;/ProgressList.Substep&gt;
+          &lt;/ProgressList.Substeps&gt;
+        &lt;/ProgressList.Step&gt;
+        &lt;ProgressList.Step hasSubsteps heading=&quot;2029&quot;&gt;
+          &lt;ProgressList.Substeps&gt;
+            &lt;ProgressList.Substep&gt;
+              &lt;Paragraph&gt;Waarschijnlijk zijn bijna alle woningen en voorzieningen klaar.&lt;/Paragraph&gt;
+            &lt;/ProgressList.Substep&gt;
+          &lt;/ProgressList.Substeps&gt;
+        &lt;/ProgressList.Step&gt;
+      &lt;/ProgressList&gt;
+    &lt;/Grid.Cell&gt;
+    {/* Two link lists side by side, each start-aligned to its own half of the grid. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Nieuws&lt;/Heading&gt;
+      &lt;LinkList&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)&lt;/LinkList.Link&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;17 november: bijeenkomst over Strandeiland (11 november 2025)&lt;/LinkList.Link&gt;
+      &lt;/LinkList&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Werk aan de weg&lt;/Heading&gt;
+      &lt;LinkList&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Bert Haanstrakade, omleiding&lt;/LinkList.Link&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Straten Centrumeiland, afsluitingen&lt;/LinkList.Link&gt;
+      &lt;/LinkList&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Spotlight color=&quot;azure&quot;&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      {/* Four equal columns of promo links; on the azure Spotlight, color=&quot;inverse&quot; adapts their content. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+        &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+          Meer over de verschillende vormen van zelfbouw vindt u op:
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Zelfbouw&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
+    &lt;/Grid&gt;
+  &lt;/Spotlight&gt;
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Meer informatie&lt;/Heading&gt;
+      &lt;LinkList&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+      &lt;/LinkList&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
+      &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+      &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Blijf op de hoogte&lt;/Heading&gt;
+      &lt;LinkList&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief ontwikkeling IJburg&lt;/LinkList.Link&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Hallo Centrumeiland: praat mee&lt;/LinkList.Link&gt;
+      &lt;/LinkList&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Spotlight&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
+          Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+          &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;zelfbouwcentrumeiland@amsterdam.nl&lt;/Link&gt;
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+        {/* &lt;br /&gt; holds a contact block’s lines together inside one Paragraph. */}
+        &lt;Paragraph color=&quot;inverse&quot;&gt;
+          Maud van Esch
+          &lt;br /&gt;
+          Omgevingsmanager IJburg
+          &lt;br /&gt;
+          &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;m.van.esch@amsterdam.nl&lt;/Link&gt;
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/Spotlight&gt;
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -21211,7 +22176,7 @@ In collapsible mode, arrow keys navigate between the visible toggle buttons.
 
   return (
     &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-grid__cell--transparent&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
         &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -21266,7 +22231,7 @@ In collapsible mode, arrow keys navigate between the visible toggle buttons.
 
   return (
     &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-grid__cell--transparent&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
         &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -23521,7 +24486,9 @@ const meta = {
             &lt;Heading className=&quot;ams-mb-s&quot; level={1}&gt;
               Met korting van A naar B op de deelscooter of -bakfiets
             &lt;/Heading&gt;
-            &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;29 juli 2025&lt;/Paragraph&gt;
+            &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+              &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
+            &lt;/Paragraph&gt;
             &lt;Paragraph size=&quot;large&quot;&gt;
               Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
               -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -23608,63 +24575,201 @@ const meta = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
-      &lt;aside aria-labelledby=&quot;meer-nieuws&quot;&gt;
-        &lt;Grid gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
-              Meer nieuws
-            &lt;/Heading&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={4}&gt;
-            &lt;Card&gt;
-              &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
-              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Paragraph&gt;
-                U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
-                te maken met het verduurzamen van woningen.
-              &lt;/Paragraph&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={4}&gt;
-            &lt;Card&gt;
-              &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
-              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Paragraph&gt;
-                We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
-              &lt;/Paragraph&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={4}&gt;
-            &lt;Card&gt;
-              &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
-              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Paragraph&gt;
-                Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
-                halen in het centrum.
-              &lt;/Paragraph&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid&gt;
-      &lt;/aside&gt;
+      &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+            Meer nieuws
+          &lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
+              te maken met het verduurzamen van woningen.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
+              halen in het centrum.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
     &lt;/&gt;
   ),
 } satisfies Meta
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        code: `&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Nieuws&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;main id=&quot;inhoud&quot;&gt;
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+          &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
+        &lt;/Paragraph&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters
+          en -bakfietsen.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/*
+     * A full-width hero image. srcSet lets the browser pick a size for the viewport, loading=&quot;lazy&quot; defers
+     * loading until it is near the viewport, and aspectRatio reserves its space so the layout does not jump.
+     */}
+    &lt;Image
+      alt=&quot;&quot;
+      aspectRatio=&quot;16:5&quot;
+      loading=&quot;lazy&quot;
+      src=&quot;https://picsum.photos/1440/450&quot;
+      srcSet=&quot;https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w&quot;
+    /&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/* ams-prose applies article typography and vertical rhythm to the headings, paragraphs, and links. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Paragraph&gt;
+          U kunt gebruikmaken van de kortingsacties via Amsterdam Bereikbaar. De actie geldt voor
+          Amsterdammers en forenzen van en naar Amsterdam, en is te activeren tot 6 oktober.
+        &lt;/Paragraph&gt;
+        &lt;Heading level={2}&gt;Meer deelvervoer&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Het gebruik van deelvervoer groeit snel. Vanwege de grote vraag is besloten het aantal
+          deelscooters te verhogen van 1.200 naar 1.500 stuks. Op de{&#39; &#39;}
+          &lt;Link href=&quot;https://kaart.amsterdam.nl/deelvervoer&quot;&gt;Kaart deelvervoer Amsterdam&lt;/Link&gt; ziet u waar
+          bij u in de buurt deelvervoer wordt aangeboden.
+        &lt;/Paragraph&gt;
+        &lt;Heading level={2}&gt;Evenementen in de stad&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Deelvervoer is ook handig tijdens evenementen. Zo werden er op 21 juni, de dag van het festival Op
+          de Ring, bijna 12.000 ritten gemaakt met de deelscooter en deelbakfiets.
+        &lt;/Paragraph&gt;
+        &lt;Heading level={2}&gt;Verkeershinder ontwijken&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Daarnaast kunt u met deelscooters en -bakfietsen verkeershinder omzeilen. Deze zomer vinden er veel
+          werkzaamheden plaats in en rond de stad, waaronder op grote delen van de ring A10.
+        &lt;/Paragraph&gt;
+        &lt;Heading level={2}&gt;Meer weten&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Gebruikmaken van de kortingsacties? Kijk dan op{&#39; &#39;}
+          &lt;Link href=&quot;https://www.amsterdambereikbaar.nl&quot;&gt;Amsterdam Bereikbaar&lt;/Link&gt;. Wilt u meer weten over
+          deelvervoer in de stad? Ga dan naar &lt;Link href=&quot;https://www.amsterdam.nl/deelvervoer/&quot;&gt;Deelvervoer&lt;/Link&gt;.
+        &lt;/Paragraph&gt;
+        &lt;Heading level={2}&gt;Lees ook&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Sociale huurders kunnen gratis e-bike uitproberen&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelveenseweg ruim 5 weken dicht voor gemotoriseerd verkeer&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Groot onderhoud A4 vanaf 11 juli: houd rekening met flinke vertraging&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/main&gt;
+  {/* A newsletter call-out set apart as a labelled aside (aria-labelledby) on a green Spotlight. */}
+  &lt;Spotlight aria-labelledby=&quot;blijf-op-de-hoogte&quot; as=&quot;aside&quot; color=&quot;green&quot;&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/* color=&quot;inverse&quot; adapts the heading, text, and link to the dark Spotlight background. */}
+        &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;
+          Blijf op de hoogte!
+        &lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
+          Schrijf u nu in voor de Nieuwsbrief Amsterdam en ontvang wekelijks nieuws, tips en mooie verhalen.
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Ik wil de nieuwsbrief&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/Spotlight&gt;
+  {/* Related articles as a labelled aside (Grid as=&quot;aside&quot;), outside the article’s &lt;main&gt;. */}
+  &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;Meer nieuws&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={4}&gt;
+      &lt;Card&gt;
+        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+          &lt;Card.Heading level={3}&gt;
+            &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+          &lt;/Card.Heading&gt;
+        &lt;/Card.HeadingGroup&gt;
+        &lt;Paragraph&gt;
+          U kunt &#39;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
+        &lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={4}&gt;
+      &lt;Card&gt;
+        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+          &lt;Card.Heading level={3}&gt;
+            &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+          &lt;/Card.Heading&gt;
+        &lt;/Card.HeadingGroup&gt;
+        &lt;Paragraph&gt;We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.&lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={4}&gt;
+      &lt;Card&gt;
+        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+          &lt;Card.Heading level={3}&gt;
+            &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+          &lt;/Card.Heading&gt;
+        &lt;/Card.HeadingGroup&gt;
+        &lt;Paragraph&gt;Afvalboten, bakfietsen en ondergrondse containers in het centrum.&lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -23724,7 +24829,9 @@ export const Default: StoryObj = {}
           &lt;Heading className=&quot;ams-mb-s&quot; level={1}&gt;
             Met korting van A naar B op de deelscooter of -bakfiets
           &lt;/Heading&gt;
-          &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;29 juli 2025&lt;/Paragraph&gt;
+          &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+            &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
+          &lt;/Paragraph&gt;
           &lt;Paragraph size=&quot;large&quot;&gt;
             Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
             -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -23811,56 +24918,54 @@ export const Default: StoryObj = {}
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
-    &lt;aside aria-labelledby=&quot;meer-nieuws&quot;&gt;
-      &lt;Grid gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
-            Meer nieuws
-          &lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
-              te maken met het verduurzamen van woningen.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
-              halen in het centrum.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-    &lt;/aside&gt;
+    &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+          Meer nieuws
+        &lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;
+            U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
+            te maken met het verduurzamen van woningen.
+          &lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;
+            We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+          &lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;
+            Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
+            halen in het centrum.
+          &lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
   &lt;/&gt;
 );</code></pre>
             </div>
@@ -24153,7 +25258,75 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments and expands each `map` into repeated blocks. Provide the source by hand so the
+        // guidance stays visible and the `map` pattern reads the way a developer would write it.
+        code: `&lt;main id=&quot;inhoud&quot;&gt;
+  {/*
+   * The homepage’s visible headings start at the section level, so give the page one visually hidden
+   * h1. Screen readers still announce a page title and the heading outline keeps a single top level.
+   */}
+  &lt;h1 className=&quot;ams-visually-hidden&quot;&gt;Homepage van de gemeente Amsterdam&lt;/h1&gt;
+  {/* A hero that overlaps a full-width image with the block beneath it – see the Overlap component. */}
+  &lt;Overlap&gt;{/* … */}&lt;/Overlap&gt;
+  &lt;Grid gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
+      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    {topTaskSection.tasks.map(({ title, description }) =&gt; (
+      &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+        &lt;Card&gt;
+          {/* Card.Link stretches over the whole Card, so the entire card is one clickable link. */}
+          &lt;Card.Heading level={3}&gt;
+            &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+          &lt;/Card.Heading&gt;
+          &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+    ))}
+  &lt;/Grid&gt;
+  &lt;Spotlight&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {spotlightSections.map(({ title, description, link }) =&gt; (
+        &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+          {/* On the dark Spotlight, color=&quot;inverse&quot; switches text and links to their light variant. */}
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;{title}&lt;/Heading&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;{description}&lt;/Paragraph&gt;
+          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;{link}&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid&gt;
+  &lt;/Spotlight&gt;
+  &lt;Grid gapVertical=&quot;large&quot; paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    {newsSection.items.map(({ title, description, image }) =&gt; (
+      &lt;Grid.Cell key={title} span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
+          {/* Card.HeadingGroup adds a short tagline above the card’s heading. */}
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+    ))}
+  &lt;/Grid&gt;
+&lt;/main&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -24419,7 +25592,45 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        code: `&lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+  {/*
+   * appearance=&quot;transparent&quot; removes the cell’s background and padding, so the page title sits directly
+   * on the page instead of looking like one of the content blocks the other cells form.
+   */}
+  &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+    &lt;Heading level={1}&gt;Titel van de pagina&lt;/Heading&gt;
+  &lt;/Grid.Cell&gt;
+  {/*
+   * This is a layout demo: the empty cells stand in for content blocks. Their blockSize only gives them
+   * a height to show here – on a real page the content sets the height. What matters is the responsive
+   * span: how many of the grid’s columns a cell fills at narrow, medium, and wide widths. That is what
+   * makes the cells reflow into different rows as the window changes.
+   */}
+  &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }} style={{ blockSize: &#39;12rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 1, medium: 3, wide: 4 }} style={{ blockSize: &#39;10rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }}&gt;
+    &lt;Paragraph&gt;Voorbeeldtekst in een contentblok.&lt;/Paragraph&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 9 }}&gt;
+    &lt;Paragraph&gt;Voorbeeldtekst in een contentblok.&lt;/Paragraph&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ blockSize: &#39;8rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 2, medium: 3, wide: 6 }} style={{ blockSize: &#39;8rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 3, medium: 2, wide: 4 }} style={{ blockSize: &#39;6rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 1, medium: 4, wide: 4 }} style={{ blockSize: &#39;8rem&#39; }} /&gt;
+  &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }} style={{ blockSize: &#39;6rem&#39; }} /&gt;
+&lt;/Grid&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -24602,6 +25813,51 @@ const getLinks = (links: string[]) =&gt;
   )
 
 export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments and expands each `map`. Provide the source by hand so the guidance stays visible and
+        // the `map` and `getLinks` patterns read the way a developer would write them.
+        code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
+
+&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Burgerzaken&lt;/Heading&gt;
+      &lt;Paragraph size=&quot;large&quot;&gt;
+        Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een
+        geboorte aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
+      &lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+    {/*
+     * Two columns of link groups. On the even-indexed cells, start pins them to the content column; the
+     * odd-indexed cells (start undefined) fall in beside them.
+     */}
+    {burgerzakenLinks.map(({ heading, links }, index) =&gt; (
+      &lt;Grid.Cell
+        key={heading}
+        span={{ narrow: 4, medium: 4, wide: 5 }}
+        start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+      &gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;{heading}&lt;/Heading&gt;
+        {getLinks(links)}
+      &lt;/Grid.Cell&gt;
+    ))}
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
@@ -24640,6 +25896,61 @@ export const Default: StoryObj = {
 }
 
 export const WithTopTasks: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
+
+&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Leefomgeving&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    {/* The two most important tasks get a full Card each; the groups below are plain heading + links. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Card&gt;
+        &lt;Card.Heading level={2}&gt;
+          &lt;Card.Link href=&quot;/&quot;&gt;Doe een melding&lt;/Card.Link&gt;
+        &lt;/Card.Heading&gt;
+        &lt;Paragraph&gt;
+          Meld overlast van geluid of afval op straat. U kunt ook kapotte dingen melden of iets dat we
+          moeten opruimen.
+        &lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+      &lt;Card&gt;
+        &lt;Card.Heading level={2}&gt;
+          &lt;Card.Link href=&quot;/&quot;&gt;Kondig een demonstratie of manifestatie aan&lt;/Card.Link&gt;
+        &lt;/Card.Heading&gt;
+        &lt;Paragraph&gt;Een demonstratie of manifestatie meldt u vooraf bij de gemeente.&lt;/Paragraph&gt;
+      &lt;/Card&gt;
+    &lt;/Grid.Cell&gt;
+    {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
+    {topTaskLinks.map(({ heading, links }, index) =&gt; (
+      &lt;Grid.Cell
+        key={heading}
+        span={{ narrow: 4, medium: 4, wide: 5 }}
+        start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+      &gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;{heading}&lt;/Heading&gt;
+        {getLinks(links)}
+      &lt;/Grid.Cell&gt;
+    ))}
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
@@ -24693,6 +26004,62 @@ export const WithTopTasks: StoryObj = {
 }
 
 export const WithInteractiveElement: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
+
+&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;main id=&quot;inhoud&quot;&gt;
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Parkeren&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot; size=&quot;large&quot;&gt;
+          Vind informatie over parkeervergunningen, parkeertarieven en betaald parkeren in Amsterdam.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {parkerenLinks.map(({ heading, links }, index) =&gt; (
+        &lt;Grid.Cell
+          key={heading}
+          span={{ narrow: 4, medium: 4, wide: 5 }}
+          start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+        &gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;{heading}&lt;/Heading&gt;
+          {getLinks(links)}
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid&gt;
+    &lt;Spotlight&gt;
+      &lt;Grid paddingVertical=&quot;large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Parkeertarieven&lt;/Heading&gt;
+          {/* An interactive element in the page: a search field. On the dark Spotlight, its links take color=&quot;inverse&quot;. */}
+          &lt;SearchField className=&quot;ams-mb-m&quot;&gt;
+            &lt;SearchField.Input label=&quot;Zoek op adres&quot; placeholder=&quot;Zoek op adres&quot; /&gt;
+            &lt;SearchField.Button /&gt;
+          &lt;/SearchField&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Tarieven stadsgebied Weesp&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Parkeren op feestdagen&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:9&quot; className=&quot;ams-mb-2xl&quot; src=&quot;https://picsum.photos/id/133/1440/810&quot; /&gt;
+  &lt;/main&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
@@ -24733,7 +26100,7 @@ export const WithInteractiveElement: StoryObj = {
                 Parkeertarieven
               &lt;/Heading&gt;
               &lt;SearchField className=&quot;ams-mb-m&quot;&gt;
-                &lt;SearchField.Input placeholder=&quot;Zoek op adres&quot; /&gt;
+                &lt;SearchField.Input label=&quot;Zoek op adres&quot; placeholder=&quot;Zoek op adres&quot; /&gt;
                 &lt;SearchField.Button /&gt;
               &lt;/SearchField&gt;
               &lt;LinkList&gt;
@@ -24754,6 +26121,132 @@ export const WithInteractiveElement: StoryObj = {
 }
 
 export const WithImageGallery: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        code: `&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bestuur en Organisatie&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;main id=&quot;inhoud&quot;&gt;
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;College van burgemeester en wethouders&lt;/Heading&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Het college van burgemeester en wethouders is verantwoordelijk voor het dagelijks bestuur van de
+          gemeente Amsterdam.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/* A full-width banner image spans all columns; aspectRatio keeps it from shifting the layout. */}
+    &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Burgemeester en wethouders&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
+          gemeentesecretaris.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * The image gallery. Each card spans 4 columns; the computed start lays them out two per row on
+       * medium ([1, 5]) and three per row on wide ([1, 5, 9]) screens.
+       */}
+      {persons.map(({ imageSource, name, role }, index) =&gt; (
+        &lt;Grid.Cell
+          key={name}
+          span={4}
+          start={{ narrow: 1, medium: [1, 5][index % 2], wide: [1, 5, 9][index % 3] }}
+        &gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src={imageSource} /&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;{role} {name}&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Portefeuilleverdeling&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
+          Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders.
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Portefeuilleverdeling&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Coalitieakkoord&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
+          In dit akkoord staan de plannen en visie van de coalitie PvdA, GroenLinks en D66 voor 2022-2026.
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Coalitieakkoord en Uitvoeringsagenda&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Spotlight&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/* On the dark Spotlight, color=&quot;inverse&quot; switches the heading and links to their light variant. */}
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Persberichten en nieuws&lt;/Heading&gt;
+          &lt;LinkList className=&quot;ams-mb-m&quot;&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+              Proef elektrische fietsen voor sociale huurders op Strandeiland en Centrumeiland
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Definitief ontwerp voor nieuwe Jaap Eden IJshal&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer persberichten&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Besluiten B en W&lt;/Heading&gt;
+          &lt;LinkList className=&quot;ams-mb-m&quot;&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 9 juli 2025&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 2 juli 2025&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 25 juni 2025&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer besluiten B en W&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Pers en woordvoering&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;Voor vragen van journalisten aan de afdeling Bestuursvoorlichting.&lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Pers en woordvoering&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Meer over het college&lt;/Heading&gt;
+        &lt;LinkList className=&quot;ams-mb-m&quot;&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Vervangingsregeling en locoburgemeesters&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Gedragscode&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Declaraties en dienstreizen&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Geschenkenregister college van B&amp;W&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Contact&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;Een bericht voor het college van burgemeester en wethouders kunt u:&lt;/Paragraph&gt;
+        &lt;UnorderedList&gt;
+          &lt;UnorderedList.Item&gt;sturen naar Postbus 202, 1000 AE Amsterdam&lt;/UnorderedList.Item&gt;
+          &lt;UnorderedList.Item&gt;afgeven bij 1 van de &lt;Link href=&quot;#&quot;&gt;stadsloketten&lt;/Link&gt;&lt;/UnorderedList.Item&gt;
+          &lt;UnorderedList.Item&gt;mailen met het &lt;Link href=&quot;#&quot;&gt;contactformulier&lt;/Link&gt;&lt;/UnorderedList.Item&gt;
+        &lt;/UnorderedList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Rechtenvrije foto’s&lt;/Heading&gt;
+        &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/main&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
@@ -24765,7 +26258,7 @@ export const WithImageGallery: StoryObj = {
           &lt;/Breadcrumb&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
-      &lt;main id=&quot;inhoud&quot; key={2}&gt;
+      &lt;main id=&quot;inhoud&quot;&gt;
         &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
             &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
@@ -24912,6 +26405,105 @@ export const WithImageGallery: StoryObj = {
 }
 
 export const SubnavigationPage: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
+
+&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Onderwerp&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;main id=&quot;inhoud&quot;&gt;
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Onderwerp&lt;/Heading&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Amsterdam wil een nieuwe traditie starten om met oud en nieuw naar een centrale nieuwjaarsviering
+          te gaan in plaats van zelf vuurwerk af te steken.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+    &lt;Grid paddingVertical=&quot;large&quot;&gt;
+      {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;L2 Paragraaf titel&lt;/Heading&gt;
+        &lt;Paragraph&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
+      {burgerzakenLinks.slice(0, 6).map(({ heading, links }, index) =&gt; (
+        &lt;Grid.Cell
+          key={heading}
+          span={{ narrow: 4, medium: 4, wide: 5 }}
+          start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+        &gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;{heading}&lt;/Heading&gt;
+          {getLinks(links)}
+        &lt;/Grid.Cell&gt;
+      ))}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;Titel&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;Titel&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;Titel&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;Titel&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Spotlight color=&quot;magenta&quot;&gt;
+      &lt;Grid paddingVertical=&quot;large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Titel&lt;/Heading&gt;
+          &lt;Paragraph color=&quot;inverse&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Titel&lt;/Heading&gt;
+          &lt;Paragraph color=&quot;inverse&quot;&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    &lt;Grid paddingVertical=&quot;large&quot;&gt;
+      {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;L2 Paragraaf titel&lt;/Heading&gt;
+        &lt;Paragraph&gt;Voorbeeldtekst bij dit onderwerp.&lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {burgerzakenLinks.slice(4, 8).map(({ heading, links }, index) =&gt; (
+        &lt;Grid.Cell
+          key={heading}
+          span={{ narrow: 4, medium: 4, wide: 5 }}
+          start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+        &gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={3}&gt;{heading}&lt;/Heading&gt;
+          {getLinks(links)}
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid&gt;
+  &lt;/main&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
@@ -25209,7 +26801,7 @@ export const SubnavigationPage: StoryObj = {
               Parkeertarieven
             &lt;/Heading&gt;
             &lt;SearchField className=&quot;ams-mb-m&quot;&gt;
-              &lt;SearchField.Input placeholder=&quot;Zoek op adres&quot; /&gt;
+              &lt;SearchField.Input label=&quot;Zoek op adres&quot; placeholder=&quot;Zoek op adres&quot; /&gt;
               &lt;SearchField.Button /&gt;
             &lt;/SearchField&gt;
             &lt;LinkList&gt;
@@ -25245,7 +26837,7 @@ export const SubnavigationPage: StoryObj = {
         &lt;/Breadcrumb&gt;
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
-    &lt;main id=&quot;inhoud&quot; key={2}&gt;
+    &lt;main id=&quot;inhoud&quot;&gt;
       &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
@@ -25712,7 +27304,75 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments and resolves the interactive state. Provide the source by hand so the guidance stays
+        // visible and the layout reads the way a developer would write it.
+        code: `&lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+  &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
+    &lt;Breadcrumb&gt;
+      &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+      &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Projecten&lt;/Breadcrumb.Link&gt;
+    &lt;/Breadcrumb&gt;
+    &lt;Heading level={1}&gt;Naam van het project&lt;/Heading&gt;
+  &lt;/Grid.Cell&gt;
+  {/*
+   * The main project navigation. rowSpan={2} lets this one cell sit beside both the subnavigation and
+   * the content below it; appearance=&quot;flush&quot; drops the cell padding so the tabs align with the grid.
+   * accessibleName labels the nav for screen readers, and aria-current=&quot;page&quot; marks the active link.
+   */}
+  &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
+    &lt;TabNavigation accessibleName=&quot;Navigatie voor dit project&quot; orientation=&quot;vertical&quot;&gt;
+      &lt;TabNavigation.List&gt;
+        {menuItems.map(({ icon, label, slug }) =&gt; (
+          &lt;TabNavigation.Link
+            aria-current={currentMenuSlug === slug ? &#39;page&#39; : undefined}
+            href={\`/projecten/42/\${slug}\`}
+            icon={icon}
+            key={slug}
+            onClick={(e) =&gt; handleMenuItemClick(e, slug)}
+          &gt;
+            {label}
+          &lt;/TabNavigation.Link&gt;
+        ))}
+      &lt;/TabNavigation.List&gt;
+    &lt;/TabNavigation&gt;
+  &lt;/Grid.Cell&gt;
+  {/*
+   * The subnavigation scrolls sideways when it overflows. Keep a ref to its list so selecting another
+   * main menu item can reset the scroll back to the start (see handleMenuItemClick).
+   */}
+  &lt;Grid.Cell appearance=&quot;flush&quot; span={{ narrow: 4, medium: 6, wide: 10 }} start={{ narrow: 1, medium: 3, wide: 3 }}&gt;
+    &lt;TabNavigation accessibleName=&quot;Subnavigatie voor dit project&quot;&gt;
+      &lt;TabNavigation.List ref={subMenuListRef}&gt;
+        {subMenuItems.map(({ label, slug }) =&gt; (
+          &lt;TabNavigation.Link
+            aria-current={currentSubMenuSlug === slug ? &#39;page&#39; : undefined}
+            href={\`/projecten/42/\${currentMenuSlug}/\${slug}\`}
+            key={slug}
+            onClick={(e) =&gt; handleSubMenuItemClick(e, slug)}
+          &gt;
+            {label}
+          &lt;/TabNavigation.Link&gt;
+        ))}
+      &lt;/TabNavigation.List&gt;
+    &lt;/TabNavigation&gt;
+  &lt;/Grid.Cell&gt;
+  {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
+  &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 3, wide: 3 }}&gt;
+    &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;{currentMenu.label}&lt;/Heading&gt;
+    &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }} /&gt;
+&lt;/Grid&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -25926,13 +27586,13 @@ This is a known limitation, and the mobile design is being further explored.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  18 | import { commonMeta } from &#39;../common/config&#39;
-  19 |
-&gt; 20 | const meta = {
+  19 | import { commonMeta } from &#39;../common/config&#39;
+  20 |
+&gt; 21 | const meta = {
      | ^
-  21 |   ...commonMeta,
-  22 |   title: &#39;Pages/Public/Product Page&#39;,
-  23 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  22 |   ...commonMeta,
+  23 |   title: &#39;Pages/Public/Product Page&#39;,
+  24 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 ./src/pages/public/ProductPage/ProductPage.stories.tsx:
 /**
@@ -25948,6 +27608,7 @@ import {
   Grid,
   Heading,
   Link,
+  OrderedList,
   Paragraph,
   UnorderedList,
 } from &#39;@amsterdam/design-system-react&#39;
@@ -26004,11 +27665,11 @@ const meta = {
             Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
             regelingen.
           &lt;/Paragraph&gt;
-          &lt;UnorderedList className=&quot;ams-mb-xl&quot;&gt;
-            &lt;UnorderedList.Item&gt;Ontdek welke regelingen u hier kunt aanvragen.&lt;/UnorderedList.Item&gt;
-            &lt;UnorderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/UnorderedList.Item&gt;
-            &lt;UnorderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/UnorderedList.Item&gt;
-          &lt;/UnorderedList&gt;
+          &lt;OrderedList className=&quot;ams-mb-xl&quot;&gt;
+            &lt;OrderedList.Item&gt;Ontdek welke regelingen u hier kunt aanvragen.&lt;/OrderedList.Item&gt;
+            &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
+            &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
+          &lt;/OrderedList&gt;
           &lt;CallToActionLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;
             Start de check en vraag aan
           &lt;/CallToActionLink&gt;
@@ -26088,7 +27749,118 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        code: `&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Stadspas&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
+    {/* The title and lead span the wide intro column. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-xl&quot; level={1}&gt;Gratis laptop of tablet voor de basisschool aanvragen&lt;/Heading&gt;
+      &lt;Paragraph size=&quot;large&quot;&gt;
+        U krijgt per huishouden 1 keer per 5 schooljaren een gratis laptop of tablet op de basisschool.
+      &lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+    {/* The body sits in a narrower cell, indented one column on wider screens, for a comfortable reading measure. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Voorwaarden&lt;/Heading&gt;
+      &lt;UnorderedList className=&quot;ams-mb-xl&quot;&gt;
+        &lt;UnorderedList.Item&gt;U woont in Amsterdam of Weesp.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;U heeft een &lt;Link href=&quot;#&quot;&gt;laag inkomen en weinig vermogen&lt;/Link&gt;.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;U ontvangt kinderbijslag of pleegoudervergoeding voor uw kind.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;Uw kind gaat naar de basisschool.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;Uw kind is nu 10, 11 of 12 jaar.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;Uw kind woont bij u in huis.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;
+          Uw huishouden heeft de afgelopen 4 schooljaren geen gratis laptop of tablet voor een kind op de
+          basisschool gehad.
+        &lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;Uw kind doet eerst een computercursus.&lt;/UnorderedList.Item&gt;
+      &lt;/UnorderedList&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Aanvragen&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+        Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
+        regelingen.
+      &lt;/Paragraph&gt;
+      &lt;OrderedList className=&quot;ams-mb-xl&quot;&gt;
+        &lt;OrderedList.Item&gt;Ontdek welke regelingen u hier kunt aanvragen.&lt;/OrderedList.Item&gt;
+        &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
+        &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
+      &lt;/OrderedList&gt;
+      {/* A prominent call to action for the main task on the page. */}
+      &lt;CallToActionLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Geen DigiD?&lt;/Heading&gt;
+      &lt;UnorderedList className=&quot;ams-mb-xl&quot;&gt;
+        &lt;UnorderedList.Item&gt;Ga naar &lt;Link href=&quot;#&quot;&gt;www.digid.nl&lt;/Link&gt; en vraag uw DigiD aan.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;
+          {/* download hints the browser to save the PDF rather than open it in a new tab. */}
+          Lees eerst{&#39; &#39;}
+          &lt;Link download href=&quot;#&quot;&gt;Toelichting Gratis laptop of tablet basisschool Schooljaar 2024-2025.pdf&lt;/Link&gt;{&#39; &#39;}
+          en{&#39; &#39;}
+          &lt;Link download href=&quot;#&quot;&gt;Aanvraag gratis laptop of tablet basisschool schooljaar 2024-2025.pdf&lt;/Link&gt;.
+        &lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;
+          Of: bel &lt;Link href=&quot;tel:+31202526000&quot;&gt;020 252 6000&lt;/Link&gt; en vraag een formulier aan per post.
+        &lt;/UnorderedList.Item&gt;
+      &lt;/UnorderedList&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Vragen?&lt;/Heading&gt;
+      &lt;UnorderedList className=&quot;ams-mb-xl&quot;&gt;
+        &lt;UnorderedList.Item&gt;Bel ons op 020 252 6000.&lt;/UnorderedList.Item&gt;
+        &lt;UnorderedList.Item&gt;Hulp nodig bij het aanvragen? Ga naar Buurtteam Amsterdam.&lt;/UnorderedList.Item&gt;
+      &lt;/UnorderedList&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Zo lang duurt het&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+        Na de aanvraag krijgt u binnen 8 weken een reactie. We vertellen u dan of u recht hebt op de regeling
+        of niet. Het kan dus even duren voor u van ons hoort.
+      &lt;/Paragraph&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Zonder computerles geen laptop&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+        Als uw kind recht heeft op een laptop, moet het een computerles volgen. De les is verplicht, ook als
+        uw kind in het verleden al zo’n les heeft gedaan.
+      &lt;/Paragraph&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Maak binnen 2 weken een afspraak&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+        U krijgt een brief met een aanmeldcode om aan te melden en een afspraak te maken. Bewaar deze brief
+        goed. Ga naar &lt;Link href=&quot;#&quot;&gt;Aanmelden Cyberschool&lt;/Link&gt;. Vul de aanmeldcode in en kies zelf uw
+        stadsdeel, datum en tijd. U hebt een e-mailadres of telefoonnummer nodig. U krijgt een bevestiging
+        van uw afspraak.
+      &lt;/Paragraph&gt;
+      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+        Als u geen afspraak maakt, deelt de gemeente u in. U krijgt dan wel een uitnodiging. Na de
+        computerles krijgt u een code om in de webshop een laptop of tablet uit te kiezen.
+      &lt;/Paragraph&gt;
+
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Afspraak aanpassen&lt;/Heading&gt;
+      &lt;Paragraph&gt;
+        Pas uw afspraak aan als u niet kunt of als u de les gemist heeft. Bel hiervoor met Cybersoek:{&#39; &#39;}
+        &lt;Link href=&quot;tel:+31206934582&quot;&gt;020 6934 582&lt;/Link&gt;.
+      &lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
@@ -26116,6 +27888,7 @@ export const Default: StoryObj = {}
     Grid,
     Heading,
     Link,
+    OrderedList,
     Paragraph,
     UnorderedList,
 } from "@amsterdam/design-system-react";</code></pre>
@@ -26175,11 +27948,11 @@ export const Default: StoryObj = {}
           Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
           regelingen.
         &lt;/Paragraph&gt;
-        &lt;UnorderedList className=&quot;ams-mb-xl&quot;&gt;
-          &lt;UnorderedList.Item&gt;Ontdek welke regelingen u hier kunt aanvragen.&lt;/UnorderedList.Item&gt;
-          &lt;UnorderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/UnorderedList.Item&gt;
-          &lt;UnorderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/UnorderedList.Item&gt;
-        &lt;/UnorderedList&gt;
+        &lt;OrderedList className=&quot;ams-mb-xl&quot;&gt;
+          &lt;OrderedList.Item&gt;Ontdek welke regelingen u hier kunt aanvragen.&lt;/OrderedList.Item&gt;
+          &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
+          &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
+        &lt;/OrderedList&gt;
         &lt;CallToActionLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;
           Start de check en vraag aan
         &lt;/CallToActionLink&gt;
@@ -26678,7 +28451,164 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel. Repetitive
+        // sections are shortened with `{/* … */}` markers to keep the timeline and grid patterns readable.
+        code: `&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      {/* ImageSlider takes an array of images; each entry has an alt text, an aspectRatio, and a src. */}
+      &lt;ImageSlider images={images} /&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wat&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+        Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;.
+        Er komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
+      &lt;/Paragraph&gt;
+      &lt;StandaloneLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;Lees meer over Centrumeiland&lt;/StandaloneLink&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Waar&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+        Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland
+        van IJburg en ligt tussen Haveneiland en Strandeiland.
+      &lt;/Paragraph&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wanneer&lt;/Heading&gt;
+      &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
+        De bouwwerkzaamheden op Centrumeiland zijn in volle gang. We verwachten dat bijna alle woningen en
+        voorzieningen klaar zijn in 2028.
+      &lt;/Paragraph&gt;
+      {/*
+       * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot; the one
+       * in progress, and a step with no status is still to come. hasSubsteps nests a ProgressList.Substeps.
+       */}
+      &lt;ProgressList headingLevel={3}&gt;
+        &lt;ProgressList.Step hasSubsteps heading=&quot;2021&quot; status=&quot;completed&quot;&gt;
+          &lt;ProgressList.Substeps&gt;
+            &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+              &lt;Paragraph&gt;Landmaken voor de Noordoever en Noordpunt, start oktober.&lt;/Paragraph&gt;
+            &lt;/ProgressList.Substep&gt;
+          &lt;/ProgressList.Substeps&gt;
+        &lt;/ProgressList.Step&gt;
+        {/* … more completed years (2022–2025), each a Step with completed Substeps … */}
+        &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+          &lt;ProgressList.Substeps&gt;
+            &lt;ProgressList.Substep&gt;
+              &lt;Paragraph&gt;Oplevering Zuidoever (ecologische oever).&lt;/Paragraph&gt;
+            &lt;/ProgressList.Substep&gt;
+          &lt;/ProgressList.Substeps&gt;
+        &lt;/ProgressList.Step&gt;
+        &lt;ProgressList.Step hasSubsteps heading=&quot;2029&quot;&gt;
+          &lt;ProgressList.Substeps&gt;
+            &lt;ProgressList.Substep&gt;
+              &lt;Paragraph&gt;Waarschijnlijk zijn bijna alle woningen en voorzieningen klaar.&lt;/Paragraph&gt;
+            &lt;/ProgressList.Substep&gt;
+          &lt;/ProgressList.Substeps&gt;
+        &lt;/ProgressList.Step&gt;
+      &lt;/ProgressList&gt;
+    &lt;/Grid.Cell&gt;
+    {/* Two link lists side by side, each start-aligned to its own half of the grid. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Nieuws&lt;/Heading&gt;
+      &lt;LinkList&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)&lt;/LinkList.Link&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;17 november: bijeenkomst over Strandeiland (11 november 2025)&lt;/LinkList.Link&gt;
+      &lt;/LinkList&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Werk aan de weg&lt;/Heading&gt;
+      &lt;LinkList&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Bert Haanstrakade, omleiding&lt;/LinkList.Link&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Straten Centrumeiland, afsluitingen&lt;/LinkList.Link&gt;
+      &lt;/LinkList&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Spotlight color=&quot;azure&quot;&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      {/* Four equal columns of promo links; on the azure Spotlight, color=&quot;inverse&quot; adapts their content. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+        &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+          Meer over de verschillende vormen van zelfbouw vindt u op:
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Zelfbouw&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
+    &lt;/Grid&gt;
+  &lt;/Spotlight&gt;
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Meer informatie&lt;/Heading&gt;
+      &lt;LinkList&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+      &lt;/LinkList&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
+      &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+      &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Blijf op de hoogte&lt;/Heading&gt;
+      &lt;LinkList&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief ontwikkeling IJburg&lt;/LinkList.Link&gt;
+        &lt;LinkList.Link href=&quot;#&quot;&gt;Hallo Centrumeiland: praat mee&lt;/LinkList.Link&gt;
+      &lt;/LinkList&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Spotlight&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
+          Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+          &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;zelfbouwcentrumeiland@amsterdam.nl&lt;/Link&gt;
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+        {/* &lt;br /&gt; holds a contact block’s lines together inside one Paragraph. */}
+        &lt;Paragraph color=&quot;inverse&quot;&gt;
+          Maud van Esch
+          &lt;br /&gt;
+          Omgevingsmanager IJburg
+          &lt;br /&gt;
+          &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;m.van.esch@amsterdam.nl&lt;/Link&gt;
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/Spotlight&gt;
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
 </code></pre></div>
     </div>
         </div>
