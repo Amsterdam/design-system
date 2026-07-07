@@ -8,6 +8,8 @@ import type { ElementType, ForwardedRef, HTMLAttributes } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef, useId } from 'react'
 
+import type { IconProps } from '../Icon'
+
 import { useMonthNavigation } from '../common/useMonthNavigation'
 import { CalendarBody } from './CalendarBody'
 import { CalendarHeader } from './CalendarHeader'
@@ -29,20 +31,44 @@ export type CalendarProps = {
   /** BCP 47 language tag for the weekday names, month caption, and accessible date labels. Defaults to `'nl-NL'`. */
   readonly locale?: string
   /**
+   * The icon for the button that navigates to the next month.
+   * Not for use within Amsterdam.
+   * @default ChevronForwardIcon
+   */
+  readonly nextMonthButtonIcon?: IconProps['svg']
+  /**
    * The accessible label for the button that navigates to the next month.
    * @default Volgende maand
    */
   readonly nextMonthButtonLabel?: string
+  /**
+   * The icon for the button that navigates to the next year.
+   * Not for use within Amsterdam.
+   * @default ChevronDoubleForwardIcon
+   */
+  readonly nextYearButtonIcon?: IconProps['svg']
   /**
    * The accessible label for the button that navigates to the next year.
    * @default Volgend jaar
    */
   readonly nextYearButtonLabel?: string
   /**
+   * The icon for the button that navigates to the previous month.
+   * Not for use within Amsterdam.
+   * @default ChevronBackwardIcon
+   */
+  readonly previousMonthButtonIcon?: IconProps['svg']
+  /**
    * The accessible label for the button that navigates to the previous month.
    * @default Vorige maand
    */
   readonly previousMonthButtonLabel?: string
+  /**
+   * The icon for the button that navigates to the previous year.
+   * Not for use within Amsterdam.
+   * @default ChevronDoubleBackwardIcon
+   */
+  readonly previousYearButtonIcon?: IconProps['svg']
   /**
    * The accessible label for the button that navigates to the previous year.
    * @default Vorig jaar
@@ -65,9 +91,13 @@ export const Calendar = forwardRef(
       linkComponent,
       linkTemplate,
       locale = 'nl-NL',
+      nextMonthButtonIcon,
       nextMonthButtonLabel,
+      nextYearButtonIcon,
       nextYearButtonLabel,
+      previousMonthButtonIcon,
       previousMonthButtonLabel,
+      previousYearButtonIcon,
       previousYearButtonLabel,
       ...restProps
     }: CalendarProps,
@@ -90,9 +120,13 @@ export const Calendar = forwardRef(
           goToPreviousYear={goToPreviousYear}
           locale={locale}
           month={month}
+          nextMonthButtonIcon={nextMonthButtonIcon}
           nextMonthButtonLabel={nextMonthButtonLabel}
+          nextYearButtonIcon={nextYearButtonIcon}
           nextYearButtonLabel={nextYearButtonLabel}
+          previousMonthButtonIcon={previousMonthButtonIcon}
           previousMonthButtonLabel={previousMonthButtonLabel}
+          previousYearButtonIcon={previousYearButtonIcon}
           previousYearButtonLabel={previousYearButtonLabel}
         />
         <CalendarBody linkComponent={linkComponent} linkTemplate={linkTemplate} locale={locale} month={month} />
