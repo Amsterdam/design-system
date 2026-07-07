@@ -52,6 +52,7 @@ intendedAudience:
 
 localisation:
   availableLanguages:
+    - nl
     - en
   localisationReady: true
 
