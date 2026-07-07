@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.0s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -3721,7 +3721,7 @@ const linkTemplate = (date: Date): string =&gt; `?date=${formatDate(date)}`
 
 ### Custom navigation icons
 
-Other [NL Design System](https://nldesignsystem.nl/) organisations can replace the navigation chevrons through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
+Different navigation icons can be used through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
 Websites for Amsterdam must use the default icons.
 For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
@@ -5975,7 +5975,7 @@ Moving past the end of a month shows the adjacent month and keeps focus on the d
 
 ### Custom navigation icons
 
-Other [NL Design System](https://nldesignsystem.nl/) organisations can replace the navigation chevrons through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
+Different navigation icons can be used through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
 Websites for Amsterdam must use the default icons.
 For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
@@ -27874,8 +27874,10 @@ For right-to-left languages like Arabic, also add `dir=&quot;rtl&quot;` to the c
 
 ### Mirror directional icons
 
-Some icons point in a direction — chevrons and arrows, for example — and must flip in a right-to-left context.
+Icons that imply a reading direction or depict movement that follows the reader’s natural flow flip in a right-to-left context.
+
 The design system’s own directional icons handle this automatically: each carries a `data-directional=&quot;true&quot;` attribute on its root `&lt;svg&gt;`, and the [Icon](/docs/components-media-icon--docs) styles mirror any icon with that attribute under `dir=&quot;rtl&quot;`.
+
 The [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) navigation chevrons are one example.
 When you supply your own directional icon anywhere, give it the same attribute so it mirrors as well.
 
