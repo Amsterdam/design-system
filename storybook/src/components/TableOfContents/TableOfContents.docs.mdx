@@ -65,9 +65,12 @@ Use `defaultExpanded` on a Link to override the list default for that specific i
 
 <Canvas of={TableOfContentsStories.Collapsible} />
 
-### Collapsible with nested items opened by default
+### Initially expanded
 
-<Canvas of={TableOfContentsStories.CollapsibleExpandedByDefault} />
+`defaultExpanded` on the root List expands every collapsible branch on load, while a nested List overrides it with `defaultExpanded={false}` to stay closed.
+Starting expanded suits a deep handbook or documentation tree, where showing the full structure helps readers place the current page.
+
+<Canvas of={TableOfContentsStories.InitiallyExpanded} />
 
 ### Controlled
 

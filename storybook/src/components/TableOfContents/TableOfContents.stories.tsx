@@ -114,7 +114,7 @@ export const Collapsible: Story = {
   },
 }
 
-export const CollapsibleExpandedByDefault: Story = {
+export const InitiallyExpanded: Story = {
   args: {
     children: (
       <TableOfContents.List defaultExpanded>
