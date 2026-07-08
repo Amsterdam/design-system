@@ -46,7 +46,7 @@ export const CalendarDay = ({ date, isCurrent, linkComponent, linkTemplate, loca
 
   const content = (
     <>
-      <span aria-hidden={true}>{formatDayNumber(date, locale)}</span>
+      <span aria-hidden="true">{formatDayNumber(date, locale)}</span>
       <span className="ams-visually-hidden">{formatAccessibleDate(date, locale)}</span>
     </>
   )

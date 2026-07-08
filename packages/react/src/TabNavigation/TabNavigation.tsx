@@ -38,7 +38,7 @@ const TabNavigationRoot = forwardRef(
         className={clsx('ams-tab-navigation', orientation === 'vertical' && 'ams-tab-navigation--vertical', className)}
         ref={ref}
       >
-        <h2 aria-hidden={true} className="ams-visually-hidden" id={labelId}>
+        <h2 aria-hidden="true" className="ams-visually-hidden" id={labelId}>
           {accessibleName || 'Navigatie'}
         </h2>
         {children}

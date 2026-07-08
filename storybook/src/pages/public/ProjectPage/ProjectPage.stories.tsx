@@ -92,7 +92,7 @@ const meta = {
             ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We verwachten dat bijna
             alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt opgeleverd in 2029.
           </Paragraph>
-          <ProgressList collapsible={true} headingLevel={3}>
+          <ProgressList collapsible headingLevel={3}>
             <ProgressList.Step hasSubsteps heading="2021" status="completed">
               <ProgressList.Substeps>
                 <ProgressList.Substep status="completed">
@@ -377,7 +377,7 @@ export const Default: StoryObj = {
        * A ProgressList shows a timeline. status="completed" marks a finished step, status="current" the one
        * in progress, and a step with no status is still to come. hasSubsteps nests a ProgressList.Substeps.
        */}
-      <ProgressList collapsible={true} headingLevel={3}>
+      <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step hasSubsteps heading="2021" status="completed">
           <ProgressList.Substeps>
             <ProgressList.Substep status="completed">

@@ -110,7 +110,7 @@ export const Calendar = forwardRef(
 
     return (
       <nav {...restProps} aria-labelledby={labelId} className={clsx('ams-calendar', className)} ref={ref}>
-        <h2 aria-hidden={true} className="ams-visually-hidden" id={labelId}>
+        <h2 aria-hidden="true" className="ams-visually-hidden" id={labelId}>
           {accessibleName || 'Kalender'}
         </h2>
         <CalendarHeader
