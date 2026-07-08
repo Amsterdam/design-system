@@ -115,7 +115,7 @@ describe('Label', () => {
     expect(label).toHaveTextContent('Label (niet verplicht)')
   })
 
-  it('renders the provided hint text after the label when `optional` is set to `false`', () => {
+  it('renders the provided hint text after the label when `optional` is set to `true`', () => {
     const { container } = render(
       <Label hint="not required" htmlFor="form-control" optional>
         Label

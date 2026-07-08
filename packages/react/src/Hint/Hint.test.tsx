@@ -61,7 +61,7 @@ describe('Hint', () => {
     expect(component).toHaveTextContent('(niet verplicht)')
   })
 
-  it('renders the provided hint text when `optional` is set to `false`', () => {
+  it('renders the provided hint text when `optional` is set to `true`', () => {
     const { container } = render(<Hint hint="not required" optional />)
 
     const component = container.querySelector(':only-child')
