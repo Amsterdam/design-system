@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -21961,12 +21961,12 @@ showAccessibleLabel?: string = Toon submenu van</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Collapsible Expanded By Default</span>
+                <span class="ex-name">Initially Expanded</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const CollapsibleExpandedByDefault = () =&gt; &lt;TableOfContents heading=&quot;Inhoudsopgave&quot; collapsible&gt;(&lt;TableOfContents.List defaultExpanded&gt;
+              <pre><code>const InitiallyExpanded = () =&gt; &lt;TableOfContents heading=&quot;Inhoudsopgave&quot; collapsible&gt;(&lt;TableOfContents.List defaultExpanded&gt;
       &lt;TableOfContents.Link href=&quot;#s1&quot; label=&quot;Inleiding&quot; /&gt;
       &lt;TableOfContents.Link href=&quot;#s2&quot; label=&quot;Vaststellen en waarderen van functies&quot;&gt;
         &lt;TableOfContents.List&gt;
@@ -22092,6 +22092,7 @@ For the last case, use `collapsible` mode so branches can be expanded and collap
 ### When not to use
 
 Use a [Tab Navigation](/docs/components-navigation-tab-navigation--docs) when the user switches between views rather than navigating to distinct sections or pages.
+Use a [Link List](/docs/components-navigation-link-list--docs) for a flat group of related links that doesn’t map to the sections of the current page or a set of related pages.
 
 ### How to use
 
@@ -22114,9 +22115,12 @@ Use `defaultExpanded` on a Link to override the list default for that specific i
 
 &lt;Canvas of={TableOfContentsStories.Collapsible} /&gt;
 
-### Collapsible with nested items opened by default
+### Initially expanded
 
-&lt;Canvas of={TableOfContentsStories.CollapsibleExpandedByDefault} /&gt;
+`defaultExpanded` on the root List expands every collapsible branch on load, while a nested List overrides it with `defaultExpanded={false}` to stay closed.
+Starting expanded suits a deep handbook or documentation tree, where showing the full structure helps readers place the current page.
+
+&lt;Canvas of={TableOfContentsStories.InitiallyExpanded} /&gt;
 
 ### Controlled
 
@@ -22128,12 +22132,15 @@ This example keeps a single branch open at a time by expanding the clicked branc
 
 ## Accessibility
 
-The component renders as a `nav` landmark.
-Set `aria-current=&quot;page&quot;` on the link that represents the active section or page to help screen reader users identify their position.
-In collapsible mode, arrow keys navigate between the visible toggle buttons.
+- The component renders as a `nav` landmark, and a `heading` becomes its accessible name.
+- In collapsible mode, each toggle button reports its state through `aria-expanded`, references the list it reveals through `aria-controls`, and gets an accessible name that says which section it expands or collapses.
+- Arrow keys move focus between the visible toggle buttons; toggles inside a collapsed section are skipped so focus never lands on hidden content, while that section’s own toggle stays reachable to reopen it.
+- Collapsing a section while focus is inside it returns focus to that section’s toggle button, so focus is never stranded on content that was just hidden.
+- When printing, collapsed sections expand so the full outline is available.
 
 ## See also
 
+- [Link List](/docs/components-navigation-link-list--docs) – groups related links that don’t form an outline of content.
 - [Tab Navigation](/docs/components-navigation-tab-navigation--docs) – switches between views on the same page.
 
 ## Design tokens
