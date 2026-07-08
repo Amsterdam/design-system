@@ -27,7 +27,7 @@ export type InvalidFormAlertProps = {
   /** The list of error messages to display. */
   readonly errors: ErrorLink[]
   /**
-   * Whether the component receives focus on first render
+   * Whether the component receives focus on first render.
    * @default true
    */
   readonly focusOnRender?: boolean
@@ -37,7 +37,7 @@ export type InvalidFormAlertProps = {
    */
   readonly heading?: string
   /**
-   * The hierarchical level of the Invalid Form Alert’s Heading within the document.
+   * The hierarchical level of the Heading within the document.
    * There is no default value; determine the correct level for each instance.
    * The size of the heading is fixed at level 3.
    */

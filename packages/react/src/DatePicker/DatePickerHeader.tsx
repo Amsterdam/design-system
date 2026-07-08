@@ -37,7 +37,15 @@ export type DatePickerHeaderProps = {
   readonly month: Date
 } & Pick<
   DatePickerProps,
-  'locale' | 'nextMonthButtonLabel' | 'nextYearButtonLabel' | 'previousMonthButtonLabel' | 'previousYearButtonLabel'
+  | 'locale'
+  | 'nextMonthButtonIcon'
+  | 'nextMonthButtonLabel'
+  | 'nextYearButtonIcon'
+  | 'nextYearButtonLabel'
+  | 'previousMonthButtonIcon'
+  | 'previousMonthButtonLabel'
+  | 'previousYearButtonIcon'
+  | 'previousYearButtonLabel'
 >
 
 export const DatePickerHeader = ({
@@ -52,9 +60,13 @@ export const DatePickerHeader = ({
   goToPreviousYear,
   locale,
   month,
+  nextMonthButtonIcon = ChevronForwardIcon,
   nextMonthButtonLabel = 'Volgende maand',
+  nextYearButtonIcon = ChevronDoubleForwardIcon,
   nextYearButtonLabel = 'Volgend jaar',
+  previousMonthButtonIcon = ChevronBackwardIcon,
   previousMonthButtonLabel = 'Vorige maand',
+  previousYearButtonIcon = ChevronDoubleBackwardIcon,
   previousYearButtonLabel = 'Vorig jaar',
 }: DatePickerHeaderProps) => (
   <div className="ams-date-picker__header">
@@ -62,13 +74,13 @@ export const DatePickerHeader = ({
       disabled={disablePreviousYear}
       label={previousYearButtonLabel}
       onClick={goToPreviousYear}
-      svg={ChevronDoubleBackwardIcon}
+      svg={previousYearButtonIcon}
     />
     <IconButton
       disabled={disablePreviousMonth}
       label={previousMonthButtonLabel}
       onClick={goToPreviousMonth}
-      svg={ChevronBackwardIcon}
+      svg={previousMonthButtonIcon}
     />
     <span className="ams-date-picker__caption" id={captionId}>
       {new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(month)}
@@ -77,13 +89,13 @@ export const DatePickerHeader = ({
       disabled={disableNextMonth}
       label={nextMonthButtonLabel}
       onClick={goToNextMonth}
-      svg={ChevronForwardIcon}
+      svg={nextMonthButtonIcon}
     />
     <IconButton
       disabled={disableNextYear}
       label={nextYearButtonLabel}
       onClick={goToNextYear}
-      svg={ChevronDoubleForwardIcon}
+      svg={nextYearButtonIcon}
     />
   </div>
 )

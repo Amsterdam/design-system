@@ -20,5 +20,11 @@
     "src/**/*.ts",
     "src/**/*.tsx"
   ],
-  "exclude": ["**/node_modules/*", "../**/*.test.ts", "../**/*.test.tsx"]
+  "exclude": [
+    "**/node_modules/*",
+    "../packages/**/*.test.ts",
+    "../packages/**/*.test.tsx",
+    "../packages-proprietary/**/*.test.ts",
+    "../packages-proprietary/**/*.test.tsx"
+  ]
 }

@@ -28,9 +28,9 @@ export type ImageSliderProps = {
   readonly imageLabel?: string
   /** The set of images to display. */
   readonly images: ImageSliderImageProps[]
-  /** The label for the ‘next’ button */
+  /** The label for the ‘next’ button. */
   readonly nextLabel?: string
-  /** The label for the ‘previous’ button */
+  /** The label for the ‘previous’ button. */
   readonly previousLabel?: string
 } & Readonly<HTMLAttributes<HTMLDivElement>>
 

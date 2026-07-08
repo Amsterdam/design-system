@@ -17,6 +17,12 @@ import * as DescriptionListStories from "./DescriptionList.stories.tsx";
 
 <Controls />
 
+## Subcomponents
+
+The Term, Description, and Section subcomponents make up a Description List.
+Term and Description render the `<dt>` and `<dd>` elements, and a Section groups a term with its descriptions.
+None of them has props of its own; the examples on this page show them in place.
+
 ## Usage guidelines
 
 ## Examples
@@ -63,7 +69,7 @@ This ensures the colour of the text provides enough contrast.
 ## Design
 
 The terms and descriptions stack vertically by default.
-They sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough — at least `32rem`.
+They sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
 
 The column for the terms is as wide as the longest term, without wrapping.
 Its width can be adjusted to ‘large’ (50%), ‘medium’ (33%), or ‘small’ (20%), which also allows the terms to wrap.

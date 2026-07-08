@@ -21,14 +21,14 @@
 
   @media (min-width: $ams-breakpoint-medium) {
     padding-inline: var(
-      --ams-page-header-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+      --ams-page-header-medium-padding-inline /* @deprecated */,
       var(--ams-page-header-vi-medium-padding-inline)
     );
   }
 
   @media (min-width: $ams-breakpoint-wide) {
     padding-inline: var(
-      --ams-page-header-wide-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
+      --ams-page-header-wide-padding-inline /* @deprecated */,
       var(--ams-page-header-vi-wide-padding-inline)
     );
   }
@@ -64,7 +64,12 @@
 
 .ams-page-header__logo-container {
   flex-shrink: 0;
-  inline-size: 0.75rem;
+
+  /* Crops the logo to its emblem (the three Saint Andrew's crosses), hiding the wordmark that follows it.
+  0.881rem is the midpoint between the emblem's right edge (0.735rem) and the wordmark's left edge (1.027rem)
+  in the logo's coordinate space, so the crop has equal margin on both sides and doesn't depend on sub-pixel
+  rounding to land in the right place. */
+  inline-size: 0.881rem;
   overflow: hidden;
 
   @media (min-width: $ams-breakpoint-medium) {
@@ -134,10 +139,7 @@
 }
 
 @mixin page-header-menu-action {
-  color: var(
-    --ams-page-header-menu-item-color
-  ); /* This token is @deprecated. Will be removed on or after 2026-09-13. */
-
+  color: var(--ams-page-header-menu-item-color); /* @deprecated */
   font-size: var(--ams-page-header-menu-item-font-size);
   font-weight: var(--ams-page-header-menu-item-font-weight);
   line-height: var(--ams-page-header-menu-item-line-height);
@@ -199,9 +201,7 @@
   }
 
   &[aria-expanded="true"] {
-    font-weight: var(
-      --ams-page-header-mega-menu-button-label-open-font-weight
-    ); /* This token is @deprecated. Will be removed on or after 2026-09-13. */
+    font-weight: var(--ams-page-header-mega-menu-button-label-open-font-weight); /* @deprecated */
   }
 }
 

@@ -1,0 +1,27 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-inline-list {
+  list-style: none;
+  margin-block: 0 !important;
+  padding-inline-start: 0;
+  text-align: center;
+
+  /* Balances the wrapped lines (3 + 3 rather than 5 + 1). Not yet Baseline-wide; degrades to normal wrapping. */
+  /* stylelint-disable-next-line plugin/use-baseline */
+  text-wrap: balance;
+}
+
+._ams-inline-list__item {
+  display: inline;
+  margin-inline: var(--ams-space-s);
+  white-space: nowrap;
+}
+
+/* Flatten any paragraph the Markdown parser may still wrap around an item’s content. */
+._ams-inline-list__item p {
+  display: inline;
+  margin-block: 0;
+}

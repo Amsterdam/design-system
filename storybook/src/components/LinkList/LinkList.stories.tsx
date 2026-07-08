@@ -7,7 +7,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Heading } from '@amsterdam/design-system-react'
 import { HouseIcon, PhoneIcon, SpeechBalloonEllipsisIcon } from '@amsterdam/design-system-react-icons'
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { LinkList } from '@amsterdam/design-system-react/src'
 
 import { exampleLinkList } from '#storybook/_common/exampleContent'
@@ -21,13 +20,7 @@ const meta = {
 
 export default meta
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const linkMeta = {
-  component: LinkList.Link,
-} satisfies Meta<typeof LinkList.Link>
-
 type Story = StoryObj<typeof meta>
-type LinkStory = StoryObj<typeof linkMeta>
 
 const StoryTemplate: Story = {
   args: {
@@ -37,45 +30,6 @@ const StoryTemplate: Story = {
       </LinkList.Link>
     )),
   },
-}
-
-const LinkStoryTemplate: LinkStory = {
-  args: {
-    children: linkList[0],
-    href: '#',
-  },
-  argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
-    },
-    icon: {
-      control: {
-        labels: { undefined: 'none' },
-        type: 'select',
-      },
-      mapping: Icons,
-      options: [undefined, ...Object.keys(Icons)],
-    },
-    size: {
-      control: {
-        labels: { undefined: 'medium' },
-        type: 'radio',
-      },
-      options: ['small', undefined, 'large'],
-    },
-  },
-  decorators: [
-    (Story) => (
-      <LinkList>
-        <Story />
-      </LinkList>
-    ),
-  ],
-  render: ({ children, ...args }) => <LinkList.Link {...args}>{children}</LinkList.Link>,
 }
 
 export const Default: Story = {
@@ -124,25 +78,5 @@ export const SmallText: Story = {
         Werken bij de gemeente Amsterdam
       </LinkList.Link>,
     ],
-  },
-}
-
-export const Link: LinkStory = {
-  ...LinkStoryTemplate,
-}
-
-export const ContrastColour: LinkStory = {
-  ...LinkStoryTemplate,
-  args: {
-    ...LinkStoryTemplate.args,
-    color: 'contrast',
-  },
-}
-
-export const InverseColour: LinkStory = {
-  ...LinkStoryTemplate,
-  args: {
-    ...LinkStoryTemplate.args,
-    color: 'inverse',
   },
 }

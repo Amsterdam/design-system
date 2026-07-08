@@ -6,6 +6,8 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/tabs.tokens.json";
 
 import * as TabsStories from "./Tabs.stories.tsx";
+import * as TabsButtonStories from "./TabsButton.stories.tsx";
+import * as TabsPanelStories from "./TabsPanel.stories.tsx";
 
 <Meta of={TabsStories} />
 
@@ -16,6 +18,28 @@ import * as TabsStories from "./Tabs.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+The List groups the Buttons of all tabs; it has no props of its own and is visible in the example above.
+
+### Button
+
+Activates its tab.
+Point the required `aria-controls` prop at the `id` of the corresponding Panel.
+
+<Canvas of={TabsButtonStories.Button} />
+
+<Controls of={TabsButtonStories.Button} />
+
+### Panel
+
+Holds the content of a tab.
+Its `id` connects it to the Button that controls it.
+
+<Canvas of={TabsPanelStories.Panel} />
+
+<Controls of={TabsPanelStories.Panel} />
 
 ## Usage guidelines
 

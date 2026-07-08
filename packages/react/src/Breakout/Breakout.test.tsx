@@ -3,11 +3,12 @@
  * Copyright Gemeente Amsterdam
  */
 
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { gridGaps, gridPaddings } from '../Grid/Grid'
+import { ariaRoleForTag } from '../common/accessibility'
+import { gridGaps, gridPaddings, gridTags } from '../Grid/Grid'
 import { Breakout } from './Breakout'
 
 describe('Breakout', () => {
@@ -76,8 +77,18 @@ describe('Breakout', () => {
     })
   })
 
+  gridTags.forEach((tag) => {
+    it(`renders with a custom ${tag} tag`, () => {
+      const { container } = render(<Breakout aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />)
+
+      const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
+
+      expect(component).toBeInTheDocument()
+    })
+  })
+
   it('supports ForwardRef in React', () => {
-    const ref = createRef<HTMLDivElement>()
+    const ref = createRef<HTMLElement>()
 
     const { container } = render(<Breakout ref={ref} />)
 

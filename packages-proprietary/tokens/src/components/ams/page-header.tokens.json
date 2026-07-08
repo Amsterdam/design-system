@@ -31,7 +31,7 @@
       "medium": {
         "padding-inline": {
           "$deprecated": "Use `ams.page-header.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
-          "$value": "initial",
+          "$value": "{ams.page-header.vi-medium.padding-inline}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
@@ -41,7 +41,7 @@
       "wide": {
         "padding-inline": {
           "$deprecated": "Use `ams.page-header.vi-wide.padding-inline` instead. Will be removed on or after 2026-10-20.",
-          "$value": "initial",
+          "$value": "{ams.page-header.vi-wide.padding-inline}",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"

@@ -68,6 +68,14 @@ describe('CalendarDay', () => {
     expect(screen.getByRole('link', { name: 'maandag 15 juni 2026' })).toHaveAttribute('data-custom')
   })
 
+  it('localises the visible day number so it matches the announced date', () => {
+    render(<CalendarDay date={monday15June2026} isCurrent={false} locale="ar-EG" />)
+
+    // ar-EG uses Arabic-Indic digits, so the visible number and the accessible label agree.
+    expect(screen.getByText('١٥')).toBeInTheDocument()
+    expect(screen.getByText('الاثنين، ١٥ يونيو ٢٠٢٦')).toBeInTheDocument()
+  })
+
   it('marks the date as current when isCurrent is true', () => {
     render(<CalendarDay date={monday15June2026} isCurrent linkTemplate={() => '/day'} locale="nl-NL" />)
 

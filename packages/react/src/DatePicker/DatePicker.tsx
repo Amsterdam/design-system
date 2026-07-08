@@ -8,11 +8,13 @@ import type { ForwardedRef, HTMLAttributes, KeyboardEvent } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef, useEffect, useId, useRef, useState } from 'react'
 
+import type { IconProps } from '../Icon'
+
 import { getDaysInMonth, isSameDay, isSameMonth, startOfDay } from '../common/dates'
 import { useMonthNavigation } from '../common/useMonthNavigation'
 import { DatePickerBody } from './DatePickerBody'
 import { DatePickerHeader } from './DatePickerHeader'
-import { getNextFocusDate, isOutOfBounds, isWithinRange, nextRange } from './utils'
+import { getListSeparator, getNextFocusDate, isOutOfBounds, isWithinRange, nextRange } from './utils'
 
 /** A start and end date. Either side may be `null` while the range is being chosen. */
 export type DateRange = {
@@ -23,31 +25,55 @@ export type DateRange = {
 }
 
 type DatePickerBaseProps = {
-  /** The month shown when the Date Picker first renders. Defaults to the current month. */
+  /** The month shown on first render. Defaults to the current month. */
   readonly defaultMonth?: Date
   /** Prevents selection of individual dates, e.g. dates that are unavailable. They remain reachable by keyboard. */
   readonly isDateDisabled?: (date: Date) => boolean
-  /** The locale used to format the weekday names, the month caption, and the accessible date labels. */
+  /** BCP 47 language tag for the weekday names, month caption, and accessible date labels. Defaults to `'nl-NL'`. */
   readonly locale?: string
   /** The latest selectable date. Also bounds month navigation. */
   readonly maxDate?: Date
   /** The earliest selectable date. Also bounds month navigation. */
   readonly minDate?: Date
   /**
+   * The icon for the button that navigates to the next month.
+   * Not for use within Amsterdam.
+   * @default ChevronForwardIcon
+   */
+  readonly nextMonthButtonIcon?: IconProps['svg']
+  /**
    * The accessible label for the button that navigates to the next month.
    * @default Volgende maand
    */
   readonly nextMonthButtonLabel?: string
+  /**
+   * The icon for the button that navigates to the next year.
+   * Not for use within Amsterdam.
+   * @default ChevronDoubleForwardIcon
+   */
+  readonly nextYearButtonIcon?: IconProps['svg']
   /**
    * The accessible label for the button that navigates to the next year.
    * @default Volgend jaar
    */
   readonly nextYearButtonLabel?: string
   /**
+   * The icon for the button that navigates to the previous month.
+   * Not for use within Amsterdam.
+   * @default ChevronBackwardIcon
+   */
+  readonly previousMonthButtonIcon?: IconProps['svg']
+  /**
    * The accessible label for the button that navigates to the previous month.
    * @default Vorige maand
    */
   readonly previousMonthButtonLabel?: string
+  /**
+   * The icon for the button that navigates to the previous year.
+   * Not for use within Amsterdam.
+   * @default ChevronDoubleBackwardIcon
+   */
+  readonly previousYearButtonIcon?: IconProps['svg']
   /**
    * The accessible label for the button that navigates to the previous year.
    * @default Vorig jaar
@@ -114,10 +140,14 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
     maxDate,
     minDate,
     mode,
+    nextMonthButtonIcon,
     nextMonthButtonLabel,
+    nextYearButtonIcon,
     nextYearButtonLabel,
     onChange,
+    previousMonthButtonIcon,
     previousMonthButtonLabel,
+    previousYearButtonIcon,
     previousYearButtonLabel,
     rangeEndAccessibleName = 'einddatum',
     rangeStartAccessibleName = 'startdatum',
@@ -181,7 +211,7 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
     const isStart = start !== null && isSameDay(date, start)
     const isEnd = end !== null && isSameDay(date, end)
 
-    if (isStart && isEnd) return `${rangeStartAccessibleName}, ${rangeEndAccessibleName}`
+    if (isStart && isEnd) return `${rangeStartAccessibleName}${getListSeparator(locale)}${rangeEndAccessibleName}`
     if (isStart) return rangeStartAccessibleName
     if (isEnd) return rangeEndAccessibleName
 
@@ -249,9 +279,13 @@ export const DatePicker = forwardRef((props: DatePickerProps, ref: ForwardedRef<
         goToPreviousYear={goToPreviousYear}
         locale={locale}
         month={month}
+        nextMonthButtonIcon={nextMonthButtonIcon}
         nextMonthButtonLabel={nextMonthButtonLabel}
+        nextYearButtonIcon={nextYearButtonIcon}
         nextYearButtonLabel={nextYearButtonLabel}
+        previousMonthButtonIcon={previousMonthButtonIcon}
         previousMonthButtonLabel={previousMonthButtonLabel}
+        previousYearButtonIcon={previousYearButtonIcon}
         previousYearButtonLabel={previousYearButtonLabel}
       />
       <DatePickerBody

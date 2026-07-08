@@ -196,7 +196,7 @@ describe('TableOfContents', () => {
       expect(buttons[1]).toHaveAttribute('aria-expanded', 'false')
     })
 
-    it('re-applies nested defaultCollapsed overrides after rerender', () => {
+    it('reads the nested defaultCollapsed default only on mount, ignoring later changes', () => {
       const { rerender } = render(
         <TableOfContents collapsible>
           <TableOfContents.List defaultCollapsed={false}>
@@ -219,6 +219,8 @@ describe('TableOfContents', () => {
       expect(buttons[0]).toHaveAttribute('aria-expanded', 'true')
       expect(buttons[1]).toHaveAttribute('aria-expanded', 'true')
 
+      // The resolved default seeds the state once, on mount. Flipping defaultCollapsed afterwards is
+      // ignored: use the controlled `expanded` prop to drive the state after mount.
       rerender(
         <TableOfContents collapsible>
           <TableOfContents.List defaultCollapsed={false}>
@@ -239,7 +241,7 @@ describe('TableOfContents', () => {
 
       expect(buttons).toHaveLength(2)
       expect(buttons[0]).toHaveAttribute('aria-expanded', 'true')
-      expect(buttons[1]).toHaveAttribute('aria-expanded', 'false')
+      expect(buttons[1]).toHaveAttribute('aria-expanded', 'true')
     })
 
     it("honours defaultCollapsed on a link's direct nested list", () => {

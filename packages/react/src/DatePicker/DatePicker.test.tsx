@@ -157,6 +157,36 @@ describe('DatePicker', () => {
     expect(screen.getByRole('button', { name: 'donderdag 12 maart 2026' })).toBeInTheDocument()
   })
 
+  it('names a single-day range with both start and end labels', () => {
+    const sameDay = new Date(2026, 2, 10)
+    const value: DateRange = { start: sameDay, end: sameDay }
+
+    render(<DatePicker defaultMonth={march2026} mode="range" onChange={noop} value={value} />)
+
+    expect(screen.getByRole('button', { name: 'dinsdag 10 maart 2026, startdatum, einddatum' })).toBeInTheDocument()
+  })
+
+  it('names a single-day range with the start and end labels joined by a locale-aware separator', () => {
+    const day = new Date(2026, 2, 10)
+
+    render(
+      <DatePicker
+        defaultMonth={march2026}
+        locale="ar-MA"
+        mode="range"
+        onChange={noop}
+        rangeEndAccessibleName="تاريخ الانتهاء"
+        rangeStartAccessibleName="تاريخ البدء"
+        value={{ start: day, end: day }}
+      />,
+    )
+
+    // The Arabic comma (U+060C) joins both the date and the two labels consistently.
+    expect(
+      screen.getByRole('button', { name: 'الثلاثاء، 10 مارس 2026، تاريخ البدء، تاريخ الانتهاء' }),
+    ).toBeInTheDocument()
+  })
+
   it('does not select a disabled date', () => {
     const onChange = vi.fn()
 

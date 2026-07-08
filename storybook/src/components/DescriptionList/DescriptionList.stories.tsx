@@ -9,6 +9,9 @@ import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
 import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
 
+import { inverseColorArgType } from '#storybook/_common/argTypes'
+import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
+
 const meta = {
   title: 'Components/Text/Description List',
   component: DescriptionList,
@@ -27,21 +30,16 @@ const meta = {
     ],
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
+    color: inverseColorArgType,
     termsWidth: {
       control: {
-        labels: { undefined: 'auto' },
+        labels: { undefined: 'auto (default)' },
         type: 'radio',
       },
       options: [undefined, ...descriptionListTermsWidths],
     },
   },
+  decorators: [wrapInInlineSizeQueryContainer()],
 } satisfies Meta<typeof DescriptionList>
 
 export default meta
@@ -61,11 +59,7 @@ export const Orientation: Story = {
       <DescriptionList.Description key={6}>Onderwijsrichting</DescriptionList.Description>,
     ],
   },
-  render: (args) => (
-    <div className="ams-query-container-inline-size _ams-resize-horizontal" style={{ inlineSize: '18rem' }}>
-      <DescriptionList {...args} />
-    </div>
-  ),
+  decorators: [wrapInInlineSizeQueryContainer('_ams-resize-horizontal', { inlineSize: '18rem' })],
 }
 
 export const MultipleDescriptions: Story = {

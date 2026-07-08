@@ -1,4 +1,4 @@
-name: Bundle size report
+name: Check bundle size
 
 on:
   pull_request:
@@ -7,10 +7,17 @@ permissions:
   contents: read
   pull-requests: write
 
+# A new push to the PR makes the run in flight obsolete – cancel it.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
-  compressed-size:
+  report-bundle-size:
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    # This job builds the packages twice: once for the base branch and once for the PR.
+    timeout-minutes: 20
 
     steps:
       - name: Check out branch
@@ -29,10 +36,10 @@ jobs:
         run: |
           mkdir -p packages-proprietary/temp
           tar -czf packages-proprietary/temp/assets-fonts.tar.gz -C packages-proprietary/assets font
-          tar -czf packages-proprietary/temp/assets-others.tar.gz -C packages-proprietary/assets app-icons favicon icons logo manifest *.svg *.png *.jpg *.jpeg *.gif *.webp *.avif *.ico 2>/dev/null || true
+          tar -czf packages-proprietary/temp/assets-others.tar.gz -C packages-proprietary/assets app-icons favicon icons logo manifest
 
       - name: Report bundle size
-        uses: preactjs/compressed-size-action@66325aad6443cb7cf89c4bfcd414aea2367cda94 # v2.9.1
+        uses: preactjs/compressed-size-action@f322c295dde06a1cb7ccaef105732dd8a726d1d9 # v2.10.0
         with:
           build-script: build
           install-script: pnpm install --frozen-lockfile --ignore-scripts

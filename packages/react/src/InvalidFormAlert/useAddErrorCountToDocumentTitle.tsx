@@ -20,6 +20,7 @@ export const useAddErrorCountToDocumentTitle = (
     originalTitleRef.current ??= document.title
 
     return () => {
+      /* v8 ignore next -- Set by the preceding effect body; never null by the time this cleanup runs */
       if (originalTitleRef.current === null) return
 
       document.title = originalTitleRef.current
@@ -27,6 +28,7 @@ export const useAddErrorCountToDocumentTitle = (
   }, [])
 
   useEffect(() => {
+    /* v8 ignore next -- The first effect always runs before this one, so the ref is always set here */
     const originalTitle = originalTitleRef.current ?? document.title
     let nextTitle = originalTitle
 

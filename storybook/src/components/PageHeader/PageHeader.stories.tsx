@@ -9,6 +9,12 @@ import type { CSSProperties, ReactNode } from 'react'
 import { Grid, Heading, LinkList } from '@amsterdam/design-system-react'
 import { LogInIcon, PlusIcon, SearchIcon } from '@amsterdam/design-system-react-icons'
 import { PageHeader } from '@amsterdam/design-system-react/src'
+import { logoBrands } from '@amsterdam/design-system-react/src/Logo/Logo'
+import { useState } from 'react'
+
+import { linkComponentArgType } from '#storybook/_common/argTypes'
+import { wrapInPage } from '#storybook/_common/decorators'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 import ExampleLogo from '../Logo/ExampleLogo'
 import { collapsibleMenuItems, headerMenuItems } from './content'
@@ -16,6 +22,54 @@ import { collapsibleMenuItems, headerMenuItems } from './content'
 const meta = {
   title: 'Components/Containers/Page Header',
   component: PageHeader,
+  argTypes: {
+    // The render below controls the mega menu, so live `open`/`defaultOpen` controls can't behave like the
+    // real uncontrolled props. Disable them; a story can still set either through its `args`.
+    defaultOpen: { control: false },
+    logoBrand: {
+      control: {
+        labels: { undefined: 'amsterdam (default)' },
+        type: 'select',
+      },
+      options: [undefined, ...logoBrands.filter((brand) => brand !== 'amsterdam')],
+    },
+    logoLinkComponent: linkComponentArgType,
+    menuButtonIcon: {
+      ...iconArgType(),
+      control: {
+        labels: { undefined: 'default icon' },
+        type: 'select',
+      },
+    },
+    menuItems: { control: false },
+    onOpenChange: { action: 'openChange' },
+    open: { control: false },
+  },
+  decorators: [wrapInPage],
+  // Control the mega menu so these example links can close it on click, the way an app would on navigation.
+  // Seed from `defaultOpen` and defer to a provided `open` arg so a story can still set them through args.
+  render: (args) => {
+    const [open, setOpen] = useState(args.defaultOpen ?? false)
+
+    return (
+      <PageHeader
+        {...args}
+        onClick={(event) => {
+          // The links are placeholders; keep any Page Header link (logo, inline menu, mega menu) from
+          // navigating, and close the mega menu the way an app would on navigation.
+          if (event.target instanceof Element && event.target.closest('a')) {
+            event.preventDefault()
+            setOpen(false)
+          }
+        }}
+        onOpenChange={(nextOpen) => {
+          setOpen(nextOpen)
+          args.onOpenChange?.(nextOpen)
+        }}
+        open={args.open ?? open}
+      />
+    )
+  },
 } satisfies Meta<typeof PageHeader>
 
 export default meta

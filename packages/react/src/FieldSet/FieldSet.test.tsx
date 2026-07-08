@@ -78,7 +78,7 @@ describe('FieldSet', () => {
   })
 
   it('renders the provided hint text after the legend when both `optional` and `hint` props are used', () => {
-    render(<FieldSet hint="not required" legend="Legend" optional={true} />)
+    render(<FieldSet hint="not required" legend="Legend" optional />)
 
     const component = screen.getByRole('group', { name: 'Legend (not required)' })
 

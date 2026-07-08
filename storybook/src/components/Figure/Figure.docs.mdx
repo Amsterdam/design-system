@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/figure.tokens.json";
 
 import * as FigureStories from "./Figure.stories.tsx";
+import * as FigureCaptionStories from "./FigureCaption.stories.tsx";
 
 <Meta of={FigureStories} />
 
@@ -15,7 +16,23 @@ import * as FigureStories from "./Figure.stories.tsx";
 
 <Primary />
 
-<Controls />
+This component has no props to configure.
+
+## Subcomponents
+
+### Caption
+
+Describes the content.
+
+<Canvas of={FigureCaptionStories.Caption} />
+
+<Controls of={FigureCaptionStories.Caption} />
+
+## Usage guidelines
+
+### When to use
+
+Use a Figure to add a caption to an image, table, citation, illustration, diagram, code snippet, etc.
 
 ## Examples
 

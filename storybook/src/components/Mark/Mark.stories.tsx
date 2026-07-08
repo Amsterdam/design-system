@@ -9,6 +9,8 @@ import { Card, Grid, Heading, Paragraph, SearchField, UnorderedList } from '@ams
 import { Mark } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 
+import { childrenArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Text/Mark',
   component: Mark,
@@ -22,11 +24,9 @@ export const Default: Story = {
   args: {
     children: 'Wat vinden Amsterdammers belangrijk?',
   },
+  // Only this story renders a single Mark whose text the control drives – the other story composes many instances.
   argTypes: {
-    children: {
-      description: 'The text to mark.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The text to mark.'),
   },
   render: ({ children }) => (
     <Paragraph>

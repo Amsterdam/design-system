@@ -30,7 +30,7 @@ const BreadcrumbRoot = forwardRef(
 
     return (
       <nav {...restProps} aria-labelledby={labelId} className={clsx('ams-breadcrumb', className)} ref={ref}>
-        <h2 aria-hidden={true} className="ams-visually-hidden" id={labelId}>
+        <h2 aria-hidden="true" className="ams-visually-hidden" id={labelId}>
           {accessibleName || 'Kruimelpad'}
         </h2>
         <ol className="ams-breadcrumb__list">{children}</ol>

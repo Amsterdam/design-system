@@ -1,4 +1,4 @@
-name: Lint and test
+name: Check build and tests
 
 on:
   push:
@@ -8,9 +8,18 @@ on:
 permissions:
   contents: read
 
+# Cancel superseded runs for pull requests only. Runs for pushes to main fall
+# back to their run id, forming a unique group: they never cancel or queue
+# behind each other and always complete — the publish-packages workflow
+# triggers on their completion.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   install:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Check out branch
@@ -30,6 +39,7 @@ jobs:
 
   build-lint-test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     needs: install
 
     steps:
@@ -51,10 +61,10 @@ jobs:
       - name: Build packages
         run: pnpm --filter=!storybook -r run build
 
-      - name: "Continuous Integration: lint"
+      - name: Lint packages
         run: |
           pnpm run --if-present lint
 
-      - name: "Continuous Integration: test"
+      - name: Test packages
         run: |
           pnpm run --if-present test

@@ -1,0 +1,48 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+import { PieChartFillIcon } from '@amsterdam/design-system-react-icons'
+import { Menu } from '@amsterdam/design-system-react/src'
+
+import { childrenArgType, hrefArgType, linkComponentArgType } from '#storybook/_common/argTypes'
+import { requiredIconArgType } from '#storybook/_common/iconArgTypes'
+
+const meta = {
+  title: 'Components/Navigation/Menu',
+  component: Menu.Link,
+  argTypes: {
+    children: childrenArgType('The link text.'),
+    href: hrefArgType,
+    icon: requiredIconArgType,
+    linkComponent: linkComponentArgType,
+  },
+  decorators: [
+    (Story) => (
+      <Menu inWideWindow>
+        <Story />
+      </Menu>
+    ),
+  ],
+  parameters: {
+    themes: {
+      themeOverride: 'Compact',
+    },
+  },
+  render: ({ children, ...args }) => <Menu.Link {...args}>{children}</Menu.Link>,
+} satisfies Meta<typeof Menu.Link>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Link: Story = {
+  args: {
+    children: 'Dashboard',
+    href: '#',
+    icon: <PieChartFillIcon />,
+  },
+}

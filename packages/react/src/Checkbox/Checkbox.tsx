@@ -43,6 +43,7 @@ export const Checkbox = forwardRef(
 
     // set input to indeterminate
     useEffect(() => {
+      /* v8 ignore next -- Ref is always populated when useEffect runs post-mount */
       if (innerRef.current) {
         innerRef.current.indeterminate = Boolean(indeterminate)
       }

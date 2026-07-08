@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/page-header.tokens.json";
 
 import * as PageHeaderStories from "./PageHeader.stories.tsx";
+import * as PageHeaderMenuLinkStories from "./PageHeaderMenuLink.stories.tsx";
 
 <Meta of={PageHeaderStories} />
 
@@ -16,6 +17,20 @@ import * as PageHeaderStories from "./PageHeader.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+The Grid Cell Narrow Window Only subcomponent accepts all Grid Cell props and is only displayed in narrow windows.
+The primary example uses it to repeat a menu link below the header.
+
+### Menu Link
+
+Navigates to an important page.
+Set `fixed` to keep the link visible next to the menu button in narrow windows, and add an `icon` to display after the text.
+
+<Canvas of={PageHeaderMenuLinkStories.MenuLink} />
+
+<Controls of={PageHeaderMenuLinkStories.MenuLink} />
 
 ## Usage guidelines
 
@@ -70,6 +85,36 @@ Use the `GridCellNarrowWindowOnly` subcomponent to contain links from the inline
 Don’t add whitespace to the Grid in the collapsible menu – its container already provides this.
 
 If the collapsible menu contains [Headings](/docs/components-text-heading--docs), give them level 2 and a size of ‘level-3’.
+
+#### Controlling the menu
+
+By default the Page Header keeps track of whether the collapsible menu is open.
+Set `defaultOpen` to have it open on the first render.
+
+To control the menu yourself, pass `open` and update it from the `onOpenChange` callback.
+This matters most in a single-page app: the Page Header stays mounted while navigating, so the menu would otherwise stay open after someone follows a link inside it.
+Keep the open state in your own component and close it whenever the route changes:
+
+{/* prettier-ignore */}
+```tsx
+function Header() {
+  const { pathname } = useLocation() // The current route from your router
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [previousPathname, setPreviousPathname] = useState(pathname)
+
+  // Close the collapsible menu whenever the route changes
+  if (pathname !== previousPathname) {
+    setPreviousPathname(pathname)
+    setMenuOpen(false)
+  }
+
+  return (
+    <PageHeader onOpenChange={setMenuOpen} open={menuOpen}>
+      {/* Collapsible menu content */}
+    </PageHeader>
+  )
+}
+```
 
 ## Examples
 

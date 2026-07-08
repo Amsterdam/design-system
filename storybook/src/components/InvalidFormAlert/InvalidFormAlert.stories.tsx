@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { InvalidFormAlert } from '@amsterdam/design-system-react/src'
 
+import { headingLevelArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Forms/Invalid Form Alert',
   component: InvalidFormAlert,
@@ -17,6 +19,9 @@ const meta = {
     ],
     focusOnRender: false,
     headingLevel: 2,
+  },
+  argTypes: {
+    headingLevel: headingLevelArgType(),
   },
 } satisfies Meta<typeof InvalidFormAlert>
 

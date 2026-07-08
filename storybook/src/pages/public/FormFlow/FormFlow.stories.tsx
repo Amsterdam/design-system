@@ -18,6 +18,7 @@ import {
   InvalidFormAlert,
   Label,
   OrderedList,
+  Page,
   Paragraph,
   Radio,
   StandaloneLink,
@@ -42,11 +43,48 @@ export default meta
 export const LandingPage: StoryObj = {
   decorators: [
     (Story) => (
-      <Layout>
-        <Story />
-      </Layout>
+      <Page>
+        <Layout>
+          <Story />
+        </Layout>
+      </Page>
     ),
   ],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        code: `<Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
+  <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+    <Heading className="ams-mb-m" level={1}>Waar u dit formulier voor gebruikt</Heading>
+    <Paragraph size="large">
+      Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
+    </Paragraph>
+  </Grid.Cell>
+  <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+    {/* Show the steps up front so people know what to expect before they start. */}
+    <Heading className="ams-mb-s" level={2}>De stappen in dit formulier</Heading>
+    <OrderedList className="ams-mb-l">
+      <OrderedList.Item>
+        <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak
+        wilt hebben. En wanneer.
+      </OrderedList.Item>
+      <OrderedList.Item>
+        <strong>Uw gegevens</strong> - Vul uw contactgegevens in.
+      </OrderedList.Item>
+      <OrderedList.Item>
+        <strong>Controleren</strong> - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
+      </OrderedList.Item>
+    </OrderedList>
+    {/* A single, prominent call to action that starts the form. */}
+    <CallToActionLink href="#">Start het formulier</CallToActionLink>
+  </Grid.Cell>
+</Grid>`,
+        language: 'tsx',
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
@@ -88,6 +126,71 @@ export const SingleQuestion: StoryObj = {
       </FormLayout>
     ),
   ],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        code: `<>
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  <Grid className="ams-mb-xl">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      {/*
+       * A back link lets users move between form pages without worrying about losing their progress. The
+       * browser back button should keep progress too, but users do not always trust it. Use a link, not a
+       * button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/ and
+       * https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+       */}
+      <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
+    </Grid.Cell>
+  </Grid>
+  <Grid as="main" paddingBottom="2x-large">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      {/*
+       * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+       * an extra entry to the heading hierarchy – and it stays clearly labelled if CSS fails to load.
+       */}
+      <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
+        <Heading aria-hidden id="form-header" level={2} size="level-4">Afspraak maken</Heading>
+        {/*
+         * First test the form without a progress indicator to see whether it is simple enough to go without
+         * one. If not, use a plain one like this.
+         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+         */}
+        <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
+      </header>
+      {/*
+       * Do not rely on HTML5 form validation: it is inconsistent across browsers and devices and often tells
+       * the user too little. Validate on the server and return the result, or use client-side validation.
+       * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/
+       */}
+      <form noValidate onSubmit={(e) => e.preventDefault()}>
+        {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
+        <FieldSet
+          aria-required="true"
+          className="ams-mb-xl"
+          legend="Kies waar u voor wilt langskomen op het Stadsloket"
+          // When a page is a single question, treat its legend as the main page heading (h1).
+          legendIsPageHeading
+          role="radiogroup"
+        >
+          <Column gap="x-small">
+            <Radio aria-required="true" name="reasonForVisit" value="passport-id-driving-license">Paspoort / ID / Rijbewijs</Radio>
+            <Radio aria-required="true" name="reasonForVisit" value="permits">Vergunningen</Radio>
+            <Radio aria-required="true" name="reasonForVisit" value="social-counter">Sociaal loket</Radio>
+            <Radio aria-required="true" name="reasonForVisit" value="other">Overig</Radio>
+          </Column>
+        </FieldSet>
+        <Button type="submit">Volgende vraag</Button>
+      </form>
+    </Grid.Cell>
+  </Grid>
+</>`,
+        language: 'tsx',
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
@@ -173,6 +276,71 @@ export const SingleQuestionWithSubquestions: StoryObj = {
       </FormLayout>
     ),
   ],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        code: `<>
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  <Grid className="ams-mb-xl">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      {/*
+       * A back link lets users move between form pages without worrying about losing their progress. Use a
+       * link, not a button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/
+       */}
+      <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
+    </Grid.Cell>
+  </Grid>
+  <Grid as="main" paddingBottom="2x-large">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      {/*
+       * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+       * an extra entry to the heading hierarchy – and it stays labelled if CSS fails to load.
+       */}
+      <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
+        <Heading aria-hidden id="form-header" level={2} size="level-4">Afspraak maken</Heading>
+        <Paragraph>Stap 2 van 3: Uw gegevens</Paragraph>
+      </header>
+      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      <form noValidate onSubmit={(e) => e.preventDefault()}>
+        {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
+        <FieldSet legend="Contactgegevens" legendIsPageHeading>
+          <Field>
+            <Label htmlFor="email-input" inFieldSet optional>E-mailadres</Label>
+            <TextInput
+              autoComplete="email"
+              autoCorrect="off"
+              id="email-input"
+              name="email"
+              // A generous size, per https://design-system.service.gov.uk/patterns/email-addresses/
+              size={30}
+              spellCheck="false"
+              type="email"
+            />
+          </Field>
+          <Field className="ams-mb-xl">
+            <Label htmlFor="tel-input" inFieldSet optional>Telefoonnummer</Label>
+            <TextInput
+              autoComplete="tel"
+              id="tel-input"
+              name="phone"
+              // Phone numbers are at most 15 characters (E.164): https://en.wikipedia.org/wiki/E.164
+              size={15}
+              type="tel"
+            />
+          </Field>
+        </FieldSet>
+        <Button type="submit">Volgende vraag</Button>
+      </form>
+    </Grid.Cell>
+  </Grid>
+</>`,
+        language: 'tsx',
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
@@ -263,6 +431,52 @@ export const MultipleQuestions: StoryObj = {
       </FormLayout>
     ),
   ],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        code: `<>
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  <Grid className="ams-mb-xl">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      {/*
+       * A back link lets users move between form pages without worrying about losing their progress. Use a
+       * link, not a button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/
+       */}
+      <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
+    </Grid.Cell>
+  </Grid>
+  <Grid as="main" paddingBottom="2x-large">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      {/* A form with multiple questions has a level 1 heading before it that describes the whole group. */}
+      <Heading className="ams-mb-xl" level={1}>Inschrijven</Heading>
+      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      <form noValidate onSubmit={(e) => e.preventDefault()}>
+        {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
+        <Field className="ams-mb-l">
+          <Label htmlFor="name-input">Naam</Label>
+          <TextInput autoComplete="name" autoCorrect="off" id="name-input" name="name" spellCheck="false" type="text" />
+        </Field>
+        <Field className="ams-mb-l">
+          <Label htmlFor="tel-input" optional>Telefoonnummer</Label>
+          {/* Phone numbers are at most 15 characters (E.164): https://en.wikipedia.org/wiki/E.164 */}
+          <TextInput autoComplete="tel" id="tel-input" name="tel" size={15} type="tel" />
+        </Field>
+        <Field className="ams-mb-xl">
+          <Label htmlFor="date">Datum</Label>
+          <DateInput id="date" />
+        </Field>
+        <Button type="submit">Volgende vraag</Button>
+      </form>
+    </Grid.Cell>
+  </Grid>
+</>`,
+        language: 'tsx',
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
@@ -340,6 +554,70 @@ export const WithValidationError: StoryObj = {
       </FormLayout>
     ),
   ],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the error-handling guidance below stays in the panel.
+        code: `<>
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  <Grid className="ams-mb-xl">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
+    </Grid.Cell>
+  </Grid>
+  <Grid as="main" paddingBottom="2x-large">
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      {/*
+       * Notifying a user of errors is threefold:
+       * - Add the error count to the document title, so a screen reader announces it first.
+       * - Show the Invalid Form Alert at the top of the main container.
+       * - Add error messages next to the relevant form fields.
+       * See https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs
+       */}
+      <InvalidFormAlert
+        className="ams-mb-m"
+        errors={[{ id: '#passport-id-driving-license', label: 'Geef aan waar u voor wilt langskomen.' }]}
+        headingLevel={2}
+      />
+      {/*
+       * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+       * an extra entry to the heading hierarchy – and it stays labelled if CSS fails to load.
+       */}
+      <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
+        <Heading aria-hidden id="form-header" level={2} size="level-4">Afspraak maken</Heading>
+        <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
+      </header>
+      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      <form noValidate onSubmit={(e) => e.preventDefault()}>
+        <FieldSet
+          // Only link the error message to the field set while the message is in the DOM. Referencing a
+          // non-existent element can trip up accessibility evaluation tools.
+          aria-describedby="error"
+          aria-required="true"
+          className="ams-mb-xl"
+          invalid
+          legend="Kies waar u voor wilt langskomen op het Stadsloket"
+          legendIsPageHeading
+          role="radiogroup"
+        >
+          <ErrorMessage id="error">Geef aan waar u voor wilt langskomen.</ErrorMessage>
+          <Column gap="x-small">
+            <Radio aria-required="true" id="passport-id-driving-license" invalid name="reasonForVisit" value="passport-id-driving-license">Paspoort / ID / Rijbewijs</Radio>
+            <Radio aria-required="true" invalid name="reasonForVisit" value="permits">Vergunningen</Radio>
+            <Radio aria-required="true" invalid name="reasonForVisit" value="social-counter">Sociaal loket</Radio>
+            <Radio aria-required="true" invalid name="reasonForVisit" value="other">Overig</Radio>
+          </Column>
+        </FieldSet>
+        <Button type="submit">Volgende vraag</Button>
+      </form>
+    </Grid.Cell>
+  </Grid>
+</>`,
+        language: 'tsx',
+      },
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>

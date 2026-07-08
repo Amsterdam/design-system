@@ -29,6 +29,7 @@ const config: StorybookConfig = {
       },
     },
     '@linus_janns/storybook-addon-html',
+    '@storybook/addon-mcp',
     ...(process.env['IS_CHROMATIC'] || process.env['NODE_ENV'] === 'development'
       ? ['storybook-addon-pseudo-states']
       : []),
@@ -47,7 +48,16 @@ const config: StorybookConfig = {
     options: {},
   },
 
-  staticDirs: ['../../packages-proprietary/assets'],
+  // Mount the individual asset folders rather than the package root: the package
+  // also holds infrastructure (node_modules, configs) that must not be published.
+  staticDirs: [
+    { from: '../../packages-proprietary/assets/app-icons', to: '/app-icons' },
+    { from: '../../packages-proprietary/assets/favicon', to: '/favicon' },
+    { from: '../../packages-proprietary/assets/font', to: '/font' },
+    { from: '../../packages-proprietary/assets/icons', to: '/icons' },
+    { from: '../../packages-proprietary/assets/logo', to: '/logo' },
+    { from: '../../packages-proprietary/assets/manifest', to: '/manifest' },
+  ],
   stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.@(ts|tsx)'],
 
   typescript: {
@@ -58,6 +68,7 @@ const config: StorybookConfig = {
         `${path.resolve(repoRoot, 'packages-proprietary/react-icons/src')}/**/*.tsx`,
       ],
       shouldExtractLiteralValuesFromEnum: true,
+      shouldIncludePropTagMap: true, // Provides JSDoc tags like `@deprecated` to the argTypes enhancer in preview.tsx
       shouldRemoveUndefinedFromOptional: true,
       tsconfigPath: 'tsconfig.docgen.json',
     },

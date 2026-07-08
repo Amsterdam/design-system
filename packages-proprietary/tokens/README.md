@@ -176,68 +176,56 @@ Note that redefining the value of a token is a much better approach than redecla
 
 ## Deprecating tokens
 
-We deprecate tokens using the DTCG `$deprecated` field. The [official definition](https://www.designtokens.org/tr/drafts/format/#deprecated) allows `$deprecated` to be `true`, `false` or a string explanation.
+A deprecated token keeps working until it is removed, so it must always hold a real value.
 
-In ADS, `$deprecated` should be a string so consumers always get a reason + migration path.
+We provide a reason and a migration path through the DTCG `$deprecated` field.
+When there is a direct replacement, start the message with ``Use `<replacement-token>` instead.``
+End every message with a removal date: `Will be removed on or after YYYY-MM-DD.`
 
-### Deprecation message format
+### Renaming a token
 
-- Always include a removal date: `Will be removed on or after YYYY-MM-DD.`
-- If there is a direct replacement, start with: ``Use `<replacement-token>` instead.``
+Keep the old name intact during the deprecation window, while adding the new name for the same value.
+Wire the rename through a `var()` fallback, so downstream overrides of the old name keep working.
 
-### Simple deprecation (no fallback)
-
-If a deprecated token is still used directly, keep its existing `$value` until removal.
-Also add a deprecation comment next to the token usage in the consuming CSS.
-
-Token JSON:
-
-```jsonc
-"row-gap": {
-  "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-20.",
-  "$value": "0"
-}
-```
-
-Component CSS:
-
-```css
-row-gap: var(--ams-description-list-row-gap); /* This token is @deprecated. Will be removed on or after 2026-10-20. */
-```
-
-### Renames that use `var()` fallback
-
-When a token is renamed but we still want (downstream) overrides of the old token to keep working, we implement the rename through CSS `var()` fallback.
-
-Always add an inline deprecation comment next to the deprecated custom property inside the `var()` call.
-
-1. Update the component CSS to reference the deprecated token first, and the replacement token as the fallback:
-
-```css
-padding-inline: var(
-  --ams-grid-medium-padding-inline /* This token is @deprecated. Will be removed on or after 2026-10-20. */,
-  var(--ams-grid-vi-medium-padding-inline)
-);
-```
-
-2. In the token JSON, mark the old token as deprecated and set its `$value` to the CSS-wide keyword `initial`:
+1. Point the deprecated token’s `$value` at the replacement, so it resolves to the same value:
 
 ```jsonc
 "medium": {
   "padding-inline": {
     "$deprecated": "Use `ams.grid.vi-medium.padding-inline` instead. Will be removed on or after 2026-10-20.",
-    "$value": "initial"
+    "$value": "{ams.grid.vi-medium.padding-inline}"
   }
 }
 ```
 
-Why `initial`? Per CSS `var()` rules, when a custom property is [not set or is set to a CSS-wide keyword](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/var#syntax) like `initial`, the fallback value is used. This makes the replacement token the default while keeping the deprecated token visible and overrideable.
+2. In the component CSS, reference the deprecated token first, with the replacement as the fallback:
+   Mark the deprecation in the component stylesheet as well; no need to copy the details from the tokens file.
 
-Only apply this `initial` rule when the deprecated token is used in a `var(--deprecated, <fallback>)` pattern.
+```css
+padding-inline: var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline));
+```
 
-### Deprecations without a 1:1 replacement
+3. If a theme overrides the replacement (for example Compact Mode), overriding the replacement token is enough because the deprecated token references it.
+   Only repeat the deprecated token in a theme tokens file if you need to override the deprecated token itself for legacy consumers.
 
-If there is no 1:1 replacement (design/behavior changed), keep the existing `$value` until removal and update the consuming CSS/markup before deleting the token.
+### Removing a token
+
+A removal will always be a breaking change, so it must be part of a major release.
+Plan the deprecation early, as it must stay in place for at least six months.
+The value of the token cannot change during the deprecation window, as we consider visual consequences for downstream users a breaking change.
+
+```jsonc
+"row-gap": {
+  "$deprecated": "Whitespace is now applied through the `ams.description-list.*.margin-block-end` tokens. Will be removed on or after 2026-10-20.",
+  "$value": "(unchanged value)"
+}
+```
+
+Surface the deprecation in the stylesheet as well.
+
+```css
+row-gap: var(--ams-description-list-row-gap); /* @deprecated Will be removed on or after 2026-10-20. */
+```
 
 ## Token types
 

@@ -7,21 +7,24 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Table } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Containers/Table',
   component: Table.Cell,
   argTypes: {
     align: {
       control: {
-        labels: { undefined: 'start' },
+        labels: { undefined: 'start (default)' },
         type: 'radio',
       },
       options: [undefined, 'center', 'end'],
     },
+    children: childrenArgType('The content of the cell.'),
   },
   decorators: [
     (Story) => (
-      <Table>
+      <Table style={{ minInlineSize: '16rem' }}>
         <Table.Body>
           <Table.Row>
             <Story />
@@ -40,11 +43,4 @@ export const Cell: Story = {
   args: {
     children: '€ 77,85',
   },
-  decorators: [
-    (Story) => (
-      <div style={{ inlineSize: '8rem' }}>
-        <Story />
-      </div>
-    ),
-  ],
 }

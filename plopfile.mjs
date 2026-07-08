@@ -1,3 +1,31 @@
+/**
+ * Inserts a line at its sorted position in the list that follows the ‘Append here’ marker.
+ * This keeps generated index files in the order that our lint rules require.
+ */
+const insertLineSorted = (contents, line) => {
+  const lines = contents.split('\n')
+
+  if (lines.includes(line)) {
+    return contents
+  }
+
+  const markerIndex = lines.indexOf('/* Append here */')
+
+  if (markerIndex === -1) {
+    throw new Error('Marker /* Append here */ not found')
+  }
+
+  let index = markerIndex + 1
+
+  while (index < lines.length && lines[index] !== '' && lines[index].toLowerCase() < line.toLowerCase()) {
+    index += 1
+  }
+
+  lines.splice(index, 0, line)
+
+  return lines.join('\n')
+}
+
 export default function (plop) {
   // component generator
   plop.setGenerator('component', {
@@ -14,9 +42,9 @@ export default function (plop) {
       },
       {
         path: 'packages/css/src/components/index.scss',
-        pattern: `/* Append here */`,
-        template: `@use "{{kebabCase name}}/{{kebabCase name}}";`,
-        type: 'append',
+        transform: (contents, answers) =>
+          insertLineSorted(contents, plop.renderString(`@use "{{kebabCase name}}/{{kebabCase name}}";`, answers)),
+        type: 'modify',
       },
       {
         path: 'packages/react/src/{{pascalCase name}}/{{pascalCase name}}.tsx',
@@ -35,9 +63,9 @@ export default function (plop) {
       },
       {
         path: 'packages/react/src/index.ts',
-        pattern: `/* Append here */`,
-        template: `export * from './{{pascalCase name}}'`,
-        type: 'append',
+        transform: (contents, answers) =>
+          insertLineSorted(contents, plop.renderString(`export * from './{{pascalCase name}}'`, answers)),
+        type: 'modify',
       },
       {
         data: { curlyBefore: '{' },

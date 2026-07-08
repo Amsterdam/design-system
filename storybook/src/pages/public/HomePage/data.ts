@@ -38,7 +38,7 @@ export const topTaskSection = {
   ],
 }
 
-export const spotlightBlocks = [
+export const spotlightSections = [
   {
     title: 'Ontheffing of vergunning',
     description:

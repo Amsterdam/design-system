@@ -113,7 +113,7 @@
   }
 
   /** Repeat declarations and increase specificity to override Grid Cell background and padding in Compact Mode. */
-  ._ams-grid-columns-guide + .ams-grid > & {
+  ._ams-grid-columns-guide + :is(.ams-breakout, .ams-grid) > & {
     background-color: var(--_ams-color-pink);
     border-color: var(--_ams-color-grey);
     border-style: dashed;
@@ -140,6 +140,14 @@
   /* We allow non-baseline CSS in Storybook. */
   /* stylelint-disable-next-line plugin/use-baseline */
   resize: horizontal;
+}
+
+/* The City’s three crosses, shown centered as a decorative footer beneath every docs page. */
+._ams-docs-footer {
+  font-size: 1.125rem !important;
+  line-height: 1;
+  margin-block-start: 3rem !important;
+  text-align: center;
 }
 
 strong {

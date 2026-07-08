@@ -7,16 +7,20 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useContext, useEffect, useId, useRef, useState } from 'react'
+import { forwardRef, useContext, useEffect, useId, useRef } from 'react'
 
 import type { IconProps } from '../Icon'
 
+import { useCollapsible } from '../common/useCollapsible'
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import { AccordionContext } from './AccordionContext'
 
 export type AccordionSectionProps = {
-  /** Whether the content is displayed initially. */
+  /**
+   * Whether the content is displayed initially.
+   * @default false
+   */
   readonly defaultExpanded?: boolean
   /**
    * Whether the content is displayed initially.
@@ -25,6 +29,8 @@ export type AccordionSectionProps = {
   readonly expanded?: boolean
   /** The heading text. */
   readonly label: string
+  /** Callback fired when the section is expanded or collapsed. Receives the new expanded state. */
+  readonly onToggle?: (expanded: boolean) => void
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
@@ -34,17 +40,20 @@ export type AccordionSectionProps = {
  */
 export const AccordionSection = forwardRef(
   (
-    { children, className, defaultExpanded, expanded, label, ...restProps }: AccordionSectionProps,
+    { children, className, defaultExpanded, expanded, label, onToggle, ...restProps }: AccordionSectionProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const { headingLevel, sectionAs } = useContext(AccordionContext)
-    const [isExpanded, setIsExpanded] = useState(defaultExpanded ?? expanded ?? false)
+
+    const [isExpanded, toggle] = useCollapsible({ defaultValue: defaultExpanded ?? expanded, onToggle })
 
     // The deprecation warning fires once with the value passed on mount, so we read it through a ref to keep the effect dependency-free.
     const initialExpandedRef = useRef(expanded)
     useEffect(() => {
       if (initialExpandedRef.current !== undefined) {
-        console.warn('Accordion.Section: The `expanded` prop is deprecated. Use `defaultExpanded` instead.')
+        console.warn(
+          '@deprecated The `expanded` prop of Accordion Section has been renamed. Use `defaultExpanded` instead.',
+        )
       }
     }, [])
 
@@ -62,7 +71,7 @@ export const AccordionSection = forwardRef(
             aria-expanded={isExpanded}
             className="ams-accordion__button"
             id={buttonId}
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={toggle}
             type="button"
           >
             <Icon className="ams-accordion__icon" size={iconSize} svg={ChevronDownIcon} />

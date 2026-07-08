@@ -1,11 +1,11 @@
 # @license EUPL-1.2+
 # Copyright Gemeente Amsterdam
-"""Delete obsolete GitHub Deployments for a repo.
+"""Delete stale GitHub Deployments for a repo.
 
 Default scope (always on): `demo-*` deployments whose branch is gone.
-A deployment targeting environment `demo-X` is obsolete when no remote branch
+A deployment targeting environment `demo-X` is stale when no remote branch
 matches `X` after stripping the leading `<prefix>/` segment from the branch
-name — the same transform feature-branch-deploy.yml applies.
+name — the same transform deploy-acceptance-storybook.yml applies.
 
 Optional scope (--include-production): `github-pages` and `demo-develop`
 deployments. The branch-existence check doesn't apply (those branches always

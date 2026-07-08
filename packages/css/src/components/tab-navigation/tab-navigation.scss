@@ -13,6 +13,7 @@
   box-shadow: var(--ams-tab-navigation-list-box-shadow);
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
@@ -26,6 +27,7 @@
       box-shadow: var(--ams-tab-navigation-list-vertical-box-shadow);
       flex-direction: column;
       overflow-x: visible;
+      overflow-y: visible;
     }
   }
 }

@@ -7,6 +7,7 @@ import tokens from "#tokens/components/ams/progress-list.tokens.json";
 
 import * as ProgressListStories from "./ProgressList.stories.tsx";
 import * as ProgressListStepStories from "./ProgressListStep.stories.tsx";
+import * as ProgressListSubstepStories from "./ProgressListSubstep.stories.tsx";
 
 <Meta of={ProgressListStories} />
 
@@ -20,6 +21,9 @@ import * as ProgressListStepStories from "./ProgressListStep.stories.tsx";
 
 ## Subcomponents
 
+Steps make up a Progress List.
+A Step can contain Substeps, wrapped in the Substeps subcomponent, which has no props of its own.
+
 ### Step
 
 Each step in the list has a heading, a status, and optionally collapsible content.
@@ -27,6 +31,15 @@ Each step in the list has a heading, a status, and optionally collapsible conten
 <Canvas of={ProgressListStepStories.Step} />
 
 <Controls of={ProgressListStepStories.Step} />
+
+### Substep
+
+Marks a smaller activity within a step.
+It takes a `status`, just like a Step, but has no heading.
+
+<Canvas of={ProgressListSubstepStories.Substep} />
+
+<Controls of={ProgressListSubstepStories.Substep} />
 
 ## Usage guidelines
 
@@ -48,7 +61,7 @@ Use on a white background only.
 
 ### Controlled
 
-Use `collapsed` and `onToggle` on each step to let a parent component drive the expand/collapse state.
+Use `expanded` and `onToggle` on each step to let a parent component drive the expand/collapse state.
 The example below keeps only one step open at a time.
 
 <Canvas of={ProgressListStories.Controlled} />
@@ -58,7 +71,7 @@ The example below keeps only one step open at a time.
 Set `collapsible` to `true` to let users expand and collapse the content of each step.
 Current and upcoming steps then start expanded.
 Completed ones are initially collapsed.
-Use the `defaultCollapsed` prop on a step to override the default behaviour.
+Use the `defaultExpanded` prop on a step to override the default behaviour.
 The `onToggle` callback emits the expanded state whenever it changes.
 
 <Canvas of={ProgressListStories.Collapsible} />

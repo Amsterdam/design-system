@@ -5,14 +5,18 @@
 
 import type { Meta } from '@storybook/react-vite'
 
+import { Page } from '@amsterdam/design-system-react'
+
 import { Layout } from './Layout'
 
 export const commonMeta = {
   decorators: [
     (Story, { parameters }) => (
-      <Layout skipLinkLabel={parameters['skipLinkLabel']} skipLinkTargetId={parameters['skipLinkTargetId']}>
-        <Story />
-      </Layout>
+      <Page>
+        <Layout skipLinkLabel={parameters['skipLinkLabel']} skipLinkTargetId={parameters['skipLinkTargetId']}>
+          <Story />
+        </Layout>
+      </Page>
     ),
   ],
   parameters: {

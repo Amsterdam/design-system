@@ -85,14 +85,14 @@ export const Test: Story = {
         <ProgressList.Step heading="2025" status="completed">
           <Paragraph>Content for 2025.</Paragraph>
         </ProgressList.Step>
-        <ProgressList.Step defaultCollapsed heading="2026">
+        <ProgressList.Step defaultExpanded={false} heading="2026">
           <Paragraph>Content for 2026.</Paragraph>
         </ProgressList.Step>
       </ProgressList>
 
-      {/* Collapsible, defaultCollapsed overrides: completed forced open, upcoming forced closed */}
+      {/* Collapsible, defaultExpanded overrides: completed forced open, upcoming forced closed */}
       <ProgressList collapsible headingLevel={3}>
-        <ProgressList.Step defaultCollapsed={false} heading="Forced open" status="completed">
+        <ProgressList.Step defaultExpanded heading="Forced open" status="completed">
           <Paragraph>This completed step is forced open.</Paragraph>
         </ProgressList.Step>
         <ProgressList.Step heading="Default" status="completed">
@@ -101,7 +101,7 @@ export const Test: Story = {
         <ProgressList.Step heading="Current" status="current">
           <Paragraph>This current step is expanded by default.</Paragraph>
         </ProgressList.Step>
-        <ProgressList.Step defaultCollapsed heading="Forced closed">
+        <ProgressList.Step defaultExpanded={false} heading="Forced closed">
           <Paragraph>This upcoming step is forced closed.</Paragraph>
         </ProgressList.Step>
       </ProgressList>
@@ -135,7 +135,7 @@ export const Test: Story = {
         <ProgressList.Step heading="2026" status="completed">
           <Paragraph>Content for 2026.</Paragraph>
         </ProgressList.Step>
-        <ProgressList.Step defaultCollapsed hasSubsteps heading="2027" status="current">
+        <ProgressList.Step defaultExpanded={false} hasSubsteps heading="2027" status="current">
           <Paragraph>Content for 2027.</Paragraph>
           <ProgressList.Substeps>
             <ProgressList.Substep status="completed">
@@ -146,7 +146,7 @@ export const Test: Story = {
             </ProgressList.Substep>
           </ProgressList.Substeps>
         </ProgressList.Step>
-        <ProgressList.Step defaultCollapsed hasSubsteps heading="2028">
+        <ProgressList.Step defaultExpanded={false} hasSubsteps heading="2028">
           <Paragraph>Content for 2028.</Paragraph>
           <ProgressList.Substeps>
             <ProgressList.Substep>

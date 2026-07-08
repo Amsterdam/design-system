@@ -8,6 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Card, Paragraph } from '@amsterdam/design-system-react'
 import { UnorderedList } from '@amsterdam/design-system-react/src'
 
+import { inverseColorArgType, textSizeArgType } from '#storybook/_common/argTypes'
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 import { exampleUnorderedList } from '#storybook/_common/exampleContent'
 
 const unorderedListItems = exampleUnorderedList().map((text) => (
@@ -22,13 +24,8 @@ const meta = {
     markers: undefined,
   },
   argTypes: {
-    size: {
-      control: {
-        labels: { small: 'small', undefined: 'medium' },
-        type: 'radio',
-      },
-      options: ['small', undefined],
-    },
+    color: inverseColorArgType,
+    size: textSizeArgType(['small', undefined]),
   },
 } satisfies Meta<typeof UnorderedList>
 
@@ -104,8 +101,8 @@ export const WithoutMarkers: Story = {
     ],
     className: 'ams-gap-xl',
     markers: false,
-    style: { maxInlineSize: '32rem' },
   },
+  decorators: [maximiseInlineSize('32rem')],
 }
 
 export const InverseColor: Story = {

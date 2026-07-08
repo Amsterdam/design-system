@@ -8,6 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Card, Paragraph } from '@amsterdam/design-system-react'
 import { OrderedList } from '@amsterdam/design-system-react/src'
 
+import { inverseColorArgType, textSizeArgType } from '#storybook/_common/argTypes'
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 import { exampleOrderedList } from '#storybook/_common/exampleContent'
 
 const orderedListItems = exampleOrderedList().map((text) => <OrderedList.Item key={text}>{text}</OrderedList.Item>)
@@ -22,24 +24,12 @@ const meta = {
     start: undefined,
   },
   argTypes: {
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
+    color: inverseColorArgType,
     reversed: {
       control: 'boolean',
       description: 'Numbers the items from the highest value down.',
     },
-    size: {
-      control: {
-        labels: { small: 'small', undefined: 'medium' },
-        type: 'radio',
-      },
-      options: ['small', undefined],
-    },
+    size: textSizeArgType(['small', undefined]),
     start: {
       control: 'number',
       description: 'The value for the first list item’s marker.',
@@ -142,8 +132,8 @@ export const WithoutMarkers: Story = {
     ],
     className: 'ams-gap-xl',
     markers: false,
-    style: { maxInlineSize: '32rem' },
   },
+  decorators: [maximiseInlineSize('32rem')],
 }
 
 export const InverseColor: Story = {

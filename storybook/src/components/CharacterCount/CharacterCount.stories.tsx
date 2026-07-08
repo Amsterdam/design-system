@@ -14,6 +14,14 @@ const meta = {
     length: 7,
     maxLength: 10,
   },
+  argTypes: {
+    length: {
+      control: { min: 0, type: 'number' },
+    },
+    maxLength: {
+      control: { min: 0, type: 'number' },
+    },
+  },
 } satisfies Meta<typeof CharacterCount>
 
 export default meta

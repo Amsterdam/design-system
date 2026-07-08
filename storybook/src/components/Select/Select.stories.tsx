@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-react'
 import { Select } from '@amsterdam/design-system-react/src'
 
+import { disabledArgType } from '#storybook/_common/argTypes'
 import { districts } from '#storybook/_common/exampleContent'
 
 const optionList = [...districts, 'Westpoort'].sort().map((district) => (
@@ -28,9 +29,7 @@ const meta = {
     defaultValue: {
       table: { disable: false },
     },
-    disabled: {
-      description: 'Prevents interaction. Avoid if possible.',
-    },
+    disabled: disabledArgType,
     onChange: {
       table: { disable: false },
     },

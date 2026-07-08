@@ -6,6 +6,7 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/tab-navigation.tokens.json";
 
 import * as TabNavigationStories from "./TabNavigation.stories.tsx";
+import * as TabNavigationLinkStories from "./TabNavigationLink.stories.tsx";
 
 <Meta of={TabNavigationStories} />
 
@@ -16,6 +17,19 @@ import * as TabNavigationStories from "./TabNavigation.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+The List wraps the Links and has no props of its own; the example above shows it in place.
+
+### Link
+
+Navigates to a page.
+Add an `icon` to display before the text, or set `linkComponent` to integrate with a routing library.
+
+<Canvas of={TabNavigationLinkStories.Link} />
+
+<Controls of={TabNavigationLinkStories.Link} />
 
 ## Usage guidelines
 

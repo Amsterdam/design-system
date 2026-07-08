@@ -66,6 +66,19 @@ export const startOfWeek = (date: Date) => addDays(date, -((date.getDay() + 6) %
 export const endOfWeek = (date: Date) => addDays(startOfWeek(date), 6)
 
 /**
+ * The separator that joins fragments of an accessible name, matching the locale’s script.
+ * Arabic locales use the Arabic comma (U+060C), keeping it consistent with the comma that
+ * `Intl` already places inside the dates it formats for them.
+ */
+export const getListSeparator = (locale?: string): string => {
+  if (locale === undefined) {
+    return ', '
+  }
+
+  return new Intl.Locale(locale).maximize().script === 'Arab' ? '، ' : ', '
+}
+
+/**
  * Returns the date that keyboard focus should move to for a navigation key,
  * or `undefined` when the key does not move focus.
  */

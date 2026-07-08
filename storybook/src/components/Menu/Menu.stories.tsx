@@ -13,11 +13,12 @@ import {
   PieChartFillIcon,
   SettingsFillIcon,
 } from '@amsterdam/design-system-react-icons'
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { Menu } from '@amsterdam/design-system-react/src'
 import { BREAKPOINTS } from '@amsterdam/design-system-react/src/common/useViewportHasMinWidth'
 import { useEffect } from 'react'
 import { useArgs } from 'storybook/preview-api'
+
+import { derivedArgType } from '#storybook/_common/argTypes'
 
 const menuItems = [
   {
@@ -75,11 +76,9 @@ const meta = {
     inWideWindow: false, // Initial value; will be overwritten when matchMedia runs.
   },
   argTypes: {
-    inWideWindow: {
-      control: false,
-      description: `This prop gets automatically updated in Storybook. It is \`true\` when the viewport is wider than ${BREAKPOINTS.wide}.`,
-      table: { category: 'Derived' },
-    },
+    inWideWindow: derivedArgType(
+      `This prop gets automatically updated in Storybook. It is \`true\` when the viewport is wider than ${BREAKPOINTS.wide}.`,
+    ),
   },
   decorators: [withInWideWindowArg],
   parameters: {
@@ -91,13 +90,7 @@ const meta = {
 
 export default meta
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const linkMeta = {
-  component: Menu.Link,
-} satisfies Meta<typeof Menu.Link>
-
 type Story = StoryObj<typeof meta>
-type LinkStory = StoryObj<typeof linkMeta>
 
 export const Default: Story = {
   args: {
@@ -106,58 +99,5 @@ export const Default: Story = {
         {text}
       </Menu.Link>
     )),
-  },
-}
-
-export const Link: LinkStory = {
-  args: {
-    children: menuItems[0].text,
-    href: '#',
-    // @ts-expect-error Storybook uses the name of the icon as the value for the control.
-    icon: 'PieChartFillIcon',
-  },
-  argTypes: {
-    // @ts-expect-error Storybook displays this prop of Menu for Link because the meta for Menu is the default export.
-    accessibleName: {
-      table: { disable: true },
-    },
-    children: {
-      control: 'text',
-      table: { disable: false },
-    },
-    icon: {
-      control: {
-        labels: { undefined: 'none' },
-        type: 'select',
-      },
-      mapping: Icons,
-      options: [undefined, ...Object.keys(Icons)],
-    },
-    // Storybook displays this prop of Menu for Link because the meta for Menu is the default export.
-    inWideWindow: {
-      table: { disable: true },
-    },
-  },
-  decorators: [
-    (Story) => (
-      <Menu
-        inWideWindow
-        style={{
-          display: 'inline-flex',
-          margin: 0,
-          paddingBlock: 'var(--ams-menu-padding-block)',
-          paddingInline: 'var(--ams-menu-padding-block)',
-        }}
-      >
-        <Story />
-      </Menu>
-    ),
-  ],
-  render: ({ children, ...args }) => {
-    /* eslint-disable @typescript-eslint/no-unused-vars */
-    // @ts-expect-error TypeScript does not infer the correct type here
-    const { accessibleName, inWideWindow, ...linkArgs } = args
-    return <Menu.Link {...linkArgs}>{children}</Menu.Link>
-    /* eslint-enable @typescript-eslint/no-unused-vars */
   },
 }

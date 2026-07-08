@@ -22,6 +22,8 @@ type TypographySampleProps = {
    * Use `rems` so the font size scales automatically if the user changes their browser's base font size.
    */
   readonly fontSize?: string
+  /** A font-style token value, either a CSS value or a token reference. */
+  readonly fontStyle?: string
   /** A font-weight token value, either a CSS value or a token reference. */
   readonly fontWeight?: string
   /** A line-height token value, either a CSS value or a token reference. */
@@ -33,6 +35,7 @@ export const TypographySample = ({
   compact,
   fontFamily,
   fontSize,
+  fontStyle,
   fontWeight = 'body-text',
   lineHeight,
   style,
@@ -45,6 +48,7 @@ export const TypographySample = ({
       ...style,
       ...(fontFamily ? { fontFamily: formatTokenValue(fontFamily) } : {}),
       ...(fontSize ? { fontSize: formatTokenValue(fontSize) } : {}),
+      ...(fontStyle ? { fontStyle: formatTokenValue(fontStyle) } : {}),
       ...(fontWeight ? { fontWeight: formatTokenValue(fontWeight) } : {}),
       ...(lineHeight ? { lineHeight: formatTokenValue(lineHeight) } : {}),
     }}

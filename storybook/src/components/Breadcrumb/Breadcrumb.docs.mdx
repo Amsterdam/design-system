@@ -1,11 +1,12 @@
 {/* @license CC0-1.0 */}
 
-import { Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
 
 import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
 import tokens from "#tokens/components/ams/breadcrumb.tokens.json";
 
 import * as BreadcrumbStories from "./Breadcrumb.stories.tsx";
+import * as BreadcrumbLinkStories from "./BreadcrumbLink.stories.tsx";
 
 <Meta of={BreadcrumbStories} />
 
@@ -16,6 +17,17 @@ import * as BreadcrumbStories from "./Breadcrumb.stories.tsx";
 <Primary />
 
 <Controls />
+
+## Subcomponents
+
+### Link
+
+Renders both the list item and the anchor.
+Set `linkComponent` to integrate with a routing library.
+
+<Canvas of={BreadcrumbLinkStories.Link} />
+
+<Controls of={BreadcrumbLinkStories.Link} />
 
 ## Usage guidelines
 

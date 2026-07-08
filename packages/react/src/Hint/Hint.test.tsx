@@ -54,15 +54,15 @@ describe('Hint', () => {
   })
 
   it('renders the default hint text', () => {
-    const { container } = render(<Hint optional={true} />)
+    const { container } = render(<Hint optional />)
 
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveTextContent('(niet verplicht)')
   })
 
-  it('renders the provided hint text when `optional` is set to `false`', () => {
-    const { container } = render(<Hint hint="not required" optional={true} />)
+  it('renders the provided hint text when `optional` is set to `true`', () => {
+    const { container } = render(<Hint hint="not required" optional />)
 
     const component = container.querySelector(':only-child')
 

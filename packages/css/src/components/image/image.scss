@@ -6,7 +6,7 @@
 .ams-image {
   aspect-ratio: var(--ams-image-aspect-ratio);
   block-size: auto; /* [1] */
-  font-style: italic; /* [3] */
+  font-style: var(--ams-typography-italic-font-style); /* [3] */
   inline-size: 100%; /* [1] */
   object-fit: cover; /* [4] */
   vertical-align: middle; /* [2] */

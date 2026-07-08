@@ -2,5 +2,6 @@
   "composer.json": "composer validate",
   "package.json": "npmPkgJsonLint --allowEmptyTargets",
   "*.{md,js,json,jsx,mdx,ts,tsx}": ["eslint --no-error-on-unmatched-pattern", "prettier --check"],
-  "*.{css,scss}": ["stylelint --allow-empty-input", "prettier --check"]
+  "*.{css,scss}": ["stylelint --allow-empty-input", "prettier --check"],
+  "*.{yml,yaml}": "prettier --check"
 }

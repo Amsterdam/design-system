@@ -1,10 +1,10 @@
 # @license EUPL-1.2+
 # Copyright Gemeente Amsterdam
-"""Delete obsolete `demo-*` GitHub Environments for a repo.
+"""Delete stale `demo-*` GitHub Environments for a repo.
 
-A `demo-X` environment is obsolete when no remote branch matches `X` after
+A `demo-X` environment is stale when no remote branch matches `X` after
 stripping the leading `<prefix>/` segment from the branch name — the same
-transform feature-branch-deploy.yml applies when creating the environment.
+transform deploy-acceptance-storybook.yml applies when creating the environment.
 
 Required env vars:
     GITHUB_TOKEN  Token with repo Administration: write (see workflow notes).

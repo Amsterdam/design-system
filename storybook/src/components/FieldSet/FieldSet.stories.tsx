@@ -26,7 +26,6 @@ const meta = {
   title: 'Components/Forms/Field Set',
   component: FieldSet,
   args: {
-    hint: '',
     invalid: false,
     legend: 'Wat is uw naam?',
   },
