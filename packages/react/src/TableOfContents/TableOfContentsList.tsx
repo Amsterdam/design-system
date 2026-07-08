@@ -12,11 +12,11 @@ import { TableOfContentsListContext } from './TableOfContentsListContext'
 
 export type TableOfContentsListProps = {
   /**
-   * Whether descendant items with nested lists start collapsed.
+   * Whether descendant items with nested lists start expanded.
    * Inherits from the parent list when omitted.
-   * @default true
+   * @default false
    */
-  readonly defaultCollapsed?: boolean
+  readonly defaultExpanded?: boolean
 } & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 /**
@@ -26,14 +26,14 @@ export type TableOfContentsListProps = {
  */
 export const TableOfContentsList = forwardRef(
   (
-    { children, className, defaultCollapsed, ...restProps }: TableOfContentsListProps,
+    { children, className, defaultExpanded, ...restProps }: TableOfContentsListProps,
     ref: ForwardedRef<HTMLUListElement>,
   ) => {
-    const parentCollapsed = useContext(TableOfContentsListContext)
-    const collapsedByDefault = defaultCollapsed ?? parentCollapsed
+    const parentExpanded = useContext(TableOfContentsListContext)
+    const expandedByDefault = defaultExpanded ?? parentExpanded
 
     return (
-      <TableOfContentsListContext.Provider value={collapsedByDefault}>
+      <TableOfContentsListContext.Provider value={expandedByDefault}>
         <ul {...restProps} className={clsx('ams-table-of-contents__list', className)} ref={ref}>
           {children}
         </ul>

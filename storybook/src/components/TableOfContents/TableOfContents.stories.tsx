@@ -117,7 +117,7 @@ export const Collapsible: Story = {
 export const CollapsibleExpandedByDefault: Story = {
   args: {
     children: (
-      <TableOfContents.List defaultCollapsed={false}>
+      <TableOfContents.List defaultExpanded>
         <TableOfContents.Link href="#s1" label="Inleiding" />
         <TableOfContents.Link href="#s2" label="Vaststellen en waarderen van functies">
           <TableOfContents.List>
@@ -130,7 +130,7 @@ export const CollapsibleExpandedByDefault: Story = {
               </TableOfContents.List>
             </TableOfContents.Link>
             <TableOfContents.Link href="#s2-3" label="Herwaardering">
-              <TableOfContents.List defaultCollapsed>
+              <TableOfContents.List defaultExpanded={false}>
                 <TableOfContents.Link href="#s2-3-1" label="Aanleiding" />
                 <TableOfContents.Link href="#s2-3-2" label="Procedure" />
               </TableOfContents.List>

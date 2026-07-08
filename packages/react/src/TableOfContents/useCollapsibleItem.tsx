@@ -35,7 +35,7 @@ type UseCollapsibleItemProps = {
  * button to the nested list through a stable `aria-controls` id, and restores focus to the toggle when
  * collapsing a subtree that holds focus.
  *
- * When uncontrolled, the initial expanded state follows the nested list's `defaultCollapsed` prop,
+ * When uncontrolled, the initial expanded state follows the nested list's `defaultExpanded` prop,
  * falling back to the default inherited from the surrounding list; an explicit `defaultExpanded` on the
  * Link overrides both. This resolved default seeds the shared `useCollapsible` state once, on mount.
  *
@@ -44,20 +44,19 @@ type UseCollapsibleItemProps = {
  */
 export const useCollapsibleItem = ({ children, defaultExpanded, expanded, onToggle }: UseCollapsibleItemProps) => {
   const { collapsible } = useContext(TableOfContentsContext)
-  const collapsedByDefault = useContext(TableOfContentsListContext)
+  const inheritedDefaultExpanded = useContext(TableOfContentsListContext)
 
   const panelId = useId()
   const buttonRef = useRef<HTMLButtonElement>(null)
   const itemRef = useRef<HTMLLIElement>(null)
 
   const listChild = findListChild(children)
-  const childListProps = listChild?.props as { defaultCollapsed?: boolean; id?: string } | undefined
+  const childListProps = listChild?.props as { defaultExpanded?: boolean; id?: string } | undefined
   const isExpandable = collapsible && !!listChild
 
-  // A Link follows its direct nested list's `defaultCollapsed` prop, falling back to the default
+  // A Link follows its direct nested list's `defaultExpanded` prop, falling back to the default
   // inherited from the surrounding list; an explicit `defaultExpanded` on the Link overrides both.
-  const collapsedForThisLink = childListProps?.defaultCollapsed ?? collapsedByDefault
-  const expandedByDefault = defaultExpanded ?? !collapsedForThisLink
+  const expandedByDefault = defaultExpanded ?? childListProps?.defaultExpanded ?? inheritedDefaultExpanded
 
   const [isExpanded, toggle] = useCollapsible({
     defaultValue: expandedByDefault,

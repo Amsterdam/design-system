@@ -5,5 +5,5 @@
 
 import { createContext } from 'react'
 
-// `true` keeps the current default behavior for collapsible TOCs: nested lists start collapsed.
-export const TableOfContentsListContext = createContext(true)
+// `false` keeps the current default behavior for collapsible TOCs: nested lists start collapsed (not expanded).
+export const TableOfContentsListContext = createContext(false)
