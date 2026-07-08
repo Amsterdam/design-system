@@ -3,17 +3,17 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 
 import { PageFooter, SkipLink } from '@amsterdam/design-system-react'
 
 import { Default as PageFooterStory } from '../../../components/PageFooter/PageFooter.stories'
 import { AppHeader } from './AppHeader'
 
-type LayoutProps = {
+type LayoutProps = PropsWithChildren<{
   readonly skipLinkLabel?: string
   readonly skipLinkTargetId?: string
-} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
+}>
 
 export const Layout = ({
   children,
