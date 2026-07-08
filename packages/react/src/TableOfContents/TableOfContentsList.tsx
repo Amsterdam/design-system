@@ -6,9 +6,19 @@
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useContext } from 'react'
 
-export type TableOfContentsListProps = PropsWithChildren<HTMLAttributes<HTMLUListElement>>
+import { TableOfContentsListContext } from './TableOfContentsListContext'
+
+export type TableOfContentsListProps = {
+  /**
+   * Whether items with nested lists in this list start expanded.
+   * When this list is nested inside a Link, this also controls whether that Link starts expanded.
+   * Inherits from the parent list when omitted.
+   * @default false
+   */
+  readonly defaultExpanded?: boolean
+} & PropsWithChildren<HTMLAttributes<HTMLUListElement>>
 
 /**
  * The list of section links within a Table of Contents.
@@ -16,11 +26,19 @@ export type TableOfContentsListProps = PropsWithChildren<HTMLAttributes<HTMLULis
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-table-of-contents--docs Table of Contents docs at Amsterdam Design System}
  */
 export const TableOfContentsList = forwardRef(
-  ({ children, className, ...restProps }: TableOfContentsListProps, ref: ForwardedRef<HTMLUListElement>) => {
+  (
+    { children, className, defaultExpanded, ...restProps }: TableOfContentsListProps,
+    ref: ForwardedRef<HTMLUListElement>,
+  ) => {
+    const parentExpanded = useContext(TableOfContentsListContext)
+    const expandedByDefault = defaultExpanded ?? parentExpanded
+
     return (
-      <ul {...restProps} className={clsx('ams-table-of-contents__list', className)} ref={ref}>
-        {children}
-      </ul>
+      <TableOfContentsListContext.Provider value={expandedByDefault}>
+        <ul {...restProps} className={clsx('ams-table-of-contents__list', className)} ref={ref}>
+          {children}
+        </ul>
+      </TableOfContentsListContext.Provider>
     )
   },
 )
