@@ -12,7 +12,8 @@ import { TableOfContentsListContext } from './TableOfContentsListContext'
 
 export type TableOfContentsListProps = {
   /**
-   * Whether descendant items with nested lists start expanded.
+   * Whether items with nested lists in this list start expanded.
+   * When this list is nested inside a Link, this also controls whether that Link starts expanded.
    * Inherits from the parent list when omitted.
    * @default false
    */
