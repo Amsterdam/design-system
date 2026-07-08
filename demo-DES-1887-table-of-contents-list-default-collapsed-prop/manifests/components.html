@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.7s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -9565,6 +9565,7 @@ export const Default: StoryObj = {
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
 import * as HandbookPageStories from &quot;./HandbookPage.stories&quot;;
 
 &lt;Meta of={HandbookPageStories} /&gt;
@@ -22205,7 +22206,7 @@ showAccessibleLabel?: string = Toon submenu van</code></pre>
               </div>
               
               
-              <pre><code>const CollapsibleExpandedByDefault = () =&gt; &lt;TableOfContents heading=&quot;Inhoudsopgave&quot; collapsible&gt;(&lt;TableOfContents.List defaultCollapsed={false}&gt;
+              <pre><code>const CollapsibleExpandedByDefault = () =&gt; &lt;TableOfContents heading=&quot;Inhoudsopgave&quot; collapsible&gt;(&lt;TableOfContents.List defaultExpanded&gt;
       &lt;TableOfContents.Link href=&quot;#s1&quot; label=&quot;Inleiding&quot; /&gt;
       &lt;TableOfContents.Link href=&quot;#s2&quot; label=&quot;Vaststellen en waarderen van functies&quot;&gt;
         &lt;TableOfContents.List&gt;
@@ -22218,7 +22219,7 @@ showAccessibleLabel?: string = Toon submenu van</code></pre>
             &lt;/TableOfContents.List&gt;
           &lt;/TableOfContents.Link&gt;
           &lt;TableOfContents.Link href=&quot;#s2-3&quot; label=&quot;Herwaardering&quot;&gt;
-            &lt;TableOfContents.List defaultCollapsed&gt;
+            &lt;TableOfContents.List defaultExpanded={false}&gt;
               &lt;TableOfContents.Link href=&quot;#s2-3-1&quot; label=&quot;Aanleiding&quot; /&gt;
               &lt;TableOfContents.Link href=&quot;#s2-3-2&quot; label=&quot;Procedure&quot; /&gt;
             &lt;/TableOfContents.List&gt;
@@ -22347,8 +22348,8 @@ Set `aria-current=&quot;page&quot;` on the link for the active section or page t
 
 Set `collapsible` on the root to add a separate toggle button to each item that has nested links.
 The toggle expands and collapses the nested list without following the link.
-Set `defaultCollapsed={false}` on `TableOfContents.List` to open nested items by default.
-This setting is inherited by nested lists unless they set their own `defaultCollapsed` value.
+Set `defaultExpanded` on `TableOfContents.List` to open nested items by default.
+This setting is inherited by nested lists unless they set their own `defaultExpanded` value.
 Use `defaultExpanded` on a Link to override the list default for that specific item, for example to show the ancestors of the current page.
 
 &lt;Canvas of={TableOfContentsStories.Collapsible} /&gt;
@@ -25622,6 +25623,7 @@ export const Default: StoryObj = {
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
 import * as HandbookPageStories from &quot;./HandbookPage.stories&quot;;
 
 &lt;Meta of={HandbookPageStories} /&gt;
