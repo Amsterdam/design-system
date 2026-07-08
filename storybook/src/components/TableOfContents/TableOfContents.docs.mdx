@@ -43,7 +43,7 @@ For the last case, use `collapsible` mode so branches can be expanded and collap
 ### When not to use
 
 Use a [Tab Navigation](/docs/components-navigation-tab-navigation--docs) when the user switches between views rather than navigating to distinct sections or pages.
-Use a [Link List](/docs/components-navigation-link-list--docs) for a flat group of related links that doesn’t map to the sections of the current content — for example, a list of related articles at the foot of a page.
+Use a [Link List](/docs/components-navigation-link-list--docs) for a flat group of related links that doesn’t map to the sections of the current page or a set of related pages.
 
 ### How to use
 
@@ -83,9 +83,11 @@ This example keeps a single branch open at a time by expanding the clicked branc
 
 ## Accessibility
 
-The component renders as a `nav` landmark.
-Set `aria-current="page"` on the link that represents the active section or page to help screen reader users identify their position.
-In collapsible mode, arrow keys navigate between the visible toggle buttons.
+- The component renders as a `nav` landmark, and a `heading` becomes its accessible name.
+- In collapsible mode, each toggle button reports its state through `aria-expanded`, references the list it reveals through `aria-controls`, and gets an accessible name that says which section it expands or collapses.
+- Arrow keys move focus between the visible toggle buttons; toggles inside a collapsed section are skipped so focus never lands on hidden content, while that section’s own toggle stays reachable to reopen it.
+- Collapsing a section while focus is inside it returns focus to that section’s toggle button, so focus is never stranded on content that was just hidden.
+- When printing, collapsed sections expand so the full outline is available.
 
 ## See also
 
