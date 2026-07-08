@@ -34,13 +34,13 @@ export const CalendarBody = ({ linkComponent, linkTemplate, locale, month }: Cal
         const weekday = weekdayFormatter.format(date)
 
         return (
-          <span aria-hidden={true} className="ams-calendar__weekday" key={`weekday-${index}`}>
+          <span aria-hidden="true" className="ams-calendar__weekday" key={`weekday-${index}`}>
             {weekday}
           </span>
         )
       })}
       {Array.from({ length: firstWeekday }).map((_, index) => (
-        <span aria-hidden={true} key={`offset-${index}`} />
+        <span aria-hidden="true" key={`offset-${index}`} />
       ))}
       {Array.from({ length: daysInMonth }).map((_, index) => {
         const date = new Date(year, monthIndex, index + 1)

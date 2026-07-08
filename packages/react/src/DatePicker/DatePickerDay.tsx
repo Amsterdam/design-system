@@ -75,7 +75,7 @@ export const DatePickerDay = ({
       tabIndex={isFocused ? 0 : -1}
       type="button"
     >
-      <span aria-hidden={true}>{formatDayNumber(date, locale)}</span>
+      <span aria-hidden="true">{formatDayNumber(date, locale)}</span>
       <span className="ams-visually-hidden">{formatAccessibleDate(date, locale, boundaryLabel)}</span>
     </button>
   </div>
