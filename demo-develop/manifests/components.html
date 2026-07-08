@@ -588,7 +588,7 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">9/94 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">17/94 infos</a><span class="filter-pill ok" aria-disabled="true">294 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">110 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">9/94 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">17/94 infos</a><span class="filter-pill ok" aria-disabled="true">295 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">110 docs ok</a></div>
   </div>
 </header>
 <main>
@@ -21805,7 +21805,7 @@ A Table caption creates the accessible name for the Table, announced by screen r
       <div class="badges">
         <label for="c-84-components-navigation-table-of-contents-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-84-components-navigation-table-of-contents-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-84-components-navigation-table-of-contents-stories" class="badge ok as-toggle">5 stories</label>
         <label for="c-84-components-navigation-table-of-contents-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -21961,6 +21961,42 @@ showAccessibleLabel?: string = Toon submenu van</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
+                <span class="ex-name">Initially Expanded</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const InitiallyExpanded = () =&gt; &lt;TableOfContents heading=&quot;Inhoudsopgave&quot; collapsible&gt;(&lt;TableOfContents.List defaultExpanded&gt;
+      &lt;TableOfContents.Link href=&quot;#s1&quot; label=&quot;Inleiding&quot; /&gt;
+      &lt;TableOfContents.Link href=&quot;#s2&quot; label=&quot;Vaststellen en waarderen van functies&quot;&gt;
+        &lt;TableOfContents.List&gt;
+          &lt;TableOfContents.Link href=&quot;#s2-1&quot; label=&quot;Algemeen&quot; /&gt;
+          &lt;TableOfContents.Link href=&quot;#s2-2&quot; label=&quot;Waardering van functies&quot;&gt;
+            &lt;TableOfContents.List&gt;
+              &lt;TableOfContents.Link aria-current=&quot;page&quot; href=&quot;#s2-2-1&quot; label=&quot;Methode&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#s2-2-2&quot; label=&quot;Procedure&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#s2-2-3&quot; label=&quot;Bezwaar&quot; /&gt;
+            &lt;/TableOfContents.List&gt;
+          &lt;/TableOfContents.Link&gt;
+          &lt;TableOfContents.Link href=&quot;#s2-3&quot; label=&quot;Herwaardering&quot;&gt;
+            &lt;TableOfContents.List defaultExpanded={false}&gt;
+              &lt;TableOfContents.Link href=&quot;#s2-3-1&quot; label=&quot;Aanleiding&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#s2-3-2&quot; label=&quot;Procedure&quot; /&gt;
+            &lt;/TableOfContents.List&gt;
+          &lt;/TableOfContents.Link&gt;
+        &lt;/TableOfContents.List&gt;
+      &lt;/TableOfContents.Link&gt;
+      &lt;TableOfContents.Link href=&quot;#s3&quot; label=&quot;Salaristoelagen&quot;&gt;
+        &lt;TableOfContents.List&gt;
+          &lt;TableOfContents.Link href=&quot;#s3-1&quot; label=&quot;Functioneringstoelage&quot; /&gt;
+          &lt;TableOfContents.Link href=&quot;#s3-2&quot; label=&quot;Arbeidsmarkttoelage&quot; /&gt;
+        &lt;/TableOfContents.List&gt;
+      &lt;/TableOfContents.Link&gt;
+      &lt;TableOfContents.Link href=&quot;#s4&quot; label=&quot;Vergoedingen&quot; /&gt;
+    &lt;/TableOfContents.List&gt;)&lt;/TableOfContents&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
                 <span class="ex-name">Controlled</span>
                 <span class="badge ok">story ok</span>
               </div>
@@ -22034,7 +22070,7 @@ import * as TableOfContentsLinkStories from &quot;./TableOfContentsLink.stories.
 ## Subcomponents
 
 Lists nest Links to form the hierarchy of the Table of Contents.
-The List has no props of its own; the ‘Multiple levels’ example shows how to nest one.
+Set `defaultExpanded` on a List to open its collapsible branches by default; the ‘Multiple levels’ example shows how to nest one.
 
 ### Link
 
@@ -22056,6 +22092,7 @@ For the last case, use `collapsible` mode so branches can be expanded and collap
 ### When not to use
 
 Use a [Tab Navigation](/docs/components-navigation-tab-navigation--docs) when the user switches between views rather than navigating to distinct sections or pages.
+Use a [Link List](/docs/components-navigation-link-list--docs) for a flat group of related links that doesn’t map to the sections of the current page or a set of related pages.
 
 ### How to use
 
@@ -22072,9 +22109,18 @@ Set `aria-current=&quot;page&quot;` on the link for the active section or page t
 
 Set `collapsible` on the root to add a separate toggle button to each item that has nested links.
 The toggle expands and collapses the nested list without following the link.
-Use `defaultExpanded` on a Link to pre-open its nested list when the component mounts, for example to show the ancestors of the current page.
+Set `defaultExpanded` on `TableOfContents.List` to open nested items by default.
+This setting is inherited by nested lists unless they set their own `defaultExpanded` value.
+Use `defaultExpanded` on a Link to override the list default for that specific item, for example to show the ancestors of the current page.
 
 &lt;Canvas of={TableOfContentsStories.Collapsible} /&gt;
+
+### Initially expanded
+
+`defaultExpanded` on the root List expands every collapsible branch on load, while a nested List overrides it with `defaultExpanded={false}` to stay closed.
+Starting expanded suits a deep handbook or documentation tree, where showing the full structure helps readers place the current page.
+
+&lt;Canvas of={TableOfContentsStories.InitiallyExpanded} /&gt;
 
 ### Controlled
 
@@ -22086,12 +22132,15 @@ This example keeps a single branch open at a time by expanding the clicked branc
 
 ## Accessibility
 
-The component renders as a `nav` landmark.
-Set `aria-current=&quot;page&quot;` on the link that represents the active section or page to help screen reader users identify their position.
-In collapsible mode, arrow keys navigate between the visible toggle buttons.
+- The component renders as a `nav` landmark, and a `heading` becomes its accessible name.
+- In collapsible mode, each toggle button reports its state through `aria-expanded`, references the list it reveals through `aria-controls`, and gets an accessible name that says which section it expands or collapses.
+- Arrow keys move focus between the visible toggle buttons; toggles inside a collapsed section are skipped so focus never lands on hidden content, while that section’s own toggle stays reachable to reopen it.
+- Collapsing a section while focus is inside it returns focus to that section’s toggle button, so focus is never stranded on content that was just hidden.
+- When printing, collapsed sections expand so the full outline is available.
 
 ## See also
 
+- [Link List](/docs/components-navigation-link-list--docs) – groups related links that don’t form an outline of content.
 - [Tab Navigation](/docs/components-navigation-tab-navigation--docs) – switches between views on the same page.
 
 ## Design tokens
