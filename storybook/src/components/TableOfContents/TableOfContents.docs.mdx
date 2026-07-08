@@ -21,7 +21,7 @@ import * as TableOfContentsLinkStories from "./TableOfContentsLink.stories.tsx";
 ## Subcomponents
 
 Lists nest Links to form the hierarchy of the Table of Contents.
-The List has no props of its own; the ‘Multiple levels’ example shows how to nest one.
+Set `defaultExpanded` on a List to open its collapsible branches by default; the ‘Multiple levels’ example shows how to nest one.
 
 ### Link
 
@@ -59,9 +59,15 @@ Set `aria-current="page"` on the link for the active section or page to highligh
 
 Set `collapsible` on the root to add a separate toggle button to each item that has nested links.
 The toggle expands and collapses the nested list without following the link.
-Use `defaultExpanded` on a Link to pre-open its nested list when the component mounts, for example to show the ancestors of the current page.
+Set `defaultExpanded` on `TableOfContents.List` to open nested items by default.
+This setting is inherited by nested lists unless they set their own `defaultExpanded` value.
+Use `defaultExpanded` on a Link to override the list default for that specific item, for example to show the ancestors of the current page.
 
 <Canvas of={TableOfContentsStories.Collapsible} />
+
+### Collapsible with nested items opened by default
+
+<Canvas of={TableOfContentsStories.CollapsibleExpandedByDefault} />
 
 ### Controlled
 
