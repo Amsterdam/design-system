@@ -30,9 +30,11 @@ const config: StorybookConfig = {
     },
     '@linus_janns/storybook-addon-html',
     '@storybook/addon-mcp',
-    ...(process.env['IS_CHROMATIC'] || process.env['NODE_ENV'] === 'development'
-      ? ['storybook-addon-pseudo-states']
-      : []),
+    // Load the pseudo-states addon only for Chromatic, which sets `IS_CHROMATIC` through the
+    // `build:chromatic` command. It rewrites CSS at runtime to simulate `:hover`/`:focus`/`:active`
+    // for the visual regression snapshots. That rewrite breaks selectors that hide on focus, such as
+    // `.ams-visually-hidden:not(:active, :focus)` on the Skip Link, so keep it out of the local dev server.
+    ...(process.env['IS_CHROMATIC'] === 'true' ? ['storybook-addon-pseudo-states'] : []),
   ],
 
   core: {
