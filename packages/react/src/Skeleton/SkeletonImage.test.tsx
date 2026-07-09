@@ -52,8 +52,10 @@ describe('Skeleton.Image', () => {
       const { container } = render(<SkeletonImage aspectRatio={aspectRatio} />)
 
       const component = container.querySelector(':only-child')
+      const aspectRatioClass = generateAspectRatioClass(aspectRatio)
 
-      expect(component).toHaveClass(generateAspectRatioClass(aspectRatio) || '')
+      expect(aspectRatioClass).toBeTruthy()
+      expect(component).toHaveClass(aspectRatioClass as string)
     })
   })
 })
