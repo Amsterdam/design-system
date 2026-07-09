@@ -1,0 +1,12 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/* stylelint-disable selector-max-id -- Targeting Storybook’s own manager DOM, which we don’t control. */
+
+/* Add space below the sidebar tree so the last items aren’t jammed against the bottom of the screen. */
+/* stylelint-disable-next-line plugin/use-baseline -- Suboptimal scrolling in non-supporting browsers is acceptable. */
+#storybook-explorer-menu {
+  padding-block-end: 6rem;
+}

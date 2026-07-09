@@ -4,6 +4,7 @@ import { create } from 'storybook/theming/create'
 import Logo from '../../packages-proprietary/assets/logo/amsterdam.svg'
 
 import '@amsterdam/design-system-assets/font/index.css'
+import '../src/_styles/manager.css'
 
 addons.setConfig({
   theme: create({
