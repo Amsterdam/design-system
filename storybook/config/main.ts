@@ -34,7 +34,7 @@ const config: StorybookConfig = {
     // `build:chromatic` command. It rewrites CSS at runtime to simulate `:hover`/`:focus`/`:active`
     // for the visual regression snapshots. That rewrite breaks selectors that hide on focus, such as
     // `.ams-visually-hidden:not(:active, :focus)` on the Skip Link, so keep it out of the local dev server.
-    ...(process.env['IS_CHROMATIC'] ? ['storybook-addon-pseudo-states'] : []),
+    ...(process.env['IS_CHROMATIC'] === 'true' ? ['storybook-addon-pseudo-states'] : []),
   ],
 
   core: {
