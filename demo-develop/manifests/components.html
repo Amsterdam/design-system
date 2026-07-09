@@ -588,7 +588,7 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">9/94 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">17/94 infos</a><span class="filter-pill ok" aria-disabled="true">295 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">110 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">10/96 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">18/96 infos</a><span class="filter-pill ok" aria-disabled="true">304 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">111 docs ok</a></div>
   </div>
 </header>
 <main>
@@ -12251,6 +12251,608 @@ Therefore, it is blue and clickable.
 </article>
 <article
   class="card 
+  has-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
+  aria-label="LoadingPage">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> LoadingPage</h2>
+      <div class="badges">
+        <label for="c-53-pages-public-loading-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-53-pages-public-loading-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-53-pages-public-loading-page-stories" class="badge ok as-toggle">3 stories</label>
+        
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/pages/public/LoadingPage/LoadingPage.stories.tsx">pages-public-loading-page · ./src/pages/public/LoadingPage/LoadingPage.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-53-pages-public-loading-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-53-pages-public-loading-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-53-pages-public-loading-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  53 | const cellSpan = { narrow: 4, medium: 4, wide: 4 } as const
+  54 |
+&gt; 55 | const meta = {
+     | ^
+  56 |   ...commonMeta,
+  57 |   title: &#39;Pages/Public/Loading Page&#39;,
+  58 |   args: { initialPhase: &#39;idle&#39; },
+
+./src/pages/public/LoadingPage/LoadingPage.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { FormEvent } from &#39;react&#39;
+
+import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from &#39;@amsterdam/design-system-react&#39;
+import { useEffect, useRef, useState } from &#39;react&#39;
+
+import { commonMeta } from &#39;../common/config&#39;
+
+const initialQuery = &#39;woningbouw&#39;
+
+const results = [
+  {
+    description: &#39;Een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.&#39;,
+    heading: &#39;Nederlands eerste houten woonwijk komt in Zuidoost&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1015/640/360&#39;,
+  },
+  {
+    description: &#39;De komende jaren bouwt de gemeente duizenden nieuwe woningen in stadsdeel Noord.&#39;,
+    heading: &#39;Meer betaalbare woningen in Noord&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1016/640/360&#39;,
+  },
+  {
+    description: &#39;Havenstad groeit uit tot een gemengd stadsgebied met ruimte om te wonen en te werken.&#39;,
+    heading: &#39;Woningbouwplannen Havenstad&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1029/640/360&#39;,
+  },
+  {
+    description: &#39;Bekijk hoe u zich inschrijft en wat de wachttijden zijn voor een sociale huurwoning.&#39;,
+    heading: &#39;Sneller een sociale huurwoning&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1039/640/360&#39;,
+  },
+  {
+    description: &#39;Subsidies en advies om uw huis te isoleren en van het gas af te gaan.&#39;,
+    heading: &#39;Verduurzaam uw woning&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1043/640/360&#39;,
+  },
+  {
+    description: &#39;Op het Zeeburgereiland verrijst een hoogstedelijke buurt met hoge woontorens.&#39;,
+    heading: &#39;Nieuwbouw in de Sluisbuurt&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1044/640/360&#39;,
+  },
+]
+
+type Phase = &#39;idle&#39; | &#39;loaded&#39; | &#39;loading&#39;
+
+type LoadingPageArgs = { readonly initialPhase: Phase }
+
+const cellSpan = { narrow: 4, medium: 4, wide: 4 } as const
+
+const meta = {
+  ...commonMeta,
+  title: &#39;Pages/Public/Loading Page&#39;,
+  args: { initialPhase: &#39;idle&#39; },
+  // The initial phase only picks which state each story opens in; it is not a prop to configure.
+  argTypes: { initialPhase: { table: { disable: true } } },
+  render: ({ initialPhase }: LoadingPageArgs) =&gt; {
+    const [phase, setPhase] = useState&lt;Phase&gt;(initialPhase)
+    const [query, setQuery] = useState(initialQuery)
+    const loadedTimeout = useRef&lt;ReturnType&lt;typeof setTimeout&gt; | null&gt;(null)
+
+    // Clear a pending swap if the story unmounts, so it never updates state after it is gone.
+    useEffect(
+      () =&gt; () =&gt; {
+        if (loadedTimeout.current) {
+          clearTimeout(loadedTimeout.current)
+        }
+      },
+      [],
+    )
+
+    const search = (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+      event.preventDefault()
+
+      const value = new FormData(event.currentTarget).get(&#39;search&#39;)
+      if (typeof value === &#39;string&#39; &amp;&amp; value.trim()) {
+        setQuery(value.trim())
+      }
+
+      // Show the placeholders, then swap in the results after a short delay. Clear any pending swap first,
+      // so a second search cannot flip an earlier one to loaded while this one is still loading.
+      if (loadedTimeout.current) {
+        clearTimeout(loadedTimeout.current)
+      }
+      setPhase(&#39;loading&#39;)
+      loadedTimeout.current = setTimeout(() =&gt; setPhase(&#39;loaded&#39;), 3000)
+    }
+
+    const status =
+      phase === &#39;loading&#39;
+        ? `Zoekresultaten voor ‘${query}’ worden geladen`
+        : phase === &#39;loaded&#39;
+          ? `${results.length} resultaten voor ‘${query}’ gevonden`
+          : &#39;&#39;
+
+    return (
+      &lt;main id=&quot;inhoud&quot;&gt;
+        &lt;Grid gapVertical=&quot;large&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+            &lt;SearchField onSubmit={search}&gt;
+              &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
+              &lt;SearchField.Button /&gt;
+            &lt;/SearchField&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+
+        {/*
+         * Mark the whole results region busy while it loads and let it announce once, rather than once per
+         * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
+         * technologies, so this region is all a screen reader hears.
+         */}
+        &lt;Grid aria-busy={phase === &#39;loading&#39;} paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            {/*
+             * Keep one status message in the DOM at all times and only change its text – from a loading
+             * message to the result count – so screen readers reliably announce the update. A Loading Region
+             * component to wrap this pattern is planned; until then it is plain HTML.
+             */}
+            &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;
+              {status}
+            &lt;/p&gt;
+            {phase === &#39;idle&#39; &amp;&amp; &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;}
+            {phase === &#39;loaded&#39; &amp;&amp; (
+              &lt;Heading level={2} size=&quot;level-3&quot;&gt;{`${results.length} resultaten voor ‘${query}’`}&lt;/Heading&gt;
+            )}
+          &lt;/Grid.Cell&gt;
+
+          {/*
+           * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
+           * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+           * Mirroring the shape keeps the layout from shifting when the real content arrives.
+           */}
+          {phase === &#39;loading&#39; &amp;&amp;
+            results.map((_, index) =&gt; (
+              &lt;Grid.Cell key={index} span={cellSpan}&gt;
+                &lt;Skeleton&gt;
+                  &lt;Skeleton.Image /&gt;
+                  &lt;Skeleton.Heading /&gt;
+                  &lt;Skeleton.Paragraph lines={2} /&gt;
+                &lt;/Skeleton&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+
+          {phase === &#39;loaded&#39; &amp;&amp;
+            results.map((result) =&gt; (
+              &lt;Grid.Cell key={result.heading} span={cellSpan}&gt;
+                &lt;Card&gt;
+                  &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;16:9&quot; src={result.imageSrc} /&gt;
+                  &lt;Card.Heading level={3}&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;{result.heading}&lt;/Card.Link&gt;
+                  &lt;/Card.Heading&gt;
+                  &lt;Paragraph&gt;{result.description}&lt;/Paragraph&gt;
+                &lt;/Card&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+        &lt;/Grid&gt;
+      &lt;/main&gt;
+    )
+  },
+} satisfies Meta&lt;LoadingPageArgs&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+export const Default: Story = {}
+
+export const Loading: Story = {
+  args: { initialPhase: &#39;loading&#39; },
+}
+
+export const Loaded: Story = {
+  args: { initialPhase: &#39;loaded&#39; },
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from "@amsterdam/design-system-react";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = ({ initialPhase }: LoadingPageArgs) =&gt; {
+  const [phase, setPhase] = useState&lt;Phase&gt;(initialPhase)
+  const [query, setQuery] = useState(initialQuery)
+  const loadedTimeout = useRef&lt;ReturnType&lt;typeof setTimeout&gt; | null&gt;(null)
+
+  // Clear a pending swap if the story unmounts, so it never updates state after it is gone.
+  useEffect(
+    () =&gt; () =&gt; {
+      if (loadedTimeout.current) {
+        clearTimeout(loadedTimeout.current)
+      }
+    },
+    [],
+  )
+
+  const search = (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+    event.preventDefault()
+
+    const value = new FormData(event.currentTarget).get(&#39;search&#39;)
+    if (typeof value === &#39;string&#39; &amp;&amp; value.trim()) {
+      setQuery(value.trim())
+    }
+
+    // Show the placeholders, then swap in the results after a short delay. Clear any pending swap first,
+    // so a second search cannot flip an earlier one to loaded while this one is still loading.
+    if (loadedTimeout.current) {
+      clearTimeout(loadedTimeout.current)
+    }
+    setPhase(&#39;loading&#39;)
+    loadedTimeout.current = setTimeout(() =&gt; setPhase(&#39;loaded&#39;), 3000)
+  }
+
+  const status =
+    phase === &#39;loading&#39;
+      ? `Zoekresultaten voor ‘${query}’ worden geladen`
+      : phase === &#39;loaded&#39;
+        ? `${results.length} resultaten voor ‘${query}’ gevonden`
+        : &#39;&#39;
+
+  return (
+    &lt;main id=&quot;inhoud&quot;&gt;
+      &lt;Grid gapVertical=&quot;large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;SearchField onSubmit={search}&gt;
+            &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
+            &lt;SearchField.Button /&gt;
+          &lt;/SearchField&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+
+      {/*
+       * Mark the whole results region busy while it loads and let it announce once, rather than once per
+       * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
+       * technologies, so this region is all a screen reader hears.
+       */}
+      &lt;Grid aria-busy={phase === &#39;loading&#39;} paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/*
+           * Keep one status message in the DOM at all times and only change its text – from a loading
+           * message to the result count – so screen readers reliably announce the update. A Loading Region
+           * component to wrap this pattern is planned; until then it is plain HTML.
+           */}
+          &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;
+            {status}
+          &lt;/p&gt;
+          {phase === &#39;idle&#39; &amp;&amp; &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;}
+          {phase === &#39;loaded&#39; &amp;&amp; (
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;{`${results.length} resultaten voor ‘${query}’`}&lt;/Heading&gt;
+          )}
+        &lt;/Grid.Cell&gt;
+
+        {/*
+         * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
+         * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+         * Mirroring the shape keeps the layout from shifting when the real content arrives.
+         */}
+        {phase === &#39;loading&#39; &amp;&amp;
+          results.map((_, index) =&gt; (
+            &lt;Grid.Cell key={index} span={cellSpan}&gt;
+              &lt;Skeleton&gt;
+                &lt;Skeleton.Image /&gt;
+                &lt;Skeleton.Heading /&gt;
+                &lt;Skeleton.Paragraph lines={2} /&gt;
+              &lt;/Skeleton&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+
+        {phase === &#39;loaded&#39; &amp;&amp;
+          results.map((result) =&gt; (
+            &lt;Grid.Cell key={result.heading} span={cellSpan}&gt;
+              &lt;Card&gt;
+                &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;16:9&quot; src={result.imageSrc} /&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{result.heading}&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+                &lt;Paragraph&gt;{result.description}&lt;/Paragraph&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+      &lt;/Grid&gt;
+    &lt;/main&gt;
+  )
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Loading</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Loading = ({ initialPhase }: LoadingPageArgs) =&gt; {
+  const [phase, setPhase] = useState&lt;Phase&gt;(initialPhase)
+  const [query, setQuery] = useState(initialQuery)
+  const loadedTimeout = useRef&lt;ReturnType&lt;typeof setTimeout&gt; | null&gt;(null)
+
+  // Clear a pending swap if the story unmounts, so it never updates state after it is gone.
+  useEffect(
+    () =&gt; () =&gt; {
+      if (loadedTimeout.current) {
+        clearTimeout(loadedTimeout.current)
+      }
+    },
+    [],
+  )
+
+  const search = (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+    event.preventDefault()
+
+    const value = new FormData(event.currentTarget).get(&#39;search&#39;)
+    if (typeof value === &#39;string&#39; &amp;&amp; value.trim()) {
+      setQuery(value.trim())
+    }
+
+    // Show the placeholders, then swap in the results after a short delay. Clear any pending swap first,
+    // so a second search cannot flip an earlier one to loaded while this one is still loading.
+    if (loadedTimeout.current) {
+      clearTimeout(loadedTimeout.current)
+    }
+    setPhase(&#39;loading&#39;)
+    loadedTimeout.current = setTimeout(() =&gt; setPhase(&#39;loaded&#39;), 3000)
+  }
+
+  const status =
+    phase === &#39;loading&#39;
+      ? `Zoekresultaten voor ‘${query}’ worden geladen`
+      : phase === &#39;loaded&#39;
+        ? `${results.length} resultaten voor ‘${query}’ gevonden`
+        : &#39;&#39;
+
+  return (
+    &lt;main id=&quot;inhoud&quot;&gt;
+      &lt;Grid gapVertical=&quot;large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;SearchField onSubmit={search}&gt;
+            &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
+            &lt;SearchField.Button /&gt;
+          &lt;/SearchField&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+
+      {/*
+       * Mark the whole results region busy while it loads and let it announce once, rather than once per
+       * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
+       * technologies, so this region is all a screen reader hears.
+       */}
+      &lt;Grid aria-busy={phase === &#39;loading&#39;} paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/*
+           * Keep one status message in the DOM at all times and only change its text – from a loading
+           * message to the result count – so screen readers reliably announce the update. A Loading Region
+           * component to wrap this pattern is planned; until then it is plain HTML.
+           */}
+          &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;
+            {status}
+          &lt;/p&gt;
+          {phase === &#39;idle&#39; &amp;&amp; &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;}
+          {phase === &#39;loaded&#39; &amp;&amp; (
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;{`${results.length} resultaten voor ‘${query}’`}&lt;/Heading&gt;
+          )}
+        &lt;/Grid.Cell&gt;
+
+        {/*
+         * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
+         * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+         * Mirroring the shape keeps the layout from shifting when the real content arrives.
+         */}
+        {phase === &#39;loading&#39; &amp;&amp;
+          results.map((_, index) =&gt; (
+            &lt;Grid.Cell key={index} span={cellSpan}&gt;
+              &lt;Skeleton&gt;
+                &lt;Skeleton.Image /&gt;
+                &lt;Skeleton.Heading /&gt;
+                &lt;Skeleton.Paragraph lines={2} /&gt;
+              &lt;/Skeleton&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+
+        {phase === &#39;loaded&#39; &amp;&amp;
+          results.map((result) =&gt; (
+            &lt;Grid.Cell key={result.heading} span={cellSpan}&gt;
+              &lt;Card&gt;
+                &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;16:9&quot; src={result.imageSrc} /&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{result.heading}&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+                &lt;Paragraph&gt;{result.description}&lt;/Paragraph&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+      &lt;/Grid&gt;
+    &lt;/main&gt;
+  )
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Loaded</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Loaded = ({ initialPhase }: LoadingPageArgs) =&gt; {
+  const [phase, setPhase] = useState&lt;Phase&gt;(initialPhase)
+  const [query, setQuery] = useState(initialQuery)
+  const loadedTimeout = useRef&lt;ReturnType&lt;typeof setTimeout&gt; | null&gt;(null)
+
+  // Clear a pending swap if the story unmounts, so it never updates state after it is gone.
+  useEffect(
+    () =&gt; () =&gt; {
+      if (loadedTimeout.current) {
+        clearTimeout(loadedTimeout.current)
+      }
+    },
+    [],
+  )
+
+  const search = (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+    event.preventDefault()
+
+    const value = new FormData(event.currentTarget).get(&#39;search&#39;)
+    if (typeof value === &#39;string&#39; &amp;&amp; value.trim()) {
+      setQuery(value.trim())
+    }
+
+    // Show the placeholders, then swap in the results after a short delay. Clear any pending swap first,
+    // so a second search cannot flip an earlier one to loaded while this one is still loading.
+    if (loadedTimeout.current) {
+      clearTimeout(loadedTimeout.current)
+    }
+    setPhase(&#39;loading&#39;)
+    loadedTimeout.current = setTimeout(() =&gt; setPhase(&#39;loaded&#39;), 3000)
+  }
+
+  const status =
+    phase === &#39;loading&#39;
+      ? `Zoekresultaten voor ‘${query}’ worden geladen`
+      : phase === &#39;loaded&#39;
+        ? `${results.length} resultaten voor ‘${query}’ gevonden`
+        : &#39;&#39;
+
+  return (
+    &lt;main id=&quot;inhoud&quot;&gt;
+      &lt;Grid gapVertical=&quot;large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;SearchField onSubmit={search}&gt;
+            &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
+            &lt;SearchField.Button /&gt;
+          &lt;/SearchField&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+
+      {/*
+       * Mark the whole results region busy while it loads and let it announce once, rather than once per
+       * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
+       * technologies, so this region is all a screen reader hears.
+       */}
+      &lt;Grid aria-busy={phase === &#39;loading&#39;} paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/*
+           * Keep one status message in the DOM at all times and only change its text – from a loading
+           * message to the result count – so screen readers reliably announce the update. A Loading Region
+           * component to wrap this pattern is planned; until then it is plain HTML.
+           */}
+          &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;
+            {status}
+          &lt;/p&gt;
+          {phase === &#39;idle&#39; &amp;&amp; &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;}
+          {phase === &#39;loaded&#39; &amp;&amp; (
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;{`${results.length} resultaten voor ‘${query}’`}&lt;/Heading&gt;
+          )}
+        &lt;/Grid.Cell&gt;
+
+        {/*
+         * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
+         * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+         * Mirroring the shape keeps the layout from shifting when the real content arrives.
+         */}
+        {phase === &#39;loading&#39; &amp;&amp;
+          results.map((_, index) =&gt; (
+            &lt;Grid.Cell key={index} span={cellSpan}&gt;
+              &lt;Skeleton&gt;
+                &lt;Skeleton.Image /&gt;
+                &lt;Skeleton.Heading /&gt;
+                &lt;Skeleton.Paragraph lines={2} /&gt;
+              &lt;/Skeleton&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+
+        {phase === &#39;loaded&#39; &amp;&amp;
+          results.map((result) =&gt; (
+            &lt;Grid.Cell key={result.heading} span={cellSpan}&gt;
+              &lt;Card&gt;
+                &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;16:9&quot; src={result.imageSrc} /&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{result.heading}&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+                &lt;Paragraph&gt;{result.description}&lt;/Paragraph&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+      &lt;/Grid&gt;
+    &lt;/main&gt;
+  )
+};</code></pre>
+            </div>
+        </div>
+    
+    
+  </div>
+</article>
+<article
+  class="card 
   no-error 
   no-info 
   no-story-error
@@ -12261,10 +12863,10 @@ Therefore, it is blue and clickable.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Logo</h2>
       <div class="badges">
-        <label for="c-53-components-media-logo-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-54-components-media-logo-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-53-components-media-logo-stories" class="badge ok as-toggle">9 stories</label>
-        <label for="c-53-components-media-logo-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-54-components-media-logo-stories" class="badge ok as-toggle">9 stories</label>
+        <label for="c-54-components-media-logo-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -12277,10 +12879,10 @@ Therefore, it is blue and clickable.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-53-components-media-logo-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-53-components-media-logo-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-54-components-media-logo-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-54-components-media-logo-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-53-components-media-logo-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-54-components-media-logo-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -12532,10 +13134,10 @@ The sub-brands are:
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Margin</h2>
       <div class="badges">
-        <label for="c-54-utilities-css-margin-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-55-utilities-css-margin-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-54-utilities-css-margin-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-54-utilities-css-margin-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-55-utilities-css-margin-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-55-utilities-css-margin-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -12548,10 +13150,10 @@ The sub-brands are:
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-54-utilities-css-margin-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-54-utilities-css-margin-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-55-utilities-css-margin-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-55-utilities-css-margin-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-54-utilities-css-margin-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-55-utilities-css-margin-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -12651,8 +13253,8 @@ import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
       <div class="badges">
         
         
-        <label for="c-55-components-text-mark-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-55-components-text-mark-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-56-components-text-mark-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-56-components-text-mark-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -12665,8 +13267,8 @@ import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-55-components-text-mark-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-55-components-text-mark-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-56-components-text-mark-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-56-components-text-mark-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -12829,10 +13431,10 @@ Ignore capitalization and include partial matches.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Menu</h2>
       <div class="badges">
-        <label for="c-56-components-navigation-menu-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-57-components-navigation-menu-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-56-components-navigation-menu-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-56-components-navigation-menu-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-57-components-navigation-menu-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-57-components-navigation-menu-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -12845,10 +13447,10 @@ Ignore capitalization and include partial matches.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-56-components-navigation-menu-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-56-components-navigation-menu-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-57-components-navigation-menu-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-57-components-navigation-menu-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-56-components-navigation-menu-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-57-components-navigation-menu-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -13021,10 +13623,10 @@ The icon is larger and positioned above the label.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-57-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-57-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-57-pages-public-navigation-page-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-57-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-58-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-58-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-58-pages-public-navigation-page-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-58-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -13035,10 +13637,10 @@ The icon is larger and positioned above the label.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-57-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-57-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-57-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-57-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-58-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-58-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-58-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-58-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -14449,10 +15051,10 @@ Instead, it presents groups of links to various pages related to a specific subj
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-58-pages-internal-navigation-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-58-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-58-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-58-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-59-pages-internal-navigation-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-59-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-59-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-59-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -14463,10 +15065,10 @@ Instead, it presents groups of links to various pages related to a specific subj
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-58-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-58-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-58-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-58-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-59-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-59-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-59-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-59-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -14852,10 +15454,10 @@ This is a known limitation, and the mobile design is being further explored.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> OrderedList</h2>
       <div class="badges">
-        <label for="c-59-components-text-ordered-list-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-60-components-text-ordered-list-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-59-components-text-ordered-list-stories" class="badge ok as-toggle">7 stories</label>
-        <label for="c-59-components-text-ordered-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-60-components-text-ordered-list-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-60-components-text-ordered-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -14868,10 +15470,10 @@ This is a known limitation, and the mobile design is being further explored.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-59-components-text-ordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-59-components-text-ordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-60-components-text-ordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-60-components-text-ordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-59-components-text-ordered-list-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-60-components-text-ordered-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -15184,8 +15786,8 @@ Extra white space between items enhances the distinction, mainly when they consi
       <div class="badges">
         
         
-        <label for="c-60-components-layout-overlap-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-60-components-layout-overlap-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-61-components-layout-overlap-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-61-components-layout-overlap-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -15198,8 +15800,8 @@ Extra white space between items enhances the distinction, mainly when they consi
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-60-components-layout-overlap-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-60-components-layout-overlap-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-61-components-layout-overlap-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-61-components-layout-overlap-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -15313,10 +15915,10 @@ Note: the library does not yet offer an option to vertically centre the form.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Page</h2>
       <div class="badges">
-        <label for="c-61-components-containers-page-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-62-components-containers-page-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-61-components-containers-page-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-61-components-containers-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-62-components-containers-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-62-components-containers-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -15329,10 +15931,10 @@ Note: the library does not yet offer an option to vertically centre the form.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-61-components-containers-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-61-components-containers-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-62-components-containers-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-62-components-containers-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-61-components-containers-page-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-62-components-containers-page-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -15520,8 +16122,8 @@ With a Menu, that becomes 120 rems (1920 pixels).
       <div class="badges">
         
         
-        <label for="c-62-components-containers-page-footer-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-62-components-containers-page-footer-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-63-components-containers-page-footer-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-63-components-containers-page-footer-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -15534,8 +16136,8 @@ With a Menu, that becomes 120 rems (1920 pixels).
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-62-components-containers-page-footer-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-62-components-containers-page-footer-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-63-components-containers-page-footer-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-63-components-containers-page-footer-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -15851,10 +16453,10 @@ If your website is in Dutch, but the default heading of ‘Over deze website’ 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> PageHeader</h2>
       <div class="badges">
-        <label for="c-63-components-containers-page-header-props" class="badge ok as-toggle">17 prop types</label>
+        <label for="c-64-components-containers-page-header-props" class="badge ok as-toggle">17 prop types</label>
         
-        <label for="c-63-components-containers-page-header-stories" class="badge ok as-toggle">8 stories</label>
-        <label for="c-63-components-containers-page-header-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-64-components-containers-page-header-stories" class="badge ok as-toggle">8 stories</label>
+        <label for="c-64-components-containers-page-header-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -15867,10 +16469,10 @@ If your website is in Dutch, but the default heading of ‘Over deze website’ 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-63-components-containers-page-header-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-63-components-containers-page-header-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-64-components-containers-page-header-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-64-components-containers-page-header-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-63-components-containers-page-header-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-64-components-containers-page-header-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -16561,10 +17163,10 @@ A different icon for the menu button must be an svg as well.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Pagination</h2>
       <div class="badges">
-        <label for="c-64-components-navigation-pagination-props" class="badge ok as-toggle">11 prop types</label>
+        <label for="c-65-components-navigation-pagination-props" class="badge ok as-toggle">11 prop types</label>
         
-        <label for="c-64-components-navigation-pagination-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-64-components-navigation-pagination-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-65-components-navigation-pagination-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-65-components-navigation-pagination-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -16577,10 +17179,10 @@ A different icon for the menu button must be an svg as well.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-64-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-64-components-navigation-pagination-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-65-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-65-components-navigation-pagination-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-64-components-navigation-pagination-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-65-components-navigation-pagination-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -16781,10 +17383,10 @@ Redirect users to the first page if they enter a URL with a page number that doe
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Paragraph</h2>
       <div class="badges">
-        <label for="c-65-components-text-paragraph-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-66-components-text-paragraph-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-65-components-text-paragraph-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-65-components-text-paragraph-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-66-components-text-paragraph-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-66-components-text-paragraph-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -16797,10 +17399,10 @@ Redirect users to the first page if they enter a URL with a page number that doe
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-65-components-text-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-65-components-text-paragraph-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-66-components-text-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-66-components-text-paragraph-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-65-components-text-paragraph-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-66-components-text-paragraph-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -16989,10 +17591,10 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> PasswordInput</h2>
       <div class="badges">
-        <label for="c-66-components-forms-password-input-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-67-components-forms-password-input-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-66-components-forms-password-input-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-66-components-forms-password-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-67-components-forms-password-input-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-67-components-forms-password-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -17005,10 +17607,10 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-66-components-forms-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-66-components-forms-password-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-67-components-forms-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-67-components-forms-password-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-66-components-forms-password-input-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-67-components-forms-password-input-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -17214,10 +17816,10 @@ These props cannot be overridden.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProductPage</h2>
       <div class="badges">
-        <label for="c-67-pages-public-product-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-67-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-67-pages-public-product-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-67-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-68-pages-public-product-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-68-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-68-pages-public-product-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-68-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -17228,10 +17830,10 @@ These props cannot be overridden.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-67-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-67-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-67-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-67-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-68-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-68-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-68-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-68-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -17737,10 +18339,10 @@ Often includes a Call to Action Link that directs the user to a form.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ProgressList</h2>
       <div class="badges">
-        <label for="c-68-components-containers-progress-list-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-69-components-containers-progress-list-props" class="badge ok as-toggle">4 prop types</label>
         
-        <label for="c-68-components-containers-progress-list-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-68-components-containers-progress-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-69-components-containers-progress-list-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-69-components-containers-progress-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -17753,10 +18355,10 @@ Often includes a Call to Action Link that directs the user to a form.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-68-components-containers-progress-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-68-components-containers-progress-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-69-components-containers-progress-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-69-components-containers-progress-list-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-68-components-containers-progress-list-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-69-components-containers-progress-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -18048,10 +18650,10 @@ You can customize the screen reader text with `completedAccessibleText` and `cur
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProjectPage</h2>
       <div class="badges">
-        <label for="c-69-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-69-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-69-pages-public-project-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-69-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-70-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-70-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-70-pages-public-project-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-70-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -18062,10 +18664,10 @@ You can customize the screen reader text with `completedAccessibleText` and `cur
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-69-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-69-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-69-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-69-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-70-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-70-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-70-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-70-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -18976,8 +19578,8 @@ These links lead to news updates, related projects, and supporting documents, al
       <div class="badges">
         
         
-        <label for="c-70-utilities-css-prose-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-70-utilities-css-prose-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-71-utilities-css-prose-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-71-utilities-css-prose-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -18990,8 +19592,8 @@ These links lead to news updates, related projects, and supporting documents, al
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-70-utilities-css-prose-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-70-utilities-css-prose-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-71-utilities-css-prose-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-71-utilities-css-prose-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -19227,8 +19829,8 @@ import * as ProseStories from &quot;./Prose.stories.tsx&quot;;
       <div class="badges">
         
         
-        <label for="c-71-utilities-css-query-container-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-71-utilities-css-query-container-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-72-utilities-css-query-container-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-72-utilities-css-query-container-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -19241,8 +19843,8 @@ import * as ProseStories from &quot;./Prose.stories.tsx&quot;;
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-71-utilities-css-query-container-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-71-utilities-css-query-container-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-72-utilities-css-query-container-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-72-utilities-css-query-container-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -19340,10 +19942,10 @@ import * as QueryContainerStories from &quot;./QueryContainer.stories.tsx&quot;;
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Radio</h2>
       <div class="badges">
-        <label for="c-72-components-forms-radio-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-73-components-forms-radio-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-72-components-forms-radio-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-72-components-forms-radio-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-73-components-forms-radio-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-73-components-forms-radio-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -19356,10 +19958,10 @@ import * as QueryContainerStories from &quot;./QueryContainer.stories.tsx&quot;;
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-72-components-forms-radio-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-72-components-forms-radio-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-73-components-forms-radio-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-73-components-forms-radio-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-72-components-forms-radio-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-73-components-forms-radio-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -19646,10 +20248,10 @@ Websites for the City of Amsterdam must use the default icon.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Row</h2>
       <div class="badges">
-        <label for="c-73-components-layout-row-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-74-components-layout-row-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-73-components-layout-row-stories" class="badge ok as-toggle">7 stories</label>
-        <label for="c-73-components-layout-row-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-74-components-layout-row-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-74-components-layout-row-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -19662,10 +20264,10 @@ Websites for the City of Amsterdam must use the default icon.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-73-components-layout-row-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-73-components-layout-row-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-74-components-layout-row-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-74-components-layout-row-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-73-components-layout-row-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-74-components-layout-row-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -19926,8 +20528,8 @@ Align the elements horizontally or vertically through the alignment props.
       <div class="badges">
         
         
-        <label for="c-74-components-forms-search-field-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-74-components-forms-search-field-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-75-components-forms-search-field-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-75-components-forms-search-field-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -19940,8 +20542,8 @@ Align the elements horizontally or vertically through the alignment props.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-74-components-forms-search-field-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-74-components-forms-search-field-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-75-components-forms-search-field-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-75-components-forms-search-field-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -20161,10 +20763,10 @@ The component uses `role=&quot;search&quot;` for the search landmark role.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Select</h2>
       <div class="badges">
-        <label for="c-75-components-forms-select-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-76-components-forms-select-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-75-components-forms-select-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-75-components-forms-select-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-76-components-forms-select-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-76-components-forms-select-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -20177,10 +20779,10 @@ The component uses `role=&quot;search&quot;` for the search landmark role.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-75-components-forms-select-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-75-components-forms-select-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-76-components-forms-select-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-76-components-forms-select-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-75-components-forms-select-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-76-components-forms-select-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -20449,9 +21051,9 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ShadowSample</h2>
       <div class="badges">
-        <label for="c-76-components-docs-shadow-sample-props" class="badge ok as-toggle">1 prop type</label>
-        <label for="c-76-components-docs-shadow-sample-info" class="badge info as-toggle">1 info</label>
-        <label for="c-76-components-docs-shadow-sample-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-77-components-docs-shadow-sample-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-77-components-docs-shadow-sample-info" class="badge info as-toggle">1 info</label>
+        <label for="c-77-components-docs-shadow-sample-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -20464,11 +21066,11 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-76-components-docs-shadow-sample-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-76-components-docs-shadow-sample-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-77-components-docs-shadow-sample-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-77-components-docs-shadow-sample-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  <input id="c-76-components-docs-shadow-sample-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-77-components-docs-shadow-sample-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -20535,15 +21137,301 @@ value: string</code></pre>
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="Skeleton">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Skeleton</h2>
+      <div class="badges">
+        
+        
+        <label for="c-78-components-feedback-skeleton-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-78-components-feedback-skeleton-docs" class="badge ok as-toggle">1 doc</label>
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/components/Skeleton/Skeleton.stories.tsx">components-feedback-skeleton · ./src/components/Skeleton/Skeleton.stories.tsx</div>
+    
+    <div class="hint">Grey shapes that stand in for content while it loads. Compose its parts to mirror the content to come, so the layout barely shifts once it arrives.</div>
+    <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-feedback-skeleton--docs Skeleton docs at Amsterdam Design System}</span></div>
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  
+  
+  <input id="c-78-components-feedback-skeleton-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-78-components-feedback-skeleton-docs" class="tg tg-docs" type="checkbox" hidden />
+  
+  
+
+  <div class="panels">
+    
+    
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Skeleton } from "@amsterdam/design-system-react/src";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; &lt;Skeleton&gt;{[&lt;Skeleton.Image key={1} /&gt;, &lt;Skeleton.Heading key={2} /&gt;, &lt;Skeleton.Paragraph key={3} lines={3} /&gt;]}&lt;/Skeleton&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Heading</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Heading = ({ lines }) =&gt; (
+  &lt;Skeleton&gt;
+    &lt;Skeleton.Heading lines={lines} /&gt;
+  &lt;/Skeleton&gt;
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Paragraph</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Paragraph = ({ lines }) =&gt; (
+  &lt;Skeleton&gt;
+    &lt;Skeleton.Paragraph lines={lines} /&gt;
+  &lt;/Skeleton&gt;
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">List</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const List = ({ lines }) =&gt; (
+  &lt;Skeleton&gt;
+    &lt;Skeleton.List lines={lines} /&gt;
+  &lt;/Skeleton&gt;
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Table</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Table = ({ columns, rows }) =&gt; (
+  &lt;Skeleton&gt;
+    &lt;Skeleton.Table columns={columns} rows={rows} /&gt;
+  &lt;/Skeleton&gt;
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Image</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Image = ({ aspectRatio }) =&gt; (
+  &lt;Skeleton&gt;
+    &lt;Skeleton.Image aspectRatio={aspectRatio} /&gt;
+  &lt;/Skeleton&gt;
+);</code></pre>
+            </div>
+        </div>
+    
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/components/Skeleton/Skeleton.docs.mdx</div>
+              
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable/DesignTokensTable&quot;;
+import tokens from &quot;#tokens/components/ams/skeleton.tokens.json&quot;;
+
+import * as SkeletonStories from &quot;./Skeleton.stories.tsx&quot;;
+
+&lt;Meta of={SkeletonStories} /&gt;
+
+&lt;Title /&gt;
+
+&lt;Description of={SkeletonStories} /&gt;
+
+&lt;Primary /&gt;
+
+The Skeleton container takes only the parts you compose inside it and hides them from assistive technologies.
+Each part has its own options, documented under Subcomponents.
+
+The container itself has no props to configure.
+
+## Subcomponents
+
+Compose a Skeleton from its parts: Skeleton.Image, Skeleton.Heading, Skeleton.Paragraph, Skeleton.List, and Skeleton.Table.
+Skeleton.Image is a single block; the others render one or more lines, sized to the text they stand in for.
+Set the `lines`, `rows`, and `columns` props to approximate the amount of content you expect.
+
+### Heading
+
+Lines the size of a Heading.
+Set `lines` above one for a heading that wraps onto several lines.
+
+&lt;Canvas of={SkeletonStories.Heading} /&gt;
+
+&lt;Controls of={SkeletonStories.Heading} /&gt;
+
+### Paragraph
+
+Lines the size of body text.
+Their lengths alternate between two widths, and the last line of a multi-line paragraph is shorter, approximating its ragged end.
+
+&lt;Canvas of={SkeletonStories.Paragraph} /&gt;
+
+&lt;Controls of={SkeletonStories.Paragraph} /&gt;
+
+### List
+
+Body-text lines, each with a marker, indented like an Unordered List.
+
+&lt;Canvas of={SkeletonStories.List} /&gt;
+
+&lt;Controls of={SkeletonStories.List} /&gt;
+
+### Table
+
+A grid of cells.
+
+&lt;Canvas of={SkeletonStories.Table} /&gt;
+
+&lt;Controls of={SkeletonStories.Table} /&gt;
+
+### Image
+
+A block that stands in for an image.
+Set the `aspectRatio` prop to match the image that will replace it; it defaults to 16:9.
+
+&lt;Canvas of={SkeletonStories.Image} /&gt;
+
+&lt;Controls of={SkeletonStories.Image} /&gt;
+
+## Usage guidelines
+
+### When to use
+
+Show a Skeleton while loading content that takes a noticeable time to arrive – roughly between 1 and 10 seconds.
+Compose the parts to mirror the content to come, so the grey blocks prepare users for the page structure and waiting feels shorter.
+
+### When not to use
+
+Do not show a Skeleton for waits shorter than about a second: a flash of grey blocks is more distracting than helpful.
+For a process with a known duration or progress, such as a file upload, show actual progress information instead.
+Never use a Skeleton for content that is already available – render that content immediately.
+Avoid combining it with other loading indicators in the same view.
+
+### How to use
+
+Nest the parts you need inside a Skeleton, in the order the real content will appear.
+Match the number of lines, rows, and columns to the expected content, so replacing the Skeleton barely shifts the layout.
+Render a Skeleton only while its content is loading, and replace it with the content – or an empty or error state – as soon as that content arrives.
+
+A Skeleton is decorative and hidden from assistive technologies, so it stays silent on its own.
+Announcing the loading state is the job of the region that holds the content, not of each Skeleton – otherwise a list of ten Skeletons would announce ten times.
+Mark that region with `aria-busy` while it loads, and give it a single, always-present status message whose text changes from a loading message to the result:
+
+```html
+&lt;section aria-busy=&quot;true&quot;&gt;
+  &lt;p class=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;Zoekresultaten worden geladen&lt;/p&gt;
+  &lt;!-- ten Skeletons while loading --&gt;
+&lt;/section&gt;
+```
+
+When the content has loaded, replace the Skeletons with it, set `aria-busy` to `false`, and change the status message – for example to ‘10 resultaten gevonden’.
+A Loading Region component that wraps this pattern is planned.
+
+#### Customising the animation
+
+The animation is set through one custom property, `--ams-skeleton-animation`, which holds a CSS `animation` shorthand.
+Override it to suit your theme: change the duration or timing function to adjust the pace, point it at your own `@keyframes` to replace the motion, or set it to `none` to switch it off.
+Users who prefer reduced motion never see the animation, whatever you set it to.
+
+## Features
+
+The dimensions of the lines derive from the design tokens of the text they mimic: Skeleton.Heading follows Heading 2, and the other parts follow body text.
+Each line is exactly as tall as its line of text, so a part occupies the same height as the content it stands in for and the layout barely shifts once that content arrives.
+
+Line lengths vary deterministically: within each part the lines – or, in a table, the cells across each row – alternate between two widths, and any part with more than one ends on a shorter last one.
+This looks natural yet renders identically on every request, which keeps server-side rendering consistent and visual regression tests stable.
+
+## Design
+
+The blocks use a single neutral grey that reads as a quiet backdrop rather than content.
+The space between composed parts is a generic gap rather than the exact margins of any one component, keeping the Skeleton reusable in any layout.
+
+A calm heartbeat signals that loading is under way.
+Two quick beats in succession – the second softer than the first – fade the blocks to a lighter shade and back, then a longer rest holds them at full strength before the next pair.
+The rhythm reassures without demanding attention, closer to a resting heartbeat than a busy shimmer.
+It sits behind a single design token, so a theme can retime it, point it at its own keyframes, or switch it off.
+
+## Accessibility
+
+A Skeleton renders with `aria-hidden=&quot;true&quot;`, so screen readers skip the grey blocks entirely.
+Because the loading announcement belongs to the region that is loading rather than to each block, the Skeleton stays silent; the application announces the state once for the region, as shown under ‘How to use’, to meet [WCAG 4.1.3](https://www.w3.org/TR/WCAG22/#status-messages).
+A Loading Region component to encapsulate that pattern is planned.
+The animation runs only for users who have not asked for reduced motion; everyone else sees the static blocks.
+In forced colours mode, the blocks remain visible through the system colour for disabled text.
+
+## See also
+
+- [Paragraph](/docs/components-text-paragraph--docs), [Heading](/docs/components-text-heading--docs), and [Table](/docs/components-containers-table--docs), the components a Skeleton stands in for.
+
+## Design tokens
+
+&lt;DesignTokensTable tokens={tokens} /&gt;
+</code></pre></div>
+            </div>
+        </div>
+    
+  </div>
+</article>
+<article
+  class="card 
+  no-error 
+  no-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="SkipLink">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> SkipLink</h2>
       <div class="badges">
-        <label for="c-77-components-navigation-skip-link-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-79-components-navigation-skip-link-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-77-components-navigation-skip-link-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-77-components-navigation-skip-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-79-components-navigation-skip-link-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-79-components-navigation-skip-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -20556,10 +21444,10 @@ value: string</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-77-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-77-components-navigation-skip-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-79-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-79-components-navigation-skip-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-77-components-navigation-skip-link-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-79-components-navigation-skip-link-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -20733,9 +21621,9 @@ After appearing, it pushes the rest of the page down.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> SpaceSample</h2>
       <div class="badges">
-        <label for="c-78-components-docs-space-sample-props" class="badge ok as-toggle">1 prop type</label>
-        <label for="c-78-components-docs-space-sample-info" class="badge info as-toggle">1 info</label>
-        <label for="c-78-components-docs-space-sample-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-80-components-docs-space-sample-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-80-components-docs-space-sample-info" class="badge info as-toggle">1 info</label>
+        <label for="c-80-components-docs-space-sample-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -20748,11 +21636,11 @@ After appearing, it pushes the rest of the page down.
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-78-components-docs-space-sample-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-78-components-docs-space-sample-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-80-components-docs-space-sample-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-80-components-docs-space-sample-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  <input id="c-78-components-docs-space-sample-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-80-components-docs-space-sample-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -20823,10 +21711,10 @@ value?: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Spotlight</h2>
       <div class="badges">
-        <label for="c-79-components-containers-spotlight-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-81-components-containers-spotlight-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-79-components-containers-spotlight-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-79-components-containers-spotlight-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-81-components-containers-spotlight-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-81-components-containers-spotlight-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -20839,10 +21727,10 @@ value?: string</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-79-components-containers-spotlight-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-79-components-containers-spotlight-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-81-components-containers-spotlight-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-81-components-containers-spotlight-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-79-components-containers-spotlight-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-81-components-containers-spotlight-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -21017,10 +21905,10 @@ Use a Spotlight to direct the user’s attention to the most important or action
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> StandaloneLink</h2>
       <div class="badges">
-        <label for="c-80-components-navigation-standalone-link-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-82-components-navigation-standalone-link-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-80-components-navigation-standalone-link-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-80-components-navigation-standalone-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-82-components-navigation-standalone-link-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-82-components-navigation-standalone-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -21033,10 +21921,10 @@ Use a Spotlight to direct the user’s attention to the most important or action
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-80-components-navigation-standalone-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-80-components-navigation-standalone-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-82-components-navigation-standalone-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-82-components-navigation-standalone-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-80-components-navigation-standalone-link-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-82-components-navigation-standalone-link-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -21245,9 +22133,9 @@ As a result, pages can have sections with either one or several links used inter
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> StatusBadge</h2>
       <div class="badges">
-        <label for="c-81-components-docs-status-badge-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-83-components-docs-status-badge-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-81-components-docs-status-badge-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-83-components-docs-status-badge-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -21261,10 +22149,10 @@ As a result, pages can have sections with either one or several links used inter
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-81-components-docs-status-badge-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-83-components-docs-status-badge-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  <input id="c-81-components-docs-status-badge-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-83-components-docs-status-badge-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -21335,8 +22223,8 @@ status: string = &#39;beta&#39;</code></pre>
       <div class="badges">
         
         
-        <label for="c-82-components-forms-switch-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-82-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-84-components-forms-switch-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-84-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -21349,8 +22237,8 @@ status: string = &#39;beta&#39;</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-82-components-forms-switch-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-82-components-forms-switch-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-84-components-forms-switch-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-84-components-forms-switch-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -21491,8 +22379,8 @@ A Switch must have a label, and in most cases, this label should be visible.
       <div class="badges">
         
         
-        <label for="c-83-components-containers-table-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-83-components-containers-table-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-85-components-containers-table-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-85-components-containers-table-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -21505,8 +22393,8 @@ A Switch must have a label, and in most cases, this label should be visible.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-83-components-containers-table-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-83-components-containers-table-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-85-components-containers-table-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-85-components-containers-table-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -21803,10 +22691,10 @@ A Table caption creates the accessible name for the Table, announced by screen r
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TableOfContents</h2>
       <div class="badges">
-        <label for="c-84-components-navigation-table-of-contents-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-86-components-navigation-table-of-contents-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-84-components-navigation-table-of-contents-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-84-components-navigation-table-of-contents-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-86-components-navigation-table-of-contents-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-86-components-navigation-table-of-contents-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -21819,10 +22707,10 @@ A Table caption creates the accessible name for the Table, announced by screen r
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-84-components-navigation-table-of-contents-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-84-components-navigation-table-of-contents-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-86-components-navigation-table-of-contents-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-86-components-navigation-table-of-contents-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-84-components-navigation-table-of-contents-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-86-components-navigation-table-of-contents-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -22166,8 +23054,8 @@ This example keeps a single branch open at a time by expanding the clicked branc
       <div class="badges">
         
         
-        <label for="c-85-pages-internal-table-page-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-85-pages-internal-table-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-87-pages-internal-table-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-87-pages-internal-table-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -22180,8 +23068,8 @@ This example keeps a single branch open at a time by expanding the clicked branc
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-85-pages-internal-table-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-85-pages-internal-table-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-87-pages-internal-table-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-87-pages-internal-table-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -22375,10 +23263,10 @@ The **Sorting With Select** story demonstrates the recommended layout.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TabNavigation</h2>
       <div class="badges">
-        <label for="c-86-components-navigation-tab-navigation-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-88-components-navigation-tab-navigation-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-86-components-navigation-tab-navigation-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-86-components-navigation-tab-navigation-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-88-components-navigation-tab-navigation-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-88-components-navigation-tab-navigation-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -22391,10 +23279,10 @@ The **Sorting With Select** story demonstrates the recommended layout.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-86-components-navigation-tab-navigation-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-86-components-navigation-tab-navigation-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-88-components-navigation-tab-navigation-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-88-components-navigation-tab-navigation-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-86-components-navigation-tab-navigation-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-88-components-navigation-tab-navigation-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -22676,10 +23564,10 @@ The user can navigate the links with their keyboard:
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Tabs</h2>
       <div class="badges">
-        <label for="c-87-components-containers-tabs-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-89-components-containers-tabs-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-87-components-containers-tabs-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-87-components-containers-tabs-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-89-components-containers-tabs-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-89-components-containers-tabs-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -22692,10 +23580,10 @@ The user can navigate the links with their keyboard:
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-87-components-containers-tabs-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-87-components-containers-tabs-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-89-components-containers-tabs-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-89-components-containers-tabs-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-87-components-containers-tabs-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-89-components-containers-tabs-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -22883,10 +23771,10 @@ Add an `aria-controls` attribute to each button and match its value to the `id` 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TextArea</h2>
       <div class="badges">
-        <label for="c-88-components-forms-text-area-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-90-components-forms-text-area-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-88-components-forms-text-area-stories" class="badge ok as-toggle">8 stories</label>
-        <label for="c-88-components-forms-text-area-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-90-components-forms-text-area-stories" class="badge ok as-toggle">8 stories</label>
+        <label for="c-90-components-forms-text-area-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -22899,10 +23787,10 @@ Add an `aria-controls` attribute to each button and match its value to the `id` 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-88-components-forms-text-area-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-88-components-forms-text-area-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-90-components-forms-text-area-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-90-components-forms-text-area-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-88-components-forms-text-area-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-90-components-forms-text-area-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -23155,10 +24043,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TextInput</h2>
       <div class="badges">
-        <label for="c-89-components-forms-text-input-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-91-components-forms-text-input-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-89-components-forms-text-input-stories" class="badge ok as-toggle">11 stories</label>
-        <label for="c-89-components-forms-text-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-91-components-forms-text-input-stories" class="badge ok as-toggle">11 stories</label>
+        <label for="c-91-components-forms-text-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -23171,10 +24059,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-89-components-forms-text-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-89-components-forms-text-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-91-components-forms-text-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-91-components-forms-text-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-89-components-forms-text-input-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-91-components-forms-text-input-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -23606,10 +24494,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TimeInput</h2>
       <div class="badges">
-        <label for="c-90-components-forms-time-input-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-92-components-forms-time-input-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-90-components-forms-time-input-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-90-components-forms-time-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-92-components-forms-time-input-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-92-components-forms-time-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -23622,10 +24510,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-90-components-forms-time-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-90-components-forms-time-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-92-components-forms-time-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-92-components-forms-time-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-90-components-forms-time-input-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-92-components-forms-time-input-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -23823,9 +24711,9 @@ This does mean that this component does not look identical on all browsers and o
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TypographySample</h2>
       <div class="badges">
-        <label for="c-91-components-docs-typography-sample-props" class="badge ok as-toggle">6 prop types</label>
-        <label for="c-91-components-docs-typography-sample-info" class="badge info as-toggle">1 info</label>
-        <label for="c-91-components-docs-typography-sample-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-93-components-docs-typography-sample-props" class="badge ok as-toggle">6 prop types</label>
+        <label for="c-93-components-docs-typography-sample-info" class="badge info as-toggle">1 info</label>
+        <label for="c-93-components-docs-typography-sample-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -23838,11 +24726,11 @@ This does mean that this component does not look identical on all browsers and o
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="c-91-components-docs-typography-sample-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-91-components-docs-typography-sample-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-93-components-docs-typography-sample-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-93-components-docs-typography-sample-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
-  <input id="c-91-components-docs-typography-sample-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-93-components-docs-typography-sample-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -23943,10 +24831,10 @@ lineHeight?: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> UnorderedList</h2>
       <div class="badges">
-        <label for="c-92-components-text-unordered-list-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-94-components-text-unordered-list-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-92-components-text-unordered-list-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-92-components-text-unordered-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-94-components-text-unordered-list-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-94-components-text-unordered-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -23959,10 +24847,10 @@ lineHeight?: string</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-92-components-text-unordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-92-components-text-unordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-94-components-text-unordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-94-components-text-unordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-92-components-text-unordered-list-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-94-components-text-unordered-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -24225,8 +25113,8 @@ This provides better distinction between the items, especially when they consist
       <div class="badges">
         
         
-        <label for="c-93-utilities-css-visually-hidden-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-93-utilities-css-visually-hidden-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-95-utilities-css-visually-hidden-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-95-utilities-css-visually-hidden-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -24239,8 +25127,8 @@ This provides better distinction between the items, especially when they consist
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-93-utilities-css-visually-hidden-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-93-utilities-css-visually-hidden-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-95-utilities-css-visually-hidden-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-95-utilities-css-visually-hidden-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -24318,7 +25206,7 @@ import * as VisuallyHiddenStories from &quot;./VisuallyHidden.stories.tsx&quot;;
           <label for="no-component-found-toggle" class="group-header">
             <span class="caret">▸</span>
             <span class="group-title">No component found</span>
-            <span class="group-count">9</span>
+            <span class="group-count">10</span>
           </label>
           <div class="group-cards">
 <article
@@ -25771,15 +26659,617 @@ Our single example in this category currently focuses on the overall layout.
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="LoadingPage">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> LoadingPage</h2>
+      <div class="badges">
+        <label for="c-error-5-pages-public-loading-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-5-pages-public-loading-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-5-pages-public-loading-page-stories" class="badge ok as-toggle">3 stories</label>
+        
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/pages/public/LoadingPage/LoadingPage.stories.tsx">pages-public-loading-page · ./src/pages/public/LoadingPage/LoadingPage.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-5-pages-public-loading-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-5-pages-public-loading-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-5-pages-public-loading-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  53 | const cellSpan = { narrow: 4, medium: 4, wide: 4 } as const
+  54 |
+&gt; 55 | const meta = {
+     | ^
+  56 |   ...commonMeta,
+  57 |   title: &#39;Pages/Public/Loading Page&#39;,
+  58 |   args: { initialPhase: &#39;idle&#39; },
+
+./src/pages/public/LoadingPage/LoadingPage.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { FormEvent } from &#39;react&#39;
+
+import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from &#39;@amsterdam/design-system-react&#39;
+import { useEffect, useRef, useState } from &#39;react&#39;
+
+import { commonMeta } from &#39;../common/config&#39;
+
+const initialQuery = &#39;woningbouw&#39;
+
+const results = [
+  {
+    description: &#39;Een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.&#39;,
+    heading: &#39;Nederlands eerste houten woonwijk komt in Zuidoost&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1015/640/360&#39;,
+  },
+  {
+    description: &#39;De komende jaren bouwt de gemeente duizenden nieuwe woningen in stadsdeel Noord.&#39;,
+    heading: &#39;Meer betaalbare woningen in Noord&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1016/640/360&#39;,
+  },
+  {
+    description: &#39;Havenstad groeit uit tot een gemengd stadsgebied met ruimte om te wonen en te werken.&#39;,
+    heading: &#39;Woningbouwplannen Havenstad&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1029/640/360&#39;,
+  },
+  {
+    description: &#39;Bekijk hoe u zich inschrijft en wat de wachttijden zijn voor een sociale huurwoning.&#39;,
+    heading: &#39;Sneller een sociale huurwoning&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1039/640/360&#39;,
+  },
+  {
+    description: &#39;Subsidies en advies om uw huis te isoleren en van het gas af te gaan.&#39;,
+    heading: &#39;Verduurzaam uw woning&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1043/640/360&#39;,
+  },
+  {
+    description: &#39;Op het Zeeburgereiland verrijst een hoogstedelijke buurt met hoge woontorens.&#39;,
+    heading: &#39;Nieuwbouw in de Sluisbuurt&#39;,
+    imageSrc: &#39;https://picsum.photos/id/1044/640/360&#39;,
+  },
+]
+
+type Phase = &#39;idle&#39; | &#39;loaded&#39; | &#39;loading&#39;
+
+type LoadingPageArgs = { readonly initialPhase: Phase }
+
+const cellSpan = { narrow: 4, medium: 4, wide: 4 } as const
+
+const meta = {
+  ...commonMeta,
+  title: &#39;Pages/Public/Loading Page&#39;,
+  args: { initialPhase: &#39;idle&#39; },
+  // The initial phase only picks which state each story opens in; it is not a prop to configure.
+  argTypes: { initialPhase: { table: { disable: true } } },
+  render: ({ initialPhase }: LoadingPageArgs) =&gt; {
+    const [phase, setPhase] = useState&lt;Phase&gt;(initialPhase)
+    const [query, setQuery] = useState(initialQuery)
+    const loadedTimeout = useRef&lt;ReturnType&lt;typeof setTimeout&gt; | null&gt;(null)
+
+    // Clear a pending swap if the story unmounts, so it never updates state after it is gone.
+    useEffect(
+      () =&gt; () =&gt; {
+        if (loadedTimeout.current) {
+          clearTimeout(loadedTimeout.current)
+        }
+      },
+      [],
+    )
+
+    const search = (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+      event.preventDefault()
+
+      const value = new FormData(event.currentTarget).get(&#39;search&#39;)
+      if (typeof value === &#39;string&#39; &amp;&amp; value.trim()) {
+        setQuery(value.trim())
+      }
+
+      // Show the placeholders, then swap in the results after a short delay. Clear any pending swap first,
+      // so a second search cannot flip an earlier one to loaded while this one is still loading.
+      if (loadedTimeout.current) {
+        clearTimeout(loadedTimeout.current)
+      }
+      setPhase(&#39;loading&#39;)
+      loadedTimeout.current = setTimeout(() =&gt; setPhase(&#39;loaded&#39;), 3000)
+    }
+
+    const status =
+      phase === &#39;loading&#39;
+        ? `Zoekresultaten voor ‘${query}’ worden geladen`
+        : phase === &#39;loaded&#39;
+          ? `${results.length} resultaten voor ‘${query}’ gevonden`
+          : &#39;&#39;
+
+    return (
+      &lt;main id=&quot;inhoud&quot;&gt;
+        &lt;Grid gapVertical=&quot;large&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+            &lt;SearchField onSubmit={search}&gt;
+              &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
+              &lt;SearchField.Button /&gt;
+            &lt;/SearchField&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+
+        {/*
+         * Mark the whole results region busy while it loads and let it announce once, rather than once per
+         * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
+         * technologies, so this region is all a screen reader hears.
+         */}
+        &lt;Grid aria-busy={phase === &#39;loading&#39;} paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            {/*
+             * Keep one status message in the DOM at all times and only change its text – from a loading
+             * message to the result count – so screen readers reliably announce the update. A Loading Region
+             * component to wrap this pattern is planned; until then it is plain HTML.
+             */}
+            &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;
+              {status}
+            &lt;/p&gt;
+            {phase === &#39;idle&#39; &amp;&amp; &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;}
+            {phase === &#39;loaded&#39; &amp;&amp; (
+              &lt;Heading level={2} size=&quot;level-3&quot;&gt;{`${results.length} resultaten voor ‘${query}’`}&lt;/Heading&gt;
+            )}
+          &lt;/Grid.Cell&gt;
+
+          {/*
+           * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
+           * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+           * Mirroring the shape keeps the layout from shifting when the real content arrives.
+           */}
+          {phase === &#39;loading&#39; &amp;&amp;
+            results.map((_, index) =&gt; (
+              &lt;Grid.Cell key={index} span={cellSpan}&gt;
+                &lt;Skeleton&gt;
+                  &lt;Skeleton.Image /&gt;
+                  &lt;Skeleton.Heading /&gt;
+                  &lt;Skeleton.Paragraph lines={2} /&gt;
+                &lt;/Skeleton&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+
+          {phase === &#39;loaded&#39; &amp;&amp;
+            results.map((result) =&gt; (
+              &lt;Grid.Cell key={result.heading} span={cellSpan}&gt;
+                &lt;Card&gt;
+                  &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;16:9&quot; src={result.imageSrc} /&gt;
+                  &lt;Card.Heading level={3}&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;{result.heading}&lt;/Card.Link&gt;
+                  &lt;/Card.Heading&gt;
+                  &lt;Paragraph&gt;{result.description}&lt;/Paragraph&gt;
+                &lt;/Card&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+        &lt;/Grid&gt;
+      &lt;/main&gt;
+    )
+  },
+} satisfies Meta&lt;LoadingPageArgs&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+export const Default: Story = {}
+
+export const Loading: Story = {
+  args: { initialPhase: &#39;loading&#39; },
+}
+
+export const Loaded: Story = {
+  args: { initialPhase: &#39;loaded&#39; },
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from "@amsterdam/design-system-react";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = ({ initialPhase }: LoadingPageArgs) =&gt; {
+  const [phase, setPhase] = useState&lt;Phase&gt;(initialPhase)
+  const [query, setQuery] = useState(initialQuery)
+  const loadedTimeout = useRef&lt;ReturnType&lt;typeof setTimeout&gt; | null&gt;(null)
+
+  // Clear a pending swap if the story unmounts, so it never updates state after it is gone.
+  useEffect(
+    () =&gt; () =&gt; {
+      if (loadedTimeout.current) {
+        clearTimeout(loadedTimeout.current)
+      }
+    },
+    [],
+  )
+
+  const search = (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+    event.preventDefault()
+
+    const value = new FormData(event.currentTarget).get(&#39;search&#39;)
+    if (typeof value === &#39;string&#39; &amp;&amp; value.trim()) {
+      setQuery(value.trim())
+    }
+
+    // Show the placeholders, then swap in the results after a short delay. Clear any pending swap first,
+    // so a second search cannot flip an earlier one to loaded while this one is still loading.
+    if (loadedTimeout.current) {
+      clearTimeout(loadedTimeout.current)
+    }
+    setPhase(&#39;loading&#39;)
+    loadedTimeout.current = setTimeout(() =&gt; setPhase(&#39;loaded&#39;), 3000)
+  }
+
+  const status =
+    phase === &#39;loading&#39;
+      ? `Zoekresultaten voor ‘${query}’ worden geladen`
+      : phase === &#39;loaded&#39;
+        ? `${results.length} resultaten voor ‘${query}’ gevonden`
+        : &#39;&#39;
+
+  return (
+    &lt;main id=&quot;inhoud&quot;&gt;
+      &lt;Grid gapVertical=&quot;large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;SearchField onSubmit={search}&gt;
+            &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
+            &lt;SearchField.Button /&gt;
+          &lt;/SearchField&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+
+      {/*
+       * Mark the whole results region busy while it loads and let it announce once, rather than once per
+       * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
+       * technologies, so this region is all a screen reader hears.
+       */}
+      &lt;Grid aria-busy={phase === &#39;loading&#39;} paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/*
+           * Keep one status message in the DOM at all times and only change its text – from a loading
+           * message to the result count – so screen readers reliably announce the update. A Loading Region
+           * component to wrap this pattern is planned; until then it is plain HTML.
+           */}
+          &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;
+            {status}
+          &lt;/p&gt;
+          {phase === &#39;idle&#39; &amp;&amp; &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;}
+          {phase === &#39;loaded&#39; &amp;&amp; (
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;{`${results.length} resultaten voor ‘${query}’`}&lt;/Heading&gt;
+          )}
+        &lt;/Grid.Cell&gt;
+
+        {/*
+         * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
+         * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+         * Mirroring the shape keeps the layout from shifting when the real content arrives.
+         */}
+        {phase === &#39;loading&#39; &amp;&amp;
+          results.map((_, index) =&gt; (
+            &lt;Grid.Cell key={index} span={cellSpan}&gt;
+              &lt;Skeleton&gt;
+                &lt;Skeleton.Image /&gt;
+                &lt;Skeleton.Heading /&gt;
+                &lt;Skeleton.Paragraph lines={2} /&gt;
+              &lt;/Skeleton&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+
+        {phase === &#39;loaded&#39; &amp;&amp;
+          results.map((result) =&gt; (
+            &lt;Grid.Cell key={result.heading} span={cellSpan}&gt;
+              &lt;Card&gt;
+                &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;16:9&quot; src={result.imageSrc} /&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{result.heading}&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+                &lt;Paragraph&gt;{result.description}&lt;/Paragraph&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+      &lt;/Grid&gt;
+    &lt;/main&gt;
+  )
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Loading</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Loading = ({ initialPhase }: LoadingPageArgs) =&gt; {
+  const [phase, setPhase] = useState&lt;Phase&gt;(initialPhase)
+  const [query, setQuery] = useState(initialQuery)
+  const loadedTimeout = useRef&lt;ReturnType&lt;typeof setTimeout&gt; | null&gt;(null)
+
+  // Clear a pending swap if the story unmounts, so it never updates state after it is gone.
+  useEffect(
+    () =&gt; () =&gt; {
+      if (loadedTimeout.current) {
+        clearTimeout(loadedTimeout.current)
+      }
+    },
+    [],
+  )
+
+  const search = (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+    event.preventDefault()
+
+    const value = new FormData(event.currentTarget).get(&#39;search&#39;)
+    if (typeof value === &#39;string&#39; &amp;&amp; value.trim()) {
+      setQuery(value.trim())
+    }
+
+    // Show the placeholders, then swap in the results after a short delay. Clear any pending swap first,
+    // so a second search cannot flip an earlier one to loaded while this one is still loading.
+    if (loadedTimeout.current) {
+      clearTimeout(loadedTimeout.current)
+    }
+    setPhase(&#39;loading&#39;)
+    loadedTimeout.current = setTimeout(() =&gt; setPhase(&#39;loaded&#39;), 3000)
+  }
+
+  const status =
+    phase === &#39;loading&#39;
+      ? `Zoekresultaten voor ‘${query}’ worden geladen`
+      : phase === &#39;loaded&#39;
+        ? `${results.length} resultaten voor ‘${query}’ gevonden`
+        : &#39;&#39;
+
+  return (
+    &lt;main id=&quot;inhoud&quot;&gt;
+      &lt;Grid gapVertical=&quot;large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;SearchField onSubmit={search}&gt;
+            &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
+            &lt;SearchField.Button /&gt;
+          &lt;/SearchField&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+
+      {/*
+       * Mark the whole results region busy while it loads and let it announce once, rather than once per
+       * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
+       * technologies, so this region is all a screen reader hears.
+       */}
+      &lt;Grid aria-busy={phase === &#39;loading&#39;} paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/*
+           * Keep one status message in the DOM at all times and only change its text – from a loading
+           * message to the result count – so screen readers reliably announce the update. A Loading Region
+           * component to wrap this pattern is planned; until then it is plain HTML.
+           */}
+          &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;
+            {status}
+          &lt;/p&gt;
+          {phase === &#39;idle&#39; &amp;&amp; &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;}
+          {phase === &#39;loaded&#39; &amp;&amp; (
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;{`${results.length} resultaten voor ‘${query}’`}&lt;/Heading&gt;
+          )}
+        &lt;/Grid.Cell&gt;
+
+        {/*
+         * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
+         * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+         * Mirroring the shape keeps the layout from shifting when the real content arrives.
+         */}
+        {phase === &#39;loading&#39; &amp;&amp;
+          results.map((_, index) =&gt; (
+            &lt;Grid.Cell key={index} span={cellSpan}&gt;
+              &lt;Skeleton&gt;
+                &lt;Skeleton.Image /&gt;
+                &lt;Skeleton.Heading /&gt;
+                &lt;Skeleton.Paragraph lines={2} /&gt;
+              &lt;/Skeleton&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+
+        {phase === &#39;loaded&#39; &amp;&amp;
+          results.map((result) =&gt; (
+            &lt;Grid.Cell key={result.heading} span={cellSpan}&gt;
+              &lt;Card&gt;
+                &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;16:9&quot; src={result.imageSrc} /&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{result.heading}&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+                &lt;Paragraph&gt;{result.description}&lt;/Paragraph&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+      &lt;/Grid&gt;
+    &lt;/main&gt;
+  )
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Loaded</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Loaded = ({ initialPhase }: LoadingPageArgs) =&gt; {
+  const [phase, setPhase] = useState&lt;Phase&gt;(initialPhase)
+  const [query, setQuery] = useState(initialQuery)
+  const loadedTimeout = useRef&lt;ReturnType&lt;typeof setTimeout&gt; | null&gt;(null)
+
+  // Clear a pending swap if the story unmounts, so it never updates state after it is gone.
+  useEffect(
+    () =&gt; () =&gt; {
+      if (loadedTimeout.current) {
+        clearTimeout(loadedTimeout.current)
+      }
+    },
+    [],
+  )
+
+  const search = (event: FormEvent&lt;HTMLFormElement&gt;) =&gt; {
+    event.preventDefault()
+
+    const value = new FormData(event.currentTarget).get(&#39;search&#39;)
+    if (typeof value === &#39;string&#39; &amp;&amp; value.trim()) {
+      setQuery(value.trim())
+    }
+
+    // Show the placeholders, then swap in the results after a short delay. Clear any pending swap first,
+    // so a second search cannot flip an earlier one to loaded while this one is still loading.
+    if (loadedTimeout.current) {
+      clearTimeout(loadedTimeout.current)
+    }
+    setPhase(&#39;loading&#39;)
+    loadedTimeout.current = setTimeout(() =&gt; setPhase(&#39;loaded&#39;), 3000)
+  }
+
+  const status =
+    phase === &#39;loading&#39;
+      ? `Zoekresultaten voor ‘${query}’ worden geladen`
+      : phase === &#39;loaded&#39;
+        ? `${results.length} resultaten voor ‘${query}’ gevonden`
+        : &#39;&#39;
+
+  return (
+    &lt;main id=&quot;inhoud&quot;&gt;
+      &lt;Grid gapVertical=&quot;large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;SearchField onSubmit={search}&gt;
+            &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
+            &lt;SearchField.Button /&gt;
+          &lt;/SearchField&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+
+      {/*
+       * Mark the whole results region busy while it loads and let it announce once, rather than once per
+       * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
+       * technologies, so this region is all a screen reader hears.
+       */}
+      &lt;Grid aria-busy={phase === &#39;loading&#39;} paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/*
+           * Keep one status message in the DOM at all times and only change its text – from a loading
+           * message to the result count – so screen readers reliably announce the update. A Loading Region
+           * component to wrap this pattern is planned; until then it is plain HTML.
+           */}
+          &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;
+            {status}
+          &lt;/p&gt;
+          {phase === &#39;idle&#39; &amp;&amp; &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;}
+          {phase === &#39;loaded&#39; &amp;&amp; (
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;{`${results.length} resultaten voor ‘${query}’`}&lt;/Heading&gt;
+          )}
+        &lt;/Grid.Cell&gt;
+
+        {/*
+         * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
+         * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+         * Mirroring the shape keeps the layout from shifting when the real content arrives.
+         */}
+        {phase === &#39;loading&#39; &amp;&amp;
+          results.map((_, index) =&gt; (
+            &lt;Grid.Cell key={index} span={cellSpan}&gt;
+              &lt;Skeleton&gt;
+                &lt;Skeleton.Image /&gt;
+                &lt;Skeleton.Heading /&gt;
+                &lt;Skeleton.Paragraph lines={2} /&gt;
+              &lt;/Skeleton&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+
+        {phase === &#39;loaded&#39; &amp;&amp;
+          results.map((result) =&gt; (
+            &lt;Grid.Cell key={result.heading} span={cellSpan}&gt;
+              &lt;Card&gt;
+                &lt;Card.Image alt=&quot;&quot; aspectRatio=&quot;16:9&quot; src={result.imageSrc} /&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{result.heading}&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+                &lt;Paragraph&gt;{result.description}&lt;/Paragraph&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+      &lt;/Grid&gt;
+    &lt;/main&gt;
+  )
+};</code></pre>
+            </div>
+        </div>
+    
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="NavigationPage">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-error-5-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-5-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-5-pages-public-navigation-page-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-error-5-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-6-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-6-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-6-pages-public-navigation-page-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-error-6-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -25790,10 +27280,10 @@ Our single example in this category currently focuses on the overall layout.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-5-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-5-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-5-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-5-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-6-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-6-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-6-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-6-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27204,10 +28694,10 @@ Instead, it presents groups of links to various pages related to a specific subj
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-error-6-pages-internal-navigation-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-6-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-6-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-6-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-7-pages-internal-navigation-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-7-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-7-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-7-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27218,10 +28708,10 @@ Instead, it presents groups of links to various pages related to a specific subj
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-6-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-6-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-6-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-6-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-7-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-7-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-7-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-7-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27607,10 +29097,10 @@ This is a known limitation, and the mobile design is being further explored.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProductPage</h2>
       <div class="badges">
-        <label for="c-error-7-pages-public-product-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-7-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-7-pages-public-product-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-7-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-8-pages-public-product-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-8-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-8-pages-public-product-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-8-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27621,10 +29111,10 @@ This is a known limitation, and the mobile design is being further explored.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-7-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-7-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-7-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-7-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-8-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-8-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-8-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-8-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -28130,10 +29620,10 @@ Often includes a Call to Action Link that directs the user to a form.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProjectPage</h2>
       <div class="badges">
-        <label for="c-error-8-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-8-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-8-pages-public-project-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-8-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-9-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-9-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-9-pages-public-project-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-9-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -28144,10 +29634,10 @@ Often includes a Call to Action Link that directs the user to a form.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-8-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-8-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-8-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-8-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-9-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-9-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-9-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-9-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -29091,22 +30581,22 @@ Faster and cheaper to build and iterate with.
 
 &lt;InlineList&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;64&lt;/strong&gt; components
+    &lt;strong&gt;65&lt;/strong&gt; components
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
     &lt;strong&gt;220+&lt;/strong&gt; icons
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;1100+&lt;/strong&gt; design tokens
+    &lt;strong&gt;1200+&lt;/strong&gt; design tokens
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;18&lt;/strong&gt; templates
+    &lt;strong&gt;21&lt;/strong&gt; templates
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
     &lt;strong&gt;2&lt;/strong&gt; modes
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;1500+&lt;/strong&gt; tests
+    &lt;strong&gt;1300+&lt;/strong&gt; tests
   &lt;/InlineList.Item&gt;
 &lt;/InlineList&gt;
 
