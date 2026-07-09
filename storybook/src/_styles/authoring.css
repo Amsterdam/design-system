@@ -3,6 +3,9 @@
  * Copyright Gemeente Amsterdam
  */
 
+/* Authoring helpers: `_ams-`-prefixed classes we apply by hand in stories and MDX to lay out,
+ * annotate, and visualise examples. These are our own classes, not overrides of Storybook’s DOM. */
+
 :root {
   --_ams-color-grey: rgb(0 0 0 / 6.25%);
   --_ams-color-pink: rgb(229 0 130 / 25%);
@@ -152,4 +155,17 @@
 
 strong {
   font-weight: var(--ams-typography-body-text-bold-font-weight);
+}
+
+/* Lay out a set of related examples on a story canvas: a wrapping row, or a vertical stack. */
+._ams-tests-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ams-space-l);
+}
+
+._ams-tests-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-space-l);
 }
