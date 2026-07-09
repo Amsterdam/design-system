@@ -1,0 +1,31 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+// A calm heartbeat signals that loading is under way. Two quick beats in succession – the second softer
+// than the first – fade each block towards its surface and back, then a longer rest holds it at full
+// strength. The whole animation sits behind a single token, so a theme can change it or switch it off.
+// Users who prefer reduced motion keep the static blocks.
+@media (prefers-reduced-motion: no-preference) {
+  .ams-skeleton__image,
+  .ams-skeleton__line,
+  .ams-skeleton__marker {
+    animation: var(--ams-skeleton-animation);
+  }
+}
+
+@keyframes ams-skeleton-heartbeat {
+  10% {
+    opacity: 60%;
+  }
+  20% {
+    opacity: 100%;
+  }
+  30% {
+    opacity: 80%;
+  }
+  40% {
+    opacity: 100%;
+  }
+}
