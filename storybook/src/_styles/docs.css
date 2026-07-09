@@ -3,153 +3,127 @@
  * Copyright Gemeente Amsterdam
  */
 
-:root {
-  --_ams-color-grey: rgb(0 0 0 / 6.25%);
-  --_ams-color-pink: rgb(229 0 130 / 25%);
-  --_ams-color-lightblue: rgb(0 130 229 / 25%);
+/* Overrides of Storybook’s docs-page DOM (the `.sbdocs-*` chrome), so prose renders in our
+ * typography and tokens. Fragile by nature: re-check against Storybook’s markup on each upgrade. */
+
+/* stylelint-disable no-descending-specificity, selector-class-pattern -- We override Storybook’s
+ * docs DOM: its class names aren’t ours to rename, and we intentionally reorder its cascade. */
+
+.sbdocs-wrapper.sbdocs-wrapper {
+  padding-inline: 8vw;
 }
 
-._ams-figure {
-  display: flex;
-  gap: 0.25rem;
-  margin-block: 0;
-  margin-inline: 0;
+.sbdocs-content.sbdocs-content > :is(h1, h2, h3, h4, h5, h6, p),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(h1, h2, h3, h4, h5, h6, p),
+.sbdocs-content.sbdocs-content > :is(ol, ul) li,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(ol, ul) li,
+.sbdocs-content.sbdocs-content > table:not(.sb-unstyled) :is(td, th),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) :is(td, th),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > figure > figcaption {
+  color: var(--ams-color-text);
+  font-family: "Amsterdam Sans", "Arial", sans-serif;
+}
+
+.sbdocs-content.sbdocs-content > p,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > p,
+.sbdocs-content.sbdocs-content > blockquote > p,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > blockquote > p,
+.sbdocs-content.sbdocs-content > :is(ol, ul) li,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(ol, ul) li,
+.sbdocs-content.sbdocs-content > :is(ol, ul) li > p,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(ol, ul) li > p {
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.sbdocs-content.sbdocs-content > h1 + p,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h1 + p {
+  font-size: 1.375rem;
+  margin-block-end: 2em;
+}
+
+.sbdocs-content.sbdocs-content > ._ams-status-badge {
+  margin-block-end: 1.5rem;
+}
+
+.sbdocs-content.sbdocs-content > ._ams-status-badge > span:nth-child(2) {
+  color: var(--ams-color-text);
+  font-family: "Amsterdam Sans", "Arial", sans-serif;
+  font-size: var(--ams-typography-body-text-small-font-size);
+}
+
+.sbdocs-content.sbdocs-content .sbdocs-a {
+  color: var(--ams-color-interactive);
+  text-decoration: underline;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.125rem;
+}
+
+.sbdocs-content.sbdocs-content .sbdocs-a:hover {
+  color: var(--ams-color-interactive-hover);
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.0625rem;
+}
+
+.sbdocs-content.sbdocs-content > :is(h1, h2, h3, h4, h5, h6),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(h1, h2, h3, h4, h5, h6) {
+  margin-block: 2em 0.25em;
   padding-block: 0;
-  padding-inline: 0;
 }
 
-._ams-figure > img {
-  display: block;
-  max-inline-size: 100%;
-  outline: 0.0625rem dashed #e8e8e8;
+.sbdocs-content.sbdocs-content > h1,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h1 {
+  font-size: 2.5rem;
+  margin-block-start: 0;
 }
 
-._ams-figure > figcaption {
-  text-align: center;
+.sbdocs-content.sbdocs-content > h2,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h2 {
+  border-block-end: none;
+  font-size: 1.5rem;
 }
 
-._ams-figure-set {
-  align-items: flex-end;
-  display: flex;
-  gap: 2rem;
-  margin-block: 1.5rem !important;
+.sbdocs-content.sbdocs-content > h3,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h3 {
+  font-size: 1.25rem;
 }
 
-._ams-figure-set ._ams-figure {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  inline-size: fit-content;
-  margin-inline: 0;
+.sbdocs-content.sbdocs-content > h4,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h4 {
+  font-size: 1.125rem;
 }
 
-._ams-page-background--dark,
-._ams-page-background--light {
-  margin-block: -1rem;
-  margin-inline: -1rem;
-  padding-block: 1rem;
-  padding-inline: 1rem;
+.sbdocs-content.sbdocs-content > h2 + h3,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h2 + h3,
+.sbdocs-content.sbdocs-content > h3 + h4,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h3 + h4,
+.sbdocs-content.sbdocs-content > h4 + h5,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > h4 + h5 {
+  margin-block-start: 1em;
 }
 
-/* Do not change the order of these two selectors. They ensure the dark background wins if both are set, which is in line with the implementation of the React-component. */
-._ams-page-background--light {
-  background-color: #ffe600; /* Yellow */
+.sbdocs-content.sbdocs-content > :is(p, ol, ul),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > :is(p, ol, ul) {
+  margin-block: 0 1rem;
+  padding-block: 0;
 }
 
-._ams-page-background--dark {
-  background-color: #004699; /* Dark blue */
+.sbdocs-content.sbdocs-content > table:not(.sb-unstyled) :is(td, th),
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) :is(td, th) {
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-._ams-column,
-._ams-container,
-._ams-item,
-._ams-row {
-  box-sizing: border-box;
-}
-
-._ams-column,
-._ams-container,
-._ams-row {
-  background-image: repeating-linear-gradient(
-    135deg,
-    var(--_ams-color-grey),
-    var(--_ams-color-grey) 0.5rem,
-    white 0.5rem,
-    white 1rem
-  );
-  border-color: var(--_ams-color-grey);
-  border-style: solid;
-  border-width: thin;
-}
-
-._ams-column {
-  max-inline-size: 16rem;
-  min-block-size: 16rem;
-}
-
-._ams-container {
-  padding-block: var(--ams-space-m);
-  padding-inline: var(--ams-space-m);
-}
-
-._ams-row {
-  min-block-size: 6rem;
-}
-
-._ams-item {
-  background-color: var(--_ams-color-pink);
-  border-color: var(--_ams-color-grey);
-  border-style: dashed;
-  border-width: thin;
-
-  ._ams-column > & {
-    block-size: 3rem;
-    min-inline-size: 3rem;
-  }
-
-  ._ams-row > & {
-    inline-size: 8rem;
-    min-block-size: 3rem;
-  }
-
-  /** Repeat declarations and increase specificity to override Grid Cell background and padding in Compact Mode. */
-  ._ams-grid-columns-guide + :is(.ams-breakout, .ams-grid) > & {
-    background-color: var(--_ams-color-pink);
-    border-color: var(--_ams-color-grey);
-    border-style: dashed;
-    border-width: thin;
-    min-block-size: 3rem;
-    padding-block: 0;
-    padding-inline: 0;
-  }
-}
-
-._ams-item--highlight {
-  background-color: var(--_ams-color-lightblue);
-  border-color: var(--_ams-color-grey);
-  border-style: dashed;
-  border-width: thin;
-  min-block-size: 3rem;
-}
-
-._ams-resize-horizontal {
-  outline: 1px dashed var(--_ams-color-pink);
-  overflow: auto;
-  padding-block-end: 1rem;
-
-  /* We allow non-baseline CSS in Storybook. */
-  /* stylelint-disable-next-line plugin/use-baseline */
-  resize: horizontal;
-}
-
-/* The City’s three crosses, shown centered as a decorative footer beneath every docs page. */
-._ams-docs-footer {
-  font-size: 1.125rem !important;
-  line-height: 1;
-  margin-block-start: 3rem !important;
-  text-align: center;
-}
-
-strong {
+.sbdocs-content.sbdocs-content > table:not(.sb-unstyled) th,
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > table:not(.sb-unstyled) th {
   font-weight: var(--ams-typography-body-text-bold-font-weight);
+}
+
+.sbdocs-content.sbdocs-content > p code {
+  color: currentColor;
+  font-size: 1rem;
+}
+
+.sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > figure > figcaption {
+  font-size: 0.875rem;
 }

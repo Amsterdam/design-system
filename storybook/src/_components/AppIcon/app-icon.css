@@ -1,0 +1,38 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-app-icon {
+  display: flex;
+  gap: 0.25rem;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+._ams-app-icon > img {
+  display: block;
+  max-inline-size: 100%;
+  outline: 0.0625rem dashed #e8e8e8;
+}
+
+._ams-app-icon > figcaption {
+  text-align: center;
+}
+
+._ams-app-icon-set {
+  align-items: flex-end;
+  display: flex;
+  gap: 2rem;
+  margin-block: 1.5rem !important;
+}
+
+._ams-app-icon-set ._ams-app-icon {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  inline-size: fit-content;
+  margin-inline: 0;
+}
