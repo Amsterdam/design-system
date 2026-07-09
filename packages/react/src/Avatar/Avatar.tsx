@@ -25,7 +25,7 @@ const AvatarContent = ({ imageSrc, initials }: AvatarContentProps) => {
   }
 
   if (initials.length) {
-    return <span aria-hidden={true}>{initials}</span>
+    return <span aria-hidden="true">{initials}</span>
   }
 
   return <Icon size="small" svg={PersonFillIcon} />

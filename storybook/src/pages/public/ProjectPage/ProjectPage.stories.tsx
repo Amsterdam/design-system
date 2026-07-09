@@ -92,7 +92,7 @@ const meta = {
             ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We verwachten dat bijna
             alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt opgeleverd in 2029.
           </Paragraph>
-          <ProgressList headingLevel={3}>
+          <ProgressList collapsible headingLevel={3}>
             <ProgressList.Step hasSubsteps heading="2021" status="completed">
               <ProgressList.Substeps>
                 <ProgressList.Substep status="completed">
@@ -331,4 +331,161 @@ const meta = {
 
 export default meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel. Repetitive
+        // sections are shortened with `{/* … */}` markers to keep the timeline and grid patterns readable.
+        code: `<>
+  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  <Grid paddingTop="large">
+    <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Breadcrumb>
+        <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+        <Breadcrumb.Link href="#">Bouwprojecten en verkeersprojecten</Breadcrumb.Link>
+      </Breadcrumb>
+    </Grid.Cell>
+  </Grid>
+  <Grid as="main" id="inhoud" paddingBottom="x-large">
+    <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Heading level={1}>Centrumeiland: hét zelfbouweiland van Amsterdam</Heading>
+    </Grid.Cell>
+    <Grid.Cell span="all">
+      {/* ImageSlider takes an array of images; each entry has an alt text, an aspectRatio, and a src. */}
+      <ImageSlider images={images} />
+    </Grid.Cell>
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      <Heading className="ams-mb-s" level={2}>Wat</Heading>
+      <Paragraph className="ams-mb-m">
+        Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van <Link href="#">IJburg</Link>.
+        Er komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
+      </Paragraph>
+      <StandaloneLink className="ams-mb-xl" href="#">Lees meer over Centrumeiland</StandaloneLink>
+      <Heading className="ams-mb-s" level={2}>Waar</Heading>
+      <Paragraph className="ams-mb-xl">
+        Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland
+        van IJburg en ligt tussen Haveneiland en Strandeiland.
+      </Paragraph>
+      <Heading className="ams-mb-s" level={2}>Wanneer</Heading>
+      <Paragraph className="ams-mb-l">
+        De bouwwerkzaamheden op Centrumeiland zijn in volle gang. We verwachten dat bijna alle woningen en
+        voorzieningen klaar zijn in 2028.
+      </Paragraph>
+      {/*
+       * A ProgressList shows a timeline. status="completed" marks a finished step, status="current" the one
+       * in progress, and a step with no status is still to come. hasSubsteps nests a ProgressList.Substeps.
+       */}
+      <ProgressList collapsible headingLevel={3}>
+        <ProgressList.Step hasSubsteps heading="2021" status="completed">
+          <ProgressList.Substeps>
+            <ProgressList.Substep status="completed">
+              <Paragraph>Landmaken voor de Noordoever en Noordpunt, start oktober.</Paragraph>
+            </ProgressList.Substep>
+          </ProgressList.Substeps>
+        </ProgressList.Step>
+        {/* … more completed years (2022–2025), each a Step with completed Substeps … */}
+        <ProgressList.Step hasSubsteps heading="2026" status="current">
+          <ProgressList.Substeps>
+            <ProgressList.Substep>
+              <Paragraph>Oplevering Zuidoever (ecologische oever).</Paragraph>
+            </ProgressList.Substep>
+          </ProgressList.Substeps>
+        </ProgressList.Step>
+        <ProgressList.Step hasSubsteps heading="2029">
+          <ProgressList.Substeps>
+            <ProgressList.Substep>
+              <Paragraph>Waarschijnlijk zijn bijna alle woningen en voorzieningen klaar.</Paragraph>
+            </ProgressList.Substep>
+          </ProgressList.Substeps>
+        </ProgressList.Step>
+      </ProgressList>
+    </Grid.Cell>
+    {/* Two link lists side by side, each start-aligned to its own half of the grid. */}
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Heading className="ams-mb-s" level={2} size="level-3">Nieuws</Heading>
+      <LinkList>
+        <LinkList.Link href="#">Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)</LinkList.Link>
+        <LinkList.Link href="#">17 november: bijeenkomst over Strandeiland (11 november 2025)</LinkList.Link>
+      </LinkList>
+    </Grid.Cell>
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+      <Heading className="ams-mb-s" level={2} size="level-3">Werk aan de weg</Heading>
+      <LinkList>
+        <LinkList.Link href="#">Bert Haanstrakade, omleiding</LinkList.Link>
+        <LinkList.Link href="#">Straten Centrumeiland, afsluitingen</LinkList.Link>
+      </LinkList>
+    </Grid.Cell>
+  </Grid>
+  <Spotlight color="azure">
+    <Grid paddingVertical="x-large">
+      <Grid.Cell span="all">
+        <Heading color="inverse" level={2}>Zelfbouw</Heading>
+      </Grid.Cell>
+      {/* Four equal columns of promo links; on the azure Spotlight, color="inverse" adapts their content. */}
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
+        <Paragraph className="ams-mb-s" color="inverse">
+          Meer over de verschillende vormen van zelfbouw vindt u op:
+        </Paragraph>
+        <StandaloneLink color="inverse" href="#">Zelfbouw</StandaloneLink>
+      </Grid.Cell>
+      {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
+    </Grid>
+  </Spotlight>
+  <Grid paddingVertical="x-large">
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Heading className="ams-mb-s" level={2} size="level-3">Meer informatie</Heading>
+      <LinkList>
+        <LinkList.Link href="#">Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw</LinkList.Link>
+        <LinkList.Link href="#">Woningaanbod Centrumeiland</LinkList.Link>
+        <LinkList.Link href="#">Meer projecten in Oost</LinkList.Link>
+      </LinkList>
+    </Grid.Cell>
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+      <Heading className="ams-mb-m" level={2} size="level-3">Ontwikkeling Centrumeiland, herfst 2025</Heading>
+      <Image alt="" className="ams-mb-m" src="https://picsum.photos/id/385/640/360" />
+      <StandaloneLink href="#">Meer video’s</StandaloneLink>
+    </Grid.Cell>
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Heading className="ams-mb-s" level={2} size="level-3">Blijf op de hoogte</Heading>
+      <LinkList>
+        <LinkList.Link href="#">Nieuwsbrief ontwikkeling IJburg</LinkList.Link>
+        <LinkList.Link href="#">Hallo Centrumeiland: praat mee</LinkList.Link>
+      </LinkList>
+    </Grid.Cell>
+  </Grid>
+  <Spotlight>
+    <Grid paddingVertical="x-large">
+      <Grid.Cell span="all">
+        <Heading className="ams-mb-s" color="inverse" level={2}>Contact</Heading>
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Paragraph className="ams-mb-m" color="inverse">
+          Vragen over zelfbouw op Centrumeiland:{' '}
+          <Link color="inverse" href="mailto:zelfbouwcentrumeiland@amsterdam.nl">zelfbouwcentrumeiland@amsterdam.nl</Link>
+        </Paragraph>
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+        {/* <br /> holds a contact block’s lines together inside one Paragraph. */}
+        <Paragraph color="inverse">
+          Maud van Esch
+          <br />
+          Omgevingsmanager IJburg
+          <br />
+          <Link color="inverse" href="mailto:m.van.esch@amsterdam.nl">m.van.esch@amsterdam.nl</Link>
+        </Paragraph>
+      </Grid.Cell>
+    </Grid>
+  </Spotlight>
+  <Grid paddingVertical="x-large">
+    <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Image alt="" src="https://picsum.photos/1280/720" />
+    </Grid.Cell>
+  </Grid>
+</>`,
+        language: 'tsx',
+      },
+    },
+  },
+}

@@ -21,6 +21,12 @@ Our [Figma Library](https://www.figma.com/community/file/1530535540611888495/ams
 
 See the [getting started documentation for developers](https://designsystem.amsterdam/?path=/docs/docs-developer-guide-getting-started--docs) on how to use our React components.
 
+## AI assistance
+
+If you build with an AI coding assistant, connect it to our Model Context Protocol (MCP) server.
+Your assistant then works with real Amsterdam Design System components and their correct properties, instead of inventing markup.
+See [connecting AI assistants](https://designsystem.amsterdam/?path=/docs/docs-developer-guide-ai-assistance--docs) to set it up.
+
 ## Contributing
 
 See the [documentation for contributors](./CONTRIBUTING.md).

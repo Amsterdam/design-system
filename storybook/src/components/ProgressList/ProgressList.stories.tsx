@@ -93,7 +93,7 @@ export const Controlled: Story = {
 
 <ProgressList collapsible headingLevel={3}>
   <ProgressList.Step
-    collapsed={expandedIndex !== 0}
+    expanded={expandedIndex === 0}
     heading="Aanvraag ingediend"
     onToggle={(expanded) => setExpandedIndex(expanded ? 0 : null)}
     status="completed"
@@ -101,7 +101,7 @@ export const Controlled: Story = {
     <Paragraph>Uw aanvraag is op 2 januari 2026 ontvangen.</Paragraph>
   </ProgressList.Step>
   <ProgressList.Step
-    collapsed={expandedIndex !== 1}
+    expanded={expandedIndex === 1}
     heading="In behandeling"
     onToggle={(expanded) => setExpandedIndex(expanded ? 1 : null)}
     status="current"
@@ -109,7 +109,7 @@ export const Controlled: Story = {
     <Paragraph>Een medewerker beoordeelt uw aanvraag en neemt contact met u op bij vragen.</Paragraph>
   </ProgressList.Step>
   <ProgressList.Step
-    collapsed={expandedIndex !== 2}
+    expanded={expandedIndex === 2}
     heading="Besluit"
     onToggle={(expanded) => setExpandedIndex(expanded ? 2 : null)}
   >
@@ -129,7 +129,7 @@ export const Controlled: Story = {
     return (
       <ProgressList collapsible headingLevel={3}>
         <ProgressList.Step
-          collapsed={expandedIndex !== 0}
+          expanded={expandedIndex === 0}
           heading="Aanvraag ingediend"
           onToggle={(expanded) => setExpandedIndex(expanded ? 0 : null)}
           status="completed"
@@ -137,7 +137,7 @@ export const Controlled: Story = {
           <Paragraph>Uw aanvraag is op 2 januari 2026 ontvangen.</Paragraph>
         </ProgressList.Step>
         <ProgressList.Step
-          collapsed={expandedIndex !== 1}
+          expanded={expandedIndex === 1}
           heading="In behandeling"
           onToggle={(expanded) => setExpandedIndex(expanded ? 1 : null)}
           status="current"
@@ -145,7 +145,7 @@ export const Controlled: Story = {
           <Paragraph>Een medewerker beoordeelt uw aanvraag en neemt contact met u op bij vragen.</Paragraph>
         </ProgressList.Step>
         <ProgressList.Step
-          collapsed={expandedIndex !== 2}
+          expanded={expandedIndex === 2}
           heading="Besluit"
           onToggle={(expanded) => setExpandedIndex(expanded ? 2 : null)}
         >
