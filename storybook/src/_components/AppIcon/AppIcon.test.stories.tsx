@@ -5,7 +5,10 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { AppleTouchIcon, Favicon, SvgIcon, WebAppIcons } from './AppIcons'
+import { AppleTouchIcon } from './AppleTouchIcon'
+import { Favicon } from './Favicon'
+import { SvgIcon } from './SvgIcon'
+import { WebAppIcons } from './WebAppIcons'
 
 const meta = {
   title: 'Components/Docs/App Icons',
