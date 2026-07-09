@@ -46,7 +46,7 @@ See [documentation/component-docs.md](../documentation/component-docs.md) for th
 
 - One story per visual variant / state in `<Name>.test.stories.tsx`.
 - Tag test stories with `['!dev', '!autodocs']` to exclude them from docs and development views.
-- The CSS pseudo-state simulation addon (`:hover`, `:focus`, etc.) loads in Chromatic CI (via `IS_CHROMATIC`) and in local development (`NODE_ENV === 'development'`). See `config/main.ts`. Do not set `IS_CHROMATIC` manually.
+- The CSS pseudo-state simulation addon (`:hover`, `:focus`, etc.) loads only in Chromatic CI, via `IS_CHROMATIC` (set by `build:chromatic`). It is deliberately not loaded in local development, where its CSS rewrite breaks focus-hidden selectors like the Skip Link's. See `config/main.ts`. Do not set `IS_CHROMATIC` manually.
 - Visual changes must be reviewed and approved in the Chromatic dashboard before merging.
 - **Never approve Chromatic changes as an agent** — visual approval is a human responsibility.
 
