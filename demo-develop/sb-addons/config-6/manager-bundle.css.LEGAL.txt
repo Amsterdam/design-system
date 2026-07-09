@@ -3,3 +3,7 @@
  * Copyright Gemeente Amsterdam
  * All rights reserved
  */
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
