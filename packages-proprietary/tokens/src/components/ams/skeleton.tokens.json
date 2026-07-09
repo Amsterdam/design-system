@@ -1,6 +1,10 @@
 {
   "ams": {
     "skeleton": {
+      "animation": {
+        "$value": "ams-skeleton-heartbeat 1.6s ease-in-out infinite",
+        "$description": "The loading animation, as a CSS `animation` shorthand referencing a keyframes name. Override this token to give the Skeleton a different animation – change the duration or timing function to adjust the pace, point it at your own `@keyframes`, or set it to `none` to switch the animation off."
+      },
       "background-color": {
         "$value": "#d1d1d1",
         "$description": "A neutral grey that stands in for the content being loaded.",
