@@ -5,6 +5,8 @@
 
 import { Image } from '@amsterdam/design-system-react'
 
+import './app-icons.css'
+
 /** Displays the Apple Touch icon at its native size (180 px). */
 export const AppleTouchIcon = () => (
   <div className="_ams-figure-set">

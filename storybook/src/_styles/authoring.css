@@ -3,47 +3,14 @@
  * Copyright Gemeente Amsterdam
  */
 
-/* Authoring helpers: `_ams-`-prefixed classes we apply by hand in stories and MDX to lay out,
- * annotate, and visualise examples. These are our own classes, not overrides of Storybook’s DOM. */
+/* Cross-cutting authoring helpers: `_ams-`-prefixed classes we apply by hand across many stories
+ * and MDX pages to lay out, annotate, and visualise examples. These are our own classes, not
+ * overrides of Storybook’s DOM. Helpers owned by a single `_components/*` component live with it. */
 
 :root {
   --_ams-color-grey: rgb(0 0 0 / 6.25%);
   --_ams-color-pink: rgb(229 0 130 / 25%);
   --_ams-color-lightblue: rgb(0 130 229 / 25%);
-}
-
-._ams-figure {
-  display: flex;
-  gap: 0.25rem;
-  margin-block: 0;
-  margin-inline: 0;
-  padding-block: 0;
-  padding-inline: 0;
-}
-
-._ams-figure > img {
-  display: block;
-  max-inline-size: 100%;
-  outline: 0.0625rem dashed #e8e8e8;
-}
-
-._ams-figure > figcaption {
-  text-align: center;
-}
-
-._ams-figure-set {
-  align-items: flex-end;
-  display: flex;
-  gap: 2rem;
-  margin-block: 1.5rem !important;
-}
-
-._ams-figure-set ._ams-figure {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  inline-size: fit-content;
-  margin-inline: 0;
 }
 
 ._ams-page-background--dark,
