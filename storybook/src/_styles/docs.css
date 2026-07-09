@@ -3,7 +3,11 @@
  * Copyright Gemeente Amsterdam
  */
 
-/* stylelint-disable no-descending-specificity, selector-class-pattern, selector-max-id */
+/* Overrides of Storybook’s docs-page DOM (the `.sbdocs-*` chrome), so prose renders in our
+ * typography and tokens. Fragile by nature: re-check against Storybook’s markup on each upgrade. */
+
+/* stylelint-disable no-descending-specificity, selector-class-pattern -- We override Storybook’s
+ * docs DOM: its class names aren’t ours to rename, and we intentionally reorder its cascade. */
 
 .sbdocs-wrapper.sbdocs-wrapper {
   padding-inline: 8vw;
@@ -122,31 +126,4 @@
 
 .sbdocs-content.sbdocs-content > div:not(.sb-unstyled) > figure > figcaption {
   font-size: 0.875rem;
-}
-
-:is(#storybook-root, .sbdocs-content) a[href="#"] {
-  /* stylelint-disable-next-line declaration-property-value-allowed-list */
-  cursor: not-allowed;
-}
-
-/* Create positioning context, e.g. for grid background. */
-#storybook-root .ams-page,
-.sb-story .ams-page {
-  position: relative;
-}
-
-.sb-story .ams-page {
-  min-block-size: initial;
-}
-
-/* Remove the grey body background in Compact Mode from the story canvas. */
-._ams-body--storybook {
-  --ams-body-background-color: transparent;
-}
-
-/* Override to make sure the default transparent border isn't shown in forced colors mode. */
-.innerZoomElementWrapper.innerZoomElementWrapper > div {
-  @media (forced-colors: active) {
-    border-color: Canvas !important;
-  }
 }

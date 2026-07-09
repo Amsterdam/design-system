@@ -16,6 +16,7 @@ import '@amsterdam/design-system-assets/font/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
 import '../src/_styles/authoring.css'
 import '../src/_styles/docs.css'
+import '../src/_styles/canvas.css'
 
 export const argTypes = {
   children: {

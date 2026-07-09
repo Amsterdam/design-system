@@ -1,0 +1,39 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/* Fixes for how our own components and examples render inside the Storybook preview — the story
+ * canvas (`#storybook-root`, `.sb-story`) and shared bits — as opposed to Storybook’s docs-page
+ * chrome (see docs.css). These touch our DOM in the Storybook context, not Storybook’s own DOM. */
+
+/* stylelint-disable no-descending-specificity, selector-class-pattern, selector-max-id -- These
+ * fixes target Storybook’s canvas roots and zoom wrapper, whose IDs and names we don’t control. */
+
+/* Placeholder links in examples (`href="#"`) shouldn’t look clickable, on the canvas or in docs. */
+:is(#storybook-root, .sbdocs-content) a[href="#"] {
+  /* stylelint-disable-next-line declaration-property-value-allowed-list */
+  cursor: not-allowed;
+}
+
+/* Create positioning context, e.g. for grid background. */
+#storybook-root .ams-page,
+.sb-story .ams-page {
+  position: relative;
+}
+
+.sb-story .ams-page {
+  min-block-size: initial;
+}
+
+/* Remove the grey body background in Compact Mode from the story canvas. */
+._ams-body--storybook {
+  --ams-body-background-color: transparent;
+}
+
+/* Override to make sure the default transparent border isn't shown in forced colors mode. */
+.innerZoomElementWrapper.innerZoomElementWrapper > div {
+  @media (forced-colors: active) {
+    border-color: Canvas !important;
+  }
+}
