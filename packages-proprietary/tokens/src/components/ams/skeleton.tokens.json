@@ -27,13 +27,6 @@
             "nl.amsterdam.type": "fontSize"
           }
         },
-        "inline-size": {
-          "$value": "60%",
-          "$description": "A heading is usually a few words that do not span the full width.",
-          "$extensions": {
-            "nl.amsterdam.type": "dimension"
-          }
-        },
         "line-height": {
           "$value": "{ams.heading.2.line-height}",
           "$extensions": {
@@ -41,10 +34,28 @@
             "nl.amsterdam.type": "number"
           }
         },
-        "last-line": {
+        "odd": {
           "inline-size": {
-            "$value": "70%",
-            "$description": "The last (or single) line of a heading is shorter than the rest.",
+            "$value": "85%",
+            "$description": "The width of a heading’s first and other odd-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "even": {
+          "inline-size": {
+            "$value": "65%",
+            "$description": "The width of a heading’s second and other even-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "last": {
+          "inline-size": {
+            "$value": "45%",
+            "$description": "The width of a heading’s last line, unless it is the only line.",
             "$extensions": {
               "nl.amsterdam.type": "dimension"
             }
@@ -72,15 +83,6 @@
             "nl.amsterdam.subtype": "lineHeight",
             "nl.amsterdam.type": "number"
           }
-        },
-        "last-line": {
-          "inline-size": {
-            "$value": "50%",
-            "$description": "The last (or single) line is shorter than the rest.",
-            "$extensions": {
-              "nl.amsterdam.type": "dimension"
-            }
-          }
         }
       },
       "list": {
@@ -89,6 +91,33 @@
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
+          }
+        },
+        "odd": {
+          "inline-size": {
+            "$value": "70%",
+            "$description": "The width of a list’s first and other odd-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "even": {
+          "inline-size": {
+            "$value": "40%",
+            "$description": "The width of a list’s second and other even-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "last": {
+          "inline-size": {
+            "$value": "60%",
+            "$description": "The width of a list’s last line, unless it is the only line.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
           }
         },
         "item": {
@@ -110,81 +139,54 @@
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
             }
-          }
-        },
-        "line": {
-          "alternate": {
-            "inline-size": {
-              "$value": "50%",
-              "$description": "The second item in each set of three, approximating natural variation in item lengths.",
+          },
+          "marker": {
+            "block-size": {
+              "$value": {
+                "value": 0.375,
+                "unit": "rem"
+              },
+              "$type": "dimension",
               "$extensions": {
-                "nl.amsterdam.type": "dimension"
+                "nl.amsterdam.hint": "Approximates the size of the bullet of Unordered List."
               }
-            }
-          },
-          "average": {
+            },
             "inline-size": {
-              "$value": "60%",
-              "$description": "The third item in each set of three: the average of the other two.",
+              "$value": {
+                "value": 0.375,
+                "unit": "rem"
+              },
+              "$type": "dimension",
               "$extensions": {
-                "nl.amsterdam.type": "dimension"
+                "nl.amsterdam.hint": "Approximates the size of the bullet of Unordered List."
               }
-            }
-          },
-          "inline-size": {
-            "$value": "70%",
-            "$description": "The first item in each set of three.",
-            "$extensions": {
-              "nl.amsterdam.type": "dimension"
-            }
-          }
-        },
-        "marker": {
-          "block-size": {
-            "$value": {
-              "value": 0.375,
-              "unit": "rem"
-            },
-            "$type": "dimension",
-            "$extensions": {
-              "nl.amsterdam.hint": "Approximates the size of the bullet of Unordered List."
-            }
-          },
-          "inline-size": {
-            "$value": {
-              "value": 0.375,
-              "unit": "rem"
-            },
-            "$type": "dimension",
-            "$extensions": {
-              "nl.amsterdam.hint": "Approximates the size of the bullet of Unordered List."
             }
           }
         }
       },
       "paragraph": {
-        "line": {
-          "alternate": {
-            "inline-size": {
-              "$value": "80%",
-              "$description": "The narrowest of the three paragraph line widths.",
-              "$extensions": {
-                "nl.amsterdam.type": "dimension"
-              }
-            }
-          },
-          "average": {
-            "inline-size": {
-              "$value": "90%",
-              "$description": "The average of the other two paragraph line widths.",
-              "$extensions": {
-                "nl.amsterdam.type": "dimension"
-              }
-            }
-          },
+        "odd": {
           "inline-size": {
-            "$value": "100%",
-            "$description": "The widest paragraph line, spanning the full column.",
+            "$value": "95%",
+            "$description": "The width of a paragraph’s first and other odd-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "even": {
+          "inline-size": {
+            "$value": "75%",
+            "$description": "The width of a paragraph’s second and other even-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "last": {
+          "inline-size": {
+            "$value": "55%",
+            "$description": "The width of a paragraph’s last line, unless it is the only line.",
             "$extensions": {
               "nl.amsterdam.type": "dimension"
             }
@@ -192,6 +194,24 @@
         }
       },
       "table": {
+        "odd": {
+          "inline-size": {
+            "$value": "90%",
+            "$description": "The wider of the two widths a table alternates its cells between.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "even": {
+          "inline-size": {
+            "$value": "70%",
+            "$description": "The narrower of the two widths a table alternates its cells between.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
         "cell": {
           "padding-block": {
             "$value": "{ams.table.cell.padding-block}",
@@ -204,44 +224,6 @@
             "$value": "{ams.table.cell.padding-inline}",
             "$extensions": {
               "nl.amsterdam.subtype": "space",
-              "nl.amsterdam.type": "dimension"
-            }
-          }
-        },
-        "header": {
-          "line": {
-            "inline-size": {
-              "$value": "50%",
-              "$description": "Header cells usually contain a short term.",
-              "$extensions": {
-                "nl.amsterdam.type": "dimension"
-              }
-            }
-          }
-        },
-        "line": {
-          "alternate": {
-            "inline-size": {
-              "$value": "70%",
-              "$description": "One of three cell widths, rotated per row so cells vary down a column too; all are wider than the header.",
-              "$extensions": {
-                "nl.amsterdam.type": "dimension"
-              }
-            }
-          },
-          "average": {
-            "inline-size": {
-              "$value": "80%",
-              "$description": "The average of the other two cell widths.",
-              "$extensions": {
-                "nl.amsterdam.type": "dimension"
-              }
-            }
-          },
-          "inline-size": {
-            "$value": "90%",
-            "$description": "The widest cell width.",
-            "$extensions": {
               "nl.amsterdam.type": "dimension"
             }
           }

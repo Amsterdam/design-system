@@ -45,11 +45,10 @@ describe('Skeleton.Table', () => {
     expect(ref.current).toBe(component)
   })
 
-  it('renders a header row plus the requested rows and columns', () => {
+  it('renders the requested rows and columns', () => {
     const { container } = render(<SkeletonTable columns={4} rows={2} />)
 
-    expect(container.querySelectorAll('.ams-skeleton__table-row')).toHaveLength(3)
-    expect(container.querySelectorAll('.ams-skeleton__table-row--header')).toHaveLength(1)
-    expect(container.querySelectorAll('.ams-skeleton__table-cell')).toHaveLength(12)
+    expect(container.querySelectorAll('.ams-skeleton__table-row')).toHaveLength(2)
+    expect(container.querySelectorAll('.ams-skeleton__table-cell')).toHaveLength(8)
   })
 })

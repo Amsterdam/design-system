@@ -38,7 +38,7 @@ Set `lines` above one for a heading that wraps onto several lines.
 ### Paragraph
 
 Lines the size of body text.
-Their lengths vary in sets of three, and the last line is shorter, approximating the ragged end of a paragraph.
+Their lengths alternate between two widths, and the last line of a multi-line paragraph is shorter, approximating its ragged end.
 
 <Canvas of={SkeletonStories.Paragraph} />
 
@@ -54,7 +54,7 @@ Body-text lines, each with a marker, indented like an Unordered List.
 
 ### Table
 
-A grid of cells with a header row.
+A grid of cells.
 
 <Canvas of={SkeletonStories.Table} />
 
@@ -114,7 +114,7 @@ Users who prefer reduced motion never see the animation, whatever you set it to.
 The dimensions of the lines derive from the design tokens of the text they mimic: Skeleton.Heading follows Heading 2, and the other parts follow body text.
 Each line is exactly as tall as its line of text, so a part occupies the same height as the content it stands in for and the layout barely shifts once that content arrives.
 
-Line lengths vary deterministically – paragraph lines in sets of three with a shorter last line, alternating list and table widths.
+Line lengths vary deterministically: within each part the lines – or, in a table, the cells across each row – alternate between two widths, and any part with more than one ends on a shorter last one.
 This looks natural yet renders identically on every request, which keeps server-side rendering consistent and visual regression tests stable.
 
 ## Design

@@ -21,13 +21,13 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    children: [<Skeleton.Image key={1} />, <Skeleton.Heading key={2} />, <Skeleton.Paragraph key={3} />],
+    children: [<Skeleton.Image key={1} />, <Skeleton.Heading key={2} />, <Skeleton.Paragraph key={3} lines={3} />],
   },
   decorators: [maximiseInlineSize('24rem')],
 }
 
 export const Heading: StoryObj<{ lines: number }> = {
-  args: { lines: 1 },
+  args: { lines: 2 },
   argTypes: { lines: { control: { min: 1, step: 1, type: 'number' } } },
   render: ({ lines }) => (
     <Skeleton>

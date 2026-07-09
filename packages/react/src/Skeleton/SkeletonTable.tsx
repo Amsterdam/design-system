@@ -15,7 +15,7 @@ export type SkeletonTableProps = {
    */
   readonly columns?: number
   /**
-   * The number of body rows, excluding the header row.
+   * The number of rows.
    * @default 3
    */
   readonly rows?: number
@@ -36,7 +36,6 @@ const renderCells = (count: number) =>
 export const SkeletonTable = forwardRef(
   ({ className, columns = 3, rows = 3, ...restProps }: SkeletonTableProps, ref: ForwardedRef<HTMLDivElement>) => (
     <div {...restProps} className={clsx('ams-skeleton__table', className)} ref={ref}>
-      <div className="ams-skeleton__table-row ams-skeleton__table-row--header">{renderCells(columns)}</div>
       {Array.from({ length: rows }, (_, index) => (
         <div className="ams-skeleton__table-row" key={index}>
           {renderCells(columns)}
