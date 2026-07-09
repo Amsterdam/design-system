@@ -10,7 +10,7 @@ import type { BuildComponentPropsParams } from './renderComponentVariantTypes'
 /**
  * Assembles the props for a single component instance in the variant matrix.
  * Handles state classes (`hover`), disabled flag, size routing and the
- * inverse background trigger used in tests.css.
+ * inverse background trigger defined in authoring.css.
  *
  * For components that render an ARIA landmark and expose `accessibleName`
  * / `accessibleNameId` props, a per-variant value is injected so each
