@@ -19,63 +19,63 @@ developmentStatus: stable
 description:
   en:
     shortDescription: >-
-      Reusable components, patterns and guidelines powering the City of
-      Amsterdam’s digital services.
+      An implementation of NL Design System for the City of Amsterdam:
+      reusable components, patterns, and guidelines to build user interfaces.
 
     longDescription: |
-      The Amsterdam Design System is a collaborative, open-source toolkit
-      that includes components, patterns, design tokens, and guidelines.
-      It is designed to be accessible, responsive, robust, and adaptable
-      to various tech stacks, so teams don’t need to build their
-      frontends from scratch for every project.
+      Amsterdam Design System is an open-source toolkit of ready-made
+      components that are accessible (WCAG), adaptive, and user-friendly.
+      Teams reuse them instead of starting from scratch on every project,
+      saving time and money.
 
-      Our designers, developers, and suppliers use it to help citizens
-      and other users recognise and trust our websites, making our
-      digital services straightforward and enjoyable to use.
+      Published as separate packages for CSS, React, and design tokens,
+      the system lets teams adopt just the parts they need. That makes it
+      framework-agnostic and suitable for both tailor-made applications and
+      SaaS applications.
 
-      We actively maintain the library and release new versions steadily.
-      The project offers distinct packages for CSS, React, design tokens,
-      and icons. Input from users contributes to the system’s development
-      for everyone’s benefit.
+      NL Design System’s layered architecture lets other public organisations
+      reuse these components and apply their own design tokens to tailor them
+      to their own channels.
 
-      As part of the NL Design System community, other public organizations
-      in the Netherlands customise these components for their own services.
+      The team actively maintains the library, publishes regular releases,
+      and welcomes contributions.
 
     features:
       - Design tokens
       - CSS components
       - React components
-      - Icons
+      - Patterns and templates
+      - Guidelines and examples
 
   nl:
     shortDescription: >-
-      Herbruikbare componenten, patronen en richtlijnen: het fundament onder
-      de digitale dienstverlening van gemeente Amsterdam.
+      Een implementatie van NL Design System voor gemeente Amsterdam:
+      herbruikbare componenten, patronen en richtlijnen om gebruikersinterfaces te bouwen.
 
     longDescription: |
-      Het Amsterdam Design System is een gezamenlijke open source toolkit met
-      componenten, patronen, design tokens en richtlijnen. Het is toegankelijk,
-      responsief, robuust en bruikbaar in verschillende technologieën, zodat
-      teams hun frontend niet voor elk project opnieuw hoeven te bouwen.
-  
-      Onze ontwerpers, ontwikkelaars en leveranciers gebruiken het om inwoners
-      en andere gebruikers onze websites te laten herkennen en vertrouwen,
-      zodat onze digitale dienstverlening prettig en eenvoudig te gebruiken is.
-  
-      We onderhouden de bibliotheek actief en brengen regelmatig nieuwe versies
-      uit. Het project biedt aparte releases voor CSS, React, design tokens en
-      iconen. Inbreng van gebruikers helpt bij de ontwikkeling van het systeem,
-      ten goede van iedereen.
-  
-      Als onderdeel van de NL Design System-community gebruiken andere publieke
-      organisaties deze componenten voor hun eigen diensten, dankzij design tokens
-      in hun eigen huisstijl.
+      Amsterdam Design System is een open source toolkit met kant-en-klare
+      componenten die toegankelijk (WCAG), adaptief en gebruiksvriendelijk
+      zijn. Teams hergebruiken ze in plaats van bij elk project opnieuw
+      te beginnen en besparen zo tijd en geld.
+
+      Het systeem verschijnt als aparte packages voor CSS, React en design
+      tokens, zodat teams de onderdelen gebruiken die ze nodig hebben.
+      Daardoor is het framework-onafhankelijk en past het zowel in
+      maatwerkapplicaties als in SaaS-applicaties.
+
+      De gelaagde architectuur van NL Design System stelt andere publieke
+      organisaties in staat om deze componenten te hergebruiken en met eigen
+      design tokens af te stemmen op hun eigen kanalen.
+
+      Het team onderhoudt de bibliotheek actief, brengt regelmatig nieuwe
+      versies uit en verwelkomt bijdragen.
 
     features:
       - Design tokens
       - CSS-componenten
       - React-componenten
-      - Iconen
+      - Patronen en templates
+      - Richtlijnen en voorbeelden
 
 legal:
   license: EUPL-1.2
@@ -89,13 +89,19 @@ intendedAudience:
 
 localisation:
   availableLanguages:
-    - nl
     - en
+    - nl
   localisationReady: true
+
+supports:
+  - id: https://www.digitoegankelijk.nl/
 
 maintenance:
   type: internal
   contacts:
     - name: Design System Team
       email: designsystem@amsterdam.nl
+      affiliation: Gemeente Amsterdam
+    - name: Vincent Smedinga
+      email: v.smedinga@amsterdam.nl
       affiliation: Gemeente Amsterdam
