@@ -58,7 +58,7 @@
     "@types/react": "18.3.31",
     "@types/react-dom": "18.3.7",
     "@vitejs/plugin-react": "6.0.3",
-    "@vitest/coverage-v8": "4.1.9",
+    "@vitest/coverage-v8": "4.1.10",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.1.1",
     "jsdom": "26.1.0",
@@ -72,7 +72,7 @@
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-typescript2": "0.37.0",
     "sass": "1.101.0",
-    "vitest": "4.1.9"
+    "vitest": "4.1.10"
   },
   "peerDependencies": {
     "@amsterdam/design-system-css": "workspace:*",
