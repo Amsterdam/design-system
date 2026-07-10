@@ -64,22 +64,20 @@ export const Default: StoryObj = {
     const expandedSlugs = new Set(findAncestors(currentSlug) ?? [])
 
     return (
-      <>
-        <Grid paddingVertical="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
-            <TableOfContents collapsible heading="Inhoudsopgave" id="inhoudsopgave" key={currentSlug}>
-              {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
-            </TableOfContents>
-          </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
-            <main className="ams-prose" id="inhoud">
-              <Heading level={1}>{currentPage.heading}</Heading>
-              <Paragraph size="large">{currentPage.lead}</Paragraph>
-              <Paragraph>{currentPage.body}</Paragraph>
-            </main>
-          </Grid.Cell>
-        </Grid>
-      </>
+      <Grid paddingVertical="x-large">
+        <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
+          <TableOfContents collapsible heading="Inhoudsopgave" id="inhoudsopgave" key={currentSlug}>
+            {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
+          </TableOfContents>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
+          <main className="ams-prose" id="inhoud">
+            <Heading level={1}>{currentPage.heading}</Heading>
+            <Paragraph size="large">{currentPage.lead}</Paragraph>
+            <Paragraph>{currentPage.body}</Paragraph>
+          </main>
+        </Grid.Cell>
+      </Grid>
     )
   },
 }
