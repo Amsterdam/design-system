@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -9435,10 +9435,24 @@ const meta = {
 
 export default meta
 
+const initialSlug = &#39;s2-2-1&#39;
+
+/** The slugs whose branches are open when a page is the current one: its ancestors, plus the page itself if it has children. */
+const branchFor = (slug: string) =&gt; {
+  const slugs = new Set(findAncestors(slug) ?? [])
+
+  if (findPage(slug)?.children) {
+    slugs.add(slug)
+  }
+
+  return slugs
+}
+
 type RenderTocOptions = {
   currentSlug: string
   expandedSlugs: Set&lt;string&gt;
   onSelect: (event: MouseEvent&lt;HTMLAnchorElement&gt;, slug: string) =&gt; void
+  onToggle: (slug: string, expanded: boolean) =&gt; void
 }
 
 const renderTocList = (list: Array&lt;HandbookPage&gt;, options: RenderTocOptions) =&gt; (
@@ -9446,11 +9460,12 @@ const renderTocList = (list: Array&lt;HandbookPage&gt;, options: RenderTocOption
     {list.map((page) =&gt; (
       &lt;TableOfContents.Link
         aria-current={page.slug === options.currentSlug ? &#39;page&#39; : undefined}
-        defaultExpanded={page.slug === options.currentSlug || options.expandedSlugs.has(page.slug)}
+        expanded={options.expandedSlugs.has(page.slug)}
         href={`#${page.slug}`}
         key={page.slug}
         label={page.heading}
         onClick={(event) =&gt; options.onSelect(event, page.slug)}
+        onToggle={(expanded) =&gt; options.onToggle(page.slug, expanded)}
       &gt;
         {page.children &amp;&amp; renderTocList(page.children, options)}
       &lt;/TableOfContents.Link&gt;
@@ -9460,21 +9475,36 @@ const renderTocList = (list: Array&lt;HandbookPage&gt;, options: RenderTocOption
 
 export const Default: StoryObj = {
   render: () =&gt; {
-    const [currentSlug, setCurrentSlug] = useState(&#39;s2-2-1&#39;)
+    const [currentSlug, setCurrentSlug] = useState(initialSlug)
+    const [expandedSlugs, setExpandedSlugs] = useState(() =&gt; branchFor(initialSlug))
 
     const handleSelect = (event: MouseEvent&lt;HTMLAnchorElement&gt;, slug: string) =&gt; {
       event.preventDefault()
       setCurrentSlug(slug)
+      setExpandedSlugs((slugs) =&gt; new Set([...slugs, ...branchFor(slug)]))
+    }
+
+    const handleToggle = (slug: string, expanded: boolean) =&gt; {
+      setExpandedSlugs((slugs) =&gt; {
+        const nextSlugs = new Set(slugs)
+
+        if (expanded) {
+          nextSlugs.add(slug)
+        } else {
+          nextSlugs.delete(slug)
+        }
+
+        return nextSlugs
+      })
     }
 
     const currentPage = findPage(currentSlug) ?? pages[0]
-    const expandedSlugs = new Set(findAncestors(currentSlug) ?? [])
 
     return (
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
-          &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
-            {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
+          &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot;&gt;
+            {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect, onToggle: handleToggle })}
           &lt;/TableOfContents&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
@@ -9521,21 +9551,36 @@ export const Default: StoryObj = {
               
               
               <pre><code>const Default = () =&gt; {
-  const [currentSlug, setCurrentSlug] = useState(&#39;s2-2-1&#39;)
+  const [currentSlug, setCurrentSlug] = useState(initialSlug)
+  const [expandedSlugs, setExpandedSlugs] = useState(() =&gt; branchFor(initialSlug))
 
   const handleSelect = (event: MouseEvent&lt;HTMLAnchorElement&gt;, slug: string) =&gt; {
     event.preventDefault()
     setCurrentSlug(slug)
+    setExpandedSlugs((slugs) =&gt; new Set([...slugs, ...branchFor(slug)]))
+  }
+
+  const handleToggle = (slug: string, expanded: boolean) =&gt; {
+    setExpandedSlugs((slugs) =&gt; {
+      const nextSlugs = new Set(slugs)
+
+      if (expanded) {
+        nextSlugs.add(slug)
+      } else {
+        nextSlugs.delete(slug)
+      }
+
+      return nextSlugs
+    })
   }
 
   const currentPage = findPage(currentSlug) ?? pages[0]
-  const expandedSlugs = new Set(findAncestors(currentSlug) ?? [])
 
   return (
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
-        &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
-          {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
+        &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot;&gt;
+          {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect, onToggle: handleToggle })}
         &lt;/TableOfContents&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
@@ -9575,10 +9620,12 @@ Use this template for long-form reference content that is split across many shor
 
 ## Structure
 
-- Two [Skip Link](/docs/components-navigation-skip-link--docs)s at the top of the page let keyboard users jump straight to the table of contents or to the content.
+- Two [Skip Links](/docs/components-navigation-skip-link--docs) at the top of the page let keyboard users jump straight to the table of contents or to the content.
 - The page uses a two-column [Grid](/docs/components-layout-grid--docs) layout.
 - The left column holds a collapsible [Table of Contents](/docs/components-navigation-table-of-contents--docs) showing the full document tree.
-  - Set `aria-current=&quot;page&quot;` on the active link and `defaultExpanded` on its ancestors so the current position is pre-expanded on load.
+  - Set `aria-current=&quot;page&quot;` on the active link.
+  - Drive each branch with the controlled `expanded` prop and an `onToggle` handler, so the current position stays open as the reader moves through the document.
+    Keeping the Table of Contents mounted means the link a keyboard user just activated never loses focus.
 - The right column contains a `main` element using the [Prose](/docs/utilities-css-prose--docs) utility class.
   - Each page opens with a level 1 [Heading](/docs/components-text-heading--docs), followed by a large lead [Paragraph](/docs/components-text-paragraph--docs) and body text.
 
@@ -26386,10 +26433,24 @@ const meta = {
 
 export default meta
 
+const initialSlug = &#39;s2-2-1&#39;
+
+/** The slugs whose branches are open when a page is the current one: its ancestors, plus the page itself if it has children. */
+const branchFor = (slug: string) =&gt; {
+  const slugs = new Set(findAncestors(slug) ?? [])
+
+  if (findPage(slug)?.children) {
+    slugs.add(slug)
+  }
+
+  return slugs
+}
+
 type RenderTocOptions = {
   currentSlug: string
   expandedSlugs: Set&lt;string&gt;
   onSelect: (event: MouseEvent&lt;HTMLAnchorElement&gt;, slug: string) =&gt; void
+  onToggle: (slug: string, expanded: boolean) =&gt; void
 }
 
 const renderTocList = (list: Array&lt;HandbookPage&gt;, options: RenderTocOptions) =&gt; (
@@ -26397,11 +26458,12 @@ const renderTocList = (list: Array&lt;HandbookPage&gt;, options: RenderTocOption
     {list.map((page) =&gt; (
       &lt;TableOfContents.Link
         aria-current={page.slug === options.currentSlug ? &#39;page&#39; : undefined}
-        defaultExpanded={page.slug === options.currentSlug || options.expandedSlugs.has(page.slug)}
+        expanded={options.expandedSlugs.has(page.slug)}
         href={`#${page.slug}`}
         key={page.slug}
         label={page.heading}
         onClick={(event) =&gt; options.onSelect(event, page.slug)}
+        onToggle={(expanded) =&gt; options.onToggle(page.slug, expanded)}
       &gt;
         {page.children &amp;&amp; renderTocList(page.children, options)}
       &lt;/TableOfContents.Link&gt;
@@ -26411,21 +26473,36 @@ const renderTocList = (list: Array&lt;HandbookPage&gt;, options: RenderTocOption
 
 export const Default: StoryObj = {
   render: () =&gt; {
-    const [currentSlug, setCurrentSlug] = useState(&#39;s2-2-1&#39;)
+    const [currentSlug, setCurrentSlug] = useState(initialSlug)
+    const [expandedSlugs, setExpandedSlugs] = useState(() =&gt; branchFor(initialSlug))
 
     const handleSelect = (event: MouseEvent&lt;HTMLAnchorElement&gt;, slug: string) =&gt; {
       event.preventDefault()
       setCurrentSlug(slug)
+      setExpandedSlugs((slugs) =&gt; new Set([...slugs, ...branchFor(slug)]))
+    }
+
+    const handleToggle = (slug: string, expanded: boolean) =&gt; {
+      setExpandedSlugs((slugs) =&gt; {
+        const nextSlugs = new Set(slugs)
+
+        if (expanded) {
+          nextSlugs.add(slug)
+        } else {
+          nextSlugs.delete(slug)
+        }
+
+        return nextSlugs
+      })
     }
 
     const currentPage = findPage(currentSlug) ?? pages[0]
-    const expandedSlugs = new Set(findAncestors(currentSlug) ?? [])
 
     return (
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
-          &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
-            {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
+          &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot;&gt;
+            {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect, onToggle: handleToggle })}
           &lt;/TableOfContents&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
@@ -26472,21 +26549,36 @@ export const Default: StoryObj = {
               
               
               <pre><code>const Default = () =&gt; {
-  const [currentSlug, setCurrentSlug] = useState(&#39;s2-2-1&#39;)
+  const [currentSlug, setCurrentSlug] = useState(initialSlug)
+  const [expandedSlugs, setExpandedSlugs] = useState(() =&gt; branchFor(initialSlug))
 
   const handleSelect = (event: MouseEvent&lt;HTMLAnchorElement&gt;, slug: string) =&gt; {
     event.preventDefault()
     setCurrentSlug(slug)
+    setExpandedSlugs((slugs) =&gt; new Set([...slugs, ...branchFor(slug)]))
+  }
+
+  const handleToggle = (slug: string, expanded: boolean) =&gt; {
+    setExpandedSlugs((slugs) =&gt; {
+      const nextSlugs = new Set(slugs)
+
+      if (expanded) {
+        nextSlugs.add(slug)
+      } else {
+        nextSlugs.delete(slug)
+      }
+
+      return nextSlugs
+    })
   }
 
   const currentPage = findPage(currentSlug) ?? pages[0]
-  const expandedSlugs = new Set(findAncestors(currentSlug) ?? [])
 
   return (
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
-        &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
-          {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
+        &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot;&gt;
+          {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect, onToggle: handleToggle })}
         &lt;/TableOfContents&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
@@ -26526,10 +26618,12 @@ Use this template for long-form reference content that is split across many shor
 
 ## Structure
 
-- Two [Skip Link](/docs/components-navigation-skip-link--docs)s at the top of the page let keyboard users jump straight to the table of contents or to the content.
+- Two [Skip Links](/docs/components-navigation-skip-link--docs) at the top of the page let keyboard users jump straight to the table of contents or to the content.
 - The page uses a two-column [Grid](/docs/components-layout-grid--docs) layout.
 - The left column holds a collapsible [Table of Contents](/docs/components-navigation-table-of-contents--docs) showing the full document tree.
-  - Set `aria-current=&quot;page&quot;` on the active link and `defaultExpanded` on its ancestors so the current position is pre-expanded on load.
+  - Set `aria-current=&quot;page&quot;` on the active link.
+  - Drive each branch with the controlled `expanded` prop and an `onToggle` handler, so the current position stays open as the reader moves through the document.
+    Keeping the Table of Contents mounted means the link a keyboard user just activated never loses focus.
 - The right column contains a `main` element using the [Prose](/docs/utilities-css-prose--docs) utility class.
   - Each page opens with a level 1 [Heading](/docs/components-text-heading--docs), followed by a large lead [Paragraph](/docs/components-text-paragraph--docs) and body text.
 
