@@ -90,3 +90,32 @@ export const Confirmation: Story = {
     id: 'ams-dialog-asking-to-confirm',
   },
 }
+
+export const SessionExpiring: Story = {
+  args: {
+    children: <Paragraph>Zonder activiteit wordt u over 2 minuten automatisch afgemeld.</Paragraph>,
+    footer: (
+      <ActionGroup>
+        <Button
+          onClick={(event) => {
+            action('continue')()
+            return Dialog.close(event)
+          }}
+        >
+          Ingelogd blijven
+        </Button>
+        <Button
+          onClick={(event) => {
+            action('sign-out')()
+            return Dialog.close(event)
+          }}
+          variant="secondary"
+        >
+          Nu afmelden
+        </Button>
+      </ActionGroup>
+    ),
+    heading: 'Uw sessie verloopt bijna',
+    id: 'ams-dialog-session-expiring',
+  },
+}

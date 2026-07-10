@@ -21,12 +21,17 @@ import * as DialogStories from "./Dialog.stories.tsx";
 
 ### When to use
 
-Use a Dialog for short and non-frequent tasks.
+Use a Dialog for a short, essential confirmation, a yes/no question, or a brief reminder.
+Examples are confirming a deletion, warning that unsaved changes will be lost, or reminding the user that their session is about to expire.
+A Dialog fits both public websites and applications.
 
 ### When not to use
 
 Use Dialogs sparingly because they interrupt the user’s workflow.
-Consider using the main flow for regular tasks.
+Consider handling regular tasks in the main flow instead.
+
+For a task that needs more room – several fields, or content the user reads and edits – use a [Modal Dialog](/docs/components-containers-modal-dialog--docs) in an application.
+On a public-facing website, give such a task a page of its own instead, so the user keeps the browser’s back button and a link they can share or bookmark.
 
 ### How to use
 
@@ -63,6 +68,13 @@ Set a `value` on each button to identify which one was clicked.
 Consult [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog) for more information.
 
 <Canvas of={DialogStories.Confirmation} />
+
+### Reminding the user
+
+Open a Dialog to remind the user of something time-sensitive, such as a session that is about to expire.
+Offer a clear way to continue alongside a way to stop.
+
+<Canvas of={DialogStories.SessionExpiring} />
 
 ## Features
 
@@ -110,6 +122,7 @@ Opening a modal does not lock scrolling on its own, and iOS Safari still needs J
 
 ## See also
 
+- [Modal Dialog](/docs/components-containers-modal-dialog--docs) – for a task that needs more room, such as a form.
 - [Action Group](/docs/components-layout-action-group--docs) – lays out multiple Buttons.
 
 ## Design tokens

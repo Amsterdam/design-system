@@ -46,7 +46,7 @@ const DialogRoot = forwardRef(
 DialogRoot.displayName = 'Dialog'
 
 /**
- * A popup window in which the user must perform an action to proceed.
+ * A small window over the page that asks the user to confirm an action, answer a short question, or acknowledge a brief message.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-dialog--docs Dialog docs at Amsterdam Design System}
  */
