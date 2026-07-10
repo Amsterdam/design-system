@@ -28,10 +28,24 @@ const meta = {
 
 export default meta
 
+const initialSlug = 's2-2-1'
+
+/** The slugs whose branches are open when a page is the current one: its ancestors, plus the page itself if it has children. */
+const branchFor = (slug: string) => {
+  const slugs = new Set(findAncestors(slug) ?? [])
+
+  if (findPage(slug)?.children) {
+    slugs.add(slug)
+  }
+
+  return slugs
+}
+
 type RenderTocOptions = {
   currentSlug: string
   expandedSlugs: Set<string>
   onSelect: (event: MouseEvent<HTMLAnchorElement>, slug: string) => void
+  onToggle: (slug: string, expanded: boolean) => void
 }
 
 const renderTocList = (list: Array<HandbookPage>, options: RenderTocOptions) => (
@@ -39,11 +53,12 @@ const renderTocList = (list: Array<HandbookPage>, options: RenderTocOptions) => 
     {list.map((page) => (
       <TableOfContents.Link
         aria-current={page.slug === options.currentSlug ? 'page' : undefined}
-        defaultExpanded={page.slug === options.currentSlug || options.expandedSlugs.has(page.slug)}
+        expanded={options.expandedSlugs.has(page.slug)}
         href={`#${page.slug}`}
         key={page.slug}
         label={page.heading}
         onClick={(event) => options.onSelect(event, page.slug)}
+        onToggle={(expanded) => options.onToggle(page.slug, expanded)}
       >
         {page.children && renderTocList(page.children, options)}
       </TableOfContents.Link>
@@ -53,21 +68,36 @@ const renderTocList = (list: Array<HandbookPage>, options: RenderTocOptions) => 
 
 export const Default: StoryObj = {
   render: () => {
-    const [currentSlug, setCurrentSlug] = useState('s2-2-1')
+    const [currentSlug, setCurrentSlug] = useState(initialSlug)
+    const [expandedSlugs, setExpandedSlugs] = useState(() => branchFor(initialSlug))
 
     const handleSelect = (event: MouseEvent<HTMLAnchorElement>, slug: string) => {
       event.preventDefault()
       setCurrentSlug(slug)
+      setExpandedSlugs((slugs) => new Set([...slugs, ...branchFor(slug)]))
+    }
+
+    const handleToggle = (slug: string, expanded: boolean) => {
+      setExpandedSlugs((slugs) => {
+        const nextSlugs = new Set(slugs)
+
+        if (expanded) {
+          nextSlugs.add(slug)
+        } else {
+          nextSlugs.delete(slug)
+        }
+
+        return nextSlugs
+      })
     }
 
     const currentPage = findPage(currentSlug) ?? pages[0]
-    const expandedSlugs = new Set(findAncestors(currentSlug) ?? [])
 
     return (
       <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
-          <TableOfContents collapsible heading="Inhoudsopgave" id="inhoudsopgave" key={currentSlug}>
-            {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
+          <TableOfContents collapsible heading="Inhoudsopgave" id="inhoudsopgave">
+            {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect, onToggle: handleToggle })}
           </TableOfContents>
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
