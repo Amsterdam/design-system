@@ -171,6 +171,11 @@ export const parameters = {
   html: {
     root: '.ams-body',
   },
+  // Declare Dutch on the story root in story view and on the embedded canvases in docs view. Without
+  // this, Storybook marks docs canvases as English, so screen readers would mispronounce the Dutch
+  // examples. The decorator above refines the language per story through `parameters.lang` or a
+  // `locale` arg; docs prose keeps Storybook’s English default.
+  htmlLang: 'nl',
   // Widen the Code Panel’s line budget. Without this, react-element-to-jsx-string – which generates the
   // source for stories with a `render` function – puts every element with more than one attribute onto
   // multiple lines. Keeping attributes inline until a line reaches this length shows more code at once.
