@@ -65,7 +65,7 @@ const ModalDialogRoot = forwardRef(
 ModalDialogRoot.displayName = 'ModalDialog'
 
 /**
- * A window over the page that focuses attention on a single task or message. It blocks interaction with the underlying page until it is closed.
+ * A window over the page that focuses attention on a single task or message – from a short message to a form that creates or edits content. It blocks interaction with the underlying page until it is closed.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-modal-dialog--docs Modal Dialog docs at Amsterdam Design System}
  */

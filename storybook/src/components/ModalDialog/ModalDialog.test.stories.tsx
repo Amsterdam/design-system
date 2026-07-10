@@ -6,7 +6,17 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { CSSProperties } from 'react'
 
-import { Button, Heading, Paragraph } from '@amsterdam/design-system-react'
+import {
+  ActionGroup,
+  Button,
+  Column,
+  Field,
+  Heading,
+  Label,
+  Paragraph,
+  TextArea,
+  TextInput,
+} from '@amsterdam/design-system-react'
 import { SaintAndrewsCrossesIcon } from '@amsterdam/design-system-react-icons'
 import { ModalDialog } from '@amsterdam/design-system-react/src'
 import { expect, within } from 'storybook/test'
@@ -74,17 +84,31 @@ export const Test: Story = {
   render: () => (
     <>
       <div className="_ams-tests-stack">
-        <ModalDialog aria-labelledby="test-default-heading" ref={showNonModally} style={inFlow}>
+        <ModalDialog aria-labelledby="test-form-heading" ref={showNonModally} style={inFlow}>
           <ModalDialog.Header>
-            <Heading id="test-default-heading" level={1} size="level-3">
-              De gegevens zijn opgeslagen
+            <Heading id="test-form-heading" level={1} size="level-3">
+              Notitie toevoegen
             </Heading>
           </ModalDialog.Header>
           <ModalDialog.Body>
-            <Paragraph>U ontvangt een bevestiging per e-mail.</Paragraph>
+            <form method="dialog">
+              <Column gap="small">
+                <Field>
+                  <Label htmlFor="test-note-subject">Onderwerp</Label>
+                  <TextInput id="test-note-subject" />
+                </Field>
+                <Field>
+                  <Label htmlFor="test-note-text">Notitie</Label>
+                  <TextArea id="test-note-text" rows={3} />
+                </Field>
+              </Column>
+            </form>
           </ModalDialog.Body>
           <ModalDialog.Footer>
-            <Button>Sluiten</Button>
+            <ActionGroup>
+              <Button>Opslaan</Button>
+              <Button variant="secondary">Annuleren</Button>
+            </ActionGroup>
           </ModalDialog.Footer>
         </ModalDialog>
         <ModalDialog aria-labelledby="test-subtitle-heading" ref={showNonModally} style={inFlow}>

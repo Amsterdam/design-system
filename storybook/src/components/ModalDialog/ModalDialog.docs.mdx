@@ -42,14 +42,20 @@ It is optional: a dialog can rely on the close button in the Header alone.
 
 ### When to use
 
-Use a Modal Dialog for a short, essential task or message that requires the user’s full attention.
+Use a Modal Dialog for a self-contained task or message that needs the user’s full attention.
+It can hold anything from a short message to a form for creating or editing content.
 Interaction with the rest of the page is blocked until the dialog is closed.
+Modal Dialogs suit applications best, where people carry out focused tasks as part of their work.
 
 ### When not to use
 
 Use Modal Dialogs sparingly because they interrupt the user’s workflow.
-Consider using the main flow for regular tasks.
-A Modal Dialog can always be dismissed without completing its task, so don’t use it for messages the user must act on.
+Consider handling regular tasks in the main flow instead.
+A Modal Dialog can always be dismissed without completing its task, so don’t use it for a message the user must act on.
+
+On a public-facing website, keep a whole task out of a dialog.
+Let people complete it inline or on a page of its own, so they keep the browser’s back button, a link they can share or bookmark, and their work if the page reloads.
+When a website only needs a short confirmation or a yes/no question, use a [Dialog](/docs/components-containers-dialog--docs) instead.
 
 ### How to use
 
@@ -63,7 +69,8 @@ To open the dialog, use `ModalDialog.open` from the React package.
 It takes a CSS selector, so include the `#` when referencing an id: `ModalDialog.open('#my-dialog')`.
 Alternatively, keep the dialog rendered and control it with the `open` prop and the `onClose` event – see [the ‘Controlled’ example](#controlling-the-dialog-with-state).
 
-To close it, call the `ModalDialog.close` function from a button inside the dialog, or add a `<form method="dialog">` as in [the ‘Asking to confirm’ example](#asking-to-confirm).
+To close it, call the `ModalDialog.close` function from a button inside the dialog, or submit a `<form method="dialog">` inside it, as the form at the top of this page does.
+Give each submit Button a `value` to identify which one closed the dialog; see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog) for handling the return value.
 The Escape key always closes the dialog as well.
 
 Wrap multiple buttons in an [Action Group](/docs/components-layout-action-group--docs) and place it in the Footer.
@@ -93,15 +100,12 @@ Both stack to the left of the close button.
 
 <Canvas of={ModalDialogStories.WithSubtitle} />
 
-### Asking to confirm
+### A longer body that scrolls
 
-Use a `form` when asking the user to confirm an action, e.g. through ‘OK’ and ‘Cancel’ buttons.
-Add `method="dialog"` to make the browser close the dialog when the form is submitted.
-Add an `id` to the form and use it in the `form` attribute of the buttons in the Footer.
-Set a `value` on each button to identify which one was clicked.
-Consult [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog) for more information.
+When the content is taller than the available space, the Body scrolls while the Header and Footer stay in view.
+This keeps a longer task within reach – a form with many fields, or a text the user reads before deciding.
 
-<Canvas of={ModalDialogStories.Confirmation} />
+<Canvas of={ModalDialogStories.WithScrollingBody} />
 
 ### A custom close icon
 
@@ -156,7 +160,8 @@ Note that a modal dialog requires JavaScript: without it, the dialog stays close
 
 ## See also
 
-- [Dialog](/docs/components-containers-dialog--docs) – the previous generation of this component, configured through props instead of composition.
+- [Dialog](/docs/components-containers-dialog--docs) – a smaller dialog for a short confirmation, question, or reminder.
+- [Alert](/docs/components-feedback-alert--docs) – a message shown in place, without interrupting the user.
 - [Action Group](/docs/components-layout-action-group--docs) – lays out multiple Buttons.
 
 ## Design tokens

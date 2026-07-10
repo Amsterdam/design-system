@@ -6,13 +6,27 @@
 import type { ModalDialogProps } from '@amsterdam/design-system-react/src'
 import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
-import { ActionGroup, Button, Heading, Paragraph } from '@amsterdam/design-system-react'
+import {
+  ActionGroup,
+  Button,
+  Column,
+  Field,
+  Heading,
+  Label,
+  Paragraph,
+  TextArea,
+  TextInput,
+} from '@amsterdam/design-system-react'
 import { SaintAndrewsCrossesIcon } from '@amsterdam/design-system-react-icons'
 import { ModalDialog } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 import { action } from 'storybook/actions'
 
 import { dialogIdArgType } from '#storybook/_common/argTypes'
+
+const longObjection =
+  'Op 3 maart 2024 ontving ik uw besluit over de aanvraag voor een omgevingsvergunning aan de Voorbeeldstraat 12. ' +
+  'Ik maak bezwaar tegen dit besluit en licht hieronder toe waarom ik het er niet mee eens ben.'
 
 const openButtonDecorator: Decorator = (Story, { args }) => (
   <>
@@ -47,21 +61,38 @@ export const Default: Story = {
       <>
         <ModalDialog.Header>
           <Heading id="ams-modal-dialog-default-heading" level={1} size="level-3">
-            De gegevens zijn opgeslagen
+            Notitie toevoegen
           </Heading>
         </ModalDialog.Header>
         <ModalDialog.Body>
-          <Paragraph>U ontvangt een bevestiging per e-mail.</Paragraph>
+          <form id="ams-modal-dialog-note-form" method="dialog">
+            <Column gap="small">
+              <Field>
+                <Label htmlFor="ams-modal-dialog-note-subject">Onderwerp</Label>
+                <TextInput id="ams-modal-dialog-note-subject" name="subject" />
+              </Field>
+              <Field>
+                <Label htmlFor="ams-modal-dialog-note-text">Notitie</Label>
+                <TextArea id="ams-modal-dialog-note-text" name="note" rows={4} />
+              </Field>
+            </Column>
+          </form>
         </ModalDialog.Body>
         <ModalDialog.Footer>
-          <Button
-            onClick={(event) => {
-              action('close')()
-              return ModalDialog.close(event)
-            }}
-          >
-            Sluiten
-          </Button>
+          <ActionGroup>
+            <Button form="ams-modal-dialog-note-form" onClick={action('save')} type="submit" value="save">
+              Opslaan
+            </Button>
+            <Button
+              onClick={(event) => {
+                action('cancel')()
+                return ModalDialog.close(event)
+              }}
+              variant="secondary"
+            >
+              Annuleren
+            </Button>
+          </ActionGroup>
         </ModalDialog.Footer>
       </>
     ),
@@ -101,43 +132,56 @@ export const WithSubtitle: Story = {
   decorators: [openButtonDecorator],
 }
 
-export const Confirmation: Story = {
+export const WithScrollingBody: Story = {
   args: {
-    'aria-labelledby': 'ams-modal-dialog-confirmation-heading',
+    'aria-labelledby': 'ams-modal-dialog-scrolling-heading',
     children: (
       <>
         <ModalDialog.Header>
-          <Heading id="ams-modal-dialog-confirmation-heading" level={1} size="level-3">
-            Niet alle gegevens zijn opgeslagen
+          <Heading id="ams-modal-dialog-scrolling-heading" level={1} size="level-3">
+            Bezwaar beoordelen
           </Heading>
+          <Paragraph size="small">Bezwaar 2024-00842</Paragraph>
         </ModalDialog.Header>
         <ModalDialog.Body>
-          <form id="ams-modal-dialog-form" method="dialog">
+          <Column gap="small">
+            <Paragraph>{longObjection}</Paragraph>
             <Paragraph>
-              Weet u zeker dat u door wilt gaan met het uitvoeren van deze actie? Gegevens die nog niet opgeslagen zijn
-              gaan dan verloren.
+              De onderbouwing gaat niet in op de gevolgen voor de parkeerdruk in de straat. In de huidige situatie is er
+              overdag al nauwelijks plek. Naar mijn idee is niet onderzocht wat het extra verkeer betekent voor de
+              bewoners die hier al jaren wonen.
             </Paragraph>
-          </form>
+            <Paragraph>
+              Ik verzoek u het besluit te heroverwegen en de aanvraag opnieuw te beoordelen, met aandacht voor de punten
+              die ik noem. Graag ontvang ik binnen de wettelijke termijn een reactie. Mocht u vragen hebben, dan licht
+              ik mijn bezwaar uiteraard graag mondeling toe.
+            </Paragraph>
+          </Column>
         </ModalDialog.Body>
         <ModalDialog.Footer>
           <ActionGroup>
-            <Button form="ams-modal-dialog-form" onClick={action('continue')} type="submit" value="submit">
-              Doorgaan
+            <Button
+              onClick={(event) => {
+                action('grant')()
+                return ModalDialog.close(event)
+              }}
+            >
+              Toewijzen
             </Button>
             <Button
               onClick={(event) => {
-                action('cancel')()
+                action('reject')()
                 return ModalDialog.close(event)
               }}
               variant="secondary"
             >
-              Stoppen
+              Afwijzen
             </Button>
           </ActionGroup>
         </ModalDialog.Footer>
       </>
     ),
-    id: 'ams-modal-dialog-confirmation',
+    id: 'ams-modal-dialog-scrolling',
   },
   decorators: [openButtonDecorator],
 }
@@ -171,14 +215,22 @@ const ControlledExample = (args: ModalDialogProps) => {
       <ModalDialog {...args} onClose={() => setOpen(false)} open={open}>
         <ModalDialog.Header>
           <Heading id="ams-modal-dialog-controlled-heading" level={1} size="level-3">
-            Uw sessie verloopt bijna
+            Weergavenaam wijzigen
           </Heading>
         </ModalDialog.Header>
         <ModalDialog.Body>
-          <Paragraph>Zonder activiteit wordt u over 2 minuten afgemeld.</Paragraph>
+          <Field>
+            <Label htmlFor="ams-modal-dialog-controlled-name">Weergavenaam</Label>
+            <TextInput defaultValue="A. de Vries" id="ams-modal-dialog-controlled-name" name="display-name" />
+          </Field>
         </ModalDialog.Body>
         <ModalDialog.Footer>
-          <Button onClick={() => setOpen(false)}>Doorgaan met mijn sessie</Button>
+          <ActionGroup>
+            <Button onClick={() => setOpen(false)}>Opslaan</Button>
+            <Button onClick={() => setOpen(false)} variant="secondary">
+              Annuleren
+            </Button>
+          </ActionGroup>
         </ModalDialog.Footer>
       </ModalDialog>
     </>
