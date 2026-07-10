@@ -10,6 +10,9 @@
 
 .ams-menu {
   background-color: var(--ams-menu-background-color);
+
+  // Keeps the horizontal padding within the maximum inline size in wide windows.
+  box-sizing: border-box;
   font-family: var(--ams-menu-font-family);
   font-size: var(--ams-menu-font-size);
   font-weight: var(--ams-menu-font-weight);
