@@ -68,3 +68,9 @@ jobs:
       - name: Test packages
         run: |
           pnpm run --if-present test
+
+      # Storybook is excluded from "Build packages" above and is otherwise only built by Chromatic,
+      # which is gated on pull-request state. Building it here turns a broken story, MDX doc, or
+      # config change into a deterministic failure on every push. Reuses the packages built above.
+      - name: Build Storybook
+        run: pnpm --filter=storybook run build

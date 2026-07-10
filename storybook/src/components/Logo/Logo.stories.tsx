@@ -7,12 +7,22 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { CSSProperties } from 'react'
 
 import { Logo } from '@amsterdam/design-system-react/src'
+import { logoBrands } from '@amsterdam/design-system-react/src/Logo/Logo'
 
 import ExampleLogo from './ExampleLogo'
 
 const meta = {
   title: 'Components/Media/Logo',
   component: Logo,
+  argTypes: {
+    brand: {
+      control: {
+        labels: { undefined: 'amsterdam (default)' },
+        type: 'select',
+      },
+      options: [undefined, ...logoBrands.filter((brand) => brand !== 'amsterdam')],
+    },
+  },
 } satisfies Meta<typeof Logo>
 
 export default meta

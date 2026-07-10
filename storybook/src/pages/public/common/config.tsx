@@ -11,9 +11,9 @@ import { Layout } from './Layout'
 
 export const commonMeta = {
   decorators: [
-    (Story) => (
+    (Story, { parameters }) => (
       <Page>
-        <Layout>
+        <Layout skipLinks={parameters['skipLinks']}>
           <Story />
         </Layout>
       </Page>

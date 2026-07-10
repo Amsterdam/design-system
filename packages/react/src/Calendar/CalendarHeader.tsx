@@ -15,14 +15,27 @@ import type { CalendarProps } from './Calendar'
 import { IconButton } from '../IconButton'
 
 export type CalendarHeaderProps = {
+  /** Navigates to the next month. */
   readonly goToNextMonth: () => void
+  /** Navigates to the next year. */
   readonly goToNextYear: () => void
+  /** Navigates to the previous month. */
   readonly goToPreviousMonth: () => void
+  /** Navigates to the previous year. */
   readonly goToPreviousYear: () => void
+  /** The currently displayed month. */
   readonly month: Date
 } & Pick<
   CalendarProps,
-  'locale' | 'nextMonthButtonLabel' | 'nextYearButtonLabel' | 'previousMonthButtonLabel' | 'previousYearButtonLabel'
+  | 'locale'
+  | 'nextMonthButtonIcon'
+  | 'nextMonthButtonLabel'
+  | 'nextYearButtonIcon'
+  | 'nextYearButtonLabel'
+  | 'previousMonthButtonIcon'
+  | 'previousMonthButtonLabel'
+  | 'previousYearButtonIcon'
+  | 'previousYearButtonLabel'
 >
 
 /**
@@ -37,19 +50,23 @@ export const CalendarHeader = ({
   goToPreviousYear,
   locale,
   month,
+  nextMonthButtonIcon = ChevronForwardIcon,
   nextMonthButtonLabel = 'Volgende maand',
+  nextYearButtonIcon = ChevronDoubleForwardIcon,
   nextYearButtonLabel = 'Volgend jaar',
+  previousMonthButtonIcon = ChevronBackwardIcon,
   previousMonthButtonLabel = 'Vorige maand',
+  previousYearButtonIcon = ChevronDoubleBackwardIcon,
   previousYearButtonLabel = 'Vorig jaar',
 }: CalendarHeaderProps) => (
   <div className="ams-calendar__header">
-    <IconButton label={previousYearButtonLabel} onClick={goToPreviousYear} svg={ChevronDoubleBackwardIcon} />
-    <IconButton label={previousMonthButtonLabel} onClick={goToPreviousMonth} svg={ChevronBackwardIcon} />
+    <IconButton label={previousYearButtonLabel} onClick={goToPreviousYear} svg={previousYearButtonIcon} />
+    <IconButton label={previousMonthButtonLabel} onClick={goToPreviousMonth} svg={previousMonthButtonIcon} />
     <span className="ams-calendar__caption">
       {new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(month)}
     </span>
-    <IconButton label={nextMonthButtonLabel} onClick={goToNextMonth} svg={ChevronForwardIcon} />
-    <IconButton label={nextYearButtonLabel} onClick={goToNextYear} svg={ChevronDoubleForwardIcon} />
+    <IconButton label={nextMonthButtonLabel} onClick={goToNextMonth} svg={nextMonthButtonIcon} />
+    <IconButton label={nextYearButtonLabel} onClick={goToNextYear} svg={nextYearButtonIcon} />
   </div>
 )
 

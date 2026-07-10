@@ -22,7 +22,7 @@
         }
       },
       "body-text": {
-        "$description": "Text styles for running body copy. Font sizes scale fluidly between 320px and 1600px viewports.",
+        "$description": "Text styles for running body copy. Font sizes scale fluidly between 320px and 1440px viewports.",
         "font-size": {
           "$value": "clamp(1.125rem, 1.0893rem + 0.1786vw, 1.25rem)",
           "$description": "Scales from 18px to 20px.",

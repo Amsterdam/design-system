@@ -1,0 +1,242 @@
+{
+  "ams": {
+    "skeleton": {
+      "animation": {
+        "$value": "ams-skeleton-heartbeat 1.6s ease-in-out infinite",
+        "$description": "The loading animation, as a CSS `animation` shorthand referencing a keyframes name. Override this token to give the Skeleton a different animation – change the duration or timing function to adjust the pace, point it at your own `@keyframes`, or set it to `none` to switch the animation off."
+      },
+      "background-color": {
+        "$value": "#d1d1d1",
+        "$description": "A neutral grey that stands in for the content being loaded.",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "gap": {
+        "$value": "{ams.space.s}",
+        "$description": "The space between the parts composed inside a Skeleton, e.g. an image, a heading and a paragraph.",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
+      "heading": {
+        "font-size": {
+          "$value": "{ams.heading.2.font-size}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.heading.2.line-height}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
+        },
+        "odd": {
+          "inline-size": {
+            "$value": "85%",
+            "$description": "The width of a heading’s first and other odd-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "even": {
+          "inline-size": {
+            "$value": "65%",
+            "$description": "The width of a heading’s second and other even-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "last": {
+          "inline-size": {
+            "$value": "45%",
+            "$description": "The width of a heading’s last line, unless it is the only line.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        }
+      },
+      "image": {
+        "aspect-ratio": {
+          "$value": "{ams.image.aspect-ratio}",
+          "$extensions": {
+            "nl.amsterdam.type": "aspectRatio"
+          }
+        }
+      },
+      "line": {
+        "font-size": {
+          "$value": "{ams.paragraph.font-size}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.paragraph.line-height}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
+        }
+      },
+      "list": {
+        "gap": {
+          "$value": "{ams.unordered-list.gap}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "odd": {
+          "inline-size": {
+            "$value": "70%",
+            "$description": "The width of a list’s first and other odd-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "even": {
+          "inline-size": {
+            "$value": "40%",
+            "$description": "The width of a list’s second and other even-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "last": {
+          "inline-size": {
+            "$value": "60%",
+            "$description": "The width of a list’s last line, unless it is the only line.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "item": {
+          "column-gap": {
+            "$value": {
+              "value": 0.5,
+              "unit": "rem"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "nl.amsterdam.hint": "Together with the item padding and the marker width, starts the line at the 2.5rem text indent of Unordered List.",
+              "nl.amsterdam.subtype": "space"
+            }
+          },
+          "padding-inline-start": {
+            "$value": "{ams.unordered-list.item.margin-inline-start}",
+            "$extensions": {
+              "nl.amsterdam.hint": "Starts the marker where the marker of Unordered List renders.",
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "marker": {
+            "block-size": {
+              "$value": {
+                "value": 0.375,
+                "unit": "rem"
+              },
+              "$type": "dimension",
+              "$extensions": {
+                "nl.amsterdam.hint": "Approximates the size of the bullet of Unordered List."
+              }
+            },
+            "inline-size": {
+              "$value": {
+                "value": 0.375,
+                "unit": "rem"
+              },
+              "$type": "dimension",
+              "$extensions": {
+                "nl.amsterdam.hint": "Approximates the size of the bullet of Unordered List."
+              }
+            }
+          }
+        }
+      },
+      "paragraph": {
+        "odd": {
+          "inline-size": {
+            "$value": "95%",
+            "$description": "The width of a paragraph’s first and other odd-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "even": {
+          "inline-size": {
+            "$value": "75%",
+            "$description": "The width of a paragraph’s second and other even-numbered lines.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "last": {
+          "inline-size": {
+            "$value": "55%",
+            "$description": "The width of a paragraph’s last line, unless it is the only line.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        }
+      },
+      "table": {
+        "odd": {
+          "inline-size": {
+            "$value": "90%",
+            "$description": "The wider of the two widths a table alternates its cells between.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "even": {
+          "inline-size": {
+            "$value": "70%",
+            "$description": "The narrower of the two widths a table alternates its cells between.",
+            "$extensions": {
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "cell": {
+          "padding-block": {
+            "$value": "{ams.table.cell.padding-block}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          },
+          "padding-inline": {
+            "$value": "{ams.table.cell.padding-inline}",
+            "$extensions": {
+              "nl.amsterdam.subtype": "space",
+              "nl.amsterdam.type": "dimension"
+            }
+          }
+        },
+        "row": {
+          "border-block-end": {
+            "$value": "{ams.table.cell.border-block-end}",
+            "$extensions": {
+              "nl.amsterdam.type": "border"
+            }
+          }
+        }
+      }
+    }
+  }
+}

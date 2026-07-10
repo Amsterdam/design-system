@@ -12,9 +12,13 @@ import type { ImageSliderProps } from './ImageSlider'
 import { generateAspectRatioClass } from '../Image/generateAspectRatioClass'
 
 export type ImageSliderThumbnailsProps = {
+  /** The index of the slide currently in view. */
   readonly currentSlideId: number
+  /** The label for an image, used in the accessible name of each thumbnail. */
   readonly imageLabel?: string
+  /** A function to run when a thumbnail is activated. Scrolls the slide with the provided index into view. */
   readonly scrollToSlide: (id: number) => void
+  /** The set of images to display thumbnails for. */
   readonly thumbnails: ImageSliderProps['images']
 } & Readonly<HTMLAttributes<HTMLElement>>
 

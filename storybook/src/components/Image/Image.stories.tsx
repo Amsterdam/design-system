@@ -6,12 +6,28 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Image } from '@amsterdam/design-system-react/src'
+import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 import { maximiseInlineSize } from '#storybook/_common/decorators'
 
 const meta = {
   title: 'Components/Media/Image',
   component: Image,
+  argTypes: {
+    aspectRatio: {
+      control: {
+        labels: { undefined: 'none (default)' },
+        type: 'select',
+      },
+      options: [undefined, ...aspectRatioOptions],
+    },
+    src: {
+      description: 'The url for the image.',
+    },
+    srcSet: {
+      description: 'A set of candidate images.',
+    },
+  },
   decorators: [maximiseInlineSize('vi-medium')],
 } satisfies Meta<typeof Image>
 
@@ -23,17 +39,6 @@ export const Default: Story = {
   args: {
     alt: '',
     src: 'https://picsum.photos/640/360',
-  },
-  argTypes: {
-    alt: {
-      description: 'Describes the image for non-visual users.',
-    },
-    src: {
-      description: 'The url for the image.',
-    },
-    srcSet: {
-      description: 'A set of candidate images.',
-    },
   },
 }
 

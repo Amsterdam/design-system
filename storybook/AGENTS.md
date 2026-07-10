@@ -46,7 +46,7 @@ See [documentation/component-docs.md](../documentation/component-docs.md) for th
 
 - One story per visual variant / state in `<Name>.test.stories.tsx`.
 - Tag test stories with `['!dev', '!autodocs']` to exclude them from docs and development views.
-- The CSS pseudo-state simulation addon (`:hover`, `:focus`, etc.) loads in Chromatic CI (via `IS_CHROMATIC`) and in local development (`NODE_ENV === 'development'`). See `config/main.ts`. Do not set `IS_CHROMATIC` manually.
+- The CSS pseudo-state simulation addon (`:hover`, `:focus`, etc.) loads only in Chromatic CI, via `IS_CHROMATIC` (set by `build:chromatic`). It is deliberately not loaded in local development, where its CSS rewrite breaks focus-hidden selectors like the Skip Link's. See `config/main.ts`. Do not set `IS_CHROMATIC` manually.
 - Visual changes must be reviewed and approved in the Chromatic dashboard before merging.
 - **Never approve Chromatic changes as an agent** — visual approval is a human responsibility.
 
@@ -77,3 +77,9 @@ Utility functions in `src/_common/` have unit tests (`*.test.ts`) run by Vitest 
 
 - Global styles and package imports: `config/preview.tsx`
 - Static assets (`packages-proprietary/assets`) and Chromatic pseudo-state setup: `config/main.ts`
+
+## MCP server
+
+The `@storybook/addon-mcp` addon (registered in `config/main.ts`) serves a Model Context Protocol endpoint at `http://localhost:6006/mcp` while `pnpm run watch:storybook` is running; the URL follows the dev-server port.
+It exposes the components, props, stories, and docs of the design system to MCP-capable AI agents such as GitHub Copilot, so agents reuse existing components instead of inventing markup.
+No single MCP config file works across editors, so we do not commit editor-specific config; connection guidance lives in the AI assistance developer-guide page (`src/docs/developer-guide/ai-assistance.docs.mdx`).

@@ -15,8 +15,7 @@ const meta = {
   component: Tabs,
   argTypes: {
     onTabChange: {
-      action: 'clicked',
-      description: 'Provides the id of the activated tab.',
+      action: 'changed',
     },
   },
 } satisfies Meta<typeof Tabs>

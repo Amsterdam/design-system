@@ -8,6 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { MegaphoneIcon } from '@amsterdam/design-system-react-icons'
 import { ErrorMessage } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Forms/Error Message',
   component: ErrorMessage,
@@ -15,9 +17,8 @@ const meta = {
     children: 'Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.',
   },
   argTypes: {
-    children: {
-      table: { disable: false },
-    },
+    children: childrenArgType('The text content.'),
+    icon: { control: false }, // A component type has no usable controls panel widget.
   },
 } satisfies Meta<typeof ErrorMessage>
 

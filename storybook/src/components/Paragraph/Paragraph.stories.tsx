@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { MailIcon } from '@amsterdam/design-system-react-icons'
 import { Icon, Paragraph, Row } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType, inverseColorArgType, textSizeArgType } from '#storybook/_common/argTypes'
 import { exampleParagraph } from '#storybook/_common/exampleContent'
 
 const paragraph = exampleParagraph()
@@ -19,24 +20,9 @@ const meta = {
     children: paragraph,
   },
   argTypes: {
-    children: {
-      description: 'The paragraph text.',
-      table: { disable: false },
-    },
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'inverse'],
-    },
-    size: {
-      control: {
-        labels: { large: 'large', small: 'small', undefined: 'medium' },
-        type: 'radio',
-      },
-      options: ['small', undefined, 'large'],
-    },
+    children: childrenArgType('The paragraph text.'),
+    color: inverseColorArgType,
+    size: textSizeArgType(['small', undefined, 'large']),
   },
 } satisfies Meta<typeof Paragraph>
 

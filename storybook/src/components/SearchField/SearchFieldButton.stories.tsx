@@ -7,15 +7,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { SearchField } from '@amsterdam/design-system-react/src'
 
+import { childrenArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Forms/Search Field',
   component: SearchField.Button,
   argTypes: {
-    children: {
-      control: 'text',
-      description: 'The accessible name of the button.',
-      table: { disable: false },
-    },
+    children: childrenArgType('The accessible name of the button.'),
   },
   decorators: [
     (Story) => (

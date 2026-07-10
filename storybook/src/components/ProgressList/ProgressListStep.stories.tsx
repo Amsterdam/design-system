@@ -15,14 +15,17 @@ const meta = {
   title: 'Components/Containers/Progress List',
   component: ProgressList.Step,
   argTypes: {
-    collapsed: {
+    // This story only wires the canonical `expanded` control; the deprecated props stay documented but non-interactive.
+    collapsed: { control: false },
+    defaultCollapsed: { control: false },
+    defaultExpanded: { control: false },
+    expanded: {
       control: {
         labels: { undefined: 'undefined (uncontrolled)' },
         type: 'radio',
       },
       options: [undefined, true, false],
     },
-    defaultCollapsed: { control: false },
     onToggle: { action: 'toggled' },
     status: {
       control: {
@@ -40,15 +43,15 @@ const meta = {
     ),
   ],
   render: ({ children, ...args }) => {
-    const [{ collapsed }, setArgs] = useArgs()
+    const [{ expanded }, setArgs] = useArgs()
 
     return (
       <ProgressList.Step
-        key={`${String(collapsed === undefined)}-${String(args.status)}`}
+        key={`${String(expanded === undefined)}-${String(args.status)}`}
         {...args}
-        onToggle={(expanded) => {
-          if (collapsed !== undefined) setArgs({ collapsed: !expanded })
-          args.onToggle?.(expanded)
+        onToggle={(nextExpanded) => {
+          if (expanded !== undefined) setArgs({ expanded: nextExpanded })
+          args.onToggle?.(nextExpanded)
         }}
       >
         {children}
@@ -64,7 +67,7 @@ type Story = StoryObj<typeof meta>
 export const Step: Story = {
   args: {
     children: <Paragraph>{exampleParagraph()}</Paragraph>,
-    collapsed: false,
+    expanded: true,
     heading: 'Aanpassing ontwerp fietspad Entreegebied',
     status: 'current',
   },

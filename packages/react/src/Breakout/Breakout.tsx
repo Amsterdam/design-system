@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef } from 'react'
+import type { ElementType } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -18,24 +18,25 @@ export type BreakoutRowNumbers = { narrow: BreakoutRowNumber; medium: BreakoutRo
 
 export type BreakoutProps = GridProps
 
-const BreakoutRoot = forwardRef(
-  (
-    { children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }: BreakoutProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => (
-    <div
-      {...restProps}
-      className={clsx(
-        'ams-breakout',
-        gapVertical && `ams-breakout--gap-vertical--${gapVertical}`,
-        paddingClasses('breakout', paddingBottom, paddingTop, paddingVertical),
-        className,
-      )}
-      ref={ref}
-    >
-      {children}
-    </div>
-  ),
+const BreakoutRoot = forwardRef<HTMLElement, BreakoutProps>(
+  ({ as, children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }, ref) => {
+    const Tag = (as ?? 'div') as ElementType
+
+    return (
+      <Tag
+        {...restProps}
+        className={clsx(
+          'ams-breakout',
+          gapVertical && `ams-breakout--gap-vertical--${gapVertical}`,
+          paddingClasses('breakout', paddingBottom, paddingTop, paddingVertical),
+          className,
+        )}
+        ref={ref}
+      >
+        {children}
+      </Tag>
+    )
+  },
 )
 
 BreakoutRoot.displayName = 'Breakout'

@@ -12,6 +12,10 @@ const sampleFile = new File(['sample'], 'document.pdf', { lastModified: Date.now
 const meta = {
   title: 'Components/Forms/File List',
   component: FileList.Item,
+  argTypes: {
+    file: { control: false }, // A File object has no usable controls panel widget.
+    onDelete: { control: false },
+  },
   decorators: [
     (Story) => (
       <FileList>

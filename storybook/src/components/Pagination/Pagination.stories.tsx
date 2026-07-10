@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Pagination } from '@amsterdam/design-system-react/src'
 
+import { linkComponentArgType } from '#storybook/_common/argTypes'
+
 const meta = {
   title: 'Components/Navigation/Pagination',
   component: Pagination,
@@ -17,6 +19,13 @@ const meta = {
     totalPages: 10,
   },
   argTypes: {
+    linkComponent: linkComponentArgType,
+    maxVisiblePages: {
+      control: {
+        min: 5,
+        type: 'number',
+      },
+    },
     page: {
       control: {
         min: 1,

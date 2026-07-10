@@ -1,7 +1,7 @@
 {
   "ams": {
     "space": {
-      "$description": "A responsive spacing scale. All values scale fluidly between 320px and 1600px viewports.",
+      "$description": "A responsive spacing scale. All values scale fluidly between 320px and 1440px viewports.",
       "xs": {
         "$value": "clamp(0.25rem, 0.2143rem + 0.1786vw, 0.375rem)",
         "$description": "Scales from 4px to 6px.",

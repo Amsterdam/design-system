@@ -6,7 +6,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Column, ErrorMessage, Field, FieldSet, Label, Paragraph, Row, TextInput } from '@amsterdam/design-system-react'
+import { dateInputTypes } from '@amsterdam/design-system-react/dist/DateInput/DateInput'
 import { DateInput } from '@amsterdam/design-system-react/src'
+
+import { disabledArgType } from '#storybook/_common/argTypes'
 
 const meta = {
   title: 'Components/Forms/Date Input',
@@ -19,11 +22,16 @@ const meta = {
     defaultValue: {
       table: { disable: false },
     },
-    disabled: {
-      description: 'Prevents interaction. Avoid if possible.',
-    },
+    disabled: disabledArgType,
     onChange: {
       table: { disable: false },
+    },
+    type: {
+      control: {
+        labels: { undefined: 'date (default)' },
+        type: 'radio',
+      },
+      options: [undefined, ...dateInputTypes.filter((type) => type !== 'date')],
     },
   },
 } satisfies Meta<typeof DateInput>

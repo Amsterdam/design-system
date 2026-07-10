@@ -1,0 +1,85 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Docs/Developer Guide/AI assistance" />
+
+# AI assistance
+
+We run an MCP server to let your assistant work with the real Amsterdam Design System.
+
+## Why connect your assistant
+
+This server exposes our components and their features, as well as our stories and documentation.
+Without this context, an assistant guesses: it writes generic HTML, invents property names, and misses our accessibility and language conventions.
+
+With it, the assistant builds with existing components, using the correct properties, variants, and accessibility patterns from the current release.
+This keeps what you ship consistent with the rest of the City’s services, with less review and rework.
+
+## What the server exposes
+
+The hosted server gives your assistant a small set of tools, which it calls on its own:
+
+- **list-all-documentation** lists every component and documentation page, so the assistant knows what exists.
+- **get-documentation** returns a component’s full documentation, properties, and code examples.
+- **get-documentation-for-story** returns the documentation for one specific story variant.
+
+You simply ask for what you want to build.
+
+## The endpoint
+
+Our hosted endpoint needs no setup, tracks our `main` branch, and is public, so any tool can connect:
+
+{/* prettier-ignore */}
+```sh
+https://main--68db9df886b46f139748c074.chromatic.com/mcp
+```
+
+Contributors can use the local endpoint while `pnpm run watch:storybook` is running:
+
+{/* prettier-ignore */}
+```sh
+http://localhost:6006/mcp
+```
+
+The local URL follows your Storybook port; if you run it on another port, change the number to match.
+
+## Connect your tool
+
+Any MCP-capable assistant can connect.
+Use your tool’s MCP settings to add a server over Streamable HTTP at the hosted endpoint above.
+Contributors can swap in `http://localhost:6006/mcp` to use a local Storybook.
+
+Many tools read this configuration from a JSON file, and most accept this shape:
+
+{/* prettier-ignore */}
+```json
+{
+  "mcpServers": {
+    "amsterdam-design-system": {
+      "type": "http",
+      "url": "https://main--68db9df886b46f139748c074.chromatic.com/mcp"
+    }
+  }
+}
+```
+
+The exact key, file name, and file location differ per tool; check your tool’s MCP documentation for the specifics.
+
+## Example prompts
+
+Once connected, ask for what you want in plain language:
+
+- “Build a contact form with ADS: a name and email field and a submit button.”
+- “Show me the properties and variants of the Alert component.”
+- “Replace this hand-built card with the design system’s Card component.”
+- “Lay out this page with Grid and Column from the design system.”
+- “Should I use a Button or a Link component for this interaction?”
+
+## Good to know
+
+- The hosted endpoint tracks the `main` branch, so your assistant works with our latest released API.
+- It draws on our stories and documentation, so richer stories lead to better answers.
+- Component support starts with React; other technologies follow as the Storybook MCP server adds them.
+- This page always lists the current endpoint; if a connection stops working, check here for the latest address.
+- If a component you need does not exist yet, [request it or contribute](https://github.com/Amsterdam/design-system/blob/develop/CONTRIBUTING.md) rather than having your assistant build a one-off.

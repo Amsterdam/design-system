@@ -73,6 +73,37 @@ import "@amsterdam/design-system-tokens/dist/index.css"
 import "@amsterdam/design-system-tokens/dist/compact.css"
 ```
 
+Pair `compact.theme.css` with `index.theme.css` if you apply the tokens through a class rather than through `:root`.
+Import it after the main stylesheet here as well, and add the `ams-theme--compact` class to the very element that carries the `ams-theme` class.
+
+<!-- prettier-ignore -->
+```ts
+import "@amsterdam/design-system-tokens/dist/index.theme.css"
+import "@amsterdam/design-system-tokens/dist/compact.theme.css"
+```
+
+```html
+<body class="ams-theme ams-theme--compact">
+  …
+</body>
+```
+
+#### Where to apply a mode
+
+A stylesheet that overrides token values must be declared on the same element as the tokens it overrides.
+That element is `html` when you use `index.css`, and the element carrying the `ams-theme` class when you use `index.theme.css`.
+
+Applying `ams-theme--compact` anywhere else – even on a child of the element with the `ams-theme` class – takes effect only in part.
+The tokens that the mode stylesheet declares itself, such as `--ams-space-xl`, do take their new value there.
+Any other token that refers to them keeps the value it resolved on the element where it was declared.
+Our components mostly read such tokens, so they silently keep their spacious values.
+
+The cause is that CSS resolves a `var()` reference inside a custom property on the element where that property is declared.
+For example, `--ams-paragraph-font-size` refers to `--ams-typography-body-text-font-size` and is declared on the root element, where it resolves to the spacious font size.
+A paragraph deeper in the document inherits that resolved value, so overriding the typography token further down arrives too late.
+
+Applying a mode to a part of a page is therefore not supported: our components would not follow it.
+
 ### Three layers
 
 The tokens are organised in three layers: brand, common and component.

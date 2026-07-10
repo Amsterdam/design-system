@@ -73,9 +73,10 @@ export const WithImage: WithImageStory = {
     tagline: 'Nieuws',
     text: 'We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.',
   },
+  // These argTypes describe flattened args specific to this composed story; the meta cannot provide them.
   argTypes: {
     aspectRatio: {
-      control: { type: 'inline-radio' },
+      control: { type: 'select' },
       options: aspectRatioOptions,
     },
     date: { control: 'text' },

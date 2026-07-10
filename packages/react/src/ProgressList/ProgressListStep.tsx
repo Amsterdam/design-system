@@ -7,10 +7,11 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { ArrowForwardIcon, ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef, useContext, useId, useState } from 'react'
+import { forwardRef, useContext, useEffect, useId, useRef } from 'react'
 
 import type { IconProps } from '../Icon/Icon'
 
+import { useCollapsible } from '../common/useCollapsible'
 import { Heading } from '../Heading'
 import { Icon } from '../Icon'
 import { AccessibleStatusText } from './AccessibleStatusText'
@@ -19,16 +20,26 @@ import { ProgressListContext } from './ProgressListContext'
 export type ProgressListStepProps = {
   /**
    * Whether the step content is collapsed.
-   * When provided, the component is controlled and internal state is ignored.
-   * Has no effect when `collapsible` is `false` on the parent.
+   * @deprecated Use the `expanded` prop instead (its value is inverted). Will be removed on or after 2027-01-10.
    */
   readonly collapsed?: boolean
   /**
    * Whether the content is initially collapsed.
-   * Defaults to `true` when `status` is `'completed'`, and `false` otherwise.
-   * Ignored when `collapsible` is `false` on the parent, or when `collapsed` is provided.
+   * @deprecated Use the `defaultExpanded` prop instead (its value is inverted). Will be removed on or after 2027-01-10.
    */
   readonly defaultCollapsed?: boolean
+  /**
+   * Whether the content is initially displayed.
+   * Defaults to `false` when `status` is `'completed'`, and `true` otherwise.
+   * Ignored when `collapsible` is `false` on the parent, or when `expanded` (or the deprecated `collapsed`) is provided.
+   */
+  readonly defaultExpanded?: boolean
+  /**
+   * Whether the step content is displayed.
+   * When provided, the component is controlled and internal state is ignored.
+   * Has no effect when `collapsible` is `false` on the parent.
+   */
+  readonly expanded?: boolean
   /** Whether the step contains a list of substeps. This is needed to draw the connecting lines correctly. */
   readonly hasSubsteps?: boolean
   /** The heading text for this step. */
@@ -54,6 +65,8 @@ export const ProgressListStep = forwardRef(
       className,
       collapsed,
       defaultCollapsed,
+      defaultExpanded,
+      expanded,
       hasSubsteps,
       heading,
       onToggle,
@@ -63,18 +76,36 @@ export const ProgressListStep = forwardRef(
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     const { collapsible, headingLevel } = useContext(ProgressListContext)
-    const isControlled = collapsible && collapsed !== undefined
-    const [internalCollapsed, setInternalCollapsed] = useState(defaultCollapsed ?? status === 'completed')
-    const isCollapsed = isControlled ? collapsed : internalCollapsed
+
+    // Resolve the canonical `expanded` API, falling back to the deprecated (inverted) `collapsed` API.
+    const controlledExpanded = expanded ?? (collapsed === undefined ? undefined : !collapsed)
+    const defaultExpandedValue = defaultExpanded ?? (defaultCollapsed === undefined ? undefined : !defaultCollapsed)
+
+    const [isExpanded, toggle] = useCollapsible({
+      defaultValue: defaultExpandedValue,
+      fallback: status !== 'completed',
+      gate: collapsible,
+      onToggle,
+      value: controlledExpanded,
+    })
+
+    // Warn once for each deprecated prop passed on mount, read through a ref to keep the effect dependency-free.
+    const deprecatedPropsRef = useRef({ collapsed, defaultCollapsed })
+    useEffect(() => {
+      if (deprecatedPropsRef.current.collapsed !== undefined) {
+        console.warn(
+          '@deprecated The `collapsed` prop of Progress List Step has been replaced. Use `expanded` instead (its value is inverted).',
+        )
+      }
+      if (deprecatedPropsRef.current.defaultCollapsed !== undefined) {
+        console.warn(
+          '@deprecated The `defaultCollapsed` prop of Progress List Step has been replaced. Use `defaultExpanded` instead (its value is inverted).',
+        )
+      }
+    }, [])
 
     const iconSize = `heading-${headingLevel}` as IconProps['size']
     const panelId = useId()
-
-    const handleClick = () => {
-      const willExpand = isCollapsed
-      if (!isControlled) setInternalCollapsed(!isCollapsed)
-      onToggle?.(willExpand)
-    }
 
     return (
       <li
@@ -82,7 +113,7 @@ export const ProgressListStep = forwardRef(
         className={clsx(
           className,
           'ams-progress-list__step',
-          collapsible && isCollapsed && 'ams-progress-list__step--collapsed',
+          collapsible && !isExpanded && 'ams-progress-list__step--collapsed',
           hasSubsteps && 'ams-progress-list__step--has-substeps',
           status && `ams-progress-list__step--${status}`,
         )}
@@ -102,9 +133,9 @@ export const ProgressListStep = forwardRef(
             {collapsible ? (
               <button
                 aria-controls={panelId}
-                aria-expanded={!isCollapsed}
+                aria-expanded={isExpanded}
                 className="ams-progress-list__button"
-                onClick={handleClick}
+                onClick={toggle}
                 type="button"
               >
                 <Icon className="ams-progress-list__icon" size={iconSize} svg={ChevronDownIcon} />

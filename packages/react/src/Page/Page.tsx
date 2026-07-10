@@ -9,7 +9,7 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 export type PageProps = {
-  /*
+  /**
    * Whether the page contains a Menu component.
    * This requires the following class names on the appropriate children:
    *   - `ams-page__area--skip-link`

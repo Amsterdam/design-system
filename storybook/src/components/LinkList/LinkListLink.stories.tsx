@@ -6,40 +6,27 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { HouseIcon } from '@amsterdam/design-system-react-icons'
-import * as Icons from '@amsterdam/design-system-react-icons'
 import { LinkList } from '@amsterdam/design-system-react/src'
+
+import {
+  childrenArgType,
+  contrastInverseColorArgType,
+  hrefArgType,
+  linkComponentArgType,
+  textSizeArgType,
+} from '#storybook/_common/argTypes'
+import { iconArgType } from '#storybook/_common/iconArgTypes'
 
 const meta = {
   title: 'Components/Navigation/Link List',
   component: LinkList.Link,
   argTypes: {
-    children: {
-      control: 'text',
-      description: 'The link text.',
-      table: { disable: false },
-    },
-    color: {
-      control: {
-        labels: { undefined: 'default' },
-        type: 'radio',
-      },
-      options: [undefined, 'contrast', 'inverse'],
-    },
-    icon: {
-      control: {
-        labels: { undefined: 'none' },
-        type: 'select',
-      },
-      mapping: Icons,
-      options: [undefined, ...Object.keys(Icons)],
-    },
-    size: {
-      control: {
-        labels: { undefined: 'medium' },
-        type: 'radio',
-      },
-      options: ['small', undefined, 'large'],
-    },
+    children: childrenArgType('The link text.'),
+    color: contrastInverseColorArgType,
+    href: hrefArgType,
+    icon: iconArgType('ChevronForwardIcon'),
+    linkComponent: linkComponentArgType,
+    size: textSizeArgType(['small', undefined, 'large']),
   },
   decorators: [
     (Story) => (

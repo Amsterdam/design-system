@@ -258,10 +258,10 @@ describe('ProgressListStep', () => {
     expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
   })
 
-  it('ignores defaultCollapsed by default', () => {
+  it('ignores defaultExpanded by default', () => {
     render(
       <ProgressList headingLevel={3}>
-        <ProgressList.Step defaultCollapsed heading="Test Step">
+        <ProgressList.Step defaultExpanded={false} heading="Test Step">
           Content
         </ProgressList.Step>
       </ProgressList>,
@@ -349,10 +349,10 @@ describe('ProgressListStep', () => {
       expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
     })
 
-    it('expands a completed step when defaultCollapsed is false', () => {
+    it('expands a completed step when defaultExpanded is true', () => {
       render(
         <ProgressList collapsible headingLevel={3}>
-          <ProgressList.Step defaultCollapsed={false} heading="Test Step" status="completed">
+          <ProgressList.Step defaultExpanded heading="Test Step" status="completed">
             Content
           </ProgressList.Step>
         </ProgressList>,
@@ -363,10 +363,10 @@ describe('ProgressListStep', () => {
       expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
     })
 
-    it('collapses when defaultCollapsed is true', () => {
+    it('collapses when defaultExpanded is false', () => {
       render(
         <ProgressList collapsible headingLevel={3}>
-          <ProgressList.Step defaultCollapsed heading="Test Step">
+          <ProgressList.Step defaultExpanded={false} heading="Test Step">
             Content
           </ProgressList.Step>
         </ProgressList>,
@@ -489,10 +489,10 @@ describe('ProgressListStep', () => {
       expect(() => fireEvent.click(button)).not.toThrow()
     })
 
-    it('respects the collapsed prop when true', () => {
+    it('respects the expanded prop when false', () => {
       render(
         <ProgressList collapsible headingLevel={3}>
-          <ProgressList.Step collapsed heading="Test Step">
+          <ProgressList.Step expanded={false} heading="Test Step">
             Content
           </ProgressList.Step>
         </ProgressList>,
@@ -503,10 +503,10 @@ describe('ProgressListStep', () => {
       expect(step).toHaveClass('ams-progress-list__step--collapsed')
     })
 
-    it('respects the collapsed prop when false, even with status completed', () => {
+    it('respects the expanded prop when true, even with status completed', () => {
       render(
         <ProgressList collapsible headingLevel={3}>
-          <ProgressList.Step collapsed={false} heading="Test Step" status="completed">
+          <ProgressList.Step expanded heading="Test Step" status="completed">
             Content
           </ProgressList.Step>
         </ProgressList>,
@@ -520,7 +520,7 @@ describe('ProgressListStep', () => {
     it('does not toggle internally when controlled', () => {
       render(
         <ProgressList collapsible headingLevel={3}>
-          <ProgressList.Step collapsed heading="Test Step">
+          <ProgressList.Step expanded={false} heading="Test Step">
             Content
           </ProgressList.Step>
         </ProgressList>,
@@ -541,7 +541,7 @@ describe('ProgressListStep', () => {
 
       render(
         <ProgressList collapsible headingLevel={3}>
-          <ProgressList.Step collapsed heading="Test Step" onToggle={onToggle}>
+          <ProgressList.Step expanded={false} heading="Test Step" onToggle={onToggle}>
             Content
           </ProgressList.Step>
         </ProgressList>,
@@ -558,10 +558,10 @@ describe('ProgressListStep', () => {
       expect(screen.getByRole('listitem')).toHaveClass('ams-progress-list__step--collapsed')
     })
 
-    it('ignores defaultCollapsed when collapsed is provided', () => {
+    it('ignores defaultExpanded when expanded is provided', () => {
       render(
         <ProgressList collapsible headingLevel={3}>
-          <ProgressList.Step collapsed defaultCollapsed={false} heading="Test Step">
+          <ProgressList.Step defaultExpanded expanded={false} heading="Test Step">
             Content
           </ProgressList.Step>
         </ProgressList>,
@@ -573,7 +573,7 @@ describe('ProgressListStep', () => {
     it('responds to controlled prop changes', () => {
       const { rerender } = render(
         <ProgressList collapsible headingLevel={3}>
-          <ProgressList.Step collapsed heading="Test Step">
+          <ProgressList.Step expanded={false} heading="Test Step">
             Content
           </ProgressList.Step>
         </ProgressList>,
@@ -585,13 +585,139 @@ describe('ProgressListStep', () => {
 
       rerender(
         <ProgressList collapsible headingLevel={3}>
-          <ProgressList.Step collapsed={false} heading="Test Step">
+          <ProgressList.Step expanded heading="Test Step">
             Content
           </ProgressList.Step>
         </ProgressList>,
       )
 
       expect(step).not.toHaveClass('ams-progress-list__step--collapsed')
+    })
+
+    describe('deprecated collapsed and defaultCollapsed props', () => {
+      it('still supports the deprecated collapsed prop', () => {
+        const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+        render(
+          <ProgressList collapsible headingLevel={3}>
+            <ProgressList.Step collapsed heading="Test Step">
+              Content
+            </ProgressList.Step>
+          </ProgressList>,
+        )
+
+        expect(screen.getByRole('listitem')).toHaveClass('ams-progress-list__step--collapsed')
+
+        warn.mockRestore()
+      })
+
+      it('still supports the deprecated defaultCollapsed prop', () => {
+        const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+        render(
+          <ProgressList collapsible headingLevel={3}>
+            <ProgressList.Step defaultCollapsed heading="Test Step">
+              Content
+            </ProgressList.Step>
+          </ProgressList>,
+        )
+
+        expect(screen.getByRole('listitem')).toHaveClass('ams-progress-list__step--collapsed')
+
+        warn.mockRestore()
+      })
+
+      it('lets expanded take priority over the deprecated collapsed prop', () => {
+        const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+        render(
+          <ProgressList collapsible headingLevel={3}>
+            <ProgressList.Step collapsed expanded heading="Test Step">
+              Content
+            </ProgressList.Step>
+          </ProgressList>,
+        )
+
+        expect(screen.getByRole('listitem')).not.toHaveClass('ams-progress-list__step--collapsed')
+
+        warn.mockRestore()
+      })
+
+      it('lets defaultExpanded take priority over the deprecated defaultCollapsed prop', () => {
+        const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+        render(
+          <ProgressList collapsible headingLevel={3}>
+            <ProgressList.Step defaultCollapsed defaultExpanded heading="Test Step">
+              Content
+            </ProgressList.Step>
+          </ProgressList>,
+        )
+
+        expect(screen.getByRole('listitem')).not.toHaveClass('ams-progress-list__step--collapsed')
+
+        warn.mockRestore()
+      })
+
+      it('warns only once for the deprecated collapsed prop, even after re-rendering', () => {
+        const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+        const { rerender } = render(
+          <ProgressList collapsible headingLevel={3}>
+            <ProgressList.Step collapsed heading="Test Step">
+              Content
+            </ProgressList.Step>
+          </ProgressList>,
+        )
+
+        expect(warn).toHaveBeenCalledWith(expect.stringContaining('`collapsed`'))
+        expect(warn).toHaveBeenCalledTimes(1)
+
+        rerender(
+          <ProgressList collapsible headingLevel={3}>
+            <ProgressList.Step collapsed={false} heading="Test Step">
+              Content
+            </ProgressList.Step>
+          </ProgressList>,
+        )
+
+        expect(warn).toHaveBeenCalledTimes(1)
+
+        warn.mockRestore()
+      })
+
+      it('warns when the deprecated defaultCollapsed prop is used', () => {
+        const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+        render(
+          <ProgressList collapsible headingLevel={3}>
+            <ProgressList.Step defaultCollapsed heading="Test Step">
+              Content
+            </ProgressList.Step>
+          </ProgressList>,
+        )
+
+        expect(warn).toHaveBeenCalledWith(expect.stringContaining('`defaultCollapsed`'))
+        expect(warn).toHaveBeenCalledTimes(1)
+
+        warn.mockRestore()
+      })
+
+      it('does not warn when only the canonical props are used', () => {
+        const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+        render(
+          <ProgressList collapsible headingLevel={3}>
+            <ProgressList.Step defaultExpanded={false} heading="Test Step">
+              Content
+            </ProgressList.Step>
+          </ProgressList>,
+        )
+
+        expect(warn).not.toHaveBeenCalled()
+
+        warn.mockRestore()
+      })
     })
   })
 })

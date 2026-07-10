@@ -18,6 +18,8 @@ import { BREAKPOINTS } from '@amsterdam/design-system-react/src/common/useViewpo
 import { useEffect } from 'react'
 import { useArgs } from 'storybook/preview-api'
 
+import { derivedArgType } from '#storybook/_common/argTypes'
+
 const menuItems = [
   {
     href: '#',
@@ -74,11 +76,9 @@ const meta = {
     inWideWindow: false, // Initial value; will be overwritten when matchMedia runs.
   },
   argTypes: {
-    inWideWindow: {
-      control: false,
-      description: `This prop gets automatically updated in Storybook. It is \`true\` when the viewport is wider than ${BREAKPOINTS.wide}.`,
-      table: { category: 'Derived' },
-    },
+    inWideWindow: derivedArgType(
+      `This prop gets automatically updated in Storybook. It is \`true\` when the viewport is wider than ${BREAKPOINTS.wide}.`,
+    ),
   },
   decorators: [withInWideWindowArg],
   parameters: {

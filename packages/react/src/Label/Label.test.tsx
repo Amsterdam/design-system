@@ -105,7 +105,7 @@ describe('Label', () => {
 
   it('renders the default hint text after the label', () => {
     const { container } = render(
-      <Label htmlFor="form-control" optional={true}>
+      <Label htmlFor="form-control" optional>
         Label
       </Label>,
     )
@@ -115,9 +115,9 @@ describe('Label', () => {
     expect(label).toHaveTextContent('Label (niet verplicht)')
   })
 
-  it('renders the provided hint text after the label when `optional` is set to `false`', () => {
+  it('renders the provided hint text after the label when `optional` is set to `true`', () => {
     const { container } = render(
-      <Label hint="not required" htmlFor="form-control" optional={true}>
+      <Label hint="not required" htmlFor="form-control" optional>
         Label
       </Label>,
     )
@@ -163,7 +163,7 @@ describe('Label', () => {
 
   it('passes additional props', () => {
     const { container } = render(
-      <Label aria-hidden="false" data-test="data-test" htmlFor="form-control" id="id" optional={true} />,
+      <Label aria-hidden="false" data-test="data-test" htmlFor="form-control" id="id" optional />,
     )
     const component = container.querySelector(':only-child')
 

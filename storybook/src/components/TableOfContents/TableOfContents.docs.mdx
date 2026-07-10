@@ -21,12 +21,13 @@ import * as TableOfContentsLinkStories from "./TableOfContentsLink.stories.tsx";
 ## Subcomponents
 
 Lists nest Links to form the hierarchy of the Table of Contents.
-The List has no props of its own; the ‘Multiple levels’ example shows how to nest one.
+Set `defaultExpanded` on a List to open its collapsible branches by default; the ‘Multiple levels’ example shows how to nest one.
 
 ### Link
 
 Points to a section or page; provide its text through the `label` prop.
 Use `defaultExpanded` to initially show its nested list when the Table of Contents is collapsible.
+To drive the expanded state from your own code, pass `expanded` together with `onToggle` instead.
 
 <Canvas of={TableOfContentsLinkStories.Link} />
 
@@ -42,6 +43,7 @@ For the last case, use `collapsible` mode so branches can be expanded and collap
 ### When not to use
 
 Use a [Tab Navigation](/docs/components-navigation-tab-navigation--docs) when the user switches between views rather than navigating to distinct sections or pages.
+Use a [Link List](/docs/components-navigation-link-list--docs) for a flat group of related links that doesn’t map to the sections of the current page or a set of related pages.
 
 ### How to use
 
@@ -58,18 +60,38 @@ Set `aria-current="page"` on the link for the active section or page to highligh
 
 Set `collapsible` on the root to add a separate toggle button to each item that has nested links.
 The toggle expands and collapses the nested list without following the link.
-Use `defaultExpanded` on a Link to pre-open its nested list when the component mounts, for example to show the ancestors of the current page.
+Set `defaultExpanded` on `TableOfContents.List` to open nested items by default.
+This setting is inherited by nested lists unless they set their own `defaultExpanded` value.
+Use `defaultExpanded` on a Link to override the list default for that specific item, for example to show the ancestors of the current page.
 
 <Canvas of={TableOfContentsStories.Collapsible} />
 
+### Initially expanded
+
+`defaultExpanded` on the root List expands every collapsible branch on load, while a nested List overrides it with `defaultExpanded={false}` to stay closed.
+Starting expanded suits a deep handbook or documentation tree, where showing the full structure helps readers place the current page.
+
+<Canvas of={TableOfContentsStories.InitiallyExpanded} />
+
+### Controlled
+
+Each Link manages its own expanded state by default.
+To drive that state yourself, pass `expanded` to a Link and update it from its `onToggle` callback.
+This example keeps a single branch open at a time by expanding the clicked branch and collapsing the others.
+
+<Canvas of={TableOfContentsStories.Controlled} />
+
 ## Accessibility
 
-The component renders as a `nav` landmark.
-Set `aria-current="page"` on the link that represents the active section or page to help screen reader users identify their position.
-In collapsible mode, arrow keys navigate between the visible toggle buttons.
+- The component renders as a `nav` landmark, and a `heading` becomes its accessible name.
+- In collapsible mode, each toggle button reports its state through `aria-expanded`, references the list it reveals through `aria-controls`, and gets an accessible name that says which section it expands or collapses.
+- Arrow keys move focus between the visible toggle buttons; toggles inside a collapsed section are skipped so focus never lands on hidden content, while that section’s own toggle stays reachable to reopen it.
+- Collapsing a section while focus is inside it returns focus to that section’s toggle button, so focus is never stranded on content that was just hidden.
+- When printing, collapsed sections expand so the full outline is available.
 
 ## See also
 
+- [Link List](/docs/components-navigation-link-list--docs) – groups related links that don’t form an outline of content.
 - [Tab Navigation](/docs/components-navigation-tab-navigation--docs) – switches between views on the same page.
 
 ## Design tokens

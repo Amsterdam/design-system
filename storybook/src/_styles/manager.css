@@ -1,0 +1,25 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/* Add space below the sidebar tree so the last items aren’t jammed against the bottom of the screen. */
+/* stylelint-disable-next-line selector-max-id -- Targeting Storybook’s own manager DOM, which we don’t control. */
+#storybook-explorer-menu {
+  padding-block-end: 6rem;
+}
+
+/* TODO: Remove this workaround for Storybook’s story rendering in Firefox 140 (ESR) once a fix ships.
+ * Bug reports: https://github.com/storybookjs/storybook/issues/33743 and
+ * https://github.com/storybookjs/storybook/issues/33769
+ * Workaround: https://github.com/storybookjs/storybook/issues/33769#issuecomment-3929210792 */
+main[aria-labelledby="main-preview-heading"] > div {
+  place-content: stretch;
+}
+
+/* Keep the controls panel and inputs light: our manager theme can’t hold their background in OS dark mode. */
+/* stylelint-disable-next-line selector-max-id -- Targeting Storybook’s own manager DOM, which we don’t control. */
+#panel-tab-content,
+input {
+  color-scheme: only light;
+}

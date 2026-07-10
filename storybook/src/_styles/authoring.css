@@ -1,0 +1,138 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/* Cross-cutting authoring helpers: `_ams-`-prefixed classes we apply by hand across many stories
+ * and MDX pages to lay out, annotate, and visualise examples. These are our own classes, not
+ * overrides of Storybook’s DOM. Helpers owned by a single `_components/*` component live with it. */
+
+:root {
+  --_ams-color-grey: rgb(0 0 0 / 6.25%);
+  --_ams-color-pink: rgb(229 0 130 / 25%);
+  --_ams-color-lightblue: rgb(0 130 229 / 25%);
+}
+
+._ams-page-background--dark,
+._ams-page-background--light {
+  margin-block: -1rem;
+  margin-inline: -1rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+}
+
+/* Do not change the order of these two selectors. They ensure the dark background wins if both are set, which is in line with the implementation of the React-component. */
+._ams-page-background--light {
+  background-color: #ffe600; /* Yellow */
+}
+
+._ams-page-background--dark {
+  background-color: #004699; /* Dark blue */
+}
+
+._ams-column,
+._ams-container,
+._ams-item,
+._ams-row {
+  box-sizing: border-box;
+}
+
+._ams-column,
+._ams-container,
+._ams-row {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--_ams-color-grey),
+    var(--_ams-color-grey) 0.5rem,
+    white 0.5rem,
+    white 1rem
+  );
+  border-color: var(--_ams-color-grey);
+  border-style: solid;
+  border-width: thin;
+}
+
+._ams-column {
+  max-inline-size: 16rem;
+  min-block-size: 16rem;
+}
+
+._ams-container {
+  padding-block: var(--ams-space-m);
+  padding-inline: var(--ams-space-m);
+}
+
+._ams-row {
+  min-block-size: 6rem;
+}
+
+._ams-item {
+  background-color: var(--_ams-color-pink);
+  border-color: var(--_ams-color-grey);
+  border-style: dashed;
+  border-width: thin;
+
+  ._ams-column > & {
+    block-size: 3rem;
+    min-inline-size: 3rem;
+  }
+
+  ._ams-row > & {
+    inline-size: 8rem;
+    min-block-size: 3rem;
+  }
+
+  /** Repeat declarations and increase specificity to override Grid Cell background and padding in Compact Mode. */
+  ._ams-grid-columns-guide + :is(.ams-breakout, .ams-grid) > & {
+    background-color: var(--_ams-color-pink);
+    border-color: var(--_ams-color-grey);
+    border-style: dashed;
+    border-width: thin;
+    min-block-size: 3rem;
+    padding-block: 0;
+    padding-inline: 0;
+  }
+}
+
+._ams-item--highlight {
+  background-color: var(--_ams-color-lightblue);
+  border-color: var(--_ams-color-grey);
+  border-style: dashed;
+  border-width: thin;
+  min-block-size: 3rem;
+}
+
+._ams-resize-horizontal {
+  outline: 1px dashed var(--_ams-color-pink);
+  overflow: auto;
+  padding-block-end: 1rem;
+
+  /* We allow non-baseline CSS in Storybook. */
+  /* stylelint-disable-next-line plugin/use-baseline */
+  resize: horizontal;
+}
+
+/* The City’s three crosses, shown centered as a decorative footer beneath every docs page. */
+._ams-docs-footer {
+  font-size: 1.125rem !important;
+  line-height: 1;
+  margin-block-start: 3rem !important;
+  text-align: center;
+}
+
+strong {
+  font-weight: var(--ams-typography-body-text-bold-font-weight);
+}
+
+/* Lay out a set of related examples on a story canvas: a wrapping row, or a vertical stack. */
+._ams-tests-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ams-space-l);
+}
+
+._ams-tests-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ams-space-l);
+}

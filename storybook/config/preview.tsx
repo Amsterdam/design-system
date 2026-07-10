@@ -6,15 +6,17 @@ import { DocsContainer } from '@storybook/addon-docs/blocks'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { clsx } from 'clsx'
 
+import { collapseInlineObjects, maxInlineWidth } from './collapseInlineObjects'
+import { sortLiteralUnionValues } from './sortLiteralUnionValues'
 import { viewports } from './viewports'
 
 import '@amsterdam/design-system-tokens/dist/index.css'
 import '@amsterdam/design-system-tokens/dist/compact.theme.css'
 import '@amsterdam/design-system-assets/font/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
+import '../src/_styles/authoring.css'
 import '../src/_styles/docs.css'
-import '../src/_styles/overrides.css'
-import '../src/_styles/tests.css'
+import '../src/_styles/canvas.css'
 
 export const argTypes = {
   children: {
@@ -76,7 +78,30 @@ const formatDeprecatedProps: ArgTypesEnhancer = ({ component, argTypes }) => {
   )
 }
 
-export const argTypesEnhancers = [formatDeprecatedProps]
+// Show `@default` JSDoc tags in the ‘Default’ column of the controls tables, unless docgen already
+// derived a default value from the code itself.
+// The tags reach the docgen info through `shouldIncludePropTagMap` in main.ts.
+const formatDefaultValues: ArgTypesEnhancer = ({ component, argTypes }) => {
+  const docgenProps = (component as ComponentWithDocgen | null)?.__docgenInfo?.props
+
+  if (!docgenProps) {
+    return argTypes
+  }
+
+  return Object.fromEntries(
+    Object.entries(argTypes).map(([name, argType]) => {
+      const defaultValue = docgenProps[name]?.tags?.['default']
+
+      if (defaultValue === undefined || argType.table?.defaultValue !== undefined) {
+        return [name, argType]
+      }
+
+      return [name, { ...argType, table: { ...argType.table, defaultValue: { summary: defaultValue } } }]
+    }),
+  )
+}
+
+export const argTypesEnhancers = [formatDefaultValues, formatDeprecatedProps, sortLiteralUnionValues]
 
 // Set the page language and apply the page background overrides for Canvas and Stories.
 // Components that need a realistic Page or a width constraint add that themselves through a decorator.
@@ -126,6 +151,7 @@ const DocsContainerWithFooter = ({ children, ...props }: ComponentProps<typeof D
 export const parameters = {
   backgrounds: { disable: true },
   controls: {
+    expanded: true, // Shows the description and default columns in the Controls addon
     sort: 'alpha', // Sorts controls in the Controls addon
   },
   docs: {
@@ -134,12 +160,22 @@ export const parameters = {
     controls: {
       sort: 'alpha', // Sorts controls in the Controls doc block – https://github.com/storybookjs/storybook/issues/25386#issuecomment-1905468177
     },
+    source: {
+      // Collapse the multi-line object and array props that the source generator expands (see the module).
+      transform: collapseInlineObjects,
+    },
     toc: {
       headingSelector: 'h2, h3',
     },
   },
   html: {
     root: '.ams-body',
+  },
+  // Widen the Code Panel’s line budget. Without this, react-element-to-jsx-string – which generates the
+  // source for stories with a `render` function – puts every element with more than one attribute onto
+  // multiple lines. Keeping attributes inline until a line reaches this length shows more code at once.
+  jsx: {
+    maxInlineAttributesLineLength: maxInlineWidth,
   },
   options: {
     storySort: {
