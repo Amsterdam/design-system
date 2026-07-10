@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -9471,22 +9471,20 @@ export const Default: StoryObj = {
     const expandedSlugs = new Set(findAncestors(currentSlug) ?? [])
 
     return (
-      &lt;&gt;
-        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
-            &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
-              {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
-            &lt;/TableOfContents&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-            &lt;main className=&quot;ams-prose&quot; id=&quot;inhoud&quot;&gt;
-              &lt;Heading level={1}&gt;{currentPage.heading}&lt;/Heading&gt;
-              &lt;Paragraph size=&quot;large&quot;&gt;{currentPage.lead}&lt;/Paragraph&gt;
-              &lt;Paragraph&gt;{currentPage.body}&lt;/Paragraph&gt;
-            &lt;/main&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid&gt;
-      &lt;/&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
+          &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
+            {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
+          &lt;/TableOfContents&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
+          &lt;main className=&quot;ams-prose&quot; id=&quot;inhoud&quot;&gt;
+            &lt;Heading level={1}&gt;{currentPage.heading}&lt;/Heading&gt;
+            &lt;Paragraph size=&quot;large&quot;&gt;{currentPage.lead}&lt;/Paragraph&gt;
+            &lt;Paragraph&gt;{currentPage.body}&lt;/Paragraph&gt;
+          &lt;/main&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
     )
   },
 }
@@ -9534,22 +9532,20 @@ export const Default: StoryObj = {
   const expandedSlugs = new Set(findAncestors(currentSlug) ?? [])
 
   return (
-    &lt;&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
-          &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
-            {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
-          &lt;/TableOfContents&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-          &lt;main className=&quot;ams-prose&quot; id=&quot;inhoud&quot;&gt;
-            &lt;Heading level={1}&gt;{currentPage.heading}&lt;/Heading&gt;
-            &lt;Paragraph size=&quot;large&quot;&gt;{currentPage.lead}&lt;/Paragraph&gt;
-            &lt;Paragraph&gt;{currentPage.body}&lt;/Paragraph&gt;
-          &lt;/main&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-    &lt;/&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
+        &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
+          {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
+        &lt;/TableOfContents&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
+        &lt;main className=&quot;ams-prose&quot; id=&quot;inhoud&quot;&gt;
+          &lt;Heading level={1}&gt;{currentPage.heading}&lt;/Heading&gt;
+          &lt;Paragraph size=&quot;large&quot;&gt;{currentPage.lead}&lt;/Paragraph&gt;
+          &lt;Paragraph&gt;{currentPage.body}&lt;/Paragraph&gt;
+        &lt;/main&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
   )
 };</code></pre>
             </div>
@@ -9569,9 +9565,9 @@ export const Default: StoryObj = {
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-import * as HandbookPageStories from &quot;./HandbookPage.stories&quot;;
+import * as HandbookStories from &quot;./HandbookPage.stories.tsx&quot;;
 
-&lt;Meta of={HandbookPageStories} /&gt;
+&lt;Meta of={HandbookStories} /&gt;
 
 # Handbook page
 
@@ -26426,22 +26422,20 @@ export const Default: StoryObj = {
     const expandedSlugs = new Set(findAncestors(currentSlug) ?? [])
 
     return (
-      &lt;&gt;
-        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
-            &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
-              {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
-            &lt;/TableOfContents&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-            &lt;main className=&quot;ams-prose&quot; id=&quot;inhoud&quot;&gt;
-              &lt;Heading level={1}&gt;{currentPage.heading}&lt;/Heading&gt;
-              &lt;Paragraph size=&quot;large&quot;&gt;{currentPage.lead}&lt;/Paragraph&gt;
-              &lt;Paragraph&gt;{currentPage.body}&lt;/Paragraph&gt;
-            &lt;/main&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid&gt;
-      &lt;/&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
+          &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
+            {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
+          &lt;/TableOfContents&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
+          &lt;main className=&quot;ams-prose&quot; id=&quot;inhoud&quot;&gt;
+            &lt;Heading level={1}&gt;{currentPage.heading}&lt;/Heading&gt;
+            &lt;Paragraph size=&quot;large&quot;&gt;{currentPage.lead}&lt;/Paragraph&gt;
+            &lt;Paragraph&gt;{currentPage.body}&lt;/Paragraph&gt;
+          &lt;/main&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
     )
   },
 }
@@ -26489,22 +26483,20 @@ export const Default: StoryObj = {
   const expandedSlugs = new Set(findAncestors(currentSlug) ?? [])
 
   return (
-    &lt;&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
-          &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
-            {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
-          &lt;/TableOfContents&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-          &lt;main className=&quot;ams-prose&quot; id=&quot;inhoud&quot;&gt;
-            &lt;Heading level={1}&gt;{currentPage.heading}&lt;/Heading&gt;
-            &lt;Paragraph size=&quot;large&quot;&gt;{currentPage.lead}&lt;/Paragraph&gt;
-            &lt;Paragraph&gt;{currentPage.body}&lt;/Paragraph&gt;
-          &lt;/main&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-    &lt;/&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}&gt;
+        &lt;TableOfContents collapsible heading=&quot;Inhoudsopgave&quot; id=&quot;inhoudsopgave&quot; key={currentSlug}&gt;
+          {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect })}
+        &lt;/TableOfContents&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
+        &lt;main className=&quot;ams-prose&quot; id=&quot;inhoud&quot;&gt;
+          &lt;Heading level={1}&gt;{currentPage.heading}&lt;/Heading&gt;
+          &lt;Paragraph size=&quot;large&quot;&gt;{currentPage.lead}&lt;/Paragraph&gt;
+          &lt;Paragraph&gt;{currentPage.body}&lt;/Paragraph&gt;
+        &lt;/main&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
   )
 };</code></pre>
             </div>
@@ -26524,9 +26516,9 @@ export const Default: StoryObj = {
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-import * as HandbookPageStories from &quot;./HandbookPage.stories&quot;;
+import * as HandbookStories from &quot;./HandbookPage.stories.tsx&quot;;
 
-&lt;Meta of={HandbookPageStories} /&gt;
+&lt;Meta of={HandbookStories} /&gt;
 
 # Handbook page
 
