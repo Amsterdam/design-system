@@ -37,3 +37,16 @@
     border-color: Canvas !important;
   }
 }
+
+/* Lock the preview’s scroll behind an open modal dialog. The shipped rule (dialog.scss,
+ * modal-dialog.scss) sets `overflow: hidden` on `.ams-body`, which only stops the page when that
+ * class sits on the document `<body>`, whose overflow propagates to the viewport. Storybook puts
+ * `ams-body` on a wrapper `<div>` instead (see the decorator in config/preview.tsx), so the page
+ * keeps scrolling. Lock the iframe’s root here; `:has()` reaches the modal nested inside it.
+ * `:modal` matches only `showModal()` dialogs, so the non-modal ones in Test stories don’t lock. */
+@supports selector(:has(*)) {
+  html:has(.ams-dialog:modal),
+  html:has(.ams-modal-dialog:modal) {
+    overflow: hidden;
+  }
+}
