@@ -22,6 +22,12 @@ export type ModalDialogHeaderProps = {
   readonly closeButtonAccessibleName?: string
   /** An icon for the button that dismisses the Modal Dialog, to display instead of the default cross. */
   readonly closeButtonIcon?: IconProps['svg']
+  /**
+   * The size of the button that dismisses the Modal Dialog.
+   * Match it to the size of the Heading in the Header.
+   * @default heading-2
+   */
+  readonly closeButtonSize?: IconProps['size']
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>>
 
 /**
@@ -36,6 +42,7 @@ export const ModalDialogHeader = forwardRef(
       className,
       closeButtonAccessibleName = 'Sluiten',
       closeButtonIcon,
+      closeButtonSize = 'heading-2',
       ...restProps
     }: ModalDialogHeaderProps,
     ref: ForwardedRef<HTMLElement>,
@@ -46,7 +53,7 @@ export const ModalDialogHeader = forwardRef(
         className="ams-modal-dialog__close-button"
         label={closeButtonAccessibleName}
         onClick={closeModalDialog}
-        size="heading-3"
+        size={closeButtonSize}
         svg={closeButtonIcon}
         type="button"
       />

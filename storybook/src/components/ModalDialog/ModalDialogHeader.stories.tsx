@@ -22,7 +22,8 @@ const meta = {
         aria-labelledby="ams-modal-dialog-header-heading"
         ref={(dialog) => {
           if (dialog && !dialog.open) {
-            dialog.show() // Open the dialog non-modally, in place, to display the Header.
+            // Set the open attribute instead of calling show(), which would move focus here and scroll the docs page.
+            dialog.open = true
           }
         }}
         style={{ position: 'static' }}
@@ -40,7 +41,7 @@ type Story = StoryObj<typeof meta>
 export const Header: Story = {
   args: {
     children: (
-      <Heading id="ams-modal-dialog-header-heading" level={1} size="level-3">
+      <Heading id="ams-modal-dialog-header-heading" level={1} size="level-2">
         Titel van het dialoogvenster
       </Heading>
     ),

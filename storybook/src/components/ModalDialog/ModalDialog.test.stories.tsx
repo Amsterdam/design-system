@@ -86,7 +86,7 @@ export const Test: Story = {
       <div className="_ams-tests-stack">
         <ModalDialog aria-labelledby="test-form-heading" ref={showNonModally} style={inFlow}>
           <ModalDialog.Header>
-            <Heading id="test-form-heading" level={1} size="level-3">
+            <Heading id="test-form-heading" level={1} size="level-2">
               Notitie toevoegen
             </Heading>
           </ModalDialog.Header>
@@ -113,7 +113,7 @@ export const Test: Story = {
         </ModalDialog>
         <ModalDialog aria-labelledby="test-subtitle-heading" ref={showNonModally} style={inFlow}>
           <ModalDialog.Header>
-            <Heading id="test-subtitle-heading" level={1} size="level-3">
+            <Heading id="test-subtitle-heading" level={1} size="level-2">
               Reactie versturen
             </Heading>
             <Paragraph size="small">Plan Nieuw-West, fase 2</Paragraph>
@@ -127,7 +127,7 @@ export const Test: Story = {
         </ModalDialog>
         <ModalDialog aria-labelledby="test-custom-icon-heading" ref={showNonModally} style={inFlow}>
           <ModalDialog.Header closeButtonIcon={SaintAndrewsCrossesIcon}>
-            <Heading id="test-custom-icon-heading" level={1} size="level-3">
+            <Heading id="test-custom-icon-heading" level={1} size="level-2">
               Melding versturen
             </Heading>
           </ModalDialog.Header>
@@ -141,7 +141,7 @@ export const Test: Story = {
           style={{ ...inFlow, maxInlineSize: '24rem' }}
         >
           <ModalDialog.Header>
-            <Heading id="test-long-heading-heading" level={1} size="level-3">
+            <Heading id="test-long-heading-heading" level={1} size="level-2">
               Een lange kop die over meerdere regels doorloopt naast de sluitknop
             </Heading>
           </ModalDialog.Header>
@@ -151,7 +151,7 @@ export const Test: Story = {
         </ModalDialog>
         <ModalDialog aria-labelledby="test-short-window-heading" ref={showNonModally} style={shortWindow}>
           <ModalDialog.Header>
-            <Heading id="test-short-window-heading" level={1} size="level-3">
+            <Heading id="test-short-window-heading" level={1} size="level-2">
               Een dialoogvenster in een verticaal krap venster
             </Heading>
           </ModalDialog.Header>
@@ -166,7 +166,7 @@ export const Test: Story = {
       <Button onClick={() => ModalDialog.open('#test-interactions')}>Open de interactietest</Button>
       <ModalDialog aria-labelledby="test-interactions-heading" data-testid="interaction-dialog" id="test-interactions">
         <ModalDialog.Header>
-          <Heading id="test-interactions-heading" level={1} size="level-3">
+          <Heading id="test-interactions-heading" level={1} size="level-2">
             De gegevens zijn opgeslagen
           </Heading>
         </ModalDialog.Header>

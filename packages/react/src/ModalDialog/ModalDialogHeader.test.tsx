@@ -83,6 +83,18 @@ describe('ModalDialogHeader', () => {
       expect(container.querySelector('.custom-icon')).toBeInTheDocument()
     })
 
+    it('renders the default size', () => {
+      const { container } = render(<ModalDialogHeader />)
+
+      expect(container.querySelector('.ams-icon')).toHaveClass('ams-icon--heading-2')
+    })
+
+    it('renders a custom size', () => {
+      const { container } = render(<ModalDialogHeader closeButtonSize="heading-5" />)
+
+      expect(container.querySelector('.ams-icon')).toHaveClass('ams-icon--heading-5')
+    })
+
     it('renders after the content', () => {
       render(
         <ModalDialogHeader>

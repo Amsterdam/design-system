@@ -67,7 +67,7 @@ export const Default: Story = {
     children: (
       <>
         <ModalDialog.Header>
-          <Heading id="ams-modal-dialog-default-heading" level={1} size="level-3">
+          <Heading id="ams-modal-dialog-default-heading" level={1} size="level-2">
             Notitie toevoegen
           </Heading>
         </ModalDialog.Header>
@@ -124,7 +124,7 @@ export const WithSubtitle: Story = {
     children: (
       <>
         <ModalDialog.Header>
-          <Heading id="ams-modal-dialog-with-subtitle-heading" level={1} size="level-3">
+          <Heading id="ams-modal-dialog-with-subtitle-heading" level={1} size="level-2">
             Reactie versturen
           </Heading>
           <Paragraph size="small">Plan Nieuw-West, fase 2</Paragraph>
@@ -155,7 +155,7 @@ export const WithScrollingBody: Story = {
     children: (
       <>
         <ModalDialog.Header>
-          <Heading id="ams-modal-dialog-scrolling-heading" level={1} size="level-3">
+          <Heading id="ams-modal-dialog-scrolling-heading" level={1} size="level-2">
             Bezwaar beoordelen
           </Heading>
           <Paragraph size="small">Bezwaar 2024-00842</Paragraph>
@@ -209,7 +209,7 @@ export const CustomCloseIcon: Story = {
     children: (
       <>
         <ModalDialog.Header closeButtonIcon={SaintAndrewsCrossesIcon}>
-          <Heading id="ams-modal-dialog-custom-close-icon-heading" level={1} size="level-3">
+          <Heading id="ams-modal-dialog-custom-close-icon-heading" level={1} size="level-2">
             Melding versturen
           </Heading>
         </ModalDialog.Header>
@@ -231,7 +231,7 @@ const ControlledExample = (args: ModalDialogProps) => {
       <Button onClick={() => setOpen(true)}>Open</Button>
       <ModalDialog {...args} onClose={() => setOpen(false)} open={open}>
         <ModalDialog.Header>
-          <Heading id="ams-modal-dialog-controlled-heading" level={1} size="level-3">
+          <Heading id="ams-modal-dialog-controlled-heading" level={1} size="level-2">
             Weergavenaam wijzigen
           </Heading>
         </ModalDialog.Header>
