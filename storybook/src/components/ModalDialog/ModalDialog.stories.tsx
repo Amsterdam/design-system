@@ -42,6 +42,13 @@ const openButtonDecorator: Decorator = (Story, { args }) => (
   </>
 )
 
+/* Opens the dialog as a modal on mount, so the story shows it with its backdrop right away. */
+const openModally = (dialog: HTMLDialogElement | null) => {
+  if (dialog && !dialog.open) {
+    dialog.showModal()
+  }
+}
+
 const meta = {
   title: 'Components/Containers/Modal Dialog',
   component: ModalDialog,
@@ -99,6 +106,16 @@ export const Default: Story = {
     id: 'ams-modal-dialog-default',
   },
   decorators: [openButtonDecorator],
+  parameters: {
+    docs: {
+      story: {
+        // Render this story in its own iframe, so the modal’s top-layer backdrop covers only the example, not the whole docs page.
+        iframeHeight: '40rem',
+        inline: false,
+      },
+    },
+  },
+  render: (args) => <ModalDialog {...args} ref={openModally} />,
 }
 
 export const WithSubtitle: Story = {
