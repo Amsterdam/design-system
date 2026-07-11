@@ -38,6 +38,7 @@
     "plop": "plop",
     "prepare": "husky",
     "prettier": "prettier --write .",
+    "reset": "pnpm run clean:dist && rimraf --glob '**/node_modules' '**/.cache' '**/coverage' && pnpm store prune && pnpm install && pnpm run build",
     "start": "pnpm run '/^watch:.+$/'",
     "test": "pnpm -r --no-bail run test",
     "test-update": "pnpm run clean:dist && pnpm run build && pnpm run lint && pnpm run test",
