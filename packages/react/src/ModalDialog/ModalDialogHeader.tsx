@@ -20,7 +20,10 @@ export type ModalDialogHeaderProps = {
    * @default Sluiten
    */
   readonly closeButtonAccessibleName?: string
-  /** An icon for the button that dismisses the Modal Dialog, to display instead of the default cross. */
+  /**
+   * An icon for the button that dismisses the Modal Dialog, to display instead of the default cross.
+   * Websites for the City of Amsterdam must use the default icon.
+   */
   readonly closeButtonIcon?: IconProps['svg']
   /**
    * The size of the button that dismisses the Modal Dialog.

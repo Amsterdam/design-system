@@ -17,7 +17,6 @@ import {
   TextArea,
   TextInput,
 } from '@amsterdam/design-system-react'
-import { SaintAndrewsCrossesIcon } from '@amsterdam/design-system-react-icons'
 import { ModalDialog } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 import { action } from 'storybook/actions'
@@ -199,26 +198,6 @@ export const WithScrollingBody: Story = {
       </>
     ),
     id: 'ams-modal-dialog-scrolling',
-  },
-  decorators: [openButtonDecorator],
-}
-
-export const CustomCloseIcon: Story = {
-  args: {
-    'aria-labelledby': 'ams-modal-dialog-custom-close-icon-heading',
-    children: (
-      <>
-        <ModalDialog.Header closeButtonIcon={SaintAndrewsCrossesIcon}>
-          <Heading id="ams-modal-dialog-custom-close-icon-heading" level={1} size="level-2">
-            Melding versturen
-          </Heading>
-        </ModalDialog.Header>
-        <ModalDialog.Body>
-          <Paragraph>Wij nemen uw melding binnen één werkdag in behandeling.</Paragraph>
-        </ModalDialog.Body>
-      </>
-    ),
-    id: 'ams-modal-dialog-custom-close-icon',
   },
   decorators: [openButtonDecorator],
 }

@@ -26,7 +26,7 @@ The Body holds the main content of the dialog and has no props of its own; the e
 ### Header
 
 The Header contains the title of the dialog and always renders a button to dismiss it.
-Pass `closeButtonAccessibleName` to translate the name of that button for screen readers, `closeButtonIcon` to display [an icon](/docs/components-media-icon--docs) other than the default cross, and `closeButtonSize` to match the button to the size of your Heading.
+Pass `closeButtonAccessibleName` to translate the name of that button for screen readers, and `closeButtonSize` to match the button to the size of your Heading.
 Any content you add to the Header – a [Heading](/docs/components-text-heading--docs), a subtitle, or both – stacks to the left of the close button.
 
 <Canvas of={ModalDialogHeaderStories.Header} />
@@ -96,12 +96,6 @@ When the content is taller than the available space, the Body scrolls while the 
 This keeps a longer task within reach – a form with many fields, or a text the user reads before deciding.
 
 <Canvas of={ModalDialogStories.WithScrollingBody} />
-
-### A custom close icon
-
-Pass `closeButtonIcon` to the Header to display a different icon in the close button.
-
-<Canvas of={ModalDialogStories.CustomCloseIcon} />
 
 ### Controlling the dialog with state
 
