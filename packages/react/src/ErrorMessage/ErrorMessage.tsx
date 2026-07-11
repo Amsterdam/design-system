@@ -16,6 +16,7 @@ import { Icon } from '../Icon'
 export type ErrorMessageProps = {
   /**
    * An icon to display instead of the default icon.
+   * Websites for the City of Amsterdam must use the default icon.
    * @default WarningIcon
    */
   readonly icon?: IconProps['svg']

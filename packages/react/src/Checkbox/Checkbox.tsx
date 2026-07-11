@@ -15,6 +15,7 @@ import CheckboxIcon from './CheckboxIcon'
 export type CheckboxProps = {
   /**
    * An icon to display instead of the default icon.
+   * Websites for the City of Amsterdam must use the default icon.
    * @default CheckboxIcon
    */
   readonly icon?: IconProps['svg']

@@ -32,7 +32,7 @@ export type CalendarProps = {
   readonly locale?: string
   /**
    * The icon for the button that navigates to the next month.
-   * Not for use within Amsterdam.
+   * Websites for the City of Amsterdam must use the default icon.
    * @default ChevronForwardIcon
    */
   readonly nextMonthButtonIcon?: IconProps['svg']
@@ -43,7 +43,7 @@ export type CalendarProps = {
   readonly nextMonthButtonLabel?: string
   /**
    * The icon for the button that navigates to the next year.
-   * Not for use within Amsterdam.
+   * Websites for the City of Amsterdam must use the default icon.
    * @default ChevronDoubleForwardIcon
    */
   readonly nextYearButtonIcon?: IconProps['svg']
@@ -54,7 +54,7 @@ export type CalendarProps = {
   readonly nextYearButtonLabel?: string
   /**
    * The icon for the button that navigates to the previous month.
-   * Not for use within Amsterdam.
+   * Websites for the City of Amsterdam must use the default icon.
    * @default ChevronBackwardIcon
    */
   readonly previousMonthButtonIcon?: IconProps['svg']
@@ -65,7 +65,7 @@ export type CalendarProps = {
   readonly previousMonthButtonLabel?: string
   /**
    * The icon for the button that navigates to the previous year.
-   * Not for use within Amsterdam.
+   * Websites for the City of Amsterdam must use the default icon.
    * @default ChevronDoubleBackwardIcon
    */
   readonly previousYearButtonIcon?: IconProps['svg']
