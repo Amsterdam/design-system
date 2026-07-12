@@ -13,6 +13,12 @@
         "$type": "color",
         "$description": "Uses currentColor so the border adapts to the text colour, including in error states."
       },
+      "border-radius": {
+        "$value": "0",
+        "$extensions": {
+          "nl.amsterdam.type": "borderRadius"
+        }
+      },
       "border-style": {
         "$value": "solid",
         "$extensions": {

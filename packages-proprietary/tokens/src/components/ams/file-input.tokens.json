@@ -13,6 +13,12 @@
           "nl.amsterdam.type": "color"
         }
       },
+      "border-radius": {
+        "$value": "{ams.inputs.border-radius}",
+        "$extensions": {
+          "nl.amsterdam.type": "borderRadius"
+        }
+      },
       "border-style": {
         "$value": "dashed",
         "$extensions": {

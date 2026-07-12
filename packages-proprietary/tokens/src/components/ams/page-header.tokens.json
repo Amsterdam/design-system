@@ -130,6 +130,12 @@
               "nl.amsterdam.type": "color"
             }
           },
+          "border-radius": {
+            "$value": "0",
+            "$extensions": {
+              "nl.amsterdam.type": "borderRadius"
+            }
+          },
           "color": {
             "$value": "{ams.color.text.inverse}",
             "$extensions": {
