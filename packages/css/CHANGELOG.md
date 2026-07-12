@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v4.2.0...design-system-css-v4.3.0) (2026-07-12)
+
+
+### Features
+
+* **Dialog, Table, Tabs, Tab Navigation:** Improve scrolling behaviour ([#2714](https://github.com/Amsterdam/design-system/issues/2714)) ([555c7be](https://github.com/Amsterdam/design-system/commit/555c7be7c3f2832789aff92cdba65d5797140b8c))
+* **Dialog:** Prevent body from scrolling while a modal Dialog is open ([#2722](https://github.com/Amsterdam/design-system/issues/2722)) ([b08629b](https://github.com/Amsterdam/design-system/commit/b08629b5812e1aaf1c1083864ea2070755c281db))
+* **icons:** Mark directional icons for RTL mirroring ([#2727](https://github.com/Amsterdam/design-system/issues/2727)) ([a0b1b84](https://github.com/Amsterdam/design-system/commit/a0b1b84399ea86bffe7497e3e23e8aa65750953e))
+* **Skeleton:** Add the Skeleton loading-state component ([#2751](https://github.com/Amsterdam/design-system/issues/2751)) ([8f62c6b](https://github.com/Amsterdam/design-system/commit/8f62c6b42b9dbab2815eb33133c48badd485909b))
+* **typography:** Add italic font style token and apply it to Image ([#2721](https://github.com/Amsterdam/design-system/issues/2721)) ([f3c079f](https://github.com/Amsterdam/design-system/commit/f3c079f6a19bc093b3f74a7ac9462dae7b90c96a))
+
+
+### Bug Fixes
+
+* **Menu:** Keep the horizontal padding inside the maximum inline size ([#2780](https://github.com/Amsterdam/design-system/issues/2780)) ([39ca9a1](https://github.com/Amsterdam/design-system/commit/39ca9a154040dd5a4d798492e6ec481fa120d757))
+* **Page Header:** Crop the logo a bit wider to prevent cut-offs from sub-pixel rounding ([#2752](https://github.com/Amsterdam/design-system/issues/2752)) ([c927313](https://github.com/Amsterdam/design-system/commit/c927313e2e2868c1afe2ed6056ec8ab03ac2f6b4))
+
 ## [4.2.0](https://github.com/Amsterdam/design-system/compare/design-system-css-v4.1.0...design-system-css-v4.2.0) (2026-06-23)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.1.0...design-system-tokens-v4.2.0) (2026-07-12)
+
+
+### Features
+
+* **Skeleton:** Add the Skeleton loading-state component ([#2751](https://github.com/Amsterdam/design-system/issues/2751)) ([8f62c6b](https://github.com/Amsterdam/design-system/commit/8f62c6b42b9dbab2815eb33133c48badd485909b))
+* **space:** Decrease the xl and 2xl space tokens in Compact Mode ([#2782](https://github.com/Amsterdam/design-system/issues/2782)) ([6f9a13c](https://github.com/Amsterdam/design-system/commit/6f9a13c88088f974f6a45c677f154a5024b8ab6a))
+* **typography:** Add italic font style token and apply it to Image ([#2721](https://github.com/Amsterdam/design-system/issues/2721)) ([f3c079f](https://github.com/Amsterdam/design-system/commit/f3c079f6a19bc093b3f74a7ac9462dae7b90c96a))
+* **typography:** Add new ‘black’ font weight of Amsterdam Sans ([#2719](https://github.com/Amsterdam/design-system/issues/2719)) ([501a693](https://github.com/Amsterdam/design-system/commit/501a693258e72a613725d0933afa80ae1d6e277f))
+* **typography:** Add tokens for ‘light’ and ‘extra bold’ font weights of Amsterdam Sans ([#2720](https://github.com/Amsterdam/design-system/issues/2720)) ([71ec037](https://github.com/Amsterdam/design-system/commit/71ec037abcf3735e01055a4eba7850f22feb4547))
+
 ## [4.1.0](https://github.com/Amsterdam/design-system/compare/design-system-tokens-v4.0.1...design-system-tokens-v4.1.0) (2026-06-23)
 
 

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v4.2.0...design-system-react-v4.3.0) (2026-07-12)
+
+
+### Features
+
+* **Calendar, Date Picker:** Add props to configure the navigation icons ([#2765](https://github.com/Amsterdam/design-system/issues/2765)) ([004bfe5](https://github.com/Amsterdam/design-system/commit/004bfe53e8e721c467ef3f1b4f27a240cc48719e))
+* **icons:** Mark directional icons for RTL mirroring ([#2727](https://github.com/Amsterdam/design-system/issues/2727)) ([a0b1b84](https://github.com/Amsterdam/design-system/commit/a0b1b84399ea86bffe7497e3e23e8aa65750953e))
+* **Page Header:** Add controlled open prop to the mega menu ([#2754](https://github.com/Amsterdam/design-system/issues/2754)) ([74ddca0](https://github.com/Amsterdam/design-system/commit/74ddca001d6be5e16f25b8d4da05fee1aea07938))
+* **Progress List:** Add expanded prop to Step and deprecate collapsed ([#2755](https://github.com/Amsterdam/design-system/issues/2755)) ([edee165](https://github.com/Amsterdam/design-system/commit/edee165ecf5f2c14318cf0e808ee0af91ea74924))
+* **Skeleton:** Add the Skeleton loading-state component ([#2751](https://github.com/Amsterdam/design-system/issues/2751)) ([8f62c6b](https://github.com/Amsterdam/design-system/commit/8f62c6b42b9dbab2815eb33133c48badd485909b))
+* **Table of Contents:** Add controlled expanded prop to Link ([#2753](https://github.com/Amsterdam/design-system/issues/2753)) ([3a9c57c](https://github.com/Amsterdam/design-system/commit/3a9c57c74129ced9f536a9a027e84949e2b62d03))
+* **Table of Contents:** Add option to expand branches initially ([#2770](https://github.com/Amsterdam/design-system/issues/2770)) ([256af84](https://github.com/Amsterdam/design-system/commit/256af847dd306457f50238d38b35afa9213dc68b))
+
+
+### Bug Fixes
+
+* **Breakout:** Apply the `as` prop instead of leaking it to the DOM ([#2736](https://github.com/Amsterdam/design-system/issues/2736)) ([03702b6](https://github.com/Amsterdam/design-system/commit/03702b6ed3d24f5d286a6f09253c40cce97a51de))
+* **Calendar, Date Picker:** Localise day numerals and the range boundary separator ([#2729](https://github.com/Amsterdam/design-system/issues/2729)) ([82e85ba](https://github.com/Amsterdam/design-system/commit/82e85ba67514bc2a069734f3e076fa074bdf6b7a))
+
 ## [4.2.0](https://github.com/Amsterdam/design-system/compare/design-system-react-v4.1.0...design-system-react-v4.2.0) (2026-06-23)
 
 
