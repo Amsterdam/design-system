@@ -3,11 +3,11 @@ import type { ComponentProps } from 'react'
 import type { ArgTypesEnhancer } from 'storybook/internal/types'
 
 import { DocsContainer } from '@storybook/addon-docs/blocks'
-import { withThemeByClassName } from '@storybook/addon-themes'
 import { clsx } from 'clsx'
 
 import { collapseInlineObjects, maxInlineWidth } from './collapseInlineObjects'
 import { sortLiteralUnionValues } from './sortLiteralUnionValues'
+import { defaultTheme, matchTheme } from './themes'
 import { viewports } from './viewports'
 
 import '@amsterdam/design-system-tokens/dist/index.css'
@@ -105,6 +105,21 @@ const formatDefaultValues: ArgTypesEnhancer = ({ component, argTypes }) => {
 
 export const argTypesEnhancers = [formatDefaultValues, formatDeprecatedProps, sortLiteralUnionValues]
 
+// Applies the mode classes for the theme a story renders: the theme selected in the toolbar, or
+// the closest match among the themes the story lists in its `themes.options` parameter. The
+// toolbar itself is the custom tool in manager.tsx, which reads the same parameter.
+const withModeClassNames = (Story: StoryFn, context: StoryContext) => {
+  const globalTheme = context.globals['theme']
+  const selected = typeof globalTheme === 'string' && globalTheme.length > 0 ? globalTheme : defaultTheme
+  const override = context.parameters['themes']?.['options']
+  const theme = matchTheme(Array.isArray(override) ? (override as string[]) : [selected], selected)
+
+  document.documentElement.classList.toggle('ams-theme--compact', theme.startsWith('Compact'))
+  document.documentElement.classList.toggle('ams-theme--wireframe', theme.includes('wireframe'))
+
+  return <Story />
+}
+
 // Set the page language and apply the page background overrides for Canvas and Stories.
 // Components that need a realistic Page or a width constraint add that themselves through a decorator.
 export const decorators = [
@@ -131,15 +146,13 @@ export const decorators = [
       </div>
     )
   },
-  withThemeByClassName({
-    defaultTheme: 'Spacious',
-    themes: {
-      Compact: 'ams-theme--compact',
-      Spacious: '',
-      Wireframe: 'ams-theme--wireframe',
-    },
-  }),
+  withModeClassNames,
 ]
+
+// Declare the theme global so that Storybook accepts it from the URL and the toolbar.
+export const initialGlobals = {
+  theme: defaultTheme,
+}
 
 // Append the City’s three crosses as a centered footer beneath every docs page.
 const DocsContainerWithFooter = ({ children, ...props }: ComponentProps<typeof DocsContainer>) => (

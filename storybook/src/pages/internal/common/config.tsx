@@ -21,6 +21,6 @@ export const commonMeta = {
   ],
   parameters: {
     layout: 'fullscreen',
-    themes: { themeOverride: 'Compact' },
+    themes: { options: ['Compact', 'Compact wireframe'] },
   },
 } satisfies Meta
