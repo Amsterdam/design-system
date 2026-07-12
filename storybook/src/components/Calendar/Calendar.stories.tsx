@@ -42,10 +42,10 @@ const meta = {
     defaultMonth: { control: false }, // Enabling the control breaks the story with an error.
     linkComponent: { control: false }, // Enabling the control breaks the story with an error.
     linkTemplate: { control: false }, // A function returning string or undefined has no usable controls panel widget.
-    nextMonthButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
-    nextYearButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
-    previousMonthButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
-    previousYearButtonIcon: { control: false }, // Not for use within Amsterdam; hidden from the controls.
+    nextMonthButtonIcon: { control: false }, // Websites for the City of Amsterdam must use the default icon; hidden from the controls.
+    nextYearButtonIcon: { control: false }, // Websites for the City of Amsterdam must use the default icon; hidden from the controls.
+    previousMonthButtonIcon: { control: false }, // Websites for the City of Amsterdam must use the default icon; hidden from the controls.
+    previousYearButtonIcon: { control: false }, // Websites for the City of Amsterdam must use the default icon; hidden from the controls.
   },
   decorators: [SyncLocaleArgs],
   parameters: { localeVariant: 'calendar' },
