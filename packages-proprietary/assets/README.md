@@ -36,6 +36,16 @@ The Design System Handbook offers [more guidance in using the font](https://desi
 
 Note that the font is proprietary. Using it requires [a license](https://designsystem.amsterdam/?path=/docs/docs-terms-of-use-copyright--docs).
 
+The package also contains the Redacted Script font, which replaces text with squiggles in the wireframe mode of the Design System.
+Import its stylesheet alongside the wireframe tokens.
+
+<!-- prettier-ignore -->
+```ts
+import "@amsterdam/design-system-assets/font/wireframe/index.css"
+```
+
+This font is open source, licensed under the [SIL Open Font License](font/wireframe/OFL.txt).
+
 ### Icons
 
 The Design System Handbook offers an [overview of our icon library](https://designsystem.amsterdam/?path=/docs/brand-assets-icons--docs).
