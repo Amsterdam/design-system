@@ -9,7 +9,6 @@ import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 import {
   ActionGroup,
   Button,
-  Column,
   Field,
   Heading,
   Label,
@@ -52,6 +51,9 @@ const meta = {
   title: 'Components/Containers/Modal Dialog',
   component: ModalDialog,
   argTypes: {
+    'aria-labelledby': {
+      description: 'The id of the heading that labels the dialog. Provides its accessible name.',
+    },
     id: dialogIdArgType,
   },
 } satisfies Meta<typeof ModalDialog>
@@ -71,17 +73,15 @@ export const Default: Story = {
           </Heading>
         </ModalDialog.Header>
         <ModalDialog.Body>
-          <form id="ams-modal-dialog-note-form" method="dialog">
-            <Column gap="small">
-              <Field>
-                <Label htmlFor="ams-modal-dialog-note-subject">Onderwerp</Label>
-                <TextInput id="ams-modal-dialog-note-subject" name="subject" />
-              </Field>
-              <Field>
-                <Label htmlFor="ams-modal-dialog-note-text">Notitie</Label>
-                <TextArea id="ams-modal-dialog-note-text" name="note" rows={4} />
-              </Field>
-            </Column>
+          <form className="ams-gap-l" id="ams-modal-dialog-note-form" method="dialog">
+            <Field>
+              <Label htmlFor="ams-modal-dialog-note-subject">Onderwerp</Label>
+              <TextInput id="ams-modal-dialog-note-subject" name="subject" />
+            </Field>
+            <Field>
+              <Label htmlFor="ams-modal-dialog-note-text">Notitie</Label>
+              <TextArea id="ams-modal-dialog-note-text" name="note" rows={4} />
+            </Field>
           </form>
         </ModalDialog.Body>
         <ModalDialog.Footer>
@@ -159,20 +159,18 @@ export const WithScrollingBody: Story = {
           </Heading>
           <Paragraph size="small">Bezwaar 2024-00842</Paragraph>
         </ModalDialog.Header>
-        <ModalDialog.Body>
-          <Column gap="small">
-            <Paragraph>{longObjection}</Paragraph>
-            <Paragraph>
-              De onderbouwing gaat niet in op de gevolgen voor de parkeerdruk in de straat. In de huidige situatie is er
-              overdag al nauwelijks plek. Naar mijn idee is niet onderzocht wat het extra verkeer betekent voor de
-              bewoners die hier al jaren wonen.
-            </Paragraph>
-            <Paragraph>
-              Ik verzoek u het besluit te heroverwegen en de aanvraag opnieuw te beoordelen, met aandacht voor de punten
-              die ik noem. Graag ontvang ik binnen de wettelijke termijn een reactie. Mocht u vragen hebben, dan licht
-              ik mijn bezwaar uiteraard graag mondeling toe.
-            </Paragraph>
-          </Column>
+        <ModalDialog.Body className="ams-prose">
+          <Paragraph>{longObjection}</Paragraph>
+          <Paragraph>
+            De onderbouwing gaat niet in op de gevolgen voor de parkeerdruk in de straat. In de huidige situatie is er
+            overdag al nauwelijks plek. Naar mijn idee is niet onderzocht wat het extra verkeer betekent voor de
+            bewoners die hier al jaren wonen.
+          </Paragraph>
+          <Paragraph>
+            Ik verzoek u het besluit te heroverwegen en de aanvraag opnieuw te beoordelen, met aandacht voor de punten
+            die ik noem. Graag ontvang ik binnen de wettelijke termijn een reactie. Mocht u vragen hebben, dan licht ik
+            mijn bezwaar uiteraard graag mondeling toe.
+          </Paragraph>
         </ModalDialog.Body>
         <ModalDialog.Footer>
           <ActionGroup>

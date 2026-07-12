@@ -15,10 +15,8 @@ import { ModalDialogHeader } from './ModalDialogHeader'
 
 export type ModalDialogProps = {
   /**
-   * Whether the Modal Dialog is open.
-   * Opens the dialog through `showModal()` after mounting – the `open` attribute itself is never rendered, because that would make the dialog non-modal.
-   * Use the `onClose` event to synchronise your state when the dialog closes itself, e.g. through the Escape key.
-   * Leave undefined to control the dialog imperatively, e.g. with `ModalDialog.open`.
+   * Whether the Modal Dialog is open, to control it from your application’s state.
+   * Leave undefined to open it imperatively with `ModalDialog.open`.
    */
   readonly open?: boolean
 } & Readonly<PropsWithChildren<Omit<DialogHTMLAttributes<HTMLDialogElement>, 'open'>>>
@@ -65,7 +63,7 @@ const ModalDialogRoot = forwardRef(
 ModalDialogRoot.displayName = 'ModalDialog'
 
 /**
- * A window over the page that focuses attention on a single task or message – from a short message to a form that creates or edits content. It blocks interaction with the underlying page until it is closed.
+ * A window that focuses attention on a single task or message, blocking interaction with the underlying page until it is closed.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-containers-modal-dialog--docs Modal Dialog docs at Amsterdam Design System}
  */

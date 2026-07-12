@@ -101,6 +101,7 @@ This keeps a longer task within reach – a form with many fields, or a text the
 
 Keep the dialog rendered and pass a boolean to the `open` prop to open and close it from your application’s state.
 The component calls `showModal()` and `close()` on the dialog element for you.
+It never renders the `open` attribute, which would make the dialog non-modal.
 Listen to the `onClose` event to synchronise your state when the dialog closes itself, e.g. through the Escape key.
 Don’t render the dialog conditionally: unmounting it while open skips the `close` event and the browser’s focus restoration.
 
