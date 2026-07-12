@@ -6,8 +6,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Link, Paragraph, UnorderedList } from '@amsterdam/design-system-react'
-import { descriptionListTermsWidths } from '@amsterdam/design-system-react/dist/DescriptionList/DescriptionList'
 import { DescriptionList } from '@amsterdam/design-system-react/src'
+import { descriptionListTermsWidths } from '@amsterdam/design-system-react/src/DescriptionList/DescriptionList'
 
 import { inverseColorArgType } from '#storybook/_common/argTypes'
 import { wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
