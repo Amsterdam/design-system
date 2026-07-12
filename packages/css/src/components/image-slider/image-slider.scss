@@ -79,7 +79,8 @@
 
   aspect-ratio: var(--ams-image-aspect-ratio); // Use the same default aspect ratio as the Image component
   background-color: var(--ams-image-slider-thumbnails-thumbnail-background-color);
-  background-position: center;
+  background-position: var(--ams-image-slider-thumbnails-thumbnail-background-position);
+  background-repeat: no-repeat; // Invisible with a covering image; allows modes to move the image out of view
   background-size: cover;
   cursor: var(--ams-image-slider-thumbnails-thumbnail-cursor);
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);

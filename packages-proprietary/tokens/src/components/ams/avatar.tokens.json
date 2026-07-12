@@ -84,6 +84,14 @@
           }
         }
       },
+      "image": {
+        "object-position": {
+          "$value": "50% 50%",
+          "$extensions": {
+            "nl.amsterdam.type": "objectPosition"
+          }
+        }
+      },
       "azure": {
         "background-color": {
           "$value": "{ams.color.highlight.azure}",
