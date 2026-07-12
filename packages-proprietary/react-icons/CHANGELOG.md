@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v2.1.0...design-system-react-icons-v2.2.0) (2026-07-12)
+
+
+### Features
+
+* **icons:** Mark directional icons for RTL mirroring ([#2727](https://github.com/Amsterdam/design-system/issues/2727)) ([a0b1b84](https://github.com/Amsterdam/design-system/commit/a0b1b84399ea86bffe7497e3e23e8aa65750953e))
+
 ## [2.1.0](https://github.com/Amsterdam/design-system/compare/design-system-react-icons-v2.0.0...design-system-react-icons-v2.1.0) (2026-06-23)
 
 
