@@ -1,0 +1,22 @@
+{
+  "ams": {
+    "links": {
+      "inverse": {
+        "color": {
+          "$value": "#202020",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "hover": {
+          "color": {
+            "$value": "#000000",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          }
+        }
+      }
+    }
+  }
+}

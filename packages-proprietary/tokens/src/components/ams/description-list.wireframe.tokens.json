@@ -1,0 +1,14 @@
+{
+  "ams": {
+    "description-list": {
+      "inverse": {
+        "color": {
+          "$value": "#202020",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
+      }
+    }
+  }
+}

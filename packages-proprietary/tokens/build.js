@@ -23,7 +23,7 @@ const commonCssTransforms = [
   'dtcg/dimension',
   'dtcg/fontFamily',
 ]
-const modes = ['compact']
+const modes = ['compact', 'wireframe']
 
 function generateSharedConfig(mode) {
   const name = mode || 'index'

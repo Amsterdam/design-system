@@ -1,0 +1,16 @@
+{
+  "ams": {
+    "call-to-action-link": {
+      "background-color": {
+        "$value": "#202020",
+        "$type": "color"
+      },
+      "hover": {
+        "background-color": {
+          "$value": "#000000",
+          "$type": "color"
+        }
+      }
+    }
+  }
+}
