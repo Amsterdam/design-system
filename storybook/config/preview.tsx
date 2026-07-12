@@ -12,7 +12,9 @@ import { viewports } from './viewports'
 
 import '@amsterdam/design-system-tokens/dist/index.css'
 import '@amsterdam/design-system-tokens/dist/compact.theme.css'
+import '@amsterdam/design-system-tokens/dist/wireframe.theme.css'
 import '@amsterdam/design-system-assets/font/index.css'
+import '@amsterdam/design-system-assets/font/wireframe/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
 import '../src/_styles/authoring.css'
 import '../src/_styles/docs.css'
@@ -134,6 +136,7 @@ export const decorators = [
     themes: {
       Compact: 'ams-theme--compact',
       Spacious: '',
+      Wireframe: 'ams-theme--wireframe',
     },
   }),
 ]

@@ -1,0 +1,26 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+._ams-figure-set {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-block: 1.5rem !important;
+}
+
+._ams-figure {
+  margin-block: 0;
+  margin-inline: 0;
+  max-inline-size: 100%;
+}
+
+/* Let the intrinsic ratio of the image determine its height */
+._ams-figure > .ams-image {
+  aspect-ratio: auto;
+  border-block: 1px solid #d1d1d1;
+  border-inline: 1px solid #d1d1d1;
+  display: block;
+}

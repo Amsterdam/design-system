@@ -2,7 +2,13 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import { Figure, FigureSet } from "#storybook/_components/Figure/Figure";
 import { InlineColorSample } from "#storybook/_components/InlineColorSample/InlineColorSample";
+
+import handbookPage from "./modes-handbook-page.png";
+import homePageWireframe from "./modes-home-page-wireframe.png";
+import homePage from "./modes-home-page.png";
+import navigationPageCompact from "./modes-navigation-page-compact.png";
 
 <Meta title="Docs/Developer Guide/Modes" />
 
@@ -35,3 +41,54 @@ Key characteristics of each mode:
 | **Medium spacing length** |                    24                     |                         16                          |
 
 (Values in pixels and for desktop.)
+
+The Handbook Page example in Spacious Mode next to the Navigation Page example in Compact Mode:
+
+<FigureSet>
+  <Figure width={240}>
+    <img
+      alt="The Handbook Page example in Spacious Mode: comfortable type and generous white space on a white canvas."
+      className="ams-image"
+      src={handbookPage}
+    />
+  </Figure>
+  <Figure width={320}>
+    <img
+      alt="The Navigation Page example in Compact Mode: an information-dense page with smaller text and tighter spacing on a grey canvas."
+      className="ams-image"
+      src={navigationPageCompact}
+    />
+  </Figure>
+</FigureSet>
+
+## Fidelity
+
+Designs made with the design system look like finished pages from the start.
+That polish can distract: customers may respond to visual details instead of the essence of a design, or think a website has already been built.
+
+**Wireframe Mode** renders every component as a sketch to keep the conversation about structure and content.
+All colours become shades of grey, text renders as handwritten squiggles, borders look drawn, and images show a crossed placeholder box.
+Layout, sizing, and spacing remain unchanged, so pages keep their realistic structure.
+
+Preview this mode through the theme switcher in the Storybook toolbar.
+To use it in an application, add the `ams-theme--wireframe` class next to the `ams-theme` class and import the wireframe tokens and font – see the [Getting Started](/docs/docs-developer-guide-getting-started--docs#wireframe-mode) page for the import order.
+Wireframe Mode combines freely with Compact Mode.
+
+The Home Page example in both fidelities:
+
+<FigureSet>
+  <Figure width={240}>
+    <img
+      alt="The Home Page example as a finished design, with the corporate colours, typography, and photos."
+      className="ams-image"
+      src={homePage}
+    />
+  </Figure>
+  <Figure width={240}>
+    <img
+      alt="The same page in Wireframe Mode: shades of grey, squiggles for text, and crossed boxes for images."
+      className="ams-image"
+      src={homePageWireframe}
+    />
+  </Figure>
+</FigureSet>

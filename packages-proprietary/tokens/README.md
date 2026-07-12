@@ -88,12 +88,46 @@ import "@amsterdam/design-system-tokens/dist/compact.theme.css"
 </body>
 ```
 
-#### Where to apply a mode
+### Wireframe overrides
+
+A wireframe stylesheet is available to present work in progress as a sketch rather than a finished page.
+It renders all components in greyscale, replaces text with handwritten squiggles, gives borders a hand-drawn rounding, and shows crossed placeholder boxes instead of images.
+Layout, sizing, and spacing remain unchanged, so pages keep their realistic structure.
+
+This stylesheet only contains overrides as well.
+Import it after the main stylesheet, together with the Redacted Script font from our assets package.
+
+<!-- prettier-ignore -->
+```ts
+import "@amsterdam/design-system-tokens/dist/index.css"
+import "@amsterdam/design-system-tokens/dist/wireframe.css"
+import "@amsterdam/design-system-assets/font/wireframe/index.css"
+```
+
+Pair `wireframe.theme.css` with `index.theme.css` if you apply the tokens through a class rather than through `:root`.
+Add the `ams-theme--wireframe` class to the very element that carries the `ams-theme` class.
+
+<!-- prettier-ignore -->
+```ts
+import "@amsterdam/design-system-tokens/dist/index.theme.css"
+import "@amsterdam/design-system-tokens/dist/wireframe.theme.css"
+import "@amsterdam/design-system-assets/font/wireframe/index.css"
+```
+
+```html
+<body class="ams-theme ams-theme--wireframe">
+  …
+</body>
+```
+
+Wireframe Mode combines freely with Compact Mode.
+
+### Where to apply a mode
 
 A stylesheet that overrides token values must be declared on the same element as the tokens it overrides.
 That element is `html` when you use `index.css`, and the element carrying the `ams-theme` class when you use `index.theme.css`.
 
-Applying `ams-theme--compact` anywhere else – even on a child of the element with the `ams-theme` class – takes effect only in part.
+Applying a mode class like `ams-theme--compact` anywhere else – even on a child of the element with the `ams-theme` class – takes effect only in part.
 The tokens that the mode stylesheet declares itself, such as `--ams-space-xl`, do take their new value there.
 Any other token that refers to them keeps the value it resolved on the element where it was declared.
 Our components mostly read such tokens, so they silently keep their spacious values.
