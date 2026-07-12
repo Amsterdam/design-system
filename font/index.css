@@ -51,3 +51,11 @@
   font-weight: 800;
   src: url("AmsterdamSans-ExtraBold.woff2") format("woff2");
 }
+
+@font-face {
+  font-display: swap;
+  font-family: "Amsterdam Sans";
+  font-style: normal;
+  font-weight: 900;
+  src: url("AmsterdamSans-Black.woff2") format("woff2");
+}
