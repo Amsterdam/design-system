@@ -15,6 +15,7 @@ import RadioIcon from './RadioIcon'
 export type RadioProps = {
   /**
    * An icon to display instead of the default icon.
+   * Websites for the City of Amsterdam must use the default icon.
    * @default RadioIcon
    */
   readonly icon?: IconProps['svg']

@@ -45,7 +45,11 @@ export type PageHeaderProps = {
   readonly logoLinkComponent?: ElementType
   /** The accessible text for the link on the logo. */
   readonly logoLinkTitle?: string
-  /** An icon to display instead of the default icon. */
+  /**
+   * An icon to display instead of the default icon.
+   * Websites for the City of Amsterdam must use the default icon.
+   * @default PageHeaderMenuIcon
+   */
   readonly menuButtonIcon?: IconProps['svg']
   /** The visible text for the menu button. */
   readonly menuButtonText?: string
