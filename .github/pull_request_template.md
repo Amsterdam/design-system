@@ -5,6 +5,10 @@
 Thank you for contributing to the project!
 Please use this template to help us handle your PR smoothly.
 
+## Links
+
+- (Add links to relevant docs pages, stories, issues, and so on.)
+
 ## What
 
 (What changes does this PR introduce?)
