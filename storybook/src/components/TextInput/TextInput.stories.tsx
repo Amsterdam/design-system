@@ -10,6 +10,7 @@ import { textInputTypes } from '@amsterdam/design-system-react/dist/TextInput/Te
 import { TextInput } from '@amsterdam/design-system-react/src'
 
 import { disabledArgType } from '#storybook/_common/argTypes'
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 
 const meta = {
   title: 'Components/Forms/Text Input',
@@ -39,6 +40,7 @@ const meta = {
       options: [undefined, ...textInputTypes.filter((type) => type !== 'text')],
     },
   },
+  decorators: [maximiseInlineSize('7-of-12-columns')],
 } satisfies Meta<typeof TextInput>
 
 export default meta

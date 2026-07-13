@@ -11,6 +11,7 @@ import { Radio } from '@amsterdam/design-system-react/src'
 import { useArgs } from 'storybook/preview-api'
 
 import { checkedArgType, childrenArgType, disabledArgType, idArgType } from '#storybook/_common/argTypes'
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 
 import CustomIcon from './CustomIcon'
 
@@ -34,6 +35,7 @@ const meta = {
       table: { disable: false },
     },
   },
+  decorators: [maximiseInlineSize('7-of-12-columns')],
   render: (args) => {
     const [, setArgs] = useArgs()
 

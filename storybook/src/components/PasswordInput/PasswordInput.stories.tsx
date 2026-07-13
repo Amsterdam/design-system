@@ -9,6 +9,7 @@ import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-
 import { PasswordInput } from '@amsterdam/design-system-react/src'
 
 import { disabledArgType } from '#storybook/_common/argTypes'
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 
 const meta = {
   title: 'Components/Forms/Password Input',
@@ -30,6 +31,7 @@ const meta = {
       description: 'The width, expressed in the average number of characters.',
     },
   },
+  decorators: [maximiseInlineSize('7-of-12-columns')],
 } satisfies Meta<typeof PasswordInput>
 
 export default meta

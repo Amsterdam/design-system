@@ -10,6 +10,8 @@ import type { ChangeEvent } from 'react'
 import { SearchField } from '@amsterdam/design-system-react/src'
 import { useArgs } from 'storybook/preview-api'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
+
 type InputProps = {
   invalid?: boolean
   label?: string
@@ -39,6 +41,7 @@ const meta = {
       description: 'Displayed while the field is empty.',
     },
   },
+  decorators: [maximiseInlineSize('7-of-12-columns')],
   render: ({ invalid, label, placeholder, ...args }) => (
     <SearchField {...args}>
       <SearchField.Input invalid={invalid} label={label} placeholder={placeholder} />

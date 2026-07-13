@@ -7,6 +7,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { CharacterCount } from '@amsterdam/design-system-react/src'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
+
 const meta = {
   title: 'Components/Forms/Character Count',
   component: CharacterCount,
@@ -22,6 +24,7 @@ const meta = {
       control: { min: 0, type: 'number' },
     },
   },
+  decorators: [maximiseInlineSize('7-of-12-columns')],
 } satisfies Meta<typeof CharacterCount>
 
 export default meta

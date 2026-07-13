@@ -9,6 +9,7 @@ import { ErrorMessage, Field, Label, Paragraph } from '@amsterdam/design-system-
 import { TextArea } from '@amsterdam/design-system-react/src'
 
 import { disabledArgType } from '#storybook/_common/argTypes'
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 import { exampleParagraph } from '#storybook/_common/exampleContent'
 
 const paragraph = exampleParagraph()
@@ -45,6 +46,7 @@ const meta = {
       description: 'The number of lines to show.',
     },
   },
+  decorators: [maximiseInlineSize('7-of-12-columns')],
 } satisfies Meta<typeof TextArea>
 
 export default meta

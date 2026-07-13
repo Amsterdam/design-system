@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ErrorMessage, FieldSet, Label, Paragraph, TextInput } from '@amsterdam/design-system-react'
 import { Field } from '@amsterdam/design-system-react/src'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 import { exampleFamilyName, exampleGivenName } from '#storybook/_common/exampleContent'
 
 const givenName = exampleGivenName()
@@ -19,6 +20,7 @@ const meta = {
   args: {
     invalid: false,
   },
+  decorators: [maximiseInlineSize('7-of-12-columns')],
 } satisfies Meta<typeof Field>
 
 export default meta

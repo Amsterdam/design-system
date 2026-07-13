@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { InvalidFormAlert } from '@amsterdam/design-system-react/src'
 
 import { headingLevelArgType } from '#storybook/_common/argTypes'
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 
 const meta = {
   title: 'Components/Forms/Invalid Form Alert',
@@ -23,6 +24,7 @@ const meta = {
   argTypes: {
     headingLevel: headingLevelArgType(),
   },
+  decorators: [maximiseInlineSize('7-of-12-columns')],
 } satisfies Meta<typeof InvalidFormAlert>
 
 export default meta

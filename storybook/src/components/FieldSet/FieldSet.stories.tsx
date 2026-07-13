@@ -17,6 +17,7 @@ import {
 } from '@amsterdam/design-system-react'
 import { FieldSet } from '@amsterdam/design-system-react/src'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 import { exampleFamilyName, exampleGivenName } from '#storybook/_common/exampleContent'
 
 const familyName = exampleFamilyName()
@@ -30,6 +31,7 @@ const meta = {
     legend: 'Wat is uw naam?',
   },
   decorators: [
+    maximiseInlineSize('7-of-12-columns'),
     (Story) => (
       <form>
         <Story />
