@@ -12,7 +12,7 @@
     "jsx": "react-jsx",
     "lib": ["dom", "es2020"],
     "module": "es2020",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "dist",

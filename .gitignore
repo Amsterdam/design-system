@@ -13,7 +13,7 @@ tmp/
 # Cache
 .cache/
 .swc/
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 
 # Logs
 logs/

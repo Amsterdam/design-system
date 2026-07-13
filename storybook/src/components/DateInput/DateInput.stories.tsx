@@ -6,8 +6,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Column, ErrorMessage, Field, FieldSet, Label, Paragraph, Row, TextInput } from '@amsterdam/design-system-react'
-import { dateInputTypes } from '@amsterdam/design-system-react/dist/DateInput/DateInput'
 import { DateInput } from '@amsterdam/design-system-react/src'
+import { dateInputTypes } from '@amsterdam/design-system-react/src/DateInput/DateInput'
 
 import { disabledArgType } from '#storybook/_common/argTypes'
 

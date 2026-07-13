@@ -1,7 +1,7 @@
 {
   "extends": "../packages/react/tsconfig.json",
   "compilerOptions": {
-    "moduleResolution": "node"
+    "moduleResolution": "bundler"
   },
   "include": [
     "../packages/react/src/**/*.ts",
