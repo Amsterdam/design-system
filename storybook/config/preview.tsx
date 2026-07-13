@@ -20,6 +20,23 @@ import '../src/_styles/authoring.css'
 import '../src/_styles/docs.css'
 import '../src/_styles/canvas.css'
 
+// Load the Redacted Script font up front so switching to Wireframe Mode applies it instantly.
+// The @font-face files load lazily on first use otherwise, flashing the fallback font — and
+// reflowing the whole story — for a moment after each switch.
+if (typeof document !== 'undefined' && 'fonts' in document) {
+  for (const face of [
+    '300 1em "Redacted Script"',
+    '400 1em "Redacted Script"',
+    'italic 400 1em "Redacted Script"',
+    '700 1em "Redacted Script"',
+    'italic 700 1em "Redacted Script"',
+    '800 1em "Redacted Script"',
+    '900 1em "Redacted Script"',
+  ]) {
+    document.fonts.load(face).catch(() => {})
+  }
+}
+
 export const argTypes = {
   children: {
     table: { disable: true },
