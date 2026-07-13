@@ -4,16 +4,15 @@
  */
 
 /*
- * Redacted Script has three files (Light, Regular, Bold). They are mapped to the same weights as
- * Amsterdam Sans so text keeps its intended weight in wireframe mode, reusing the nearest file for
- * the weights and the italics that Redacted Script does not provide, to avoid synthesised styles.
+ * Redacted Script has three files. Each covers a weight range so that all the weights used across
+ * the design system resolve to the nearest file without the browser synthesising a bolder face.
  */
 
 @font-face {
   font-display: swap;
   font-family: "Redacted Script";
   font-style: normal;
-  font-weight: 300;
+  font-weight: 100 300;
   src: url("RedactedScript-Light.woff2") format("woff2");
 }
 
@@ -21,15 +20,7 @@
   font-display: swap;
   font-family: "Redacted Script";
   font-style: normal;
-  font-weight: 400;
-  src: url("RedactedScript-Regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Redacted Script";
-  font-style: italic;
-  font-weight: 400;
+  font-weight: 400 600;
   src: url("RedactedScript-Regular.woff2") format("woff2");
 }
 
@@ -37,30 +28,6 @@
   font-display: swap;
   font-family: "Redacted Script";
   font-style: normal;
-  font-weight: 700;
-  src: url("RedactedScript-Bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Redacted Script";
-  font-style: italic;
-  font-weight: 700;
-  src: url("RedactedScript-Bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Redacted Script";
-  font-style: normal;
-  font-weight: 800;
-  src: url("RedactedScript-Bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Redacted Script";
-  font-style: normal;
-  font-weight: 900;
+  font-weight: 700 900;
   src: url("RedactedScript-Bold.woff2") format("woff2");
 }
