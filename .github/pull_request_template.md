@@ -5,6 +5,10 @@
 Thank you for contributing to the project!
 Please use this template to help us handle your PR smoothly.
 
+## Links
+
+- (Add links to relevant documentation pages, stories in the feature branch deploy, and related issues or discussions.)
+
 ## What
 
 (What changes does this PR introduce?)
