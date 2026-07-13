@@ -6,37 +6,50 @@
 // The manager builder compiles JSX with the classic transform, so React must be in scope here.
 import React, { useEffect } from 'react'
 import { Select } from 'storybook/internal/components'
-import { addons, types, useGlobals, useParameter } from 'storybook/manager-api'
+import { addons, types, useAddonState, useParameter } from 'storybook/manager-api'
 import { create } from 'storybook/theming/create'
 
 import Logo from '../../packages-proprietary/assets/logo/amsterdam.svg'
-import { defaultTheme, matchTheme, themeNames } from './themes'
+import { matchTheme, readStoredTheme, storeTheme, THEME_EVENT, themeNames } from './themes'
 
 import '@amsterdam/design-system-assets/font/index.css'
 import '../src/_styles/manager.css'
 
+const THEME_TOOL_ID = 'amsterdam/themes/theme-switcher'
+
 // Offers the themes a story supports: all of them by default, or the list in its `themes.options`
 // parameter. If the current selection is not among them, the closest supported theme is rendered
 // and selected instead, so the toolbar always shows the theme that is actually on screen.
+// The selection is kept in addon state and sent to the preview over the channel, not as a Storybook
+// global, so switching applies a CSS class instead of re-rendering every story on the page.
 const ThemeSwitcher = () => {
-  const [globals, updateGlobals] = useGlobals()
+  const [selected, setSelected] = useAddonState(THEME_TOOL_ID, readStoredTheme())
   const options = useParameter<{ options?: string[] }>('themes')?.options ?? themeNames
-  const globalTheme = globals['theme']
-  const selected = typeof globalTheme === 'string' && globalTheme.length > 0 ? globalTheme : defaultTheme
   const theme = matchTheme(options, selected)
+
+  const apply = (value: string) => {
+    setSelected(value)
+    storeTheme(value)
+    addons.getChannel().emit(THEME_EVENT, value)
+  }
 
   useEffect(() => {
     if (theme !== selected) {
-      updateGlobals({ theme })
+      apply(theme)
     }
-  }, [selected, theme, updateGlobals])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected, theme])
 
   return (
     <Select
       ariaLabel="Theme"
       defaultOptions={theme}
       key={theme}
-      onSelect={(value) => updateGlobals({ theme: value })}
+      onSelect={(value) => {
+        if (typeof value === 'string') {
+          apply(value)
+        }
+      }}
       options={themeNames
         .filter((name) => options.includes(name))
         .map((name) => ({
@@ -48,7 +61,7 @@ const ThemeSwitcher = () => {
 }
 
 addons.register('amsterdam/themes', () => {
-  addons.add('amsterdam/themes/theme-switcher', {
+  addons.add(THEME_TOOL_ID, {
     title: 'Theme',
     match: ({ tabId, viewMode }) => !!viewMode && /^(story|docs)$/.test(viewMode) && !tabId,
     render: ThemeSwitcher,

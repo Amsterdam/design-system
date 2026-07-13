@@ -4,10 +4,11 @@ import type { ArgTypesEnhancer } from 'storybook/internal/types'
 
 import { DocsContainer } from '@storybook/addon-docs/blocks'
 import { clsx } from 'clsx'
+import { addons } from 'storybook/preview-api'
 
 import { collapseInlineObjects, maxInlineWidth } from './collapseInlineObjects'
 import { sortLiteralUnionValues } from './sortLiteralUnionValues'
-import { defaultTheme, matchTheme } from './themes'
+import { matchTheme, readStoredTheme, THEME_EVENT, themeNames } from './themes'
 import { viewports } from './viewports'
 
 import '@amsterdam/design-system-tokens/dist/index.css'
@@ -122,17 +123,39 @@ const formatDefaultValues: ArgTypesEnhancer = ({ component, argTypes }) => {
 
 export const argTypesEnhancers = [formatDefaultValues, formatDeprecatedProps, sortLiteralUnionValues]
 
-// Applies the mode classes for the theme a story renders: the theme selected in the toolbar, or
-// the closest match among the themes the story lists in its `themes.options` parameter. The
-// toolbar itself is the custom tool in manager.tsx, which reads the same parameter.
-const withModeClassNames = (Story: StoryFn, context: StoryContext) => {
-  const globalTheme = context.globals['theme']
-  const selected = typeof globalTheme === 'string' && globalTheme.length > 0 ? globalTheme : defaultTheme
-  const override = context.parameters['themes']?.['options']
-  const theme = matchTheme(Array.isArray(override) ? (override as string[]) : [selected], selected)
+// Applies the mode classes as a plain CSS class toggle on the root element. The theme is sent from
+// the toolbar (manager.tsx) over the channel rather than through a Storybook global: a global change
+// re-renders every story on the page — very janky on docs pages with many canvases — whereas this
+// toggle is a single style recalc. The decorator resolves the class per story render (so pinned
+// stories adapt on navigation); the channel listener handles toolbar switches without a re-render.
+let selectedTheme = readStoredTheme()
+let currentOptions: string[] = themeNames
 
-  document.documentElement.classList.toggle('ams-theme--compact', theme.startsWith('Compact'))
-  document.documentElement.classList.toggle('ams-theme--wireframe', theme.includes('wireframe'))
+const applyModeClasses = (theme: string) => {
+  const { classList } = document.documentElement
+  classList.toggle('ams-theme--compact', theme.startsWith('Compact'))
+  classList.toggle('ams-theme--wireframe', theme.includes('wireframe'))
+}
+
+let channelBound = false
+const bindThemeChannel = () => {
+  if (channelBound) {
+    return
+  }
+
+  addons.getChannel().on(THEME_EVENT, (theme: string) => {
+    selectedTheme = theme
+    applyModeClasses(matchTheme(currentOptions, selectedTheme))
+  })
+  channelBound = true
+}
+
+const withModeClassNames = (Story: StoryFn, context: StoryContext) => {
+  bindThemeChannel()
+
+  const override = context.parameters['themes']?.['options']
+  currentOptions = Array.isArray(override) ? (override as string[]) : themeNames
+  applyModeClasses(matchTheme(currentOptions, selectedTheme))
 
   return <Story />
 }
@@ -165,11 +188,6 @@ export const decorators = [
   },
   withModeClassNames,
 ]
-
-// Declare the theme global so that Storybook accepts it from the URL and the toolbar.
-export const initialGlobals = {
-  theme: defaultTheme,
-}
 
 // Append the City’s three crosses as a centered footer beneath every docs page.
 const DocsContainerWithFooter = ({ children, ...props }: ComponentProps<typeof DocsContainer>) => (
