@@ -8,7 +8,7 @@ import { addons } from 'storybook/preview-api'
 
 import { collapseInlineObjects, maxInlineWidth } from './collapseInlineObjects'
 import { sortLiteralUnionValues } from './sortLiteralUnionValues'
-import { matchTheme, readStoredTheme, THEME_EVENT, themeNames } from './themes'
+import { matchTheme, readStoredTheme, THEME_EVENT, THEME_KEY, themeNames } from './themes'
 import { viewports } from './viewports'
 
 import '@amsterdam/design-system-tokens/dist/index.css'
@@ -129,21 +129,38 @@ const applyModeClasses = (theme: string) => {
   classList.toggle('ams-theme--wireframe', theme.includes('wireframe'))
 }
 
-let channelBound = false
-const bindThemeChannel = () => {
-  if (channelBound) {
+const applySelectedTheme = (theme: string) => {
+  if (!theme) {
     return
   }
 
-  addons.getChannel().on(THEME_EVENT, (theme: string) => {
-    selectedTheme = theme
-    applyModeClasses(matchTheme(currentOptions, selectedTheme))
+  selectedTheme = theme
+  applyModeClasses(matchTheme(currentOptions, selectedTheme))
+}
+
+let listenersBound = false
+const bindThemeListeners = () => {
+  if (listenersBound) {
+    return
+  }
+  listenersBound = true
+
+  // The toolbar sends the selection over the Storybook channel — the fast path in Chrome and
+  // Firefox.
+  addons.getChannel().on(THEME_EVENT, applySelectedTheme)
+
+  // Safari does not reliably deliver that channel message across the manager/preview boundary, so
+  // also react to the localStorage write the toolbar makes: the storage event fires in this frame
+  // when the manager frame changes the value, and is dependable across browsers.
+  window.addEventListener('storage', (event) => {
+    if (event.key === THEME_KEY && event.newValue) {
+      applySelectedTheme(event.newValue)
+    }
   })
-  channelBound = true
 }
 
 const withModeClassNames = (Story: StoryFn, context: StoryContext) => {
-  bindThemeChannel()
+  bindThemeListeners()
 
   const override = context.parameters['themes']?.['options']
   currentOptions = Array.isArray(override) ? (override as string[]) : themeNames

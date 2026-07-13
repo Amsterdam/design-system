@@ -26,7 +26,7 @@ export const matchTheme = (options: string[], selected: string) => {
 // docs pages with many canvases, whereas a class toggle is a single style recalc.
 export const THEME_EVENT = 'amsterdam/set-theme'
 
-const THEME_KEY = 'amsterdam-storybook-theme'
+export const THEME_KEY = 'amsterdam-storybook-theme'
 
 /** Reads the persisted theme selection, falling back to the default. */
 export const readStoredTheme = (): string => {
