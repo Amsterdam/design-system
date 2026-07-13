@@ -7,8 +7,8 @@
   align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  margin-block: 1.5rem !important;
+  gap: var(--ams-space-l);
+  margin-block: var(--ams-space-m) !important;
 }
 
 ._ams-figure {
@@ -20,7 +20,7 @@
 /* Let the intrinsic ratio of the image determine its height */
 ._ams-figure > .ams-image {
   aspect-ratio: auto;
-  border-block: 1px solid #d1d1d1;
-  border-inline: 1px solid #d1d1d1;
+  border-block: var(--ams-border-width-s) solid var(--ams-color-separator);
+  border-inline: var(--ams-border-width-s) solid var(--ams-color-separator);
   display: block;
 }
