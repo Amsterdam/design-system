@@ -1,3 +1,8 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
 // The manager builder compiles JSX with the classic transform, so React must be in scope here.
 import React, { useEffect } from 'react'
 import { Select } from 'storybook/internal/components'
