@@ -1,0 +1,45 @@
+import{n as e,r as t}from"./rolldown-runtime-DaJ6WEGw.js";import{t as n}from"./jsx-runtime-Bq1bXGty.js";import{P as r,U as i,X as a,i as o,v as s,y as c}from"./index.esm-RgHL40TY.js";import{C as l,E as u,T as d,t as f,w as p}from"./src-eZdpZT7d.js";import{d as m,i as h,t as g}from"./argTypes-CQXDxDHP.js";import{m as _,u as v}from"./exampleContent-Cni407gr.js";import{i as y,t as b}from"./decorators-u8TsYO-W.js";var x=t({Default:()=>T,HighlightContent:()=>E,__namedExportsOrder:()=>D,default:()=>w}),S,C,w,T,E,D,O=e((()=>{a(),f(),p(),m(),b(),_(),S=n(),C=v(),w={title:`Components/Containers/Spotlight`,component:l,argTypes:{as:g(u),color:h(d,`purple`)},decorators:[y]},T={render:({as:e,color:t})=>(0,S.jsx)(l,{as:e,color:t,children:(0,S.jsx)(s,{paddingVertical:`x-large`,children:(0,S.jsx)(s.Cell,{span:`all`,children:(0,S.jsx)(o,{color:!t||[`azure`,`green`,`magenta`].includes(t)?`inverse`:void 0,children:C})})})})},E={args:{color:`green`},render:({color:e})=>{let t=[`lime`,`orange`,`yellow`],n=t.includes(e)?void 0:`inverse`,a=t.includes(e)?`contrast`:`inverse`;return(0,S.jsx)(l,{color:e,children:(0,S.jsx)(s,{paddingVertical:`x-large`,children:(0,S.jsxs)(s.Cell,{span:{narrow:4,medium:5,wide:7},children:[(0,S.jsx)(c,{className:`ams-mb-s`,color:n,level:2,size:`level-3`,children:`Steun geven aan een partij`}),(0,S.jsx)(r,{className:`ams-mb-m`,color:n,children:`Van 19 januari tot en met 2 februari kunt u uw steun geven aan een partij voor de gemeenteraad of een stadsdeel- of bestuurscommissie. Dit doet u met een ondersteuningsverklaring.`}),(0,S.jsx)(i,{color:a,href:`#`,children:`Ondersteuningsverklaring inleveren`})]})})})}},T.parameters={...T.parameters,docs:{...T.parameters?.docs,source:{originalSource:`{
+  render: ({
+    as,
+    color
+  }) => <Spotlight as={as} color={color}>
+      <Grid paddingVertical="x-large">
+        <Grid.Cell span="all">
+          <Blockquote color={!color || ['azure', 'green', 'magenta'].includes(color) ? 'inverse' : undefined}>
+            {quote}
+          </Blockquote>
+        </Grid.Cell>
+      </Grid>
+    </Spotlight>
+}`,...T.parameters?.docs?.source}}},E.parameters={...E.parameters,docs:{...E.parameters?.docs,source:{originalSource:`{
+  args: {
+    color: 'green'
+  },
+  render: ({
+    color
+  }) => {
+    const lightBackgroundColors = ['lime', 'orange', 'yellow'];
+    const textColor = lightBackgroundColors.includes(color!) ? undefined : 'inverse';
+    const linkColor = lightBackgroundColors.includes(color!) ? 'contrast' : 'inverse';
+    return <Spotlight color={color}>
+        <Grid paddingVertical="x-large">
+          <Grid.Cell span={{
+          narrow: 4,
+          medium: 5,
+          wide: 7
+        }}>
+            <Heading className="ams-mb-s" color={textColor} level={2} size="level-3">
+              Steun geven aan een partij
+            </Heading>
+            <Paragraph className="ams-mb-m" color={textColor}>
+              Van 19 januari tot en met 2 februari kunt u uw steun geven aan een partij voor de gemeenteraad of een
+              stadsdeel- of bestuurscommissie. Dit doet u met een ondersteuningsverklaring.
+            </Paragraph>
+            <StandaloneLink color={linkColor} href="#">
+              Ondersteuningsverklaring inleveren
+            </StandaloneLink>
+          </Grid.Cell>
+        </Grid>
+      </Spotlight>;
+  }
+}`,...E.parameters?.docs?.source}}},D=[`Default`,`HighlightContent`]}));O();export{T as Default,E as HighlightContent,D as __namedExportsOrder,w as default,O as n,x as t};
