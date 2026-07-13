@@ -2,7 +2,7 @@
   "ams": {
     "button": {
       "border-radius": {
-        "$value": "0.5rem 7rem 0.5rem 8rem / 7rem 0.5rem 8rem 0.5rem",
+        "$value": "0.5rem 3.5rem 0.5rem 4rem / 3.5rem 0.5rem 4rem 0.5rem",
         "$extensions": {
           "nl.amsterdam.type": "borderRadius"
         }

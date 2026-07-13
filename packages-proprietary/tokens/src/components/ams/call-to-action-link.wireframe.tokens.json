@@ -5,6 +5,12 @@
         "$value": "{ams.color.interactive.default}",
         "$type": "color"
       },
+      "border-radius": {
+        "$value": "7rem 0.5rem 8rem 0.5rem / 0.5rem 8rem 0.5rem 7rem",
+        "$extensions": {
+          "nl.amsterdam.type": "borderRadius"
+        }
+      },
       "hover": {
         "background-color": {
           "$value": "{ams.color.interactive.hover}",
