@@ -44,6 +44,10 @@
   margin-inline: var(--ams-breadcrumb-separator-margin-inline);
 }
 
+.ams-breadcrumb__item:not(:last-child):dir(rtl)::after {
+  transform: scaleX(-1);
+}
+
 .ams-breadcrumb__link {
   color: var(--ams-breadcrumb-link-color);
   outline-offset: var(--ams-breadcrumb-link-outline-offset);
