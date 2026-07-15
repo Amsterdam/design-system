@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
 import {
   Accordion,
@@ -82,6 +82,8 @@ import {
   PieChartFillIcon,
   SearchIcon,
 } from '@amsterdam/design-system-react-icons'
+import { useEffect } from 'react'
+import { useArgs } from 'storybook/preview-api'
 
 type WritingDirectionArgs = {
   dir: 'ltr' | 'rtl'
@@ -144,6 +146,19 @@ const content = {
 const contactIcons = [MailIcon, PhoneIcon, ClockIcon]
 const followIcons = [undefined, undefined, FacebookIcon, InstagramIcon, LinkedInIcon, MastodonIcon]
 
+// `dir` follows `lang`: Arabic is a right-to-left script, the others are left-to-right. This mirrors the
+// locale-driven approach in Calendar and Date Picker, where choosing the language also sets the direction.
+const SyncDirToLang: Decorator = (Story) => {
+  const [{ lang }, updateArgs] = useArgs()
+
+  // Re-applies whenever `lang` changes; `updateArgs` is stable, so it never triggers on its own.
+  useEffect(() => {
+    updateArgs({ dir: lang === 'ar' ? 'rtl' : 'ltr' })
+  }, [lang, updateArgs])
+
+  return <Story />
+}
+
 const meta = {
   title: 'Docs/Developer Guide/Writing Direction',
   args: {
@@ -153,9 +168,9 @@ const meta = {
   argTypes: {
     dir: {
       control: { type: 'inline-radio' },
-      description:
-        'The writing direction applied to the root element. `rtl` mirrors directional icons and inline layout.',
+      description: 'Reading direction. Read-only here: `lang` sets it — `ar` selects `rtl`, `nl` selects `ltr`.',
       options: ['ltr', 'rtl'],
+      table: { readonly: true },
     },
     lang: {
       control: {
@@ -169,6 +184,7 @@ const meta = {
       options: ['nl', 'ar'],
     },
   },
+  decorators: [SyncDirToLang],
   parameters: {
     layout: 'fullscreen',
     viewMode: 'story',
