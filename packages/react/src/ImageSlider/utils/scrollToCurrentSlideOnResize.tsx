@@ -7,15 +7,11 @@ type Args = {
   ref: RefObject<HTMLDivElement>
 }
 
+// Re-center the current slide after a resize. `scrollToSlide` resolves the inline axis from the
+// writing direction and is a no-op when the slide is already centered, so no physical scroll-offset
+// comparison is needed (that comparison was wrong in right-to-left contexts anyway).
 export const scrollToCurrentSlideOnResize = ({ currentSlideId, ref }: Args) => {
-  const scrollerElement = ref.current
-  const currentSlideElement = ref.current?.children[currentSlideId] as HTMLElement | null
-
-  if (!scrollerElement || !currentSlideElement) return
-
-  const expectedScrollLeft = currentSlideElement.offsetLeft
-
-  if (Math.abs(scrollerElement.scrollLeft - expectedScrollLeft) < 1) return
+  if (!ref.current?.children[currentSlideId]) return
 
   scrollToSlide(currentSlideId, ref)
 }
