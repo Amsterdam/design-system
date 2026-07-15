@@ -22572,13 +22572,13 @@ import * as VisuallyHiddenStories from &quot;./VisuallyHidden.stories.tsx&quot;;
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  145 | const followIcons = [undefined, undefined, FacebookIcon, InstagramIcon, LinkedInIcon, MastodonIcon]
-  146 |
-&gt; 147 | const meta = {
+  160 | }
+  161 |
+&gt; 162 | const meta = {
       | ^
-  148 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
-  149 |   args: {
-  150 |     dir: &#39;ltr&#39;,
+  163 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
+  164 |   args: {
+  165 |     dir: &#39;ltr&#39;,
 
 ./src/docs/developer-guide/WritingDirection.stories.tsx:
 /**
@@ -22586,7 +22586,7 @@ import * as VisuallyHiddenStories from &quot;./VisuallyHidden.stories.tsx&quot;;
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { Decorator, Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import {
   Accordion,
@@ -22665,6 +22665,8 @@ import {
   PieChartFillIcon,
   SearchIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
+import { useEffect } from &#39;react&#39;
+import { useArgs } from &#39;storybook/preview-api&#39;
 
 type WritingDirectionArgs = {
   dir: &#39;ltr&#39; | &#39;rtl&#39;
@@ -22727,6 +22729,19 @@ const content = {
 const contactIcons = [MailIcon, PhoneIcon, ClockIcon]
 const followIcons = [undefined, undefined, FacebookIcon, InstagramIcon, LinkedInIcon, MastodonIcon]
 
+// `dir` follows `lang`: Arabic is a right-to-left script, the others are left-to-right. This mirrors the
+// locale-driven approach in Calendar and Date Picker, where choosing the language also sets the direction.
+const SyncDirToLang: Decorator = (Story) =&gt; {
+  const [{ lang }, updateArgs] = useArgs()
+
+  // Re-applies whenever `lang` changes; `updateArgs` is stable, so it never triggers on its own.
+  useEffect(() =&gt; {
+    updateArgs({ dir: lang === &#39;ar&#39; ? &#39;rtl&#39; : &#39;ltr&#39; })
+  }, [lang, updateArgs])
+
+  return &lt;Story /&gt;
+}
+
 const meta = {
   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
   args: {
@@ -22736,9 +22751,9 @@ const meta = {
   argTypes: {
     dir: {
       control: { type: &#39;inline-radio&#39; },
-      description:
-        &#39;The writing direction applied to the root element. `rtl` mirrors directional icons and inline layout.&#39;,
+      description: &#39;Reading direction. Read-only here: `lang` sets it — `ar` selects `rtl`, `nl` selects `ltr`.&#39;,
       options: [&#39;ltr&#39;, &#39;rtl&#39;],
+      table: { readonly: true },
     },
     lang: {
       control: {
@@ -22752,6 +22767,7 @@ const meta = {
       options: [&#39;nl&#39;, &#39;ar&#39;],
     },
   },
+  decorators: [SyncDirToLang],
   parameters: {
     layout: &#39;fullscreen&#39;,
     viewMode: &#39;story&#39;,
@@ -36902,13 +36918,13 @@ This does mean that this component does not look identical on all browsers and o
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  145 | const followIcons = [undefined, undefined, FacebookIcon, InstagramIcon, LinkedInIcon, MastodonIcon]
-  146 |
-&gt; 147 | const meta = {
+  160 | }
+  161 |
+&gt; 162 | const meta = {
       | ^
-  148 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
-  149 |   args: {
-  150 |     dir: &#39;ltr&#39;,
+  163 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
+  164 |   args: {
+  165 |     dir: &#39;ltr&#39;,
 
 ./src/docs/developer-guide/WritingDirection.stories.tsx:
 /**
@@ -36916,7 +36932,7 @@ This does mean that this component does not look identical on all browsers and o
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+import type { Decorator, Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import {
   Accordion,
@@ -36995,6 +37011,8 @@ import {
   PieChartFillIcon,
   SearchIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
+import { useEffect } from &#39;react&#39;
+import { useArgs } from &#39;storybook/preview-api&#39;
 
 type WritingDirectionArgs = {
   dir: &#39;ltr&#39; | &#39;rtl&#39;
@@ -37057,6 +37075,19 @@ const content = {
 const contactIcons = [MailIcon, PhoneIcon, ClockIcon]
 const followIcons = [undefined, undefined, FacebookIcon, InstagramIcon, LinkedInIcon, MastodonIcon]
 
+// `dir` follows `lang`: Arabic is a right-to-left script, the others are left-to-right. This mirrors the
+// locale-driven approach in Calendar and Date Picker, where choosing the language also sets the direction.
+const SyncDirToLang: Decorator = (Story) =&gt; {
+  const [{ lang }, updateArgs] = useArgs()
+
+  // Re-applies whenever `lang` changes; `updateArgs` is stable, so it never triggers on its own.
+  useEffect(() =&gt; {
+    updateArgs({ dir: lang === &#39;ar&#39; ? &#39;rtl&#39; : &#39;ltr&#39; })
+  }, [lang, updateArgs])
+
+  return &lt;Story /&gt;
+}
+
 const meta = {
   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
   args: {
@@ -37066,9 +37097,9 @@ const meta = {
   argTypes: {
     dir: {
       control: { type: &#39;inline-radio&#39; },
-      description:
-        &#39;The writing direction applied to the root element. `rtl` mirrors directional icons and inline layout.&#39;,
+      description: &#39;Reading direction. Read-only here: `lang` sets it — `ar` selects `rtl`, `nl` selects `ltr`.&#39;,
       options: [&#39;ltr&#39;, &#39;rtl&#39;],
+      table: { readonly: true },
     },
     lang: {
       control: {
@@ -37082,6 +37113,7 @@ const meta = {
       options: [&#39;nl&#39;, &#39;ar&#39;],
     },
   },
+  decorators: [SyncDirToLang],
   parameters: {
     layout: &#39;fullscreen&#39;,
     viewMode: &#39;story&#39;,
