@@ -37,6 +37,9 @@
 }
 
 .ams-switch__label::before {
+  // The distance the thumb slides when the switch is checked.
+  --_ams-switch-thumb-translate: calc(100% - 2 * var(--_ams-switch-label-border-width));
+
   background-color: var(--ams-switch-thumb-background-color);
   block-size: var(--ams-switch-thumb-block-size);
   border-radius: 50%;
@@ -62,7 +65,13 @@
 }
 
 .ams-switch__input:checked + .ams-switch__label::before {
-  transform: translate(calc(100% - 2 * var(--_ams-switch-label-border-width)));
+  transform: translate(var(--_ams-switch-thumb-translate));
+}
+
+// `translate` is physical, so the checked thumb always moves to the right. Reverse it in right-to-left
+// contexts so it travels to the inline end (the left) instead.
+.ams-switch__input:checked + .ams-switch__label:dir(rtl)::before {
+  transform: translate(calc(-1 * var(--_ams-switch-thumb-translate)));
 }
 
 .ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
