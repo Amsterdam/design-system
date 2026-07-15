@@ -85,7 +85,7 @@ import {
 
 type WritingDirectionArgs = {
   dir: 'ltr' | 'rtl'
-  lang: string
+  lang: 'nl' | 'ar'
 }
 
 const halfWidth = { narrow: 4, medium: 8, wide: 6 } as const
@@ -161,16 +161,12 @@ const meta = {
       control: {
         labels: {
           ar: 'العربية (Arabic)',
-          de: 'Deutsch (German)',
-          en: 'English',
-          fr: 'Français (French)',
           nl: 'Nederlands (Dutch)',
-          tr: 'Türkçe (Turkish)',
         },
         type: 'select',
       },
       description: 'The language applied to the root element, for pronunciation, hyphenation, and `:lang()` styling.',
-      options: ['nl', 'en', 'de', 'fr', 'tr', 'ar'],
+      options: ['nl', 'ar'],
     },
   },
   parameters: {
