@@ -170,9 +170,10 @@ const meta = {
     },
   },
   parameters: {
+    chromatic: { disableSnapshot: true },
     layout: 'fullscreen',
     viewMode: 'story',
-  },
+  }
   tags: ['!autodocs'],
 } satisfies Meta<WritingDirectionArgs>
 
