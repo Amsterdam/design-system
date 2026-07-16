@@ -83,17 +83,28 @@ These locales have been tested:
 Both components also have accessible names and navigation button labels that stay in their default language until you translate them, so set those in the same language to avoid a mix.
 For right-to-left languages like Arabic, also add `dir="rtl"` to the component or to a containing element.
 
+If your app uses one of these components in multiple places with the same language, a small wrapper component avoids repeating these props:
+
 ```tsx
-<Calendar
-  accessibleName="التقويم"
-  dir="rtl"
-  locale="ar-MA"
-  nextMonthButtonLabel="الشهر التالي"
-  nextYearButtonLabel="السنة التالية"
-  previousMonthButtonLabel="الشهر السابق"
-  previousYearButtonLabel="السنة السابقة"
-/>
+import type { CalendarProps } from "@amsterdam/design-system-react";
+
+import { Calendar } from "@amsterdam/design-system-react";
+
+const ArabicCalendar = (props: CalendarProps) => (
+  <Calendar
+    accessibleName="التقويم"
+    dir="rtl"
+    locale="ar-MA"
+    nextMonthButtonLabel="الشهر التالي"
+    nextYearButtonLabel="السنة التالية"
+    previousMonthButtonLabel="الشهر السابق"
+    previousYearButtonLabel="السنة السابقة"
+    {...props}
+  />
+);
 ```
+
+The same pattern applies to the Date Picker, which also takes `rangeStartAccessibleName` and `rangeEndAccessibleName` in range mode.
 
 ### Mirror directional icons
 
