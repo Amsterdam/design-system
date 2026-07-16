@@ -4740,6 +4740,28 @@
       ],
       "import": "import { InlineList } from \"@amsterdam/storybook\";"
     },
+    "components-docs-package-versions": {
+      "id": "components-docs-package-versions",
+      "name": "PackageVersions",
+      "path": "./src/_components/PackageVersions/PackageVersions.test.stories.tsx",
+      "jsDocTags": {},
+      "description": "Lists the current published version of each package as an inline band.",
+      "reactComponentMeta": {
+        "displayName": "PackageVersions",
+        "exportName": "PackageVersions",
+        "filePath": "/home/runner/work/design-system/design-system/storybook/src/_components/PackageVersions/PackageVersions.tsx",
+        "description": "Lists the current published version of each package as an inline band.",
+        "props": {}
+      },
+      "stories": [
+        {
+          "id": "components-docs-package-versions--test",
+          "name": "Test",
+          "snippet": "const Test = () => <PackageVersions />;"
+        }
+      ],
+      "import": "import { PackageVersions } from \"@amsterdam/storybook\";"
+    },
     "components-docs-shadow-sample": {
       "id": "components-docs-shadow-sample",
       "name": "ShadowSample",
@@ -5759,6 +5781,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 3463
+    "durationMs": 4230
   }
 }
