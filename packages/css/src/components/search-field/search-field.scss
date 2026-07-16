@@ -42,8 +42,8 @@
 // The input has `dir="auto"`, which resolves to left-to-right while it has no value, sticking the
 // placeholder to the wrong side on right-to-left pages. Follow the page direction while the
 // placeholder shows; once the user types, this selector stops matching and `dir="auto"` derives
-// the direction from their input again.
-.ams-search-field__input:placeholder-shown {
+// the direction from their input again. An explicit `dir` value is respected.
+.ams-search-field__input[dir="auto"]:placeholder-shown {
   direction: inherit;
 }
 
