@@ -37,6 +37,15 @@ When the length exceeds the maximum length, the colour of the text changes to re
 
 <Canvas of={CharacterCountStories.Error} />
 
+### Translated text
+
+The component displays its text in Dutch by default.
+Pass one of the exported formatters – or a custom function – to `formatText` to display the count in another language.
+The Arabic formatter applies Arabic number–noun agreement.
+See the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
+
+<Canvas of={CharacterCountStories.Translated} />
+
 ## Features
 
 Users will get updates at a pace that works best for the way they interact with the textarea.

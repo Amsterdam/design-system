@@ -8,7 +8,17 @@ import type { ForwardedRef, HTMLAttributes } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
+import type { FormatCharacterCountText } from './formatCharacterCountText'
+
+import { formatCharacterCountTextNl } from './formatCharacterCountText'
+
 export type CharacterCountProps = {
+  /**
+   * Returns the text that displays the count, based on the current and maximum length.
+   * Formatters for all tested locales are available as exports.
+   * @default formatCharacterCountTextNl
+   */
+  readonly formatText?: FormatCharacterCountText
   /** The current length of the field’s value. */
   readonly length: number
   /** The maximum length of the field’s value. */
@@ -21,14 +31,17 @@ export type CharacterCountProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-forms-character-count--docs Character Count docs at Amsterdam Design System}
  */
 export const CharacterCount = forwardRef(
-  ({ className, length, maxLength, ...restProps }: CharacterCountProps, ref: ForwardedRef<HTMLDivElement>) => (
+  (
+    { className, formatText = formatCharacterCountTextNl, length, maxLength, ...restProps }: CharacterCountProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => (
     <div
       {...restProps}
       className={clsx('ams-character-count', length > maxLength && 'ams-character-count--error', className)}
       ref={ref}
       role="status"
     >
-      {`${length} van ${maxLength} tekens`}
+      {formatText(length, maxLength)}
     </div>
   ),
 )

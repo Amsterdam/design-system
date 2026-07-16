@@ -35,6 +35,28 @@ describe('CharacterCount', () => {
     expect(component).toHaveClass('ams-character-count extra')
   })
 
+  it('renders the Dutch count text by default', () => {
+    render(<CharacterCount length={7} maxLength={10} />)
+
+    const component = screen.getByRole('status')
+
+    expect(component).toHaveTextContent('7 van 10 tekens')
+  })
+
+  it('renders custom text through formatText', () => {
+    render(
+      <CharacterCount
+        formatText={(length, maxLength) => `${length} of ${maxLength} characters`}
+        length={7}
+        maxLength={10}
+      />,
+    )
+
+    const component = screen.getByRole('status')
+
+    expect(component).toHaveTextContent('7 of 10 characters')
+  })
+
   it('renders an error class when length is larger than maxLength', () => {
     render(<CharacterCount length={101} maxLength={100} />)
 
