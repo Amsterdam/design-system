@@ -154,6 +154,14 @@
             }
           }
         }
+      },
+      "rtl": {
+        "background-position": {
+          "$value": "left {ams.space.m} center",
+          "$extensions": {
+            "nl.amsterdam.type": "backgroundPosition"
+          }
+        }
       }
     }
   }
