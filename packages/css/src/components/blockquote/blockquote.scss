@@ -31,6 +31,10 @@
   }
 }
 
+.ams-blockquote:lang(ar) {
+  quotes: "«" "»";
+}
+
 .ams-blockquote--inverse {
   color: var(--ams-blockquote-inverse-color);
 }
