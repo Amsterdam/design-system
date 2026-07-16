@@ -121,8 +121,9 @@ const content = {
       { heading: 'معلومات عنا', links: ['عن المنظمة', 'عن منصة البيانات'] },
       { heading: 'المساعدة', links: ['المساعدة', 'اتصل بنا'] },
     ],
-    // TODO: Replace with the values agreed in Slack before merging.
+    // `menuButtonText` is a verified translation; the other values are unverified drafts.
     pageHeader: {
+      logoLinkTitle: 'انتقل إلى الصفحة الرئيسية لبيانات أمستردام',
       menuButtonText: 'القائمة',
       menuButtonTextForHide: 'أخفِ قائمة التنقل',
       menuButtonTextForShow: 'أظهر قائمة التنقل',
@@ -263,6 +264,7 @@ const content = {
       { heading: 'Help', links: ['Help', 'Contact'] },
     ],
     pageHeader: {
+      logoLinkTitle: 'Ga naar de homepage van Data Amsterdam',
       menuButtonText: 'Menu',
       menuButtonTextForHide: 'Verberg navigatiemenu',
       menuButtonTextForShow: 'Laat navigatiemenu zien',
@@ -470,6 +472,7 @@ export const Playground: Story = {
           <PageHeader
             brandName={t.brandName}
             defaultOpen
+            logoLinkTitle={t.pageHeader.logoLinkTitle}
             menuButtonText={t.pageHeader.menuButtonText}
             menuButtonTextForHide={t.pageHeader.menuButtonTextForHide}
             menuButtonTextForShow={t.pageHeader.menuButtonTextForShow}
