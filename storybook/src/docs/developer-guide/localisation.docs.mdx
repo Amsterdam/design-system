@@ -106,6 +106,12 @@ const ArabicCalendar = (props: CalendarProps) => (
 
 The same pattern applies to the Date Picker, which also takes `rangeStartAccessibleName` and `rangeEndAccessibleName` in range mode.
 
+### Native form controls
+
+Native form controls render some of their text themselves.
+For example, `<input type="time">` orders and formats its hour and minute fields according to the browser’s own locale, not the page’s `lang` or `dir`.
+This is browser behaviour that pages cannot override.
+
 ### Mirror directional icons
 
 Icons that imply a reading direction or depict movement that follows the reader’s natural flow flip in a right-to-left context.
