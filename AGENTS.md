@@ -114,6 +114,7 @@ For details, rely on the official documentation and per-package instructions:
 - Accessibility and quality: [documentation/definition-of-done.md](documentation/definition-of-done.md) (full quality checklist including WCAG 2.2 Level AA).
 - Component docs and Storybook: [documentation/component-docs.md](documentation/component-docs.md) and [documentation/storybook.md](documentation/storybook.md).
 - Git and contribution workflow: [documentation/git.md](documentation/git.md), [documentation/code-reviews.md](documentation/code-reviews.md), and [documentation/publishing.md](documentation/publishing.md).
+- Release notes: [documentation/release-notes.md](documentation/release-notes.md) — how to summarise a release for the people who use the design system, and why the changelogs alone are not enough.
 
 Key agent expectations:
 
