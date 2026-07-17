@@ -152,6 +152,10 @@ Expect to make several of them per release, and budget a verification pass to fi
     The April draft said Tokens 4.0.1 arrived with the major four days earlier.
     It was the patch in the release being written about.
     When you say a version ‘arrived with’ something, read its changelog date rather than assuming it rode along with a neighbour.
+13. **Two pages with the same name.**
+    The 20 April draft linked the ‘Navigation Page’ example to `Pages/Public/Navigation Page`, which already existed.
+    The new template was `Pages/Internal/Navigation Page`.
+    A kebab-cased title is not unique: check the full title, and that the page is new, before you link it.
 
 ## Structure
 
