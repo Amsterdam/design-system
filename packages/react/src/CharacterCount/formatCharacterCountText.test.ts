@@ -28,7 +28,9 @@ describe('formatCharacterCountText', () => {
     expect(formatCharacterCountTextDe(7, 10)).toBe('7 von 10 Zeichen')
   })
 
-  it('formats the count in English', () => {
+  it('formats the count in English with a singular for a maximum of one character', () => {
+    expect(formatCharacterCountTextEn(0, 1)).toBe('0 of 1 character')
+    expect(formatCharacterCountTextEn(1, 1)).toBe('1 of 1 character')
     expect(formatCharacterCountTextEn(7, 10)).toBe('7 of 10 characters')
   })
 
@@ -38,7 +40,9 @@ describe('formatCharacterCountText', () => {
     expect(formatCharacterCountTextFr(7, 10)).toBe('7 caractères sur 10')
   })
 
-  it('formats the count in Dutch', () => {
+  it('formats the count in Dutch with a singular for a maximum of one character', () => {
+    expect(formatCharacterCountTextNl(0, 1)).toBe('0 van 1 teken')
+    expect(formatCharacterCountTextNl(1, 1)).toBe('1 van 1 teken')
     expect(formatCharacterCountTextNl(7, 10)).toBe('7 van 10 tekens')
   })
 

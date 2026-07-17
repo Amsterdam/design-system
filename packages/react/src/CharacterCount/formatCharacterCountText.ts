@@ -24,7 +24,7 @@ export const formatCharacterCountTextDe: FormatCharacterCountText = (length, max
 
 /** Formats the character count in English, e.g. ‘7 of 10 characters’. */
 export const formatCharacterCountTextEn: FormatCharacterCountText = (length, maxLength) =>
-  `${length} of ${maxLength} characters`
+  `${length} of ${maxLength} ${maxLength === 1 ? 'character' : 'characters'}`
 
 /** Formats the character count in French, e.g. ‘7 caractères sur 10’. */
 export const formatCharacterCountTextFr: FormatCharacterCountText = (length, maxLength) =>
@@ -32,7 +32,7 @@ export const formatCharacterCountTextFr: FormatCharacterCountText = (length, max
 
 /** Formats the character count in Dutch, e.g. ‘7 van 10 tekens’. */
 export const formatCharacterCountTextNl: FormatCharacterCountText = (length, maxLength) =>
-  `${length} van ${maxLength} tekens`
+  `${length} van ${maxLength} ${maxLength === 1 ? 'teken' : 'tekens'}`
 
 /** Formats the character count in Turkish, e.g. ‘10 karakterden 7’. */
 export const formatCharacterCountTextTr: FormatCharacterCountText = (length, maxLength) =>
