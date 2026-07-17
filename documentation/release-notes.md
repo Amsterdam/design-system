@@ -295,4 +295,4 @@ Concretely:
   On 12 July 2026 six icons and a set of field tokens were three days past theirs, and no changelog mentioned it.
   These belong in the notes for the release that removes them, but they are worth raising with the team when you notice.
 - Confirm the release notes sort right after the Introduction: add the entry to `storySort.order` in [storybook/config/preview.tsx](../storybook/config/preview.tsx).
-- Run `npx prettier --check` and `npx eslint` on the file, and build Storybook once to confirm the MDX compiles.
+- Run `pnpm exec prettier --check` and `pnpm exec eslint` on the file, and build Storybook once to confirm the MDX compiles.
