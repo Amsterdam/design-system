@@ -2676,6 +2676,7 @@ This ensures the colour of the text provides enough contrast.
 ## Features
 
 The component adds the correct quotation marks.
+Content in Arabic (marked with `lang=&quot;ar&quot;`) gets guillemets (`«` and `»`), following Arabic convention; other content gets curly double quotes.
 
 ## See also
 
@@ -3668,26 +3669,7 @@ It does not translate the rest: set `accessibleName`, `nextMonthButtonLabel`, `n
 For right-to-left scripts such as Arabic, also add `dir=&quot;rtl&quot;`; this mirrors the layout and the navigation chevrons.
 Try the `locale` control above to preview each language; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
 
-If your app uses Calendar in multiple places with the same language, a small wrapper component avoids repeating these props:
-
-```tsx
-import type { CalendarProps } from &quot;@amsterdam/design-system-react&quot;;
-
-import { Calendar } from &quot;@amsterdam/design-system-react&quot;;
-
-const ArabicCalendar = (props: CalendarProps) =&gt; (
-  &lt;Calendar
-    accessibleName=&quot;التقويم&quot;
-    dir=&quot;rtl&quot;
-    locale=&quot;ar-MA&quot;
-    nextMonthButtonLabel=&quot;الشهر التالي&quot;
-    nextYearButtonLabel=&quot;السنة التالية&quot;
-    previousMonthButtonLabel=&quot;الشهر السابق&quot;
-    previousYearButtonLabel=&quot;السنة السابقة&quot;
-    {...props}
-  /&gt;
-);
-```
+If your app uses Calendar in multiple places with the same language, a small wrapper component avoids repeating these props; the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) shows an example.
 
 ## Examples
 
@@ -4298,6 +4280,15 @@ If your users keep hitting the character limit imposed by the backend of your se
 When the length exceeds the maximum length, the colour of the text changes to red.
 
 &lt;Canvas of={CharacterCountStories.Error} /&gt;
+
+### Translated text
+
+The component displays its text in Dutch by default.
+Pass one of the exported formatters – or a custom function – to `formatText` to display the count in another language.
+The Arabic formatter applies Arabic number–noun agreement.
+See the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
+
+&lt;Canvas of={CharacterCountStories.Translated} /&gt;
 
 ## Features
 
@@ -5557,27 +5548,7 @@ In range mode, also localise `rangeStartAccessibleName` and `rangeEndAccessibleN
 For right-to-left scripts such as Arabic, also add `dir=&quot;rtl&quot;`; this mirrors the layout and the navigation chevrons.
 Try the `locale` control above to preview each language; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
 
-If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props:
-
-```tsx
-import type { DatePickerProps } from &quot;@amsterdam/design-system-react&quot;;
-
-import { DatePicker } from &quot;@amsterdam/design-system-react&quot;;
-
-const ArabicDatePicker = (props: DatePickerProps) =&gt; (
-  &lt;DatePicker
-    dir=&quot;rtl&quot;
-    locale=&quot;ar-MA&quot;
-    nextMonthButtonLabel=&quot;الشهر التالي&quot;
-    nextYearButtonLabel=&quot;السنة التالية&quot;
-    previousMonthButtonLabel=&quot;الشهر السابق&quot;
-    previousYearButtonLabel=&quot;السنة السابقة&quot;
-    rangeEndAccessibleName=&quot;تاريخ النهاية&quot;
-    rangeStartAccessibleName=&quot;تاريخ البداية&quot;
-    {...props}
-  /&gt;
-);
-```
+If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props; the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) shows an example.
 
 ## Design
 
@@ -22572,13 +22543,13 @@ import * as VisuallyHiddenStories from &quot;./VisuallyHidden.stories.tsx&quot;;
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  160 | }
-  161 |
-&gt; 162 | const meta = {
+  423 | }
+  424 |
+&gt; 425 | const meta = {
       | ^
-  163 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
-  164 |   args: {
-  165 |     dir: &#39;ltr&#39;,
+  426 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
+  427 |   args: {
+  428 |     dir: &#39;ltr&#39;,
 
 ./src/docs/developer-guide/WritingDirection.stories.tsx:
 /**
@@ -22614,6 +22585,8 @@ import {
   Figure,
   FileInput,
   FileList,
+  formatCharacterCountTextAr,
+  formatCharacterCountTextNl,
   Grid,
   Heading,
   Icon,
@@ -22665,8 +22638,10 @@ import {
   PieChartFillIcon,
   SearchIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
-import { useEffect } from &#39;react&#39;
+import { Fragment, useEffect } from &#39;react&#39;
 import { useArgs } from &#39;storybook/preview-api&#39;
+
+import { calendarLocaleProps, datePickerLocaleProps } from &#39;../../_common/locale&#39;
 
 type WritingDirectionArgs = {
   dir: &#39;ltr&#39; | &#39;rtl&#39;
@@ -22676,9 +22651,10 @@ type WritingDirectionArgs = {
 const halfWidth = { narrow: 4, medium: 8, wide: 6 } as const
 const thirdWidth = { narrow: 4, medium: 4, wide: 3 } as const
 
-// The page chrome and the article below switch to Arabic when that language is selected, so the story
-// exercises a full right-to-left script. The 60 component samples further down stay in Dutch.
+// The entire page – chrome, article, and every component sample – switches to Arabic when that
+// language is selected, so the story exercises a full right-to-left script.
 // The Arabic strings are illustrative demo copy, not verified production translations.
+// Proper nouns such as street names stay in Latin script, as they would on a real page.
 const content = {
   ar: {
     brandName: &#39;بيانات أمستردام&#39;,
@@ -22689,7 +22665,7 @@ const content = {
       contactHeading: &#39;اتصل بنا&#39;,
       contactLinks: [&#39;نموذج الاتصال&#39;, &#39;14 020&#39;, &#39;العناوين وساعات العمل&#39;],
       followHeading: &#39;تابعونا&#39;,
-      followLinks: [&#39;تطبيق أمستردام&#39;, &#39;النشرات الإخبارية&#39;, &#39;Facebook&#39;, &#39;Instagram&#39;, &#39;LinkedIn&#39;, &#39;Mastodon&#39;],
+      followLinks: [&#39;تطبيق أمستردام&#39;, &#39;النشرات الإخبارية&#39;, &#39;فيسبوك&#39;, &#39;إنستغرام&#39;, &#39;لينكد إن&#39;, &#39;ماستودون&#39;],
       vacanciesHeading: &#39;الوظائف الشاغرة&#39;,
       vacanciesLink: &#39;العمل لدى أمستردام&#39;,
     },
@@ -22699,6 +22675,126 @@ const content = {
       { heading: &#39;معلومات عنا&#39;, links: [&#39;عن المنظمة&#39;, &#39;عن منصة البيانات&#39;] },
       { heading: &#39;المساعدة&#39;, links: [&#39;المساعدة&#39;, &#39;اتصل بنا&#39;] },
     ],
+    // `menuButtonText` is a verified translation; the other values are unverified drafts.
+    pageHeader: {
+      logoLinkTitle: &#39;انتقل إلى الصفحة الرئيسية لبيانات أمستردام&#39;,
+      menuButtonText: &#39;القائمة&#39;,
+      menuButtonTextForHide: &#39;أخفِ قائمة التنقل&#39;,
+      menuButtonTextForShow: &#39;أظهر قائمة التنقل&#39;,
+      navigationLabel: &#39;القائمة الرئيسية&#39;,
+    },
+    samples: {
+      accordion: {
+        sections: [
+          { body: &#39;تتبع بلدية أمستردام مدونة NVP للتوظيف.&#39;, label: &#39;كيف تبدو إجراءات التقديم للوظيفة؟&#39; },
+          {
+            body: &#39;نعم، إذا كنت ستعمل لدى بلدية أمستردام فستحتاج إلى شهادة حسن سلوك.&#39;,
+            label: &#39;هل أحتاج إلى شهادة حسن سلوك (VOG)؟&#39;,
+          },
+        ],
+      },
+      actionGroup: { proceedLabel: &#39;متابعة&#39;, stopLabel: &#39;إيقاف&#39; },
+      alert: { body: &#39;أثناء أعمال الرفع، تتوقف حركة المرور لفترة قصيرة.&#39;, heading: &#39;حركة المرور متوقفة مؤقتًا&#39; },
+      avatarLabel: &#39;بأ&#39;,
+      badgeLabel: &#39;نصيحة&#39;,
+      blockquote: &#39;اعتنوا جيدًا بالمدينة وببعضكم البعض.&#39;,
+      breadcrumbLinks: [&#39;النفايات&#39;, &#39;نفايات الشركات&#39;, &#39;نقاط إعادة التدوير للشركات&#39;],
+      breakoutParagraph: &#39;هدف هذا النادي هو أن تصبح منطقة Zuidas أكثر استدامة باستمرار.&#39;,
+      buttonLabel: &#39;إرسال&#39;,
+      callToActionLabel: &#39;طلب رخصة قيادة&#39;,
+      card: { body: &#39;اطلع على الضرائب والرسوم المفروضة وكيفية تقديم اعتراض.&#39;, heading: &#39;الضرائب البلدية&#39; },
+      characterCountFormatText: formatCharacterCountTextAr,
+      checkboxLabel: &#39;أوافق على الشروط&#39;,
+      columnParagraphs: [&#39;نتيجة البحث الأولى&#39;, &#39;نتيجة البحث الثانية&#39;],
+      dateInputLabel: &#39;ما هو تاريخ ميلادك؟&#39;,
+      descriptionList: [
+        { description: &#39;تعليم عملي&#39;, term: &#39;تعليم منخفض&#39; },
+        { description: &#39;تعليم نظري&#39;, term: &#39;تعليم عالٍ&#39; },
+      ],
+      dialog: {
+        body: &#39;ستتلقى تأكيدًا عبر البريد الإلكتروني.&#39;,
+        closeButtonLabel: &#39;إغلاق&#39;,
+        heading: &#39;تم حفظ البيانات&#39;,
+        openButtonLabel: &#39;افتح مربع الحوار&#39;,
+      },
+      errorMessage: &#39;أدخل عنوان بريد إلكتروني صالحًا، مثل naam@voorbeeld.nl.&#39;,
+      fieldSet: { firstNameLabel: &#39;الاسم الأول&#39;, lastNameLabel: &#39;اسم العائلة&#39;, legend: &#39;ما هو اسمك؟&#39; },
+      figureCaption: &#39;صف من الدراجات المتوقفة على طول قناة ضيقة في أمستردام.&#39;,
+      fileInputLabel: &#39;أضف مرفقًا&#39;,
+      fileName: &#39;مستند.pdf&#39;,
+      gridParagraphs: [&#39;خلية الشبكة الأولى&#39;, &#39;خلية الشبكة الثانية&#39;],
+      heading: &#39;المزيد من الأماكن للفنون والثقافة في جميع أنحاء المدينة&#39;,
+      iconButtonLabel: &#39;إغلاق&#39;,
+      imageSlider: {
+        imageLabel: &#39;صورة&#39;,
+        images: [
+          { alt: &#39;جسر&#39;, src: &#39;https://picsum.photos/id/122/1280/720&#39; },
+          { alt: &#39;ملجأ&#39;, src: &#39;https://picsum.photos/id/101/1280/720&#39; },
+          { alt: &#39;كراسي&#39;, src: &#39;https://picsum.photos/id/153/1280/720&#39; },
+        ],
+        nextLabel: &#39;التالية&#39;,
+        previousLabel: &#39;السابقة&#39;,
+      },
+      invalidFormAlert: {
+        errors: [&#39;أدخل تاريخًا صالحًا (مثل 6 يناير 2030).&#39;, &#39;يجب أن يكون تاريخ انتهاء صلاحية جواز سفرك في المستقبل.&#39;],
+        heading: &#39;صحّح الأخطاء قبل المتابعة&#39;,
+      },
+      labelText: &#39;تسمية&#39;,
+      linkListLinks: [&#39;نموذج الاتصال&#39;, &#39;العناوين وساعات العمل&#39;, &#39;اتصل بالرقم 14 020&#39;],
+      linkSentence: { linkText: &#39;مصمم الخطوط&#39;, textAfter: &#39; يصمم الحروف.&#39;, textBefore: &#39;&#39; },
+      markSentence: { markText: &#39;خبراء النفايات&#39;, textAfter: &#39;.&#39;, textBefore: &#39;يمكننا كبلدية أن نتعلم الكثير من &#39; },
+      menuLinkLabel: &#39;لوحة المعلومات&#39;,
+      orderedListItems: [
+        &#39;احرص على أن تكون مهمة الكتابة واضحة.&#39;,
+        &#39;اجمع المعلومات وانتقِها ونظمها.&#39;,
+        &#39;راجع النص ومهمة الكتابة.&#39;,
+      ],
+      pagination: { nextLabel: &#39;التالي&#39;, previousLabel: &#39;السابق&#39; },
+      paragraph: &#39;تراقب الشرطة المخالفات المتعلقة بالدراجات الكهربائية المعدّلة والدراجات ذات الإطارات العريضة.&#39;,
+      passwordInputLabel: &#39;كلمة المرور&#39;,
+      progressList: [
+        { body: &#39;تم استلام طلبك في 2 يناير 2026.&#39;, heading: &#39;تم تقديم الطلب&#39; },
+        { body: &#39;يراجع أحد الموظفين طلبك وسيتواصل معك عند وجود أسئلة.&#39;, heading: &#39;قيد المعالجة&#39; },
+        { body: &#39;ستتلقى القرار في غضون 8 أسابيع من تقديم طلبك.&#39;, heading: &#39;القرار&#39; },
+      ],
+      radioLabel: &#39;البقاء على اطلاع عبر البريد الإلكتروني&#39;,
+      rowParagraphs: [&#39;واحد&#39;, &#39;اثنان&#39;],
+      searchPlaceholder: &#39;ماذا يمكننا أن نجد لك؟&#39;,
+      select: {
+        label: &#39;اختر حيًا&#39;,
+        options: [
+          { label: &#39;المركز&#39;, value: &#39;Centrum&#39; },
+          { label: &#39;الشمال&#39;, value: &#39;Noord&#39; },
+          { label: &#39;الجنوب&#39;, value: &#39;Zuid&#39; },
+        ],
+      },
+      standaloneLinkLabel: &#39;عرض جميع المواضيع&#39;,
+      surnameLabel: &#39;ما هو اسم عائلتك؟&#39;,
+      switchLabel: &#39;تلقي الإشعارات&#39;,
+      table: {
+        caption: &#39;تكاليف الطلب&#39;,
+        deliveryTimeHeader: &#39;مدة التسليم العادية&#39;,
+        rows: [
+          { price: &#39;€ 77,85&#39;, type: &#39;جواز السفر&#39; },
+          { price: &#39;€ 70,35&#39;, type: &#39;بطاقة الهوية&#39; },
+        ],
+        typeHeader: &#39;النوع&#39;,
+      },
+      tableOfContents: { heading: &#39;في هذه الصفحة&#39;, links: [&#39;كيف يعمل&#39;, &#39;الشروط&#39;, &#39;التقديم&#39;] },
+      tabNavigationLinks: [&#39;البيانات&#39;, &#39;الإشعارات الضريبية&#39;, &#39;المستندات&#39;],
+      tabs: [
+        { address: &#39;Bos en Lommerplein 250, 1055 EK Amsterdam&#39;, label: &#39;الغرب&#39; },
+        { address: &#39;Amstel 1, 1011 PN Amsterdam&#39;, label: &#39;المركز&#39; },
+      ],
+      textAreaLabel: &#39;توضيح&#39;,
+      textInputLabel: &#39;مكان الإقامة&#39;,
+      timeInputLabel: &#39;في أي ساعة موعدك؟&#39;,
+      unorderedListItems: [
+        &#39;De Clercqstraat وJan Evertsenstraat&#39;,
+        &#39;Raadhuisstraat وWestermarkt وRozengracht&#39;,
+        &#39;Nieuwezijds Voorburgwal&#39;,
+      ],
+    },
     search: &#39;بحث&#39;,
     skipLink: &#39;انتقل إلى المحتوى&#39;,
   },
@@ -22721,6 +22817,144 @@ const content = {
       { heading: &#39;Over ons&#39;, links: [&#39;Over de organisatie&#39;, &#39;Over het dataplatform&#39;] },
       { heading: &#39;Help&#39;, links: [&#39;Help&#39;, &#39;Contact&#39;] },
     ],
+    pageHeader: {
+      logoLinkTitle: &#39;Ga naar de homepage van Data Amsterdam&#39;,
+      menuButtonText: &#39;Menu&#39;,
+      menuButtonTextForHide: &#39;Verberg navigatiemenu&#39;,
+      menuButtonTextForShow: &#39;Laat navigatiemenu zien&#39;,
+      navigationLabel: &#39;Hoofdmenu&#39;,
+    },
+    samples: {
+      accordion: {
+        sections: [
+          {
+            body: &#39;De gemeente Amsterdam volgt de NVP Sollicitatiecode.&#39;,
+            label: &#39;Hoe ziet de sollicitatieprocedure eruit?&#39;,
+          },
+          {
+            body: &#39;Ja, als je gaat werken bij de gemeente Amsterdam heb je een VOG nodig.&#39;,
+            label: &#39;Heb ik een VOG nodig?&#39;,
+          },
+        ],
+      },
+      actionGroup: { proceedLabel: &#39;Doorgaan&#39;, stopLabel: &#39;Stoppen&#39; },
+      alert: {
+        body: &#39;Tijdens de hijswerkzaamheden geldt er een korte verkeersstop.&#39;,
+        heading: &#39;Tijdelijk geen verkeer mogelijk&#39;,
+      },
+      avatarLabel: &#39;DS&#39;,
+      badgeLabel: &#39;Tip&#39;,
+      blockquote: &#39;Zorg goed voor de stad en voor elkaar.&#39;,
+      breadcrumbLinks: [&#39;Afval&#39;, &#39;Bedrijfsafval&#39;, &#39;Recyclepunten voor bedrijven&#39;],
+      breakoutParagraph: &#39;Het doel van deze club is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt.&#39;,
+      buttonLabel: &#39;Versturen&#39;,
+      callToActionLabel: &#39;Rijbewijs aanvragen&#39;,
+      card: {
+        body: &#39;Bekijk welke belastingen en heffingen er zijn en hoe u bezwaar maakt.&#39;,
+        heading: &#39;Gemeentebelastingen&#39;,
+      },
+      characterCountFormatText: formatCharacterCountTextNl,
+      checkboxLabel: &#39;Ik ga akkoord met de voorwaarden&#39;,
+      columnParagraphs: [&#39;Zoekresultaten één&#39;, &#39;Zoekresultaten twee&#39;],
+      dateInputLabel: &#39;Wat is uw geboortedatum?&#39;,
+      descriptionList: [
+        { description: &#39;Praktisch opgeleid&#39;, term: &#39;Laagopgeleid&#39; },
+        { description: &#39;Theoretisch opgeleid&#39;, term: &#39;Hoogopgeleid&#39; },
+      ],
+      dialog: {
+        body: &#39;U ontvangt een bevestiging per e-mail.&#39;,
+        closeButtonLabel: &#39;Sluiten&#39;,
+        heading: &#39;De gegevens zijn opgeslagen&#39;,
+        openButtonLabel: &#39;Open dialoog&#39;,
+      },
+      errorMessage: &#39;Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.&#39;,
+      fieldSet: { firstNameLabel: &#39;Voornaam&#39;, lastNameLabel: &#39;Achternaam&#39;, legend: &#39;Wat is uw naam?&#39; },
+      figureCaption: &#39;Een rij geparkeerde fietsen langs een smalle Amsterdamse gracht.&#39;,
+      fileInputLabel: &#39;Voeg een bijlage toe&#39;,
+      fileName: &#39;document.pdf&#39;,
+      gridParagraphs: [&#39;Grid-cel links&#39;, &#39;Grid-cel rechts&#39;],
+      heading: &#39;Meer plekken voor kunst en cultuur, verspreid over de stad&#39;,
+      iconButtonLabel: &#39;Sluiten&#39;,
+      imageSlider: {
+        imageLabel: &#39;Afbeelding&#39;,
+        images: [
+          { alt: &#39;Brug&#39;, src: &#39;https://picsum.photos/id/122/1280/720&#39; },
+          { alt: &#39;Bunker&#39;, src: &#39;https://picsum.photos/id/101/1280/720&#39; },
+          { alt: &#39;Stoelen&#39;, src: &#39;https://picsum.photos/id/153/1280/720&#39; },
+        ],
+        nextLabel: &#39;Volgende&#39;,
+        previousLabel: &#39;Vorige&#39;,
+      },
+      invalidFormAlert: {
+        errors: [
+          &#39;Vul een geldige datum in (bijvoorbeeld 6 januari 2030).&#39;,
+          &#39;De geldigheidsdatum van uw paspoort moet in de toekomst liggen.&#39;,
+        ],
+        heading: &#39;Verbeter de fouten voor u verder gaat&#39;,
+      },
+      labelText: &#39;Label&#39;,
+      linkListLinks: [&#39;Contactformulier&#39;, &#39;Adressen en openingstijden&#39;, &#39;Bel 14 020&#39;],
+      linkSentence: { linkText: &#39;typograaf&#39;, textAfter: &#39; ontwerpt letters.&#39;, textBefore: &#39;Een &#39; },
+      markSentence: {
+        markText: &#39;afvalexperts&#39;,
+        textAfter: &#39; leren.&#39;,
+        textBefore: &#39;Wij kunnen als gemeente veel van deze &#39;,
+      },
+      menuLinkLabel: &#39;Dashboard&#39;,
+      orderedListItems: [
+        &#39;Zorg voor een duidelijke schrijfopdracht.&#39;,
+        &#39;Verzamel, selecteer en structureer de informatie.&#39;,
+        &#39;Controleer de tekst en de schrijfopdracht.&#39;,
+      ],
+      pagination: { nextLabel: &#39;volgende&#39;, previousLabel: &#39;vorige&#39; },
+      paragraph: &#39;De politie controleert op overtredingen met opgevoerde e-bikes en fatbikes.&#39;,
+      passwordInputLabel: &#39;Wachtwoord&#39;,
+      progressList: [
+        { body: &#39;Uw aanvraag is op 2 januari 2026 ontvangen.&#39;, heading: &#39;Aanvraag ingediend&#39; },
+        {
+          body: &#39;Een medewerker beoordeelt uw aanvraag en neemt bij vragen contact met u op.&#39;,
+          heading: &#39;In behandeling&#39;,
+        },
+        { body: &#39;U ontvangt het besluit binnen 8 weken na uw aanvraag.&#39;, heading: &#39;Besluit&#39; },
+      ],
+      radioLabel: &#39;Op de hoogte blijven via e-mail&#39;,
+      rowParagraphs: [&#39;Een&#39;, &#39;Twee&#39;],
+      searchPlaceholder: &#39;Wat kunnen we voor u vinden?&#39;,
+      select: {
+        label: &#39;Kies een stadsdeel&#39;,
+        options: [
+          { label: &#39;Centrum&#39;, value: &#39;Centrum&#39; },
+          { label: &#39;Noord&#39;, value: &#39;Noord&#39; },
+          { label: &#39;Zuid&#39;, value: &#39;Zuid&#39; },
+        ],
+      },
+      standaloneLinkLabel: &#39;Bekijk alle onderwerpen&#39;,
+      surnameLabel: &#39;Wat is uw achternaam?&#39;,
+      switchLabel: &#39;Meldingen ontvangen&#39;,
+      table: {
+        caption: &#39;Kosten voor de aanvraag&#39;,
+        deliveryTimeHeader: &#39;Normale levertijd&#39;,
+        rows: [
+          { price: &#39;€ 77,85&#39;, type: &#39;Paspoort&#39; },
+          { price: &#39;€ 70,35&#39;, type: &#39;ID-kaart&#39; },
+        ],
+        typeHeader: &#39;Type&#39;,
+      },
+      tableOfContents: { heading: &#39;Op deze pagina&#39;, links: [&#39;Zo werkt het&#39;, &#39;Voorwaarden&#39;, &#39;Aanvragen&#39;] },
+      tabNavigationLinks: [&#39;Gegevens&#39;, &#39;Aanslagen&#39;, &#39;Documenten&#39;],
+      tabs: [
+        { address: &#39;Bos en Lommerplein 250, 1055 EK Amsterdam&#39;, label: &#39;West&#39; },
+        { address: &#39;Amstel 1, 1011 PN Amsterdam&#39;, label: &#39;Centrum&#39; },
+      ],
+      textAreaLabel: &#39;Toelichting&#39;,
+      textInputLabel: &#39;Woonplaats&#39;,
+      timeInputLabel: &#39;Hoe laat is uw afspraak?&#39;,
+      unorderedListItems: [
+        &#39;De Clercqstraat en Jan Evertsenstraat&#39;,
+        &#39;Raadhuisstraat, Westermarkt en Rozengracht&#39;,
+        &#39;Nieuwezijds Voorburgwal&#39;,
+      ],
+    },
     search: &#39;Zoeken&#39;,
     skipLink: &#39;Direct naar inhoud&#39;,
   },
@@ -22792,6 +23026,10 @@ export const Playground: Story = {
           &lt;PageHeader
             brandName={t.brandName}
             defaultOpen
+            logoLinkTitle={t.pageHeader.logoLinkTitle}
+            menuButtonText={t.pageHeader.menuButtonText}
+            menuButtonTextForHide={t.pageHeader.menuButtonTextForHide}
+            menuButtonTextForShow={t.pageHeader.menuButtonTextForShow}
             menuItems={[
               &lt;PageHeader.MenuLink href=&quot;#&quot; key=&quot;english&quot; lang=&quot;en&quot;&gt;
                 English
@@ -22800,6 +23038,7 @@ export const Playground: Story = {
                 {t.search}
               &lt;/PageHeader.MenuLink&gt;,
             ]}
+            navigationLabel={t.pageHeader.navigationLabel}
           &gt;
             &lt;Grid&gt;
               &lt;PageHeader.GridCellNarrowWindowOnly span=&quot;all&quot;&gt;
@@ -22862,117 +23101,129 @@ export const Playground: Story = {
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Accordion headingLevel={3}&gt;
-                  &lt;Accordion.Section label=&quot;Hoe ziet de sollicitatieprocedure eruit?&quot;&gt;
-                    &lt;Paragraph&gt;De gemeente Amsterdam volgt de NVP Sollicitatiecode.&lt;/Paragraph&gt;
-                  &lt;/Accordion.Section&gt;
-                  &lt;Accordion.Section label=&quot;Heb ik een VOG nodig?&quot;&gt;
-                    &lt;Paragraph&gt;Ja, als je gaat werken bij de gemeente Amsterdam heb je een VOG nodig.&lt;/Paragraph&gt;
-                  &lt;/Accordion.Section&gt;
+                  {t.samples.accordion.sections.map((section) =&gt; (
+                    &lt;Accordion.Section key={section.label} label={section.label}&gt;
+                      &lt;Paragraph&gt;{section.body}&lt;/Paragraph&gt;
+                    &lt;/Accordion.Section&gt;
+                  ))}
                 &lt;/Accordion&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;ActionGroup&gt;
-                  &lt;Button&gt;Doorgaan&lt;/Button&gt;
-                  &lt;Button variant=&quot;secondary&quot;&gt;Stoppen&lt;/Button&gt;
+                  &lt;Button&gt;{t.samples.actionGroup.proceedLabel}&lt;/Button&gt;
+                  &lt;Button variant=&quot;secondary&quot;&gt;{t.samples.actionGroup.stopLabel}&lt;/Button&gt;
                 &lt;/ActionGroup&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
-                &lt;Alert heading=&quot;Tijdelijk geen verkeer mogelijk&quot; headingLevel={2}&gt;
-                  &lt;Paragraph&gt;Tijdens de hijswerkzaamheden geldt er een korte verkeersstop.&lt;/Paragraph&gt;
+                &lt;Alert heading={t.samples.alert.heading} headingLevel={2}&gt;
+                  &lt;Paragraph&gt;{t.samples.alert.body}&lt;/Paragraph&gt;
                 &lt;/Alert&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Avatar label=&quot;DS&quot; /&gt;
+                &lt;Avatar label={t.samples.avatarLabel} /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Badge label=&quot;Tip&quot; /&gt;
+                &lt;Badge label={t.samples.badgeLabel} /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;Blockquote&gt;Zorg goed voor de stad en voor elkaar.&lt;/Blockquote&gt;
+                &lt;Blockquote&gt;{t.samples.blockquote}&lt;/Blockquote&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;Breadcrumb&gt;
-                  &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Afval&lt;/Breadcrumb.Link&gt;
-                  &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bedrijfsafval&lt;/Breadcrumb.Link&gt;
-                  &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Recyclepunten voor bedrijven&lt;/Breadcrumb.Link&gt;
+                  {t.samples.breadcrumbLinks.map((label) =&gt; (
+                    &lt;Breadcrumb.Link href=&quot;#&quot; key={label}&gt;
+                      {label}
+                    &lt;/Breadcrumb.Link&gt;
+                  ))}
                 &lt;/Breadcrumb&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Button&gt;Versturen&lt;/Button&gt;
+                &lt;Button&gt;{t.samples.buttonLabel}&lt;/Button&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;Calendar linkTemplate={(date) =&gt; `?date=${date.toISOString().slice(0, 10)}`} /&gt;
+                &lt;Calendar
+                  {...(lang === &#39;ar&#39; ? { ...calendarLocaleProps(&#39;ar-MA&#39;), locale: &#39;ar-MA&#39; } : {})}
+                  linkTemplate={(date) =&gt; `?date=${date.toISOString().slice(0, 10)}`}
+                /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;CallToActionLink href=&quot;#&quot;&gt;Rijbewijs aanvragen&lt;/CallToActionLink&gt;
+                &lt;CallToActionLink href=&quot;#&quot;&gt;{t.samples.callToActionLabel}&lt;/CallToActionLink&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Card&gt;
                   &lt;Card.Heading level={2}&gt;
-                    &lt;Card.Link href=&quot;#&quot;&gt;Gemeentebelastingen&lt;/Card.Link&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;{t.samples.card.heading}&lt;/Card.Link&gt;
                   &lt;/Card.Heading&gt;
-                  &lt;Paragraph&gt;Bekijk welke belastingen en heffingen er zijn en hoe u bezwaar maakt.&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;{t.samples.card.body}&lt;/Paragraph&gt;
                 &lt;/Card&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;CharacterCount length={7} maxLength={10} /&gt;
+                &lt;CharacterCount formatText={t.samples.characterCountFormatText} length={7} maxLength={10} /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Checkbox&gt;Ik ga akkoord met de voorwaarden&lt;/Checkbox&gt;
+                &lt;Checkbox&gt;{t.samples.checkboxLabel}&lt;/Checkbox&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Column&gt;
-                  &lt;Paragraph&gt;Zoekresultaten één&lt;/Paragraph&gt;
-                  &lt;Paragraph&gt;Zoekresultaten twee&lt;/Paragraph&gt;
+                  {t.samples.columnParagraphs.map((text) =&gt; (
+                    &lt;Paragraph key={text}&gt;{text}&lt;/Paragraph&gt;
+                  ))}
                 &lt;/Column&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-date&quot;&gt;Wat is uw geboortedatum?&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-date&quot;&gt;{t.samples.dateInputLabel}&lt;/Label&gt;
                   &lt;DateInput id=&quot;wd-date&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;DatePicker onChange={() =&gt; {}} value={null} /&gt;
+                &lt;DatePicker
+                  {...(lang === &#39;ar&#39; ? { ...datePickerLocaleProps(&#39;ar-MA&#39;), locale: &#39;ar-MA&#39; } : {})}
+                  onChange={() =&gt; {}}
+                  value={null}
+                /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;DescriptionList&gt;
-                  &lt;DescriptionList.Term&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;
+                  {t.samples.descriptionList.map((item) =&gt; (
+                    &lt;Fragment key={item.term}&gt;
+                      &lt;DescriptionList.Term&gt;{item.term}&lt;/DescriptionList.Term&gt;
+                      &lt;DescriptionList.Description&gt;{item.description}&lt;/DescriptionList.Description&gt;
+                    &lt;/Fragment&gt;
+                  ))}
                 &lt;/DescriptionList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Button onClick={() =&gt; Dialog.open(&#39;#wd-dialog&#39;)}&gt;Open dialoog&lt;/Button&gt;
+                &lt;Button onClick={() =&gt; Dialog.open(&#39;#wd-dialog&#39;)}&gt;{t.samples.dialog.openButtonLabel}&lt;/Button&gt;
                 &lt;Dialog
-                  footer={&lt;Button onClick={(event) =&gt; Dialog.close(event)}&gt;Sluiten&lt;/Button&gt;}
-                  heading=&quot;De gegevens zijn opgeslagen&quot;
+                  closeButtonLabel={t.samples.dialog.closeButtonLabel}
+                  footer={&lt;Button onClick={(event) =&gt; Dialog.close(event)}&gt;{t.samples.dialog.closeButtonLabel}&lt;/Button&gt;}
+                  heading={t.samples.dialog.heading}
                   id=&quot;wd-dialog&quot;
                 &gt;
-                  &lt;Paragraph&gt;U ontvangt een bevestiging per e-mail.&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;{t.samples.dialog.body}&lt;/Paragraph&gt;
                 &lt;/Dialog&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;ErrorMessage&gt;Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.&lt;/ErrorMessage&gt;
+                &lt;ErrorMessage&gt;{t.samples.errorMessage}&lt;/ErrorMessage&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-field&quot;&gt;Wat is uw achternaam?&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-field&quot;&gt;{t.samples.surnameLabel}&lt;/Label&gt;
                   &lt;TextInput id=&quot;wd-field&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;FieldSet legend=&quot;Wat is uw naam?&quot;&gt;
+                &lt;FieldSet legend={t.samples.fieldSet.legend}&gt;
                   &lt;Field&gt;
                     &lt;Label htmlFor=&quot;wd-fieldset-first&quot; inFieldSet&gt;
-                      Voornaam
+                      {t.samples.fieldSet.firstNameLabel}
                     &lt;/Label&gt;
                     &lt;TextInput id=&quot;wd-fieldset-first&quot; /&gt;
                   &lt;/Field&gt;
                   &lt;Field&gt;
                     &lt;Label htmlFor=&quot;wd-fieldset-last&quot; inFieldSet&gt;
-                      Achternaam
+                      {t.samples.fieldSet.lastNameLabel}
                     &lt;/Label&gt;
                     &lt;TextInput id=&quot;wd-fieldset-last&quot; /&gt;
                   &lt;/Field&gt;
@@ -22981,76 +23232,76 @@ export const Playground: Story = {
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;Figure&gt;
                   &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
-                  &lt;Figure.Caption&gt;Een rij geparkeerde fietsen langs een smalle Amsterdamse gracht.&lt;/Figure.Caption&gt;
+                  &lt;Figure.Caption&gt;{t.samples.figureCaption}&lt;/Figure.Caption&gt;
                 &lt;/Figure&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-file&quot;&gt;Voeg een bijlage toe&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-file&quot;&gt;{t.samples.fileInputLabel}&lt;/Label&gt;
                   &lt;FileInput id=&quot;wd-file&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;FileList&gt;
                   &lt;FileList.Item
-                    file={new File([&#39;sample&#39;], &#39;document.pdf&#39;, { type: &#39;application/pdf&#39; })}
+                    file={new File([&#39;sample&#39;], t.samples.fileName, { type: &#39;application/pdf&#39; })}
                     onDelete={() =&gt; {}}
                   /&gt;
                 &lt;/FileList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;Grid&gt;
-                  &lt;Grid.Cell span={halfWidth}&gt;
-                    &lt;Paragraph&gt;Grid-cel links&lt;/Paragraph&gt;
-                  &lt;/Grid.Cell&gt;
-                  &lt;Grid.Cell span={halfWidth}&gt;
-                    &lt;Paragraph&gt;Grid-cel rechts&lt;/Paragraph&gt;
-                  &lt;/Grid.Cell&gt;
+                  {t.samples.gridParagraphs.map((text) =&gt; (
+                    &lt;Grid.Cell key={text} span={halfWidth}&gt;
+                      &lt;Paragraph&gt;{text}&lt;/Paragraph&gt;
+                    &lt;/Grid.Cell&gt;
+                  ))}
                 &lt;/Grid&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;Heading level={2}&gt;Meer plekken voor kunst en cultuur, verspreid over de stad&lt;/Heading&gt;
+                &lt;Heading level={2}&gt;{t.samples.heading}&lt;/Heading&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Icon svg={&lt;MailIcon /&gt;} /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;IconButton label=&quot;Sluiten&quot; /&gt;
+                &lt;IconButton label={t.samples.iconButtonLabel} /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;ImageSlider
-                  images={[
-                    { alt: &#39;Brug&#39;, src: &#39;https://picsum.photos/id/122/1280/720&#39; },
-                    { alt: &#39;Bunker&#39;, src: &#39;https://picsum.photos/id/101/1280/720&#39; },
-                    { alt: &#39;Stoelen&#39;, src: &#39;https://picsum.photos/id/153/1280/720&#39; },
-                  ]}
+                  imageLabel={t.samples.imageSlider.imageLabel}
+                  images={[...t.samples.imageSlider.images]}
+                  nextLabel={t.samples.imageSlider.nextLabel}
+                  previousLabel={t.samples.imageSlider.previousLabel}
                 /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;InvalidFormAlert
-                  errors={[
-                    { id: &#39;#&#39;, label: &#39;Vul een geldige datum in (bijvoorbeeld 6 januari 2030).&#39; },
-                    { id: &#39;#&#39;, label: &#39;De geldigheidsdatum van uw paspoort moet in de toekomst liggen.&#39; },
-                  ]}
+                  errors={t.samples.invalidFormAlert.errors.map((label) =&gt; ({ id: &#39;#&#39;, label }))}
+                  heading={t.samples.invalidFormAlert.heading}
                   headingLevel={2}
                 /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Label&gt;Label&lt;/Label&gt;
+                &lt;Label&gt;{t.samples.labelText}&lt;/Label&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Paragraph&gt;
-                  Een &lt;Link href=&quot;#&quot;&gt;typograaf&lt;/Link&gt; ontwerpt letters.
+                  {t.samples.linkSentence.textBefore}
+                  &lt;Link href=&quot;#&quot;&gt;{t.samples.linkSentence.linkText}&lt;/Link&gt;
+                  {t.samples.linkSentence.textAfter}
                 &lt;/Paragraph&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;LinkList&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Contactformulier&lt;/LinkList.Link&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Adressen en openingstijden&lt;/LinkList.Link&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Bel 14 020&lt;/LinkList.Link&gt;
+                  {t.samples.linkListLinks.map((label) =&gt; (
+                    &lt;LinkList.Link href=&quot;#&quot; key={label}&gt;
+                      {label}
+                    &lt;/LinkList.Link&gt;
+                  ))}
                 &lt;/LinkList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
@@ -23058,21 +23309,23 @@ export const Playground: Story = {
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Paragraph&gt;
-                  Wij kunnen als gemeente veel van deze &lt;Mark&gt;afvalexperts&lt;/Mark&gt; leren.
+                  {t.samples.markSentence.textBefore}
+                  &lt;Mark&gt;{t.samples.markSentence.markText}&lt;/Mark&gt;
+                  {t.samples.markSentence.textAfter}
                 &lt;/Paragraph&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Menu&gt;
                   &lt;Menu.Link href=&quot;#&quot; icon={&lt;PieChartFillIcon /&gt;}&gt;
-                    Dashboard
+                    {t.samples.menuLinkLabel}
                   &lt;/Menu.Link&gt;
                 &lt;/Menu&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;OrderedList&gt;
-                  &lt;OrderedList.Item&gt;Zorg voor een duidelijke schrijfopdracht.&lt;/OrderedList.Item&gt;
-                  &lt;OrderedList.Item&gt;Verzamel, selecteer en structureer de informatie.&lt;/OrderedList.Item&gt;
-                  &lt;OrderedList.Item&gt;Controleer de tekst en de schrijfopdracht.&lt;/OrderedList.Item&gt;
+                  {t.samples.orderedListItems.map((item) =&gt; (
+                    &lt;OrderedList.Item key={item}&gt;{item}&lt;/OrderedList.Item&gt;
+                  ))}
                 &lt;/OrderedList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -23081,60 +23334,70 @@ export const Playground: Story = {
                   &lt;Grid style={{ alignSelf: &#39;center&#39; }}&gt;
                     &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
                       &lt;SearchField onSubmit={(event) =&gt; event.preventDefault()}&gt;
-                        &lt;SearchField.Input label=&quot;Zoeken&quot; placeholder=&quot;Wat kunnen we voor u vinden?&quot; /&gt;
-                        &lt;SearchField.Button /&gt;
+                        &lt;SearchField.Input label={t.search} placeholder={t.samples.searchPlaceholder} /&gt;
+                        &lt;SearchField.Button&gt;{t.search}&lt;/SearchField.Button&gt;
                       &lt;/SearchField&gt;
                     &lt;/Grid.Cell&gt;
                   &lt;/Grid&gt;
                 &lt;/Overlap&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
-                &lt;Pagination linkTemplate={(page) =&gt; `#?pagina=${page}`} maxVisiblePages={7} page={5} totalPages={10} /&gt;
+                &lt;Pagination
+                  linkTemplate={(page) =&gt; `#?pagina=${page}`}
+                  maxVisiblePages={7}
+                  nextLabel={t.samples.pagination.nextLabel}
+                  page={5}
+                  previousLabel={t.samples.pagination.previousLabel}
+                  totalPages={10}
+                /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;Paragraph&gt;De politie controleert op overtredingen met opgevoerde e-bikes en fatbikes.&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;{t.samples.paragraph}&lt;/Paragraph&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-password&quot;&gt;Wachtwoord&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-password&quot;&gt;{t.samples.passwordInputLabel}&lt;/Label&gt;
                   &lt;PasswordInput id=&quot;wd-password&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;ProgressList headingLevel={3}&gt;
-                  &lt;ProgressList.Step heading=&quot;Aanvraag ingediend&quot; status=&quot;completed&quot;&gt;
-                    &lt;Paragraph&gt;Uw aanvraag is op 2 januari 2026 ontvangen.&lt;/Paragraph&gt;
+                  &lt;ProgressList.Step heading={t.samples.progressList[0].heading} status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;{t.samples.progressList[0].body}&lt;/Paragraph&gt;
                   &lt;/ProgressList.Step&gt;
-                  &lt;ProgressList.Step heading=&quot;In behandeling&quot; status=&quot;current&quot;&gt;
-                    &lt;Paragraph&gt;Een medewerker beoordeelt uw aanvraag en neemt bij vragen contact met u op.&lt;/Paragraph&gt;
+                  &lt;ProgressList.Step heading={t.samples.progressList[1].heading} status=&quot;current&quot;&gt;
+                    &lt;Paragraph&gt;{t.samples.progressList[1].body}&lt;/Paragraph&gt;
                   &lt;/ProgressList.Step&gt;
-                  &lt;ProgressList.Step heading=&quot;Besluit&quot;&gt;
-                    &lt;Paragraph&gt;U ontvangt het besluit binnen 8 weken na uw aanvraag.&lt;/Paragraph&gt;
+                  &lt;ProgressList.Step heading={t.samples.progressList[2].heading}&gt;
+                    &lt;Paragraph&gt;{t.samples.progressList[2].body}&lt;/Paragraph&gt;
                   &lt;/ProgressList.Step&gt;
                 &lt;/ProgressList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Radio&gt;Op de hoogte blijven via e-mail&lt;/Radio&gt;
+                &lt;Radio&gt;{t.samples.radioLabel}&lt;/Radio&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Row&gt;
-                  &lt;Paragraph&gt;Een&lt;/Paragraph&gt;
-                  &lt;Paragraph&gt;Twee&lt;/Paragraph&gt;
+                  {t.samples.rowParagraphs.map((text) =&gt; (
+                    &lt;Paragraph key={text}&gt;{text}&lt;/Paragraph&gt;
+                  ))}
                 &lt;/Row&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;SearchField onSubmit={(event) =&gt; event.preventDefault()}&gt;
-                  &lt;SearchField.Input label=&quot;Zoeken&quot; /&gt;
-                  &lt;SearchField.Button /&gt;
+                  &lt;SearchField.Input label={t.search} placeholder={t.samples.searchPlaceholder} /&gt;
+                  &lt;SearchField.Button&gt;{t.search}&lt;/SearchField.Button&gt;
                 &lt;/SearchField&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-select&quot;&gt;Kies een stadsdeel&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-select&quot;&gt;{t.samples.select.label}&lt;/Label&gt;
                   &lt;Select id=&quot;wd-select&quot;&gt;
-                    &lt;Select.Option value=&quot;Centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
-                    &lt;Select.Option value=&quot;Noord&quot;&gt;Noord&lt;/Select.Option&gt;
-                    &lt;Select.Option value=&quot;Zuid&quot;&gt;Zuid&lt;/Select.Option&gt;
+                    {t.samples.select.options.map((option) =&gt; (
+                      &lt;Select.Option key={option.value} value={option.value}&gt;
+                        {option.label}
+                      &lt;/Select.Option&gt;
+                    ))}
                   &lt;/Select&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
@@ -23149,98 +23412,102 @@ export const Playground: Story = {
                 &lt;Spotlight color=&quot;green&quot;&gt;
                   &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
                     &lt;Grid.Cell span=&quot;all&quot;&gt;
-                      &lt;Blockquote color=&quot;inverse&quot;&gt;Zorg goed voor de stad en voor elkaar.&lt;/Blockquote&gt;
+                      &lt;Blockquote color=&quot;inverse&quot;&gt;{t.samples.blockquote}&lt;/Blockquote&gt;
                     &lt;/Grid.Cell&gt;
                   &lt;/Grid&gt;
                 &lt;/Spotlight&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle onderwerpen&lt;/StandaloneLink&gt;
+                &lt;StandaloneLink href=&quot;#&quot;&gt;{t.samples.standaloneLinkLabel}&lt;/StandaloneLink&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Label htmlFor=&quot;wd-switch&quot;&gt;Meldingen ontvangen&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-switch&quot;&gt;{t.samples.switchLabel}&lt;/Label&gt;
                 &lt;Switch id=&quot;wd-switch&quot; /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;TabNavigation&gt;
                   &lt;TabNavigation.List&gt;
-                    &lt;TabNavigation.Link aria-current=&quot;page&quot; href=&quot;#gegevens&quot;&gt;
-                      Gegevens
-                    &lt;/TabNavigation.Link&gt;
-                    &lt;TabNavigation.Link href=&quot;#aanslagen&quot;&gt;Aanslagen&lt;/TabNavigation.Link&gt;
-                    &lt;TabNavigation.Link href=&quot;#documenten&quot;&gt;Documenten&lt;/TabNavigation.Link&gt;
+                    {t.samples.tabNavigationLinks.map((label, index) =&gt; (
+                      &lt;TabNavigation.Link aria-current={index === 0 ? &#39;page&#39; : undefined} href=&quot;#&quot; key={label}&gt;
+                        {label}
+                      &lt;/TabNavigation.Link&gt;
+                    ))}
                   &lt;/TabNavigation.List&gt;
                 &lt;/TabNavigation&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;Table&gt;
                   &lt;Table.Caption&gt;
-                    &lt;Heading level={3}&gt;Kosten voor de aanvraag&lt;/Heading&gt;
+                    &lt;Heading level={3}&gt;{t.samples.table.caption}&lt;/Heading&gt;
                   &lt;/Table.Caption&gt;
                   &lt;Table.Header&gt;
                     &lt;Table.Row&gt;
-                      &lt;Table.HeaderCell&gt;Type&lt;/Table.HeaderCell&gt;
-                      &lt;Table.HeaderCell align=&quot;end&quot;&gt;Normale levertijd&lt;/Table.HeaderCell&gt;
+                      &lt;Table.HeaderCell&gt;{t.samples.table.typeHeader}&lt;/Table.HeaderCell&gt;
+                      &lt;Table.HeaderCell align=&quot;end&quot;&gt;{t.samples.table.deliveryTimeHeader}&lt;/Table.HeaderCell&gt;
                     &lt;/Table.Row&gt;
                   &lt;/Table.Header&gt;
                   &lt;Table.Body&gt;
-                    &lt;Table.Row&gt;
-                      &lt;Table.Cell&gt;Paspoort&lt;/Table.Cell&gt;
-                      &lt;Table.Cell align=&quot;end&quot;&gt;€ 77,85&lt;/Table.Cell&gt;
-                    &lt;/Table.Row&gt;
-                    &lt;Table.Row&gt;
-                      &lt;Table.Cell&gt;ID-kaart&lt;/Table.Cell&gt;
-                      &lt;Table.Cell align=&quot;end&quot;&gt;€ 70,35&lt;/Table.Cell&gt;
-                    &lt;/Table.Row&gt;
+                    {t.samples.table.rows.map((row) =&gt; (
+                      &lt;Table.Row key={row.type}&gt;
+                        &lt;Table.Cell&gt;{row.type}&lt;/Table.Cell&gt;
+                        &lt;Table.Cell align=&quot;end&quot;&gt;{row.price}&lt;/Table.Cell&gt;
+                      &lt;/Table.Row&gt;
+                    ))}
                   &lt;/Table.Body&gt;
                 &lt;/Table&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+                &lt;TableOfContents heading={t.samples.tableOfContents.heading}&gt;
                   &lt;TableOfContents.List&gt;
-                    &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Zo werkt het&quot; /&gt;
-                    &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Voorwaarden&quot; /&gt;
-                    &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Aanvragen&quot; /&gt;
+                    {t.samples.tableOfContents.links.map((label) =&gt; (
+                      &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; key={label} label={label} /&gt;
+                    ))}
                   &lt;/TableOfContents.List&gt;
                 &lt;/TableOfContents&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Tabs&gt;
                   &lt;Tabs.List&gt;
-                    &lt;Tabs.Button aria-controls=&quot;wd-tab-west&quot;&gt;West&lt;/Tabs.Button&gt;
-                    &lt;Tabs.Button aria-controls=&quot;wd-tab-centrum&quot;&gt;Centrum&lt;/Tabs.Button&gt;
+                    &lt;Tabs.Button aria-controls=&quot;wd-tab-west&quot;&gt;{t.samples.tabs[0].label}&lt;/Tabs.Button&gt;
+                    &lt;Tabs.Button aria-controls=&quot;wd-tab-centrum&quot;&gt;{t.samples.tabs[1].label}&lt;/Tabs.Button&gt;
                   &lt;/Tabs.List&gt;
                   &lt;Tabs.Panel id=&quot;wd-tab-west&quot;&gt;
-                    &lt;Paragraph&gt;Bos en Lommerplein 250, 1055 EK Amsterdam&lt;/Paragraph&gt;
+                    &lt;Paragraph&gt;
+                      &lt;span lang=&quot;nl&quot;&gt;{t.samples.tabs[0].address}&lt;/span&gt;
+                    &lt;/Paragraph&gt;
                   &lt;/Tabs.Panel&gt;
                   &lt;Tabs.Panel id=&quot;wd-tab-centrum&quot;&gt;
-                    &lt;Paragraph&gt;Amstel 1, 1011 PN Amsterdam&lt;/Paragraph&gt;
+                    &lt;Paragraph&gt;
+                      &lt;span lang=&quot;nl&quot;&gt;{t.samples.tabs[1].address}&lt;/span&gt;
+                    &lt;/Paragraph&gt;
                   &lt;/Tabs.Panel&gt;
                 &lt;/Tabs&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-textarea&quot;&gt;Toelichting&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-textarea&quot;&gt;{t.samples.textAreaLabel}&lt;/Label&gt;
                   &lt;TextArea id=&quot;wd-textarea&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-textinput&quot;&gt;Woonplaats&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-textinput&quot;&gt;{t.samples.textInputLabel}&lt;/Label&gt;
                   &lt;TextInput id=&quot;wd-textinput&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-time&quot;&gt;Hoe laat is uw afspraak?&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-time&quot;&gt;{t.samples.timeInputLabel}&lt;/Label&gt;
                   &lt;TimeInput id=&quot;wd-time&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;UnorderedList&gt;
-                  &lt;UnorderedList.Item&gt;De Clercqstraat en Jan Evertsenstraat&lt;/UnorderedList.Item&gt;
-                  &lt;UnorderedList.Item&gt;Raadhuisstraat, Westermarkt en Rozengracht&lt;/UnorderedList.Item&gt;
-                  &lt;UnorderedList.Item&gt;Nieuwezijds Voorburgwal&lt;/UnorderedList.Item&gt;
+                  {t.samples.unorderedListItems.map((item) =&gt; (
+                    &lt;UnorderedList.Item key={item}&gt;
+                      &lt;span lang=&quot;nl&quot;&gt;{item}&lt;/span&gt;
+                    &lt;/UnorderedList.Item&gt;
+                  ))}
                 &lt;/UnorderedList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot; style={{ paddingBottom: &#39;var(--ams-space-2xl)&#39; }}&gt;
@@ -23253,9 +23520,7 @@ export const Playground: Story = {
                     colStart={1}
                     rowStart={{ narrow: 3, medium: 3, wide: 2 }}
                   &gt;
-                    &lt;Paragraph color=&quot;inverse&quot;&gt;
-                      Het doel van deze club is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt.
-                    &lt;/Paragraph&gt;
+                    &lt;Paragraph color=&quot;inverse&quot;&gt;{t.samples.breakoutParagraph}&lt;/Paragraph&gt;
                   &lt;/Breakout.Cell&gt;
                   &lt;Breakout.Cell
                     colSpan={{ narrow: 4, medium: 8, wide: 6 }}
@@ -23435,6 +23700,7 @@ export const Playground: Story = {
     TimeInput,
     UnorderedList,
 } from "@amsterdam/design-system-react";
+import { Fragment } from "react";
 import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               </div>
           
@@ -23458,6 +23724,10 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
         &lt;PageHeader
           brandName={t.brandName}
           defaultOpen
+          logoLinkTitle={t.pageHeader.logoLinkTitle}
+          menuButtonText={t.pageHeader.menuButtonText}
+          menuButtonTextForHide={t.pageHeader.menuButtonTextForHide}
+          menuButtonTextForShow={t.pageHeader.menuButtonTextForShow}
           menuItems={[
             &lt;PageHeader.MenuLink href=&quot;#&quot; key=&quot;english&quot; lang=&quot;en&quot;&gt;
               English
@@ -23466,6 +23736,7 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
               {t.search}
             &lt;/PageHeader.MenuLink&gt;,
           ]}
+          navigationLabel={t.pageHeader.navigationLabel}
         &gt;
           &lt;Grid&gt;
             &lt;PageHeader.GridCellNarrowWindowOnly span=&quot;all&quot;&gt;
@@ -23528,117 +23799,129 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Accordion headingLevel={3}&gt;
-                &lt;Accordion.Section label=&quot;Hoe ziet de sollicitatieprocedure eruit?&quot;&gt;
-                  &lt;Paragraph&gt;De gemeente Amsterdam volgt de NVP Sollicitatiecode.&lt;/Paragraph&gt;
-                &lt;/Accordion.Section&gt;
-                &lt;Accordion.Section label=&quot;Heb ik een VOG nodig?&quot;&gt;
-                  &lt;Paragraph&gt;Ja, als je gaat werken bij de gemeente Amsterdam heb je een VOG nodig.&lt;/Paragraph&gt;
-                &lt;/Accordion.Section&gt;
+                {t.samples.accordion.sections.map((section) =&gt; (
+                  &lt;Accordion.Section key={section.label} label={section.label}&gt;
+                    &lt;Paragraph&gt;{section.body}&lt;/Paragraph&gt;
+                  &lt;/Accordion.Section&gt;
+                ))}
               &lt;/Accordion&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;ActionGroup&gt;
-                &lt;Button&gt;Doorgaan&lt;/Button&gt;
-                &lt;Button variant=&quot;secondary&quot;&gt;Stoppen&lt;/Button&gt;
+                &lt;Button&gt;{t.samples.actionGroup.proceedLabel}&lt;/Button&gt;
+                &lt;Button variant=&quot;secondary&quot;&gt;{t.samples.actionGroup.stopLabel}&lt;/Button&gt;
               &lt;/ActionGroup&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Alert heading=&quot;Tijdelijk geen verkeer mogelijk&quot; headingLevel={2}&gt;
-                &lt;Paragraph&gt;Tijdens de hijswerkzaamheden geldt er een korte verkeersstop.&lt;/Paragraph&gt;
+              &lt;Alert heading={t.samples.alert.heading} headingLevel={2}&gt;
+                &lt;Paragraph&gt;{t.samples.alert.body}&lt;/Paragraph&gt;
               &lt;/Alert&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Avatar label=&quot;DS&quot; /&gt;
+              &lt;Avatar label={t.samples.avatarLabel} /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Badge label=&quot;Tip&quot; /&gt;
+              &lt;Badge label={t.samples.badgeLabel} /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;Blockquote&gt;Zorg goed voor de stad en voor elkaar.&lt;/Blockquote&gt;
+              &lt;Blockquote&gt;{t.samples.blockquote}&lt;/Blockquote&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;Breadcrumb&gt;
-                &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Afval&lt;/Breadcrumb.Link&gt;
-                &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bedrijfsafval&lt;/Breadcrumb.Link&gt;
-                &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Recyclepunten voor bedrijven&lt;/Breadcrumb.Link&gt;
+                {t.samples.breadcrumbLinks.map((label) =&gt; (
+                  &lt;Breadcrumb.Link href=&quot;#&quot; key={label}&gt;
+                    {label}
+                  &lt;/Breadcrumb.Link&gt;
+                ))}
               &lt;/Breadcrumb&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Button&gt;Versturen&lt;/Button&gt;
+              &lt;Button&gt;{t.samples.buttonLabel}&lt;/Button&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;Calendar linkTemplate={(date) =&gt; `?date=${date.toISOString().slice(0, 10)}`} /&gt;
+              &lt;Calendar
+                {...(lang === &#39;ar&#39; ? { ...calendarLocaleProps(&#39;ar-MA&#39;), locale: &#39;ar-MA&#39; } : {})}
+                linkTemplate={(date) =&gt; `?date=${date.toISOString().slice(0, 10)}`}
+              /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;CallToActionLink href=&quot;#&quot;&gt;Rijbewijs aanvragen&lt;/CallToActionLink&gt;
+              &lt;CallToActionLink href=&quot;#&quot;&gt;{t.samples.callToActionLabel}&lt;/CallToActionLink&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Card&gt;
                 &lt;Card.Heading level={2}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Gemeentebelastingen&lt;/Card.Link&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{t.samples.card.heading}&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph&gt;Bekijk welke belastingen en heffingen er zijn en hoe u bezwaar maakt.&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;{t.samples.card.body}&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;CharacterCount length={7} maxLength={10} /&gt;
+              &lt;CharacterCount formatText={t.samples.characterCountFormatText} length={7} maxLength={10} /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Checkbox&gt;Ik ga akkoord met de voorwaarden&lt;/Checkbox&gt;
+              &lt;Checkbox&gt;{t.samples.checkboxLabel}&lt;/Checkbox&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Column&gt;
-                &lt;Paragraph&gt;Zoekresultaten één&lt;/Paragraph&gt;
-                &lt;Paragraph&gt;Zoekresultaten twee&lt;/Paragraph&gt;
+                {t.samples.columnParagraphs.map((text) =&gt; (
+                  &lt;Paragraph key={text}&gt;{text}&lt;/Paragraph&gt;
+                ))}
               &lt;/Column&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-date&quot;&gt;Wat is uw geboortedatum?&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-date&quot;&gt;{t.samples.dateInputLabel}&lt;/Label&gt;
                 &lt;DateInput id=&quot;wd-date&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;DatePicker onChange={() =&gt; {}} value={null} /&gt;
+              &lt;DatePicker
+                {...(lang === &#39;ar&#39; ? { ...datePickerLocaleProps(&#39;ar-MA&#39;), locale: &#39;ar-MA&#39; } : {})}
+                onChange={() =&gt; {}}
+                value={null}
+              /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;DescriptionList&gt;
-                &lt;DescriptionList.Term&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;
+                {t.samples.descriptionList.map((item) =&gt; (
+                  &lt;Fragment key={item.term}&gt;
+                    &lt;DescriptionList.Term&gt;{item.term}&lt;/DescriptionList.Term&gt;
+                    &lt;DescriptionList.Description&gt;{item.description}&lt;/DescriptionList.Description&gt;
+                  &lt;/Fragment&gt;
+                ))}
               &lt;/DescriptionList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Button onClick={() =&gt; Dialog.open(&#39;#wd-dialog&#39;)}&gt;Open dialoog&lt;/Button&gt;
+              &lt;Button onClick={() =&gt; Dialog.open(&#39;#wd-dialog&#39;)}&gt;{t.samples.dialog.openButtonLabel}&lt;/Button&gt;
               &lt;Dialog
-                footer={&lt;Button onClick={(event) =&gt; Dialog.close(event)}&gt;Sluiten&lt;/Button&gt;}
-                heading=&quot;De gegevens zijn opgeslagen&quot;
+                closeButtonLabel={t.samples.dialog.closeButtonLabel}
+                footer={&lt;Button onClick={(event) =&gt; Dialog.close(event)}&gt;{t.samples.dialog.closeButtonLabel}&lt;/Button&gt;}
+                heading={t.samples.dialog.heading}
                 id=&quot;wd-dialog&quot;
               &gt;
-                &lt;Paragraph&gt;U ontvangt een bevestiging per e-mail.&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;{t.samples.dialog.body}&lt;/Paragraph&gt;
               &lt;/Dialog&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;ErrorMessage&gt;Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.&lt;/ErrorMessage&gt;
+              &lt;ErrorMessage&gt;{t.samples.errorMessage}&lt;/ErrorMessage&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-field&quot;&gt;Wat is uw achternaam?&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-field&quot;&gt;{t.samples.surnameLabel}&lt;/Label&gt;
                 &lt;TextInput id=&quot;wd-field&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;FieldSet legend=&quot;Wat is uw naam?&quot;&gt;
+              &lt;FieldSet legend={t.samples.fieldSet.legend}&gt;
                 &lt;Field&gt;
                   &lt;Label htmlFor=&quot;wd-fieldset-first&quot; inFieldSet&gt;
-                    Voornaam
+                    {t.samples.fieldSet.firstNameLabel}
                   &lt;/Label&gt;
                   &lt;TextInput id=&quot;wd-fieldset-first&quot; /&gt;
                 &lt;/Field&gt;
                 &lt;Field&gt;
                   &lt;Label htmlFor=&quot;wd-fieldset-last&quot; inFieldSet&gt;
-                    Achternaam
+                    {t.samples.fieldSet.lastNameLabel}
                   &lt;/Label&gt;
                   &lt;TextInput id=&quot;wd-fieldset-last&quot; /&gt;
                 &lt;/Field&gt;
@@ -23647,76 +23930,76 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;Figure&gt;
                 &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
-                &lt;Figure.Caption&gt;Een rij geparkeerde fietsen langs een smalle Amsterdamse gracht.&lt;/Figure.Caption&gt;
+                &lt;Figure.Caption&gt;{t.samples.figureCaption}&lt;/Figure.Caption&gt;
               &lt;/Figure&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-file&quot;&gt;Voeg een bijlage toe&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-file&quot;&gt;{t.samples.fileInputLabel}&lt;/Label&gt;
                 &lt;FileInput id=&quot;wd-file&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;FileList&gt;
                 &lt;FileList.Item
-                  file={new File([&#39;sample&#39;], &#39;document.pdf&#39;, { type: &#39;application/pdf&#39; })}
+                  file={new File([&#39;sample&#39;], t.samples.fileName, { type: &#39;application/pdf&#39; })}
                   onDelete={() =&gt; {}}
                 /&gt;
               &lt;/FileList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;Grid&gt;
-                &lt;Grid.Cell span={halfWidth}&gt;
-                  &lt;Paragraph&gt;Grid-cel links&lt;/Paragraph&gt;
-                &lt;/Grid.Cell&gt;
-                &lt;Grid.Cell span={halfWidth}&gt;
-                  &lt;Paragraph&gt;Grid-cel rechts&lt;/Paragraph&gt;
-                &lt;/Grid.Cell&gt;
+                {t.samples.gridParagraphs.map((text) =&gt; (
+                  &lt;Grid.Cell key={text} span={halfWidth}&gt;
+                    &lt;Paragraph&gt;{text}&lt;/Paragraph&gt;
+                  &lt;/Grid.Cell&gt;
+                ))}
               &lt;/Grid&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;Heading level={2}&gt;Meer plekken voor kunst en cultuur, verspreid over de stad&lt;/Heading&gt;
+              &lt;Heading level={2}&gt;{t.samples.heading}&lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Icon svg={&lt;MailIcon /&gt;} /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;IconButton label=&quot;Sluiten&quot; /&gt;
+              &lt;IconButton label={t.samples.iconButtonLabel} /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;ImageSlider
-                images={[
-                  { alt: &#39;Brug&#39;, src: &#39;https://picsum.photos/id/122/1280/720&#39; },
-                  { alt: &#39;Bunker&#39;, src: &#39;https://picsum.photos/id/101/1280/720&#39; },
-                  { alt: &#39;Stoelen&#39;, src: &#39;https://picsum.photos/id/153/1280/720&#39; },
-                ]}
+                imageLabel={t.samples.imageSlider.imageLabel}
+                images={[...t.samples.imageSlider.images]}
+                nextLabel={t.samples.imageSlider.nextLabel}
+                previousLabel={t.samples.imageSlider.previousLabel}
               /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;InvalidFormAlert
-                errors={[
-                  { id: &#39;#&#39;, label: &#39;Vul een geldige datum in (bijvoorbeeld 6 januari 2030).&#39; },
-                  { id: &#39;#&#39;, label: &#39;De geldigheidsdatum van uw paspoort moet in de toekomst liggen.&#39; },
-                ]}
+                errors={t.samples.invalidFormAlert.errors.map((label) =&gt; ({ id: &#39;#&#39;, label }))}
+                heading={t.samples.invalidFormAlert.heading}
                 headingLevel={2}
               /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Label&gt;Label&lt;/Label&gt;
+              &lt;Label&gt;{t.samples.labelText}&lt;/Label&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Paragraph&gt;
-                Een &lt;Link href=&quot;#&quot;&gt;typograaf&lt;/Link&gt; ontwerpt letters.
+                {t.samples.linkSentence.textBefore}
+                &lt;Link href=&quot;#&quot;&gt;{t.samples.linkSentence.linkText}&lt;/Link&gt;
+                {t.samples.linkSentence.textAfter}
               &lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;LinkList&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Contactformulier&lt;/LinkList.Link&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Adressen en openingstijden&lt;/LinkList.Link&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Bel 14 020&lt;/LinkList.Link&gt;
+                {t.samples.linkListLinks.map((label) =&gt; (
+                  &lt;LinkList.Link href=&quot;#&quot; key={label}&gt;
+                    {label}
+                  &lt;/LinkList.Link&gt;
+                ))}
               &lt;/LinkList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
@@ -23724,21 +24007,23 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Paragraph&gt;
-                Wij kunnen als gemeente veel van deze &lt;Mark&gt;afvalexperts&lt;/Mark&gt; leren.
+                {t.samples.markSentence.textBefore}
+                &lt;Mark&gt;{t.samples.markSentence.markText}&lt;/Mark&gt;
+                {t.samples.markSentence.textAfter}
               &lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Menu&gt;
                 &lt;Menu.Link href=&quot;#&quot; icon={&lt;PieChartFillIcon /&gt;}&gt;
-                  Dashboard
+                  {t.samples.menuLinkLabel}
                 &lt;/Menu.Link&gt;
               &lt;/Menu&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;OrderedList&gt;
-                &lt;OrderedList.Item&gt;Zorg voor een duidelijke schrijfopdracht.&lt;/OrderedList.Item&gt;
-                &lt;OrderedList.Item&gt;Verzamel, selecteer en structureer de informatie.&lt;/OrderedList.Item&gt;
-                &lt;OrderedList.Item&gt;Controleer de tekst en de schrijfopdracht.&lt;/OrderedList.Item&gt;
+                {t.samples.orderedListItems.map((item) =&gt; (
+                  &lt;OrderedList.Item key={item}&gt;{item}&lt;/OrderedList.Item&gt;
+                ))}
               &lt;/OrderedList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -23747,60 +24032,70 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
                 &lt;Grid style={{ alignSelf: &#39;center&#39; }}&gt;
                   &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
                     &lt;SearchField onSubmit={(event) =&gt; event.preventDefault()}&gt;
-                      &lt;SearchField.Input label=&quot;Zoeken&quot; placeholder=&quot;Wat kunnen we voor u vinden?&quot; /&gt;
-                      &lt;SearchField.Button /&gt;
+                      &lt;SearchField.Input label={t.search} placeholder={t.samples.searchPlaceholder} /&gt;
+                      &lt;SearchField.Button&gt;{t.search}&lt;/SearchField.Button&gt;
                     &lt;/SearchField&gt;
                   &lt;/Grid.Cell&gt;
                 &lt;/Grid&gt;
               &lt;/Overlap&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Pagination linkTemplate={(page) =&gt; `#?pagina=${page}`} maxVisiblePages={7} page={5} totalPages={10} /&gt;
+              &lt;Pagination
+                linkTemplate={(page) =&gt; `#?pagina=${page}`}
+                maxVisiblePages={7}
+                nextLabel={t.samples.pagination.nextLabel}
+                page={5}
+                previousLabel={t.samples.pagination.previousLabel}
+                totalPages={10}
+              /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;Paragraph&gt;De politie controleert op overtredingen met opgevoerde e-bikes en fatbikes.&lt;/Paragraph&gt;
+              &lt;Paragraph&gt;{t.samples.paragraph}&lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-password&quot;&gt;Wachtwoord&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-password&quot;&gt;{t.samples.passwordInputLabel}&lt;/Label&gt;
                 &lt;PasswordInput id=&quot;wd-password&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;ProgressList headingLevel={3}&gt;
-                &lt;ProgressList.Step heading=&quot;Aanvraag ingediend&quot; status=&quot;completed&quot;&gt;
-                  &lt;Paragraph&gt;Uw aanvraag is op 2 januari 2026 ontvangen.&lt;/Paragraph&gt;
+                &lt;ProgressList.Step heading={t.samples.progressList[0].heading} status=&quot;completed&quot;&gt;
+                  &lt;Paragraph&gt;{t.samples.progressList[0].body}&lt;/Paragraph&gt;
                 &lt;/ProgressList.Step&gt;
-                &lt;ProgressList.Step heading=&quot;In behandeling&quot; status=&quot;current&quot;&gt;
-                  &lt;Paragraph&gt;Een medewerker beoordeelt uw aanvraag en neemt bij vragen contact met u op.&lt;/Paragraph&gt;
+                &lt;ProgressList.Step heading={t.samples.progressList[1].heading} status=&quot;current&quot;&gt;
+                  &lt;Paragraph&gt;{t.samples.progressList[1].body}&lt;/Paragraph&gt;
                 &lt;/ProgressList.Step&gt;
-                &lt;ProgressList.Step heading=&quot;Besluit&quot;&gt;
-                  &lt;Paragraph&gt;U ontvangt het besluit binnen 8 weken na uw aanvraag.&lt;/Paragraph&gt;
+                &lt;ProgressList.Step heading={t.samples.progressList[2].heading}&gt;
+                  &lt;Paragraph&gt;{t.samples.progressList[2].body}&lt;/Paragraph&gt;
                 &lt;/ProgressList.Step&gt;
               &lt;/ProgressList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Radio&gt;Op de hoogte blijven via e-mail&lt;/Radio&gt;
+              &lt;Radio&gt;{t.samples.radioLabel}&lt;/Radio&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Row&gt;
-                &lt;Paragraph&gt;Een&lt;/Paragraph&gt;
-                &lt;Paragraph&gt;Twee&lt;/Paragraph&gt;
+                {t.samples.rowParagraphs.map((text) =&gt; (
+                  &lt;Paragraph key={text}&gt;{text}&lt;/Paragraph&gt;
+                ))}
               &lt;/Row&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;SearchField onSubmit={(event) =&gt; event.preventDefault()}&gt;
-                &lt;SearchField.Input label=&quot;Zoeken&quot; /&gt;
-                &lt;SearchField.Button /&gt;
+                &lt;SearchField.Input label={t.search} placeholder={t.samples.searchPlaceholder} /&gt;
+                &lt;SearchField.Button&gt;{t.search}&lt;/SearchField.Button&gt;
               &lt;/SearchField&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-select&quot;&gt;Kies een stadsdeel&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-select&quot;&gt;{t.samples.select.label}&lt;/Label&gt;
                 &lt;Select id=&quot;wd-select&quot;&gt;
-                  &lt;Select.Option value=&quot;Centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
-                  &lt;Select.Option value=&quot;Noord&quot;&gt;Noord&lt;/Select.Option&gt;
-                  &lt;Select.Option value=&quot;Zuid&quot;&gt;Zuid&lt;/Select.Option&gt;
+                  {t.samples.select.options.map((option) =&gt; (
+                    &lt;Select.Option key={option.value} value={option.value}&gt;
+                      {option.label}
+                    &lt;/Select.Option&gt;
+                  ))}
                 &lt;/Select&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
@@ -23815,98 +24110,102 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
               &lt;Spotlight color=&quot;green&quot;&gt;
                 &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
                   &lt;Grid.Cell span=&quot;all&quot;&gt;
-                    &lt;Blockquote color=&quot;inverse&quot;&gt;Zorg goed voor de stad en voor elkaar.&lt;/Blockquote&gt;
+                    &lt;Blockquote color=&quot;inverse&quot;&gt;{t.samples.blockquote}&lt;/Blockquote&gt;
                   &lt;/Grid.Cell&gt;
                 &lt;/Grid&gt;
               &lt;/Spotlight&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle onderwerpen&lt;/StandaloneLink&gt;
+              &lt;StandaloneLink href=&quot;#&quot;&gt;{t.samples.standaloneLinkLabel}&lt;/StandaloneLink&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Label htmlFor=&quot;wd-switch&quot;&gt;Meldingen ontvangen&lt;/Label&gt;
+              &lt;Label htmlFor=&quot;wd-switch&quot;&gt;{t.samples.switchLabel}&lt;/Label&gt;
               &lt;Switch id=&quot;wd-switch&quot; /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;TabNavigation&gt;
                 &lt;TabNavigation.List&gt;
-                  &lt;TabNavigation.Link aria-current=&quot;page&quot; href=&quot;#gegevens&quot;&gt;
-                    Gegevens
-                  &lt;/TabNavigation.Link&gt;
-                  &lt;TabNavigation.Link href=&quot;#aanslagen&quot;&gt;Aanslagen&lt;/TabNavigation.Link&gt;
-                  &lt;TabNavigation.Link href=&quot;#documenten&quot;&gt;Documenten&lt;/TabNavigation.Link&gt;
+                  {t.samples.tabNavigationLinks.map((label, index) =&gt; (
+                    &lt;TabNavigation.Link aria-current={index === 0 ? &#39;page&#39; : undefined} href=&quot;#&quot; key={label}&gt;
+                      {label}
+                    &lt;/TabNavigation.Link&gt;
+                  ))}
                 &lt;/TabNavigation.List&gt;
               &lt;/TabNavigation&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;Table&gt;
                 &lt;Table.Caption&gt;
-                  &lt;Heading level={3}&gt;Kosten voor de aanvraag&lt;/Heading&gt;
+                  &lt;Heading level={3}&gt;{t.samples.table.caption}&lt;/Heading&gt;
                 &lt;/Table.Caption&gt;
                 &lt;Table.Header&gt;
                   &lt;Table.Row&gt;
-                    &lt;Table.HeaderCell&gt;Type&lt;/Table.HeaderCell&gt;
-                    &lt;Table.HeaderCell align=&quot;end&quot;&gt;Normale levertijd&lt;/Table.HeaderCell&gt;
+                    &lt;Table.HeaderCell&gt;{t.samples.table.typeHeader}&lt;/Table.HeaderCell&gt;
+                    &lt;Table.HeaderCell align=&quot;end&quot;&gt;{t.samples.table.deliveryTimeHeader}&lt;/Table.HeaderCell&gt;
                   &lt;/Table.Row&gt;
                 &lt;/Table.Header&gt;
                 &lt;Table.Body&gt;
-                  &lt;Table.Row&gt;
-                    &lt;Table.Cell&gt;Paspoort&lt;/Table.Cell&gt;
-                    &lt;Table.Cell align=&quot;end&quot;&gt;€ 77,85&lt;/Table.Cell&gt;
-                  &lt;/Table.Row&gt;
-                  &lt;Table.Row&gt;
-                    &lt;Table.Cell&gt;ID-kaart&lt;/Table.Cell&gt;
-                    &lt;Table.Cell align=&quot;end&quot;&gt;€ 70,35&lt;/Table.Cell&gt;
-                  &lt;/Table.Row&gt;
+                  {t.samples.table.rows.map((row) =&gt; (
+                    &lt;Table.Row key={row.type}&gt;
+                      &lt;Table.Cell&gt;{row.type}&lt;/Table.Cell&gt;
+                      &lt;Table.Cell align=&quot;end&quot;&gt;{row.price}&lt;/Table.Cell&gt;
+                    &lt;/Table.Row&gt;
+                  ))}
                 &lt;/Table.Body&gt;
               &lt;/Table&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+              &lt;TableOfContents heading={t.samples.tableOfContents.heading}&gt;
                 &lt;TableOfContents.List&gt;
-                  &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Zo werkt het&quot; /&gt;
-                  &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Voorwaarden&quot; /&gt;
-                  &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Aanvragen&quot; /&gt;
+                  {t.samples.tableOfContents.links.map((label) =&gt; (
+                    &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; key={label} label={label} /&gt;
+                  ))}
                 &lt;/TableOfContents.List&gt;
               &lt;/TableOfContents&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Tabs&gt;
                 &lt;Tabs.List&gt;
-                  &lt;Tabs.Button aria-controls=&quot;wd-tab-west&quot;&gt;West&lt;/Tabs.Button&gt;
-                  &lt;Tabs.Button aria-controls=&quot;wd-tab-centrum&quot;&gt;Centrum&lt;/Tabs.Button&gt;
+                  &lt;Tabs.Button aria-controls=&quot;wd-tab-west&quot;&gt;{t.samples.tabs[0].label}&lt;/Tabs.Button&gt;
+                  &lt;Tabs.Button aria-controls=&quot;wd-tab-centrum&quot;&gt;{t.samples.tabs[1].label}&lt;/Tabs.Button&gt;
                 &lt;/Tabs.List&gt;
                 &lt;Tabs.Panel id=&quot;wd-tab-west&quot;&gt;
-                  &lt;Paragraph&gt;Bos en Lommerplein 250, 1055 EK Amsterdam&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;
+                    &lt;span lang=&quot;nl&quot;&gt;{t.samples.tabs[0].address}&lt;/span&gt;
+                  &lt;/Paragraph&gt;
                 &lt;/Tabs.Panel&gt;
                 &lt;Tabs.Panel id=&quot;wd-tab-centrum&quot;&gt;
-                  &lt;Paragraph&gt;Amstel 1, 1011 PN Amsterdam&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;
+                    &lt;span lang=&quot;nl&quot;&gt;{t.samples.tabs[1].address}&lt;/span&gt;
+                  &lt;/Paragraph&gt;
                 &lt;/Tabs.Panel&gt;
               &lt;/Tabs&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-textarea&quot;&gt;Toelichting&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-textarea&quot;&gt;{t.samples.textAreaLabel}&lt;/Label&gt;
                 &lt;TextArea id=&quot;wd-textarea&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-textinput&quot;&gt;Woonplaats&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-textinput&quot;&gt;{t.samples.textInputLabel}&lt;/Label&gt;
                 &lt;TextInput id=&quot;wd-textinput&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-time&quot;&gt;Hoe laat is uw afspraak?&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-time&quot;&gt;{t.samples.timeInputLabel}&lt;/Label&gt;
                 &lt;TimeInput id=&quot;wd-time&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;UnorderedList&gt;
-                &lt;UnorderedList.Item&gt;De Clercqstraat en Jan Evertsenstraat&lt;/UnorderedList.Item&gt;
-                &lt;UnorderedList.Item&gt;Raadhuisstraat, Westermarkt en Rozengracht&lt;/UnorderedList.Item&gt;
-                &lt;UnorderedList.Item&gt;Nieuwezijds Voorburgwal&lt;/UnorderedList.Item&gt;
+                {t.samples.unorderedListItems.map((item) =&gt; (
+                  &lt;UnorderedList.Item key={item}&gt;
+                    &lt;span lang=&quot;nl&quot;&gt;{item}&lt;/span&gt;
+                  &lt;/UnorderedList.Item&gt;
+                ))}
               &lt;/UnorderedList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot; style={{ paddingBottom: &#39;var(--ams-space-2xl)&#39; }}&gt;
@@ -23919,9 +24218,7 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
                   colStart={1}
                   rowStart={{ narrow: 3, medium: 3, wide: 2 }}
                 &gt;
-                  &lt;Paragraph color=&quot;inverse&quot;&gt;
-                    Het doel van deze club is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt.
-                  &lt;/Paragraph&gt;
+                  &lt;Paragraph color=&quot;inverse&quot;&gt;{t.samples.breakoutParagraph}&lt;/Paragraph&gt;
                 &lt;/Breakout.Cell&gt;
                 &lt;Breakout.Cell
                   colSpan={{ narrow: 4, medium: 8, wide: 6 }}
@@ -25685,6 +25982,7 @@ This ensures the colour of the text provides enough contrast.
 ## Features
 
 The component adds the correct quotation marks.
+Content in Arabic (marked with `lang=&quot;ar&quot;`) gets guillemets (`«` and `»`), following Arabic convention; other content gets curly double quotes.
 
 ## See also
 
@@ -26280,6 +26578,15 @@ If your users keep hitting the character limit imposed by the backend of your se
 When the length exceeds the maximum length, the colour of the text changes to red.
 
 &lt;Canvas of={CharacterCountStories.Error} /&gt;
+
+### Translated text
+
+The component displays its text in Dutch by default.
+Pass one of the exported formatters – or a custom function – to `formatText` to display the count in another language.
+The Arabic formatter applies Arabic number–noun agreement.
+See the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
+
+&lt;Canvas of={CharacterCountStories.Translated} /&gt;
 
 ## Features
 
@@ -36918,13 +37225,13 @@ This does mean that this component does not look identical on all browsers and o
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  160 | }
-  161 |
-&gt; 162 | const meta = {
+  423 | }
+  424 |
+&gt; 425 | const meta = {
       | ^
-  163 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
-  164 |   args: {
-  165 |     dir: &#39;ltr&#39;,
+  426 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
+  427 |   args: {
+  428 |     dir: &#39;ltr&#39;,
 
 ./src/docs/developer-guide/WritingDirection.stories.tsx:
 /**
@@ -36960,6 +37267,8 @@ import {
   Figure,
   FileInput,
   FileList,
+  formatCharacterCountTextAr,
+  formatCharacterCountTextNl,
   Grid,
   Heading,
   Icon,
@@ -37011,8 +37320,10 @@ import {
   PieChartFillIcon,
   SearchIcon,
 } from &#39;@amsterdam/design-system-react-icons&#39;
-import { useEffect } from &#39;react&#39;
+import { Fragment, useEffect } from &#39;react&#39;
 import { useArgs } from &#39;storybook/preview-api&#39;
+
+import { calendarLocaleProps, datePickerLocaleProps } from &#39;../../_common/locale&#39;
 
 type WritingDirectionArgs = {
   dir: &#39;ltr&#39; | &#39;rtl&#39;
@@ -37022,9 +37333,10 @@ type WritingDirectionArgs = {
 const halfWidth = { narrow: 4, medium: 8, wide: 6 } as const
 const thirdWidth = { narrow: 4, medium: 4, wide: 3 } as const
 
-// The page chrome and the article below switch to Arabic when that language is selected, so the story
-// exercises a full right-to-left script. The 60 component samples further down stay in Dutch.
+// The entire page – chrome, article, and every component sample – switches to Arabic when that
+// language is selected, so the story exercises a full right-to-left script.
 // The Arabic strings are illustrative demo copy, not verified production translations.
+// Proper nouns such as street names stay in Latin script, as they would on a real page.
 const content = {
   ar: {
     brandName: &#39;بيانات أمستردام&#39;,
@@ -37035,7 +37347,7 @@ const content = {
       contactHeading: &#39;اتصل بنا&#39;,
       contactLinks: [&#39;نموذج الاتصال&#39;, &#39;14 020&#39;, &#39;العناوين وساعات العمل&#39;],
       followHeading: &#39;تابعونا&#39;,
-      followLinks: [&#39;تطبيق أمستردام&#39;, &#39;النشرات الإخبارية&#39;, &#39;Facebook&#39;, &#39;Instagram&#39;, &#39;LinkedIn&#39;, &#39;Mastodon&#39;],
+      followLinks: [&#39;تطبيق أمستردام&#39;, &#39;النشرات الإخبارية&#39;, &#39;فيسبوك&#39;, &#39;إنستغرام&#39;, &#39;لينكد إن&#39;, &#39;ماستودون&#39;],
       vacanciesHeading: &#39;الوظائف الشاغرة&#39;,
       vacanciesLink: &#39;العمل لدى أمستردام&#39;,
     },
@@ -37045,6 +37357,126 @@ const content = {
       { heading: &#39;معلومات عنا&#39;, links: [&#39;عن المنظمة&#39;, &#39;عن منصة البيانات&#39;] },
       { heading: &#39;المساعدة&#39;, links: [&#39;المساعدة&#39;, &#39;اتصل بنا&#39;] },
     ],
+    // `menuButtonText` is a verified translation; the other values are unverified drafts.
+    pageHeader: {
+      logoLinkTitle: &#39;انتقل إلى الصفحة الرئيسية لبيانات أمستردام&#39;,
+      menuButtonText: &#39;القائمة&#39;,
+      menuButtonTextForHide: &#39;أخفِ قائمة التنقل&#39;,
+      menuButtonTextForShow: &#39;أظهر قائمة التنقل&#39;,
+      navigationLabel: &#39;القائمة الرئيسية&#39;,
+    },
+    samples: {
+      accordion: {
+        sections: [
+          { body: &#39;تتبع بلدية أمستردام مدونة NVP للتوظيف.&#39;, label: &#39;كيف تبدو إجراءات التقديم للوظيفة؟&#39; },
+          {
+            body: &#39;نعم، إذا كنت ستعمل لدى بلدية أمستردام فستحتاج إلى شهادة حسن سلوك.&#39;,
+            label: &#39;هل أحتاج إلى شهادة حسن سلوك (VOG)؟&#39;,
+          },
+        ],
+      },
+      actionGroup: { proceedLabel: &#39;متابعة&#39;, stopLabel: &#39;إيقاف&#39; },
+      alert: { body: &#39;أثناء أعمال الرفع، تتوقف حركة المرور لفترة قصيرة.&#39;, heading: &#39;حركة المرور متوقفة مؤقتًا&#39; },
+      avatarLabel: &#39;بأ&#39;,
+      badgeLabel: &#39;نصيحة&#39;,
+      blockquote: &#39;اعتنوا جيدًا بالمدينة وببعضكم البعض.&#39;,
+      breadcrumbLinks: [&#39;النفايات&#39;, &#39;نفايات الشركات&#39;, &#39;نقاط إعادة التدوير للشركات&#39;],
+      breakoutParagraph: &#39;هدف هذا النادي هو أن تصبح منطقة Zuidas أكثر استدامة باستمرار.&#39;,
+      buttonLabel: &#39;إرسال&#39;,
+      callToActionLabel: &#39;طلب رخصة قيادة&#39;,
+      card: { body: &#39;اطلع على الضرائب والرسوم المفروضة وكيفية تقديم اعتراض.&#39;, heading: &#39;الضرائب البلدية&#39; },
+      characterCountFormatText: formatCharacterCountTextAr,
+      checkboxLabel: &#39;أوافق على الشروط&#39;,
+      columnParagraphs: [&#39;نتيجة البحث الأولى&#39;, &#39;نتيجة البحث الثانية&#39;],
+      dateInputLabel: &#39;ما هو تاريخ ميلادك؟&#39;,
+      descriptionList: [
+        { description: &#39;تعليم عملي&#39;, term: &#39;تعليم منخفض&#39; },
+        { description: &#39;تعليم نظري&#39;, term: &#39;تعليم عالٍ&#39; },
+      ],
+      dialog: {
+        body: &#39;ستتلقى تأكيدًا عبر البريد الإلكتروني.&#39;,
+        closeButtonLabel: &#39;إغلاق&#39;,
+        heading: &#39;تم حفظ البيانات&#39;,
+        openButtonLabel: &#39;افتح مربع الحوار&#39;,
+      },
+      errorMessage: &#39;أدخل عنوان بريد إلكتروني صالحًا، مثل naam@voorbeeld.nl.&#39;,
+      fieldSet: { firstNameLabel: &#39;الاسم الأول&#39;, lastNameLabel: &#39;اسم العائلة&#39;, legend: &#39;ما هو اسمك؟&#39; },
+      figureCaption: &#39;صف من الدراجات المتوقفة على طول قناة ضيقة في أمستردام.&#39;,
+      fileInputLabel: &#39;أضف مرفقًا&#39;,
+      fileName: &#39;مستند.pdf&#39;,
+      gridParagraphs: [&#39;خلية الشبكة الأولى&#39;, &#39;خلية الشبكة الثانية&#39;],
+      heading: &#39;المزيد من الأماكن للفنون والثقافة في جميع أنحاء المدينة&#39;,
+      iconButtonLabel: &#39;إغلاق&#39;,
+      imageSlider: {
+        imageLabel: &#39;صورة&#39;,
+        images: [
+          { alt: &#39;جسر&#39;, src: &#39;https://picsum.photos/id/122/1280/720&#39; },
+          { alt: &#39;ملجأ&#39;, src: &#39;https://picsum.photos/id/101/1280/720&#39; },
+          { alt: &#39;كراسي&#39;, src: &#39;https://picsum.photos/id/153/1280/720&#39; },
+        ],
+        nextLabel: &#39;التالية&#39;,
+        previousLabel: &#39;السابقة&#39;,
+      },
+      invalidFormAlert: {
+        errors: [&#39;أدخل تاريخًا صالحًا (مثل 6 يناير 2030).&#39;, &#39;يجب أن يكون تاريخ انتهاء صلاحية جواز سفرك في المستقبل.&#39;],
+        heading: &#39;صحّح الأخطاء قبل المتابعة&#39;,
+      },
+      labelText: &#39;تسمية&#39;,
+      linkListLinks: [&#39;نموذج الاتصال&#39;, &#39;العناوين وساعات العمل&#39;, &#39;اتصل بالرقم 14 020&#39;],
+      linkSentence: { linkText: &#39;مصمم الخطوط&#39;, textAfter: &#39; يصمم الحروف.&#39;, textBefore: &#39;&#39; },
+      markSentence: { markText: &#39;خبراء النفايات&#39;, textAfter: &#39;.&#39;, textBefore: &#39;يمكننا كبلدية أن نتعلم الكثير من &#39; },
+      menuLinkLabel: &#39;لوحة المعلومات&#39;,
+      orderedListItems: [
+        &#39;احرص على أن تكون مهمة الكتابة واضحة.&#39;,
+        &#39;اجمع المعلومات وانتقِها ونظمها.&#39;,
+        &#39;راجع النص ومهمة الكتابة.&#39;,
+      ],
+      pagination: { nextLabel: &#39;التالي&#39;, previousLabel: &#39;السابق&#39; },
+      paragraph: &#39;تراقب الشرطة المخالفات المتعلقة بالدراجات الكهربائية المعدّلة والدراجات ذات الإطارات العريضة.&#39;,
+      passwordInputLabel: &#39;كلمة المرور&#39;,
+      progressList: [
+        { body: &#39;تم استلام طلبك في 2 يناير 2026.&#39;, heading: &#39;تم تقديم الطلب&#39; },
+        { body: &#39;يراجع أحد الموظفين طلبك وسيتواصل معك عند وجود أسئلة.&#39;, heading: &#39;قيد المعالجة&#39; },
+        { body: &#39;ستتلقى القرار في غضون 8 أسابيع من تقديم طلبك.&#39;, heading: &#39;القرار&#39; },
+      ],
+      radioLabel: &#39;البقاء على اطلاع عبر البريد الإلكتروني&#39;,
+      rowParagraphs: [&#39;واحد&#39;, &#39;اثنان&#39;],
+      searchPlaceholder: &#39;ماذا يمكننا أن نجد لك؟&#39;,
+      select: {
+        label: &#39;اختر حيًا&#39;,
+        options: [
+          { label: &#39;المركز&#39;, value: &#39;Centrum&#39; },
+          { label: &#39;الشمال&#39;, value: &#39;Noord&#39; },
+          { label: &#39;الجنوب&#39;, value: &#39;Zuid&#39; },
+        ],
+      },
+      standaloneLinkLabel: &#39;عرض جميع المواضيع&#39;,
+      surnameLabel: &#39;ما هو اسم عائلتك؟&#39;,
+      switchLabel: &#39;تلقي الإشعارات&#39;,
+      table: {
+        caption: &#39;تكاليف الطلب&#39;,
+        deliveryTimeHeader: &#39;مدة التسليم العادية&#39;,
+        rows: [
+          { price: &#39;€ 77,85&#39;, type: &#39;جواز السفر&#39; },
+          { price: &#39;€ 70,35&#39;, type: &#39;بطاقة الهوية&#39; },
+        ],
+        typeHeader: &#39;النوع&#39;,
+      },
+      tableOfContents: { heading: &#39;في هذه الصفحة&#39;, links: [&#39;كيف يعمل&#39;, &#39;الشروط&#39;, &#39;التقديم&#39;] },
+      tabNavigationLinks: [&#39;البيانات&#39;, &#39;الإشعارات الضريبية&#39;, &#39;المستندات&#39;],
+      tabs: [
+        { address: &#39;Bos en Lommerplein 250, 1055 EK Amsterdam&#39;, label: &#39;الغرب&#39; },
+        { address: &#39;Amstel 1, 1011 PN Amsterdam&#39;, label: &#39;المركز&#39; },
+      ],
+      textAreaLabel: &#39;توضيح&#39;,
+      textInputLabel: &#39;مكان الإقامة&#39;,
+      timeInputLabel: &#39;في أي ساعة موعدك؟&#39;,
+      unorderedListItems: [
+        &#39;De Clercqstraat وJan Evertsenstraat&#39;,
+        &#39;Raadhuisstraat وWestermarkt وRozengracht&#39;,
+        &#39;Nieuwezijds Voorburgwal&#39;,
+      ],
+    },
     search: &#39;بحث&#39;,
     skipLink: &#39;انتقل إلى المحتوى&#39;,
   },
@@ -37067,6 +37499,144 @@ const content = {
       { heading: &#39;Over ons&#39;, links: [&#39;Over de organisatie&#39;, &#39;Over het dataplatform&#39;] },
       { heading: &#39;Help&#39;, links: [&#39;Help&#39;, &#39;Contact&#39;] },
     ],
+    pageHeader: {
+      logoLinkTitle: &#39;Ga naar de homepage van Data Amsterdam&#39;,
+      menuButtonText: &#39;Menu&#39;,
+      menuButtonTextForHide: &#39;Verberg navigatiemenu&#39;,
+      menuButtonTextForShow: &#39;Laat navigatiemenu zien&#39;,
+      navigationLabel: &#39;Hoofdmenu&#39;,
+    },
+    samples: {
+      accordion: {
+        sections: [
+          {
+            body: &#39;De gemeente Amsterdam volgt de NVP Sollicitatiecode.&#39;,
+            label: &#39;Hoe ziet de sollicitatieprocedure eruit?&#39;,
+          },
+          {
+            body: &#39;Ja, als je gaat werken bij de gemeente Amsterdam heb je een VOG nodig.&#39;,
+            label: &#39;Heb ik een VOG nodig?&#39;,
+          },
+        ],
+      },
+      actionGroup: { proceedLabel: &#39;Doorgaan&#39;, stopLabel: &#39;Stoppen&#39; },
+      alert: {
+        body: &#39;Tijdens de hijswerkzaamheden geldt er een korte verkeersstop.&#39;,
+        heading: &#39;Tijdelijk geen verkeer mogelijk&#39;,
+      },
+      avatarLabel: &#39;DS&#39;,
+      badgeLabel: &#39;Tip&#39;,
+      blockquote: &#39;Zorg goed voor de stad en voor elkaar.&#39;,
+      breadcrumbLinks: [&#39;Afval&#39;, &#39;Bedrijfsafval&#39;, &#39;Recyclepunten voor bedrijven&#39;],
+      breakoutParagraph: &#39;Het doel van deze club is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt.&#39;,
+      buttonLabel: &#39;Versturen&#39;,
+      callToActionLabel: &#39;Rijbewijs aanvragen&#39;,
+      card: {
+        body: &#39;Bekijk welke belastingen en heffingen er zijn en hoe u bezwaar maakt.&#39;,
+        heading: &#39;Gemeentebelastingen&#39;,
+      },
+      characterCountFormatText: formatCharacterCountTextNl,
+      checkboxLabel: &#39;Ik ga akkoord met de voorwaarden&#39;,
+      columnParagraphs: [&#39;Zoekresultaten één&#39;, &#39;Zoekresultaten twee&#39;],
+      dateInputLabel: &#39;Wat is uw geboortedatum?&#39;,
+      descriptionList: [
+        { description: &#39;Praktisch opgeleid&#39;, term: &#39;Laagopgeleid&#39; },
+        { description: &#39;Theoretisch opgeleid&#39;, term: &#39;Hoogopgeleid&#39; },
+      ],
+      dialog: {
+        body: &#39;U ontvangt een bevestiging per e-mail.&#39;,
+        closeButtonLabel: &#39;Sluiten&#39;,
+        heading: &#39;De gegevens zijn opgeslagen&#39;,
+        openButtonLabel: &#39;Open dialoog&#39;,
+      },
+      errorMessage: &#39;Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.&#39;,
+      fieldSet: { firstNameLabel: &#39;Voornaam&#39;, lastNameLabel: &#39;Achternaam&#39;, legend: &#39;Wat is uw naam?&#39; },
+      figureCaption: &#39;Een rij geparkeerde fietsen langs een smalle Amsterdamse gracht.&#39;,
+      fileInputLabel: &#39;Voeg een bijlage toe&#39;,
+      fileName: &#39;document.pdf&#39;,
+      gridParagraphs: [&#39;Grid-cel links&#39;, &#39;Grid-cel rechts&#39;],
+      heading: &#39;Meer plekken voor kunst en cultuur, verspreid over de stad&#39;,
+      iconButtonLabel: &#39;Sluiten&#39;,
+      imageSlider: {
+        imageLabel: &#39;Afbeelding&#39;,
+        images: [
+          { alt: &#39;Brug&#39;, src: &#39;https://picsum.photos/id/122/1280/720&#39; },
+          { alt: &#39;Bunker&#39;, src: &#39;https://picsum.photos/id/101/1280/720&#39; },
+          { alt: &#39;Stoelen&#39;, src: &#39;https://picsum.photos/id/153/1280/720&#39; },
+        ],
+        nextLabel: &#39;Volgende&#39;,
+        previousLabel: &#39;Vorige&#39;,
+      },
+      invalidFormAlert: {
+        errors: [
+          &#39;Vul een geldige datum in (bijvoorbeeld 6 januari 2030).&#39;,
+          &#39;De geldigheidsdatum van uw paspoort moet in de toekomst liggen.&#39;,
+        ],
+        heading: &#39;Verbeter de fouten voor u verder gaat&#39;,
+      },
+      labelText: &#39;Label&#39;,
+      linkListLinks: [&#39;Contactformulier&#39;, &#39;Adressen en openingstijden&#39;, &#39;Bel 14 020&#39;],
+      linkSentence: { linkText: &#39;typograaf&#39;, textAfter: &#39; ontwerpt letters.&#39;, textBefore: &#39;Een &#39; },
+      markSentence: {
+        markText: &#39;afvalexperts&#39;,
+        textAfter: &#39; leren.&#39;,
+        textBefore: &#39;Wij kunnen als gemeente veel van deze &#39;,
+      },
+      menuLinkLabel: &#39;Dashboard&#39;,
+      orderedListItems: [
+        &#39;Zorg voor een duidelijke schrijfopdracht.&#39;,
+        &#39;Verzamel, selecteer en structureer de informatie.&#39;,
+        &#39;Controleer de tekst en de schrijfopdracht.&#39;,
+      ],
+      pagination: { nextLabel: &#39;volgende&#39;, previousLabel: &#39;vorige&#39; },
+      paragraph: &#39;De politie controleert op overtredingen met opgevoerde e-bikes en fatbikes.&#39;,
+      passwordInputLabel: &#39;Wachtwoord&#39;,
+      progressList: [
+        { body: &#39;Uw aanvraag is op 2 januari 2026 ontvangen.&#39;, heading: &#39;Aanvraag ingediend&#39; },
+        {
+          body: &#39;Een medewerker beoordeelt uw aanvraag en neemt bij vragen contact met u op.&#39;,
+          heading: &#39;In behandeling&#39;,
+        },
+        { body: &#39;U ontvangt het besluit binnen 8 weken na uw aanvraag.&#39;, heading: &#39;Besluit&#39; },
+      ],
+      radioLabel: &#39;Op de hoogte blijven via e-mail&#39;,
+      rowParagraphs: [&#39;Een&#39;, &#39;Twee&#39;],
+      searchPlaceholder: &#39;Wat kunnen we voor u vinden?&#39;,
+      select: {
+        label: &#39;Kies een stadsdeel&#39;,
+        options: [
+          { label: &#39;Centrum&#39;, value: &#39;Centrum&#39; },
+          { label: &#39;Noord&#39;, value: &#39;Noord&#39; },
+          { label: &#39;Zuid&#39;, value: &#39;Zuid&#39; },
+        ],
+      },
+      standaloneLinkLabel: &#39;Bekijk alle onderwerpen&#39;,
+      surnameLabel: &#39;Wat is uw achternaam?&#39;,
+      switchLabel: &#39;Meldingen ontvangen&#39;,
+      table: {
+        caption: &#39;Kosten voor de aanvraag&#39;,
+        deliveryTimeHeader: &#39;Normale levertijd&#39;,
+        rows: [
+          { price: &#39;€ 77,85&#39;, type: &#39;Paspoort&#39; },
+          { price: &#39;€ 70,35&#39;, type: &#39;ID-kaart&#39; },
+        ],
+        typeHeader: &#39;Type&#39;,
+      },
+      tableOfContents: { heading: &#39;Op deze pagina&#39;, links: [&#39;Zo werkt het&#39;, &#39;Voorwaarden&#39;, &#39;Aanvragen&#39;] },
+      tabNavigationLinks: [&#39;Gegevens&#39;, &#39;Aanslagen&#39;, &#39;Documenten&#39;],
+      tabs: [
+        { address: &#39;Bos en Lommerplein 250, 1055 EK Amsterdam&#39;, label: &#39;West&#39; },
+        { address: &#39;Amstel 1, 1011 PN Amsterdam&#39;, label: &#39;Centrum&#39; },
+      ],
+      textAreaLabel: &#39;Toelichting&#39;,
+      textInputLabel: &#39;Woonplaats&#39;,
+      timeInputLabel: &#39;Hoe laat is uw afspraak?&#39;,
+      unorderedListItems: [
+        &#39;De Clercqstraat en Jan Evertsenstraat&#39;,
+        &#39;Raadhuisstraat, Westermarkt en Rozengracht&#39;,
+        &#39;Nieuwezijds Voorburgwal&#39;,
+      ],
+    },
     search: &#39;Zoeken&#39;,
     skipLink: &#39;Direct naar inhoud&#39;,
   },
@@ -37138,6 +37708,10 @@ export const Playground: Story = {
           &lt;PageHeader
             brandName={t.brandName}
             defaultOpen
+            logoLinkTitle={t.pageHeader.logoLinkTitle}
+            menuButtonText={t.pageHeader.menuButtonText}
+            menuButtonTextForHide={t.pageHeader.menuButtonTextForHide}
+            menuButtonTextForShow={t.pageHeader.menuButtonTextForShow}
             menuItems={[
               &lt;PageHeader.MenuLink href=&quot;#&quot; key=&quot;english&quot; lang=&quot;en&quot;&gt;
                 English
@@ -37146,6 +37720,7 @@ export const Playground: Story = {
                 {t.search}
               &lt;/PageHeader.MenuLink&gt;,
             ]}
+            navigationLabel={t.pageHeader.navigationLabel}
           &gt;
             &lt;Grid&gt;
               &lt;PageHeader.GridCellNarrowWindowOnly span=&quot;all&quot;&gt;
@@ -37208,117 +37783,129 @@ export const Playground: Story = {
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Accordion headingLevel={3}&gt;
-                  &lt;Accordion.Section label=&quot;Hoe ziet de sollicitatieprocedure eruit?&quot;&gt;
-                    &lt;Paragraph&gt;De gemeente Amsterdam volgt de NVP Sollicitatiecode.&lt;/Paragraph&gt;
-                  &lt;/Accordion.Section&gt;
-                  &lt;Accordion.Section label=&quot;Heb ik een VOG nodig?&quot;&gt;
-                    &lt;Paragraph&gt;Ja, als je gaat werken bij de gemeente Amsterdam heb je een VOG nodig.&lt;/Paragraph&gt;
-                  &lt;/Accordion.Section&gt;
+                  {t.samples.accordion.sections.map((section) =&gt; (
+                    &lt;Accordion.Section key={section.label} label={section.label}&gt;
+                      &lt;Paragraph&gt;{section.body}&lt;/Paragraph&gt;
+                    &lt;/Accordion.Section&gt;
+                  ))}
                 &lt;/Accordion&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;ActionGroup&gt;
-                  &lt;Button&gt;Doorgaan&lt;/Button&gt;
-                  &lt;Button variant=&quot;secondary&quot;&gt;Stoppen&lt;/Button&gt;
+                  &lt;Button&gt;{t.samples.actionGroup.proceedLabel}&lt;/Button&gt;
+                  &lt;Button variant=&quot;secondary&quot;&gt;{t.samples.actionGroup.stopLabel}&lt;/Button&gt;
                 &lt;/ActionGroup&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
-                &lt;Alert heading=&quot;Tijdelijk geen verkeer mogelijk&quot; headingLevel={2}&gt;
-                  &lt;Paragraph&gt;Tijdens de hijswerkzaamheden geldt er een korte verkeersstop.&lt;/Paragraph&gt;
+                &lt;Alert heading={t.samples.alert.heading} headingLevel={2}&gt;
+                  &lt;Paragraph&gt;{t.samples.alert.body}&lt;/Paragraph&gt;
                 &lt;/Alert&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Avatar label=&quot;DS&quot; /&gt;
+                &lt;Avatar label={t.samples.avatarLabel} /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Badge label=&quot;Tip&quot; /&gt;
+                &lt;Badge label={t.samples.badgeLabel} /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;Blockquote&gt;Zorg goed voor de stad en voor elkaar.&lt;/Blockquote&gt;
+                &lt;Blockquote&gt;{t.samples.blockquote}&lt;/Blockquote&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;Breadcrumb&gt;
-                  &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Afval&lt;/Breadcrumb.Link&gt;
-                  &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bedrijfsafval&lt;/Breadcrumb.Link&gt;
-                  &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Recyclepunten voor bedrijven&lt;/Breadcrumb.Link&gt;
+                  {t.samples.breadcrumbLinks.map((label) =&gt; (
+                    &lt;Breadcrumb.Link href=&quot;#&quot; key={label}&gt;
+                      {label}
+                    &lt;/Breadcrumb.Link&gt;
+                  ))}
                 &lt;/Breadcrumb&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Button&gt;Versturen&lt;/Button&gt;
+                &lt;Button&gt;{t.samples.buttonLabel}&lt;/Button&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;Calendar linkTemplate={(date) =&gt; `?date=${date.toISOString().slice(0, 10)}`} /&gt;
+                &lt;Calendar
+                  {...(lang === &#39;ar&#39; ? { ...calendarLocaleProps(&#39;ar-MA&#39;), locale: &#39;ar-MA&#39; } : {})}
+                  linkTemplate={(date) =&gt; `?date=${date.toISOString().slice(0, 10)}`}
+                /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;CallToActionLink href=&quot;#&quot;&gt;Rijbewijs aanvragen&lt;/CallToActionLink&gt;
+                &lt;CallToActionLink href=&quot;#&quot;&gt;{t.samples.callToActionLabel}&lt;/CallToActionLink&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Card&gt;
                   &lt;Card.Heading level={2}&gt;
-                    &lt;Card.Link href=&quot;#&quot;&gt;Gemeentebelastingen&lt;/Card.Link&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;{t.samples.card.heading}&lt;/Card.Link&gt;
                   &lt;/Card.Heading&gt;
-                  &lt;Paragraph&gt;Bekijk welke belastingen en heffingen er zijn en hoe u bezwaar maakt.&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;{t.samples.card.body}&lt;/Paragraph&gt;
                 &lt;/Card&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;CharacterCount length={7} maxLength={10} /&gt;
+                &lt;CharacterCount formatText={t.samples.characterCountFormatText} length={7} maxLength={10} /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Checkbox&gt;Ik ga akkoord met de voorwaarden&lt;/Checkbox&gt;
+                &lt;Checkbox&gt;{t.samples.checkboxLabel}&lt;/Checkbox&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Column&gt;
-                  &lt;Paragraph&gt;Zoekresultaten één&lt;/Paragraph&gt;
-                  &lt;Paragraph&gt;Zoekresultaten twee&lt;/Paragraph&gt;
+                  {t.samples.columnParagraphs.map((text) =&gt; (
+                    &lt;Paragraph key={text}&gt;{text}&lt;/Paragraph&gt;
+                  ))}
                 &lt;/Column&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-date&quot;&gt;Wat is uw geboortedatum?&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-date&quot;&gt;{t.samples.dateInputLabel}&lt;/Label&gt;
                   &lt;DateInput id=&quot;wd-date&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;DatePicker onChange={() =&gt; {}} value={null} /&gt;
+                &lt;DatePicker
+                  {...(lang === &#39;ar&#39; ? { ...datePickerLocaleProps(&#39;ar-MA&#39;), locale: &#39;ar-MA&#39; } : {})}
+                  onChange={() =&gt; {}}
+                  value={null}
+                /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;DescriptionList&gt;
-                  &lt;DescriptionList.Term&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;
-                  &lt;DescriptionList.Term&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;
-                  &lt;DescriptionList.Description&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;
+                  {t.samples.descriptionList.map((item) =&gt; (
+                    &lt;Fragment key={item.term}&gt;
+                      &lt;DescriptionList.Term&gt;{item.term}&lt;/DescriptionList.Term&gt;
+                      &lt;DescriptionList.Description&gt;{item.description}&lt;/DescriptionList.Description&gt;
+                    &lt;/Fragment&gt;
+                  ))}
                 &lt;/DescriptionList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Button onClick={() =&gt; Dialog.open(&#39;#wd-dialog&#39;)}&gt;Open dialoog&lt;/Button&gt;
+                &lt;Button onClick={() =&gt; Dialog.open(&#39;#wd-dialog&#39;)}&gt;{t.samples.dialog.openButtonLabel}&lt;/Button&gt;
                 &lt;Dialog
-                  footer={&lt;Button onClick={(event) =&gt; Dialog.close(event)}&gt;Sluiten&lt;/Button&gt;}
-                  heading=&quot;De gegevens zijn opgeslagen&quot;
+                  closeButtonLabel={t.samples.dialog.closeButtonLabel}
+                  footer={&lt;Button onClick={(event) =&gt; Dialog.close(event)}&gt;{t.samples.dialog.closeButtonLabel}&lt;/Button&gt;}
+                  heading={t.samples.dialog.heading}
                   id=&quot;wd-dialog&quot;
                 &gt;
-                  &lt;Paragraph&gt;U ontvangt een bevestiging per e-mail.&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;{t.samples.dialog.body}&lt;/Paragraph&gt;
                 &lt;/Dialog&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;ErrorMessage&gt;Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.&lt;/ErrorMessage&gt;
+                &lt;ErrorMessage&gt;{t.samples.errorMessage}&lt;/ErrorMessage&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-field&quot;&gt;Wat is uw achternaam?&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-field&quot;&gt;{t.samples.surnameLabel}&lt;/Label&gt;
                   &lt;TextInput id=&quot;wd-field&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;FieldSet legend=&quot;Wat is uw naam?&quot;&gt;
+                &lt;FieldSet legend={t.samples.fieldSet.legend}&gt;
                   &lt;Field&gt;
                     &lt;Label htmlFor=&quot;wd-fieldset-first&quot; inFieldSet&gt;
-                      Voornaam
+                      {t.samples.fieldSet.firstNameLabel}
                     &lt;/Label&gt;
                     &lt;TextInput id=&quot;wd-fieldset-first&quot; /&gt;
                   &lt;/Field&gt;
                   &lt;Field&gt;
                     &lt;Label htmlFor=&quot;wd-fieldset-last&quot; inFieldSet&gt;
-                      Achternaam
+                      {t.samples.fieldSet.lastNameLabel}
                     &lt;/Label&gt;
                     &lt;TextInput id=&quot;wd-fieldset-last&quot; /&gt;
                   &lt;/Field&gt;
@@ -37327,76 +37914,76 @@ export const Playground: Story = {
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;Figure&gt;
                   &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
-                  &lt;Figure.Caption&gt;Een rij geparkeerde fietsen langs een smalle Amsterdamse gracht.&lt;/Figure.Caption&gt;
+                  &lt;Figure.Caption&gt;{t.samples.figureCaption}&lt;/Figure.Caption&gt;
                 &lt;/Figure&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-file&quot;&gt;Voeg een bijlage toe&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-file&quot;&gt;{t.samples.fileInputLabel}&lt;/Label&gt;
                   &lt;FileInput id=&quot;wd-file&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;FileList&gt;
                   &lt;FileList.Item
-                    file={new File([&#39;sample&#39;], &#39;document.pdf&#39;, { type: &#39;application/pdf&#39; })}
+                    file={new File([&#39;sample&#39;], t.samples.fileName, { type: &#39;application/pdf&#39; })}
                     onDelete={() =&gt; {}}
                   /&gt;
                 &lt;/FileList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;Grid&gt;
-                  &lt;Grid.Cell span={halfWidth}&gt;
-                    &lt;Paragraph&gt;Grid-cel links&lt;/Paragraph&gt;
-                  &lt;/Grid.Cell&gt;
-                  &lt;Grid.Cell span={halfWidth}&gt;
-                    &lt;Paragraph&gt;Grid-cel rechts&lt;/Paragraph&gt;
-                  &lt;/Grid.Cell&gt;
+                  {t.samples.gridParagraphs.map((text) =&gt; (
+                    &lt;Grid.Cell key={text} span={halfWidth}&gt;
+                      &lt;Paragraph&gt;{text}&lt;/Paragraph&gt;
+                    &lt;/Grid.Cell&gt;
+                  ))}
                 &lt;/Grid&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;Heading level={2}&gt;Meer plekken voor kunst en cultuur, verspreid over de stad&lt;/Heading&gt;
+                &lt;Heading level={2}&gt;{t.samples.heading}&lt;/Heading&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Icon svg={&lt;MailIcon /&gt;} /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;IconButton label=&quot;Sluiten&quot; /&gt;
+                &lt;IconButton label={t.samples.iconButtonLabel} /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;ImageSlider
-                  images={[
-                    { alt: &#39;Brug&#39;, src: &#39;https://picsum.photos/id/122/1280/720&#39; },
-                    { alt: &#39;Bunker&#39;, src: &#39;https://picsum.photos/id/101/1280/720&#39; },
-                    { alt: &#39;Stoelen&#39;, src: &#39;https://picsum.photos/id/153/1280/720&#39; },
-                  ]}
+                  imageLabel={t.samples.imageSlider.imageLabel}
+                  images={[...t.samples.imageSlider.images]}
+                  nextLabel={t.samples.imageSlider.nextLabel}
+                  previousLabel={t.samples.imageSlider.previousLabel}
                 /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;InvalidFormAlert
-                  errors={[
-                    { id: &#39;#&#39;, label: &#39;Vul een geldige datum in (bijvoorbeeld 6 januari 2030).&#39; },
-                    { id: &#39;#&#39;, label: &#39;De geldigheidsdatum van uw paspoort moet in de toekomst liggen.&#39; },
-                  ]}
+                  errors={t.samples.invalidFormAlert.errors.map((label) =&gt; ({ id: &#39;#&#39;, label }))}
+                  heading={t.samples.invalidFormAlert.heading}
                   headingLevel={2}
                 /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Label&gt;Label&lt;/Label&gt;
+                &lt;Label&gt;{t.samples.labelText}&lt;/Label&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Paragraph&gt;
-                  Een &lt;Link href=&quot;#&quot;&gt;typograaf&lt;/Link&gt; ontwerpt letters.
+                  {t.samples.linkSentence.textBefore}
+                  &lt;Link href=&quot;#&quot;&gt;{t.samples.linkSentence.linkText}&lt;/Link&gt;
+                  {t.samples.linkSentence.textAfter}
                 &lt;/Paragraph&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;LinkList&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Contactformulier&lt;/LinkList.Link&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Adressen en openingstijden&lt;/LinkList.Link&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Bel 14 020&lt;/LinkList.Link&gt;
+                  {t.samples.linkListLinks.map((label) =&gt; (
+                    &lt;LinkList.Link href=&quot;#&quot; key={label}&gt;
+                      {label}
+                    &lt;/LinkList.Link&gt;
+                  ))}
                 &lt;/LinkList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
@@ -37404,21 +37991,23 @@ export const Playground: Story = {
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Paragraph&gt;
-                  Wij kunnen als gemeente veel van deze &lt;Mark&gt;afvalexperts&lt;/Mark&gt; leren.
+                  {t.samples.markSentence.textBefore}
+                  &lt;Mark&gt;{t.samples.markSentence.markText}&lt;/Mark&gt;
+                  {t.samples.markSentence.textAfter}
                 &lt;/Paragraph&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Menu&gt;
                   &lt;Menu.Link href=&quot;#&quot; icon={&lt;PieChartFillIcon /&gt;}&gt;
-                    Dashboard
+                    {t.samples.menuLinkLabel}
                   &lt;/Menu.Link&gt;
                 &lt;/Menu&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;OrderedList&gt;
-                  &lt;OrderedList.Item&gt;Zorg voor een duidelijke schrijfopdracht.&lt;/OrderedList.Item&gt;
-                  &lt;OrderedList.Item&gt;Verzamel, selecteer en structureer de informatie.&lt;/OrderedList.Item&gt;
-                  &lt;OrderedList.Item&gt;Controleer de tekst en de schrijfopdracht.&lt;/OrderedList.Item&gt;
+                  {t.samples.orderedListItems.map((item) =&gt; (
+                    &lt;OrderedList.Item key={item}&gt;{item}&lt;/OrderedList.Item&gt;
+                  ))}
                 &lt;/OrderedList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -37427,60 +38016,70 @@ export const Playground: Story = {
                   &lt;Grid style={{ alignSelf: &#39;center&#39; }}&gt;
                     &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
                       &lt;SearchField onSubmit={(event) =&gt; event.preventDefault()}&gt;
-                        &lt;SearchField.Input label=&quot;Zoeken&quot; placeholder=&quot;Wat kunnen we voor u vinden?&quot; /&gt;
-                        &lt;SearchField.Button /&gt;
+                        &lt;SearchField.Input label={t.search} placeholder={t.samples.searchPlaceholder} /&gt;
+                        &lt;SearchField.Button&gt;{t.search}&lt;/SearchField.Button&gt;
                       &lt;/SearchField&gt;
                     &lt;/Grid.Cell&gt;
                   &lt;/Grid&gt;
                 &lt;/Overlap&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
-                &lt;Pagination linkTemplate={(page) =&gt; `#?pagina=${page}`} maxVisiblePages={7} page={5} totalPages={10} /&gt;
+                &lt;Pagination
+                  linkTemplate={(page) =&gt; `#?pagina=${page}`}
+                  maxVisiblePages={7}
+                  nextLabel={t.samples.pagination.nextLabel}
+                  page={5}
+                  previousLabel={t.samples.pagination.previousLabel}
+                  totalPages={10}
+                /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;Paragraph&gt;De politie controleert op overtredingen met opgevoerde e-bikes en fatbikes.&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;{t.samples.paragraph}&lt;/Paragraph&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-password&quot;&gt;Wachtwoord&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-password&quot;&gt;{t.samples.passwordInputLabel}&lt;/Label&gt;
                   &lt;PasswordInput id=&quot;wd-password&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;ProgressList headingLevel={3}&gt;
-                  &lt;ProgressList.Step heading=&quot;Aanvraag ingediend&quot; status=&quot;completed&quot;&gt;
-                    &lt;Paragraph&gt;Uw aanvraag is op 2 januari 2026 ontvangen.&lt;/Paragraph&gt;
+                  &lt;ProgressList.Step heading={t.samples.progressList[0].heading} status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;{t.samples.progressList[0].body}&lt;/Paragraph&gt;
                   &lt;/ProgressList.Step&gt;
-                  &lt;ProgressList.Step heading=&quot;In behandeling&quot; status=&quot;current&quot;&gt;
-                    &lt;Paragraph&gt;Een medewerker beoordeelt uw aanvraag en neemt bij vragen contact met u op.&lt;/Paragraph&gt;
+                  &lt;ProgressList.Step heading={t.samples.progressList[1].heading} status=&quot;current&quot;&gt;
+                    &lt;Paragraph&gt;{t.samples.progressList[1].body}&lt;/Paragraph&gt;
                   &lt;/ProgressList.Step&gt;
-                  &lt;ProgressList.Step heading=&quot;Besluit&quot;&gt;
-                    &lt;Paragraph&gt;U ontvangt het besluit binnen 8 weken na uw aanvraag.&lt;/Paragraph&gt;
+                  &lt;ProgressList.Step heading={t.samples.progressList[2].heading}&gt;
+                    &lt;Paragraph&gt;{t.samples.progressList[2].body}&lt;/Paragraph&gt;
                   &lt;/ProgressList.Step&gt;
                 &lt;/ProgressList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Radio&gt;Op de hoogte blijven via e-mail&lt;/Radio&gt;
+                &lt;Radio&gt;{t.samples.radioLabel}&lt;/Radio&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Row&gt;
-                  &lt;Paragraph&gt;Een&lt;/Paragraph&gt;
-                  &lt;Paragraph&gt;Twee&lt;/Paragraph&gt;
+                  {t.samples.rowParagraphs.map((text) =&gt; (
+                    &lt;Paragraph key={text}&gt;{text}&lt;/Paragraph&gt;
+                  ))}
                 &lt;/Row&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;SearchField onSubmit={(event) =&gt; event.preventDefault()}&gt;
-                  &lt;SearchField.Input label=&quot;Zoeken&quot; /&gt;
-                  &lt;SearchField.Button /&gt;
+                  &lt;SearchField.Input label={t.search} placeholder={t.samples.searchPlaceholder} /&gt;
+                  &lt;SearchField.Button&gt;{t.search}&lt;/SearchField.Button&gt;
                 &lt;/SearchField&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-select&quot;&gt;Kies een stadsdeel&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-select&quot;&gt;{t.samples.select.label}&lt;/Label&gt;
                   &lt;Select id=&quot;wd-select&quot;&gt;
-                    &lt;Select.Option value=&quot;Centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
-                    &lt;Select.Option value=&quot;Noord&quot;&gt;Noord&lt;/Select.Option&gt;
-                    &lt;Select.Option value=&quot;Zuid&quot;&gt;Zuid&lt;/Select.Option&gt;
+                    {t.samples.select.options.map((option) =&gt; (
+                      &lt;Select.Option key={option.value} value={option.value}&gt;
+                        {option.label}
+                      &lt;/Select.Option&gt;
+                    ))}
                   &lt;/Select&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
@@ -37495,98 +38094,102 @@ export const Playground: Story = {
                 &lt;Spotlight color=&quot;green&quot;&gt;
                   &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
                     &lt;Grid.Cell span=&quot;all&quot;&gt;
-                      &lt;Blockquote color=&quot;inverse&quot;&gt;Zorg goed voor de stad en voor elkaar.&lt;/Blockquote&gt;
+                      &lt;Blockquote color=&quot;inverse&quot;&gt;{t.samples.blockquote}&lt;/Blockquote&gt;
                     &lt;/Grid.Cell&gt;
                   &lt;/Grid&gt;
                 &lt;/Spotlight&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle onderwerpen&lt;/StandaloneLink&gt;
+                &lt;StandaloneLink href=&quot;#&quot;&gt;{t.samples.standaloneLinkLabel}&lt;/StandaloneLink&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
-                &lt;Label htmlFor=&quot;wd-switch&quot;&gt;Meldingen ontvangen&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-switch&quot;&gt;{t.samples.switchLabel}&lt;/Label&gt;
                 &lt;Switch id=&quot;wd-switch&quot; /&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;TabNavigation&gt;
                   &lt;TabNavigation.List&gt;
-                    &lt;TabNavigation.Link aria-current=&quot;page&quot; href=&quot;#gegevens&quot;&gt;
-                      Gegevens
-                    &lt;/TabNavigation.Link&gt;
-                    &lt;TabNavigation.Link href=&quot;#aanslagen&quot;&gt;Aanslagen&lt;/TabNavigation.Link&gt;
-                    &lt;TabNavigation.Link href=&quot;#documenten&quot;&gt;Documenten&lt;/TabNavigation.Link&gt;
+                    {t.samples.tabNavigationLinks.map((label, index) =&gt; (
+                      &lt;TabNavigation.Link aria-current={index === 0 ? &#39;page&#39; : undefined} href=&quot;#&quot; key={label}&gt;
+                        {label}
+                      &lt;/TabNavigation.Link&gt;
+                    ))}
                   &lt;/TabNavigation.List&gt;
                 &lt;/TabNavigation&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot;&gt;
                 &lt;Table&gt;
                   &lt;Table.Caption&gt;
-                    &lt;Heading level={3}&gt;Kosten voor de aanvraag&lt;/Heading&gt;
+                    &lt;Heading level={3}&gt;{t.samples.table.caption}&lt;/Heading&gt;
                   &lt;/Table.Caption&gt;
                   &lt;Table.Header&gt;
                     &lt;Table.Row&gt;
-                      &lt;Table.HeaderCell&gt;Type&lt;/Table.HeaderCell&gt;
-                      &lt;Table.HeaderCell align=&quot;end&quot;&gt;Normale levertijd&lt;/Table.HeaderCell&gt;
+                      &lt;Table.HeaderCell&gt;{t.samples.table.typeHeader}&lt;/Table.HeaderCell&gt;
+                      &lt;Table.HeaderCell align=&quot;end&quot;&gt;{t.samples.table.deliveryTimeHeader}&lt;/Table.HeaderCell&gt;
                     &lt;/Table.Row&gt;
                   &lt;/Table.Header&gt;
                   &lt;Table.Body&gt;
-                    &lt;Table.Row&gt;
-                      &lt;Table.Cell&gt;Paspoort&lt;/Table.Cell&gt;
-                      &lt;Table.Cell align=&quot;end&quot;&gt;€ 77,85&lt;/Table.Cell&gt;
-                    &lt;/Table.Row&gt;
-                    &lt;Table.Row&gt;
-                      &lt;Table.Cell&gt;ID-kaart&lt;/Table.Cell&gt;
-                      &lt;Table.Cell align=&quot;end&quot;&gt;€ 70,35&lt;/Table.Cell&gt;
-                    &lt;/Table.Row&gt;
+                    {t.samples.table.rows.map((row) =&gt; (
+                      &lt;Table.Row key={row.type}&gt;
+                        &lt;Table.Cell&gt;{row.type}&lt;/Table.Cell&gt;
+                        &lt;Table.Cell align=&quot;end&quot;&gt;{row.price}&lt;/Table.Cell&gt;
+                      &lt;/Table.Row&gt;
+                    ))}
                   &lt;/Table.Body&gt;
                 &lt;/Table&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
-                &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+                &lt;TableOfContents heading={t.samples.tableOfContents.heading}&gt;
                   &lt;TableOfContents.List&gt;
-                    &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Zo werkt het&quot; /&gt;
-                    &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Voorwaarden&quot; /&gt;
-                    &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Aanvragen&quot; /&gt;
+                    {t.samples.tableOfContents.links.map((label) =&gt; (
+                      &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; key={label} label={label} /&gt;
+                    ))}
                   &lt;/TableOfContents.List&gt;
                 &lt;/TableOfContents&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Tabs&gt;
                   &lt;Tabs.List&gt;
-                    &lt;Tabs.Button aria-controls=&quot;wd-tab-west&quot;&gt;West&lt;/Tabs.Button&gt;
-                    &lt;Tabs.Button aria-controls=&quot;wd-tab-centrum&quot;&gt;Centrum&lt;/Tabs.Button&gt;
+                    &lt;Tabs.Button aria-controls=&quot;wd-tab-west&quot;&gt;{t.samples.tabs[0].label}&lt;/Tabs.Button&gt;
+                    &lt;Tabs.Button aria-controls=&quot;wd-tab-centrum&quot;&gt;{t.samples.tabs[1].label}&lt;/Tabs.Button&gt;
                   &lt;/Tabs.List&gt;
                   &lt;Tabs.Panel id=&quot;wd-tab-west&quot;&gt;
-                    &lt;Paragraph&gt;Bos en Lommerplein 250, 1055 EK Amsterdam&lt;/Paragraph&gt;
+                    &lt;Paragraph&gt;
+                      &lt;span lang=&quot;nl&quot;&gt;{t.samples.tabs[0].address}&lt;/span&gt;
+                    &lt;/Paragraph&gt;
                   &lt;/Tabs.Panel&gt;
                   &lt;Tabs.Panel id=&quot;wd-tab-centrum&quot;&gt;
-                    &lt;Paragraph&gt;Amstel 1, 1011 PN Amsterdam&lt;/Paragraph&gt;
+                    &lt;Paragraph&gt;
+                      &lt;span lang=&quot;nl&quot;&gt;{t.samples.tabs[1].address}&lt;/span&gt;
+                    &lt;/Paragraph&gt;
                   &lt;/Tabs.Panel&gt;
                 &lt;/Tabs&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-textarea&quot;&gt;Toelichting&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-textarea&quot;&gt;{t.samples.textAreaLabel}&lt;/Label&gt;
                   &lt;TextArea id=&quot;wd-textarea&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-textinput&quot;&gt;Woonplaats&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-textinput&quot;&gt;{t.samples.textInputLabel}&lt;/Label&gt;
                   &lt;TextInput id=&quot;wd-textinput&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={thirdWidth}&gt;
                 &lt;Field&gt;
-                  &lt;Label htmlFor=&quot;wd-time&quot;&gt;Hoe laat is uw afspraak?&lt;/Label&gt;
+                  &lt;Label htmlFor=&quot;wd-time&quot;&gt;{t.samples.timeInputLabel}&lt;/Label&gt;
                   &lt;TimeInput id=&quot;wd-time&quot; /&gt;
                 &lt;/Field&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span={halfWidth}&gt;
                 &lt;UnorderedList&gt;
-                  &lt;UnorderedList.Item&gt;De Clercqstraat en Jan Evertsenstraat&lt;/UnorderedList.Item&gt;
-                  &lt;UnorderedList.Item&gt;Raadhuisstraat, Westermarkt en Rozengracht&lt;/UnorderedList.Item&gt;
-                  &lt;UnorderedList.Item&gt;Nieuwezijds Voorburgwal&lt;/UnorderedList.Item&gt;
+                  {t.samples.unorderedListItems.map((item) =&gt; (
+                    &lt;UnorderedList.Item key={item}&gt;
+                      &lt;span lang=&quot;nl&quot;&gt;{item}&lt;/span&gt;
+                    &lt;/UnorderedList.Item&gt;
+                  ))}
                 &lt;/UnorderedList&gt;
               &lt;/Grid.Cell&gt;
               &lt;Grid.Cell span=&quot;all&quot; style={{ paddingBottom: &#39;var(--ams-space-2xl)&#39; }}&gt;
@@ -37599,9 +38202,7 @@ export const Playground: Story = {
                     colStart={1}
                     rowStart={{ narrow: 3, medium: 3, wide: 2 }}
                   &gt;
-                    &lt;Paragraph color=&quot;inverse&quot;&gt;
-                      Het doel van deze club is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt.
-                    &lt;/Paragraph&gt;
+                    &lt;Paragraph color=&quot;inverse&quot;&gt;{t.samples.breakoutParagraph}&lt;/Paragraph&gt;
                   &lt;/Breakout.Cell&gt;
                   &lt;Breakout.Cell
                     colSpan={{ narrow: 4, medium: 8, wide: 6 }}
@@ -37781,6 +38382,7 @@ export const Playground: Story = {
     TimeInput,
     UnorderedList,
 } from "@amsterdam/design-system-react";
+import { Fragment } from "react";
 import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               </div>
           
@@ -37804,6 +38406,10 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
         &lt;PageHeader
           brandName={t.brandName}
           defaultOpen
+          logoLinkTitle={t.pageHeader.logoLinkTitle}
+          menuButtonText={t.pageHeader.menuButtonText}
+          menuButtonTextForHide={t.pageHeader.menuButtonTextForHide}
+          menuButtonTextForShow={t.pageHeader.menuButtonTextForShow}
           menuItems={[
             &lt;PageHeader.MenuLink href=&quot;#&quot; key=&quot;english&quot; lang=&quot;en&quot;&gt;
               English
@@ -37812,6 +38418,7 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
               {t.search}
             &lt;/PageHeader.MenuLink&gt;,
           ]}
+          navigationLabel={t.pageHeader.navigationLabel}
         &gt;
           &lt;Grid&gt;
             &lt;PageHeader.GridCellNarrowWindowOnly span=&quot;all&quot;&gt;
@@ -37874,117 +38481,129 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Accordion headingLevel={3}&gt;
-                &lt;Accordion.Section label=&quot;Hoe ziet de sollicitatieprocedure eruit?&quot;&gt;
-                  &lt;Paragraph&gt;De gemeente Amsterdam volgt de NVP Sollicitatiecode.&lt;/Paragraph&gt;
-                &lt;/Accordion.Section&gt;
-                &lt;Accordion.Section label=&quot;Heb ik een VOG nodig?&quot;&gt;
-                  &lt;Paragraph&gt;Ja, als je gaat werken bij de gemeente Amsterdam heb je een VOG nodig.&lt;/Paragraph&gt;
-                &lt;/Accordion.Section&gt;
+                {t.samples.accordion.sections.map((section) =&gt; (
+                  &lt;Accordion.Section key={section.label} label={section.label}&gt;
+                    &lt;Paragraph&gt;{section.body}&lt;/Paragraph&gt;
+                  &lt;/Accordion.Section&gt;
+                ))}
               &lt;/Accordion&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;ActionGroup&gt;
-                &lt;Button&gt;Doorgaan&lt;/Button&gt;
-                &lt;Button variant=&quot;secondary&quot;&gt;Stoppen&lt;/Button&gt;
+                &lt;Button&gt;{t.samples.actionGroup.proceedLabel}&lt;/Button&gt;
+                &lt;Button variant=&quot;secondary&quot;&gt;{t.samples.actionGroup.stopLabel}&lt;/Button&gt;
               &lt;/ActionGroup&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Alert heading=&quot;Tijdelijk geen verkeer mogelijk&quot; headingLevel={2}&gt;
-                &lt;Paragraph&gt;Tijdens de hijswerkzaamheden geldt er een korte verkeersstop.&lt;/Paragraph&gt;
+              &lt;Alert heading={t.samples.alert.heading} headingLevel={2}&gt;
+                &lt;Paragraph&gt;{t.samples.alert.body}&lt;/Paragraph&gt;
               &lt;/Alert&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Avatar label=&quot;DS&quot; /&gt;
+              &lt;Avatar label={t.samples.avatarLabel} /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Badge label=&quot;Tip&quot; /&gt;
+              &lt;Badge label={t.samples.badgeLabel} /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;Blockquote&gt;Zorg goed voor de stad en voor elkaar.&lt;/Blockquote&gt;
+              &lt;Blockquote&gt;{t.samples.blockquote}&lt;/Blockquote&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;Breadcrumb&gt;
-                &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Afval&lt;/Breadcrumb.Link&gt;
-                &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bedrijfsafval&lt;/Breadcrumb.Link&gt;
-                &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Recyclepunten voor bedrijven&lt;/Breadcrumb.Link&gt;
+                {t.samples.breadcrumbLinks.map((label) =&gt; (
+                  &lt;Breadcrumb.Link href=&quot;#&quot; key={label}&gt;
+                    {label}
+                  &lt;/Breadcrumb.Link&gt;
+                ))}
               &lt;/Breadcrumb&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Button&gt;Versturen&lt;/Button&gt;
+              &lt;Button&gt;{t.samples.buttonLabel}&lt;/Button&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;Calendar linkTemplate={(date) =&gt; `?date=${date.toISOString().slice(0, 10)}`} /&gt;
+              &lt;Calendar
+                {...(lang === &#39;ar&#39; ? { ...calendarLocaleProps(&#39;ar-MA&#39;), locale: &#39;ar-MA&#39; } : {})}
+                linkTemplate={(date) =&gt; `?date=${date.toISOString().slice(0, 10)}`}
+              /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;CallToActionLink href=&quot;#&quot;&gt;Rijbewijs aanvragen&lt;/CallToActionLink&gt;
+              &lt;CallToActionLink href=&quot;#&quot;&gt;{t.samples.callToActionLabel}&lt;/CallToActionLink&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Card&gt;
                 &lt;Card.Heading level={2}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Gemeentebelastingen&lt;/Card.Link&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{t.samples.card.heading}&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph&gt;Bekijk welke belastingen en heffingen er zijn en hoe u bezwaar maakt.&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;{t.samples.card.body}&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;CharacterCount length={7} maxLength={10} /&gt;
+              &lt;CharacterCount formatText={t.samples.characterCountFormatText} length={7} maxLength={10} /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Checkbox&gt;Ik ga akkoord met de voorwaarden&lt;/Checkbox&gt;
+              &lt;Checkbox&gt;{t.samples.checkboxLabel}&lt;/Checkbox&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Column&gt;
-                &lt;Paragraph&gt;Zoekresultaten één&lt;/Paragraph&gt;
-                &lt;Paragraph&gt;Zoekresultaten twee&lt;/Paragraph&gt;
+                {t.samples.columnParagraphs.map((text) =&gt; (
+                  &lt;Paragraph key={text}&gt;{text}&lt;/Paragraph&gt;
+                ))}
               &lt;/Column&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-date&quot;&gt;Wat is uw geboortedatum?&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-date&quot;&gt;{t.samples.dateInputLabel}&lt;/Label&gt;
                 &lt;DateInput id=&quot;wd-date&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;DatePicker onChange={() =&gt; {}} value={null} /&gt;
+              &lt;DatePicker
+                {...(lang === &#39;ar&#39; ? { ...datePickerLocaleProps(&#39;ar-MA&#39;), locale: &#39;ar-MA&#39; } : {})}
+                onChange={() =&gt; {}}
+                value={null}
+              /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;DescriptionList&gt;
-                &lt;DescriptionList.Term&gt;Laagopgeleid&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Praktisch opgeleid&lt;/DescriptionList.Description&gt;
-                &lt;DescriptionList.Term&gt;Hoogopgeleid&lt;/DescriptionList.Term&gt;
-                &lt;DescriptionList.Description&gt;Theoretisch opgeleid&lt;/DescriptionList.Description&gt;
+                {t.samples.descriptionList.map((item) =&gt; (
+                  &lt;Fragment key={item.term}&gt;
+                    &lt;DescriptionList.Term&gt;{item.term}&lt;/DescriptionList.Term&gt;
+                    &lt;DescriptionList.Description&gt;{item.description}&lt;/DescriptionList.Description&gt;
+                  &lt;/Fragment&gt;
+                ))}
               &lt;/DescriptionList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Button onClick={() =&gt; Dialog.open(&#39;#wd-dialog&#39;)}&gt;Open dialoog&lt;/Button&gt;
+              &lt;Button onClick={() =&gt; Dialog.open(&#39;#wd-dialog&#39;)}&gt;{t.samples.dialog.openButtonLabel}&lt;/Button&gt;
               &lt;Dialog
-                footer={&lt;Button onClick={(event) =&gt; Dialog.close(event)}&gt;Sluiten&lt;/Button&gt;}
-                heading=&quot;De gegevens zijn opgeslagen&quot;
+                closeButtonLabel={t.samples.dialog.closeButtonLabel}
+                footer={&lt;Button onClick={(event) =&gt; Dialog.close(event)}&gt;{t.samples.dialog.closeButtonLabel}&lt;/Button&gt;}
+                heading={t.samples.dialog.heading}
                 id=&quot;wd-dialog&quot;
               &gt;
-                &lt;Paragraph&gt;U ontvangt een bevestiging per e-mail.&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;{t.samples.dialog.body}&lt;/Paragraph&gt;
               &lt;/Dialog&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;ErrorMessage&gt;Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.&lt;/ErrorMessage&gt;
+              &lt;ErrorMessage&gt;{t.samples.errorMessage}&lt;/ErrorMessage&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-field&quot;&gt;Wat is uw achternaam?&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-field&quot;&gt;{t.samples.surnameLabel}&lt;/Label&gt;
                 &lt;TextInput id=&quot;wd-field&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;FieldSet legend=&quot;Wat is uw naam?&quot;&gt;
+              &lt;FieldSet legend={t.samples.fieldSet.legend}&gt;
                 &lt;Field&gt;
                   &lt;Label htmlFor=&quot;wd-fieldset-first&quot; inFieldSet&gt;
-                    Voornaam
+                    {t.samples.fieldSet.firstNameLabel}
                   &lt;/Label&gt;
                   &lt;TextInput id=&quot;wd-fieldset-first&quot; /&gt;
                 &lt;/Field&gt;
                 &lt;Field&gt;
                   &lt;Label htmlFor=&quot;wd-fieldset-last&quot; inFieldSet&gt;
-                    Achternaam
+                    {t.samples.fieldSet.lastNameLabel}
                   &lt;/Label&gt;
                   &lt;TextInput id=&quot;wd-fieldset-last&quot; /&gt;
                 &lt;/Field&gt;
@@ -37993,76 +38612,76 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;Figure&gt;
                 &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
-                &lt;Figure.Caption&gt;Een rij geparkeerde fietsen langs een smalle Amsterdamse gracht.&lt;/Figure.Caption&gt;
+                &lt;Figure.Caption&gt;{t.samples.figureCaption}&lt;/Figure.Caption&gt;
               &lt;/Figure&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-file&quot;&gt;Voeg een bijlage toe&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-file&quot;&gt;{t.samples.fileInputLabel}&lt;/Label&gt;
                 &lt;FileInput id=&quot;wd-file&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;FileList&gt;
                 &lt;FileList.Item
-                  file={new File([&#39;sample&#39;], &#39;document.pdf&#39;, { type: &#39;application/pdf&#39; })}
+                  file={new File([&#39;sample&#39;], t.samples.fileName, { type: &#39;application/pdf&#39; })}
                   onDelete={() =&gt; {}}
                 /&gt;
               &lt;/FileList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;Grid&gt;
-                &lt;Grid.Cell span={halfWidth}&gt;
-                  &lt;Paragraph&gt;Grid-cel links&lt;/Paragraph&gt;
-                &lt;/Grid.Cell&gt;
-                &lt;Grid.Cell span={halfWidth}&gt;
-                  &lt;Paragraph&gt;Grid-cel rechts&lt;/Paragraph&gt;
-                &lt;/Grid.Cell&gt;
+                {t.samples.gridParagraphs.map((text) =&gt; (
+                  &lt;Grid.Cell key={text} span={halfWidth}&gt;
+                    &lt;Paragraph&gt;{text}&lt;/Paragraph&gt;
+                  &lt;/Grid.Cell&gt;
+                ))}
               &lt;/Grid&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;Heading level={2}&gt;Meer plekken voor kunst en cultuur, verspreid over de stad&lt;/Heading&gt;
+              &lt;Heading level={2}&gt;{t.samples.heading}&lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Icon svg={&lt;MailIcon /&gt;} /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;IconButton label=&quot;Sluiten&quot; /&gt;
+              &lt;IconButton label={t.samples.iconButtonLabel} /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;ImageSlider
-                images={[
-                  { alt: &#39;Brug&#39;, src: &#39;https://picsum.photos/id/122/1280/720&#39; },
-                  { alt: &#39;Bunker&#39;, src: &#39;https://picsum.photos/id/101/1280/720&#39; },
-                  { alt: &#39;Stoelen&#39;, src: &#39;https://picsum.photos/id/153/1280/720&#39; },
-                ]}
+                imageLabel={t.samples.imageSlider.imageLabel}
+                images={[...t.samples.imageSlider.images]}
+                nextLabel={t.samples.imageSlider.nextLabel}
+                previousLabel={t.samples.imageSlider.previousLabel}
               /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;InvalidFormAlert
-                errors={[
-                  { id: &#39;#&#39;, label: &#39;Vul een geldige datum in (bijvoorbeeld 6 januari 2030).&#39; },
-                  { id: &#39;#&#39;, label: &#39;De geldigheidsdatum van uw paspoort moet in de toekomst liggen.&#39; },
-                ]}
+                errors={t.samples.invalidFormAlert.errors.map((label) =&gt; ({ id: &#39;#&#39;, label }))}
+                heading={t.samples.invalidFormAlert.heading}
                 headingLevel={2}
               /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Label&gt;Label&lt;/Label&gt;
+              &lt;Label&gt;{t.samples.labelText}&lt;/Label&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Paragraph&gt;
-                Een &lt;Link href=&quot;#&quot;&gt;typograaf&lt;/Link&gt; ontwerpt letters.
+                {t.samples.linkSentence.textBefore}
+                &lt;Link href=&quot;#&quot;&gt;{t.samples.linkSentence.linkText}&lt;/Link&gt;
+                {t.samples.linkSentence.textAfter}
               &lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;LinkList&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Contactformulier&lt;/LinkList.Link&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Adressen en openingstijden&lt;/LinkList.Link&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Bel 14 020&lt;/LinkList.Link&gt;
+                {t.samples.linkListLinks.map((label) =&gt; (
+                  &lt;LinkList.Link href=&quot;#&quot; key={label}&gt;
+                    {label}
+                  &lt;/LinkList.Link&gt;
+                ))}
               &lt;/LinkList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
@@ -38070,21 +38689,23 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Paragraph&gt;
-                Wij kunnen als gemeente veel van deze &lt;Mark&gt;afvalexperts&lt;/Mark&gt; leren.
+                {t.samples.markSentence.textBefore}
+                &lt;Mark&gt;{t.samples.markSentence.markText}&lt;/Mark&gt;
+                {t.samples.markSentence.textAfter}
               &lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Menu&gt;
                 &lt;Menu.Link href=&quot;#&quot; icon={&lt;PieChartFillIcon /&gt;}&gt;
-                  Dashboard
+                  {t.samples.menuLinkLabel}
                 &lt;/Menu.Link&gt;
               &lt;/Menu&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;OrderedList&gt;
-                &lt;OrderedList.Item&gt;Zorg voor een duidelijke schrijfopdracht.&lt;/OrderedList.Item&gt;
-                &lt;OrderedList.Item&gt;Verzamel, selecteer en structureer de informatie.&lt;/OrderedList.Item&gt;
-                &lt;OrderedList.Item&gt;Controleer de tekst en de schrijfopdracht.&lt;/OrderedList.Item&gt;
+                {t.samples.orderedListItems.map((item) =&gt; (
+                  &lt;OrderedList.Item key={item}&gt;{item}&lt;/OrderedList.Item&gt;
+                ))}
               &lt;/OrderedList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -38093,60 +38714,70 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
                 &lt;Grid style={{ alignSelf: &#39;center&#39; }}&gt;
                   &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 8 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
                     &lt;SearchField onSubmit={(event) =&gt; event.preventDefault()}&gt;
-                      &lt;SearchField.Input label=&quot;Zoeken&quot; placeholder=&quot;Wat kunnen we voor u vinden?&quot; /&gt;
-                      &lt;SearchField.Button /&gt;
+                      &lt;SearchField.Input label={t.search} placeholder={t.samples.searchPlaceholder} /&gt;
+                      &lt;SearchField.Button&gt;{t.search}&lt;/SearchField.Button&gt;
                     &lt;/SearchField&gt;
                   &lt;/Grid.Cell&gt;
                 &lt;/Grid&gt;
               &lt;/Overlap&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Pagination linkTemplate={(page) =&gt; `#?pagina=${page}`} maxVisiblePages={7} page={5} totalPages={10} /&gt;
+              &lt;Pagination
+                linkTemplate={(page) =&gt; `#?pagina=${page}`}
+                maxVisiblePages={7}
+                nextLabel={t.samples.pagination.nextLabel}
+                page={5}
+                previousLabel={t.samples.pagination.previousLabel}
+                totalPages={10}
+              /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;Paragraph&gt;De politie controleert op overtredingen met opgevoerde e-bikes en fatbikes.&lt;/Paragraph&gt;
+              &lt;Paragraph&gt;{t.samples.paragraph}&lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-password&quot;&gt;Wachtwoord&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-password&quot;&gt;{t.samples.passwordInputLabel}&lt;/Label&gt;
                 &lt;PasswordInput id=&quot;wd-password&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;ProgressList headingLevel={3}&gt;
-                &lt;ProgressList.Step heading=&quot;Aanvraag ingediend&quot; status=&quot;completed&quot;&gt;
-                  &lt;Paragraph&gt;Uw aanvraag is op 2 januari 2026 ontvangen.&lt;/Paragraph&gt;
+                &lt;ProgressList.Step heading={t.samples.progressList[0].heading} status=&quot;completed&quot;&gt;
+                  &lt;Paragraph&gt;{t.samples.progressList[0].body}&lt;/Paragraph&gt;
                 &lt;/ProgressList.Step&gt;
-                &lt;ProgressList.Step heading=&quot;In behandeling&quot; status=&quot;current&quot;&gt;
-                  &lt;Paragraph&gt;Een medewerker beoordeelt uw aanvraag en neemt bij vragen contact met u op.&lt;/Paragraph&gt;
+                &lt;ProgressList.Step heading={t.samples.progressList[1].heading} status=&quot;current&quot;&gt;
+                  &lt;Paragraph&gt;{t.samples.progressList[1].body}&lt;/Paragraph&gt;
                 &lt;/ProgressList.Step&gt;
-                &lt;ProgressList.Step heading=&quot;Besluit&quot;&gt;
-                  &lt;Paragraph&gt;U ontvangt het besluit binnen 8 weken na uw aanvraag.&lt;/Paragraph&gt;
+                &lt;ProgressList.Step heading={t.samples.progressList[2].heading}&gt;
+                  &lt;Paragraph&gt;{t.samples.progressList[2].body}&lt;/Paragraph&gt;
                 &lt;/ProgressList.Step&gt;
               &lt;/ProgressList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Radio&gt;Op de hoogte blijven via e-mail&lt;/Radio&gt;
+              &lt;Radio&gt;{t.samples.radioLabel}&lt;/Radio&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Row&gt;
-                &lt;Paragraph&gt;Een&lt;/Paragraph&gt;
-                &lt;Paragraph&gt;Twee&lt;/Paragraph&gt;
+                {t.samples.rowParagraphs.map((text) =&gt; (
+                  &lt;Paragraph key={text}&gt;{text}&lt;/Paragraph&gt;
+                ))}
               &lt;/Row&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;SearchField onSubmit={(event) =&gt; event.preventDefault()}&gt;
-                &lt;SearchField.Input label=&quot;Zoeken&quot; /&gt;
-                &lt;SearchField.Button /&gt;
+                &lt;SearchField.Input label={t.search} placeholder={t.samples.searchPlaceholder} /&gt;
+                &lt;SearchField.Button&gt;{t.search}&lt;/SearchField.Button&gt;
               &lt;/SearchField&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-select&quot;&gt;Kies een stadsdeel&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-select&quot;&gt;{t.samples.select.label}&lt;/Label&gt;
                 &lt;Select id=&quot;wd-select&quot;&gt;
-                  &lt;Select.Option value=&quot;Centrum&quot;&gt;Centrum&lt;/Select.Option&gt;
-                  &lt;Select.Option value=&quot;Noord&quot;&gt;Noord&lt;/Select.Option&gt;
-                  &lt;Select.Option value=&quot;Zuid&quot;&gt;Zuid&lt;/Select.Option&gt;
+                  {t.samples.select.options.map((option) =&gt; (
+                    &lt;Select.Option key={option.value} value={option.value}&gt;
+                      {option.label}
+                    &lt;/Select.Option&gt;
+                  ))}
                 &lt;/Select&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
@@ -38161,98 +38792,102 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
               &lt;Spotlight color=&quot;green&quot;&gt;
                 &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
                   &lt;Grid.Cell span=&quot;all&quot;&gt;
-                    &lt;Blockquote color=&quot;inverse&quot;&gt;Zorg goed voor de stad en voor elkaar.&lt;/Blockquote&gt;
+                    &lt;Blockquote color=&quot;inverse&quot;&gt;{t.samples.blockquote}&lt;/Blockquote&gt;
                   &lt;/Grid.Cell&gt;
                 &lt;/Grid&gt;
               &lt;/Spotlight&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle onderwerpen&lt;/StandaloneLink&gt;
+              &lt;StandaloneLink href=&quot;#&quot;&gt;{t.samples.standaloneLinkLabel}&lt;/StandaloneLink&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
-              &lt;Label htmlFor=&quot;wd-switch&quot;&gt;Meldingen ontvangen&lt;/Label&gt;
+              &lt;Label htmlFor=&quot;wd-switch&quot;&gt;{t.samples.switchLabel}&lt;/Label&gt;
               &lt;Switch id=&quot;wd-switch&quot; /&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;TabNavigation&gt;
                 &lt;TabNavigation.List&gt;
-                  &lt;TabNavigation.Link aria-current=&quot;page&quot; href=&quot;#gegevens&quot;&gt;
-                    Gegevens
-                  &lt;/TabNavigation.Link&gt;
-                  &lt;TabNavigation.Link href=&quot;#aanslagen&quot;&gt;Aanslagen&lt;/TabNavigation.Link&gt;
-                  &lt;TabNavigation.Link href=&quot;#documenten&quot;&gt;Documenten&lt;/TabNavigation.Link&gt;
+                  {t.samples.tabNavigationLinks.map((label, index) =&gt; (
+                    &lt;TabNavigation.Link aria-current={index === 0 ? &#39;page&#39; : undefined} href=&quot;#&quot; key={label}&gt;
+                      {label}
+                    &lt;/TabNavigation.Link&gt;
+                  ))}
                 &lt;/TabNavigation.List&gt;
               &lt;/TabNavigation&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;Table&gt;
                 &lt;Table.Caption&gt;
-                  &lt;Heading level={3}&gt;Kosten voor de aanvraag&lt;/Heading&gt;
+                  &lt;Heading level={3}&gt;{t.samples.table.caption}&lt;/Heading&gt;
                 &lt;/Table.Caption&gt;
                 &lt;Table.Header&gt;
                   &lt;Table.Row&gt;
-                    &lt;Table.HeaderCell&gt;Type&lt;/Table.HeaderCell&gt;
-                    &lt;Table.HeaderCell align=&quot;end&quot;&gt;Normale levertijd&lt;/Table.HeaderCell&gt;
+                    &lt;Table.HeaderCell&gt;{t.samples.table.typeHeader}&lt;/Table.HeaderCell&gt;
+                    &lt;Table.HeaderCell align=&quot;end&quot;&gt;{t.samples.table.deliveryTimeHeader}&lt;/Table.HeaderCell&gt;
                   &lt;/Table.Row&gt;
                 &lt;/Table.Header&gt;
                 &lt;Table.Body&gt;
-                  &lt;Table.Row&gt;
-                    &lt;Table.Cell&gt;Paspoort&lt;/Table.Cell&gt;
-                    &lt;Table.Cell align=&quot;end&quot;&gt;€ 77,85&lt;/Table.Cell&gt;
-                  &lt;/Table.Row&gt;
-                  &lt;Table.Row&gt;
-                    &lt;Table.Cell&gt;ID-kaart&lt;/Table.Cell&gt;
-                    &lt;Table.Cell align=&quot;end&quot;&gt;€ 70,35&lt;/Table.Cell&gt;
-                  &lt;/Table.Row&gt;
+                  {t.samples.table.rows.map((row) =&gt; (
+                    &lt;Table.Row key={row.type}&gt;
+                      &lt;Table.Cell&gt;{row.type}&lt;/Table.Cell&gt;
+                      &lt;Table.Cell align=&quot;end&quot;&gt;{row.price}&lt;/Table.Cell&gt;
+                    &lt;/Table.Row&gt;
+                  ))}
                 &lt;/Table.Body&gt;
               &lt;/Table&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
-              &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+              &lt;TableOfContents heading={t.samples.tableOfContents.heading}&gt;
                 &lt;TableOfContents.List&gt;
-                  &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Zo werkt het&quot; /&gt;
-                  &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Voorwaarden&quot; /&gt;
-                  &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; label=&quot;Aanvragen&quot; /&gt;
+                  {t.samples.tableOfContents.links.map((label) =&gt; (
+                    &lt;TableOfContents.Link href=&quot;#writing-direction-content&quot; key={label} label={label} /&gt;
+                  ))}
                 &lt;/TableOfContents.List&gt;
               &lt;/TableOfContents&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Tabs&gt;
                 &lt;Tabs.List&gt;
-                  &lt;Tabs.Button aria-controls=&quot;wd-tab-west&quot;&gt;West&lt;/Tabs.Button&gt;
-                  &lt;Tabs.Button aria-controls=&quot;wd-tab-centrum&quot;&gt;Centrum&lt;/Tabs.Button&gt;
+                  &lt;Tabs.Button aria-controls=&quot;wd-tab-west&quot;&gt;{t.samples.tabs[0].label}&lt;/Tabs.Button&gt;
+                  &lt;Tabs.Button aria-controls=&quot;wd-tab-centrum&quot;&gt;{t.samples.tabs[1].label}&lt;/Tabs.Button&gt;
                 &lt;/Tabs.List&gt;
                 &lt;Tabs.Panel id=&quot;wd-tab-west&quot;&gt;
-                  &lt;Paragraph&gt;Bos en Lommerplein 250, 1055 EK Amsterdam&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;
+                    &lt;span lang=&quot;nl&quot;&gt;{t.samples.tabs[0].address}&lt;/span&gt;
+                  &lt;/Paragraph&gt;
                 &lt;/Tabs.Panel&gt;
                 &lt;Tabs.Panel id=&quot;wd-tab-centrum&quot;&gt;
-                  &lt;Paragraph&gt;Amstel 1, 1011 PN Amsterdam&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;
+                    &lt;span lang=&quot;nl&quot;&gt;{t.samples.tabs[1].address}&lt;/span&gt;
+                  &lt;/Paragraph&gt;
                 &lt;/Tabs.Panel&gt;
               &lt;/Tabs&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-textarea&quot;&gt;Toelichting&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-textarea&quot;&gt;{t.samples.textAreaLabel}&lt;/Label&gt;
                 &lt;TextArea id=&quot;wd-textarea&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-textinput&quot;&gt;Woonplaats&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-textinput&quot;&gt;{t.samples.textInputLabel}&lt;/Label&gt;
                 &lt;TextInput id=&quot;wd-textinput&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={thirdWidth}&gt;
               &lt;Field&gt;
-                &lt;Label htmlFor=&quot;wd-time&quot;&gt;Hoe laat is uw afspraak?&lt;/Label&gt;
+                &lt;Label htmlFor=&quot;wd-time&quot;&gt;{t.samples.timeInputLabel}&lt;/Label&gt;
                 &lt;TimeInput id=&quot;wd-time&quot; /&gt;
               &lt;/Field&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={halfWidth}&gt;
               &lt;UnorderedList&gt;
-                &lt;UnorderedList.Item&gt;De Clercqstraat en Jan Evertsenstraat&lt;/UnorderedList.Item&gt;
-                &lt;UnorderedList.Item&gt;Raadhuisstraat, Westermarkt en Rozengracht&lt;/UnorderedList.Item&gt;
-                &lt;UnorderedList.Item&gt;Nieuwezijds Voorburgwal&lt;/UnorderedList.Item&gt;
+                {t.samples.unorderedListItems.map((item) =&gt; (
+                  &lt;UnorderedList.Item key={item}&gt;
+                    &lt;span lang=&quot;nl&quot;&gt;{item}&lt;/span&gt;
+                  &lt;/UnorderedList.Item&gt;
+                ))}
               &lt;/UnorderedList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span=&quot;all&quot; style={{ paddingBottom: &#39;var(--ams-space-2xl)&#39; }}&gt;
@@ -38265,9 +38900,7 @@ import { MailIcon, PieChartFillIcon } from "@amsterdam/design-system-react-icons
                   colStart={1}
                   rowStart={{ narrow: 3, medium: 3, wide: 2 }}
                 &gt;
-                  &lt;Paragraph color=&quot;inverse&quot;&gt;
-                    Het doel van deze club is om ervoor te zorgen dat de Zuidas steeds duurzamer wordt.
-                  &lt;/Paragraph&gt;
+                  &lt;Paragraph color=&quot;inverse&quot;&gt;{t.samples.breakoutParagraph}&lt;/Paragraph&gt;
                 &lt;/Breakout.Cell&gt;
                 &lt;Breakout.Cell
                   colSpan={{ narrow: 4, medium: 8, wide: 6 }}
@@ -39160,17 +39793,34 @@ These locales have been tested:
 Both components also have accessible names and navigation button labels that stay in their default language until you translate them, so set those in the same language to avoid a mix.
 For right-to-left languages like Arabic, also add `dir=&quot;rtl&quot;` to the component or to a containing element.
 
+If your app uses one of these components in multiple places with the same language, a small wrapper component avoids repeating these props:
+
 ```tsx
-&lt;Calendar
-  accessibleName=&quot;التقويم&quot;
-  dir=&quot;rtl&quot;
-  locale=&quot;ar-MA&quot;
-  nextMonthButtonLabel=&quot;الشهر التالي&quot;
-  nextYearButtonLabel=&quot;السنة التالية&quot;
-  previousMonthButtonLabel=&quot;الشهر السابق&quot;
-  previousYearButtonLabel=&quot;السنة السابقة&quot;
-/&gt;
+import type { CalendarProps } from &quot;@amsterdam/design-system-react&quot;;
+
+import { Calendar } from &quot;@amsterdam/design-system-react&quot;;
+
+const ArabicCalendar = (props: CalendarProps) =&gt; (
+  &lt;Calendar
+    accessibleName=&quot;التقويم&quot;
+    dir=&quot;rtl&quot;
+    locale=&quot;ar-MA&quot;
+    nextMonthButtonLabel=&quot;الشهر التالي&quot;
+    nextYearButtonLabel=&quot;السنة التالية&quot;
+    previousMonthButtonLabel=&quot;الشهر السابق&quot;
+    previousYearButtonLabel=&quot;السنة السابقة&quot;
+    {...props}
+  /&gt;
+);
 ```
+
+The same pattern applies to the Date Picker, which also takes `rangeStartAccessibleName` and `rangeEndAccessibleName` in range mode.
+
+### Native form controls
+
+Native form controls render some of their text themselves.
+For example, `&lt;input type=&quot;time&quot;&gt;` orders and formats its hour and minute fields according to the browser’s own locale, not the page’s `lang` or `dir`.
+This is browser behaviour that pages cannot override.
 
 ### Mirror directional icons
 
