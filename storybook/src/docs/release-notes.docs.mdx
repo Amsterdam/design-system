@@ -13,7 +13,7 @@ A bug stops bothering you.
 Everything that moves is written down here before you have to act on it.
 You decide when to follow.
 
-These notes cover one release at a time.
+One release at a time, newest first.
 Each opens with the package versions.
 It sets out what changed.
 It closes with what upgrading actually asks of you.
@@ -183,3 +183,156 @@ A `<div as="section">` where you asked for a `<section>`?
 Day numerals that ignored the locale?
 Those are all gone.
 You can take the workarounds out.
+
+## 23 June 2026
+
+Assets **2.4.0**, CSS **4.2.0**, React **4.2.0**, React Icons **2.1.0**, Tokens **4.1.0**.
+
+This release is bigger than most.
+Calendar and Date Picker arrive together.
+Container queries begin to replace window-width breakpoints.
+Bold text gets lighter on every page.
+Almost no code has to change, but Amsterdam Sans now ships as WOFF2 only and those files moved.
+Read the upgrade notes before you bump.
+
+### New
+
+- **[Calendar](/docs/components-navigation-calendar--docs)** shows a month at a time, for navigating to dates that have something behind them.
+  It is a set of links.
+- **[Date Picker](/docs/components-forms-date-picker--docs)** shows a month too, but for choosing a date or a range.
+  It sits inline on the page rather than in a form field.
+  When someone already knows the date and can type it, reach for [Date Input](/docs/components-forms-date-input--docs) instead.
+- **[Query Container](/docs/utilities-css-query-container--docs)** begins our move to container queries.
+  A component can now respond to the width of the box it sits in rather than the width of the window.
+  [Page](/docs/components-containers-page--docs), [Dialog](/docs/components-containers-dialog--docs) and [Grid](/docs/components-layout-grid--docs) Cell establish a container on their own.
+  The utility class covers everything that sits outside them.
+- **26 new [icons](/docs/brand-assets-icons--docs)**, among them a bridge, a litter bin, a bird house, zoom and rotate controls, and double chevrons for paging.
+
+### Changed
+
+- **Bold text is lighter.**
+  The heading and bold body-text [typography tokens](/docs/brand-design-tokens-typography--docs) moved from weight 800 to 700.
+  Every [Heading](/docs/components-text-heading--docs), label and Description List term now renders in Amsterdam Sans Bold instead of Extra Bold.
+  So does the bold text our components draw for you, in [Badge](/docs/components-feedback-badge--docs), [Blockquote](/docs/components-text-blockquote--docs), Pagination, Table and Tabs.
+  Plain `b` and `strong` are untouched, because we never styled them.
+  If you followed our old advice and applied the bold token to them yourself, they get lighter too.
+  That advice is gone now.
+  Nothing to change in your code, but expect a visible difference on nearly every page.
+  Extra bold still ships, so it is there if you ask for it directly.
+- **The font files moved.**
+  Amsterdam Sans ships as WOFF2 only now.
+  The EOT and WOFF files are gone, and the WOFF2 files moved from `font/woff2/` up into `font/`.
+  Our stylesheet keeps working.
+  A path you wrote yourself does not.
+- **[Description List](/docs/components-text-description-list--docs) switches on its container.**
+  It used to go side by side above a window of 37.5rem.
+  It now does so above a container of 32rem.
+  Outside a query container it stays stacked at any width.
+  If yours went side by side and no longer does, wrap it in one.
+- **Page, Dialog and Grid Cell became query containers.**
+  That is what makes the above work, and it applies whether or not you write a container query.
+  Each of them is now the containing block for `position: fixed` and `position: absolute` children, and a new stacking context.
+  If a fixed banner, a sticky bar or a `z-index` inside one of them moved after upgrading, this is why.
+- **React properties are read-only.**
+  TypeScript now flags code that mutates a properties object.
+  That is a compile error you may meet on upgrade, not a change at runtime.
+
+### Improved
+
+**Every link component takes your router.**
+[Link](/docs/components-navigation-link--docs), [Standalone Link](/docs/components-navigation-standalone-link--docs), [Call to Action Link](/docs/components-navigation-call-to-action-link--docs), [Breadcrumb](/docs/components-navigation-breadcrumb--docs), [Calendar](/docs/components-navigation-calendar--docs), [Card](/docs/components-navigation-card--docs), [Link List](/docs/components-navigation-link-list--docs), [Menu](/docs/components-navigation-menu--docs), [Page Footer](/docs/components-containers-page-footer--docs), [Page Header](/docs/components-containers-page-header--docs), [Skip Link](/docs/components-navigation-skip-link--docs) and [Table of Contents](/docs/components-navigation-table-of-contents--docs) all accept a `linkComponent` property.
+Pass your router’s link and the component renders that instead of a plain anchor.
+On a compound component the property sits on the link part, so `Menu.Link` and `Breadcrumb.Link` rather than `Menu` and `Breadcrumb`.
+Page Header’s logo takes `logoLinkComponent`.
+The `<NextLink legacyBehavior passHref>` wrapper is no longer needed.
+The [Routing Libraries](/docs/docs-developer-guide-routing-libraries--docs) guide was rewritten around the new pattern.
+
+- **Table of Contents can collapse.**
+  Set `collapsible` on the root and every item with a nested list gets a toggle button.
+  Pre-open one with `defaultExpanded` on the Link.
+- **[Progress List](/docs/components-containers-progress-list--docs) Step takes a `collapsed` property.**
+  Pass it and your application drives the step.
+  Leave it out and the step keeps managing itself.
+- **[Pagination](/docs/components-navigation-pagination--docs) is themeable.**
+  Thirty-two new tokens cover the hover, active and current states.
+  New elements cover the ellipsis and the previous and next links.
+  Links gained a visible active state.
+- **[Dialog](/docs/components-containers-dialog--docs) draws better inner and outer borders in forced colours mode.**
+- **[Switch](/docs/components-forms-switch--docs) has a themeable track border.**
+  Forced colours mode keeps that border visible even if you set the new token to zero.
+- **All five packages publish with provenance.**
+  You can verify on npm that a release was built from our repository by our own pipeline.
+
+### Fixed
+
+- **Deprecated tokens resolved to nothing.**
+  Twenty-five of them carried the value `initial`, so reading one directly fell back to the property’s own default.
+  For the spacing tokens that meant zero.
+  This had been broken since 20 April.
+  Our own components were never affected, because they read through a fallback.
+  Yours were, if you used a deprecated token to line something up with the [Grid](/docs/components-layout-grid--docs).
+- **[Progress List](/docs/components-containers-progress-list--docs)** shows a dashed connector for a collapsed current step with substeps.
+- **[Pagination](/docs/components-navigation-pagination--docs)** generates a unique fallback id for its accessible name.
+- **[Logo](/docs/components-media-logo--docs)** stays clear of the clipping edge.
+- **[Page Header](/docs/components-containers-page-header--docs) and Pagination use a stable default link.**
+  They used to define it inline, so React saw a new component on every render, remounted the links and dropped focus.
+
+### Docs
+
+- **Component documentation follows one model.**
+  Every component page opens with the description, the main example and the controls, then a fixed set of headings.
+  Every page has inline navigation.
+  Guidance moved out of the packages’ README files and onto the pages themselves.
+- **[Spacing](/docs/docs-developer-guide-spacing--docs)** is a new guide.
+  It works down from page layout to individual elements, and says which tool to reach for at each level.
+- **[Dialog](/docs/components-containers-dialog--docs) explains where to put the initial focus.**
+  Focus lands on the close button by default, so people can read the Dialog before acting.
+  Move it with `autoFocus` when one element is clearly the first thing to do.
+- **[Accordion](/docs/components-containers-accordion--docs) and [Field Set](/docs/components-forms-field-set--docs) guidance is sharper.**
+  Accordion now asks you to consider separate pages first.
+  Field Set is clearer about marking a group optional.
+
+### Upgrading
+
+#### Do you need to change anything?
+
+**Almost nothing.**
+All five packages take a minor bump.
+Every new property is optional, and nothing was removed from the React or CSS API.
+The one removal is in the assets package: the EOT and WOFF font files are gone.
+
+Five things to check, most silent first:
+
+1. **Anything positioned inside a Page, Dialog or Grid Cell.**
+   These are query containers now, whether or not you write a container query.
+   That makes each of them the containing block for `position: fixed` and `position: absolute` children, and a new stacking context.
+   A fixed banner, a sticky bar or a `z-index` inside one of them may land somewhere new.
+   Nothing warns you about this, so look before you ship.
+2. **Font paths.**
+   If you preload a font file, wrote your own `@font-face`, or copy `font/woff2/` in a build step, update the path.
+   The WOFF2 files now sit directly in `font/`.
+   If you pointed at the `.woff` or `.eot` files, drop those `src` entries, because we no longer publish those formats.
+   If you import our stylesheet, you are fine.
+3. **Visual snapshots.**
+   Headings and bold text drop from weight 800 to 700, so nearly every snapshot will differ.
+   Re-baseline after upgrading.
+4. **A Description List that used to go side by side.**
+   If it does not sit inside a Page, Dialog or Grid Cell, wrap it in the Query Container utility.
+5. **TypeScript.**
+   Read-only properties may flag code that mutates a properties object.
+
+#### What you could start using
+
+- Show a month of dates, either for navigation or in a form, with Calendar and Date Picker.
+- Let a component respond to the width of its own box instead of the window, with the Query Container utility.
+- Hand your router to any link component through `linkComponent`.
+- Collapse a long Table of Contents, or drive a Progress List Step from your application.
+- Theme Pagination to match your product.
+
+#### Bugs you may have run into
+
+Have you been working around a deprecated token that resolved to nothing?
+A Pagination link that lost focus as you clicked it?
+A Logo with a clipped edge?
+A Progress List connector that went solid where it should have been dashed?
+Those are all gone.
