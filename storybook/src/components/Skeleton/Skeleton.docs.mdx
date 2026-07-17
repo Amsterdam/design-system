@@ -6,6 +6,11 @@ import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/Desi
 import tokens from "#tokens/components/ams/skeleton.tokens.json";
 
 import * as SkeletonStories from "./Skeleton.stories.tsx";
+import * as SkeletonHeadingStories from "./SkeletonHeading.stories.tsx";
+import * as SkeletonImageStories from "./SkeletonImage.stories.tsx";
+import * as SkeletonListStories from "./SkeletonList.stories.tsx";
+import * as SkeletonParagraphStories from "./SkeletonParagraph.stories.tsx";
+import * as SkeletonTableStories from "./SkeletonTable.stories.tsx";
 
 <Meta of={SkeletonStories} />
 
@@ -33,43 +38,43 @@ Set the `lines`, `rows`, and `columns` props to approximate the amount of conten
 Lines the size of a Heading.
 Set `lines` above one for a heading that wraps onto several lines.
 
-<Canvas of={SkeletonStories.Heading} />
+<Canvas of={SkeletonHeadingStories.Heading} />
 
-<Controls of={SkeletonStories.Heading} />
+<Controls of={SkeletonHeadingStories.Heading} />
 
 ### Paragraph
 
 Lines the size of body text.
 Their lengths alternate between two widths, and the last line of a multi-line paragraph is shorter, approximating its ragged end.
 
-<Canvas of={SkeletonStories.Paragraph} />
+<Canvas of={SkeletonParagraphStories.Paragraph} />
 
-<Controls of={SkeletonStories.Paragraph} />
+<Controls of={SkeletonParagraphStories.Paragraph} />
 
 ### List
 
 Body-text lines, each with a marker, indented like an Unordered List.
 
-<Canvas of={SkeletonStories.List} />
+<Canvas of={SkeletonListStories.List} />
 
-<Controls of={SkeletonStories.List} />
+<Controls of={SkeletonListStories.List} />
 
 ### Table
 
 A grid of cells.
 
-<Canvas of={SkeletonStories.Table} />
+<Canvas of={SkeletonTableStories.Table} />
 
-<Controls of={SkeletonStories.Table} />
+<Controls of={SkeletonTableStories.Table} />
 
 ### Image
 
 A block that stands in for an image.
 Set the `aspectRatio` prop to match the image that will replace it; it defaults to 16:9.
 
-<Canvas of={SkeletonStories.Image} />
+<Canvas of={SkeletonImageStories.Image} />
 
-<Controls of={SkeletonStories.Image} />
+<Controls of={SkeletonImageStories.Image} />
 
 ## Usage guidelines
 
