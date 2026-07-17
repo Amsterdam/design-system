@@ -143,6 +143,15 @@ Expect to make several of them per release, and budget a verification pass to fi
     Progress List’s `collapsed` was the current API in June and deprecated in July.
     Describing June from HEAD would have announced a deprecation that had not happened yet.
     Read the tree at the release commit: `git show <release-commit>:<path>`.
+11. **A cause you find satisfying is still a claim.**
+    The April draft said Compact Mode got the grid padding ‘the major had meant to give it’.
+    The bug predated the major by a year, and the padding had never been narrower than the default at any width.
+    A tidy story about why a bug existed is the easiest thing to get wrong, because it is the part you infer rather than read.
+    Trace the token’s history with `git log -S` before you assign blame, or just describe the fix and skip the cause.
+12. **Which release did a dependency version come from.**
+    The April draft said Tokens 4.0.1 arrived with the major four days earlier.
+    It was the patch in the release being written about.
+    When you say a version ‘arrived with’ something, read its changelog date rather than assuming it rode along with a neighbour.
 
 ## Structure
 
@@ -164,6 +173,11 @@ Hard-code them.
 The `PackageVersions` component on the Introduction reads the live manifests, so it always shows the latest.
 That is wrong for a release note about a specific past release.
 
+Not every release moves all five packages.
+List only the ones that did, and say so in a second line: ‘Assets and React Icons did not move this time.’
+Then check the published peer dependencies of the packages that did move, because they pin exact versions and that is what a reader actually has to install.
+On 24 April only CSS, React and Tokens moved, but CSS 4.1.0 still asks for Assets 2.3.0, which had arrived four days earlier.
+
 ### Framing
 
 Two or three sentences naming the essence of the release, before any list.
@@ -183,6 +197,10 @@ They also let a release with no breaking changes still be honest about what move
    For a major release, this is where breaking changes go, with migration steps.
 3. **Improved**: an existing component gained something optional.
 4. **Fixed**: a bug that is gone.
+
+Omit a heading that has nothing under it rather than padding it.
+The 24 April release has no **New** section, because nothing new arrived.
+Never reorder the ones that remain.
 
 An item belongs in exactly one bucket.
 When a change is both an improvement and a shift in behaviour, put it in **Changed**.
