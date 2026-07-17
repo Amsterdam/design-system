@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { ComponentProps } from 'react'
 
 import { Skeleton } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
@@ -17,13 +18,34 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+type DefaultProps = {
+  aspectRatio: (typeof aspectRatioOptions)[number]
+  headingLines: number
+  paragraphLines: number
+} & Readonly<ComponentProps<typeof Skeleton>>
 
-export const Default: Story = {
+type DefaultStory = StoryObj<DefaultProps>
+
+export const Default: DefaultStory = {
   args: {
-    children: [<Skeleton.Image key={1} />, <Skeleton.Heading key={2} />, <Skeleton.Paragraph key={3} lines={3} />],
+    aspectRatio: '16:9',
+    headingLines: 1,
+    paragraphLines: 3,
+  },
+  // These argTypes describe flattened args specific to this composed story; the meta cannot provide them.
+  argTypes: {
+    aspectRatio: { control: 'select', options: aspectRatioOptions },
+    headingLines: { control: { min: 1, step: 1, type: 'number' } },
+    paragraphLines: { control: { min: 1, step: 1, type: 'number' } },
   },
   decorators: [maximiseInlineSize('24rem')],
+  render: ({ aspectRatio, headingLines, paragraphLines, ...args }) => (
+    <Skeleton {...args}>
+      <Skeleton.Image aspectRatio={aspectRatio} />
+      <Skeleton.Heading lines={headingLines} />
+      <Skeleton.Paragraph lines={paragraphLines} />
+    </Skeleton>
+  ),
 }
 
 export const Heading: StoryObj<{ lines: number }> = {
