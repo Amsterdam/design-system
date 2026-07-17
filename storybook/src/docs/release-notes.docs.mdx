@@ -408,3 +408,99 @@ Two things to know:
 Have you been working around a Grid in Compact Mode whose side padding was as wide as the spacious default?
 A Field Set stretched wide by an input with a `size` attribute?
 Those are gone.
+
+## 20 April 2026
+
+Assets **2.3.0**, CSS **4.0.0**, React **4.0.0**, Tokens **4.0.0**.
+React Icons did not move this time.
+
+This is a major release, our once-a-quarter chance to remove what we had deprecated and to change a few things that needed it.
+Most of the breaking work is cleanup you were warned about.
+A new component and a new utility arrive alongside it, and the Grid learns some new tricks.
+Plan a little time for this one.
+
+### Changed
+
+A major release is where breaking changes land.
+The changelogs carry the full, exact list under their ‘Breaking changes’ heading.
+Here is what it means for you.
+
+- **Everything we had deprecated is now gone.**
+  If you kept up with the deprecation warnings, you are already done.
+  If not, the renames are straightforward.
+  Page Heading becomes a [Heading](/docs/components-text-heading--docs).
+  `Heading` size `level-6` becomes `level-5`.
+  [Icon](/docs/components-media-icon--docs) sizes `heading-0` and `heading-6` become `heading-1` and `heading-5`.
+  [Accordion](/docs/components-containers-accordion--docs) `headingLevel={1}` becomes `2`, `3` or `4`.
+  [Pagination](/docs/components-navigation-pagination--docs)’s `visuallyHiddenLabel` family becomes the `accessibleName` family.
+  The `color` property of [Menu](/docs/components-navigation-menu--docs) Link is gone with no replacement.
+  The CSS classes and design tokens behind all of these went too.
+  The changelogs list every name.
+- **[Compact Mode](/docs/docs-developer-guide-modes--docs) looks different.**
+  The page is now grey and [Grid](/docs/components-layout-grid--docs) Cells are white with their own padding, so cells stand out instead of blending in.
+  Spacious Mode is unchanged, so if you do not use Compact Mode you see nothing.
+  A cell that should blend back into the grey takes a new `transparent` appearance.
+- **[Progress List](/docs/components-containers-progress-list--docs) steps no longer collapse on their own.**
+  Collapsing is opt-in now: add the `collapsible` property to the list to bring it back.
+  Without it, every step shows in full, with no toggle.
+- **Icon’s `svg` property needs a real SVG.**
+  It used to accept almost anything.
+  It now expects an SVG element, an icon component, or a function that returns one.
+  TypeScript points out whatever no longer fits.
+
+### Added
+
+- **[Tab Navigation](/docs/components-navigation-tab-navigation--docs)** moves between the sections of a site, as a horizontal or vertical set of tabs.
+- **[Prose](/docs/utilities-css-prose--docs)** is a new utility class that puts vertical space between flowing text elements, for content you do not lay out one element at a time.
+
+### Adjusted
+
+None of this needs a code change.
+
+- **[Grid](/docs/components-layout-grid--docs) cells align to the top of their row.**
+  A short cell no longer stretches to match a tall neighbour.
+- **[Table](/docs/components-containers-table--docs) captions have space beneath them.**
+- **[Accordion](/docs/components-containers-accordion--docs) Section renames `expanded` to `defaultExpanded`.**
+  The old name keeps working as a deprecated alias until at least 20 October 2026.
+- **Viewport tokens gain a `vi-` prefix.**
+  The component tokens named `*.medium.*` and `*.wide.*` are now `*.vi-medium.*` and `*.vi-wide.*`.
+  The old names remain, deprecated, until at least 20 October 2026, so rename them when it suits.
+  Our components read the `vi-` names now, so if you overrode an old name, point that override at the `vi-` one.
+
+### Improved
+
+- **[Grid](/docs/components-layout-grid--docs) cells can span rows.**
+  A `rowSpan` property lets one cell run alongside up to four rows of others.
+- **Grid cells take a `flush` appearance** that removes their own padding while keeping the background.
+
+### Docs
+
+- **[Navigation Page](/docs/pages-internal-navigation-page--docs)** is a new template for a large site split into sections, built with two levels of the new [Tab Navigation](/docs/components-navigation-tab-navigation--docs).
+- **[Table Page](/docs/pages-internal-table-page--docs)** shows a full page of sortable, filterable, paginated data.
+  Its lesson: keep the table’s state in the URL, so a view can be bookmarked and shared.
+  That is why the controls are links and forms rather than buttons.
+
+### Upgrading
+
+#### Do you need to change anything?
+
+**Yes, this is a major.**
+Work through it in this order:
+
+1. **Clear the deprecation warnings first.**
+   Upgrade to the last 3.x release, fix everything it warns about, then move to 4.0.0.
+   If your console and build were already clean, the removals here touch nothing.
+2. **Look at your Compact Mode layouts.**
+   Cells are white on a grey page now.
+   Give the `transparent` appearance to any that should blend back in.
+3. **Add `collapsible` to a [Progress List](/docs/components-containers-progress-list--docs)** if you relied on its steps collapsing.
+4. **Check any custom `svg` you passed to [Icon](/docs/components-media-icon--docs).**
+   TypeScript flags whatever no longer fits.
+
+Two deprecations can wait, both until at least 20 October 2026: [Accordion](/docs/components-containers-accordion--docs)’s `expanded` becomes `defaultExpanded`, and the `*.medium.*` and `*.wide.*` tokens take their `vi-` names.
+
+#### What you could start using
+
+- [Tab Navigation](/docs/components-navigation-tab-navigation--docs), for a site organised into sections.
+- The [Prose](/docs/utilities-css-prose--docs) utility, for spacing a block of flowing text.
+- [Grid](/docs/components-layout-grid--docs) cells that span rows, or drop their padding with the flush appearance.
