@@ -116,7 +116,7 @@ export const Default: Story = {
   },
 }
 
-export const OnderzoekEnStatistiek: Story = {
+export const CustomContent: Story = {
   render: (args, context) => {
     const cellAppearance = isCompactTheme(context) ? 'transparent' : undefined
 
