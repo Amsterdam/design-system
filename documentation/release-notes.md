@@ -56,7 +56,7 @@ But do not treat the changelogs as a complete inventory, for two reasons:
   In the 12 July 2026 release, `feat(Accordion): Add an onToggle callback to Section` (#2758) shipped in React 4.3.0 — the property is in the published package — yet it appears in no changelog.
   Every sibling `feat` from the same week made it in.
 - `chore:` commits never reach a changelog by design, and some of them are user-facing.
-  In the same release, #2728 activated the `locale` and `dir` properties on Calendar and Date Picker, and #2785 added property documentation that ships in the Controls table and in IDE tooltips.
+  In the same release, #2728 documented how to localise Calendar and Date Picker, and #2785 added property documentation that ships in the Controls table and in IDE tooltips.
 
 So: reconcile the commit range against the changelogs, and report the difference.
 A user-facing change that shipped but reached no changelog is not an edge case to tidy away — it is the single most valuable thing the release notes can carry, because it exists nowhere else.
@@ -70,8 +70,44 @@ Verify every claim and every link against the tree.
 They are not a scope.
 They are often cumulative, covering several releases at once, so lifting one wholesale silently pulls in changes from earlier releases.
 
+**A pull request description** — ours or an agent’s — states an intention.
+The merged code states the outcome.
+They diverge more often than you would expect, and a title is the least reliable part of both: #2728 is titled ‘Activate and document the `locale` and `dir` props’, but there is no `dir` property on either component.
+It is a Storybook control derived from the locale.
+
 **The code** settles every disagreement.
 Read the diff before describing a change.
+
+## Six ways to be wrong
+
+Every one of these was caught in review of the 12 July notes, after the draft looked finished.
+They share a shape: a claim that is nearly true, in a sentence that reads well.
+
+1. **A capability that only half landed.**
+   The 12 July draft said four components became controllable.
+   Three did.
+   Accordion Section only gained an `onToggle` callback — it runs `useCollapsible` in uncontrolled mode, and its `expanded` is a deprecated alias for `defaultExpanded` until October, so the name is not free yet.
+   A reader who acted on the draft would have passed `expanded` to Accordion, earned a deprecation warning, and watched the value be treated as an initial default.
+   Check the implementation, not the property name: `defaultValue` is uncontrolled, `value` is controlled.
+2. **A group with one member that does not belong.**
+   The draft said Dialog, Table, Tabs and Tab Navigation all clip vertical overflow.
+   Dialog does the opposite — its body keeps `overflow-y: auto`, because it is the scroll container.
+   When a commit names four components, check all four.
+3. **A token mistaken for the thing it names.**
+   The draft said Amsterdam Sans gained three weights and an italic.
+   Only the black weight is a new font file; light, extra bold and italic were already shipping and merely gained tokens.
+   ‘Added a token for X’ and ‘added X’ are different sentences.
+4. **A guarantee with unstated preconditions.**
+   The modal Dialog scroll lock needs the `ams-body` class on the consumer’s `<body>`, sits behind an `@supports` query, and does not hold on iOS Safari touch — the source comment says so.
+   The draft told readers to delete their own scroll lock.
+   Before writing ‘you can remove your workaround’, read the implementation for the cases where it still fails.
+5. **A pattern assumed to be uniform.**
+   All five packages look like they pin each other.
+   React Icons does not — it depends only on React.
+   Check each one; do not generalise from two.
+6. **A count that is not counting what you think.**
+   ‘23 component pages’ was the number of files a commit touched; only 21 gained the section being described.
+   Prefer ‘every compound component’ to a number you have not counted yourself.
 
 ## Structure
 
@@ -141,6 +177,11 @@ The undercurrent: a design system that never changed would be one that had stopp
 Change is the product, not an apology for it.
 What makes change safe is documentation and a choice about when to follow — so the notes should read as confident, not defensive, and never bury a shift to make a release look calmer than it is.
 
+Keep that as an undercurrent.
+It is carried by the structure — a deprecation with a date on it, ‘every new property is optional’, a **Changed** section that admits what moved — and it dies the moment you say it out loud.
+An opening aphorism about change being good is the one thing guaranteed not to convince anybody.
+Cut it and let the page prove the point.
+
 Concretely:
 
 - Write Markdown with one sentence per line, as everywhere in this repository.
@@ -157,6 +198,8 @@ Concretely:
 
 - Derive every link from the `title:` of the story or the `<Meta title>` of the page, kebab-cased: `Components/Feedback/Skeleton` becomes `/docs/components-feedback-skeleton--docs`.
   Check each target exists rather than pattern-matching from memory; pages get renamed.
+- Check whether a new component brought an example with it.
+  Skeleton shipped with the Loading Page template in the same pull request, and the Documentation section is the only place it gets announced.
 - Reconcile the commit range against the changelogs in both directions, and account for every gap.
 - Verify the ‘nothing breaks’ claim against the changelogs _and_ the range: look for `!` in commit subjects, `BREAKING CHANGE:` footers, removals, and required properties.
 - Check whether any existing deprecation has passed its removal date.
