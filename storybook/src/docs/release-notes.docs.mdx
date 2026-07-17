@@ -1,0 +1,130 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Docs/Release notes" />
+
+# Release notes
+
+A design system that stopped changing would be one that stopped listening.
+Ours moves every few weeks: a component arrives, a default gets sharper, a bug stops bothering you.
+Change is the point — and it stays comfortable as long as you can see exactly what moved and decide for yourself when to follow.
+
+These notes cover one release at a time.
+Each opens with the package versions, sets out what changed, and closes with what upgrading actually asks of you.
+For the cadence and the guarantees behind it, read the [Release Policy](/docs/docs-developer-guide-release-policy--docs).
+
+## 12 July 2026
+
+Assets **2.5.0**, CSS **4.3.0**, React **4.3.0**, React Icons **2.2.0**, Tokens **4.2.0**.
+
+This release hands over control.
+Four components that used to keep their expanded state to themselves now let your application drive it.
+Around that: a new component for loading states, three more weights of Amsterdam Sans, and directional icons that follow the reading direction.
+Nothing breaks.
+
+### Changed
+
+Nothing here needs a code change.
+Some things do render or behave differently on markup you already have, so give these a look after upgrading.
+
+- **Compact Mode is a little tighter.**
+  The `xl` and `2xl` [space tokens](/docs/brand-design-tokens-space--docs) drop by 4 and 8 pixels at every window width.
+  Anything spaced with them in [Compact Mode](/docs/docs-developer-guide-modes--docs) closes up, [Grid](/docs/components-layout-grid--docs) gaps and vertical padding included.
+- **A modal [Dialog](/docs/components-containers-dialog--docs) holds the page still.**
+  The page behind it no longer scrolls while it is open.
+  If you built your own scroll lock for this, you can take it out.
+- **Dialog, [Table](/docs/components-containers-table--docs), [Tabs](/docs/components-containers-tabs--docs) and [Tab Navigation](/docs/components-navigation-tab-navigation--docs) keep their scrolling to themselves.**
+  They now clip vertical overflow rather than let it escape, and the Tabs list comes to rest on a whole tab instead of halfway through one.
+  Worth checking anything you render inside them that used to spill out.
+- **[Progress List](/docs/components-containers-progress-list--docs) Step prefers `expanded` over `collapsed`.**
+  The old prop keeps working until at least 10 January 2027, so migrate whenever it suits.
+  Mind the flip: `collapsed={false}` becomes `expanded`, not `expanded={false}`.
+
+### New
+
+- **[Skeleton](/docs/components-feedback-skeleton--docs)** stands in for content that has not arrived yet.
+  It has shapes for headings, paragraphs, lists, images and tables, so a loading page keeps the silhouette of the real one instead of flashing empty.
+- **Amsterdam Sans gains three weights and an italic.**
+  The [typography tokens](/docs/brand-design-tokens-typography--docs) now cover `light`, `extra bold` and a new `black`, plus an italic font style.
+  [Image](/docs/components-media-image--docs) already puts that italic to work on alternative text, so it reads as a stand-in rather than as body copy.
+
+### Improved
+
+**Collapsible components now take direction from your application.**
+[Accordion](/docs/components-containers-accordion--docs), [Page Header](/docs/components-containers-page-header--docs), Progress List and [Table of Contents](/docs/components-navigation-table-of-contents--docs) each used to keep their own counsel about what was open.
+That is fine until you need to open a section from a link elsewhere on the page, close the mega menu when the route changes, or remember what someone had expanded when they return.
+All four now accept that state from you and report back when it changes.
+Every one of these properties is optional: left alone, each component still manages itself exactly as before.
+
+- Accordion Section reports opening and closing through `onToggle`.
+- Page Header drives the mega menu with `open`, `defaultOpen` and `onOpenChange`.
+- Progress List Step takes `expanded` and `defaultExpanded`.
+- Table of Contents Link takes `expanded`, and its List can start branches open with `defaultExpanded`.
+
+Elsewhere:
+
+- **[Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) let you swap the navigation icons** on the previous and next month and year buttons.
+  Websites for the City of Amsterdam keep the defaults; the properties are there for everyone else.
+- **Directional [icons](/docs/brand-assets-icons--docs) mirror in right-to-left layouts.**
+  Arrows, chevrons and their kin are marked as directional, so they point the right way in Arabic and other right-to-left contexts.
+- **Calendar and Date Picker speak more languages.**
+  Their `locale` and `dir` properties are now active and documented — see [Localisation](/docs/docs-developer-guide-localisation--docs).
+
+### Fixed
+
+- **[Menu](/docs/components-navigation-menu--docs)** keeps its horizontal padding inside its maximum width instead of growing past it.
+- **Page Header** crops the logo a touch wider, so sub-pixel rounding stops shaving its edge.
+- **[Breakout](/docs/components-layout-breakout--docs)** applies the `as` property instead of leaking it into the DOM.
+  If you passed `as`, you now get the element you asked for — worth a look at your selectors and snapshots.
+- **Calendar and Date Picker** localise day numerals and the separator between the boundaries of a range.
+
+### Documentation
+
+Our documentation lives here in Storybook rather than in a package, so it has no changelog of its own.
+This is the place to find out what is new.
+
+- **[Handbook Page](/docs/pages-public-handbook-page--docs)** is a new template for long reference documents split across many short pages: a personnel handbook, a policy, a regulation.
+  A collapsible Table of Contents sits beside the content and swaps pages in place.
+- **[AI assistance](/docs/docs-developer-guide-ai-assistance--docs)** is a new guide, and behind it a Model Context Protocol server.
+  Point your coding assistant at it and it builds with our real components and properties instead of guessing at them.
+  It covers React for now, and republishes with every release.
+- **[Responsive design](/docs/docs-developer-guide-responsive-design--docs)** replaces the Breakpoints guide.
+  It now covers container queries alongside media queries, including how to make an element a query container.
+  Update any links you kept to the old page.
+- **Subcomponents are documented across 23 component pages.**
+  Every compound component names its full set of parts, and the ones with choices of their own each gained an example and their own controls.
+- **Icon overrides state the rule.**
+  Where a component lets you swap an icon, the property now says plainly that websites for the City of Amsterdam use the default.
+- **Grid’s Compact Mode figures are corrected**, and the space token descriptions are complete — including the viewport range over which they scale.
+
+### Upgrading
+
+#### Do you need to change anything?
+
+**No.**
+All five packages take a minor bump.
+Nothing was removed, every new property is optional, and existing markup keeps rendering.
+
+Two things to know:
+
+- **Move all five packages together.**
+  They pin each other to exact versions, so your package manager will insist on it anyway.
+  If Dependabot offers you a separate pull request per package, group them — the [Release Policy](/docs/docs-developer-guide-release-policy--docs) explains how.
+- **Migrate `collapsed` to `expanded` on Progress List Step when it suits you.**
+  You have until at least 10 January 2027, and the old property warns once in the console in the meantime.
+
+#### What you could start using
+
+- [Skeleton](/docs/components-feedback-skeleton--docs), if anything in your interface waits on data.
+- Controlled Accordion, Page Header, Progress List and Table of Contents, if you have ever wanted to open or close one of them from elsewhere.
+- The `light`, `extra bold` and `black` weights of Amsterdam Sans.
+- Right-to-left layouts, now that directional icons mirror — with Calendar and Date Picker localised to match.
+- The [Handbook Page](/docs/pages-public-handbook-page--docs) template, if you publish long reference documents.
+
+#### Bugs you may have run into
+
+- A Menu that grew past its maximum width.
+- A logo with a shaved edge in the Page Header.
+- A `<div as="section">` where you expected a `<section>`.
+- Day numerals in a Calendar or Date Picker that ignored the locale.
