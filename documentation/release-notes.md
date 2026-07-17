@@ -182,6 +182,14 @@ List only the ones that did, and say so in a second line: ‘Assets and React Ic
 Then check the published peer dependencies of the packages that did move, because they pin exact versions and that is what a reader actually has to install.
 On 24 April only CSS, React and Tokens moved, but CSS 4.1.0 still asks for Assets 2.3.0, which had arrived four days earlier.
 
+Append the changelog link to the end of the version-numbers line, in parentheses before the full stop:
+‘…, Tokens **4.2.0** ([changelogs](…)).’
+Link the release-please ‘chore: release main’ pull request for that release: its description is the structured per-package changelog, and every release has one.
+Find it with `gh pr list --repo Amsterdam/design-system --base main --search "chore: release main"`, or from the ‘chore: release main’ commit that bounds the window.
+Do not link the ‘develop → main’ pull request: its body is empty boilerplate, and the releases before June 2026 have none.
+Keep the pull request number in the URL only, never in the link text.
+See the note under Voice.
+
 ### Framing
 
 Two or three sentences naming the essence of the release, before any list.
@@ -280,8 +288,9 @@ Concretely:
 - Use a numbered list when the count is the point.
   ‘Two things to know’ and ‘three components’ earn one.
   A set of unordered options does not.
-- No commit hashes, no pull request numbers.
+- No commit hashes, and no pull request numbers in the prose.
   Anyone who wants that has the changelog.
+  The one allowed pull request link is the release changelog on the version-numbers line, and even there the number stays in the URL, never in the link text.
 
 ## Before you publish
 
