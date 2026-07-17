@@ -871,31 +871,74 @@
     },
     "components-feedback-skeleton": {
       "id": "components-feedback-skeleton",
-      "name": "Skeleton",
-      "path": "./src/components/Skeleton/Skeleton.test.stories.tsx",
+      "name": "Skeleton.Table",
+      "path": "./src/components/Skeleton/SkeletonTable.stories.tsx",
       "jsDocTags": {
         "see": [
           "{@link https://designsystem.amsterdam/?path=/docs/components-feedback-skeleton--docs Skeleton docs at Amsterdam Design System}"
         ]
       },
-      "description": "Grey shapes that stand in for content while it loads.\nCompose its parts to mirror the content to come, so the layout barely shifts once it arrives.",
+      "description": "A grid of cells that stands in for a table while it loads.",
       "reactComponentMeta": {
-        "displayName": "Skeleton",
+        "displayName": "Skeleton.Table",
         "exportName": "Skeleton",
         "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
-        "description": "Grey shapes that stand in for content while it loads.\nCompose its parts to mirror the content to come, so the layout barely shifts once it arrives.",
+        "description": "A grid of cells that stands in for a table while it loads.",
         "jsDocTags": {
           "see": [
             "{@link https://designsystem.amsterdam/?path=/docs/components-feedback-skeleton--docs Skeleton docs at Amsterdam Design System}"
           ]
         },
-        "props": {}
+        "props": {
+          "columns": {
+            "name": "columns",
+            "required": false,
+            "type": {
+              "name": "number"
+            },
+            "description": "The number of columns.",
+            "defaultValue": {
+              "value": "3"
+            },
+            "parent": {
+              "name": "SkeletonTableProps",
+              "fileName": "../packages/react/src/Skeleton/SkeletonTable.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/Skeleton/SkeletonTable.tsx"
+              }
+            ]
+          },
+          "rows": {
+            "name": "rows",
+            "required": false,
+            "type": {
+              "name": "number"
+            },
+            "description": "The number of rows.",
+            "defaultValue": {
+              "value": "3"
+            },
+            "parent": {
+              "name": "SkeletonTableProps",
+              "fileName": "../packages/react/src/Skeleton/SkeletonTable.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/Skeleton/SkeletonTable.tsx"
+              }
+            ]
+          }
+        }
       },
       "stories": [
         {
-          "id": "components-feedback-skeleton--test",
-          "name": "Test",
-          "snippet": "const Test = () => (\n  <div style={{ display: 'grid', gap: 'var(--ams-space-l)', maxInlineSize: '24rem' }}>\n    <Skeleton>\n      <Skeleton.Image />\n      <Skeleton.Heading lines={2} />\n      <Skeleton.Paragraph />\n    </Skeleton>\n    <Skeleton>\n      <Skeleton.List />\n    </Skeleton>\n    <Skeleton>\n      <Skeleton.Table />\n    </Skeleton>\n  </div>\n);"
+          "id": "components-feedback-skeleton--table",
+          "name": "Table",
+          "snippet": "const Table = () => <Skeleton>\n    <Skeleton.Table columns={3} rows={3} />\n</Skeleton>;"
         }
       ],
       "import": "import { Skeleton } from \"@amsterdam/design-system-react/src\";",
@@ -905,7 +948,7 @@
           "name": "Docs",
           "path": "./src/components/Skeleton/Skeleton.docs.mdx",
           "title": "Components/Feedback/Skeleton",
-          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/skeleton.tokens.json\";\n\nimport * as SkeletonStories from \"./Skeleton.stories.tsx\";\n\n<Meta of={SkeletonStories} />\n\n<Title />\n\n<Description of={SkeletonStories} />\n\n<Primary />\n\nThe Skeleton container takes only the parts you compose inside it and hides them from assistive technologies.\nEach part has its own options, documented under Subcomponents.\n\nThe container itself has no props to configure.\n\n## Subcomponents\n\nCompose a Skeleton from its parts: Skeleton.Image, Skeleton.Heading, Skeleton.Paragraph, Skeleton.List, and Skeleton.Table.\nSkeleton.Image is a single block; the others render one or more lines, sized to the text they stand in for.\nSet the `lines`, `rows`, and `columns` props to approximate the amount of content you expect.\n\n### Heading\n\nLines the size of a Heading.\nSet `lines` above one for a heading that wraps onto several lines.\n\n<Canvas of={SkeletonStories.Heading} />\n\n<Controls of={SkeletonStories.Heading} />\n\n### Paragraph\n\nLines the size of body text.\nTheir lengths alternate between two widths, and the last line of a multi-line paragraph is shorter, approximating its ragged end.\n\n<Canvas of={SkeletonStories.Paragraph} />\n\n<Controls of={SkeletonStories.Paragraph} />\n\n### List\n\nBody-text lines, each with a marker, indented like an Unordered List.\n\n<Canvas of={SkeletonStories.List} />\n\n<Controls of={SkeletonStories.List} />\n\n### Table\n\nA grid of cells.\n\n<Canvas of={SkeletonStories.Table} />\n\n<Controls of={SkeletonStories.Table} />\n\n### Image\n\nA block that stands in for an image.\nSet the `aspectRatio` prop to match the image that will replace it; it defaults to 16:9.\n\n<Canvas of={SkeletonStories.Image} />\n\n<Controls of={SkeletonStories.Image} />\n\n## Usage guidelines\n\n### When to use\n\nShow a Skeleton while loading content that takes a noticeable time to arrive – roughly between 1 and 10 seconds.\nCompose the parts to mirror the content to come, so the grey blocks prepare users for the page structure and waiting feels shorter.\n\n### When not to use\n\nDo not show a Skeleton for waits shorter than about a second: a flash of grey blocks is more distracting than helpful.\nFor a process with a known duration or progress, such as a file upload, show actual progress information instead.\nNever use a Skeleton for content that is already available – render that content immediately.\nAvoid combining it with other loading indicators in the same view.\n\n### How to use\n\nNest the parts you need inside a Skeleton, in the order the real content will appear.\nMatch the number of lines, rows, and columns to the expected content, so replacing the Skeleton barely shifts the layout.\nRender a Skeleton only while its content is loading, and replace it with the content – or an empty or error state – as soon as that content arrives.\n\nA Skeleton is decorative and hidden from assistive technologies, so it stays silent on its own.\nAnnouncing the loading state is the job of the region that holds the content, not of each Skeleton – otherwise a list of ten Skeletons would announce ten times.\nMark that region with `aria-busy` while it loads, and give it a single, always-present status message whose text changes from a loading message to the result:\n\n```html\n<section aria-busy=\"true\">\n  <p class=\"ams-visually-hidden\" role=\"status\">Zoekresultaten worden geladen</p>\n  <!-- ten Skeletons while loading -->\n</section>\n```\n\nWhen the content has loaded, replace the Skeletons with it, set `aria-busy` to `false`, and change the status message – for example to ‘10 resultaten gevonden’.\nA Loading Region component that wraps this pattern is planned.\n\n#### Customising the animation\n\nThe animation is set through one custom property, `--ams-skeleton-animation`, which holds a CSS `animation` shorthand.\nOverride it to suit your theme: change the duration or timing function to adjust the pace, point it at your own `@keyframes` to replace the motion, or set it to `none` to switch it off.\nUsers who prefer reduced motion never see the animation, whatever you set it to.\n\n## Features\n\nThe dimensions of the lines derive from the design tokens of the text they mimic: Skeleton.Heading follows Heading 2, and the other parts follow body text.\nEach line is exactly as tall as its line of text, so a part occupies the same height as the content it stands in for and the layout barely shifts once that content arrives.\n\nLine lengths vary deterministically: within each part the lines – or, in a table, the cells across each row – alternate between two widths, and any part with more than one ends on a shorter last one.\nThis looks natural yet renders identically on every request, which keeps server-side rendering consistent and visual regression tests stable.\n\n## Design\n\nThe blocks use a single neutral grey that reads as a quiet backdrop rather than content.\nThe space between composed parts is a generic gap rather than the exact margins of any one component, keeping the Skeleton reusable in any layout.\n\nA calm heartbeat signals that loading is under way.\nTwo quick beats in succession – the second softer than the first – fade the blocks to a lighter shade and back, then a longer rest holds them at full strength before the next pair.\nThe rhythm reassures without demanding attention, closer to a resting heartbeat than a busy shimmer.\nIt sits behind a single design token, so a theme can retime it, point it at its own keyframes, or switch it off.\n\n## Accessibility\n\nA Skeleton renders with `aria-hidden=\"true\"`, so screen readers skip the grey blocks entirely.\nBecause the loading announcement belongs to the region that is loading rather than to each block, the Skeleton stays silent; the application announces the state once for the region, as shown under ‘How to use’, to meet [WCAG 4.1.3](https://www.w3.org/TR/WCAG22/#status-messages).\nA Loading Region component to encapsulate that pattern is planned.\nThe animation runs only for users who have not asked for reduced motion; everyone else sees the static blocks.\nIn forced colours mode, the blocks remain visible through the system colour for disabled text.\n\n## See also\n\n- [Paragraph](/docs/components-text-paragraph--docs), [Heading](/docs/components-text-heading--docs), and [Table](/docs/components-containers-table--docs), the components a Skeleton stands in for.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
+          "content": "{/* @license CC0-1.0 */}\n\nimport { Canvas, Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/skeleton.tokens.json\";\n\nimport * as SkeletonStories from \"./Skeleton.stories.tsx\";\nimport * as SkeletonHeadingStories from \"./SkeletonHeading.stories.tsx\";\nimport * as SkeletonImageStories from \"./SkeletonImage.stories.tsx\";\nimport * as SkeletonListStories from \"./SkeletonList.stories.tsx\";\nimport * as SkeletonParagraphStories from \"./SkeletonParagraph.stories.tsx\";\nimport * as SkeletonTableStories from \"./SkeletonTable.stories.tsx\";\n\n<Meta of={SkeletonStories} />\n\n<Title />\n\n<Description of={SkeletonStories} />\n\n<Primary />\n\n<Controls />\n\nThe Skeleton container takes only the parts you compose inside it and hides them from assistive technologies.\nEach part has its own options, documented under Subcomponents.\n\nThe container itself has no props to configure; the controls above set the props of the parts in this example.\n\n## Subcomponents\n\nCompose a Skeleton from its parts: Skeleton.Image, Skeleton.Heading, Skeleton.Paragraph, Skeleton.List, and Skeleton.Table.\nSkeleton.Image is a single block; the others render one or more lines, sized to the text they stand in for.\nSet the `lines`, `rows`, and `columns` props to approximate the amount of content you expect.\n\n### Heading\n\nLines the size of a Heading.\nSet `lines` above one for a heading that wraps onto several lines.\n\n<Canvas of={SkeletonHeadingStories.Heading} />\n\n<Controls of={SkeletonHeadingStories.Heading} />\n\n### Paragraph\n\nLines the size of body text.\nTheir lengths alternate between two widths, and the last line of a multi-line paragraph is shorter, approximating its ragged end.\n\n<Canvas of={SkeletonParagraphStories.Paragraph} />\n\n<Controls of={SkeletonParagraphStories.Paragraph} />\n\n### List\n\nBody-text lines, each with a marker, indented like an Unordered List.\n\n<Canvas of={SkeletonListStories.List} />\n\n<Controls of={SkeletonListStories.List} />\n\n### Table\n\nA grid of cells.\n\n<Canvas of={SkeletonTableStories.Table} />\n\n<Controls of={SkeletonTableStories.Table} />\n\n### Image\n\nA block that stands in for an image.\nSet the `aspectRatio` prop to match the image that will replace it; it defaults to 16:9.\n\n<Canvas of={SkeletonImageStories.Image} />\n\n<Controls of={SkeletonImageStories.Image} />\n\n## Usage guidelines\n\n### When to use\n\nShow a Skeleton while loading content that takes a noticeable time to arrive – roughly between 1 and 10 seconds.\nCompose the parts to mirror the content to come, so the grey blocks prepare users for the page structure and waiting feels shorter.\n\n### When not to use\n\nDo not show a Skeleton for waits shorter than about a second: a flash of grey blocks is more distracting than helpful.\nFor a process with a known duration or progress, such as a file upload, show actual progress information instead.\nNever use a Skeleton for content that is already available – render that content immediately.\nAvoid combining it with other loading indicators in the same view.\n\n### How to use\n\nNest the parts you need inside a Skeleton, in the order the real content will appear.\nMatch the number of lines, rows, and columns to the expected content, so replacing the Skeleton barely shifts the layout.\nRender a Skeleton only while its content is loading, and replace it with the content – or an empty or error state – as soon as that content arrives.\n\nA Skeleton is decorative and hidden from assistive technologies, so it stays silent on its own.\nAnnouncing the loading state is the job of the region that holds the content, not of each Skeleton – otherwise a list of ten Skeletons would announce ten times.\nMark that region with `aria-busy` while it loads, and give it a single, always-present status message whose text changes from a loading message to the result:\n\n```html\n<section aria-busy=\"true\">\n  <p class=\"ams-visually-hidden\" role=\"status\">Zoekresultaten worden geladen</p>\n  <!-- ten Skeletons while loading -->\n</section>\n```\n\nWhen the content has loaded, replace the Skeletons with it, set `aria-busy` to `false`, and change the status message – for example to ‘10 resultaten gevonden’.\nA Loading Region component that wraps this pattern is planned.\n\n#### Customising the animation\n\nThe animation is set through one custom property, `--ams-skeleton-animation`, which holds a CSS `animation` shorthand.\nOverride it to suit your theme: change the duration or timing function to adjust the pace, point it at your own `@keyframes` to replace the motion, or set it to `none` to switch it off.\nUsers who prefer reduced motion never see the animation, whatever you set it to.\n\n## Features\n\nThe dimensions of the lines derive from the design tokens of the text they mimic: Skeleton.Heading follows Heading 2, and the other parts follow body text.\nEach line is exactly as tall as its line of text, so a part occupies the same height as the content it stands in for and the layout barely shifts once that content arrives.\n\nLine lengths vary deterministically: within each part the lines – or, in a table, the cells across each row – alternate between two widths, and any part with more than one ends on a shorter last one.\nThis looks natural yet renders identically on every request, which keeps server-side rendering consistent and visual regression tests stable.\n\n## Design\n\nThe blocks use a single neutral grey that reads as a quiet backdrop rather than content.\nThe space between composed parts is a generic gap rather than the exact margins of any one component, keeping the Skeleton reusable in any layout.\n\nA calm heartbeat signals that loading is under way.\nTwo quick beats in succession – the second softer than the first – fade the blocks to a lighter shade and back, then a longer rest holds them at full strength before the next pair.\nThe rhythm reassures without demanding attention, closer to a resting heartbeat than a busy shimmer.\nIt sits behind a single design token, so a theme can retime it, point it at its own keyframes, or switch it off.\n\n## Accessibility\n\nA Skeleton renders with `aria-hidden=\"true\"`, so screen readers skip the grey blocks entirely.\nBecause the loading announcement belongs to the region that is loading rather than to each block, the Skeleton stays silent; the application announces the state once for the region, as shown under ‘How to use’, to meet [WCAG 4.1.3](https://www.w3.org/TR/WCAG22/#status-messages).\nA Loading Region component to encapsulate that pattern is planned.\nThe animation runs only for users who have not asked for reduced motion; everyone else sees the static blocks.\nIn forced colours mode, the blocks remain visible through the system colour for disabled text.\n\n## See also\n\n- [Paragraph](/docs/components-text-paragraph--docs), [Heading](/docs/components-text-heading--docs), and [Table](/docs/components-containers-table--docs), the components a Skeleton stands in for.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
           "summary": "The Skeleton container takes only the parts you compose inside it and hides them from assi..."
         }
       }
@@ -5781,6 +5824,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4230
+    "durationMs": 4222
   }
 }

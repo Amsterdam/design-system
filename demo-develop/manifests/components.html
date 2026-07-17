@@ -19346,22 +19346,21 @@ value: string</code></pre>
   no-story-error
   no-doc-error"
   role="listitem"
-  aria-label="Skeleton">
+  aria-label="Skeleton.Table">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Skeleton</h2>
+      <h2><span class="status-dot dot-ok"></span> Skeleton.Table</h2>
       <div class="badges">
-        
+        <label for="c-80-components-feedback-skeleton-props" class="badge ok as-toggle">2 prop types</label>
         
         <label for="c-80-components-feedback-skeleton-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-80-components-feedback-skeleton-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
-    <div class="meta" title="./src/components/Skeleton/Skeleton.test.stories.tsx">components-feedback-skeleton · ./src/components/Skeleton/Skeleton.test.stories.tsx</div>
+    <div class="meta" title="./src/components/Skeleton/SkeletonTable.stories.tsx">components-feedback-skeleton · ./src/components/Skeleton/SkeletonTable.stories.tsx</div>
     
-    <div class="hint">Grey shapes that stand in for content while it loads.
-Compose its parts to mirror the content to come, so the layout barely shifts once it arrives.</div>
+    <div class="hint">A grid of cells that stands in for a table while it loads.</div>
     <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-feedback-skeleton--docs Skeleton docs at Amsterdam Design System}</span></div>
   </div>
 
@@ -19371,12 +19370,31 @@ Compose its parts to mirror the content to come, so the layout barely shifts onc
   <input id="c-80-components-feedback-skeleton-stories" class="tg tg-stories" type="checkbox" hidden />
   <input id="c-80-components-feedback-skeleton-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  
+  <input id="c-80-components-feedback-skeleton-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
     
     
+        <div class="panel panel-props">
+          <div class="note ok">
+            <div class="row">
+              <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
+              <span class="badge ok">2 prop types</span>
+            </div>
+            <pre><code>Component: ../packages/react/src/index.ts::Skeleton</code></pre>
+            <pre><code>Props:</code></pre>
+            <pre><code>/**
+ * The number of columns.
+ */
+columns?: number = 3
+
+/**
+ * The number of rows.
+ */
+rows?: number = 3</code></pre>
+          </div>
+        </div>
     
         <div class="panel panel-stories">
           
@@ -19392,26 +19410,14 @@ Compose its parts to mirror the content to come, so the layout barely shifts onc
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Test</span>
+                <span class="ex-name">Table</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Test = () =&gt; (
-  &lt;div style={{ display: &#39;grid&#39;, gap: &#39;var(--ams-space-l)&#39;, maxInlineSize: &#39;24rem&#39; }}&gt;
-    &lt;Skeleton&gt;
-      &lt;Skeleton.Image /&gt;
-      &lt;Skeleton.Heading lines={2} /&gt;
-      &lt;Skeleton.Paragraph /&gt;
-    &lt;/Skeleton&gt;
-    &lt;Skeleton&gt;
-      &lt;Skeleton.List /&gt;
-    &lt;/Skeleton&gt;
-    &lt;Skeleton&gt;
-      &lt;Skeleton.Table /&gt;
-    &lt;/Skeleton&gt;
-  &lt;/div&gt;
-);</code></pre>
+              <pre><code>const Table = () =&gt; &lt;Skeleton&gt;
+    &lt;Skeleton.Table columns={3} rows={3} /&gt;
+&lt;/Skeleton&gt;;</code></pre>
             </div>
         </div>
     
@@ -19433,6 +19439,11 @@ import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable
 import tokens from &quot;#tokens/components/ams/skeleton.tokens.json&quot;;
 
 import * as SkeletonStories from &quot;./Skeleton.stories.tsx&quot;;
+import * as SkeletonHeadingStories from &quot;./SkeletonHeading.stories.tsx&quot;;
+import * as SkeletonImageStories from &quot;./SkeletonImage.stories.tsx&quot;;
+import * as SkeletonListStories from &quot;./SkeletonList.stories.tsx&quot;;
+import * as SkeletonParagraphStories from &quot;./SkeletonParagraph.stories.tsx&quot;;
+import * as SkeletonTableStories from &quot;./SkeletonTable.stories.tsx&quot;;
 
 &lt;Meta of={SkeletonStories} /&gt;
 
@@ -19442,10 +19453,12 @@ import * as SkeletonStories from &quot;./Skeleton.stories.tsx&quot;;
 
 &lt;Primary /&gt;
 
+&lt;Controls /&gt;
+
 The Skeleton container takes only the parts you compose inside it and hides them from assistive technologies.
 Each part has its own options, documented under Subcomponents.
 
-The container itself has no props to configure.
+The container itself has no props to configure; the controls above set the props of the parts in this example.
 
 ## Subcomponents
 
@@ -19458,43 +19471,43 @@ Set the `lines`, `rows`, and `columns` props to approximate the amount of conten
 Lines the size of a Heading.
 Set `lines` above one for a heading that wraps onto several lines.
 
-&lt;Canvas of={SkeletonStories.Heading} /&gt;
+&lt;Canvas of={SkeletonHeadingStories.Heading} /&gt;
 
-&lt;Controls of={SkeletonStories.Heading} /&gt;
+&lt;Controls of={SkeletonHeadingStories.Heading} /&gt;
 
 ### Paragraph
 
 Lines the size of body text.
 Their lengths alternate between two widths, and the last line of a multi-line paragraph is shorter, approximating its ragged end.
 
-&lt;Canvas of={SkeletonStories.Paragraph} /&gt;
+&lt;Canvas of={SkeletonParagraphStories.Paragraph} /&gt;
 
-&lt;Controls of={SkeletonStories.Paragraph} /&gt;
+&lt;Controls of={SkeletonParagraphStories.Paragraph} /&gt;
 
 ### List
 
 Body-text lines, each with a marker, indented like an Unordered List.
 
-&lt;Canvas of={SkeletonStories.List} /&gt;
+&lt;Canvas of={SkeletonListStories.List} /&gt;
 
-&lt;Controls of={SkeletonStories.List} /&gt;
+&lt;Controls of={SkeletonListStories.List} /&gt;
 
 ### Table
 
 A grid of cells.
 
-&lt;Canvas of={SkeletonStories.Table} /&gt;
+&lt;Canvas of={SkeletonTableStories.Table} /&gt;
 
-&lt;Controls of={SkeletonStories.Table} /&gt;
+&lt;Controls of={SkeletonTableStories.Table} /&gt;
 
 ### Image
 
 A block that stands in for an image.
 Set the `aspectRatio` prop to match the image that will replace it; it defaults to 16:9.
 
-&lt;Canvas of={SkeletonStories.Image} /&gt;
+&lt;Canvas of={SkeletonImageStories.Image} /&gt;
 
-&lt;Controls of={SkeletonStories.Image} /&gt;
+&lt;Controls of={SkeletonImageStories.Image} /&gt;
 
 ## Usage guidelines
 
