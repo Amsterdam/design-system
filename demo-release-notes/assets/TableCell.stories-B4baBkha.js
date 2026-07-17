@@ -1,5 +1,0 @@
-import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";import{t}from"./jsx-runtime-Bq1bXGty.js";import{_ as n,t as r}from"./src-DsQx_oQj.js";import{d as i,r as a}from"./argTypes-CQXDxDHP.js";var o,s,c,l,u=e((()=>{r(),i(),o=t(),s={title:`Components/Containers/Table`,component:n.Cell,argTypes:{align:{control:{labels:{undefined:`start (default)`},type:`radio`},options:[void 0,`center`,`end`]},children:a(`The content of the cell.`)},decorators:[e=>(0,o.jsx)(n,{style:{minInlineSize:`16rem`},children:(0,o.jsx)(n.Body,{children:(0,o.jsx)(n.Row,{children:(0,o.jsx)(e,{})})})})]},c={args:{children:`€ 77,85`}},c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
-  args: {
-    children: '€ 77,85'
-  }
-}`,...c.parameters?.docs?.source}}},l=[`Cell`]}));u();export{c as Cell,l as __namedExportsOrder,s as default,u as t};
