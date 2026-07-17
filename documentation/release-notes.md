@@ -83,10 +83,11 @@ It is a Storybook control derived from the locale.
 **The code** settles every disagreement.
 Read the diff before describing a change.
 
-## Six ways to be wrong
+## Ways to be wrong
 
-Every one of these was caught in review of the 12 July notes, after the draft looked finished.
+Every one of these was caught while reviewing a draft that already looked finished.
 They share a shape: a claim that is nearly true, in a sentence that reads well.
+Expect to make several of them per release, and budget a verification pass to find them.
 
 1. **A capability that only half landed.**
    The 12 July draft said four components became controllable.
@@ -118,7 +119,30 @@ They share a shape: a claim that is nearly true, in a sentence that reads well.
    Check each one; do not generalise from two.
 6. **A count that is not counting what you think.**
    ‘23 component pages’ was the number of files a commit touched; only 21 gained the section being described.
-   Prefer ‘every compound component’ to a number you have not counted yourself.
+   ‘All 62 component pages’ was the number of pages one commit touched; there were 63.
+   A diff count and a total are different numbers.
+   Prefer ‘every component page’ to a number you have not counted yourself.
+7. **A property on the compound instead of the part.**
+   The June draft said Table of Contents items take a `collapsible` property.
+   `collapsible` is on the root; the Link takes `defaultExpanded`.
+   It also said Menu and Breadcrumb take `linkComponent`; the property is on `Menu.Link` and `Breadcrumb.Link`, and Page Header’s logo uses a different name again.
+   A reader who copies the sentence writes code that silently does nothing.
+   Grep the actual props interface for each component you name.
+8. **A fix that fixes nothing anyone could have hit.**
+   The June draft asked readers whether they had worked around a Switch whose track vanished in forced colours.
+   Nobody had. The border width was a local custom property, never themeable, and never zero.
+   #2656 made it themeable and floored it at 1px so that a token set to zero could not hide it.
+   That is hardening against a hazard the same commit introduced, filed under `fix:`.
+   Before restating a fix as a symptom, check that the symptom was reachable.
+9. **Two components that look alike from the outside.**
+   The June draft called Date Picker ‘the same calendar inside a form field’.
+   It is neither. Date Picker does not import Calendar, renders no field, and sits inline.
+   Calendar is a nav landmark of links; Date Picker is a grid of buttons that selects.
+   Read both implementations before you draw a family resemblance.
+10. **The repo at HEAD is not the repo at the release.**
+    Progress List’s `collapsed` was the current API in June and deprecated in July.
+    Describing June from HEAD would have announced a deprecation that had not happened yet.
+    Read the tree at the release commit: `git show <release-commit>:<path>`.
 
 ## Structure
 
