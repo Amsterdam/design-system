@@ -184,29 +184,37 @@ Two or three sentences naming the essence of the release, before any list.
 Most releases have a theme; find it.
 State plainly whether anything breaks.
 
-### New, Changed, Improved, Fixed
+### Changed, Added, Adjusted, Improved, Fixed
 
-Use these four headings, in this order, rather than ‘Breaking’, ‘Features’ and ‘Bugfixes’.
+Use these five headings, in this order, rather than ‘Breaking’, ‘Features’ and ‘Bugfixes’.
 They describe the reader’s experience instead of our commit conventions.
-They also let a release with no breaking changes still be honest about what moved.
-**New** leads, because that is what people came for.
+They read as a plain account of how the software grew, not a compliance record, and the friendly tone is the point.
 
-1. **New**: did not exist before.
-2. **Changed**: existing markup renders or behaves differently, with no action required.
+1. **Changed**: something that was there is now different in a way you have to deal with.
+   This is the breaking bucket: name what broke and why, and leave the step-by-step to the Upgrading section.
+   It is optional and appears only when a release breaks something, which by policy means a major.
+   Keep it friendly.
+   The changelog already carries the formal ‘Breaking changes’ heading with its alert icon, and the major version number is a signal in itself, so the page does not need a scare.
+2. **Added**: did not exist before.
+3. **Adjusted**: existing markup renders or behaves differently, with no action required.
    Visual shifts, new defaults, deprecations.
-   For a major release, this is where breaking changes go, with migration steps.
-3. **Improved**: an existing component gained something optional.
-4. **Fixed**: a bug that is gone.
+   Some are cosmetic and some can move a consumer’s layout, so the section’s opening lines say ‘look after upgrading’ plainly.
+4. **Improved**: an existing component gained something optional.
+5. **Fixed**: a bug that is gone.
+
+**Added** leads on a release that breaks nothing, because that is what people came for.
+On a major, **Changed** comes first, because the first question is what you have to do.
 
 Omit a heading that has nothing under it rather than padding it.
-The 24 April release has no **New** section, because nothing new arrived.
+Most releases have no **Changed** section, and the 24 April release has no **Added** section either.
 Never reorder the ones that remain.
 
-An item belongs in exactly one bucket.
-When a change is both an improvement and a shift in behaviour, put it in **Changed**.
-That is what the reader needs to notice.
+The line between **Adjusted** and **Improved** is whether the reader has to do anything.
+Adjusted happens to the markup they already shipped, so they look after upgrading.
+Improved is a capability they can reach for or ignore.
+When a change is both, put it in **Adjusted**, because that is what they need to notice.
 Scroll containment and a scroll lock read as improvements from our side.
-From the reader’s side they change how a page they already shipped behaves.
+From the reader’s side they change how a page they already shipped behaves, so they are Adjusted.
 
 Where several components gained the same kind of capability, write a short paragraph instead of scattering identical bullets.
 The 12 July notes do this for the collapsibles that became controllable: one paragraph on why you would want it, then one line per component.
@@ -244,7 +252,7 @@ So the notes should read as confident, not defensive.
 Never bury a shift to make a release look calmer than it is.
 
 Keep that as an undercurrent.
-The structure carries it: a deprecation with a date on it, ‘every new property is optional’, a **Changed** section that admits what moved.
+The structure carries it: a deprecation with a date on it, ‘every new property is optional’, an **Adjusted** section that admits what moved.
 It dies the moment you say it out loud.
 An opening aphorism about change being good is the one thing guaranteed not to convince anybody.
 Cut it and let the page prove the point.
