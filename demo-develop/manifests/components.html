@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">46/98 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">56/98 infos</a><span class="filter-pill ok" aria-disabled="true">120 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">112 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">46/98 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">56/98 infos</a><span class="filter-pill ok" aria-disabled="true">120 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">113 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -35604,10 +35604,546 @@ The documentation applies to these latest releases of the Amsterdam Design Syste
   aria-label="Docs">
   <div class="head">
     <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Docs/Release notes</h2>
+      <div class="badges">
+        
+        <label for="doc-1-docs-release-notes-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/docs/release-notes.docs.mdx">docs-release-notes--docs · ./src/docs/release-notes.docs.mdx</div>
+    <div># Release notes Our design system moves every few weeks. A component arrives. A default ge...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-1-docs-release-notes-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Docs/Release notes&quot; /&gt;
+
+# Release notes
+
+Our design system moves every few weeks.
+A component arrives.
+A default gets sharper.
+A bug stops bothering you.
+Everything that moves is written down here before you have to act on it.
+You decide when to follow.
+
+One release at a time, newest first.
+Each opens with the package versions.
+It sets out what changed.
+It closes with what upgrading actually asks of you.
+For the cadence and the guarantees behind it, read the [Release Policy](/docs/docs-developer-guide-release-policy--docs).
+
+## 12 July 2026
+
+Assets **2.5.0**, CSS **4.3.0**, React **4.3.0**, React Icons **2.2.0**, Tokens **4.2.0** ([changelogs](https://github.com/Amsterdam/design-system/pull/2787)).
+
+This release hands over control.
+Three components that used to manage their own open and closed state now let your application drive it.
+Around that: a new component for loading states, a black weight for Amsterdam Sans, and directional icons that follow the reading direction.
+Nothing breaks.
+
+### Added
+
+- **[Skeleton](/docs/components-feedback-skeleton--docs)** stands in for content that has not arrived yet.
+  It has shapes for headings, paragraphs, lists, images and tables.
+  A loading page keeps the silhouette of the real one instead of flashing empty.
+- **Amsterdam Sans gains a black weight.**
+  Light, extra bold and italic were already in the font files.
+  They had no [typography tokens](/docs/brand-design-tokens-typography--docs) of their own.
+  Now they do.
+  You can reach for them without hard-coding a value.
+
+### Adjusted
+
+Nothing here needs a code change.
+Some things do render or behave differently on markup you already have.
+Give these a look after upgrading.
+
+- **Compact Mode is a little tighter.**
+  The `xl` and `2xl` [space tokens](/docs/brand-design-tokens-space--docs) drop by 4 and 8 pixels at every viewport width.
+  Anything spaced with them in [Compact Mode](/docs/docs-developer-guide-modes--docs) closes up.
+  That includes [Grid](/docs/components-layout-grid--docs) gaps and vertical padding.
+- **The page behind a modal [Dialog](/docs/components-containers-dialog--docs) no longer scrolls.**
+  This needs the `ams-body` class on your `&lt;body&gt;`.
+  iOS Safari still needs JavaScript to guarantee it on touch.
+  Keep a scroll lock you wrote for that.
+  Drop one you wrote for anything else.
+- **[Table](/docs/components-containers-table--docs), [Tabs](/docs/components-containers-tabs--docs) and [Tab Navigation](/docs/components-navigation-tab-navigation--docs) now clip vertical overflow.**
+  Check anything you render inside them that used to spill out.
+  A vertical Tab Navigation is unaffected.
+  Scrolling a wide Table or Tabs sideways no longer carries on into the page behind it.
+  The Tabs list now comes to rest on a whole tab instead of halfway through one.
+- **[Progress List](/docs/components-containers-progress-list--docs) Step prefers `expanded` over `collapsed`.**
+  It prefers `defaultExpanded` over `defaultCollapsed`.
+  Both old properties keep working until at least 10 January 2027.
+  Migrate whenever it suits.
+  Mind the flip: `collapsed={false}` becomes `expanded`, not `expanded={false}`.
+
+### Improved
+
+**Three components now take their expanded state from your application.**
+[Page Header](/docs/components-containers-page-header--docs), [Progress List](/docs/components-containers-progress-list--docs) and [Table of Contents](/docs/components-navigation-table-of-contents--docs) each managed that state internally.
+That is fine until you need to open a section from a link elsewhere on the page, close the mega menu when the route changes, or remember what someone had expanded when they return.
+Now you can pass that state in.
+You are told when it changes.
+Every one of these properties is optional.
+Left alone, each component still manages itself exactly as before.
+
+1. Page Header drives the mega menu with `open`, `defaultOpen` and `onOpenChange`.
+2. Progress List Step takes `expanded` and `defaultExpanded`.
+3. Table of Contents Link takes `expanded`.
+   Its List can start branches open with `defaultExpanded`.
+
+[Accordion](/docs/components-containers-accordion--docs) Section is not there yet.
+The name `expanded` is still serving as the deprecated alias for `defaultExpanded` until October.
+Its new `onToggle` reports every open and close in the meantime.
+
+Elsewhere:
+
+- **[Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) let you swap the navigation icons** on the previous and next month and year buttons.
+  Websites for the City of Amsterdam keep the defaults.
+  The properties are there for everyone else.
+- **Directional [icons](/docs/brand-assets-icons--docs) mirror in right-to-left layouts.**
+  Arrows, chevrons and their kin are marked as directional.
+  An [Icon](/docs/components-media-icon--docs) points the right way in Arabic and other right-to-left contexts.
+
+### Fixed
+
+- **[Menu](/docs/components-navigation-menu--docs)** keeps its horizontal padding inside its maximum width.
+  It no longer grows past it.
+- **[Page Header](/docs/components-containers-page-header--docs)** crops the logo a touch wider.
+  Sub-pixel rounding no longer shaves its edge.
+- **[Breakout](/docs/components-layout-breakout--docs)** applies the `as` property instead of leaking it into the DOM.
+  If you passed `as`, you now get the element you asked for.
+  Worth a look at your selectors and snapshots.
+- **[Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs)** localise day numerals.
+  They localise the separator between the boundaries of a range too.
+
+### Docs
+
+New examples and guidelines only appear here.
+Our documentation ships with Storybook rather than as a package.
+This page is its changelog.
+
+- **[Loading Page](/docs/pages-public-loading-page--docs)** shows [Skeleton](/docs/components-feedback-skeleton--docs) in place.
+  A search waits.
+  Placeholders take the shape of what is coming.
+  Then the results arrive.
+  It also shows how to announce the wait to a screen reader.
+- **[Handbook Page](/docs/pages-public-handbook-page--docs)** is a new template for long reference documents split across many short pages.
+  Think of a personnel handbook, a policy, or a regulation.
+  A collapsible [Table of Contents](/docs/components-navigation-table-of-contents--docs) sits beside the content and swaps pages in place.
+- **[AI assistance](/docs/docs-developer-guide-ai-assistance--docs)** is a new guide.
+  Behind it sits a Model Context Protocol server.
+  Point your coding assistant at it.
+  It then builds with our real components and properties instead of guessing at them.
+  It covers React for now, and republishes with every release.
+- **[Responsive design](/docs/docs-developer-guide-responsive-design--docs)** replaces the Breakpoints guide.
+  It now covers container queries alongside media queries.
+  That includes how to make an element a query container.
+- **[Localisation](/docs/docs-developer-guide-localisation--docs)** replaces the Language guide.
+  [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) now document how to localise them properly.
+  Native speakers checked the examples in German, French, Turkish and Arabic.
+- **Every compound component now names its parts.**
+  The parts you can configure each come with an example and controls to try them.
+  Their properties are finally discoverable.
+- **Icon overrides state the rule.**
+  Where a component lets you swap an icon, the property now says plainly that websites for the City of Amsterdam use the default.
+- **[Grid](/docs/components-layout-grid--docs)’s Compact Mode dimensions were wrong.**
+  They are now correct.
+  Worth a look if you sized anything from that table.
+
+If you kept links to the Breakpoints or Language guides, point them at their new homes.
+
+### Upgrading
+
+#### Do you need to change anything?
+
+**No.**
+All five packages move up by a minor version.
+Nothing was removed.
+Every new property is optional.
+Existing markup keeps rendering.
+
+Two things to know:
+
+1. **Move the packages together.**
+   React needs this exact version of CSS.
+   CSS needs these exact versions of Tokens and Assets.
+   Your package manager will flag a partial upgrade.
+   React Icons stands on its own.
+   If Dependabot offers you a separate pull request per package, group them.
+   The [Release Policy](/docs/docs-developer-guide-release-policy--docs) explains how.
+2. **Migrate `collapsed` and `defaultCollapsed` on [Progress List](/docs/components-containers-progress-list--docs) Step when it suits you.**
+   You have until at least 10 January 2027.
+   Each old property warns once in the console in the meantime.
+
+#### What you could start using
+
+- Show the shape of a page while it loads, instead of an empty screen.
+  Reach for [Skeleton](/docs/components-feedback-skeleton--docs), with the [Loading Page](/docs/pages-public-loading-page--docs) template as a worked example.
+- Open or close a mega menu, a step or a branch from anywhere in your application.
+  The controlled [Page Header](/docs/components-containers-page-header--docs), Progress List and [Table of Contents](/docs/components-navigation-table-of-contents--docs) do that now.
+- Set text in the light, extra bold or new black weight of Amsterdam Sans.
+- Offer [Calendar](/docs/components-navigation-calendar--docs) and [Date Picker](/docs/components-forms-date-picker--docs) in another language, including right-to-left ones like Arabic.
+- Publish a long reference document, with the [Handbook Page](/docs/pages-public-handbook-page--docs) template.
+- Let your coding assistant read the design system directly, through the [AI assistance](/docs/docs-developer-guide-ai-assistance--docs) guide.
+
+#### Bugs you may have run into
+
+Have you been working around a [Menu](/docs/components-navigation-menu--docs) that grew past its maximum width?
+A shaved edge on the Page Header logo?
+A `&lt;div as=&quot;section&quot;&gt;` where you asked for a `&lt;section&gt;`?
+Day numerals that ignored the locale?
+Those are all gone.
+You can take the workarounds out.
+
+## 23 June 2026
+
+Assets **2.4.0**, CSS **4.2.0**, React **4.2.0**, React Icons **2.1.0**, Tokens **4.1.0** ([changelogs](https://github.com/Amsterdam/design-system/pull/2712)).
+
+This release is bigger than most.
+Calendar and Date Picker arrive together.
+Container queries begin to replace window-width breakpoints.
+Bold text gets lighter on every page.
+Almost no code has to change, but Amsterdam Sans now ships as WOFF2 only and those files moved.
+Read the upgrade notes before you bump.
+
+### Added
+
+- **[Calendar](/docs/components-navigation-calendar--docs)** shows a month at a time, for navigating to dates that have something behind them.
+  It is a set of links.
+- **[Date Picker](/docs/components-forms-date-picker--docs)** shows a month too, but for choosing a date or a range.
+  It sits inline on the page rather than in a form field.
+  When someone already knows the date and can type it, reach for [Date Input](/docs/components-forms-date-input--docs) instead.
+- **[Query Container](/docs/utilities-css-query-container--docs)** begins our move to container queries.
+  A component can now respond to the width of the box it sits in rather than the width of the window.
+  [Page](/docs/components-containers-page--docs), [Dialog](/docs/components-containers-dialog--docs) and [Grid](/docs/components-layout-grid--docs) Cell establish a container on their own.
+  The utility class covers everything that sits outside them.
+- **26 new [icons](/docs/brand-assets-icons--docs)**, among them a bridge, a litter bin, a bird house, zoom and rotate controls, and double chevrons for paging.
+
+### Adjusted
+
+None of this needs a code change.
+Some of it is cosmetic, and some can move your layout or your build, so give the list a look after upgrading.
+
+- **Bold text is lighter.**
+  The heading and bold body-text [typography tokens](/docs/brand-design-tokens-typography--docs) moved from weight 800 to 700.
+  Every [Heading](/docs/components-text-heading--docs), label and Description List term now renders in Amsterdam Sans Bold instead of Extra Bold.
+  So does the bold text our components draw for you, in [Badge](/docs/components-feedback-badge--docs), [Blockquote](/docs/components-text-blockquote--docs), Pagination, Table and Tabs.
+  Plain `b` and `strong` are untouched, because we never styled them.
+  If you followed our old advice and applied the bold token to them yourself, they get lighter too.
+  That advice is gone now.
+  Nothing to change in your code, but expect a visible difference on nearly every page.
+  Extra bold still ships, so it is there if you ask for it directly.
+- **The font files moved.**
+  Amsterdam Sans ships as WOFF2 only now.
+  The EOT and WOFF files are gone, and the WOFF2 files moved from `font/woff2/` up into `font/`.
+  Our stylesheet keeps working.
+  A path you wrote yourself does not.
+- **[Description List](/docs/components-text-description-list--docs) switches on its container.**
+  It used to go side by side above a window of 37.5rem.
+  It now does so above a container of 32rem.
+  Outside a query container it stays stacked at any width.
+  If yours went side by side and no longer does, wrap it in one.
+- **Page, Dialog and Grid Cell became query containers.**
+  That is what makes the above work, and it applies whether or not you write a container query.
+  Each of them is now the containing block for `position: fixed` and `position: absolute` children, and a new stacking context.
+  If a fixed banner, a sticky bar or a `z-index` inside one of them moved after upgrading, this is why.
+- **React properties are read-only.**
+  TypeScript now flags code that mutates a properties object.
+  That is a compile error you may meet on upgrade, not a change at runtime.
+
+### Improved
+
+**Every link component takes your router.**
+[Link](/docs/components-navigation-link--docs), [Standalone Link](/docs/components-navigation-standalone-link--docs), [Call to Action Link](/docs/components-navigation-call-to-action-link--docs), [Breadcrumb](/docs/components-navigation-breadcrumb--docs), [Calendar](/docs/components-navigation-calendar--docs), [Card](/docs/components-navigation-card--docs), [Link List](/docs/components-navigation-link-list--docs), [Menu](/docs/components-navigation-menu--docs), [Page Footer](/docs/components-containers-page-footer--docs), [Page Header](/docs/components-containers-page-header--docs), [Skip Link](/docs/components-navigation-skip-link--docs) and [Table of Contents](/docs/components-navigation-table-of-contents--docs) all accept a `linkComponent` property.
+Pass your router’s link and the component renders that instead of a plain anchor.
+On a compound component the property sits on the link part, so `Menu.Link` and `Breadcrumb.Link` rather than `Menu` and `Breadcrumb`.
+Page Header’s logo takes `logoLinkComponent`.
+The `&lt;NextLink legacyBehavior passHref&gt;` wrapper is no longer needed.
+The [Routing Libraries](/docs/docs-developer-guide-routing-libraries--docs) guide was rewritten around the new pattern.
+
+- **Table of Contents can collapse.**
+  Set `collapsible` on the root and every item with a nested list gets a toggle button.
+  Pre-open one with `defaultExpanded` on the Link.
+- **[Progress List](/docs/components-containers-progress-list--docs) Step takes a `collapsed` property.**
+  Pass it and your application drives the step.
+  Leave it out and the step keeps managing itself.
+- **[Pagination](/docs/components-navigation-pagination--docs) is themeable.**
+  Thirty-two new tokens cover the hover, active and current states.
+  New elements cover the ellipsis and the previous and next links.
+  Links gained a visible active state.
+- **[Dialog](/docs/components-containers-dialog--docs) draws better inner and outer borders in forced colours mode.**
+- **[Switch](/docs/components-forms-switch--docs) has a themeable track border.**
+  Forced colours mode keeps that border visible even if you set the new token to zero.
+- **All five packages publish with provenance.**
+  You can verify on npm that a release was built from our repository by our own pipeline.
+
+### Fixed
+
+- **Deprecated tokens resolved to nothing.**
+  Twenty-five of them carried the value `initial`, so reading one directly fell back to the property’s own default.
+  For the spacing tokens that meant zero.
+  This had been broken since 20 April.
+  Our own components were never affected, because they read through a fallback.
+  Yours were, if you used a deprecated token to line something up with the [Grid](/docs/components-layout-grid--docs).
+- **[Progress List](/docs/components-containers-progress-list--docs)** shows a dashed connector for a collapsed current step with substeps.
+- **[Pagination](/docs/components-navigation-pagination--docs)** generates a unique fallback id for its accessible name.
+- **[Logo](/docs/components-media-logo--docs)** stays clear of the clipping edge.
+- **[Page Header](/docs/components-containers-page-header--docs) and Pagination use a stable default link.**
+  They used to define it inline, so React saw a new component on every render, remounted the links and dropped focus.
+
+### Docs
+
+- **Component documentation follows one model.**
+  Every component page opens with the description, the main example and the controls, then a fixed set of headings.
+  Every page has inline navigation.
+  Guidance moved out of the packages’ README files and onto the pages themselves.
+- **[Spacing](/docs/docs-developer-guide-spacing--docs)** is a new guide.
+  It works down from page layout to individual elements, and says which tool to reach for at each level.
+- **[Dialog](/docs/components-containers-dialog--docs) explains where to put the initial focus.**
+  Focus lands on the close button by default, so people can read the Dialog before acting.
+  Move it with `autoFocus` when one element is clearly the first thing to do.
+- **[Accordion](/docs/components-containers-accordion--docs) and [Field Set](/docs/components-forms-field-set--docs) guidance is sharper.**
+  Accordion now asks you to consider separate pages first.
+  Field Set is clearer about marking a group optional.
+
+### Upgrading
+
+#### Do you need to change anything?
+
+**Almost nothing.**
+All five packages take a minor bump.
+Every new property is optional, and nothing was removed from the React or CSS API.
+The one removal is in the assets package: the EOT and WOFF font files are gone.
+
+Five things to check, most silent first:
+
+1. **Anything positioned inside a Page, Dialog or Grid Cell.**
+   These are query containers now, whether or not you write a container query.
+   That makes each of them the containing block for `position: fixed` and `position: absolute` children, and a new stacking context.
+   A fixed banner, a sticky bar or a `z-index` inside one of them may land somewhere new.
+   Nothing warns you about this, so look before you ship.
+2. **Font paths.**
+   If you preload a font file, wrote your own `@font-face`, or copy `font/woff2/` in a build step, update the path.
+   The WOFF2 files now sit directly in `font/`.
+   If you pointed at the `.woff` or `.eot` files, drop those `src` entries, because we no longer publish those formats.
+   If you import our stylesheet, you are fine.
+3. **Visual snapshots.**
+   Headings and bold text drop from weight 800 to 700, so nearly every snapshot will differ.
+   Re-baseline after upgrading.
+4. **A Description List that used to go side by side.**
+   If it does not sit inside a Page, Dialog or Grid Cell, wrap it in the Query Container utility.
+5. **TypeScript.**
+   Read-only properties may flag code that mutates a properties object.
+
+#### What you could start using
+
+- Show a month of dates, either for navigation or in a form, with Calendar and Date Picker.
+- Let a component respond to the width of its own box instead of the window, with the Query Container utility.
+- Hand your router to any link component through `linkComponent`.
+- Collapse a long Table of Contents, or drive a Progress List Step from your application.
+- Theme Pagination to match your product.
+
+#### Bugs you may have run into
+
+Have you been working around a deprecated token that resolved to nothing?
+A Pagination link that lost focus as you clicked it?
+A Logo with a clipped edge?
+A Progress List connector that went solid where it should have been dashed?
+Those are all gone.
+
+## 24 April 2026
+
+CSS **4.1.0**, React **4.1.0**, Tokens **4.0.1** ([changelogs](https://github.com/Amsterdam/design-system/pull/2590)).
+Assets and React Icons did not move this time.
+
+A small release, four days after the 4.0.0 major.
+Table learned to align the content of its cells.
+Compact Mode finally gives the Grid narrower side padding than the spacious default.
+Nothing breaks.
+
+### Adjusted
+
+- **[Table](/docs/components-containers-table--docs) header cells sit at the bottom.**
+  A cell used to align its content to the top.
+  Inside the table header it now aligns to the bottom.
+  A header that wraps onto two lines aligns with the single-line headers beside it.
+  Nothing to change in your code.
+
+### Improved
+
+- **[Table](/docs/components-containers-table--docs) cells can centre or right-align their content.**
+  Cell and Header Cell take an `align` property, set to `center` or `end`.
+  In CSS the modifiers are `ams-table__cell--align-center` and `ams-table__cell--align-end`, with a matching pair for a header cell.
+  A column of numbers can finally line up on the right.
+
+### Fixed
+
+- **[Grid](/docs/components-layout-grid--docs) padding in [Compact Mode](/docs/docs-developer-guide-modes--docs).**
+  Compact Mode was supposed to give the Grid narrower horizontal padding than the spacious default.
+  It never did, at any width: it set only the base value, which matched the default, and left the wider windows to the default steps.
+  Compact Mode now has its own steps, `m` then `l` then `xl`, one below the spacious `l`, `xl`, `2xl` at every width.
+- **[Field Set](/docs/components-forms-field-set--docs) stays inside its container.**
+  An input with a `size` attribute, or a textarea with `cols`, used to stretch the Field Set past its container.
+  It no longer does.
+
+### Docs
+
+- **[Table Page](/docs/pages-internal-table-page--docs) shows a full page of data.**
+  Two new examples: one pages through the rows with [Pagination](/docs/components-navigation-pagination--docs), the other sorts them with a [Select](/docs/components-forms-select--docs).
+- **[Text Input](/docs/components-forms-text-input--docs) and [Password Input](/docs/components-forms-password-input--docs) explain their size.**
+  The `size` attribute sets a preferred width, and the input will not grow past its container.
+
+### Upgrading
+
+#### Do you need to change anything?
+
+**No.**
+CSS and React take a minor bump, Tokens a patch.
+
+Two things to know:
+
+1. **Leave Assets and React Icons where they are.**
+   Neither changed.
+   CSS 4.1.0 asks for Tokens 4.0.1, which is in this release, and for Assets 2.3.0, which arrived with the 4.0.0 major four days earlier.
+2. **Look at any Table with a header.**
+   Header text moves from the top of its cell to the bottom.
+   If every header fits on one line, you will not see a difference.
+
+#### What you could start using
+
+- Right-align a column of numbers, or centre a column of icons, with `align` on a Table Cell.
+- The Table Page examples, if you are building a page of data that pages or sorts.
+
+#### Bugs you may have run into
+
+Have you been working around a Grid in Compact Mode whose side padding was as wide as the spacious default?
+A Field Set stretched wide by an input with a `size` attribute?
+Those are gone.
+
+## 20 April 2026
+
+Assets **2.3.0**, CSS **4.0.0**, React **4.0.0**, Tokens **4.0.0** ([changelogs](https://github.com/Amsterdam/design-system/pull/2567)).
+React Icons did not move this time.
+
+This is a major release, our once-a-quarter chance to remove what we had deprecated and to change a few things that needed it.
+Most of the breaking work is cleanup you were warned about.
+A new component and a new utility arrive alongside it, and the Grid learns some new tricks.
+Plan a little time for this one.
+
+### Changed
+
+A major release is where breaking changes land.
+The changelogs carry the full, exact list under their ‘Breaking changes’ heading.
+Here is what it means for you.
+
+- **Everything we had deprecated is now gone.**
+  If you kept up with the deprecation warnings, you are already done.
+  If not, the renames are straightforward.
+  Page Heading becomes a [Heading](/docs/components-text-heading--docs).
+  `Heading` size `level-6` becomes `level-5`.
+  [Icon](/docs/components-media-icon--docs) sizes `heading-0` and `heading-6` become `heading-1` and `heading-5`.
+  [Accordion](/docs/components-containers-accordion--docs) `headingLevel={1}` becomes `2`, `3` or `4`.
+  [Pagination](/docs/components-navigation-pagination--docs)’s `visuallyHiddenLabel` family becomes the `accessibleName` family.
+  The `color` property of [Menu](/docs/components-navigation-menu--docs) Link is gone with no replacement.
+  The CSS classes and design tokens behind all of these went too.
+  The changelogs list every name.
+- **[Compact Mode](/docs/docs-developer-guide-modes--docs) looks different.**
+  The page is now grey and [Grid](/docs/components-layout-grid--docs) Cells are white with their own padding, so cells stand out instead of blending in.
+  Spacious Mode is unchanged, so if you do not use Compact Mode you see nothing.
+  A cell that should blend back into the grey takes a new `transparent` appearance.
+- **[Progress List](/docs/components-containers-progress-list--docs) steps no longer collapse on their own.**
+  Collapsing is opt-in now: add the `collapsible` property to the list to bring it back.
+  Without it, every step shows in full, with no toggle.
+- **Icon’s `svg` property needs a real SVG.**
+  It used to accept almost anything.
+  It now expects an SVG element, an icon component, or a function that returns one.
+  TypeScript points out whatever no longer fits.
+
+### Added
+
+- **[Tab Navigation](/docs/components-navigation-tab-navigation--docs)** moves between the sections of a site, as a horizontal or vertical set of tabs.
+- **[Prose](/docs/utilities-css-prose--docs)** is a new utility class that puts vertical space between flowing text elements, for content you do not lay out one element at a time.
+
+### Adjusted
+
+None of this needs a code change.
+
+- **[Grid](/docs/components-layout-grid--docs) cells align to the top of their row.**
+  A short cell no longer stretches to match a tall neighbour.
+- **[Table](/docs/components-containers-table--docs) captions have space beneath them.**
+- **[Accordion](/docs/components-containers-accordion--docs) Section renames `expanded` to `defaultExpanded`.**
+  The old name keeps working as a deprecated alias until at least 20 October 2026.
+- **Viewport tokens gain a `vi-` prefix.**
+  The component tokens named `*.medium.*` and `*.wide.*` are now `*.vi-medium.*` and `*.vi-wide.*`.
+  The old names remain, deprecated, until at least 20 October 2026, so rename them when it suits.
+  Our components read the `vi-` names now, so if you overrode an old name, point that override at the `vi-` one.
+
+### Improved
+
+- **[Grid](/docs/components-layout-grid--docs) cells can span rows.**
+  A `rowSpan` property lets one cell run alongside up to four rows of others.
+- **Grid cells take a `flush` appearance** that removes their own padding while keeping the background.
+
+### Docs
+
+- **[Navigation Page](/docs/pages-internal-navigation-page--docs)** is a new template for a large site split into sections, built with two levels of the new [Tab Navigation](/docs/components-navigation-tab-navigation--docs).
+- **[Table Page](/docs/pages-internal-table-page--docs)** shows a full page of sortable, filterable, paginated data.
+  Its lesson: keep the table’s state in the URL, so a view can be bookmarked and shared.
+  That is why the controls are links and forms rather than buttons.
+
+### Upgrading
+
+#### Do you need to change anything?
+
+**Yes, this is a major.**
+Work through it in this order:
+
+1. **Clear the deprecation warnings first.**
+   Upgrade to the last 3.x release, fix everything it warns about, then move to 4.0.0.
+   If your console and build were already clean, the removals here touch nothing.
+2. **Look at your Compact Mode layouts.**
+   Cells are white on a grey page now.
+   Give the `transparent` appearance to any that should blend back in.
+3. **Add `collapsible` to a [Progress List](/docs/components-containers-progress-list--docs)** if you relied on its steps collapsing.
+4. **Check any custom `svg` you passed to [Icon](/docs/components-media-icon--docs).**
+   TypeScript flags whatever no longer fits.
+
+Two deprecations can wait, both until at least 20 October 2026: [Accordion](/docs/components-containers-accordion--docs)’s `expanded` becomes `defaultExpanded`, and the `*.medium.*` and `*.wide.*` tokens take their `vi-` names.
+
+#### What you could start using
+
+- [Tab Navigation](/docs/components-navigation-tab-navigation--docs), for a site organised into sections.
+- The [Prose](/docs/utilities-css-prose--docs) utility, for spacing a block of flowing text.
+- [Grid](/docs/components-layout-grid--docs) cells that span rows, or drop their padding with the flush appearance.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
       <h2><span class="status-dot dot-ok"></span> Docs/Designer Guide/Vertical space</h2>
       <div class="badges">
         
-        <label for="doc-1-docs-designer-guide-vertical-space-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-2-docs-designer-guide-vertical-space-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/designer-guide/vertical-space.docs.mdx">docs-designer-guide-vertical-space--docs · ./src/docs/designer-guide/vertical-space.docs.mdx</div>
@@ -35616,7 +36152,7 @@ The documentation applies to these latest releases of the Amsterdam Design Syste
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-1-docs-designer-guide-vertical-space-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-2-docs-designer-guide-vertical-space-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -35800,7 +36336,7 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/AI assistance</h2>
       <div class="badges">
         
-        <label for="doc-2-docs-developer-guide-ai-assistance-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-3-docs-developer-guide-ai-assistance-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/ai-assistance.docs.mdx">docs-developer-guide-ai-assistance--docs · ./src/docs/developer-guide/ai-assistance.docs.mdx</div>
@@ -35809,7 +36345,7 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-2-docs-developer-guide-ai-assistance-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-3-docs-developer-guide-ai-assistance-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -35915,7 +36451,7 @@ Once connected, ask for what you want in plain language:
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Browser Support</h2>
       <div class="badges">
         
-        <label for="doc-3-docs-developer-guide-browser-support-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-4-docs-developer-guide-browser-support-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/browser-support.docs.mdx">docs-developer-guide-browser-support--docs · ./src/docs/developer-guide/browser-support.docs.mdx</div>
@@ -35924,7 +36460,7 @@ Once connected, ask for what you want in plain language:
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-3-docs-developer-guide-browser-support-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-4-docs-developer-guide-browser-support-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -35966,7 +36502,7 @@ If you find any issues related to browser support, please [report them](https://
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Getting Started</h2>
       <div class="badges">
         
-        <label for="doc-4-docs-developer-guide-getting-started-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-5-docs-developer-guide-getting-started-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/getting-started.docs.mdx">docs-developer-guide-getting-started--docs · ./src/docs/developer-guide/getting-started.docs.mdx</div>
@@ -35975,7 +36511,7 @@ If you find any issues related to browser support, please [report them](https://
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-4-docs-developer-guide-getting-started-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-5-docs-developer-guide-getting-started-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36055,7 +36591,7 @@ Check our [Contributing guidelines](https://github.com/Amsterdam/design-system/b
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Interactivity</h2>
       <div class="badges">
         
-        <label for="doc-5-docs-developer-guide-interactivity-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-6-docs-developer-guide-interactivity-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/interactivity.docs.mdx">docs-developer-guide-interactivity--docs · ./src/docs/developer-guide/interactivity.docs.mdx</div>
@@ -36064,7 +36600,7 @@ Check our [Contributing guidelines](https://github.com/Amsterdam/design-system/b
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-5-docs-developer-guide-interactivity-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-6-docs-developer-guide-interactivity-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36171,7 +36707,7 @@ We use the CSS rule `touch-action: manipulation` on all interactive elements to 
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Localisation</h2>
       <div class="badges">
         
-        <label for="doc-6-docs-developer-guide-localisation-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-7-docs-developer-guide-localisation-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/localisation.docs.mdx">docs-developer-guide-localisation--docs · ./src/docs/developer-guide/localisation.docs.mdx</div>
@@ -36180,7 +36716,7 @@ We use the CSS rule `touch-action: manipulation` on all interactive elements to 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-6-docs-developer-guide-localisation-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-7-docs-developer-guide-localisation-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36310,7 +36846,7 @@ When you supply your own directional icon anywhere, give it the same attribute s
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Modes</h2>
       <div class="badges">
         
-        <label for="doc-7-docs-developer-guide-modes-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-8-docs-developer-guide-modes-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/modes.docs.mdx">docs-developer-guide-modes--docs · ./src/docs/developer-guide/modes.docs.mdx</div>
@@ -36319,7 +36855,7 @@ When you supply your own directional icon anywhere, give it the same attribute s
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-7-docs-developer-guide-modes-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-8-docs-developer-guide-modes-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36377,7 +36913,7 @@ Key characteristics of each mode:
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Release Policy</h2>
       <div class="badges">
         
-        <label for="doc-8-docs-developer-guide-release-policy-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-9-docs-developer-guide-release-policy-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/release-policy.docs.mdx">docs-developer-guide-release-policy--docs · ./src/docs/developer-guide/release-policy.docs.mdx</div>
@@ -36386,7 +36922,7 @@ Key characteristics of each mode:
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-8-docs-developer-guide-release-policy-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-9-docs-developer-guide-release-policy-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36491,7 +37027,7 @@ To make the most of the design system and avoid surprises:
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Responsive design</h2>
       <div class="badges">
         
-        <label for="doc-9-docs-developer-guide-responsive-design-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-10-docs-developer-guide-responsive-design-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/responsive-design.docs.mdx">docs-developer-guide-responsive-design--docs · ./src/docs/developer-guide/responsive-design.docs.mdx</div>
@@ -36500,7 +37036,7 @@ To make the most of the design system and avoid surprises:
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-9-docs-developer-guide-responsive-design-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-10-docs-developer-guide-responsive-design-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36672,7 +37208,7 @@ If your component can appear both inside and outside one of these named containe
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Routing Libraries</h2>
       <div class="badges">
         
-        <label for="doc-10-docs-developer-guide-routing-libraries-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-11-docs-developer-guide-routing-libraries-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/routing-libraries.docs.mdx">docs-developer-guide-routing-libraries--docs · ./src/docs/developer-guide/routing-libraries.docs.mdx</div>
@@ -36681,7 +37217,7 @@ If your component can appear both inside and outside one of these named containe
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-10-docs-developer-guide-routing-libraries-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-11-docs-developer-guide-routing-libraries-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36783,7 +37319,7 @@ If you need a ref to a custom link component, set it on that component directly.
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Spacing</h2>
       <div class="badges">
         
-        <label for="doc-11-docs-developer-guide-spacing-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-12-docs-developer-guide-spacing-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/spacing.docs.mdx">docs-developer-guide-spacing--docs · ./src/docs/developer-guide/spacing.docs.mdx</div>
@@ -36792,7 +37328,7 @@ If you need a ref to a custom link component, set it on that component directly.
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-11-docs-developer-guide-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-12-docs-developer-guide-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36879,7 +37415,7 @@ Margin is the right choice for a single targeted override; Prose is the right ch
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Usability</h2>
       <div class="badges">
         
-        <label for="doc-12-docs-developer-guide-usability-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-13-docs-developer-guide-usability-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/usability.docs.mdx">docs-developer-guide-usability--docs · ./src/docs/developer-guide/usability.docs.mdx</div>
@@ -36888,7 +37424,7 @@ Margin is the right choice for a single targeted override; Prose is the right ch
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-12-docs-developer-guide-usability-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-13-docs-developer-guide-usability-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36932,7 +37468,7 @@ including for users of screen readers.
       <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Web App</h2>
       <div class="badges">
         
-        <label for="doc-13-docs-developer-guide-web-app-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-14-docs-developer-guide-web-app-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/web-app.docs.mdx">docs-developer-guide-web-app--docs · ./src/docs/developer-guide/web-app.docs.mdx</div>
@@ -36941,7 +37477,7 @@ including for users of screen readers.
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-13-docs-developer-guide-web-app-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-14-docs-developer-guide-web-app-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37087,7 +37623,7 @@ Link the web manifest in the `&lt;head&gt;`:
       <h2><span class="status-dot dot-ok"></span> Docs/Terms of Use/Copyright</h2>
       <div class="badges">
         
-        <label for="doc-14-docs-terms-of-use-copyright-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-15-docs-terms-of-use-copyright-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/terms-of-use/copyright.docs.mdx">docs-terms-of-use-copyright--docs · ./src/docs/terms-of-use/copyright.docs.mdx</div>
@@ -37096,7 +37632,7 @@ Link the web manifest in the `&lt;head&gt;`:
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-14-docs-terms-of-use-copyright-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-15-docs-terms-of-use-copyright-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37126,7 +37662,7 @@ import NOTICE from &quot;../../../../NOTICE.md?raw&quot;;
       <h2><span class="status-dot dot-ok"></span> Docs/Terms of Use/License</h2>
       <div class="badges">
         
-        <label for="doc-15-docs-terms-of-use-license-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-16-docs-terms-of-use-license-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/terms-of-use/license.docs.mdx">docs-terms-of-use-license--docs · ./src/docs/terms-of-use/license.docs.mdx</div>
@@ -37135,7 +37671,7 @@ import NOTICE from &quot;../../../../NOTICE.md?raw&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-15-docs-terms-of-use-license-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-16-docs-terms-of-use-license-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37165,7 +37701,7 @@ import LICENSE from &quot;../../../../LICENSE.md?raw&quot;;
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Favicon</h2>
       <div class="badges">
         
-        <label for="doc-16-brand-assets-favicon-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-17-brand-assets-favicon-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/favicon.docs.mdx">brand-assets-favicon--docs · ./src/brand/assets/favicon.docs.mdx</div>
@@ -37174,7 +37710,7 @@ import LICENSE from &quot;../../../../LICENSE.md?raw&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-16-brand-assets-favicon-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-17-brand-assets-favicon-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37309,7 +37845,7 @@ An iPhone or iPad uses this image when adding the webpage as a shortcut to your 
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Font</h2>
       <div class="badges">
         
-        <label for="doc-17-brand-assets-font-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-18-brand-assets-font-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/font.docs.mdx">brand-assets-font--docs · ./src/brand/assets/font.docs.mdx</div>
@@ -37318,7 +37854,7 @@ An iPhone or iPad uses this image when adding the webpage as a shortcut to your 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-17-brand-assets-font-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-18-brand-assets-font-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37387,7 +37923,7 @@ For additional details about the font, refer to [Typography on Stijlweb](https:/
       <h2><span class="status-dot dot-ok"></span> Brand/Assets/Icons</h2>
       <div class="badges">
         
-        <label for="doc-18-brand-assets-icons-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-19-brand-assets-icons-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/assets/icons.docs.mdx">brand-assets-icons--docs · ./src/brand/assets/icons.docs.mdx</div>
@@ -37396,7 +37932,7 @@ For additional details about the font, refer to [Typography on Stijlweb](https:/
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-18-brand-assets-icons-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-19-brand-assets-icons-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37537,7 +38073,7 @@ If you need an icon that is not in our set, [check this Figma library](https://w
       <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Aspect Ratio</h2>
       <div class="badges">
         
-        <label for="doc-19-brand-design-tokens-aspect-ratio-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-20-brand-design-tokens-aspect-ratio-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/aspect-ratio.docs.mdx">brand-design-tokens-aspect-ratio--docs · ./src/brand/design-tokens/aspect-ratio.docs.mdx</div>
@@ -37546,7 +38082,7 @@ If you need an icon that is not in our set, [check this Figma library](https://w
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-19-brand-design-tokens-aspect-ratio-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-20-brand-design-tokens-aspect-ratio-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37596,7 +38132,7 @@ Content with intrinsic dimensions that do not match an aspect ratio will be crop
       <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Border</h2>
       <div class="badges">
         
-        <label for="doc-20-brand-design-tokens-border-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-21-brand-design-tokens-border-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/border.docs.mdx">brand-design-tokens-border--docs · ./src/brand/design-tokens/border.docs.mdx</div>
@@ -37605,7 +38141,7 @@ Content with intrinsic dimensions that do not match an aspect ratio will be crop
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-20-brand-design-tokens-border-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-21-brand-design-tokens-border-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37660,7 +38196,7 @@ All borders are a pixel thinner in [Compact Mode](/docs/docs-developer-guide-mod
       <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Colour</h2>
       <div class="badges">
         
-        <label for="doc-21-brand-design-tokens-colour-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-22-brand-design-tokens-colour-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/colour.docs.mdx">brand-design-tokens-colour--docs · ./src/brand/design-tokens/colour.docs.mdx</div>
@@ -37669,7 +38205,7 @@ All borders are a pixel thinner in [Compact Mode](/docs/docs-developer-guide-mod
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-21-brand-design-tokens-colour-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-22-brand-design-tokens-colour-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37882,7 +38418,7 @@ On these, both text and links are white – the **‘inverse’** text and inter
       <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Cursor</h2>
       <div class="badges">
         
-        <label for="doc-22-brand-design-tokens-cursor-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-23-brand-design-tokens-cursor-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/cursor.docs.mdx">brand-design-tokens-cursor--docs · ./src/brand/design-tokens/cursor.docs.mdx</div>
@@ -37891,7 +38427,7 @@ On these, both text and links are white – the **‘inverse’** text and inter
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-22-brand-design-tokens-cursor-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-23-brand-design-tokens-cursor-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37926,7 +38462,7 @@ import tokens from &quot;#tokens/brand/ams/cursor.tokens.json&quot;;
       <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Focus</h2>
       <div class="badges">
         
-        <label for="doc-23-brand-design-tokens-focus-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-24-brand-design-tokens-focus-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/focus.docs.mdx">brand-design-tokens-focus--docs · ./src/brand/design-tokens/focus.docs.mdx</div>
@@ -37935,7 +38471,7 @@ import tokens from &quot;#tokens/brand/ams/cursor.tokens.json&quot;;
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-23-brand-design-tokens-focus-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-24-brand-design-tokens-focus-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -37981,7 +38517,7 @@ When setting up a page, ensure that the interactive elements are in a logical or
       <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Inputs</h2>
       <div class="badges">
         
-        <label for="doc-24-brand-design-tokens-inputs-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-25-brand-design-tokens-inputs-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/inputs.docs.mdx">brand-design-tokens-inputs--docs · ./src/brand/design-tokens/inputs.docs.mdx</div>
@@ -37990,7 +38526,7 @@ When setting up a page, ensure that the interactive elements are in a logical or
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-24-brand-design-tokens-inputs-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-25-brand-design-tokens-inputs-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -38064,7 +38600,7 @@ Use these tokens if you recreate our React components with different technology,
       <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Links</h2>
       <div class="badges">
         
-        <label for="doc-25-brand-design-tokens-links-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-26-brand-design-tokens-links-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/links.docs.mdx">brand-design-tokens-links--docs · ./src/brand/design-tokens/links.docs.mdx</div>
@@ -38073,7 +38609,7 @@ Use these tokens if you recreate our React components with different technology,
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-25-brand-design-tokens-links-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-26-brand-design-tokens-links-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -38137,7 +38673,7 @@ Use these tokens if you recreate our React components with different technology,
       <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Space</h2>
       <div class="badges">
         
-        <label for="doc-26-brand-design-tokens-space-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-27-brand-design-tokens-space-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/space.docs.mdx">brand-design-tokens-space--docs · ./src/brand/design-tokens/space.docs.mdx</div>
@@ -38146,7 +38682,7 @@ Use these tokens if you recreate our React components with different technology,
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-26-brand-design-tokens-space-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-27-brand-design-tokens-space-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -38221,7 +38757,7 @@ The responsive values above are specified using the [clamp function](https://dev
       <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Typography</h2>
       <div class="badges">
         
-        <label for="doc-27-brand-design-tokens-typography-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-28-brand-design-tokens-typography-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/typography.docs.mdx">brand-design-tokens-typography--docs · ./src/brand/design-tokens/typography.docs.mdx</div>
@@ -38230,7 +38766,7 @@ The responsive values above are specified using the [clamp function](https://dev
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-27-brand-design-tokens-typography-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-28-brand-design-tokens-typography-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -38424,7 +38960,7 @@ They use [Compact Mode](/docs/docs-developer-guide-modes--docs), where both body
       <h2><span class="status-dot dot-ok"></span> Pages/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-28-pages-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-29-pages-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/Introduction.docs.mdx">pages-introduction--docs · ./src/pages/Introduction.docs.mdx</div>
@@ -38433,7 +38969,7 @@ They use [Compact Mode](/docs/docs-developer-guide-modes--docs), where both body
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-28-pages-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-29-pages-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -38496,7 +39032,7 @@ Use the ‘Go to full screen’ (or press `alt+F`) or ‘Open canvas in new tab�
       <h2><span class="status-dot dot-ok"></span> Pages/Public/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-29-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-30-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/public/Introduction.docs.mdx">pages-public-introduction--docs · ./src/pages/public/Introduction.docs.mdx</div>
@@ -38505,7 +39041,7 @@ Use the ‘Go to full screen’ (or press `alt+F`) or ‘Open canvas in new tab�
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-29-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-30-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -38649,7 +39185,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
       <h2><span class="status-dot dot-ok"></span> Pages/Internal/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-30-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-31-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/internal/Introduction.docs.mdx">pages-internal-introduction--docs · ./src/pages/internal/Introduction.docs.mdx</div>
@@ -38658,7 +39194,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-30-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-31-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
