@@ -336,3 +336,72 @@ A Pagination link that lost focus as you clicked it?
 A Logo with a clipped edge?
 A Progress List connector that went solid where it should have been dashed?
 Those are all gone.
+
+## 24 April 2026
+
+CSS **4.1.0**, React **4.1.0**, Tokens **4.0.1**.
+Assets and React Icons did not move this time.
+
+A small release, four days after the 4.0.0 major.
+Table learned to align the content of its cells.
+Compact Mode finally gives the Grid narrower side padding than the spacious default.
+Nothing breaks.
+
+### Changed
+
+- **[Table](/docs/components-containers-table--docs) header cells sit at the bottom.**
+  A cell used to align its content to the top.
+  Inside the table header it now aligns to the bottom.
+  A header that wraps onto two lines lines up with the single-line headers beside it.
+  Nothing to change in your code.
+
+### Improved
+
+- **[Table](/docs/components-containers-table--docs) cells can centre or right-align their content.**
+  Cell and Header Cell take an `align` property, set to `center` or `end`.
+  In CSS the modifiers are `ams-table__cell--align-center` and `ams-table__cell--align-end`, with a matching pair for a header cell.
+  A column of numbers can finally line up on the right.
+
+### Fixed
+
+- **[Grid](/docs/components-layout-grid--docs) padding in [Compact Mode](/docs/docs-developer-guide-modes--docs).**
+  Compact Mode was supposed to give the Grid narrower horizontal padding than the spacious default.
+  It never did, at any width: it set only the base value, which matched the default, and left the wider windows to the default steps.
+  Compact Mode now has its own steps, `m` then `l` then `xl`, one below the spacious `l`, `xl`, `2xl` at every width.
+- **[Field Set](/docs/components-forms-field-set--docs) stays inside its container.**
+  An input with a `size` attribute, or a textarea with `cols`, used to stretch the Field Set past its container.
+  It no longer does.
+
+### Docs
+
+- **[Table Page](/docs/pages-internal-table-page--docs) shows a full page of data.**
+  Two new examples: one pages through the rows with [Pagination](/docs/components-navigation-pagination--docs), the other sorts them with a [Select](/docs/components-forms-select--docs).
+- **[Text Input](/docs/components-forms-text-input--docs) and [Password Input](/docs/components-forms-password-input--docs) explain their size.**
+  The `size` attribute sets a preferred width, and the input will not grow past its container.
+
+### Upgrading
+
+#### Do you need to change anything?
+
+**No.**
+CSS and React take a minor bump, Tokens a patch.
+
+Two things to know:
+
+1. **Leave Assets and React Icons where they are.**
+   Neither changed.
+   CSS 4.1.0 asks for Tokens 4.0.1, which is in this release, and for Assets 2.3.0, which arrived with the 4.0.0 major four days earlier.
+2. **Look at any Table with a header.**
+   Header text moves from the top of its cell to the bottom.
+   If every header fits on one line, you will not see a difference.
+
+#### What you could start using
+
+- Right-align a column of numbers, or centre a column of icons, with `align` on a Table Cell.
+- The Table Page examples, if you are building a page of data that pages or sorts.
+
+#### Bugs you may have run into
+
+Have you been working around a Grid in Compact Mode whose side padding was as wide as the spacious default?
+A Field Set stretched wide by an input with a `size` attribute?
+Those are gone.
