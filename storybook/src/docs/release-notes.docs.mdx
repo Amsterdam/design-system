@@ -33,9 +33,9 @@ Some things do render or behave differently on markup you already have, so give 
 - **The page behind a modal [Dialog](/docs/components-containers-dialog--docs) no longer scrolls.**
   This needs the `ams-body` class on your `<body>`, and iOS Safari still needs JavaScript to guarantee it on touch.
   So keep a scroll lock you wrote for that, and drop one you wrote for anything else.
-- **[Table](/docs/components-containers-table--docs), [Tabs](/docs/components-containers-tabs--docs) and [Tab Navigation](/docs/components-navigation-tab-navigation--docs) contain their own scrolling.**
-  Scrolling a wide Table or Tabs sideways no longer carries on into the page behind it, and the Tabs list comes to rest on a whole tab instead of halfway through one.
-  All three now clip vertical overflow, so check anything you render inside them that used to spill out — a vertical Tab Navigation is unaffected.
+- **[Table](/docs/components-containers-table--docs), [Tabs](/docs/components-containers-tabs--docs) and [Tab Navigation](/docs/components-navigation-tab-navigation--docs) now clip vertical overflow.**
+  Check anything you render inside them that used to spill out — a vertical Tab Navigation is unaffected.
+  Scrolling a wide Table or Tabs sideways no longer carries on into the page behind it either, and the Tabs list comes to rest on a whole tab instead of halfway through one.
 - **[Progress List](/docs/components-containers-progress-list--docs) Step prefers `expanded` over `collapsed`**, and `defaultExpanded` over `defaultCollapsed`.
   The old properties keep working until at least 10 January 2027, so migrate whenever it suits.
   Mind the flip: `collapsed={false}` becomes `expanded`, not `expanded={false}`.
