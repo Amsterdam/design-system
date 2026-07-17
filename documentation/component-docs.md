@@ -59,6 +59,9 @@ Sections are optional: omit any section that has no meaningful content for the c
 1. **Title and description** – `<Title />` and `<Description of={…} />`, rendered from the component’s TSDoc via react-docgen.
 2. **Primary story and Controls** – `<Primary />` and `<Controls />`.
    If the component has no props of its own, replace `<Controls />` with the sentence ‘This component has no props to configure.’ – an empty table would suggest missing documentation, and omitting the block silently would leave readers guessing.
+   A container whose Primary story composes its parts, such as Skeleton, is the exception: give that story an arg for each choice the example makes, so the table configures the parts rather than standing empty.
+   Keep `<Controls />` in that case and follow it with the sentence, which still tells readers that the container itself takes no props.
+   Describe those args in `argTypes`: they belong to the story rather than to a component, so no JSDoc describes them.
 3. **Subcomponents** – if the component has named subcomponents, an H2 that names all of them, with an H3 for each subcomponent that offers choices of its own.
    Omit if there are none.
 4. **Usage guidelines** – an H2 with up to four H3 subsections: ‘When to use’, ‘When not to use’, ‘How to use’, and ‘How to write’.
