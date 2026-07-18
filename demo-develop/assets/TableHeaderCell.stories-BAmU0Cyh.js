@@ -1,5 +1,0 @@
-import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";import{t}from"./jsx-runtime-Bq1bXGty.js";import{_ as n,t as r}from"./src-Cx9PpuWn.js";import{d as i,r as a}from"./argTypes-CQXDxDHP.js";var o,s,c,l,u=e((()=>{r(),i(),o=t(),s={title:`Components/Containers/Table`,component:n.HeaderCell,argTypes:{align:{control:{labels:{undefined:`start (default)`},type:`radio`},options:[void 0,`center`,`end`]},children:a(`The text for the column header.`)},decorators:[e=>(0,o.jsxs)(n,{style:{minInlineSize:`16rem`},children:[(0,o.jsx)(n.Header,{children:(0,o.jsx)(n.Row,{children:(0,o.jsx)(e,{})})}),(0,o.jsx)(n.Body,{children:(0,o.jsx)(n.Row,{children:(0,o.jsx)(n.Cell,{children:`West`})})})]})]},c={args:{children:`Stadsdeel`}},c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
-  args: {
-    children: 'Stadsdeel'
-  }
-}`,...c.parameters?.docs?.source}}},l=[`HeaderCell`]}));u();export{c as HeaderCell,l as __namedExportsOrder,s as default,u as t};
