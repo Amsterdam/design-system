@@ -12,6 +12,8 @@
 
   box-shadow: var(--ams-tab-navigation-list-box-shadow);
   display: flex;
+  flex-wrap: nowrap;
+  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- This scrolls horizontally only. */
   overflow-x: auto;
   overflow-y: hidden;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
@@ -42,6 +44,7 @@
   color: var(--ams-tab-navigation-link-color);
   cursor: var(--ams-tab-navigation-link-cursor);
   display: flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-tab-navigation-link-font-family);
   font-size: var(--ams-tab-navigation-link-font-size);
   font-weight: var(--ams-tab-navigation-link-font-weight);
@@ -52,12 +55,16 @@
   padding-inline: var(--ams-tab-navigation-link-padding-inline);
   text-decoration-line: none;
 
-  &:hover {
-    color: var(--ams-tab-navigation-link-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-tab-navigation-link-hover-color);
+    }
   }
 
-  &:hover:not([aria-current="page"]) {
-    box-shadow: var(--ams-tab-navigation-link-hover-box-shadow);
+  @media (hover: hover) {
+    &:hover:not([aria-current="page"]) {
+      box-shadow: var(--ams-tab-navigation-link-hover-box-shadow);
+    }
   }
 
   &[aria-current="page"] {
@@ -70,8 +77,10 @@
   }
 
   @media (min-width: $ams-breakpoint-medium) {
-    .ams-tab-navigation--vertical &:hover:not([aria-current="page"]) {
-      box-shadow: var(--ams-tab-navigation-link-vertical-hover-box-shadow);
+    @media (hover: hover) {
+      .ams-tab-navigation--vertical &:hover:not([aria-current="page"]) {
+        box-shadow: var(--ams-tab-navigation-link-vertical-hover-box-shadow);
+      }
     }
 
     .ams-tab-navigation--vertical &[aria-current="page"] {
@@ -95,10 +104,11 @@
 .ams-tab-navigation__link-label-hidden {
   font-weight: var(--ams-tab-navigation-link-current-font-weight);
   pointer-events: none;
+  /* stylelint-disable-next-line defensive-css/no-user-select-none -- Prevents copying invisible text. */
   -webkit-user-select: none;
 
   /* Safari support is added with the prefixed property. */
-  /* stylelint-disable-next-line plugin/use-baseline */
+  /* stylelint-disable-next-line plugin/use-baseline, defensive-css/no-user-select-none -- Prevents copying invisible text. */
   user-select: none;
   visibility: hidden;
 }

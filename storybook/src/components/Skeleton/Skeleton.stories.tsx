@@ -4,6 +4,7 @@
  */
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { ComponentProps } from 'react'
 
 import { Skeleton } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
@@ -17,65 +18,43 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+type DefaultProps = {
+  aspectRatio: (typeof aspectRatioOptions)[number]
+  headingLines: number
+  paragraphLines: number
+} & Readonly<ComponentProps<typeof Skeleton>>
 
-export const Default: Story = {
+type DefaultStory = StoryObj<DefaultProps>
+
+export const Default: DefaultStory = {
   args: {
-    children: [<Skeleton.Image key={1} />, <Skeleton.Heading key={2} />, <Skeleton.Paragraph key={3} lines={3} />],
+    aspectRatio: '16:9',
+    headingLines: 1,
+    paragraphLines: 3,
   },
-  decorators: [maximiseInlineSize('24rem')],
-}
-
-export const Heading: StoryObj<{ lines: number }> = {
-  args: { lines: 2 },
-  argTypes: { lines: { control: { min: 1, step: 1, type: 'number' } } },
-  render: ({ lines }) => (
-    <Skeleton>
-      <Skeleton.Heading lines={lines} />
-    </Skeleton>
-  ),
-}
-
-export const Paragraph: StoryObj<{ lines: number }> = {
-  args: { lines: 3 },
-  argTypes: { lines: { control: { min: 1, step: 1, type: 'number' } } },
-  render: ({ lines }) => (
-    <Skeleton>
-      <Skeleton.Paragraph lines={lines} />
-    </Skeleton>
-  ),
-}
-
-export const List: StoryObj<{ lines: number }> = {
-  args: { lines: 3 },
-  argTypes: { lines: { control: { min: 1, step: 1, type: 'number' } } },
-  render: ({ lines }) => (
-    <Skeleton>
-      <Skeleton.List lines={lines} />
-    </Skeleton>
-  ),
-}
-
-export const Table: StoryObj<{ columns: number; rows: number }> = {
-  args: { columns: 3, rows: 3 },
+  // These args are specific to this composed story, so they have no JSDoc to describe them: the meta
+  // provides the props of the container, not those of the parts. Hence the descriptions below.
   argTypes: {
-    columns: { control: { min: 1, step: 1, type: 'number' } },
-    rows: { control: { min: 1, step: 1, type: 'number' } },
+    aspectRatio: {
+      control: 'select',
+      description: 'The aspect ratio of the Image in this example.',
+      options: aspectRatioOptions,
+    },
+    headingLines: {
+      control: { min: 1, step: 1, type: 'number' },
+      description: 'The number of lines the Heading in this example spans.',
+    },
+    paragraphLines: {
+      control: { min: 1, step: 1, type: 'number' },
+      description: 'The number of lines the Paragraph in this example spans.',
+    },
   },
-  render: ({ columns, rows }) => (
-    <Skeleton>
-      <Skeleton.Table columns={columns} rows={rows} />
-    </Skeleton>
-  ),
-}
-
-export const Image: StoryObj<{ aspectRatio: (typeof aspectRatioOptions)[number] }> = {
-  args: { aspectRatio: '16:9' },
-  argTypes: { aspectRatio: { control: 'select', options: aspectRatioOptions } },
   decorators: [maximiseInlineSize('24rem')],
-  render: ({ aspectRatio }) => (
-    <Skeleton>
+  render: ({ aspectRatio, headingLines, paragraphLines, ...args }) => (
+    <Skeleton {...args}>
       <Skeleton.Image aspectRatio={aspectRatio} />
+      <Skeleton.Heading lines={headingLines} />
+      <Skeleton.Paragraph lines={paragraphLines} />
     </Skeleton>
   ),
 }

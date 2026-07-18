@@ -39,6 +39,7 @@
   align-self: start; // To align the logo link section to the top of the header when it wraps
   column-gap: var(--ams-page-header-logo-link-column-gap);
   display: flex;
+  flex-wrap: nowrap;
   grid-area: 1 / 1; /* Lets this visible instance of Logo Link overlap the hidden one in Navigation. */
   inline-size: fit-content;
   outline-offset: var(--ams-page-header-logo-link-outline-offset);
@@ -55,10 +56,11 @@
 
 .ams-page-header__logo-link--hidden {
   opacity: 0%;
+  /* stylelint-disable-next-line defensive-css/no-user-select-none -- Prevents copying invisible text. */
   -webkit-user-select: none;
 
   /* Safari support is added with the prefixed property. */
-  /* stylelint-disable-next-line plugin/use-baseline */
+  /* stylelint-disable-next-line plugin/use-baseline, defensive-css/no-user-select-none -- Prevents copying invisible text. */
   user-select: none; // The hidden logo link section should not be selectable
 }
 
@@ -150,8 +152,10 @@
 
   @include text-rendering;
 
-  &:hover {
-    color: var(--ams-page-header-menu-item-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-page-header-menu-item-hover-color);
+    }
   }
 }
 
@@ -160,13 +164,16 @@
 
   color: var(--ams-page-header-menu-link-color);
   display: inline-flex;
+  flex-wrap: nowrap;
   gap: var(--ams-page-header-menu-link-gap);
   text-decoration-line: var(--ams-page-header-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-page-header-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-page-header-menu-link-text-underline-offset);
 
-  &:hover {
-    text-decoration-line: var(--ams-page-header-menu-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      text-decoration-line: var(--ams-page-header-menu-link-hover-text-decoration-line);
+    }
   }
 }
 
@@ -195,9 +202,11 @@
 
   @include print-exact;
 
-  &:hover {
-    background-color: var(--ams-page-header-mega-menu-button-hover-background-color);
-    color: var(--ams-page-header-mega-menu-button-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-page-header-mega-menu-button-hover-background-color);
+      color: var(--ams-page-header-mega-menu-button-hover-color);
+    }
   }
 
   &[aria-expanded="true"] {
@@ -214,19 +223,19 @@
 .ams-page-header__menu-icon-middle,
 .ams-page-header__menu-icon-bottom {
   transform-origin: center;
-  transition:
-    opacity 0.1s ease-in-out,
-    rotate 0.2s ease-in-out,
-    translate 0.1s ease-in-out;
 
-  @media (prefers-reduced-motion) {
-    transition: none;
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      opacity 0.1s ease-in-out,
+      rotate 0.2s ease-in-out,
+      translate 0.1s ease-in-out;
   }
 }
 
 .ams-page-header__menu-icon--open {
   .ams-page-header__menu-icon-top {
     rotate: 45deg;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- Part of the icon’s geometry. */
     translate: -4px 4px;
   }
 
@@ -236,6 +245,7 @@
 
   .ams-page-header__menu-icon-bottom {
     rotate: -45deg;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- Part of the icon’s geometry. */
     translate: -4px -4px;
   }
 }

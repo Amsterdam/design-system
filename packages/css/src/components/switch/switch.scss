@@ -74,6 +74,8 @@
   transform: translate(calc(-1 * var(--_ams-switch-thumb-translate)));
 }
 
-.ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
-  box-shadow: var(--ams-switch-thumb-hover-box-shadow);
+@media (hover: hover) {
+  .ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
+    box-shadow: var(--ams-switch-thumb-hover-box-shadow);
+  }
 }

@@ -18,6 +18,7 @@
   border-width: var(--ams-button-border-width);
   cursor: var(--ams-button-cursor);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-button-font-family);
   font-size: var(--ams-button-font-size);
   font-weight: var(--ams-button-font-weight);
@@ -50,9 +51,11 @@
     border-color: var(--ams-button-primary-disabled-border-color);
   }
 
-  &:hover:not(:disabled, [aria-disabled="true"]) {
-    background-color: var(--ams-button-primary-hover-background-color);
-    border-color: var(--ams-button-primary-hover-border-color);
+  @media (hover: hover) {
+    &:hover:not(:disabled, [aria-disabled="true"]) {
+      background-color: var(--ams-button-primary-hover-background-color);
+      border-color: var(--ams-button-primary-hover-border-color);
+    }
   }
 }
 
@@ -67,9 +70,11 @@
     color: var(--ams-button-secondary-disabled-color);
   }
 
-  &:hover:not(:disabled, [aria-disabled="true"]) {
-    box-shadow: var(--ams-button-secondary-hover-box-shadow);
-    color: var(--ams-button-secondary-hover-color);
+  @media (hover: hover) {
+    &:hover:not(:disabled, [aria-disabled="true"]) {
+      box-shadow: var(--ams-button-secondary-hover-box-shadow);
+      color: var(--ams-button-secondary-hover-color);
+    }
   }
 }
 
@@ -83,9 +88,11 @@
     color: var(--ams-button-tertiary-disabled-color);
   }
 
-  &:hover:not(:disabled, [aria-disabled="true"]) {
-    border-color: var(--ams-button-tertiary-hover-border-color);
-    color: var(--ams-button-tertiary-hover-color);
+  @media (hover: hover) {
+    &:hover:not(:disabled, [aria-disabled="true"]) {
+      border-color: var(--ams-button-tertiary-hover-border-color);
+      color: var(--ams-button-tertiary-hover-color);
+    }
   }
 }
 

@@ -8,6 +8,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+* **Accordion:** Add an onToggle callback to Section ([#2758](https://github.com/Amsterdam/design-system/issues/2758)) ([20ebc93](https://github.com/Amsterdam/design-system/commit/20ebc9392d4a36f80f80acc97e6ff40d94e33d39))
 * **Calendar, Date Picker:** Add props to configure the navigation icons ([#2765](https://github.com/Amsterdam/design-system/issues/2765)) ([004bfe5](https://github.com/Amsterdam/design-system/commit/004bfe53e8e721c467ef3f1b4f27a240cc48719e))
 * **icons:** Mark directional icons for RTL mirroring ([#2727](https://github.com/Amsterdam/design-system/issues/2727)) ([a0b1b84](https://github.com/Amsterdam/design-system/commit/a0b1b84399ea86bffe7497e3e23e8aa65750953e))
 * **Page Header:** Add controlled open prop to the mega menu ([#2754](https://github.com/Amsterdam/design-system/issues/2754)) ([74ddca0](https://github.com/Amsterdam/design-system/commit/74ddca001d6be5e16f25b8d4da05fee1aea07938))

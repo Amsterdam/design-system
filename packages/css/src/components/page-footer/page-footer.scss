@@ -55,8 +55,10 @@
   @include hyphenation;
   @include text-rendering;
 
-  &:hover {
-    color: var(--ams-page-footer-menu-link-hover-color);
-    text-decoration-line: var(--ams-page-footer-menu-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-page-footer-menu-link-hover-color);
+      text-decoration-line: var(--ams-page-footer-menu-link-hover-text-decoration-line);
+    }
   }
 }

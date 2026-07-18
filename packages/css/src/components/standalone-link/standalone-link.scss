@@ -10,6 +10,7 @@
   color: var(--ams-standalone-link-color);
   column-gap: var(--ams-standalone-link-column-gap);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-standalone-link-font-family);
   font-size: var(--ams-standalone-link-font-size);
   font-weight: var(--ams-standalone-link-font-weight);
@@ -22,24 +23,30 @@
   @include hyphenation;
   @include text-rendering;
 
-  &:hover {
-    color: var(--ams-standalone-link-hover-color);
-    text-decoration-line: var(--ams-standalone-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-standalone-link-hover-color);
+      text-decoration-line: var(--ams-standalone-link-hover-text-decoration-line);
+    }
   }
 }
 
 .ams-standalone-link--contrast {
   color: var(--ams-standalone-link-contrast-color);
 
-  &:hover {
-    color: var(--ams-standalone-link-contrast-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-standalone-link-contrast-hover-color);
+    }
   }
 }
 
 .ams-standalone-link--inverse {
   color: var(--ams-standalone-link-inverse-color);
 
-  &:hover {
-    color: var(--ams-standalone-link-inverse-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-standalone-link-inverse-hover-color);
+    }
   }
 }

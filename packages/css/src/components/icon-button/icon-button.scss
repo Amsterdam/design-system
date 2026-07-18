@@ -12,12 +12,15 @@
   color: var(--ams-icon-button-color);
   cursor: var(--ams-icon-button-cursor);
   display: inline-flex;
+  flex-wrap: nowrap;
   outline-offset: var(--ams-icon-button-outline-offset);
   touch-action: manipulation;
 
-  &:hover {
-    background-color: var(--ams-icon-button-hover-background-color);
-    color: var(--ams-icon-button-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-icon-button-hover-background-color);
+      color: var(--ams-icon-button-hover-color);
+    }
   }
 
   &:disabled {
@@ -30,9 +33,11 @@
 .ams-icon-button--contrast {
   color: var(--ams-icon-button-contrast-color);
 
-  &:hover {
-    background-color: var(--ams-icon-button-contrast-hover-background-color);
-    color: var(--ams-icon-button-contrast-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-icon-button-contrast-hover-background-color);
+      color: var(--ams-icon-button-contrast-hover-color);
+    }
   }
 
   &:disabled {
@@ -45,9 +50,11 @@
   background-color: var(--ams-icon-button-inverse-background-color);
   color: var(--ams-icon-button-inverse-color);
 
-  &:hover {
-    background-color: var(--ams-icon-button-inverse-hover-background-color);
-    color: var(--ams-icon-button-inverse-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-icon-button-inverse-hover-background-color);
+      color: var(--ams-icon-button-inverse-hover-color);
+    }
   }
 
   &:disabled {

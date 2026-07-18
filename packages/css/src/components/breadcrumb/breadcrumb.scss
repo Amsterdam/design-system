@@ -55,8 +55,10 @@
   text-decoration-thickness: var(--ams-breadcrumb-link-text-decoration-thickness);
   text-underline-offset: var(--ams-breadcrumb-link-text-underline-offset);
 
-  &:hover {
-    color: var(--ams-breadcrumb-link-hover-color);
-    text-decoration-line: var(--ams-breadcrumb-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-breadcrumb-link-hover-color);
+      text-decoration-line: var(--ams-breadcrumb-link-hover-text-decoration-line);
+    }
   }
 }

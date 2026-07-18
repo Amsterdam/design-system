@@ -11,6 +11,7 @@
 // A stack of these blocks occupies exactly as much space as the same number of lines of the mimicked text.
 @mixin text-line($font-size, $line-height) {
   block-size: $font-size;
+  /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- Computed from the mimicked text. */
   margin-block: calc((#{$line-height} - 1) / 2 * #{$font-size});
 }
 
@@ -63,6 +64,7 @@
   align-items: center;
   column-gap: var(--ams-skeleton-list-item-column-gap);
   display: flex;
+  flex-wrap: nowrap;
   padding-inline-start: var(--ams-skeleton-list-item-padding-inline-start);
 }
 
@@ -75,6 +77,7 @@
 .ams-skeleton__table-row {
   border-block-end: var(--ams-skeleton-table-row-border-block-end);
   display: flex;
+  flex-wrap: nowrap;
 }
 
 .ams-skeleton__table-cell {

@@ -18,25 +18,31 @@
 
   @include text-rendering;
 
-  &:hover {
-    color: var(--ams-link-hover-color);
-    text-decoration-thickness: var(--ams-link-hover-text-decoration-thickness);
-    text-underline-offset: var(--ams-link-hover-text-underline-offset);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-link-hover-color);
+      text-decoration-thickness: var(--ams-link-hover-text-decoration-thickness);
+      text-underline-offset: var(--ams-link-hover-text-underline-offset);
+    }
   }
 }
 
 .ams-link--contrast {
   color: var(--ams-link-contrast-color);
 
-  &:hover {
-    color: var(--ams-link-contrast-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-link-contrast-hover-color);
+    }
   }
 }
 
 .ams-link--inverse {
   color: var(--ams-link-inverse-color);
 
-  &:hover {
-    color: var(--ams-link-inverse-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-link-inverse-hover-color);
+    }
   }
 }

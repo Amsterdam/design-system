@@ -35,6 +35,7 @@
 
 .ams-progress-list__step {
   display: flex;
+  flex-wrap: nowrap;
   gap: var(--ams-progress-list-step-gap);
 
   @media (min-width: $ams-breakpoint-medium) {
@@ -52,6 +53,7 @@
 
 .ams-progress-list__marker {
   display: flex;
+  flex-wrap: nowrap;
   grid-area: 1 / 1; /* Overlaps marker and connector */
   place-items: center;
 
@@ -98,6 +100,7 @@
 /* Connector */
 
 .ams-progress-list__connector {
+  /* stylelint-disable-next-line ams/no-fixed-sizes -- A hairline connector. */
   border-inline: var(--ams-progress-list-step-connector-border-inline-width)
     var(--ams-progress-list-step-connector-border-inline-style)
     var(--ams-progress-list-step-connector-border-inline-color);
@@ -172,6 +175,7 @@
   color: var(--ams-progress-list-button-color);
   cursor: var(--ams-progress-list-button-cursor);
   display: flex;
+  flex-wrap: nowrap;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
@@ -183,8 +187,10 @@
   padding-inline: var(--ams-progress-list-button-padding-inline);
   text-align: start;
 
-  &:hover {
-    color: var(--ams-progress-list-button-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-progress-list-button-hover-color);
+    }
   }
 }
 
@@ -229,6 +235,7 @@
 
 .ams-progress-list-substeps__step {
   display: flex;
+  flex-wrap: nowrap;
 }
 
 .ams-progress-list-substeps__indicator {
@@ -292,6 +299,7 @@
   background-color: var(--ams-progress-list-substeps-step-connector-background-color);
   border-inline-color: var(--ams-progress-list-substeps-step-connector-border-inline-color);
   border-inline-style: var(--ams-progress-list-substeps-step-connector-border-inline-style);
+  /* stylelint-disable-next-line ams/no-fixed-sizes -- A hairline connector. */
   border-inline-width: var(--ams-progress-list-substeps-step-connector-border-inline-width);
   margin-block-start: var(--ams-progress-list-substeps-step-connector-margin-block-start);
 

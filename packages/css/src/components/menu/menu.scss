@@ -75,9 +75,11 @@
   text-decoration-thickness: var(--ams-menu-link-text-decoration-thickness);
   text-underline-offset: var(--ams-menu-link-text-underline-offset);
 
-  &:hover {
-    color: var(--ams-menu-link-hover-color);
-    text-decoration-line: var(--ams-menu-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-menu-link-hover-color);
+      text-decoration-line: var(--ams-menu-link-hover-text-decoration-line);
+    }
   }
 
   .ams-menu__icon {

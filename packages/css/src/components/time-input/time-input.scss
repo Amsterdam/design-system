@@ -53,11 +53,15 @@
 .ams-time-input::-webkit-calendar-picker-indicator {
   appearance: none;
   background-image: var(--ams-time-input-calendar-picker-indicator-background-image);
+  background-repeat: no-repeat;
   cursor: var(--ams-time-input-calendar-picker-indicator-cursor);
 }
 
-.ams-time-input:hover::-webkit-calendar-picker-indicator {
-  background-image: var(--ams-time-input-hover-calendar-picker-indicator-background-image);
+@media (hover: hover) {
+  .ams-time-input:hover::-webkit-calendar-picker-indicator {
+    /* stylelint-disable-next-line defensive-css/require-background-repeat -- Satisfied in the base rule. */
+    background-image: var(--ams-time-input-hover-calendar-picker-indicator-background-image);
+  }
 }
 
 .ams-time-input:disabled {
@@ -70,12 +74,16 @@
   border-color: var(--ams-time-input-invalid-border-color);
 }
 
-.ams-time-input:not(:disabled):hover {
-  box-shadow: var(--ams-time-input-hover-box-shadow);
+@media (hover: hover) {
+  .ams-time-input:not(:disabled):hover {
+    box-shadow: var(--ams-time-input-hover-box-shadow);
+  }
 }
 
-.ams-time-input:not(:disabled):invalid:hover,
-.ams-time-input:not(:disabled)[aria-invalid="true"]:hover {
-  border-color: var(--ams-time-input-invalid-hover-border-color);
-  box-shadow: var(--ams-time-input-invalid-hover-box-shadow);
+@media (hover: hover) {
+  .ams-time-input:not(:disabled):invalid:hover,
+  .ams-time-input:not(:disabled)[aria-invalid="true"]:hover {
+    border-color: var(--ams-time-input-invalid-hover-border-color);
+    box-shadow: var(--ams-time-input-invalid-hover-box-shadow);
+  }
 }

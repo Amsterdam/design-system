@@ -164,7 +164,7 @@
         },
         "narrow": {
           "grid-template-columns": {
-            "$value": "1fr 4fr",
+            "$value": "minmax(0, 1fr) minmax(0, 4fr)",
             "$extensions": {
               "nl.amsterdam.type": "gridTemplateColumns"
             }
@@ -172,7 +172,7 @@
         },
         "medium": {
           "grid-template-columns": {
-            "$value": "1fr 2fr",
+            "$value": "minmax(0, 1fr) minmax(0, 2fr)",
             "$extensions": {
               "nl.amsterdam.type": "gridTemplateColumns"
             }
@@ -180,7 +180,7 @@
         },
         "wide": {
           "grid-template-columns": {
-            "$value": "1fr 1fr",
+            "$value": "minmax(0, 1fr) minmax(0, 1fr)",
             "$extensions": {
               "nl.amsterdam.type": "gridTemplateColumns"
             }

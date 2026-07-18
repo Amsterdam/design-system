@@ -20,6 +20,7 @@
 .ams-date-picker__header {
   align-items: center;
   display: flex;
+  flex-wrap: nowrap;
 }
 
 .ams-date-picker__caption {
@@ -29,14 +30,14 @@
 
 .ams-date-picker__body {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 // Keep the row element in the accessibility tree; avoid `display: contents` which can be dropped by some AT/browser combinations.
 .ams-date-picker__row {
   display: grid;
   grid-column: 1 / -1;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .ams-date-picker__weekday {
@@ -57,9 +58,11 @@
   outline-offset: var(--ams-date-picker-day-outline-offset);
   text-align: center;
 
-  &:not([aria-disabled="true"]):hover {
-    background-color: var(--ams-date-picker-day-hover-background-color);
-    color: var(--ams-date-picker-day-hover-color);
+  @media (hover: hover) {
+    &:not([aria-disabled="true"]):hover {
+      background-color: var(--ams-date-picker-day-hover-background-color);
+      color: var(--ams-date-picker-day-hover-color);
+    }
   }
 }
 
@@ -71,11 +74,14 @@
   background-color: var(--ams-date-picker-day-selected-background-color);
   color: var(--ams-date-picker-day-selected-color);
 
-  &:hover {
-    background-color: var(--ams-date-picker-day-selected-hover-background-color);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-date-picker-day-selected-hover-background-color);
+    }
   }
 
   @media (forced-colors: active) {
+    /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Identical styling with and without hover. */
     &,
     & *,
     &:hover {
