@@ -78,6 +78,20 @@
             "nl.amsterdam.type": "dimension"
           }
         },
+        "disabled": {
+          "color": {
+            "$value": "{ams.inputs.disabled.color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "cursor": {
+            "$value": "{ams.cursor.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "cursor"
+            }
+          }
+        },
         "hover": {
           "box-shadow": {
             "$value": "{ams.inputs.hover.box-shadow}",

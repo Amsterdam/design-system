@@ -46,6 +46,11 @@
   color: var(--ams-search-field-input-placeholder-color);
 }
 
+.ams-search-field__input:disabled {
+  color: var(--ams-search-field-input-disabled-color);
+  cursor: var(--ams-search-field-input-disabled-cursor);
+}
+
 .ams-search-field__input:not(:disabled):invalid,
 .ams-search-field__input:not(:disabled)[aria-invalid="true"] {
   border-color: var(--ams-search-field-input-invalid-border-color);
