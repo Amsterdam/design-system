@@ -71,7 +71,7 @@
 .ams-image-slider__thumbnails {
   display: grid;
   gap: var(--ams-image-slider-thumbnails-gap);
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .ams-image-slider__thumbnail {

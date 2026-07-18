@@ -43,7 +43,7 @@ $ams-description-list-breakpoint: 32rem;
       var(--ams-description-list-vi-medium-column-gap)
     );
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(0, 1fr);
   }
 
   .ams-description-list--narrow,

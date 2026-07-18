@@ -21,7 +21,7 @@
     "menu header"
     "menu body"
     "menu footer";
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   max-inline-size: var(--ams-page-with-menu-max-inline-size);
 
   > .ams-page__area--skip-link {

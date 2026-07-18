@@ -36,7 +36,7 @@
 .ams-table-of-contents__item {
   column-gap: var(--ams-table-of-contents-item-gap);
   display: grid;
-  grid-template-columns: 1fr; /* The collapsible variant adds a leading column for the toggle button. */
+  grid-template-columns: minmax(0, 1fr); /* The collapsible variant adds a leading column for the toggle button. */
 }
 
 .ams-table-of-contents__link {
@@ -93,7 +93,7 @@
 
   .ams-table-of-contents__item {
     /* Add a leading column for the toggle button so labels align with and without one. */
-    grid-template-columns: var(--_ams-table-of-contents-button-column-inline-size) 1fr;
+    grid-template-columns: var(--_ams-table-of-contents-button-column-inline-size) minmax(0, 1fr);
   }
 
   .ams-table-of-contents__item > .ams-table-of-contents__list {
