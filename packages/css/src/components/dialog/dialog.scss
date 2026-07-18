@@ -101,6 +101,8 @@ so do not apply these styles without an `open` attribute. */
   overscroll-behavior-y: contain;
   padding-block: var(--ams-dialog-body-padding-block);
   padding-inline: var(--ams-dialog-body-padding-inline);
+  /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+  scrollbar-gutter: stable;
 
   @media (min-width: $ams-breakpoint-medium) {
     padding-inline: var(

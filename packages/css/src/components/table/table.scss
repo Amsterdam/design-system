@@ -4,6 +4,7 @@
  */
 
 .ams-table {
+  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- This scrolls horizontally only; scrollbar-gutter reserves space for a vertical scrollbar. */
   overflow-x: auto;
   overflow-y: hidden;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
