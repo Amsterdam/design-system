@@ -9,7 +9,8 @@
   container-type: var(--ams-page-container-type);
   margin-inline: auto;
   max-inline-size: var(--ams-page-max-inline-size);
-  min-block-size: 100vh; /* Fallback for browsers that do not support dvh */
+  /* stylelint-disable-next-line defensive-css/require-dynamic-viewport-height -- Fallback for browsers that do not support dvh; the next declaration upgrades it. */
+  min-block-size: 100vh;
   min-block-size: 100dvh;
 }
 
