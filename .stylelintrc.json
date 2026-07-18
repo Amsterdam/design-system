@@ -9,7 +9,25 @@
   ],
   "rules": {
     "alpha-value-notation": ["percentage"],
+    "ams/no-fixed-sizes": [
+      true,
+      {
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
+      }
+    ],
+    "ams/no-list-style-none": [
+      true,
+      {
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
+      }
+    ],
     "ams/no-unsafe-clamp-font-size": [
+      true,
+      {
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
+      }
+    ],
+    "ams/require-grid-minmax": [
       true,
       {
         "importFrom": ["packages-proprietary/tokens/dist/index.css"]
