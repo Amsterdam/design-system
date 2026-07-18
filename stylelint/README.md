@@ -89,7 +89,7 @@ Our grids place children by span (`grid-column-end: span n`, `grid-column: 1 / -
 The rule also fires on `grid-template-columns: var(--…)` declarations it cannot inspect, and double-reports the tracks that `require-grid-minmax` already covers.
 
 Every remaining rule runs at `error` severity, and the repository has no outstanding violations.
-Deliberate patterns the rules cannot recognise carry a `stylelint-disable-next-line` comment stating the reason at the site.
+Deliberate patterns the rules cannot recognise carry a `stylelint-disable` comment stating the reason at the site, scoped as narrowly as practical — usually a single line.
 
 Two of the upstream rules are narrower than they look:
 
