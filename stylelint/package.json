@@ -1,0 +1,20 @@
+{
+  "version": "0.0.0",
+  "author": "Design System Team, City of Amsterdam <designsystem@amsterdam.nl>",
+  "description": "Stylelint rules that resolve Amsterdam Design System tokens before checking a declaration.",
+  "license": "EUPL-1.2",
+  "name": "@amsterdam/stylelint-plugin",
+  "type": "module",
+  "keywords": [],
+  "private": true,
+  "scripts": {
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "postcss": "8.5.16"
+  },
+  "devDependencies": {
+    "stylelint": "17.14.0",
+    "vitest": "4.1.10"
+  }
+}
