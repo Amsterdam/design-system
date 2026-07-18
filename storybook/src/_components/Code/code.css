@@ -4,7 +4,7 @@
  */
 
 /*  Replicates the styles of the Code preview in Storybook Docs */
-/* stylelint-disable defensive-css/no-fixed-sizes -- Deliberately replicates Storybook’s pixel-based docs styling. */
+/* stylelint-disable defensive-css/no-fixed-sizes -- Replicates Storybook’s docs styling. */
 ._ams-code {
   background-color: rgb(247 250 252);
   border-color: rgb(236 244 249);

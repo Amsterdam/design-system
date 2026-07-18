@@ -171,7 +171,7 @@
 
 // Default
 @media (forced-colors: active) {
-  /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Applies identical styling with and without hover, neutralising hover feedback in forced colors mode. */
+  /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Identical styling with and without hover. */
   .ams-radio__label,
   .ams-radio__label:hover,
   .ams-radio__input[aria-invalid="true"] + .ams-radio__label,
@@ -193,7 +193,7 @@
 
 // Checked
 @media (forced-colors: active) {
-  /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Applies identical styling with and without hover, neutralising hover feedback in forced colors mode. */
+  /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Identical styling with and without hover. */
   .ams-radio__input:checked + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"]:checked + .ams-radio__label:hover {
     .ams-radio__circle {
@@ -208,7 +208,7 @@
 
 // Disabled
 @media (forced-colors: active) {
-  /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Applies identical styling with and without hover, neutralising hover feedback in forced colors mode. */
+  /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Identical styling with and without hover. */
   .ams-radio__input:disabled + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover {

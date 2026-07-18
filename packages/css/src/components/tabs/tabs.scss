@@ -15,7 +15,7 @@
   box-shadow: var(--ams-tabs-list-box-shadow);
   display: flex;
   flex-wrap: nowrap;
-  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- This scrolls horizontally only; scrollbar-gutter reserves space for a vertical scrollbar. */
+  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- This scrolls horizontally only. */
   overflow-x: auto;
   overflow-y: hidden;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
@@ -81,17 +81,17 @@
 .ams-tabs__button-label-hidden {
   font-weight: var(--ams-tabs-button-selected-font-weight);
   pointer-events: none;
-  /* stylelint-disable-next-line defensive-css/no-user-select-none -- Selecting this hidden bold copy would put invisible duplicate text on the clipboard. */
+  /* stylelint-disable-next-line defensive-css/no-user-select-none -- Prevents copying invisible text. */
   -webkit-user-select: none;
 
   /* Safari support is added with the prefixed property. */
-  /* stylelint-disable-next-line plugin/use-baseline, defensive-css/no-user-select-none -- Selecting this hidden bold copy would put invisible duplicate text on the clipboard. */
+  /* stylelint-disable-next-line plugin/use-baseline, defensive-css/no-user-select-none -- Prevents copying invisible text. */
   user-select: none;
   visibility: hidden;
 }
 
 .ams-tabs__panel {
-  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- This scrolls horizontally only; scrollbar-gutter reserves space for a vertical scrollbar. */
+  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- This scrolls horizontally only. */
   overflow-x: auto;
   overflow-y: hidden;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */

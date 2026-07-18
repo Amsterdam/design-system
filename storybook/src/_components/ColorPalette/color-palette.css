@@ -38,7 +38,7 @@
 
 ._ams-color-palette-name,
 ._ams-color-palette-level {
-  /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- Matches Storybook’s own pixel-based docs styling. */
+  /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- Matches Storybook’s docs styling. */
   font-size: 14px !important;
   text-align: center;
 }

@@ -59,7 +59,7 @@
 
 @media (hover: hover) {
   .ams-time-input:hover::-webkit-calendar-picker-indicator {
-    /* stylelint-disable-next-line defensive-css/require-background-repeat -- The base rule for this element declares background-repeat; this only swaps the image. */
+    /* stylelint-disable-next-line defensive-css/require-background-repeat -- Satisfied in the base rule. */
     background-image: var(--ams-time-input-hover-calendar-picker-indicator-background-image);
   }
 }

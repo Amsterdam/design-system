@@ -81,7 +81,7 @@
   }
 
   @media (forced-colors: active) {
-    /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Applies identical styling with and without hover, neutralising hover feedback in forced colors mode. */
+    /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Identical styling with and without hover. */
     &,
     & *,
     &:hover {

@@ -11,7 +11,7 @@
   */
 
 @mixin input-label-focus {
-  /* stylelint-disable-next-line defensive-css/require-focus-visible -- Progressive enhancement: the styling on :focus is undone below when :focus-visible does not match, so older Safari keeps a focus ring. */
+  /* stylelint-disable-next-line defensive-css/require-focus-visible -- Progressive enhancement. */
   &:focus + label {
     outline: auto;
   }
