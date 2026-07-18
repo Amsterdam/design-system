@@ -5,14 +5,21 @@
 
 export type FormatCharacterCountText = (length: number, maxLength: number) => string
 
-// Arabic counted nouns change form with the number: singular for one, dual for two,
-// plural for three to ten, and singular accusative for zero and eleven or more.
-const arabicCharacterNoun = (count: number) => {
-  if (count === 1) return 'حرف'
-  if (count === 2) return 'حرفين'
-  if (count >= 3 && count <= 10) return 'أحرف'
-  return 'حرفًا'
+const arabicPluralRules = new Intl.PluralRules('ar')
+
+// Arabic picks a counted noun from six plural categories, and by the remainder rather than the size of
+// the number: 3 to 10 take the plural, 11 to 99 the accusative, but 100 and 1000 the singular again.
+// `Intl.PluralRules` resolves which category applies.
+const arabicCharacterNouns: Record<Intl.LDMLPluralRule, string> = {
+  few: 'أحرف',
+  many: 'حرفًا',
+  one: 'حرف',
+  other: 'حرف',
+  two: 'حرفين',
+  zero: 'حرف',
 }
+
+const arabicCharacterNoun = (count: number) => arabicCharacterNouns[arabicPluralRules.select(count)]
 
 /** Formats the character count in Arabic, e.g. ‘7 من 10 أحرف’. */
 export const formatCharacterCountTextAr: FormatCharacterCountText = (length, maxLength) =>

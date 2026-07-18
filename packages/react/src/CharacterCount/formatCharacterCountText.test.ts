@@ -15,13 +15,24 @@ import {
 } from './formatCharacterCountText'
 
 describe('formatCharacterCountText', () => {
+  // The noun agrees with the maximum. One case per Arabic plural category, named so the expected
+  // forms can be checked without reading the implementation.
   it('formats the count in Arabic with number–noun agreement', () => {
-    expect(formatCharacterCountTextAr(0, 1)).toBe('0 من 1 حرف')
-    expect(formatCharacterCountTextAr(1, 2)).toBe('1 من 2 حرفين')
-    expect(formatCharacterCountTextAr(2, 3)).toBe('2 من 3 أحرف')
-    expect(formatCharacterCountTextAr(7, 10)).toBe('7 من 10 أحرف')
-    expect(formatCharacterCountTextAr(11, 11)).toBe('11 من 11 حرفًا')
-    expect(formatCharacterCountTextAr(50, 100)).toBe('50 من 100 حرفًا')
+    expect(formatCharacterCountTextAr(0, 0)).toBe('0 من 0 حرف') // zero
+    expect(formatCharacterCountTextAr(0, 1)).toBe('0 من 1 حرف') // one
+    expect(formatCharacterCountTextAr(1, 2)).toBe('1 من 2 حرفين') // two
+    expect(formatCharacterCountTextAr(2, 3)).toBe('2 من 3 أحرف') // few
+    expect(formatCharacterCountTextAr(7, 10)).toBe('7 من 10 أحرف') // few
+    expect(formatCharacterCountTextAr(11, 11)).toBe('11 من 11 حرفًا') // many
+    expect(formatCharacterCountTextAr(50, 99)).toBe('50 من 99 حرفًا') // many
+    expect(formatCharacterCountTextAr(50, 100)).toBe('50 من 100 حرف') // other
+    expect(formatCharacterCountTextAr(50, 1000)).toBe('50 من 1000 حرف') // other
+  })
+
+  it('formats the count in Arabic by the remainder, not the size, of the maximum', () => {
+    expect(formatCharacterCountTextAr(50, 103)).toBe('50 من 103 أحرف') // few
+    expect(formatCharacterCountTextAr(50, 110)).toBe('50 من 110 أحرف') // few
+    expect(formatCharacterCountTextAr(50, 111)).toBe('50 من 111 حرفًا') // many
   })
 
   it('formats the count in German', () => {
