@@ -31,49 +31,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const GgdAmsterdam: Story = {
-  args: {
-    brand: 'ggd-amsterdam',
-  },
-}
-
-export const GgdAmsterdamInspectie: Story = {
-  args: {
-    brand: 'ggd-amsterdam-inspectie',
-  },
-}
-
-export const MuseumWeesp: Story = {
-  args: {
-    brand: 'museum-weesp',
-  },
-}
-
-export const Stadsarchief: Story = {
-  args: {
-    brand: 'stadsarchief',
-  },
-}
-
-export const StadsbankVanLening: Story = {
-  args: {
-    brand: 'stadsbank-van-lening',
-  },
-}
-
-export const VgaVerzekeringen: Story = {
-  args: {
-    brand: 'vga-verzekeringen',
-  },
-}
-
-export const AmsterdamEnglish: Story = {
-  args: {
-    brand: 'amsterdam-english',
-  },
-}
-
-export const Custom: Story = {
+export const CustomLogo: Story = {
   args: {
     brand: {
       label: 'Gemeente logo',
