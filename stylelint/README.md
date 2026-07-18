@@ -67,7 +67,8 @@ A component that redeclares a token under one selector is therefore treated as a
 ## Relationship to `stylelint-plugin-defensive-css`
 
 That plugin is installed and extended from its `strict` config, which enables all 21 of its rules.
-Four of its rules are turned off in [.stylelintrc.json](../.stylelintrc.json), which cannot hold comments, so the reasoning lives here.
+Five of its rules are turned off in [.stylelintrc.json](../.stylelintrc.json), which cannot hold comments, so the reasoning lives here.
+A full audit of all 21 rules — effectiveness, violations, remediation, and impact — is in [documentation/defensive-css.md](../documentation/defensive-css.md).
 
 `defensive-css/no-unsafe-clamp-font-size` and `defensive-css/require-system-font-fallback` are off because the two rules above replace them.
 Neither upstream rule resolves `var()`, so both pass on every tokenised declaration in this repository.
