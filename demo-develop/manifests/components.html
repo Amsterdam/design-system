@@ -1953,7 +1953,7 @@ This page type is for news or similar kinds of articles.
 
 - The Grids use the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
 - The [Prose](/docs/utilities-css-prose--docs) utility class automatically creates vertical whitespace in the article body.
-- For the spacing between components in the header area, refer to [Vertical space](/docs/docs-designer-guide-vertical-space--docs).
+- For the spacing between components in the header area, refer to [vertical space](/docs/docs-designer-guide-vertical-space--docs).
 </code></pre></div>
             </div>
         </div>
@@ -3666,7 +3666,7 @@ The Calendar renders this name as a visually hidden heading and generates a uniq
 The Calendar renders weekday names, the month caption, and the accessible date labels in the language of `locale`, which defaults to `nl-NL`.
 It does not translate the rest: set `accessibleName`, `nextMonthButtonLabel`, `nextYearButtonLabel`, `previousMonthButtonLabel`, and `previousYearButtonLabel` in the same language, or they stay Dutch and screen readers announce a mix.
 For right-to-left scripts such as Arabic, also add `dir=&quot;rtl&quot;`; this mirrors the layout and the navigation chevrons.
-Try the `locale` control above to preview each language; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
+Try the `locale` control above to preview each language; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
 
 If your app uses Calendar in multiple places with the same language, a small wrapper component avoids repeating these props:
 
@@ -3720,7 +3720,7 @@ const linkTemplate = (date: Date): string =&gt; `?date=${formatDate(date)}`
 
 Different navigation icons can be used through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
 Websites for the City of Amsterdam must use the default icons.
-For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs).
+For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
 ## Accessibility
 
@@ -5031,7 +5031,7 @@ In this example, the Column uses a `&lt;section&gt;` element to group the headin
 
 ## Features
 
-Five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
+Five sizes of [space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
 The medium gap is the default.
 
 Align the elements horizontally or vertically through the alignment props.
@@ -5555,7 +5555,7 @@ The Date Picker renders weekday names, the month caption, and the accessible dat
 It does not translate the rest: set `nextMonthButtonLabel`, `nextYearButtonLabel`, `previousMonthButtonLabel`, and `previousYearButtonLabel` in the same language, or they stay Dutch and screen readers announce a mix.
 In range mode, also localise `rangeStartAccessibleName` and `rangeEndAccessibleName`; they are appended to the start and end dates when those are announced.
 For right-to-left scripts such as Arabic, also add `dir=&quot;rtl&quot;`; this mirrors the layout and the navigation chevrons.
-Try the `locale` control above to preview each language; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
+Try the `locale` control above to preview each language; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
 
 If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props:
 
@@ -5636,7 +5636,7 @@ Moving past the end of a month shows the adjacent month and keeps focus on the d
 
 Different navigation icons can be used through the `*ButtonIcon` props, which each take the same value as the [Icon](/docs/components-media-icon--docs) component’s `svg` prop.
 Websites for the City of Amsterdam must use the default icons.
-For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs).
+For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
 ## Accessibility
 
@@ -8300,7 +8300,7 @@ In Compact Mode, the page background is light grey.
 
 The Grid has no vertical padding of its own.
 Add white space above and below it through the `padding…` props.
-They accept `large`, `x-large`, and `2x-large`, matching the `l`, `xl`, and `2xl` design tokens for [Space](/docs/brand-design-tokens-space--docs).
+They accept `large`, `x-large`, and `2x-large`, matching the `l`, `xl`, and `2xl` design tokens for [space](/docs/brand-design-tokens-space--docs).
 This is useful in a container with a coloured background, like [Page Footer](/docs/components-containers-page-footer--docs) or [Spotlight](/docs/components-containers-spotlight--docs), or between two consecutive Grids.
 Specify `x-large` to match the gaps between the columns and the rows.
 Like the other features of the Grid, this padding is responsive.
@@ -12305,37 +12305,7 @@ Other logo variations exist, but they cannot be used on our websites.
 
 ## Examples
 
-### Sub-brands
-
-#### GGD Amsterdam
-
-&lt;Canvas of={LogoStories.GgdAmsterdam} /&gt;
-
-#### GGD Amsterdam Inspectie
-
-&lt;Canvas of={LogoStories.GgdAmsterdamInspectie} /&gt;
-
-#### Museum Weesp
-
-&lt;Canvas of={LogoStories.MuseumWeesp} /&gt;
-
-#### Stadsarchief
-
-&lt;Canvas of={LogoStories.Stadsarchief} /&gt;
-
-#### Stadsbank van Lening
-
-&lt;Canvas of={LogoStories.StadsbankVanLening} /&gt;
-
-#### VGA Verzekeringen
-
-&lt;Canvas of={LogoStories.VgaVerzekeringen} /&gt;
-
-### Amsterdam English
-
-&lt;Canvas of={LogoStories.AmsterdamEnglish} /&gt;
-
-### Custom
+### Custom logo
 
 Websites for the City of Amsterdam must use one of our own logos.
 
@@ -12344,7 +12314,7 @@ The label should be ‘name of the organisation + logo’.
 The image must be an svg.
 Set the appropriate values for the sizing tokens.
 
-&lt;Canvas of={LogoStories.Custom} /&gt;
+&lt;Canvas of={LogoStories.CustomLogo} /&gt;
 
 ## Design
 
@@ -12354,14 +12324,7 @@ This also applies to sub-brand logos.
 Websites operated by one of the sub-brands use their specific logo.
 They have a separate status because of their unique service provision not directly associated with the City.
 
-The sub-brands are:
-
-- GGD Amsterdam
-- GGD Amsterdam Inspectie
-- Museum Weesp
-- Stadsarchief
-- Stadsbank van Lening
-- VGA Verzekeringen
+[Stijlweb](https://www.amsterdam.nl/stijlweb/uitgangspunten/logo-gemeente-amsterdam/#hbab93411-6797-410f-8c1d-40fb988dd077) lists the sub-brands and their logos.
 
 ## See also
 
@@ -15428,12 +15391,12 @@ Customize it when the menu serves a different purpose, or the interface language
 
 ## Examples
 
-### Onderzoek en Statistiek
+### Custom content
 
 The Page Footer for a specific website can be a bit different.
 Here’s an example for the ‘Onderzoek en Statistiek’ department.
 
-&lt;Canvas of={PageFooterStories.OnderzoekEnStatistiek} /&gt;
+&lt;Canvas of={PageFooterStories.CustomContent} /&gt;
 
 ### Custom menu heading
 
@@ -18825,7 +18788,7 @@ Items that may not fit together on a single line should be allowed to wrap onto 
 
 ## Features
 
-Five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
+Five sizes of [space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
 The medium gap is the default.
 
 Align the elements horizontally or vertically through the alignment props.
@@ -23752,7 +23715,7 @@ This page type is for news or similar kinds of articles.
 
 - The Grids use the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
 - The [Prose](/docs/utilities-css-prose--docs) utility class automatically creates vertical whitespace in the article body.
-- For the spacing between components in the header area, refer to [Vertical space](/docs/docs-designer-guide-vertical-space--docs).
+- For the spacing between components in the header area, refer to [vertical space](/docs/docs-designer-guide-vertical-space--docs).
 </code></pre></div>
             </div>
         </div>
@@ -25433,7 +25396,7 @@ In this example, the Column uses a `&lt;section&gt;` element to group the headin
 
 ## Features
 
-Five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
+Five sizes of [space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
 The medium gap is the default.
 
 Align the elements horizontally or vertically through the alignment props.
@@ -33920,7 +33883,7 @@ Items that may not fit together on a single line should be allowed to wrap onto 
 
 ## Features
 
-Five sizes of [Space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
+Five sizes of [space](/docs/brand-design-tokens-space--docs) are available for the width or height of the gap.
 The medium gap is the default.
 
 Align the elements horizontally or vertically through the alignment props.
@@ -35642,7 +35605,7 @@ One release at a time, newest first.
 Each opens with the package versions.
 It sets out what changed.
 It closes with what upgrading actually asks of you.
-For the cadence and the guarantees behind it, read the [Release Policy](/docs/docs-developer-guide-release-policy--docs).
+For the cadence and the guarantees behind it, read the [release policy](/docs/docs-developer-guide-release-policy--docs).
 
 ## 12 July 2026
 
@@ -35784,7 +35747,7 @@ Two things to know:
    Your package manager will flag a partial upgrade.
    React Icons stands on its own.
    If Dependabot offers you a separate pull request per package, group them.
-   The [Release Policy](/docs/docs-developer-guide-release-policy--docs) explains how.
+   The [release policy](/docs/docs-developer-guide-release-policy--docs) explains how.
 2. **Migrate `collapsed` and `defaultCollapsed` on [Progress List](/docs/components-containers-progress-list--docs) Step when it suits you.**
    You have until at least 10 January 2027.
    Each old property warns once in the console in the meantime.
@@ -35873,7 +35836,7 @@ Pass your router’s link and the component renders that instead of a plain anch
 On a compound component the property sits on the link part, so `Menu.Link` and `Breadcrumb.Link` rather than `Menu` and `Breadcrumb`.
 Page Header’s logo takes `logoLinkComponent`.
 The `&lt;NextLink legacyBehavior passHref&gt;` wrapper is no longer needed.
-The [Routing Libraries](/docs/docs-developer-guide-routing-libraries--docs) guide was rewritten around the new pattern.
+The [routing libraries](/docs/docs-developer-guide-routing-libraries--docs) guide was rewritten around the new pattern.
 
 - **Table of Contents can collapse.**
   Set `collapsible` on the root and every item with a nested list gets a toggle button.
@@ -36140,7 +36103,7 @@ Two deprecations can wait, both until at least 20 October 2026: [Accordion](/doc
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Designer Guide/Vertical space</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Designer guide/Vertical space</h2>
       <div class="badges">
         
         <label for="doc-2-docs-designer-guide-vertical-space-docs-content" class="badge ok as-toggle">view content</label>
@@ -36165,7 +36128,7 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { VerticalSpaceFinder } from &quot;#storybook/_components/VerticalSpaceFinder/VerticalSpaceFinder&quot;;
 
-&lt;Meta title=&quot;Docs/Designer Guide/Vertical space&quot; /&gt;
+&lt;Meta title=&quot;Docs/Designer guide/Vertical space&quot; /&gt;
 
 # Vertical space
 
@@ -36333,7 +36296,7 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/AI assistance</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/AI assistance</h2>
       <div class="badges">
         
         <label for="doc-3-docs-developer-guide-ai-assistance-docs-content" class="badge ok as-toggle">view content</label>
@@ -36356,7 +36319,7 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/AI assistance&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/AI assistance&quot; /&gt;
 
 # AI assistance
 
@@ -36448,14 +36411,14 @@ Once connected, ask for what you want in plain language:
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Browser Support</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/Browser support</h2>
       <div class="badges">
         
         <label for="doc-4-docs-developer-guide-browser-support-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/browser-support.docs.mdx">docs-developer-guide-browser-support--docs · ./src/docs/developer-guide/browser-support.docs.mdx</div>
-    <div># Browser Support The Amsterdam Design System uses the [Baseline standard](https://web.dev...</div>
+    <div># Browser support The Amsterdam Design System uses the [Baseline standard](https://web.dev...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
@@ -36471,9 +36434,9 @@ Once connected, ask for what you want in plain language:
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/Browser Support&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/Browser support&quot; /&gt;
 
-# Browser Support
+# Browser support
 
 The Amsterdam Design System uses the [Baseline standard](https://web.dev/baseline/) &#39;Widely available&#39; for browser support. This means we only use features that have been supported in the 4 major browsers (Chrome, Edge, Firefox, and Safari) for at least 30 months.
 This is considered a good trade-off between using modern web platform features and ensuring broad compatibility.
@@ -36499,14 +36462,14 @@ If you find any issues related to browser support, please [report them](https://
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Getting Started</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/Getting started</h2>
       <div class="badges">
         
         <label for="doc-5-docs-developer-guide-getting-started-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/getting-started.docs.mdx">docs-developer-guide-getting-started--docs · ./src/docs/developer-guide/getting-started.docs.mdx</div>
-    <div># Getting Started ## Installing Get the packages your need from npm. These are all 5 of th...</div>
+    <div># Getting started ## Installing Get the packages your need from npm. These are all 5 of th...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
@@ -36522,9 +36485,9 @@ If you find any issues related to browser support, please [report them](https://
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/Getting Started&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/Getting started&quot; /&gt;
 
-# Getting Started
+# Getting started
 
 ## Installing
 
@@ -36588,7 +36551,7 @@ Check our [Contributing guidelines](https://github.com/Amsterdam/design-system/b
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Interactivity</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/Interactivity</h2>
       <div class="badges">
         
         <label for="doc-6-docs-developer-guide-interactivity-docs-content" class="badge ok as-toggle">view content</label>
@@ -36611,7 +36574,7 @@ Check our [Contributing guidelines](https://github.com/Amsterdam/design-system/b
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/Interactivity&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/Interactivity&quot; /&gt;
 
 # Interactivity
 
@@ -36704,7 +36667,7 @@ We use the CSS rule `touch-action: manipulation` on all interactive elements to 
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Localisation</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/Localisation</h2>
       <div class="badges">
         
         <label for="doc-7-docs-developer-guide-localisation-docs-content" class="badge ok as-toggle">view content</label>
@@ -36727,7 +36690,7 @@ We use the CSS rule `touch-action: manipulation` on all interactive elements to 
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/Localisation&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/Localisation&quot; /&gt;
 
 # Localisation
 
@@ -36843,7 +36806,7 @@ When you supply your own directional icon anywhere, give it the same attribute s
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Modes</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/Modes</h2>
       <div class="badges">
         
         <label for="doc-8-docs-developer-guide-modes-docs-content" class="badge ok as-toggle">view content</label>
@@ -36868,7 +36831,7 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { InlineColorSample } from &quot;#storybook/_components/InlineColorSample/InlineColorSample&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/Modes&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/Modes&quot; /&gt;
 
 # Modes
 
@@ -36910,14 +36873,14 @@ Key characteristics of each mode:
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Release Policy</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/Release policy</h2>
       <div class="badges">
         
         <label for="doc-9-docs-developer-guide-release-policy-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/developer-guide/release-policy.docs.mdx">docs-developer-guide-release-policy--docs · ./src/docs/developer-guide/release-policy.docs.mdx</div>
-    <div># Release Policy We aim to publish new releases on a monthly basis. Breaking changes will ...</div>
+    <div># Release policy We aim to publish new releases on a monthly basis. Breaking changes will ...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
@@ -36933,9 +36896,9 @@ Key characteristics of each mode:
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/Release Policy&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/Release policy&quot; /&gt;
 
-# Release Policy
+# Release policy
 
 We aim to publish new releases on a monthly basis.
 Breaking changes will occur at most once every 3 months.
@@ -37024,7 +36987,7 @@ To make the most of the design system and avoid surprises:
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Responsive design</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/Responsive design</h2>
       <div class="badges">
         
         <label for="doc-10-docs-developer-guide-responsive-design-docs-content" class="badge ok as-toggle">view content</label>
@@ -37047,7 +37010,7 @@ To make the most of the design system and avoid surprises:
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/Responsive design&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/Responsive design&quot; /&gt;
 
 # Responsive design
 
@@ -37205,7 +37168,7 @@ If your component can appear both inside and outside one of these named containe
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Routing Libraries</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/Routing libraries</h2>
       <div class="badges">
         
         <label for="doc-11-docs-developer-guide-routing-libraries-docs-content" class="badge ok as-toggle">view content</label>
@@ -37228,7 +37191,7 @@ If your component can appear both inside and outside one of these named containe
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/Routing Libraries&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/Routing libraries&quot; /&gt;
 
 # Routing libraries
 
@@ -37316,7 +37279,7 @@ If you need a ref to a custom link component, set it on that component directly.
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Spacing</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/Spacing</h2>
       <div class="badges">
         
         <label for="doc-12-docs-developer-guide-spacing-docs-content" class="badge ok as-toggle">view content</label>
@@ -37339,7 +37302,7 @@ If you need a ref to a custom link component, set it on that component directly.
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/Spacing&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/Spacing&quot; /&gt;
 
 # Spacing
 
@@ -37412,7 +37375,7 @@ Margin is the right choice for a single targeted override; Prose is the right ch
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Usability</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/Usability</h2>
       <div class="badges">
         
         <label for="doc-13-docs-developer-guide-usability-docs-content" class="badge ok as-toggle">view content</label>
@@ -37435,7 +37398,7 @@ Margin is the right choice for a single targeted override; Prose is the right ch
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/Usability&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/Usability&quot; /&gt;
 
 # Usability
 
@@ -37465,7 +37428,7 @@ including for users of screen readers.
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Developer Guide/Web App</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Developer guide/Web app</h2>
       <div class="badges">
         
         <label for="doc-14-docs-developer-guide-web-app-docs-content" class="badge ok as-toggle">view content</label>
@@ -37490,7 +37453,7 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { WebAppIcons } from &quot;#storybook/_components/AppIcon/WebAppIcons&quot;;
 
-&lt;Meta title=&quot;Docs/Developer Guide/Web App&quot; /&gt;
+&lt;Meta title=&quot;Docs/Developer guide/Web app&quot; /&gt;
 
 # Web app
 
@@ -37620,7 +37583,7 @@ Link the web manifest in the `&lt;head&gt;`:
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Terms of Use/Copyright</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Terms of use/Copyright</h2>
       <div class="badges">
         
         <label for="doc-15-docs-terms-of-use-copyright-docs-content" class="badge ok as-toggle">view content</label>
@@ -37645,7 +37608,7 @@ import { Markdown, Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import NOTICE from &quot;../../../../NOTICE.md?raw&quot;;
 
-&lt;Meta title=&quot;Docs/Terms of Use/Copyright&quot; /&gt;
+&lt;Meta title=&quot;Docs/Terms of use/Copyright&quot; /&gt;
 
 &lt;Markdown&gt;{NOTICE}&lt;/Markdown&gt;
 </code></pre>
@@ -37659,7 +37622,7 @@ import NOTICE from &quot;../../../../NOTICE.md?raw&quot;;
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Docs/Terms of Use/License</h2>
+      <h2><span class="status-dot dot-ok"></span> Docs/Terms of use/License</h2>
       <div class="badges">
         
         <label for="doc-16-docs-terms-of-use-license-docs-content" class="badge ok as-toggle">view content</label>
@@ -37684,7 +37647,7 @@ import { Markdown, Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import LICENSE from &quot;../../../../LICENSE.md?raw&quot;;
 
-&lt;Meta title=&quot;Docs/Terms of Use/License&quot; /&gt;
+&lt;Meta title=&quot;Docs/Terms of use/License&quot; /&gt;
 
 &lt;Markdown&gt;{LICENSE}&lt;/Markdown&gt;
 </code></pre>
@@ -38070,14 +38033,14 @@ If you need an icon that is not in our set, [check this Figma library](https://w
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Aspect Ratio</h2>
+      <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Aspect ratio</h2>
       <div class="badges">
         
         <label for="doc-20-brand-design-tokens-aspect-ratio-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/brand/design-tokens/aspect-ratio.docs.mdx">brand-design-tokens-aspect-ratio--docs · ./src/brand/design-tokens/aspect-ratio.docs.mdx</div>
-    <div># Aspect Ratio Constrains media content to a supported aspect ratio. ## Design Media conte...</div>
+    <div># Aspect ratio Constrains media content to a supported aspect ratio. ## Design Media conte...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
@@ -38096,9 +38059,9 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable/DesignTokensTable&quot;;
 import tokens from &quot;#tokens/brand/ams/aspect-ratio.tokens.json&quot;;
 
-&lt;Meta title=&quot;Brand/Design Tokens/Aspect Ratio&quot; /&gt;
+&lt;Meta title=&quot;Brand/Design tokens/Aspect ratio&quot; /&gt;
 
-# Aspect Ratio
+# Aspect ratio
 
 Constrains media content to a supported aspect ratio.
 
@@ -38129,7 +38092,7 @@ Content with intrinsic dimensions that do not match an aspect ratio will be crop
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Border</h2>
+      <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Border</h2>
       <div class="badges">
         
         <label for="doc-21-brand-design-tokens-border-docs-content" class="badge ok as-toggle">view content</label>
@@ -38156,7 +38119,7 @@ import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable
 import tokensCompact from &quot;#tokens/brand/ams/border.compact.tokens.json&quot;;
 import tokensSpacious from &quot;#tokens/brand/ams/border.tokens.json&quot;;
 
-&lt;Meta title=&quot;Brand/Design Tokens/Border&quot; /&gt;
+&lt;Meta title=&quot;Brand/Design tokens/Border&quot; /&gt;
 
 # Border
 
@@ -38193,7 +38156,7 @@ All borders are a pixel thinner in [Compact Mode](/docs/docs-developer-guide-mod
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Colour</h2>
+      <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Colour</h2>
       <div class="badges">
         
         <label for="doc-22-brand-design-tokens-colour-docs-content" class="badge ok as-toggle">view content</label>
@@ -38220,7 +38183,7 @@ import { ColorPalette } from &quot;#storybook/_components/ColorPalette/ColorPale
 import { ColorSample } from &quot;#storybook/_components/ColorSample/ColorSample&quot;;
 import { InlineColorSample } from &quot;#storybook/_components/InlineColorSample/InlineColorSample&quot;;
 
-&lt;Meta title=&quot;Brand/Design Tokens/Colour&quot; /&gt;
+&lt;Meta title=&quot;Brand/Design tokens/Colour&quot; /&gt;
 
 # Colour
 
@@ -38415,7 +38378,7 @@ On these, both text and links are white – the **‘inverse’** text and inter
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Cursor</h2>
+      <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Cursor</h2>
       <div class="badges">
         
         <label for="doc-23-brand-design-tokens-cursor-docs-content" class="badge ok as-toggle">view content</label>
@@ -38441,7 +38404,7 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable/DesignTokensTable&quot;;
 import tokens from &quot;#tokens/brand/ams/cursor.tokens.json&quot;;
 
-&lt;Meta title=&quot;Brand/Design Tokens/Cursor&quot; /&gt;
+&lt;Meta title=&quot;Brand/Design tokens/Cursor&quot; /&gt;
 
 # Cursor
 
@@ -38459,7 +38422,7 @@ import tokens from &quot;#tokens/brand/ams/cursor.tokens.json&quot;;
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Focus</h2>
+      <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Focus</h2>
       <div class="badges">
         
         <label for="doc-24-brand-design-tokens-focus-docs-content" class="badge ok as-toggle">view content</label>
@@ -38482,7 +38445,7 @@ import tokens from &quot;#tokens/brand/ams/cursor.tokens.json&quot;;
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Brand/Design Tokens/Focus&quot; /&gt;
+&lt;Meta title=&quot;Brand/Design tokens/Focus&quot; /&gt;
 
 # Focus
 
@@ -38514,7 +38477,7 @@ When setting up a page, ensure that the interactive elements are in a logical or
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Inputs</h2>
+      <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Inputs</h2>
       <div class="badges">
         
         <label for="doc-25-brand-design-tokens-inputs-docs-content" class="badge ok as-toggle">view content</label>
@@ -38540,7 +38503,7 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable/DesignTokensTable&quot;;
 import tokens from &quot;#tokens/common/ams/inputs.tokens.json&quot;;
 
-&lt;Meta title=&quot;Brand/Design Tokens/Inputs&quot; /&gt;
+&lt;Meta title=&quot;Brand/Design tokens/Inputs&quot; /&gt;
 
 # Inputs
 
@@ -38597,7 +38560,7 @@ Use these tokens if you recreate our React components with different technology,
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Links</h2>
+      <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Links</h2>
       <div class="badges">
         
         <label for="doc-26-brand-design-tokens-links-docs-content" class="badge ok as-toggle">view content</label>
@@ -38623,7 +38586,7 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable/DesignTokensTable&quot;;
 import tokens from &quot;#tokens/common/ams/links.tokens.json&quot;;
 
-&lt;Meta title=&quot;Brand/Design Tokens/Links&quot; /&gt;
+&lt;Meta title=&quot;Brand/Design tokens/Links&quot; /&gt;
 
 # Links
 
@@ -38670,7 +38633,7 @@ Use these tokens if you recreate our React components with different technology,
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Space</h2>
+      <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Space</h2>
       <div class="badges">
         
         <label for="doc-27-brand-design-tokens-space-docs-content" class="badge ok as-toggle">view content</label>
@@ -38695,7 +38658,7 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { SpaceSample } from &quot;#storybook/_components/SpaceSample/SpaceSample&quot;;
 
-&lt;Meta title=&quot;Brand/Design Tokens/Space&quot; /&gt;
+&lt;Meta title=&quot;Brand/Design tokens/Space&quot; /&gt;
 
 # Space
 
@@ -38754,7 +38717,7 @@ The responsive values above are specified using the [clamp function](https://dev
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Brand/Design Tokens/Typography</h2>
+      <h2><span class="status-dot dot-ok"></span> Brand/Design tokens/Typography</h2>
       <div class="badges">
         
         <label for="doc-28-brand-design-tokens-typography-docs-content" class="badge ok as-toggle">view content</label>
@@ -38779,7 +38742,7 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { TypographySample } from &quot;#storybook/_components/TypographySample/TypographySample&quot;;
 
-&lt;Meta title=&quot;Brand/Design Tokens/Typography&quot; /&gt;
+&lt;Meta title=&quot;Brand/Design tokens/Typography&quot; /&gt;
 
 # Typography
 
