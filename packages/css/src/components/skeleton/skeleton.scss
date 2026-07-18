@@ -11,6 +11,7 @@
 // A stack of these blocks occupies exactly as much space as the same number of lines of the mimicked text.
 @mixin text-line($font-size, $line-height) {
   block-size: $font-size;
+  /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- Computed from the mimicked text’s own font size and line height. */
   margin-block: calc((#{$line-height} - 1) / 2 * #{$font-size});
 }
 

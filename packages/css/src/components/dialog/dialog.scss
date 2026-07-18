@@ -80,6 +80,7 @@ so do not apply these styles without an `open` attribute. */
   @media (forced-colors: active) {
     border-block-end-color: currentColor;
     border-block-end-style: solid;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- A forced-colors hairline separator; 1px works at every text size. */
     border-block-end-width: 1px;
   }
 
@@ -121,6 +122,7 @@ so do not apply these styles without an `open` attribute. */
   @media (forced-colors: active) {
     border-block-start-color: currentColor;
     border-block-start-style: solid;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- A forced-colors hairline separator; 1px works at every text size. */
     border-block-start-width: 1px;
   }
 

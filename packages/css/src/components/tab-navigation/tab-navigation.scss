@@ -104,10 +104,11 @@
 .ams-tab-navigation__link-label-hidden {
   font-weight: var(--ams-tab-navigation-link-current-font-weight);
   pointer-events: none;
+  /* stylelint-disable-next-line defensive-css/no-user-select-none -- Selecting this hidden bold copy would put invisible duplicate text on the clipboard. */
   -webkit-user-select: none;
 
   /* Safari support is added with the prefixed property. */
-  /* stylelint-disable-next-line plugin/use-baseline */
+  /* stylelint-disable-next-line plugin/use-baseline, defensive-css/no-user-select-none -- Selecting this hidden bold copy would put invisible duplicate text on the clipboard. */
   user-select: none;
   visibility: hidden;
 }

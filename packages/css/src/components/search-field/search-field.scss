@@ -35,7 +35,7 @@
   @include print-exact;
   @include text-rendering;
 
-  &:focus {
+  &:focus-visible {
     z-index: 1; // Make sure the focus outline isn’t cut off by the adjacent button
   }
 }

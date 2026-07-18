@@ -56,10 +56,11 @@
 
 .ams-page-header__logo-link--hidden {
   opacity: 0%;
+  /* stylelint-disable-next-line defensive-css/no-user-select-none -- Selecting this invisible duplicate logo link would put duplicate text on the clipboard. */
   -webkit-user-select: none;
 
   /* Safari support is added with the prefixed property. */
-  /* stylelint-disable-next-line plugin/use-baseline */
+  /* stylelint-disable-next-line plugin/use-baseline, defensive-css/no-user-select-none -- Selecting this invisible duplicate logo link would put duplicate text on the clipboard. */
   user-select: none; // The hidden logo link section should not be selectable
 }
 
@@ -222,19 +223,19 @@
 .ams-page-header__menu-icon-middle,
 .ams-page-header__menu-icon-bottom {
   transform-origin: center;
-  transition:
-    opacity 0.1s ease-in-out,
-    rotate 0.2s ease-in-out,
-    translate 0.1s ease-in-out;
 
-  @media (prefers-reduced-motion) {
-    transition: none;
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      opacity 0.1s ease-in-out,
+      rotate 0.2s ease-in-out,
+      translate 0.1s ease-in-out;
   }
 }
 
 .ams-page-header__menu-icon--open {
   .ams-page-header__menu-icon-top {
     rotate: 45deg;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- The fixed nudge is part of the menu icon’s geometry, not a text-relative size. */
     translate: -4px 4px;
   }
 
@@ -244,6 +245,7 @@
 
   .ams-page-header__menu-icon-bottom {
     rotate: -45deg;
+    /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- The fixed nudge is part of the menu icon’s geometry, not a text-relative size. */
     translate: -4px -4px;
   }
 }

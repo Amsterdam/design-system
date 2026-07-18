@@ -104,6 +104,7 @@
 }
 
 ._ams-resize-horizontal {
+  /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- A hairline dev-tool outline. */
   outline: 1px dashed var(--_ams-color-pink);
   overflow: auto;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
