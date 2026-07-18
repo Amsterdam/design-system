@@ -58,7 +58,6 @@
     "defensive-css/no-unsafe-clamp-font-size": null,
     "defensive-css/no-user-select-none": [true, { "severity": "warning" }],
     "defensive-css/require-at-layer": null,
-    "defensive-css/require-background-repeat": [true, { "severity": "warning" }],
     "defensive-css/require-custom-property-fallback": null,
     "defensive-css/require-dynamic-viewport-height": [true, { "severity": "warning" }],
     "defensive-css/require-flex-wrap": [true, { "severity": "warning" }],

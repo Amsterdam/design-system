@@ -47,6 +47,7 @@
     white 0.5rem,
     white 1rem
   );
+  background-repeat: no-repeat;
   border-color: var(--_ams-color-grey);
   border-style: solid;
   border-width: thin;

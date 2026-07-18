@@ -36,6 +36,7 @@
   cursor: var(--ams-select-disabled-cursor);
 
   &:not([multiple]) {
+    /* stylelint-disable-next-line defensive-css/require-background-repeat -- The base rule for this element declares background-repeat; this only swaps the image. */
     background-image: var(--ams-select-disabled-background-image);
   }
 }
@@ -49,6 +50,7 @@
   box-shadow: var(--ams-select-hover-box-shadow);
 
   &:not([multiple]) {
+    /* stylelint-disable-next-line defensive-css/require-background-repeat -- The base rule for this element declares background-repeat; this only swaps the image. */
     background-image: var(--ams-select-hover-background-image);
   }
 }

@@ -63,6 +63,7 @@
 .ams-search-field__input::-webkit-search-cancel-button {
   appearance: none;
   background-image: var(--ams-search-field-input-cancel-button-background-image);
+  background-repeat: no-repeat;
   block-size: var(--ams-search-field-input-cancel-button-block-size);
   cursor: var(--ams-search-field-input-cancel-button-cursor);
   inline-size: var(--ams-search-field-input-cancel-button-inline-size);
