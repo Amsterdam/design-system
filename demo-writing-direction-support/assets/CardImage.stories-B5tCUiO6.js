@@ -1,0 +1,7 @@
+import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";import{t}from"./jsx-runtime-Bq1bXGty.js";import{t as n,un as r}from"./src-BxHmVMfk.js";import{i,t as a}from"./types-Upr6OxRk.js";var o,s,c,l,u=e((()=>{n(),i(),o=t(),s={title:`Components/Navigation/Card`,component:r.Image,argTypes:{aspectRatio:{control:{labels:{undefined:`none`},type:`select`},options:[void 0,...a]}},decorators:[e=>(0,o.jsx)(r,{children:(0,o.jsx)(e,{})})]},c={args:{alt:``,aspectRatio:`16:9`,src:`https://picsum.photos/800/450`}},c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+  args: {
+    alt: '',
+    aspectRatio: '16:9',
+    src: 'https://picsum.photos/800/450'
+  }
+}`,...c.parameters?.docs?.source}}},l=[`Image`]}));u();export{c as Image,l as __namedExportsOrder,s as default,u as t};
