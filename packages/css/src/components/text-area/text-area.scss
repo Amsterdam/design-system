@@ -46,14 +46,18 @@
   border-color: var(--ams-text-area-invalid-border-color);
 }
 
-.ams-text-area:not(:disabled):hover {
-  box-shadow: var(--ams-text-area-hover-box-shadow);
+@media (hover: hover) {
+  .ams-text-area:not(:disabled):hover {
+    box-shadow: var(--ams-text-area-hover-box-shadow);
+  }
 }
 
-.ams-text-area:not(:disabled):invalid:hover,
-.ams-text-area:not(:disabled)[aria-invalid="true"]:hover {
-  border-color: var(--ams-text-area-invalid-hover-border-color);
-  box-shadow: var(--ams-text-area-invalid-hover-box-shadow);
+@media (hover: hover) {
+  .ams-text-area:not(:disabled):invalid:hover,
+  .ams-text-area:not(:disabled)[aria-invalid="true"]:hover {
+    border-color: var(--ams-text-area-invalid-hover-border-color);
+    box-shadow: var(--ams-text-area-invalid-hover-box-shadow);
+  }
 }
 
 /*

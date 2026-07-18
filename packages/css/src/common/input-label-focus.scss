@@ -11,6 +11,7 @@
   */
 
 @mixin input-label-focus {
+  /* stylelint-disable-next-line defensive-css/require-focus-visible -- Progressive enhancement. */
   &:focus + label {
     outline: auto;
   }

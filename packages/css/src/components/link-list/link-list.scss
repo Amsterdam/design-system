@@ -33,9 +33,11 @@
   text-decoration-thickness: var(--ams-link-list-link-text-decoration-thickness);
   text-underline-offset: var(--ams-link-list-link-text-underline-offset);
 
-  &:hover {
-    color: var(--ams-link-list-link-hover-color);
-    text-decoration-line: var(--ams-link-list-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-link-list-link-hover-color);
+      text-decoration-line: var(--ams-link-list-link-hover-text-decoration-line);
+    }
   }
 }
 
@@ -52,15 +54,19 @@
 .ams-link-list__link--contrast {
   color: var(--ams-link-list-link-contrast-color);
 
-  &:hover {
-    color: var(--ams-link-list-link-contrast-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-link-list-link-contrast-hover-color);
+    }
   }
 }
 
 .ams-link-list__link--inverse {
   color: var(--ams-link-list-link-inverse-color);
 
-  &:hover {
-    color: var(--ams-link-list-link-inverse-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-link-list-link-inverse-hover-color);
+    }
   }
 }

@@ -25,7 +25,7 @@
   grid-column: 1/-1;
   grid-row: 1;
   outline-offset: var(--ams-image-slider-scroller-outline-offset);
-  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- The scrollbar is hidden entirely, so it never claims space. */
+  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- The scrollbar is hidden. */
   overflow-x: auto;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior-x: contain;
@@ -87,8 +87,10 @@
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
   outline-offset: var(--ams-button-outline-offset);
 
-  &:hover {
-    opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
+  @media (hover: hover) {
+    &:hover {
+      opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
+    }
   }
 }
 

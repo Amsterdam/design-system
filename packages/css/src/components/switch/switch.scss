@@ -65,6 +65,8 @@
   transform: translate(calc(100% - 2 * var(--_ams-switch-label-border-width)));
 }
 
-.ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
-  box-shadow: var(--ams-switch-thumb-hover-box-shadow);
+@media (hover: hover) {
+  .ams-switch:hover .ams-switch__input:enabled + .ams-switch__label::before {
+    box-shadow: var(--ams-switch-thumb-hover-box-shadow);
+  }
 }

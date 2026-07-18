@@ -35,7 +35,7 @@
   @include print-exact;
   @include text-rendering;
 
-  &:focus {
+  &:focus-visible {
     z-index: 1; // Make sure the focus outline isn’t cut off by the adjacent button
   }
 }
@@ -51,14 +51,18 @@
   border-color: var(--ams-search-field-input-invalid-border-color);
 }
 
-.ams-search-field__input:not(:disabled):hover {
-  box-shadow: var(--ams-search-field-input-hover-box-shadow);
+@media (hover: hover) {
+  .ams-search-field__input:not(:disabled):hover {
+    box-shadow: var(--ams-search-field-input-hover-box-shadow);
+  }
 }
 
-.ams-search-field__input:not(:disabled):invalid:hover,
-.ams-search-field__input:not(:disabled)[aria-invalid="true"]:hover {
-  border-color: var(--ams-search-field-input-invalid-hover-border-color);
-  box-shadow: var(--ams-search-field-input-invalid-hover-box-shadow);
+@media (hover: hover) {
+  .ams-search-field__input:not(:disabled):invalid:hover,
+  .ams-search-field__input:not(:disabled)[aria-invalid="true"]:hover {
+    border-color: var(--ams-search-field-input-invalid-hover-border-color);
+    box-shadow: var(--ams-search-field-input-invalid-hover-box-shadow);
+  }
 }
 
 .ams-search-field__input::-webkit-search-cancel-button {
