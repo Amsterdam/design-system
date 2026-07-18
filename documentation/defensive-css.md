@@ -62,7 +62,7 @@ That mostly means false _negatives_ (they silently pass tokenised declarations),
 The blind spot is smaller than it sounds, though: because our tokens are `rem`- and `clamp()`-based by design, only two tokens hold a `px` value at all — both 1px hairlines for the Progress List connector.
 
 Since the audit, three more token-resolving rules close the remaining value blind spots: `ams/require-grid-minmax`, `ams/no-fixed-sizes`, and `ams/no-list-style-none`, each judging only what tokens resolve to while the upstream rule stays on for literal values.
-The grid rule’s first find were three Description List tokens holding bare `fr` track lists — the same blowout risk the stylesheet remediation fixed, hidden in token values — which have been fixed since.
+The grid rule’s first finds were three Description List tokens holding bare `fr` track lists — the same blowout risk the stylesheet remediation fixed, hidden in token values — which have been fixed since.
 The remaining value rules need no token-side twin: no token holds a viewport-height unit, and `user-select`, `background-repeat` and `will-change` are never tokenised here.
 
 ## Rules with a backlog

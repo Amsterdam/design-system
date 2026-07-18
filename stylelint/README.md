@@ -68,7 +68,7 @@ Options:
 
 Reports a `grid-template-columns` or `grid-template-rows` whose tokens resolve to a track list with a bare `fr` track.
 Such a track cannot shrink below its content’s min-content size, so one long unbreakable word pushes the grid out of its container; `minmax(0, …)` lets it shrink.
-Its first find were three Description List tokens holding bare `fr` tracks, fixed since.
+Its first finds were three Description List tokens holding bare `fr` tracks, fixed since.
 
 Options:
 
