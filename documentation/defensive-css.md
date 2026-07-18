@@ -25,9 +25,9 @@ All counts below use the strict options.
 
 ## Summary
 
-We violate 16 of the 21 rules somewhere; 5 are clean.
-Of the 1,991 violations, 86% come from two rules we have deliberately turned off (`require-custom-property-fallback` and `require-at-layer`).
-Outside the five disabled rules, 191 violations remain, 167 of them in shipped CSS — and roughly a quarter of those are false positives or deliberate patterns to annotate rather than fix.
+At the audit date, we violated 16 of the 21 rules somewhere; 5 were clean.
+Of the 1,991 violations, 86% came from two rules deliberately turned off (`require-custom-property-fallback` and `require-at-layer`).
+Outside the five then-disabled rules, 191 violations remained, 167 of them in shipped CSS — roughly a quarter of them false positives or deliberate patterns to annotate rather than fix.
 
 The remediation described below has since been carried out in full.
 The violation counts in this table record the state at the audit date; the Status column shows the configuration as it now stands: 15 rules at error, 6 off with documented reasons, and no standing warnings.
