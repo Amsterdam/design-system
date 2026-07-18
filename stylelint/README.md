@@ -67,7 +67,7 @@ A component that redeclares a token under one selector is therefore treated as a
 ## Relationship to `stylelint-plugin-defensive-css`
 
 That plugin is installed and extended from its `strict` config, which enables all 21 of its rules.
-Five of its rules are turned off in [.stylelintrc.json](../.stylelintrc.json), which cannot hold comments, so the reasoning lives here.
+Six of its rules are turned off in [.stylelintrc.json](../.stylelintrc.json), which cannot hold comments, so the reasoning lives here.
 A full audit of all 21 rules — effectiveness, violations, remediation, and impact — is in [documentation/defensive-css.md](../documentation/defensive-css.md).
 
 `defensive-css/no-unsafe-clamp-font-size` and `defensive-css/require-system-font-fallback` are off because the two rules above replace them.
@@ -84,12 +84,17 @@ That is an architecture decision, not a lint fix.
 `defensive-css/require-pure-selectors` is off.
 It reports `> *`, `+ *`, `[aria-expanded="true"] &` and `.ams-date-input:not(:disabled):invalid` as element tags, none of which are.
 
-Every remaining rule runs at `warning` severity where the repository still has violations, so they are visible without failing `lint:css`, and at `error` where it has none.
+`defensive-css/require-named-grid-lines` is off.
+Our grids place children by span (`grid-column-end: span n`, `grid-column: 1 / -1`), by auto-placement, or into named areas, so line names would add bytes without any consumer being able to use them — the classes are the API, not the grid lines.
+The rule also fires on `grid-template-columns: var(--…)` declarations it cannot inspect, and double-reports the tracks that `require-grid-minmax` already covers.
+
+Every remaining rule runs at `error` severity, and the repository has no outstanding violations.
+Deliberate patterns the rules cannot recognise carry a `stylelint-disable-next-line` comment stating the reason at the site.
 
 Two of the upstream rules are narrower than they look:
 
-- `no-fixed-sizes` only checks its default properties once its severity is overridden, which drops coverage of borders, outlines and `translate`. Restoring the full list means restating all ninety properties in the config. It reports 8 violations as configured, against 15 with the full list.
-- `no-list-style-none` misses both uses of `list-style: none` in [resets.scss](../packages/css/src/common/resets.scss), because they sit in `@mixin` blocks where it cannot see a list element in the selector.
+- `no-fixed-sizes` silently resets its property list to the ~40 defaults when any option — including `severity` — is overridden, dropping coverage of borders, outlines and `translate`. The config therefore leaves the strict preset's ninety-property configuration untouched.
+- `no-list-style-none` cannot see into `@mixin` blocks, so it misses the `reset-ol`/`reset-ul` mixins in [resets.scss](../packages/css/src/common/resets.scss). Those mixins hide markers with `list-style-type: ""`, which keeps list semantics; the rule only guards literal future uses.
 
 ## Requirements
 

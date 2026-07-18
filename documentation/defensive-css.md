@@ -29,29 +29,32 @@ We violate 16 of the 21 rules somewhere; 5 are clean.
 Of the 1,991 violations, 86% come from two rules we have deliberately turned off (`require-custom-property-fallback` and `require-at-layer`).
 Outside the five disabled rules, 191 violations remain, 167 of them in shipped CSS — and roughly a quarter of those are false positives or deliberate patterns to annotate rather than fix.
 
-| Rule                             | packages/css | storybook | Effectiveness caveat                      | Status  | Recommendation                                 |
-| -------------------------------- | -----------: | --------: | ----------------------------------------- | ------- | ---------------------------------------------- |
-| require-custom-property-fallback |         1103 |        45 | flags same-file private properties        | off     | keep off                                       |
-| require-at-layer                 |          492 |        82 | —                                         | off     | keep off, revisit as architecture decision     |
-| require-pure-selectors           |           49 |        29 | many false positives                      | off     | keep off                                       |
-| no-accidental-hover              |           72 |         1 | —                                         | warning | fix, then error                                |
-| require-flex-wrap                |           36 |         4 | —                                         | warning | fix (mostly `nowrap`), then error              |
-| require-named-grid-lines         |           14 |         3 | mismatch with span-based APIs             | warning | turn off                                       |
-| no-fixed-sizes                   |            7 |         8 | cannot resolve tokens                     | warning | annotate, then error                           |
-| require-grid-minmax              |           11 |         1 | cannot resolve tokens                     | warning | fix, then error                                |
-| require-background-repeat        |            9 |         1 | flags same-element state swaps            | warning | fix 3, annotate rest, then error               |
-| require-scrollbar-gutter         |            6 |         2 | flags hidden and horizontal scrollbars    | warning | fix 1, annotate rest, then error               |
-| no-user-select-none              |            8 |         0 | cannot resolve tokens                     | warning | annotate (all deliberate), then error          |
-| require-overscroll-behavior      |            0 |         2 | —                                         | warning | fix Storybook, then error                      |
-| require-focus-visible            |            2 |         0 | —                                         | warning | fix 1, annotate 1, then error                  |
-| require-dynamic-viewport-height  |            1 |         1 | flags the fallback of the correct pattern | warning | annotate, fix Storybook, then error            |
-| no-list-style-none               |            0 |         1 | cannot see into mixins                    | warning | fix mixins + Storybook, then error             |
-| require-prefers-reduced-motion   |            1 |         0 | only recognises the positive pattern      | warning | refactor, then error                           |
-| no-mixed-vendor-prefixes         |            0 |         0 | —                                         | error   | keep                                           |
-| no-unsafe-will-change            |            0 |         0 | —                                         | error   | keep                                           |
-| require-forced-colors-focus      |            0 |         0 | —                                         | error   | keep                                           |
-| no-unsafe-clamp-font-size        |            0 |         0 | cannot resolve tokens                     | off     | replaced by `ams/no-unsafe-clamp-font-size`    |
-| require-system-font-fallback     |            0 |         0 | cannot resolve tokens                     | off     | replaced by `ams/require-system-font-fallback` |
+The remediation described below has since been carried out in full.
+The violation counts in this table record the state at the audit date; the Status column shows the configuration as it now stands: 15 rules at error, 6 off with documented reasons, and no standing warnings.
+
+| Rule                             | packages/css | storybook | Effectiveness caveat                      | Status | Recommendation                                 |
+| -------------------------------- | -----------: | --------: | ----------------------------------------- | ------ | ---------------------------------------------- |
+| require-custom-property-fallback |         1103 |        45 | flags same-file private properties        | off    | keep off                                       |
+| require-at-layer                 |          492 |        82 | —                                         | off    | keep off, revisit as architecture decision     |
+| require-pure-selectors           |           49 |        29 | many false positives                      | off    | keep off                                       |
+| no-accidental-hover              |           72 |         1 | —                                         | error  | fix, then error                                |
+| require-flex-wrap                |           36 |         4 | —                                         | error  | fix (mostly `nowrap`), then error              |
+| require-named-grid-lines         |           14 |         3 | mismatch with span-based APIs             | off    | turn off                                       |
+| no-fixed-sizes                   |            7 |         8 | cannot resolve tokens                     | error  | annotate, then error                           |
+| require-grid-minmax              |           11 |         1 | cannot resolve tokens                     | error  | fix, then error                                |
+| require-background-repeat        |            9 |         1 | flags same-element state swaps            | error  | fix 3, annotate rest, then error               |
+| require-scrollbar-gutter         |            6 |         2 | flags hidden and horizontal scrollbars    | error  | fix 1, annotate rest, then error               |
+| no-user-select-none              |            8 |         0 | cannot resolve tokens                     | error  | annotate (all deliberate), then error          |
+| require-overscroll-behavior      |            0 |         2 | —                                         | error  | fix Storybook, then error                      |
+| require-focus-visible            |            2 |         0 | —                                         | error  | fix 1, annotate 1, then error                  |
+| require-dynamic-viewport-height  |            1 |         1 | flags the fallback of the correct pattern | error  | annotate, fix Storybook, then error            |
+| no-list-style-none               |            0 |         1 | cannot see into mixins                    | error  | fix mixins + Storybook, then error             |
+| require-prefers-reduced-motion   |            1 |         0 | only recognises the positive pattern      | error  | refactor, then error                           |
+| no-mixed-vendor-prefixes         |            0 |         0 | —                                         | error  | keep                                           |
+| no-unsafe-will-change            |            0 |         0 | —                                         | error  | keep                                           |
+| require-forced-colors-focus      |            0 |         0 | —                                         | error  | keep                                           |
+| no-unsafe-clamp-font-size        |            0 |         0 | cannot resolve tokens                     | off    | replaced by `ams/no-unsafe-clamp-font-size`    |
+| require-system-font-fallback     |            0 |         0 | cannot resolve tokens                     | off    | replaced by `ams/require-system-font-fallback` |
 
 A recurring theme: seven rules judge declaration _values_, and none of them resolve `var()`.
 In a repository where nearly every value is a token reference, those rules only ever see literal values.
@@ -299,6 +302,7 @@ Storybook CSS ships to nobody.
 
 The complete remediation set above — 72 hover media queries, 36 flex-wrap declarations, 11 minmax substitutions, 3 background-repeats, 1 scrollbar-gutter, 13 compiled list-style changes, and the focus-visible swap — measures **+2,682 B raw (+2.0%)** and, because the additions are highly repetitive, approximately **+86 B gzipped (+0.5%)** when appended to the real stylesheet.
 Interleaving the additions where they actually belong will compress slightly worse than this synthetic measurement, but the order of magnitude stands: roughly a tenth of a kilobyte on the wire.
+Measured after the remediation landed: **+2,571 B raw (+1.9%)** and **+271 B gzipped (+1.7%)** — the raw estimate held, and the interleaving penalty on compression stayed within a quarter of a kilobyte.
 
 For contrast, the one rule that would be expensive is off: `require-custom-property-fallback` would add 36 KB raw (+26.6%).
 
@@ -322,6 +326,6 @@ By audience:
 2. **Flex-wrap intent pass** — 36 explicit declarations, mostly `nowrap`; the handful of toolbar judgment calls reviewed individually.
 3. **Hover media queries** — the 72-site wrap, as its own PR for reviewability.
 4. **Annotations** — `stylelint-disable-next-line` with reasons on the ~30 deliberate patterns and false positives documented above, each in the same PR as the fix that makes its rule clean.
-5. **Ratchet** — as each rule’s backlog reaches zero, raise it from warning to error in `.stylelintrc.json` (restating strict’s options where severity overrides would narrow them).
-   End state: 16 rules at error, 5 off with documented reasons, no standing warnings.
-6. **Separately** — decide on `require-named-grid-lines` (this report recommends off), and treat cascade layers as the architecture discussion it is.
+5. **Ratchet** — as each rule’s backlog reaches zero, raise it from warning to error in `.stylelintrc.json` by removing its warning-severity override, which also restores strict’s options where the override had narrowed them.
+   End state: 15 rules at error, 6 off with documented reasons, no standing warnings.
+6. **Separately** — `require-named-grid-lines` is turned off as recommended above; cascade layers remain the architecture discussion they are.
