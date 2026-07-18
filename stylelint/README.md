@@ -64,6 +64,32 @@ The rules skip anything they cannot resolve with certainty, rather than guess:
 Resolution is flat: a custom property is looked up by name, without regard for the selector it was declared under.
 A component that redeclares a token under one selector is therefore treated as ambiguous and skipped.
 
+## Relationship to `stylelint-plugin-defensive-css`
+
+That plugin is installed and extended from its `strict` config, which enables all 21 of its rules.
+Four of its rules are turned off in [.stylelintrc.json](../.stylelintrc.json), which cannot hold comments, so the reasoning lives here.
+
+`defensive-css/no-unsafe-clamp-font-size` and `defensive-css/require-system-font-fallback` are off because the two rules above replace them.
+Neither upstream rule resolves `var()`, so both pass on every tokenised declaration in this repository.
+The rules here check the same thing and also catch literal values, so running both would only duplicate warnings on the literals.
+
+`defensive-css/require-custom-property-fallback` is off.
+It asks for `var(--token, fallback)` at every use, which would restate a value that the token already defines and leave two places to change it.
+
+`defensive-css/require-at-layer` is off.
+It asks for every style to sit in a top-level `@layer`, which changes how consumers override our CSS.
+That is an architecture decision, not a lint fix.
+
+`defensive-css/require-pure-selectors` is off.
+It reports `> *`, `+ *`, `[aria-expanded="true"] &` and `.ams-date-input:not(:disabled):invalid` as element tags, none of which are.
+
+Every remaining rule runs at `warning` severity where the repository still has violations, so they are visible without failing `lint:css`, and at `error` where it has none.
+
+Two of the upstream rules are narrower than they look:
+
+- `no-fixed-sizes` only checks its default properties once its severity is overridden, which drops coverage of borders, outlines and `translate`. Restoring the full list means restating all ninety properties in the config. It reports 8 violations as configured, against 15 with the full list.
+- `no-list-style-none` misses both uses of `list-style: none` in [resets.scss](../packages/css/src/common/resets.scss), because they sit in `@mixin` blocks where it cannot see a list element in the selector.
+
 ## Requirements
 
 The token file has to be built before the rules can resolve anything:
