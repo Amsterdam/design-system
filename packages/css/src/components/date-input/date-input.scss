@@ -58,9 +58,11 @@
   cursor: var(--ams-date-input-calendar-picker-indicator-cursor);
 }
 
-.ams-date-input:hover::-webkit-calendar-picker-indicator {
-  /* stylelint-disable-next-line defensive-css/require-background-repeat -- The base rule for this element declares background-repeat; this only swaps the image. */
-  background-image: var(--ams-date-input-hover-calendar-picker-indicator-background-image);
+@media (hover: hover) {
+  .ams-date-input:hover::-webkit-calendar-picker-indicator {
+    /* stylelint-disable-next-line defensive-css/require-background-repeat -- The base rule for this element declares background-repeat; this only swaps the image. */
+    background-image: var(--ams-date-input-hover-calendar-picker-indicator-background-image);
+  }
 }
 
 .ams-date-input:disabled {
@@ -73,12 +75,16 @@
   border-color: var(--ams-date-input-invalid-border-color);
 }
 
-.ams-date-input:not(:disabled):hover {
-  box-shadow: var(--ams-date-input-hover-box-shadow);
+@media (hover: hover) {
+  .ams-date-input:not(:disabled):hover {
+    box-shadow: var(--ams-date-input-hover-box-shadow);
+  }
 }
 
-.ams-date-input:not(:disabled):invalid:hover,
-.ams-date-input:not(:disabled)[aria-invalid="true"]:hover {
-  border-color: var(--ams-date-input-invalid-hover-border-color);
-  box-shadow: var(--ams-date-input-invalid-hover-box-shadow);
+@media (hover: hover) {
+  .ams-date-input:not(:disabled):invalid:hover,
+  .ams-date-input:not(:disabled)[aria-invalid="true"]:hover {
+    border-color: var(--ams-date-input-invalid-hover-border-color);
+    box-shadow: var(--ams-date-input-invalid-hover-box-shadow);
+  }
 }

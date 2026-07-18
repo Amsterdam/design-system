@@ -59,10 +59,12 @@
   text-underline-offset: 0.125rem;
 }
 
-.sbdocs-content.sbdocs-content .sbdocs-a:hover {
-  color: var(--ams-color-interactive-hover);
-  text-decoration-thickness: 0.125rem;
-  text-underline-offset: 0.0625rem;
+@media (hover: hover) {
+  .sbdocs-content.sbdocs-content .sbdocs-a:hover {
+    color: var(--ams-color-interactive-hover);
+    text-decoration-thickness: 0.125rem;
+    text-underline-offset: 0.0625rem;
+  }
 }
 
 .sbdocs-content.sbdocs-content > :is(h1, h2, h3, h4, h5, h6),

@@ -55,12 +55,16 @@
   padding-inline: var(--ams-tab-navigation-link-padding-inline);
   text-decoration-line: none;
 
-  &:hover {
-    color: var(--ams-tab-navigation-link-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-tab-navigation-link-hover-color);
+    }
   }
 
-  &:hover:not([aria-current="page"]) {
-    box-shadow: var(--ams-tab-navigation-link-hover-box-shadow);
+  @media (hover: hover) {
+    &:hover:not([aria-current="page"]) {
+      box-shadow: var(--ams-tab-navigation-link-hover-box-shadow);
+    }
   }
 
   &[aria-current="page"] {
@@ -73,8 +77,10 @@
   }
 
   @media (min-width: $ams-breakpoint-medium) {
-    .ams-tab-navigation--vertical &:hover:not([aria-current="page"]) {
-      box-shadow: var(--ams-tab-navigation-link-vertical-hover-box-shadow);
+    @media (hover: hover) {
+      .ams-tab-navigation--vertical &:hover:not([aria-current="page"]) {
+        box-shadow: var(--ams-tab-navigation-link-vertical-hover-box-shadow);
+      }
     }
 
     .ams-tab-navigation--vertical &[aria-current="page"] {

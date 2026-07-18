@@ -186,8 +186,10 @@
   padding-inline: var(--ams-progress-list-button-padding-inline);
   text-align: start;
 
-  &:hover {
-    color: var(--ams-progress-list-button-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-progress-list-button-hover-color);
+    }
   }
 }
 

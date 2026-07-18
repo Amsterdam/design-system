@@ -27,9 +27,11 @@
   @include print-exact;
   @include text-rendering;
 
-  &:hover {
-    background-color: var(--ams-call-to-action-link-hover-background-color);
-    text-decoration-thickness: var(--ams-call-to-action-link-hover-text-decoration-thickness);
-    text-underline-offset: var(--ams-call-to-action-link-hover-text-underline-offset);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-call-to-action-link-hover-background-color);
+      text-decoration-thickness: var(--ams-call-to-action-link-hover-text-decoration-thickness);
+      text-underline-offset: var(--ams-call-to-action-link-hover-text-underline-offset);
+    }
   }
 }

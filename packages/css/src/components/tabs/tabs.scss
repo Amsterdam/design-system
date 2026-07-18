@@ -49,12 +49,16 @@
     }
   }
 
-  &:hover:not([disabled]) {
-    color: var(--ams-tabs-button-hover-color);
+  @media (hover: hover) {
+    &:hover:not([disabled]) {
+      color: var(--ams-tabs-button-hover-color);
+    }
   }
 
-  &:hover:not([aria-selected="true"], [disabled]) {
-    box-shadow: var(--ams-tabs-button-hover-box-shadow);
+  @media (hover: hover) {
+    &:hover:not([aria-selected="true"], [disabled]) {
+      box-shadow: var(--ams-tabs-button-hover-box-shadow);
+    }
   }
 
   &[aria-selected="true"] {

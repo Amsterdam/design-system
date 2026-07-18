@@ -46,19 +46,23 @@
   border-color: var(--ams-select-invalid-border-color);
 }
 
-.ams-select:not(:disabled):hover {
-  box-shadow: var(--ams-select-hover-box-shadow);
+@media (hover: hover) {
+  .ams-select:not(:disabled):hover {
+    box-shadow: var(--ams-select-hover-box-shadow);
 
-  &:not([multiple]) {
-    /* stylelint-disable-next-line defensive-css/require-background-repeat -- The base rule for this element declares background-repeat; this only swaps the image. */
-    background-image: var(--ams-select-hover-background-image);
+    &:not([multiple]) {
+      /* stylelint-disable-next-line defensive-css/require-background-repeat -- The base rule for this element declares background-repeat; this only swaps the image. */
+      background-image: var(--ams-select-hover-background-image);
+    }
   }
 }
 
-.ams-select:not(:disabled):invalid:hover,
-.ams-select:not(:disabled)[aria-invalid="true"]:hover {
-  border-color: var(--ams-select-invalid-hover-border-color);
-  box-shadow: var(--ams-select-invalid-hover-box-shadow);
+@media (hover: hover) {
+  .ams-select:not(:disabled):invalid:hover,
+  .ams-select:not(:disabled)[aria-invalid="true"]:hover {
+    border-color: var(--ams-select-invalid-hover-border-color);
+    box-shadow: var(--ams-select-invalid-hover-box-shadow);
+  }
 }
 
 .ams-select__option:disabled {

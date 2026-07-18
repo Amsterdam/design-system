@@ -57,7 +57,9 @@
   cursor: var(--ams-file-input-file-selector-button-disabled-cursor);
 }
 
-.ams-file-input:not(:disabled):hover::file-selector-button {
-  box-shadow: var(--ams-file-input-file-selector-button-hover-box-shadow);
-  color: var(--ams-file-input-file-selector-button-hover-color);
+@media (hover: hover) {
+  .ams-file-input:not(:disabled):hover::file-selector-button {
+    box-shadow: var(--ams-file-input-file-selector-button-hover-box-shadow);
+    color: var(--ams-file-input-file-selector-button-hover-color);
+  }
 }

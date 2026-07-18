@@ -17,7 +17,9 @@
   text-align: center;
   text-decoration: none;
 
-  &:hover {
-    background-color: var(--ams-skip-link-hover-background-color);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-skip-link-hover-background-color);
+    }
   }
 }

@@ -53,10 +53,12 @@
   text-underline-offset: var(--ams-pagination-link-text-underline-offset);
   touch-action: manipulation;
 
-  &:hover {
-    background-color: var(--ams-pagination-link-hover-background-color);
-    color: var(--ams-pagination-link-hover-color);
-    text-decoration-line: var(--ams-pagination-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-pagination-link-hover-background-color);
+      color: var(--ams-pagination-link-hover-color);
+      text-decoration-line: var(--ams-pagination-link-hover-text-decoration-line);
+    }
   }
 
   &:active {
@@ -84,10 +86,12 @@
   text-underline-offset: var(--ams-pagination-relative-link-text-underline-offset);
   touch-action: manipulation;
 
-  &:hover {
-    background-color: var(--ams-pagination-relative-link-hover-background-color);
-    color: var(--ams-pagination-relative-link-hover-color);
-    text-decoration-line: var(--ams-pagination-relative-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-pagination-relative-link-hover-background-color);
+      color: var(--ams-pagination-relative-link-hover-color);
+      text-decoration-line: var(--ams-pagination-relative-link-hover-text-decoration-line);
+    }
   }
 
   &:active {
@@ -109,9 +113,11 @@
   color: var(--ams-pagination-link-current-color);
   font-weight: var(--ams-pagination-link-current-font-weight);
 
-  &:hover {
-    background-color: var(--ams-pagination-link-current-hover-background-color);
-    color: var(--ams-pagination-link-current-hover-color);
-    text-decoration: none;
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-pagination-link-current-hover-background-color);
+      color: var(--ams-pagination-link-current-hover-color);
+      text-decoration: none;
+    }
   }
 }

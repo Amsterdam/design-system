@@ -47,9 +47,11 @@
   text-decoration-thickness: var(--ams-table-of-contents-link-text-decoration-thickness);
   text-underline-offset: var(--ams-table-of-contents-link-text-underline-offset);
 
-  &:hover {
-    color: var(--ams-table-of-contents-link-hover-color);
-    text-decoration-line: var(--ams-table-of-contents-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-table-of-contents-link-hover-color);
+      text-decoration-line: var(--ams-table-of-contents-link-hover-text-decoration-line);
+    }
   }
 
   &[aria-current="page"] {
@@ -61,9 +63,11 @@
 .ams-table-of-contents__button {
   color: var(--ams-table-of-contents-button-color);
 
-  &:hover {
-    background-color: transparent;
-    color: var(--ams-table-of-contents-button-hover-color);
+  @media (hover: hover) {
+    &:hover {
+      background-color: transparent;
+      color: var(--ams-table-of-contents-button-hover-color);
+    }
   }
 }
 

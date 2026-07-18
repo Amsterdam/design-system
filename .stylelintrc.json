@@ -52,7 +52,6 @@
         "text-align": ["left", "right"]
       }
     ],
-    "defensive-css/no-accidental-hover": [true, { "severity": "warning" }],
     "defensive-css/no-fixed-sizes": [true, { "severity": "warning" }],
     "defensive-css/no-unsafe-clamp-font-size": null,
     "defensive-css/no-user-select-none": [true, { "severity": "warning" }],

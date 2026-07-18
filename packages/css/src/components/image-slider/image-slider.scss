@@ -87,8 +87,10 @@
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
   outline-offset: var(--ams-button-outline-offset);
 
-  &:hover {
-    opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
+  @media (hover: hover) {
+    &:hover {
+      opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
+    }
   }
 }
 
