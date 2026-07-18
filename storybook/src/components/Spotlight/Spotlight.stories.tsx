@@ -12,6 +12,7 @@ import { spotlightColors, spotlightTags } from '@amsterdam/design-system-react/s
 import { asArgType, colorArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
 import { exampleQuote } from '#storybook/_common/exampleContent'
+import { isCompactTheme } from '#storybook/_common/isCompactTheme'
 
 const quote = exampleQuote()
 
@@ -30,10 +31,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: ({ as, color }) => (
+  render: ({ as, color }, context) => (
     <Spotlight as={as} color={color}>
       <Grid paddingVertical="x-large">
-        <Grid.Cell span="all">
+        <Grid.Cell appearance={isCompactTheme(context) ? 'transparent' : undefined} span="all">
           <Blockquote color={!color || ['azure', 'green', 'magenta'].includes(color) ? 'inverse' : undefined}>
             {quote}
           </Blockquote>
@@ -47,7 +48,7 @@ export const HighlightContent: Story = {
   args: {
     color: 'green',
   },
-  render: ({ color }) => {
+  render: ({ color }, context) => {
     const lightBackgroundColors = ['lime', 'orange', 'yellow']
     const textColor = lightBackgroundColors.includes(color!) ? undefined : 'inverse'
     const linkColor = lightBackgroundColors.includes(color!) ? 'contrast' : 'inverse'
@@ -55,7 +56,10 @@ export const HighlightContent: Story = {
     return (
       <Spotlight color={color}>
         <Grid paddingVertical="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
+          <Grid.Cell
+            appearance={isCompactTheme(context) ? 'transparent' : undefined}
+            span={{ narrow: 4, medium: 5, wide: 7 }}
+          >
             <Heading className="ams-mb-s" color={textColor} level={2} size="level-3">
               Steun geven aan een partij
             </Heading>
