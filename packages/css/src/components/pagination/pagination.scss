@@ -40,6 +40,7 @@
   background-color: var(--ams-pagination-link-background-color);
   color: var(--ams-pagination-link-color);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-weight: var(--ams-pagination-link-font-weight);
   gap: var(--ams-pagination-link-gap);
   min-block-size: var(--ams-pagination-link-min-block-size);
@@ -72,6 +73,7 @@
   background-color: var(--ams-pagination-relative-link-background-color);
   color: var(--ams-pagination-relative-link-color);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-weight: var(--ams-pagination-relative-link-font-weight);
   gap: var(--ams-pagination-relative-link-gap);
   outline-offset: var(--ams-pagination-relative-link-outline-offset);
@@ -97,6 +99,7 @@
 .ams-pagination__ellipsis {
   color: var(--ams-pagination-ellipsis-color);
   display: inline-flex;
+  flex-wrap: nowrap;
   padding-block: var(--ams-pagination-ellipsis-padding-block);
   padding-inline: var(--ams-pagination-ellipsis-padding-inline);
 }

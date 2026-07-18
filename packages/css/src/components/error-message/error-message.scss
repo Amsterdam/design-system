@@ -13,6 +13,7 @@
   box-sizing: border-box;
   color: var(--ams-error-message-color);
   display: flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-error-message-font-family);
   font-size: var(--ams-error-message-font-size);
   font-weight: var(--ams-error-message-font-weight);

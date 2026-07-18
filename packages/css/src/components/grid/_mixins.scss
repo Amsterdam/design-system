@@ -8,14 +8,14 @@
 @mixin ams-grid {
   column-gap: var(--ams-grid-column-gap);
   display: grid;
-  grid-template-columns: repeat(var(--ams-grid-column-count), 1fr);
+  grid-template-columns: repeat(var(--ams-grid-column-count), minmax(0, 1fr));
   padding-inline: var(--ams-grid-padding-inline);
   row-gap: var(--ams-grid-row-gap-xl);
 
   @media (min-width: $ams-breakpoint-medium) {
     grid-template-columns: repeat(
       var(--ams-grid-medium-column-count /* @deprecated */, var(--ams-grid-vi-medium-column-count)),
-      1fr
+      minmax(0, 1fr)
     );
     padding-inline: var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline));
   }
@@ -23,7 +23,7 @@
   @media (min-width: $ams-breakpoint-wide) {
     grid-template-columns: repeat(
       var(--ams-grid-wide-column-count /* @deprecated */, var(--ams-grid-vi-wide-column-count)),
-      1fr
+      minmax(0, 1fr)
     );
     padding-inline: var(--ams-grid-wide-padding-inline /* @deprecated */, var(--ams-grid-vi-wide-padding-inline));
   }

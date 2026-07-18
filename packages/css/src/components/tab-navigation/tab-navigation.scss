@@ -12,6 +12,8 @@
 
   box-shadow: var(--ams-tab-navigation-list-box-shadow);
   display: flex;
+  flex-wrap: nowrap;
+  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- This scrolls horizontally only; scrollbar-gutter reserves space for a vertical scrollbar. */
   overflow-x: auto;
   overflow-y: hidden;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
@@ -42,6 +44,7 @@
   color: var(--ams-tab-navigation-link-color);
   cursor: var(--ams-tab-navigation-link-cursor);
   display: flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-tab-navigation-link-font-family);
   font-size: var(--ams-tab-navigation-link-font-size);
   font-weight: var(--ams-tab-navigation-link-font-weight);

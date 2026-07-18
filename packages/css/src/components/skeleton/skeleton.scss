@@ -63,6 +63,7 @@
   align-items: center;
   column-gap: var(--ams-skeleton-list-item-column-gap);
   display: flex;
+  flex-wrap: nowrap;
   padding-inline-start: var(--ams-skeleton-list-item-padding-inline-start);
 }
 
@@ -75,6 +76,7 @@
 .ams-skeleton__table-row {
   border-block-end: var(--ams-skeleton-table-row-border-block-end);
   display: flex;
+  flex-wrap: nowrap;
 }
 
 .ams-skeleton__table-cell {

@@ -11,6 +11,7 @@
   background-color: var(--ams-call-to-action-link-background-color);
   color: var(--ams-call-to-action-link-color);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-call-to-action-link-font-family);
   font-size: var(--ams-call-to-action-link-font-size);
   font-weight: var(--ams-call-to-action-link-font-weight);

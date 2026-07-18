@@ -13,6 +13,7 @@
   color: var(--ams-checkbox-color);
   cursor: var(--ams-checkbox-cursor);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-checkbox-font-family);
   font-size: var(--ams-checkbox-font-size);
   font-weight: var(--ams-checkbox-font-weight);
@@ -30,6 +31,7 @@
   block-size: var(--ams-checkbox-icon-container-block-size);
   display: flex;
   flex: none;
+  flex-wrap: nowrap;
   inline-size: var(--ams-checkbox-icon-container-inline-size);
 }
 

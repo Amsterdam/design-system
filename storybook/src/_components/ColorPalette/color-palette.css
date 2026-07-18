@@ -12,7 +12,7 @@
 ._ams-color-palette-swatch {
   display: grid;
   gap: 0.125rem;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 
   /* Text or single tile */
   > :only-of-type {

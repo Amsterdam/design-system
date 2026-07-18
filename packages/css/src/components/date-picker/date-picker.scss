@@ -20,6 +20,7 @@
 .ams-date-picker__header {
   align-items: center;
   display: flex;
+  flex-wrap: nowrap;
 }
 
 .ams-date-picker__caption {
@@ -29,14 +30,14 @@
 
 .ams-date-picker__body {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 // Keep the row element in the accessibility tree; avoid `display: contents` which can be dropped by some AT/browser combinations.
 .ams-date-picker__row {
   display: grid;
   grid-column: 1 / -1;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .ams-date-picker__weekday {

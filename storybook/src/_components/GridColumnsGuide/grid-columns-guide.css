@@ -5,7 +5,7 @@
 
 ._ams-grid-columns-guide {
   align-items: stretch;
-  block-size: 100vh;
+  block-size: 100dvh;
   /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
   border-inline: thin solid var(--_ams-color-grey);
   inset-block: 0;

@@ -5,6 +5,7 @@
 
 .ams-row {
   display: flex;
+  flex-wrap: nowrap;
   gap: var(--ams-row-gap-medium);
 }
 
