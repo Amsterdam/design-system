@@ -1,6 +1,7 @@
 {
   "extends": ["stylelint-config-standard-scss"],
   "plugins": [
+    "./stylelint/index.mjs",
     "stylelint-order",
     "stylelint-plugin-use-baseline",
     "stylelint-use-logical",
@@ -8,6 +9,18 @@
   ],
   "rules": {
     "alpha-value-notation": ["percentage"],
+    "ams/no-unsafe-clamp-font-size": [
+      true,
+      {
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
+      }
+    ],
+    "ams/require-system-font-fallback": [
+      true,
+      {
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
+      }
+    ],
     "at-rule-empty-line-before": null,
     "at-rule-no-unknown": null,
     "block-no-empty": true,

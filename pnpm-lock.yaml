@@ -359,6 +359,19 @@ importers:
         specifier: 4.1.10
         version: 4.1.10(@types/node@25.7.0)(@vitest/coverage-v8@4.1.10)(jsdom@26.1.0)(vite@8.1.4(@types/node@25.7.0)(esbuild@0.28.1)(sass@1.101.0)(terser@5.47.1)(yaml@2.9.0))
 
+  stylelint:
+    dependencies:
+      postcss:
+        specifier: 8.5.16
+        version: 8.5.16
+    devDependencies:
+      stylelint:
+        specifier: 17.14.0
+        version: 17.14.0(typescript@6.0.3)
+      vitest:
+        specifier: 4.1.10
+        version: 4.1.10(@types/node@25.7.0)(@vitest/coverage-v8@4.1.10)(jsdom@26.1.0)(vite@8.1.4(@types/node@25.7.0)(esbuild@0.28.1)(sass@1.101.0)(terser@5.47.1)(yaml@2.9.0))
+
 packages:
 
   '@adobe/css-tools@4.4.4':
