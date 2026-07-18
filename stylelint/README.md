@@ -24,6 +24,32 @@ A problem is reported at the declaration that uses the token, so the warning poi
 
 ## Rules
 
+Two kinds of rule live here.
+The two font rules _replace_ their upstream counterparts, which are turned off: they check literal values as well as tokens.
+The other three _complement_ upstream rules that stay on: the upstream rule judges literal values, the rule here only reports a problem that arrives through token resolution.
+A declaration that already violates literally is left to the upstream rule, so no declaration is ever reported twice.
+
+### `ams/no-fixed-sizes`
+
+Reports a size-related declaration whose tokens resolve to a pixel length.
+Pixels do not scale when users raise their default font size, so sizes that should follow text end up fixed.
+
+The property list is taken from the strict configuration of `defensive-css/no-fixed-sizes`, so both rules cover the same properties without maintaining the list twice — extended with the logical border shorthands (`border-inline`, `border-block`, and their start/end variants) that the upstream list misses.
+
+Options:
+
+- `importFrom` — paths to the CSS files to read tokens from, relative to the working directory.
+- `properties` — the properties to check. Defaults to the list described above.
+
+### `ams/no-list-style-none`
+
+Reports a `list-style` or `list-style-type` whose token resolves to `none`.
+Safari then removes the list from the accessibility tree, so VoiceOver no longer announces the list or its item count; `list-style-type: ""` hides markers while keeping the semantics.
+
+Options:
+
+- `importFrom` — paths to the CSS files to read tokens from, relative to the working directory.
+
 ### `ams/no-unsafe-clamp-font-size`
 
 Reports a `font-size` that resolves to a `clamp()` whose maximum is more than 2.5 times its minimum, when the preferred value scales with the viewport.
@@ -37,6 +63,16 @@ Options:
 
 - `importFrom` — paths to the CSS files to read tokens from, relative to the working directory.
 - `maxRatio` — the largest allowed ratio between the minimum and the maximum. Defaults to `2.5`.
+
+### `ams/require-grid-minmax`
+
+Reports a `grid-template-columns` or `grid-template-rows` whose tokens resolve to a track list with a bare `fr` track.
+Such a track cannot shrink below its content’s min-content size, so one long unbreakable word pushes the grid out of its container; `minmax(0, …)` lets it shrink.
+Its first finds were three Description List tokens holding bare `fr` tracks, fixed since.
+
+Options:
+
+- `importFrom` — paths to the CSS files to read tokens from, relative to the working directory.
 
 ### `ams/require-system-font-fallback`
 
@@ -70,9 +106,11 @@ That plugin is installed and extended from its `strict` config, which enables al
 Six of its rules are turned off in [.stylelintrc.json](../.stylelintrc.json), which cannot hold comments, so the reasoning lives here.
 A full audit of all 21 rules — effectiveness, violations, remediation, and impact — is in [documentation/defensive-css.md](../documentation/defensive-css.md).
 
-`defensive-css/no-unsafe-clamp-font-size` and `defensive-css/require-system-font-fallback` are off because the two rules above replace them.
+`defensive-css/no-unsafe-clamp-font-size` and `defensive-css/require-system-font-fallback` are off because the two font rules above replace them.
 Neither upstream rule resolves `var()`, so both pass on every tokenised declaration in this repository.
 The rules here check the same thing and also catch literal values, so running both would only duplicate warnings on the literals.
+
+`defensive-css/no-fixed-sizes`, `defensive-css/no-list-style-none` and `defensive-css/require-grid-minmax` stay on beside their `ams/` complements: they judge the literal values, the `ams/` rules judge what tokens resolve to.
 
 `defensive-css/require-custom-property-fallback` is off.
 It asks for `var(--token, fallback)` at every use, which would restate a value that the token already defines and leave two places to change it.

@@ -100,6 +100,7 @@
 /* Connector */
 
 .ams-progress-list__connector {
+  /* stylelint-disable-next-line ams/no-fixed-sizes -- A hairline connector. */
   border-inline: var(--ams-progress-list-step-connector-border-inline-width)
     var(--ams-progress-list-step-connector-border-inline-style)
     var(--ams-progress-list-step-connector-border-inline-color);
@@ -298,6 +299,7 @@
   background-color: var(--ams-progress-list-substeps-step-connector-background-color);
   border-inline-color: var(--ams-progress-list-substeps-step-connector-border-inline-color);
   border-inline-style: var(--ams-progress-list-substeps-step-connector-border-inline-style);
+  /* stylelint-disable-next-line ams/no-fixed-sizes -- A hairline connector. */
   border-inline-width: var(--ams-progress-list-substeps-step-connector-border-inline-width);
   margin-block-start: var(--ams-progress-list-substeps-step-connector-margin-block-start);
 

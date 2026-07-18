@@ -180,6 +180,48 @@ export function hasViewportUnit(value) {
 }
 
 /**
+ * Blanks out every call of the given function in a value, keeping the string length intact so that
+ * positions elsewhere in the value stay valid.
+ *
+ * @param {string} value - The value to blank in.
+ * @param {string} functionName - The function whose calls to blank.
+ * @returns {string} The value with each call replaced by spaces.
+ */
+function blankFunction(value, functionName) {
+  let result = value
+  let call
+
+  while ((call = findFunction(result, functionName))) {
+    result = result.slice(0, call.start) + ' '.repeat(call.end - call.start) + result.slice(call.end)
+  }
+
+  return result
+}
+
+/**
+ * Reports whether a track list contains a flexible track that is not wrapped in `minmax()`.
+ * Such a track cannot shrink below its content’s min-content size, so long unbreakable content
+ * pushes the grid out of its container.
+ *
+ * @param {string} value - The resolved track list to test.
+ * @returns {boolean} True when a bare `fr` track is present.
+ */
+export function hasBareFrTrack(value) {
+  return /(?:^|[\s,(])\d*\.?\d+fr\b/i.test(blankFunction(value, 'minmax'))
+}
+
+/**
+ * Reports whether a value contains a length in pixels.
+ * Quoted strings are ignored, so a font name or content string cannot produce a match.
+ *
+ * @param {string} value - The resolved value to test.
+ * @returns {boolean} True when a pixel length is present.
+ */
+export function hasPixelLength(value) {
+  return /(?:^|[^\w.-])-?\d*\.?\d+px\b/i.test(value.replace(/(['"]).*?\1/g, ' '))
+}
+
+/**
  * Reports whether a value contains Sass interpolation, which only resolves when the stylesheet is
  * compiled and therefore cannot be judged here.
  *
