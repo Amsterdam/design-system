@@ -39,6 +39,7 @@
   align-self: start; // To align the logo link section to the top of the header when it wraps
   column-gap: var(--ams-page-header-logo-link-column-gap);
   display: flex;
+  flex-wrap: nowrap;
   grid-area: 1 / 1; /* Lets this visible instance of Logo Link overlap the hidden one in Navigation. */
   inline-size: fit-content;
   outline-offset: var(--ams-page-header-logo-link-outline-offset);
@@ -160,6 +161,7 @@
 
   color: var(--ams-page-header-menu-link-color);
   display: inline-flex;
+  flex-wrap: nowrap;
   gap: var(--ams-page-header-menu-link-gap);
   text-decoration-line: var(--ams-page-header-menu-link-text-decoration-line);
   text-decoration-thickness: var(--ams-page-header-menu-link-text-decoration-thickness);

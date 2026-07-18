@@ -18,6 +18,7 @@
   color: var(--ams-radio-color);
   cursor: var(--ams-radio-cursor);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-radio-font-family);
   font-size: var(--ams-radio-font-size);
   font-weight: var(--ams-radio-font-weight);
@@ -35,6 +36,7 @@
   block-size: var(--ams-radio-icon-container-block-size);
   display: flex;
   flex: none;
+  flex-wrap: nowrap;
   inline-size: var(--ams-radio-icon-container-inline-size);
 }
 

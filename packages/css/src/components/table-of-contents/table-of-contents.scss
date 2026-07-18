@@ -84,6 +84,7 @@
   display: none;
 
   @media print {
+    /* stylelint-disable-next-line defensive-css/require-flex-wrap -- The base rule makes this a column flex container; this only restores visibility for print. */
     display: flex;
   }
 }

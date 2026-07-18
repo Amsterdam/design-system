@@ -9,6 +9,7 @@
 
 .ams-search-field {
   display: flex;
+  flex-wrap: nowrap;
   isolation: isolate; // create new stacking context, so the input’s z-index doesn’t escape the component
 }
 

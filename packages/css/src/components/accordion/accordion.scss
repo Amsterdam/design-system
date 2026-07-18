@@ -23,6 +23,7 @@
   color: var(--ams-accordion-button-color);
   cursor: var(--ams-accordion-button-cursor);
   display: flex;
+  flex-wrap: nowrap;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;

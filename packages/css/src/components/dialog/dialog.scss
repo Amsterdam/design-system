@@ -70,6 +70,7 @@ so do not apply these styles without an `open` attribute. */
 .ams-dialog__header {
   align-items: flex-start;
   display: flex;
+  flex-wrap: nowrap;
   gap: var(--ams-dialog-header-gap);
   justify-content: space-between;
   padding-block: var(--ams-dialog-header-padding-block);

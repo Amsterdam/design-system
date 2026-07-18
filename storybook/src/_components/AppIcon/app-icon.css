@@ -5,6 +5,7 @@
 
 ._ams-app-icon {
   display: flex;
+  flex-wrap: nowrap;
   gap: 0.25rem;
   margin-block: 0;
   margin-inline: 0;
@@ -25,6 +26,7 @@
 ._ams-app-icon-set {
   align-items: flex-end;
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   margin-block: 1.5rem !important;
 }

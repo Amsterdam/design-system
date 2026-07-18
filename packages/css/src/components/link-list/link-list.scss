@@ -22,6 +22,7 @@
   align-items: flex-start;
   color: var(--ams-link-list-link-color);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-link-list-link-font-family);
   font-size: var(--ams-link-list-link-font-size);
   font-weight: var(--ams-link-list-link-font-weight);

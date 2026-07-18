@@ -55,6 +55,7 @@
 
 .ams-image-slider__controls {
   display: flex;
+  flex-wrap: nowrap;
   grid-column: 1/-1;
   grid-row: 1;
   justify-content: space-between;
