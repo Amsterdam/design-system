@@ -20,16 +20,18 @@ const ruleName = 'ams/no-fixed-sizes'
 
 /* The size-related properties come from the strict configuration of defensive-css/no-fixed-sizes,
  * so both rules cover the same properties without maintaining the list twice.
+ * A failed lookup is not fatal here: it is reported at rule execution, where an explicit
+ * `properties` option still works.
  */
 const require = createRequire(import.meta.url)
-const strictConfiguration = require('stylelint-plugin-defensive-css/configs/strict')
+let strictProperties
 
-const strictProperties = strictConfiguration.rules?.['defensive-css/no-fixed-sizes']?.[1]?.properties
-
-if (!strictProperties) {
-  throw new Error(
-    `${ruleName}: could not read the property list from the strict configuration of stylelint-plugin-defensive-css. The package layout may have changed; pass the \`properties\` option explicitly`,
-  )
+try {
+  strictProperties = require('stylelint-plugin-defensive-css/configs/strict').rules?.[
+    'defensive-css/no-fixed-sizes'
+  ]?.[1]?.properties
+} catch {
+  /* Reported at rule execution. */
 }
 
 /* The upstream list has the border longhands and the physical `border` shorthand, but misses the
@@ -44,11 +46,14 @@ const LOGICAL_BORDER_SHORTHANDS = [
   'border-inline-start',
 ]
 
-const DEFAULT_PROPERTIES = [...Object.keys(strictProperties), ...LOGICAL_BORDER_SHORTHANDS]
+const DEFAULT_PROPERTIES = strictProperties
+  ? [...Object.keys(strictProperties), ...LOGICAL_BORDER_SHORTHANDS]
+  : null
 
 const messages = utils.ruleMessages(ruleName, {
   missingFile: (filePath) =>
     `Could not read "${filePath}", so sizes that use tokens were not checked. Run \`pnpm --filter @amsterdam/design-system-tokens run build\` to generate it`,
+  missingPropertyList: `Could not read the property list from the strict configuration of stylelint-plugin-defensive-css. The package layout may have changed; pass the \`properties\` option explicitly`,
   rejected: (source, property) =>
     `Expected "${source}" not to resolve to a pixel length in "${property}". Relative units let sizes follow the font size that users configure`,
 })
@@ -59,6 +64,9 @@ const meta = { url: 'https://github.com/Amsterdam/design-system/blob/develop/sty
  * stylesheet.
  */
 const warnedFiles = new Set()
+
+/* Same once-per-run guard for a missing property list. */
+let warnedMissingPropertyList = false
 
 /** @type {import('stylelint').Rule} */
 const rule =
@@ -82,7 +90,19 @@ const rule =
       return
     }
 
-    const properties = new Set((secondaryOptions.properties ?? DEFAULT_PROPERTIES).map((name) => name.toLowerCase()))
+    const configuredProperties = secondaryOptions.properties ?? DEFAULT_PROPERTIES
+
+    if (!configuredProperties) {
+      if (!warnedMissingPropertyList) {
+        warnedMissingPropertyList = true
+
+        result.warn(messages.missingPropertyList, { stylelintType: 'invalidOption' })
+      }
+
+      return
+    }
+
+    const properties = new Set(configuredProperties.map((name) => name.toLowerCase()))
     const { customProperties, missingFiles } = readCustomProperties([secondaryOptions.importFrom ?? []].flat())
 
     for (const missingFile of missingFiles) {
