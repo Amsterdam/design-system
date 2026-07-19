@@ -47,6 +47,7 @@
 }
 
 .ams-search-field__input:disabled {
+  background-color: var(--ams-search-field-input-disabled-background-color);
   color: var(--ams-search-field-input-disabled-color);
   cursor: var(--ams-search-field-input-disabled-cursor);
 }
