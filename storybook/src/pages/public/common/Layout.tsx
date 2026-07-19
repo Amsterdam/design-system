@@ -7,7 +7,7 @@ import type { PropsWithChildren } from 'react'
 
 import { PageFooter, SkipLink } from '@amsterdam/design-system-react'
 
-import { Default as PageFooterStory } from '../../../components/PageFooter/PageFooter.stories'
+import { PageFooterContent } from '../../../components/PageFooter/PageFooterContent'
 import { AppHeader } from './AppHeader'
 
 type SkipLinkItem = {
@@ -31,6 +31,8 @@ export const Layout = ({
     ))}
     <AppHeader />
     {children}
-    <PageFooter>{PageFooterStory.args?.children}</PageFooter>
+    <PageFooter>
+      <PageFooterContent />
+    </PageFooter>
   </>
 )
