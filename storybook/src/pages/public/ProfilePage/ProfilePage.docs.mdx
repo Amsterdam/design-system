@@ -1,0 +1,56 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import * as ProfileStories from "./ProfilePage.stories.tsx";
+
+<Meta of={ProfileStories} />
+
+# Profile page
+
+A profile page presents a single subject: a person, a group of people, or a place.
+It answers who or what the subject is, what it offers, and how to reach or visit it.
+
+All five variants share the same skeleton.
+The page opens with a breadcrumb, a title and a lead paragraph, followed by the sections that describe the subject.
+A Spotlight then groups the calls to action, and a set of side-by-side blocks carries the practical details.
+
+## Variants
+
+**Person** profiles an individual with a public role, such as the mayor.
+A portrait sits beside the lead, and Accordions at the end hold the long biographical detail that most visitors do not need.
+
+**Group** profiles a body of people that acts as one, such as a party group in the city council.
+It adds an address and contact block built from Description Lists, and closes with a grid of Cards, one per member.
+
+**Location** profiles a single place people can visit.
+A full-width image establishes the place, and the practical blocks answer what can be hired, how to get there and where to park.
+
+**Location large** is the same page for a venue with several halls and much more practical information.
+It adds an Alert for temporary disruptions, Cards for the individual spaces, and a longer run of detail blocks.
+
+**Sublocation** profiles a place that belongs to a larger one, so its breadcrumb is one level deeper.
+It drops the full-width image and instead pairs the facilities list with an Image Slider.
+
+## How to build these pages
+
+The Layout does not render `<main>`, so each page provides its own `<main id="inhoud">`, which is the Skip Link target.
+The Breadcrumb sits in its own Grid above it.
+
+A Spotlight has to be a sibling of the Grids rather than a child of a Grid Cell, because it needs the full page width.
+It carries its own Grid, and every Heading, Paragraph and link inside the magenta variant needs `color="inverse"`.
+
+Use the [recommended Cell sizes](/docs/pages-public-introduction--docs) for each kind of section.
+Note that the title and lead sit one column further right than the sections below them, which is deliberate.
+
+Group a set of photos in an Image Slider rather than a Row.
+Images in a Row keep their intrinsic width instead of shrinking, so they overflow the Cell and cover the next column.
+
+## See also
+
+- [Accordion](/docs/components-containers-accordion--docs)
+- [Card](/docs/components-navigation-card--docs)
+- [Description List](/docs/components-text-description-list--docs)
+- [Grid](/docs/components-layout-grid--docs)
+- [Image Slider](/docs/components-media-image-slider--docs)
+- [Spotlight](/docs/components-containers-spotlight--docs)
