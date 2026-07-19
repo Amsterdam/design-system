@@ -92,7 +92,8 @@
       },
       "disabled": {
         "background-color": {
-          "$value": "{ams.color.interactive.disabled}",
+          "$value": "#d1d1d1",
+          "$description": "A lighter grey than the default track, so a disabled switch reads as distinct from an enabled one.",
           "$extensions": {
             "nl.amsterdam.type": "color"
           }
