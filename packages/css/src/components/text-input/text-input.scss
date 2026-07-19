@@ -39,6 +39,7 @@
 }
 
 .ams-text-input:disabled {
+  background-color: var(--ams-text-input-disabled-background-color);
   color: var(--ams-text-input-disabled-color);
   cursor: var(--ams-text-input-disabled-cursor);
 }
