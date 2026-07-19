@@ -6,7 +6,9 @@
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
-import { forwardRef, useId } from 'react'
+import { forwardRef, useContext, useId } from 'react'
+
+import { SearchFieldContext } from './SearchFieldContext'
 
 type SearchFieldInputProps = {
   /** Whether the value fails a validation rule. */
@@ -22,11 +24,12 @@ type SearchFieldInputProps = {
  */
 export const SearchFieldInput = forwardRef(
   (
-    { className, dir, id, invalid, label = 'Zoeken', ...restProps }: SearchFieldInputProps,
+    { className, dir, disabled, id, invalid, label = 'Zoeken', ...restProps }: SearchFieldInputProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     const generatedId = useId()
     const inputId = id ?? generatedId
+    const { disabled: disabledFromContext } = useContext(SearchFieldContext)
 
     return (
       <>
@@ -39,6 +42,7 @@ export const SearchFieldInput = forwardRef(
           autoComplete="off"
           className={clsx('ams-search-field__input', className)}
           dir={dir ?? 'auto'}
+          disabled={disabled ?? disabledFromContext}
           enterKeyHint="search"
           id={inputId}
           ref={ref}

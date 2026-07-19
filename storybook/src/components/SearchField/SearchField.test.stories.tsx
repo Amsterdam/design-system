@@ -58,9 +58,9 @@ export const Test: Story = {
         <SearchField.Input className="hover" />
         <SearchField.Button className="hover" />
       </SearchField>
-      <SearchField {...args}>
-        <SearchField.Input disabled />
-        <SearchField.Button disabled />
+      <SearchField {...args} disabled>
+        <SearchField.Input />
+        <SearchField.Button />
       </SearchField>
     </div>
   ),

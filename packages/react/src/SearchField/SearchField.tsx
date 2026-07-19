@@ -9,16 +9,22 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 import { SearchFieldButton } from './SearchFieldButton'
+import { SearchFieldContext } from './SearchFieldContext'
 import { SearchFieldInput } from './SearchFieldInput'
 
-export type SearchFieldProps = PropsWithChildren<HTMLAttributes<HTMLFormElement>>
+export type SearchFieldProps = {
+  /** Whether the Input and Button are unavailable. Each of them can override this. */
+  readonly disabled?: boolean
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLFormElement>>>
 
 const SearchFieldRoot = forwardRef(
-  ({ children, className, ...restProps }: SearchFieldProps, ref: ForwardedRef<HTMLFormElement>) => {
+  ({ children, className, disabled, ...restProps }: SearchFieldProps, ref: ForwardedRef<HTMLFormElement>) => {
     return (
-      <form role="search" {...restProps} className={clsx('ams-search-field', className)} ref={ref}>
-        {children}
-      </form>
+      <SearchFieldContext.Provider value={{ disabled }}>
+        <form role="search" {...restProps} className={clsx('ams-search-field', className)} ref={ref}>
+          {children}
+        </form>
+      </SearchFieldContext.Provider>
     )
   },
 )

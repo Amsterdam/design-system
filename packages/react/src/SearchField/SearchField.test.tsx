@@ -54,4 +54,58 @@ describe('SearchField', () => {
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })
+
+  it('disables the input and the button', () => {
+    render(
+      <SearchField disabled>
+        <SearchField.Input />
+        <SearchField.Button />
+      </SearchField>,
+    )
+
+    expect(screen.getByRole('searchbox')).toBeDisabled()
+    expect(screen.getByRole('button')).toBeDisabled()
+  })
+
+  it('leaves the input and the button enabled by default', () => {
+    render(
+      <SearchField>
+        <SearchField.Input />
+        <SearchField.Button />
+      </SearchField>,
+    )
+
+    expect(screen.getByRole('searchbox')).toBeEnabled()
+    expect(screen.getByRole('button')).toBeEnabled()
+  })
+
+  it('does not render the disabled attribute on the form', () => {
+    render(<SearchField disabled />)
+
+    expect(screen.getByRole('search')).not.toHaveAttribute('disabled')
+  })
+
+  it('lets the input and the button override the disabled state', () => {
+    render(
+      <SearchField disabled>
+        <SearchField.Input disabled={false} />
+        <SearchField.Button disabled={false} />
+      </SearchField>,
+    )
+
+    expect(screen.getByRole('searchbox')).toBeEnabled()
+    expect(screen.getByRole('button')).toBeEnabled()
+  })
+
+  it('lets the input and the button disable themselves', () => {
+    render(
+      <SearchField>
+        <SearchField.Input disabled />
+        <SearchField.Button disabled />
+      </SearchField>,
+    )
+
+    expect(screen.getByRole('searchbox')).toBeDisabled()
+    expect(screen.getByRole('button')).toBeDisabled()
+  })
 })
