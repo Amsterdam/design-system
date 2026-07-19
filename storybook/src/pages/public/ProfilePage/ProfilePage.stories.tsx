@@ -23,7 +23,9 @@ import {
   StandaloneLink,
   UnorderedList,
 } from '@amsterdam/design-system-react'
-import { MailIcon } from '@amsterdam/design-system-react-icons'
+import { MailIcon, PersonsIcon } from '@amsterdam/design-system-react-icons'
+
+import { PhotoPlaceholder } from '#storybook/_components/PhotoPlaceholder/PhotoPlaceholder'
 
 import { commonMeta } from '../common/commonMeta'
 import { councilMembers, groupRepresentatives } from './data'
@@ -97,7 +99,7 @@ export const Person: StoryObj = {
             </UnorderedList>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
-            <Image alt="Portret van de burgemeester." aspectRatio="3:4" src="https://picsum.photos/id/832/600/800" />
+            <PhotoPlaceholder aspectRatio="3:4" />
           </Grid.Cell>
         </Grid>
         <Spotlight as="section" color="magenta">
@@ -242,7 +244,7 @@ export const Group: StoryObj = {
             </Paragraph>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
-            <Image alt="Het logo van de Stadspartij" aspectRatio="16:9" src="https://picsum.photos/id/24/640/360" />
+            <PhotoPlaceholder aspectRatio="16:9" icon={PersonsIcon} />
           </Grid.Cell>
           <Grid.Cell span="all">
             <Heading level={2}>Adres en contact</Heading>
@@ -325,10 +327,10 @@ export const Group: StoryObj = {
           <Grid.Cell span="all">
             <Heading level={2}>Raadsleden</Heading>
           </Grid.Cell>
-          {councilMembers.map(({ imageId, name, role }) => (
+          {councilMembers.map(({ name, role }) => (
             <Grid.Cell key={name} span={4}>
               <Card>
-                <Card.Image alt="" aspectRatio="16:9" src={`https://picsum.photos/id/${imageId}/480/270`} />
+                <PhotoPlaceholder aspectRatio="16:9" className="ams-card__image" />
                 <Card.Heading level={3}>
                   <Card.Link href="#">{name}</Card.Link>
                 </Card.Heading>
@@ -339,10 +341,10 @@ export const Group: StoryObj = {
           <Grid.Cell span="all">
             <Heading level={2}>Fractievertegenwoordigers</Heading>
           </Grid.Cell>
-          {groupRepresentatives.map(({ imageId, name, role }) => (
+          {groupRepresentatives.map(({ name, role }) => (
             <Grid.Cell key={name} span={4}>
               <Card>
-                <Card.Image alt="" aspectRatio="16:9" src={`https://picsum.photos/id/${imageId}/480/270`} />
+                <PhotoPlaceholder aspectRatio="16:9" className="ams-card__image" />
                 <Card.Heading level={3}>
                   <Card.Link href="#">{name}</Card.Link>
                 </Card.Heading>
