@@ -1014,13 +1014,13 @@
       "jsDocTags": {},
       "error": {
         "name": "No component found",
-        "message": "We could not detect the component from your story file. Specify meta.component.\n  12 | import { default as dateInputMeta } from './DateInput.stories'\n  13 |\n> 14 | const meta = {\n     | ^\n  15 |   ...dateInputMeta,\n  16 |   title: 'Components/Forms/Date Input',\n  17 | } satisfies Meta<typeof DateInput>\n\n./src/components/DateInput/DateInput.test.stories.tsx:\n/**\n * @license EUPL-1.2+\n * Copyright Gemeente Amsterdam\n */\n\nimport type { Meta, StoryObj } from '@storybook/react-vite'\n\nimport { DateInput } from '@amsterdam/design-system-react/src'\n\nimport { renderComponentVariants } from '#storybook/_common/renderComponentVariants'\n\nimport { default as dateInputMeta } from './DateInput.stories'\n\nconst meta = {\n  ...dateInputMeta,\n  title: 'Components/Forms/Date Input',\n} satisfies Meta<typeof DateInput>\n\nexport default meta\n\ntype Story = StoryObj<typeof meta>\n\nexport const Test: Story = {\n  render: (args, context) => renderComponentVariants(DateInput, { args }, context),\n  tags: ['!dev', '!autodocs'],\n}\n"
+        "message": "We could not detect the component from your story file. Specify meta.component.\n  12 | import { default as dateInputMeta } from './DateInput.stories'\n  13 |\n> 14 | const meta = {\n     | ^\n  15 |   ...dateInputMeta,\n  16 |   title: 'Components/Forms/Date Input',\n  17 | } satisfies Meta<typeof DateInput>\n\n./src/components/DateInput/DateInput.test.stories.tsx:\n/**\n * @license EUPL-1.2+\n * Copyright Gemeente Amsterdam\n */\n\nimport type { Meta, StoryObj } from '@storybook/react-vite'\n\nimport { DateInput } from '@amsterdam/design-system-react/src'\n\nimport { renderComponentVariants } from '#storybook/_common/renderComponentVariants'\n\nimport { default as dateInputMeta } from './DateInput.stories'\n\nconst meta = {\n  ...dateInputMeta,\n  title: 'Components/Forms/Date Input',\n} satisfies Meta<typeof DateInput>\n\nexport default meta\n\ntype Story = StoryObj<typeof meta>\n\nexport const Test: Story = {\n  render: (args, context) => renderComponentVariants(DateInput, { args, variants: ['disabled'] }, context),\n  tags: ['!dev', '!autodocs'],\n}\n"
       },
       "stories": [
         {
           "id": "components-forms-date-input--test",
           "name": "Test",
-          "snippet": "const Test = (args, context) => renderComponentVariants(DateInput, { args }, context);"
+          "snippet": "const Test = (args, context) => renderComponentVariants(DateInput, { args, variants: ['disabled'] }, context);"
         }
       ],
       "docs": {
@@ -1692,13 +1692,13 @@
       "jsDocTags": {},
       "error": {
         "name": "No component found",
-        "message": "We could not detect the component from your story file. Specify meta.component.\n  12 | import { default as passwordInputMeta } from './PasswordInput.stories'\n  13 |\n> 14 | const meta = {\n     | ^\n  15 |   ...passwordInputMeta,\n  16 |   title: 'Components/Forms/Password Input',\n  17 | } satisfies Meta<typeof PasswordInput>\n\n./src/components/PasswordInput/PasswordInput.test.stories.tsx:\n/**\n * @license EUPL-1.2+\n * Copyright Gemeente Amsterdam\n */\n\nimport type { Meta, StoryObj } from '@storybook/react-vite'\n\nimport { PasswordInput } from '@amsterdam/design-system-react/src'\n\nimport { renderComponentVariants } from '#storybook/_common/renderComponentVariants'\n\nimport { default as passwordInputMeta } from './PasswordInput.stories'\n\nconst meta = {\n  ...passwordInputMeta,\n  title: 'Components/Forms/Password Input',\n} satisfies Meta<typeof PasswordInput>\n\nexport default meta\n\ntype Story = StoryObj<typeof meta>\n\nexport const Test: Story = {\n  render: (args, context) => renderComponentVariants(PasswordInput, { args }, context),\n  tags: ['!dev', '!autodocs'],\n}\n"
+        "message": "We could not detect the component from your story file. Specify meta.component.\n  12 | import { default as passwordInputMeta } from './PasswordInput.stories'\n  13 |\n> 14 | const meta = {\n     | ^\n  15 |   ...passwordInputMeta,\n  16 |   title: 'Components/Forms/Password Input',\n  17 | } satisfies Meta<typeof PasswordInput>\n\n./src/components/PasswordInput/PasswordInput.test.stories.tsx:\n/**\n * @license EUPL-1.2+\n * Copyright Gemeente Amsterdam\n */\n\nimport type { Meta, StoryObj } from '@storybook/react-vite'\n\nimport { PasswordInput } from '@amsterdam/design-system-react/src'\n\nimport { renderComponentVariants } from '#storybook/_common/renderComponentVariants'\n\nimport { default as passwordInputMeta } from './PasswordInput.stories'\n\nconst meta = {\n  ...passwordInputMeta,\n  title: 'Components/Forms/Password Input',\n} satisfies Meta<typeof PasswordInput>\n\nexport default meta\n\ntype Story = StoryObj<typeof meta>\n\nexport const Test: Story = {\n  render: (args, context) => renderComponentVariants(PasswordInput, { args, variants: ['disabled'] }, context),\n  tags: ['!dev', '!autodocs'],\n}\n"
       },
       "stories": [
         {
           "id": "components-forms-password-input--test",
           "name": "Test",
-          "snippet": "const Test = (args, context) => renderComponentVariants(PasswordInput, { args }, context);"
+          "snippet": "const Test = (args, context) => renderComponentVariants(PasswordInput, { args, variants: ['disabled'] }, context);"
         }
       ],
       "docs": {
@@ -5824,6 +5824,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4038
+    "durationMs": 4384
   }
 }
