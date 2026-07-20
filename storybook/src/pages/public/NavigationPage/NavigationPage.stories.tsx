@@ -277,7 +277,7 @@ export const WithInteractiveElement: StoryObj = {
       ))}
     </Grid>
     <Spotlight>
-      <Grid paddingVertical="large">
+      <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-m" color="inverse" level={2} size="level-3">Parkeertarieven</Heading>
           {/* An interactive element in the page: a search field. On the dark Spotlight, its links take color="inverse". */}
@@ -333,7 +333,7 @@ export const WithInteractiveElement: StoryObj = {
           ))}
         </Grid>
         <Spotlight>
-          <Grid paddingVertical="large">
+          <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
               <Heading className="ams-mb-m" color="inverse" level={2} size="level-3">
                 Parkeertarieven
@@ -670,7 +670,7 @@ export const SubnavigationPage: StoryObj = {
       </Grid.Cell>
     </Grid>
     <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
-    <Grid paddingVertical="large">
+    <Grid paddingVertical="x-large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-s" level={2}>L2 Paragraaf titel</Heading>
@@ -709,7 +709,7 @@ export const SubnavigationPage: StoryObj = {
       </Grid.Cell>
     </Grid>
     <Spotlight color="magenta">
-      <Grid paddingVertical="large">
+      <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">Titel</Heading>
           <Paragraph color="inverse">Voorbeeldtekst bij dit onderwerp.</Paragraph>
@@ -720,7 +720,7 @@ export const SubnavigationPage: StoryObj = {
         </Grid.Cell>
       </Grid>
     </Spotlight>
-    <Grid paddingBottom="2x-large" paddingTop="large">
+    <Grid paddingBottom="2x-large" paddingTop="x-large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-s" level={2}>L2 Paragraaf titel</Heading>
@@ -767,7 +767,7 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
         </Grid>
         <Image alt="" aspectRatio="16:5" src={exampleImageSource(1440, 450)} />
-        <Grid paddingVertical="large">
+        <Grid paddingVertical="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={2}>
@@ -817,7 +817,7 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
         </Grid>
         <Spotlight color="magenta">
-          <Grid paddingVertical="large">
+          <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
               <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 {exampleHeading()}
@@ -832,7 +832,7 @@ export const SubnavigationPage: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Grid paddingBottom="2x-large" paddingTop="large">
+        <Grid paddingBottom="2x-large" paddingTop="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={2}>

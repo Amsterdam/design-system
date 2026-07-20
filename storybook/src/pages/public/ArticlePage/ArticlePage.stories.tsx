@@ -131,7 +131,7 @@ const meta = {
           </Grid.Cell>
         </Grid>
       </Spotlight>
-      <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="large" paddingBottom="2x-large" paddingTop="x-large">
+      <Grid aria-labelledby="meer-nieuws" as="aside" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span="all">
           <Heading id="meer-nieuws" level={2} size="level-1">
             Meer nieuws
@@ -280,7 +280,7 @@ export const Default: StoryObj = {
     </Grid>
   </Spotlight>
   {/* Related articles as a labelled aside (Grid as="aside"), outside the article’s <main>. */}
-  <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="large" paddingBottom="2x-large" paddingTop="x-large">
+  <Grid aria-labelledby="meer-nieuws" as="aside" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span="all">
       <Heading id="meer-nieuws" level={2} size="level-1">Meer nieuws</Heading>
     </Grid.Cell>

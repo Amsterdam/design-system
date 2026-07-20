@@ -19,7 +19,7 @@ const meta = {
     <main id="inhoud">
       <h1 className="ams-visually-hidden">Homepage van de gemeente Amsterdam</h1>
       <Overlap>{OverlapStory.args?.children}</Overlap>
-      <Grid gapVertical="large" paddingVertical="x-large">
+      <Grid paddingVertical="x-large">
         <Grid.Cell span="all">
           <Heading level={2} size="level-1">
             {topTaskSection.title}
@@ -53,7 +53,7 @@ const meta = {
           ))}
         </Grid>
       </Spotlight>
-      <Grid gapVertical="large" paddingBottom="2x-large" paddingTop="x-large">
+      <Grid paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span="all">
           <Heading level={2} size="level-1">
             {newsSection.title}
@@ -94,7 +94,7 @@ export const Default: StoryObj = {
   <h1 className="ams-visually-hidden">Homepage van de gemeente Amsterdam</h1>
   {/* A hero that overlaps a full-width image with the block beneath it – see the Overlap component. */}
   <Overlap>{/* … */}</Overlap>
-  <Grid gapVertical="large" paddingVertical="x-large">
+  <Grid paddingVertical="x-large">
     <Grid.Cell span="all">
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
       <Heading level={2} size="level-1">{topTaskSection.title}</Heading>
@@ -123,7 +123,7 @@ export const Default: StoryObj = {
       ))}
     </Grid>
   </Spotlight>
-  <Grid gapVertical="large" paddingBottom="2x-large" paddingTop="x-large">
+  <Grid paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span="all">
       <Heading level={2} size="level-1">{newsSection.title}</Heading>
     </Grid.Cell>

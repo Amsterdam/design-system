@@ -94,7 +94,7 @@ export const Default: StoryObj = {
     const currentPage = findPage(currentSlug) ?? pages[0]
 
     return (
-      <Grid paddingBottom="2x-large" paddingTop="x-large">
+      <Grid paddingBottom="2x-large" paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
           <TableOfContents collapsible heading="Inhoudsopgave" id="inhoudsopgave">
             {renderTocList(pages, { currentSlug, expandedSlugs, onSelect: handleSelect, onToggle: handleToggle })}

@@ -99,7 +99,7 @@ const meta = {
 
     return (
       <main id="inhoud">
-        <Grid gapVertical="large" paddingTop="x-large">
+        <Grid paddingTop="large">
           <Grid.Cell span="all">
             <Heading level={1}>Zoeken op amsterdam.nl</Heading>
           </Grid.Cell>
