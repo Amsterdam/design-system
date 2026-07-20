@@ -69,7 +69,7 @@ export const Default: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
-  <Grid as="main" id="inhoud" paddingBottom="x-large">
+  <Grid as="main" id="inhoud" paddingBottom="2x-large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Heading className="ams-mb-m" level={1}>Burgerzaken</Heading>
       <Paragraph size="large">
@@ -107,7 +107,7 @@ export const Default: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
-      <Grid as="main" id="inhoud" paddingBottom="x-large">
+      <Grid as="main" id="inhoud" paddingBottom="2x-large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-m" level={1}>
             Burgerzaken
@@ -149,7 +149,7 @@ export const WithTopTasks: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
-  <Grid as="main" id="inhoud" paddingBottom="x-large">
+  <Grid as="main" id="inhoud" paddingBottom="2x-large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Heading className="ams-mb-m" level={1}>Leefomgeving</Heading>
     </Grid.Cell>
@@ -200,7 +200,7 @@ export const WithTopTasks: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
-      <Grid as="main" id="inhoud" paddingBottom="x-large">
+      <Grid as="main" id="inhoud" paddingBottom="2x-large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-m" level={1}>
             Leefomgeving
@@ -451,7 +451,7 @@ export const WithImageGallery: StoryObj = {
         </Grid.Cell>
       </Grid>
     </Spotlight>
-    <Grid paddingVertical="x-large">
+    <Grid paddingBottom="2x-large" paddingTop="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-s" level={2} size="level-3">Pers en woordvoering</Heading>
         <Paragraph className="ams-mb-s">Voor vragen van journalisten aan de afdeling Bestuursvoorlichting.</Paragraph>
@@ -593,7 +593,7 @@ export const WithImageGallery: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Grid paddingVertical="x-large">
+        <Grid paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={2} size="level-3">
               Pers en woordvoering
@@ -720,7 +720,7 @@ export const SubnavigationPage: StoryObj = {
         </Grid.Cell>
       </Grid>
     </Spotlight>
-    <Grid paddingVertical="large">
+    <Grid paddingBottom="2x-large" paddingTop="large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-s" level={2}>L2 Paragraaf titel</Heading>
@@ -832,7 +832,7 @@ export const SubnavigationPage: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Grid paddingVertical="large">
+        <Grid paddingBottom="2x-large" paddingTop="large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={2}>

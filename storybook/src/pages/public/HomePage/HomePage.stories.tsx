@@ -53,7 +53,7 @@ const meta = {
           ))}
         </Grid>
       </Spotlight>
-      <Grid gapVertical="large" paddingVertical="x-large">
+      <Grid gapVertical="large" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span="all">
           <Heading level={2} size="level-1">
             {newsSection.title}
@@ -123,7 +123,7 @@ export const Default: StoryObj = {
       ))}
     </Grid>
   </Spotlight>
-  <Grid gapVertical="large" paddingVertical="x-large">
+  <Grid gapVertical="large" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span="all">
       <Heading level={2} size="level-1">{newsSection.title}</Heading>
     </Grid.Cell>

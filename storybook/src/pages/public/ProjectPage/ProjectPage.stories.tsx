@@ -322,7 +322,7 @@ const meta = {
           </Grid.Cell>
         </Grid>
       </Spotlight>
-      <Grid paddingVertical="x-large">
+      <Grid paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Image alt="" src={exampleImageSource(1280, 720)} />
         </Grid.Cell>
@@ -480,7 +480,7 @@ export const Default: StoryObj = {
       </Grid.Cell>
     </Grid>
   </Spotlight>
-  <Grid paddingVertical="x-large">
+  <Grid paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Image alt="" src="https://picsum.photos/1280/720" />
     </Grid.Cell>

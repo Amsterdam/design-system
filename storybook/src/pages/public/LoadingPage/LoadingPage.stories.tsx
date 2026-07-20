@@ -116,7 +116,7 @@ const meta = {
          * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
          * technologies, so this region is all a screen reader hears.
          */}
-        <Grid aria-busy={phase === 'loading'} paddingVertical="x-large">
+        <Grid aria-busy={phase === 'loading'} paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span="all">
             {/*
              * Keep one status message in the DOM at all times and only change its text – from a loading

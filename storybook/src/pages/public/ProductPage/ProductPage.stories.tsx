@@ -32,7 +32,7 @@ const meta = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
-      <Grid as="main" id="inhoud" paddingBottom="x-large">
+      <Grid as="main" id="inhoud" paddingBottom="2x-large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-xl" level={1}>
             Gratis laptop of tablet voor de basisschool aanvragen
@@ -168,7 +168,7 @@ export const Default: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
-  <Grid as="main" id="inhoud" paddingBottom="x-large">
+  <Grid as="main" id="inhoud" paddingBottom="2x-large">
     {/* The title and lead span the wide intro column. */}
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Heading className="ams-mb-xl" level={1}>Gratis laptop of tablet voor de basisschool aanvragen</Heading>
