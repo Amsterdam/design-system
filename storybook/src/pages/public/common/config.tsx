@@ -20,6 +20,9 @@ export const commonMeta = {
     ),
   ],
   parameters: {
+    // Snapshot at the maximum Page width (`ams.page.max-inline-size`, 90rem) instead of Chromatic’s
+    // 1200px default, so the visual test covers the widest layout we design for.
+    chromatic: { modes: { '1440px': { viewport: 1440 } } },
     layout: 'fullscreen',
     themes: { themeOverride: 'Spacious' },
   },
