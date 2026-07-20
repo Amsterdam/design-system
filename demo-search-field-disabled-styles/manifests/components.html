@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -18972,7 +18972,7 @@ A Search Field can have a placeholder text.
 ### Disabled
 
 Set `disabled` on the Search Field to make both the Input and the Button unavailable.
-Setting it on either subcomponent overrides that, so you can disable or enable one of them on its own.
+Neither of them can enable themselves, so the two always match.
 
 &lt;Canvas of={SearchFieldStories.Disabled} /&gt;
 
