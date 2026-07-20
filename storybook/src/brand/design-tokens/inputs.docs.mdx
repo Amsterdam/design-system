@@ -19,9 +19,11 @@ These tokens are used by
 [Search Field](/docs/components-forms-search-field--docs),
 [Select](/docs/components-forms-select--docs),
 [Text Area](/docs/components-forms-text-area--docs),
-[Text Input](/docs/components-forms-text-input--docs),
-[Time Input](/docs/components-forms-time-input--docs) and
-(one of them) by [Button](/docs/components-buttons-button--docs).
+[Text Input](/docs/components-forms-text-input--docs) and
+[Time Input](/docs/components-forms-time-input--docs).
+[Button](/docs/components-buttons-button--docs) uses two of them, and
+[Checkbox](/docs/components-forms-checkbox--docs) and
+[Radio](/docs/components-forms-radio--docs) use one.
 
 ## Default
 
@@ -34,8 +36,10 @@ These tokens are used by
 
 ## Disabled
 
-The background colour marks an input as unavailable in Date Input, Password Input, Select, Text Area, Text Input and Time Input.
-File Input and Search Field keep the default background.
+The background colour marks a control as unavailable.
+Date Input, Password Input, Select, Text Area, Text Input and Time Input apply it to the field.
+Checkbox and Radio fill their square and circle with it, and Button uses it for the secondary and tertiary variants.
+File Input applies it to the file selector button only; the field around it and Search Field keep the default background.
 
 <DesignTokensTable path="ams.inputs.disabled" showDescriptions tokens={tokens} />
 
