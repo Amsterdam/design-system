@@ -73,7 +73,7 @@ A Search Field can have a placeholder text.
 ### Disabled
 
 Set `disabled` on the Search Field to make both the Input and the Button unavailable.
-Setting it on either subcomponent overrides that, so you can disable or enable one of them on its own.
+Neither of them can enable itself, so the two always match.
 
 <Canvas of={SearchFieldStories.Disabled} />
 

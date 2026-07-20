@@ -27,7 +27,7 @@ export const SearchFieldButton = forwardRef(
     return (
       <Button
         {...restProps}
-        disabled={disabled ?? disabledFromContext}
+        disabled={disabled || disabledFromContext}
         icon={SearchIcon}
         iconOnly
         ref={ref}

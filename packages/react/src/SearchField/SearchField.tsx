@@ -13,7 +13,7 @@ import { SearchFieldContext } from './SearchFieldContext'
 import { SearchFieldInput } from './SearchFieldInput'
 
 export type SearchFieldProps = {
-  /** Whether the Input and Button are unavailable. Each of them can override this. */
+  /** Whether the Input and Button are unavailable. Neither of them can override this. */
   readonly disabled?: boolean
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLFormElement>>>
 

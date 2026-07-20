@@ -85,7 +85,7 @@ describe('SearchField', () => {
     expect(screen.getByRole('search')).not.toHaveAttribute('disabled')
   })
 
-  it('lets the input and the button override the disabled state', () => {
+  it('does not let the input and the button enable themselves', () => {
     render(
       <SearchField disabled>
         <SearchField.Input disabled={false} />
@@ -93,8 +93,8 @@ describe('SearchField', () => {
       </SearchField>,
     )
 
-    expect(screen.getByRole('searchbox')).toBeEnabled()
-    expect(screen.getByRole('button')).toBeEnabled()
+    expect(screen.getByRole('searchbox')).toBeDisabled()
+    expect(screen.getByRole('button')).toBeDisabled()
   })
 
   it('lets the input and the button disable themselves', () => {
