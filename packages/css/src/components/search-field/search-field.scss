@@ -82,5 +82,7 @@
 }
 
 .ams-search-field__input:disabled::-webkit-search-cancel-button {
+  /* stylelint-disable-next-line defensive-css/require-background-repeat -- Satisfied in the base rule. */
+  background-image: var(--ams-search-field-input-cancel-button-disabled-background-image);
   cursor: var(--ams-search-field-input-disabled-cursor);
 }

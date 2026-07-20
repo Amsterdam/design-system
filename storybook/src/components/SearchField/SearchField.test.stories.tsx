@@ -62,6 +62,10 @@ export const Test: Story = {
         <SearchField.Input />
         <SearchField.Button />
       </SearchField>
+      <SearchField {...args} disabled>
+        <SearchField.Input defaultValue="Amsterdam" />
+        <SearchField.Button />
+      </SearchField>
     </div>
   ),
   tags: ['!dev', '!autodocs'],
