@@ -44,7 +44,7 @@ Storybook reads this comment via react-docgen and renders it on the documentatio
 /**
  * One or two sentences that describe what the component is and why it exists.
  */
-export const ComponentName = forwardRef(...)
+export const ComponentName = forwardRef(/* … */)
 ```
 
 See [documentation/component-docs.md](../../documentation/component-docs.md) for the full convention.
