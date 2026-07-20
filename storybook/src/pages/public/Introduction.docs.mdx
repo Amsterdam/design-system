@@ -46,6 +46,43 @@ The general structure for a page is:
 Public websites cannot use the [Menu](/docs/components-navigation-menu--docs) component.
 They should offer navigation using the Page Header only.
 
+## Vertical space between sections
+
+The direct children of the Page, apart from the Page Header and the Page Footer, are its sections.
+Most sections are a Grid, but a section can also be a Spotlight, an Image, or an Overlap.
+A Spotlight contains a Grid, which in that position also spaces the content against the edges of the coloured band.
+
+Sections create this space with the padding props of the Grid.
+A section that is not a Grid has no padding props and takes its space from the Grids around it.
+
+### The first Grid
+
+The first Grid has a `paddingTop` of `large` and no `paddingBottom`.
+On most pages it contains only the Breadcrumb.
+The Grid that follows it has no `paddingTop`, so that the breadcrumb and the page title read as a single block.
+
+Not every page type has a breadcrumb.
+The Home Page opens with an Overlap, the Loading Page with its search field, and the Handbook Page relies on its table of contents.
+Where the first Grid holds content instead of a breadcrumb, it still takes the `large` top padding.
+
+### The Grids in between
+
+Every other Grid uses a `paddingVertical` of `x-large`, including the Grid inside a Spotlight.
+
+Two adjacent Grids therefore add up to twice that amount.
+Across a Spotlight this is intentional, because the coloured band separates the two paddings.
+Between two plain Grids, leave the padding off one of the touching sides, unless the extra whitespace is deliberate.
+
+### The last Grid
+
+The last Grid before the Page Footer has a `paddingBottom` of `2x-large`.
+
+A page that needs only one Grid combines both rules: a `paddingTop` of `large` and a `paddingBottom` of `2x-large`.
+
+### Vertical gaps
+
+Leave `gapVertical` at its default of `x-large`.
+
 ## How to size the Grid Cells
 
 Everything on the page is wrapped in a [Grid Cell](/docs/components-layout-grid--docs).
