@@ -130,7 +130,7 @@ export const SingleQuestion: StoryObj = {
         // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
         code: `<>
   {/* The back link is in its own Grid, because it should be outside of the main section. */}
-  <Grid className="ams-mb-xl">
+  <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
        * A back link lets users move between form pages without worrying about losing their progress. The
@@ -192,7 +192,7 @@ export const SingleQuestion: StoryObj = {
   render: (args) => (
     <>
       {/* The back link is in its own Grid, because it should be outside of the main section. */}
-      <Grid className="ams-mb-xl">
+      <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
            * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
@@ -274,7 +274,7 @@ export const SingleQuestionWithSubquestions: StoryObj = {
         // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
         code: `<>
   {/* The back link is in its own Grid, because it should be outside of the main section. */}
-  <Grid className="ams-mb-xl">
+  <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
        * A back link lets users move between form pages without worrying about losing their progress. Use a
@@ -336,7 +336,7 @@ export const SingleQuestionWithSubquestions: StoryObj = {
   render: (args) => (
     <>
       {/* The back link is in its own Grid, because it should be outside of the main section. */}
-      <Grid className="ams-mb-xl">
+      <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
            * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
@@ -423,7 +423,7 @@ export const MultipleQuestions: StoryObj = {
         // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
         code: `<>
   {/* The back link is in its own Grid, because it should be outside of the main section. */}
-  <Grid className="ams-mb-xl">
+  <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
        * A back link lets users move between form pages without worrying about losing their progress. Use a
@@ -466,7 +466,7 @@ export const MultipleQuestions: StoryObj = {
   render: (args) => (
     <>
       {/* The back link is in its own Grid, because it should be outside of the main section. */}
-      <Grid className="ams-mb-xl">
+      <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
            * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
@@ -540,7 +540,7 @@ export const WithValidationError: StoryObj = {
         // comments. Provide the source by hand so the error-handling guidance below stays in the panel.
         code: `<>
   {/* The back link is in its own Grid, because it should be outside of the main section. */}
-  <Grid className="ams-mb-xl">
+  <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
     </Grid.Cell>
@@ -601,7 +601,7 @@ export const WithValidationError: StoryObj = {
   render: (args) => (
     <>
       {/* The back link is in its own Grid, because it should be outside of the main section. */}
-      <Grid className="ams-mb-xl">
+      <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
            * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
