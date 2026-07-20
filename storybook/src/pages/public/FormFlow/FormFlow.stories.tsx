@@ -142,7 +142,7 @@ export const SingleQuestion: StoryObj = {
       <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
     </Grid.Cell>
   </Grid>
-  <Grid as="main" paddingBottom="2x-large">
+  <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
        * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
@@ -207,7 +207,7 @@ export const SingleQuestion: StoryObj = {
           </StandaloneLink>
         </Grid.Cell>
       </Grid>
-      <Grid as="main" paddingBottom="2x-large">
+      <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
            * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
@@ -284,7 +284,7 @@ export const SingleQuestionWithSubquestions: StoryObj = {
       <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
     </Grid.Cell>
   </Grid>
-  <Grid as="main" paddingBottom="2x-large">
+  <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
        * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
@@ -351,7 +351,7 @@ export const SingleQuestionWithSubquestions: StoryObj = {
           </StandaloneLink>
         </Grid.Cell>
       </Grid>
-      <Grid as="main" paddingBottom="2x-large">
+      <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
            * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
@@ -433,7 +433,7 @@ export const MultipleQuestions: StoryObj = {
       <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
     </Grid.Cell>
   </Grid>
-  <Grid as="main" paddingBottom="2x-large">
+  <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/* A form with multiple questions has a level 1 heading before it that describes the whole group. */}
       <Heading className="ams-mb-xl" level={1}>Inschrijven</Heading>
@@ -481,7 +481,7 @@ export const MultipleQuestions: StoryObj = {
           </StandaloneLink>
         </Grid.Cell>
       </Grid>
-      <Grid as="main" paddingBottom="2x-large">
+      <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/* A form with multiple questions has a level 1 heading preceding it, which describes the group of questions. */}
           <Heading className="ams-mb-xl" level={1}>
@@ -545,7 +545,7 @@ export const WithValidationError: StoryObj = {
       <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
     </Grid.Cell>
   </Grid>
-  <Grid as="main" paddingBottom="2x-large">
+  <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
        * Notifying a user of errors is threefold:
@@ -616,7 +616,7 @@ export const WithValidationError: StoryObj = {
           </StandaloneLink>
         </Grid.Cell>
       </Grid>
-      <Grid as="main" paddingBottom="2x-large">
+      <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
            * Notifying a user of errors is threefold:
