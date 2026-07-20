@@ -156,6 +156,7 @@ Note that `renderComponentVariants` reads the meta’s argTypes to build its var
 
 Page templates have no test stories.
 Chromatic snapshots their presentation stories directly, so every story under `Pages/` is a snapshot.
+Only stories, though: Chromatic skips docs entries, so the `Introduction` pages and the generated `Docs` tab of each template cost nothing.
 A page has no single component and no variant props, so `renderComponentVariants` cannot build a matrix for one; collapsing several pages into one Test story would mean either duplicating their markup or reaching into another story’s `render`.
 Snapshotting the presentation stories avoids both, and guarantees the image matches the page we document.
 
