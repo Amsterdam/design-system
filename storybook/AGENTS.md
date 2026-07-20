@@ -46,7 +46,8 @@ See [documentation/component-docs.md](../documentation/component-docs.md) for th
 
 - One story per visual variant / state in `<Name>.test.stories.tsx`.
 - Tag test stories with `['!dev', '!autodocs']` to exclude them from docs and development views.
-- This applies to components only. Page templates have no test stories: Chromatic snapshots every story under `Pages/` directly, so a new page story is a new snapshot. Docs entries are not snapshotted, so `Introduction` pages and generated `Docs` tabs are free. Do not add `<Name>.test.stories.tsx` under `src/pages/`.
+- CSS utilities under `src/utilities/` have test stories too, but cannot use `renderComponentVariants`: the component next to each one is a mock that renders a bare element, so a generated matrix would leave the utility class off. Build the matrix by hand from the scale the CSS ships, and check that scale in the `.scss` file rather than in the mock's props — `ams-mb-2xl` exists in CSS but not in the mock. When a utility has no variants, put the `render` on the meta and let the test story inherit it.
+- Page templates have no test stories: Chromatic snapshots every story under `Pages/` directly, so a new page story is a new snapshot. Docs entries are not snapshotted, so `Introduction` pages and generated `Docs` tabs are free. Do not add `<Name>.test.stories.tsx` under `src/pages/`.
 - The CSS pseudo-state simulation addon (`:hover`, `:focus`, etc.) loads only in Chromatic CI, via `IS_CHROMATIC` (set by `build:chromatic`). It is deliberately not loaded in local development, where its CSS rewrite breaks focus-hidden selectors like the Skip Link's. See `config/main.ts`. Do not set `IS_CHROMATIC` manually.
 - Visual changes must be reviewed and approved in the Chromatic dashboard before merging.
 - **Never approve Chromatic changes as an agent** — visual approval is a human responsibility.
