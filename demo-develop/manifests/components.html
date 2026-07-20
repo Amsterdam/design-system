@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -18968,6 +18968,13 @@ Provide a label that describes the purpose of the search.
 A Search Field can have a placeholder text.
 
 &lt;Canvas of={SearchFieldStories.WithPlaceholder} /&gt;
+
+### Disabled
+
+Set `disabled` on the Search Field to make both the Input and the Button unavailable.
+Neither of them can enable themselves, so the two always match.
+
+&lt;Canvas of={SearchFieldStories.Disabled} /&gt;
 
 ### Controlled component
 
@@ -38532,8 +38539,8 @@ These tokens are used by
 
 ## Disabled
 
-The background colour marks an input as unavailable in Date Input, Password Input, Select, Text Area, Text Input and Time Input.
-File Input and Search Field keep the default background.
+The background colour marks an input as unavailable in Date Input, Password Input, Search Field, Select, Text Area, Text Input and Time Input.
+File Input keeps the default background.
 
 &lt;DesignTokensTable path=&quot;ams.inputs.disabled&quot; showDescriptions tokens={tokens} /&gt;
 
