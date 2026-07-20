@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.0s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -18968,6 +18968,13 @@ Provide a label that describes the purpose of the search.
 A Search Field can have a placeholder text.
 
 &lt;Canvas of={SearchFieldStories.WithPlaceholder} /&gt;
+
+### Disabled
+
+Set `disabled` on the Search Field to make both the Input and the Button unavailable.
+Neither of them can enable themselves, so the two always match.
+
+&lt;Canvas of={SearchFieldStories.Disabled} /&gt;
 
 ### Controlled component
 
