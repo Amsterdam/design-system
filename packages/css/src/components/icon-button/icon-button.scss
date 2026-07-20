@@ -23,7 +23,8 @@
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &[aria-disabled="true"] {
     background-color: transparent;
     color: var(--ams-icon-button-disabled-color);
     cursor: var(--ams-icon-button-disabled-cursor);
@@ -40,7 +41,8 @@
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &[aria-disabled="true"] {
     background-color: transparent;
     color: var(--ams-icon-button-contrast-disabled-color);
   }
@@ -57,7 +59,8 @@
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &[aria-disabled="true"] {
     background-color: var(--ams-icon-button-inverse-disabled-background-color);
     color: var(--ams-icon-button-inverse-disabled-color);
   }
