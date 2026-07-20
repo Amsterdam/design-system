@@ -80,3 +80,7 @@
   inline-size: var(--ams-search-field-input-cancel-button-inline-size);
   margin-inline-start: 0.5rem;
 }
+
+.ams-search-field__input:disabled::-webkit-search-cancel-button {
+  cursor: var(--ams-search-field-input-disabled-cursor);
+}
