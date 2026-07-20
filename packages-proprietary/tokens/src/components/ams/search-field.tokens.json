@@ -78,6 +78,26 @@
             "nl.amsterdam.type": "dimension"
           }
         },
+        "disabled": {
+          "background-color": {
+            "$value": "{ams.inputs.disabled.background-color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "color": {
+            "$value": "{ams.inputs.disabled.color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "cursor": {
+            "$value": "{ams.cursor.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "cursor"
+            }
+          }
+        },
         "hover": {
           "box-shadow": {
             "$value": "{ams.inputs.hover.box-shadow}",
@@ -137,6 +157,15 @@
             "$value": "{ams.typography.body-text.font-size}",
             "$extensions": {
               "nl.amsterdam.type": "dimension"
+            }
+          },
+          "disabled": {
+            "background-image": {
+              "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%23767676' fill-rule='evenodd' d='M29.333 5.47 26.53 2.668 16 13.187 5.47 2.666 2.668 5.47 13.187 16 2.666 26.53l2.804 2.803L16 18.813l10.53 10.52 2.803-2.804L18.813 16z'/></svg>\")",
+              "$description": "Repeats the cancel icon with the disabled colour baked in, because a data URI cannot reference a token.",
+              "$extensions": {
+                "nl.amsterdam.type": "backgroundImage"
+              }
             }
           }
         },
