@@ -46,6 +46,12 @@
   color: var(--ams-search-field-input-placeholder-color);
 }
 
+.ams-search-field__input:disabled {
+  background-color: var(--ams-search-field-input-disabled-background-color);
+  color: var(--ams-search-field-input-disabled-color);
+  cursor: var(--ams-search-field-input-disabled-cursor);
+}
+
 .ams-search-field__input:not(:disabled):invalid,
 .ams-search-field__input:not(:disabled)[aria-invalid="true"] {
   border-color: var(--ams-search-field-input-invalid-border-color);
@@ -73,4 +79,10 @@
   cursor: var(--ams-search-field-input-cancel-button-cursor);
   inline-size: var(--ams-search-field-input-cancel-button-inline-size);
   margin-inline-start: 0.5rem;
+}
+
+.ams-search-field__input:disabled::-webkit-search-cancel-button {
+  /* stylelint-disable-next-line defensive-css/require-background-repeat -- Satisfied in the base rule. */
+  background-image: var(--ams-search-field-input-cancel-button-disabled-background-image);
+  cursor: var(--ams-search-field-input-disabled-cursor);
 }
