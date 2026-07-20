@@ -17,7 +17,7 @@
   touch-action: manipulation;
 
   @media (hover: hover) {
-    &:hover {
+    &:hover:not(:disabled, [aria-disabled="true"]) {
       background-color: var(--ams-icon-button-hover-background-color);
       color: var(--ams-icon-button-hover-color);
     }
@@ -25,7 +25,6 @@
 
   &:disabled,
   &[aria-disabled="true"] {
-    background-color: transparent;
     color: var(--ams-icon-button-disabled-color);
     cursor: var(--ams-icon-button-disabled-cursor);
   }
@@ -35,7 +34,7 @@
   color: var(--ams-icon-button-contrast-color);
 
   @media (hover: hover) {
-    &:hover {
+    &:hover:not(:disabled, [aria-disabled="true"]) {
       background-color: var(--ams-icon-button-contrast-hover-background-color);
       color: var(--ams-icon-button-contrast-hover-color);
     }
@@ -43,7 +42,6 @@
 
   &:disabled,
   &[aria-disabled="true"] {
-    background-color: transparent;
     color: var(--ams-icon-button-contrast-disabled-color);
   }
 }
@@ -53,7 +51,7 @@
   color: var(--ams-icon-button-inverse-color);
 
   @media (hover: hover) {
-    &:hover {
+    &:hover:not(:disabled, [aria-disabled="true"]) {
       background-color: var(--ams-icon-button-inverse-hover-background-color);
       color: var(--ams-icon-button-inverse-hover-color);
     }
