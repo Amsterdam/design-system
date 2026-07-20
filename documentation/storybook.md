@@ -158,3 +158,7 @@ Page templates have no test stories.
 Chromatic snapshots their presentation stories directly, so every story under `Pages/` is a snapshot.
 A page has no single component and no variant props, so `renderComponentVariants` cannot build a matrix for one; collapsing several pages into one Test story would mean either duplicating their markup or reaching into another story’s `render`.
 Snapshotting the presentation stories avoids both, and guarantees the image matches the page we document.
+
+Both page families set a Chromatic mode in their `commonMeta` so the snapshot width matches the maximum width of the Page: 1440px for public pages (`ams.page.max-inline-size`) and 1920px for internal ones (`ams.page.with-menu.max-inline-size`).
+Chromatic’s default viewport is 1200px, narrower than either, so without this the widest layout we design for would never be tested.
+One mode is one snapshot, so setting the width does not change the snapshot count.
