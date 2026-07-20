@@ -53,6 +53,7 @@
 }
 
 .ams-file-input:disabled::file-selector-button {
+  background-color: var(--ams-file-input-file-selector-button-disabled-background-color);
   color: var(--ams-file-input-disabled-color);
   cursor: var(--ams-file-input-file-selector-button-disabled-cursor);
 }
