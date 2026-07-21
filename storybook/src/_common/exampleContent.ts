@@ -91,6 +91,18 @@ export const exampleGivenName = () =>
     'Yassine',
   ])
 
+// Lorem Picsum serves a random photo unless you name one, and it has gaps, so these ids are known to resolve.
+const exampleImageIds = [64, 101, 122, 123, 133, 153, 159, 385, 1015, 1016, 1029, 1039, 1043, 1044]
+
+/**
+ * Returns the source for a placeholder photo.
+ * Pass the same index to show one photo at several sizes, and different ones to show different photos side by side.
+ */
+export const exampleImageSource = (width: number, height: number, index = 0) =>
+  isChromatic()
+    ? `https://picsum.photos/id/${exampleImageIds[index % exampleImageIds.length]}/${width}/${height}`
+    : `https://picsum.photos/${width}/${height}?random=${index}`
+
 export const exampleLinkList = () =>
   pickRandomContent<Array<string>>([
     ['Contactformulier', 'Adressen en openingstijden', 'Bel 14 020'],

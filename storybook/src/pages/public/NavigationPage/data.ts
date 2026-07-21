@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { exampleImageSource } from '#storybook/_common/exampleContent'
+
 export type LinkGroup = {
   heading: string
   links: string[]
@@ -150,57 +152,57 @@ type Person = {
 
 export const persons: Person[] = [
   {
-    imageSource: 'https://picsum.photos/480/270',
+    imageSource: exampleImageSource(480, 270, 0),
     name: 'Femke Halsema',
     role: 'Burgemeester',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
+    imageSource: exampleImageSource(480, 270, 1),
     name: 'Marjolein Moorman',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
+    imageSource: exampleImageSource(480, 270, 2),
     name: 'Rutger Groot Wassink',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
+    imageSource: exampleImageSource(480, 270, 3),
     name: 'Hester van Buren',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
+    imageSource: exampleImageSource(480, 270, 4),
     name: 'Sofyan Mbarki',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
+    imageSource: exampleImageSource(480, 270, 5),
     name: 'Touria Meliani',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
+    imageSource: exampleImageSource(480, 270, 6),
     name: 'Melanie van der Horst',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
+    imageSource: exampleImageSource(480, 270, 7),
     name: 'Alexander Scholtes',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
+    imageSource: exampleImageSource(480, 270, 8),
     name: 'Zita Pels',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
+    imageSource: exampleImageSource(480, 270, 9),
     name: 'Steven van Weyenberg',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
+    imageSource: exampleImageSource(480, 270, 10),
     name: 'Thea de Vries',
     role: 'Gemeentesecretaris',
     suffix: 'waarnemend',

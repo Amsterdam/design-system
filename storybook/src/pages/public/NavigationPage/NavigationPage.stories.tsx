@@ -21,7 +21,12 @@ import {
   UnorderedList,
 } from '@amsterdam/design-system-react'
 
-import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '#storybook/_common/exampleContent'
+import {
+  exampleHeading,
+  exampleImageSource,
+  exampleParagraph,
+  exampleStandaloneLink,
+} from '#storybook/_common/exampleContent'
 
 import { commonMeta } from '../common/config'
 import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from './data'
@@ -504,7 +509,7 @@ export const WithImageGallery: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
+        <Image alt="" aspectRatio="16:5" src={exampleImageSource(1440, 450, 11)} />
         <Grid paddingVertical="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
@@ -630,7 +635,7 @@ export const WithImageGallery: StoryObj = {
             <Heading className="ams-mb-s" level={2} size="level-3">
               Rechtenvrije foto’s
             </Heading>
-            <Image alt="" src="https://picsum.photos/640/360" />
+            <Image alt="" src={exampleImageSource(640, 360, 12)} />
           </Grid.Cell>
         </Grid>
       </main>
@@ -761,7 +766,7 @@ export const SubnavigationPage: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
+        <Image alt="" aspectRatio="16:5" src={exampleImageSource(1440, 450)} />
         <Grid paddingVertical="large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>

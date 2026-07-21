@@ -1,3 +1,5 @@
+import { exampleImageSource } from '#storybook/_common/exampleContent'
+
 export const topTaskSection = {
   title: 'Direct naar',
   tasks: [
@@ -60,19 +62,19 @@ export const newsSection = {
       title: 'Waarom we op zoek zijn naar vleermuizen',
       description:
         'U kunt ’s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft te maken met het verduurzamen van woningen.',
-      image: 'https://picsum.photos/640/360?random=1',
+      image: exampleImageSource(640, 360, 0),
     },
     {
       title: 'Meer aandacht voor voetgangers, een jaar lang',
       description:
         'We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.',
-      image: 'https://picsum.photos/640/360?random=2',
+      image: exampleImageSource(640, 360, 1),
     },
     {
       title: 'Nieuwe manieren om afval op te halen',
       description:
         'Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te halen in het centrum.',
-      image: 'https://picsum.photos/640/360?random=3',
+      image: exampleImageSource(640, 360, 2),
     },
   ],
 }
