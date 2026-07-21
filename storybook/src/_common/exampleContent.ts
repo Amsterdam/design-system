@@ -96,7 +96,8 @@ const exampleImageIds = [64, 101, 122, 123, 133, 153, 159, 385, 1015, 1016, 1029
 
 /**
  * Returns the source for a placeholder photo.
- * Pass the same index to show one photo at several sizes, and different ones to show different photos side by side.
+ * Give each photo on a page its own index, and reuse one index across the sizes in a `srcSet`.
+ * Only Chromatic resolves those indexes to fixed photos; elsewhere every source is a fresh random one.
  */
 export const exampleImageSource = (width: number, height: number, index = 0) =>
   isChromatic()
