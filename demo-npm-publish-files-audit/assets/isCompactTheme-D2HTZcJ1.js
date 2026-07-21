@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";var t,n=e((()=>{t=e=>{let t=e.globals.theme;return typeof t==`string`&&t.toLowerCase().includes(`compact`)}}));export{t as n,n as t};
