@@ -153,57 +153,57 @@ type Person = {
 export const persons: Person[] = [
   {
     imageSource: exampleImageSource(480, 270, 0),
-    name: 'Femke Halsema',
+    name: 'Aicha Bayraktar',
     role: 'Burgemeester',
   },
   {
     imageSource: exampleImageSource(480, 270, 1),
-    name: 'Marjolein Moorman',
+    name: 'Laurens Dijkstra',
     role: 'Wethouder',
   },
   {
     imageSource: exampleImageSource(480, 270, 2),
-    name: 'Rutger Groot Wassink',
+    name: 'Yassine El Idrissi',
     role: 'Wethouder',
   },
   {
     imageSource: exampleImageSource(480, 270, 3),
-    name: 'Hester van Buren',
+    name: 'Lisette Janssen',
     role: 'Wethouder',
   },
   {
     imageSource: exampleImageSource(480, 270, 4),
-    name: 'Sofyan Mbarki',
+    name: 'Abdulaziz Farooq',
     role: 'Wethouder',
   },
   {
     imageSource: exampleImageSource(480, 270, 5),
-    name: 'Touria Meliani',
+    name: 'Angelique Pieterse',
     role: 'Wethouder',
   },
   {
     imageSource: exampleImageSource(480, 270, 6),
-    name: 'Melanie van der Horst',
+    name: 'Ruben op den Akker',
     role: 'Wethouder',
   },
   {
     imageSource: exampleImageSource(480, 270, 7),
-    name: 'Alexander Scholtes',
+    name: 'Meryam Laghmani',
     role: 'Wethouder',
   },
   {
     imageSource: exampleImageSource(480, 270, 8),
-    name: 'Zita Pels',
+    name: 'Sebastiaan van Harinxma thoe Slooten',
     role: 'Wethouder',
   },
   {
     imageSource: exampleImageSource(480, 270, 9),
-    name: 'Steven van Weyenberg',
+    name: 'William Moussaoui',
     role: 'Wethouder',
   },
   {
     imageSource: exampleImageSource(480, 270, 10),
-    name: 'Thea de Vries',
+    name: 'Nora Veldkamp',
     role: 'Gemeentesecretaris',
     suffix: 'waarnemend',
   },
