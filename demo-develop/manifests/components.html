@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">46/98 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">56/98 infos</a><span class="filter-pill ok" aria-disabled="true">120 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">113 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">52/98 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">62/98 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">3/120 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">113 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1962,78 +1962,131 @@ This page type is for news or similar kinds of articles.
 </article>
 <article
   class="card 
-  no-error 
-  no-info 
+  has-error 
+  has-info 
   no-story-error
   no-doc-error"
   role="listitem"
   aria-label="AspectRatio">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> AspectRatio</h2>
+      <h2><span class="status-dot dot-err"></span> AspectRatio</h2>
       <div class="badges">
-        <label for="c-5-utilities-css-aspect-ratio-props" class="badge ok as-toggle">1 prop type</label>
-        
+        <label for="c-5-utilities-css-aspect-ratio-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-5-utilities-css-aspect-ratio-info" class="badge info as-toggle">2 infos</label>
         <label for="c-5-utilities-css-aspect-ratio-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-5-utilities-css-aspect-ratio-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
-    <div class="meta" title="./src/utils/AspectRatio/AspectRatio.stories.tsx">utilities-css-aspect-ratio · ./src/utils/AspectRatio/AspectRatio.stories.tsx</div>
+    <div class="meta" title="./src/utilities/AspectRatio/AspectRatio.test.stories.tsx">utilities-css-aspect-ratio · ./src/utilities/AspectRatio/AspectRatio.test.stories.tsx</div>
     
-    <div class="hint">Mock component to render examples in Storybook. Not for reuse.</div>
+    
     
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  
-  
+  <input id="c-5-utilities-css-aspect-ratio-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-5-utilities-css-aspect-ratio-info" class="tg tg-info" type="checkbox" hidden />
   <input id="c-5-utilities-css-aspect-ratio-stories" class="tg tg-stories" type="checkbox" hidden />
   <input id="c-5-utilities-css-aspect-ratio-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-5-utilities-css-aspect-ratio-props" class="tg tg-props" type="checkbox" hidden />
+  
 
   <div class="panels">
     
-    
-    
-        <div class="panel panel-props">
-          <div class="note ok">
-            <div class="row">
-              <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
-              <span class="badge ok">1 prop type</span>
-            </div>
-            <pre><code>Component: src/utils/AspectRatio/AspectRatio.tsx::AspectRatio</code></pre>
-            <pre><code>Props:</code></pre>
-            <pre><code>/**
- * The aspect ratio to display media content in.
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  14 | import { default as aspectRatioMeta } from &#39;./AspectRatio.stories&#39;
+  15 |
+&gt; 16 | const meta = {
+     | ^
+  17 |   ...aspectRatioMeta,
+  18 |   title: &#39;Utilities/CSS/Aspect Ratio&#39;,
+  19 | } satisfies Meta&lt;typeof AspectRatio&gt;
+
+./src/utilities/AspectRatio/AspectRatio.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
  */
-aspectRatio?: &quot;9:16&quot; | &quot;3:4&quot; | &quot;1:1&quot; | &quot;4:3&quot; | &quot;16:9&quot; | &quot;16:5&quot;</code></pre>
-          </div>
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import { generateAspectRatioClass } from &#39;@amsterdam/design-system-react/src&#39;
+import { aspectRatioOptions } from &#39;@amsterdam/design-system-react/src/common/types&#39;
+import { clsx } from &#39;clsx&#39;
+
+import type { AspectRatio } from &#39;./AspectRatio&#39;
+
+import { default as aspectRatioMeta } from &#39;./AspectRatio.stories&#39;
+
+const meta = {
+  ...aspectRatioMeta,
+  title: &#39;Utilities/CSS/Aspect Ratio&#39;,
+} satisfies Meta&lt;typeof AspectRatio&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+export const Test: Story = {
+  render: () =&gt; (
+    &lt;div className=&quot;_ams-tests-grid&quot; style={{ alignItems: &#39;flex-start&#39; }}&gt;
+      {/* A fixed inline size keeps the ratios comparable: the block size comes from the class alone.
+          Aligning to the start stops the row from stretching every container to the tallest ratio. */}
+      {aspectRatioOptions.map((aspectRatio) =&gt; (
+        &lt;div className=&quot;_ams-container&quot; key={aspectRatio} style={{ inlineSize: &#39;10rem&#39; }}&gt;
+          &lt;div className={clsx(&#39;_ams-item&#39;, generateAspectRatioClass(aspectRatio))} /&gt;
+        &lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  ),
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
         </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">Specify an @import jsdoc tag on your component or your stories meta such as @import import { AspectRatio } from &#39;my-design-system&#39;;</div>
+    </div>
+        </div>
+    
     
         <div class="panel panel-stories">
           
           
           
-          <div class="note ok">
-                <div class="row">
-                  <span class="ex-name">Imports</span>
-                </div>
-                <pre><code>import { AspectRatio } from "@amsterdam/storybook";</code></pre>
-              </div>
+          
           
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Default</span>
+                <span class="ex-name">Test</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Default = ({ aspectRatio }) =&gt; (
-  &lt;div className=&quot;_ams-container&quot; style={{ maxInlineSize: &#39;24rem&#39; }}&gt;
-    &lt;div className={clsx(&#39;_ams-item&#39;, generateAspectRatioClass(aspectRatio))} /&gt;
+              <pre><code>const Test = () =&gt; (
+  &lt;div className=&quot;_ams-tests-grid&quot; style={{ alignItems: &#39;flex-start&#39; }}&gt;
+    {/* A fixed inline size keeps the ratios comparable: the block size comes from the class alone.
+        Aligning to the start stops the row from stretching every container to the tallest ratio. */}
+    {aspectRatioOptions.map((aspectRatio) =&gt; (
+      &lt;div className=&quot;_ams-container&quot; key={aspectRatio} style={{ inlineSize: &#39;10rem&#39; }}&gt;
+        &lt;div className={clsx(&#39;_ams-item&#39;, generateAspectRatioClass(aspectRatio))} /&gt;
+      &lt;/div&gt;
+    ))}
   &lt;/div&gt;
 );</code></pre>
             </div>
@@ -2047,7 +2100,7 @@ aspectRatio?: &quot;9:16&quot; | &quot;3:4&quot; | &quot;1:1&quot; | &quot;4:3&q
                 <span class="ex-name">Docs</span>
                 <span class="badge ok">doc ok</span>
               </div>
-              <div class="hint">./src/utils/AspectRatio/AspectRatio.docs.mdx</div>
+              <div class="hint">./src/utilities/AspectRatio/AspectRatio.docs.mdx</div>
               
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
@@ -2692,32 +2745,32 @@ The component adds the correct quotation marks.
 </article>
 <article
   class="card 
-  no-error 
-  no-info 
-  no-story-error
+  has-error 
+  has-info 
+  has-story-error
   no-doc-error"
   role="listitem"
   aria-label="Body">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Body</h2>
+      <h2><span class="status-dot dot-err"></span> Body</h2>
       <div class="badges">
-        
-        
-        <label for="c-10-utilities-css-body-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-10-utilities-css-body-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-10-utilities-css-body-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-10-utilities-css-body-stories" class="badge err as-toggle">1/1 story errors</label>
         <label for="c-10-utilities-css-body-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
-    <div class="meta" title="./src/utils/Body/Body.stories.tsx">utilities-css-body · ./src/utils/Body/Body.stories.tsx</div>
+    <div class="meta" title="./src/utilities/Body/Body.test.stories.tsx">utilities-css-body · ./src/utilities/Body/Body.test.stories.tsx</div>
     
-    <div class="hint">Mock component to render examples in Storybook. Not for reuse.</div>
+    
     
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  
-  
+  <input id="c-10-utilities-css-body-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-10-utilities-css-body-info" class="tg tg-info" type="checkbox" hidden />
   <input id="c-10-utilities-css-body-stories" class="tg tg-stories" type="checkbox" hidden />
   <input id="c-10-utilities-css-body-docs" class="tg tg-docs" type="checkbox" hidden />
   
@@ -2725,31 +2778,78 @@ The component adds the correct quotation marks.
 
   <div class="panels">
     
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  10 | import { default as bodyMeta } from &#39;./Body.stories&#39;
+  11 |
+&gt; 12 | const meta = {
+     | ^
+  13 |   ...bodyMeta,
+  14 |   title: &#39;Utilities/CSS/Body&#39;,
+  15 | } satisfies Meta&lt;typeof Body&gt;
+
+./src/utilities/Body/Body.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import type { Body } from &#39;./Body&#39;
+
+import { default as bodyMeta } from &#39;./Body.stories&#39;
+
+const meta = {
+  ...bodyMeta,
+  title: &#39;Utilities/CSS/Body&#39;,
+} satisfies Meta&lt;typeof Body&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+/** The utility has no variants: it sets the page background and the base text style, which the meta already shows. */
+export const Test: Story = {
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
+        </div>
     
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">Specify an @import jsdoc tag on your component or your stories meta such as @import import { Body } from &#39;my-design-system&#39;;</div>
+    </div>
+        </div>
     
     
         <div class="panel panel-stories">
           
-          
-          
-          <div class="note ok">
-                <div class="row">
-                  <span class="ex-name">Imports</span>
-                </div>
-                <pre><code>import { Body } from "@amsterdam/storybook";
-import { Paragraph } from "@amsterdam/design-system-react";</code></pre>
-              </div>
-          
-          
-            <div class="note ok">
+            <div class="note err">
               <div class="row">
-                <span class="ex-name">Default</span>
-                <span class="badge ok">story ok</span>
+                <span class="ex-name">Test</span>
+                <span class="badge err">story error</span>
               </div>
               
               
-              <pre><code>const Default = (props: BodyProps) =&gt; &lt;body {...props} className=&quot;ams-body&quot; /&gt;;</code></pre>
+              
+              <pre><code>Could not generate snippet without component name.</code></pre>
             </div>
+          
+          
+          
+          
+          
         </div>
     
         <div class="panel panel-docs">
@@ -2760,7 +2860,7 @@ import { Paragraph } from "@amsterdam/design-system-react";</code></pre>
                 <span class="ex-name">Docs</span>
                 <span class="badge ok">doc ok</span>
               </div>
-              <div class="hint">./src/utils/Body/Body.docs.mdx</div>
+              <div class="hint">./src/utilities/Body/Body.docs.mdx</div>
               
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
@@ -7957,55 +8057,103 @@ For more information:
 </article>
 <article
   class="card 
-  no-error 
-  no-info 
+  has-error 
+  has-info 
   no-story-error
   no-doc-error"
   role="listitem"
   aria-label="Gap">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Gap</h2>
+      <h2><span class="status-dot dot-err"></span> Gap</h2>
       <div class="badges">
-        <label for="c-36-utilities-css-gap-props" class="badge ok as-toggle">1 prop type</label>
-        
+        <label for="c-36-utilities-css-gap-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-36-utilities-css-gap-info" class="badge info as-toggle">1 info</label>
         <label for="c-36-utilities-css-gap-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-36-utilities-css-gap-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
-    <div class="meta" title="./src/utils/Gap/Gap.stories.tsx">utilities-css-gap · ./src/utils/Gap/Gap.stories.tsx</div>
+    <div class="meta" title="./src/utilities/Gap/Gap.test.stories.tsx">utilities-css-gap · ./src/utilities/Gap/Gap.test.stories.tsx</div>
     
-    <div class="hint">Mock component to render examples in Storybook. Not for reuse.</div>
+    
     
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  
-  
+  <input id="c-36-utilities-css-gap-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-36-utilities-css-gap-info" class="tg tg-info" type="checkbox" hidden />
   <input id="c-36-utilities-css-gap-stories" class="tg tg-stories" type="checkbox" hidden />
   <input id="c-36-utilities-css-gap-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-36-utilities-css-gap-props" class="tg tg-props" type="checkbox" hidden />
+  
 
   <div class="panels">
     
-    
-    
-        <div class="panel panel-props">
-          <div class="note ok">
-            <div class="row">
-              <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
-              <span class="badge ok">1 prop type</span>
-            </div>
-            <pre><code>Component: src/utils/Gap/Gap.tsx::Gap</code></pre>
-            <pre><code>Props:</code></pre>
-            <pre><code>/**
- * The amount of space between the element’s children.
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  15 | const sizes = [&#39;xs&#39;, &#39;s&#39;, &#39;m&#39;, &#39;l&#39;, &#39;xl&#39;] as const
+  16 |
+&gt; 17 | const meta = {
+     | ^
+  18 |   ...gapMeta,
+  19 |   title: &#39;Utilities/CSS/Gap&#39;,
+  20 | } satisfies Meta&lt;typeof Gap&gt;
+
+./src/utilities/Gap/Gap.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
  */
-size: &quot;s&quot; | &quot;xs&quot; | &quot;m&quot; | &quot;l&quot; | &quot;xl&quot;</code></pre>
-          </div>
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import { Paragraph } from &#39;@amsterdam/design-system-react&#39;
+
+import type { Gap } from &#39;./Gap&#39;
+
+import { default as gapMeta } from &#39;./Gap.stories&#39;
+
+/** Mirrors the list in packages/css/src/components/gap/gap.scss. There is deliberately no 2xl gap. */
+const sizes = [&#39;xs&#39;, &#39;s&#39;, &#39;m&#39;, &#39;l&#39;, &#39;xl&#39;] as const
+
+const meta = {
+  ...gapMeta,
+  title: &#39;Utilities/CSS/Gap&#39;,
+} satisfies Meta&lt;typeof Gap&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+export const Test: Story = {
+  render: () =&gt; (
+    &lt;div className=&quot;_ams-tests-stack&quot;&gt;
+      {sizes.map((size) =&gt; (
+        &lt;div className={`ams-gap-${size}`} key={size}&gt;
+          &lt;Paragraph&gt;{`ams-gap-${size}`}&lt;/Paragraph&gt;
+          &lt;Paragraph&gt;{`ams-gap-${size}`}&lt;/Paragraph&gt;
+        &lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  ),
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
         </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
     
         <div class="panel panel-stories">
           
@@ -8015,23 +8163,25 @@ size: &quot;s&quot; | &quot;xs&quot; | &quot;m&quot; | &quot;l&quot; | &quot;xl&
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Gap } from "@amsterdam/storybook";
-import { Paragraph } from "@amsterdam/design-system-react";</code></pre>
+                <pre><code>import { Paragraph } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Default</span>
+                <span class="ex-name">Test</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Default = ({ size }: GapProps) =&gt; (
-  &lt;div className={`ams-gap-${size}`}&gt;
-    &lt;Paragraph&gt;These paragraphs are separated by a gap.&lt;/Paragraph&gt;
-    &lt;Paragraph&gt;These paragraphs are separated by a gap.&lt;/Paragraph&gt;
-    &lt;Paragraph&gt;These paragraphs are separated by a gap.&lt;/Paragraph&gt;
+              <pre><code>const Test = () =&gt; (
+  &lt;div className=&quot;_ams-tests-stack&quot;&gt;
+    {sizes.map((size) =&gt; (
+      &lt;div className={`ams-gap-${size}`} key={size}&gt;
+        &lt;Paragraph&gt;{`ams-gap-${size}`}&lt;/Paragraph&gt;
+        &lt;Paragraph&gt;{`ams-gap-${size}`}&lt;/Paragraph&gt;
+      &lt;/div&gt;
+    ))}
   &lt;/div&gt;
 );</code></pre>
             </div>
@@ -8045,7 +8195,7 @@ import { Paragraph } from "@amsterdam/design-system-react";</code></pre>
                 <span class="ex-name">Docs</span>
                 <span class="badge ok">doc ok</span>
               </div>
-              <div class="hint">./src/utils/Gap/Gap.docs.mdx</div>
+              <div class="hint">./src/utilities/Gap/Gap.docs.mdx</div>
               <div>## See also - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
@@ -12342,55 +12492,103 @@ They have a separate status because of their unique service provision not direct
 </article>
 <article
   class="card 
-  no-error 
-  no-info 
+  has-error 
+  has-info 
   no-story-error
   no-doc-error"
   role="listitem"
   aria-label="Margin">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Margin</h2>
+      <h2><span class="status-dot dot-err"></span> Margin</h2>
       <div class="badges">
-        <label for="c-56-utilities-css-margin-props" class="badge ok as-toggle">1 prop type</label>
-        
+        <label for="c-56-utilities-css-margin-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-56-utilities-css-margin-info" class="badge info as-toggle">1 info</label>
         <label for="c-56-utilities-css-margin-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-56-utilities-css-margin-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
-    <div class="meta" title="./src/utils/Margin/Margin.stories.tsx">utilities-css-margin · ./src/utils/Margin/Margin.stories.tsx</div>
+    <div class="meta" title="./src/utilities/Margin/Margin.test.stories.tsx">utilities-css-margin · ./src/utilities/Margin/Margin.test.stories.tsx</div>
     
-    <div class="hint">Mock component to render examples in Storybook. Not for reuse.</div>
+    
     
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  
-  
+  <input id="c-56-utilities-css-margin-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-56-utilities-css-margin-info" class="tg tg-info" type="checkbox" hidden />
   <input id="c-56-utilities-css-margin-stories" class="tg tg-stories" type="checkbox" hidden />
   <input id="c-56-utilities-css-margin-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-56-utilities-css-margin-props" class="tg tg-props" type="checkbox" hidden />
+  
 
   <div class="panels">
     
-    
-    
-        <div class="panel panel-props">
-          <div class="note ok">
-            <div class="row">
-              <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
-              <span class="badge ok">1 prop type</span>
-            </div>
-            <pre><code>Component: src/utils/Margin/Margin.tsx::Margin</code></pre>
-            <pre><code>Props:</code></pre>
-            <pre><code>/**
- * The amount of space below the element.
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  15 | const sizes = [&#39;xs&#39;, &#39;s&#39;, &#39;m&#39;, &#39;l&#39;, &#39;xl&#39;, &#39;2xl&#39;] as const
+  16 |
+&gt; 17 | const meta = {
+     | ^
+  18 |   ...marginMeta,
+  19 |   title: &#39;Utilities/CSS/Margin&#39;,
+  20 | } satisfies Meta&lt;typeof Margin&gt;
+
+./src/utilities/Margin/Margin.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
  */
-size: &quot;s&quot; | &quot;xs&quot; | &quot;m&quot; | &quot;l&quot; | &quot;xl&quot;</code></pre>
-          </div>
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import { Heading, Paragraph } from &#39;@amsterdam/design-system-react&#39;
+
+import type { Margin } from &#39;./Margin&#39;
+
+import { default as marginMeta } from &#39;./Margin.stories&#39;
+
+/** Mirrors the list in packages/css/src/components/margin/margin.scss, which does offer a 2xl margin. */
+const sizes = [&#39;xs&#39;, &#39;s&#39;, &#39;m&#39;, &#39;l&#39;, &#39;xl&#39;, &#39;2xl&#39;] as const
+
+const meta = {
+  ...marginMeta,
+  title: &#39;Utilities/CSS/Margin&#39;,
+} satisfies Meta&lt;typeof Margin&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+export const Test: Story = {
+  render: () =&gt; (
+    &lt;div className=&quot;_ams-tests-stack&quot;&gt;
+      {sizes.map((size) =&gt; (
+        &lt;div key={size}&gt;
+          &lt;Heading className={`ams-mb-${size}`} level={2}&gt;{`ams-mb-${size}`}&lt;/Heading&gt;
+          &lt;Paragraph&gt;It introduces white space between itself and this paragraph.&lt;/Paragraph&gt;
+        &lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  ),
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
         </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
     
         <div class="panel panel-stories">
           
@@ -12400,25 +12598,26 @@ size: &quot;s&quot; | &quot;xs&quot; | &quot;m&quot; | &quot;l&quot; | &quot;xl&
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Heading, Paragraph } from "@amsterdam/design-system-react";
-import { Margin } from "@amsterdam/storybook";</code></pre>
+                <pre><code>import { Heading, Paragraph } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Default</span>
+                <span class="ex-name">Test</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Default = ({ size }: MarginProps) =&gt; (
-  &lt;&gt;
-    &lt;Heading className={`ams-mb-${size}`} level={2}&gt;
-      This heading has a bottom margin
-    &lt;/Heading&gt;
-    &lt;Paragraph&gt;It introduces white space between itself and this paragraph.&lt;/Paragraph&gt;
-  &lt;/&gt;
+              <pre><code>const Test = () =&gt; (
+  &lt;div className=&quot;_ams-tests-stack&quot;&gt;
+    {sizes.map((size) =&gt; (
+      &lt;div key={size}&gt;
+        &lt;Heading className={`ams-mb-${size}`} level={2}&gt;{`ams-mb-${size}`}&lt;/Heading&gt;
+        &lt;Paragraph&gt;It introduces white space between itself and this paragraph.&lt;/Paragraph&gt;
+      &lt;/div&gt;
+    ))}
+  &lt;/div&gt;
 );</code></pre>
             </div>
         </div>
@@ -12431,7 +12630,7 @@ import { Margin } from "@amsterdam/storybook";</code></pre>
                 <span class="ex-name">Docs</span>
                 <span class="badge ok">doc ok</span>
               </div>
-              <div class="hint">./src/utils/Margin/Margin.docs.mdx</div>
+              <div class="hint">./src/utilities/Margin/Margin.docs.mdx</div>
               <div>## See also - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
@@ -17986,32 +18185,32 @@ These links lead to news updates, related projects, and supporting documents, al
 </article>
 <article
   class="card 
-  no-error 
-  no-info 
-  no-story-error
+  has-error 
+  has-info 
+  has-story-error
   no-doc-error"
   role="listitem"
   aria-label="Prose">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Prose</h2>
+      <h2><span class="status-dot dot-err"></span> Prose</h2>
       <div class="badges">
-        
-        
-        <label for="c-73-utilities-css-prose-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-73-utilities-css-prose-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-73-utilities-css-prose-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-73-utilities-css-prose-stories" class="badge err as-toggle">1/1 story errors</label>
         <label for="c-73-utilities-css-prose-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
-    <div class="meta" title="./src/utils/Prose/Prose.stories.tsx">utilities-css-prose · ./src/utils/Prose/Prose.stories.tsx</div>
+    <div class="meta" title="./src/utilities/Prose/Prose.test.stories.tsx">utilities-css-prose · ./src/utilities/Prose/Prose.test.stories.tsx</div>
     
-    <div class="hint">Mock component to render examples in Storybook. Not for reuse.</div>
+    
     
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  
-  
+  <input id="c-73-utilities-css-prose-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-73-utilities-css-prose-info" class="tg tg-info" type="checkbox" hidden />
   <input id="c-73-utilities-css-prose-stories" class="tg tg-stories" type="checkbox" hidden />
   <input id="c-73-utilities-css-prose-docs" class="tg tg-docs" type="checkbox" hidden />
   
@@ -18019,181 +18218,81 @@ These links lead to news updates, related projects, and supporting documents, al
 
   <div class="panels">
     
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  10 | import { default as proseMeta } from &#39;./Prose.stories&#39;
+  11 |
+&gt; 12 | const meta = {
+     | ^
+  13 |   ...proseMeta,
+  14 |   title: &#39;Utilities/CSS/Prose&#39;,
+  15 | } satisfies Meta&lt;typeof Prose&gt;
+
+./src/utilities/Prose/Prose.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import type { Prose } from &#39;./Prose&#39;
+
+import { default as proseMeta } from &#39;./Prose.stories&#39;
+
+const meta = {
+  ...proseMeta,
+  title: &#39;Utilities/CSS/Prose&#39;,
+} satisfies Meta&lt;typeof Prose&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+/**
+ * The article and the width decorator come from the meta, so this snapshots the document we document.
+ * Duplicating the markup here would let the snapshot drift away from it.
+ */
+export const Test: Story = {
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
+        </div>
     
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">Specify an @import jsdoc tag on your component or your stories meta such as @import import { Prose } from &#39;my-design-system&#39;;</div>
+    </div>
+        </div>
     
     
         <div class="panel panel-stories">
           
-          
-          
-          <div class="note ok">
-                <div class="row">
-                  <span class="ex-name">Imports</span>
-                </div>
-                <pre><code>import {
-    Accordion,
-    CallToActionLink,
-    Heading,
-    Link,
-    OrderedList,
-    Paragraph,
-    Table,
-    UnorderedList,
-} from "@amsterdam/design-system-react";
-import { Prose } from "@amsterdam/storybook";</code></pre>
-              </div>
-          
-          
-            <div class="note ok">
+            <div class="note err">
               <div class="row">
-                <span class="ex-name">Default</span>
-                <span class="badge ok">story ok</span>
+                <span class="ex-name">Test</span>
+                <span class="badge err">story error</span>
               </div>
               
               
-              <pre><code>const Default = (props: ProseProps) =&gt; (
-  &lt;article className=&quot;ams-prose&quot;&gt;
-    &lt;Heading level={1}&gt;Werkzaamheden aan de Oranje Loper&lt;/Heading&gt;
-    &lt;Paragraph&gt;16 augustus 2024&lt;/Paragraph&gt;
-    &lt;Paragraph size=&quot;large&quot;&gt;
-      Afgelopen maand konden bewoners hun reactie op de plannen geven tijdens informatiebijeenkomsten. Online kunt u tot
-      en met 31 oktober reageren op de plannen.
-    &lt;/Paragraph&gt;
-
-    &lt;Heading level={2}&gt;Waar vinden de werkzaamheden plaats?&lt;/Heading&gt;
-    &lt;Paragraph&gt;
-      De Oranjeloper loopt van oost naar west door de stad. We passen onderstaande straten en kruispunten aan, zodat de
-      route veilig en toegankelijk blijft voor alle weggebruikers. Fietsers, voetgangers en het openbaar vervoer krijgen
-      tijdens de uitvoering waar mogelijk ruim baan.
-    &lt;/Paragraph&gt;
-    &lt;UnorderedList&gt;
-      &lt;UnorderedList.Item&gt;De Clercqstraat en Jan Evertsenstraat&lt;/UnorderedList.Item&gt;
-      &lt;UnorderedList.Item&gt;Kruispunt Admiraal de Ruijterweg–Jan Evertsenstraat&lt;/UnorderedList.Item&gt;
-      &lt;UnorderedList.Item&gt;Raadhuisstraat, Westermarkt en Rozengracht&lt;/UnorderedList.Item&gt;
-      &lt;UnorderedList.Item&gt;Kruispunt Marnixstraat–Rozengracht&lt;/UnorderedList.Item&gt;
-      &lt;UnorderedList.Item&gt;Nieuwezijds Voorburgwal&lt;/UnorderedList.Item&gt;
-      &lt;UnorderedList.Item&gt;Molenslootbrug en Ritsaert ten Catebrug&lt;/UnorderedList.Item&gt;
-    &lt;/UnorderedList&gt;
-
-    &lt;Heading level={2}&gt;Planning per fase&lt;/Heading&gt;
-    &lt;Paragraph&gt;
-      We richten de rotonde bij de Bouhuijstunnel opnieuw in en maken het veiliger. Ook het fiets- en voetpad passen we
-      aan. De werkzaamheden zijn opgedeeld in vijf fasen, zodat we het verkeer zo min mogelijk hinderen.
-    &lt;/Paragraph&gt;
-    &lt;Paragraph&gt;
-      Tussen de fasen houden we rekening met feestdagen en evenementen in de buurt. Bij aanhoudend slecht weer schuiven
-      we de planning in overleg met de aannemer op. We informeren bewoners en ondernemers dan minimaal een week van
-      tevoren.
-    &lt;/Paragraph&gt;
-
-    &lt;Heading level={3}&gt;Fasen van de rotonde&lt;/Heading&gt;
-    &lt;OrderedList&gt;
-      &lt;OrderedList.Item&gt;Voorbereiden van de werkzaamheden: 25 september tot 27 september.&lt;/OrderedList.Item&gt;
-      &lt;OrderedList.Item&gt;
-        Start werkzaamheden zuidelijke en halfwestelijke deel van de rotonde: 27 september tot 19 oktober.
-        &lt;OrderedList&gt;
-          &lt;OrderedList.Item&gt;Opbreken van de bestaande verharding en kantopsluiting.&lt;/OrderedList.Item&gt;
-          &lt;OrderedList.Item&gt;Aanleg van de nieuwe fundering en de onderste asfaltlaag.&lt;/OrderedList.Item&gt;
-        &lt;/OrderedList&gt;
-      &lt;/OrderedList.Item&gt;
-      &lt;OrderedList.Item&gt;
-        Voortgang werkzaamheden zuidelijke en halfwestelijke deel: 20 oktober tot 11 november.
-      &lt;/OrderedList.Item&gt;
-      &lt;OrderedList.Item&gt;
-        Start werkzaamheden van het noordelijke deel van de rotonde: 13 november tot 6 december.
-      &lt;/OrderedList.Item&gt;
-      &lt;OrderedList.Item&gt;
-        Afronden van de werkzaamheden en verwijderen van tijdelijke maatregelen: 7 december tot 15 december.
-      &lt;/OrderedList.Item&gt;
-    &lt;/OrderedList&gt;
-
-    &lt;Heading level={2}&gt;Bereikbaarheid tijdens de werkzaamheden&lt;/Heading&gt;
-    &lt;Paragraph&gt;
-      Tijdens de uitvoering leiden we het verkeer om via de belangrijkste aanrijroutes. Fietsers en voetgangers kunnen
-      de meeste bestemmingen op loopafstand bereiken; voor autoverkeer en het openbaar vervoer gelden tijdelijke
-      omleidingen.
-    &lt;/Paragraph&gt;
-    &lt;Table&gt;
-      &lt;Table.Caption&gt;
-        &lt;Heading level={3}&gt;Omleidingen per vervoermiddel&lt;/Heading&gt;
-      &lt;/Table.Caption&gt;
-      &lt;Table.Header&gt;
-        &lt;Table.Row&gt;
-          &lt;Table.HeaderCell&gt;Vervoermiddel&lt;/Table.HeaderCell&gt;
-          &lt;Table.HeaderCell&gt;Omleiding&lt;/Table.HeaderCell&gt;
-          &lt;Table.HeaderCell&gt;Periode&lt;/Table.HeaderCell&gt;
-        &lt;/Table.Row&gt;
-      &lt;/Table.Header&gt;
-      &lt;Table.Body&gt;
-        &lt;Table.Row&gt;
-          &lt;Table.Cell&gt;Fietsers&lt;/Table.Cell&gt;
-          &lt;Table.Cell&gt;Via Marnixstraat en Nassaukade&lt;/Table.Cell&gt;
-          &lt;Table.Cell&gt;Gehele periode&lt;/Table.Cell&gt;
-        &lt;/Table.Row&gt;
-        &lt;Table.Row&gt;
-          &lt;Table.Cell&gt;Voetgangers&lt;/Table.Cell&gt;
-          &lt;Table.Cell&gt;Trottoir blijft beschikbaar, enkele oversteken verplaatst&lt;/Table.Cell&gt;
-          &lt;Table.Cell&gt;Gehele periode&lt;/Table.Cell&gt;
-        &lt;/Table.Row&gt;
-        &lt;Table.Row&gt;
-          &lt;Table.Cell&gt;Tram 17&lt;/Table.Cell&gt;
-          &lt;Table.Cell&gt;Ingekort tot halte Westermarkt&lt;/Table.Cell&gt;
-          &lt;Table.Cell&gt;27 september tot 6 december&lt;/Table.Cell&gt;
-        &lt;/Table.Row&gt;
-        &lt;Table.Row&gt;
-          &lt;Table.Cell&gt;Autoverkeer&lt;/Table.Cell&gt;
-          &lt;Table.Cell&gt;Via de S100 rond het centrum&lt;/Table.Cell&gt;
-          &lt;Table.Cell&gt;Tijdens fase 2 en fase 3&lt;/Table.Cell&gt;
-        &lt;/Table.Row&gt;
-      &lt;/Table.Body&gt;
-    &lt;/Table&gt;
-
-    &lt;Heading level={2}&gt;Veelgestelde vragen&lt;/Heading&gt;
-    &lt;Paragraph&gt;
-      Hieronder vindt u antwoorden op vragen die bewoners en ondernemers ons het vaakst stellen over de werkzaamheden.
-      Staat uw vraag er niet bij, neem dan contact op via het contactformulier onderaan deze pagina.
-    &lt;/Paragraph&gt;
-    &lt;Accordion headingLevel={3}&gt;
-      &lt;Accordion.Section label=&quot;Wat gebeurt er met mijn parkeerplaats tijdens de werkzaamheden?&quot;&gt;
-        &lt;Paragraph&gt;
-          Tijdens de uitvoering vervallen een aantal parkeerplaatsen langs de route tijdelijk. Bewoners met een
-          parkeervergunning kunnen in overleg met de gemeente gebruikmaken van aangewezen uitwijklocaties in de buurt.
-          Ondernemers met een laad- en losvergunning ontvangen vooraf bericht over tijdelijke alternatieven. We proberen
-          de overlast zo beperkt mogelijk te houden en informeren betrokkenen minimaal twee weken van tevoren. Zodra een
-          fase is afgerond, worden de parkeerplaatsen zo snel mogelijk teruggegeven.
-        &lt;/Paragraph&gt;
-      &lt;/Accordion.Section&gt;
-      &lt;Accordion.Section label=&quot;Kan ik mijn woning of bedrijf blijven bereiken?&quot;&gt;
-        &lt;Paragraph&gt;
-          Uw woning en bedrijf blijven gedurende de gehele periode bereikbaar, al kan de route tijdelijk afwijken van
-          wat u gewend bent. Voor voetgangers en fietsers zorgen we altijd voor een veilige doorgang langs de
-          werkzaamheden. Autoverkeer wordt via omleidingsborden naar de dichtstbijzijnde alternatieve route geleid.
-          Heeft u bijzondere bereikbaarheidsbehoeften, bijvoorbeeld voor medisch vervoer of een zwaar transport, neem
-          dan vooraf contact met ons op zodat we samen een oplossing kunnen zoeken.
-        &lt;/Paragraph&gt;
-      &lt;/Accordion.Section&gt;
-      &lt;Accordion.Section label=&quot;Wat doe ik als ik schade ondervind door de werkzaamheden?&quot;&gt;
-        &lt;Paragraph&gt;
-          Constateert u schade aan uw woning, bedrijfspand of voertuig die mogelijk is veroorzaakt door de
-          werkzaamheden, meld dit dan zo snel mogelijk via &lt;Link href=&quot;#&quot;&gt;amsterdam.nl/schade-melden&lt;/Link&gt;. Voeg
-          daarbij zo veel mogelijk documentatie toe, zoals foto&amp;apos;s met datum en tijdstip. De gemeente beoordeelt
-          iedere melding afzonderlijk en neemt binnen vijf werkdagen contact met u op. Is de schade dringend, bel dan de
-          gemeentelijke storingsdienst op 14 020. Schade veroorzaakt door de aannemer wordt in eerste instantie door de
-          aannemer afgehandeld; de gemeente fungeert daarbij als aanspreekpunt.
-        &lt;/Paragraph&gt;
-      &lt;/Accordion.Section&gt;
-    &lt;/Accordion&gt;
-
-    &lt;Heading level={2}&gt;Op de hoogte blijven&lt;/Heading&gt;
-    &lt;Paragraph&gt;
-      Op &lt;Link href=&quot;https://amsterdam.nl/oranjeloper&quot;&gt;amsterdam.nl/oranjeloper&lt;/Link&gt; vindt u een actueel overzicht van
-      alle werkzaamheden. U kunt zich daar ook inschrijven voor de digitale nieuwsbrief, zodat we u per e-mail op de
-      hoogte houden van wijzigingen in de planning en tijdelijke omleidingen.
-    &lt;/Paragraph&gt;
-    &lt;CallToActionLink href=&quot;#&quot;&gt;Aanmelden voor de nieuwsbrief&lt;/CallToActionLink&gt;
-  &lt;/article&gt;
-);</code></pre>
+              
+              <pre><code>Could not generate snippet without component name.</code></pre>
             </div>
+          
+          
+          
+          
+          
         </div>
     
         <div class="panel panel-docs">
@@ -18204,7 +18303,7 @@ import { Prose } from "@amsterdam/storybook";</code></pre>
                 <span class="ex-name">Docs</span>
                 <span class="badge ok">doc ok</span>
               </div>
-              <div class="hint">./src/utils/Prose/Prose.docs.mdx</div>
+              <div class="hint">./src/utilities/Prose/Prose.docs.mdx</div>
               <div>## See also - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
@@ -18254,7 +18353,7 @@ import * as ProseStories from &quot;./Prose.stories.tsx&quot;;
         
       </div>
     </div>
-    <div class="meta" title="./src/utils/QueryContainer/QueryContainer.stories.tsx">utilities-css-query-container · ./src/utils/QueryContainer/QueryContainer.stories.tsx</div>
+    <div class="meta" title="./src/utilities/QueryContainer/QueryContainer.test.stories.tsx">utilities-css-query-container · ./src/utilities/QueryContainer/QueryContainer.test.stories.tsx</div>
     
     <div class="hint">Mock component to render examples in Storybook. Not for reuse.</div>
     
@@ -18288,12 +18387,12 @@ import { QueryContainer } from "@amsterdam/storybook";</code></pre>
           
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Inline Size</span>
+                <span class="ex-name">Test</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const InlineSize = () =&gt; (
+              <pre><code>const Test = () =&gt; (
   &lt;&gt;
     &lt;style&gt;{`
       ._ams-colored-box {
@@ -18305,14 +18404,18 @@ import { QueryContainer } from "@amsterdam/storybook";</code></pre>
         }
       }
     `}&lt;/style&gt;
-    &lt;QueryContainer
-      className=&quot;ams-query-container-inline-size _ams-resize-horizontal&quot;
-      style={{ inlineSize: &#39;16rem&#39; }}
-    &gt;
-      &lt;div className=&quot;_ams-colored-box&quot;&gt;
-        &lt;Paragraph&gt;This yellow background becomes lime if the query container is wider than 20rem.&lt;/Paragraph&gt;
-      &lt;/div&gt;
-    &lt;/QueryContainer&gt;
+    &lt;div className=&quot;_ams-tests-stack&quot;&gt;
+      {/* Below and above the 20rem threshold, so both sides of the container query are covered.
+          The story omits the resize affordance of the presentation story: its outline and scrollbars
+          would show up in the snapshot without saying anything about the utility. */}
+      {[&#39;16rem&#39;, &#39;24rem&#39;].map((inlineSize) =&gt; (
+        &lt;QueryContainer className=&quot;ams-query-container-inline-size&quot; key={inlineSize} style={{ inlineSize }}&gt;
+          &lt;div className=&quot;_ams-colored-box&quot;&gt;
+            &lt;Paragraph&gt;This yellow background becomes lime if the query container is wider than 20rem.&lt;/Paragraph&gt;
+          &lt;/div&gt;
+        &lt;/QueryContainer&gt;
+      ))}
+    &lt;/div&gt;
   &lt;/&gt;
 );</code></pre>
             </div>
@@ -18326,7 +18429,7 @@ import { QueryContainer } from "@amsterdam/storybook";</code></pre>
                 <span class="ex-name">Docs</span>
                 <span class="badge ok">doc ok</span>
               </div>
-              <div class="hint">./src/utils/QueryContainer/QueryContainer.docs.mdx</div>
+              <div class="hint">./src/utilities/QueryContainer/QueryContainer.docs.mdx</div>
               <div>## See also - [CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Gui...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
@@ -22481,32 +22584,32 @@ This provides better distinction between the items, especially when they consist
 </article>
 <article
   class="card 
-  no-error 
-  no-info 
-  no-story-error
+  has-error 
+  has-info 
+  has-story-error
   no-doc-error"
   role="listitem"
   aria-label="VisuallyHidden">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> VisuallyHidden</h2>
+      <h2><span class="status-dot dot-err"></span> VisuallyHidden</h2>
       <div class="badges">
-        
-        
-        <label for="c-97-utilities-css-visually-hidden-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-97-utilities-css-visually-hidden-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-97-utilities-css-visually-hidden-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-97-utilities-css-visually-hidden-stories" class="badge err as-toggle">1/1 story errors</label>
         <label for="c-97-utilities-css-visually-hidden-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
-    <div class="meta" title="./src/utils/VisuallyHidden/VisuallyHidden.stories.tsx">utilities-css-visually-hidden · ./src/utils/VisuallyHidden/VisuallyHidden.stories.tsx</div>
+    <div class="meta" title="./src/utilities/VisuallyHidden/VisuallyHidden.test.stories.tsx">utilities-css-visually-hidden · ./src/utilities/VisuallyHidden/VisuallyHidden.test.stories.tsx</div>
     
-    <div class="hint">Mock component to render examples in Storybook. Not for reuse.</div>
+    
     
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  
-  
+  <input id="c-97-utilities-css-visually-hidden-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-97-utilities-css-visually-hidden-info" class="tg tg-info" type="checkbox" hidden />
   <input id="c-97-utilities-css-visually-hidden-stories" class="tg tg-stories" type="checkbox" hidden />
   <input id="c-97-utilities-css-visually-hidden-docs" class="tg tg-docs" type="checkbox" hidden />
   
@@ -22514,39 +22617,81 @@ This provides better distinction between the items, especially when they consist
 
   <div class="panels">
     
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  10 | import { default as visuallyHiddenMeta } from &#39;./VisuallyHidden.stories&#39;
+  11 |
+&gt; 12 | const meta = {
+     | ^
+  13 |   ...visuallyHiddenMeta,
+  14 |   title: &#39;Utilities/CSS/Visually Hidden&#39;,
+  15 | } satisfies Meta&lt;typeof VisuallyHidden&gt;
+
+./src/utilities/VisuallyHidden/VisuallyHidden.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import type { VisuallyHidden } from &#39;./VisuallyHidden&#39;
+
+import { default as visuallyHiddenMeta } from &#39;./VisuallyHidden.stories&#39;
+
+const meta = {
+  ...visuallyHiddenMeta,
+  title: &#39;Utilities/CSS/Visually Hidden&#39;,
+} satisfies Meta&lt;typeof VisuallyHidden&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+/**
+ * Snapshots the one regression that is visible by definition: the hidden paragraph becoming perceivable.
+ * The story shows a single visible paragraph; a second one appearing means the utility stopped hiding.
+ */
+export const Test: Story = {
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
+        </div>
     
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">Specify an @import jsdoc tag on your component or your stories meta such as @import import { VisuallyHidden } from &#39;my-design-system&#39;;</div>
+    </div>
+        </div>
     
     
         <div class="panel panel-stories">
           
-          
-          
-          <div class="note ok">
-                <div class="row">
-                  <span class="ex-name">Imports</span>
-                </div>
-                <pre><code>import { Paragraph } from "@amsterdam/design-system-react";
-import { VisuallyHidden } from "@amsterdam/storybook";</code></pre>
-              </div>
-          
-          
-            <div class="note ok">
+            <div class="note err">
               <div class="row">
-                <span class="ex-name">Default</span>
-                <span class="badge ok">story ok</span>
+                <span class="ex-name">Test</span>
+                <span class="badge err">story error</span>
               </div>
               
               
-              <pre><code>const Default = ({ children }: VisuallyHiddenProps) =&gt; (
-  &lt;&gt;
-    &lt;Paragraph&gt;
-      This paragraph is available for everyone. Below this is a second paragraph, but it is aimed at non-visual user
-      agents only. It is not perceivable on a screen.
-    &lt;/Paragraph&gt;
-    &lt;Paragraph className=&quot;ams-visually-hidden&quot;&gt;{children}&lt;/Paragraph&gt;
-  &lt;/&gt;
-);</code></pre>
+              
+              <pre><code>Could not generate snippet without component name.</code></pre>
             </div>
+          
+          
+          
+          
+          
         </div>
     
         <div class="panel panel-docs">
@@ -22557,7 +22702,7 @@ import { VisuallyHidden } from "@amsterdam/storybook";</code></pre>
                 <span class="ex-name">Docs</span>
                 <span class="badge ok">doc ok</span>
               </div>
-              <div class="hint">./src/utils/VisuallyHidden/VisuallyHidden.docs.mdx</div>
+              <div class="hint">./src/utilities/VisuallyHidden/VisuallyHidden.docs.mdx</div>
               
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
@@ -22586,7 +22731,7 @@ import * as VisuallyHiddenStories from &quot;./VisuallyHidden.stories.tsx&quot;;
           <label for="no-component-found-toggle" class="group-header">
             <span class="caret">▸</span>
             <span class="group-title">No component found</span>
-            <span class="group-count">46</span>
+            <span class="group-count">52</span>
           </label>
           <div class="group-cards">
 <article
@@ -23736,15 +23881,177 @@ This page type is for news or similar kinds of articles.
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="AspectRatio">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> AspectRatio</h2>
+      <div class="badges">
+        <label for="c-error-4-utilities-css-aspect-ratio-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-4-utilities-css-aspect-ratio-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-4-utilities-css-aspect-ratio-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-4-utilities-css-aspect-ratio-docs" class="badge ok as-toggle">1 doc</label>
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/utilities/AspectRatio/AspectRatio.test.stories.tsx">utilities-css-aspect-ratio · ./src/utilities/AspectRatio/AspectRatio.test.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-4-utilities-css-aspect-ratio-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-4-utilities-css-aspect-ratio-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-4-utilities-css-aspect-ratio-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-4-utilities-css-aspect-ratio-docs" class="tg tg-docs" type="checkbox" hidden />
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  14 | import { default as aspectRatioMeta } from &#39;./AspectRatio.stories&#39;
+  15 |
+&gt; 16 | const meta = {
+     | ^
+  17 |   ...aspectRatioMeta,
+  18 |   title: &#39;Utilities/CSS/Aspect Ratio&#39;,
+  19 | } satisfies Meta&lt;typeof AspectRatio&gt;
+
+./src/utilities/AspectRatio/AspectRatio.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import { generateAspectRatioClass } from &#39;@amsterdam/design-system-react/src&#39;
+import { aspectRatioOptions } from &#39;@amsterdam/design-system-react/src/common/types&#39;
+import { clsx } from &#39;clsx&#39;
+
+import type { AspectRatio } from &#39;./AspectRatio&#39;
+
+import { default as aspectRatioMeta } from &#39;./AspectRatio.stories&#39;
+
+const meta = {
+  ...aspectRatioMeta,
+  title: &#39;Utilities/CSS/Aspect Ratio&#39;,
+} satisfies Meta&lt;typeof AspectRatio&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+export const Test: Story = {
+  render: () =&gt; (
+    &lt;div className=&quot;_ams-tests-grid&quot; style={{ alignItems: &#39;flex-start&#39; }}&gt;
+      {/* A fixed inline size keeps the ratios comparable: the block size comes from the class alone.
+          Aligning to the start stops the row from stretching every container to the tallest ratio. */}
+      {aspectRatioOptions.map((aspectRatio) =&gt; (
+        &lt;div className=&quot;_ams-container&quot; key={aspectRatio} style={{ inlineSize: &#39;10rem&#39; }}&gt;
+          &lt;div className={clsx(&#39;_ams-item&#39;, generateAspectRatioClass(aspectRatio))} /&gt;
+        &lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  ),
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">Specify an @import jsdoc tag on your component or your stories meta such as @import import { AspectRatio } from &#39;my-design-system&#39;;</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Test</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Test = () =&gt; (
+  &lt;div className=&quot;_ams-tests-grid&quot; style={{ alignItems: &#39;flex-start&#39; }}&gt;
+    {/* A fixed inline size keeps the ratios comparable: the block size comes from the class alone.
+        Aligning to the start stops the row from stretching every container to the tallest ratio. */}
+    {aspectRatioOptions.map((aspectRatio) =&gt; (
+      &lt;div className=&quot;_ams-container&quot; key={aspectRatio} style={{ inlineSize: &#39;10rem&#39; }}&gt;
+        &lt;div className={clsx(&#39;_ams-item&#39;, generateAspectRatioClass(aspectRatio))} /&gt;
+      &lt;/div&gt;
+    ))}
+  &lt;/div&gt;
+);</code></pre>
+            </div>
+        </div>
+    
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/utilities/AspectRatio/AspectRatio.docs.mdx</div>
+              
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Controls, Markdown, Meta, Primary } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import README from &quot;../../../../packages/css/src/components/aspect-ratio/README.md?raw&quot;;
+import * as AspectRatioStories from &quot;./AspectRatio.stories.tsx&quot;;
+
+&lt;Meta of={AspectRatioStories} /&gt;
+
+&lt;Markdown&gt;{README}&lt;/Markdown&gt;
+
+&lt;Primary /&gt;
+
+&lt;Controls /&gt;
+</code></pre></div>
+            </div>
+        </div>
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="Avatar">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Avatar</h2>
       <div class="badges">
-        <label for="c-error-4-components-feedback-avatar-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-4-components-feedback-avatar-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-4-components-feedback-avatar-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-4-components-feedback-avatar-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-5-components-feedback-avatar-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-5-components-feedback-avatar-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-5-components-feedback-avatar-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-5-components-feedback-avatar-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -23755,10 +24062,10 @@ This page type is for news or similar kinds of articles.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-4-components-feedback-avatar-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-4-components-feedback-avatar-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-4-components-feedback-avatar-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-4-components-feedback-avatar-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-5-components-feedback-avatar-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-5-components-feedback-avatar-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-5-components-feedback-avatar-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-5-components-feedback-avatar-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -23919,10 +24226,10 @@ The design system does not define a meaning to any of these background colours.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Badge</h2>
       <div class="badges">
-        <label for="c-error-5-components-feedback-badge-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-5-components-feedback-badge-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-5-components-feedback-badge-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-5-components-feedback-badge-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-6-components-feedback-badge-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-6-components-feedback-badge-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-6-components-feedback-badge-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-6-components-feedback-badge-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -23933,10 +24240,10 @@ The design system does not define a meaning to any of these background colours.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-5-components-feedback-badge-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-5-components-feedback-badge-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-5-components-feedback-badge-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-5-components-feedback-badge-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-6-components-feedback-badge-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-6-components-feedback-badge-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-6-components-feedback-badge-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-6-components-feedback-badge-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -24089,10 +24396,10 @@ However, they can also be combined with the other colours without carrying these
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Blockquote</h2>
       <div class="badges">
-        <label for="c-error-6-components-text-blockquote-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-6-components-text-blockquote-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-6-components-text-blockquote-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-6-components-text-blockquote-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-7-components-text-blockquote-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-7-components-text-blockquote-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-7-components-text-blockquote-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-7-components-text-blockquote-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -24103,10 +24410,10 @@ However, they can also be combined with the other colours without carrying these
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-6-components-text-blockquote-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-6-components-text-blockquote-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-6-components-text-blockquote-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-6-components-text-blockquote-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-7-components-text-blockquote-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-7-components-text-blockquote-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-7-components-text-blockquote-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-7-components-text-blockquote-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -24263,6 +24570,143 @@ The component adds the correct quotation marks.
   class="card 
   has-error 
   has-info 
+  has-story-error
+  no-doc-error"
+  role="listitem"
+  aria-label="Body">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> Body</h2>
+      <div class="badges">
+        <label for="c-error-8-utilities-css-body-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-8-utilities-css-body-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-8-utilities-css-body-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-error-8-utilities-css-body-docs" class="badge ok as-toggle">1 doc</label>
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/utilities/Body/Body.test.stories.tsx">utilities-css-body · ./src/utilities/Body/Body.test.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-8-utilities-css-body-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-8-utilities-css-body-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-8-utilities-css-body-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-8-utilities-css-body-docs" class="tg tg-docs" type="checkbox" hidden />
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  10 | import { default as bodyMeta } from &#39;./Body.stories&#39;
+  11 |
+&gt; 12 | const meta = {
+     | ^
+  13 |   ...bodyMeta,
+  14 |   title: &#39;Utilities/CSS/Body&#39;,
+  15 | } satisfies Meta&lt;typeof Body&gt;
+
+./src/utilities/Body/Body.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import type { Body } from &#39;./Body&#39;
+
+import { default as bodyMeta } from &#39;./Body.stories&#39;
+
+const meta = {
+  ...bodyMeta,
+  title: &#39;Utilities/CSS/Body&#39;,
+} satisfies Meta&lt;typeof Body&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+/** The utility has no variants: it sets the page background and the base text style, which the meta already shows. */
+export const Test: Story = {
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">Specify an @import jsdoc tag on your component or your stories meta such as @import import { Body } from &#39;my-design-system&#39;;</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Test</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not generate snippet without component name.</code></pre>
+            </div>
+          
+          
+          
+          
+          
+        </div>
+    
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/utilities/Body/Body.docs.mdx</div>
+              
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Markdown, Meta, Primary } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import README from &quot;../../../../packages/css/src/components/body/README.md?raw&quot;;
+import * as BodyStories from &quot;./Body.stories.tsx&quot;;
+
+&lt;Meta of={BodyStories} /&gt;
+
+&lt;Markdown&gt;{README}&lt;/Markdown&gt;
+
+&lt;Primary /&gt;
+</code></pre></div>
+            </div>
+        </div>
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
   no-story-error
   no-doc-error"
   role="listitem"
@@ -24271,10 +24715,10 @@ The component adds the correct quotation marks.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Button</h2>
       <div class="badges">
-        <label for="c-error-7-components-buttons-button-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-7-components-buttons-button-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-7-components-buttons-button-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-7-components-buttons-button-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-9-components-buttons-button-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-9-components-buttons-button-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-9-components-buttons-button-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-9-components-buttons-button-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -24285,10 +24729,10 @@ The component adds the correct quotation marks.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-7-components-buttons-button-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-7-components-buttons-button-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-7-components-buttons-button-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-7-components-buttons-button-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-9-components-buttons-button-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-9-components-buttons-button-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-9-components-buttons-button-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-9-components-buttons-button-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -24516,10 +24960,10 @@ The icon size stays constant regardless of the label length, so a row of Buttons
     <div class="title">
       <h2><span class="status-dot dot-err"></span> CalltoActionLink</h2>
       <div class="badges">
-        <label for="c-error-8-components-navigation-call-to-action-link-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-8-components-navigation-call-to-action-link-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-8-components-navigation-call-to-action-link-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-8-components-navigation-call-to-action-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-10-components-navigation-call-to-action-link-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-10-components-navigation-call-to-action-link-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-10-components-navigation-call-to-action-link-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-10-components-navigation-call-to-action-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -24530,10 +24974,10 @@ The icon size stays constant regardless of the label length, so a row of Buttons
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-8-components-navigation-call-to-action-link-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-8-components-navigation-call-to-action-link-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-8-components-navigation-call-to-action-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-8-components-navigation-call-to-action-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-10-components-navigation-call-to-action-link-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-10-components-navigation-call-to-action-link-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-10-components-navigation-call-to-action-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-10-components-navigation-call-to-action-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -24694,10 +25138,10 @@ This informs users that a new page will open and that they can either copy the l
     <div class="title">
       <h2><span class="status-dot dot-err"></span> CharacterCount</h2>
       <div class="badges">
-        <label for="c-error-9-components-forms-character-count-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-9-components-forms-character-count-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-9-components-forms-character-count-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-9-components-forms-character-count-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-11-components-forms-character-count-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-11-components-forms-character-count-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-11-components-forms-character-count-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-11-components-forms-character-count-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -24708,10 +25152,10 @@ This informs users that a new page will open and that they can either copy the l
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-9-components-forms-character-count-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-9-components-forms-character-count-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-9-components-forms-character-count-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-9-components-forms-character-count-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-11-components-forms-character-count-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-11-components-forms-character-count-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-11-components-forms-character-count-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-11-components-forms-character-count-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -24874,10 +25318,10 @@ This lets them type or copy and paste their full answer, then edit it down.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Checkbox</h2>
       <div class="badges">
-        <label for="c-error-10-components-forms-checkbox-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-10-components-forms-checkbox-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-10-components-forms-checkbox-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-10-components-forms-checkbox-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-12-components-forms-checkbox-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-12-components-forms-checkbox-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-12-components-forms-checkbox-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-12-components-forms-checkbox-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -24888,10 +25332,10 @@ This lets them type or copy and paste their full answer, then edit it down.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-10-components-forms-checkbox-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-10-components-forms-checkbox-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-10-components-forms-checkbox-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-10-components-forms-checkbox-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-12-components-forms-checkbox-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-12-components-forms-checkbox-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-12-components-forms-checkbox-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-12-components-forms-checkbox-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -25108,9 +25552,9 @@ A list of Checkboxes is vertically stacked to enhance readability and usability.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Code</h2>
       <div class="badges">
-        <label for="c-error-11-components-docs-code-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-11-components-docs-code-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-11-components-docs-code-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-13-components-docs-code-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-13-components-docs-code-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-13-components-docs-code-stories" class="badge ok as-toggle">1 story</label>
         
         
       </div>
@@ -25122,9 +25566,9 @@ A list of Checkboxes is vertically stacked to enhance readability and usability.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-11-components-docs-code-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-11-components-docs-code-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-11-components-docs-code-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-13-components-docs-code-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-13-components-docs-code-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-13-components-docs-code-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -25221,10 +25665,10 @@ export const Test: Story = {
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Column</h2>
       <div class="badges">
-        <label for="c-error-12-components-layout-column-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-12-components-layout-column-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-12-components-layout-column-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-12-components-layout-column-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-14-components-layout-column-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-14-components-layout-column-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-14-components-layout-column-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-14-components-layout-column-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -25235,10 +25679,10 @@ export const Test: Story = {
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-12-components-layout-column-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-12-components-layout-column-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-12-components-layout-column-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-12-components-layout-column-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-14-components-layout-column-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-14-components-layout-column-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-14-components-layout-column-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-14-components-layout-column-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -25434,10 +25878,10 @@ Align the elements horizontally or vertically through the alignment props.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> DateInput</h2>
       <div class="badges">
-        <label for="c-error-13-components-forms-date-input-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-13-components-forms-date-input-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-13-components-forms-date-input-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-13-components-forms-date-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-15-components-forms-date-input-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-15-components-forms-date-input-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-15-components-forms-date-input-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-15-components-forms-date-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -25448,10 +25892,10 @@ Align the elements horizontally or vertically through the alignment props.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-13-components-forms-date-input-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-13-components-forms-date-input-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-13-components-forms-date-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-13-components-forms-date-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-15-components-forms-date-input-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-15-components-forms-date-input-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-15-components-forms-date-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-15-components-forms-date-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -25690,10 +26134,10 @@ This does mean that this component does not look identical on all browsers and o
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ErrorMessage</h2>
       <div class="badges">
-        <label for="c-error-14-components-forms-error-message-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-14-components-forms-error-message-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-14-components-forms-error-message-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-14-components-forms-error-message-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-16-components-forms-error-message-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-16-components-forms-error-message-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-16-components-forms-error-message-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-16-components-forms-error-message-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -25704,10 +26148,10 @@ This does mean that this component does not look identical on all browsers and o
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-14-components-forms-error-message-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-14-components-forms-error-message-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-14-components-forms-error-message-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-14-components-forms-error-message-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-16-components-forms-error-message-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-16-components-forms-error-message-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-16-components-forms-error-message-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-16-components-forms-error-message-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -25883,10 +26327,10 @@ Websites for the City of Amsterdam must use the default icon.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Field</h2>
       <div class="badges">
-        <label for="c-error-15-components-forms-field-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-15-components-forms-field-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-15-components-forms-field-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-15-components-forms-field-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-17-components-forms-field-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-17-components-forms-field-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-17-components-forms-field-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-17-components-forms-field-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -25897,10 +26341,10 @@ Websites for the City of Amsterdam must use the default icon.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-15-components-forms-field-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-15-components-forms-field-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-15-components-forms-field-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-15-components-forms-field-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-17-components-forms-field-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-17-components-forms-field-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-17-components-forms-field-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-17-components-forms-field-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -26101,10 +26545,10 @@ The component does this automatically.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> FieldSet</h2>
       <div class="badges">
-        <label for="c-error-16-components-forms-field-set-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-16-components-forms-field-set-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-16-components-forms-field-set-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-16-components-forms-field-set-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-18-components-forms-field-set-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-18-components-forms-field-set-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-18-components-forms-field-set-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-18-components-forms-field-set-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -26115,10 +26559,10 @@ The component does this automatically.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-16-components-forms-field-set-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-16-components-forms-field-set-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-16-components-forms-field-set-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-16-components-forms-field-set-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-18-components-forms-field-set-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-18-components-forms-field-set-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-18-components-forms-field-set-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-18-components-forms-field-set-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -26334,10 +26778,10 @@ The component does this automatically.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> FileInput</h2>
       <div class="badges">
-        <label for="c-error-17-components-forms-file-input-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-17-components-forms-file-input-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-17-components-forms-file-input-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-17-components-forms-file-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-19-components-forms-file-input-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-19-components-forms-file-input-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-19-components-forms-file-input-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-19-components-forms-file-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -26348,10 +26792,10 @@ The component does this automatically.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-17-components-forms-file-input-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-17-components-forms-file-input-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-17-components-forms-file-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-17-components-forms-file-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-19-components-forms-file-input-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-19-components-forms-file-input-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-19-components-forms-file-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-19-components-forms-file-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -26529,15 +26973,181 @@ The filename label and button are displayed in the language of the browser and c
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="Gap">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> Gap</h2>
+      <div class="badges">
+        <label for="c-error-20-utilities-css-gap-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-20-utilities-css-gap-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-20-utilities-css-gap-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-20-utilities-css-gap-docs" class="badge ok as-toggle">1 doc</label>
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/utilities/Gap/Gap.test.stories.tsx">utilities-css-gap · ./src/utilities/Gap/Gap.test.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-20-utilities-css-gap-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-20-utilities-css-gap-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-20-utilities-css-gap-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-20-utilities-css-gap-docs" class="tg tg-docs" type="checkbox" hidden />
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  15 | const sizes = [&#39;xs&#39;, &#39;s&#39;, &#39;m&#39;, &#39;l&#39;, &#39;xl&#39;] as const
+  16 |
+&gt; 17 | const meta = {
+     | ^
+  18 |   ...gapMeta,
+  19 |   title: &#39;Utilities/CSS/Gap&#39;,
+  20 | } satisfies Meta&lt;typeof Gap&gt;
+
+./src/utilities/Gap/Gap.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import { Paragraph } from &#39;@amsterdam/design-system-react&#39;
+
+import type { Gap } from &#39;./Gap&#39;
+
+import { default as gapMeta } from &#39;./Gap.stories&#39;
+
+/** Mirrors the list in packages/css/src/components/gap/gap.scss. There is deliberately no 2xl gap. */
+const sizes = [&#39;xs&#39;, &#39;s&#39;, &#39;m&#39;, &#39;l&#39;, &#39;xl&#39;] as const
+
+const meta = {
+  ...gapMeta,
+  title: &#39;Utilities/CSS/Gap&#39;,
+} satisfies Meta&lt;typeof Gap&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+export const Test: Story = {
+  render: () =&gt; (
+    &lt;div className=&quot;_ams-tests-stack&quot;&gt;
+      {sizes.map((size) =&gt; (
+        &lt;div className={`ams-gap-${size}`} key={size}&gt;
+          &lt;Paragraph&gt;{`ams-gap-${size}`}&lt;/Paragraph&gt;
+          &lt;Paragraph&gt;{`ams-gap-${size}`}&lt;/Paragraph&gt;
+        &lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  ),
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Paragraph } from "@amsterdam/design-system-react";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Test</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Test = () =&gt; (
+  &lt;div className=&quot;_ams-tests-stack&quot;&gt;
+    {sizes.map((size) =&gt; (
+      &lt;div className={`ams-gap-${size}`} key={size}&gt;
+        &lt;Paragraph&gt;{`ams-gap-${size}`}&lt;/Paragraph&gt;
+        &lt;Paragraph&gt;{`ams-gap-${size}`}&lt;/Paragraph&gt;
+      &lt;/div&gt;
+    ))}
+  &lt;/div&gt;
+);</code></pre>
+            </div>
+        </div>
+    
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/utilities/Gap/Gap.docs.mdx</div>
+              <div>## See also - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for...</div>
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Controls, Markdown, Meta, Primary } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import README from &quot;../../../../packages/css/src/components/gap/README.md?raw&quot;;
+import * as GapStories from &quot;./Gap.stories.tsx&quot;;
+
+&lt;Meta of={GapStories} /&gt;
+
+&lt;Markdown&gt;{README}&lt;/Markdown&gt;
+
+&lt;Primary /&gt;
+
+&lt;Controls /&gt;
+
+## See also
+
+- [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for white space and when.
+</code></pre></div>
+            </div>
+        </div>
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="HandbookPage">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HandbookPage</h2>
       <div class="badges">
-        <label for="c-error-18-pages-public-handbook-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-18-pages-public-handbook-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-18-pages-public-handbook-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-18-pages-public-handbook-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-21-pages-public-handbook-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-21-pages-public-handbook-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-21-pages-public-handbook-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-21-pages-public-handbook-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -26548,10 +27158,10 @@ The filename label and button are displayed in the language of the browser and c
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-18-pages-public-handbook-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-18-pages-public-handbook-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-18-pages-public-handbook-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-18-pages-public-handbook-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-21-pages-public-handbook-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-21-pages-public-handbook-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-21-pages-public-handbook-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-21-pages-public-handbook-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -26817,10 +27427,10 @@ Use this template for long-form reference content that is split across many shor
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Heading</h2>
       <div class="badges">
-        <label for="c-error-19-components-text-heading-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-19-components-text-heading-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-19-components-text-heading-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-19-components-text-heading-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-22-components-text-heading-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-22-components-text-heading-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-22-components-text-heading-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-22-components-text-heading-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -26831,10 +27441,10 @@ Use this template for long-form reference content that is split across many shor
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-19-components-text-heading-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-19-components-text-heading-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-19-components-text-heading-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-19-components-text-heading-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-22-components-text-heading-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-22-components-text-heading-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-22-components-text-heading-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-22-components-text-heading-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27046,10 +27656,10 @@ An incorrect hierarchy disrupts their mental model of the page.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HomePage</h2>
       <div class="badges">
-        <label for="c-error-20-pages-public-home-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-20-pages-public-home-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-20-pages-public-home-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-20-pages-public-home-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-23-pages-public-home-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-23-pages-public-home-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-23-pages-public-home-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-23-pages-public-home-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27060,10 +27670,10 @@ An incorrect hierarchy disrupts their mental model of the page.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-20-pages-public-home-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-20-pages-public-home-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-20-pages-public-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-20-pages-public-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-23-pages-public-home-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-23-pages-public-home-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-23-pages-public-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-23-pages-public-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27417,10 +28027,10 @@ A typical layout for a homepage:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HomePage</h2>
       <div class="badges">
-        <label for="c-error-21-pages-internal-home-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-21-pages-internal-home-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-21-pages-internal-home-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-21-pages-internal-home-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-24-pages-internal-home-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-24-pages-internal-home-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-24-pages-internal-home-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-24-pages-internal-home-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27431,10 +28041,10 @@ A typical layout for a homepage:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-21-pages-internal-home-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-21-pages-internal-home-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-21-pages-internal-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-21-pages-internal-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-24-pages-internal-home-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-24-pages-internal-home-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-24-pages-internal-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-24-pages-internal-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27633,10 +28243,10 @@ Our single example in this category currently focuses on the overall layout.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> IconButton</h2>
       <div class="badges">
-        <label for="c-error-22-components-buttons-icon-button-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-22-components-buttons-icon-button-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-22-components-buttons-icon-button-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-22-components-buttons-icon-button-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-25-components-buttons-icon-button-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-25-components-buttons-icon-button-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-25-components-buttons-icon-button-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-25-components-buttons-icon-button-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27647,10 +28257,10 @@ Our single example in this category currently focuses on the overall layout.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-22-components-buttons-icon-button-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-22-components-buttons-icon-button-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-22-components-buttons-icon-button-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-22-components-buttons-icon-button-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-25-components-buttons-icon-button-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-25-components-buttons-icon-button-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-25-components-buttons-icon-button-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-25-components-buttons-icon-button-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27824,10 +28434,10 @@ It will make the icon white.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Image</h2>
       <div class="badges">
-        <label for="c-error-23-components-media-image-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-23-components-media-image-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-23-components-media-image-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-23-components-media-image-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-26-components-media-image-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-26-components-media-image-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-26-components-media-image-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-26-components-media-image-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27838,10 +28448,10 @@ It will make the icon white.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-23-components-media-image-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-23-components-media-image-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-23-components-media-image-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-23-components-media-image-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-26-components-media-image-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-26-components-media-image-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-26-components-media-image-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-26-components-media-image-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -28033,10 +28643,10 @@ The alternate text also displays if the image fails to load, and it can help sea
     <div class="title">
       <h2><span class="status-dot dot-err"></span> InvalidFormAlert</h2>
       <div class="badges">
-        <label for="c-error-24-components-forms-invalid-form-alert-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-24-components-forms-invalid-form-alert-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-24-components-forms-invalid-form-alert-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-24-components-forms-invalid-form-alert-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-27-components-forms-invalid-form-alert-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-27-components-forms-invalid-form-alert-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-27-components-forms-invalid-form-alert-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-27-components-forms-invalid-form-alert-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -28047,10 +28657,10 @@ The alternate text also displays if the image fails to load, and it can help sea
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-24-components-forms-invalid-form-alert-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-24-components-forms-invalid-form-alert-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-24-components-forms-invalid-form-alert-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-24-components-forms-invalid-form-alert-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-27-components-forms-invalid-form-alert-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-27-components-forms-invalid-form-alert-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-27-components-forms-invalid-form-alert-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-27-components-forms-invalid-form-alert-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -28219,10 +28829,10 @@ Note: this functionality has been disabled on this page, to prevent unexpected f
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Label</h2>
       <div class="badges">
-        <label for="c-error-25-components-forms-label-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-25-components-forms-label-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-25-components-forms-label-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-25-components-forms-label-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-28-components-forms-label-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-28-components-forms-label-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-28-components-forms-label-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-28-components-forms-label-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -28233,10 +28843,10 @@ Note: this functionality has been disabled on this page, to prevent unexpected f
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-25-components-forms-label-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-25-components-forms-label-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-25-components-forms-label-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-25-components-forms-label-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-28-components-forms-label-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-28-components-forms-label-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-28-components-forms-label-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-28-components-forms-label-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -28413,10 +29023,10 @@ When a Label is used in a Field inside a Field Set, use the `inFieldSet` prop to
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Link</h2>
       <div class="badges">
-        <label for="c-error-26-components-navigation-link-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-26-components-navigation-link-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-26-components-navigation-link-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-26-components-navigation-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-29-components-navigation-link-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-29-components-navigation-link-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-29-components-navigation-link-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-29-components-navigation-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -28427,10 +29037,10 @@ When a Label is used in a Field inside a Field Set, use the `inFieldSet` prop to
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-26-components-navigation-link-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-26-components-navigation-link-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-26-components-navigation-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-26-components-navigation-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-29-components-navigation-link-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-29-components-navigation-link-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-29-components-navigation-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-29-components-navigation-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -28619,9 +29229,9 @@ It is not part of navigation elements that are frequently scanned.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> LoadingPage</h2>
       <div class="badges">
-        <label for="c-error-27-pages-public-loading-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-27-pages-public-loading-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-27-pages-public-loading-page-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-error-30-pages-public-loading-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-30-pages-public-loading-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-30-pages-public-loading-page-stories" class="badge ok as-toggle">3 stories</label>
         
         
       </div>
@@ -28633,9 +29243,9 @@ It is not part of navigation elements that are frequently scanned.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-27-pages-public-loading-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-27-pages-public-loading-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-27-pages-public-loading-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-30-pages-public-loading-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-30-pages-public-loading-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-30-pages-public-loading-page-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -29216,15 +29826,181 @@ export const Loaded: Story = {
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="Margin">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> Margin</h2>
+      <div class="badges">
+        <label for="c-error-31-utilities-css-margin-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-31-utilities-css-margin-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-31-utilities-css-margin-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-31-utilities-css-margin-docs" class="badge ok as-toggle">1 doc</label>
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/utilities/Margin/Margin.test.stories.tsx">utilities-css-margin · ./src/utilities/Margin/Margin.test.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-31-utilities-css-margin-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-31-utilities-css-margin-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-31-utilities-css-margin-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-31-utilities-css-margin-docs" class="tg tg-docs" type="checkbox" hidden />
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  15 | const sizes = [&#39;xs&#39;, &#39;s&#39;, &#39;m&#39;, &#39;l&#39;, &#39;xl&#39;, &#39;2xl&#39;] as const
+  16 |
+&gt; 17 | const meta = {
+     | ^
+  18 |   ...marginMeta,
+  19 |   title: &#39;Utilities/CSS/Margin&#39;,
+  20 | } satisfies Meta&lt;typeof Margin&gt;
+
+./src/utilities/Margin/Margin.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import { Heading, Paragraph } from &#39;@amsterdam/design-system-react&#39;
+
+import type { Margin } from &#39;./Margin&#39;
+
+import { default as marginMeta } from &#39;./Margin.stories&#39;
+
+/** Mirrors the list in packages/css/src/components/margin/margin.scss, which does offer a 2xl margin. */
+const sizes = [&#39;xs&#39;, &#39;s&#39;, &#39;m&#39;, &#39;l&#39;, &#39;xl&#39;, &#39;2xl&#39;] as const
+
+const meta = {
+  ...marginMeta,
+  title: &#39;Utilities/CSS/Margin&#39;,
+} satisfies Meta&lt;typeof Margin&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+export const Test: Story = {
+  render: () =&gt; (
+    &lt;div className=&quot;_ams-tests-stack&quot;&gt;
+      {sizes.map((size) =&gt; (
+        &lt;div key={size}&gt;
+          &lt;Heading className={`ams-mb-${size}`} level={2}&gt;{`ams-mb-${size}`}&lt;/Heading&gt;
+          &lt;Paragraph&gt;It introduces white space between itself and this paragraph.&lt;/Paragraph&gt;
+        &lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  ),
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Heading, Paragraph } from "@amsterdam/design-system-react";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Test</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Test = () =&gt; (
+  &lt;div className=&quot;_ams-tests-stack&quot;&gt;
+    {sizes.map((size) =&gt; (
+      &lt;div key={size}&gt;
+        &lt;Heading className={`ams-mb-${size}`} level={2}&gt;{`ams-mb-${size}`}&lt;/Heading&gt;
+        &lt;Paragraph&gt;It introduces white space between itself and this paragraph.&lt;/Paragraph&gt;
+      &lt;/div&gt;
+    ))}
+  &lt;/div&gt;
+);</code></pre>
+            </div>
+        </div>
+    
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/utilities/Margin/Margin.docs.mdx</div>
+              <div>## See also - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for...</div>
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Controls, Markdown, Meta, Primary } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import README from &quot;../../../../packages/css/src/components/margin/README.md?raw&quot;;
+import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
+
+&lt;Meta of={MarginStories} /&gt;
+
+&lt;Markdown&gt;{README}&lt;/Markdown&gt;
+
+&lt;Primary /&gt;
+
+&lt;Controls /&gt;
+
+## See also
+
+- [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for white space and when.
+</code></pre></div>
+            </div>
+        </div>
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="NavigationPage">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-error-28-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-28-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-28-pages-public-navigation-page-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-error-28-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-32-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-32-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-32-pages-public-navigation-page-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-error-32-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -29235,10 +30011,10 @@ export const Loaded: Story = {
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-28-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-28-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-28-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-28-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-32-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-32-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-32-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-32-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -30649,10 +31425,10 @@ Instead, it presents groups of links to various pages related to a specific subj
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-error-29-pages-internal-navigation-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-29-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-29-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-29-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-33-pages-internal-navigation-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-33-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-33-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-33-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -30663,10 +31439,10 @@ Instead, it presents groups of links to various pages related to a specific subj
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-29-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-29-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-29-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-29-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-33-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-33-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-33-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-33-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -31052,10 +31828,10 @@ This is a known limitation, and the mobile design is being further explored.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Overlap</h2>
       <div class="badges">
-        <label for="c-error-30-components-layout-overlap-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-30-components-layout-overlap-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-30-components-layout-overlap-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-30-components-layout-overlap-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-34-components-layout-overlap-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-34-components-layout-overlap-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-34-components-layout-overlap-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-34-components-layout-overlap-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -31066,10 +31842,10 @@ This is a known limitation, and the mobile design is being further explored.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-30-components-layout-overlap-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-30-components-layout-overlap-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-30-components-layout-overlap-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-30-components-layout-overlap-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-34-components-layout-overlap-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-34-components-layout-overlap-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-34-components-layout-overlap-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-34-components-layout-overlap-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -31217,10 +31993,10 @@ Note: the library does not yet offer an option to vertically centre the form.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Page</h2>
       <div class="badges">
-        <label for="c-error-31-components-containers-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-31-components-containers-page-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-31-components-containers-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-31-components-containers-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-35-components-containers-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-35-components-containers-page-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-35-components-containers-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-35-components-containers-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -31231,10 +32007,10 @@ Note: the library does not yet offer an option to vertically centre the form.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-31-components-containers-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-31-components-containers-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-31-components-containers-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-31-components-containers-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-35-components-containers-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-35-components-containers-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-35-components-containers-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-35-components-containers-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -31399,10 +32175,10 @@ With a Menu, that becomes 120 rems (1920 pixels).
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Pagination</h2>
       <div class="badges">
-        <label for="c-error-32-components-navigation-pagination-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-32-components-navigation-pagination-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-32-components-navigation-pagination-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-32-components-navigation-pagination-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-36-components-navigation-pagination-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-36-components-navigation-pagination-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-36-components-navigation-pagination-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-36-components-navigation-pagination-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -31413,10 +32189,10 @@ With a Menu, that becomes 120 rems (1920 pixels).
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-32-components-navigation-pagination-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-32-components-navigation-pagination-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-32-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-32-components-navigation-pagination-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-36-components-navigation-pagination-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-36-components-navigation-pagination-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-36-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-36-components-navigation-pagination-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -31599,10 +32375,10 @@ Redirect users to the first page if they enter a URL with a page number that doe
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Paragraph</h2>
       <div class="badges">
-        <label for="c-error-33-components-text-paragraph-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-33-components-text-paragraph-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-33-components-text-paragraph-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-33-components-text-paragraph-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-37-components-text-paragraph-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-37-components-text-paragraph-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-37-components-text-paragraph-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-37-components-text-paragraph-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -31613,10 +32389,10 @@ Redirect users to the first page if they enter a URL with a page number that doe
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-33-components-text-paragraph-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-33-components-text-paragraph-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-33-components-text-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-33-components-text-paragraph-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-37-components-text-paragraph-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-37-components-text-paragraph-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-37-components-text-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-37-components-text-paragraph-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -31801,10 +32577,10 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
     <div class="title">
       <h2><span class="status-dot dot-err"></span> PasswordInput</h2>
       <div class="badges">
-        <label for="c-error-34-components-forms-password-input-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-34-components-forms-password-input-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-34-components-forms-password-input-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-34-components-forms-password-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-38-components-forms-password-input-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-38-components-forms-password-input-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-38-components-forms-password-input-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-38-components-forms-password-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -31815,10 +32591,10 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-34-components-forms-password-input-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-34-components-forms-password-input-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-34-components-forms-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-34-components-forms-password-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-38-components-forms-password-input-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-38-components-forms-password-input-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-38-components-forms-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-38-components-forms-password-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -32015,10 +32791,10 @@ These props cannot be overridden.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProductPage</h2>
       <div class="badges">
-        <label for="c-error-35-pages-public-product-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-35-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-35-pages-public-product-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-35-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-39-pages-public-product-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-39-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-39-pages-public-product-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-39-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -32029,10 +32805,10 @@ These props cannot be overridden.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-35-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-35-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-35-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-35-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-39-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-39-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-39-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-39-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -32538,10 +33314,10 @@ Often includes a Call to Action Link that directs the user to a form.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProjectPage</h2>
       <div class="badges">
-        <label for="c-error-36-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-36-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-36-pages-public-project-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-36-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-40-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-40-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-40-pages-public-project-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-40-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -32552,10 +33328,10 @@ Often includes a Call to Action Link that directs the user to a form.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-36-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-36-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-36-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-36-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-40-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-40-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-40-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-40-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -33456,6 +34232,157 @@ These links lead to news updates, related projects, and supporting documents, al
   class="card 
   has-error 
   has-info 
+  has-story-error
+  no-doc-error"
+  role="listitem"
+  aria-label="Prose">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> Prose</h2>
+      <div class="badges">
+        <label for="c-error-41-utilities-css-prose-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-41-utilities-css-prose-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-41-utilities-css-prose-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-error-41-utilities-css-prose-docs" class="badge ok as-toggle">1 doc</label>
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/utilities/Prose/Prose.test.stories.tsx">utilities-css-prose · ./src/utilities/Prose/Prose.test.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-41-utilities-css-prose-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-41-utilities-css-prose-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-41-utilities-css-prose-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-41-utilities-css-prose-docs" class="tg tg-docs" type="checkbox" hidden />
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  10 | import { default as proseMeta } from &#39;./Prose.stories&#39;
+  11 |
+&gt; 12 | const meta = {
+     | ^
+  13 |   ...proseMeta,
+  14 |   title: &#39;Utilities/CSS/Prose&#39;,
+  15 | } satisfies Meta&lt;typeof Prose&gt;
+
+./src/utilities/Prose/Prose.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import type { Prose } from &#39;./Prose&#39;
+
+import { default as proseMeta } from &#39;./Prose.stories&#39;
+
+const meta = {
+  ...proseMeta,
+  title: &#39;Utilities/CSS/Prose&#39;,
+} satisfies Meta&lt;typeof Prose&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+/**
+ * The article and the width decorator come from the meta, so this snapshots the document we document.
+ * Duplicating the markup here would let the snapshot drift away from it.
+ */
+export const Test: Story = {
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">Specify an @import jsdoc tag on your component or your stories meta such as @import import { Prose } from &#39;my-design-system&#39;;</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Test</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not generate snippet without component name.</code></pre>
+            </div>
+          
+          
+          
+          
+          
+        </div>
+    
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/utilities/Prose/Prose.docs.mdx</div>
+              <div>## See also - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for...</div>
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Markdown, Meta, Primary } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import { StatusBadge } from &quot;#storybook/_components/StatusBadge/StatusBadge&quot;;
+
+import README from &quot;../../../../packages/css/src/components/prose/README.md?raw&quot;;
+import * as ProseStories from &quot;./Prose.stories.tsx&quot;;
+
+&lt;Meta of={ProseStories} /&gt;
+
+&lt;StatusBadge
+  description=&quot;Covers many element combinations. Exceptions will surface – we’ll iterate. API is stable.&quot;
+  status=&quot;beta&quot;
+/&gt;
+
+&lt;Markdown&gt;{README}&lt;/Markdown&gt;
+
+&lt;Primary /&gt;
+
+## See also
+
+- [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for white space and when.
+</code></pre></div>
+            </div>
+        </div>
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
   no-story-error
   no-doc-error"
   role="listitem"
@@ -33464,10 +34391,10 @@ These links lead to news updates, related projects, and supporting documents, al
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Radio</h2>
       <div class="badges">
-        <label for="c-error-37-components-forms-radio-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-37-components-forms-radio-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-37-components-forms-radio-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-37-components-forms-radio-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-42-components-forms-radio-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-42-components-forms-radio-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-42-components-forms-radio-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-42-components-forms-radio-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -33478,10 +34405,10 @@ These links lead to news updates, related projects, and supporting documents, al
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-37-components-forms-radio-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-37-components-forms-radio-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-37-components-forms-radio-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-37-components-forms-radio-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-42-components-forms-radio-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-42-components-forms-radio-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-42-components-forms-radio-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-42-components-forms-radio-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -33685,10 +34612,10 @@ Websites for the City of Amsterdam must use the default icon.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Row</h2>
       <div class="badges">
-        <label for="c-error-38-components-layout-row-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-38-components-layout-row-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-38-components-layout-row-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-38-components-layout-row-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-43-components-layout-row-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-43-components-layout-row-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-43-components-layout-row-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-43-components-layout-row-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -33699,10 +34626,10 @@ Websites for the City of Amsterdam must use the default icon.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-38-components-layout-row-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-38-components-layout-row-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-38-components-layout-row-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-38-components-layout-row-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-43-components-layout-row-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-43-components-layout-row-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-43-components-layout-row-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-43-components-layout-row-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -33921,10 +34848,10 @@ Align the elements horizontally or vertically through the alignment props.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Select</h2>
       <div class="badges">
-        <label for="c-error-39-components-forms-select-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-39-components-forms-select-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-39-components-forms-select-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-39-components-forms-select-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-44-components-forms-select-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-44-components-forms-select-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-44-components-forms-select-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-44-components-forms-select-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -33935,10 +34862,10 @@ Align the elements horizontally or vertically through the alignment props.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-39-components-forms-select-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-39-components-forms-select-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-39-components-forms-select-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-39-components-forms-select-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-44-components-forms-select-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-44-components-forms-select-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-44-components-forms-select-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-44-components-forms-select-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -34131,10 +35058,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="title">
       <h2><span class="status-dot dot-err"></span> SkipLink</h2>
       <div class="badges">
-        <label for="c-error-40-components-navigation-skip-link-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-40-components-navigation-skip-link-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-40-components-navigation-skip-link-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-40-components-navigation-skip-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-45-components-navigation-skip-link-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-45-components-navigation-skip-link-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-45-components-navigation-skip-link-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-45-components-navigation-skip-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34145,10 +35072,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-40-components-navigation-skip-link-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-40-components-navigation-skip-link-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-40-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-40-components-navigation-skip-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-45-components-navigation-skip-link-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-45-components-navigation-skip-link-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-45-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-45-components-navigation-skip-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -34324,10 +35251,10 @@ After appearing, it pushes the rest of the page down.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> StandaloneLink</h2>
       <div class="badges">
-        <label for="c-error-41-components-navigation-standalone-link-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-41-components-navigation-standalone-link-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-41-components-navigation-standalone-link-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-41-components-navigation-standalone-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-46-components-navigation-standalone-link-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-46-components-navigation-standalone-link-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-46-components-navigation-standalone-link-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-46-components-navigation-standalone-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34338,10 +35265,10 @@ After appearing, it pushes the rest of the page down.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-41-components-navigation-standalone-link-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-41-components-navigation-standalone-link-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-41-components-navigation-standalone-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-41-components-navigation-standalone-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-46-components-navigation-standalone-link-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-46-components-navigation-standalone-link-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-46-components-navigation-standalone-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-46-components-navigation-standalone-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -34531,10 +35458,10 @@ As a result, pages can have sections with either one or several links used inter
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Switch</h2>
       <div class="badges">
-        <label for="c-error-42-components-forms-switch-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-42-components-forms-switch-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-42-components-forms-switch-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-42-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-47-components-forms-switch-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-47-components-forms-switch-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-47-components-forms-switch-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-47-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34545,10 +35472,10 @@ As a result, pages can have sections with either one or several links used inter
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-42-components-forms-switch-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-42-components-forms-switch-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-42-components-forms-switch-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-42-components-forms-switch-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-47-components-forms-switch-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-47-components-forms-switch-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-47-components-forms-switch-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-47-components-forms-switch-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -34701,10 +35628,10 @@ A Switch must have a label, and in most cases, this label should be visible.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TextArea</h2>
       <div class="badges">
-        <label for="c-error-43-components-forms-text-area-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-43-components-forms-text-area-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-43-components-forms-text-area-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-43-components-forms-text-area-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-48-components-forms-text-area-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-48-components-forms-text-area-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-48-components-forms-text-area-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-48-components-forms-text-area-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34715,10 +35642,10 @@ A Switch must have a label, and in most cases, this label should be visible.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-43-components-forms-text-area-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-43-components-forms-text-area-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-43-components-forms-text-area-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-43-components-forms-text-area-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-48-components-forms-text-area-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-48-components-forms-text-area-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-48-components-forms-text-area-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-48-components-forms-text-area-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -34914,10 +35841,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TextInput</h2>
       <div class="badges">
-        <label for="c-error-44-components-forms-text-input-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-44-components-forms-text-input-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-44-components-forms-text-input-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-44-components-forms-text-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-49-components-forms-text-input-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-49-components-forms-text-input-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-49-components-forms-text-input-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-49-components-forms-text-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34928,10 +35855,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-44-components-forms-text-input-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-44-components-forms-text-input-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-44-components-forms-text-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-44-components-forms-text-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-49-components-forms-text-input-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-49-components-forms-text-input-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-49-components-forms-text-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-49-components-forms-text-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -35253,10 +36180,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TimeInput</h2>
       <div class="badges">
-        <label for="c-error-45-components-forms-time-input-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-45-components-forms-time-input-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-45-components-forms-time-input-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-45-components-forms-time-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-50-components-forms-time-input-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-50-components-forms-time-input-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-50-components-forms-time-input-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-50-components-forms-time-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -35267,10 +36194,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-45-components-forms-time-input-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-45-components-forms-time-input-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-45-components-forms-time-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-45-components-forms-time-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-50-components-forms-time-input-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-50-components-forms-time-input-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-50-components-forms-time-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-50-components-forms-time-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -35432,6 +36359,148 @@ This does mean that this component does not look identical on all browsers and o
 ## Design tokens
 
 &lt;DesignTokensTable tokens={tokens} /&gt;
+</code></pre></div>
+            </div>
+        </div>
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  has-story-error
+  no-doc-error"
+  role="listitem"
+  aria-label="VisuallyHidden">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> VisuallyHidden</h2>
+      <div class="badges">
+        <label for="c-error-51-utilities-css-visually-hidden-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-51-utilities-css-visually-hidden-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-51-utilities-css-visually-hidden-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-error-51-utilities-css-visually-hidden-docs" class="badge ok as-toggle">1 doc</label>
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/utilities/VisuallyHidden/VisuallyHidden.test.stories.tsx">utilities-css-visually-hidden · ./src/utilities/VisuallyHidden/VisuallyHidden.test.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-51-utilities-css-visually-hidden-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-51-utilities-css-visually-hidden-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-51-utilities-css-visually-hidden-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-51-utilities-css-visually-hidden-docs" class="tg tg-docs" type="checkbox" hidden />
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  10 | import { default as visuallyHiddenMeta } from &#39;./VisuallyHidden.stories&#39;
+  11 |
+&gt; 12 | const meta = {
+     | ^
+  13 |   ...visuallyHiddenMeta,
+  14 |   title: &#39;Utilities/CSS/Visually Hidden&#39;,
+  15 | } satisfies Meta&lt;typeof VisuallyHidden&gt;
+
+./src/utilities/VisuallyHidden/VisuallyHidden.test.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import type { VisuallyHidden } from &#39;./VisuallyHidden&#39;
+
+import { default as visuallyHiddenMeta } from &#39;./VisuallyHidden.stories&#39;
+
+const meta = {
+  ...visuallyHiddenMeta,
+  title: &#39;Utilities/CSS/Visually Hidden&#39;,
+} satisfies Meta&lt;typeof VisuallyHidden&gt;
+
+export default meta
+
+type Story = StoryObj&lt;typeof meta&gt;
+
+/**
+ * Snapshots the one regression that is visible by definition: the hidden paragraph becoming perceivable.
+ * The story shows a single visible paragraph; a second one appearing means the utility stopped hiding.
+ */
+export const Test: Story = {
+  tags: [&#39;!dev&#39;, &#39;!autodocs&#39;],
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">Specify an @import jsdoc tag on your component or your stories meta such as @import import { VisuallyHidden } from &#39;my-design-system&#39;;</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Test</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not generate snippet without component name.</code></pre>
+            </div>
+          
+          
+          
+          
+          
+        </div>
+    
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/utilities/VisuallyHidden/VisuallyHidden.docs.mdx</div>
+              
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Controls, Markdown, Meta, Primary } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import README from &quot;../../../../packages/css/src/components/visually-hidden/README.md?raw&quot;;
+import * as VisuallyHiddenStories from &quot;./VisuallyHidden.stories.tsx&quot;;
+
+&lt;Meta of={VisuallyHiddenStories} /&gt;
+
+&lt;Markdown&gt;{README}&lt;/Markdown&gt;
+
+&lt;Primary /&gt;
+
+&lt;Controls /&gt;
 </code></pre></div>
             </div>
         </div>

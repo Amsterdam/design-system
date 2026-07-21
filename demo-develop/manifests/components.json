@@ -5091,70 +5091,24 @@
     "utilities-css-aspect-ratio": {
       "id": "utilities-css-aspect-ratio",
       "name": "AspectRatio",
-      "path": "./src/utils/AspectRatio/AspectRatio.stories.tsx",
+      "path": "./src/utilities/AspectRatio/AspectRatio.test.stories.tsx",
       "jsDocTags": {},
-      "description": "Mock component to render examples in Storybook. Not for reuse.",
-      "reactComponentMeta": {
-        "displayName": "AspectRatio",
-        "exportName": "AspectRatio",
-        "filePath": "/home/runner/work/design-system/design-system/storybook/src/utils/AspectRatio/AspectRatio.tsx",
-        "description": "Mock component to render examples in Storybook. Not for reuse.",
-        "props": {
-          "aspectRatio": {
-            "name": "aspectRatio",
-            "required": false,
-            "type": {
-              "name": "enum",
-              "raw": "\"9:16\" | \"3:4\" | \"1:1\" | \"4:3\" | \"16:9\" | \"16:5\"",
-              "value": [
-                {
-                  "value": "\"9:16\""
-                },
-                {
-                  "value": "\"3:4\""
-                },
-                {
-                  "value": "\"1:1\""
-                },
-                {
-                  "value": "\"4:3\""
-                },
-                {
-                  "value": "\"16:9\""
-                },
-                {
-                  "value": "\"16:5\""
-                }
-              ]
-            },
-            "description": "The aspect ratio to display media content in.",
-            "defaultValue": null,
-            "parent": {
-              "name": "AspectRatioProps",
-              "fileName": "../packages/react/src/common/types.ts"
-            },
-            "declarations": [
-              {
-                "name": "TypeLiteral",
-                "fileName": "../packages/react/src/common/types.ts"
-              }
-            ]
-          }
-        }
+      "error": {
+        "name": "No component found",
+        "message": "We could not detect the component from your story file. Specify meta.component.\n  14 | import { default as aspectRatioMeta } from './AspectRatio.stories'\n  15 |\n> 16 | const meta = {\n     | ^\n  17 |   ...aspectRatioMeta,\n  18 |   title: 'Utilities/CSS/Aspect Ratio',\n  19 | } satisfies Meta<typeof AspectRatio>\n\n./src/utilities/AspectRatio/AspectRatio.test.stories.tsx:\n/**\n * @license EUPL-1.2+\n * Copyright Gemeente Amsterdam\n */\n\nimport type { Meta, StoryObj } from '@storybook/react-vite'\n\nimport { generateAspectRatioClass } from '@amsterdam/design-system-react/src'\nimport { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'\nimport { clsx } from 'clsx'\n\nimport type { AspectRatio } from './AspectRatio'\n\nimport { default as aspectRatioMeta } from './AspectRatio.stories'\n\nconst meta = {\n  ...aspectRatioMeta,\n  title: 'Utilities/CSS/Aspect Ratio',\n} satisfies Meta<typeof AspectRatio>\n\nexport default meta\n\ntype Story = StoryObj<typeof meta>\n\nexport const Test: Story = {\n  render: () => (\n    <div className=\"_ams-tests-grid\" style={{ alignItems: 'flex-start' }}>\n      {/* A fixed inline size keeps the ratios comparable: the block size comes from the class alone.\n          Aligning to the start stops the row from stretching every container to the tallest ratio. */}\n      {aspectRatioOptions.map((aspectRatio) => (\n        <div className=\"_ams-container\" key={aspectRatio} style={{ inlineSize: '10rem' }}>\n          <div className={clsx('_ams-item', generateAspectRatioClass(aspectRatio))} />\n        </div>\n      ))}\n    </div>\n  ),\n  tags: ['!dev', '!autodocs'],\n}\n"
       },
       "stories": [
         {
-          "id": "utilities-css-aspect-ratio--default",
-          "name": "Default",
-          "snippet": "const Default = ({ aspectRatio }) => (\n  <div className=\"_ams-container\" style={{ maxInlineSize: '24rem' }}>\n    <div className={clsx('_ams-item', generateAspectRatioClass(aspectRatio))} />\n  </div>\n);"
+          "id": "utilities-css-aspect-ratio--test",
+          "name": "Test",
+          "snippet": "const Test = () => (\n  <div className=\"_ams-tests-grid\" style={{ alignItems: 'flex-start' }}>\n    {/* A fixed inline size keeps the ratios comparable: the block size comes from the class alone.\n        Aligning to the start stops the row from stretching every container to the tallest ratio. */}\n    {aspectRatioOptions.map((aspectRatio) => (\n      <div className=\"_ams-container\" key={aspectRatio} style={{ inlineSize: '10rem' }}>\n        <div className={clsx('_ams-item', generateAspectRatioClass(aspectRatio))} />\n      </div>\n    ))}\n  </div>\n);"
         }
       ],
-      "import": "import { AspectRatio } from \"@amsterdam/storybook\";",
       "docs": {
         "utilities-css-aspect-ratio--docs": {
           "id": "utilities-css-aspect-ratio--docs",
           "name": "Docs",
-          "path": "./src/utils/AspectRatio/AspectRatio.docs.mdx",
+          "path": "./src/utilities/AspectRatio/AspectRatio.docs.mdx",
           "title": "Utilities/CSS/Aspect Ratio",
           "content": "{/* @license CC0-1.0 */}\n\nimport { Controls, Markdown, Meta, Primary } from \"@storybook/addon-docs/blocks\";\n\nimport README from \"../../../../packages/css/src/components/aspect-ratio/README.md?raw\";\nimport * as AspectRatioStories from \"./AspectRatio.stories.tsx\";\n\n<Meta of={AspectRatioStories} />\n\n<Markdown>{README}</Markdown>\n\n<Primary />\n\n<Controls />\n"
         }
@@ -5163,29 +5117,27 @@
     "utilities-css-body": {
       "id": "utilities-css-body",
       "name": "Body",
-      "path": "./src/utils/Body/Body.stories.tsx",
+      "path": "./src/utilities/Body/Body.test.stories.tsx",
       "jsDocTags": {},
-      "description": "Mock component to render examples in Storybook. Not for reuse.",
-      "reactComponentMeta": {
-        "displayName": "Body",
-        "exportName": "Body",
-        "filePath": "/home/runner/work/design-system/design-system/storybook/src/utils/Body/Body.tsx",
-        "description": "Mock component to render examples in Storybook. Not for reuse.",
-        "props": {}
+      "error": {
+        "name": "No component found",
+        "message": "We could not detect the component from your story file. Specify meta.component.\n  10 | import { default as bodyMeta } from './Body.stories'\n  11 |\n> 12 | const meta = {\n     | ^\n  13 |   ...bodyMeta,\n  14 |   title: 'Utilities/CSS/Body',\n  15 | } satisfies Meta<typeof Body>\n\n./src/utilities/Body/Body.test.stories.tsx:\n/**\n * @license EUPL-1.2+\n * Copyright Gemeente Amsterdam\n */\n\nimport type { Meta, StoryObj } from '@storybook/react-vite'\n\nimport type { Body } from './Body'\n\nimport { default as bodyMeta } from './Body.stories'\n\nconst meta = {\n  ...bodyMeta,\n  title: 'Utilities/CSS/Body',\n} satisfies Meta<typeof Body>\n\nexport default meta\n\ntype Story = StoryObj<typeof meta>\n\n/** The utility has no variants: it sets the page background and the base text style, which the meta already shows. */\nexport const Test: Story = {\n  tags: ['!dev', '!autodocs'],\n}\n"
       },
       "stories": [
         {
-          "id": "utilities-css-body--default",
-          "name": "Default",
-          "snippet": "const Default = (props: BodyProps) => <body {...props} className=\"ams-body\" />;"
+          "id": "utilities-css-body--test",
+          "name": "Test",
+          "error": {
+            "name": "Error",
+            "message": "Could not generate snippet without component name."
+          }
         }
       ],
-      "import": "import { Body } from \"@amsterdam/storybook\";\nimport { Paragraph } from \"@amsterdam/design-system-react\";",
       "docs": {
         "utilities-css-body--docs": {
           "id": "utilities-css-body--docs",
           "name": "Docs",
-          "path": "./src/utils/Body/Body.docs.mdx",
+          "path": "./src/utilities/Body/Body.docs.mdx",
           "title": "Utilities/CSS/Body",
           "content": "{/* @license CC0-1.0 */}\n\nimport { Markdown, Meta, Primary } from \"@storybook/addon-docs/blocks\";\n\nimport README from \"../../../../packages/css/src/components/body/README.md?raw\";\nimport * as BodyStories from \"./Body.stories.tsx\";\n\n<Meta of={BodyStories} />\n\n<Markdown>{README}</Markdown>\n\n<Primary />\n"
         }
@@ -5194,67 +5146,25 @@
     "utilities-css-gap": {
       "id": "utilities-css-gap",
       "name": "Gap",
-      "path": "./src/utils/Gap/Gap.stories.tsx",
+      "path": "./src/utilities/Gap/Gap.test.stories.tsx",
       "jsDocTags": {},
-      "description": "Mock component to render examples in Storybook. Not for reuse.",
-      "reactComponentMeta": {
-        "displayName": "Gap",
-        "exportName": "Gap",
-        "filePath": "/home/runner/work/design-system/design-system/storybook/src/utils/Gap/Gap.tsx",
-        "description": "Mock component to render examples in Storybook. Not for reuse.",
-        "props": {
-          "size": {
-            "name": "size",
-            "required": true,
-            "type": {
-              "name": "enum",
-              "raw": "\"s\" | \"xs\" | \"m\" | \"l\" | \"xl\"",
-              "value": [
-                {
-                  "value": "\"s\""
-                },
-                {
-                  "value": "\"xs\""
-                },
-                {
-                  "value": "\"m\""
-                },
-                {
-                  "value": "\"l\""
-                },
-                {
-                  "value": "\"xl\""
-                }
-              ]
-            },
-            "description": "The amount of space between the element’s children.",
-            "defaultValue": null,
-            "parent": {
-              "name": "GapProps",
-              "fileName": "src/utils/Gap/Gap.tsx"
-            },
-            "declarations": [
-              {
-                "name": "TypeLiteral",
-                "fileName": "src/utils/Gap/Gap.tsx"
-              }
-            ]
-          }
-        }
+      "error": {
+        "name": "No component found",
+        "message": "We could not detect the component from your story file. Specify meta.component.\n  15 | const sizes = ['xs', 's', 'm', 'l', 'xl'] as const\n  16 |\n> 17 | const meta = {\n     | ^\n  18 |   ...gapMeta,\n  19 |   title: 'Utilities/CSS/Gap',\n  20 | } satisfies Meta<typeof Gap>\n\n./src/utilities/Gap/Gap.test.stories.tsx:\n/**\n * @license EUPL-1.2+\n * Copyright Gemeente Amsterdam\n */\n\nimport type { Meta, StoryObj } from '@storybook/react-vite'\n\nimport { Paragraph } from '@amsterdam/design-system-react'\n\nimport type { Gap } from './Gap'\n\nimport { default as gapMeta } from './Gap.stories'\n\n/** Mirrors the list in packages/css/src/components/gap/gap.scss. There is deliberately no 2xl gap. */\nconst sizes = ['xs', 's', 'm', 'l', 'xl'] as const\n\nconst meta = {\n  ...gapMeta,\n  title: 'Utilities/CSS/Gap',\n} satisfies Meta<typeof Gap>\n\nexport default meta\n\ntype Story = StoryObj<typeof meta>\n\nexport const Test: Story = {\n  render: () => (\n    <div className=\"_ams-tests-stack\">\n      {sizes.map((size) => (\n        <div className={`ams-gap-${size}`} key={size}>\n          <Paragraph>{`ams-gap-${size}`}</Paragraph>\n          <Paragraph>{`ams-gap-${size}`}</Paragraph>\n        </div>\n      ))}\n    </div>\n  ),\n  tags: ['!dev', '!autodocs'],\n}\n"
       },
       "stories": [
         {
-          "id": "utilities-css-gap--default",
-          "name": "Default",
-          "snippet": "const Default = ({ size }: GapProps) => (\n  <div className={`ams-gap-${size}`}>\n    <Paragraph>These paragraphs are separated by a gap.</Paragraph>\n    <Paragraph>These paragraphs are separated by a gap.</Paragraph>\n    <Paragraph>These paragraphs are separated by a gap.</Paragraph>\n  </div>\n);"
+          "id": "utilities-css-gap--test",
+          "name": "Test",
+          "snippet": "const Test = () => (\n  <div className=\"_ams-tests-stack\">\n    {sizes.map((size) => (\n      <div className={`ams-gap-${size}`} key={size}>\n        <Paragraph>{`ams-gap-${size}`}</Paragraph>\n        <Paragraph>{`ams-gap-${size}`}</Paragraph>\n      </div>\n    ))}\n  </div>\n);"
         }
       ],
-      "import": "import { Gap } from \"@amsterdam/storybook\";\nimport { Paragraph } from \"@amsterdam/design-system-react\";",
+      "import": "import { Paragraph } from \"@amsterdam/design-system-react\";",
       "docs": {
         "utilities-css-gap--docs": {
           "id": "utilities-css-gap--docs",
           "name": "Docs",
-          "path": "./src/utils/Gap/Gap.docs.mdx",
+          "path": "./src/utilities/Gap/Gap.docs.mdx",
           "title": "Utilities/CSS/Gap",
           "content": "{/* @license CC0-1.0 */}\n\nimport { Controls, Markdown, Meta, Primary } from \"@storybook/addon-docs/blocks\";\n\nimport README from \"../../../../packages/css/src/components/gap/README.md?raw\";\nimport * as GapStories from \"./Gap.stories.tsx\";\n\n<Meta of={GapStories} />\n\n<Markdown>{README}</Markdown>\n\n<Primary />\n\n<Controls />\n\n## See also\n\n- [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for white space and when.\n",
           "summary": "## See also - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for..."
@@ -5264,67 +5174,25 @@
     "utilities-css-margin": {
       "id": "utilities-css-margin",
       "name": "Margin",
-      "path": "./src/utils/Margin/Margin.stories.tsx",
+      "path": "./src/utilities/Margin/Margin.test.stories.tsx",
       "jsDocTags": {},
-      "description": "Mock component to render examples in Storybook. Not for reuse.",
-      "reactComponentMeta": {
-        "displayName": "Margin",
-        "exportName": "Margin",
-        "filePath": "/home/runner/work/design-system/design-system/storybook/src/utils/Margin/Margin.tsx",
-        "description": "Mock component to render examples in Storybook. Not for reuse.",
-        "props": {
-          "size": {
-            "name": "size",
-            "required": true,
-            "type": {
-              "name": "enum",
-              "raw": "\"s\" | \"xs\" | \"m\" | \"l\" | \"xl\"",
-              "value": [
-                {
-                  "value": "\"s\""
-                },
-                {
-                  "value": "\"xs\""
-                },
-                {
-                  "value": "\"m\""
-                },
-                {
-                  "value": "\"l\""
-                },
-                {
-                  "value": "\"xl\""
-                }
-              ]
-            },
-            "description": "The amount of space below the element.",
-            "defaultValue": null,
-            "parent": {
-              "name": "MarginProps",
-              "fileName": "src/utils/Margin/Margin.tsx"
-            },
-            "declarations": [
-              {
-                "name": "TypeLiteral",
-                "fileName": "src/utils/Margin/Margin.tsx"
-              }
-            ]
-          }
-        }
+      "error": {
+        "name": "No component found",
+        "message": "We could not detect the component from your story file. Specify meta.component.\n  15 | const sizes = ['xs', 's', 'm', 'l', 'xl', '2xl'] as const\n  16 |\n> 17 | const meta = {\n     | ^\n  18 |   ...marginMeta,\n  19 |   title: 'Utilities/CSS/Margin',\n  20 | } satisfies Meta<typeof Margin>\n\n./src/utilities/Margin/Margin.test.stories.tsx:\n/**\n * @license EUPL-1.2+\n * Copyright Gemeente Amsterdam\n */\n\nimport type { Meta, StoryObj } from '@storybook/react-vite'\n\nimport { Heading, Paragraph } from '@amsterdam/design-system-react'\n\nimport type { Margin } from './Margin'\n\nimport { default as marginMeta } from './Margin.stories'\n\n/** Mirrors the list in packages/css/src/components/margin/margin.scss, which does offer a 2xl margin. */\nconst sizes = ['xs', 's', 'm', 'l', 'xl', '2xl'] as const\n\nconst meta = {\n  ...marginMeta,\n  title: 'Utilities/CSS/Margin',\n} satisfies Meta<typeof Margin>\n\nexport default meta\n\ntype Story = StoryObj<typeof meta>\n\nexport const Test: Story = {\n  render: () => (\n    <div className=\"_ams-tests-stack\">\n      {sizes.map((size) => (\n        <div key={size}>\n          <Heading className={`ams-mb-${size}`} level={2}>{`ams-mb-${size}`}</Heading>\n          <Paragraph>It introduces white space between itself and this paragraph.</Paragraph>\n        </div>\n      ))}\n    </div>\n  ),\n  tags: ['!dev', '!autodocs'],\n}\n"
       },
       "stories": [
         {
-          "id": "utilities-css-margin--default",
-          "name": "Default",
-          "snippet": "const Default = ({ size }: MarginProps) => (\n  <>\n    <Heading className={`ams-mb-${size}`} level={2}>\n      This heading has a bottom margin\n    </Heading>\n    <Paragraph>It introduces white space between itself and this paragraph.</Paragraph>\n  </>\n);"
+          "id": "utilities-css-margin--test",
+          "name": "Test",
+          "snippet": "const Test = () => (\n  <div className=\"_ams-tests-stack\">\n    {sizes.map((size) => (\n      <div key={size}>\n        <Heading className={`ams-mb-${size}`} level={2}>{`ams-mb-${size}`}</Heading>\n        <Paragraph>It introduces white space between itself and this paragraph.</Paragraph>\n      </div>\n    ))}\n  </div>\n);"
         }
       ],
-      "import": "import { Heading, Paragraph } from \"@amsterdam/design-system-react\";\nimport { Margin } from \"@amsterdam/storybook\";",
+      "import": "import { Heading, Paragraph } from \"@amsterdam/design-system-react\";",
       "docs": {
         "utilities-css-margin--docs": {
           "id": "utilities-css-margin--docs",
           "name": "Docs",
-          "path": "./src/utils/Margin/Margin.docs.mdx",
+          "path": "./src/utilities/Margin/Margin.docs.mdx",
           "title": "Utilities/CSS/Margin",
           "content": "{/* @license CC0-1.0 */}\n\nimport { Controls, Markdown, Meta, Primary } from \"@storybook/addon-docs/blocks\";\n\nimport README from \"../../../../packages/css/src/components/margin/README.md?raw\";\nimport * as MarginStories from \"./Margin.stories.tsx\";\n\n<Meta of={MarginStories} />\n\n<Markdown>{README}</Markdown>\n\n<Primary />\n\n<Controls />\n\n## See also\n\n- [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for white space and when.\n",
           "summary": "## See also - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for..."
@@ -5334,29 +5202,27 @@
     "utilities-css-prose": {
       "id": "utilities-css-prose",
       "name": "Prose",
-      "path": "./src/utils/Prose/Prose.stories.tsx",
+      "path": "./src/utilities/Prose/Prose.test.stories.tsx",
       "jsDocTags": {},
-      "description": "Mock component to render examples in Storybook. Not for reuse.",
-      "reactComponentMeta": {
-        "displayName": "Prose",
-        "exportName": "Prose",
-        "filePath": "/home/runner/work/design-system/design-system/storybook/src/utils/Prose/Prose.tsx",
-        "description": "Mock component to render examples in Storybook. Not for reuse.",
-        "props": {}
+      "error": {
+        "name": "No component found",
+        "message": "We could not detect the component from your story file. Specify meta.component.\n  10 | import { default as proseMeta } from './Prose.stories'\n  11 |\n> 12 | const meta = {\n     | ^\n  13 |   ...proseMeta,\n  14 |   title: 'Utilities/CSS/Prose',\n  15 | } satisfies Meta<typeof Prose>\n\n./src/utilities/Prose/Prose.test.stories.tsx:\n/**\n * @license EUPL-1.2+\n * Copyright Gemeente Amsterdam\n */\n\nimport type { Meta, StoryObj } from '@storybook/react-vite'\n\nimport type { Prose } from './Prose'\n\nimport { default as proseMeta } from './Prose.stories'\n\nconst meta = {\n  ...proseMeta,\n  title: 'Utilities/CSS/Prose',\n} satisfies Meta<typeof Prose>\n\nexport default meta\n\ntype Story = StoryObj<typeof meta>\n\n/**\n * The article and the width decorator come from the meta, so this snapshots the document we document.\n * Duplicating the markup here would let the snapshot drift away from it.\n */\nexport const Test: Story = {\n  tags: ['!dev', '!autodocs'],\n}\n"
       },
       "stories": [
         {
-          "id": "utilities-css-prose--default",
-          "name": "Default",
-          "snippet": "const Default = (props: ProseProps) => (\n  <article className=\"ams-prose\">\n    <Heading level={1}>Werkzaamheden aan de Oranje Loper</Heading>\n    <Paragraph>16 augustus 2024</Paragraph>\n    <Paragraph size=\"large\">\n      Afgelopen maand konden bewoners hun reactie op de plannen geven tijdens informatiebijeenkomsten. Online kunt u tot\n      en met 31 oktober reageren op de plannen.\n    </Paragraph>\n\n    <Heading level={2}>Waar vinden de werkzaamheden plaats?</Heading>\n    <Paragraph>\n      De Oranjeloper loopt van oost naar west door de stad. We passen onderstaande straten en kruispunten aan, zodat de\n      route veilig en toegankelijk blijft voor alle weggebruikers. Fietsers, voetgangers en het openbaar vervoer krijgen\n      tijdens de uitvoering waar mogelijk ruim baan.\n    </Paragraph>\n    <UnorderedList>\n      <UnorderedList.Item>De Clercqstraat en Jan Evertsenstraat</UnorderedList.Item>\n      <UnorderedList.Item>Kruispunt Admiraal de Ruijterweg–Jan Evertsenstraat</UnorderedList.Item>\n      <UnorderedList.Item>Raadhuisstraat, Westermarkt en Rozengracht</UnorderedList.Item>\n      <UnorderedList.Item>Kruispunt Marnixstraat–Rozengracht</UnorderedList.Item>\n      <UnorderedList.Item>Nieuwezijds Voorburgwal</UnorderedList.Item>\n      <UnorderedList.Item>Molenslootbrug en Ritsaert ten Catebrug</UnorderedList.Item>\n    </UnorderedList>\n\n    <Heading level={2}>Planning per fase</Heading>\n    <Paragraph>\n      We richten de rotonde bij de Bouhuijstunnel opnieuw in en maken het veiliger. Ook het fiets- en voetpad passen we\n      aan. De werkzaamheden zijn opgedeeld in vijf fasen, zodat we het verkeer zo min mogelijk hinderen.\n    </Paragraph>\n    <Paragraph>\n      Tussen de fasen houden we rekening met feestdagen en evenementen in de buurt. Bij aanhoudend slecht weer schuiven\n      we de planning in overleg met de aannemer op. We informeren bewoners en ondernemers dan minimaal een week van\n      tevoren.\n    </Paragraph>\n\n    <Heading level={3}>Fasen van de rotonde</Heading>\n    <OrderedList>\n      <OrderedList.Item>Voorbereiden van de werkzaamheden: 25 september tot 27 september.</OrderedList.Item>\n      <OrderedList.Item>\n        Start werkzaamheden zuidelijke en halfwestelijke deel van de rotonde: 27 september tot 19 oktober.\n        <OrderedList>\n          <OrderedList.Item>Opbreken van de bestaande verharding en kantopsluiting.</OrderedList.Item>\n          <OrderedList.Item>Aanleg van de nieuwe fundering en de onderste asfaltlaag.</OrderedList.Item>\n        </OrderedList>\n      </OrderedList.Item>\n      <OrderedList.Item>\n        Voortgang werkzaamheden zuidelijke en halfwestelijke deel: 20 oktober tot 11 november.\n      </OrderedList.Item>\n      <OrderedList.Item>\n        Start werkzaamheden van het noordelijke deel van de rotonde: 13 november tot 6 december.\n      </OrderedList.Item>\n      <OrderedList.Item>\n        Afronden van de werkzaamheden en verwijderen van tijdelijke maatregelen: 7 december tot 15 december.\n      </OrderedList.Item>\n    </OrderedList>\n\n    <Heading level={2}>Bereikbaarheid tijdens de werkzaamheden</Heading>\n    <Paragraph>\n      Tijdens de uitvoering leiden we het verkeer om via de belangrijkste aanrijroutes. Fietsers en voetgangers kunnen\n      de meeste bestemmingen op loopafstand bereiken; voor autoverkeer en het openbaar vervoer gelden tijdelijke\n      omleidingen.\n    </Paragraph>\n    <Table>\n      <Table.Caption>\n        <Heading level={3}>Omleidingen per vervoermiddel</Heading>\n      </Table.Caption>\n      <Table.Header>\n        <Table.Row>\n          <Table.HeaderCell>Vervoermiddel</Table.HeaderCell>\n          <Table.HeaderCell>Omleiding</Table.HeaderCell>\n          <Table.HeaderCell>Periode</Table.HeaderCell>\n        </Table.Row>\n      </Table.Header>\n      <Table.Body>\n        <Table.Row>\n          <Table.Cell>Fietsers</Table.Cell>\n          <Table.Cell>Via Marnixstraat en Nassaukade</Table.Cell>\n          <Table.Cell>Gehele periode</Table.Cell>\n        </Table.Row>\n        <Table.Row>\n          <Table.Cell>Voetgangers</Table.Cell>\n          <Table.Cell>Trottoir blijft beschikbaar, enkele oversteken verplaatst</Table.Cell>\n          <Table.Cell>Gehele periode</Table.Cell>\n        </Table.Row>\n        <Table.Row>\n          <Table.Cell>Tram 17</Table.Cell>\n          <Table.Cell>Ingekort tot halte Westermarkt</Table.Cell>\n          <Table.Cell>27 september tot 6 december</Table.Cell>\n        </Table.Row>\n        <Table.Row>\n          <Table.Cell>Autoverkeer</Table.Cell>\n          <Table.Cell>Via de S100 rond het centrum</Table.Cell>\n          <Table.Cell>Tijdens fase 2 en fase 3</Table.Cell>\n        </Table.Row>\n      </Table.Body>\n    </Table>\n\n    <Heading level={2}>Veelgestelde vragen</Heading>\n    <Paragraph>\n      Hieronder vindt u antwoorden op vragen die bewoners en ondernemers ons het vaakst stellen over de werkzaamheden.\n      Staat uw vraag er niet bij, neem dan contact op via het contactformulier onderaan deze pagina.\n    </Paragraph>\n    <Accordion headingLevel={3}>\n      <Accordion.Section label=\"Wat gebeurt er met mijn parkeerplaats tijdens de werkzaamheden?\">\n        <Paragraph>\n          Tijdens de uitvoering vervallen een aantal parkeerplaatsen langs de route tijdelijk. Bewoners met een\n          parkeervergunning kunnen in overleg met de gemeente gebruikmaken van aangewezen uitwijklocaties in de buurt.\n          Ondernemers met een laad- en losvergunning ontvangen vooraf bericht over tijdelijke alternatieven. We proberen\n          de overlast zo beperkt mogelijk te houden en informeren betrokkenen minimaal twee weken van tevoren. Zodra een\n          fase is afgerond, worden de parkeerplaatsen zo snel mogelijk teruggegeven.\n        </Paragraph>\n      </Accordion.Section>\n      <Accordion.Section label=\"Kan ik mijn woning of bedrijf blijven bereiken?\">\n        <Paragraph>\n          Uw woning en bedrijf blijven gedurende de gehele periode bereikbaar, al kan de route tijdelijk afwijken van\n          wat u gewend bent. Voor voetgangers en fietsers zorgen we altijd voor een veilige doorgang langs de\n          werkzaamheden. Autoverkeer wordt via omleidingsborden naar de dichtstbijzijnde alternatieve route geleid.\n          Heeft u bijzondere bereikbaarheidsbehoeften, bijvoorbeeld voor medisch vervoer of een zwaar transport, neem\n          dan vooraf contact met ons op zodat we samen een oplossing kunnen zoeken.\n        </Paragraph>\n      </Accordion.Section>\n      <Accordion.Section label=\"Wat doe ik als ik schade ondervind door de werkzaamheden?\">\n        <Paragraph>\n          Constateert u schade aan uw woning, bedrijfspand of voertuig die mogelijk is veroorzaakt door de\n          werkzaamheden, meld dit dan zo snel mogelijk via <Link href=\"#\">amsterdam.nl/schade-melden</Link>. Voeg\n          daarbij zo veel mogelijk documentatie toe, zoals foto&apos;s met datum en tijdstip. De gemeente beoordeelt\n          iedere melding afzonderlijk en neemt binnen vijf werkdagen contact met u op. Is de schade dringend, bel dan de\n          gemeentelijke storingsdienst op 14 020. Schade veroorzaakt door de aannemer wordt in eerste instantie door de\n          aannemer afgehandeld; de gemeente fungeert daarbij als aanspreekpunt.\n        </Paragraph>\n      </Accordion.Section>\n    </Accordion>\n\n    <Heading level={2}>Op de hoogte blijven</Heading>\n    <Paragraph>\n      Op <Link href=\"https://amsterdam.nl/oranjeloper\">amsterdam.nl/oranjeloper</Link> vindt u een actueel overzicht van\n      alle werkzaamheden. U kunt zich daar ook inschrijven voor de digitale nieuwsbrief, zodat we u per e-mail op de\n      hoogte houden van wijzigingen in de planning en tijdelijke omleidingen.\n    </Paragraph>\n    <CallToActionLink href=\"#\">Aanmelden voor de nieuwsbrief</CallToActionLink>\n  </article>\n);"
+          "id": "utilities-css-prose--test",
+          "name": "Test",
+          "error": {
+            "name": "Error",
+            "message": "Could not generate snippet without component name."
+          }
         }
       ],
-      "import": "import {\n    Accordion,\n    CallToActionLink,\n    Heading,\n    Link,\n    OrderedList,\n    Paragraph,\n    Table,\n    UnorderedList,\n} from \"@amsterdam/design-system-react\";\nimport { Prose } from \"@amsterdam/storybook\";",
       "docs": {
         "utilities-css-prose--docs": {
           "id": "utilities-css-prose--docs",
           "name": "Docs",
-          "path": "./src/utils/Prose/Prose.docs.mdx",
+          "path": "./src/utilities/Prose/Prose.docs.mdx",
           "title": "Utilities/CSS/Prose",
           "content": "{/* @license CC0-1.0 */}\n\nimport { Markdown, Meta, Primary } from \"@storybook/addon-docs/blocks\";\n\nimport { StatusBadge } from \"#storybook/_components/StatusBadge/StatusBadge\";\n\nimport README from \"../../../../packages/css/src/components/prose/README.md?raw\";\nimport * as ProseStories from \"./Prose.stories.tsx\";\n\n<Meta of={ProseStories} />\n\n<StatusBadge\n  description=\"Covers many element combinations. Exceptions will surface – we’ll iterate. API is stable.\"\n  status=\"beta\"\n/>\n\n<Markdown>{README}</Markdown>\n\n<Primary />\n\n## See also\n\n- [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for white space and when.\n",
           "summary": "## See also - [Spacing](/docs/docs-developer-guide-spacing--docs) – which tools to use for..."
@@ -5366,21 +5232,21 @@
     "utilities-css-query-container": {
       "id": "utilities-css-query-container",
       "name": "QueryContainer",
-      "path": "./src/utils/QueryContainer/QueryContainer.stories.tsx",
+      "path": "./src/utilities/QueryContainer/QueryContainer.test.stories.tsx",
       "jsDocTags": {},
       "description": "Mock component to render examples in Storybook. Not for reuse.",
       "reactComponentMeta": {
         "displayName": "QueryContainer",
         "exportName": "QueryContainer",
-        "filePath": "/home/runner/work/design-system/design-system/storybook/src/utils/QueryContainer/QueryContainer.tsx",
+        "filePath": "/home/runner/work/design-system/design-system/storybook/src/utilities/QueryContainer/QueryContainer.tsx",
         "description": "Mock component to render examples in Storybook. Not for reuse.",
         "props": {}
       },
       "stories": [
         {
-          "id": "utilities-css-query-container--inline-size",
-          "name": "Inline Size",
-          "snippet": "const InlineSize = () => (\n  <>\n    <style>{`\n      ._ams-colored-box {\n        background-color: var(--ams-color-highlight-yellow);\n        padding: 1rem;\n\n        @container ams-query-container-inline-size (inline-size >= 20rem) {\n          background-color: var(--ams-color-highlight-lime);\n        }\n      }\n    `}</style>\n    <QueryContainer\n      className=\"ams-query-container-inline-size _ams-resize-horizontal\"\n      style={{ inlineSize: '16rem' }}\n    >\n      <div className=\"_ams-colored-box\">\n        <Paragraph>This yellow background becomes lime if the query container is wider than 20rem.</Paragraph>\n      </div>\n    </QueryContainer>\n  </>\n);"
+          "id": "utilities-css-query-container--test",
+          "name": "Test",
+          "snippet": "const Test = () => (\n  <>\n    <style>{`\n      ._ams-colored-box {\n        background-color: var(--ams-color-highlight-yellow);\n        padding: 1rem;\n\n        @container ams-query-container-inline-size (inline-size >= 20rem) {\n          background-color: var(--ams-color-highlight-lime);\n        }\n      }\n    `}</style>\n    <div className=\"_ams-tests-stack\">\n      {/* Below and above the 20rem threshold, so both sides of the container query are covered.\n          The story omits the resize affordance of the presentation story: its outline and scrollbars\n          would show up in the snapshot without saying anything about the utility. */}\n      {['16rem', '24rem'].map((inlineSize) => (\n        <QueryContainer className=\"ams-query-container-inline-size\" key={inlineSize} style={{ inlineSize }}>\n          <div className=\"_ams-colored-box\">\n            <Paragraph>This yellow background becomes lime if the query container is wider than 20rem.</Paragraph>\n          </div>\n        </QueryContainer>\n      ))}\n    </div>\n  </>\n);"
         }
       ],
       "import": "import { Paragraph } from \"@amsterdam/design-system-react\";\nimport { QueryContainer } from \"@amsterdam/storybook\";",
@@ -5388,7 +5254,7 @@
         "utilities-css-query-container--docs": {
           "id": "utilities-css-query-container--docs",
           "name": "Docs",
-          "path": "./src/utils/QueryContainer/QueryContainer.docs.mdx",
+          "path": "./src/utilities/QueryContainer/QueryContainer.docs.mdx",
           "title": "Utilities/CSS/Query Container",
           "content": "{/* @license CC0-1.0 */}\n\nimport { Controls, Markdown, Meta, Primary } from \"@storybook/addon-docs/blocks\";\n\nimport README from \"../../../../packages/css/src/components/query-container/README.md?raw\";\nimport * as QueryContainerStories from \"./QueryContainer.stories.tsx\";\n\n<Meta of={QueryContainerStories} />\n\n<Markdown>{README}</Markdown>\n\n<Primary />\n\n## See also\n\n- [CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries) – Learn more about how to use container queries in CSS.\n",
           "summary": "## See also - [CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Gui..."
@@ -5398,29 +5264,27 @@
     "utilities-css-visually-hidden": {
       "id": "utilities-css-visually-hidden",
       "name": "VisuallyHidden",
-      "path": "./src/utils/VisuallyHidden/VisuallyHidden.stories.tsx",
+      "path": "./src/utilities/VisuallyHidden/VisuallyHidden.test.stories.tsx",
       "jsDocTags": {},
-      "description": "Mock component to render examples in Storybook. Not for reuse.",
-      "reactComponentMeta": {
-        "displayName": "VisuallyHidden",
-        "exportName": "VisuallyHidden",
-        "filePath": "/home/runner/work/design-system/design-system/storybook/src/utils/VisuallyHidden/VisuallyHidden.tsx",
-        "description": "Mock component to render examples in Storybook. Not for reuse.",
-        "props": {}
+      "error": {
+        "name": "No component found",
+        "message": "We could not detect the component from your story file. Specify meta.component.\n  10 | import { default as visuallyHiddenMeta } from './VisuallyHidden.stories'\n  11 |\n> 12 | const meta = {\n     | ^\n  13 |   ...visuallyHiddenMeta,\n  14 |   title: 'Utilities/CSS/Visually Hidden',\n  15 | } satisfies Meta<typeof VisuallyHidden>\n\n./src/utilities/VisuallyHidden/VisuallyHidden.test.stories.tsx:\n/**\n * @license EUPL-1.2+\n * Copyright Gemeente Amsterdam\n */\n\nimport type { Meta, StoryObj } from '@storybook/react-vite'\n\nimport type { VisuallyHidden } from './VisuallyHidden'\n\nimport { default as visuallyHiddenMeta } from './VisuallyHidden.stories'\n\nconst meta = {\n  ...visuallyHiddenMeta,\n  title: 'Utilities/CSS/Visually Hidden',\n} satisfies Meta<typeof VisuallyHidden>\n\nexport default meta\n\ntype Story = StoryObj<typeof meta>\n\n/**\n * Snapshots the one regression that is visible by definition: the hidden paragraph becoming perceivable.\n * The story shows a single visible paragraph; a second one appearing means the utility stopped hiding.\n */\nexport const Test: Story = {\n  tags: ['!dev', '!autodocs'],\n}\n"
       },
       "stories": [
         {
-          "id": "utilities-css-visually-hidden--default",
-          "name": "Default",
-          "snippet": "const Default = ({ children }: VisuallyHiddenProps) => (\n  <>\n    <Paragraph>\n      This paragraph is available for everyone. Below this is a second paragraph, but it is aimed at non-visual user\n      agents only. It is not perceivable on a screen.\n    </Paragraph>\n    <Paragraph className=\"ams-visually-hidden\">{children}</Paragraph>\n  </>\n);"
+          "id": "utilities-css-visually-hidden--test",
+          "name": "Test",
+          "error": {
+            "name": "Error",
+            "message": "Could not generate snippet without component name."
+          }
         }
       ],
-      "import": "import { Paragraph } from \"@amsterdam/design-system-react\";\nimport { VisuallyHidden } from \"@amsterdam/storybook\";",
       "docs": {
         "utilities-css-visually-hidden--docs": {
           "id": "utilities-css-visually-hidden--docs",
           "name": "Docs",
-          "path": "./src/utils/VisuallyHidden/VisuallyHidden.docs.mdx",
+          "path": "./src/utilities/VisuallyHidden/VisuallyHidden.docs.mdx",
           "title": "Utilities/CSS/Visually Hidden",
           "content": "{/* @license CC0-1.0 */}\n\nimport { Controls, Markdown, Meta, Primary } from \"@storybook/addon-docs/blocks\";\n\nimport README from \"../../../../packages/css/src/components/visually-hidden/README.md?raw\";\nimport * as VisuallyHiddenStories from \"./VisuallyHidden.stories.tsx\";\n\n<Meta of={VisuallyHiddenStories} />\n\n<Markdown>{README}</Markdown>\n\n<Primary />\n\n<Controls />\n"
         }
@@ -5824,6 +5688,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4112
+    "durationMs": 3360
   }
 }
