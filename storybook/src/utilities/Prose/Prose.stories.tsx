@@ -169,13 +169,12 @@ const render = (props: ProseProps) => (
 const meta = {
   title: 'Utilities/CSS/Prose',
   component: Prose,
+  decorators: [maximiseInlineSize('7-of-12-columns')],
+  render,
 } satisfies Meta<typeof Prose>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  decorators: [maximiseInlineSize('7-of-12-columns')],
-  render,
-}
+export const Default: Story = {}

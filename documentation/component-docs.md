@@ -16,7 +16,7 @@ Each React component has its documentation in two places.
 - The Storybook documentation page is at `storybook/src/components/{PascalCaseName}/{PascalCaseName}.docs.mdx`.
   This file renders the name and description from the component TSDoc and adds the structured sections below.
 
-CSS-only utilities (documented under `storybook/src/utils/`) have no React component, so there is no TSDoc to read from.
+CSS-only utilities (documented under `storybook/src/utilities/`) have no React component, so there is no TSDoc to read from.
 Their rationale stays in a `README.md` in the CSS package, imported and rendered with `<Markdown>{README}</Markdown>` in place of `<Title />` and `<Description />`.
 If a utility ever gains a React component, migrate it to the TSDoc approach at that point.
 
