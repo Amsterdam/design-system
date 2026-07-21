@@ -29,7 +29,7 @@ const meta = {
   argTypes: {
     size: {
       control: {
-        labels: { xs: 'x-small', s: 'small', m: 'medium', l: 'large', xl: 'x-large' },
+        labels: { xs: 'x-small', s: 'small', m: 'medium', l: 'large', xl: 'x-large', '2xl': '2x-large' },
         type: 'radio',
       },
     },
