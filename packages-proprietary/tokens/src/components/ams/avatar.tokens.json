@@ -50,7 +50,6 @@
         }
       },
       "font-weight": {
-        "$deprecated": "The Avatar has never applied this token; its initials inherit the font weight of their surroundings. Will be removed on or after 2027-01-21.",
         "$value": "{ams.typography.body-text.font-weight}",
         "$extensions": {
           "nl.amsterdam.type": "fontWeight"
