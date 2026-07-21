@@ -18,6 +18,9 @@
     "access": "public",
     "provenance": true
   },
+  "files": [
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Amsterdam/design-system.git",
