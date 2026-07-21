@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import isChromatic from 'chromatic/isChromatic'
+
 export const districts: ReadonlyArray<string> = [
   'Centrum',
   'Nieuw-West',
@@ -14,7 +16,10 @@ export const districts: ReadonlyArray<string> = [
   'Zuidoost',
 ]
 
-const pickRandomContent = <T>(list: Array<T>): T => list[Math.floor(Math.random() * list.length)]
+// Chromatic captures every Pages story, so varying content would report differences that aren’t regressions.
+// It gets the first entry of each list; everywhere else keeps picking at random.
+const pickRandomContent = <T>(list: Array<T>): T =>
+  isChromatic() ? list[0] : list[Math.floor(Math.random() * list.length)]
 
 export const exampleAccordionHeading = () =>
   pickRandomContent([
