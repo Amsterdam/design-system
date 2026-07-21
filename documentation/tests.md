@@ -57,7 +57,7 @@ With each pull request there are two actions:
 1. [Unit Tests](https://github.com/Amsterdam/design-system/actions/workflows/check-build-and-tests.yml)
 2. [Interaction, Visual, Accessibility tests](https://github.com/Amsterdam/design-system/actions/workflows/check-visual-regressions.yml)
 
-The interaction, visual, and accessibility tests are run by [Chromatic](https://chromatic.com). Chromatic runs these tests on each story labeled ‘Test’. If any changes are detected, they must be approved before merging the pull request. You can accept changes directly through the Chromatic dashboard. Once the changes are accepted, the pull request can be merged.
+The interaction, visual, and accessibility tests are run by [Chromatic](https://chromatic.com). Chromatic runs these tests on each component and CSS utility story labeled ‘Test’, and on every story of a page template. If any changes are detected, they must be approved before merging the pull request. You can accept changes directly through the Chromatic dashboard. Once the changes are accepted, the pull request can be merged.
 
 These actions are required to succeed before merging a pull-request.
 

@@ -3,8 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-// If you modify this list, you must also update the object in
-// packages/react/src/common/shortSize.ts
 @each $size in ("xs", "s", "m", "l", "xl", "2xl") {
   .ams-mb-#{$size} {
     /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */

@@ -3,8 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-// If you modify this list, you must also update the object in
-// packages/react/src/common/shortSize.ts
 // Note that we don’t offer a 2xl gap on purpose.
 @each $size in ("xs", "s", "m", "l", "xl") {
   .ams-gap-#{$size} {
