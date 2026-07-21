@@ -1,0 +1,8 @@
+{
+  "--ams-avatar-forced-colors-border-width": "Deprecated, removable on or after 2027-01-21. Consumed until #1998 replaced the border with a box shadow.",
+  "--ams-field-gap": "Deprecated in favour of the ams.field-set.child.* tokens, and no longer referenced since #2358. Its removal date has passed, so it goes in the next major release.",
+  "--ams-field-set-legend-margin-block-end": "Deprecated in favour of the ams.field-set.child.* tokens, and no longer referenced since #2358. Its removal date has passed, so it goes in the next major release.",
+  "--ams-file-input-file-selector-button-disabled-color": "Wired up by #2813, which styles the disabled file selector button. Remove this entry once that lands.",
+  "--ams-page-header-menu-item-font-family": "Deprecated, removable on or after 2027-01-21. Redundant since page-header.scss sets the font family on the root, which the menu items inherit.",
+  "--ams-search-field-input-cancel-button-color": "Deprecated, removable on or after 2027-01-21. Never referenced in the history of search-field.scss; the cancel button carries its colour in a data URI, which cannot reference a token."
+}

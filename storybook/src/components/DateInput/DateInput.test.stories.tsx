@@ -21,6 +21,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args, context) => renderComponentVariants(DateInput, { args }, context),
+  render: (args, context) => renderComponentVariants(DateInput, { args, variants: ['disabled'] }, context),
   tags: ['!dev', '!autodocs'],
 }

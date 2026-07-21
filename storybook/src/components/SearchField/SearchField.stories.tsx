@@ -59,6 +59,12 @@ export const WithPlaceholder: Story = {
   },
 }
 
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+}
+
 export const Controlled: Story = {
   args: {
     value: '',

@@ -53,17 +53,19 @@
   outline-offset: var(--ams-tab-navigation-link-outline-offset);
   padding-block: var(--ams-tab-navigation-link-padding-block);
   padding-inline: var(--ams-tab-navigation-link-padding-inline);
-  text-decoration-line: none;
+  text-decoration-line: var(--ams-tab-navigation-link-text-decoration-line);
+  text-decoration-thickness: var(--ams-tab-navigation-link-text-decoration-thickness);
+  text-underline-offset: var(--ams-tab-navigation-link-text-underline-offset);
 
   @media (hover: hover) {
     &:hover {
       color: var(--ams-tab-navigation-link-hover-color);
     }
-  }
 
-  @media (hover: hover) {
+    // The current link keeps its stroke instead: an underline as well would look odd.
     &:hover:not([aria-current="page"]) {
       box-shadow: var(--ams-tab-navigation-link-hover-box-shadow);
+      text-decoration-line: var(--ams-tab-navigation-link-hover-text-decoration-line);
     }
   }
 

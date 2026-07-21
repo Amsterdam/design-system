@@ -65,8 +65,9 @@ Follow these guidelines:
    Leave the arg out instead.
 3. Hide args with `table: { disable: true }` in the `argTypes` object if they don’t apply to the story, e.g. if the story composes multiple instances of the component.
    We don’t hide ‘less relevant’ args in other cases, not even in stories that focus on a single prop.
-4. Note that the args and argTypes of the meta feed the Test story, which is the only story Chromatic snapshots – see [Test stories](#test-stories).
-   Changing them can therefore change snapshots; the args of individual stories don’t reach Chromatic.
+4. Note that the args and argTypes of the meta feed the Test story, which is the only story Chromatic snapshots for a component or a CSS utility – see [Test stories](#test-stories).
+   Changing them can therefore change snapshots; the args of an individual presentation story don’t reach Chromatic.
+   This does not hold for page templates, whose stories Chromatic snapshots one by one.
 
 ### Choosing a control
 
@@ -149,6 +150,22 @@ It unhides the arg, offers a text control, and sets the description – `childre
 
 ## Test stories
 
-Test stories (`*.test.stories.tsx`) render all states of a component in the single story named ‘Test’, which is the only story Chromatic snapshots.
+Test stories (`*.test.stories.tsx`) render all states of a component in the single story named ‘Test’, which is the only story Chromatic snapshots for a component.
 They inherit the component’s meta and must not define argTypes of their own.
 Note that `renderComponentVariants` reads the meta’s argTypes to build its variant matrix – changing options or hiding args can change what the Test story renders and snapshots.
+
+CSS utilities under `Utilities/` have test stories as well, but cannot use `renderComponentVariants`.
+The component next to each utility is a mock that renders a bare element; the utility class comes from the story’s `render`, so a generated matrix would show elements without the class on them.
+Their test stories build the matrix by hand instead, covering the scale the CSS ships: all five gaps, all six margins, all six aspect ratios, and both sides of the container query.
+That fits in the same number of snapshots as the presentation stories would take, because one image holds the whole scale.
+Where a utility has no variants – Body, Prose, Visually Hidden – the test story sets only `tags` and inherits the `render` from the meta, so the snapshot cannot drift from the story we document.
+
+Page templates have no test stories.
+Chromatic snapshots their presentation stories directly, so every story under `Pages/` is a snapshot.
+Only stories, though: Chromatic skips docs entries, so the `Introduction` pages and the generated `Docs` tab of each template cost nothing.
+A page has no single component and no variant props, so `renderComponentVariants` cannot build a matrix for one; collapsing several pages into one Test story would mean either duplicating their markup or reaching into another story’s `render`.
+Snapshotting the presentation stories avoids both, and guarantees the image matches the page we document.
+
+Both page families set a Chromatic mode in their `commonMeta` so the snapshot width matches the maximum width of the Page: 1440px for public pages (`ams.page.max-inline-size`) and 1920px for internal ones (`ams.page.with-menu.max-inline-size`).
+Chromatic’s default viewport is 1200px, narrower than either, so without this the widest layout we design for would never be tested.
+One mode is one snapshot, so setting the width does not change the snapshot count.

@@ -26,11 +26,15 @@
   "scripts": {
     "clean:dist": "rimraf dist/",
     "build": "node build.js",
-    "build:watch": "chokidar --follow-symlinks --initial --command \"pnpm run build\" \"src/**/*.tokens.json\""
+    "build:watch": "chokidar --follow-symlinks --initial --command \"pnpm run build\" \"src/**/*.tokens.json\"",
+    "lint": "node lint/index.mjs",
+    "test": "vitest run"
   },
   "devDependencies": {
     "change-case": "5.4.4",
     "chokidar-cli": "3.0.0",
-    "style-dictionary": "5.5.0"
+    "postcss": "8.5.16",
+    "style-dictionary": "5.5.0",
+    "vitest": "4.1.10"
   }
 }

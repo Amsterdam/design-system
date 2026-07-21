@@ -101,6 +101,26 @@
             "nl.amsterdam.subtype": "space"
           }
         },
+        "text-decoration-line": {
+          "$value": "{ams.links.subtle.text-decoration-line}",
+          "$extensions": {
+            "nl.amsterdam.type": "textDecorationLine"
+          }
+        },
+        "text-decoration-thickness": {
+          "$value": "{ams.links.text-decoration-thickness}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
+        "text-underline-offset": {
+          "$value": "{ams.links.text-underline-offset}",
+          "$type": "dimension",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space"
+          }
+        },
         "hover": {
           "box-shadow": {
             "$type": "shadow",
@@ -110,7 +130,10 @@
                 "value": 0,
                 "unit": "rem"
               },
-              "offsetY": "{ams.border.width.negative.m}",
+              "offsetY": {
+                "value": 0,
+                "unit": "rem"
+              },
               "blur": {
                 "value": 0,
                 "unit": "rem"
@@ -125,6 +148,12 @@
           "color": {
             "$value": "{ams.color.interactive.hover}",
             "$type": "color"
+          },
+          "text-decoration-line": {
+            "$value": "{ams.links.subtle.hover.text-decoration-line}",
+            "$extensions": {
+              "nl.amsterdam.type": "textDecorationLine"
+            }
           }
         },
         "current": {
@@ -159,7 +188,10 @@
               "$type": "shadow",
               "$value": {
                 "inset": true,
-                "offsetX": "{ams.border.width.negative.m}",
+                "offsetX": {
+                  "value": 0,
+                  "unit": "rem"
+                },
                 "offsetY": {
                   "value": 0,
                   "unit": "rem"

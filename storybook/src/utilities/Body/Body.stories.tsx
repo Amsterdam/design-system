@@ -16,15 +16,14 @@ const render = (props: BodyProps) => <body {...props} className="ams-body" />
 const meta = {
   title: 'Utilities/CSS/Body',
   component: Body,
+  args: {
+    children: <Paragraph>{`This is the content of the HTML <body> element.`}</Paragraph>,
+  },
+  render,
 } satisfies Meta<typeof Body>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    children: <Paragraph>{`This is the content of the HTML <body> element.`}</Paragraph>,
-  },
-  render,
-}
+export const Default: Story = {}
