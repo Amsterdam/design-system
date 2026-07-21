@@ -39,5 +39,13 @@
     "valid-values-private": "off",
     "version-format": "error",
     "version-type": "error"
-  }
+  },
+  "overrides": [
+    {
+      "patterns": ["packages/*/package.json"],
+      "rules": {
+        "require-files": "error"
+      }
+    }
+  ]
 }
