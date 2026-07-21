@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1380,13 +1380,13 @@ export const Test: Story = {
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  21 | import { commonMeta } from &#39;../common/config&#39;
-  22 |
-&gt; 23 | const meta = {
+  23 | import { commonMeta } from &#39;../common/config&#39;
+  24 |
+&gt; 25 | const meta = {
      | ^
-  24 |   ...commonMeta,
-  25 |   title: &#39;Pages/Public/Article Page&#39;,
-  26 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  26 |   ...commonMeta,
+  27 |   title: &#39;Pages/Public/Article Page&#39;,
+  28 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 ./src/pages/public/ArticlePage/ArticlePage.stories.tsx:
 /**
@@ -1408,6 +1408,8 @@ import {
   Spotlight,
   StandaloneLink,
 } from &#39;@amsterdam/design-system-react&#39;
+
+import { exampleImageSource } from &#39;#storybook/_common/exampleContent&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 
@@ -1444,8 +1446,8 @@ const meta = {
           alt=&quot;&quot;
           aspectRatio=&quot;16:5&quot;
           loading=&quot;lazy&quot;
-          src=&quot;https://picsum.photos/1440/450&quot;
-          srcSet=&quot;https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w&quot;
+          src={exampleImageSource(1440, 450)}
+          srcSet={`${exampleImageSource(640, 200)} 640w, ${exampleImageSource(1280, 400)} 1280w, ${exampleImageSource(1440, 450)} 1440w`}
         /&gt;
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell
@@ -1528,7 +1530,7 @@ const meta = {
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={4}&gt;
           &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
             &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
@@ -1542,7 +1544,7 @@ const meta = {
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={4}&gt;
           &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
             &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
@@ -1555,7 +1557,7 @@ const meta = {
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={4}&gt;
           &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
             &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
@@ -1787,8 +1789,8 @@ export const Default: StoryObj = {
         alt=&quot;&quot;
         aspectRatio=&quot;16:5&quot;
         loading=&quot;lazy&quot;
-        src=&quot;https://picsum.photos/1440/450&quot;
-        srcSet=&quot;https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w&quot;
+        src={exampleImageSource(1440, 450)}
+        srcSet={`${exampleImageSource(640, 200)} 640w, ${exampleImageSource(1280, 400)} 1280w, ${exampleImageSource(1440, 450)} 1440w`}
       /&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell
@@ -1871,7 +1873,7 @@ export const Default: StoryObj = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={4}&gt;
         &lt;Card&gt;
-          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
           &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
             &lt;Card.Heading level={3}&gt;
               &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
@@ -1885,7 +1887,7 @@ export const Default: StoryObj = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={4}&gt;
         &lt;Card&gt;
-          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
           &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
             &lt;Card.Heading level={3}&gt;
               &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
@@ -1898,7 +1900,7 @@ export const Default: StoryObj = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={4}&gt;
         &lt;Card&gt;
-          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
           &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
             &lt;Card.Heading level={3}&gt;
               &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
@@ -13058,13 +13060,13 @@ The icon is larger and positioned above the label.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  27 | import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
-  28 |
-&gt; 29 | const meta = {
+  32 | import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
+  33 |
+&gt; 34 | const meta = {
      | ^
-  30 |   ...commonMeta,
-  31 |   title: &#39;Pages/Public/Navigation Page&#39;,
-  32 | } satisfies Meta
+  35 |   ...commonMeta,
+  36 |   title: &#39;Pages/Public/Navigation Page&#39;,
+  37 | } satisfies Meta
 
 ./src/pages/public/NavigationPage/NavigationPage.stories.tsx:
 /**
@@ -13090,7 +13092,12 @@ import {
   UnorderedList,
 } from &#39;@amsterdam/design-system-react&#39;
 
-import { exampleHeading, exampleParagraph, exampleStandaloneLink } from &#39;#storybook/_common/exampleContent&#39;
+import {
+  exampleHeading,
+  exampleImageSource,
+  exampleParagraph,
+  exampleStandaloneLink,
+} from &#39;#storybook/_common/exampleContent&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
@@ -13573,7 +13580,7 @@ export const WithImageGallery: StoryObj = {
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
-        &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+        &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src={exampleImageSource(1440, 450, 11)} /&gt;
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
@@ -13699,7 +13706,7 @@ export const WithImageGallery: StoryObj = {
             &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
               Rechtenvrije foto’s
             &lt;/Heading&gt;
-            &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;
+            &lt;Image alt=&quot;&quot; src={exampleImageSource(640, 360, 12)} /&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
       &lt;/main&gt;
@@ -13830,7 +13837,7 @@ export const SubnavigationPage: StoryObj = {
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
-        &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+        &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src={exampleImageSource(1440, 450)} /&gt;
         &lt;Grid paddingVertical=&quot;large&quot;&gt;
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
@@ -14152,7 +14159,7 @@ export const SubnavigationPage: StoryObj = {
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
-      &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+      &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src={exampleImageSource(1440, 450, 11)} /&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
@@ -14278,7 +14285,7 @@ export const SubnavigationPage: StoryObj = {
           &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
             Rechtenvrije foto’s
           &lt;/Heading&gt;
-          &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;
+          &lt;Image alt=&quot;&quot; src={exampleImageSource(640, 360, 12)} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/main&gt;
@@ -14314,7 +14321,7 @@ export const SubnavigationPage: StoryObj = {
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
-      &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+      &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src={exampleImageSource(1440, 450)} /&gt;
       &lt;Grid paddingVertical=&quot;large&quot;&gt;
         {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
@@ -17297,13 +17304,13 @@ You can customize the screen reader text with `completedAccessibleText` and `cur
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  28 | }))
-  29 |
-&gt; 30 | const meta = {
+  30 | }))
+  31 |
+&gt; 32 | const meta = {
      | ^
-  31 |   ...commonMeta,
-  32 |   title: &#39;Pages/Public/Project Page&#39;,
-  33 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  33 |   ...commonMeta,
+  34 |   title: &#39;Pages/Public/Project Page&#39;,
+  35 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 ./src/pages/public/ProjectPage/ProjectPage.stories.tsx:
 /**
@@ -17326,6 +17333,8 @@ import {
   Spotlight,
   StandaloneLink,
 } from &#39;@amsterdam/design-system-react&#39;
+
+import { exampleImageSource } from &#39;#storybook/_common/exampleContent&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 
@@ -17630,7 +17639,7 @@ const meta = {
       &lt;/Spotlight&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
+          &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720)} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/&gt;
@@ -18132,7 +18141,7 @@ export const Default: StoryObj = {
     &lt;/Spotlight&gt;
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
+        &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720)} /&gt;
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
   &lt;/&gt;
@@ -23294,13 +23303,13 @@ export const Test: Story = {
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  21 | import { commonMeta } from &#39;../common/config&#39;
-  22 |
-&gt; 23 | const meta = {
+  23 | import { commonMeta } from &#39;../common/config&#39;
+  24 |
+&gt; 25 | const meta = {
      | ^
-  24 |   ...commonMeta,
-  25 |   title: &#39;Pages/Public/Article Page&#39;,
-  26 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  26 |   ...commonMeta,
+  27 |   title: &#39;Pages/Public/Article Page&#39;,
+  28 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 ./src/pages/public/ArticlePage/ArticlePage.stories.tsx:
 /**
@@ -23322,6 +23331,8 @@ import {
   Spotlight,
   StandaloneLink,
 } from &#39;@amsterdam/design-system-react&#39;
+
+import { exampleImageSource } from &#39;#storybook/_common/exampleContent&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 
@@ -23358,8 +23369,8 @@ const meta = {
           alt=&quot;&quot;
           aspectRatio=&quot;16:5&quot;
           loading=&quot;lazy&quot;
-          src=&quot;https://picsum.photos/1440/450&quot;
-          srcSet=&quot;https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w&quot;
+          src={exampleImageSource(1440, 450)}
+          srcSet={`${exampleImageSource(640, 200)} 640w, ${exampleImageSource(1280, 400)} 1280w, ${exampleImageSource(1440, 450)} 1440w`}
         /&gt;
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell
@@ -23442,7 +23453,7 @@ const meta = {
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={4}&gt;
           &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
             &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
@@ -23456,7 +23467,7 @@ const meta = {
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={4}&gt;
           &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
             &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
@@ -23469,7 +23480,7 @@ const meta = {
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={4}&gt;
           &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
             &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
@@ -23701,8 +23712,8 @@ export const Default: StoryObj = {
         alt=&quot;&quot;
         aspectRatio=&quot;16:5&quot;
         loading=&quot;lazy&quot;
-        src=&quot;https://picsum.photos/1440/450&quot;
-        srcSet=&quot;https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w&quot;
+        src={exampleImageSource(1440, 450)}
+        srcSet={`${exampleImageSource(640, 200)} 640w, ${exampleImageSource(1280, 400)} 1280w, ${exampleImageSource(1440, 450)} 1440w`}
       /&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell
@@ -23785,7 +23796,7 @@ export const Default: StoryObj = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={4}&gt;
         &lt;Card&gt;
-          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
           &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
             &lt;Card.Heading level={3}&gt;
               &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
@@ -23799,7 +23810,7 @@ export const Default: StoryObj = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={4}&gt;
         &lt;Card&gt;
-          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
           &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
             &lt;Card.Heading level={3}&gt;
               &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
@@ -23812,7 +23823,7 @@ export const Default: StoryObj = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span={4}&gt;
         &lt;Card&gt;
-          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
           &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
             &lt;Card.Heading level={3}&gt;
               &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
@@ -30025,13 +30036,13 @@ import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  27 | import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
-  28 |
-&gt; 29 | const meta = {
+  32 | import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
+  33 |
+&gt; 34 | const meta = {
      | ^
-  30 |   ...commonMeta,
-  31 |   title: &#39;Pages/Public/Navigation Page&#39;,
-  32 | } satisfies Meta
+  35 |   ...commonMeta,
+  36 |   title: &#39;Pages/Public/Navigation Page&#39;,
+  37 | } satisfies Meta
 
 ./src/pages/public/NavigationPage/NavigationPage.stories.tsx:
 /**
@@ -30057,7 +30068,12 @@ import {
   UnorderedList,
 } from &#39;@amsterdam/design-system-react&#39;
 
-import { exampleHeading, exampleParagraph, exampleStandaloneLink } from &#39;#storybook/_common/exampleContent&#39;
+import {
+  exampleHeading,
+  exampleImageSource,
+  exampleParagraph,
+  exampleStandaloneLink,
+} from &#39;#storybook/_common/exampleContent&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
@@ -30540,7 +30556,7 @@ export const WithImageGallery: StoryObj = {
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
-        &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+        &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src={exampleImageSource(1440, 450, 11)} /&gt;
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
@@ -30666,7 +30682,7 @@ export const WithImageGallery: StoryObj = {
             &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
               Rechtenvrije foto’s
             &lt;/Heading&gt;
-            &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;
+            &lt;Image alt=&quot;&quot; src={exampleImageSource(640, 360, 12)} /&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
       &lt;/main&gt;
@@ -30797,7 +30813,7 @@ export const SubnavigationPage: StoryObj = {
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
-        &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+        &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src={exampleImageSource(1440, 450)} /&gt;
         &lt;Grid paddingVertical=&quot;large&quot;&gt;
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
@@ -31119,7 +31135,7 @@ export const SubnavigationPage: StoryObj = {
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
-      &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+      &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src={exampleImageSource(1440, 450, 11)} /&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
@@ -31245,7 +31261,7 @@ export const SubnavigationPage: StoryObj = {
           &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
             Rechtenvrije foto’s
           &lt;/Heading&gt;
-          &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360&quot; /&gt;
+          &lt;Image alt=&quot;&quot; src={exampleImageSource(640, 360, 12)} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/main&gt;
@@ -31281,7 +31297,7 @@ export const SubnavigationPage: StoryObj = {
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
-      &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src=&quot;https://picsum.photos/1440/450&quot; /&gt;
+      &lt;Image alt=&quot;&quot; aspectRatio=&quot;16:5&quot; src={exampleImageSource(1440, 450)} /&gt;
       &lt;Grid paddingVertical=&quot;large&quot;&gt;
         {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
@@ -33342,13 +33358,13 @@ Often includes a Call to Action Link that directs the user to a form.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  28 | }))
-  29 |
-&gt; 30 | const meta = {
+  30 | }))
+  31 |
+&gt; 32 | const meta = {
      | ^
-  31 |   ...commonMeta,
-  32 |   title: &#39;Pages/Public/Project Page&#39;,
-  33 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  33 |   ...commonMeta,
+  34 |   title: &#39;Pages/Public/Project Page&#39;,
+  35 |   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 ./src/pages/public/ProjectPage/ProjectPage.stories.tsx:
 /**
@@ -33371,6 +33387,8 @@ import {
   Spotlight,
   StandaloneLink,
 } from &#39;@amsterdam/design-system-react&#39;
+
+import { exampleImageSource } from &#39;#storybook/_common/exampleContent&#39;
 
 import { commonMeta } from &#39;../common/config&#39;
 
@@ -33675,7 +33693,7 @@ const meta = {
       &lt;/Spotlight&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
+          &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720)} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/&gt;
@@ -34177,7 +34195,7 @@ export const Default: StoryObj = {
     &lt;/Spotlight&gt;
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
+        &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720)} /&gt;
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
   &lt;/&gt;
