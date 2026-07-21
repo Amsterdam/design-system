@@ -18,6 +18,7 @@
 .ams-calendar__header {
   align-items: center;
   display: flex;
+  flex-wrap: nowrap;
 }
 
 .ams-calendar__caption {
@@ -27,7 +28,7 @@
 
 .ams-calendar__body {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .ams-calendar__weekday {
@@ -47,9 +48,11 @@
   text-decoration-thickness: var(--ams-calendar-day-link-text-decoration-thickness);
   text-underline-offset: var(--ams-calendar-day-link-text-underline-offset);
 
-  &:hover {
-    color: var(--ams-calendar-day-link-hover-color);
-    text-decoration-line: var(--ams-calendar-day-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--ams-calendar-day-link-hover-color);
+      text-decoration-line: var(--ams-calendar-day-link-hover-text-decoration-line);
+    }
   }
 }
 

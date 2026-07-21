@@ -12,6 +12,7 @@
   border-radius: var(--ams-call-to-action-link-border-radius);
   color: var(--ams-call-to-action-link-color);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-call-to-action-link-font-family);
   font-size: var(--ams-call-to-action-link-font-size);
   font-weight: var(--ams-call-to-action-link-font-weight);
@@ -27,9 +28,11 @@
   @include print-exact;
   @include text-rendering;
 
-  &:hover {
-    background-color: var(--ams-call-to-action-link-hover-background-color);
-    text-decoration-thickness: var(--ams-call-to-action-link-hover-text-decoration-thickness);
-    text-underline-offset: var(--ams-call-to-action-link-hover-text-underline-offset);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-call-to-action-link-hover-background-color);
+      text-decoration-thickness: var(--ams-call-to-action-link-hover-text-decoration-thickness);
+      text-underline-offset: var(--ams-call-to-action-link-hover-text-underline-offset);
+    }
   }
 }

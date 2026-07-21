@@ -25,6 +25,7 @@
   grid-column: 1/-1;
   grid-row: 1;
   outline-offset: var(--ams-image-slider-scroller-outline-offset);
+  /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- The scrollbar is hidden. */
   overflow-x: auto;
   /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
   overscroll-behavior-x: contain;
@@ -54,6 +55,7 @@
 
 .ams-image-slider__controls {
   display: flex;
+  flex-wrap: nowrap;
   grid-column: 1/-1;
   grid-row: 1;
   justify-content: space-between;
@@ -71,7 +73,7 @@
 .ams-image-slider__thumbnails {
   display: grid;
   gap: var(--ams-image-slider-thumbnails-gap);
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .ams-image-slider__thumbnail {
@@ -84,10 +86,12 @@
   background-size: cover;
   cursor: var(--ams-image-slider-thumbnails-thumbnail-cursor);
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
-  outline-offset: var(--ams-button-outline-offset);
+  outline-offset: var(--ams-image-slider-thumbnails-thumbnail-outline-offset);
 
-  &:hover {
-    opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
+  @media (hover: hover) {
+    &:hover {
+      opacity: var(--ams-image-slider-thumbnails-thumbnail-hover-opacity);
+    }
   }
 }
 

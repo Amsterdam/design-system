@@ -19,6 +19,8 @@ import {
   StandaloneLink,
 } from '@amsterdam/design-system-react'
 
+import { exampleImageSource } from '#storybook/_common/exampleContent'
+
 import { commonMeta } from '../common/config'
 
 const images = [268, 12, 267, 164, 128].map((id) => ({
@@ -322,7 +324,7 @@ const meta = {
       </Spotlight>
       <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Image alt="" src="https://picsum.photos/1280/720" />
+          <Image alt="" src={exampleImageSource(1280, 720)} />
         </Grid.Cell>
       </Grid>
     </>

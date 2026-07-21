@@ -70,6 +70,13 @@ A Search Field can have a placeholder text.
 
 <Canvas of={SearchFieldStories.WithPlaceholder} />
 
+### Disabled
+
+Set `disabled` on the Search Field to make both the Input and the Button unavailable.
+Neither of them can enable themselves, so the two always match.
+
+<Canvas of={SearchFieldStories.Disabled} />
+
 ### Controlled component
 
 By default, the search field is not managed by React but by the browser.

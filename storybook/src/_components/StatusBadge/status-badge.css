@@ -6,5 +6,6 @@
 ._ams-status-badge {
   align-items: center;
   display: inline-flex;
+  flex-wrap: nowrap;
   gap: var(--ams-space-xs);
 }

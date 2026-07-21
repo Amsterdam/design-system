@@ -40,6 +40,7 @@
 }
 
 .ams-text-input:disabled {
+  background-color: var(--ams-text-input-disabled-background-color);
   color: var(--ams-text-input-disabled-color);
   cursor: var(--ams-text-input-disabled-cursor);
 }
@@ -49,12 +50,16 @@
   border-color: var(--ams-text-input-invalid-border-color);
 }
 
-.ams-text-input:not(:disabled):hover {
-  box-shadow: var(--ams-text-input-hover-box-shadow);
+@media (hover: hover) {
+  .ams-text-input:not(:disabled):hover {
+    box-shadow: var(--ams-text-input-hover-box-shadow);
+  }
 }
 
-.ams-text-input:not(:disabled):invalid:hover,
-.ams-text-input:not(:disabled)[aria-invalid="true"]:hover {
-  border-color: var(--ams-text-input-invalid-hover-border-color);
-  box-shadow: var(--ams-text-input-invalid-hover-box-shadow);
+@media (hover: hover) {
+  .ams-text-input:not(:disabled):invalid:hover,
+  .ams-text-input:not(:disabled)[aria-invalid="true"]:hover {
+    border-color: var(--ams-text-input-invalid-hover-border-color);
+    box-shadow: var(--ams-text-input-invalid-hover-box-shadow);
+  }
 }

@@ -213,6 +213,7 @@
             }
           },
           "font-family": {
+            "$deprecated": "Use `ams.page-header.font-family` instead, which the menu items inherit. Will be removed on or after 2027-01-21.",
             "$value": "{ams.typography.font-family}",
             "$extensions": {
               "nl.amsterdam.type": "fontFamily"

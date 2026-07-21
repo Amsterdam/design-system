@@ -40,6 +40,7 @@
   background-color: var(--ams-pagination-link-background-color);
   color: var(--ams-pagination-link-color);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-weight: var(--ams-pagination-link-font-weight);
   gap: var(--ams-pagination-link-gap);
   min-block-size: var(--ams-pagination-link-min-block-size);
@@ -52,10 +53,12 @@
   text-underline-offset: var(--ams-pagination-link-text-underline-offset);
   touch-action: manipulation;
 
-  &:hover {
-    background-color: var(--ams-pagination-link-hover-background-color);
-    color: var(--ams-pagination-link-hover-color);
-    text-decoration-line: var(--ams-pagination-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-pagination-link-hover-background-color);
+      color: var(--ams-pagination-link-hover-color);
+      text-decoration-line: var(--ams-pagination-link-hover-text-decoration-line);
+    }
   }
 
   &:active {
@@ -72,6 +75,7 @@
   background-color: var(--ams-pagination-relative-link-background-color);
   color: var(--ams-pagination-relative-link-color);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-weight: var(--ams-pagination-relative-link-font-weight);
   gap: var(--ams-pagination-relative-link-gap);
   outline-offset: var(--ams-pagination-relative-link-outline-offset);
@@ -82,10 +86,12 @@
   text-underline-offset: var(--ams-pagination-relative-link-text-underline-offset);
   touch-action: manipulation;
 
-  &:hover {
-    background-color: var(--ams-pagination-relative-link-hover-background-color);
-    color: var(--ams-pagination-relative-link-hover-color);
-    text-decoration-line: var(--ams-pagination-relative-link-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-pagination-relative-link-hover-background-color);
+      color: var(--ams-pagination-relative-link-hover-color);
+      text-decoration-line: var(--ams-pagination-relative-link-hover-text-decoration-line);
+    }
   }
 
   &:active {
@@ -97,6 +103,7 @@
 .ams-pagination__ellipsis {
   color: var(--ams-pagination-ellipsis-color);
   display: inline-flex;
+  flex-wrap: nowrap;
   padding-block: var(--ams-pagination-ellipsis-padding-block);
   padding-inline: var(--ams-pagination-ellipsis-padding-inline);
 }
@@ -106,9 +113,11 @@
   color: var(--ams-pagination-link-current-color);
   font-weight: var(--ams-pagination-link-current-font-weight);
 
-  &:hover {
-    background-color: var(--ams-pagination-link-current-hover-background-color);
-    color: var(--ams-pagination-link-current-hover-color);
-    text-decoration: none;
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--ams-pagination-link-current-hover-background-color);
+      color: var(--ams-pagination-link-current-hover-color);
+      text-decoration: none;
+    }
   }
 }

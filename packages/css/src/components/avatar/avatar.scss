@@ -16,6 +16,7 @@
   display: inline-grid; /* Avoid Safari flexbox bug that distorts images by resolving intrinsic size incorrectly. */
   font-family: var(--ams-avatar-font-family);
   font-size: var(--ams-avatar-font-size);
+  font-weight: var(--ams-avatar-font-weight);
   inline-size: calc(var(--ams-avatar-line-height) * var(--ams-avatar-font-size));
   line-height: var(--ams-avatar-line-height);
   padding-block: var(--ams-avatar-padding-block);

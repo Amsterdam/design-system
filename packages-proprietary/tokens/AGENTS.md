@@ -56,6 +56,8 @@ Each mode builds from its own files alone, so a `{ams.*}` reference in a mode fi
 - Watch mode: `pnpm build:watch`
 - Output: `dist/` — never edit generated output directly.
 - Build config: `build.js` with custom Style Dictionary logic in `style-dictionary/` (includes `transforms/` and `dimensionToString.js`).
+- Lint command: `pnpm lint` reports tokens nothing consumes, and needs `dist/` to be built first.
+- Test command: `pnpm test`
 
 ## File locations
 
@@ -69,7 +71,7 @@ Each mode builds from its own files alone, so a `{ams.*}` reference in a mode fi
 
 - Every token must have a `$value`. Type information is provided through either `$type` (DTCG standard) or `$extensions` with `nl.amsterdam.type` / `nl.amsterdam.subtype`. Some tokens (e.g. cursors, aspect ratios) have no type annotation — follow the existing pattern for the token category you are editing.
 - Token names use kebab-case and mirror CSS property names where applicable.
-- No unused tokens — every defined token must be consumed by CSS or another token.
+- No unused tokens — every defined token must be consumed by CSS or another token, which the [unused token check](lint/README.md) enforces.
 - No hardcoded design values in CSS or React — if a value is missing, add a token here first.
 - Changes to brand-level tokens in `src/brand/ams/` have wide impact; do not change them unless the task explicitly calls for brand updates.
 - When adding new component tokens, wire them into CSS (and React where applicable) in the same change so they are immediately used.

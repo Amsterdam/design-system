@@ -18,6 +18,8 @@ import {
   StandaloneLink,
 } from '@amsterdam/design-system-react'
 
+import { exampleImageSource } from '#storybook/_common/exampleContent'
+
 import { commonMeta } from '../common/config'
 
 const meta = {
@@ -53,8 +55,8 @@ const meta = {
           alt=""
           aspectRatio="16:5"
           loading="lazy"
-          src="https://picsum.photos/1440/450"
-          srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
+          src={exampleImageSource(1440, 450)}
+          srcSet={`${exampleImageSource(640, 200)} 640w, ${exampleImageSource(1280, 400)} 1280w, ${exampleImageSource(1440, 450)} 1440w`}
         />
         <Grid paddingVertical="x-large">
           <Grid.Cell
@@ -137,7 +139,7 @@ const meta = {
         </Grid.Cell>
         <Grid.Cell span={4}>
           <Card>
-            <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
+            <Card.Image alt="" src={exampleImageSource(640, 360, 1)} />
             <Card.HeadingGroup tagline="Nieuws">
               <Card.Heading level={3}>
                 <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
@@ -151,7 +153,7 @@ const meta = {
         </Grid.Cell>
         <Grid.Cell span={4}>
           <Card>
-            <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
+            <Card.Image alt="" src={exampleImageSource(640, 360, 2)} />
             <Card.HeadingGroup tagline="Nieuws">
               <Card.Heading level={3}>
                 <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
@@ -164,7 +166,7 @@ const meta = {
         </Grid.Cell>
         <Grid.Cell span={4}>
           <Card>
-            <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
+            <Card.Image alt="" src={exampleImageSource(640, 360, 3)} />
             <Card.HeadingGroup tagline="Nieuws">
               <Card.Heading level={3}>
                 <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>

@@ -12,6 +12,7 @@
   border-style: var(--ams-alert-border-style);
   border-width: var(--ams-alert-border-width);
   display: flex;
+  flex-wrap: nowrap;
 }
 
 .ams-alert__severity-indicator {

@@ -18,6 +18,7 @@
   color: var(--ams-radio-color);
   cursor: var(--ams-radio-cursor);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-radio-font-family);
   font-size: var(--ams-radio-font-size);
   font-weight: var(--ams-radio-font-weight);
@@ -35,6 +36,7 @@
   block-size: var(--ams-radio-icon-container-block-size);
   display: flex;
   flex: none;
+  flex-wrap: nowrap;
   inline-size: var(--ams-radio-icon-container-inline-size);
 }
 
@@ -53,20 +55,22 @@
 }
 
 // Default hover
-.ams-radio__label:hover {
-  color: var(--ams-radio-hover-color);
-  text-decoration-line: var(--ams-radio-hover-text-decoration-line);
+@media (hover: hover) {
+  .ams-radio__label:hover {
+    color: var(--ams-radio-hover-color);
+    text-decoration-line: var(--ams-radio-hover-text-decoration-line);
 
-  .ams-radio__circle {
-    stroke: var(--ams-radio-circle-hover-stroke);
-  }
+    .ams-radio__circle {
+      stroke: var(--ams-radio-circle-hover-stroke);
+    }
 
-  .ams-radio__hover-indicator {
-    stroke: var(--ams-radio-hover-indicator-hover-stroke);
-  }
+    .ams-radio__hover-indicator {
+      stroke: var(--ams-radio-hover-indicator-hover-stroke);
+    }
 
-  .ams-radio__checked-indicator {
-    fill: var(--ams-radio-checked-indicator-hover-fill);
+    .ams-radio__checked-indicator {
+      fill: var(--ams-radio-checked-indicator-hover-fill);
+    }
   }
 }
 
@@ -118,42 +122,48 @@
 // HOVER
 
 // Disabled hover
-.ams-radio__input:disabled + .ams-radio__label:hover {
-  text-decoration: none;
+@media (hover: hover) {
+  .ams-radio__input:disabled + .ams-radio__label:hover {
+    text-decoration: none;
 
-  .ams-radio__hover-indicator {
-    stroke: transparent;
+    .ams-radio__hover-indicator {
+      stroke: transparent;
+    }
   }
 }
 
 // Invalid hover
-.ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover {
-  .ams-radio__circle {
-    stroke: var(--ams-radio-circle-invalid-hover-stroke);
-  }
+@media (hover: hover) {
+  .ams-radio__input[aria-invalid="true"] + .ams-radio__label:hover {
+    .ams-radio__circle {
+      stroke: var(--ams-radio-circle-invalid-hover-stroke);
+    }
 
-  .ams-radio__hover-indicator {
-    stroke: var(--ams-radio-hover-indicator-invalid-hover-stroke);
-  }
+    .ams-radio__hover-indicator {
+      stroke: var(--ams-radio-hover-indicator-invalid-hover-stroke);
+    }
 
-  .ams-radio__checked-indicator {
-    fill: var(--ams-radio-checked-indicator-invalid-hover-fill);
+    .ams-radio__checked-indicator {
+      fill: var(--ams-radio-checked-indicator-invalid-hover-fill);
+    }
   }
 }
 
 // Disabled invalid hover
-.ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover {
-  .ams-radio__circle {
-    // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    stroke: var(--ams-radio-circle-disabled-invalid-hover-stroke);
-  }
+@media (hover: hover) {
+  .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover {
+    .ams-radio__circle {
+      // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
+      stroke: var(--ams-radio-circle-disabled-invalid-hover-stroke);
+    }
 
-  .ams-radio__hover-indicator {
-    stroke: transparent;
-  }
-  .ams-radio__checked-indicator {
-    // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
-    fill: var(--ams-radio-checked-indicator-disabled-invalid-hover-fill);
+    .ams-radio__hover-indicator {
+      stroke: transparent;
+    }
+    .ams-radio__checked-indicator {
+      // TODO: currently disabled invalid gets the same styling as disabled. This should get its own styling.
+      fill: var(--ams-radio-checked-indicator-disabled-invalid-hover-fill);
+    }
   }
 }
 
@@ -161,6 +171,7 @@
 
 // Default
 @media (forced-colors: active) {
+  /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Identical styling with and without hover. */
   .ams-radio__label,
   .ams-radio__label:hover,
   .ams-radio__input[aria-invalid="true"] + .ams-radio__label,
@@ -182,6 +193,7 @@
 
 // Checked
 @media (forced-colors: active) {
+  /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Identical styling with and without hover. */
   .ams-radio__input:checked + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"]:checked + .ams-radio__label:hover {
     .ams-radio__circle {
@@ -196,6 +208,7 @@
 
 // Disabled
 @media (forced-colors: active) {
+  /* stylelint-disable-next-line defensive-css/no-accidental-hover -- Identical styling with and without hover. */
   .ams-radio__input:disabled + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover {

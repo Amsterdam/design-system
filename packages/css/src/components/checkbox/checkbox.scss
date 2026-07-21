@@ -13,6 +13,7 @@
   color: var(--ams-checkbox-color);
   cursor: var(--ams-checkbox-cursor);
   display: inline-flex;
+  flex-wrap: nowrap;
   font-family: var(--ams-checkbox-font-family);
   font-size: var(--ams-checkbox-font-size);
   font-weight: var(--ams-checkbox-font-weight);
@@ -30,6 +31,7 @@
   block-size: var(--ams-checkbox-icon-container-block-size);
   display: flex;
   flex: none;
+  flex-wrap: nowrap;
   inline-size: var(--ams-checkbox-icon-container-inline-size);
 }
 
@@ -124,19 +126,21 @@
   }
 
   // Default hover
-  &:hover:not(:disabled) + * {
-    color: var(--ams-checkbox-hover-color);
-    text-decoration-line: var(--ams-checkbox-hover-text-decoration-line);
+  @media (hover: hover) {
+    &:hover:not(:disabled) + * {
+      color: var(--ams-checkbox-hover-color);
+      text-decoration-line: var(--ams-checkbox-hover-text-decoration-line);
 
-    .ams-checkbox__rectangle {
-      @media (forced-colors: none) {
-        stroke: var(--ams-checkbox-rectangle-hover-stroke);
+      .ams-checkbox__rectangle {
+        @media (forced-colors: none) {
+          stroke: var(--ams-checkbox-rectangle-hover-stroke);
+        }
       }
-    }
 
-    .ams-checkbox__hover-indicator {
-      @media (forced-colors: none) {
-        stroke: var(--ams-checkbox-hover-indicator-hover-stroke);
+      .ams-checkbox__hover-indicator {
+        @media (forced-colors: none) {
+          stroke: var(--ams-checkbox-hover-indicator-hover-stroke);
+        }
       }
     }
   }
@@ -179,43 +183,53 @@
   // HOVER
 
   // Indeterminate hover
-  &:indeterminate:not(:disabled) + *:hover .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-indeterminate-hover-fill);
+  @media (hover: hover) {
+    &:indeterminate:not(:disabled) + *:hover .ams-checkbox__rectangle {
+      fill: var(--ams-checkbox-rectangle-indeterminate-hover-fill);
 
-    @include forced-colors-selected;
+      @include forced-colors-selected;
+    }
   }
 
   // Checked hover
-  &:checked:not(:disabled, :indeterminate) + *:hover .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-checked-hover-fill);
+  @media (hover: hover) {
+    &:checked:not(:disabled, :indeterminate) + *:hover .ams-checkbox__rectangle {
+      fill: var(--ams-checkbox-rectangle-checked-hover-fill);
 
-    @include forced-colors-selected;
+      @include forced-colors-selected;
+    }
   }
 
   // Invalid hover
-  :is(&:invalid, &[aria-invalid="true"]):not(:disabled) + *:hover {
-    .ams-checkbox__rectangle {
-      stroke: var(--ams-checkbox-rectangle-invalid-hover-stroke);
-    }
+  @media (hover: hover) {
+    :is(&:invalid, &[aria-invalid="true"]):not(:disabled) + *:hover {
+      .ams-checkbox__rectangle {
+        stroke: var(--ams-checkbox-rectangle-invalid-hover-stroke);
+      }
 
-    .ams-checkbox__hover-indicator {
-      @media (forced-colors: none) {
-        stroke: var(--ams-checkbox-hover-indicator-invalid-hover-stroke);
+      .ams-checkbox__hover-indicator {
+        @media (forced-colors: none) {
+          stroke: var(--ams-checkbox-hover-indicator-invalid-hover-stroke);
+        }
       }
     }
   }
 
   // Invalid indeterminate hover
-  :is(&:invalid, &[aria-invalid="true"]):indeterminate:not(:disabled) + *:hover .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-indeterminate-invalid-hover-fill);
+  @media (hover: hover) {
+    :is(&:invalid, &[aria-invalid="true"]):indeterminate:not(:disabled) + *:hover .ams-checkbox__rectangle {
+      fill: var(--ams-checkbox-rectangle-indeterminate-invalid-hover-fill);
 
-    @include forced-colors-selected;
+      @include forced-colors-selected;
+    }
   }
 
   // Invalid checked hover
-  :is(&:invalid, &[aria-invalid="true"]):checked:not(:disabled) + *:hover .ams-checkbox__rectangle {
-    fill: var(--ams-checkbox-rectangle-checked-invalid-hover-fill);
+  @media (hover: hover) {
+    :is(&:invalid, &[aria-invalid="true"]):checked:not(:disabled) + *:hover .ams-checkbox__rectangle {
+      fill: var(--ams-checkbox-rectangle-checked-invalid-hover-fill);
 
-    @include forced-colors-selected;
+      @include forced-colors-selected;
+    }
   }
 }

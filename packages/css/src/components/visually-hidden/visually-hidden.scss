@@ -5,15 +5,18 @@
 
 // Source: https://css-tricks.com/inclusively-hidden/
 .ams-visually-hidden:not(:active, :focus) {
+  /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- The canonical inclusively-hidden pattern. */
   block-size: 1px;
   clip-path: inset(50%);
+  /* stylelint-disable-next-line defensive-css/no-fixed-sizes -- The canonical inclusively-hidden pattern. */
   inline-size: 1px;
   overflow: hidden;
   position: absolute;
+  /* stylelint-disable-next-line defensive-css/no-user-select-none -- Prevents copying invisible text. */
   -webkit-user-select: none;
 
   /* Safari support is added with the prefixed property. */
-  /* stylelint-disable-next-line plugin/use-baseline */
+  /* stylelint-disable-next-line plugin/use-baseline, defensive-css/no-user-select-none -- Prevents copying invisible text. */
   user-select: none;
   white-space: nowrap;
 }

@@ -85,6 +85,13 @@
         }
       },
       "disabled": {
+        "background-color": {
+          "$value": "#e8e8e8",
+          "$description": "A tint that marks an input as unavailable. Set as a literal because the brand layer has no matching grey yet.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        },
         "color": {
           "$value": "{ams.color.interactive.disabled}",
           "$extensions": {

@@ -1,6 +1,7 @@
 {
-  "extends": ["stylelint-config-standard-scss"],
+  "extends": ["stylelint-config-standard-scss", "stylelint-plugin-defensive-css/configs/strict"],
   "plugins": [
+    "./stylelint/index.mjs",
     "stylelint-order",
     "stylelint-plugin-use-baseline",
     "stylelint-use-logical",
@@ -8,6 +9,36 @@
   ],
   "rules": {
     "alpha-value-notation": ["percentage"],
+    "ams/no-fixed-sizes": [
+      true,
+      {
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
+      }
+    ],
+    "ams/no-list-style-none": [
+      true,
+      {
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
+      }
+    ],
+    "ams/no-unsafe-clamp-font-size": [
+      true,
+      {
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
+      }
+    ],
+    "ams/require-grid-minmax": [
+      true,
+      {
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
+      }
+    ],
+    "ams/require-system-font-fallback": [
+      true,
+      {
+        "importFrom": ["packages-proprietary/tokens/dist/index.css"]
+      }
+    ],
     "at-rule-empty-line-before": null,
     "at-rule-no-unknown": null,
     "block-no-empty": true,
@@ -39,6 +70,12 @@
         "text-align": ["left", "right"]
       }
     ],
+    "defensive-css/no-unsafe-clamp-font-size": null,
+    "defensive-css/require-at-layer": null,
+    "defensive-css/require-custom-property-fallback": null,
+    "defensive-css/require-named-grid-lines": null,
+    "defensive-css/require-pure-selectors": null,
+    "defensive-css/require-system-font-fallback": null,
     "font-family-name-quotes": "always-unless-keyword",
     "font-family-no-duplicate-names": true,
     "font-family-no-missing-generic-family-keyword": true,

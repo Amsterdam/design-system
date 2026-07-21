@@ -75,7 +75,9 @@
 }
 
 @mixin reset-ol {
-  list-style: none;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: ""; // Keeps list semantics in Safari, which `list-style: none` would remove
   margin-block: 0;
   padding-inline-start: 0;
 }
@@ -100,7 +102,9 @@
 }
 
 @mixin reset-ul {
-  list-style: none;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: ""; // Keeps list semantics in Safari, which `list-style: none` would remove
   margin-block: 0;
   padding-inline-start: 0;
 }
