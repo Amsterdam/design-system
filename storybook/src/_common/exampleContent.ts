@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import isChromatic from 'chromatic/isChromatic'
+
 export const districts: ReadonlyArray<string> = [
   'Centrum',
   'Nieuw-West',
@@ -14,7 +16,10 @@ export const districts: ReadonlyArray<string> = [
   'Zuidoost',
 ]
 
-const pickRandomContent = <T>(list: Array<T>): T => list[Math.floor(Math.random() * list.length)]
+// Chromatic captures every Pages story, so varying content would report differences that aren’t regressions.
+// It gets the first entry of each list; everywhere else keeps picking at random.
+const pickRandomContent = <T>(list: Array<T>): T =>
+  isChromatic() ? list[0] : list[Math.floor(Math.random() * list.length)]
 
 export const exampleAccordionHeading = () =>
   pickRandomContent([
@@ -85,6 +90,19 @@ export const exampleGivenName = () =>
     'William',
     'Yassine',
   ])
+
+// Lorem Picsum serves a random photo unless you name one, and it has gaps, so these ids are known to resolve.
+const exampleImageIds = [64, 101, 122, 123, 133, 153, 159, 385, 1015, 1016, 1029, 1039, 1043, 1044]
+
+/**
+ * Returns the source for a placeholder photo.
+ * Give each photo on a page its own index, and reuse one index across the sizes in a `srcSet`.
+ * Only Chromatic resolves those indexes to fixed photos; elsewhere every source is a fresh random one.
+ */
+export const exampleImageSource = (width: number, height: number, index = 0) =>
+  isChromatic()
+    ? `https://picsum.photos/id/${exampleImageIds[index % exampleImageIds.length]}/${width}/${height}`
+    : `https://picsum.photos/${width}/${height}?random=${index}`
 
 export const exampleLinkList = () =>
   pickRandomContent<Array<string>>([

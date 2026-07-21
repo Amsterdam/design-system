@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { exampleImageSource } from '#storybook/_common/exampleContent'
+
 export type LinkGroup = {
   heading: string
   links: string[]
@@ -150,58 +152,58 @@ type Person = {
 
 export const persons: Person[] = [
   {
-    imageSource: 'https://picsum.photos/480/270',
-    name: 'Femke Halsema',
+    imageSource: exampleImageSource(480, 270, 0),
+    name: 'Aicha Bayraktar',
     role: 'Burgemeester',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
-    name: 'Marjolein Moorman',
+    imageSource: exampleImageSource(480, 270, 1),
+    name: 'Laurens Dijkstra',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
-    name: 'Rutger Groot Wassink',
+    imageSource: exampleImageSource(480, 270, 2),
+    name: 'Yassine El Idrissi',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
-    name: 'Hester van Buren',
+    imageSource: exampleImageSource(480, 270, 3),
+    name: 'Lisette Janssen',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
-    name: 'Sofyan Mbarki',
+    imageSource: exampleImageSource(480, 270, 4),
+    name: 'Abdulaziz Farooq',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
-    name: 'Touria Meliani',
+    imageSource: exampleImageSource(480, 270, 5),
+    name: 'Angelique Pieterse',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
-    name: 'Melanie van der Horst',
+    imageSource: exampleImageSource(480, 270, 6),
+    name: 'Ruben op den Akker',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
-    name: 'Alexander Scholtes',
+    imageSource: exampleImageSource(480, 270, 7),
+    name: 'Meryam Laghmani',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
-    name: 'Zita Pels',
+    imageSource: exampleImageSource(480, 270, 8),
+    name: 'Sebastiaan van Harinxma thoe Slooten',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
-    name: 'Steven van Weyenberg',
+    imageSource: exampleImageSource(480, 270, 9),
+    name: 'William Moussaoui',
     role: 'Wethouder',
   },
   {
-    imageSource: 'https://picsum.photos/480/270',
-    name: 'Thea de Vries',
+    imageSource: exampleImageSource(480, 270, 10),
+    name: 'Nora Veldkamp',
     role: 'Gemeentesecretaris',
     suffix: 'waarnemend',
   },
