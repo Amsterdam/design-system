@@ -85,7 +85,7 @@
   background-size: cover;
   cursor: var(--ams-image-slider-thumbnails-thumbnail-cursor);
   opacity: var(--ams-image-slider-thumbnails-thumbnail-opacity);
-  outline-offset: var(--ams-button-outline-offset);
+  outline-offset: var(--ams-image-slider-thumbnails-thumbnail-outline-offset);
 
   @media (hover: hover) {
     &:hover {
