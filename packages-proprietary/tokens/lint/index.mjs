@@ -22,7 +22,11 @@ const CONSUMER_PATTERNS = ['packages/*/src/**/*', 'storybook/config/**/*', 'stor
 const ALLOWLIST_PATH = new URL('allowlist.json', import.meta.url)
 
 /**
- * Reads every file a set of patterns matches, skipping the ones that are not text.
+ * Reads every file a set of patterns matches, skipping the ones that cannot be read.
+ *
+ * The contents are decoded as UTF-8 without checking whether the file is text. Every file under the
+ * patterns this is called with is source, and a file that is not would only ever fail to hold a
+ * token reference, never produce a wrong one.
  *
  * @param {string[]} patterns - The glob patterns, relative to the repository root.
  * @returns {Array<{ path: string, source: string }>} The files and their contents.
@@ -30,21 +34,21 @@ const ALLOWLIST_PATH = new URL('allowlist.json', import.meta.url)
 function readFiles(patterns) {
   const files = []
 
-  for (const path of globSync(patterns, {
+  for (const entry of globSync(patterns, {
     cwd: repositoryRoot,
     exclude: ['**/node_modules/**'],
     withFileTypes: true,
   })) {
-    if (!path.isFile()) {
+    if (!entry.isFile()) {
       continue
     }
 
-    const absolutePath = `${path.parentPath}/${path.name}`
+    const absolutePath = `${entry.parentPath}/${entry.name}`
 
     try {
       files.push({ path: relative(repositoryRoot, absolutePath), source: readFileSync(absolutePath, 'utf8') })
     } catch {
-      /* A file that cannot be read as text holds no token reference. */
+      /* A directory entry that cannot be read holds no token reference. */
     }
   }
 
