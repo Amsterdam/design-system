@@ -78,6 +78,7 @@
       },
       "forced-colors": {
         "border-width": {
+          "$deprecated": "The Avatar no longer draws a border in forced colours mode, so this token has no effect. Will be removed on or after 2027-01-21.",
           "$value": "{ams.border.width.m}",
           "$extensions": {
             "nl.amsterdam.type": "borderWidth"
