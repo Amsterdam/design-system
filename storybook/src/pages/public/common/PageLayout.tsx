@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { PropsWithChildren } from 'react'
+import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 import { Grid, Heading, LinkList, Page, PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
 
@@ -15,15 +15,18 @@ type SkipLinkItem = {
   readonly targetId: string
 }
 
-type PageLayoutProps = PropsWithChildren<{
-  readonly skipLinks?: ReadonlyArray<SkipLinkItem>
-}>
+type PageLayoutProps = PropsWithChildren<
+  {
+    readonly skipLinks?: ReadonlyArray<SkipLinkItem>
+  } & HTMLAttributes<HTMLDivElement>
+>
 
 export const PageLayout = ({
   children,
   skipLinks = [{ label: 'Direct naar inhoud', targetId: 'inhoud' }],
+  ...restProps
 }: PageLayoutProps) => (
-  <Page>
+  <Page {...restProps}>
     {skipLinks.map(({ label, targetId }) => (
       <SkipLink href={`#${targetId}`} key={targetId}>
         {label}

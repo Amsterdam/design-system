@@ -7,10 +7,10 @@ import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 import { Column, Grid, Heading, Link, Page, PageFooter, PageHeader, Paragraph } from '@amsterdam/design-system-react'
 
-type FormPageLayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+type FormPageLayoutProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-export const FormPageLayout = ({ children }: FormPageLayoutProps) => (
-  <Page>
+export const FormPageLayout = ({ children, ...restProps }: FormPageLayoutProps) => (
+  <Page {...restProps}>
     {/* Keep the Page Header as simple as possible, to avoid distractions and to prevent users from accidentally navigating away from the form flow. */}
     <PageHeader className="ams-mb-xl" />
     {children}

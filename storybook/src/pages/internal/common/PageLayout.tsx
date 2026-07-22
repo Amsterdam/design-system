@@ -10,10 +10,10 @@ import { UserAccountIcon } from '@amsterdam/design-system-react-icons'
 
 import { MenuWithItems } from './MenuWithItems'
 
-type PageLayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+type PageLayoutProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-export const PageLayout = ({ children }: PageLayoutProps) => (
-  <Page withMenu>
+export const PageLayout = ({ children, ...restProps }: PageLayoutProps) => (
+  <Page {...restProps} withMenu>
     <SkipLink className="ams-page__area--skip-link" href="#inhoud">
       Direct naar inhoud
     </SkipLink>
