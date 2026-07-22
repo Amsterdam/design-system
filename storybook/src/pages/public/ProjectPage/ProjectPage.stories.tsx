@@ -470,7 +470,8 @@ export const Default: StoryObj = {
       <Image alt="" className="ams-mb-m" src="https://picsum.photos/id/385/640/360" />
       <StandaloneLink href="#">Meer video’s</StandaloneLink>
     </Grid.Cell>
-    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+    {/* … a Plannen en publicaties cell, start-aligned to the left like Meer informatie … */}
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
       <Heading className="ams-mb-s" level={2} size="level-3">Blijf op de hoogte</Heading>
       <LinkList>
         <LinkList.Link href="#">Nieuwsbrief ontwikkeling IJburg</LinkList.Link>
