@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Card, Grid, Heading, Overlap, Paragraph, Spotlight, StandaloneLink } from '@amsterdam/design-system-react'
 
 import { Default as OverlapStory } from '../../../components/Overlap/Overlap.stories'
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 import { newsSection, spotlightSections, topTaskSection } from './data'
 
 const meta = {

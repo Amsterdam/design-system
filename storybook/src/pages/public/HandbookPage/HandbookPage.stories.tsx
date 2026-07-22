@@ -11,7 +11,7 @@ import { useState } from 'react'
 
 import type { HandbookPage } from './pages'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 import { findAncestors, findPage, pages } from './pages'
 
 const meta = {

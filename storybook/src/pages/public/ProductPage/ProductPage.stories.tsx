@@ -16,7 +16,7 @@ import {
   UnorderedList,
 } from '@amsterdam/design-system-react'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 
 const meta = {
   ...commonMeta,
