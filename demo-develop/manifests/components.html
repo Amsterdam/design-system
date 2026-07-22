@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">52/98 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">62/98 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">3/120 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">113 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">53/98 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">63/98 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">3/120 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">113 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1380,7 +1380,7 @@ export const Test: Story = {
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  23 | import { commonMeta } from &#39;../common/config&#39;
+  23 | import { commonMeta } from &#39;../common/commonMeta&#39;
   24 |
 &gt; 25 | const meta = {
      | ^
@@ -1411,7 +1411,7 @@ import {
 
 import { exampleImageSource } from &#39;#storybook/_common/exampleContent&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 
 const meta = {
   ...commonMeta,
@@ -7491,18 +7491,18 @@ list of files and use `onDelete` when removing a file from the list.
 </article>
 <article
   class="card 
-  no-error 
-  no-info 
+  has-error 
+  has-info 
   no-story-error
   no-doc-error"
   role="listitem"
   aria-label="FormFlow">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> FormFlow</h2>
+      <h2><span class="status-dot dot-err"></span> FormFlow</h2>
       <div class="badges">
-        <label for="c-35-pages-public-form-flow-props" class="badge ok as-toggle">1 prop type</label>
-        
+        <label for="c-35-pages-public-form-flow-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-35-pages-public-form-flow-info" class="badge info as-toggle">1 info</label>
         <label for="c-35-pages-public-form-flow-stories" class="badge ok as-toggle">5 stories</label>
         <label for="c-35-pages-public-form-flow-docs" class="badge ok as-toggle">1 doc</label>
         
@@ -7510,42 +7510,744 @@ list of files and use `onDelete` when removing a file from the list.
     </div>
     <div class="meta" title="./src/pages/public/FormFlow/FormFlow.stories.tsx">pages-public-form-flow · ./src/pages/public/FormFlow/FormFlow.stories.tsx</div>
     
-    <div class="hint">Contains the entire website.</div>
-    <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-containers-page--docs Page docs at Amsterdam Design System}</span></div>
+    
+    
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  
-  
+  <input id="c-35-pages-public-form-flow-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-35-pages-public-form-flow-info" class="tg tg-info" type="checkbox" hidden />
   <input id="c-35-pages-public-form-flow-stories" class="tg tg-stories" type="checkbox" hidden />
   <input id="c-35-pages-public-form-flow-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-35-pages-public-form-flow-props" class="tg tg-props" type="checkbox" hidden />
+  
 
   <div class="panels">
     
-    
-    
-        <div class="panel panel-props">
-          <div class="note ok">
-            <div class="row">
-              <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
-              <span class="badge ok">1 prop type</span>
-            </div>
-            <pre><code>Component: ../packages/react/dist/index.esm.js::Page</code></pre>
-            <pre><code>Props:</code></pre>
-            <pre><code>/**
- * Whether the page contains a Menu component.
- * This requires the following class names on the appropriate children:
- *   - `ams-page__area--skip-link`
- *   - `ams-page__area--header`
- *   - `ams-page__area--menu`
- *   - `ams-page__area--body`
- *   - `ams-page__area--footer`
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  35 | )
+  36 |
+&gt; 37 | const meta = {
+     | ^
+  38 |   title: &#39;Pages/Public/Form Flow&#39;,
+  39 |
+  40 |   parameters: {
+
+./src/pages/public/FormFlow/FormFlow.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
  */
-withMenu?: boolean</code></pre>
-          </div>
+
+import type { Decorator, Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import {
+  Button,
+  CallToActionLink,
+  Column,
+  DateInput,
+  ErrorMessage,
+  Field,
+  FieldSet,
+  Grid,
+  Heading,
+  InvalidFormAlert,
+  Label,
+  OrderedList,
+  Paragraph,
+  Radio,
+  StandaloneLink,
+  TextInput,
+} from &#39;@amsterdam/design-system-react&#39;
+import { ChevronBackwardIcon } from &#39;@amsterdam/design-system-react-icons&#39;
+
+import { FormPageLayout } from &#39;../common/FormPageLayout&#39;
+import { PageLayout } from &#39;../common/PageLayout&#39;
+
+const formPageLayoutDecorator: Decorator = (Story) =&gt; (
+  &lt;FormPageLayout&gt;
+    &lt;Story /&gt;
+  &lt;/FormPageLayout&gt;
+)
+
+const meta = {
+  title: &#39;Pages/Public/Form Flow&#39;,
+
+  parameters: {
+    layout: &#39;fullscreen&#39;,
+    themes: { themeOverride: &#39;Spacious&#39; },
+  },
+} satisfies Meta
+
+export default meta
+
+export const LandingPage: StoryObj = {
+  decorators: [
+    (Story) =&gt; (
+      &lt;PageLayout&gt;
+        &lt;Story /&gt;
+      &lt;/PageLayout&gt;
+    ),
+  ],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        code: `&lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;large&quot;&gt;
+  &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+    &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Waar u dit formulier voor gebruikt&lt;/Heading&gt;
+    &lt;Paragraph size=&quot;large&quot;&gt;
+      Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
+    &lt;/Paragraph&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+    {/* Show the steps up front so people know what to expect before they start. */}
+    &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;De stappen in dit formulier&lt;/Heading&gt;
+    &lt;OrderedList className=&quot;ams-mb-l&quot;&gt;
+      &lt;OrderedList.Item&gt;
+        &lt;strong&gt;Afspraak&lt;/strong&gt; - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak
+        wilt hebben. En wanneer.
+      &lt;/OrderedList.Item&gt;
+      &lt;OrderedList.Item&gt;
+        &lt;strong&gt;Uw gegevens&lt;/strong&gt; - Vul uw contactgegevens in.
+      &lt;/OrderedList.Item&gt;
+      &lt;OrderedList.Item&gt;
+        &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
+      &lt;/OrderedList.Item&gt;
+    &lt;/OrderedList&gt;
+    {/* A single, prominent call to action that starts the form. */}
+    &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
+  &lt;/Grid.Cell&gt;
+&lt;/Grid&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
+          Waar u dit formulier voor gebruikt
+        &lt;/Heading&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          De stappen in dit formulier
+        &lt;/Heading&gt;
+        &lt;OrderedList className=&quot;ams-mb-l&quot;&gt;
+          &lt;OrderedList.Item&gt;
+            &lt;strong&gt;Afspraak&lt;/strong&gt; - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak wilt
+            hebben. En wanneer.
+          &lt;/OrderedList.Item&gt;
+          &lt;OrderedList.Item&gt;
+            &lt;strong&gt;Uw gegevens&lt;/strong&gt; - Vul uw contactgegevens in.
+          &lt;/OrderedList.Item&gt;
+          &lt;OrderedList.Item&gt;
+            &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
+          &lt;/OrderedList.Item&gt;
+        &lt;/OrderedList&gt;
+        &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  ),
+}
+
+export const SingleQuestion: StoryObj = {
+  decorators: [formPageLayoutDecorator],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        code: `&lt;&gt;
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * A back link lets users move between form pages without worrying about losing their progress. The
+       * browser back button should keep progress too, but users do not always trust it. Use a link, not a
+       * button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/ and
+       * https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+       */}
+      &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;Vorige vraag&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+       * an extra entry to the heading hierarchy – and it stays clearly labelled if CSS fails to load.
+       */}
+      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
+        {/*
+         * First test the form without a progress indicator to see whether it is simple enough to go without
+         * one. If not, use a plain one like this.
+         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+         */}
+        &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
+      &lt;/header&gt;
+      {/*
+       * Do not rely on HTML5 form validation: it is inconsistent across browsers and devices and often tells
+       * the user too little. Validate on the server and return the result, or use client-side validation.
+       * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/
+       */}
+      &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+        {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
+        &lt;FieldSet
+          aria-required=&quot;true&quot;
+          className=&quot;ams-mb-xl&quot;
+          legend=&quot;Kies waar u voor wilt langskomen op het Stadsloket&quot;
+          // When a page is a single question, treat its legend as the main page heading (h1).
+          legendIsPageHeading
+          role=&quot;radiogroup&quot;
+        &gt;
+          &lt;Column gap=&quot;x-small&quot;&gt;
+            &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;passport-id-driving-license&quot;&gt;Paspoort / ID / Rijbewijs&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;permits&quot;&gt;Vergunningen&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;social-counter&quot;&gt;Sociaal loket&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;other&quot;&gt;Overig&lt;/Radio&gt;
+          &lt;/Column&gt;
+        &lt;/FieldSet&gt;
+        &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    &lt;&gt;
+      {/* The back link is in its own Grid, because it should be outside of the main section. */}
+      &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+           * For more info, see: https://design-system.service.gov.uk/components/back-link/
+           *
+           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           */}
+          &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+            Vorige vraag
+          &lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
+           * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
+           * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+           */}
+          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
+              Afspraak maken
+            &lt;/Heading&gt;
+            {/*
+             * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
+             * If you do, use a simple one like this one.
+             * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+             */}
+            &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
+          &lt;/header&gt;
+          {/*
+           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+           * and often gives the user too little information.
+           * Preferably validate user input on the server and return it to the client.
+           * If that is not possible, use client-side validation.
+           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           */}
+          &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            &lt;FieldSet
+              aria-required=&quot;true&quot;
+              className=&quot;ams-mb-xl&quot;
+              legend=&quot;Kies waar u voor wilt langskomen op het Stadsloket&quot;
+              // When a page consists of a single question, its label or legend should be treated as the main page heading (`h1`).
+              legendIsPageHeading
+              role=&quot;radiogroup&quot;
+            &gt;
+              &lt;Column gap=&quot;x-small&quot;&gt;
+                &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;passport-id-driving-license&quot;&gt;
+                  Paspoort / ID / Rijbewijs
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;permits&quot;&gt;
+                  Vergunningen
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;social-counter&quot;&gt;
+                  Sociaal loket
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;other&quot;&gt;
+                  Overig
+                &lt;/Radio&gt;
+              &lt;/Column&gt;
+            &lt;/FieldSet&gt;
+            &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+          &lt;/form&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/&gt;
+  ),
+}
+
+export const SingleQuestionWithSubquestions: StoryObj = {
+  decorators: [formPageLayoutDecorator],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        code: `&lt;&gt;
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * A back link lets users move between form pages without worrying about losing their progress. Use a
+       * link, not a button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/
+       */}
+      &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;Vorige vraag&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+       * an extra entry to the heading hierarchy – and it stays labelled if CSS fails to load.
+       */}
+      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
+        &lt;Paragraph&gt;Stap 2 van 3: Uw gegevens&lt;/Paragraph&gt;
+      &lt;/header&gt;
+      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+        {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
+        &lt;FieldSet legend=&quot;Contactgegevens&quot; legendIsPageHeading&gt;
+          &lt;Field&gt;
+            &lt;Label htmlFor=&quot;email-input&quot; inFieldSet optional&gt;E-mailadres&lt;/Label&gt;
+            &lt;TextInput
+              autoComplete=&quot;email&quot;
+              autoCorrect=&quot;off&quot;
+              id=&quot;email-input&quot;
+              name=&quot;email&quot;
+              // A generous size, per https://design-system.service.gov.uk/patterns/email-addresses/
+              size={30}
+              spellCheck=&quot;false&quot;
+              type=&quot;email&quot;
+            /&gt;
+          &lt;/Field&gt;
+          &lt;Field className=&quot;ams-mb-xl&quot;&gt;
+            &lt;Label htmlFor=&quot;tel-input&quot; inFieldSet optional&gt;Telefoonnummer&lt;/Label&gt;
+            &lt;TextInput
+              autoComplete=&quot;tel&quot;
+              id=&quot;tel-input&quot;
+              name=&quot;phone&quot;
+              // Phone numbers are at most 15 characters (E.164): https://en.wikipedia.org/wiki/E.164
+              size={15}
+              type=&quot;tel&quot;
+            /&gt;
+          &lt;/Field&gt;
+        &lt;/FieldSet&gt;
+        &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    &lt;&gt;
+      {/* The back link is in its own Grid, because it should be outside of the main section. */}
+      &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+           * For more info, see: https://design-system.service.gov.uk/components/back-link/
+           *
+           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           */}
+          &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+            Vorige vraag
+          &lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
+           * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
+           * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+           */}
+          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
+              Afspraak maken
+            &lt;/Heading&gt;
+            {/*
+             * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
+             * If you do, use a simple one like this one.
+             * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+             */}
+            &lt;Paragraph&gt;Stap 2 van 3: Uw gegevens&lt;/Paragraph&gt;
+          &lt;/header&gt;
+          {/*
+           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+           * and often gives the user too little information.
+           * Preferably validate user input on the server and return it to the client.
+           * If that is not possible, use client-side validation.
+           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           */}
+          &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            &lt;FieldSet legend=&quot;Contactgegevens&quot; legendIsPageHeading&gt;
+              &lt;Field&gt;
+                &lt;Label htmlFor=&quot;email-input&quot; inFieldSet optional&gt;
+                  E-mailadres
+                &lt;/Label&gt;
+                &lt;TextInput
+                  autoComplete=&quot;email&quot;
+                  autoCorrect=&quot;off&quot;
+                  id=&quot;email-input&quot;
+                  name=&quot;email&quot;
+                  size={30} // Based on this recommendation: https://design-system.service.gov.uk/patterns/email-addresses/#help-users-to-enter-a-valid-email-address
+                  spellCheck=&quot;false&quot;
+                  type=&quot;email&quot;
+                /&gt;
+              &lt;/Field&gt;
+              &lt;Field className=&quot;ams-mb-xl&quot;&gt;
+                &lt;Label htmlFor=&quot;tel-input&quot; inFieldSet optional&gt;
+                  Telefoonnummer
+                &lt;/Label&gt;
+                &lt;TextInput
+                  autoComplete=&quot;tel&quot;
+                  id=&quot;tel-input&quot;
+                  name=&quot;phone&quot;
+                  size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
+                  type=&quot;tel&quot;
+                /&gt;
+              &lt;/Field&gt;
+            &lt;/FieldSet&gt;
+            &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+          &lt;/form&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/&gt;
+  ),
+}
+
+export const MultipleQuestions: StoryObj = {
+  decorators: [formPageLayoutDecorator],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        code: `&lt;&gt;
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * A back link lets users move between form pages without worrying about losing their progress. Use a
+       * link, not a button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/
+       */}
+      &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;Vorige vraag&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/* A form with multiple questions has a level 1 heading before it that describes the whole group. */}
+      &lt;Heading className=&quot;ams-mb-xl&quot; level={1}&gt;Inschrijven&lt;/Heading&gt;
+      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+        {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
+        &lt;Field className=&quot;ams-mb-l&quot;&gt;
+          &lt;Label htmlFor=&quot;name-input&quot;&gt;Naam&lt;/Label&gt;
+          &lt;TextInput autoComplete=&quot;name&quot; autoCorrect=&quot;off&quot; id=&quot;name-input&quot; name=&quot;name&quot; spellCheck=&quot;false&quot; type=&quot;text&quot; /&gt;
+        &lt;/Field&gt;
+        &lt;Field className=&quot;ams-mb-l&quot;&gt;
+          &lt;Label htmlFor=&quot;tel-input&quot; optional&gt;Telefoonnummer&lt;/Label&gt;
+          {/* Phone numbers are at most 15 characters (E.164): https://en.wikipedia.org/wiki/E.164 */}
+          &lt;TextInput autoComplete=&quot;tel&quot; id=&quot;tel-input&quot; name=&quot;tel&quot; size={15} type=&quot;tel&quot; /&gt;
+        &lt;/Field&gt;
+        &lt;Field className=&quot;ams-mb-xl&quot;&gt;
+          &lt;Label htmlFor=&quot;date&quot;&gt;Datum&lt;/Label&gt;
+          &lt;DateInput id=&quot;date&quot; /&gt;
+        &lt;/Field&gt;
+        &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    &lt;&gt;
+      {/* The back link is in its own Grid, because it should be outside of the main section. */}
+      &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+           * For more info, see: https://design-system.service.gov.uk/components/back-link/
+           *
+           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           */}
+          &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+            Vorige vraag
+          &lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/* A form with multiple questions has a level 1 heading preceding it, which describes the group of questions. */}
+          &lt;Heading className=&quot;ams-mb-xl&quot; level={1}&gt;
+            Inschrijven
+          &lt;/Heading&gt;
+          {/*
+           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+           * and often gives the user too little information.
+           * Preferably validate user input on the server and return it to the client.
+           * If that is not possible, use client-side validation.
+           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           */}
+          &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            &lt;Field className=&quot;ams-mb-l&quot;&gt;
+              &lt;Label htmlFor=&quot;name-input&quot;&gt;Naam&lt;/Label&gt;
+              &lt;TextInput
+                autoComplete=&quot;name&quot;
+                autoCorrect=&quot;off&quot;
+                id=&quot;name-input&quot;
+                name=&quot;name&quot;
+                spellCheck=&quot;false&quot;
+                type=&quot;text&quot;
+              /&gt;
+            &lt;/Field&gt;
+            &lt;Field className=&quot;ams-mb-l&quot;&gt;
+              &lt;Label htmlFor=&quot;tel-input&quot; optional&gt;
+                Telefoonnummer
+              &lt;/Label&gt;
+              &lt;TextInput
+                autoComplete=&quot;tel&quot;
+                id=&quot;tel-input&quot;
+                name=&quot;tel&quot;
+                size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
+                type=&quot;tel&quot;
+              /&gt;
+            &lt;/Field&gt;
+            &lt;Field className=&quot;ams-mb-xl&quot;&gt;
+              &lt;Label htmlFor=&quot;date&quot;&gt;Datum&lt;/Label&gt;
+              &lt;DateInput id=&quot;date&quot; /&gt;
+            &lt;/Field&gt;
+            &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+          &lt;/form&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/&gt;
+  ),
+}
+
+export const WithValidationError: StoryObj = {
+  decorators: [formPageLayoutDecorator],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the error-handling guidance below stays in the panel.
+        code: `&lt;&gt;
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;Vorige vraag&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * Notifying a user of errors is threefold:
+       * - Add the error count to the document title, so a screen reader announces it first.
+       * - Show the Invalid Form Alert at the top of the main container.
+       * - Add error messages next to the relevant form fields.
+       * See https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs
+       */}
+      &lt;InvalidFormAlert
+        className=&quot;ams-mb-m&quot;
+        errors={[{ id: &#39;#passport-id-driving-license&#39;, label: &#39;Geef aan waar u voor wilt langskomen.&#39; }]}
+        headingLevel={2}
+      /&gt;
+      {/*
+       * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+       * an extra entry to the heading hierarchy – and it stays labelled if CSS fails to load.
+       */}
+      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
+        &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
+      &lt;/header&gt;
+      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+        &lt;FieldSet
+          // Only link the error message to the field set while the message is in the DOM. Referencing a
+          // non-existent element can trip up accessibility evaluation tools.
+          aria-describedby=&quot;error&quot;
+          aria-required=&quot;true&quot;
+          className=&quot;ams-mb-xl&quot;
+          invalid
+          legend=&quot;Kies waar u voor wilt langskomen op het Stadsloket&quot;
+          legendIsPageHeading
+          role=&quot;radiogroup&quot;
+        &gt;
+          &lt;ErrorMessage id=&quot;error&quot;&gt;Geef aan waar u voor wilt langskomen.&lt;/ErrorMessage&gt;
+          &lt;Column gap=&quot;x-small&quot;&gt;
+            &lt;Radio aria-required=&quot;true&quot; id=&quot;passport-id-driving-license&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;passport-id-driving-license&quot;&gt;Paspoort / ID / Rijbewijs&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;permits&quot;&gt;Vergunningen&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;social-counter&quot;&gt;Sociaal loket&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;other&quot;&gt;Overig&lt;/Radio&gt;
+          &lt;/Column&gt;
+        &lt;/FieldSet&gt;
+        &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    &lt;&gt;
+      {/* The back link is in its own Grid, because it should be outside of the main section. */}
+      &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+           * For more info, see: https://design-system.service.gov.uk/components/back-link/
+           *
+           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           */}
+          &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+            Vorige vraag
+          &lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * Notifying a user of errors is threefold:
+           * - We add the error count to the document title, so it is the first thing a screen reader user hears.
+           * - We show the Invalid Form Alert at the top of the main container.
+           * - We add error messages next to the relevant form fields.
+           * For more info, see: https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs
+           */}
+          &lt;InvalidFormAlert
+            className=&quot;ams-mb-m&quot;
+            errors={[{ id: &#39;#passport-id-driving-license&#39;, label: &#39;Geef aan waar u voor wilt langskomen.&#39; }]}
+            headingLevel={2}
+          /&gt;
+          {/*
+           * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
+           * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
+           * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+           */}
+          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
+              Afspraak maken
+            &lt;/Heading&gt;
+            {/*
+             * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
+             * If you do, use a simple one like this one.
+             * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+             */}
+            &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
+          &lt;/header&gt;
+          {/*
+           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+           * and often gives the user too little information.
+           * Preferably validate user input on the server and return it to the client.
+           * If that is not possible, use client-side validation.
+           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           */}
+          &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            &lt;FieldSet
+              // Make sure you only link the error message to the field set when the error message is in the DOM.
+              // Referencing a non-existent element can cause errors in accessibility evaluation tools.
+              aria-describedby=&quot;error&quot;
+              aria-required=&quot;true&quot;
+              className=&quot;ams-mb-xl&quot;
+              invalid
+              legend=&quot;Kies waar u voor wilt langskomen op het Stadsloket&quot;
+              // When a page consists of a single question, its label or legend should be treated as the main page heading (`h1`).
+              legendIsPageHeading
+              role=&quot;radiogroup&quot;
+            &gt;
+              &lt;ErrorMessage id=&quot;error&quot;&gt;Geef aan waar u voor wilt langskomen.&lt;/ErrorMessage&gt;
+              &lt;Column gap=&quot;x-small&quot;&gt;
+                &lt;Radio
+                  aria-required=&quot;true&quot;
+                  id=&quot;passport-id-driving-license&quot;
+                  invalid
+                  name=&quot;reasonForVisit&quot;
+                  value=&quot;passport-id-driving-license&quot;
+                &gt;
+                  Paspoort / ID / Rijbewijs
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;permits&quot;&gt;
+                  Vergunningen
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;social-counter&quot;&gt;
+                  Sociaal loket
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;other&quot;&gt;
+                  Overig
+                &lt;/Radio&gt;
+              &lt;/Column&gt;
+            &lt;/FieldSet&gt;
+            &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+          &lt;/form&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/&gt;
+  ),
+}
+</code></pre></div>
+    </div>
         </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
     
         <div class="panel panel-stories">
           
@@ -7563,19 +8265,17 @@ withMenu?: boolean</code></pre>
     ErrorMessage,
     Field,
     FieldSet,
-    FormLayout,
     Grid,
     Heading,
     InvalidFormAlert,
     Label,
-    Layout,
     OrderedList,
-    Page,
     Paragraph,
     Radio,
     StandaloneLink,
     TextInput,
-} from "@amsterdam/design-system-react";</code></pre>
+} from "@amsterdam/design-system-react";
+import { FormPageLayout, PageLayout } from "@amsterdam/storybook";</code></pre>
               </div>
           
           
@@ -8787,7 +9487,7 @@ import { useState } from &#39;react&#39;
 
 import type { HandbookPage } from &#39;./pages&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 import { findAncestors, findPage, pages } from &#39;./pages&#39;
 
 const meta = {
@@ -9296,7 +9996,7 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import { Card, Grid, Heading, Overlap, Paragraph, Spotlight, StandaloneLink } from &#39;@amsterdam/design-system-react&#39;
 
 import { Default as OverlapStory } from &#39;../../../components/Overlap/Overlap.stories&#39;
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 import { newsSection, spotlightSections, topTaskSection } from &#39;./data&#39;
 
 const meta = {
@@ -9668,7 +10368,7 @@ import { Grid, Heading, Paragraph } from &#39;@amsterdam/design-system-react&#39
 
 import { exampleParagraph } from &#39;#storybook/_common/exampleContent&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 
 const exampleParagraph1 = exampleParagraph()
 const exampleParagraph2 = exampleParagraph()
@@ -11789,7 +12489,7 @@ import type { FormEvent } from &#39;react&#39;
 import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from &#39;@amsterdam/design-system-react&#39;
 import { useEffect, useRef, useState } from &#39;react&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 
 const initialQuery = &#39;woningbouw&#39;
 
@@ -13099,7 +13799,7 @@ import {
   exampleStandaloneLink,
 } from &#39;#storybook/_common/exampleContent&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
 
 const meta = {
@@ -14513,7 +15213,7 @@ import type { MouseEvent } from &#39;react&#39;
 import { Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
 import { useRef, useState } from &#39;react&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 import { menuItems } from &#39;./menuItems&#39;
 
 const meta = {
@@ -16594,7 +17294,7 @@ These props cannot be overridden.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  19 | import { commonMeta } from &#39;../common/config&#39;
+  19 | import { commonMeta } from &#39;../common/commonMeta&#39;
   20 |
 &gt; 21 | const meta = {
      | ^
@@ -16621,7 +17321,7 @@ import {
   UnorderedList,
 } from &#39;@amsterdam/design-system-react&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 
 const meta = {
   ...commonMeta,
@@ -17336,7 +18036,7 @@ import {
 
 import { exampleImageSource } from &#39;#storybook/_common/exampleContent&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 
 const images = [268, 12, 267, 164, 128].map((id) =&gt; ({
   alt: &#39;&#39;,
@@ -22740,7 +23440,7 @@ import * as VisuallyHiddenStories from &quot;./VisuallyHidden.stories.tsx&quot;;
           <label for="no-component-found-toggle" class="group-header">
             <span class="caret">▸</span>
             <span class="group-title">No component found</span>
-            <span class="group-count">52</span>
+            <span class="group-count">53</span>
           </label>
           <div class="group-cards">
 <article
@@ -23303,7 +24003,7 @@ export const Test: Story = {
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  23 | import { commonMeta } from &#39;../common/config&#39;
+  23 | import { commonMeta } from &#39;../common/commonMeta&#39;
   24 |
 &gt; 25 | const meta = {
      | ^
@@ -23334,7 +24034,7 @@ import {
 
 import { exampleImageSource } from &#39;#storybook/_common/exampleContent&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 
 const meta = {
   ...commonMeta,
@@ -26984,15 +27684,1283 @@ The filename label and button are displayed in the language of the browser and c
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="FormFlow">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-err"></span> FormFlow</h2>
+      <div class="badges">
+        <label for="c-error-20-pages-public-form-flow-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-20-pages-public-form-flow-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-20-pages-public-form-flow-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-error-20-pages-public-form-flow-docs" class="badge ok as-toggle">1 doc</label>
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/pages/public/FormFlow/FormFlow.stories.tsx">pages-public-form-flow · ./src/pages/public/FormFlow/FormFlow.stories.tsx</div>
+    
+    
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  <input id="c-error-20-pages-public-form-flow-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-20-pages-public-form-flow-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-20-pages-public-form-flow-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-20-pages-public-form-flow-docs" class="tg tg-docs" type="checkbox" hidden />
+  
+  
+
+  <div class="panels">
+    
+        <div class="panel panel-err">
+          
+    <div class="note err">
+      <div class="note-title">Prop type error</div>
+      <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
+  35 | )
+  36 |
+&gt; 37 | const meta = {
+     | ^
+  38 |   title: &#39;Pages/Public/Form Flow&#39;,
+  39 |
+  40 |   parameters: {
+
+./src/pages/public/FormFlow/FormFlow.stories.tsx:
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+import type { Decorator, Meta, StoryObj } from &#39;@storybook/react-vite&#39;
+
+import {
+  Button,
+  CallToActionLink,
+  Column,
+  DateInput,
+  ErrorMessage,
+  Field,
+  FieldSet,
+  Grid,
+  Heading,
+  InvalidFormAlert,
+  Label,
+  OrderedList,
+  Paragraph,
+  Radio,
+  StandaloneLink,
+  TextInput,
+} from &#39;@amsterdam/design-system-react&#39;
+import { ChevronBackwardIcon } from &#39;@amsterdam/design-system-react-icons&#39;
+
+import { FormPageLayout } from &#39;../common/FormPageLayout&#39;
+import { PageLayout } from &#39;../common/PageLayout&#39;
+
+const formPageLayoutDecorator: Decorator = (Story) =&gt; (
+  &lt;FormPageLayout&gt;
+    &lt;Story /&gt;
+  &lt;/FormPageLayout&gt;
+)
+
+const meta = {
+  title: &#39;Pages/Public/Form Flow&#39;,
+
+  parameters: {
+    layout: &#39;fullscreen&#39;,
+    themes: { themeOverride: &#39;Spacious&#39; },
+  },
+} satisfies Meta
+
+export default meta
+
+export const LandingPage: StoryObj = {
+  decorators: [
+    (Story) =&gt; (
+      &lt;PageLayout&gt;
+        &lt;Story /&gt;
+      &lt;/PageLayout&gt;
+    ),
+  ],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        code: `&lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;large&quot;&gt;
+  &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+    &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Waar u dit formulier voor gebruikt&lt;/Heading&gt;
+    &lt;Paragraph size=&quot;large&quot;&gt;
+      Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
+    &lt;/Paragraph&gt;
+  &lt;/Grid.Cell&gt;
+  &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+    {/* Show the steps up front so people know what to expect before they start. */}
+    &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;De stappen in dit formulier&lt;/Heading&gt;
+    &lt;OrderedList className=&quot;ams-mb-l&quot;&gt;
+      &lt;OrderedList.Item&gt;
+        &lt;strong&gt;Afspraak&lt;/strong&gt; - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak
+        wilt hebben. En wanneer.
+      &lt;/OrderedList.Item&gt;
+      &lt;OrderedList.Item&gt;
+        &lt;strong&gt;Uw gegevens&lt;/strong&gt; - Vul uw contactgegevens in.
+      &lt;/OrderedList.Item&gt;
+      &lt;OrderedList.Item&gt;
+        &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
+      &lt;/OrderedList.Item&gt;
+    &lt;/OrderedList&gt;
+    {/* A single, prominent call to action that starts the form. */}
+    &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
+  &lt;/Grid.Cell&gt;
+&lt;/Grid&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
+          Waar u dit formulier voor gebruikt
+        &lt;/Heading&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          De stappen in dit formulier
+        &lt;/Heading&gt;
+        &lt;OrderedList className=&quot;ams-mb-l&quot;&gt;
+          &lt;OrderedList.Item&gt;
+            &lt;strong&gt;Afspraak&lt;/strong&gt; - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak wilt
+            hebben. En wanneer.
+          &lt;/OrderedList.Item&gt;
+          &lt;OrderedList.Item&gt;
+            &lt;strong&gt;Uw gegevens&lt;/strong&gt; - Vul uw contactgegevens in.
+          &lt;/OrderedList.Item&gt;
+          &lt;OrderedList.Item&gt;
+            &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
+          &lt;/OrderedList.Item&gt;
+        &lt;/OrderedList&gt;
+        &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  ),
+}
+
+export const SingleQuestion: StoryObj = {
+  decorators: [formPageLayoutDecorator],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        code: `&lt;&gt;
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * A back link lets users move between form pages without worrying about losing their progress. The
+       * browser back button should keep progress too, but users do not always trust it. Use a link, not a
+       * button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/ and
+       * https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+       */}
+      &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;Vorige vraag&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+       * an extra entry to the heading hierarchy – and it stays clearly labelled if CSS fails to load.
+       */}
+      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
+        {/*
+         * First test the form without a progress indicator to see whether it is simple enough to go without
+         * one. If not, use a plain one like this.
+         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+         */}
+        &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
+      &lt;/header&gt;
+      {/*
+       * Do not rely on HTML5 form validation: it is inconsistent across browsers and devices and often tells
+       * the user too little. Validate on the server and return the result, or use client-side validation.
+       * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/
+       */}
+      &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+        {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
+        &lt;FieldSet
+          aria-required=&quot;true&quot;
+          className=&quot;ams-mb-xl&quot;
+          legend=&quot;Kies waar u voor wilt langskomen op het Stadsloket&quot;
+          // When a page is a single question, treat its legend as the main page heading (h1).
+          legendIsPageHeading
+          role=&quot;radiogroup&quot;
+        &gt;
+          &lt;Column gap=&quot;x-small&quot;&gt;
+            &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;passport-id-driving-license&quot;&gt;Paspoort / ID / Rijbewijs&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;permits&quot;&gt;Vergunningen&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;social-counter&quot;&gt;Sociaal loket&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;other&quot;&gt;Overig&lt;/Radio&gt;
+          &lt;/Column&gt;
+        &lt;/FieldSet&gt;
+        &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    &lt;&gt;
+      {/* The back link is in its own Grid, because it should be outside of the main section. */}
+      &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+           * For more info, see: https://design-system.service.gov.uk/components/back-link/
+           *
+           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           */}
+          &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+            Vorige vraag
+          &lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
+           * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
+           * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+           */}
+          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
+              Afspraak maken
+            &lt;/Heading&gt;
+            {/*
+             * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
+             * If you do, use a simple one like this one.
+             * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+             */}
+            &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
+          &lt;/header&gt;
+          {/*
+           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+           * and often gives the user too little information.
+           * Preferably validate user input on the server and return it to the client.
+           * If that is not possible, use client-side validation.
+           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           */}
+          &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            &lt;FieldSet
+              aria-required=&quot;true&quot;
+              className=&quot;ams-mb-xl&quot;
+              legend=&quot;Kies waar u voor wilt langskomen op het Stadsloket&quot;
+              // When a page consists of a single question, its label or legend should be treated as the main page heading (`h1`).
+              legendIsPageHeading
+              role=&quot;radiogroup&quot;
+            &gt;
+              &lt;Column gap=&quot;x-small&quot;&gt;
+                &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;passport-id-driving-license&quot;&gt;
+                  Paspoort / ID / Rijbewijs
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;permits&quot;&gt;
+                  Vergunningen
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;social-counter&quot;&gt;
+                  Sociaal loket
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;other&quot;&gt;
+                  Overig
+                &lt;/Radio&gt;
+              &lt;/Column&gt;
+            &lt;/FieldSet&gt;
+            &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+          &lt;/form&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/&gt;
+  ),
+}
+
+export const SingleQuestionWithSubquestions: StoryObj = {
+  decorators: [formPageLayoutDecorator],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        code: `&lt;&gt;
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * A back link lets users move between form pages without worrying about losing their progress. Use a
+       * link, not a button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/
+       */}
+      &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;Vorige vraag&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+       * an extra entry to the heading hierarchy – and it stays labelled if CSS fails to load.
+       */}
+      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
+        &lt;Paragraph&gt;Stap 2 van 3: Uw gegevens&lt;/Paragraph&gt;
+      &lt;/header&gt;
+      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+        {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
+        &lt;FieldSet legend=&quot;Contactgegevens&quot; legendIsPageHeading&gt;
+          &lt;Field&gt;
+            &lt;Label htmlFor=&quot;email-input&quot; inFieldSet optional&gt;E-mailadres&lt;/Label&gt;
+            &lt;TextInput
+              autoComplete=&quot;email&quot;
+              autoCorrect=&quot;off&quot;
+              id=&quot;email-input&quot;
+              name=&quot;email&quot;
+              // A generous size, per https://design-system.service.gov.uk/patterns/email-addresses/
+              size={30}
+              spellCheck=&quot;false&quot;
+              type=&quot;email&quot;
+            /&gt;
+          &lt;/Field&gt;
+          &lt;Field className=&quot;ams-mb-xl&quot;&gt;
+            &lt;Label htmlFor=&quot;tel-input&quot; inFieldSet optional&gt;Telefoonnummer&lt;/Label&gt;
+            &lt;TextInput
+              autoComplete=&quot;tel&quot;
+              id=&quot;tel-input&quot;
+              name=&quot;phone&quot;
+              // Phone numbers are at most 15 characters (E.164): https://en.wikipedia.org/wiki/E.164
+              size={15}
+              type=&quot;tel&quot;
+            /&gt;
+          &lt;/Field&gt;
+        &lt;/FieldSet&gt;
+        &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    &lt;&gt;
+      {/* The back link is in its own Grid, because it should be outside of the main section. */}
+      &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+           * For more info, see: https://design-system.service.gov.uk/components/back-link/
+           *
+           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           */}
+          &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+            Vorige vraag
+          &lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
+           * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
+           * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+           */}
+          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
+              Afspraak maken
+            &lt;/Heading&gt;
+            {/*
+             * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
+             * If you do, use a simple one like this one.
+             * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+             */}
+            &lt;Paragraph&gt;Stap 2 van 3: Uw gegevens&lt;/Paragraph&gt;
+          &lt;/header&gt;
+          {/*
+           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+           * and often gives the user too little information.
+           * Preferably validate user input on the server and return it to the client.
+           * If that is not possible, use client-side validation.
+           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           */}
+          &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            &lt;FieldSet legend=&quot;Contactgegevens&quot; legendIsPageHeading&gt;
+              &lt;Field&gt;
+                &lt;Label htmlFor=&quot;email-input&quot; inFieldSet optional&gt;
+                  E-mailadres
+                &lt;/Label&gt;
+                &lt;TextInput
+                  autoComplete=&quot;email&quot;
+                  autoCorrect=&quot;off&quot;
+                  id=&quot;email-input&quot;
+                  name=&quot;email&quot;
+                  size={30} // Based on this recommendation: https://design-system.service.gov.uk/patterns/email-addresses/#help-users-to-enter-a-valid-email-address
+                  spellCheck=&quot;false&quot;
+                  type=&quot;email&quot;
+                /&gt;
+              &lt;/Field&gt;
+              &lt;Field className=&quot;ams-mb-xl&quot;&gt;
+                &lt;Label htmlFor=&quot;tel-input&quot; inFieldSet optional&gt;
+                  Telefoonnummer
+                &lt;/Label&gt;
+                &lt;TextInput
+                  autoComplete=&quot;tel&quot;
+                  id=&quot;tel-input&quot;
+                  name=&quot;phone&quot;
+                  size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
+                  type=&quot;tel&quot;
+                /&gt;
+              &lt;/Field&gt;
+            &lt;/FieldSet&gt;
+            &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+          &lt;/form&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/&gt;
+  ),
+}
+
+export const MultipleQuestions: StoryObj = {
+  decorators: [formPageLayoutDecorator],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        code: `&lt;&gt;
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * A back link lets users move between form pages without worrying about losing their progress. Use a
+       * link, not a button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/
+       */}
+      &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;Vorige vraag&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/* A form with multiple questions has a level 1 heading before it that describes the whole group. */}
+      &lt;Heading className=&quot;ams-mb-xl&quot; level={1}&gt;Inschrijven&lt;/Heading&gt;
+      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+        {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
+        &lt;Field className=&quot;ams-mb-l&quot;&gt;
+          &lt;Label htmlFor=&quot;name-input&quot;&gt;Naam&lt;/Label&gt;
+          &lt;TextInput autoComplete=&quot;name&quot; autoCorrect=&quot;off&quot; id=&quot;name-input&quot; name=&quot;name&quot; spellCheck=&quot;false&quot; type=&quot;text&quot; /&gt;
+        &lt;/Field&gt;
+        &lt;Field className=&quot;ams-mb-l&quot;&gt;
+          &lt;Label htmlFor=&quot;tel-input&quot; optional&gt;Telefoonnummer&lt;/Label&gt;
+          {/* Phone numbers are at most 15 characters (E.164): https://en.wikipedia.org/wiki/E.164 */}
+          &lt;TextInput autoComplete=&quot;tel&quot; id=&quot;tel-input&quot; name=&quot;tel&quot; size={15} type=&quot;tel&quot; /&gt;
+        &lt;/Field&gt;
+        &lt;Field className=&quot;ams-mb-xl&quot;&gt;
+          &lt;Label htmlFor=&quot;date&quot;&gt;Datum&lt;/Label&gt;
+          &lt;DateInput id=&quot;date&quot; /&gt;
+        &lt;/Field&gt;
+        &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    &lt;&gt;
+      {/* The back link is in its own Grid, because it should be outside of the main section. */}
+      &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+           * For more info, see: https://design-system.service.gov.uk/components/back-link/
+           *
+           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           */}
+          &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+            Vorige vraag
+          &lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/* A form with multiple questions has a level 1 heading preceding it, which describes the group of questions. */}
+          &lt;Heading className=&quot;ams-mb-xl&quot; level={1}&gt;
+            Inschrijven
+          &lt;/Heading&gt;
+          {/*
+           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+           * and often gives the user too little information.
+           * Preferably validate user input on the server and return it to the client.
+           * If that is not possible, use client-side validation.
+           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           */}
+          &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            &lt;Field className=&quot;ams-mb-l&quot;&gt;
+              &lt;Label htmlFor=&quot;name-input&quot;&gt;Naam&lt;/Label&gt;
+              &lt;TextInput
+                autoComplete=&quot;name&quot;
+                autoCorrect=&quot;off&quot;
+                id=&quot;name-input&quot;
+                name=&quot;name&quot;
+                spellCheck=&quot;false&quot;
+                type=&quot;text&quot;
+              /&gt;
+            &lt;/Field&gt;
+            &lt;Field className=&quot;ams-mb-l&quot;&gt;
+              &lt;Label htmlFor=&quot;tel-input&quot; optional&gt;
+                Telefoonnummer
+              &lt;/Label&gt;
+              &lt;TextInput
+                autoComplete=&quot;tel&quot;
+                id=&quot;tel-input&quot;
+                name=&quot;tel&quot;
+                size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
+                type=&quot;tel&quot;
+              /&gt;
+            &lt;/Field&gt;
+            &lt;Field className=&quot;ams-mb-xl&quot;&gt;
+              &lt;Label htmlFor=&quot;date&quot;&gt;Datum&lt;/Label&gt;
+              &lt;DateInput id=&quot;date&quot; /&gt;
+            &lt;/Field&gt;
+            &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+          &lt;/form&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/&gt;
+  ),
+}
+
+export const WithValidationError: StoryObj = {
+  decorators: [formPageLayoutDecorator],
+  parameters: {
+    docs: {
+      source: {
+        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+        // comments. Provide the source by hand so the error-handling guidance below stays in the panel.
+        code: `&lt;&gt;
+  {/* The back link is in its own Grid, because it should be outside of the main section. */}
+  &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;Vorige vraag&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/*
+       * Notifying a user of errors is threefold:
+       * - Add the error count to the document title, so a screen reader announces it first.
+       * - Show the Invalid Form Alert at the top of the main container.
+       * - Add error messages next to the relevant form fields.
+       * See https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs
+       */}
+      &lt;InvalidFormAlert
+        className=&quot;ams-mb-m&quot;
+        errors={[{ id: &#39;#passport-id-driving-license&#39;, label: &#39;Geef aan waar u voor wilt langskomen.&#39; }]}
+        headingLevel={2}
+      /&gt;
+      {/*
+       * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+       * an extra entry to the heading hierarchy – and it stays labelled if CSS fails to load.
+       */}
+      &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+        &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;Afspraak maken&lt;/Heading&gt;
+        &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
+      &lt;/header&gt;
+      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+        &lt;FieldSet
+          // Only link the error message to the field set while the message is in the DOM. Referencing a
+          // non-existent element can trip up accessibility evaluation tools.
+          aria-describedby=&quot;error&quot;
+          aria-required=&quot;true&quot;
+          className=&quot;ams-mb-xl&quot;
+          invalid
+          legend=&quot;Kies waar u voor wilt langskomen op het Stadsloket&quot;
+          legendIsPageHeading
+          role=&quot;radiogroup&quot;
+        &gt;
+          &lt;ErrorMessage id=&quot;error&quot;&gt;Geef aan waar u voor wilt langskomen.&lt;/ErrorMessage&gt;
+          &lt;Column gap=&quot;x-small&quot;&gt;
+            &lt;Radio aria-required=&quot;true&quot; id=&quot;passport-id-driving-license&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;passport-id-driving-license&quot;&gt;Paspoort / ID / Rijbewijs&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;permits&quot;&gt;Vergunningen&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;social-counter&quot;&gt;Sociaal loket&lt;/Radio&gt;
+            &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;other&quot;&gt;Overig&lt;/Radio&gt;
+          &lt;/Column&gt;
+        &lt;/FieldSet&gt;
+        &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+      &lt;/form&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    &lt;&gt;
+      {/* The back link is in its own Grid, because it should be outside of the main section. */}
+      &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+           * For more info, see: https://design-system.service.gov.uk/components/back-link/
+           *
+           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           */}
+          &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+            Vorige vraag
+          &lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * Notifying a user of errors is threefold:
+           * - We add the error count to the document title, so it is the first thing a screen reader user hears.
+           * - We show the Invalid Form Alert at the top of the main container.
+           * - We add error messages next to the relevant form fields.
+           * For more info, see: https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs
+           */}
+          &lt;InvalidFormAlert
+            className=&quot;ams-mb-m&quot;
+            errors={[{ id: &#39;#passport-id-driving-license&#39;, label: &#39;Geef aan waar u voor wilt langskomen.&#39; }]}
+            headingLevel={2}
+          /&gt;
+          {/*
+           * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
+           * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
+           * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+           */}
+          &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+            &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
+              Afspraak maken
+            &lt;/Heading&gt;
+            {/*
+             * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
+             * If you do, use a simple one like this one.
+             * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+             */}
+            &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
+          &lt;/header&gt;
+          {/*
+           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+           * and often gives the user too little information.
+           * Preferably validate user input on the server and return it to the client.
+           * If that is not possible, use client-side validation.
+           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           */}
+          &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            &lt;FieldSet
+              // Make sure you only link the error message to the field set when the error message is in the DOM.
+              // Referencing a non-existent element can cause errors in accessibility evaluation tools.
+              aria-describedby=&quot;error&quot;
+              aria-required=&quot;true&quot;
+              className=&quot;ams-mb-xl&quot;
+              invalid
+              legend=&quot;Kies waar u voor wilt langskomen op het Stadsloket&quot;
+              // When a page consists of a single question, its label or legend should be treated as the main page heading (`h1`).
+              legendIsPageHeading
+              role=&quot;radiogroup&quot;
+            &gt;
+              &lt;ErrorMessage id=&quot;error&quot;&gt;Geef aan waar u voor wilt langskomen.&lt;/ErrorMessage&gt;
+              &lt;Column gap=&quot;x-small&quot;&gt;
+                &lt;Radio
+                  aria-required=&quot;true&quot;
+                  id=&quot;passport-id-driving-license&quot;
+                  invalid
+                  name=&quot;reasonForVisit&quot;
+                  value=&quot;passport-id-driving-license&quot;
+                &gt;
+                  Paspoort / ID / Rijbewijs
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;permits&quot;&gt;
+                  Vergunningen
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;social-counter&quot;&gt;
+                  Sociaal loket
+                &lt;/Radio&gt;
+                &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;other&quot;&gt;
+                  Overig
+                &lt;/Radio&gt;
+              &lt;/Column&gt;
+            &lt;/FieldSet&gt;
+            &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+          &lt;/form&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/&gt;
+  ),
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import {
+    Button,
+    CallToActionLink,
+    Column,
+    DateInput,
+    ErrorMessage,
+    Field,
+    FieldSet,
+    Grid,
+    Heading,
+    InvalidFormAlert,
+    Label,
+    OrderedList,
+    Paragraph,
+    Radio,
+    StandaloneLink,
+    TextInput,
+} from "@amsterdam/design-system-react";
+import { FormPageLayout, PageLayout } from "@amsterdam/storybook";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Landing Page</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const LandingPage = (args) =&gt; (
+  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
+        Waar u dit formulier voor gebruikt
+      &lt;/Heading&gt;
+      &lt;Paragraph size=&quot;large&quot;&gt;
+        Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
+      &lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+        De stappen in dit formulier
+      &lt;/Heading&gt;
+      &lt;OrderedList className=&quot;ams-mb-l&quot;&gt;
+        &lt;OrderedList.Item&gt;
+          &lt;strong&gt;Afspraak&lt;/strong&gt; - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak wilt
+          hebben. En wanneer.
+        &lt;/OrderedList.Item&gt;
+        &lt;OrderedList.Item&gt;
+          &lt;strong&gt;Uw gegevens&lt;/strong&gt; - Vul uw contactgegevens in.
+        &lt;/OrderedList.Item&gt;
+        &lt;OrderedList.Item&gt;
+          &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
+        &lt;/OrderedList.Item&gt;
+      &lt;/OrderedList&gt;
+      &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Single Question</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const SingleQuestion = (args) =&gt; (
+  &lt;&gt;
+    {/* The back link is in its own Grid, because it should be outside of the main section. */}
+    &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/*
+         * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+         * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+         * For more info, see: https://design-system.service.gov.uk/components/back-link/
+         *
+         * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+         * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+         */}
+        &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+          Vorige vraag
+        &lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/*
+         * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
+         * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
+         * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+         */}
+        &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+          &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
+            Afspraak maken
+          &lt;/Heading&gt;
+          {/*
+           * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
+           * If you do, use a simple one like this one.
+           * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+           */}
+          &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
+        &lt;/header&gt;
+        {/*
+         * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+         * and often gives the user too little information.
+         * Preferably validate user input on the server and return it to the client.
+         * If that is not possible, use client-side validation.
+         * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+         */}
+        &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+          {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+          &lt;FieldSet
+            aria-required=&quot;true&quot;
+            className=&quot;ams-mb-xl&quot;
+            legend=&quot;Kies waar u voor wilt langskomen op het Stadsloket&quot;
+            // When a page consists of a single question, its label or legend should be treated as the main page heading (`h1`).
+            legendIsPageHeading
+            role=&quot;radiogroup&quot;
+          &gt;
+            &lt;Column gap=&quot;x-small&quot;&gt;
+              &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;passport-id-driving-license&quot;&gt;
+                Paspoort / ID / Rijbewijs
+              &lt;/Radio&gt;
+              &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;permits&quot;&gt;
+                Vergunningen
+              &lt;/Radio&gt;
+              &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;social-counter&quot;&gt;
+                Sociaal loket
+              &lt;/Radio&gt;
+              &lt;Radio aria-required=&quot;true&quot; name=&quot;reasonForVisit&quot; value=&quot;other&quot;&gt;
+                Overig
+              &lt;/Radio&gt;
+            &lt;/Column&gt;
+          &lt;/FieldSet&gt;
+          &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+        &lt;/form&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/&gt;
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Single Question With Subquestions</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const SingleQuestionWithSubquestions = (args) =&gt; (
+  &lt;&gt;
+    {/* The back link is in its own Grid, because it should be outside of the main section. */}
+    &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/*
+         * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+         * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+         * For more info, see: https://design-system.service.gov.uk/components/back-link/
+         *
+         * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+         * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+         */}
+        &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+          Vorige vraag
+        &lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/*
+         * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
+         * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
+         * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+         */}
+        &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+          &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
+            Afspraak maken
+          &lt;/Heading&gt;
+          {/*
+           * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
+           * If you do, use a simple one like this one.
+           * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+           */}
+          &lt;Paragraph&gt;Stap 2 van 3: Uw gegevens&lt;/Paragraph&gt;
+        &lt;/header&gt;
+        {/*
+         * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+         * and often gives the user too little information.
+         * Preferably validate user input on the server and return it to the client.
+         * If that is not possible, use client-side validation.
+         * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+         */}
+        &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+          {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+          &lt;FieldSet legend=&quot;Contactgegevens&quot; legendIsPageHeading&gt;
+            &lt;Field&gt;
+              &lt;Label htmlFor=&quot;email-input&quot; inFieldSet optional&gt;
+                E-mailadres
+              &lt;/Label&gt;
+              &lt;TextInput
+                autoComplete=&quot;email&quot;
+                autoCorrect=&quot;off&quot;
+                id=&quot;email-input&quot;
+                name=&quot;email&quot;
+                size={30} // Based on this recommendation: https://design-system.service.gov.uk/patterns/email-addresses/#help-users-to-enter-a-valid-email-address
+                spellCheck=&quot;false&quot;
+                type=&quot;email&quot;
+              /&gt;
+            &lt;/Field&gt;
+            &lt;Field className=&quot;ams-mb-xl&quot;&gt;
+              &lt;Label htmlFor=&quot;tel-input&quot; inFieldSet optional&gt;
+                Telefoonnummer
+              &lt;/Label&gt;
+              &lt;TextInput
+                autoComplete=&quot;tel&quot;
+                id=&quot;tel-input&quot;
+                name=&quot;phone&quot;
+                size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
+                type=&quot;tel&quot;
+              /&gt;
+            &lt;/Field&gt;
+          &lt;/FieldSet&gt;
+          &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+        &lt;/form&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/&gt;
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Multiple Questions</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const MultipleQuestions = (args) =&gt; (
+  &lt;&gt;
+    {/* The back link is in its own Grid, because it should be outside of the main section. */}
+    &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/*
+         * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+         * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+         * For more info, see: https://design-system.service.gov.uk/components/back-link/
+         *
+         * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+         * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+         */}
+        &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+          Vorige vraag
+        &lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/* A form with multiple questions has a level 1 heading preceding it, which describes the group of questions. */}
+        &lt;Heading className=&quot;ams-mb-xl&quot; level={1}&gt;
+          Inschrijven
+        &lt;/Heading&gt;
+        {/*
+         * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+         * and often gives the user too little information.
+         * Preferably validate user input on the server and return it to the client.
+         * If that is not possible, use client-side validation.
+         * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+         */}
+        &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+          {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+          &lt;Field className=&quot;ams-mb-l&quot;&gt;
+            &lt;Label htmlFor=&quot;name-input&quot;&gt;Naam&lt;/Label&gt;
+            &lt;TextInput
+              autoComplete=&quot;name&quot;
+              autoCorrect=&quot;off&quot;
+              id=&quot;name-input&quot;
+              name=&quot;name&quot;
+              spellCheck=&quot;false&quot;
+              type=&quot;text&quot;
+            /&gt;
+          &lt;/Field&gt;
+          &lt;Field className=&quot;ams-mb-l&quot;&gt;
+            &lt;Label htmlFor=&quot;tel-input&quot; optional&gt;
+              Telefoonnummer
+            &lt;/Label&gt;
+            &lt;TextInput
+              autoComplete=&quot;tel&quot;
+              id=&quot;tel-input&quot;
+              name=&quot;tel&quot;
+              size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
+              type=&quot;tel&quot;
+            /&gt;
+          &lt;/Field&gt;
+          &lt;Field className=&quot;ams-mb-xl&quot;&gt;
+            &lt;Label htmlFor=&quot;date&quot;&gt;Datum&lt;/Label&gt;
+            &lt;DateInput id=&quot;date&quot; /&gt;
+          &lt;/Field&gt;
+          &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+        &lt;/form&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/&gt;
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">With Validation Error</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithValidationError = (args) =&gt; (
+  &lt;&gt;
+    {/* The back link is in its own Grid, because it should be outside of the main section. */}
+    &lt;Grid className=&quot;ams-mb-xl&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/*
+         * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
+         * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
+         * For more info, see: https://design-system.service.gov.uk/components/back-link/
+         *
+         * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
+         * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+         */}
+        &lt;StandaloneLink href=&quot;#&quot; icon={ChevronBackwardIcon}&gt;
+          Vorige vraag
+        &lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Grid as=&quot;main&quot; paddingBottom=&quot;2x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/*
+         * Notifying a user of errors is threefold:
+         * - We add the error count to the document title, so it is the first thing a screen reader user hears.
+         * - We show the Invalid Form Alert at the top of the main container.
+         * - We add error messages next to the relevant form fields.
+         * For more info, see: https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs
+         */}
+        &lt;InvalidFormAlert
+          className=&quot;ams-mb-m&quot;
+          errors={[{ id: &#39;#passport-id-driving-license&#39;, label: &#39;Geef aan waar u voor wilt langskomen.&#39; }]}
+          headingLevel={2}
+        /&gt;
+        {/*
+         * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
+         * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
+         * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+         */}
+        &lt;header aria-labelledby=&quot;form-header&quot; className=&quot;ams-mb-m ams-gap-xs&quot;&gt;
+          &lt;Heading aria-hidden id=&quot;form-header&quot; level={2} size=&quot;level-4&quot;&gt;
+            Afspraak maken
+          &lt;/Heading&gt;
+          {/*
+           * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
+           * If you do, use a simple one like this one.
+           * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+           */}
+          &lt;Paragraph&gt;Stap 1 van 3: Afspraak&lt;/Paragraph&gt;
+        &lt;/header&gt;
+        {/*
+         * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
+         * and often gives the user too little information.
+         * Preferably validate user input on the server and return it to the client.
+         * If that is not possible, use client-side validation.
+         * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+         */}
+        &lt;form noValidate onSubmit={(e) =&gt; e.preventDefault()}&gt;
+          {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+          &lt;FieldSet
+            // Make sure you only link the error message to the field set when the error message is in the DOM.
+            // Referencing a non-existent element can cause errors in accessibility evaluation tools.
+            aria-describedby=&quot;error&quot;
+            aria-required=&quot;true&quot;
+            className=&quot;ams-mb-xl&quot;
+            invalid
+            legend=&quot;Kies waar u voor wilt langskomen op het Stadsloket&quot;
+            // When a page consists of a single question, its label or legend should be treated as the main page heading (`h1`).
+            legendIsPageHeading
+            role=&quot;radiogroup&quot;
+          &gt;
+            &lt;ErrorMessage id=&quot;error&quot;&gt;Geef aan waar u voor wilt langskomen.&lt;/ErrorMessage&gt;
+            &lt;Column gap=&quot;x-small&quot;&gt;
+              &lt;Radio
+                aria-required=&quot;true&quot;
+                id=&quot;passport-id-driving-license&quot;
+                invalid
+                name=&quot;reasonForVisit&quot;
+                value=&quot;passport-id-driving-license&quot;
+              &gt;
+                Paspoort / ID / Rijbewijs
+              &lt;/Radio&gt;
+              &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;permits&quot;&gt;
+                Vergunningen
+              &lt;/Radio&gt;
+              &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;social-counter&quot;&gt;
+                Sociaal loket
+              &lt;/Radio&gt;
+              &lt;Radio aria-required=&quot;true&quot; invalid name=&quot;reasonForVisit&quot; value=&quot;other&quot;&gt;
+                Overig
+              &lt;/Radio&gt;
+            &lt;/Column&gt;
+          &lt;/FieldSet&gt;
+          &lt;Button type=&quot;submit&quot;&gt;Volgende vraag&lt;/Button&gt;
+        &lt;/form&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/&gt;
+);</code></pre>
+            </div>
+        </div>
+    
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/pages/public/FormFlow/FormFlow.docs.mdx</div>
+              <div># Form Flow These examples describe a user-friendly form flow. Form pages have a minimal h...</div>
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import * as FormStories from &quot;./FormFlow.stories.tsx&quot;;
+
+&lt;Meta of={FormStories} /&gt;
+
+# Form Flow
+
+These examples describe a user-friendly form flow.
+Form pages have a minimal header and footer in order to remove distractions.
+Start with asking [one thing per page](https://www.gov.uk/service-manual/design/form-structure#start-with-one-thing-per-page).
+This can be a single question, or a group of related questions.
+
+## Landing Page
+
+Most form flows start with a landing page that explains the process and provides a call to action to start the form flow.
+
+{/* prettier-ignore */}
+{/*
+TODO: Decide what we want to do here first.
+
+## First Form Page
+
+The first form page is the same as other form pages, with one exception: it does not have a back link.
+A back link helps users feel secure that their progress is preserved while moving between form pages.
+Since the first form page has no progress to save yet, a back link is unnecessary there.
+Additionally, users might reach the first form page from a source other than the landing page, which could make a back link confusing.
+
+\*/}
+
+## Single Question
+
+On a form page with one question, the label or legend for the question is the level 1 heading of the page.
+For labels, wrap the `h1` around it.
+For legends, wrap it around the `h1`.
+
+For more information, see [Making labels and legends headings](https://design-system.service.gov.uk/get-started/labels-legends-headings/).
+
+## Single Question With Subquestions
+
+A single question can have subquestions. Wrap the Fields in a Field Set, and use the Field Set’s legend as the level 1 heading of the page.
+
+## With Multiple Questions
+
+When a form page has multiple questions, place an `h1` outside the `form`-tag,
+which describes the group of questions.
+
+For more information, see [Question pages - Asking complex questions without using hint text](https://design-system.service.gov.uk/patterns/question-pages/#asking-complex-questions-without-using-hint-text)
+
+## With Validation Error
+
+If the user’s answers fail validation:
+
+- show them the page again, with the form fields as the user filled them in
+- show an [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) at the top of the `main` container, and move keyboard focus to it
+- add ‘(X invoerfouten) ’ to the beginning of the page `&lt;title&gt;` so that screen readers announce it immediately (Invalid Form Alert does this automatically)
+- show [Error message](/docs/components-forms-error-message--docs) components next to fields with errors
+
+See the [Field](/docs/components-forms-field--docs#with-validation) and [Field Set](/docs/components-forms-field-set--docs#with-validation) docs on how to mark them as invalid.
+
+Validate the user’s answers when they click on the submit button.
+Generally speaking, avoid validating the information in a field before the user has finished entering it or when they move away from the field.
+
+For more information:
+
+- [Recover from validation errors](https://design-system.service.gov.uk/patterns/validation/)
+- [Error summary](https://design-system.service.gov.uk/components/error-summary/)
+
+## References
+
+- [Gov.uk on question pages](https://design-system.service.gov.uk/patterns/question-pages/)
+- [NL Design System on forms](https://nldesignsystem.nl/richtlijnen/formulieren/)
+</code></pre></div>
+            </div>
+        </div>
+    
+  </div>
+</article>
+<article
+  class="card 
+  has-error 
+  has-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="Gap">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Gap</h2>
       <div class="badges">
-        <label for="c-error-20-utilities-css-gap-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-20-utilities-css-gap-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-20-utilities-css-gap-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-20-utilities-css-gap-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-21-utilities-css-gap-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-21-utilities-css-gap-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-21-utilities-css-gap-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-21-utilities-css-gap-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27003,10 +28971,10 @@ The filename label and button are displayed in the language of the browser and c
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-20-utilities-css-gap-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-20-utilities-css-gap-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-20-utilities-css-gap-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-20-utilities-css-gap-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-21-utilities-css-gap-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-21-utilities-css-gap-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-21-utilities-css-gap-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-21-utilities-css-gap-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27155,10 +29123,10 @@ import * as GapStories from &quot;./Gap.stories.tsx&quot;;
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HandbookPage</h2>
       <div class="badges">
-        <label for="c-error-21-pages-public-handbook-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-21-pages-public-handbook-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-21-pages-public-handbook-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-21-pages-public-handbook-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-22-pages-public-handbook-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-22-pages-public-handbook-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-22-pages-public-handbook-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-22-pages-public-handbook-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27169,10 +29137,10 @@ import * as GapStories from &quot;./Gap.stories.tsx&quot;;
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-21-pages-public-handbook-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-21-pages-public-handbook-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-21-pages-public-handbook-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-21-pages-public-handbook-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-22-pages-public-handbook-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-22-pages-public-handbook-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-22-pages-public-handbook-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-22-pages-public-handbook-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27205,7 +29173,7 @@ import { useState } from &#39;react&#39;
 
 import type { HandbookPage } from &#39;./pages&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 import { findAncestors, findPage, pages } from &#39;./pages&#39;
 
 const meta = {
@@ -27438,10 +29406,10 @@ Use this template for long-form reference content that is split across many shor
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Heading</h2>
       <div class="badges">
-        <label for="c-error-22-components-text-heading-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-22-components-text-heading-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-22-components-text-heading-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-22-components-text-heading-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-23-components-text-heading-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-23-components-text-heading-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-23-components-text-heading-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-23-components-text-heading-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27452,10 +29420,10 @@ Use this template for long-form reference content that is split across many shor
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-22-components-text-heading-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-22-components-text-heading-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-22-components-text-heading-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-22-components-text-heading-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-23-components-text-heading-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-23-components-text-heading-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-23-components-text-heading-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-23-components-text-heading-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27667,10 +29635,10 @@ An incorrect hierarchy disrupts their mental model of the page.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HomePage</h2>
       <div class="badges">
-        <label for="c-error-23-pages-public-home-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-23-pages-public-home-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-23-pages-public-home-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-23-pages-public-home-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-24-pages-public-home-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-24-pages-public-home-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-24-pages-public-home-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-24-pages-public-home-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27681,10 +29649,10 @@ An incorrect hierarchy disrupts their mental model of the page.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-23-pages-public-home-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-23-pages-public-home-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-23-pages-public-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-23-pages-public-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-24-pages-public-home-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-24-pages-public-home-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-24-pages-public-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-24-pages-public-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27714,7 +29682,7 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 import { Card, Grid, Heading, Overlap, Paragraph, Spotlight, StandaloneLink } from &#39;@amsterdam/design-system-react&#39;
 
 import { Default as OverlapStory } from &#39;../../../components/Overlap/Overlap.stories&#39;
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 import { newsSection, spotlightSections, topTaskSection } from &#39;./data&#39;
 
 const meta = {
@@ -28038,10 +30006,10 @@ A typical layout for a homepage:
     <div class="title">
       <h2><span class="status-dot dot-err"></span> HomePage</h2>
       <div class="badges">
-        <label for="c-error-24-pages-internal-home-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-24-pages-internal-home-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-24-pages-internal-home-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-24-pages-internal-home-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-25-pages-internal-home-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-25-pages-internal-home-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-25-pages-internal-home-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-25-pages-internal-home-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -28052,10 +30020,10 @@ A typical layout for a homepage:
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-24-pages-internal-home-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-24-pages-internal-home-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-24-pages-internal-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-24-pages-internal-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-25-pages-internal-home-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-25-pages-internal-home-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-25-pages-internal-home-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-25-pages-internal-home-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -28086,7 +30054,7 @@ import { Grid, Heading, Paragraph } from &#39;@amsterdam/design-system-react&#39
 
 import { exampleParagraph } from &#39;#storybook/_common/exampleContent&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 
 const exampleParagraph1 = exampleParagraph()
 const exampleParagraph2 = exampleParagraph()
@@ -28254,10 +30222,10 @@ Our single example in this category currently focuses on the overall layout.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> IconButton</h2>
       <div class="badges">
-        <label for="c-error-25-components-buttons-icon-button-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-25-components-buttons-icon-button-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-25-components-buttons-icon-button-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-25-components-buttons-icon-button-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-26-components-buttons-icon-button-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-26-components-buttons-icon-button-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-26-components-buttons-icon-button-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-26-components-buttons-icon-button-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -28268,10 +30236,10 @@ Our single example in this category currently focuses on the overall layout.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-25-components-buttons-icon-button-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-25-components-buttons-icon-button-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-25-components-buttons-icon-button-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-25-components-buttons-icon-button-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-26-components-buttons-icon-button-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-26-components-buttons-icon-button-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-26-components-buttons-icon-button-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-26-components-buttons-icon-button-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -28445,10 +30413,10 @@ It will make the icon white.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Image</h2>
       <div class="badges">
-        <label for="c-error-26-components-media-image-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-26-components-media-image-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-26-components-media-image-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-26-components-media-image-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-27-components-media-image-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-27-components-media-image-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-27-components-media-image-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-27-components-media-image-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -28459,10 +30427,10 @@ It will make the icon white.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-26-components-media-image-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-26-components-media-image-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-26-components-media-image-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-26-components-media-image-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-27-components-media-image-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-27-components-media-image-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-27-components-media-image-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-27-components-media-image-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -28654,10 +30622,10 @@ The alternate text also displays if the image fails to load, and it can help sea
     <div class="title">
       <h2><span class="status-dot dot-err"></span> InvalidFormAlert</h2>
       <div class="badges">
-        <label for="c-error-27-components-forms-invalid-form-alert-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-27-components-forms-invalid-form-alert-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-27-components-forms-invalid-form-alert-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-27-components-forms-invalid-form-alert-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-28-components-forms-invalid-form-alert-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-28-components-forms-invalid-form-alert-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-28-components-forms-invalid-form-alert-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-28-components-forms-invalid-form-alert-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -28668,10 +30636,10 @@ The alternate text also displays if the image fails to load, and it can help sea
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-27-components-forms-invalid-form-alert-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-27-components-forms-invalid-form-alert-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-27-components-forms-invalid-form-alert-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-27-components-forms-invalid-form-alert-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-28-components-forms-invalid-form-alert-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-28-components-forms-invalid-form-alert-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-28-components-forms-invalid-form-alert-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-28-components-forms-invalid-form-alert-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -28840,10 +30808,10 @@ Note: this functionality has been disabled on this page, to prevent unexpected f
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Label</h2>
       <div class="badges">
-        <label for="c-error-28-components-forms-label-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-28-components-forms-label-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-28-components-forms-label-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-28-components-forms-label-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-29-components-forms-label-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-29-components-forms-label-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-29-components-forms-label-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-29-components-forms-label-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -28854,10 +30822,10 @@ Note: this functionality has been disabled on this page, to prevent unexpected f
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-28-components-forms-label-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-28-components-forms-label-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-28-components-forms-label-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-28-components-forms-label-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-29-components-forms-label-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-29-components-forms-label-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-29-components-forms-label-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-29-components-forms-label-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -29034,10 +31002,10 @@ When a Label is used in a Field inside a Field Set, use the `inFieldSet` prop to
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Link</h2>
       <div class="badges">
-        <label for="c-error-29-components-navigation-link-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-29-components-navigation-link-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-29-components-navigation-link-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-29-components-navigation-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-30-components-navigation-link-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-30-components-navigation-link-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-30-components-navigation-link-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-30-components-navigation-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -29048,10 +31016,10 @@ When a Label is used in a Field inside a Field Set, use the `inFieldSet` prop to
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-29-components-navigation-link-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-29-components-navigation-link-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-29-components-navigation-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-29-components-navigation-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-30-components-navigation-link-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-30-components-navigation-link-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-30-components-navigation-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-30-components-navigation-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -29240,9 +31208,9 @@ It is not part of navigation elements that are frequently scanned.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> LoadingPage</h2>
       <div class="badges">
-        <label for="c-error-30-pages-public-loading-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-30-pages-public-loading-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-30-pages-public-loading-page-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-error-31-pages-public-loading-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-31-pages-public-loading-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-31-pages-public-loading-page-stories" class="badge ok as-toggle">3 stories</label>
         
         
       </div>
@@ -29254,9 +31222,9 @@ It is not part of navigation elements that are frequently scanned.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-30-pages-public-loading-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-30-pages-public-loading-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-30-pages-public-loading-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-31-pages-public-loading-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-31-pages-public-loading-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-31-pages-public-loading-page-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
   
@@ -29288,7 +31256,7 @@ import type { FormEvent } from &#39;react&#39;
 import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from &#39;@amsterdam/design-system-react&#39;
 import { useEffect, useRef, useState } from &#39;react&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 
 const initialQuery = &#39;woningbouw&#39;
 
@@ -29842,10 +31810,10 @@ export const Loaded: Story = {
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Margin</h2>
       <div class="badges">
-        <label for="c-error-31-utilities-css-margin-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-31-utilities-css-margin-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-31-utilities-css-margin-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-31-utilities-css-margin-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-32-utilities-css-margin-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-32-utilities-css-margin-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-32-utilities-css-margin-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-32-utilities-css-margin-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -29856,10 +31824,10 @@ export const Loaded: Story = {
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-31-utilities-css-margin-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-31-utilities-css-margin-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-31-utilities-css-margin-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-31-utilities-css-margin-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-32-utilities-css-margin-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-32-utilities-css-margin-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-32-utilities-css-margin-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-32-utilities-css-margin-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -30008,10 +31976,10 @@ import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-error-32-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-32-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-32-pages-public-navigation-page-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-error-32-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-33-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-33-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-33-pages-public-navigation-page-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-error-33-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -30022,10 +31990,10 @@ import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-32-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-32-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-32-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-32-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-33-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-33-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-33-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-33-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -30075,7 +32043,7 @@ import {
   exampleStandaloneLink,
 } from &#39;#storybook/_common/exampleContent&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
 
 const meta = {
@@ -31441,10 +33409,10 @@ Instead, it presents groups of links to various pages related to a specific subj
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-error-33-pages-internal-navigation-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-33-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-33-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-33-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-34-pages-internal-navigation-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-34-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-34-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-34-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -31455,10 +33423,10 @@ Instead, it presents groups of links to various pages related to a specific subj
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-33-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-33-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-33-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-33-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-34-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-34-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-34-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-34-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -31489,7 +33457,7 @@ import type { MouseEvent } from &#39;react&#39;
 import { Breadcrumb, Grid, Heading, TabNavigation } from &#39;@amsterdam/design-system-react&#39;
 import { useRef, useState } from &#39;react&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 import { menuItems } from &#39;./menuItems&#39;
 
 const meta = {
@@ -31844,10 +33812,10 @@ This is a known limitation, and the mobile design is being further explored.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Overlap</h2>
       <div class="badges">
-        <label for="c-error-34-components-layout-overlap-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-34-components-layout-overlap-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-34-components-layout-overlap-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-34-components-layout-overlap-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-35-components-layout-overlap-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-35-components-layout-overlap-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-35-components-layout-overlap-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-35-components-layout-overlap-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -31858,10 +33826,10 @@ This is a known limitation, and the mobile design is being further explored.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-34-components-layout-overlap-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-34-components-layout-overlap-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-34-components-layout-overlap-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-34-components-layout-overlap-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-35-components-layout-overlap-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-35-components-layout-overlap-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-35-components-layout-overlap-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-35-components-layout-overlap-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -32009,10 +33977,10 @@ Note: the library does not yet offer an option to vertically centre the form.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Page</h2>
       <div class="badges">
-        <label for="c-error-35-components-containers-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-35-components-containers-page-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-35-components-containers-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-35-components-containers-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-36-components-containers-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-36-components-containers-page-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-36-components-containers-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-36-components-containers-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -32023,10 +33991,10 @@ Note: the library does not yet offer an option to vertically centre the form.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-35-components-containers-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-35-components-containers-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-35-components-containers-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-35-components-containers-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-36-components-containers-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-36-components-containers-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-36-components-containers-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-36-components-containers-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -32191,10 +34159,10 @@ With a Menu, that becomes 120 rems (1920 pixels).
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Pagination</h2>
       <div class="badges">
-        <label for="c-error-36-components-navigation-pagination-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-36-components-navigation-pagination-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-36-components-navigation-pagination-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-36-components-navigation-pagination-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-37-components-navigation-pagination-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-37-components-navigation-pagination-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-37-components-navigation-pagination-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-37-components-navigation-pagination-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -32205,10 +34173,10 @@ With a Menu, that becomes 120 rems (1920 pixels).
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-36-components-navigation-pagination-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-36-components-navigation-pagination-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-36-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-36-components-navigation-pagination-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-37-components-navigation-pagination-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-37-components-navigation-pagination-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-37-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-37-components-navigation-pagination-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -32391,10 +34359,10 @@ Redirect users to the first page if they enter a URL with a page number that doe
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Paragraph</h2>
       <div class="badges">
-        <label for="c-error-37-components-text-paragraph-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-37-components-text-paragraph-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-37-components-text-paragraph-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-37-components-text-paragraph-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-38-components-text-paragraph-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-38-components-text-paragraph-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-38-components-text-paragraph-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-38-components-text-paragraph-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -32405,10 +34373,10 @@ Redirect users to the first page if they enter a URL with a page number that doe
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-37-components-text-paragraph-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-37-components-text-paragraph-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-37-components-text-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-37-components-text-paragraph-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-38-components-text-paragraph-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-38-components-text-paragraph-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-38-components-text-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-38-components-text-paragraph-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -32593,10 +34561,10 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
     <div class="title">
       <h2><span class="status-dot dot-err"></span> PasswordInput</h2>
       <div class="badges">
-        <label for="c-error-38-components-forms-password-input-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-38-components-forms-password-input-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-38-components-forms-password-input-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-38-components-forms-password-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-39-components-forms-password-input-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-39-components-forms-password-input-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-39-components-forms-password-input-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-39-components-forms-password-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -32607,10 +34575,10 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-38-components-forms-password-input-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-38-components-forms-password-input-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-38-components-forms-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-38-components-forms-password-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-39-components-forms-password-input-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-39-components-forms-password-input-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-39-components-forms-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-39-components-forms-password-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -32807,10 +34775,10 @@ These props cannot be overridden.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProductPage</h2>
       <div class="badges">
-        <label for="c-error-39-pages-public-product-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-39-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-39-pages-public-product-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-39-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-40-pages-public-product-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-40-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-40-pages-public-product-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-40-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -32821,10 +34789,10 @@ These props cannot be overridden.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-39-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-39-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-39-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-39-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-40-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-40-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-40-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-40-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -32835,7 +34803,7 @@ These props cannot be overridden.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  19 | import { commonMeta } from &#39;../common/config&#39;
+  19 | import { commonMeta } from &#39;../common/commonMeta&#39;
   20 |
 &gt; 21 | const meta = {
      | ^
@@ -32862,7 +34830,7 @@ import {
   UnorderedList,
 } from &#39;@amsterdam/design-system-react&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 
 const meta = {
   ...commonMeta,
@@ -33330,10 +35298,10 @@ Often includes a Call to Action Link that directs the user to a form.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProjectPage</h2>
       <div class="badges">
-        <label for="c-error-40-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-40-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-40-pages-public-project-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-40-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-41-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-41-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-error-41-pages-public-project-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-41-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -33344,10 +35312,10 @@ Often includes a Call to Action Link that directs the user to a form.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-40-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-40-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-40-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-40-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-41-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-41-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-41-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-41-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -33390,7 +35358,7 @@ import {
 
 import { exampleImageSource } from &#39;#storybook/_common/exampleContent&#39;
 
-import { commonMeta } from &#39;../common/config&#39;
+import { commonMeta } from &#39;../common/commonMeta&#39;
 
 const images = [268, 12, 267, 164, 128].map((id) =&gt; ({
   alt: &#39;&#39;,
@@ -34258,10 +36226,10 @@ These links lead to news updates, related projects, and supporting documents, al
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Prose</h2>
       <div class="badges">
-        <label for="c-error-41-utilities-css-prose-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-41-utilities-css-prose-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-41-utilities-css-prose-stories" class="badge err as-toggle">1/1 story errors</label>
-        <label for="c-error-41-utilities-css-prose-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-42-utilities-css-prose-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-42-utilities-css-prose-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-42-utilities-css-prose-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-error-42-utilities-css-prose-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34272,10 +36240,10 @@ These links lead to news updates, related projects, and supporting documents, al
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-41-utilities-css-prose-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-41-utilities-css-prose-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-41-utilities-css-prose-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-41-utilities-css-prose-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-42-utilities-css-prose-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-42-utilities-css-prose-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-42-utilities-css-prose-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-42-utilities-css-prose-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -34409,10 +36377,10 @@ import * as ProseStories from &quot;./Prose.stories.tsx&quot;;
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Radio</h2>
       <div class="badges">
-        <label for="c-error-42-components-forms-radio-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-42-components-forms-radio-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-42-components-forms-radio-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-42-components-forms-radio-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-43-components-forms-radio-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-43-components-forms-radio-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-43-components-forms-radio-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-43-components-forms-radio-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34423,10 +36391,10 @@ import * as ProseStories from &quot;./Prose.stories.tsx&quot;;
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-42-components-forms-radio-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-42-components-forms-radio-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-42-components-forms-radio-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-42-components-forms-radio-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-43-components-forms-radio-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-43-components-forms-radio-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-43-components-forms-radio-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-43-components-forms-radio-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -34630,10 +36598,10 @@ Websites for the City of Amsterdam must use the default icon.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Row</h2>
       <div class="badges">
-        <label for="c-error-43-components-layout-row-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-43-components-layout-row-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-43-components-layout-row-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-43-components-layout-row-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-44-components-layout-row-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-44-components-layout-row-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-44-components-layout-row-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-44-components-layout-row-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34644,10 +36612,10 @@ Websites for the City of Amsterdam must use the default icon.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-43-components-layout-row-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-43-components-layout-row-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-43-components-layout-row-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-43-components-layout-row-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-44-components-layout-row-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-44-components-layout-row-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-44-components-layout-row-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-44-components-layout-row-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -34866,10 +36834,10 @@ Align the elements horizontally or vertically through the alignment props.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Select</h2>
       <div class="badges">
-        <label for="c-error-44-components-forms-select-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-44-components-forms-select-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-44-components-forms-select-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-44-components-forms-select-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-45-components-forms-select-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-45-components-forms-select-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-45-components-forms-select-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-45-components-forms-select-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34880,10 +36848,10 @@ Align the elements horizontally or vertically through the alignment props.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-44-components-forms-select-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-44-components-forms-select-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-44-components-forms-select-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-44-components-forms-select-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-45-components-forms-select-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-45-components-forms-select-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-45-components-forms-select-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-45-components-forms-select-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -35076,10 +37044,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="title">
       <h2><span class="status-dot dot-err"></span> SkipLink</h2>
       <div class="badges">
-        <label for="c-error-45-components-navigation-skip-link-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-45-components-navigation-skip-link-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-45-components-navigation-skip-link-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-45-components-navigation-skip-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-46-components-navigation-skip-link-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-46-components-navigation-skip-link-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-46-components-navigation-skip-link-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-46-components-navigation-skip-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -35090,10 +37058,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-45-components-navigation-skip-link-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-45-components-navigation-skip-link-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-45-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-45-components-navigation-skip-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-46-components-navigation-skip-link-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-46-components-navigation-skip-link-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-46-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-46-components-navigation-skip-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -35269,10 +37237,10 @@ After appearing, it pushes the rest of the page down.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> StandaloneLink</h2>
       <div class="badges">
-        <label for="c-error-46-components-navigation-standalone-link-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-46-components-navigation-standalone-link-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-46-components-navigation-standalone-link-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-46-components-navigation-standalone-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-47-components-navigation-standalone-link-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-47-components-navigation-standalone-link-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-47-components-navigation-standalone-link-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-47-components-navigation-standalone-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -35283,10 +37251,10 @@ After appearing, it pushes the rest of the page down.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-46-components-navigation-standalone-link-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-46-components-navigation-standalone-link-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-46-components-navigation-standalone-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-46-components-navigation-standalone-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-47-components-navigation-standalone-link-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-47-components-navigation-standalone-link-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-47-components-navigation-standalone-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-47-components-navigation-standalone-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -35476,10 +37444,10 @@ As a result, pages can have sections with either one or several links used inter
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Switch</h2>
       <div class="badges">
-        <label for="c-error-47-components-forms-switch-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-47-components-forms-switch-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-47-components-forms-switch-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-47-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-48-components-forms-switch-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-48-components-forms-switch-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-48-components-forms-switch-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-48-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -35490,10 +37458,10 @@ As a result, pages can have sections with either one or several links used inter
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-47-components-forms-switch-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-47-components-forms-switch-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-47-components-forms-switch-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-47-components-forms-switch-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-48-components-forms-switch-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-48-components-forms-switch-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-48-components-forms-switch-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-48-components-forms-switch-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -35646,10 +37614,10 @@ A Switch must have a label, and in most cases, this label should be visible.
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TextArea</h2>
       <div class="badges">
-        <label for="c-error-48-components-forms-text-area-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-48-components-forms-text-area-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-48-components-forms-text-area-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-48-components-forms-text-area-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-49-components-forms-text-area-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-49-components-forms-text-area-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-49-components-forms-text-area-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-49-components-forms-text-area-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -35660,10 +37628,10 @@ A Switch must have a label, and in most cases, this label should be visible.
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-48-components-forms-text-area-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-48-components-forms-text-area-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-48-components-forms-text-area-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-48-components-forms-text-area-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-49-components-forms-text-area-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-49-components-forms-text-area-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-49-components-forms-text-area-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-49-components-forms-text-area-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -35859,10 +37827,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TextInput</h2>
       <div class="badges">
-        <label for="c-error-49-components-forms-text-input-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-49-components-forms-text-input-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-49-components-forms-text-input-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-49-components-forms-text-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-50-components-forms-text-input-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-50-components-forms-text-input-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-50-components-forms-text-input-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-50-components-forms-text-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -35873,10 +37841,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-49-components-forms-text-input-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-49-components-forms-text-input-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-49-components-forms-text-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-49-components-forms-text-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-50-components-forms-text-input-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-50-components-forms-text-input-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-50-components-forms-text-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-50-components-forms-text-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -36198,10 +38166,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
     <div class="title">
       <h2><span class="status-dot dot-err"></span> TimeInput</h2>
       <div class="badges">
-        <label for="c-error-50-components-forms-time-input-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-50-components-forms-time-input-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-50-components-forms-time-input-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-error-50-components-forms-time-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-51-components-forms-time-input-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-51-components-forms-time-input-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-51-components-forms-time-input-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-51-components-forms-time-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -36212,10 +38180,10 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-50-components-forms-time-input-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-50-components-forms-time-input-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-50-components-forms-time-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-50-components-forms-time-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-51-components-forms-time-input-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-51-components-forms-time-input-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-51-components-forms-time-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-51-components-forms-time-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -36395,10 +38363,10 @@ This does mean that this component does not look identical on all browsers and o
     <div class="title">
       <h2><span class="status-dot dot-err"></span> VisuallyHidden</h2>
       <div class="badges">
-        <label for="c-error-51-utilities-css-visually-hidden-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-error-51-utilities-css-visually-hidden-info" class="badge info as-toggle">2 infos</label>
-        <label for="c-error-51-utilities-css-visually-hidden-stories" class="badge err as-toggle">1/1 story errors</label>
-        <label for="c-error-51-utilities-css-visually-hidden-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-error-52-utilities-css-visually-hidden-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-error-52-utilities-css-visually-hidden-info" class="badge info as-toggle">2 infos</label>
+        <label for="c-error-52-utilities-css-visually-hidden-stories" class="badge err as-toggle">1/1 story errors</label>
+        <label for="c-error-52-utilities-css-visually-hidden-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -36409,10 +38377,10 @@ This does mean that this component does not look identical on all browsers and o
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-error-51-utilities-css-visually-hidden-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-error-51-utilities-css-visually-hidden-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-error-51-utilities-css-visually-hidden-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-error-51-utilities-css-visually-hidden-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-error-52-utilities-css-visually-hidden-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-error-52-utilities-css-visually-hidden-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-error-52-utilities-css-visually-hidden-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-error-52-utilities-css-visually-hidden-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
