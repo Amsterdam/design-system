@@ -99,6 +99,7 @@ const meta = {
 
     return (
       <main id="inhoud">
+        {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
         <Grid paddingTop="large">
           <Grid.Cell span="all">
             <Heading level={1}>Zoeken op amsterdam.nl</Heading>
@@ -172,12 +173,98 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+const pageShell = (busy: string, status: string, results: string) => `<main id="inhoud">
+  {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
+  <Grid paddingTop="large">
+    <Grid.Cell span="all">
+      <Heading level={1}>Zoeken op amsterdam.nl</Heading>
+    </Grid.Cell>
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}>
+      <SearchField onSubmit={search}>
+        <SearchField.Input defaultValue="woningbouw" label="Zoek op de website" name="search" />
+        <SearchField.Button />
+      </SearchField>
+    </Grid.Cell>
+  </Grid>
+
+  {/*
+   * Mark the whole results region busy while it loads and let it announce once, rather than once per
+   * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
+   * technologies, so this region is all a screen reader hears.
+   */}
+  {/* The search field is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  <Grid aria-busy={${busy}} paddingBottom="2x-large" paddingTop="x-large">
+    <Grid.Cell span="all">
+      {/*
+       * Keep one status message in the DOM at all times and only change its text – from a loading
+       * message to the result count – so screen readers reliably announce the update. A Loading Region
+       * component to wrap this pattern is planned; until then it is plain HTML.
+       */}
+      <p className="ams-visually-hidden" role="status">${status}</p>${results}
+  </Grid>
+</main>`
+
+// The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+// comments. Provide the source by hand so the guidance above the results region stays visible.
+const idleSource = pageShell(
+  'false',
+  '',
+  `
+      <Paragraph>Klik op de zoekknop om de resultaten te laden.</Paragraph>
+    </Grid.Cell>`,
+)
+
+const loadingSource = pageShell(
+  'true',
+  'Zoekresultaten voor ‘woningbouw’ worden geladen',
+  `
+    </Grid.Cell>
+
+    {/*
+     * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
+     * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+     * Mirroring the shape keeps the layout from shifting when the real content arrives.
+     */}
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
+      <Skeleton>
+        <Skeleton.Image />
+        <Skeleton.Heading />
+        <Skeleton.Paragraph lines={2} />
+      </Skeleton>
+    </Grid.Cell>
+    {/* … five more Skeleton cells, one for each result that is loading … */}`,
+)
+
+const loadedSource = pageShell(
+  'false',
+  '6 resultaten voor ‘woningbouw’ gevonden',
+  `
+      <Heading level={2} size="level-3">6 resultaten voor ‘woningbouw’</Heading>
+    </Grid.Cell>
+
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
+      <Card>
+        <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1015/640/360" />
+        <Card.Heading level={3}>
+          <Card.Link href="#">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
+        </Card.Heading>
+        <Paragraph>Een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.</Paragraph>
+      </Card>
+    </Grid.Cell>
+    {/* … five more Cards, in the same cells the Skeletons occupied … */}`,
+)
+
+export const Default: Story = {
+  parameters: { docs: { source: { code: idleSource, language: 'tsx' } } },
+}
 
 export const Loading: Story = {
   args: { initialPhase: 'loading' },
+  parameters: { docs: { source: { code: loadingSource, language: 'tsx' } } },
 }
 
 export const Loaded: Story = {
   args: { initialPhase: 'loaded' },
+  parameters: { docs: { source: { code: loadedSource, language: 'tsx' } } },
 }
