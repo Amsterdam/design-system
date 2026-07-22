@@ -21,7 +21,7 @@ import {
 
 import { exampleImageSource } from '#storybook/_common/exampleContent'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 
 const images = [268, 12, 267, 164, 128].map((id) => ({
   alt: '',

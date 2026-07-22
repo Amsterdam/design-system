@@ -5,18 +5,14 @@
 
 import type { Meta } from '@storybook/react-vite'
 
-import { Page } from '@amsterdam/design-system-react'
-
-import { Layout } from './Layout'
+import { PageLayout } from './PageLayout'
 
 export const commonMeta = {
   decorators: [
     (Story) => (
-      <Page withMenu>
-        <Layout>
-          <Story />
-        </Layout>
-      </Page>
+      <PageLayout>
+        <Story />
+      </PageLayout>
     ),
   ],
   parameters: {

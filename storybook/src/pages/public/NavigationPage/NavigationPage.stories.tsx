@@ -28,7 +28,7 @@ import {
   exampleStandaloneLink,
 } from '#storybook/_common/exampleContent'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from './data'
 
 const meta = {

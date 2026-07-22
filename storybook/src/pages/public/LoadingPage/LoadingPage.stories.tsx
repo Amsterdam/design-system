@@ -9,7 +9,7 @@ import type { FormEvent } from 'react'
 import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from '@amsterdam/design-system-react'
 import { useEffect, useRef, useState } from 'react'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 
 const initialQuery = 'woningbouw'
 

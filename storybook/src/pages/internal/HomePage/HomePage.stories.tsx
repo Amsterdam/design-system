@@ -9,7 +9,7 @@ import { Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
 
 import { exampleParagraph } from '#storybook/_common/exampleContent'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 
 const exampleParagraph1 = exampleParagraph()
 const exampleParagraph2 = exampleParagraph()

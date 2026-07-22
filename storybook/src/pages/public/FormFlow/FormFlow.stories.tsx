@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
 import {
   Button,
@@ -18,7 +18,6 @@ import {
   InvalidFormAlert,
   Label,
   OrderedList,
-  Page,
   Paragraph,
   Radio,
   StandaloneLink,
@@ -26,8 +25,14 @@ import {
 } from '@amsterdam/design-system-react'
 import { ChevronBackwardIcon } from '@amsterdam/design-system-react-icons'
 
-import { FormLayout } from '../common/FormLayout'
-import { Layout } from '../common/Layout'
+import { FormPageLayout } from '../common/FormPageLayout'
+import { PageLayout } from '../common/PageLayout'
+
+const formPageLayoutDecorator: Decorator = (Story) => (
+  <FormPageLayout>
+    <Story />
+  </FormPageLayout>
+)
 
 const meta = {
   title: 'Pages/Public/Form Flow',
@@ -43,11 +48,9 @@ export default meta
 export const LandingPage: StoryObj = {
   decorators: [
     (Story) => (
-      <Page>
-        <Layout>
-          <Story />
-        </Layout>
-      </Page>
+      <PageLayout>
+        <Story />
+      </PageLayout>
     ),
   ],
   parameters: {
@@ -119,13 +122,7 @@ export const LandingPage: StoryObj = {
 }
 
 export const SingleQuestion: StoryObj = {
-  decorators: [
-    (Story) => (
-      <FormLayout>
-        <Story />
-      </FormLayout>
-    ),
-  ],
+  decorators: [formPageLayoutDecorator],
   parameters: {
     docs: {
       source: {
@@ -269,13 +266,7 @@ export const SingleQuestion: StoryObj = {
 }
 
 export const SingleQuestionWithSubquestions: StoryObj = {
-  decorators: [
-    (Story) => (
-      <FormLayout>
-        <Story />
-      </FormLayout>
-    ),
-  ],
+  decorators: [formPageLayoutDecorator],
   parameters: {
     docs: {
       source: {
@@ -424,13 +415,7 @@ export const SingleQuestionWithSubquestions: StoryObj = {
 }
 
 export const MultipleQuestions: StoryObj = {
-  decorators: [
-    (Story) => (
-      <FormLayout>
-        <Story />
-      </FormLayout>
-    ),
-  ],
+  decorators: [formPageLayoutDecorator],
   parameters: {
     docs: {
       source: {
@@ -547,13 +532,7 @@ export const MultipleQuestions: StoryObj = {
 }
 
 export const WithValidationError: StoryObj = {
-  decorators: [
-    (Story) => (
-      <FormLayout>
-        <Story />
-      </FormLayout>
-    ),
-  ],
+  decorators: [formPageLayoutDecorator],
   parameters: {
     docs: {
       source: {

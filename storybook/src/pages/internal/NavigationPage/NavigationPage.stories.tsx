@@ -9,7 +9,7 @@ import type { MouseEvent } from 'react'
 import { Breadcrumb, Grid, Heading, TabNavigation } from '@amsterdam/design-system-react'
 import { useRef, useState } from 'react'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 import { menuItems } from './menuItems'
 
 const meta = {

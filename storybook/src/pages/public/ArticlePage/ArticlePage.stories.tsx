@@ -20,7 +20,7 @@ import {
 
 import { exampleImageSource } from '#storybook/_common/exampleContent'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 
 const meta = {
   ...commonMeta,

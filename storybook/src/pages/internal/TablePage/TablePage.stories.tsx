@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 
 import type { SortOrder } from './common'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from './common'
 
 const meta = {
