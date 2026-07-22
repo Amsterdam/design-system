@@ -9,7 +9,7 @@ import { Select } from 'storybook/internal/components'
 import { addons, types, useAddonState, useParameter } from 'storybook/manager-api'
 import { create } from 'storybook/theming/create'
 
-import Logo from '../../packages-proprietary/assets/logo/amsterdam.svg'
+import Logo from '../../packages-proprietary/assets/logo/amsterdam-logo.svg'
 import { matchTheme, readStoredTheme, storeTheme, THEME_EVENT, themeNames } from './themes'
 
 import '@amsterdam/design-system-assets/font/index.css'
