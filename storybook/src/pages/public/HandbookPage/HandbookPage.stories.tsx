@@ -67,6 +67,65 @@ const renderTocList = (list: Array<HandbookPage>, options: RenderTocOptions) => 
 )
 
 export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // A `render` without arguments prints the story’s own source, including its state and handlers.
+        // Provide the source by hand so the panel shows the markup to compose, without that scaffolding.
+        code: `// handleSelect sets the current page; handleToggle opens and closes a branch. Both keep the Table of Contents controlled.
+
+// One Grid for the whole page combines both rules: a paddingTop of large and a paddingBottom of 2x-large.
+<Grid paddingBottom="2x-large" paddingTop="large">
+  <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
+    <TableOfContents collapsible heading="Inhoudsopgave" id="inhoudsopgave">
+      <TableOfContents.List>
+        <TableOfContents.Link href="#s1" label="Inleiding" onClick={handleSelect} />
+        <TableOfContents.Link
+          expanded
+          href="#s2"
+          label="Vaststellen en waarderen van functies"
+          onClick={handleSelect}
+          onToggle={handleToggle}
+        >
+          <TableOfContents.List>
+            <TableOfContents.Link href="#s2-1" label="Algemeen" onClick={handleSelect} />
+            <TableOfContents.Link
+              expanded
+              href="#s2-2"
+              label="Waardering van functies"
+              onClick={handleSelect}
+              onToggle={handleToggle}
+            >
+              <TableOfContents.List>
+                <TableOfContents.Link aria-current="page" href="#s2-2-1" label="Methode" onClick={handleSelect} />
+                <TableOfContents.Link href="#s2-2-2" label="Procedure" onClick={handleSelect} />
+                {/* … a Bezwaar page … */}
+              </TableOfContents.List>
+            </TableOfContents.Link>
+            {/* … a Herwaardering branch with its own pages … */}
+          </TableOfContents.List>
+        </TableOfContents.Link>
+        {/* … Salaristoelagen, with two pages, and Vergoedingen … */}
+      </TableOfContents.List>
+    </TableOfContents>
+  </Grid.Cell>
+  <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
+    <main className="ams-prose" id="inhoud">
+      <Heading level={1}>Methode</Heading>
+      <Paragraph size="large">
+        We gebruiken de HR21-systematiek om functies objectief en vergelijkbaar te waarderen.
+      </Paragraph>
+      <Paragraph>
+        De methode kent punten toe aan gezichtspunten zoals kennis, zelfstandigheid, contacten en afbreukrisico.
+        De som van de punten bepaalt de indeling in een salarisschaal. Deze werkwijze is landelijk afgestemd.
+      </Paragraph>
+    </main>
+  </Grid.Cell>
+</Grid>`,
+        language: 'tsx',
+      },
+    },
+  },
   render: () => {
     const [currentSlug, setCurrentSlug] = useState(initialSlug)
     const [expandedSlugs, setExpandedSlugs] = useState(() => branchFor(initialSlug))
