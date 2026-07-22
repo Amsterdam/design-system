@@ -116,6 +116,8 @@ const meta = {
          * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
          * technologies, so this region is all a screen reader hears.
          */}
+        {/* The search field is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid aria-busy={phase === 'loading'} paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span="all">
             {/*

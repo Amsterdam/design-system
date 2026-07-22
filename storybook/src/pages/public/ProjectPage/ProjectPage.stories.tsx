@@ -35,6 +35,7 @@ const meta = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
+      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -43,11 +44,13 @@ const meta = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       <Grid as="main" id="inhoud" paddingBottom="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading level={1}>Centrumeiland: hét zelfbouweiland van Amsterdam</Heading>
         </Grid.Cell>
         <Grid.Cell span="all">
+          {/* ImageSlider takes an array of images; each entry has an alt text, an aspectRatio, and a src. */}
           <ImageSlider images={images} />
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
@@ -94,6 +97,10 @@ const meta = {
             ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We verwachten dat bijna
             alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt opgeleverd in 2029.
           </Paragraph>
+          {/*
+           * A ProgressList shows a timeline. status="completed" marks a finished step, status="current" the one
+           * in progress, and a step with no status is still to come. hasSubsteps nests a ProgressList.Substeps.
+           */}
           <ProgressList collapsible headingLevel={3}>
             <ProgressList.Step hasSubsteps heading="2021" status="completed">
               <ProgressList.Substeps>
@@ -180,6 +187,7 @@ const meta = {
             </ProgressList.Step>
           </ProgressList>
         </Grid.Cell>
+        {/* Two link lists side by side, each start-aligned to its own half of the grid. */}
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-s" level={2} size="level-3">
             Nieuws
@@ -199,6 +207,7 @@ const meta = {
           </LinkList>
         </Grid.Cell>
       </Grid>
+      {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
       <Spotlight color="azure">
         <Grid paddingVertical="x-large">
           <Grid.Cell span="all">
@@ -206,6 +215,10 @@ const meta = {
               Zelfbouw
             </Heading>
           </Grid.Cell>
+          {/*
+           * The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens.
+           * On the azure Spotlight, color="inverse" switches the heading, text, and links to their light variant.
+           */}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
             <Paragraph className="ams-mb-s" color="inverse">
               Meer over de verschillende vormen van zelfbouw vindt u op:
@@ -285,6 +298,7 @@ const meta = {
           </LinkList>
         </Grid.Cell>
       </Grid>
+      {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
       <Spotlight>
         <Grid paddingVertical="x-large">
           <Grid.Cell span="all">
@@ -304,6 +318,7 @@ const meta = {
             </Paragraph>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+            {/* <br /> holds a contact block’s lines together inside one Paragraph. */}
             <Paragraph color="inverse">
               Maud van Esch
               <br />
@@ -322,6 +337,7 @@ const meta = {
           </Grid.Cell>
         </Grid>
       </Spotlight>
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       <Grid paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Image alt="" src={exampleImageSource(1280, 720)} />
@@ -339,7 +355,7 @@ export const Default: StoryObj = {
       source: {
         // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
         // comments. Provide the source by hand so the guidance below stays visible in the panel. Repetitive
-        // sections are shortened with `{/* … */}` markers to keep the timeline and grid patterns readable.
+        // sections are shortened with `{/* … */}` markers.
         code: `<>
   {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
   <Grid paddingTop="large">
@@ -350,6 +366,7 @@ export const Default: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   <Grid as="main" id="inhoud" paddingBottom="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Heading level={1}>Centrumeiland: hét zelfbouweiland van Amsterdam</Heading>
@@ -420,12 +437,16 @@ export const Default: StoryObj = {
       </LinkList>
     </Grid.Cell>
   </Grid>
+  {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
   <Spotlight color="azure">
     <Grid paddingVertical="x-large">
       <Grid.Cell span="all">
         <Heading color="inverse" level={2}>Zelfbouw</Heading>
       </Grid.Cell>
-      {/* Four equal columns of promo links; on the azure Spotlight, color="inverse" adapts their content. */}
+      {/*
+       * The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens.
+       * On the azure Spotlight, color="inverse" switches the heading, text, and links to their light variant.
+       */}
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
         <Paragraph className="ams-mb-s" color="inverse">
           Meer over de verschillende vormen van zelfbouw vindt u op:
@@ -457,6 +478,7 @@ export const Default: StoryObj = {
       </LinkList>
     </Grid.Cell>
   </Grid>
+  {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
   <Spotlight>
     <Grid paddingVertical="x-large">
       <Grid.Cell span="all">
@@ -480,6 +502,7 @@ export const Default: StoryObj = {
       </Grid.Cell>
     </Grid>
   </Spotlight>
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
   <Grid paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Image alt="" src="https://picsum.photos/1280/720" />

@@ -28,6 +28,7 @@ const meta = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
+      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -36,6 +37,7 @@ const meta = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -51,6 +53,10 @@ const meta = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
+        {/*
+         * A full-width hero image. srcSet lets the browser pick a size for the viewport, loading="lazy" defers
+         * loading until it is near the viewport, and aspectRatio reserves its space so the layout does not jump.
+         */}
         <Image
           alt=""
           aspectRatio="16:5"
@@ -59,6 +65,7 @@ const meta = {
           srcSet={`${exampleImageSource(640, 200)} 640w, ${exampleImageSource(1280, 400)} 1280w, ${exampleImageSource(1440, 450)} 1440w`}
         />
         <Grid paddingVertical="x-large">
+          {/* ams-prose applies article typography and vertical rhythm to the headings, paragraphs, and links. */}
           <Grid.Cell
             className="ams-prose"
             span={{ narrow: 4, medium: 6, wide: 7 }}
@@ -115,9 +122,12 @@ const meta = {
           </Grid.Cell>
         </Grid>
       </main>
+      {/* A newsletter call-out set apart as a labelled aside (aria-labelledby) on a green Spotlight. */}
+      {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
       <Spotlight aria-labelledby="blijf-op-de-hoogte" as="aside" color="green">
         <Grid paddingVertical="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+            {/* On the green Spotlight, color="inverse" switches the heading, text, and links to their light variant. */}
             <Heading className="ams-mb-s" color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
               Blijf op de hoogte!
             </Heading>
@@ -131,6 +141,8 @@ const meta = {
           </Grid.Cell>
         </Grid>
       </Spotlight>
+      {/* Related articles as a labelled aside (Grid as="aside"), outside the article’s <main>. */}
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       <Grid aria-labelledby="meer-nieuws" as="aside" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span="all">
           <Heading id="meer-nieuws" level={2} size="level-1">
@@ -201,6 +213,7 @@ export const Default: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   <main id="inhoud">
     <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -265,10 +278,11 @@ export const Default: StoryObj = {
     </Grid>
   </main>
   {/* A newsletter call-out set apart as a labelled aside (aria-labelledby) on a green Spotlight. */}
+  {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
   <Spotlight aria-labelledby="blijf-op-de-hoogte" as="aside" color="green">
     <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        {/* color="inverse" adapts the heading, text, and link to the dark Spotlight background. */}
+        {/* On the green Spotlight, color="inverse" switches the heading, text, and links to their light variant. */}
         <Heading className="ams-mb-s" color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
           Blijf op de hoogte!
         </Heading>
@@ -280,6 +294,7 @@ export const Default: StoryObj = {
     </Grid>
   </Spotlight>
   {/* Related articles as a labelled aside (Grid as="aside"), outside the article’s <main>. */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
   <Grid aria-labelledby="meer-nieuws" as="aside" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span="all">
       <Heading id="meer-nieuws" level={2} size="level-1">Meer nieuws</Heading>

@@ -94,6 +94,7 @@ export const Default: StoryObj = {
     const currentPage = findPage(currentSlug) ?? pages[0]
 
     return (
+      /* One Grid for the whole page combines both rules: a paddingTop of large and a paddingBottom of 2x-large. */
       <Grid paddingBottom="2x-large" paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 3, wide: 4 }}>
           <TableOfContents collapsible heading="Inhoudsopgave" id="inhoudsopgave">

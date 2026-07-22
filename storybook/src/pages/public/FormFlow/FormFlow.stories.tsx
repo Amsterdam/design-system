@@ -58,7 +58,8 @@ export const LandingPage: StoryObj = {
       source: {
         // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
         // comments. Provide the source by hand so the guidance below stays visible in the panel.
-        code: `<Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
+        code: `// One Grid for the whole page combines both rules: a paddingTop of large and a paddingBottom of 2x-large.
+<Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
   <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
     <Heading className="ams-mb-m" level={1}>Waar u dit formulier voor gebruikt</Heading>
     <Paragraph size="large">
@@ -90,6 +91,7 @@ export const LandingPage: StoryObj = {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
+    // One Grid for the whole page combines both rules: a paddingTop of large and a paddingBottom of 2x-large.
     <Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-m" level={1}>
@@ -100,6 +102,7 @@ export const LandingPage: StoryObj = {
         </Paragraph>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        {/* Show the steps up front so people know what to expect before they start. */}
         <Heading className="ams-mb-s" level={2}>
           De stappen in dit formulier
         </Heading>
@@ -115,6 +118,7 @@ export const LandingPage: StoryObj = {
             <strong>Controleren</strong> - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
           </OrderedList.Item>
         </OrderedList>
+        {/* A single, prominent call to action that starts the form. */}
         <CallToActionLink href="#">Start het formulier</CallToActionLink>
       </Grid.Cell>
     </Grid>
@@ -127,7 +131,7 @@ export const SingleQuestion: StoryObj = {
     docs: {
       source: {
         // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
         code: `<>
   {/* The back link is in its own Grid, because it should be outside of the main section. */}
   <Grid paddingTop="large">
@@ -142,6 +146,7 @@ export const SingleQuestion: StoryObj = {
       <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
     </Grid.Cell>
   </Grid>
+  {/* The back link is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
   <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
@@ -160,7 +165,7 @@ export const SingleQuestion: StoryObj = {
       {/*
        * Do not rely on HTML5 form validation: it is inconsistent across browsers and devices and often tells
        * the user too little. Validate on the server and return the result, or use client-side validation.
-       * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/
+       * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
        */}
       <form noValidate onSubmit={(e) => e.preventDefault()}>
         {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
@@ -195,50 +200,47 @@ export const SingleQuestion: StoryObj = {
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
-           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
-           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
-           * For more info, see: https://design-system.service.gov.uk/components/back-link/
-           *
-           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
-           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           * A back link lets users move between form pages without worrying about losing their progress. The
+           * browser back button should keep progress too, but users do not always trust it. Use a link, not a
+           * button: multiple submit buttons in a form can cause unexpected behaviour.
+           * See https://design-system.service.gov.uk/components/back-link/ and
+           * https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
            */}
           <StandaloneLink href="#" icon={ChevronBackwardIcon}>
             Vorige vraag
           </StandaloneLink>
         </Grid.Cell>
       </Grid>
+      {/* The back link is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
       <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
-           * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
-           * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
-           * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+           * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+           * an extra entry to the heading hierarchy – and it stays clearly labelled if CSS fails to load.
            */}
           <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
             <Heading aria-hidden id="form-header" level={2} size="level-4">
               Afspraak maken
             </Heading>
             {/*
-             * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
-             * If you do, use a simple one like this one.
-             * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+             * First test the form without a progress indicator to see whether it is simple enough to go without
+             * one. If not, use a plain one like this.
+             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
              */}
             <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
           </header>
           {/*
-           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
-           * and often gives the user too little information.
-           * Preferably validate user input on the server and return it to the client.
-           * If that is not possible, use client-side validation.
-           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           * Do not rely on HTML5 form validation: it is inconsistent across browsers and devices and often tells
+           * the user too little. Validate on the server and return the result, or use client-side validation.
+           * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
            */}
           <form noValidate onSubmit={(e) => e.preventDefault()}>
-            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
             <FieldSet
               aria-required="true"
               className="ams-mb-xl"
               legend="Kies waar u voor wilt langskomen op het Stadsloket"
-              // When a page consists of a single question, its label or legend should be treated as the main page heading (`h1`).
+              // When a page is a single question, treat its legend as the main page heading (h1).
               legendIsPageHeading
               role="radiogroup"
             >
@@ -271,30 +273,42 @@ export const SingleQuestionWithSubquestions: StoryObj = {
     docs: {
       source: {
         // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
         code: `<>
   {/* The back link is in its own Grid, because it should be outside of the main section. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
-       * A back link lets users move between form pages without worrying about losing their progress. Use a
-       * link, not a button: multiple submit buttons in a form can cause unexpected behaviour.
-       * See https://design-system.service.gov.uk/components/back-link/
+       * A back link lets users move between form pages without worrying about losing their progress. The
+       * browser back button should keep progress too, but users do not always trust it. Use a link, not a
+       * button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/ and
+       * https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
        */}
       <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
     </Grid.Cell>
   </Grid>
+  {/* The back link is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
   <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
        * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
-       * an extra entry to the heading hierarchy – and it stays labelled if CSS fails to load.
+       * an extra entry to the heading hierarchy – and it stays clearly labelled if CSS fails to load.
        */}
       <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
         <Heading aria-hidden id="form-header" level={2} size="level-4">Afspraak maken</Heading>
+        {/*
+         * First test the form without a progress indicator to see whether it is simple enough to go without
+         * one. If not, use a plain one like this.
+         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+         */}
         <Paragraph>Stap 2 van 3: Uw gegevens</Paragraph>
       </header>
-      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      {/*
+       * Do not rely on HTML5 form validation: it is inconsistent across browsers and devices and often tells
+       * the user too little. Validate on the server and return the result, or use client-side validation.
+       * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+       */}
       <form noValidate onSubmit={(e) => e.preventDefault()}>
         {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
         <FieldSet legend="Contactgegevens" legendIsPageHeading>
@@ -305,7 +319,7 @@ export const SingleQuestionWithSubquestions: StoryObj = {
               autoCorrect="off"
               id="email-input"
               name="email"
-              // A generous size, per https://design-system.service.gov.uk/patterns/email-addresses/
+              // A generous size, per https://design-system.service.gov.uk/patterns/email-addresses/#help-users-to-enter-a-valid-email-address
               size={30}
               spellCheck="false"
               type="email"
@@ -313,14 +327,8 @@ export const SingleQuestionWithSubquestions: StoryObj = {
           </Field>
           <Field className="ams-mb-xl">
             <Label htmlFor="tel-input" inFieldSet optional>Telefoonnummer</Label>
-            <TextInput
-              autoComplete="tel"
-              id="tel-input"
-              name="phone"
-              // Phone numbers are at most 15 characters (E.164): https://en.wikipedia.org/wiki/E.164
-              size={15}
-              type="tel"
-            />
+            {/* Phone numbers are at most 15 characters (E.164): https://en.wikipedia.org/wiki/E.164 */}
+            <TextInput autoComplete="tel" id="tel-input" name="phone" size={15} type="tel" />
           </Field>
         </FieldSet>
         <Button type="submit">Volgende vraag</Button>
@@ -339,45 +347,42 @@ export const SingleQuestionWithSubquestions: StoryObj = {
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
-           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
-           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
-           * For more info, see: https://design-system.service.gov.uk/components/back-link/
-           *
-           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
-           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           * A back link lets users move between form pages without worrying about losing their progress. The
+           * browser back button should keep progress too, but users do not always trust it. Use a link, not a
+           * button: multiple submit buttons in a form can cause unexpected behaviour.
+           * See https://design-system.service.gov.uk/components/back-link/ and
+           * https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
            */}
           <StandaloneLink href="#" icon={ChevronBackwardIcon}>
             Vorige vraag
           </StandaloneLink>
         </Grid.Cell>
       </Grid>
+      {/* The back link is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
       <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
-           * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
-           * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
-           * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+           * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+           * an extra entry to the heading hierarchy – and it stays clearly labelled if CSS fails to load.
            */}
           <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
             <Heading aria-hidden id="form-header" level={2} size="level-4">
               Afspraak maken
             </Heading>
             {/*
-             * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
-             * If you do, use a simple one like this one.
-             * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+             * First test the form without a progress indicator to see whether it is simple enough to go without
+             * one. If not, use a plain one like this.
+             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
              */}
             <Paragraph>Stap 2 van 3: Uw gegevens</Paragraph>
           </header>
           {/*
-           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
-           * and often gives the user too little information.
-           * Preferably validate user input on the server and return it to the client.
-           * If that is not possible, use client-side validation.
-           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           * Do not rely on HTML5 form validation: it is inconsistent across browsers and devices and often tells
+           * the user too little. Validate on the server and return the result, or use client-side validation.
+           * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
            */}
           <form noValidate onSubmit={(e) => e.preventDefault()}>
-            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
             <FieldSet legend="Contactgegevens" legendIsPageHeading>
               <Field>
                 <Label htmlFor="email-input" inFieldSet optional>
@@ -388,7 +393,8 @@ export const SingleQuestionWithSubquestions: StoryObj = {
                   autoCorrect="off"
                   id="email-input"
                   name="email"
-                  size={30} // Based on this recommendation: https://design-system.service.gov.uk/patterns/email-addresses/#help-users-to-enter-a-valid-email-address
+                  // A generous size, per https://design-system.service.gov.uk/patterns/email-addresses/#help-users-to-enter-a-valid-email-address
+                  size={30}
                   spellCheck="false"
                   type="email"
                 />
@@ -397,13 +403,8 @@ export const SingleQuestionWithSubquestions: StoryObj = {
                 <Label htmlFor="tel-input" inFieldSet optional>
                   Telefoonnummer
                 </Label>
-                <TextInput
-                  autoComplete="tel"
-                  id="tel-input"
-                  name="phone"
-                  size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
-                  type="tel"
-                />
+                {/* Phone numbers are at most 15 characters (E.164): https://en.wikipedia.org/wiki/E.164 */}
+                <TextInput autoComplete="tel" id="tel-input" name="phone" size={15} type="tel" />
               </Field>
             </FieldSet>
             <Button type="submit">Volgende vraag</Button>
@@ -420,24 +421,31 @@ export const MultipleQuestions: StoryObj = {
     docs: {
       source: {
         // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the accessibility guidance below stays in the panel.
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
         code: `<>
   {/* The back link is in its own Grid, because it should be outside of the main section. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
-       * A back link lets users move between form pages without worrying about losing their progress. Use a
-       * link, not a button: multiple submit buttons in a form can cause unexpected behaviour.
-       * See https://design-system.service.gov.uk/components/back-link/
+       * A back link lets users move between form pages without worrying about losing their progress. The
+       * browser back button should keep progress too, but users do not always trust it. Use a link, not a
+       * button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/ and
+       * https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
        */}
       <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
     </Grid.Cell>
   </Grid>
+  {/* The back link is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
   <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/* A form with multiple questions has a level 1 heading before it that describes the whole group. */}
       <Heading className="ams-mb-xl" level={1}>Inschrijven</Heading>
-      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      {/*
+       * Do not rely on HTML5 form validation: it is inconsistent across browsers and devices and often tells
+       * the user too little. Validate on the server and return the result, or use client-side validation.
+       * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+       */}
       <form noValidate onSubmit={(e) => e.preventDefault()}>
         {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
         <Field className="ams-mb-l">
@@ -469,33 +477,31 @@ export const MultipleQuestions: StoryObj = {
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
-           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
-           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
-           * For more info, see: https://design-system.service.gov.uk/components/back-link/
-           *
-           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
-           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           * A back link lets users move between form pages without worrying about losing their progress. The
+           * browser back button should keep progress too, but users do not always trust it. Use a link, not a
+           * button: multiple submit buttons in a form can cause unexpected behaviour.
+           * See https://design-system.service.gov.uk/components/back-link/ and
+           * https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
            */}
           <StandaloneLink href="#" icon={ChevronBackwardIcon}>
             Vorige vraag
           </StandaloneLink>
         </Grid.Cell>
       </Grid>
+      {/* The back link is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
       <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-          {/* A form with multiple questions has a level 1 heading preceding it, which describes the group of questions. */}
+          {/* A form with multiple questions has a level 1 heading before it that describes the whole group. */}
           <Heading className="ams-mb-xl" level={1}>
             Inschrijven
           </Heading>
           {/*
-           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
-           * and often gives the user too little information.
-           * Preferably validate user input on the server and return it to the client.
-           * If that is not possible, use client-side validation.
-           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           * Do not rely on HTML5 form validation: it is inconsistent across browsers and devices and often tells
+           * the user too little. Validate on the server and return the result, or use client-side validation.
+           * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
            */}
           <form noValidate onSubmit={(e) => e.preventDefault()}>
-            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
             <Field className="ams-mb-l">
               <Label htmlFor="name-input">Naam</Label>
               <TextInput
@@ -511,13 +517,8 @@ export const MultipleQuestions: StoryObj = {
               <Label htmlFor="tel-input" optional>
                 Telefoonnummer
               </Label>
-              <TextInput
-                autoComplete="tel"
-                id="tel-input"
-                name="tel"
-                size={15} // Phone numbers have a maximum length of 15 characters, as per E.164 standard: https://en.wikipedia.org/wiki/E.164
-                type="tel"
-              />
+              {/* Phone numbers are at most 15 characters (E.164): https://en.wikipedia.org/wiki/E.164 */}
+              <TextInput autoComplete="tel" id="tel-input" name="tel" size={15} type="tel" />
             </Field>
             <Field className="ams-mb-xl">
               <Label htmlFor="date">Datum</Label>
@@ -537,14 +538,22 @@ export const WithValidationError: StoryObj = {
     docs: {
       source: {
         // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the error-handling guidance below stays in the panel.
+        // comments. Provide the source by hand so the guidance below stays visible in the panel.
         code: `<>
   {/* The back link is in its own Grid, because it should be outside of the main section. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      {/*
+       * A back link lets users move between form pages without worrying about losing their progress. The
+       * browser back button should keep progress too, but users do not always trust it. Use a link, not a
+       * button: multiple submit buttons in a form can cause unexpected behaviour.
+       * See https://design-system.service.gov.uk/components/back-link/ and
+       * https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+       */}
       <StandaloneLink href="#" icon={ChevronBackwardIcon}>Vorige vraag</StandaloneLink>
     </Grid.Cell>
   </Grid>
+  {/* The back link is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
   <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
@@ -561,14 +570,24 @@ export const WithValidationError: StoryObj = {
       />
       {/*
        * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
-       * an extra entry to the heading hierarchy – and it stays labelled if CSS fails to load.
+       * an extra entry to the heading hierarchy – and it stays clearly labelled if CSS fails to load.
        */}
       <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
         <Heading aria-hidden id="form-header" level={2} size="level-4">Afspraak maken</Heading>
+        {/*
+         * First test the form without a progress indicator to see whether it is simple enough to go without
+         * one. If not, use a plain one like this.
+         * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+         */}
         <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
       </header>
-      {/* Do not rely on HTML5 form validation; validate on the server or client-side and return clear errors. */}
+      {/*
+       * Do not rely on HTML5 form validation: it is inconsistent across browsers and devices and often tells
+       * the user too little. Validate on the server and return the result, or use client-side validation.
+       * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+       */}
       <form noValidate onSubmit={(e) => e.preventDefault()}>
+        {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
         <FieldSet
           // Only link the error message to the field set while the message is in the DOM. Referencing a
           // non-existent element can trip up accessibility evaluation tools.
@@ -577,6 +596,7 @@ export const WithValidationError: StoryObj = {
           className="ams-mb-xl"
           invalid
           legend="Kies waar u voor wilt langskomen op het Stadsloket"
+          // When a page is a single question, treat its legend as the main page heading (h1).
           legendIsPageHeading
           role="radiogroup"
         >
@@ -604,26 +624,26 @@ export const WithValidationError: StoryObj = {
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
-           * We add a back link to allow users to navigate between form pages, without having to worry about losing their progress.
-           * Using the browser back button should also work without losing progress, but users do not always trust it (for some applications, rightfully so).
-           * For more info, see: https://design-system.service.gov.uk/components/back-link/
-           *
-           * We use a link here instead of a button, because multiple submit buttons in a form can cause unexpected behavior.
-           * For more info, see: https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
+           * A back link lets users move between form pages without worrying about losing their progress. The
+           * browser back button should keep progress too, but users do not always trust it. Use a link, not a
+           * button: multiple submit buttons in a form can cause unexpected behaviour.
+           * See https://design-system.service.gov.uk/components/back-link/ and
+           * https://adamsilver.io/blog/forms-with-multiple-submit-buttons-are-problematic/
            */}
           <StandaloneLink href="#" icon={ChevronBackwardIcon}>
             Vorige vraag
           </StandaloneLink>
         </Grid.Cell>
       </Grid>
+      {/* The back link is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
       <Grid as="main" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           {/*
            * Notifying a user of errors is threefold:
-           * - We add the error count to the document title, so it is the first thing a screen reader user hears.
-           * - We show the Invalid Form Alert at the top of the main container.
-           * - We add error messages next to the relevant form fields.
-           * For more info, see: https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs
+           * - Add the error count to the document title, so a screen reader announces it first.
+           * - Show the Invalid Form Alert at the top of the main container.
+           * - Add error messages next to the relevant form fields.
+           * See https://designsystem.amsterdam/?path=/docs/components-forms-invalid-form-alert--docs
            */}
           <InvalidFormAlert
             className="ams-mb-m"
@@ -631,39 +651,36 @@ export const WithValidationError: StoryObj = {
             headingLevel={2}
           />
           {/*
-           * We use a header here that is labelled by an aria-hidden heading, so that we communicate a labelled
-           * section to screen readers, without adding an unnecessary heading to the heading hierarchy.
-           * Furthermore, if CSS fails to load, we still have a clearly labelled section.
+           * A header labelled by an aria-hidden heading gives screen readers a labelled section without adding
+           * an extra entry to the heading hierarchy – and it stays clearly labelled if CSS fails to load.
            */}
           <header aria-labelledby="form-header" className="ams-mb-m ams-gap-xs">
             <Heading aria-hidden id="form-header" level={2} size="level-4">
               Afspraak maken
             </Heading>
             {/*
-             * Start by testing your form without a progress indicator to see if it’s simple enough that users do not need one.
-             * If you do, use a simple one like this one.
-             * For more info, see: https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
+             * First test the form without a progress indicator to see whether it is simple enough to go without
+             * one. If not, use a plain one like this.
+             * See https://design-system.service.gov.uk/patterns/question-pages/#using-progress-indicators
              */}
             <Paragraph>Stap 1 van 3: Afspraak</Paragraph>
           </header>
           {/*
-           * Do not use HTML5 form validation, because it is not consistent across browsers and devices,
-           * and often gives the user too little information.
-           * Preferably validate user input on the server and return it to the client.
-           * If that is not possible, use client-side validation.
-           * For more info, see: https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
+           * Do not rely on HTML5 form validation: it is inconsistent across browsers and devices and often tells
+           * the user too little. Validate on the server and return the result, or use client-side validation.
+           * See https://nldesignsystem.nl/richtlijnen/formulieren/foutmeldingen/html-formuliervalidatie/#gebruik-geen-html-formuliervalidatie
            */}
           <form noValidate onSubmit={(e) => e.preventDefault()}>
-            {/* See the docs on specific form components on https://designsystem.amsterdam for more information on how to use them */}
+            {/* See the docs on each form component on https://designsystem.amsterdam for how to use them. */}
             <FieldSet
-              // Make sure you only link the error message to the field set when the error message is in the DOM.
-              // Referencing a non-existent element can cause errors in accessibility evaluation tools.
+              // Only link the error message to the field set while the message is in the DOM. Referencing a
+              // non-existent element can trip up accessibility evaluation tools.
               aria-describedby="error"
               aria-required="true"
               className="ams-mb-xl"
               invalid
               legend="Kies waar u voor wilt langskomen op het Stadsloket"
-              // When a page consists of a single question, its label or legend should be treated as the main page heading (`h1`).
+              // When a page is a single question, treat its legend as the main page heading (h1).
               legendIsPageHeading
               role="radiogroup"
             >
