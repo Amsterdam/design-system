@@ -48,9 +48,13 @@ They should offer navigation using the Page Header only.
 
 ## Vertical space between sections
 
-The direct children of the Page, apart from the Page Header and the Page Footer, are its sections.
+Between the Page Header and the Page Footer, the Page holds a sequence of sections.
 Most sections are a Grid, but a section can also be a Spotlight, an Image, or an Overlap.
 A Spotlight contains a Grid, which in that position also spaces the content against the edges of the coloured band.
+
+A landmark is not always a section itself.
+A page either sets `as="main"` on the Grid that holds its content, wraps several sections in a `main` element, or places `main` in a Grid Cell beside a sidebar.
+Such a wrapper takes no padding of its own, and the Grids inside and around it keep theirs.
 
 Sections create this space with the padding props of the Grid.
 A section that is not a Grid has no padding props and takes its space from the Grids around it.
