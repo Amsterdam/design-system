@@ -54,11 +54,12 @@ A Spotlight contains a Grid, which in that position also spaces the content agai
 
 Sections create this space with the padding props of the Grid.
 A section that is not a Grid has no padding props and takes its space from the Grids around it.
+The Page Header and the Page Footer add no vertical space of their own, so the first and the last Grid provide it.
 
 ### The first Grid
 
 The first Grid has a `paddingTop` of `large` and no `paddingBottom`.
-On most pages it contains only the Breadcrumb.
+On most pages it contains only the Breadcrumb, and on the question pages of a Form Flow only the back link.
 The Grid that follows the Breadcrumb has no `paddingTop`, so that the breadcrumb and the page title read as a single block.
 
 Not every page type has a breadcrumb.
@@ -66,7 +67,7 @@ The Home Page opens with an Overlap, the Loading Page with its search field, and
 Where the first Grid holds content instead of a breadcrumb, it still takes the `large` top padding.
 
 Only the Breadcrumb closes the gap below itself.
-The back link of the Form Flow, for example, keeps the regular `x-large` between itself and the section that follows.
+The back link keeps the regular `x-large` between itself and the section that follows.
 
 ### The Grids in between
 
