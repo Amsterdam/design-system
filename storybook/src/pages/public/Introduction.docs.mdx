@@ -63,8 +63,12 @@ On most pages it contains only the Breadcrumb, and on the question pages of a Fo
 The Grid that follows the Breadcrumb has no `paddingTop`, so that the breadcrumb and the page title read as a single block.
 
 Not every page type has a breadcrumb.
-The Home Page opens with an Overlap, the Loading Page with its search field, and the Handbook Page relies on its table of contents.
+The Loading Page opens with its search field, and the Handbook Page relies on its table of contents.
 Where the first Grid holds content instead of a breadcrumb, it still takes the `large` top padding.
+
+A page may also open with a section that is not a Grid.
+The Home Page starts with an Overlap, which sits flush against the Page Header.
+The Grid that follows such a section is a regular one, with a `paddingVertical` of `x-large`.
 
 Only the Breadcrumb closes the gap below itself.
 The back link keeps the regular `x-large` between itself and the section that follows.
