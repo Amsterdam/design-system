@@ -12765,7 +12765,14 @@ export default meta
 
 type Story = StoryObj&lt;typeof meta&gt;
 
-const pageShell = (busy: string, status: string, results: string) =&gt; `&lt;main id=&quot;inhoud&quot;&gt;
+type PageSourceOptions = {
+  busy: string
+  extraCells?: string
+  status: string
+  statusCell?: string
+}
+
+const pageShell = ({ busy, extraCells = &#39;&#39;, status, statusCell = &#39;&#39; }: PageSourceOptions) =&gt; `&lt;main id=&quot;inhoud&quot;&gt;
   {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -12793,25 +12800,23 @@ const pageShell = (busy: string, status: string, results: string) =&gt; `&lt;mai
        * message to the result count – so screen readers reliably announce the update. A Loading Region
        * component to wrap this pattern is planned; until then it is plain HTML.
        */}
-      &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;${status}&lt;/p&gt;${results}
+      &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;${status}&lt;/p&gt;${statusCell}
+    &lt;/Grid.Cell&gt;${extraCells}
   &lt;/Grid&gt;
 &lt;/main&gt;`
 
 // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
 // comments. Provide the source by hand so the guidance above the results region stays visible.
-const idleSource = pageShell(
-  &#39;false&#39;,
-  &#39;&#39;,
-  `
-      &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;
-    &lt;/Grid.Cell&gt;`,
-)
+const idleSource = pageShell({
+  busy: &#39;false&#39;,
+  status: &#39;&#39;,
+  statusCell: `
+      &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;`,
+})
 
-const loadingSource = pageShell(
-  &#39;true&#39;,
-  &#39;Zoekresultaten voor ‘woningbouw’ worden geladen&#39;,
-  `
-    &lt;/Grid.Cell&gt;
+const loadingSource = pageShell({
+  busy: &#39;true&#39;,
+  extraCells: `
 
     {/*
      * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
@@ -12826,14 +12831,12 @@ const loadingSource = pageShell(
       &lt;/Skeleton&gt;
     &lt;/Grid.Cell&gt;
     {/* … five more Skeleton cells, one for each result that is loading … */}`,
-)
+  status: &#39;Zoekresultaten voor ‘woningbouw’ worden geladen&#39;,
+})
 
-const loadedSource = pageShell(
-  &#39;false&#39;,
-  &#39;6 resultaten voor ‘woningbouw’ gevonden&#39;,
-  `
-      &lt;Heading level={2} size=&quot;level-3&quot;&gt;6 resultaten voor ‘woningbouw’&lt;/Heading&gt;
-    &lt;/Grid.Cell&gt;
+const loadedSource = pageShell({
+  busy: &#39;false&#39;,
+  extraCells: `
 
     &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}&gt;
       &lt;Card&gt;
@@ -12845,7 +12848,10 @@ const loadedSource = pageShell(
       &lt;/Card&gt;
     &lt;/Grid.Cell&gt;
     {/* … five more Cards, in the same cells the Skeletons occupied … */}`,
-)
+  status: &#39;6 resultaten voor ‘woningbouw’ gevonden&#39;,
+  statusCell: `
+      &lt;Heading level={2} size=&quot;level-3&quot;&gt;6 resultaten voor ‘woningbouw’&lt;/Heading&gt;`,
+})
 
 export const Default: Story = {
   parameters: { docs: { source: { code: idleSource, language: &#39;tsx&#39; } } },
@@ -31899,7 +31905,14 @@ export default meta
 
 type Story = StoryObj&lt;typeof meta&gt;
 
-const pageShell = (busy: string, status: string, results: string) =&gt; `&lt;main id=&quot;inhoud&quot;&gt;
+type PageSourceOptions = {
+  busy: string
+  extraCells?: string
+  status: string
+  statusCell?: string
+}
+
+const pageShell = ({ busy, extraCells = &#39;&#39;, status, statusCell = &#39;&#39; }: PageSourceOptions) =&gt; `&lt;main id=&quot;inhoud&quot;&gt;
   {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -31927,25 +31940,23 @@ const pageShell = (busy: string, status: string, results: string) =&gt; `&lt;mai
        * message to the result count – so screen readers reliably announce the update. A Loading Region
        * component to wrap this pattern is planned; until then it is plain HTML.
        */}
-      &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;${status}&lt;/p&gt;${results}
+      &lt;p className=&quot;ams-visually-hidden&quot; role=&quot;status&quot;&gt;${status}&lt;/p&gt;${statusCell}
+    &lt;/Grid.Cell&gt;${extraCells}
   &lt;/Grid&gt;
 &lt;/main&gt;`
 
 // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
 // comments. Provide the source by hand so the guidance above the results region stays visible.
-const idleSource = pageShell(
-  &#39;false&#39;,
-  &#39;&#39;,
-  `
-      &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;
-    &lt;/Grid.Cell&gt;`,
-)
+const idleSource = pageShell({
+  busy: &#39;false&#39;,
+  status: &#39;&#39;,
+  statusCell: `
+      &lt;Paragraph&gt;Klik op de zoekknop om de resultaten te laden.&lt;/Paragraph&gt;`,
+})
 
-const loadingSource = pageShell(
-  &#39;true&#39;,
-  &#39;Zoekresultaten voor ‘woningbouw’ worden geladen&#39;,
-  `
-    &lt;/Grid.Cell&gt;
+const loadingSource = pageShell({
+  busy: &#39;true&#39;,
+  extraCells: `
 
     {/*
      * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
@@ -31960,14 +31971,12 @@ const loadingSource = pageShell(
       &lt;/Skeleton&gt;
     &lt;/Grid.Cell&gt;
     {/* … five more Skeleton cells, one for each result that is loading … */}`,
-)
+  status: &#39;Zoekresultaten voor ‘woningbouw’ worden geladen&#39;,
+})
 
-const loadedSource = pageShell(
-  &#39;false&#39;,
-  &#39;6 resultaten voor ‘woningbouw’ gevonden&#39;,
-  `
-      &lt;Heading level={2} size=&quot;level-3&quot;&gt;6 resultaten voor ‘woningbouw’&lt;/Heading&gt;
-    &lt;/Grid.Cell&gt;
+const loadedSource = pageShell({
+  busy: &#39;false&#39;,
+  extraCells: `
 
     &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}&gt;
       &lt;Card&gt;
@@ -31979,7 +31988,10 @@ const loadedSource = pageShell(
       &lt;/Card&gt;
     &lt;/Grid.Cell&gt;
     {/* … five more Cards, in the same cells the Skeletons occupied … */}`,
-)
+  status: &#39;6 resultaten voor ‘woningbouw’ gevonden&#39;,
+  statusCell: `
+      &lt;Heading level={2} size=&quot;level-3&quot;&gt;6 resultaten voor ‘woningbouw’&lt;/Heading&gt;`,
+})
 
 export const Default: Story = {
   parameters: { docs: { source: { code: idleSource, language: &#39;tsx&#39; } } },
