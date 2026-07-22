@@ -91,7 +91,7 @@ const meta = {
           </Heading>
           <UnorderedList className="ams-mb-xl">
             <UnorderedList.Item>
-              Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigID aan.
+              Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigiD aan.
             </UnorderedList.Item>
             <UnorderedList.Item>
               {/* download hints the browser to save the PDF rather than open it in a new tab. */}
