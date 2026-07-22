@@ -5,15 +5,15 @@
 
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 
-import { PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
+import { Page, PageFooter, PageHeader, SkipLink } from '@amsterdam/design-system-react'
 import { UserAccountIcon } from '@amsterdam/design-system-react-icons'
 
 import { MenuWithItems } from './MenuWithItems'
 
-type LayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+type PageLayoutProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export const Layout = ({ children }: LayoutProps) => (
-  <>
+export const PageLayout = ({ children }: PageLayoutProps) => (
+  <Page withMenu>
     <SkipLink className="ams-page__area--skip-link" href="#inhoud">
       Direct naar inhoud
     </SkipLink>
@@ -42,5 +42,5 @@ export const Layout = ({ children }: LayoutProps) => (
         <PageFooter.MenuLink href="#">Overzicht releases</PageFooter.MenuLink>
       </PageFooter.Menu>
     </PageFooter>
-  </>
+  </Page>
 )
