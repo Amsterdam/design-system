@@ -18,7 +18,9 @@ For a task that ends in a form or an application, use the [Product page](/docs/p
 - The page header contains the title and the metadata that classifies the page: taxonomy tags, optionally preceded by a date.
   The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
 - The body holds several sections, each opening with a level 2 Heading.
-- Everything below the header sits in its own Grid, so that each block is set apart by the padding between them rather than by a row gap.
+- The header Grid holds the title and the metadata in one Cell.
+  Where an introductory Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the header Cell.
+- Each section below the header sits in its own Grid, so the padding between those Grids sets them apart rather than a row gap.
 
 ## Headings
 
@@ -30,7 +32,10 @@ For a task that ends in a form or an application, use the [Product page](/docs/p
 ## Layout and spacing
 
 - The Grids use the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
+  The Cells for the lead paragraph and the Image take the sizes for side-by-side blocks, which reach one column further than the header Cell above them.
 - All body sections share a single Grid Cell, indented one column on wider screens for a comfortable reading measure.
+- Where the lead paragraph takes a Cell of its own, the Grid’s row gap sets the space between it and the title above.
+  That gap stays at the default of `x-large`: [vertical space](/docs/docs-designer-guide-vertical-space--docs) asks for medium here, which `gapVertical` does not offer.
 - An [Image](/docs/components-media-image--docs) always reserves its box, so the layout does not shift while it loads.
   Use `aspectRatio` to change the ratio it crops to; leaving it off keeps the default of 16:9.
   Do not lazy-load an image in the first screenful, where it would only delay the largest image in the viewport.
@@ -39,7 +44,7 @@ For a task that ends in a form or an application, use the [Product page](/docs/p
 
 ## Default
 
-The lead paragraph and an introductory Image sit side by side below the header, each spanning half the content width, and stack on the narrow grid.
+The lead paragraph and an introductory Image sit side by side below the header, and stack on the narrow grid.
 
 An [Accordion](/docs/components-containers-accordion--docs) groups detail questions that not every reader needs.
 Keep the answers short enough to read without scrolling back to the question.

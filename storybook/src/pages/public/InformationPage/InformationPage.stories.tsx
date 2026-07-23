@@ -54,7 +54,8 @@ export const Default: StoryObj = {
         <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
       </Grid.Cell>
       {/*
-       * The lead paragraph and the introductory image each span half the content width, and stack on the narrow grid.
+       * The lead paragraph and the introductory image take the side-by-side Cell sizes, so the pair reaches a
+       * column further than the header Cell above it. Both stack on the narrow grid.
        */}
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Paragraph size="large">
@@ -176,7 +177,10 @@ export const Default: StoryObj = {
             </Heading>
             <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
           </Grid.Cell>
-          {/* The lead paragraph and the introductory image each span half the content width, and stack on the narrow grid. */}
+          {/*
+           * The lead paragraph and the introductory image take the side-by-side Cell sizes, so the pair reaches a
+           * column further than the header Cell above it. Both stack on the narrow grid.
+           */}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Paragraph size="large">
               De Wet Natuurbescherming verbiedt festivals in het broedseizoen niet. Festivalorganisatoren moeten wel
