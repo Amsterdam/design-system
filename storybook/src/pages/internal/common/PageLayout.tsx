@@ -22,10 +22,10 @@ export const PageLayout = ({ children, ...restProps }: PageLayoutProps) => (
       Direct naar inhoud
     </SkipLink>
     <PageHeader
+      // An internal application is not the City’s main website, so the header names it beside the logo.
+      // That name also completes the hidden text of the logo link: ‘Ga naar de homepage van …’.
+      brandName="Naam van de applicatie"
       className="ams-page__area--header"
-      logoLink="/"
-      // Without a brandName the hidden text of the logo link reads ‘Ga naar de homepage’. Name the application instead.
-      logoLinkTitle="Naar de homepage van Applicatie"
       menuItems={
         // fixed keeps this link next to the menu button below the wide breakpoint, where menu items otherwise hide.
         <PageHeader.MenuLink fixed href="#" icon={UserAccountIcon}>
