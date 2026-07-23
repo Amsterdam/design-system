@@ -14,10 +14,11 @@ import { clsx } from 'clsx'
 import './photo-placeholder.css'
 
 type PhotoPlaceholderProps = {
+  /** The aspect ratio to reserve. Required: the box holds only an icon, so it has no height of its own. */
+  readonly aspectRatio: NonNullable<AspectRatioProps['aspectRatio']>
   /** The icon in the centre. Defaults to a single person; pass `PersonsIcon` for a photo of a group. */
   readonly icon?: IconProps['svg']
-} & Readonly<AspectRatioProps> &
-  Readonly<HTMLAttributes<HTMLDivElement>>
+} & Readonly<HTMLAttributes<HTMLDivElement>>
 
 /**
  * Stands in for a photograph in page examples, so that no one recognisable appears in the Storybook.
