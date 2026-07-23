@@ -1,0 +1,8 @@
+import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";import{t}from"./jsx-runtime-Bq1bXGty.js";import{P as n,X as r}from"./index.esm-Qmbb4w6o.js";import{L as i,t as a}from"./src-HDZDVKF5.js";import{h as o,u as s}from"./exampleContent-DJcgXd2S.js";var c,l,u,d,f,p=e((()=>{r(),a(),o(),c=t(),{useArgs:l}=__STORYBOOK_MODULE_PREVIEW_API__,u={title:`Components/Containers/Progress List`,component:i.Step,argTypes:{collapsed:{control:!1},defaultCollapsed:{control:!1},defaultExpanded:{control:!1},expanded:{control:{labels:{undefined:`undefined (uncontrolled)`},type:`radio`},options:[void 0,!0,!1]},onToggle:{action:`toggled`},status:{control:{labels:{undefined:`default`},type:`radio`},options:[void 0,`current`,`completed`]}},decorators:[e=>(0,c.jsx)(i,{collapsible:!0,headingLevel:3,children:(0,c.jsx)(e,{})})],render:({children:e,...t})=>{let[{expanded:n},r]=l();return(0,c.jsx)(i.Step,{...t,onToggle:e=>{n!==void 0&&r({expanded:e}),t.onToggle?.(e)},children:e},`${String(n===void 0)}-${String(t.status)}`)}},d={args:{children:(0,c.jsx)(n,{children:s()}),expanded:!0,heading:`Aanpassing ontwerp fietspad Entreegebied`,status:`current`}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: <Paragraph>{exampleParagraph()}</Paragraph>,
+    expanded: true,
+    heading: 'Aanpassing ontwerp fietspad Entreegebied',
+    status: 'current'
+  }
+}`,...d.parameters?.docs?.source}}},f=[`Step`]}));p();export{d as Step,f as __namedExportsOrder,u as default,p as t};
