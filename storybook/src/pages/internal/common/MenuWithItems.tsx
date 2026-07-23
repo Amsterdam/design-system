@@ -20,6 +20,7 @@ type MenuItem = {
   text: string
 }
 
+// Menu links take the filled variant of an icon.
 const menuItems: MenuItem[] = [
   {
     href: '#',
@@ -48,6 +49,7 @@ const menuItems: MenuItem[] = [
   },
 ]
 
+// Both Menus of a page must offer the same links, so one component renders the list for either position.
 export const MenuWithItems = (props: MenuProps) => (
   <Menu {...props}>
     {menuItems.map(({ href, icon, text }) => (
