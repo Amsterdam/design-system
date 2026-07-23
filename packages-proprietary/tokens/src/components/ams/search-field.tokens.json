@@ -15,7 +15,7 @@
           }
         },
         "border-radius": {
-          "$value": "{ams.border.radius}",
+          "$value": "{ams.inputs.border-radius}",
           "$extensions": {
             "nl.amsterdam.type": "borderRadius"
           }
