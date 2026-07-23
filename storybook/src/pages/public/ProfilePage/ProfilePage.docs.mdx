@@ -49,7 +49,8 @@ Images in a Row keep their intrinsic width instead of shrinking, so they overflo
 ## Layout and spacing
 
 Sections take their vertical space from the padding props of the [Grid](/docs/components-layout-grid--docs), not from margins on the content they hold.
-The first Grid takes a `paddingTop` of `large`, and the Grid that follows the breadcrumb takes none, so the two read as one block.
+The first Grid takes a `paddingTop` of `large`, and the Grid that follows the breadcrumb sets no `paddingTop` of its own, so the two read as one block.
+That Grid still carries a `paddingBottom`, which spaces it against the section below.
 Every Grid in between takes a `paddingVertical` of `x-large`, and the last one before the Page Footer a `paddingBottom` of `2x-large`.
 Two Grids that touch add their paddings together, so leave the padding off one of the two sides.
 Across a Spotlight or a full-width image that doubling is what sets the band apart, so keep it there.
