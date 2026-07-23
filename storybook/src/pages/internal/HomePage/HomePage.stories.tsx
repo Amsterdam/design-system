@@ -19,7 +19,7 @@ const meta = {
   title: 'Pages/Internal/Home Page',
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
-    <Grid paddingBottom="x-large" paddingTop="large">
+    <Grid paddingVertical="x-large">
       {/*
        * appearance="transparent" removes the cell’s background and padding, so the page title sits directly
        * on the page instead of looking like one of the content blocks the other cells form.
@@ -59,7 +59,7 @@ export const Default: StoryObj = {
         // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
         // JSX comments disappear. Provide the source by hand so the panel shows a trimmed,
         // annotated version of the page.
-        code: `<Grid paddingBottom="x-large" paddingTop="large">
+        code: `<Grid paddingVertical="x-large">
   {/*
    * appearance="transparent" removes the cell’s background and padding, so the page title sits directly
    * on the page instead of looking like one of the content blocks the other cells form.

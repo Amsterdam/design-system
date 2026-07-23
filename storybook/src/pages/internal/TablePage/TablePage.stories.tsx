@@ -56,7 +56,7 @@ export const SortingWithSelect: StoryObj = {
         // Because this story’s `render` takes no argument, the Code Panel prints its source as written, sorting
         // scaffolding and all. Provide the source by hand so the panel shows the table markup on its own, with the
         // guidance kept short.
-        code: `<Grid paddingBottom="x-large" paddingTop="large">
+        code: `<Grid paddingVertical="x-large">
   <Grid.Cell appearance="transparent" span="all">
     <Heading level={1}>Vergunninghouders 2026/2027</Heading>
   </Grid.Cell>
@@ -96,7 +96,7 @@ export const SortingWithSelect: StoryObj = {
     const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
 
     return (
-      <Grid paddingBottom="x-large" paddingTop="large">
+      <Grid paddingVertical="x-large">
         <Grid.Cell appearance="transparent" span="all">
           <Heading level={1}>Vergunninghouders 2026/2027</Heading>
         </Grid.Cell>
@@ -203,7 +203,7 @@ export const WithPagination = () => {
   }, [])
 
   return (
-    <Grid paddingBottom="x-large" paddingTop="large">
+    <Grid paddingVertical="x-large">
       <Grid.Cell appearance="transparent" span="all">
         <Heading level={1}>Vergunninghouders 2026/2027</Heading>
       </Grid.Cell>
@@ -242,7 +242,7 @@ WithPagination.parameters = {
       // Because this story’s `render` takes no argument, the Code Panel prints its source as written, pagination
       // scaffolding and all. Provide the source by hand so the panel shows the table markup on its own, with the
       // guidance kept short.
-      code: `<Grid paddingBottom="x-large" paddingTop="large">
+      code: `<Grid paddingVertical="x-large">
   <Grid.Cell appearance="transparent" span="all">
     <Heading level={1}>Vergunninghouders 2026/2027</Heading>
   </Grid.Cell>

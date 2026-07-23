@@ -59,6 +59,16 @@ The component must be rendered twice.
 
 Make sure that both menus have the same items.
 
+## Vertical space
+
+Between the Page Header and the Page Footer, an internal page holds one or more Grids.
+Give each of them a `paddingVertical` of `x-large`.
+The public templates vary this padding along the page; internal pages use the same value everywhere.
+
+Leave `gapVertical` at its default of `x-large` as well, so the space between the rows matches the space above and below them.
+
+Use the [Margin](/docs/utilities-css-margin--docs) utility classes for the space between the elements within a Grid Cell, in the amounts of the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guide.
+
 ## See also
 
 - [Breadcrumb](/docs/components-navigation-breadcrumb--docs)
