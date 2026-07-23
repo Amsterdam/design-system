@@ -14,6 +14,12 @@
             "nl.amsterdam.type": "color"
           }
         },
+        "border-radius": {
+          "$value": "{ams.border.radius}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderRadius"
+          }
+        },
         "border-style": {
           "$value": "{ams.inputs.border-style}",
           "$extensions": {

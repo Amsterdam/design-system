@@ -1,6 +1,12 @@
 {
   "ams": {
     "border": {
+      "radius": {
+        "$value": "0",
+        "$extensions": {
+          "nl.amsterdam.type": "borderRadius"
+        }
+      },
       "width": {
         "s": {
           "$value": {

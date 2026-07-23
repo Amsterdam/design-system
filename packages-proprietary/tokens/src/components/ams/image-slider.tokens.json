@@ -37,6 +37,12 @@
             "$value": "transparent",
             "$type": "color"
           },
+          "background-position": {
+            "$value": "center",
+            "$extensions": {
+              "nl.amsterdam.type": "backgroundPosition"
+            }
+          },
           "cursor": {
             "$value": "{ams.cursor.interactive}",
             "$extensions": {
