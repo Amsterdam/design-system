@@ -210,7 +210,7 @@ export const WithPagination = () => {
       <Grid.Cell span="all">
         <Table className="ams-mb-l">
           {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
-          <Table.Caption className="ams-mb-m">
+          <Table.Caption>
             <Heading level={2}>Gegevens per adres</Heading>
           </Table.Caption>
           <Table.Header>
@@ -249,7 +249,7 @@ WithPagination.parameters = {
   <Grid.Cell span="all">
     <Table className="ams-mb-l">
       {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
-      <Table.Caption className="ams-mb-m">
+      <Table.Caption>
         <Heading level={2}>Gegevens per adres</Heading>
       </Table.Caption>
       <Table.Header>
