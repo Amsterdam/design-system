@@ -46,6 +46,22 @@ Note that the title and lead sit one column further right than the sections belo
 Group a set of photos in an Image Slider rather than a Row.
 Images in a Row keep their intrinsic width instead of shrinking, so they overflow the Cell and cover the next column.
 
+## Layout and spacing
+
+Sections take their vertical space from the padding props of the [Grid](/docs/components-layout-grid--docs), not from margins on the content they hold.
+The first Grid takes a `paddingTop` of `large`, and the Grid that follows the breadcrumb takes none, so the two read as one block.
+Every Grid in between takes a `paddingVertical` of `x-large`, and the last one before the Page Footer a `paddingBottom` of `2x-large`.
+Two Grids that touch add their paddings together, so leave the padding off one of the two sides.
+Across a Spotlight or a full-width image that doubling is what sets the band apart, so keep it there.
+
+Within a Grid Cell, every element but the last sets its own bottom margin with an `ams-mb-*` utility.
+Look each pair up in the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guide rather than working from feel, and use a heading's visual size rather than its level.
+
+Cells of the same Grid are spaced by its row gap instead, which stays at the default of `x-large`.
+That gap has no medium step, so a title and a lead in separate cells sit further apart than the guide advises for that pair.
+This is a property of the Grid rather than a mistake.
+Put the two in one Cell when the exact value matters, and accept the row gap when the cells have to differ in width, as they do here to leave room for the photo.
+
 ## See also
 
 - [Accordion](/docs/components-containers-accordion--docs)

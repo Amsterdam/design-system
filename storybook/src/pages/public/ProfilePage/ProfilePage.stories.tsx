@@ -76,15 +76,13 @@ export const Person: StoryObj = {
       <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Burgemeester Miriam Doornbos
-            </Heading>
+            <Heading level={1}>Burgemeester Miriam Doornbos</Heading>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Paragraph className="ams-mb-m" size="large">
+            <Paragraph className="ams-mb-l" size="large">
               De functie van burgemeester wordt uitgevoerd door Miriam Doornbos.
             </Paragraph>
-            <Paragraph className="ams-mb-s">Zij is verantwoordelijk voor de portefeuilles:</Paragraph>
+            <Paragraph className="ams-mb-m">Zij is verantwoordelijk voor de portefeuilles:</Paragraph>
             <UnorderedList>
               <UnorderedList.Item>Algemene Zaken</UnorderedList.Item>
               <UnorderedList.Item>Openbare Orde en Veiligheid</UnorderedList.Item>
@@ -191,7 +189,7 @@ export const Person: StoryObj = {
             <StandaloneLink href="#">Over de ambtswoning</StandaloneLink>
           </Grid.Cell>
         </Grid>
-        <Grid paddingBottom="x-large">
+        <Grid paddingBottom="2x-large">
           <Grid.Cell span="all">
             <Accordion headingLevel={2}>
               <Accordion.Section defaultExpanded label="Loopbaan (cv)">
@@ -234,9 +232,7 @@ export const Group: StoryObj = {
       <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Fractie Stadspartij
-            </Heading>
+            <Heading level={1}>Fractie Stadspartij</Heading>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Paragraph size="large">
@@ -323,7 +319,7 @@ export const Group: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Grid gapVertical="large" paddingVertical="x-large">
+        <Grid paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span="all">
             <Heading level={2}>Raadsleden</Heading>
           </Grid.Cell>
@@ -371,12 +367,12 @@ export const Location: StoryObj = {
         </Grid.Cell>
       </Grid>
       <main id="inhoud">
-        <Grid>
+        <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
               Sportpark Riekerhaven
             </Heading>
-            <Paragraph className="ams-mb-xl" size="large">
+            <Paragraph size="large">
               Sportpark Riekerhaven ligt in Nieuw-West, tussen de Riekerhaven en de Anderlechtlaan. Op het park sporten
               voetballers, cricketers, honkballers en atleten, en er is ruimte voor buurtactiviteiten.
             </Paragraph>
@@ -387,7 +383,6 @@ export const Location: StoryObj = {
             <Image
               alt="De velden van Sportpark Riekerhaven vanuit de lucht, met daarachter de atletiekbaan."
               aspectRatio="16:5"
-              loading="lazy"
               src="https://picsum.photos/id/274/1440/450"
             />
           </Grid.Cell>
@@ -503,7 +498,7 @@ export const Location: StoryObj = {
             <Paragraph>Fietsen stalt u gratis in de overdekte fietsenstalling met plek voor 200 fietsen.</Paragraph>
           </Grid.Cell>
         </Grid>
-        <Grid paddingBottom="x-large">
+        <Grid paddingBottom="2x-large">
           <Grid.Cell span="all">
             <Heading level={2}>Locatie</Heading>
           </Grid.Cell>
@@ -534,7 +529,7 @@ export const LocationLarge: StoryObj = {
         </Grid.Cell>
       </Grid>
       <main id="inhoud">
-        <Grid>
+        <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
               Apollohal
@@ -550,7 +545,6 @@ export const LocationLarge: StoryObj = {
             <Image
               alt="De voorgevel van de Apollohal aan de Apollolaan."
               aspectRatio="16:5"
-              loading="lazy"
               src="https://picsum.photos/id/164/1440/450"
             />
           </Grid.Cell>
@@ -584,7 +578,7 @@ export const LocationLarge: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        <Grid gapVertical="large" paddingBottom="x-large">
+        <Grid paddingBottom="x-large">
           <Grid.Cell span="all">
             <Heading level={2}>Zalen en sportmogelijkheden</Heading>
           </Grid.Cell>
@@ -783,7 +777,7 @@ export const LocationLarge: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        <Grid paddingBottom="x-large">
+        <Grid paddingBottom="2x-large">
           <Grid.Cell span="all">
             <Heading level={2}>Locatie en plattegrond</Heading>
           </Grid.Cell>
@@ -797,6 +791,7 @@ export const LocationLarge: StoryObj = {
             <Image
               alt="Kaart met de ligging van de Apollohal tussen de Apollolaan en het Muzenplein."
               aspectRatio="16:9"
+              loading="lazy"
               src="https://picsum.photos/id/1043/1280/720"
             />
           </Grid.Cell>
@@ -935,16 +930,15 @@ export const Sublocation: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        <Grid paddingBottom="x-large">
+        <Grid paddingBottom="2x-large">
           <Grid.Cell span="all">
-            <Heading className="ams-mb-m" level={2}>
-              Locatie
-            </Heading>
+            <Heading level={2}>Locatie</Heading>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }}>
             <Image
               alt="Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West."
               aspectRatio="16:9"
+              loading="lazy"
               src="https://picsum.photos/id/1015/1440/810"
             />
           </Grid.Cell>
