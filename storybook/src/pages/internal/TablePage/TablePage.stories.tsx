@@ -108,6 +108,7 @@ export const SortingWithSelect: StoryObj = {
             <form onSubmit={handleSortSubmit}>
               <Row alignVertical="center" wrap>
                 <Label htmlFor="sort">Sorteren op</Label>
+                {/* Submitting the form on change avoids a separate submit button (see handleSortChange). */}
                 <Select defaultValue={sortOrder} id="sort" name="sort" onChange={handleSortChange}>
                   {sortSelectOptions}
                 </Select>
@@ -130,6 +131,8 @@ export const SortingWithSelect: StoryObj = {
 
 // With Pagination
 
+// 50 rows at 5 per page make 10 pages: more than the seven page links Pagination shows at once, so this
+// example includes an ellipsis.
 const paginationOptions = {
   addresses: bagAddresses.slice(0, 50),
   pageSize: 5,
@@ -216,6 +219,11 @@ export const WithPagination = () => {
           <AddressTableBody addresses={paginatedAddresses} firstRow={firstRow} />
         </Table>
         <Row align="center">
+          {/*
+           * Pagination renders links, so pages stay shareable and open in a new tab. linkTemplate builds each
+           * href; linkComponent lets you pass your router’s link. Here a small wrapper keeps navigation inside
+           * Storybook rather than reloading the iframe – see PaginationLink and handlePaginationClick.
+           */}
           <Pagination
             linkComponent={PaginationLink}
             linkTemplate={paginationLinkTemplate}

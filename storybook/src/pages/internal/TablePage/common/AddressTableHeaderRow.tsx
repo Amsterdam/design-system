@@ -5,6 +5,8 @@
 
 import { Table } from '@amsterdam/design-system-react'
 
+// scope="col" tells assistive technology that these cells label the columns below them.
+// Every align value matches the cells of its column: numbers line up on their last digit when end-aligned.
 export const AddressTableHeaderRow = () => (
   <Table.Row>
     <Table.HeaderCell scope="col">#</Table.HeaderCell>
