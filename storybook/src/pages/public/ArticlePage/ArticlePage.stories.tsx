@@ -64,7 +64,6 @@ const meta = {
         <Image
           alt=""
           aspectRatio="16:5"
-          loading="lazy"
           src={exampleImageSource(1440, 450)}
           srcSet={`${exampleImageSource(640, 200)} 640w, ${exampleImageSource(1280, 400)} 1280w, ${exampleImageSource(1440, 450)} 1440w`}
         />
@@ -255,7 +254,6 @@ export const Default: StoryObj = {
     <Image
       alt=""
       aspectRatio="16:5"
-      loading="lazy"
       src="https://picsum.photos/1440/450"
       srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
     />

@@ -40,7 +40,7 @@ const meta = {
         {/* The title and lead span the wide intro column. */}
         {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-xl" level={1}>
+          <Heading className="ams-mb-m" level={1}>
             Gratis laptop of tablet voor de basisschool aanvragen
           </Heading>
           <Paragraph size="large">
@@ -191,7 +191,7 @@ export const Default: StoryObj = {
     {/* The title and lead span the wide intro column. */}
     {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-      <Heading className="ams-mb-xl" level={1}>Gratis laptop of tablet voor de basisschool aanvragen</Heading>
+      <Heading className="ams-mb-m" level={1}>Gratis laptop of tablet voor de basisschool aanvragen</Heading>
       <Paragraph size="large">
         U krijgt per huishouden 1 keer per 5 schooljaren een gratis laptop of tablet op de basisschool.
       </Paragraph>
