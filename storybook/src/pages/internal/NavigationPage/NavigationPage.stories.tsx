@@ -49,6 +49,11 @@ const meta = {
           </Breadcrumb>
           <Heading level={1}>Naam van het project</Heading>
         </Grid.Cell>
+        {/*
+         * The main project navigation. rowSpan={2} lets this one cell sit beside both the subnavigation and
+         * the content below it; appearance="flush" drops the cell padding so the tabs align with the grid.
+         * accessibleName labels the nav for screen readers, and aria-current="page" marks the active link.
+         */}
         <Grid.Cell appearance="flush" rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}>
           <TabNavigation accessibleName="Navigatie voor dit project" orientation="vertical">
             <TabNavigation.List>
@@ -66,6 +71,10 @@ const meta = {
             </TabNavigation.List>
           </TabNavigation>
         </Grid.Cell>
+        {/*
+         * The subnavigation scrolls sideways when it overflows. Keep a ref to its list so selecting another
+         * main menu item can reset the scroll back to the start (see handleMenuItemClick).
+         */}
         <Grid.Cell
           appearance="flush"
           span={{ narrow: 4, medium: 6, wide: 10 }}
@@ -86,6 +95,7 @@ const meta = {
             </TabNavigation.List>
           </TabNavigation>
         </Grid.Cell>
+        {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
         <Grid.Cell
           span={{ narrow: 4, medium: 6, wide: 7 }}
           start={{ narrow: 1, medium: 3, wide: 3 }}
