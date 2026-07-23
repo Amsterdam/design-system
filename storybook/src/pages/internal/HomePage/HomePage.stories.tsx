@@ -46,8 +46,9 @@ export const Default: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear. Provide the source by hand so the panel shows a trimmed,
+        // annotated version of the page.
         code: `<Grid paddingBottom="x-large" paddingTop="large">
   {/*
    * appearance="transparent" removes the cell’s background and padding, so the page title sits directly

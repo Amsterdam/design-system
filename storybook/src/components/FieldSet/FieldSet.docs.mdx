@@ -70,7 +70,7 @@ Do not use rich text (such as links or lists) in an Error Message. [Find out why
 
 ### With Heading in Legend
 
-If the Field Set is the only content on the page, its Legend serves as the main heading as well.
+If the Field Set holds the only question on the page, its Legend serves as the main heading as well.
 Set `legendIsPageHeading` to include an `h1` element to reflect this.
 
 <Canvas of={FieldSetStories.WithHeadingInLegend} />
@@ -86,6 +86,12 @@ Use the `inFieldSet` prop to show the legend in a lighter style.
 
 There’s no need to add white space between the children of a Field Set.
 The component does this automatically.
+
+## Accessibility
+
+A Field Set has the implicit ARIA role `group`.
+Set `role="radiogroup"` when it groups [Radio](/docs/components-forms-radio--docs) buttons, so that screen readers announce it as a radio group.
+That role also permits `aria-required` on the Field Set, which the `group` role does not allow.
 
 ## See also
 

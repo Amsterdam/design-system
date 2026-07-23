@@ -54,6 +54,10 @@ Follow the [optimal sizes of Grid Cells](/docs/pages-public-introduction--docs#h
 Use the `as` prop to give a Grid or a Grid Cell a meaningful HTML element when one applies.
 For example, set a top-level Cell that holds the main content of the page to `as="main"`, or a sidebar Cell to `as="aside"`.
 
+Put `as="main"` on the Grid itself when the main content of a page is a single section: the Grid then is that region.
+Wrap the sections in a plain `main` element instead when the region holds several of them, such as more Grids, a [Spotlight](/docs/components-containers-spotlight--docs), or a full-bleed [Image](/docs/components-media-image--docs).
+Next to a sidebar, the main content goes in its own Grid Cell.
+
 Ensure the `span` and `start` values for a cell never exceed the number of columns available at that breakpoint.
 The browser would add columns to fit, which breaks the layout.
 

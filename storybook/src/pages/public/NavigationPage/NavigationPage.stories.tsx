@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { GridColumnNumbers } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import {
@@ -55,12 +54,13 @@ export const Default: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
+        // patterns read the way a developer would write them.
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -70,6 +70,12 @@ export const Default: StoryObj = {
   </Grid>
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  {/*
+   * The main region here is a single section, so the Grid itself is that region. When the landmark has
+   * to hold several sections — more Grids, a Spotlight, a full-bleed image — wrap them in a plain
+   * <main> instead. Beside a sidebar, <main> goes in its own Grid Cell.
+   */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <Grid as="main" id="inhoud" paddingBottom="2x-large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Heading className="ams-mb-m" level={1}>Burgerzaken</Heading>
@@ -99,7 +105,7 @@ export const Default: StoryObj = {
   render: (args) => (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
-      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -109,6 +115,12 @@ export const Default: StoryObj = {
       </Grid>
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      {/*
+       * The main region here is a single section, so the Grid itself is that region. When the landmark has
+       * to hold several sections — more Grids, a Spotlight, a full-bleed image — wrap them in a plain
+       * <main> instead. Beside a sidebar, <main> goes in its own Grid Cell.
+       */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <Grid as="main" id="inhoud" paddingBottom="2x-large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-m" level={1}>
@@ -141,12 +153,13 @@ export const WithTopTasks: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
+        // patterns read the way a developer would write them.
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -156,6 +169,7 @@ export const WithTopTasks: StoryObj = {
   </Grid>
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <Grid as="main" id="inhoud" paddingBottom="2x-large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Heading className="ams-mb-m" level={1}>Leefomgeving</Heading>
@@ -201,7 +215,7 @@ export const WithTopTasks: StoryObj = {
   render: (args) => (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
-      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -211,6 +225,7 @@ export const WithTopTasks: StoryObj = {
       </Grid>
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <Grid as="main" id="inhoud" paddingBottom="2x-large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-m" level={1}>
@@ -259,12 +274,13 @@ export const WithInteractiveElement: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
+        // patterns read the way a developer would write them.
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -273,6 +289,11 @@ export const WithInteractiveElement: StoryObj = {
     </Grid.Cell>
   </Grid>
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/*
+   * Spotlights and full-bleed images sit between the Grids, so a plain <main> wraps them all. A page that
+   * is a single section can put as="main" on the Grid itself instead.
+   */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
     <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -293,14 +314,22 @@ export const WithInteractiveElement: StoryObj = {
         </Grid.Cell>
       ))}
     </Grid>
-    {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
+    {/*
+     * These bands sit inside <main>, so they stay plain <div>s; the Article Page marks its comparable
+     * pull-outs as labelled asides because those sit outside its <main>, where as="aside" makes them
+     * complementary landmarks.
+     */}
     <Spotlight>
       <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          {/* On the dark Spotlight, color="inverse" switches the heading, text, and links to their light variant. */}
           <Heading className="ams-mb-m" color="inverse" level={2} size="level-3">Parkeertarieven</Heading>
           {/* An interactive element in the page: a search field. */}
           <SearchField className="ams-mb-m">
+            {/*
+             * SearchField renders the label visually hidden and offers no way to show it, so the placeholder is the
+             * only visible text this field can carry. It disappears on the first keystroke, so the field is then
+             * unlabelled on screen. The design system advises against placeholders; this one is a compromise.
+             */}
             <SearchField.Input label="Zoek op adres" placeholder="Zoek op adres" />
             <SearchField.Button />
           </SearchField>
@@ -312,6 +341,11 @@ export const WithInteractiveElement: StoryObj = {
       </Grid>
     </Spotlight>
     {/* A last section that is not a Grid takes ams-mb-2xl instead of a Grid’s paddingBottom. */}
+    {/*
+     * Image always reserves its box: .ams-image sets inline-size: 100% and an aspect ratio, so the
+     * layout does not shift while the file loads.
+     */}
+    {/* This image carries no information the text does not, so it takes an empty alt. */}
     <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1440/810" />
   </main>
 </>`,
@@ -323,7 +357,7 @@ export const WithInteractiveElement: StoryObj = {
   render: (args) => (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
-      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -332,6 +366,11 @@ export const WithInteractiveElement: StoryObj = {
         </Grid.Cell>
       </Grid>
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/*
+       * Spotlights and full-bleed images sit between the Grids, so a plain <main> wraps them all. A page that
+       * is a single section can put as="main" on the Grid itself instead.
+       */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -356,16 +395,24 @@ export const WithInteractiveElement: StoryObj = {
             </Grid.Cell>
           ))}
         </Grid>
-        {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
+        {/*
+         * These bands sit inside <main>, so they stay plain <div>s; the Article Page marks its comparable
+         * pull-outs as labelled asides because those sit outside its <main>, where as="aside" makes them
+         * complementary landmarks.
+         */}
         <Spotlight>
           <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              {/* On the dark Spotlight, color="inverse" switches the heading, text, and links to their light variant. */}
               <Heading className="ams-mb-m" color="inverse" level={2} size="level-3">
                 Parkeertarieven
               </Heading>
               {/* An interactive element in the page: a search field. */}
               <SearchField className="ams-mb-m">
+                {/*
+                 * SearchField renders the label visually hidden and offers no way to show it, so the placeholder is the
+                 * only visible text this field can carry. It disappears on the first keystroke, so the field is then
+                 * unlabelled on screen. The design system advises against placeholders; this one is a compromise.
+                 */}
                 <SearchField.Input label="Zoek op adres" placeholder="Zoek op adres" />
                 <SearchField.Button />
               </SearchField>
@@ -381,6 +428,11 @@ export const WithInteractiveElement: StoryObj = {
           </Grid>
         </Spotlight>
         {/* A last section that is not a Grid takes ams-mb-2xl instead of a Grid’s paddingBottom. */}
+        {/*
+         * Image always reserves its box: .ams-image sets inline-size: 100% and an aspect ratio, so the
+         * layout does not shift while the file loads.
+         */}
+        {/* This image carries no information the text does not, so it takes an empty alt. */}
         <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1440/810" />
       </main>
     </>
@@ -391,10 +443,11 @@ export const WithImageGallery: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
+        // patterns read the way a developer would write them.
         code: `<>
-  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -404,6 +457,7 @@ export const WithImageGallery: StoryObj = {
     </Grid.Cell>
   </Grid>
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
     <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -414,7 +468,9 @@ export const WithImageGallery: StoryObj = {
         </Paragraph>
       </Grid.Cell>
     </Grid>
-    {/* A full-width banner image sits outside the Grid and runs full-bleed; aspectRatio keeps it from shifting the layout. */}
+    {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
+    {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
+    {/* This image carries no information the text does not, so it takes an empty alt. */}
     <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
     <Grid paddingVertical="x-large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
@@ -428,17 +484,21 @@ export const WithImageGallery: StoryObj = {
       {/*
        * The image gallery. Each card spans 4 columns; the computed start lays them out two per row on
        * medium ([1, 5]) and three per row on wide ([1, 5, 9]) screens.
+       * Indexing a plain array produces a number, which is wider than the union Grid.Cell accepts, so each
+       * array is marked as const to keep its elements narrow.
        */}
-      {persons.map(({ imageSource, name, role }, index) => (
+      {persons.map(({ imageSource, name, role, suffix }, index) => (
         <Grid.Cell
           key={name}
           span={4}
-          start={{ narrow: 1, medium: [1, 5][index % 2], wide: [1, 5, 9][index % 3] }}
+          start={{ narrow: 1, medium: ([1, 5] as const)[index % 2], wide: ([1, 5, 9] as const)[index % 3] }}
         >
           <Card>
+            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
             <Card.Image alt="" src={imageSource} />
+            {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
             <Card.Heading level={3}>
-              <Card.Link href="#">{role} {name}</Card.Link>
+              <Card.Link href="#">{\`\${role} \${name}\${suffix ? \` (\${suffix})\` : ''}\`}</Card.Link>
             </Card.Heading>
           </Card>
         </Grid.Cell>
@@ -458,11 +518,9 @@ export const WithImageGallery: StoryObj = {
         <StandaloneLink href="#">Coalitieakkoord en Uitvoeringsagenda</StandaloneLink>
       </Grid.Cell>
     </Grid>
-    {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
     <Spotlight>
       <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          {/* On the dark Spotlight, color="inverse" switches the heading, text, and links to their light variant. */}
           <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">Persberichten en nieuws</Heading>
           <LinkList className="ams-mb-m">
             <LinkList.Link color="inverse" href="#">
@@ -510,6 +568,10 @@ export const WithImageGallery: StoryObj = {
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading className="ams-mb-s" level={2} size="level-3">Rechtenvrije foto’s</Heading>
+        {/*
+         * Image always crops to an aspect ratio: omitting aspectRatio falls back to the 16:9 default,
+         * not to the file’s own ratio. This 640x360 source is already 16:9, so nothing is cropped.
+         */}
         <Image alt="" src="https://picsum.photos/640/360" />
       </Grid.Cell>
     </Grid>
@@ -522,7 +584,7 @@ export const WithImageGallery: StoryObj = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
-      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -532,6 +594,7 @@ export const WithImageGallery: StoryObj = {
         </Grid.Cell>
       </Grid>
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -544,7 +607,9 @@ export const WithImageGallery: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        {/* A full-width banner image sits outside the Grid and runs full-bleed; aspectRatio keeps it from shifting the layout. */}
+        {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
+        {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
+        {/* This image carries no information the text does not, so it takes an empty alt. */}
         <Image alt="" aspectRatio="16:5" src={exampleImageSource(1440, 450, 11)} />
         <Grid paddingVertical="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
@@ -560,15 +625,19 @@ export const WithImageGallery: StoryObj = {
           {/*
            * The image gallery. Each card spans 4 columns; the computed start lays them out two per row on
            * medium ([1, 5]) and three per row on wide ([1, 5, 9]) screens.
+           * Indexing a plain array produces a number, which is wider than the union Grid.Cell accepts, so each
+           * array is marked as const to keep its elements narrow.
            */}
           {persons.map(({ imageSource, name, role, suffix }, index) => (
             <Grid.Cell
               key={name}
               span={4}
-              start={{ narrow: 1, medium: [1, 5][index % 2], wide: [1, 5, 9][index % 3] } as GridColumnNumbers}
+              start={{ narrow: 1, medium: ([1, 5] as const)[index % 2], wide: ([1, 5, 9] as const)[index % 3] }}
             >
               <Card>
+                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
                 <Card.Image alt="" src={imageSource} />
+                {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
                 <Card.Heading level={3}>
                   <Card.Link href="#">{`${role} ${name}${suffix ? ` (${suffix})` : ''}`}</Card.Link>
                 </Card.Heading>
@@ -594,11 +663,9 @@ export const WithImageGallery: StoryObj = {
             <StandaloneLink href="#">Coalitieakkoord en Uitvoeringsagenda</StandaloneLink>
           </Grid.Cell>
         </Grid>
-        {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
         <Spotlight>
           <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              {/* On the dark Spotlight, color="inverse" switches the heading, text, and links to their light variant. */}
               <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 Persberichten en nieuws
               </Heading>
@@ -678,6 +745,10 @@ export const WithImageGallery: StoryObj = {
             <Heading className="ams-mb-s" level={2} size="level-3">
               Rechtenvrije foto’s
             </Heading>
+            {/*
+             * Image always crops to an aspect ratio: omitting aspectRatio falls back to the 16:9 default,
+             * not to the file’s own ratio. This 640x360 source is already 16:9, so nothing is cropped.
+             */}
             <Image alt="" src={exampleImageSource(640, 360, 12)} />
           </Grid.Cell>
         </Grid>
@@ -690,12 +761,13 @@ export const SubnavigationPage: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
+        // patterns read the way a developer would write them.
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -705,6 +777,7 @@ export const SubnavigationPage: StoryObj = {
     </Grid.Cell>
   </Grid>
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
     <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -715,10 +788,19 @@ export const SubnavigationPage: StoryObj = {
         </Paragraph>
       </Grid.Cell>
     </Grid>
+    {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
+    {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
+    {/* This image carries no information the text does not, so it takes an empty alt. */}
     <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
     <Grid paddingVertical="x-large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        {/*
+         * This page nests one level deeper than the other navigation pages: level-2 section titles with
+         * level-3 groups under them. Those headings each want the size of their own level, so they set
+         * no size. The Spotlight headings below are the exception: they stay level={2} in the outline
+         * but take size="level-3", as Link Sections do.
+         */}
         <Heading className="ams-mb-s" level={2}>L2 Paragraaf titel</Heading>
         <Paragraph>Voorbeeldtekst bij dit onderwerp.</Paragraph>
       </Grid.Cell>
@@ -754,11 +836,9 @@ export const SubnavigationPage: StoryObj = {
         <StandaloneLink href="#">Lees meer</StandaloneLink>
       </Grid.Cell>
     </Grid>
-    {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
     <Spotlight color="magenta">
       <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          {/* On the magenta Spotlight, color="inverse" switches the heading, text, and links to their light variant. */}
           <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">Titel</Heading>
           <Paragraph color="inverse">Voorbeeldtekst bij dit onderwerp.</Paragraph>
         </Grid.Cell>
@@ -770,7 +850,6 @@ export const SubnavigationPage: StoryObj = {
     </Spotlight>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large" paddingTop="x-large">
-      {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-s" level={2}>L2 Paragraaf titel</Heading>
         <Paragraph>Voorbeeldtekst bij dit onderwerp.</Paragraph>
@@ -797,7 +876,7 @@ export const SubnavigationPage: StoryObj = {
   render: (args) => (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
-      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -807,6 +886,7 @@ export const SubnavigationPage: StoryObj = {
         </Grid.Cell>
       </Grid>
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -819,10 +899,19 @@ export const SubnavigationPage: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
+        {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
+        {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
+        {/* This image carries no information the text does not, so it takes an empty alt. */}
         <Image alt="" aspectRatio="16:5" src={exampleImageSource(1440, 450)} />
         <Grid paddingVertical="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            {/*
+             * This page nests one level deeper than the other navigation pages: level-2 section titles with
+             * level-3 groups under them. Those headings each want the size of their own level, so they set
+             * no size. The Spotlight headings below are the exception: they stay level={2} in the outline
+             * but take size="level-3", as Link Sections do.
+             */}
             <Heading className="ams-mb-s" level={2}>
               L2 Paragraaf titel
             </Heading>
@@ -870,11 +959,9 @@ export const SubnavigationPage: StoryObj = {
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
         </Grid>
-        {/* The paddings either side of the Spotlight add up on purpose: the coloured band separates them. */}
         <Spotlight color="magenta">
           <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              {/* On the magenta Spotlight, color="inverse" switches the heading, text, and links to their light variant. */}
               <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
                 {exampleHeading()}
               </Heading>
@@ -890,7 +977,6 @@ export const SubnavigationPage: StoryObj = {
         </Spotlight>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large" paddingTop="x-large">
-          {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={2}>
               L2 Paragraaf titel
