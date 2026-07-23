@@ -71,6 +71,8 @@ Chromatic also uses a [GitHub App](https://github.com/apps/chromatic-com) to i
 
 On every pull request, the [workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/check-visual-regressions.yml) builds Storybook and publishes it to Chromatic, where the tests are run. The test status is displayed in the pull request through the app integration.
 
+A separate [workflow](https://github.com/Amsterdam/design-system/blob/develop/.github/workflows/deploy-acceptance-chromatic.yml) does the same on every push to `develop` and accepts the snapshots, so a build exists on the integration branch itself. Pull requests are squash-merged, so no build ever runs on a commit that stays in the history of `develop`; Chromatic carries baselines across that gap through the merge association from its GitHub App. A build on `develop` means baseline resolution no longer rests on that indirection alone. If a pull request reports far more changes than it made, the baseline is the first thing to suspect — re-running Chromatic is the quickest way to tell a stale baseline from a real diff.
+
 #### How to get access
 
 Ask a team member to [add you to the Chromatic Team](https://www.chromatic.com/docs/collaborators/).
