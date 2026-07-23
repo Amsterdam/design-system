@@ -12,7 +12,7 @@ type FormPageLayoutProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 export const FormPageLayout = ({ children, ...restProps }: FormPageLayoutProps) => (
   <Page {...restProps}>
     {/* Keep the Page Header as simple as possible, to avoid distractions and to prevent users from accidentally navigating away from the form flow. */}
-    <PageHeader className="ams-mb-xl" />
+    <PageHeader />
     {children}
     <PageFooter>
       {/* Keep the Page Footer as simple as possible, to avoid distractions and to prevent users from accidentally navigating away from the form flow. */}

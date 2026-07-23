@@ -99,7 +99,8 @@ const meta = {
 
     return (
       <main id="inhoud">
-        <Grid gapVertical="large" paddingTop="x-large">
+        {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
+        <Grid paddingTop="large">
           <Grid.Cell span="all">
             <Heading level={1}>Zoeken op amsterdam.nl</Heading>
           </Grid.Cell>
@@ -116,7 +117,9 @@ const meta = {
          * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
          * technologies, so this region is all a screen reader hears.
          */}
-        <Grid aria-busy={phase === 'loading'} paddingVertical="x-large">
+        {/* The search field is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        <Grid aria-busy={phase === 'loading'} paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span="all">
             {/*
              * Keep one status message in the DOM at all times and only change its text – from a loading
@@ -170,12 +173,104 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+type PageSourceOptions = {
+  busy: string
+  extraCells?: string
+  status: string
+  statusCell?: string
+}
+
+const pageShell = ({ busy, extraCells = '', status, statusCell = '' }: PageSourceOptions) => `<main id="inhoud">
+  {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
+  <Grid paddingTop="large">
+    <Grid.Cell span="all">
+      <Heading level={1}>Zoeken op amsterdam.nl</Heading>
+    </Grid.Cell>
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}>
+      <SearchField onSubmit={search}>
+        <SearchField.Input defaultValue="woningbouw" label="Zoek op de website" name="search" />
+        <SearchField.Button />
+      </SearchField>
+    </Grid.Cell>
+  </Grid>
+
+  {/*
+   * Mark the whole results region busy while it loads and let it announce once, rather than once per
+   * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
+   * technologies, so this region is all a screen reader hears.
+   */}
+  {/* The search field is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  <Grid aria-busy={${busy}} paddingBottom="2x-large" paddingTop="x-large">
+    <Grid.Cell span="all">
+      {/*
+       * Keep one status message in the DOM at all times and only change its text – from a loading
+       * message to the result count – so screen readers reliably announce the update. A Loading Region
+       * component to wrap this pattern is planned; until then it is plain HTML.
+       */}
+      <p className="ams-visually-hidden" role="status">${status}</p>${statusCell}
+    </Grid.Cell>${extraCells}
+  </Grid>
+</main>`
+
+// The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
+// comments. Provide the source by hand so the guidance above the results region stays visible.
+const idleSource = pageShell({
+  busy: 'false',
+  status: '',
+  statusCell: `
+      <Paragraph>Klik op de zoekknop om de resultaten te laden.</Paragraph>`,
+})
+
+const loadingSource = pageShell({
+  busy: 'true',
+  extraCells: `
+
+    {/*
+     * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
+     * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+     * Mirroring the shape keeps the layout from shifting when the real content arrives.
+     */}
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
+      <Skeleton>
+        <Skeleton.Image />
+        <Skeleton.Heading />
+        <Skeleton.Paragraph lines={2} />
+      </Skeleton>
+    </Grid.Cell>
+    {/* … five more Skeleton cells, one for each result that is loading … */}`,
+  status: 'Zoekresultaten voor ‘woningbouw’ worden geladen',
+})
+
+const loadedSource = pageShell({
+  busy: 'false',
+  extraCells: `
+
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
+      <Card>
+        <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1015/640/360" />
+        <Card.Heading level={3}>
+          <Card.Link href="#">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
+        </Card.Heading>
+        <Paragraph>Een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.</Paragraph>
+      </Card>
+    </Grid.Cell>
+    {/* … five more Cards, in the same cells the Skeletons occupied … */}`,
+  status: '6 resultaten voor ‘woningbouw’ gevonden',
+  statusCell: `
+      <Heading level={2} size="level-3">6 resultaten voor ‘woningbouw’</Heading>`,
+})
+
+export const Default: Story = {
+  parameters: { docs: { source: { code: idleSource, language: 'tsx' } } },
+}
 
 export const Loading: Story = {
   args: { initialPhase: 'loading' },
+  parameters: { docs: { source: { code: loadingSource, language: 'tsx' } } },
 }
 
 export const Loaded: Story = {
   args: { initialPhase: 'loaded' },
+  parameters: { docs: { source: { code: loadedSource, language: 'tsx' } } },
 }
