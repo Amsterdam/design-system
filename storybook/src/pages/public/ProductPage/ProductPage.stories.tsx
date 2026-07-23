@@ -35,8 +35,10 @@ const meta = {
       </Grid>
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <Grid as="main" id="inhoud" paddingBottom="2x-large">
         {/* The title and lead span the wide intro column. */}
+        {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-xl" level={1}>
             Gratis laptop of tablet voor de basisschool aanvragen
@@ -94,7 +96,10 @@ const meta = {
               Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigiD aan.
             </UnorderedList.Item>
             <UnorderedList.Item>
-              {/* download hints the browser to save the PDF rather than open it in a new tab. */}
+              {/*
+               * download asks the browser to save the linked file instead of navigating to it. It only applies
+               * to same-origin URLs.
+               */}
               Lees eerst{' '}
               <Link download href="#">
                 Toelichting Gratis laptop of tablet basisschool Schooljaar 2024-2025.pdf
@@ -166,8 +171,9 @@ export const Default: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear. Provide the source by hand so the panel shows the whole
+        // page, with the notes on its layout and links kept.
         code: `<>
   {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
   <Grid paddingTop="large">
@@ -180,8 +186,10 @@ export const Default: StoryObj = {
   </Grid>
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <Grid as="main" id="inhoud" paddingBottom="2x-large">
     {/* The title and lead span the wide intro column. */}
+    {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Heading className="ams-mb-xl" level={1}>Gratis laptop of tablet voor de basisschool aanvragen</Heading>
       <Paragraph size="large">
@@ -222,7 +230,10 @@ export const Default: StoryObj = {
       <UnorderedList className="ams-mb-xl">
         <UnorderedList.Item>Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigiD aan.</UnorderedList.Item>
         <UnorderedList.Item>
-          {/* download hints the browser to save the PDF rather than open it in a new tab. */}
+          {/*
+           * download asks the browser to save the linked file instead of navigating to it. It only applies
+           * to same-origin URLs.
+           */}
           Lees eerst{' '}
           <Link download href="#">Toelichting Gratis laptop of tablet basisschool Schooljaar 2024-2025.pdf</Link>{' '}
           en{' '}
