@@ -25,6 +25,8 @@ export const PageLayout = ({ children, ...restProps }: PageLayoutProps) => (
       // An internal application is not the City’s main website, so the header names it beside the logo.
       // That name also completes the hidden text of the logo link: ‘Ga naar de homepage van …’.
       brandName="Naam van de applicatie"
+      // Below the wide breakpoint the short form replaces the full name.
+      brandNameShort="NvdA"
       className="ams-page__area--header"
       menuItems={
         // fixed keeps this link next to the menu button below the wide breakpoint, where menu items otherwise hide.
