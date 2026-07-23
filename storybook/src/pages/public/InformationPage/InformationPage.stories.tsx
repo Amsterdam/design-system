@@ -151,6 +151,7 @@ export const Default: StoryObj = {
     </Grid>
   </main>
 </>`,
+        language: 'tsx',
       },
     },
   },
@@ -421,6 +422,7 @@ export const WithTable: StoryObj = {
     </Grid>
   </main>
 </>`,
+        language: 'tsx',
       },
     },
   },
