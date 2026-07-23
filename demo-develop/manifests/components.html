@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -10876,10 +10876,20 @@ const meta = {
   title: &#39;Pages/Internal/Home Page&#39;,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
-    &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/*
+       * appearance=&quot;transparent&quot; removes the cell’s background and padding, so the page title sits directly
+       * on the page instead of looking like one of the content blocks the other cells form.
+       */}
       &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
         &lt;Heading level={1}&gt;Titel van de pagina&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
+      {/*
+       * This is a layout demo: the empty cells stand in for content blocks. Their blockSize only gives them
+       * a height to show here – on a real page the content sets the height. What matters is the responsive
+       * span: how many of the grid’s columns a cell fills at narrow, medium, and wide widths. That is what
+       * makes the cells reflow into different rows as the window changes.
+       */}
       &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }} style={{ blockSize: &#39;12rem&#39; }} /&gt;
       &lt;Grid.Cell span={{ narrow: 1, medium: 3, wide: 4 }} style={{ blockSize: &#39;10rem&#39; }} /&gt;
       &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }}&gt;
@@ -10906,7 +10916,7 @@ export const Default: StoryObj = {
         // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
         // JSX comments disappear. Provide the source by hand so the panel shows a trimmed,
         // annotated version of the page.
-        code: `&lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+        code: `&lt;Grid paddingVertical=&quot;x-large&quot;&gt;
   {/*
    * appearance=&quot;transparent&quot; removes the cell’s background and padding, so the page title sits directly
    * on the page instead of looking like one of the content blocks the other cells form.
@@ -10972,10 +10982,20 @@ export const Default: StoryObj = {
               
               
               <pre><code>const Default = (args) =&gt; (
-  &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    {/*
+     * appearance=&quot;transparent&quot; removes the cell’s background and padding, so the page title sits directly
+     * on the page instead of looking like one of the content blocks the other cells form.
+     */}
     &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
       &lt;Heading level={1}&gt;Titel van de pagina&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
+    {/*
+     * This is a layout demo: the empty cells stand in for content blocks. Their blockSize only gives them
+     * a height to show here – on a real page the content sets the height. What matters is the responsive
+     * span: how many of the grid’s columns a cell fills at narrow, medium, and wide widths. That is what
+     * makes the cells reflow into different rows as the window changes.
+     */}
     &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }} style={{ blockSize: &#39;12rem&#39; }} /&gt;
     &lt;Grid.Cell span={{ narrow: 1, medium: 3, wide: 4 }} style={{ blockSize: &#39;10rem&#39; }} /&gt;
     &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }}&gt;
@@ -14419,6 +14439,14 @@ In a wide window, the menu has a maximum width of 8rem.
 It adds whitespace at the top to align with the baseline of Page Header.
 The icon is larger and positioned above the label.
 
+## Accessibility
+
+Without `inWideWindow` the Menu renders a `div`, because it then sits inside the `nav` element of the [Page Header](/docs/components-containers-page-header--docs).
+With the prop it renders a `nav` of its own, named by a visually hidden heading that `accessibleName` fills.
+
+That name defaults to ‘Hoofdmenu’, and so does the `navigationLabel` of the Page Header.
+A wide window shows both navigations, so give one of the two another name.
+
 ## See also
 
 - [Page Header](/docs/components-containers-page-header--docs) – contains one instance of the Menu.
@@ -16187,6 +16215,11 @@ const meta = {
           &lt;/Breadcrumb&gt;
           &lt;Heading level={1}&gt;Naam van het project&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
+        {/*
+         * The main project navigation. rowSpan={2} lets this one cell sit beside both the subnavigation and
+         * the content below it; appearance=&quot;flush&quot; drops the cell padding so the tabs align with the grid.
+         * accessibleName labels the nav for screen readers, and aria-current=&quot;page&quot; marks the active link.
+         */}
         &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
           &lt;TabNavigation accessibleName=&quot;Navigatie voor dit project&quot; orientation=&quot;vertical&quot;&gt;
             &lt;TabNavigation.List&gt;
@@ -16204,6 +16237,10 @@ const meta = {
             &lt;/TabNavigation.List&gt;
           &lt;/TabNavigation&gt;
         &lt;/Grid.Cell&gt;
+        {/*
+         * The subnavigation scrolls sideways when it overflows. Keep a ref to its list so selecting another
+         * main menu item can reset the scroll back to the start (see handleMenuItemClick).
+         */}
         &lt;Grid.Cell
           appearance=&quot;flush&quot;
           span={{ narrow: 4, medium: 6, wide: 10 }}
@@ -16224,17 +16261,16 @@ const meta = {
             &lt;/TabNavigation.List&gt;
           &lt;/TabNavigation&gt;
         &lt;/Grid.Cell&gt;
+        {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
         &lt;Grid.Cell
           span={{ narrow: 4, medium: 6, wide: 7 }}
           start={{ narrow: 1, medium: 3, wide: 3 }}
           style={{ blockSize: `${currentSubMenu.cellHeights[0]}vb` }}
         &gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;
             {currentMenu.label}
           &lt;/Heading&gt;
-          &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-            {currentSubMenu.label}
-          &lt;/Heading&gt;
+          &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
           span={{ narrow: 4, medium: 4, wide: 3 }}
@@ -16307,8 +16343,8 @@ export const Default: StoryObj = {
   &lt;/Grid.Cell&gt;
   {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
   &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 3, wide: 3 }}&gt;
-    &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;{currentMenu.label}&lt;/Heading&gt;
-    &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
+    &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;{currentMenu.label}&lt;/Heading&gt;
+    &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
   &lt;/Grid.Cell&gt;
   &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }} /&gt;
 &lt;/Grid&gt;`,
@@ -16383,6 +16419,11 @@ export const Default: StoryObj = {
         &lt;/Breadcrumb&gt;
         &lt;Heading level={1}&gt;Naam van het project&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
+      {/*
+       * The main project navigation. rowSpan={2} lets this one cell sit beside both the subnavigation and
+       * the content below it; appearance=&quot;flush&quot; drops the cell padding so the tabs align with the grid.
+       * accessibleName labels the nav for screen readers, and aria-current=&quot;page&quot; marks the active link.
+       */}
       &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
         &lt;TabNavigation accessibleName=&quot;Navigatie voor dit project&quot; orientation=&quot;vertical&quot;&gt;
           &lt;TabNavigation.List&gt;
@@ -16400,6 +16441,10 @@ export const Default: StoryObj = {
           &lt;/TabNavigation.List&gt;
         &lt;/TabNavigation&gt;
       &lt;/Grid.Cell&gt;
+      {/*
+       * The subnavigation scrolls sideways when it overflows. Keep a ref to its list so selecting another
+       * main menu item can reset the scroll back to the start (see handleMenuItemClick).
+       */}
       &lt;Grid.Cell
         appearance=&quot;flush&quot;
         span={{ narrow: 4, medium: 6, wide: 10 }}
@@ -16420,17 +16465,16 @@ export const Default: StoryObj = {
           &lt;/TabNavigation.List&gt;
         &lt;/TabNavigation&gt;
       &lt;/Grid.Cell&gt;
+      {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
       &lt;Grid.Cell
         span={{ narrow: 4, medium: 6, wide: 7 }}
         start={{ narrow: 1, medium: 3, wide: 3 }}
         style={{ blockSize: `${currentSubMenu.cellHeights[0]}vb` }}
       &gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;
           {currentMenu.label}
         &lt;/Heading&gt;
-        &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-          {currentSubMenu.label}
-        &lt;/Heading&gt;
+        &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell
         span={{ narrow: 4, medium: 4, wide: 3 }}
@@ -17035,17 +17079,37 @@ import * as PageStories from &quot;./Page.stories.tsx&quot;;
 The Page component wraps the [Page Header](/docs/components-containers-page-header--docs), [Page Footer](/docs/components-containers-page-footer--docs), and the main content in between.
 As a root layout component, it must be used for all websites for the City of Amsterdam.
 
+### How to use
+
+#### Public websites
+
+Use the Page as it is.
+Its children – a [Skip Link](/docs/components-navigation-skip-link--docs), the Page Header, the sections of the page, and the Page Footer – follow one another in document order.
+See the [introduction to the public templates](/docs/pages-public-introduction--docs) for the structure of a page.
+
+#### Internal websites
+
+Set `withMenu` to lay the Page out as a grid, with a column for the [Menu](/docs/components-navigation-menu--docs) beside the header, the body, and the footer.
+Every child then needs the class name of the area it belongs in, such as `ams-page__area--header`.
+The description of `withMenu` in the table above names all five.
+
+Those rules apply to direct children of the Page only, so none of these elements may be wrapped in another one.
+See the [introduction to the internal templates](/docs/pages-internal-introduction--docs) for the structure of a page.
+
 ## Examples
 
-See the [Home Page](/story/pages-public-home-page--default) template for public websites for a full-page example.
+### Public websites
 
-### With menu
+Navigation sits in the Page Header, so no Menu is involved.
+See the [Home Page](/story/pages-public-home-page--default) template for a full-page example.
+
+### Internal websites
 
 Internal websites can add a [Menu](/docs/components-navigation-menu--docs) for navigating between its modules and pages.
 This is an alternative to the approach using Link Lists, which is appropriate for public, content-oriented websites.
 
 We can’t display the example here, as it requires Compact Mode to be enabled, which affects the example for the public Home Page template.
-Open the [full example page](/story/components-containers-page--with-menu) or see the [Home Page](/story/pages-internal-home-page--default) template for internal websites.
+Open the [full example page](/story/components-containers-page--with-menu) or see the [Home Page](/story/pages-internal-home-page--default) template.
 
 ## Features
 
@@ -17061,7 +17125,9 @@ An element placed directly in the Page, outside a [Grid](/docs/components-layout
 
 ## See also
 
+- [Skip Link](/docs/components-navigation-skip-link--docs) – the first element in the Page, above the Page Header.
 - [Page Header](/docs/components-containers-page-header--docs) – sits at the top of the Page.
+- [Menu](/docs/components-navigation-menu--docs) – fills the menu column that `withMenu` adds, on an internal website.
 - [Page Footer](/docs/components-containers-page-footer--docs) – sits at the bottom of the Page.
 
 ## Design tokens
@@ -17730,6 +17796,9 @@ Pagination should not be displayed if there is only one page.
 
 Make sure that the visible and accessible labels for the &#39;previous&#39; and &#39;next&#39; buttons convey the same meaning at all times – e.g. don&#39;t update one and forget the other.
 
+Start a page with an overview list at the top after changing the page.
+Redirect users to the first page if they enter a URL with a page number that doesn’t exist.
+
 ## Examples
 
 ### Specifying a link template
@@ -17762,8 +17831,7 @@ return &lt;Pagination linkComponent={LinkComponent} /&gt;
 
 ## Features
 
-Start a page with an overview list at the top after changing the page.
-Redirect users to the first page if they enter a URL with a page number that doesn’t exist.
+Pagination renders nothing when `totalPages` is 1 or less, so a set that fits on a single page needs no condition around it.
 
 ## Design tokens
 
@@ -22551,6 +22619,10 @@ In this case, use a [Figure](/docs/components-media-figure--docs) and let the Ta
 
 &lt;Canvas of={TableStories.InFigure} /&gt;
 
+## Features
+
+A Table wider than the space it sits in scrolls horizontally within its own container, rather than widening the page around it.
+
 ## Accessibility
 
 A Table caption creates the accessible name for the Table, announced by screen readers on every encounter.
@@ -22857,7 +22929,7 @@ This example keeps a single branch open at a time by expanding the clicked branc
   const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
 
   return (
-    &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
         &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
@@ -22869,6 +22941,7 @@ This example keeps a single branch open at a time by expanding the clicked branc
           &lt;form onSubmit={handleSortSubmit}&gt;
             &lt;Row alignVertical=&quot;center&quot; wrap&gt;
               &lt;Label htmlFor=&quot;sort&quot;&gt;Sorteren op&lt;/Label&gt;
+              {/* Submitting the form on change avoids a separate submit button (see handleSortChange). */}
               &lt;Select defaultValue={sortOrder} id=&quot;sort&quot; name=&quot;sort&quot; onChange={handleSortChange}&gt;
                 {sortSelectOptions}
               &lt;/Select&gt;
@@ -22912,14 +22985,14 @@ This example keeps a single branch open at a time by expanding the clicked branc
   }, [])
 
   return (
-    &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
         &lt;Heading level={1}&gt;Vergunninghouders 2026/2027&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
         &lt;Table className=&quot;ams-mb-l&quot;&gt;
           {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
-          &lt;Table.Caption className=&quot;ams-mb-m&quot;&gt;
+          &lt;Table.Caption&gt;
             &lt;Heading level={2}&gt;Gegevens per adres&lt;/Heading&gt;
           &lt;/Table.Caption&gt;
           &lt;Table.Header&gt;
@@ -22928,6 +23001,11 @@ This example keeps a single branch open at a time by expanding the clicked branc
           &lt;AddressTableBody addresses={paginatedAddresses} firstRow={firstRow} /&gt;
         &lt;/Table&gt;
         &lt;Row align=&quot;center&quot;&gt;
+          {/*
+           * Pagination renders links, so pages stay shareable and open in a new tab. linkTemplate builds each
+           * href; linkComponent lets you pass your router’s link. Here a small wrapper keeps navigation inside
+           * Storybook rather than reloading the iframe – see PaginationLink and handlePaginationClick.
+           */}
           &lt;Pagination
             linkComponent={PaginationLink}
             linkTemplate={paginationLinkTemplate}
@@ -23136,6 +23214,9 @@ Use [Tabs](/docs/components-containers-tabs--docs) instead to switch between sma
 ### How to use
 
 Add `aria-current=&quot;page&quot;` to the link pointing to the current page.
+
+Give each Tab Navigation an `accessibleName`.
+The name defaults to ‘Navigatie’, so a page with two of them would otherwise hold two navigations named the same.
 
 ## Examples
 
@@ -31667,10 +31748,20 @@ const meta = {
   title: &#39;Pages/Internal/Home Page&#39;,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
-    &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/*
+       * appearance=&quot;transparent&quot; removes the cell’s background and padding, so the page title sits directly
+       * on the page instead of looking like one of the content blocks the other cells form.
+       */}
       &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
         &lt;Heading level={1}&gt;Titel van de pagina&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
+      {/*
+       * This is a layout demo: the empty cells stand in for content blocks. Their blockSize only gives them
+       * a height to show here – on a real page the content sets the height. What matters is the responsive
+       * span: how many of the grid’s columns a cell fills at narrow, medium, and wide widths. That is what
+       * makes the cells reflow into different rows as the window changes.
+       */}
       &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }} style={{ blockSize: &#39;12rem&#39; }} /&gt;
       &lt;Grid.Cell span={{ narrow: 1, medium: 3, wide: 4 }} style={{ blockSize: &#39;10rem&#39; }} /&gt;
       &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }}&gt;
@@ -31697,7 +31788,7 @@ export const Default: StoryObj = {
         // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
         // JSX comments disappear. Provide the source by hand so the panel shows a trimmed,
         // annotated version of the page.
-        code: `&lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+        code: `&lt;Grid paddingVertical=&quot;x-large&quot;&gt;
   {/*
    * appearance=&quot;transparent&quot; removes the cell’s background and padding, so the page title sits directly
    * on the page instead of looking like one of the content blocks the other cells form.
@@ -31763,10 +31854,20 @@ export const Default: StoryObj = {
               
               
               <pre><code>const Default = (args) =&gt; (
-  &lt;Grid paddingBottom=&quot;x-large&quot; paddingTop=&quot;large&quot;&gt;
+  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    {/*
+     * appearance=&quot;transparent&quot; removes the cell’s background and padding, so the page title sits directly
+     * on the page instead of looking like one of the content blocks the other cells form.
+     */}
     &lt;Grid.Cell appearance=&quot;transparent&quot; span=&quot;all&quot;&gt;
       &lt;Heading level={1}&gt;Titel van de pagina&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
+    {/*
+     * This is a layout demo: the empty cells stand in for content blocks. Their blockSize only gives them
+     * a height to show here – on a real page the content sets the height. What matters is the responsive
+     * span: how many of the grid’s columns a cell fills at narrow, medium, and wide widths. That is what
+     * makes the cells reflow into different rows as the window changes.
+     */}
     &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 8 }} style={{ blockSize: &#39;12rem&#39; }} /&gt;
     &lt;Grid.Cell span={{ narrow: 1, medium: 3, wide: 4 }} style={{ blockSize: &#39;10rem&#39; }} /&gt;
     &lt;Grid.Cell span={{ narrow: 3, medium: 3, wide: 3 }}&gt;
@@ -35533,6 +35634,11 @@ const meta = {
           &lt;/Breadcrumb&gt;
           &lt;Heading level={1}&gt;Naam van het project&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
+        {/*
+         * The main project navigation. rowSpan={2} lets this one cell sit beside both the subnavigation and
+         * the content below it; appearance=&quot;flush&quot; drops the cell padding so the tabs align with the grid.
+         * accessibleName labels the nav for screen readers, and aria-current=&quot;page&quot; marks the active link.
+         */}
         &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
           &lt;TabNavigation accessibleName=&quot;Navigatie voor dit project&quot; orientation=&quot;vertical&quot;&gt;
             &lt;TabNavigation.List&gt;
@@ -35550,6 +35656,10 @@ const meta = {
             &lt;/TabNavigation.List&gt;
           &lt;/TabNavigation&gt;
         &lt;/Grid.Cell&gt;
+        {/*
+         * The subnavigation scrolls sideways when it overflows. Keep a ref to its list so selecting another
+         * main menu item can reset the scroll back to the start (see handleMenuItemClick).
+         */}
         &lt;Grid.Cell
           appearance=&quot;flush&quot;
           span={{ narrow: 4, medium: 6, wide: 10 }}
@@ -35570,17 +35680,16 @@ const meta = {
             &lt;/TabNavigation.List&gt;
           &lt;/TabNavigation&gt;
         &lt;/Grid.Cell&gt;
+        {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
         &lt;Grid.Cell
           span={{ narrow: 4, medium: 6, wide: 7 }}
           start={{ narrow: 1, medium: 3, wide: 3 }}
           style={{ blockSize: `${currentSubMenu.cellHeights[0]}vb` }}
         &gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;
             {currentMenu.label}
           &lt;/Heading&gt;
-          &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-            {currentSubMenu.label}
-          &lt;/Heading&gt;
+          &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
           span={{ narrow: 4, medium: 4, wide: 3 }}
@@ -35653,8 +35762,8 @@ export const Default: StoryObj = {
   &lt;/Grid.Cell&gt;
   {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
   &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 3, wide: 3 }}&gt;
-    &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;{currentMenu.label}&lt;/Heading&gt;
-    &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
+    &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;{currentMenu.label}&lt;/Heading&gt;
+    &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
   &lt;/Grid.Cell&gt;
   &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }} /&gt;
 &lt;/Grid&gt;`,
@@ -35729,6 +35838,11 @@ export const Default: StoryObj = {
         &lt;/Breadcrumb&gt;
         &lt;Heading level={1}&gt;Naam van het project&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
+      {/*
+       * The main project navigation. rowSpan={2} lets this one cell sit beside both the subnavigation and
+       * the content below it; appearance=&quot;flush&quot; drops the cell padding so the tabs align with the grid.
+       * accessibleName labels the nav for screen readers, and aria-current=&quot;page&quot; marks the active link.
+       */}
       &lt;Grid.Cell appearance=&quot;flush&quot; rowSpan={2} span={{ narrow: 4, medium: 2, wide: 2 }}&gt;
         &lt;TabNavigation accessibleName=&quot;Navigatie voor dit project&quot; orientation=&quot;vertical&quot;&gt;
           &lt;TabNavigation.List&gt;
@@ -35746,6 +35860,10 @@ export const Default: StoryObj = {
           &lt;/TabNavigation.List&gt;
         &lt;/TabNavigation&gt;
       &lt;/Grid.Cell&gt;
+      {/*
+       * The subnavigation scrolls sideways when it overflows. Keep a ref to its list so selecting another
+       * main menu item can reset the scroll back to the start (see handleMenuItemClick).
+       */}
       &lt;Grid.Cell
         appearance=&quot;flush&quot;
         span={{ narrow: 4, medium: 6, wide: 10 }}
@@ -35766,17 +35884,16 @@ export const Default: StoryObj = {
           &lt;/TabNavigation.List&gt;
         &lt;/TabNavigation&gt;
       &lt;/Grid.Cell&gt;
+      {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
       &lt;Grid.Cell
         span={{ narrow: 4, medium: 6, wide: 7 }}
         start={{ narrow: 1, medium: 3, wide: 3 }}
         style={{ blockSize: `${currentSubMenu.cellHeights[0]}vb` }}
       &gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;
           {currentMenu.label}
         &lt;/Heading&gt;
-        &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-          {currentSubMenu.label}
-        &lt;/Heading&gt;
+        &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell
         span={{ narrow: 4, medium: 4, wide: 3 }}
@@ -36147,17 +36264,37 @@ import * as PageStories from &quot;./Page.stories.tsx&quot;;
 The Page component wraps the [Page Header](/docs/components-containers-page-header--docs), [Page Footer](/docs/components-containers-page-footer--docs), and the main content in between.
 As a root layout component, it must be used for all websites for the City of Amsterdam.
 
+### How to use
+
+#### Public websites
+
+Use the Page as it is.
+Its children – a [Skip Link](/docs/components-navigation-skip-link--docs), the Page Header, the sections of the page, and the Page Footer – follow one another in document order.
+See the [introduction to the public templates](/docs/pages-public-introduction--docs) for the structure of a page.
+
+#### Internal websites
+
+Set `withMenu` to lay the Page out as a grid, with a column for the [Menu](/docs/components-navigation-menu--docs) beside the header, the body, and the footer.
+Every child then needs the class name of the area it belongs in, such as `ams-page__area--header`.
+The description of `withMenu` in the table above names all five.
+
+Those rules apply to direct children of the Page only, so none of these elements may be wrapped in another one.
+See the [introduction to the internal templates](/docs/pages-internal-introduction--docs) for the structure of a page.
+
 ## Examples
 
-See the [Home Page](/story/pages-public-home-page--default) template for public websites for a full-page example.
+### Public websites
 
-### With menu
+Navigation sits in the Page Header, so no Menu is involved.
+See the [Home Page](/story/pages-public-home-page--default) template for a full-page example.
+
+### Internal websites
 
 Internal websites can add a [Menu](/docs/components-navigation-menu--docs) for navigating between its modules and pages.
 This is an alternative to the approach using Link Lists, which is appropriate for public, content-oriented websites.
 
 We can’t display the example here, as it requires Compact Mode to be enabled, which affects the example for the public Home Page template.
-Open the [full example page](/story/components-containers-page--with-menu) or see the [Home Page](/story/pages-internal-home-page--default) template for internal websites.
+Open the [full example page](/story/components-containers-page--with-menu) or see the [Home Page](/story/pages-internal-home-page--default) template.
 
 ## Features
 
@@ -36173,7 +36310,9 @@ An element placed directly in the Page, outside a [Grid](/docs/components-layout
 
 ## See also
 
+- [Skip Link](/docs/components-navigation-skip-link--docs) – the first element in the Page, above the Page Header.
 - [Page Header](/docs/components-containers-page-header--docs) – sits at the top of the Page.
+- [Menu](/docs/components-navigation-menu--docs) – fills the menu column that `withMenu` adds, on an internal website.
 - [Page Footer](/docs/components-containers-page-footer--docs) – sits at the bottom of the Page.
 
 ## Design tokens
@@ -36341,6 +36480,9 @@ Pagination should not be displayed if there is only one page.
 
 Make sure that the visible and accessible labels for the &#39;previous&#39; and &#39;next&#39; buttons convey the same meaning at all times – e.g. don&#39;t update one and forget the other.
 
+Start a page with an overview list at the top after changing the page.
+Redirect users to the first page if they enter a URL with a page number that doesn’t exist.
+
 ## Examples
 
 ### Specifying a link template
@@ -36373,8 +36515,7 @@ return &lt;Pagination linkComponent={LinkComponent} /&gt;
 
 ## Features
 
-Start a page with an overview list at the top after changing the page.
-Redirect users to the first page if they enter a URL with a page number that doesn’t exist.
+Pagination renders nothing when `totalPages` is 1 or less, so a set that fits on a single page needs no condition around it.
 
 ## Design tokens
 
@@ -44528,12 +44669,22 @@ The component must be rendered twice.
 
 1. One instance, for narrow and medium windows, sits in the Page Header.
    The user can access it through the menu button.
-   Hide the menu button on wide windows.
+   Hide the menu button on wide windows: this instance hides itself there, so the button would open an empty menu.
 2. A second Menu goes between the Page Header and the main content.
    This is for wide windows, where the menu is positioned to the side.
    The `inWideWindow` prop ensures that only one of both components is present at all times.
 
 Make sure that both menus have the same items.
+
+## Vertical space
+
+Between the Page Header and the Page Footer, an internal page holds one or more Grids.
+Give each of them a `paddingVertical` of `x-large`.
+The public templates vary this padding along the page; internal pages use the same value everywhere.
+
+Leave `gapVertical` at its default of `x-large` as well, so the space between the rows matches the space above and below them.
+
+Use the [Margin](/docs/utilities-css-margin--docs) utility classes for the space between the elements within a Grid Cell, in the amounts of the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guide.
 
 ## See also
 
