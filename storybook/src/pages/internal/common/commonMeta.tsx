@@ -21,8 +21,8 @@ export const commonMeta = {
     // instead of Chromatic’s 1200px default, so the visual test covers the widest layout we design for.
     chromatic: { modes: { '1920px': { viewport: 1920 } } },
     layout: 'fullscreen',
-    // Internal websites use Compact Mode, and the Menu may only be used with it. The override applies it to
-    // every story here, whichever mode the toolbar selects.
-    themes: { themeOverride: 'Compact' },
+    // Internal websites use Compact Mode, and the Menu may only be used with it. These options limit the
+    // theme toolbar to Compact Mode and its sketch variant.
+    themes: { options: ['Compact', 'Compact sketch'] },
   },
 } satisfies Meta

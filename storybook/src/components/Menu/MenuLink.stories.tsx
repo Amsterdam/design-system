@@ -29,7 +29,7 @@ const meta = {
   ],
   parameters: {
     themes: {
-      themeOverride: 'Compact',
+      options: ['Compact', 'Compact sketch'],
     },
   },
   render: ({ children, ...args }) => <Menu.Link {...args}>{children}</Menu.Link>,

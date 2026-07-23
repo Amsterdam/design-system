@@ -10,7 +10,7 @@ import { MailIcon, PhoneIcon } from '@amsterdam/design-system-react-icons'
 import { PageFooter } from '@amsterdam/design-system-react/src'
 
 import { wrapInPage } from '#storybook/_common/decorators'
-import { isCompactTheme } from '#storybook/_common/isCompactTheme'
+import { useIsCompactTheme } from '#storybook/_common/useIsCompactTheme'
 
 import { PageFooterContent } from './PageFooterContent'
 
@@ -25,16 +25,20 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args, context) => (
-    <PageFooter {...args}>
-      <PageFooterContent cellAppearance={isCompactTheme(context) ? 'transparent' : undefined} />
-    </PageFooter>
-  ),
+  render: (args) => {
+    const compact = useIsCompactTheme()
+
+    return (
+      <PageFooter {...args}>
+        <PageFooterContent cellAppearance={compact ? 'transparent' : undefined} />
+      </PageFooter>
+    )
+  },
 }
 
 export const CustomContent: Story = {
-  render: (args, context) => {
-    const cellAppearance = isCompactTheme(context) ? 'transparent' : undefined
+  render: (args) => {
+    const cellAppearance = useIsCompactTheme() ? 'transparent' : undefined
 
     return (
       <PageFooter {...args}>

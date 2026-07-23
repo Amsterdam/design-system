@@ -28,7 +28,6 @@ minimumReleaseAgeExclude:
   - "@storybook/addon-a11y@10.5.0"
   - "@storybook/addon-docs@10.5.0"
   - "@storybook/addon-links@10.5.0"
-  - "@storybook/addon-themes@10.5.0"
   - "@storybook/builder-vite@10.5.0"
   - "@storybook/csf-plugin@10.5.0"
   - "@storybook/react-dom-shim@10.5.0"
