@@ -52,12 +52,22 @@ The component must be rendered twice.
 
 1. One instance, for narrow and medium windows, sits in the Page Header.
    The user can access it through the menu button.
-   Hide the menu button on wide windows.
+   Hide the menu button on wide windows: this instance hides itself there, so the button would open an empty menu.
 2. A second Menu goes between the Page Header and the main content.
    This is for wide windows, where the menu is positioned to the side.
    The `inWideWindow` prop ensures that only one of both components is present at all times.
 
 Make sure that both menus have the same items.
+
+## Vertical space
+
+Between the Page Header and the Page Footer, an internal page holds one or more Grids.
+Give each of them a `paddingVertical` of `x-large`.
+The public templates vary this padding along the page; internal pages use the same value everywhere.
+
+Leave `gapVertical` at its default of `x-large` as well, so the space between the rows matches the space above and below them.
+
+Use the [Margin](/docs/utilities-css-margin--docs) utility classes for the space between the elements within a Grid Cell, in the amounts of the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guide.
 
 ## See also
 
