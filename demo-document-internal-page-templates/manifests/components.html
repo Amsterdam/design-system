@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>3.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -16270,9 +16270,7 @@ const meta = {
           &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;
             {currentMenu.label}
           &lt;/Heading&gt;
-          &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-            {currentSubMenu.label}
-          &lt;/Heading&gt;
+          &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
           span={{ narrow: 4, medium: 4, wide: 3 }}
@@ -16346,7 +16344,7 @@ export const Default: StoryObj = {
   {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
   &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 3, wide: 3 }}&gt;
     &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;{currentMenu.label}&lt;/Heading&gt;
-    &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
+    &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
   &lt;/Grid.Cell&gt;
   &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }} /&gt;
 &lt;/Grid&gt;`,
@@ -16476,9 +16474,7 @@ export const Default: StoryObj = {
         &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;
           {currentMenu.label}
         &lt;/Heading&gt;
-        &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-          {currentSubMenu.label}
-        &lt;/Heading&gt;
+        &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell
         span={{ narrow: 4, medium: 4, wide: 3 }}
@@ -17085,21 +17081,35 @@ As a root layout component, it must be used for all websites for the City of Ams
 
 ### How to use
 
+#### Public websites
+
+Use the Page as it is.
+Its children – a [Skip Link](/docs/components-navigation-skip-link--docs), the Page Header, the sections of the page, and the Page Footer – follow one another in document order.
+See the [introduction to the public templates](/docs/pages-public-introduction--docs) for the structure of a page.
+
+#### Internal websites
+
 Set `withMenu` to lay the Page out as a grid, with a column for the [Menu](/docs/components-navigation-menu--docs) beside the header, the body, and the footer.
-Every child then needs the class name of the area it belongs in: `ams-page__area--skip-link`, `--header`, `--menu`, `--body`, or `--footer`.
+Every child then needs the class name of the area it belongs in, such as `ams-page__area--header`.
+The description of `withMenu` in the table above names all five.
+
 Those rules apply to direct children of the Page only, so none of these elements may be wrapped in another one.
+See the [introduction to the internal templates](/docs/pages-internal-introduction--docs) for the structure of a page.
 
 ## Examples
 
-See the [Home Page](/story/pages-public-home-page--default) template for public websites for a full-page example.
+### Public websites
 
-### With menu
+Navigation sits in the Page Header, so no Menu is involved.
+See the [Home Page](/story/pages-public-home-page--default) template for a full-page example.
+
+### Internal websites
 
 Internal websites can add a [Menu](/docs/components-navigation-menu--docs) for navigating between its modules and pages.
 This is an alternative to the approach using Link Lists, which is appropriate for public, content-oriented websites.
 
 We can’t display the example here, as it requires Compact Mode to be enabled, which affects the example for the public Home Page template.
-Open the [full example page](/story/components-containers-page--with-menu) or see the [Home Page](/story/pages-internal-home-page--default) template for internal websites.
+Open the [full example page](/story/components-containers-page--with-menu) or see the [Home Page](/story/pages-internal-home-page--default) template.
 
 ## Features
 
@@ -17115,7 +17125,9 @@ An element placed directly in the Page, outside a [Grid](/docs/components-layout
 
 ## See also
 
+- [Skip Link](/docs/components-navigation-skip-link--docs) – the first element in the Page, above the Page Header.
 - [Page Header](/docs/components-containers-page-header--docs) – sits at the top of the Page.
+- [Menu](/docs/components-navigation-menu--docs) – fills the menu column that `withMenu` adds, on an internal website.
 - [Page Footer](/docs/components-containers-page-footer--docs) – sits at the bottom of the Page.
 
 ## Design tokens
@@ -35677,9 +35689,7 @@ const meta = {
           &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;
             {currentMenu.label}
           &lt;/Heading&gt;
-          &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-            {currentSubMenu.label}
-          &lt;/Heading&gt;
+          &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
           span={{ narrow: 4, medium: 4, wide: 3 }}
@@ -35753,7 +35763,7 @@ export const Default: StoryObj = {
   {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
   &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 3, wide: 3 }}&gt;
     &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;{currentMenu.label}&lt;/Heading&gt;
-    &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
+    &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
   &lt;/Grid.Cell&gt;
   &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }} /&gt;
 &lt;/Grid&gt;`,
@@ -35883,9 +35893,7 @@ export const Default: StoryObj = {
         &lt;Heading className=&quot;ams-mb-m&quot; level={2}&gt;
           {currentMenu.label}
         &lt;/Heading&gt;
-        &lt;Heading className=&quot;ams-mb-m&quot; level={3}&gt;
-          {currentSubMenu.label}
-        &lt;/Heading&gt;
+        &lt;Heading level={3}&gt;{currentSubMenu.label}&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell
         span={{ narrow: 4, medium: 4, wide: 3 }}
@@ -36258,21 +36266,35 @@ As a root layout component, it must be used for all websites for the City of Ams
 
 ### How to use
 
+#### Public websites
+
+Use the Page as it is.
+Its children – a [Skip Link](/docs/components-navigation-skip-link--docs), the Page Header, the sections of the page, and the Page Footer – follow one another in document order.
+See the [introduction to the public templates](/docs/pages-public-introduction--docs) for the structure of a page.
+
+#### Internal websites
+
 Set `withMenu` to lay the Page out as a grid, with a column for the [Menu](/docs/components-navigation-menu--docs) beside the header, the body, and the footer.
-Every child then needs the class name of the area it belongs in: `ams-page__area--skip-link`, `--header`, `--menu`, `--body`, or `--footer`.
+Every child then needs the class name of the area it belongs in, such as `ams-page__area--header`.
+The description of `withMenu` in the table above names all five.
+
 Those rules apply to direct children of the Page only, so none of these elements may be wrapped in another one.
+See the [introduction to the internal templates](/docs/pages-internal-introduction--docs) for the structure of a page.
 
 ## Examples
 
-See the [Home Page](/story/pages-public-home-page--default) template for public websites for a full-page example.
+### Public websites
 
-### With menu
+Navigation sits in the Page Header, so no Menu is involved.
+See the [Home Page](/story/pages-public-home-page--default) template for a full-page example.
+
+### Internal websites
 
 Internal websites can add a [Menu](/docs/components-navigation-menu--docs) for navigating between its modules and pages.
 This is an alternative to the approach using Link Lists, which is appropriate for public, content-oriented websites.
 
 We can’t display the example here, as it requires Compact Mode to be enabled, which affects the example for the public Home Page template.
-Open the [full example page](/story/components-containers-page--with-menu) or see the [Home Page](/story/pages-internal-home-page--default) template for internal websites.
+Open the [full example page](/story/components-containers-page--with-menu) or see the [Home Page](/story/pages-internal-home-page--default) template.
 
 ## Features
 
@@ -36288,7 +36310,9 @@ An element placed directly in the Page, outside a [Grid](/docs/components-layout
 
 ## See also
 
+- [Skip Link](/docs/components-navigation-skip-link--docs) – the first element in the Page, above the Page Header.
 - [Page Header](/docs/components-containers-page-header--docs) – sits at the top of the Page.
+- [Menu](/docs/components-navigation-menu--docs) – fills the menu column that `withMenu` adds, on an internal website.
 - [Page Footer](/docs/components-containers-page-footer--docs) – sits at the bottom of the Page.
 
 ## Design tokens
