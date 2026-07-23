@@ -103,7 +103,8 @@ The supporting scripts live in [`.github/scripts`](../scripts).
   Publish always executes from `develop`, then checks out `main` itself; this is intentional and noted inline in the file.
 - **Required status checks follow job names, not workflow names.**
   Branch protection and rulesets refer to a check by its job's `name:` (or its id, if the job has no `name:`) — never the workflow's name or file. If you rename a job that's a required check, update the required status checks in the repository settings in the same change, or the check gets stuck on “Expected — waiting for status” forever.
-- **Chromatic only snapshots the story named “Test”.**
+- **Chromatic snapshots a subset of the stories.**
+  `onlyStoryNames` in [`storybook/chromatic.config.json`](../../storybook/chromatic.config.json) limits it to the story named “Test” for each component and CSS utility, plus every story under `Pages`.
   That is a Storybook convention unrelated to any workflow name; see the [testing documentation](../../documentation/tests.md).
 - **A pull request's Chromatic baseline does not come from its own history.**
   Because pull requests are squash-merged, no build runs on a commit that `develop` keeps, so Chromatic relies on the merge association from its GitHub App to carry baselines across.
