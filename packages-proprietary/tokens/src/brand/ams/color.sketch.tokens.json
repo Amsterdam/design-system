@@ -1,0 +1,68 @@
+{
+  "ams": {
+    "color": {
+      "feedback": {
+        "error": {
+          "$value": "#767676"
+        },
+        "info": {
+          "$value": "#767676"
+        },
+        "success": {
+          "$value": "#767676"
+        },
+        "warning": {
+          "$value": "#767676"
+        }
+      },
+      "highlight": {
+        "azure": {
+          "$value": "#d1d1d1"
+        },
+        "green": {
+          "$value": "#d1d1d1"
+        },
+        "lime": {
+          "$value": "#d1d1d1"
+        },
+        "magenta": {
+          "$value": "#d1d1d1"
+        },
+        "orange": {
+          "$value": "#d1d1d1"
+        },
+        "purple": {
+          "$value": "#d1d1d1"
+        },
+        "yellow": {
+          "$value": "#d1d1d1"
+        }
+      },
+      "interactive": {
+        "default": {
+          "$value": "#202020"
+        },
+        "hover": {
+          "$value": "#000000"
+        },
+        "invalid": {
+          "default": {
+            "$value": "#767676"
+          },
+          "hover": {
+            "$value": "#202020"
+          }
+        }
+      },
+      "progress": {
+        "current": {
+          "$value": "#202020"
+        },
+        "completed": {
+          "$value": "#202020"
+        }
+      }
+    }
+  },
+  "$type": "color"
+}
