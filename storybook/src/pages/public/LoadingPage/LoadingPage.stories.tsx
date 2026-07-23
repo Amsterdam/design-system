@@ -200,11 +200,9 @@ type PageSourceOptions = {
 }
 
 const pageShell = ({ busy, extraCells = '', status, statusCell = '' }: PageSourceOptions) =>
-  `{/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-{/*
- * This page has two Grids in one landmark, so a plain <main> wraps them both. A page that is a single
- * section can put as="main" on the Grid itself instead.
- */}
+  `// The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
+// This page has two Grids in one landmark, so a plain <main> wraps them both. A page that is a single
+// section can put as="main" on the Grid itself instead.
 <main id="inhoud">
   {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
   <Grid paddingTop="large">
