@@ -66,6 +66,8 @@ return <Pagination linkComponent={LinkComponent} />
 
 ## Features
 
+Pagination renders nothing when `totalPages` is 1 or less, so a set that fits on a single page needs no condition around it.
+
 Start a page with an overview list at the top after changing the page.
 Redirect users to the first page if they enter a URL with a page number that doesn’t exist.
 
