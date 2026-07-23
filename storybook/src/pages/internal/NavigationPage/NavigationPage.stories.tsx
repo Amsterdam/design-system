@@ -114,9 +114,9 @@ export const Default: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments and resolves the interactive state. Provide the source by hand so the guidance stays
-        // visible and the layout reads the way a developer would write it.
+        // Because the `render` of this story lives on the shared meta, its own source is nothing but these parameters,
+        // and that is all the Code Panel would print. Provide the source by hand so the layout reads the way a
+        // developer would write it, without the interactive state.
         code: `<Grid paddingVertical="x-large">
   <Grid.Cell appearance="transparent" span="all">
     <Breadcrumb>

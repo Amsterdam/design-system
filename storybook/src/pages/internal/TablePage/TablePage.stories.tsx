@@ -53,8 +53,9 @@ export const SortingWithSelect: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, dropping JSX
-        // comments and expanding the map. Provide the source by hand so the guidance stays in the panel.
+        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, sorting
+        // scaffolding and all. Provide the source by hand so the panel shows the table markup on its own, with the
+        // guidance kept short.
         code: `<Grid paddingBottom="x-large" paddingTop="large">
   <Grid.Cell appearance="transparent" span="all">
     <Heading level={1}>Vergunninghouders 2026/2027</Heading>
@@ -230,8 +231,9 @@ export const WithPagination = () => {
 WithPagination.parameters = {
   docs: {
     source: {
-      // The Code Panel regenerates a `render` story’s source from the rendered tree, dropping JSX
-      // comments. Provide the source by hand so the guidance below stays visible in the panel.
+      // Because this story’s `render` takes no argument, the Code Panel prints its source as written, pagination
+      // scaffolding and all. Provide the source by hand so the panel shows the table markup on its own, with the
+      // guidance kept short.
       code: `<Grid paddingBottom="x-large" paddingTop="large">
   <Grid.Cell appearance="transparent" span="all">
     <Heading level={1}>Vergunninghouders 2026/2027</Heading>
