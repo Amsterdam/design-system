@@ -28,6 +28,12 @@ Always associate a form element (such as an `input` or `textarea`) with a Label.
 Set `optional` to `true` if the input is not required.
 Use `hint` to show a custom hint text.
 
+Mark the optional fields rather than the required ones, as [the NL Design System guideline on required fields](https://nldesignsystem.nl/richtlijnen/formulieren/voorkom-fouten/verplichte-velden/) recommends.
+A form should ask only what it needs, so most of its fields are required.
+Mark the required fields instead when most fields are optional.
+
+Despite its name, `inFieldSet` has no structural effect: it only changes how the Label and its hint look.
+
 ## Examples
 
 ### Optional
@@ -47,7 +53,7 @@ For the same reason, the default hint text in Dutch is ‘niet verplicht’, not
 
 ### With Heading
 
-If the parent Field is the only content on the page, its Label serves as the main heading as well.
+If the parent Field holds the only question on the page, its Label serves as the main heading as well.
 Set `isPageHeading` to include an `h1` element to reflect this.
 
 <Canvas of={LabelStories.WithHeading} />

@@ -45,6 +45,17 @@ Use a Spotlight to direct the user’s attention to the most important or action
 
 <Canvas of={SpotlightStories.HighlightContent} />
 
+## Accessibility
+
+Which foreground colour to use depends on the highlight colour behind it.
+Follow [Pairing foreground with background colours](/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours).
+
+On a dark background, set `color="inverse"` on every Heading, Paragraph, and Link inside the Spotlight.
+On a light one, keep the default colour for headings and paragraphs, and set `color="contrast"` on links.
+
+`as="aside"` makes the Spotlight a complementary landmark, and `as="section"` makes it a region once it has an accessible name.
+Point `aria-labelledby` at the `id` of the heading inside the Spotlight to name that landmark, so users of assistive technology can tell it apart from the other landmarks on the page.
+
 ## See also
 
 - [Page](/docs/components-containers-page--docs) – contains the Spotlight.

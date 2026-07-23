@@ -49,6 +49,7 @@ Use a [Link List](/docs/components-navigation-link-list--docs) for a flat group 
 
 Give it a `heading` (such as 'Op deze pagina') and a `headingLevel` that fits the document outline.
 Set `aria-current="page"` on the link for the active section or page to highlight it and announce it to screen readers.
+Pass `undefined` on every other link so the attribute is dropped; `"false"` is valid ARIA but leaves an explicit negative on each of them.
 
 ## Examples
 

@@ -25,6 +25,9 @@ The `alt` attribute is required.
 Use `alt=""` for decorative images – images that add little to the nearby text or contribute only to the visual atmosphere of the page.
 Non-decorative images need a text description.
 
+Leaving out `aspectRatio` falls back to the default ratio; no value preserves the proportions of the source file.
+Do not set `loading="lazy"` on an image in the first screenful of the page: there it delays the largest image in the viewport.
+
 ### How to write
 
 Describe the content of the image.
@@ -56,6 +59,8 @@ Optionally specify multiple candidates for the image through the `srcSet` attrib
 For example, provide small, medium, and large variants for various screen sizes.
 This prevents unnecessary downloading of large files.
 Do this especially for the main image of a page, where the difference between sizes on a narrow and wide screen is most significant.
+
+An Image fills the width of its container and always has an aspect ratio, so the browser reserves its box before the file loads and the layout does not shift.
 
 ## Design
 

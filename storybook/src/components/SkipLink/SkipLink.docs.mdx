@@ -58,6 +58,11 @@ The Skip Link sits above the Page Header and is as wide as the Page container.
 It remains hidden until activated with the ‘Tab’ key.
 After appearing, it pushes the rest of the page down.
 
+## Accessibility
+
+Following a Skip Link moves the starting point for sequential focus navigation to the target, so the next ‘Tab’ press continues from there.
+The target itself does not receive focus, and it does not need to: an `id` is enough, so leave `tabindex` off.
+
 ## See also
 
 - [Page](/docs/components-containers-page--docs) – contains the Skip Link as its first element.

@@ -60,12 +60,21 @@ The component does apply the correct font and colour for third party websites us
 ### How to use
 
 The width of the Text Input should be appropriate for the information to be entered.
+The `size` attribute sets how many characters are visible; it does not limit how many the user can enter.
 
 Use `spellcheck="false"` for fields that may contain sensitive information, such as personal data.
 Some browser extensions for spell-checking send this information to external servers.
 
+Set `autocorrect="off"` on those fields too.
+Some browsers underline a correctly spelled name, and autocorrection can replace what the user typed.
+Browsers already force autocorrection off for `email`, `url` and `password` inputs, so setting the attribute there only makes it explicit.
+
 Apply automatic assistance where possible.
 For example, in logged-in systems, pre-filling known values can prevent errors and save time.
+
+Set `autocomplete` on every field that collects information about the user.
+Naming the purpose of a field makes it programmatically determinable, which is what [WCAG 1.3.5](https://www.w3.org/TR/WCAG22/#identify-input-purpose) Identify Input Purpose asks for.
+Browsers offering to fill the field in follows from that; it is not the requirement itself.
 
 A Text Input must have a Label, and in most cases, this label should be visible.
 
