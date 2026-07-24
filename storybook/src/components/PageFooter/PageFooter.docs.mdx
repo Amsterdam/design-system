@@ -86,6 +86,25 @@ If your website is in Dutch, but the default heading of ‘Over deze website’ 
 
 <Canvas of={PageFooterStories.CustomMenuHeading} />
 
+## Design
+
+The Page Footer is two bands: a blue Spotlight holding the content, and a white strip below it holding the menu.
+The change of colour is what separates them, so neither band needs a rule or a border to mark where it ends.
+
+The menu links wrap onto as many lines as they need, with a wide gap between links and a narrow one between lines.
+Links stay grouped by row that way, instead of the rows drifting apart into a list.
+
+In print, the blue band keeps its colour rather than being flattened to save ink.
+
+## Accessibility
+
+A Page Footer renders a `footer` element, which is exposed as the `contentinfo` landmark.
+That is what ‘How to use’ means by the footer’s landmark providing enough guidance: a heading grouping its columns would restate what the landmark already says.
+
+The menu carries a heading that is present in the markup and hidden visually.
+Screen reader users get a name for the group of links, while sighted users read the grouping from its position and its colour.
+That heading is a real one, so it appears in the outline of the page and can be navigated to.
+
 ## See also
 
 - [Page](/docs/components-containers-page--docs) – contains the Page Footer.

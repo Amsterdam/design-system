@@ -76,6 +76,34 @@ The Dialog is a [query container](/docs/utilities-css-query-container--docs) for
 | Shift + Tab | Moves focus to the previous focusable element inside the Dialog. |
 | Escape      | Closes the Dialog.                                               |
 
+## Design
+
+A Dialog is built from three bands: a header with the heading and the close button, a body, and an optional footer.
+Only the body scrolls.
+The heading stays readable and the actions stay reachable however long the content grows, which is what keeps a user from scrolling to find the button they were looking for.
+
+Scrolling inside the body does not continue into the page behind once it reaches the end.
+Space for the scrollbar is reserved whether or not one appears, so the text does not shift sideways as content loads.
+
+Its width and its maximum height both change at the medium breakpoint, and a maximum width caps it beyond that.
+A Dialog is sized against the window rather than against its content, so it opens at a predictable size instead of filling the screen when it happens to hold a lot.
+
+The three bands are told apart by their padding alone; nothing is drawn between them.
+In forced colours mode that is not enough, so the header and the footer gain hairline separators there, marking the edges of the part that scrolls.
+
+Forced colours also draws the border in the system colour and gives it a floor of one pixel, so a theme that sets the border token to zero cannot leave the Dialog without an edge against the page behind it.
+
+## Accessibility
+
+A Dialog renders the native `dialog` element and is opened as a modal.
+The browser then makes the rest of the page inert, keeps Tab inside the Dialog without any focus trap of our own, closes it on Escape, and returns focus to whatever opened it.
+
+The heading is a level 1 Heading shown at the size of a level 3.
+A Dialog is its own document as far as its content is concerned, so the outline inside it starts afresh rather than continuing the page underneath.
+
+Scrolling of the page behind the Dialog is suppressed while it is open, but only where the browser supports the selector this relies on.
+Opening a modal does not lock scrolling on its own, and iOS Safari still needs JavaScript for a guarantee, so a gesture over the backdrop there can move the page underneath.
+
 ## See also
 
 - [Action Group](/docs/components-layout-action-group--docs) – lays out multiple Buttons.

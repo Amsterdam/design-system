@@ -75,6 +75,35 @@ Add an `aria-controls` attribute to each button and match its value to the `id` 
 | Home           | If the tabs have focus, go to the first tab    |
 | End            | If the tabs have focus, go to the last tab     |
 
+## Design
+
+A line runs under the whole row of tabs, and the selected tab marks itself with a thicker line of its own on top of it.
+Hovering a tab that is not selected draws a line at the intermediate weight, so the three states read as one scale rather than as three different treatments.
+
+The selected tab is also set in bold.
+A copy of the label at that bold weight sits invisibly behind every tab, reserving the width the bold text will need, so selecting a tab does not nudge its neighbours along the row.
+
+Tabs do not shrink to fit.
+When the row is too long it scrolls sideways and snaps to the start of a tab, which keeps every label readable instead of squeezing labels until they wrap or truncate.
+
+The focus ring is drawn inside a tab rather than around it.
+The row is a scrolling container, and a ring drawn outside the button would be clipped at its edge.
+
+In forced colours mode the selected tab is filled with the system’s selection colour.
+The lines that normally mark it are shadows, and shadows are not rendered in that mode.
+
+## Accessibility
+
+Tabs implement the tab pattern: the row is a tab list, each button is a tab that names the panel it controls and reports whether it is selected, and each panel is a tab panel labelled by its own tab.
+
+Only the selected tab is in the tab order.
+Tab therefore moves past the whole row in one step, and the arrow, Home and End keys move between the tabs, wrapping around at either end.
+
+The panel itself can be focused, so Tab from the selected tab lands on the content it revealed rather than skipping past it.
+Panels that are not selected are not rendered at all: their content is absent from the page, so it is neither announced nor found by ‘Find in page’.
+
+The invisible bold copy of each label is hidden from assistive technology, so a tab is announced once rather than twice.
+
 ## See also
 
 - [Tab Navigation](/docs/components-navigation-tab-navigation--docs) – when each tab should navigate to its own page.
