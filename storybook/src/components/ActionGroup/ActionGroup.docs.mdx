@@ -28,6 +28,10 @@ If two or more Buttons or links are in a row, put the one for the primary action
 ### How to use
 
 Replace the default 'group' role with `role="toolbar"` for Button toolbars.
+A toolbar is expected to behave like one: arrow keys move between its controls and Tab passes the whole set in one step.
+The Action Group does not implement that, so wire it up yourself or leave the role alone.
+
+Give the group a name with `aria-label` when a page holds several sets of actions and hearing ‘group’ on its own would not say which set this is.
 
 ## Examples
 
@@ -53,6 +57,22 @@ Putting the primary action first keeps the order of Buttons consistent on both n
 
 Sighted users will read the primary action first, in line with the natural reading order.
 The same goes for users of screen readers, who will hear the primary action first, and users of a keyboard, who will focus the primary action first.
+
+An Action Group is only as wide as the actions inside it, rather than stretching across whatever contains it.
+It can therefore sit at the end of a Dialog or beside other content without claiming the whole line.
+
+Every action is nonetheless allowed to grow into the space the group has.
+While they fit on one line there is no space to grow into, so nothing changes; once they no longer fit, each action wraps onto a line of its own and fills it.
+This is what produces the stacked layout above, without a breakpoint deciding when it happens.
+
+Actions of different heights are centred against each other, so a Button and a Link on the same line share a middle rather than a top edge.
+
+## Accessibility
+
+An Action Group renders a `div` with the `group` role, so assistive technology presents the actions as one set instead of as unrelated controls that happen to be adjacent.
+
+The group has no name of its own.
+Screen readers announce it as a group and then read the actions, which is enough when the page holds only one set; ‘How to use’ covers the case where it is not.
 
 ## Design tokens
 
