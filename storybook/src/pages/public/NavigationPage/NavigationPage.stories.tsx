@@ -62,7 +62,7 @@ export const Default: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -107,7 +107,7 @@ export const Default: StoryObj = {
   render: (args) => (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
-      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -161,7 +161,7 @@ export const WithTopTasks: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -217,7 +217,7 @@ export const WithTopTasks: StoryObj = {
   render: (args) => (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
-      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -282,7 +282,7 @@ export const WithInteractiveElement: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -359,7 +359,7 @@ export const WithInteractiveElement: StoryObj = {
   render: (args) => (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
-      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -449,7 +449,7 @@ export const WithImageGallery: StoryObj = {
         // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
         // patterns read the way a developer would write them.
         code: `<>
-  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -586,7 +586,7 @@ export const WithImageGallery: StoryObj = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
-      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -968,7 +968,7 @@ export const SubnavigationPage: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -1077,7 +1077,7 @@ export const SubnavigationPage: StoryObj = {
   render: (args) => (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
-      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
