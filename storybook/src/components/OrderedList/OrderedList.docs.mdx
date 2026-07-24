@@ -90,6 +90,14 @@ The second and following lines of an item line up with its first line instead of
 A nested list is indented less than the top level.
 Its numbers need less room because they are letters, and a smaller step keeps a two-level list from drifting far to the right.
 
+## Accessibility
+
+An Ordered List renders `ol` and `li` elements.
+Screen readers announce it as a list, report how many items it holds, and offer commands to move from one item to the next.
+
+Hiding the markers keeps those semantics intact, so screen readers still announce the items as a list and report how many there are.
+That is the point of the variant: the sequence still reaches assistive technology as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires, while the numbers stay out of the way visually.
+
 ## See also
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.

@@ -42,6 +42,11 @@ Do not skip levels: a level 2 Heading must be followed by level 3, not level 4.
 - The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
   Most of them can be given a different size if appropriate.
 
+### How to write
+
+Write a heading that describes the section it introduces.
+Users navigate by heading, so a vague one leaves them guessing what the section holds; [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels) asks headings to describe their topic or purpose.
+
 ## Examples
 
 ### Levels
@@ -115,6 +120,9 @@ In print, a Heading stays with the content it introduces: it is never the last i
 
 Screen reader users navigate by heading to understand page structure.
 An incorrect hierarchy disrupts their mental model of the page.
+
+The `level` prop chooses the `h1` to `h4` element; the `size` prop changes the appearance and nothing else.
+A level 2 Heading shown at the size of a level 4 is still reported as level 2, so the outline assistive technology announces stays the one the content actually has.
 
 ## See also
 

@@ -29,6 +29,7 @@ Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-pr
 ### How to use
 
 If the citation is in a language other than that of the surrounding content, indicate so through the `lang` attribute.
+Assistive technology then switches pronunciation for that passage, which is what [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts) requires.
 
 ## Examples
 
@@ -58,6 +59,11 @@ Words that are too long for the line are hyphenated rather than left to overflow
 The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
 
 In print, a Blockquote is never split across two pages.
+
+## Accessibility
+
+A Blockquote renders a `blockquote` element, which maps to the `blockquote` role.
+The passage is exposed as a quotation rather than as ordinary text, so the meaning does not depend on the quotation marks, which are decoration drawn by CSS.
 
 ## See also
 

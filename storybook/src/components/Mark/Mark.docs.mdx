@@ -51,6 +51,15 @@ Yellow is the lightest of them, so it keeps the most contrast with the text laid
 The highlight has no padding and no rounded corners.
 It follows the shape of the text exactly and breaks across lines along with it.
 
+## Accessibility
+
+A Mark renders a `mark` element, but most screen readers do not announce highlighted text in their default configuration.
+Someone who does not see the page receives the sentence without learning which words were singled out.
+
+So never let the highlight carry information by itself.
+The text around it has to make sense without it, which keeps what the highlight shows available in the content as well, as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires.
+In a list of search results this follows from the pattern: the result is meaningful as a result, and the highlight only speeds up scanning.
+
 ## Design tokens
 
 <DesignTokensTable tokens={tokens} />

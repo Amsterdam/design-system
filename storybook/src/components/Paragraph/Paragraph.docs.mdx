@@ -31,6 +31,9 @@ Start a new paragraph when the text shifts to a different topic or has its own p
 Consider whether a paragraph with more than 7 sentences or 140 words would be clearer if you divide the text into two paragraphs.
 Texts with not overly long paragraphs are easier to understand, and grouping makes information quicker to locate.
 
+The large and small sizes are a visual distinction only; nothing about them is announced.
+Say in the text itself whatever a size is meant to signal.
+
 ## Examples
 
 ### Large text
@@ -77,6 +80,13 @@ This makes vertical rhythm a property of the layout rather than of the component
 
 Words that are too long for the line are hyphenated rather than left to overflow.
 The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+## Accessibility
+
+A Paragraph renders a `p` element, so screen readers can move through running text one paragraph at a time.
+
+The `b` and `small` elements that the large and small sizes add carry no meaning of their own; both are generic in the accessibility tree.
+A lead paragraph and small print are therefore a visual distinction only, and neither is announced any differently from body text.
 
 ## See also
 
