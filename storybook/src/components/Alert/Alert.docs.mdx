@@ -42,6 +42,15 @@ This can be applied to the entire website or to a part of it.
 
 Add a close button if the user should be able to dismiss the Alert.
 
+Choose a `headingLevel` that fits the outline of the page around the Alert; there is no default.
+The heading keeps the size of a level 3 Heading whichever level you pick.
+
+Give each Alert its own `headingId` when a page holds more than one.
+The Alert uses that id to label itself, and two Alerts sharing the default id would leave the page with a duplicate.
+
+Write the heading and the text so they carry the message on their own.
+The severity reaches no one through the colour or the icon alone, which is what [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) asks you to avoid.
+
 ## Examples
 
 ### Warning
@@ -74,6 +83,35 @@ An informative message can emphasize matters that are useful to follow.
 Include an inline link in the text to guide the user.
 
 <Canvas of={AlertStories.WithInlineLink} />
+
+## Design
+
+An Alert is outlined in the colour of its severity and carries a band of that same colour along its leading edge, with the icon centred in it.
+The band takes its dividing line from the outline, so the two meet as one continuous stroke of the same weight.
+
+The background behind the text stays white in all four variants.
+Only the outline, the band and the icon change colour, which keeps the text on the same background as the rest of the page and its contrast the same whatever the severity.
+
+The heading is fixed at the size of a level 3 Heading, independent of the `headingLevel` given to it.
+Two Alerts then look alike wherever they sit in the outline of a page.
+
+In print, the band keeps its colour rather than being flattened to save ink.
+It is the only part told to do so, because without it nothing distinguishes one severity from another on paper.
+
+## Accessibility
+
+An Alert renders a `section` labelled by its heading, which makes it a `region` landmark.
+Assistive technology lists it with the other landmarks, so users can reach the message directly instead of hunting for it.
+
+The label is wired up with `aria-labelledby` rather than left to the heading inside.
+NVDA in Chrome does not read that heading as the name of the section otherwise.
+Setting `headingId` to `null` removes the label, and the landmark with it.
+
+An Alert does not announce itself when it appears.
+It is not a live region, so it suits a message that is already there when a view renders rather than one that must interrupt.
+
+The icon carries no text alternative and the severity is conveyed by colour alone, so neither reaches a screen reader.
+Both are reinforcement for a message the heading and text already carry, as described under ‘How to use’.
 
 ## Design tokens
 

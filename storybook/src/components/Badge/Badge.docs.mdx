@@ -23,6 +23,9 @@ import * as BadgeStories from "./Badge.stories.tsx";
 
 Let the Badge contain a short text or a number.
 
+Write a label that stands on its own without the colour behind it.
+Nothing but the label reaches a screen reader, and a colour is not a message anyone should have to read, which is what [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) asks of you.
+
 ## Examples
 
 ### With icon
@@ -38,6 +41,22 @@ Use any of the feedback or highlight [colours](/docs/brand-design-tokens-colour-
 The default is green.
 Red, orange and green are especially useful for showing an error, warning, or success.
 However, they can also be combined with the other colours without carrying these meanings.
+
+A Badge is set in bold at the size and line height of body text, and it is padded on the left and right but not above and below.
+Its coloured block is therefore exactly as tall as one line of text, so a Badge placed in a sentence or a table cell does not push the lines around it apart.
+
+The corners are square and there is no border.
+The colour fills the block, which is what makes a Badge read as a label applied to something rather than as a control to press.
+
+In print, a Badge keeps its background colour instead of being flattened to save ink.
+The colour is the point of the component, so losing it would leave a bare word behind.
+
+## Accessibility
+
+A Badge renders a `span` with no role of its own, so its text is read as part of the sentence or the cell it sits in rather than announced separately.
+
+Neither the background colour nor an icon reaches a screen reader; the label carries the whole message on its own.
+‘How to write’ covers what that asks of the wording.
 
 ## Design tokens
 
