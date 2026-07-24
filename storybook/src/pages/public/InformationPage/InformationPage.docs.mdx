@@ -1,0 +1,68 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import * as InformationStories from "./InformationPage.stories.tsx";
+
+<Meta of={InformationStories} />
+
+# Information page
+
+Explains a subject that is neither a product nor a news article: background, rules, and what they mean for the reader.
+Use it when the reader wants to understand something, rather than arrange something.
+For a task that ends in a form or an application, use the [Product page](/docs/pages-public-product-page--docs) instead.
+
+## Structure
+
+- The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
+- The page header contains the title and the metadata that classifies the page: taxonomy tags, optionally preceded by a date.
+  The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
+- The body holds several sections, each opening with a level 2 Heading.
+- The header Grid holds the title and the metadata in one Cell.
+  Where an introductory Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the header Cell.
+- Each section below the header sits in its own Grid, so the padding between those Grids sets them apart rather than a row gap.
+
+## Headings
+
+- Use a level 1 Heading for the title of the page.
+- Use level 2 Headings for the section titles, and level 3 for subsections.
+- Set the Accordion’s `headingLevel` one level below the section heading it follows.
+  In the first example that is level 3.
+
+## Layout and spacing
+
+- The Grids use the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
+  The Cells for the lead paragraph and the Image take the sizes for side-by-side blocks, which reach one column further than the header Cell above them.
+- All body sections share a single Grid Cell, indented one column on wider screens for a comfortable reading measure.
+- Where the lead paragraph takes a Cell of its own, the Grid’s row gap sets the space between it and the title above.
+  That gap stays at the default of `x-large`: [vertical space](/docs/docs-designer-guide-vertical-space--docs) asks for medium here, which `gapVertical` does not offer.
+- An [Image](/docs/components-media-image--docs) always reserves its box, so the layout does not shift while it loads.
+  Use `aspectRatio` to change the ratio it crops to; leaving it off keeps the default of 16:9.
+  Do not lazy-load an image in the first screenful, where it would only delay the largest image in the viewport.
+- For the spacing between components, refer to [vertical space](/docs/docs-designer-guide-vertical-space--docs).
+  An Accordion starts with a Heading, so it takes the spacing that its heading level calls for.
+
+## Default
+
+The lead paragraph and an introductory Image sit side by side below the header, and stack on the narrow grid.
+
+An [Accordion](/docs/components-containers-accordion--docs) groups detail questions that not every reader needs.
+Keep the answers short enough to read without scrolling back to the question.
+
+Images within the body are as wide as the text column.
+
+## With Table
+
+Without an image beside it, the lead paragraph stays in the header cell with the title and metadata.
+
+A [Table](/docs/components-containers-table--docs) presents reference data that would be unreadable as prose.
+It sizes to its content and scrolls horizontally once it outgrows its Grid Cell, so give it a cell wider than the reading column.
+Put the title of the table in its Caption rather than in a separate Heading above it, and mark the first cell of each row as a header cell with `scope="row"` so that screen readers announce it with every cell that follows.
+
+A [Figure](/docs/components-media-figure--docs) groups the table with the sources the data comes from.
+Keep the table’s own Caption as its name, and use the Figure’s Caption for the sources: the two describe different things, and a table that loses its Caption loses its accessible name.
+The Figure supplies the space between them, so the table needs no margin of its own.
+
+A Figure Caption takes any content, not only a sentence.
+Here it holds a level 3 Heading and a [Link List](/docs/components-navigation-link-list--docs), which keeps the sources scannable and lets each one be its own link.
+Note that the whole caption becomes the accessible name of the Figure, so keep it short.
