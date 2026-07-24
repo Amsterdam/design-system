@@ -2,6 +2,6 @@
   "buildCommand": "pnpm run build:chromatic",
   "outputDir": "dist/",
   "projectId": "68db9df886b46f139748c074",
-  "onlyStoryNames": ["Components/**/**/Test", "Pages/**", "Utilities/**/**/Test"],
+  "onlyStoryNames": ["Components/**/**/Test", "Modes/**/**/Test", "Pages/**", "Utilities/**/**/Test"],
   "storybookConfigDir": "./config"
 }
