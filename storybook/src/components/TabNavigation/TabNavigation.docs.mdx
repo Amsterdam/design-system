@@ -91,9 +91,10 @@ The user can navigate the links with their keyboard:
 
 ## Design
 
-A line runs under the whole row, and the link for the current page marks itself with a thicker stroke on top of it.
-Hovering any other link draws a stroke at an intermediate weight, so the three states read as one scale.
-The current link keeps its stroke on hover instead of gaining an underline as well, which would double the marking it already has.
+A separator line runs under the whole row.
+The link for the current page marks itself with a thicker stroke of its own on top of it, in the text colour rather than the separator’s grey.
+Every other link is underlined on hover — the ordinary link underline the rest of the system uses.
+The current link is spared it: a stroke and an underline at once would look overdone.
 
 The current link is also set in bold.
 A copy of the label at that weight sits invisibly behind every link, reserving the width the bold text will need, so the row does not shift as you move from one page to the next.
