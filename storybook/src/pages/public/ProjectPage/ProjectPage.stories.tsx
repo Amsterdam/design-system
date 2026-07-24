@@ -208,7 +208,7 @@ const meta = {
          * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
          */}
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-s" level={2} size="level-3">
+          <Heading className="ams-mb-xs" level={2} size="level-3">
             Nieuws
           </Heading>
           <LinkList>
@@ -217,7 +217,7 @@ const meta = {
           </LinkList>
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-          <Heading className="ams-mb-s" level={2} size="level-3">
+          <Heading className="ams-mb-xs" level={2} size="level-3">
             Werk aan de weg
           </Heading>
           <LinkList>
@@ -271,7 +271,7 @@ const meta = {
       <Grid paddingVertical="x-large">
         {/* These four cells alternate between the same start positions, so they too read as two columns. */}
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-s" level={2} size="level-3">
+          <Heading className="ams-mb-xs" level={2} size="level-3">
             Meer informatie
           </Heading>
           <LinkList>
@@ -296,7 +296,7 @@ const meta = {
           <StandaloneLink href="#">Meer video’s</StandaloneLink>
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-s" level={2} size="level-3">
+          <Heading className="ams-mb-xs" level={2} size="level-3">
             Plannen en publicaties
           </Heading>
           <LinkList>
@@ -304,7 +304,7 @@ const meta = {
           </LinkList>
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-          <Heading className="ams-mb-s" level={2} size="level-3">
+          <Heading className="ams-mb-xs" level={2} size="level-3">
             Blijf op de hoogte
           </Heading>
           <LinkList>
@@ -462,14 +462,14 @@ export const Default: StoryObj = {
      * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
      */}
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-      <Heading className="ams-mb-s" level={2} size="level-3">Nieuws</Heading>
+      <Heading className="ams-mb-xs" level={2} size="level-3">Nieuws</Heading>
       <LinkList>
         <LinkList.Link href="#">Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)</LinkList.Link>
         <LinkList.Link href="#">17 november: bijeenkomst over Strandeiland (11 november 2025)</LinkList.Link>
       </LinkList>
     </Grid.Cell>
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-      <Heading className="ams-mb-s" level={2} size="level-3">Werk aan de weg</Heading>
+      <Heading className="ams-mb-xs" level={2} size="level-3">Werk aan de weg</Heading>
       <LinkList>
         <LinkList.Link href="#">Bert Haanstrakade, omleiding</LinkList.Link>
         <LinkList.Link href="#">Straten Centrumeiland, afsluitingen</LinkList.Link>
@@ -494,7 +494,7 @@ export const Default: StoryObj = {
   <Grid paddingVertical="x-large">
     {/* These four cells alternate between the same start positions, so they too read as two columns. */}
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-      <Heading className="ams-mb-s" level={2} size="level-3">Meer informatie</Heading>
+      <Heading className="ams-mb-xs" level={2} size="level-3">Meer informatie</Heading>
       <LinkList>
         <LinkList.Link href="#">Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw</LinkList.Link>
         <LinkList.Link href="#">Woningaanbod Centrumeiland</LinkList.Link>
@@ -509,7 +509,7 @@ export const Default: StoryObj = {
     </Grid.Cell>
     {/* … a Plannen en publicaties cell, start-aligned to the left like Meer informatie … */}
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-      <Heading className="ams-mb-s" level={2} size="level-3">Blijf op de hoogte</Heading>
+      <Heading className="ams-mb-xs" level={2} size="level-3">Blijf op de hoogte</Heading>
       <LinkList>
         <LinkList.Link href="#">Nieuwsbrief ontwikkeling IJburg</LinkList.Link>
         <LinkList.Link href="#">Hallo Centrumeiland: praat mee</LinkList.Link>
