@@ -88,6 +88,28 @@ Websites for the City of Amsterdam must use the default icon.
 
 <Canvas of={RadioStories.WithCustomIcon} />
 
+## Design
+
+The circle is drawn as an SVG inside the label rather than by the browser, which is what makes a custom icon possible at all and keeps the control identical across browsers.
+It carries a separate ring that appears on hover, so the circle grows a halo instead of changing size or colour.
+
+A Radio is round and a [Checkbox](/docs/components-forms-checkbox--docs) is square, which is the only thing distinguishing one from the other at a glance.
+That difference is easy to miss, which is why ‘When not to use’ asks for a hint saying how many options may be chosen rather than trusting the shape to say it.
+
+In forced colours mode the drawing is redone in system colours, since the fills the tokens set are ignored there.
+
+## Accessibility
+
+A Radio renders a native `input` inside a `label`, so the whole label is the target and the browser supplies the role, the checked state, and the arrow-key behaviour that moves between the options of a group.
+
+The input is not hidden away: it is reduced to no width, which keeps it focusable, announced, and submitted with the form.
+Its focus ring is moved onto the label so the ring surrounds the circle and its text rather than a control with no size.
+
+A group of Radios takes one stop in the tab order, and the arrow keys move within it.
+That is browser behaviour tied to the shared `name`, so give every Radio in a group the same one.
+
+Marking every Radio in a failed group as invalid — as ‘How to use’ asks — is what puts the state on each option a screen reader reaches, since the group itself is only announced once.
+
 ## See also
 
 - [Checkbox](/docs/components-forms-checkbox--docs) – when a user can select more than one option.
