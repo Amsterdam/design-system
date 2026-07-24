@@ -47,6 +47,29 @@ A Breadcrumb should not have more than 5 items.
 The first item links to the home page, with ‘Home’ as its text.
 This applies to Dutch websites as well.
 
+## Design
+
+The items flow as inline text rather than as blocks in a row.
+A trail that is too long for the line wraps like a sentence instead of overflowing or scrolling, which is what keeps a Breadcrumb usable on a narrow screen without a separate arrangement for it.
+
+The separator is drawn by CSS, so it can never be forgotten or typed differently from one page to the next.
+It is sized in `ex` units, the height of a lowercase letter, so the chevron stays in proportion to the text beside it at every font size.
+
+Links are not underlined until the pointer is over them.
+The chevrons already mark where one item ends and the next begins, and underlining every step would turn a single line of text into a row of separate objects.
+
+In print, a Breadcrumb is never the last item on a page and is never split across two.
+A trail at the foot of one page with the content it introduces on the next would say nothing.
+
+## Accessibility
+
+A Breadcrumb renders a `nav` around an ordered list, so it is a navigation landmark and the steps keep their order and their number.
+
+The landmark is named by a heading that is hidden visually and hidden from the outline as well.
+It gives the navigation a name for anyone listing the landmarks, without adding an entry to the headings of the page.
+
+The separators are backgrounds on empty pseudo-elements, so nothing is announced between one item and the next.
+
 ## See also
 
 - [Routing libraries](/docs/docs-developer-guide-routing-libraries--docs) – how to integrate links with external routing libraries.

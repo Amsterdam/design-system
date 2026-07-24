@@ -77,6 +77,9 @@ In that case, use a Heading, a Paragraph and a [Standalone Link](/docs/component
 Card Heading requires a `level`, because there is no sensible default.
 The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
 
+Give a Card one link and no more.
+The Card Link covers the whole Card to make it clickable, so a second link inside it would sit underneath and be impossible to click.
+
 ### How to write
 
 Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
@@ -114,11 +117,31 @@ For a group of links without a description, use a [Link List](/docs/components-n
 The mandatory title of a Card is a link within a Heading.
 The link is made active across the entire area of the Card.
 
+## Design
+
+A Card has no border, no background, and no padding.
+It is a stack of parts with white space between them, so a row of Cards reads as a set of articles rather than as a row of boxes.
+
+The whole Card is made clickable by stretching an invisible layer from the link across it.
+Only the title is the link, and everything else stays plain content, so the target grows without the accessible name growing with it.
+
+The focus ring is drawn around the entire Card instead of around the title alone, and the link’s own ring is switched off.
+Browsers that cannot express that condition get neither rule, so they still show the ordinary ring on the title rather than nothing at all.
+
+In a Heading Group the tagline is written after the heading and displayed above it.
+The reading order and the visual order differ on purpose, which is what lets the metadata sit on top while the heading is still what gets read first.
+
 ## Accessibility
 
 Visually, Card Heading has the size of a level 3 Heading by default.
 Screen reader users can navigate by heading or by link; a Card supports both because its title is a heading that contains a link.
 A screen reader reads the title first, then the rest of the content.
+
+The layer that makes the Card clickable is empty and carries no text, so it adds nothing to the name of the link and is not announced.
+The rest of the Card stays ordinary content: a paragraph inside it is read as a paragraph, not as part of the link.
+
+An image in a Card is decoration, which is why ‘With image’ asks for an empty `alt`.
+A description there would be read when browsing the page but skipped when moving between links, so it would reach some readers and not others.
 
 ## See also
 
