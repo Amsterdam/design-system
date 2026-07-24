@@ -46,7 +46,7 @@ Token files use the `.tokens.json` extension and follow the DTCG format:
 
 Token files can have mode variants that override a subset of values; the mode names are listed in `build.js`.
 Compact mode (`.compact.tokens.json`, e.g. `space.compact.tokens.json`) provides denser values for compact layouts.
-Sketch mode (`.sketch.tokens.json`, e.g. `color.sketch.tokens.json`) renders components as a greyscale sketch.
+Lo-fi mode (`.lo-fi.tokens.json`, e.g. `color.lo-fi.tokens.json`) renders components as a greyscale sketch.
 Mode files must only redefine tokens that exist in the base set.
 Each mode builds from its own files alone, so a `{ams.*}` reference in a mode file must resolve to a token defined within that mode's file set.
 

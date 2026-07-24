@@ -83,7 +83,7 @@ const meta = {
   decorators: [withInWideWindowArg],
   parameters: {
     themes: {
-      options: ['Compact', 'Compact sketch'],
+      options: ['Compact', 'Compact Lo-fi'],
     },
   },
 } satisfies Meta<typeof Menu>

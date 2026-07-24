@@ -36,15 +36,15 @@ The Design System Handbook offers [more guidance in using the font](https://desi
 
 Note that the font is proprietary. Using it requires [a license](https://designsystem.amsterdam/?path=/docs/docs-terms-of-use-copyright--docs).
 
-The package also contains the Redacted Script font, which replaces text with squiggles in the sketch mode of the Design System.
-Import its stylesheet alongside the sketch tokens.
+The package also contains the Redacted Script font, which replaces text with squiggles in the Lo-fi Mode of the Design System.
+Import its stylesheet alongside the Lo-fi tokens.
 
 <!-- prettier-ignore -->
 ```ts
-import "@amsterdam/design-system-assets/font/sketch/index.css"
+import "@amsterdam/design-system-assets/font/lo-fi/index.css"
 ```
 
-This font is open source, licensed under the [SIL Open Font License](font/sketch/OFL.txt).
+This font is open source, licensed under the [SIL Open Font License](font/lo-fi/OFL.txt).
 
 ### Icons
 

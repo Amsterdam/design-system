@@ -6,7 +6,7 @@ import { Figure, FigureSet } from "#storybook/_components/Figure/Figure";
 import { InlineColorSample } from "#storybook/_components/InlineColorSample/InlineColorSample";
 
 import handbookPage from "./modes-handbook-page.png";
-import homePageSketch from "./modes-home-page-sketch.png";
+import homePageLoFi from "./modes-home-page-lo-fi.png";
 import homePage from "./modes-home-page.png";
 import navigationPageCompact from "./modes-navigation-page-compact.png";
 
@@ -66,13 +66,13 @@ The Handbook Page example in Spacious Mode next to the Navigation Page example i
 Designs made with the design system look like finished pages from the start.
 That polish can distract: customers may respond to visual details instead of the essence of a design, or think a website has already been built.
 
-**Sketch Mode** renders every component as a rough drawing to keep the conversation about structure and content.
+**Lo-fi Mode** (short for low fidelity) renders every component as a rough drawing to keep the conversation about structure and content.
 All colours become shades of grey, text renders as handwritten squiggles, borders look drawn, and images show a crossed placeholder box.
 Layout, sizing, and spacing remain unchanged, so pages keep their realistic structure.
 
 Preview this mode through the theme switcher in the Storybook toolbar.
-To use it in an application, import the sketch tokens after the main stylesheet, together with its font – see the [Getting Started](/docs/docs-developer-guide-getting-started--docs#sketch-mode) page for the import order, and the [tokens package readme](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/README.md) for scoping a mode with a class instead.
-Sketch Mode combines freely with Compact Mode.
+To use it in an application, import the Lo-fi tokens after the main stylesheet, together with its font – see the [Getting Started](/docs/docs-developer-guide-getting-started--docs#lo-fi-mode) page for the import order, and the [tokens package readme](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/README.md) for scoping a mode with a class instead.
+Lo-fi Mode combines freely with Compact Mode.
 
 The Home Page example in both fidelities:
 
@@ -86,9 +86,9 @@ The Home Page example in both fidelities:
   </Figure>
   <Figure width={240}>
     <img
-      alt="The same page in Sketch Mode: shades of grey, squiggles for text, and crossed boxes for images."
+      alt="The same page in Lo-fi Mode: shades of grey, squiggles for text, and crossed boxes for images."
       className="ams-image"
-      src={homePageSketch}
+      src={homePageLoFi}
     />
   </Figure>
 </FigureSet>

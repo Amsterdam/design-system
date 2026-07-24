@@ -88,9 +88,9 @@ import "@amsterdam/design-system-tokens/dist/compact.theme.css"
 </body>
 ```
 
-### Sketch overrides
+### Lo-fi overrides
 
-A sketch stylesheet is available to present work in progress as a sketch rather than a finished page.
+A Lo-fi stylesheet is available to present work in progress as a sketch rather than a finished page.
 It renders all components in greyscale, replaces text with handwritten squiggles, gives borders a hand-drawn rounding, and shows crossed placeholder boxes instead of images.
 Layout, sizing, and spacing remain unchanged, so pages keep their realistic structure.
 
@@ -100,27 +100,27 @@ Import it after the main stylesheet, together with the Redacted Script font from
 <!-- prettier-ignore -->
 ```ts
 import "@amsterdam/design-system-tokens/dist/index.css"
-import "@amsterdam/design-system-tokens/dist/sketch.css"
-import "@amsterdam/design-system-assets/font/sketch/index.css"
+import "@amsterdam/design-system-tokens/dist/lo-fi.css"
+import "@amsterdam/design-system-assets/font/lo-fi/index.css"
 ```
 
-Pair `sketch.theme.css` with `index.theme.css` if you apply the tokens through a class rather than through `:root`.
-Add the `ams-theme--sketch` class to the very element that carries the `ams-theme` class.
+Pair `lo-fi.theme.css` with `index.theme.css` if you apply the tokens through a class rather than through `:root`.
+Add the `ams-theme--lo-fi` class to the very element that carries the `ams-theme` class.
 
 <!-- prettier-ignore -->
 ```ts
 import "@amsterdam/design-system-tokens/dist/index.theme.css"
-import "@amsterdam/design-system-tokens/dist/sketch.theme.css"
-import "@amsterdam/design-system-assets/font/sketch/index.css"
+import "@amsterdam/design-system-tokens/dist/lo-fi.theme.css"
+import "@amsterdam/design-system-assets/font/lo-fi/index.css"
 ```
 
 ```html
-<body class="ams-theme ams-theme--sketch">
+<body class="ams-theme ams-theme--lo-fi">
   …
 </body>
 ```
 
-Sketch Mode combines freely with Compact Mode.
+Lo-fi Mode combines freely with Compact Mode.
 
 ### Where to apply a mode
 

@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-export const themeNames = ['Spacious', 'Spacious sketch', 'Compact', 'Compact sketch']
+export const themeNames = ['Spacious', 'Spacious Lo-fi', 'Compact', 'Compact Lo-fi']
 
 export const defaultTheme = 'Spacious'
 
@@ -16,7 +16,7 @@ export const matchTheme = (options: string[], selected: string) => {
     return selected
   }
 
-  const sameFidelity = options.find((name) => name.includes('sketch') === selected.includes('sketch'))
+  const sameFidelity = options.find((name) => name.includes('Lo-fi') === selected.includes('Lo-fi'))
 
   return sameFidelity ?? options[0] ?? selected
 }

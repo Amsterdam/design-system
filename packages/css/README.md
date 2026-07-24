@@ -70,9 +70,9 @@ Although it is not a typical use case, the stylesheet can be included in an HTML
 [Load the compact tokens](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/README.md) to use the compact appearance of the design system, e.g. for internal websites with a high information density.
 They override the spacious ones; the stylesheets can remain unchanged.
 
-### Sketch Mode
+### Lo-fi Mode
 
-[Load the sketch tokens](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/README.md) to present pages as a sketch, e.g. to keep a design review focused on structure and content.
+[Load the Lo-fi tokens](https://github.com/Amsterdam/design-system/blob/main/packages-proprietary/tokens/README.md) to present pages as a sketch, e.g. to keep a design review focused on structure and content.
 They override the default appearance; the stylesheets can remain unchanged here as well.
 
 ### Global styles

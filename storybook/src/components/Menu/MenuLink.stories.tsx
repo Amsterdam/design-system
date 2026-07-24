@@ -29,7 +29,7 @@ const meta = {
   ],
   parameters: {
     themes: {
-      options: ['Compact', 'Compact sketch'],
+      options: ['Compact', 'Compact Lo-fi'],
     },
   },
   render: ({ children, ...args }) => <Menu.Link {...args}>{children}</Menu.Link>,

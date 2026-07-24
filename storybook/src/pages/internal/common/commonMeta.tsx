@@ -22,7 +22,7 @@ export const commonMeta = {
     chromatic: { modes: { '1920px': { viewport: 1920 } } },
     layout: 'fullscreen',
     // Internal websites use Compact Mode, and the Menu may only be used with it. These options limit the
-    // theme toolbar to Compact Mode and its sketch variant.
-    themes: { options: ['Compact', 'Compact sketch'] },
+    // theme toolbar to Compact Mode and its Lo-fi variant.
+    themes: { options: ['Compact', 'Compact Lo-fi'] },
   },
 } satisfies Meta

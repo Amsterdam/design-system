@@ -13,15 +13,15 @@ import { viewports } from './viewports'
 
 import '@amsterdam/design-system-tokens/dist/index.css'
 import '@amsterdam/design-system-tokens/dist/compact.theme.css'
-import '@amsterdam/design-system-tokens/dist/sketch.theme.css'
+import '@amsterdam/design-system-tokens/dist/lo-fi.theme.css'
 import '@amsterdam/design-system-assets/font/index.css'
-import '@amsterdam/design-system-assets/font/sketch/index.css'
+import '@amsterdam/design-system-assets/font/lo-fi/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
 import '../src/_styles/authoring.css'
 import '../src/_styles/docs.css'
 import '../src/_styles/canvas.css'
 
-// Load the Redacted Script font up front so switching to Sketch Mode applies it instantly.
+// Load the Redacted Script font up front so switching to Lo-fi Mode applies it instantly.
 // The @font-face files load lazily on first use otherwise, flashing the fallback font — and
 // reflowing the whole story — for a moment after each switch. One weight per file is enough.
 if (typeof document !== 'undefined' && 'fonts' in document) {
@@ -126,7 +126,7 @@ let currentOptions: string[] = themeNames
 const applyModeClasses = (theme: string) => {
   const { classList } = document.documentElement
   classList.toggle('ams-theme--compact', theme.startsWith('Compact'))
-  classList.toggle('ams-theme--sketch', theme.includes('sketch'))
+  classList.toggle('ams-theme--lo-fi', theme.includes('Lo-fi'))
 }
 
 const applySelectedTheme = (theme: string) => {
