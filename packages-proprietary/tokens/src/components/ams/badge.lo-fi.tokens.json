@@ -1,0 +1,33 @@
+{
+  "ams": {
+    "badge": {
+      "magenta": {
+        "color": {
+          "$value": "#202020",
+          "$description": "Turns dark: Lo-fi flattens the highlight colours to a light grey on which white text falls below the contrast minimum.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
+      },
+      "orange": {
+        "color": {
+          "$value": "#ffffff",
+          "$description": "Turns white: Lo-fi flattens the feedback colours to a mid grey on which the default text colour falls below the contrast minimum.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
+      },
+      "purple": {
+        "color": {
+          "$value": "#202020",
+          "$description": "Turns dark: Lo-fi flattens the highlight colours to a light grey on which white text falls below the contrast minimum.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
+      }
+    }
+  }
+}
