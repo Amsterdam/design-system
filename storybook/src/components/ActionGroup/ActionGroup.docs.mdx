@@ -31,7 +31,7 @@ Replace the default 'group' role with `role="toolbar"` for Button toolbars.
 A toolbar is expected to behave like one: arrow keys move between its controls and Tab passes the whole set in one step.
 The Action Group does not implement that, so wire it up yourself or leave the role alone.
 
-Give the group a name with `aria-label` when a page holds several sets of actions and hearing ‘group’ on its own would not say which set this is.
+Give the group a name when a page holds several sets of actions and hearing ‘group’ on its own would not say which set this is: point `aria-labelledby` at a heading that names the set, or at text hidden with the `ams-visually-hidden` class.
 
 ## Examples
 
