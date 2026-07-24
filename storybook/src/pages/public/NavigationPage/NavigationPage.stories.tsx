@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import {
   Breadcrumb,
+  Button,
   Card,
   Grid,
   Heading,
@@ -17,6 +18,7 @@ import {
   SearchField,
   Spotlight,
   StandaloneLink,
+  TableOfContents,
   UnorderedList,
 } from '@amsterdam/design-system-react'
 
@@ -28,7 +30,7 @@ import {
 } from '#storybook/_common/exampleContent'
 
 import { commonMeta } from '../common/commonMeta'
-import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from './data'
+import { burgerzakenLinks, parkerenLinks, persons, shopGroups, shopLocations, topTaskLinks } from './data'
 
 const meta = {
   ...commonMeta,
@@ -753,6 +755,205 @@ export const WithImageGallery: StoryObj = {
           </Grid.Cell>
         </Grid>
       </main>
+    </>
+  ),
+}
+
+const currentShop = shopGroups[0].shops[0]
+
+export const WithSideNavigation: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` patterns read
+        // the way a developer would write them.
+        code: `// currentShop is the shop on screen: it titles the section and marks that entry in the navigation.
+
+<>
+  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  <Grid paddingTop="large">
+    <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Breadcrumb>
+        <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+        <Breadcrumb.Link href="#">Waar te gebruiken</Breadcrumb.Link>
+      </Breadcrumb>
+    </Grid.Cell>
+  </Grid>
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  {/*
+   * The side navigation switches between the entries this page shows, so it belongs to the main content
+   * and the Grid itself is that region. The Handbook Page keeps its Table of Contents in a Grid Cell
+   * outside <main>, because that one moves between the pages of a document.
+   */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+  <Grid as="main" id="inhoud" paddingBottom="2x-large">
+    <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Heading className="ams-mb-m" level={1}>Winkels</Heading>
+      <Paragraph size="large">
+        Alle winkels met een fysiek adres vindt u op de kaart en in de lijst. Webshops vindt u alleen in de lijst.
+      </Paragraph>
+    </Grid.Cell>
+    {/* Inside the Grid, the map lines up with the sections around it instead of spanning the full Page width. */}
+    <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to the map’s 4:3. */}
+      {/* This image carries no information the text does not, so it takes an empty alt. */}
+      <Image alt="" aspectRatio="4:3" src="https://picsum.photos/1040/780" />
+    </Grid.Cell>
+    {/*
+     * The navigation is longer than the section beside it, so on the wide grid its cell spans all four rows
+     * of that section. rowSpan accepts at most 4, which is what limits this page to six addresses. On the
+     * narrow and medium grids the navigation sits above the section instead, in a row of its own.
+     */}
+    <Grid.Cell
+      rowSpan={{ narrow: 1, medium: 1, wide: 4 }}
+      span={{ narrow: 4, medium: 8, wide: 3 }}
+      start={{ narrow: 1, medium: 1, wide: 2 }}
+    >
+      {/*
+       * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
+       * group inherits it. aria-current="page" marks the shop on screen, and every other link gets
+       * undefined, which drops the attribute.
+       */}
+      <TableOfContents collapsible heading="Deelnemende winkels">
+        <TableOfContents.List defaultExpanded>
+          {shopGroups.map(({ heading, shops }) => (
+            <TableOfContents.Link href="#" key={heading} label={heading}>
+              <TableOfContents.List>
+                {shops.map((shop) => (
+                  <TableOfContents.Link
+                    aria-current={shop === currentShop ? 'page' : undefined}
+                    href="#"
+                    key={shop}
+                    label={shop}
+                  />
+                ))}
+              </TableOfContents.List>
+            </TableOfContents.Link>
+          ))}
+        </TableOfContents.List>
+      </TableOfContents>
+    </Grid.Cell>
+    <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}>
+      <Heading level={2}>{currentShop}</Heading>
+    </Grid.Cell>
+    {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
+    {shopLocations.map(({ postalCode, street }, index) => (
+      <Grid.Cell key={street} span={4} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 5 }}>
+        <Paragraph className="ams-mb-m">
+          {street}
+          <br />
+          {postalCode} Amsterdam
+        </Paragraph>
+        {/*
+         * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+         * hidden address extends each accessible name. It follows the visible label rather than
+         * interrupting it, which keeps that label a contiguous part of the name for speech input.
+         */}
+        <Button variant="secondary">
+          Toon op de kaart<span className="ams-visually-hidden">, {street}</span>
+        </Button>
+      </Grid.Cell>
+    ))}
+  </Grid>
+</>`,
+        language: 'tsx',
+      },
+    },
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) => (
+    // currentShop is the shop on screen: it titles the section and marks that entry in the navigation.
+    <>
+      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+      <Grid paddingTop="large">
+        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Breadcrumb>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+            <Breadcrumb.Link href="#">Waar te gebruiken</Breadcrumb.Link>
+          </Breadcrumb>
+        </Grid.Cell>
+      </Grid>
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      {/*
+       * The side navigation switches between the entries this page shows, so it belongs to the main content
+       * and the Grid itself is that region. The Handbook Page keeps its Table of Contents in a Grid Cell
+       * outside <main>, because that one moves between the pages of a document.
+       */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+      <Grid as="main" id="inhoud" paddingBottom="2x-large">
+        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Heading className="ams-mb-m" level={1}>
+            Winkels
+          </Heading>
+          <Paragraph size="large">
+            Alle winkels met een fysiek adres vindt u op de kaart en in de lijst. Webshops vindt u alleen in de lijst.
+          </Paragraph>
+        </Grid.Cell>
+        {/* Inside the Grid, the map lines up with the sections around it instead of spanning the full Page width. */}
+        <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to the map’s 4:3. */}
+          {/* This image carries no information the text does not, so it takes an empty alt. */}
+          <Image alt="" aspectRatio="4:3" src={exampleImageSource(1040, 780)} />
+        </Grid.Cell>
+        {/*
+         * The navigation is longer than the section beside it, so on the wide grid its cell spans all four rows
+         * of that section. rowSpan accepts at most 4, which is what limits this page to six addresses. On the
+         * narrow and medium grids the navigation sits above the section instead, in a row of its own.
+         */}
+        <Grid.Cell
+          rowSpan={{ narrow: 1, medium: 1, wide: 4 }}
+          span={{ narrow: 4, medium: 8, wide: 3 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        >
+          {/*
+           * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
+           * group inherits it. aria-current="page" marks the shop on screen, and every other link gets
+           * undefined, which drops the attribute.
+           */}
+          <TableOfContents collapsible heading="Deelnemende winkels">
+            <TableOfContents.List defaultExpanded>
+              {shopGroups.map(({ heading, shops }) => (
+                <TableOfContents.Link href="#" key={heading} label={heading}>
+                  <TableOfContents.List>
+                    {shops.map((shop) => (
+                      <TableOfContents.Link
+                        aria-current={shop === currentShop ? 'page' : undefined}
+                        href="#"
+                        key={shop}
+                        label={shop}
+                      />
+                    ))}
+                  </TableOfContents.List>
+                </TableOfContents.Link>
+              ))}
+            </TableOfContents.List>
+          </TableOfContents>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}>
+          <Heading level={2}>{currentShop}</Heading>
+        </Grid.Cell>
+        {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
+        {shopLocations.map(({ postalCode, street }, index) => (
+          <Grid.Cell key={street} span={4} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 5 }}>
+            <Paragraph className="ams-mb-m">
+              {street}
+              <br />
+              {postalCode} Amsterdam
+            </Paragraph>
+            {/*
+             * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+             * hidden address extends each accessible name. It follows the visible label rather than
+             * interrupting it, which keeps that label a contiguous part of the name for speech input.
+             */}
+            <Button variant="secondary">
+              Toon op de kaart<span className="ams-visually-hidden">, {street}</span>
+            </Button>
+          </Grid.Cell>
+        ))}
+      </Grid>
     </>
   ),
 }
