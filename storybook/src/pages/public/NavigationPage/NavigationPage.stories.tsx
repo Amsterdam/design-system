@@ -660,7 +660,7 @@ export const WithImageGallery: StoryObj = {
               Coalitieakkoord
             </Heading>
             <Paragraph className="ams-mb-s">
-              In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026.
+              In dit akkoord staan de plannen en visie van de coalitie PvdA, GroenLinks en D66 voor 2022-2026.
             </Paragraph>
             <StandaloneLink href="#">Coalitieakkoord en Uitvoeringsagenda</StandaloneLink>
           </Grid.Cell>
