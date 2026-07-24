@@ -107,11 +107,12 @@ The label is wired up with `aria-labelledby` rather than left to the heading ins
 NVDA in Chrome does not read that heading as the name of the section otherwise.
 Setting `headingId` to `null` removes the label, and the landmark with it.
 
-An Alert does not announce itself when it appears.
-It is not a live region, so it suits a message that is already there when a view renders rather than one that must interrupt.
+The severity reaches a screen reader through a word placed before the heading and hidden from view.
+It defaults to ‘Foutmelding’, ‘Waarschuwing’, ‘Succes’ or ‘Informatie’, which the `errorAccessibleName`, `warningAccessibleName`, `successAccessibleName` and `informationalAccessibleName` props override for translation.
+The icon carries no text alternative and colour cannot be heard, so that word is the only severity cue a screen reader receives.
 
-The icon carries no text alternative and the severity is conveyed by colour alone, so neither reaches a screen reader.
-Both are reinforcement for a message the heading and text already carry, as described under ‘How to use’.
+An Alert is not a live region and does not announce itself when it appears.
+This matches its purpose of informing without interrupting: it suits a message already present when a view renders, not one that must break into the user’s task.
 
 ## Design tokens
 
