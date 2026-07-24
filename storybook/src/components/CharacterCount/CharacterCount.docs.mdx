@@ -33,7 +33,7 @@ If your users keep hitting the character limit imposed by the backend of your se
 
 ### Error
 
-When the length exceeds the maximum length, the colour of the text changes to red.
+When the length exceeds the maximum length, the count turns red and a second line appears beneath it with a warning icon and the number of characters too many, such as ‘5 tekens te veel’.
 
 <Canvas of={CharacterCountStories.Error} />
 
@@ -54,21 +54,23 @@ This lets them type or copy and paste their full answer, then edit it down.
 A Character Count is one line of small text below the field.
 It keeps the ordinary text colour instead of being greyed down, so a reader who needs to check the count is not asked to read weaker text than the rest of the form.
 
-Going over the limit turns it red, and that is the whole of the change: no icon, no border, and nothing about the field itself.
+Going over the limit turns the count red, but the warning icon and the ‘te veel’ line are what carry the error, not the colour.
+That keeps it from resting on a colour a reader might not distinguish, and spares everyone the arithmetic of holding the count against the limit.
 
-Counting up towards the limit rather than down from it means the message says the same thing before and after the limit is passed.
-The wording never has to switch from characters remaining to characters too many.
+The count itself reads the same on both sides of the limit: counting up towards it rather than down from it means its wording never has to flip from characters remaining to characters too many.
+The overshoot is added beneath instead, and the count stays put, so the running total is still there to edit down towards.
 
 ## Accessibility
 
 A Character Count is a status region, so screen readers announce the new count without moving focus and without interrupting what is being read.
 Someone typing hears the count between words rather than after every keystroke, which is what ‘Features’ above describes.
 
-The text is fixed Dutch — the count, the word ‘van’, the limit, and ‘tekens’ — and cannot be configured.
-That is worth weighing before using a Character Count on a page in another language.
+The count is announced as its own text, so it reaches a screen reader in the language its wording is written in.
+That wording defaults to Dutch and comes from the `formatMessage` and `formatOverLimitMessage` props, so on a page in another language it can be given in that language rather than leaving Dutch to be read out.
+The [localisation developer guide](/docs/docs-developer-guide-localisation--docs) covers translating a component’s text.
 
-Going over the limit is signalled by colour alone, so the count itself has to be read for the change to register.
-The text says the same thing either way, which is what keeps the message complete without the colour.
+Over the limit, the warning icon is decorative and hidden from assistive technology, so it adds nothing to the announcement.
+The ‘te veel’ line is ordinary text in the same status region, so the overshoot is announced in words, and the error reaches a screen reader user without depending on the red colour or on comparing the count with the limit.
 
 ## Design tokens
 
