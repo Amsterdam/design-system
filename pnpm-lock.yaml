@@ -161,8 +161,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       postcss:
-        specifier: 8.5.20
-        version: 8.5.20
+        specifier: 8.5.22
+        version: 8.5.22
       style-dictionary:
         specifier: 5.5.0
         version: 5.5.0(tslib@2.8.1)
@@ -371,8 +371,8 @@ importers:
   stylelint:
     dependencies:
       postcss:
-        specifier: 8.5.20
-        version: 8.5.20
+        specifier: 8.5.22
+        version: 8.5.22
     devDependencies:
       stylelint:
         specifier: 17.14.1
@@ -4489,11 +4489,6 @@ packages:
     engines: {node: ^22 || >= 24}
     hasBin: true
 
-  nanoid@3.3.15:
-    resolution: {integrity: sha512-y7Wygv/7mEOvxTuEQDB8StXdMRBWf1kR/tlhAzBRUFkB2jfcLOAxO/SHmOO2zgz1pVgK29/kyupn059/bCHdjA==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
-
   nanoid@3.3.16:
     resolution: {integrity: sha512-bzlKTyNJ7+LdGIIwy8ijFpIqEQIvafahV7eYykJ8Cvh42EdJeODoJ6gUJXpQJvej1BddH8OqTXZNE/KfbWAu8Q==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -4833,6 +4828,10 @@ packages:
 
   postcss@8.5.20:
     resolution: {integrity: sha512-lW616l85ucIQL+FocMmL7pQFPqBmwejrCMg+iPxyImlrANNJG9NHq/RkyCZopDhd8C3LA03PHRJDjkbGu8vvug==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.5.22:
+    resolution: {integrity: sha512-KBDEIpLrvpv16pp3K0Fw+UCoZfopFjjgeB+0tA/aaThfEE74kKDLrgg603YvOWJyg3+WYtyq3xYsQWsIyZlPqQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -10396,8 +10395,6 @@ snapshots:
 
   nano-staged@1.0.2: {}
 
-  nanoid@3.3.15: {}
-
   nanoid@3.3.16: {}
 
   nanospinner@1.2.2:
@@ -10818,11 +10815,17 @@ snapshots:
 
   postcss@8.5.16:
     dependencies:
-      nanoid: 3.3.15
+      nanoid: 3.3.16
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
   postcss@8.5.20:
+    dependencies:
+      nanoid: 3.3.16
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.5.22:
     dependencies:
       nanoid: 3.3.16
       picocolors: 1.1.1
@@ -12004,7 +12007,7 @@ snapshots:
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.5
-      postcss: 8.5.20
+      postcss: 8.5.22
       rolldown: 1.1.5
       tinyglobby: 0.2.17
     optionalDependencies:
