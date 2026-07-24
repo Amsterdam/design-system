@@ -43,6 +43,22 @@ This ensures the colour of the text provides enough contrast.
 
 The component adds the correct quotation marks.
 
+## Design
+
+A Blockquote is set in bold text, one size larger than body text, with a tighter line height.
+This gives a quotation enough weight to stand apart from the running text around it, without needing a border, a background, or an indent.
+
+The quotation marks come from CSS rather than from the content.
+Authors cannot forget them or reach for the wrong pair, and the same curly double marks are used for every language.
+
+A Blockquote has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+In print, a Blockquote is never split across two pages.
+
 ## See also
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.

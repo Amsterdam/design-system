@@ -63,6 +63,21 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
 
 <Canvas of={ParagraphStories.WithIcon} />
 
+## Design
+
+The large and small sizes wrap their text in a `b` and a `small` element.
+Browsers render those elements bold and smaller on their own, so a lead paragraph and small print keep an appearance of their own even if the stylesheet fails to load.
+Once it does load, their usual styling is switched off and the size prop alone sets the appearance, so the text does not turn bold or shrink a second time.
+
+Body text has the most generous line height of the three sizes, 1.6 against 1.5 for the large and small ones.
+Running text is read line after line and needs that space to stay easy to follow, while the shorter lines of a lead paragraph do not.
+
+A Paragraph has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
 ## See also
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
