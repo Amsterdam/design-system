@@ -32,7 +32,7 @@ For other icons, use a [Button](/docs/components-buttons-button--docs) so that t
 ### How to use
 
 An Icon Button still needs a label for screen reader users.
-Provide it through the `children` prop; it is read aloud even though it is not shown.
+Provide it through the `label` prop; it is read aloud even though it is not shown.
 
 ## Examples
 
@@ -54,6 +54,23 @@ Use the inverse colour on an azure, blue, green, magenta or purple background.
 It will make the icon white.
 
 <Canvas of={IconButtonStories.InverseColour} />
+
+## Design
+
+An Icon Button has no shape of its own: no border, no background, and no padding.
+It takes up no more room than the icon it holds, which is what lets it sit inside a line of text without disturbing the line.
+
+The icon is given a square box, so the area that responds to the pointer is a square centred on the icon rather than a shape that follows its outline.
+Hovering tints that square with the icon’s own colour at one-eighth opacity instead of filling it, so the affordance appears without the icon shifting or changing weight.
+
+The focus outline is offset from the icon rather than drawn against it, which keeps a thin glyph readable inside the ring.
+
+## Accessibility
+
+An Icon Button renders a `button` element and always writes its label into the markup, hidden visually.
+Screen readers announce that label, so the button is never announced as unlabelled, and the icon contributes nothing to the name.
+
+Its `type` defaults to `button` rather than to `submit`, so an Icon Button inside a form leaves that form alone until asked otherwise.
 
 ## See also
 
