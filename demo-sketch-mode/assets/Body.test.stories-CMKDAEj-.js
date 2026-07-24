@@ -1,0 +1,3 @@
+import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";import t,{n}from"./Body.stories-CDgCdZwn.js";var r,i,a;e((()=>{n(),r={...t,title:`Utilities/CSS/Body`},i={tags:[`!dev`,`!autodocs`]},i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+  tags: ['!dev', '!autodocs']
+}`,...i.parameters?.docs?.source},description:{story:`The utility has no variants: it sets the page background and the base text style, which the meta already shows.`,...i.parameters?.docs?.description}}},a=[`Test`]}))();export{i as Test,a as __namedExportsOrder,r as default};
