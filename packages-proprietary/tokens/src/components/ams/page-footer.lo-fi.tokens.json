@@ -1,0 +1,12 @@
+{
+  "ams": {
+    "page-footer": {
+      "spotlight": {
+        "background-color": {
+          "$value": "#d1d1d1",
+          "$type": "color"
+        }
+      }
+    }
+  }
+}

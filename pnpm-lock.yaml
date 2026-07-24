@@ -322,9 +322,6 @@ importers:
       '@storybook/addon-mcp':
         specifier: 0.7.0
         version: 0.7.0(storybook@10.5.2(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))(typescript@6.0.3)
-      '@storybook/addon-themes':
-        specifier: 10.5.2
-        version: 10.5.2(storybook@10.5.2(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))
       '@storybook/mdx2-csf':
         specifier: 1.1.0
         version: 1.1.0
@@ -1775,11 +1772,6 @@ packages:
     peerDependenciesMeta:
       '@storybook/addon-vitest':
         optional: true
-
-  '@storybook/addon-themes@10.5.2':
-    resolution: {integrity: sha512-XxqGlGFOw8lXhlkxftmq2ifsGeKLM8YePhVzdmG52XCHWN5sPJx9ns4QWOPqSs5669QlKUDo6Ct8c8cN6BmznA==}
-    peerDependencies:
-      storybook: ^10.5.2
 
   '@storybook/builder-vite@10.5.2':
     resolution: {integrity: sha512-XxY/zpMrEOXqdJaEw8s7fJefDCjO1eRkjvZvb50ojiqDJpTdfguhBrwqlHilpWWt5a12VjbbMrUHza4YPs/bBg==}
@@ -7258,11 +7250,6 @@ snapshots:
     transitivePeerDependencies:
       - '@tmcp/auth'
       - typescript
-
-  '@storybook/addon-themes@10.5.2(storybook@10.5.2(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))':
-    dependencies:
-      storybook: 10.5.2(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1)
-      ts-dedent: 2.2.0
 
   '@storybook/builder-vite@10.5.2(esbuild@0.28.1)(rollup@4.62.2)(storybook@10.5.2(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))(vite@8.1.5(@types/node@25.7.0)(esbuild@0.28.1)(sass@1.101.6)(terser@5.47.1)(yaml@2.9.0))':
     dependencies:

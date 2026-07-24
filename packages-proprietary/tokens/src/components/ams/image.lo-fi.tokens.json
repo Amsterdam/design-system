@@ -1,0 +1,26 @@
+{
+  "ams": {
+    "image": {
+      "background-color": {
+        "$value": "#d1d1d1",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "background-image": {
+        "$value": "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><path d='M0 0L100 100M100 0L0 100' stroke='%23767676' stroke-width='2' vector-effect='non-scaling-stroke'/></svg>\")",
+        "$description": "A cross from corner to corner marks the box as an image placeholder.",
+        "$extensions": {
+          "nl.amsterdam.type": "backgroundImage"
+        }
+      },
+      "object-position": {
+        "$value": "-100vw 0",
+        "$description": "Moves the actual image out of view so the placeholder background shows.",
+        "$extensions": {
+          "nl.amsterdam.type": "objectPosition"
+        }
+      }
+    }
+  }
+}

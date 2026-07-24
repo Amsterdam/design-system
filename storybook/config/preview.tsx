@@ -3,20 +3,32 @@ import type { ComponentProps } from 'react'
 import type { ArgTypesEnhancer } from 'storybook/internal/types'
 
 import { DocsContainer } from '@storybook/addon-docs/blocks'
-import { withThemeByClassName } from '@storybook/addon-themes'
 import { clsx } from 'clsx'
+import { addons } from 'storybook/preview-api'
 
 import { collapseInlineObjects, maxInlineWidth } from './collapseInlineObjects'
 import { sortLiteralUnionValues } from './sortLiteralUnionValues'
+import { matchTheme, readStoredTheme, THEME_EVENT, THEME_KEY, themeNames } from './themes'
 import { viewports } from './viewports'
 
 import '@amsterdam/design-system-tokens/dist/index.css'
 import '@amsterdam/design-system-tokens/dist/compact.theme.css'
+import '@amsterdam/design-system-tokens/dist/lo-fi.theme.css'
 import '@amsterdam/design-system-assets/font/index.css'
+import '@amsterdam/design-system-assets/font/lo-fi/index.css'
 import '@amsterdam/design-system-css/dist/index.css'
 import '../src/_styles/authoring.css'
 import '../src/_styles/docs.css'
 import '../src/_styles/canvas.css'
+
+// Load the Redacted Script font up front so switching to Lo-fi Mode applies it instantly.
+// The @font-face files load lazily on first use otherwise, flashing the fallback font — and
+// reflowing the whole story — for a moment after each switch. One weight per file is enough.
+if (typeof document !== 'undefined' && 'fonts' in document) {
+  for (const face of ['300 1em "Redacted Script"', '400 1em "Redacted Script"', '700 1em "Redacted Script"']) {
+    document.fonts.load(face).catch(() => {})
+  }
+}
 
 export const argTypes = {
   children: {
@@ -103,6 +115,60 @@ const formatDefaultValues: ArgTypesEnhancer = ({ component, argTypes }) => {
 
 export const argTypesEnhancers = [formatDefaultValues, formatDeprecatedProps, sortLiteralUnionValues]
 
+// Applies the mode classes as a plain CSS class toggle on the root element. The theme is sent from
+// the toolbar (manager.tsx) over the channel rather than through a Storybook global: a global change
+// re-renders every story on the page — very janky on docs pages with many canvases — whereas this
+// toggle is a single style recalc. The decorator resolves the class per story render (so pinned
+// stories adapt on navigation); the channel listener handles toolbar switches without a re-render.
+let selectedTheme = readStoredTheme()
+let currentOptions: string[] = themeNames
+
+const applyModeClasses = (theme: string) => {
+  const { classList } = document.documentElement
+  classList.toggle('ams-theme--compact', theme.startsWith('Compact'))
+  classList.toggle('ams-theme--lo-fi', theme.includes('Lo-fi'))
+}
+
+const applySelectedTheme = (theme: string) => {
+  if (!theme) {
+    return
+  }
+
+  selectedTheme = theme
+  applyModeClasses(matchTheme(currentOptions, selectedTheme))
+}
+
+let listenersBound = false
+const bindThemeListeners = () => {
+  if (listenersBound) {
+    return
+  }
+  listenersBound = true
+
+  // The toolbar sends the selection over the Storybook channel — the fast path in Chrome and
+  // Firefox.
+  addons.getChannel().on(THEME_EVENT, applySelectedTheme)
+
+  // Safari does not reliably deliver that channel message across the manager/preview boundary, so
+  // also react to the localStorage write the toolbar makes: the storage event fires in this frame
+  // when the manager frame changes the value, and is dependable across browsers.
+  window.addEventListener('storage', (event) => {
+    if (event.key === THEME_KEY && event.newValue) {
+      applySelectedTheme(event.newValue)
+    }
+  })
+}
+
+const withModeClassNames = (Story: StoryFn, context: StoryContext) => {
+  bindThemeListeners()
+
+  const override = context.parameters['themes']?.['options']
+  currentOptions = Array.isArray(override) ? (override as string[]) : themeNames
+  applyModeClasses(matchTheme(currentOptions, selectedTheme))
+
+  return <Story />
+}
+
 // Set the page language and apply the page background overrides for Canvas and Stories.
 // Components that need a realistic Page or a width constraint add that themselves through a decorator.
 export const decorators = [
@@ -129,13 +195,7 @@ export const decorators = [
       </div>
     )
   },
-  withThemeByClassName({
-    defaultTheme: 'Spacious',
-    themes: {
-      Compact: 'ams-theme--compact',
-      Spacious: '',
-    },
-  }),
+  withModeClassNames,
 ]
 
 // Append the City’s three crosses as a centered footer beneath every docs page.

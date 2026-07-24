@@ -42,9 +42,13 @@ Token files use the `.tokens.json` extension and follow the DTCG format:
 - Use the `$extensions` field for Amsterdam-specific metadata (e.g. `nl.amsterdam.type`, `nl.amsterdam.subtype`). Common `$extensions` types include `fontSize`, `lineHeight`, and `space` (via `nl.amsterdam.subtype`). See existing component tokens for examples.
 - Variant tokens are nested under the component (e.g. `ams.badge.azure.background-color`).
 
-## Compact mode
+## Modes
 
-Some token categories have `.compact.tokens.json` variants (e.g. `space.compact.tokens.json`, `typography.compact.tokens.json`). These provide denser values for compact layouts.
+Token files can have mode variants that override a subset of values; the mode names are listed in `build.js`.
+Compact mode (`.compact.tokens.json`, e.g. `space.compact.tokens.json`) provides denser values for compact layouts.
+Lo-fi mode (`.lo-fi.tokens.json`, e.g. `color.lo-fi.tokens.json`) renders components as a greyscale sketch.
+Mode files must only redefine tokens that exist in the base set.
+Each mode builds from its own files alone, so a `{ams.*}` reference in a mode file must resolve to a token defined within that mode's file set.
 
 ## Build
 

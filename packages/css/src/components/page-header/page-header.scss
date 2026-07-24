@@ -192,6 +192,7 @@
   @include page-header-menu-action;
 
   background-color: var(--ams-page-header-mega-menu-button-background-color);
+  border-radius: var(--ams-page-header-mega-menu-button-border-radius);
   color: var(--ams-page-header-mega-menu-button-color);
   column-gap: var(--ams-page-header-menu-item-column-gap);
   cursor: var(--ams-page-header-mega-menu-button-cursor);

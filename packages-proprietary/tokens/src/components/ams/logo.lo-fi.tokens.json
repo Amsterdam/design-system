@@ -1,0 +1,18 @@
+{
+  "ams": {
+    "logo": {
+      "emblem": {
+        "color": {
+          "$value": "#767676",
+          "$type": "color"
+        }
+      },
+      "title": {
+        "color": {
+          "$value": "#767676",
+          "$type": "color"
+        }
+      }
+    }
+  }
+}

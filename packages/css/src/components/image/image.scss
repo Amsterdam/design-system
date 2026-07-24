@@ -5,10 +5,15 @@
 
 .ams-image {
   aspect-ratio: var(--ams-image-aspect-ratio);
+  background-color: var(--ams-image-background-color); /* [5] */
+  background-image: var(--ams-image-background-image); /* [5] */
+  background-repeat: no-repeat; /* [5] */
+  background-size: 100% 100%; /* [5] */
   block-size: auto; /* [1] */
   font-style: var(--ams-typography-italic-font-style); /* [3] */
   inline-size: 100%; /* [1] */
   object-fit: cover; /* [4] */
+  object-position: var(--ams-image-object-position); /* [5] */
   vertical-align: middle; /* [2] */
 }
 
@@ -17,3 +22,4 @@
 // [3] Italicise alt text to visually offset it from surrounding copy
 // Source: https://x.com/csswizardry/status/1717841334462005661
 // [4] Crop the image to maintain a supported aspect ratio
+// [5] Invisible by default: modes can move the image out of view and show a placeholder background instead
