@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.0s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -3039,6 +3039,7 @@ Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-pr
 ### How to use
 
 If the citation is in a language other than that of the surrounding content, indicate so through the `lang` attribute.
+Assistive technology then switches pronunciation for that passage, which is what [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts) requires.
 
 ## Examples
 
@@ -3052,6 +3053,27 @@ This ensures the colour of the text provides enough contrast.
 ## Features
 
 The component adds the correct quotation marks.
+
+## Design
+
+A Blockquote is set in bold text, one size larger than body text, with a tighter line height.
+This gives a quotation enough weight to stand apart from the running text around it, without needing a border, a background, or an indent.
+
+The quotation marks come from CSS rather than from the content.
+Authors cannot forget them or reach for the wrong pair, and the same curly double marks are used for every language.
+
+A Blockquote has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+In print, a Blockquote is never split across two pages.
+
+## Accessibility
+
+A Blockquote renders a `blockquote` element, which maps to the `blockquote` role.
+The passage is exposed as a quotation rather than as ordinary text, so the meaning does not depend on the quotation marks, which are decoration drawn by CSS.
 
 ## See also
 
@@ -6245,9 +6267,21 @@ The terms and descriptions stack vertically by default.
 They sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
 
 The column for the terms is as wide as the longest term, without wrapping.
-Its width can be adjusted to ‘large’ (50%), ‘medium’ (33%), or ‘small’ (20%), which also allows the terms to wrap.
+Its width can be adjusted to ‘wide’ (50%), ‘medium’ (33%), or ‘narrow’ (20%), which also allows the terms to wrap.
 
-The term is set in bold text.
+Terms use heading typography and descriptions use body text, which gives the two different line heights.
+Side by side, a term therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its description.
+
+The term is set in bold text, and its line lengths are balanced so it does not end on a single short word.
+
+## Accessibility
+
+A Description List renders `dl`, `dt`, and `dd` elements.
+These tie each term to its descriptions in the markup instead of only through the layout, which is the kind of relationship [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks to be made available.
+A Section renders a `div` around one group, which HTML permits inside a `dl`.
+
+Screen readers expose description lists in noticeably different ways: the number of items they report, the context they give for a term or a description, and the commands available to move through the list all vary.
+The component leaves the native elements alone rather than adding `term` and `definition` roles, because overriding them changes how VoiceOver announces the list.
 
 ## See also
 
@@ -10880,6 +10914,11 @@ Do not skip levels: a level 2 Heading must be followed by level 3, not level 4.
 - The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
   Most of them can be given a different size if appropriate.
 
+### How to write
+
+Write a heading that describes the section it introduces.
+Users navigate by heading, so a vague one leaves them guessing what the section holds; [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels) asks headings to describe their topic or purpose.
+
 ## Examples
 
 ### Levels
@@ -10927,10 +10966,35 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
 
 &lt;Canvas of={HeadingStories.WithIcon} /&gt;
 
+## Design
+
+Headings use the same font family as body text and are always bold.
+Their hierarchy comes from size and weight alone, not from a separate display typeface.
+
+Font sizes for levels 1 to 4 grow with the viewport; level 5 keeps a fixed size.
+Line heights tighten as the text grows, from 1.4 at the smallest sizes to 1.2 at level 1, where body text uses 1.6.
+Large text needs proportionally less space between its lines to stay legible.
+Mobile browsers are prevented from inflating heading text, so these sizes are the only ones that apply.
+[Read more in the typography documentation](/docs/brand-design-tokens-typography--docs#headings).
+
+A Heading that spans multiple lines has its line lengths balanced, so it never ends on a single short word.
+The large [Paragraph](/docs/components-text-paragraph--docs) that often follows a level 1 Heading does the same, which keeps the two visually consistent.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+A Heading has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
+
+In print, a Heading stays with the content it introduces: it is never the last item on a page, and it is never split across two pages.
+
 ## Accessibility
 
 Screen reader users navigate by heading to understand page structure.
 An incorrect hierarchy disrupts their mental model of the page.
+
+The `level` prop chooses the `h1` to `h4` element; the `size` prop changes the appearance and nothing else.
+A level 2 Heading shown at the size of a level 4 is still reported as level 2, so the outline assistive technology announces stays the one the content actually has.
 
 ## See also
 
@@ -15080,7 +15144,7 @@ import { Mark } from "@amsterdam/design-system-react/src";</code></pre>
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/components/Mark/Mark.docs.mdx</div>
-              <div>## Usage guidelines ### When to use Use a maximum of 1 Mark per page. Limit the marked tex...</div>
+              <div>## Usage guidelines ### When to use Highlight the words someone searched for in a list of ...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -15104,24 +15168,56 @@ import * as MarkStories from &quot;./Mark.stories.tsx&quot;;
 
 ### When to use
 
-Use a maximum of 1 Mark per page.
-Limit the marked text to 1 sentence.
+Highlight the words someone searched for in a list of results, so they can see at a glance why each result matched.
+
+Or draw attention to a single fragment of running text that a reader should not miss, such as the question a consultation puts to residents.
 
 ### When not to use
 
-Do not use Mark in titles and subtitles.
-Use a significant and engaging title if the entire paragraph is important.
+Do not reach for Mark to emphasise text in general.
+A passage that carries more weight than the rest usually belongs in a [Heading](/docs/components-text-heading--docs) or in the lead [Paragraph](/docs/components-text-paragraph--docs) of the page.
 
-Do not mark an entire paragraph.
+Do not use Mark to flag a warning, a deadline, or a change in service.
+An [Alert](/docs/components-feedback-alert--docs) carries that meaning and announces itself to assistive technology, which a highlight does not.
+
+### How to use
+
+Never let the highlight carry information by itself.
+The text around it has to make sense without it, so that what the highlight shows reaches everyone, as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires.
+A list of search results already satisfies this: each result is meaningful on its own, and the highlight only speeds up scanning.
+
+Keep an editorial highlight to one fragment per page, and to at most one sentence.
+Marking a whole paragraph, or several passages at once, leaves nothing standing out.
+Rewrite a heading that needs emphasis rather than highlighting part of it.
+
+Highlighted search terms follow the search instead of an editorial choice, so those limits do not apply to them.
+Mark every match on the page, including matches inside the heading of a result.
+Ignore capitalisation and include partial matches.
 
 ## Examples
 
 ### Search results
 
-For a basic search, mark all appearances of every keyword.
-Ignore capitalization and include partial matches.
+Every match of every keyword is highlighted, in the heading of a result as well as in its summary.
 
 &lt;Canvas of={MarkStories.SearchResults} /&gt;
+
+## Design
+
+Only the background colour changes.
+The size, weight, and colour of the text stay as they are, so marked words remain part of the sentence instead of becoming a style of their own.
+
+The highlight is yellow, one of the [highlight colours](/docs/brand-design-tokens-colour--docs#highlight).
+Yellow is the lightest of them, so it keeps the most contrast with the text laid over it.
+
+The highlight has no padding and no rounded corners.
+It follows the shape of the text exactly and breaks across lines along with it.
+
+## Accessibility
+
+A Mark renders a `mark` element, but most screen readers do not announce highlighted text in their default configuration.
+Someone who does not see the page receives the sentence without learning which words were singled out.
+The component cannot make up for that on its own, so what the highlight conveys has to be in the text as well, which ‘How to use’ covers.
 
 ## Design tokens
 
@@ -17742,6 +17838,20 @@ When using a list in small text, set the prop for each item in the list.
 The list uses ascending numbers as markers, providing enough space for numbers up to 99.
 Extra white space between items enhances the distinction, mainly when they consist of multiple lines of text.
 
+Markers sit outside the text column.
+The second and following lines of an item line up with its first line instead of running back underneath the number, which keeps the left edge of the text straight.
+
+A nested list is indented less than the top level.
+Its numbers need less room because they are letters, and a smaller step keeps a two-level list from drifting far to the right.
+
+## Accessibility
+
+An Ordered List renders `ol` and `li` elements.
+Screen readers announce it as a list, report how many items it holds, and offer commands to move from one item to the next.
+
+Hiding the markers keeps those semantics intact, so screen readers still announce the items as a list and report how many there are.
+That is the point of the variant: the sequence still reaches assistive technology as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires, while the numbers stay out of the way visually.
+
 ## See also
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
@@ -19050,6 +19160,9 @@ Start a new paragraph when the text shifts to a different topic or has its own p
 Consider whether a paragraph with more than 7 sentences or 140 words would be clearer if you divide the text into two paragraphs.
 Texts with not overly long paragraphs are easier to understand, and grouping makes information quicker to locate.
 
+The large and small sizes are a visual distinction only; nothing about them is announced.
+Say in the text itself whatever a size is meant to signal.
+
 ## Examples
 
 ### Large text
@@ -19081,6 +19194,28 @@ This ensures the colour of the text provides enough contrast.
 Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/docs/components-media-icon--docs) to align body text with an icon.
 
 &lt;Canvas of={ParagraphStories.WithIcon} /&gt;
+
+## Design
+
+The large and small sizes wrap their text in a `b` and a `small` element.
+Browsers render those elements bold and smaller on their own, so a lead paragraph and small print keep an appearance of their own even if the stylesheet fails to load.
+Once it does load, their usual styling is switched off and the size prop alone sets the appearance, so the text does not turn bold or shrink a second time.
+
+Body text has the most generous line height of the three sizes, 1.6 against 1.5 for the large and small ones.
+Running text is read line after line and needs that space to stay easy to follow, while the shorter lines of a lead paragraph do not.
+
+A Paragraph has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+## Accessibility
+
+A Paragraph renders a `p` element, so screen readers can move through running text one paragraph at a time.
+
+The `b` and `small` elements that the large and small sizes add carry no meaning of their own; both are generic in the accessibility tree.
+A lead paragraph and small print are therefore a visual distinction only, and neither is announced any differently from body text.
 
 ## See also
 
@@ -25732,8 +25867,22 @@ When using a list in small text, set the prop for each item in the list.
 ## Design
 
 Items of an unordered list have square markers.
+The marker is the bullet character, which Amsterdam Sans draws as a square.
 There is extra white space between the items.
 This provides better distinction between the items, especially when they consist of multiple lines of text.
+
+Markers sit outside the text column.
+The second and following lines of an item line up with its first line instead of running back underneath the marker, which keeps the left edge of the text straight.
+
+A nested list is indented less than the top level, which keeps a two-level list from drifting far to the right.
+
+## Accessibility
+
+An Unordered List renders `ul` and `li` elements.
+Screen readers announce it as a list, report how many items it holds, and offer commands to move from one item to the next.
+
+Hiding the markers keeps those semantics intact, so screen readers still announce the items as a list and report how many there are.
+That is the point of the variant: the grouping still reaches assistive technology as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires, while the markers stay out of the way visually.
 
 ## See also
 
@@ -28028,6 +28177,7 @@ Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-pr
 ### How to use
 
 If the citation is in a language other than that of the surrounding content, indicate so through the `lang` attribute.
+Assistive technology then switches pronunciation for that passage, which is what [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts) requires.
 
 ## Examples
 
@@ -28041,6 +28191,27 @@ This ensures the colour of the text provides enough contrast.
 ## Features
 
 The component adds the correct quotation marks.
+
+## Design
+
+A Blockquote is set in bold text, one size larger than body text, with a tighter line height.
+This gives a quotation enough weight to stand apart from the running text around it, without needing a border, a background, or an indent.
+
+The quotation marks come from CSS rather than from the content.
+Authors cannot forget them or reach for the wrong pair, and the same curly double marks are used for every language.
+
+A Blockquote has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+In print, a Blockquote is never split across two pages.
+
+## Accessibility
+
+A Blockquote renders a `blockquote` element, which maps to the `blockquote` role.
+The passage is exposed as a quotation rather than as ordinary text, so the meaning does not depend on the quotation marks, which are decoration drawn by CSS.
 
 ## See also
 
@@ -33019,6 +33190,11 @@ Do not skip levels: a level 2 Heading must be followed by level 3, not level 4.
 - The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
   Most of them can be given a different size if appropriate.
 
+### How to write
+
+Write a heading that describes the section it introduces.
+Users navigate by heading, so a vague one leaves them guessing what the section holds; [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels) asks headings to describe their topic or purpose.
+
 ## Examples
 
 ### Levels
@@ -33066,10 +33242,35 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
 
 &lt;Canvas of={HeadingStories.WithIcon} /&gt;
 
+## Design
+
+Headings use the same font family as body text and are always bold.
+Their hierarchy comes from size and weight alone, not from a separate display typeface.
+
+Font sizes for levels 1 to 4 grow with the viewport; level 5 keeps a fixed size.
+Line heights tighten as the text grows, from 1.4 at the smallest sizes to 1.2 at level 1, where body text uses 1.6.
+Large text needs proportionally less space between its lines to stay legible.
+Mobile browsers are prevented from inflating heading text, so these sizes are the only ones that apply.
+[Read more in the typography documentation](/docs/brand-design-tokens-typography--docs#headings).
+
+A Heading that spans multiple lines has its line lengths balanced, so it never ends on a single short word.
+The large [Paragraph](/docs/components-text-paragraph--docs) that often follows a level 1 Heading does the same, which keeps the two visually consistent.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+A Heading has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
+
+In print, a Heading stays with the content it introduces: it is never the last item on a page, and it is never split across two pages.
+
 ## Accessibility
 
 Screen reader users navigate by heading to understand page structure.
 An incorrect hierarchy disrupts their mental model of the page.
+
+The `level` prop chooses the `h1` to `h4` element; the `size` prop changes the appearance and nothing else.
+A level 2 Heading shown at the size of a level 4 is still reported as level 2, so the outline assistive technology announces stays the one the content actually has.
 
 ## See also
 
@@ -39001,6 +39202,9 @@ Start a new paragraph when the text shifts to a different topic or has its own p
 Consider whether a paragraph with more than 7 sentences or 140 words would be clearer if you divide the text into two paragraphs.
 Texts with not overly long paragraphs are easier to understand, and grouping makes information quicker to locate.
 
+The large and small sizes are a visual distinction only; nothing about them is announced.
+Say in the text itself whatever a size is meant to signal.
+
 ## Examples
 
 ### Large text
@@ -39032,6 +39236,28 @@ This ensures the colour of the text provides enough contrast.
 Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/docs/components-media-icon--docs) to align body text with an icon.
 
 &lt;Canvas of={ParagraphStories.WithIcon} /&gt;
+
+## Design
+
+The large and small sizes wrap their text in a `b` and a `small` element.
+Browsers render those elements bold and smaller on their own, so a lead paragraph and small print keep an appearance of their own even if the stylesheet fails to load.
+Once it does load, their usual styling is switched off and the size prop alone sets the appearance, so the text does not turn bold or shrink a second time.
+
+Body text has the most generous line height of the three sizes, 1.6 against 1.5 for the large and small ones.
+Running text is read line after line and needs that space to stay easy to follow, while the shorter lines of a lead paragraph do not.
+
+A Paragraph has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+## Accessibility
+
+A Paragraph renders a `p` element, so screen readers can move through running text one paragraph at a time.
+
+The `b` and `small` elements that the large and small sizes add carry no meaning of their own; both are generic in the accessibility tree.
+A lead paragraph and small print are therefore a visual distinction only, and neither is announced any differently from body text.
 
 ## See also
 
