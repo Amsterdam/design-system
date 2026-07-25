@@ -27,11 +27,18 @@ export const PageLayout = ({
   ...restProps
 }: PageLayoutProps) => (
   <Page {...restProps}>
-    {skipLinks.map(({ label, targetId }) => (
-      <SkipLink href={`#${targetId}`} key={targetId}>
-        {label}
-      </SkipLink>
-    ))}
+    {/*
+     * The Skip Links come before the Page Header, which leaves them outside every landmark unless a nav
+     * holds them. Its accessible name sets it apart from the other navigation landmarks on the page:
+     * Hoofdmenu, Kruimelpad, and a Table of Contents where a page has one.
+     */}
+    <nav aria-label="Snelkoppelingen">
+      {skipLinks.map(({ label, targetId }) => (
+        <SkipLink href={`#${targetId}`} key={targetId}>
+          {label}
+        </SkipLink>
+      ))}
+    </nav>
     <PageHeader
       menuItems={pageHeaderMenuLinks.map(({ fixed, href, icon, label, lang }) => (
         <PageHeader.MenuLink

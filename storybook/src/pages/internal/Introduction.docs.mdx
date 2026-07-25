@@ -25,9 +25,9 @@ The general structure for a page is:
 
 ```tsx
 <Page withMenu>
-  <SkipLink className="ams-page__area--skip-link" href="#inhoud">
-    Direct naar inhoud
-  </SkipLink>
+  <nav aria-label="Snelkoppelingen" className="ams-page__area--skip-link">
+    <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
+  </nav>
   <PageHeader className="ams-page__area--header" noMenuButtonOnWideWindow>
     <Menu />
   </PageHeader>

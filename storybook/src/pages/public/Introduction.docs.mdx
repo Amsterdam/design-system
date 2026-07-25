@@ -22,7 +22,9 @@ The general structure for a page is:
 
 ```tsx
 <Page>
-  <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
+  <nav aria-label="Snelkoppelingen">
+    <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
+  </nav>
   <PageHeader>
     <Grid />
   </PageHeader>

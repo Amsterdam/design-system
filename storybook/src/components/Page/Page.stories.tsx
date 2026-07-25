@@ -69,9 +69,9 @@ export const WithMenu: Story = {
   },
   render: ({ children, ...args }) => (
     <Page {...args}>
-      <SkipLink className="ams-page__area--skip-link" href="#inhoud">
-        Direct naar inhoud
-      </SkipLink>
+      <nav aria-label="Snelkoppelingen" className="ams-page__area--skip-link">
+        <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
+      </nav>
       <PageHeader brandName="Page Header" className="ams-page__area--header" noMenuButtonOnWideWindow>
         <Menu>
           <Menu.Link href="#" icon={<SettingsFillIcon />}>

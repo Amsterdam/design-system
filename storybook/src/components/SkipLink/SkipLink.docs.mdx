@@ -21,7 +21,7 @@ import * as SkipLinkStories from "./SkipLink.stories.tsx";
 
 ### When to use
 
-Place the Skip Link as the first element in the [Page](/docs/components-containers-page--docs) container.
+Place the Skip Link in a `nav` that is the first element in the [Page](/docs/components-containers-page--docs) container.
 
 Direct the Skip Link to the main content area on the Page.
 Typically, this is the `main` HTML element.
@@ -63,9 +63,20 @@ After appearing, it pushes the rest of the page down.
 Following a Skip Link moves the starting point for sequential focus navigation to the target, so the next ‘Tab’ press continues from there.
 The target itself does not receive focus, and it does not need to: an `id` is enough, so leave `tabindex` off.
 
+A Skip Link comes before the Page Header, which puts it ahead of every landmark on the page.
+Wrap it in a `nav` so that it sits in one like the rest of the page, and give that `nav` an accessible name to tell it apart from the other navigation landmarks:
+
+```tsx
+<nav aria-label="Snelkoppelingen">
+  <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
+</nav>
+```
+
+Put every Skip Link of a page in that same `nav`, rather than giving each one its own.
+
 ## See also
 
-- [Page](/docs/components-containers-page--docs) – contains the Skip Link as its first element.
+- [Page](/docs/components-containers-page--docs) – contains the Skip Link in its first element.
 
 ## Design tokens
 

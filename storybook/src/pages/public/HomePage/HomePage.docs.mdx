@@ -16,7 +16,9 @@ A typical layout for a homepage:
 
 ```tsx
 <Page>
-  <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
+  <nav aria-label="Snelkoppelingen">
+    <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
+  </nav>
   <PageHeader />
   <main id="inhoud">
     <Overlap>

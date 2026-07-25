@@ -15,12 +15,16 @@ type PageLayoutProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 export const PageLayout = ({ children, ...restProps }: PageLayoutProps) => (
   // withMenu lays the Page out as a grid with a column for the Menu beside the header, the body and the footer.
   // The rules for those areas select direct children of the Page only, so each child below needs its own
-  // ams-page__area class and none of them may be wrapped in another element.
+  // ams-page__area class. Wrapping one is fine as long as the wrapper carries the class instead, as the nav does.
   <Page {...restProps} withMenu>
-    {/* Targets the id on the main element below, so the next Tab press continues past the header and the menu. */}
-    <SkipLink className="ams-page__area--skip-link" href="#inhoud">
-      Direct naar inhoud
-    </SkipLink>
+    {/*
+     * The Skip Link comes before the Page Header, which leaves it outside every landmark unless a nav holds
+     * it. Its accessible name sets it apart from the other navigation landmarks on the page.
+     */}
+    <nav aria-label="Snelkoppelingen" className="ams-page__area--skip-link">
+      {/* Targets the id on the main element below, so the next Tab press continues past the header and the menu. */}
+      <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
+    </nav>
     <PageHeader
       // An internal application is not the City’s main website, so the header names it beside the logo.
       // That name also completes the hidden text of the logo link: ‘Ga naar de homepage van …’.
