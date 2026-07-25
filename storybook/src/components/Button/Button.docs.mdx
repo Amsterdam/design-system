@@ -114,7 +114,8 @@ Neither changes the space a Button takes up, so a row of Buttons never shifts as
 Hover styling applies only where a pointer can actually hover.
 On a touch screen it would otherwise stay behind after a tap, leaving the Button that was pressed last looking active.
 
-The icon takes the Button’s font size and line height instead of its own, so it sits on the label’s line at the label’s size.
+The button overrides the icon’s line height with its own, so the icon sits on the label’s line rather than on a taller one of its own.
+The icon keeps its default size, the same body-text size the label uses.
 An icon-only Button is square: the icon is given a square box, and the padding is equal on all four sides.
 
 A label that does not fit is hyphenated rather than left to overflow.
