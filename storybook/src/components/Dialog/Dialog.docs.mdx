@@ -101,6 +101,9 @@ The browser then makes the rest of the page inert, keeps Tab inside the Dialog w
 The heading is a level 1 Heading shown at the size of a level 3.
 A Dialog is its own document as far as its content is concerned, so the outline inside it starts afresh rather than continuing the page underneath.
 
+The body takes keyboard focus in its own right, so someone navigating by keyboard can scroll long content with the arrow keys even when nothing inside it is focusable, as [WCAG 2.1.1](https://www.w3.org/TR/WCAG22/#keyboard) requires.
+Chromium and Firefox already make an overflowing scroll container focusable; Safari does not, so the Dialog makes the body focusable itself.
+
 Scrolling of the page behind the Dialog is suppressed while it is open, but only where the browser supports the selector this relies on.
 Opening a modal does not lock scrolling on its own, and iOS Safari still needs JavaScript for a guarantee, so a gesture over the backdrop there can move the page underneath.
 
