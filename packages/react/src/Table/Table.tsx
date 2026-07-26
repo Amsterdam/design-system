@@ -20,7 +20,6 @@ export type TableProps = PropsWithChildren<TableHTMLAttributes<HTMLTableElement>
 
 const TableRoot = forwardRef(
   ({ children, className, ...restProps }: TableProps, ref: ForwardedRef<HTMLTableElement>) => (
-    // tabIndex makes this scroll container keyboard-focusable so its overflow can be scrolled without a pointer; role="group" identifies it without adding a landmark.
     <div className="ams-table" role="group" tabIndex={0}>
       <table {...restProps} className={clsx('ams-table__table', className)} ref={ref}>
         {children}
