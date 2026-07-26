@@ -84,6 +84,7 @@ In this case, use a [Figure](/docs/components-media-figure--docs) and let the Ta
 ## Features
 
 A Table wider than the space it sits in scrolls horizontally within its own container, rather than widening the page around it.
+That container takes keyboard focus, so someone can scroll it with the arrow keys, not only with a pointer or touch.
 
 ## Design
 
@@ -106,6 +107,8 @@ That is also why ‘How to use’ warns against ARIA relations as a substitute: 
 A Table that is wider than the space it sits in scrolls inside its own container, and that container cannot be focused.
 Someone using a keyboard without a pointer therefore only reaches the columns past the edge by tabbing to a link or a control inside the table, and a table of plain values offers nothing to tab to.
 ‘How to use’ covers what that asks of a wide table.
+
+The container that scrolls is a focusable group, which keeps the columns past its right edge reachable without a pointing device, as [WCAG 2.1.1](https://www.w3.org/TR/WCAG22/#keyboard) requires.
 
 ## See also
 

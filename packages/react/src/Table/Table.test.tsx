@@ -54,4 +54,14 @@ describe('Table', () => {
     expect(component).toHaveAttribute('id', 'id')
     expect(component).toHaveAttribute('data-test', 'data-test')
   })
+
+  it('wraps the table in a keyboard-focusable group so it can be scrolled horizontally', () => {
+    render(<Table />)
+
+    const group = screen.getByRole('group')
+
+    expect(group).toHaveClass('ams-table')
+    expect(group).toHaveAttribute('tabindex', '0')
+    expect(group).toContainElement(screen.getByRole('table'))
+  })
 })
