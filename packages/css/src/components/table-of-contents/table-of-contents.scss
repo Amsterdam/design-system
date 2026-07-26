@@ -72,8 +72,6 @@
 }
 
 .ams-table-of-contents__button svg {
-  transition: none;
-
   @media (prefers-reduced-motion: no-preference) {
     transition: rotate var(--ams-table-of-contents-button-icon-transition-duration)
       var(--ams-table-of-contents-button-icon-transition-timing-function);
