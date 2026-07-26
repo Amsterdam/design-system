@@ -56,7 +56,6 @@ To place content between the Heading and the Table, keep the Caption but hide it
 Do not use ARIA relations; they hurt the Table's semantics (see [this article](https://www.scottohara.me/blog/2019/04/19/tabled-tables.html)).
 
 Keep a Table narrow enough to fit where it is used.
-A wider one scrolls sideways in a container that cannot be focused, so its far columns are out of reach for anyone working without a pointer unless the table holds something to tab to.
 
 ## Examples
 
@@ -103,10 +102,6 @@ In print, a Table is never split across two pages.
 
 A Table caption creates the accessible name for the Table, announced by screen readers on every encounter.
 That is also why ‘How to use’ warns against ARIA relations as a substitute: they name the table without giving it the caption its semantics expect.
-
-A Table that is wider than the space it sits in scrolls inside its own container, and that container cannot be focused.
-Someone using a keyboard without a pointer therefore only reaches the columns past the edge by tabbing to a link or a control inside the table, and a table of plain values offers nothing to tab to.
-‘How to use’ covers what that asks of a wide table.
 
 The container that scrolls is a focusable group, which keeps the columns past its right edge reachable without a pointing device, as [WCAG 2.1.1](https://www.w3.org/TR/WCAG22/#keyboard) requires.
 
