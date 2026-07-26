@@ -32,6 +32,13 @@
           "nl.amsterdam.type": "number"
         }
       },
+      "outline-offset": {
+        "$value": "{ams.focus.outline-offset}",
+        "$extensions": {
+          "nl.amsterdam.subtype": "space",
+          "nl.amsterdam.type": "dimension"
+        }
+      },
       "caption": {
         "font-weight": {
           "$value": "{ams.typography.body-text.bold.font-weight}",
