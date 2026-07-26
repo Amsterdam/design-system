@@ -27,12 +27,15 @@
   display: inline-block;
   inline-size: var(--ams-switch-inline-size);
   outline-offset: var(--ams-switch-outline-offset);
-  transition: background-color 0.2s ease-in-out;
   vertical-align: middle;
 
   // Keep at least 1px so a token set to 0 can’t hide the border.
   @media (forced-colors: active) {
     --_ams-switch-label-border-width: max(1px, var(--ams-switch-label-border-width));
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 0.2s ease-in-out;
   }
 }
 
@@ -43,12 +46,15 @@
   content: "";
   display: block;
   inline-size: var(--ams-switch-thumb-inline-size);
-  transition-duration: 0.1s;
-  transition-property: box-shadow, transform;
-  transition-timing-function: ease-in-out;
 
   @media (forced-colors: active) {
     background-color: FieldText;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition-duration: 0.1s;
+    transition-property: box-shadow, transform;
+    transition-timing-function: ease-in-out;
   }
 }
 
