@@ -59,7 +59,7 @@ In print, an Avatar keeps its background colour instead of being flattened to sa
 ## Accessibility
 
 An Avatar is announced exactly once, through a line of text that is in the markup but hidden visually.
-The initials themselves are marked `aria-hidden`, and an image is given an empty `alt`, so neither is announced a second time.
+The initials themselves are marked `aria-hidden`, and an image is given an empty `alt`.
 
 That hidden text is fixed Dutch: ‘Initialen gebruiker’ followed by the initials, or ‘Gebruiker’ when the label is empty and the fallback icon shows.
 It is built from the label even when an image is displayed, so an Avatar showing a photograph is still announced by its initials.
