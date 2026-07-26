@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -21305,7 +21305,591 @@ const meta = {
       &lt;/Grid&gt;
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-      &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
+      {/*
+       * The Spotlight bands carry the project’s own content rather than supporting content,
+       * so &lt;main&gt; wraps several Grids here rather than being one itself.
+       */}
+      &lt;main id=&quot;inhoud&quot;&gt;
+        &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
+          &lt;/Grid.Cell&gt;
+          {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            {/*
+             * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+             * optional caption; only alt is required.
+             */}
+            &lt;ImageSlider images={images} /&gt;
+          &lt;/Grid.Cell&gt;
+          {/*
+           * This cell is not ams-prose, and components never set outer margins, so every element that is
+           * followed by another sets its own bottom margin.
+           */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Wat
+            &lt;/Heading&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;. Er
+              komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              Op verschillende zelfbouwkavels laten bewoners hun eigen droomwoning bouwen. Ook komen er sociale en
+              middeldure huurwoningen. In totaal is de verdeling van huurwoningen straks 60 procent vrije sector en 40
+              procent sociale en middeldure huur.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              Verder komen er verschillende voorzieningen zoals een basisschool, kinderdagverblijf,
+              jongerentalentencentrum, horeca, broedplaats, verpleeghuis en passantenpension. Er komt een mix aan kleine
+              winkels, bedrijven en kantoren. Het eiland is ongeveer 15 hectare groot. Dat komt overeen met ongeveer 23
+              voetbalvelden. Dat is in oppervlakte vergelijkbaar met Steigereiland Zuid.
+            &lt;/Paragraph&gt;
+            &lt;StandaloneLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;
+              Lees meer over Centrumeiland
+            &lt;/StandaloneLink&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Waar
+            &lt;/Heading&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland van
+              IJburg en ligt tussen Haveneiland en Strandeiland. Het stadsstrand van IJburg en natuurgebied Diemer
+              Vijfhoek liggen om de hoek.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+              De wijk is goed bereikbaar met het openbaar vervoer, de fiets of de auto. De stad is niet ver weg: tram 26
+              rijdt naar station Amsterdam Centraal en bus 66 gaat naar station Bijlmer Arena. Wie toch liever de auto
+              pakt, is binnen enkele minuten op de A1 of A10.
+            &lt;/Paragraph&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Wanneer
+            &lt;/Heading&gt;
+            &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
+              De bouwwerkzaamheden op Centrumeiland zijn in volle gang. Veel zelfbouwers zijn bezig met de bouw van hun
+              eigen huis. De eerste bewoners zijn in 2020 naar het eiland verhuisd. De komende jaren starten
+              verschillende ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We
+              verwachten dat bijna alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt
+              opgeleverd in 2029.
+            &lt;/Paragraph&gt;
+            {/*
+             * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
+             * the one in progress, and a step with no status is still to come. Substeps are nested by hand
+             * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
+             * connecting lines correctly. collapsible gives every step its own fold button and decides what
+             * opens first: completed steps start collapsed, all others expanded, so the finished years here
+             * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
+             */}
+            &lt;ProgressList collapsible headingLevel={3}&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2021&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Landmaken voor de Noordoever en Noordpunt, start oktober.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Start bouw brug tussen Centrumeiland en Strandeiland in oktober (brug 2125).&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2022&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Inrichting zuidelijke natuuroever, begin 2022.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Start bouw basisschool en kinderdagverblijf, begin 2022.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2023&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;
+                      Opening &lt;Link href=&quot;#&quot;&gt;basisschool en kinderdagverblijf&lt;/Link&gt;, zomer 2023.
+                    &lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Strandeilandlaan krijgt definitieve inrichting.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;
+                      Start bouw &lt;Link href=&quot;#&quot;&gt;Annemie Wolffbrug&lt;/Link&gt; tussen Haveneiland met Centrumeiland.
+                    &lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;
+                      Voorbereiding en start bouw &lt;Link href=&quot;#&quot;&gt;Lee Millerbrug&lt;/Link&gt; met brugpaviljoens tussen
+                      Centrumeiland en Strandeiland.
+                    &lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2024&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Start bouw brug tussen Centrumeiland en Strandeiland (brug 2080 bij strand).&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Opening Jongerentalentencentrum.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Definitieve inrichting eerste straten en wadi’s.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Oplevering sociale woonblokken Ymere en de Alliantie.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2025&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Halte IJtram 26 op Centrumeiland eind 2025.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Start bouw Robin Wood.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep&gt;
+                    &lt;Paragraph&gt;Oplevering Zuidoever (ecologische oever).&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2029&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep&gt;
+                    &lt;Paragraph&gt;Waarschijnlijk zijn bijna alle woningen en voorzieningen klaar.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+            &lt;/ProgressList&gt;
+          &lt;/Grid.Cell&gt;
+          {/*
+           * Two link lists: the full-width narrow span stacks them, and from medium up the start values
+           * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
+           */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
+              Nieuws
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;17 november: bijeenkomst over Strandeiland (11 november 2025)&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
+              Werk aan de weg
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Bert Haanstrakade, omleiding&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Straten Centrumeiland, afsluitingen&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+        &lt;Spotlight color=&quot;azure&quot;&gt;
+          &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+                Zelfbouw
+              &lt;/Heading&gt;
+            &lt;/Grid.Cell&gt;
+            {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+                Meer over de verschillende vormen van zelfbouw vindt u op:
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Zelfbouw
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+                Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Aanbod kavels
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+                Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Prikbord
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+                Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Nieuwsbrief zelfbouw
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid&gt;
+        &lt;/Spotlight&gt;
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          {/* These four cells alternate between the same start positions, so they too read as two columns. */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
+              Meer informatie
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Strandlokaal IJburg&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwe bruggen op IJburg&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: nieuwe eilanden en woningbouw&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg - stations Bijlmer Arena en Weesp: nieuwe busverbindingen&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link className=&quot;ams-mb-m&quot; href=&quot;#&quot;&gt;
+                IJburg: verlengen IJtram
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+            &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;
+              Ontwikkeling Centrumeiland, herfst 2025
+            &lt;/Heading&gt;
+            {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
+            &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
+              Plannen en publicaties
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
+              Blijf op de hoogte
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief ontwikkeling IJburg&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Hallo Centrumeiland: praat mee&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Facebook: IJburg&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Instagram: Centrumeiland&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+        {/*
+         * The highlight colours have no prescribed meaning, so this second band takes the default purple
+         * rather than repeating the azure of the first.
+         */}
+        &lt;Spotlight&gt;
+          &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
+                Contact
+              &lt;/Heading&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
+                Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
+                  zelfbouwcentrumeiland@amsterdam.nl
+                &lt;/Link&gt;
+              &lt;/Paragraph&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
+              &lt;/Paragraph&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Maud van Esch
+                &lt;br /&gt;
+                Omgevingsmanager IJburg
+                &lt;br /&gt;
+                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
+                  m.van.esch@amsterdam.nl
+                &lt;/Link&gt;
+                &lt;br /&gt;
+                &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
+                  06 4589 9537
+                &lt;/Link&gt;
+                &lt;br /&gt;
+                Voor vragen over werkzaamheden of bouwactiviteiten
+              &lt;/Paragraph&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid&gt;
+        &lt;/Spotlight&gt;
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720)} /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+      &lt;/main&gt;
+    &lt;/&gt;
+  ),
+} satisfies Meta
+
+export default meta
+
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so repetitive sections can
+        // be shortened with `{/* … */}` markers, keeping the timeline and grid patterns readable.
+        code: `&lt;&gt;
+  {/*
+   * Padding is a prop of the Grid, not of the Grid Cell, so the breadcrumb needs its own Grid for
+   * the paddingTop of large that opens every page.
+   */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+  {/*
+   * The Spotlight bands carry the project’s own content rather than supporting content,
+   * so &lt;main&gt; wraps several Grids here rather than being one itself.
+   */}
+  &lt;main id=&quot;inhoud&quot;&gt;
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        {/*
+         * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+         * optional caption; only alt is required.
+         */}
+        &lt;ImageSlider images={images} /&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * This cell is not ams-prose, and components never set outer margins, so every element that is
+       * followed by another sets its own bottom margin.
+       */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wat&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+          Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;.
+          Er komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;Lees meer over Centrumeiland&lt;/StandaloneLink&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Waar&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+          Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland
+          van IJburg en ligt tussen Haveneiland en Strandeiland.
+        &lt;/Paragraph&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wanneer&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
+          De bouwwerkzaamheden op Centrumeiland zijn in volle gang. We verwachten dat bijna alle woningen en
+          voorzieningen klaar zijn in 2028.
+        &lt;/Paragraph&gt;
+        {/*
+         * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
+         * the one in progress, and a step with no status is still to come. Substeps are nested by hand
+         * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
+         * connecting lines correctly. collapsible gives every step its own fold button and decides what
+         * opens first: completed steps start collapsed, all others expanded, so the finished years here
+         * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
+         */}
+        &lt;ProgressList collapsible headingLevel={3}&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2021&quot; status=&quot;completed&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                &lt;Paragraph&gt;Landmaken voor de Noordoever en Noordpunt, start oktober.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          {/* … more completed years (2022–2025), each a Step with completed Substeps … */}
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep&gt;
+                &lt;Paragraph&gt;Oplevering Zuidoever (ecologische oever).&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2029&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep&gt;
+                &lt;Paragraph&gt;Waarschijnlijk zijn bijna alle woningen en voorzieningen klaar.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+        &lt;/ProgressList&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * Two link lists: the full-width narrow span stacks them, and from medium up the start values
+       * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
+       */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Nieuws&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;17 november: bijeenkomst over Strandeiland (11 november 2025)&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Werk aan de weg&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Bert Haanstrakade, omleiding&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Straten Centrumeiland, afsluitingen&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Spotlight color=&quot;azure&quot;&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+          &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+            Meer over de verschillende vormen van zelfbouw vindt u op:
+          &lt;/Paragraph&gt;
+          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Zelfbouw&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/* These four cells alternate between the same start positions, so they too read as two columns. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Meer informatie&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
+        {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
+        &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      {/* … a Plannen en publicaties cell, start-aligned to the left like Meer informatie … */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Blijf op de hoogte&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief ontwikkeling IJburg&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Hallo Centrumeiland: praat mee&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/*
+     * The highlight colours have no prescribed meaning, so this second band takes the default purple
+     * rather than repeating the azure of the first.
+     */}
+    &lt;Spotlight&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
+            Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;zelfbouwcentrumeiland@amsterdam.nl&lt;/Link&gt;
+          &lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+          {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+          &lt;Paragraph color=&quot;inverse&quot;&gt;
+            Maud van Esch
+            &lt;br /&gt;
+            Omgevingsmanager IJburg
+            &lt;br /&gt;
+            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;m.van.esch@amsterdam.nl&lt;/Link&gt;
+          &lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/main&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import {
+    Breadcrumb,
+    Grid,
+    Heading,
+    Image,
+    ImageSlider,
+    Link,
+    LinkList,
+    Paragraph,
+    ProgressList,
+    Spotlight,
+    StandaloneLink,
+} from "@amsterdam/design-system-react";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = (args) =&gt; (
+  &lt;&gt;
+    {/*
+     * Padding is a prop of the Grid, not of the Grid Cell, so the breadcrumb needs its own Grid for
+     * the paddingTop of large that opens every page.
+     */}
+    &lt;Grid paddingTop=&quot;large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Breadcrumb&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+        &lt;/Breadcrumb&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+    {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+    {/*
+     * The Spotlight bands carry the project’s own content rather than supporting content,
+     * so &lt;main&gt; wraps several Grids here rather than being one itself.
+     */}
+    &lt;main id=&quot;inhoud&quot;&gt;
+      &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -21326,8 +21910,8 @@ const meta = {
             Wat
           &lt;/Heading&gt;
           &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-            Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;. Er komen
-            zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
+            Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;. Er
+            komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
           &lt;/Paragraph&gt;
           &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
             Op verschillende zelfbouwkavels laten bewoners hun eigen droomwoning bouwen. Ook komen er sociale en
@@ -21361,9 +21945,10 @@ const meta = {
           &lt;/Heading&gt;
           &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
             De bouwwerkzaamheden op Centrumeiland zijn in volle gang. Veel zelfbouwers zijn bezig met de bouw van hun
-            eigen huis. De eerste bewoners zijn in 2020 naar het eiland verhuisd. De komende jaren starten verschillende
-            ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We verwachten dat bijna
-            alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt opgeleverd in 2029.
+            eigen huis. De eerste bewoners zijn in 2020 naar het eiland verhuisd. De komende jaren starten
+            verschillende ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We
+            verwachten dat bijna alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt
+            opgeleverd in 2029.
           &lt;/Paragraph&gt;
           {/*
            * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
@@ -21619,572 +22204,7 @@ const meta = {
           &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720)} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
-    &lt;/&gt;
-  ),
-} satisfies Meta
-
-export default meta
-
-export const Default: StoryObj = {
-  parameters: {
-    docs: {
-      source: {
-        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
-        // JSX comments disappear and every `map` is expanded. Provide the source by hand so repetitive sections can
-        // be shortened with `{/* … */}` markers, keeping the timeline and grid patterns readable.
-        code: `&lt;&gt;
-  {/*
-   * Padding is a prop of the Grid, not of the Grid Cell, so the breadcrumb needs its own Grid for
-   * the paddingTop of large that opens every page.
-   */}
-  &lt;Grid paddingTop=&quot;large&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Breadcrumb&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
-      &lt;/Breadcrumb&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
-    &lt;/Grid.Cell&gt;
-    {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
-    &lt;Grid.Cell span=&quot;all&quot;&gt;
-      {/*
-       * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
-       * optional caption; only alt is required.
-       */}
-      &lt;ImageSlider images={images} /&gt;
-    &lt;/Grid.Cell&gt;
-    {/*
-     * This cell is not ams-prose, and components never set outer margins, so every element that is
-     * followed by another sets its own bottom margin.
-     */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
-      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wat&lt;/Heading&gt;
-      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-        Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;.
-        Er komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
-      &lt;/Paragraph&gt;
-      &lt;StandaloneLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;Lees meer over Centrumeiland&lt;/StandaloneLink&gt;
-      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Waar&lt;/Heading&gt;
-      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
-        Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland
-        van IJburg en ligt tussen Haveneiland en Strandeiland.
-      &lt;/Paragraph&gt;
-      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wanneer&lt;/Heading&gt;
-      &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
-        De bouwwerkzaamheden op Centrumeiland zijn in volle gang. We verwachten dat bijna alle woningen en
-        voorzieningen klaar zijn in 2028.
-      &lt;/Paragraph&gt;
-      {/*
-       * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
-       * the one in progress, and a step with no status is still to come. Substeps are nested by hand
-       * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
-       * connecting lines correctly. collapsible gives every step its own fold button and decides what
-       * opens first: completed steps start collapsed, all others expanded, so the finished years here
-       * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
-       */}
-      &lt;ProgressList collapsible headingLevel={3}&gt;
-        &lt;ProgressList.Step hasSubsteps heading=&quot;2021&quot; status=&quot;completed&quot;&gt;
-          &lt;ProgressList.Substeps&gt;
-            &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-              &lt;Paragraph&gt;Landmaken voor de Noordoever en Noordpunt, start oktober.&lt;/Paragraph&gt;
-            &lt;/ProgressList.Substep&gt;
-          &lt;/ProgressList.Substeps&gt;
-        &lt;/ProgressList.Step&gt;
-        {/* … more completed years (2022–2025), each a Step with completed Substeps … */}
-        &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
-          &lt;ProgressList.Substeps&gt;
-            &lt;ProgressList.Substep&gt;
-              &lt;Paragraph&gt;Oplevering Zuidoever (ecologische oever).&lt;/Paragraph&gt;
-            &lt;/ProgressList.Substep&gt;
-          &lt;/ProgressList.Substeps&gt;
-        &lt;/ProgressList.Step&gt;
-        &lt;ProgressList.Step hasSubsteps heading=&quot;2029&quot;&gt;
-          &lt;ProgressList.Substeps&gt;
-            &lt;ProgressList.Substep&gt;
-              &lt;Paragraph&gt;Waarschijnlijk zijn bijna alle woningen en voorzieningen klaar.&lt;/Paragraph&gt;
-            &lt;/ProgressList.Substep&gt;
-          &lt;/ProgressList.Substeps&gt;
-        &lt;/ProgressList.Step&gt;
-      &lt;/ProgressList&gt;
-    &lt;/Grid.Cell&gt;
-    {/*
-     * Two link lists: the full-width narrow span stacks them, and from medium up the start values
-     * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
-     */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Nieuws&lt;/Heading&gt;
-      &lt;LinkList&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)&lt;/LinkList.Link&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;17 november: bijeenkomst over Strandeiland (11 november 2025)&lt;/LinkList.Link&gt;
-      &lt;/LinkList&gt;
-    &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-      &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Werk aan de weg&lt;/Heading&gt;
-      &lt;LinkList&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Bert Haanstrakade, omleiding&lt;/LinkList.Link&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Straten Centrumeiland, afsluitingen&lt;/LinkList.Link&gt;
-      &lt;/LinkList&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-  &lt;Spotlight color=&quot;azure&quot;&gt;
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-        &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
-          Meer over de verschillende vormen van zelfbouw vindt u op:
-        &lt;/Paragraph&gt;
-        &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Zelfbouw&lt;/StandaloneLink&gt;
-      &lt;/Grid.Cell&gt;
-      {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
-    &lt;/Grid&gt;
-  &lt;/Spotlight&gt;
-  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-    {/* These four cells alternate between the same start positions, so they too read as two columns. */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Meer informatie&lt;/Heading&gt;
-      &lt;LinkList&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
-      &lt;/LinkList&gt;
-    &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
-      {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-      &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
-      &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
-    &lt;/Grid.Cell&gt;
-    {/* … a Plannen en publicaties cell, start-aligned to the left like Meer informatie … */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-      &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Blijf op de hoogte&lt;/Heading&gt;
-      &lt;LinkList&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief ontwikkeling IJburg&lt;/LinkList.Link&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Hallo Centrumeiland: praat mee&lt;/LinkList.Link&gt;
-      &lt;/LinkList&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-  {/*
-   * The highlight colours have no prescribed meaning, so this second band takes the default purple
-   * rather than repeating the azure of the first.
-   */}
-  &lt;Spotlight&gt;
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
-          Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
-          &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;zelfbouwcentrumeiland@amsterdam.nl&lt;/Link&gt;
-        &lt;/Paragraph&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-        {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-        &lt;Paragraph color=&quot;inverse&quot;&gt;
-          Maud van Esch
-          &lt;br /&gt;
-          Omgevingsmanager IJburg
-          &lt;br /&gt;
-          &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;m.van.esch@amsterdam.nl&lt;/Link&gt;
-        &lt;/Paragraph&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-  &lt;/Spotlight&gt;
-  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-&lt;/&gt;`,
-        language: &#39;tsx&#39;,
-      },
-    },
-  },
-}
-</code></pre></div>
-    </div>
-        </div>
-    
-        <div class="panel panel-info">
-          
-    <div class="note info">
-      <div class="note-title">Info</div>
-      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
-    </div>
-        </div>
-    
-    
-        <div class="panel panel-stories">
-          
-          
-          
-          <div class="note ok">
-                <div class="row">
-                  <span class="ex-name">Imports</span>
-                </div>
-                <pre><code>import {
-    Breadcrumb,
-    Grid,
-    Heading,
-    Image,
-    ImageSlider,
-    Link,
-    LinkList,
-    Paragraph,
-    ProgressList,
-    Spotlight,
-    StandaloneLink,
-} from "@amsterdam/design-system-react";</code></pre>
-              </div>
-          
-          
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Default</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Default = (args) =&gt; (
-  &lt;&gt;
-    {/*
-     * Padding is a prop of the Grid, not of the Grid Cell, so the breadcrumb needs its own Grid for
-     * the paddingTop of large that opens every page.
-     */}
-    &lt;Grid paddingTop=&quot;large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Breadcrumb&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
-        &lt;/Breadcrumb&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-    &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
-      &lt;Grid.Cell span=&quot;all&quot;&gt;
-        {/*
-         * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
-         * optional caption; only alt is required.
-         */}
-        &lt;ImageSlider images={images} /&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * This cell is not ams-prose, and components never set outer margins, so every element that is
-       * followed by another sets its own bottom margin.
-       */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
-          Wat
-        &lt;/Heading&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-          Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;. Er komen
-          zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
-        &lt;/Paragraph&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-          Op verschillende zelfbouwkavels laten bewoners hun eigen droomwoning bouwen. Ook komen er sociale en
-          middeldure huurwoningen. In totaal is de verdeling van huurwoningen straks 60 procent vrije sector en 40
-          procent sociale en middeldure huur.
-        &lt;/Paragraph&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-          Verder komen er verschillende voorzieningen zoals een basisschool, kinderdagverblijf,
-          jongerentalentencentrum, horeca, broedplaats, verpleeghuis en passantenpension. Er komt een mix aan kleine
-          winkels, bedrijven en kantoren. Het eiland is ongeveer 15 hectare groot. Dat komt overeen met ongeveer 23
-          voetbalvelden. Dat is in oppervlakte vergelijkbaar met Steigereiland Zuid.
-        &lt;/Paragraph&gt;
-        &lt;StandaloneLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;
-          Lees meer over Centrumeiland
-        &lt;/StandaloneLink&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
-          Waar
-        &lt;/Heading&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-          Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland van
-          IJburg en ligt tussen Haveneiland en Strandeiland. Het stadsstrand van IJburg en natuurgebied Diemer
-          Vijfhoek liggen om de hoek.
-        &lt;/Paragraph&gt;
-        &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
-          De wijk is goed bereikbaar met het openbaar vervoer, de fiets of de auto. De stad is niet ver weg: tram 26
-          rijdt naar station Amsterdam Centraal en bus 66 gaat naar station Bijlmer Arena. Wie toch liever de auto
-          pakt, is binnen enkele minuten op de A1 of A10.
-        &lt;/Paragraph&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
-          Wanneer
-        &lt;/Heading&gt;
-        &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
-          De bouwwerkzaamheden op Centrumeiland zijn in volle gang. Veel zelfbouwers zijn bezig met de bouw van hun
-          eigen huis. De eerste bewoners zijn in 2020 naar het eiland verhuisd. De komende jaren starten verschillende
-          ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We verwachten dat bijna
-          alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt opgeleverd in 2029.
-        &lt;/Paragraph&gt;
-        {/*
-         * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
-         * the one in progress, and a step with no status is still to come. Substeps are nested by hand
-         * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
-         * connecting lines correctly. collapsible gives every step its own fold button and decides what
-         * opens first: completed steps start collapsed, all others expanded, so the finished years here
-         * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
-         */}
-        &lt;ProgressList collapsible headingLevel={3}&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2021&quot; status=&quot;completed&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Landmaken voor de Noordoever en Noordpunt, start oktober.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Start bouw brug tussen Centrumeiland en Strandeiland in oktober (brug 2125).&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2022&quot; status=&quot;completed&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Inrichting zuidelijke natuuroever, begin 2022.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Start bouw basisschool en kinderdagverblijf, begin 2022.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2023&quot; status=&quot;completed&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;
-                  Opening &lt;Link href=&quot;#&quot;&gt;basisschool en kinderdagverblijf&lt;/Link&gt;, zomer 2023.
-                &lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Strandeilandlaan krijgt definitieve inrichting.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;
-                  Start bouw &lt;Link href=&quot;#&quot;&gt;Annemie Wolffbrug&lt;/Link&gt; tussen Haveneiland met Centrumeiland.
-                &lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;
-                  Voorbereiding en start bouw &lt;Link href=&quot;#&quot;&gt;Lee Millerbrug&lt;/Link&gt; met brugpaviljoens tussen
-                  Centrumeiland en Strandeiland.
-                &lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2024&quot; status=&quot;completed&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Start bouw brug tussen Centrumeiland en Strandeiland (brug 2080 bij strand).&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Opening Jongerentalentencentrum.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Definitieve inrichting eerste straten en wadi’s.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Oplevering sociale woonblokken Ymere en de Alliantie.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2025&quot; status=&quot;completed&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Halte IJtram 26 op Centrumeiland eind 2025.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Start bouw Robin Wood.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep&gt;
-                &lt;Paragraph&gt;Oplevering Zuidoever (ecologische oever).&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2029&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep&gt;
-                &lt;Paragraph&gt;Waarschijnlijk zijn bijna alle woningen en voorzieningen klaar.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-        &lt;/ProgressList&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * Two link lists: the full-width narrow span stacks them, and from medium up the start values
-       * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
-       */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
-          Nieuws
-        &lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;17 november: bijeenkomst over Strandeiland (11 november 2025)&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
-          Werk aan de weg
-        &lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Bert Haanstrakade, omleiding&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Straten Centrumeiland, afsluitingen&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    &lt;Spotlight color=&quot;azure&quot;&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;
-            Zelfbouw
-          &lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
-            Meer over de verschillende vormen van zelfbouw vindt u op:
-          &lt;/Paragraph&gt;
-          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-            Zelfbouw
-          &lt;/StandaloneLink&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
-            Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
-          &lt;/Paragraph&gt;
-          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-            Aanbod kavels
-          &lt;/StandaloneLink&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
-            Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
-          &lt;/Paragraph&gt;
-          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-            Prikbord
-          &lt;/StandaloneLink&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
-            Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.
-          &lt;/Paragraph&gt;
-          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-            Nieuwsbrief zelfbouw
-          &lt;/StandaloneLink&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-    &lt;/Spotlight&gt;
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      {/* These four cells alternate between the same start positions, so they too read as two columns. */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
-          Meer informatie
-        &lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Strandlokaal IJburg&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwe bruggen op IJburg&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: nieuwe eilanden en woningbouw&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg - stations Bijlmer Arena en Weesp: nieuwe busverbindingen&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link className=&quot;ams-mb-m&quot; href=&quot;#&quot;&gt;
-            IJburg: verlengen IJtram
-          &lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;
-          Ontwikkeling Centrumeiland, herfst 2025
-        &lt;/Heading&gt;
-        {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-        &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
-        &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
-          Plannen en publicaties
-        &lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
-          Blijf op de hoogte
-        &lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief ontwikkeling IJburg&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Hallo Centrumeiland: praat mee&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Facebook: IJburg&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Instagram: Centrumeiland&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    {/*
-     * The highlight colours have no prescribed meaning, so this second band takes the default purple
-     * rather than repeating the azure of the first.
-     */}
-    &lt;Spotlight&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
-            Contact
-          &lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
-            Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
-            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
-              zelfbouwcentrumeiland@amsterdam.nl
-            &lt;/Link&gt;
-          &lt;/Paragraph&gt;
-          &lt;Paragraph color=&quot;inverse&quot;&gt;
-            Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
-          &lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-          {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-          &lt;Paragraph color=&quot;inverse&quot;&gt;
-            Maud van Esch
-            &lt;br /&gt;
-            Omgevingsmanager IJburg
-            &lt;br /&gt;
-            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
-              m.van.esch@amsterdam.nl
-            &lt;/Link&gt;
-            &lt;br /&gt;
-            &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
-              06 4589 9537
-            &lt;/Link&gt;
-            &lt;br /&gt;
-            Voor vragen over werkzaamheden of bouwactiviteiten
-          &lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-    &lt;/Spotlight&gt;
-    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720)} /&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
+    &lt;/main&gt;
   &lt;/&gt;
 );</code></pre>
             </div>
@@ -42182,7 +42202,591 @@ const meta = {
       &lt;/Grid&gt;
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-      &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
+      {/*
+       * The Spotlight bands carry the project’s own content rather than supporting content,
+       * so &lt;main&gt; wraps several Grids here rather than being one itself.
+       */}
+      &lt;main id=&quot;inhoud&quot;&gt;
+        &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
+          &lt;/Grid.Cell&gt;
+          {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            {/*
+             * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+             * optional caption; only alt is required.
+             */}
+            &lt;ImageSlider images={images} /&gt;
+          &lt;/Grid.Cell&gt;
+          {/*
+           * This cell is not ams-prose, and components never set outer margins, so every element that is
+           * followed by another sets its own bottom margin.
+           */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Wat
+            &lt;/Heading&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;. Er
+              komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              Op verschillende zelfbouwkavels laten bewoners hun eigen droomwoning bouwen. Ook komen er sociale en
+              middeldure huurwoningen. In totaal is de verdeling van huurwoningen straks 60 procent vrije sector en 40
+              procent sociale en middeldure huur.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              Verder komen er verschillende voorzieningen zoals een basisschool, kinderdagverblijf,
+              jongerentalentencentrum, horeca, broedplaats, verpleeghuis en passantenpension. Er komt een mix aan kleine
+              winkels, bedrijven en kantoren. Het eiland is ongeveer 15 hectare groot. Dat komt overeen met ongeveer 23
+              voetbalvelden. Dat is in oppervlakte vergelijkbaar met Steigereiland Zuid.
+            &lt;/Paragraph&gt;
+            &lt;StandaloneLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;
+              Lees meer over Centrumeiland
+            &lt;/StandaloneLink&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Waar
+            &lt;/Heading&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland van
+              IJburg en ligt tussen Haveneiland en Strandeiland. Het stadsstrand van IJburg en natuurgebied Diemer
+              Vijfhoek liggen om de hoek.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+              De wijk is goed bereikbaar met het openbaar vervoer, de fiets of de auto. De stad is niet ver weg: tram 26
+              rijdt naar station Amsterdam Centraal en bus 66 gaat naar station Bijlmer Arena. Wie toch liever de auto
+              pakt, is binnen enkele minuten op de A1 of A10.
+            &lt;/Paragraph&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Wanneer
+            &lt;/Heading&gt;
+            &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
+              De bouwwerkzaamheden op Centrumeiland zijn in volle gang. Veel zelfbouwers zijn bezig met de bouw van hun
+              eigen huis. De eerste bewoners zijn in 2020 naar het eiland verhuisd. De komende jaren starten
+              verschillende ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We
+              verwachten dat bijna alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt
+              opgeleverd in 2029.
+            &lt;/Paragraph&gt;
+            {/*
+             * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
+             * the one in progress, and a step with no status is still to come. Substeps are nested by hand
+             * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
+             * connecting lines correctly. collapsible gives every step its own fold button and decides what
+             * opens first: completed steps start collapsed, all others expanded, so the finished years here
+             * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
+             */}
+            &lt;ProgressList collapsible headingLevel={3}&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2021&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Landmaken voor de Noordoever en Noordpunt, start oktober.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Start bouw brug tussen Centrumeiland en Strandeiland in oktober (brug 2125).&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2022&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Inrichting zuidelijke natuuroever, begin 2022.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Start bouw basisschool en kinderdagverblijf, begin 2022.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2023&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;
+                      Opening &lt;Link href=&quot;#&quot;&gt;basisschool en kinderdagverblijf&lt;/Link&gt;, zomer 2023.
+                    &lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Strandeilandlaan krijgt definitieve inrichting.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;
+                      Start bouw &lt;Link href=&quot;#&quot;&gt;Annemie Wolffbrug&lt;/Link&gt; tussen Haveneiland met Centrumeiland.
+                    &lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;
+                      Voorbereiding en start bouw &lt;Link href=&quot;#&quot;&gt;Lee Millerbrug&lt;/Link&gt; met brugpaviljoens tussen
+                      Centrumeiland en Strandeiland.
+                    &lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2024&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Start bouw brug tussen Centrumeiland en Strandeiland (brug 2080 bij strand).&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Opening Jongerentalentencentrum.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Definitieve inrichting eerste straten en wadi’s.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Oplevering sociale woonblokken Ymere en de Alliantie.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2025&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Halte IJtram 26 op Centrumeiland eind 2025.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Paragraph&gt;Start bouw Robin Wood.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep&gt;
+                    &lt;Paragraph&gt;Oplevering Zuidoever (ecologische oever).&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2029&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep&gt;
+                    &lt;Paragraph&gt;Waarschijnlijk zijn bijna alle woningen en voorzieningen klaar.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+            &lt;/ProgressList&gt;
+          &lt;/Grid.Cell&gt;
+          {/*
+           * Two link lists: the full-width narrow span stacks them, and from medium up the start values
+           * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
+           */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
+              Nieuws
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;17 november: bijeenkomst over Strandeiland (11 november 2025)&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
+              Werk aan de weg
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Bert Haanstrakade, omleiding&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Straten Centrumeiland, afsluitingen&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+        &lt;Spotlight color=&quot;azure&quot;&gt;
+          &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+                Zelfbouw
+              &lt;/Heading&gt;
+            &lt;/Grid.Cell&gt;
+            {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+                Meer over de verschillende vormen van zelfbouw vindt u op:
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Zelfbouw
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+                Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Aanbod kavels
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+                Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Prikbord
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+                Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Nieuwsbrief zelfbouw
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid&gt;
+        &lt;/Spotlight&gt;
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          {/* These four cells alternate between the same start positions, so they too read as two columns. */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
+              Meer informatie
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Strandlokaal IJburg&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwe bruggen op IJburg&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: nieuwe eilanden en woningbouw&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg - stations Bijlmer Arena en Weesp: nieuwe busverbindingen&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link className=&quot;ams-mb-m&quot; href=&quot;#&quot;&gt;
+                IJburg: verlengen IJtram
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+            &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;
+              Ontwikkeling Centrumeiland, herfst 2025
+            &lt;/Heading&gt;
+            {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
+            &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
+              Plannen en publicaties
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
+              Blijf op de hoogte
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief ontwikkeling IJburg&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Hallo Centrumeiland: praat mee&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Facebook: IJburg&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Instagram: Centrumeiland&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+        {/*
+         * The highlight colours have no prescribed meaning, so this second band takes the default purple
+         * rather than repeating the azure of the first.
+         */}
+        &lt;Spotlight&gt;
+          &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
+                Contact
+              &lt;/Heading&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
+                Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
+                  zelfbouwcentrumeiland@amsterdam.nl
+                &lt;/Link&gt;
+              &lt;/Paragraph&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
+              &lt;/Paragraph&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Maud van Esch
+                &lt;br /&gt;
+                Omgevingsmanager IJburg
+                &lt;br /&gt;
+                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
+                  m.van.esch@amsterdam.nl
+                &lt;/Link&gt;
+                &lt;br /&gt;
+                &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
+                  06 4589 9537
+                &lt;/Link&gt;
+                &lt;br /&gt;
+                Voor vragen over werkzaamheden of bouwactiviteiten
+              &lt;/Paragraph&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid&gt;
+        &lt;/Spotlight&gt;
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720)} /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+      &lt;/main&gt;
+    &lt;/&gt;
+  ),
+} satisfies Meta
+
+export default meta
+
+export const Default: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so repetitive sections can
+        // be shortened with `{/* … */}` markers, keeping the timeline and grid patterns readable.
+        code: `&lt;&gt;
+  {/*
+   * Padding is a prop of the Grid, not of the Grid Cell, so the breadcrumb needs its own Grid for
+   * the paddingTop of large that opens every page.
+   */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+  {/*
+   * The Spotlight bands carry the project’s own content rather than supporting content,
+   * so &lt;main&gt; wraps several Grids here rather than being one itself.
+   */}
+  &lt;main id=&quot;inhoud&quot;&gt;
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        {/*
+         * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+         * optional caption; only alt is required.
+         */}
+        &lt;ImageSlider images={images} /&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * This cell is not ams-prose, and components never set outer margins, so every element that is
+       * followed by another sets its own bottom margin.
+       */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wat&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+          Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;.
+          Er komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;Lees meer over Centrumeiland&lt;/StandaloneLink&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Waar&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+          Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland
+          van IJburg en ligt tussen Haveneiland en Strandeiland.
+        &lt;/Paragraph&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wanneer&lt;/Heading&gt;
+        &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
+          De bouwwerkzaamheden op Centrumeiland zijn in volle gang. We verwachten dat bijna alle woningen en
+          voorzieningen klaar zijn in 2028.
+        &lt;/Paragraph&gt;
+        {/*
+         * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
+         * the one in progress, and a step with no status is still to come. Substeps are nested by hand
+         * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
+         * connecting lines correctly. collapsible gives every step its own fold button and decides what
+         * opens first: completed steps start collapsed, all others expanded, so the finished years here
+         * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
+         */}
+        &lt;ProgressList collapsible headingLevel={3}&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2021&quot; status=&quot;completed&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                &lt;Paragraph&gt;Landmaken voor de Noordoever en Noordpunt, start oktober.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          {/* … more completed years (2022–2025), each a Step with completed Substeps … */}
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep&gt;
+                &lt;Paragraph&gt;Oplevering Zuidoever (ecologische oever).&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2029&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep&gt;
+                &lt;Paragraph&gt;Waarschijnlijk zijn bijna alle woningen en voorzieningen klaar.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+        &lt;/ProgressList&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * Two link lists: the full-width narrow span stacks them, and from medium up the start values
+       * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
+       */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Nieuws&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;17 november: bijeenkomst over Strandeiland (11 november 2025)&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Werk aan de weg&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Bert Haanstrakade, omleiding&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Straten Centrumeiland, afsluitingen&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    &lt;Spotlight color=&quot;azure&quot;&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+          &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
+            Meer over de verschillende vormen van zelfbouw vindt u op:
+          &lt;/Paragraph&gt;
+          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Zelfbouw&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/* These four cells alternate between the same start positions, so they too read as two columns. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Meer informatie&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
+        {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
+        &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      {/* … a Plannen en publicaties cell, start-aligned to the left like Meer informatie … */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Blijf op de hoogte&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief ontwikkeling IJburg&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Hallo Centrumeiland: praat mee&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/*
+     * The highlight colours have no prescribed meaning, so this second band takes the default purple
+     * rather than repeating the azure of the first.
+     */}
+    &lt;Spotlight&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
+            Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;zelfbouwcentrumeiland@amsterdam.nl&lt;/Link&gt;
+          &lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+          {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+          &lt;Paragraph color=&quot;inverse&quot;&gt;
+            Maud van Esch
+            &lt;br /&gt;
+            Omgevingsmanager IJburg
+            &lt;br /&gt;
+            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;m.van.esch@amsterdam.nl&lt;/Link&gt;
+          &lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/main&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+}
+</code></pre></div>
+    </div>
+        </div>
+    
+        <div class="panel panel-info">
+          
+    <div class="note info">
+      <div class="note-title">Info</div>
+      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
+    </div>
+        </div>
+    
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import {
+    Breadcrumb,
+    Grid,
+    Heading,
+    Image,
+    ImageSlider,
+    Link,
+    LinkList,
+    Paragraph,
+    ProgressList,
+    Spotlight,
+    StandaloneLink,
+} from "@amsterdam/design-system-react";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = (args) =&gt; (
+  &lt;&gt;
+    {/*
+     * Padding is a prop of the Grid, not of the Grid Cell, so the breadcrumb needs its own Grid for
+     * the paddingTop of large that opens every page.
+     */}
+    &lt;Grid paddingTop=&quot;large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Breadcrumb&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+        &lt;/Breadcrumb&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+    {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+    {/*
+     * The Spotlight bands carry the project’s own content rather than supporting content,
+     * so &lt;main&gt; wraps several Grids here rather than being one itself.
+     */}
+    &lt;main id=&quot;inhoud&quot;&gt;
+      &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -42203,8 +42807,8 @@ const meta = {
             Wat
           &lt;/Heading&gt;
           &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-            Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;. Er komen
-            zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
+            Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;. Er
+            komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
           &lt;/Paragraph&gt;
           &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
             Op verschillende zelfbouwkavels laten bewoners hun eigen droomwoning bouwen. Ook komen er sociale en
@@ -42238,9 +42842,10 @@ const meta = {
           &lt;/Heading&gt;
           &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
             De bouwwerkzaamheden op Centrumeiland zijn in volle gang. Veel zelfbouwers zijn bezig met de bouw van hun
-            eigen huis. De eerste bewoners zijn in 2020 naar het eiland verhuisd. De komende jaren starten verschillende
-            ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We verwachten dat bijna
-            alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt opgeleverd in 2029.
+            eigen huis. De eerste bewoners zijn in 2020 naar het eiland verhuisd. De komende jaren starten
+            verschillende ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We
+            verwachten dat bijna alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt
+            opgeleverd in 2029.
           &lt;/Paragraph&gt;
           {/*
            * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
@@ -42496,572 +43101,7 @@ const meta = {
           &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720)} /&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
-    &lt;/&gt;
-  ),
-} satisfies Meta
-
-export default meta
-
-export const Default: StoryObj = {
-  parameters: {
-    docs: {
-      source: {
-        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
-        // JSX comments disappear and every `map` is expanded. Provide the source by hand so repetitive sections can
-        // be shortened with `{/* … */}` markers, keeping the timeline and grid patterns readable.
-        code: `&lt;&gt;
-  {/*
-   * Padding is a prop of the Grid, not of the Grid Cell, so the breadcrumb needs its own Grid for
-   * the paddingTop of large that opens every page.
-   */}
-  &lt;Grid paddingTop=&quot;large&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Breadcrumb&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
-      &lt;/Breadcrumb&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
-    &lt;/Grid.Cell&gt;
-    {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
-    &lt;Grid.Cell span=&quot;all&quot;&gt;
-      {/*
-       * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
-       * optional caption; only alt is required.
-       */}
-      &lt;ImageSlider images={images} /&gt;
-    &lt;/Grid.Cell&gt;
-    {/*
-     * This cell is not ams-prose, and components never set outer margins, so every element that is
-     * followed by another sets its own bottom margin.
-     */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
-      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wat&lt;/Heading&gt;
-      &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-        Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;.
-        Er komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
-      &lt;/Paragraph&gt;
-      &lt;StandaloneLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;Lees meer over Centrumeiland&lt;/StandaloneLink&gt;
-      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Waar&lt;/Heading&gt;
-      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
-        Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland
-        van IJburg en ligt tussen Haveneiland en Strandeiland.
-      &lt;/Paragraph&gt;
-      &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Wanneer&lt;/Heading&gt;
-      &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
-        De bouwwerkzaamheden op Centrumeiland zijn in volle gang. We verwachten dat bijna alle woningen en
-        voorzieningen klaar zijn in 2028.
-      &lt;/Paragraph&gt;
-      {/*
-       * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
-       * the one in progress, and a step with no status is still to come. Substeps are nested by hand
-       * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
-       * connecting lines correctly. collapsible gives every step its own fold button and decides what
-       * opens first: completed steps start collapsed, all others expanded, so the finished years here
-       * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
-       */}
-      &lt;ProgressList collapsible headingLevel={3}&gt;
-        &lt;ProgressList.Step hasSubsteps heading=&quot;2021&quot; status=&quot;completed&quot;&gt;
-          &lt;ProgressList.Substeps&gt;
-            &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-              &lt;Paragraph&gt;Landmaken voor de Noordoever en Noordpunt, start oktober.&lt;/Paragraph&gt;
-            &lt;/ProgressList.Substep&gt;
-          &lt;/ProgressList.Substeps&gt;
-        &lt;/ProgressList.Step&gt;
-        {/* … more completed years (2022–2025), each a Step with completed Substeps … */}
-        &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
-          &lt;ProgressList.Substeps&gt;
-            &lt;ProgressList.Substep&gt;
-              &lt;Paragraph&gt;Oplevering Zuidoever (ecologische oever).&lt;/Paragraph&gt;
-            &lt;/ProgressList.Substep&gt;
-          &lt;/ProgressList.Substeps&gt;
-        &lt;/ProgressList.Step&gt;
-        &lt;ProgressList.Step hasSubsteps heading=&quot;2029&quot;&gt;
-          &lt;ProgressList.Substeps&gt;
-            &lt;ProgressList.Substep&gt;
-              &lt;Paragraph&gt;Waarschijnlijk zijn bijna alle woningen en voorzieningen klaar.&lt;/Paragraph&gt;
-            &lt;/ProgressList.Substep&gt;
-          &lt;/ProgressList.Substeps&gt;
-        &lt;/ProgressList.Step&gt;
-      &lt;/ProgressList&gt;
-    &lt;/Grid.Cell&gt;
-    {/*
-     * Two link lists: the full-width narrow span stacks them, and from medium up the start values
-     * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
-     */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Nieuws&lt;/Heading&gt;
-      &lt;LinkList&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)&lt;/LinkList.Link&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;17 november: bijeenkomst over Strandeiland (11 november 2025)&lt;/LinkList.Link&gt;
-      &lt;/LinkList&gt;
-    &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-      &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Werk aan de weg&lt;/Heading&gt;
-      &lt;LinkList&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Bert Haanstrakade, omleiding&lt;/LinkList.Link&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Straten Centrumeiland, afsluitingen&lt;/LinkList.Link&gt;
-      &lt;/LinkList&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-  &lt;Spotlight color=&quot;azure&quot;&gt;
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-        &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
-          Meer over de verschillende vormen van zelfbouw vindt u op:
-        &lt;/Paragraph&gt;
-        &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Zelfbouw&lt;/StandaloneLink&gt;
-      &lt;/Grid.Cell&gt;
-      {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
-    &lt;/Grid&gt;
-  &lt;/Spotlight&gt;
-  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-    {/* These four cells alternate between the same start positions, so they too read as two columns. */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Meer informatie&lt;/Heading&gt;
-      &lt;LinkList&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
-      &lt;/LinkList&gt;
-    &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
-      {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-      &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
-      &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
-    &lt;/Grid.Cell&gt;
-    {/* … a Plannen en publicaties cell, start-aligned to the left like Meer informatie … */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-      &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Blijf op de hoogte&lt;/Heading&gt;
-      &lt;LinkList&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief ontwikkeling IJburg&lt;/LinkList.Link&gt;
-        &lt;LinkList.Link href=&quot;#&quot;&gt;Hallo Centrumeiland: praat mee&lt;/LinkList.Link&gt;
-      &lt;/LinkList&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-  {/*
-   * The highlight colours have no prescribed meaning, so this second band takes the default purple
-   * rather than repeating the azure of the first.
-   */}
-  &lt;Spotlight&gt;
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
-          Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
-          &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;zelfbouwcentrumeiland@amsterdam.nl&lt;/Link&gt;
-        &lt;/Paragraph&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-        {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-        &lt;Paragraph color=&quot;inverse&quot;&gt;
-          Maud van Esch
-          &lt;br /&gt;
-          Omgevingsmanager IJburg
-          &lt;br /&gt;
-          &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;m.van.esch@amsterdam.nl&lt;/Link&gt;
-        &lt;/Paragraph&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-  &lt;/Spotlight&gt;
-  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-&lt;/&gt;`,
-        language: &#39;tsx&#39;,
-      },
-    },
-  },
-}
-</code></pre></div>
-    </div>
-        </div>
-    
-        <div class="panel panel-info">
-          
-    <div class="note info">
-      <div class="note-title">Info</div>
-      <div class="note-body">No description found. Write a jsdoc comment such as /** Component description */.</div>
-    </div>
-        </div>
-    
-    
-        <div class="panel panel-stories">
-          
-          
-          
-          <div class="note ok">
-                <div class="row">
-                  <span class="ex-name">Imports</span>
-                </div>
-                <pre><code>import {
-    Breadcrumb,
-    Grid,
-    Heading,
-    Image,
-    ImageSlider,
-    Link,
-    LinkList,
-    Paragraph,
-    ProgressList,
-    Spotlight,
-    StandaloneLink,
-} from "@amsterdam/design-system-react";</code></pre>
-              </div>
-          
-          
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Default</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const Default = (args) =&gt; (
-  &lt;&gt;
-    {/*
-     * Padding is a prop of the Grid, not of the Grid Cell, so the breadcrumb needs its own Grid for
-     * the paddingTop of large that opens every page.
-     */}
-    &lt;Grid paddingTop=&quot;large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Breadcrumb&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
-        &lt;/Breadcrumb&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-    &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={1}&gt;Centrumeiland: hét zelfbouweiland van Amsterdam&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
-      &lt;Grid.Cell span=&quot;all&quot;&gt;
-        {/*
-         * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
-         * optional caption; only alt is required.
-         */}
-        &lt;ImageSlider images={images} /&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * This cell is not ams-prose, and components never set outer margins, so every element that is
-       * followed by another sets its own bottom margin.
-       */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
-          Wat
-        &lt;/Heading&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-          Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van &lt;Link href=&quot;#&quot;&gt;IJburg&lt;/Link&gt;. Er komen
-          zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
-        &lt;/Paragraph&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-          Op verschillende zelfbouwkavels laten bewoners hun eigen droomwoning bouwen. Ook komen er sociale en
-          middeldure huurwoningen. In totaal is de verdeling van huurwoningen straks 60 procent vrije sector en 40
-          procent sociale en middeldure huur.
-        &lt;/Paragraph&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-          Verder komen er verschillende voorzieningen zoals een basisschool, kinderdagverblijf,
-          jongerentalentencentrum, horeca, broedplaats, verpleeghuis en passantenpension. Er komt een mix aan kleine
-          winkels, bedrijven en kantoren. Het eiland is ongeveer 15 hectare groot. Dat komt overeen met ongeveer 23
-          voetbalvelden. Dat is in oppervlakte vergelijkbaar met Steigereiland Zuid.
-        &lt;/Paragraph&gt;
-        &lt;StandaloneLink className=&quot;ams-mb-xl&quot; href=&quot;#&quot;&gt;
-          Lees meer over Centrumeiland
-        &lt;/StandaloneLink&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
-          Waar
-        &lt;/Heading&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-          Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland van
-          IJburg en ligt tussen Haveneiland en Strandeiland. Het stadsstrand van IJburg en natuurgebied Diemer
-          Vijfhoek liggen om de hoek.
-        &lt;/Paragraph&gt;
-        &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
-          De wijk is goed bereikbaar met het openbaar vervoer, de fiets of de auto. De stad is niet ver weg: tram 26
-          rijdt naar station Amsterdam Centraal en bus 66 gaat naar station Bijlmer Arena. Wie toch liever de auto
-          pakt, is binnen enkele minuten op de A1 of A10.
-        &lt;/Paragraph&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
-          Wanneer
-        &lt;/Heading&gt;
-        &lt;Paragraph className=&quot;ams-mb-l&quot;&gt;
-          De bouwwerkzaamheden op Centrumeiland zijn in volle gang. Veel zelfbouwers zijn bezig met de bouw van hun
-          eigen huis. De eerste bewoners zijn in 2020 naar het eiland verhuisd. De komende jaren starten verschillende
-          ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We verwachten dat bijna
-          alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt opgeleverd in 2029.
-        &lt;/Paragraph&gt;
-        {/*
-         * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
-         * the one in progress, and a step with no status is still to come. Substeps are nested by hand
-         * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
-         * connecting lines correctly. collapsible gives every step its own fold button and decides what
-         * opens first: completed steps start collapsed, all others expanded, so the finished years here
-         * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
-         */}
-        &lt;ProgressList collapsible headingLevel={3}&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2021&quot; status=&quot;completed&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Landmaken voor de Noordoever en Noordpunt, start oktober.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Start bouw brug tussen Centrumeiland en Strandeiland in oktober (brug 2125).&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2022&quot; status=&quot;completed&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Inrichting zuidelijke natuuroever, begin 2022.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Start bouw basisschool en kinderdagverblijf, begin 2022.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2023&quot; status=&quot;completed&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;
-                  Opening &lt;Link href=&quot;#&quot;&gt;basisschool en kinderdagverblijf&lt;/Link&gt;, zomer 2023.
-                &lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Strandeilandlaan krijgt definitieve inrichting.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;
-                  Start bouw &lt;Link href=&quot;#&quot;&gt;Annemie Wolffbrug&lt;/Link&gt; tussen Haveneiland met Centrumeiland.
-                &lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;
-                  Voorbereiding en start bouw &lt;Link href=&quot;#&quot;&gt;Lee Millerbrug&lt;/Link&gt; met brugpaviljoens tussen
-                  Centrumeiland en Strandeiland.
-                &lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2024&quot; status=&quot;completed&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Start bouw brug tussen Centrumeiland en Strandeiland (brug 2080 bij strand).&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Opening Jongerentalentencentrum.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Definitieve inrichting eerste straten en wadi’s.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Oplevering sociale woonblokken Ymere en de Alliantie.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2025&quot; status=&quot;completed&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Halte IJtram 26 op Centrumeiland eind 2025.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
-                &lt;Paragraph&gt;Start bouw Robin Wood.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep&gt;
-                &lt;Paragraph&gt;Oplevering Zuidoever (ecologische oever).&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-          &lt;ProgressList.Step hasSubsteps heading=&quot;2029&quot;&gt;
-            &lt;ProgressList.Substeps&gt;
-              &lt;ProgressList.Substep&gt;
-                &lt;Paragraph&gt;Waarschijnlijk zijn bijna alle woningen en voorzieningen klaar.&lt;/Paragraph&gt;
-              &lt;/ProgressList.Substep&gt;
-            &lt;/ProgressList.Substeps&gt;
-          &lt;/ProgressList.Step&gt;
-        &lt;/ProgressList&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * Two link lists: the full-width narrow span stacks them, and from medium up the start values
-       * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
-       */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
-          Nieuws
-        &lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;17 november: bijeenkomst over Strandeiland (11 november 2025)&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
-          Werk aan de weg
-        &lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Bert Haanstrakade, omleiding&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Straten Centrumeiland, afsluitingen&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    &lt;Spotlight color=&quot;azure&quot;&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;
-            Zelfbouw
-          &lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
-            Meer over de verschillende vormen van zelfbouw vindt u op:
-          &lt;/Paragraph&gt;
-          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-            Zelfbouw
-          &lt;/StandaloneLink&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
-            Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
-          &lt;/Paragraph&gt;
-          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-            Aanbod kavels
-          &lt;/StandaloneLink&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
-            Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
-          &lt;/Paragraph&gt;
-          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-            Prikbord
-          &lt;/StandaloneLink&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-s&quot; color=&quot;inverse&quot;&gt;
-            Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.
-          &lt;/Paragraph&gt;
-          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-            Nieuwsbrief zelfbouw
-          &lt;/StandaloneLink&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-    &lt;/Spotlight&gt;
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      {/* These four cells alternate between the same start positions, so they too read as two columns. */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
-          Meer informatie
-        &lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Strandlokaal IJburg&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwe bruggen op IJburg&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: nieuwe eilanden en woningbouw&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg - stations Bijlmer Arena en Weesp: nieuwe busverbindingen&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link className=&quot;ams-mb-m&quot; href=&quot;#&quot;&gt;
-            IJburg: verlengen IJtram
-          &lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;
-          Ontwikkeling Centrumeiland, herfst 2025
-        &lt;/Heading&gt;
-        {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-        &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
-        &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
-          Plannen en publicaties
-        &lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
-          Blijf op de hoogte
-        &lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief ontwikkeling IJburg&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Hallo Centrumeiland: praat mee&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Facebook: IJburg&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Instagram: Centrumeiland&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    {/*
-     * The highlight colours have no prescribed meaning, so this second band takes the default purple
-     * rather than repeating the azure of the first.
-     */}
-    &lt;Spotlight&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
-            Contact
-          &lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-m&quot; color=&quot;inverse&quot;&gt;
-            Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
-            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
-              zelfbouwcentrumeiland@amsterdam.nl
-            &lt;/Link&gt;
-          &lt;/Paragraph&gt;
-          &lt;Paragraph color=&quot;inverse&quot;&gt;
-            Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
-          &lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-          {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-          &lt;Paragraph color=&quot;inverse&quot;&gt;
-            Maud van Esch
-            &lt;br /&gt;
-            Omgevingsmanager IJburg
-            &lt;br /&gt;
-            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
-              m.van.esch@amsterdam.nl
-            &lt;/Link&gt;
-            &lt;br /&gt;
-            &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
-              06 4589 9537
-            &lt;/Link&gt;
-            &lt;br /&gt;
-            Voor vragen over werkzaamheden of bouwactiviteiten
-          &lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-    &lt;/Spotlight&gt;
-    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720)} /&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
+    &lt;/main&gt;
   &lt;/&gt;
 );</code></pre>
             </div>
