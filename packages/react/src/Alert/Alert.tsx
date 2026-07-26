@@ -7,7 +7,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 
 import { ErrorFillIcon, InfoFillIcon, SuccessFillIcon, WarningFillIcon } from '@amsterdam/design-system-react-icons'
 import { clsx } from 'clsx'
-import { forwardRef } from 'react'
+import { forwardRef, useId } from 'react'
 
 import type { HeadingProps } from '../Heading'
 import type { IconProps } from '../Icon'
@@ -28,8 +28,9 @@ export type AlertProps = {
   readonly heading: string
   /**
    * The id of the Heading element, which is used to label the alert.
+   * Defaults to a generated unique id.
+   * Provide a custom value to reference the Heading elsewhere; it must then be unique for the page.
    * Can be set to `null` to explicitly remove the label.
-   * Note: must be unique for the page.
    */
   readonly headingId?: string | null
   /**
@@ -63,7 +64,7 @@ export const Alert = forwardRef(
       closeable,
       closeButtonLabel = 'Sluiten',
       heading,
-      headingId = 'ams-alert-heading',
+      headingId,
       headingLevel,
       onClose,
       severity,
@@ -71,12 +72,14 @@ export const Alert = forwardRef(
     }: AlertProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
+    const generatedId = useId()
+    const resolvedHeadingId = headingId === null ? undefined : (headingId ?? generatedId)
     const SeverityIcon = severity ? iconSvgBySeverity[severity] : InfoFillIcon
 
     return (
       <section
         {...restProps}
-        aria-labelledby={headingId || undefined} // NVDA on Chrome does not read the heading when it is not used as the label for the section.
+        aria-labelledby={resolvedHeadingId} // NVDA on Chrome does not read the heading when it is not used as the label for the section.
         className={clsx('ams-alert', severity && `ams-alert--${severity}`, className)}
         ref={ref}
       >
@@ -85,7 +88,7 @@ export const Alert = forwardRef(
         </div>
         <div className="ams-alert__content">
           <Row align="between" alignVertical="start">
-            <Heading id={headingId || undefined} level={headingLevel} size="level-3">
+            <Heading id={resolvedHeadingId} level={headingLevel} size="level-3">
               {heading}
             </Heading>
             {closeable && <IconButton label={closeButtonLabel} onClick={onClose} size="heading-3" />}
