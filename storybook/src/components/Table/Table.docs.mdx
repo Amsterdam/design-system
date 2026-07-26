@@ -81,10 +81,13 @@ In this case, use a [Figure](/docs/components-media-figure--docs) and let the Ta
 ## Features
 
 A Table wider than the space it sits in scrolls horizontally within its own container, rather than widening the page around it.
+That container takes keyboard focus, so someone can scroll it with the arrow keys, not only with a pointer or touch.
 
 ## Accessibility
 
 A Table caption creates the accessible name for the Table, announced by screen readers on every encounter.
+
+The container that scrolls is a focusable group, which keeps the columns past its right edge reachable without a pointing device, as [WCAG 2.1.1](https://www.w3.org/TR/WCAG22/#keyboard) requires.
 
 ## See also
 
