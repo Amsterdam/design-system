@@ -111,6 +111,7 @@ Content elements – e.g. a heading and a subtitle – stack without needing a w
   /* Keep a minimum height so the header and footer can never crowd out the body entirely.
   If less space is available, the dialog itself scrolls. */
   min-block-size: var(--ams-modal-dialog-body-min-block-size);
+  outline-offset: var(--ams-modal-dialog-body-outline-offset);
 
   /* Let wide content scroll horizontally instead of clipping it. */
   overflow-x: auto;

@@ -129,6 +129,13 @@
         }
       },
       "body": {
+        "outline-offset": {
+          "$value": "{ams.focus.outline-offset}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
         "min-block-size": {
           "$value": {
             "value": 3,
