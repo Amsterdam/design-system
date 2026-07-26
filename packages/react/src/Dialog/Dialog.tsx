@@ -35,7 +35,9 @@ const DialogRoot = forwardRef(
         </Heading>
         <IconButton label={closeButtonLabel} onClick={closeDialog} size="heading-3" type="button" />
       </header>
-      <div className="ams-dialog__body">{children}</div>
+      <div className="ams-dialog__body" role="group" tabIndex={0}>
+        {children}
+      </div>
       {footer && <footer className="ams-dialog__footer">{footer}</footer>}
     </dialog>
   ),
