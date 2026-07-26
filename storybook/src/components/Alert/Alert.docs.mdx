@@ -45,8 +45,8 @@ Add a close button if the user should be able to dismiss the Alert.
 Choose a `headingLevel` that fits the outline of the page around the Alert; there is no default.
 The heading keeps the size of a level 3 Heading whichever level you pick.
 
-Give each Alert its own `headingId` when a page holds more than one.
-The Alert uses that id to label itself, and two Alerts sharing the default id would leave the page with a duplicate.
+You don’t need to set `headingId`: the Alert generates a unique id for its heading and labels itself with it, so several Alerts on a page never collide.
+Pass one only when the heading needs a specific id of your own.
 
 Write the heading and the text so they carry the message on their own.
 The severity reaches no one through the colour or the icon alone, which is what [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) asks you to avoid.
