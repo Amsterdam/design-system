@@ -124,6 +124,14 @@ describe('Alert', () => {
     expect(firstId).not.toEqual(secondId)
   })
 
+  it('falls back to a generated id when headingId is an empty string', () => {
+    render(<Alert heading="Let op!" headingId="" headingLevel={2} />)
+
+    const component = screen.getByRole('region', { name: 'Let op!' })
+
+    expect(component.getAttribute('aria-labelledby')).toBeTruthy()
+  })
+
   it('passes additional props', () => {
     render(<Alert aria-hidden={false} data-test="data-test" heading="Let op!" headingLevel={2} id="id" />)
 

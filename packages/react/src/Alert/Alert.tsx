@@ -73,7 +73,7 @@ export const Alert = forwardRef(
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const generatedId = useId()
-    const resolvedHeadingId = headingId === null ? undefined : (headingId ?? generatedId)
+    const resolvedHeadingId = headingId === null ? undefined : headingId || generatedId
     const SeverityIcon = severity ? iconSvgBySeverity[severity] : InfoFillIcon
 
     return (
