@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
+    "lib": ["es2021", "dom"],
     "noEmit": true,
     "paths": {
       "#storybook/*": ["./src/*"],
