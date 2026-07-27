@@ -12,6 +12,14 @@ overrides:
   "js-yaml@<4.3.0": "^4.3.0"
   "sigstore@<4.1.1": "^4.1.1"
   tar: "^7.5.19"
+# stylelint-plugin-defensive-css imports postcss-selector-parser at runtime but lists it under
+# devDependencies, which consumers never receive. Without this, the plugin resolves that import
+# only by chance, through whichever packages pnpm happens to have hoisted into the virtual store,
+# which is not guaranteed to include it. The range matches the one the plugin declares itself.
+packageExtensions:
+  stylelint-plugin-defensive-css:
+    dependencies:
+      postcss-selector-parser: "^7.1.1"
 engineStrict: true
 savePrefix: ""
 # Explicitly mark these dependencies' install scripts as ignored.
