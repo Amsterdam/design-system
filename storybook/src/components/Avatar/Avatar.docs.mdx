@@ -23,6 +23,11 @@ import * as AvatarStories from "./Avatar.stories.tsx";
 
 Show an Avatar for the user of the website, or to associate a person with a content item.
 
+### How to use
+
+On a page in another language, set `initialsAccessibleName` and `userAccessibleName` so the Avatar is announced in that language rather than in Dutch.
+Each replaces the entire announcement and is used verbatim, so repeat the initials in `initialsAccessibleName` when they should still be spoken.
+
 ## Examples
 
 ### With image
@@ -61,9 +66,9 @@ In print, an Avatar keeps its background colour instead of being flattened to sa
 An Avatar is announced exactly once, through a line of text that is in the markup but hidden visually.
 The initials themselves are marked `aria-hidden`, and an image is given an empty `alt`.
 
-That hidden text is fixed Dutch: ‘Initialen gebruiker’ followed by the initials, or ‘Gebruiker’ when the label is empty and the fallback icon shows.
+That hidden text defaults to Dutch: ‘Initialen gebruiker’ followed by the initials, or ‘Gebruiker’ when the label is empty.
 It is built from the label even when an image is displayed, so an Avatar showing a photograph is still announced by its initials.
-The wording cannot be configured, which is worth weighing before using an Avatar on a page in another language.
+Neither wording is fixed: both can be configured, so an Avatar can be announced in the language of the page it sits on.
 
 ## Design tokens
 
