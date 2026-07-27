@@ -19,6 +19,13 @@ describe('Avatar', () => {
     expect(component).toBeVisible()
   })
 
+  it('accepts a custom accessible name for the initials', () => {
+    render(<Avatar initialsAccessibleName="User initials: NR" label="NR" />)
+
+    expect(screen.getByText('User initials: NR')).toBeInTheDocument()
+    expect(screen.queryByText('Initialen gebruiker: NR')).not.toBeInTheDocument()
+  })
+
   it('renders a design system BEM class name', () => {
     const { container } = render(<Avatar label="RS" />)
 
@@ -52,6 +59,13 @@ describe('Avatar', () => {
     expect(component).toBeVisible()
     expect(svg).toBeInTheDocument()
     expect(svg).not.toBeVisible() // The icon is hidden by default, and only shown when the CSS loads.
+  })
+
+  it('accepts a custom accessible name for the empty label', () => {
+    render(<Avatar label="" userAccessibleName="User" />)
+
+    expect(screen.getByText('User')).toBeInTheDocument()
+    expect(screen.queryByText('Gebruiker')).not.toBeInTheDocument()
   })
 
   it('renders with a profile picture', () => {
