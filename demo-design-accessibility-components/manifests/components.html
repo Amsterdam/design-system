@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>3.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -2758,6 +2758,11 @@ import * as AvatarStories from &quot;./Avatar.stories.tsx&quot;;
 
 Show an Avatar for the user of the website, or to associate a person with a content item.
 
+### How to use
+
+On a page in another language, set `initialsAccessibleName` and `userAccessibleName` so the Avatar is announced in that language rather than in Dutch.
+Each replaces the entire announcement and is used verbatim, so repeat the initials in `initialsAccessibleName` when they should still be spoken.
+
 ## Examples
 
 ### With image
@@ -2796,9 +2801,9 @@ In print, an Avatar keeps its background colour instead of being flattened to sa
 An Avatar is announced exactly once, through a line of text that is in the markup but hidden visually.
 The initials themselves are marked `aria-hidden`, and an image is given an empty `alt`.
 
-That hidden text is fixed Dutch: ‘Initialen gebruiker’ followed by the initials, or ‘Gebruiker’ when the label is empty and the fallback icon shows.
+That hidden text defaults to Dutch: ‘Initialen gebruiker’ followed by the initials, or ‘Gebruiker’ when the label is empty.
 It is built from the label even when an image is displayed, so an Avatar showing a photograph is still announced by its initials.
-The wording cannot be configured, which is worth weighing before using an Avatar on a page in another language.
+Neither wording is fixed: both can be configured, so an Avatar can be announced in the language of the page it sits on.
 
 ## Design tokens
 
@@ -4356,6 +4361,9 @@ For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quo
 ## Design
 
 The month is laid out as seven equal columns, one per weekday, so the dates line up in vertical columns whatever month is shown and however long the weekday names are.
+
+The grid shows only the days of the month on view, padding the first week with blank cells rather than the previous month’s tail.
+Our palette has no comfortable way to mark another month’s dates as secondary, and without that a second set of the same day numbers would read as noise rather than context.
 
 The Calendar is only as wide as it needs to be, up to a set width, and never wider than the space it is given.
 It can therefore sit in a narrow column beside other content without a layout deciding its size for it.
@@ -6410,12 +6418,16 @@ For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quo
 
 ## Design
 
-The Date Picker is intentionally an inline component.
+The Date Picker is intentionally an inline component: the calendar sits directly in the page, not in a dropdown or popover opened from a field or button.
 Finding the optimal date is a focused task for the user; placing it directly on the page makes it easier to use and gives it the space and attention it deserves.
 If the layout truly has no room, placing the Date Picker inside a modal [Dialog](/docs/components-containers-dialog--docs) is an acceptable last resort.
 
 A date that falls outside the bounds is struck through rather than removed or greyed into the background.
 It keeps its place in the grid, so the shape of the month stays intact and the reason a date cannot be chosen is visible rather than inferred from a gap.
+
+The grid shows only the days of the month on view; the first week is padded with blank cells rather than the previous month’s tail.
+Our palette has no comfortable way to mark another month’s dates as secondary, and without that a second set of the same day numbers — two 1sts, two 30ths — would confuse more than it clarifies.
+Showing them would also raise a question the inline grid is better without: if someone picked a day carried in from a neighbouring month, should the grid jump to that month? Leaving those days out avoids it.
 
 ## Accessibility
 
@@ -12597,6 +12609,9 @@ Match the size of the Icon Button to the surrounding text.
 Only [functional icons](/docs/brand-assets-icons--docs#functional-icons) belong in an Icon Button.
 For other icons, use a [Button](/docs/components-buttons-button--docs) so that the user can read its label.
 
+Do not use an Icon Button to submit a form; that is a [Button](/docs/components-buttons-button--docs)’s job.
+Even the one icon-only submit in the system — the search button — is a Button, not an Icon Button.
+
 ### How to use
 
 An Icon Button still needs a label for screen reader users.
@@ -12638,7 +12653,7 @@ The focus outline is offset from the icon rather than drawn against it, which ke
 An Icon Button renders a `button` element and always writes its label into the markup, hidden visually.
 Screen readers announce that label, so the button is never announced as unlabelled, and the icon contributes nothing to the name.
 
-Its `type` defaults to `button` rather than to `submit`, so an Icon Button inside a form leaves that form alone until asked otherwise.
+Its `type` defaults to `button` rather than `submit`, so it never submits a form by accident: a close button dismisses a Dialog through its click handler, not by submitting a form the Dialog may contain.
 
 ## See also
 
@@ -13269,7 +13284,7 @@ import {
   Grid,
   Heading,
   Image,
-  LinkList,
+  Link,
   Paragraph,
   Table,
 } from &#39;@amsterdam/design-system-react&#39;
@@ -13667,12 +13682,10 @@ export const WithTable: StoryObj = {
               &lt;/Table.Row&gt;
             &lt;/Table.Body&gt;
           &lt;/Table&gt;
+          {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
           &lt;Figure.Caption&gt;
-            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;Bron&lt;/Heading&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+            &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
           &lt;/Figure.Caption&gt;
         &lt;/Figure&gt;
       &lt;/Grid.Cell&gt;
@@ -13801,14 +13814,10 @@ export const WithTable: StoryObj = {
                   &lt;/Table.Row&gt;
                 &lt;/Table.Body&gt;
               &lt;/Table&gt;
+              {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
               &lt;Figure.Caption&gt;
-                &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-                  Bron
-                &lt;/Heading&gt;
-                &lt;LinkList&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-                &lt;/LinkList&gt;
+                Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+                &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
               &lt;/Figure.Caption&gt;
             &lt;/Figure&gt;
           &lt;/Grid.Cell&gt;
@@ -13845,7 +13854,7 @@ export const WithTable: StoryObj = {
     Grid,
     Heading,
     Image,
-    LinkList,
+    Link,
     Paragraph,
     Table,
 } from "@amsterdam/design-system-react";</code></pre>
@@ -14115,14 +14124,10 @@ export const WithTable: StoryObj = {
                 &lt;/Table.Row&gt;
               &lt;/Table.Body&gt;
             &lt;/Table&gt;
+            {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
             &lt;Figure.Caption&gt;
-              &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-                Bron
-              &lt;/Heading&gt;
-              &lt;LinkList&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-              &lt;/LinkList&gt;
+              Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+              &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
             &lt;/Figure.Caption&gt;
           &lt;/Figure&gt;
         &lt;/Grid.Cell&gt;
@@ -14208,8 +14213,8 @@ A [Figure](/docs/components-media-figure--docs) groups the table with the source
 Keep the table’s own Caption as its name, and use the Figure’s Caption for the sources: the two describe different things, and a table that loses its Caption loses its accessible name.
 The Figure supplies the space between them, so the table needs no margin of its own.
 
-A Figure Caption takes any content, not only a sentence.
-Here it holds a level 3 Heading and a [Link List](/docs/components-navigation-link-list--docs), which keeps the sources scannable and lets each one be its own link.
+Write any sources as one sentence, with a [Link](/docs/components-navigation-link--docs) for each of them.
+The Figure Caption then presents them in the small caption text it is meant for.
 Note that the whole caption becomes the accessible name of the Figure, so keep it short.
 </code></pre></div>
             </div>
@@ -30056,6 +30061,11 @@ import * as AvatarStories from &quot;./Avatar.stories.tsx&quot;;
 
 Show an Avatar for the user of the website, or to associate a person with a content item.
 
+### How to use
+
+On a page in another language, set `initialsAccessibleName` and `userAccessibleName` so the Avatar is announced in that language rather than in Dutch.
+Each replaces the entire announcement and is used verbatim, so repeat the initials in `initialsAccessibleName` when they should still be spoken.
+
 ## Examples
 
 ### With image
@@ -30094,9 +30104,9 @@ In print, an Avatar keeps its background colour instead of being flattened to sa
 An Avatar is announced exactly once, through a line of text that is in the markup but hidden visually.
 The initials themselves are marked `aria-hidden`, and an image is given an empty `alt`.
 
-That hidden text is fixed Dutch: ‘Initialen gebruiker’ followed by the initials, or ‘Gebruiker’ when the label is empty and the fallback icon shows.
+That hidden text defaults to Dutch: ‘Initialen gebruiker’ followed by the initials, or ‘Gebruiker’ when the label is empty.
 It is built from the label even when an image is displayed, so an Avatar showing a photograph is still announced by its initials.
-The wording cannot be configured, which is worth weighing before using an Avatar on a page in another language.
+Neither wording is fixed: both can be configured, so an Avatar can be announced in the language of the page it sits on.
 
 ## Design tokens
 
@@ -36598,6 +36608,9 @@ Match the size of the Icon Button to the surrounding text.
 Only [functional icons](/docs/brand-assets-icons--docs#functional-icons) belong in an Icon Button.
 For other icons, use a [Button](/docs/components-buttons-button--docs) so that the user can read its label.
 
+Do not use an Icon Button to submit a form; that is a [Button](/docs/components-buttons-button--docs)’s job.
+Even the one icon-only submit in the system — the search button — is a Button, not an Icon Button.
+
 ### How to use
 
 An Icon Button still needs a label for screen reader users.
@@ -36639,7 +36652,7 @@ The focus outline is offset from the icon rather than drawn against it, which ke
 An Icon Button renders a `button` element and always writes its label into the markup, hidden visually.
 Screen readers announce that label, so the button is never announced as unlabelled, and the icon contributes nothing to the name.
 
-Its `type` defaults to `button` rather than to `submit`, so an Icon Button inside a form leaves that form alone until asked otherwise.
+Its `type` defaults to `button` rather than `submit`, so it never submits a form by accident: a close button dismisses a Dialog through its click handler, not by submitting a form the Dialog may contain.
 
 ## See also
 
@@ -36947,7 +36960,7 @@ import {
   Grid,
   Heading,
   Image,
-  LinkList,
+  Link,
   Paragraph,
   Table,
 } from &#39;@amsterdam/design-system-react&#39;
@@ -37345,12 +37358,10 @@ export const WithTable: StoryObj = {
               &lt;/Table.Row&gt;
             &lt;/Table.Body&gt;
           &lt;/Table&gt;
+          {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
           &lt;Figure.Caption&gt;
-            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;Bron&lt;/Heading&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+            &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
           &lt;/Figure.Caption&gt;
         &lt;/Figure&gt;
       &lt;/Grid.Cell&gt;
@@ -37479,14 +37490,10 @@ export const WithTable: StoryObj = {
                   &lt;/Table.Row&gt;
                 &lt;/Table.Body&gt;
               &lt;/Table&gt;
+              {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
               &lt;Figure.Caption&gt;
-                &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-                  Bron
-                &lt;/Heading&gt;
-                &lt;LinkList&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-                &lt;/LinkList&gt;
+                Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+                &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
               &lt;/Figure.Caption&gt;
             &lt;/Figure&gt;
           &lt;/Grid.Cell&gt;
@@ -37523,7 +37530,7 @@ export const WithTable: StoryObj = {
     Grid,
     Heading,
     Image,
-    LinkList,
+    Link,
     Paragraph,
     Table,
 } from "@amsterdam/design-system-react";</code></pre>
@@ -37793,14 +37800,10 @@ export const WithTable: StoryObj = {
                 &lt;/Table.Row&gt;
               &lt;/Table.Body&gt;
             &lt;/Table&gt;
+            {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
             &lt;Figure.Caption&gt;
-              &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-                Bron
-              &lt;/Heading&gt;
-              &lt;LinkList&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-              &lt;/LinkList&gt;
+              Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+              &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
             &lt;/Figure.Caption&gt;
           &lt;/Figure&gt;
         &lt;/Grid.Cell&gt;
@@ -37886,8 +37889,8 @@ A [Figure](/docs/components-media-figure--docs) groups the table with the source
 Keep the table’s own Caption as its name, and use the Figure’s Caption for the sources: the two describe different things, and a table that loses its Caption loses its accessible name.
 The Figure supplies the space between them, so the table needs no margin of its own.
 
-A Figure Caption takes any content, not only a sentence.
-Here it holds a level 3 Heading and a [Link List](/docs/components-navigation-link-list--docs), which keeps the sources scannable and lets each one be its own link.
+Write any sources as one sentence, with a [Link](/docs/components-navigation-link--docs) for each of them.
+The Figure Caption then presents them in the small caption text it is meant for.
 Note that the whole caption becomes the accessible name of the Figure, so keep it short.
 </code></pre></div>
             </div>
