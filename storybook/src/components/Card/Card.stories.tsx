@@ -10,7 +10,7 @@ import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
-import { maximiseInlineSize } from '#storybook/_common/decorators'
+import { maximiseInlineSize, wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
 import { exampleTopTask } from '#storybook/_common/exampleContent'
 import { formatDate } from '#storybook/_common/formatDate'
 
@@ -85,21 +85,35 @@ export const WithImage: WithImageStory = {
     tagline: { control: 'text' },
     text: { control: 'text' },
   },
-  decorators: [maximiseInlineSize('24rem')],
+  // The query container keeps this Card below the width at which it would switch to a horizontal layout.
+  decorators: [maximiseInlineSize('24rem'), wrapInInlineSizeQueryContainer()],
   render: ({ aspectRatio, date, heading, imageSrc, tagline, text, ...args }) => (
     <Card {...args}>
       <Card.Image alt="" aspectRatio={aspectRatio} src={imageSrc} />
-      <Card.HeadingGroup tagline={tagline}>
-        <Card.Heading level={3}>
-          <Card.Link href="/">{heading}</Card.Link>
-        </Card.Heading>
-      </Card.HeadingGroup>
-      <Column gap="small">
-        <Paragraph>{text}</Paragraph>
-        <Paragraph size="small">{date}</Paragraph>
-      </Column>
+      <Card.Content>
+        <Card.HeadingGroup tagline={tagline}>
+          <Card.Heading level={3}>
+            <Card.Link href="/">{heading}</Card.Link>
+          </Card.Heading>
+        </Card.HeadingGroup>
+        <Column gap="small">
+          <Paragraph>{text}</Paragraph>
+          <Paragraph size="small">{date}</Paragraph>
+        </Column>
+      </Card.Content>
     </Card>
   ),
+}
+
+/**
+ * A Card that pairs an image with a Card Content switches to a horizontal layout once its container is wider
+ * than 36rem. Resize the container to see it change; the markup is the same in both layouts.
+ */
+export const HorizontalLayout: WithImageStory = {
+  args: WithImage.args,
+  argTypes: WithImage.argTypes,
+  decorators: [wrapInInlineSizeQueryContainer(undefined, { inlineSize: '56rem', maxInlineSize: '100%' })],
+  render: WithImage.render,
 }
 
 export const TopTasks: Story = {

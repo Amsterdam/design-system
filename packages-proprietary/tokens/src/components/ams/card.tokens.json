@@ -28,6 +28,16 @@
           }
         }
       },
+      "horizontal": {
+        "column-gap": {
+          "$value": "{ams.space.l}",
+          "$description": "The space between the image and the content of a horizontal Card. Independent of the column gap of the Grid, which the image is measured against so that it covers whole columns of the page.",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        }
+      },
       "image": {
         "margin-block-end": {
           "$value": "{ams.space.s}",

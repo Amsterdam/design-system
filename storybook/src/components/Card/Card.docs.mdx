@@ -33,6 +33,11 @@ Set its `level` to fit the document outline.
 
 <Controls of={CardHeadingStories.Heading} />
 
+### Content
+
+Groups everything in a Card that is not its image.
+Add it whenever a Card has an image: it is what allows the Card to switch to a [horizontal layout](#horizontal-layout).
+
 ### Heading Group
 
 Displays a `tagline` above the heading.
@@ -102,6 +107,17 @@ The Card Image subcomponent renders an [Image](/docs/components-media-image--doc
 Only use decorative images with `alt=""` here. Screen readers will not read the `alt` text of non-decorative images when navigating to a Card.
 
 <Canvas of={CardStories.WithImage} />
+
+### Horizontal layout
+
+A Card that pairs an image with a Content places the image beside the content once there is room for it.
+This follows the width of the nearest [query container](/docs/utilities-css-query-container--docs) rather than the width of the viewport, so the same Card is horizontal in a wide Grid Cell and vertical in a narrow one, without any change to the markup.
+A Card that has an image but no Content stays vertical.
+
+The image takes a third of the columns of the Grid Cell the Card sits in: 3 of 9, or 2 of 6.
+It is then exactly as wide as a Card that spans 3 columns, so the images of horizontal and vertical Cards line up on an index page that mixes the two.
+
+<Canvas of={CardStories.HorizontalLayout} />
 
 ### Top tasks
 

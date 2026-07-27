@@ -3,6 +3,23 @@
  * Copyright Gemeente Amsterdam
  */
 
+/**
+ * CSS Custom properties cannot be used in container queries.
+ * We resort to Sass variables for our breakpoint values.
+ */
+
+/**
+ * The container width at which a Card with an image switches to a horizontal layout.
+ * Above the widest cell of the narrow Grid, so a Card that spans the full width of that Grid stays vertical.
+ */
+$ams-card-horizontal-breakpoint: 36rem;
+
+@mixin horizontal-layout {
+  @container ams-query-container-inline-size (inline-size > #{$ams-card-horizontal-breakpoint}) {
+    @content;
+  }
+}
+
 .ams-card {
   display: grid;
   outline-offset: var(--ams-card-outline-offset);
@@ -20,12 +37,63 @@
     outline-width: 0.0625rem;
   }
 
+  > .ams-card__image:not(:last-child) {
+    margin-block-end: var(--ams-card-image-margin-block-end);
+  }
+}
+
+// The heading takes the same space whether or not a Content wrapper groups it with the rest.
+.ams-card,
+.ams-card__content {
   > .ams-card__heading:not(:last-child) {
     margin-block-end: var(--ams-card-heading-margin-block-end);
   }
+}
 
-  > .ams-card__image:not(:last-child) {
-    margin-block-end: var(--ams-card-image-margin-block-end);
+@include horizontal-layout {
+  /*
+   * Only a Card that pairs an image with a Content switches to a horizontal layout: the image in the first
+   * column, the Content in the second. Every other Card is left unchanged, so a Card that is not built for
+   * this layout stays vertical rather than breaking. Content is what makes the layout possible: it occupies
+   * a single grid row beside the image, where several loose children would each start a row of their own.
+   * It is okay to use the :has() pseudo-class here, because the layout falls back to the vertical
+   * default in browsers that do not support it.
+   */
+  /* stylelint-disable-next-line plugin/use-baseline */
+  .ams-card:has(> .ams-card__image):has(> .ams-card__content) {
+    column-gap: var(--ams-card-horizontal-column-gap);
+
+    /*
+     * The image covers the first 4 of the 9 page columns the Card spans, so that it is exactly as wide as a
+     * Card that spans 4 columns and the images of horizontal and vertical Cards line up. It therefore
+     * measures 4 column widths plus the 3 gutters between them, and a column width is what is left of the
+     * Card once its own 8 gutters are taken off, divided by 9. That is the expression below, written the way
+     * it is counted rather than reduced, so that changing the 4 needs no algebra. Note this is not
+     * `1fr 2fr`, which accounts for one gutter where the columns need several.
+     *
+     * The gutters here are the ones of the Grid, not of the Card: they are the gaps between the page columns
+     * the image covers. The Card’s own column gap only sets the distance between the image and the content,
+     * which therefore starts wherever that leaves it rather than on a column of the page.
+     *
+     * 4 of 9 is the results region of an index page beside a 3-column filter column. A Card spanning a
+     * different number of columns keeps the same proportion, so its image stops landing on the page columns
+     * — the case on the medium Grid, where that region is 5 columns wide. That is accepted: one expression
+     * keeps the Card from having to know the layout of the page it sits on.
+     */
+    grid-template-columns:
+      calc(4 * (100% - 8 * var(--ams-grid-column-gap)) / 9 + 3 * var(--ams-grid-column-gap))
+      minmax(0, 1fr);
+
+    > .ams-card__image {
+      align-self: start; // Keep the aspect ratio of the image; the taller of the two columns sets the height.
+      grid-column-start: 1;
+      margin-block-end: 0; // The column gap handles the spacing in this layout.
+    }
+
+    // Anything that is not the image belongs in the second column, so a stray child never lands under it.
+    > :not(.ams-card__image) {
+      grid-column-start: 2;
+    }
   }
 }
 
