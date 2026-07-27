@@ -12675,7 +12675,7 @@ import {
   Grid,
   Heading,
   Image,
-  LinkList,
+  Link,
   Paragraph,
   Table,
 } from &#39;@amsterdam/design-system-react&#39;
@@ -13073,12 +13073,10 @@ export const WithTable: StoryObj = {
               &lt;/Table.Row&gt;
             &lt;/Table.Body&gt;
           &lt;/Table&gt;
+          {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
           &lt;Figure.Caption&gt;
-            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;Bron&lt;/Heading&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+            &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
           &lt;/Figure.Caption&gt;
         &lt;/Figure&gt;
       &lt;/Grid.Cell&gt;
@@ -13207,14 +13205,10 @@ export const WithTable: StoryObj = {
                   &lt;/Table.Row&gt;
                 &lt;/Table.Body&gt;
               &lt;/Table&gt;
+              {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
               &lt;Figure.Caption&gt;
-                &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-                  Bron
-                &lt;/Heading&gt;
-                &lt;LinkList&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-                &lt;/LinkList&gt;
+                Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+                &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
               &lt;/Figure.Caption&gt;
             &lt;/Figure&gt;
           &lt;/Grid.Cell&gt;
@@ -13251,7 +13245,7 @@ export const WithTable: StoryObj = {
     Grid,
     Heading,
     Image,
-    LinkList,
+    Link,
     Paragraph,
     Table,
 } from "@amsterdam/design-system-react";</code></pre>
@@ -13521,14 +13515,10 @@ export const WithTable: StoryObj = {
                 &lt;/Table.Row&gt;
               &lt;/Table.Body&gt;
             &lt;/Table&gt;
+            {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
             &lt;Figure.Caption&gt;
-              &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-                Bron
-              &lt;/Heading&gt;
-              &lt;LinkList&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-              &lt;/LinkList&gt;
+              Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+              &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
             &lt;/Figure.Caption&gt;
           &lt;/Figure&gt;
         &lt;/Grid.Cell&gt;
@@ -13614,8 +13604,8 @@ A [Figure](/docs/components-media-figure--docs) groups the table with the source
 Keep the table’s own Caption as its name, and use the Figure’s Caption for the sources: the two describe different things, and a table that loses its Caption loses its accessible name.
 The Figure supplies the space between them, so the table needs no margin of its own.
 
-A Figure Caption takes any content, not only a sentence.
-Here it holds a level 3 Heading and a [Link List](/docs/components-navigation-link-list--docs), which keeps the sources scannable and lets each one be its own link.
+Write any sources as one sentence, with a [Link](/docs/components-navigation-link--docs) for each of them.
+The Figure Caption then presents them in the small caption text it is meant for.
 Note that the whole caption becomes the accessible name of the Figure, so keep it short.
 </code></pre></div>
             </div>
@@ -35474,7 +35464,7 @@ import {
   Grid,
   Heading,
   Image,
-  LinkList,
+  Link,
   Paragraph,
   Table,
 } from &#39;@amsterdam/design-system-react&#39;
@@ -35872,12 +35862,10 @@ export const WithTable: StoryObj = {
               &lt;/Table.Row&gt;
             &lt;/Table.Body&gt;
           &lt;/Table&gt;
+          {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
           &lt;Figure.Caption&gt;
-            &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;Bron&lt;/Heading&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+            &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
           &lt;/Figure.Caption&gt;
         &lt;/Figure&gt;
       &lt;/Grid.Cell&gt;
@@ -36006,14 +35994,10 @@ export const WithTable: StoryObj = {
                   &lt;/Table.Row&gt;
                 &lt;/Table.Body&gt;
               &lt;/Table&gt;
+              {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
               &lt;Figure.Caption&gt;
-                &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-                  Bron
-                &lt;/Heading&gt;
-                &lt;LinkList&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-                  &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-                &lt;/LinkList&gt;
+                Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+                &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
               &lt;/Figure.Caption&gt;
             &lt;/Figure&gt;
           &lt;/Grid.Cell&gt;
@@ -36050,7 +36034,7 @@ export const WithTable: StoryObj = {
     Grid,
     Heading,
     Image,
-    LinkList,
+    Link,
     Paragraph,
     Table,
 } from "@amsterdam/design-system-react";</code></pre>
@@ -36320,14 +36304,10 @@ export const WithTable: StoryObj = {
                 &lt;/Table.Row&gt;
               &lt;/Table.Body&gt;
             &lt;/Table&gt;
+            {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
             &lt;Figure.Caption&gt;
-              &lt;Heading className=&quot;ams-mb-xs&quot; level={3}&gt;
-                Bron
-              &lt;/Heading&gt;
-              &lt;LinkList&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/LinkList.Link&gt;
-                &lt;LinkList.Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/LinkList.Link&gt;
-              &lt;/LinkList&gt;
+              Bronnen: &lt;Link href=&quot;#&quot;&gt;Catalogus Basisregistratie WOZ&lt;/Link&gt; en{&#39; &#39;}
+              &lt;Link href=&quot;#&quot;&gt;Gegevenswoordenboek WOZ&lt;/Link&gt;.
             &lt;/Figure.Caption&gt;
           &lt;/Figure&gt;
         &lt;/Grid.Cell&gt;
@@ -36413,8 +36393,8 @@ A [Figure](/docs/components-media-figure--docs) groups the table with the source
 Keep the table’s own Caption as its name, and use the Figure’s Caption for the sources: the two describe different things, and a table that loses its Caption loses its accessible name.
 The Figure supplies the space between them, so the table needs no margin of its own.
 
-A Figure Caption takes any content, not only a sentence.
-Here it holds a level 3 Heading and a [Link List](/docs/components-navigation-link-list--docs), which keeps the sources scannable and lets each one be its own link.
+Write any sources as one sentence, with a [Link](/docs/components-navigation-link--docs) for each of them.
+The Figure Caption then presents them in the small caption text it is meant for.
 Note that the whole caption becomes the accessible name of the Figure, so keep it short.
 </code></pre></div>
             </div>
