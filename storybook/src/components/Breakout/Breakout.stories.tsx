@@ -25,6 +25,9 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
+  subcomponents: {
+    'Breakout.Cell': Breakout.Cell,
+  },
 } satisfies Meta<typeof Breakout>
 
 export default meta

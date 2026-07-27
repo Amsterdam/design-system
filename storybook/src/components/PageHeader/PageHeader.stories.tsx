@@ -73,6 +73,9 @@ const meta = {
       />
     )
   },
+  subcomponents: {
+    'PageHeader.MenuLink': PageHeader.MenuLink,
+  },
 } satisfies Meta<typeof PageHeader>
 
 export default meta

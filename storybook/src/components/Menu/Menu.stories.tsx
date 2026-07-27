@@ -86,6 +86,9 @@ const meta = {
       options: ['Compact', 'Compact Lo-fi'],
     },
   },
+  subcomponents: {
+    'Menu.Link': Menu.Link,
+  },
 } satisfies Meta<typeof Menu>
 
 export default meta

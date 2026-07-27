@@ -59,6 +59,10 @@ const meta = {
       options: progressListHeadingLevels,
     },
   },
+  subcomponents: {
+    'ProgressList.Step': ProgressList.Step,
+    'ProgressList.Substep': ProgressList.Substep,
+  },
 } satisfies Meta<typeof ProgressList>
 
 export default meta

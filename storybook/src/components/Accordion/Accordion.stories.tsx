@@ -51,6 +51,9 @@ const meta = {
   argTypes: {
     headingLevel: headingLevelArgType([2, 3, 4]),
   },
+  subcomponents: {
+    'Accordion.Section': Accordion.Section,
+  },
 } satisfies Meta<typeof Accordion>
 
 export default meta

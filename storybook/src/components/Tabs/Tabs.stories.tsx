@@ -18,6 +18,10 @@ const meta = {
       action: 'changed',
     },
   },
+  subcomponents: {
+    'Tabs.Button': Tabs.Button,
+    'Tabs.Panel': Tabs.Panel,
+  },
 } satisfies Meta<typeof Tabs>
 
 export default meta

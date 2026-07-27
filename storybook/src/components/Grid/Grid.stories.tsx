@@ -26,6 +26,9 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
+  subcomponents: {
+    'Grid.Cell': Grid.Cell,
+  },
 } satisfies Meta<typeof Grid>
 
 export default meta
