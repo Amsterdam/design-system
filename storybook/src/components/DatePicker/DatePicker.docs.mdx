@@ -128,12 +128,16 @@ For right-to-left scripts, give a custom icon a `data-directional="true"` attrib
 
 ## Design
 
-The Date Picker is intentionally an inline component.
+The Date Picker is intentionally an inline component: the calendar sits directly in the page, not in a dropdown or popover opened from a field or button.
 Finding the optimal date is a focused task for the user; placing it directly on the page makes it easier to use and gives it the space and attention it deserves.
 If the layout truly has no room, placing the Date Picker inside a modal [Dialog](/docs/components-containers-dialog--docs) is an acceptable last resort.
 
 A date that falls outside the bounds is struck through rather than removed or greyed into the background.
 It keeps its place in the grid, so the shape of the month stays intact and the reason a date cannot be chosen is visible rather than inferred from a gap.
+
+The grid shows only the days of the month on view; the first week is padded with blank cells rather than the previous month’s tail.
+Our palette has no comfortable way to mark another month’s dates as secondary, and without that a second set of the same day numbers — two 1sts, two 30ths — would confuse more than it clarifies.
+Showing them would also raise a question the inline grid is better without: if someone picked a day carried in from a neighbouring month, should the grid jump to that month? Leaving those days out avoids it.
 
 ## Accessibility
 

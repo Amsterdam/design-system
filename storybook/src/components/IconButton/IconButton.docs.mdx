@@ -29,6 +29,9 @@ Match the size of the Icon Button to the surrounding text.
 Only [functional icons](/docs/brand-assets-icons--docs#functional-icons) belong in an Icon Button.
 For other icons, use a [Button](/docs/components-buttons-button--docs) so that the user can read its label.
 
+Do not use an Icon Button to submit a form; that is a [Button](/docs/components-buttons-button--docs)’s job.
+Even the one icon-only submit in the system — the search button — is a Button, not an Icon Button.
+
 ### How to use
 
 An Icon Button still needs a label for screen reader users.
@@ -70,7 +73,7 @@ The focus outline is offset from the icon rather than drawn against it, which ke
 An Icon Button renders a `button` element and always writes its label into the markup, hidden visually.
 Screen readers announce that label, so the button is never announced as unlabelled, and the icon contributes nothing to the name.
 
-Its `type` defaults to `button` rather than to `submit`, so an Icon Button inside a form leaves that form alone until asked otherwise.
+Its `type` defaults to `button` rather than `submit`, so it never submits a form by accident: a close button dismisses a Dialog through its click handler, not by submitting a form the Dialog may contain.
 
 ## See also
 

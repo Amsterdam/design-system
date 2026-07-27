@@ -102,6 +102,9 @@ For right-to-left scripts, give a custom icon a `data-directional="true"` attrib
 
 The month is laid out as seven equal columns, one per weekday, so the dates line up in vertical columns whatever month is shown and however long the weekday names are.
 
+The grid shows only the days of the month on view, padding the first week with blank cells rather than the previous month’s tail.
+Our palette has no comfortable way to mark another month’s dates as secondary, and without that a second set of the same day numbers would read as noise rather than context.
+
 The Calendar is only as wide as it needs to be, up to a set width, and never wider than the space it is given.
 It can therefore sit in a narrow column beside other content without a layout deciding its size for it.
 
