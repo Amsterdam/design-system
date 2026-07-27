@@ -36,8 +36,12 @@ export type AvatarProps = {
   readonly color?: AvatarColor
   /** The url for the user’s image. Its centre will be displayed. Should be square and scaled down. */
   readonly imageSrc?: string
+  /** The accessible name for the Avatar when the label provides initials. */
+  readonly initialsAccessibleName?: string
   /** The text content. Should be the user’s initials. The first two characters will be displayed. */
   readonly label: string
+  /** The accessible name for the Avatar when the label is empty. */
+  readonly userAccessibleName?: string
 } & Readonly<HTMLAttributes<HTMLSpanElement>>
 
 /**
@@ -46,10 +50,16 @@ export type AvatarProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-feedback-avatar--docs Avatar docs at Amsterdam Design System}
  */
 export const Avatar = forwardRef(
-  ({ className, color, imageSrc, label, ...restProps }: AvatarProps, ref: ForwardedRef<HTMLSpanElement>) => {
+  (
+    { className, color, imageSrc, initialsAccessibleName, label, userAccessibleName, ...restProps }: AvatarProps,
+    ref: ForwardedRef<HTMLSpanElement>,
+  ) => {
     const initials = label.slice(0, 2).toUpperCase()
 
-    const a11yLabel = initials.length === 0 ? 'Gebruiker' : `Initialen gebruiker: ${initials}`
+    const resolvedAccessibleName =
+      initials.length === 0
+        ? userAccessibleName || 'Gebruiker'
+        : initialsAccessibleName || `Initialen gebruiker: ${initials}`
 
     return (
       <span
@@ -57,7 +67,7 @@ export const Avatar = forwardRef(
         className={clsx('ams-avatar', color && `ams-avatar--${color}`, imageSrc && 'ams-avatar--has-image', className)}
         ref={ref}
       >
-        <span className="ams-visually-hidden">{a11yLabel}</span>
+        <span className="ams-visually-hidden">{resolvedAccessibleName}</span>
         <AvatarContent imageSrc={imageSrc} initials={initials} />
       </span>
     )

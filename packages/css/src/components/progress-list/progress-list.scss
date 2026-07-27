@@ -198,7 +198,6 @@
 
 .ams-progress-list__icon svg {
   rotate: 0deg;
-  transition: none;
 
   [aria-expanded="true"] & {
     rotate: -180deg;
