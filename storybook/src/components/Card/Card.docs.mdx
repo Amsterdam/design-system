@@ -114,8 +114,9 @@ A Card that pairs an image with a Content places the image beside the content on
 This follows the width of the nearest [query container](/docs/utilities-css-query-container--docs) rather than the width of the viewport, so the same Card is horizontal in a wide Grid Cell and vertical in a narrow one, without any change to the markup.
 A Card that has an image but no Content stays vertical.
 
-The image takes a third of the columns of the Grid Cell the Card sits in: 3 of 9, or 2 of 6.
-It is then exactly as wide as a Card that spans 3 columns, so the images of horizontal and vertical Cards line up on an index page that mixes the two.
+The image covers 4 of the 9 columns of the Grid Cell it sits in, which is the width of a Card spanning 4 columns.
+The images of horizontal and vertical Cards then line up on an index page that mixes the two.
+A Card that spans a different number of columns keeps the same proportion, so its image is no longer a whole number of columns wide and the two stop lining up.
 
 <Canvas of={CardStories.HorizontalLayout} />
 
@@ -133,6 +134,8 @@ For a group of links without a description, use a [Link List](/docs/components-n
 The mandatory title of a Card is a link within a Heading.
 The link is made active across the entire area of the Card.
 
+A Card that pairs an image with a Content lays out horizontally once its container is wide enough, and vertically below that.
+
 ## Design
 
 A Card has no border, no background, and no padding.
@@ -146,6 +149,13 @@ Browsers that cannot express that condition get neither rule, so they still show
 
 In a Heading Group the tagline is written after the heading and displayed above it.
 The reading order and the visual order differ on purpose, which is what lets the metadata sit on top while the heading is still what gets read first.
+
+Whether a Card is horizontal follows the width of its container rather than the width of the window.
+The same Card is one row in a list of results and one card in a row of three, and which of the two it should be depends on the space it is given, not on the size of the screen.
+
+The image of a horizontal Card measures 4 of the 9 columns it spans, which is the width of a vertical Card beside it, and it keeps its aspect ratio rather than stretching to the height of the text beside it.
+Both choices exist so that the image is the same size in either direction: an index page that opens with a row of vertical Cards above a list of horizontal ones then has one left edge and one image width running down it.
+Stretching the image instead would crop each one differently, according to how far its heading happened to wrap.
 
 ## Accessibility
 
