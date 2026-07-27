@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -807,6 +807,28 @@ This lets users scan every section label without expanding anything.
 Opening one section does not close the others.
 A user looking for a specific answer can leave related context open as they explore.
 
+The control is the heading rather than a button beside it.
+The button fills the width of the heading and takes its typeface, size, weight and line height, so the thing that looks like a heading is the thing you click, all the way to the end of the line.
+
+Its label starts where the surrounding text starts: there is no indent, and the chevron sits before the label rather than pushing it inward.
+An Accordion therefore lines up with the content above and below it instead of forming a box of its own.
+
+Sections are separated by white space alone, without rules or panels.
+The chevron and the heading carry the affordance, which keeps a long list of sections from reading as a stack of boxes.
+
+The chevron turns half a circle when a section opens.
+It is animated only for users who have not asked for reduced motion; everyone else sees it arrive already turned.
+
+## Accessibility
+
+Each section renders a heading containing a button that reports whether it is expanded and names the panel it controls.
+Screen readers therefore reach the sections by heading, as they would any other outline, and hear the state of each one.
+
+A collapsed panel is removed from the page rather than hidden visually, so its content is not announced, not reachable by keyboard, and — as ‘Find in page’ above explains — not searchable.
+
+The panel is a `section` labelled by its own heading, which makes it a landmark.
+This is the reason ‘Reduce landmarks’ offers `sectionAs=&quot;div&quot;`: six or more sections put six or more regions in the landmark list, and a landmark per collapsed paragraph tells a screen reader user less than it costs them to walk past.
+
 ## See also
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
@@ -972,7 +994,7 @@ If two or more Buttons or links are in a row, put the one for the primary action
 
 ### How to use
 
-Replace the default &#39;group&#39; role with `role=&quot;toolbar&quot;` for Button toolbars.
+Give the group a name when a page holds several sets of actions and hearing ‘group’ on its own would not say which set this is: point `aria-labelledby` at a heading that names the set, or at text hidden with the `ams-visually-hidden` class.
 
 ## Examples
 
@@ -998,6 +1020,23 @@ Putting the primary action first keeps the order of Buttons consistent on both n
 
 Sighted users will read the primary action first, in line with the natural reading order.
 The same goes for users of screen readers, who will hear the primary action first, and users of a keyboard, who will focus the primary action first.
+
+An Action Group places an even gutter between a set of actions, much as a [Row](/docs/components-layout-row--docs) does, and those actions can be [Buttons](/docs/components-buttons-button--docs), [Links](/docs/components-navigation-link--docs), or a mix of the two.
+While they fit on one line the group is only as wide as they are, so it can sit at the end of a Dialog or beside other content without claiming the whole line.
+
+The difference from a Row is that an Action Group stretches its actions.
+A Row lets each item keep its own width, side by side or wrapped onto new lines when you allow it.
+An Action Group makes every action grow to fill the width it has, so the moment they no longer sit in a row they stack into a single, full-width column.
+This follows from the space available rather than a breakpoint, as the ‘Stacked’ example shows.
+
+On a shared line, actions are centred against one another, so a Button and a Link of different heights meet on a common middle rather than a top edge.
+
+## Accessibility
+
+An Action Group renders a `div` with the `group` role, so assistive technology presents the actions as one set instead of as unrelated controls that happen to be adjacent.
+
+The group has no name of its own.
+Screen readers announce it as a group and then read the actions, which is enough when the page holds only one set; ‘How to use’ covers the case where it is not.
 
 ## Design tokens
 
@@ -1420,6 +1459,15 @@ This can be applied to the entire website or to a part of it.
 
 Add a close button if the user should be able to dismiss the Alert.
 
+Choose a `headingLevel` that fits the outline of the page around the Alert; there is no default.
+The heading keeps the size of a level 3 Heading whichever level you pick.
+
+You don’t need to set `headingId`: the Alert generates a unique id for its heading and labels itself with it, so several Alerts on a page never collide.
+Pass one only when the heading needs a specific id of your own.
+
+Write the heading and the text so they carry the message on their own.
+The severity reaches no one through the colour or the icon alone, which is what [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) asks you to avoid.
+
 ## Examples
 
 ### Warning
@@ -1452,6 +1500,35 @@ An informative message can emphasize matters that are useful to follow.
 Include an inline link in the text to guide the user.
 
 &lt;Canvas of={AlertStories.WithInlineLink} /&gt;
+
+## Design
+
+An Alert is outlined in the colour of its severity and carries a band of that same colour along its leading edge, with the icon centred in it.
+The band takes its dividing line from the outline, so the two meet as one continuous stroke of the same weight.
+
+The background behind the text stays white in all four variants.
+Only the outline, the band and the icon change colour, which keeps the text on the same background as the rest of the page and its contrast the same whatever the severity.
+
+The heading is fixed at the size of a level 3 Heading, independent of the `headingLevel` given to it.
+Two Alerts then look alike wherever they sit in the outline of a page.
+
+In print, the band keeps its colour rather than being flattened to save ink.
+It is the only part told to do so, because without it nothing distinguishes one severity from another on paper.
+
+## Accessibility
+
+An Alert renders a `section` labelled by its heading, which makes it a `region` landmark.
+Assistive technology lists it with the other landmarks, so users can reach the message directly instead of hunting for it.
+
+The label is wired up with `aria-labelledby` rather than left to the heading inside.
+NVDA in Chrome does not read that heading as the name of the section otherwise.
+Setting `headingId` to `null` removes the label, and the landmark with it.
+
+An Alert does not announce itself when it appears.
+It is not a live region, so it suits a message that is already there when a view renders rather than one that must interrupt.
+
+The icon carries no text alternative and the severity is conveyed by colour alone, so neither reaches a screen reader.
+Both are reinforcement for a message the heading and text already carry, as described under ‘How to use’.
 
 ## Design tokens
 
@@ -2681,6 +2758,11 @@ import * as AvatarStories from &quot;./Avatar.stories.tsx&quot;;
 
 Show an Avatar for the user of the website, or to associate a person with a content item.
 
+### How to use
+
+On a page in another language, set `initialsAccessibleName` and `userAccessibleName` so the Avatar is announced in that language rather than in Dutch.
+Each replaces the entire announcement and is used verbatim, so repeat the initials in `initialsAccessibleName` when they should still be spoken.
+
 ## Examples
 
 ### With image
@@ -2700,10 +2782,28 @@ A user icon displays if no label and image are provided.
 ## Design
 
 The Avatar contains 1 or 2 initial letters from the person’s full name, a picture, or a generic icon.
+The component takes the first two characters of the label and sets them in capitals, so the shape stays the same however the name was written.
 
 To personalize the Avatar, the user can be allowed to choose one of the [highlight colours](/docs/brand-design-tokens-colour--docs).
 The default is purple.
 The design system does not define a meaning to any of these background colours.
+
+The circle is sized from the text it holds rather than from a fixed measurement: its width follows the font size and line height of the initials.
+An Avatar showing an image drops the border and grows by exactly the space that border and its padding occupied, so both kinds line up at the same size beside each other.
+
+An image is cropped to the circle from its centre and scaled to cover it, whatever proportions it arrives in.
+A portrait that is not square therefore loses its edges rather than distorting.
+
+In print, an Avatar keeps its background colour instead of being flattened to save ink.
+
+## Accessibility
+
+An Avatar is announced exactly once, through a line of text that is in the markup but hidden visually.
+The initials themselves are marked `aria-hidden`, and an image is given an empty `alt`.
+
+That hidden text defaults to Dutch: ‘Initialen gebruiker’ followed by the initials, or ‘Gebruiker’ when the label is empty.
+It is built from the label even when an image is displayed, so an Avatar showing a photograph is still announced by its initials.
+Neither wording is fixed: both can be configured, so an Avatar can be announced in the language of the page it sits on.
 
 ## Design tokens
 
@@ -2833,7 +2933,7 @@ export const Test: Story = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/components/Badge/Badge.docs.mdx</div>
-              <div>## Usage guidelines ### How to write Let the Badge contain a short text or a number. ## Ex...</div>
+              <div>## Usage guidelines ### How to write Let the Badge contain a short text or a number. Write...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -2859,6 +2959,9 @@ import * as BadgeStories from &quot;./Badge.stories.tsx&quot;;
 
 Let the Badge contain a short text or a number.
 
+Write a label that stands on its own without the colour behind it.
+Nothing but the label reaches a screen reader, and a colour is not a message anyone should have to read, which is what [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) asks of you.
+
 ## Examples
 
 ### With icon
@@ -2874,6 +2977,21 @@ Use any of the feedback or highlight [colours](/docs/brand-design-tokens-colour-
 The default is green.
 Red, orange and green are especially useful for showing an error, warning, or success.
 However, they can also be combined with the other colours without carrying these meanings.
+
+A Badge is set in bold at the size and line height of body text, and it is padded on the left and right but not above and below.
+Its coloured block is therefore exactly as tall as one line of text, so a Badge placed in a sentence or a table cell does not push the lines around it apart.
+
+The corners are square and there is no border.
+The colour fills the block, which is what makes a Badge read as a label applied to something rather than as a control to press.
+
+In print, a Badge keeps its background colour instead of being flattened to save ink.
+
+## Accessibility
+
+A Badge renders a `span` with no role of its own, so its text is read as part of the sentence or the cell it sits in rather than announced separately.
+
+Neither the background colour nor an icon reaches a screen reader; the label carries the whole message on its own.
+‘How to write’ covers what that asks of the wording.
 
 ## Design tokens
 
@@ -3456,6 +3574,29 @@ A Breadcrumb should not have more than 5 items.
 The first item links to the home page, with ‘Home’ as its text.
 This applies to Dutch websites as well.
 
+## Design
+
+The items flow as inline text rather than as blocks in a row.
+A trail that is too long for the line wraps like a sentence instead of overflowing or scrolling, which is what keeps a Breadcrumb usable on a narrow screen without a separate arrangement for it.
+
+The separator is drawn by CSS, so it can never be forgotten or typed differently from one page to the next.
+It is sized in `ex` units, the height of a lowercase letter, so the chevron stays in proportion to the text beside it at every font size.
+
+Links are not underlined until the pointer is over them.
+The chevrons already mark where one item ends and the next begins, and underlining every step would turn a single line of text into a row of separate objects.
+
+In print, a Breadcrumb is never the last item on a page and is never split across two.
+A trail at the foot of one page with the content it introduces on the next would say nothing.
+
+## Accessibility
+
+A Breadcrumb renders a `nav` around an ordered list, so it is a navigation landmark and the steps keep their order and their number.
+
+The landmark is named by a heading that is hidden visually and hidden from the outline as well.
+It gives the navigation a name for anyone listing the landmarks, without adding an entry to the headings of the page.
+
+The separators are backgrounds on empty pseudo-elements, so nothing is announced between one item and the next.
+
 ## See also
 
 - [Routing libraries](/docs/docs-developer-guide-routing-libraries--docs) – how to integrate links with external routing libraries.
@@ -3636,6 +3777,9 @@ Ensure that the text is short, or the image tall, to prevent losing the break-ou
 
 On narrower screens, let the text move below the image.
 
+Write the Cells in the order the content should be read, and use `colStart` and `rowStart` only to decide where each one sits.
+Reading order and keyboard order follow the markup rather than the grid, so the two disagree as soon as a start value is used to reorder rather than to place.
+
 ## Examples
 
 ### Vertical layout
@@ -3649,6 +3793,23 @@ A large figure can be placed at the top of the Spotlight, with related text posi
 This component is an extension of [Grid](/docs/components-layout-grid--docs).
 It offers the same props, although `span` and `start` have been renamed to `colSpan` and `colStart`.
 Additionally, Breakout allows cells to span multiple rows.
+
+## Design
+
+The break-out effect is a Cell pulled outward by exactly the space the Grid holds it in: the horizontal padding at the current breakpoint, and the vertical gap above and below.
+The Spotlight inside it therefore reaches both edges of the window while every other Cell keeps its columns.
+Those offsets are restated at each breakpoint and for each vertical gap, because the space being cancelled is different in every one of those cases.
+
+Row spans and row starts are generated up to four.
+A higher number produces no rule at all rather than an error, so a Cell asking for five rows quietly spans one.
+
+The Cell holding the figure aligns to the bottom of its row, where every other Cell aligns to the top.
+That is what lets a tall image sit on the base line of the Spotlight and rise out of the top of it.
+
+## Accessibility
+
+A Breakout renders the same markup as a Grid and adds nothing to the accessibility tree.
+Cells are announced in the order they appear in the markup, whatever the grid does with them on screen, and ‘Usage guidelines’ covers what that asks of the markup.
 
 ## See also
 
@@ -3887,7 +4048,37 @@ On narrow screens or with longer labels, it wraps text without losing alignment.
 The three variants form a hierarchy of importance: primary, secondary, tertiary.
 This lets a screen present one clear focal action without ranking every other Button against it.
 
-The icon size stays constant regardless of the label length, so a row of Buttons aligns visually even when their text differs.
+A label is set at the same size and weight as body text, with a tighter line height of 1.4 against the 1.6 of running text.
+Nothing about the type marks a Button as important; its colour and its filled shape do that.
+
+All three variants carry a border of the same width, and the corners are square.
+A tertiary Button keeps that border transparent until the pointer is over it, and a secondary Button thickens its outline with an inset shadow rather than a wider border.
+Neither changes the space a Button takes up, so a row of Buttons never shifts as one of them is hovered.
+
+Hover styling applies only where a pointer can actually hover.
+On a touch screen it would otherwise stay behind after a tap, leaving the Button that was pressed last looking active.
+
+The button overrides the icon’s line height with its own, so the icon sits on the label’s line rather than on a taller one of its own.
+The icon keeps its default size, the same body-text size the label uses.
+An icon-only Button is square: the icon is given a square box, and the padding is equal on all four sides.
+
+A label that does not fit is hyphenated rather than left to overflow.
+The browser decides where to split it, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+In print, a Button keeps its background and border colours instead of being flattened to save ink.
+
+## Accessibility
+
+A Button renders a `button` element, which brings keyboard focus, activation with both Enter and Space, and the `button` role with it.
+
+Its `type` defaults to `button` rather than to `submit`.
+A Button inside a form therefore leaves that form alone until asked otherwise, which is why submitting takes an explicit `type=&quot;submit&quot;`.
+
+An icon-only Button takes its accessible name from the `children` you pass.
+That text is rendered in the markup and hidden visually, so screen readers announce the same words a visible label would have carried, and the icon adds nothing to the name.
+
+Disabling a Button with the `disabled` attribute removes it from the tab order, so a keyboard user never lands on it and reads no reason for it being unavailable.
+The same appearance applies to `aria-disabled=&quot;true&quot;`, which keeps the Button focusable and lets assistive technology announce it as disabled.
 
 ## See also
 
@@ -4167,10 +4358,32 @@ Different navigation icons can be used through the `*ButtonIcon` props, which ea
 Websites for the City of Amsterdam must use the default icons.
 For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
+## Design
+
+The month is laid out as seven equal columns, one per weekday, so the dates line up in vertical columns whatever month is shown and however long the weekday names are.
+
+The grid shows only the days of the month on view, padding the first week with blank cells rather than the previous month’s tail.
+Our palette has no comfortable way to mark another month’s dates as secondary, and without that a second set of the same day numbers would read as noise rather than context.
+
+The Calendar is only as wide as it needs to be, up to a set width, and never wider than the space it is given.
+It can therefore sit in a narrow column beside other content without a layout deciding its size for it.
+
+The month caption is centred between the navigation buttons rather than placed beside them, so moving from one month to the next does not shift it.
+
+Today is marked by weight alone: no box, no background, no colour of its own.
+Dates that are links keep the ordinary link colour, so the marking for today does not compete with the marking for what can be followed.
+
+Navigation chevrons mirror in a right-to-left layout, which is why a custom icon needs to say that it is directional.
+
 ## Accessibility
 
 The Calendar renders as a `nav` landmark.
 Screen readers announce each link with its full date, including the weekday, so a day number is never read out of context.
+
+The name of that landmark comes from `accessibleName`, rendered as a heading that is present in the markup and hidden visually.
+
+A month whose dates are not links is a plain grid of text.
+Nothing in it is focusable, so it is read as content rather than offering a keyboard user a month of stops to pass through.
 
 ## See also
 
@@ -4348,6 +4561,20 @@ Use the verb&#39;s infinitive form, such as &quot;Kapotte parkeerautomaat melden
 The Call to Action Link features a green background to ensure it stands out.
 To clarify that it is not a button, which is not suitable for navigation, its text is underlined like links typically are.
 This informs users that a new page will open and that they can either copy the link or open it in a new window.
+
+Green is not used for a [Button](/docs/components-buttons-button--docs) anywhere in the system, so the colour marks the difference as much as the underline does.
+
+The corners are square and the vertical padding is slight, so the block hugs its line of text.
+It reads as a highlighted link rather than as a large control, which is the distinction the underline is there to protect.
+
+In print, it keeps its background colour instead of being flattened to save ink.
+
+## Accessibility
+
+A Call to Action Link renders an `a` element, so it is announced as a link and listed among the links of the page, however much it looks like a button.
+
+Someone who navigates by pulling up a list of links finds it there rather than among the controls, and hears where it goes rather than what it would do.
+That is the distinction the underline makes visually and the element makes for everyone else.
 
 ## See also
 
@@ -4528,6 +4755,9 @@ In that case, use a Heading, a Paragraph and a [Standalone Link](/docs/component
 Card Heading requires a `level`, because there is no sensible default.
 The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
 
+Give a Card one link and no more.
+The Card Link covers the whole Card to make it clickable, so a second link inside it would sit underneath and be impossible to click.
+
 ### How to write
 
 Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
@@ -4565,11 +4795,31 @@ For a group of links without a description, use a [Link List](/docs/components-n
 The mandatory title of a Card is a link within a Heading.
 The link is made active across the entire area of the Card.
 
+## Design
+
+A Card has no border, no background, and no padding.
+It is a stack of parts with white space between them, so a row of Cards reads as a set of articles rather than as a row of boxes.
+
+The whole Card is made clickable by stretching an invisible layer from the link across it.
+Only the title is the link, and everything else stays plain content, so the target grows without the accessible name growing with it.
+
+The focus ring is drawn around the entire Card instead of around the title alone, and the link’s own ring is switched off.
+Browsers that cannot express that condition get neither rule, so they still show the ordinary ring on the title rather than nothing at all.
+
+In a Heading Group the tagline is written after the heading and displayed above it.
+The reading order and the visual order differ on purpose, which is what lets the metadata sit on top while the heading is still what gets read first.
+
 ## Accessibility
 
 Visually, Card Heading has the size of a level 3 Heading by default.
 Screen reader users can navigate by heading or by link; a Card supports both because its title is a heading that contains a link.
 A screen reader reads the title first, then the rest of the content.
+
+The layer that makes the Card clickable is empty and carries no text, so it adds nothing to the name of the link and is not announced.
+The rest of the Card stays ordinary content: a paragraph inside it is read as a paragraph, not as part of the link.
+
+An image in a Card is decoration, which is why ‘With image’ asks for an empty `alt`.
+A description there would be read when browsing the page but skipped when moving between links, so it would reach some readers and not others.
 
 ## See also
 
@@ -4755,6 +5005,27 @@ This means:
 This component does not restrict the user from entering information.
 The user can enter more than the character limit, but are told they’ve entered too many characters.
 This lets them type or copy and paste their full answer, then edit it down.
+
+## Design
+
+A Character Count is one line of small text below the field.
+It keeps the ordinary text colour instead of being greyed down, so a reader who needs to check the count is not asked to read weaker text than the rest of the form.
+
+Going over the limit turns it red, and that is the whole of the change: no icon, no border, and nothing about the field itself.
+
+Counting up towards the limit rather than down from it means the message says the same thing before and after the limit is passed.
+The wording never has to switch from characters remaining to characters too many.
+
+## Accessibility
+
+A Character Count is a status region, so screen readers announce the new count without moving focus and without interrupting what is being read.
+Someone typing hears the count between words rather than after every keystroke, which is what ‘Features’ above describes.
+
+The text is fixed Dutch — the count, the word ‘van’, the limit, and ‘tekens’ — and cannot be configured.
+That is worth weighing before using a Character Count on a page in another language.
+
+Going over the limit is signalled by colour alone, so the count itself has to be read for the change to register.
+The text says the same thing either way, which is what keeps the message complete without the colour.
 
 ## Design tokens
 
@@ -4984,6 +5255,30 @@ Websites for the City of Amsterdam must use the default icon.
 ## Design
 
 A list of Checkboxes is vertically stacked to enhance readability and usability.
+
+The box is drawn as an SVG inside the label rather than by the browser, which is what makes a custom icon possible at all and keeps the control identical across browsers.
+It carries a separate ring that appears on hover, so the box grows a halo instead of changing size or colour.
+
+The box and the label sit in one line box that never breaks between them, and the label may wrap onto as many lines as it needs beside it.
+
+Checked, indeterminate, invalid and disabled each change one thing: the fill, the mark inside, the outline colour, or the text colour.
+The states can therefore combine — an invalid checked box, a disabled indeterminate one — without any pair of them fighting over the same property.
+
+In forced colours mode the drawing is redone in system colours: the box takes the field colours, a selected one the active text colour, and a disabled one the greyed text colour.
+The fills the tokens set are ignored there, so without this a checked box and an empty one would look the same.
+
+## Accessibility
+
+A Checkbox renders a native `input` inside a `label`, so the whole label is the target and the browser supplies the role, the checked state and the keyboard behaviour.
+
+The input is not hidden away: it is reduced to no width, which keeps it focusable, announced, and submitted with the form.
+Its focus ring is moved onto the label so the ring surrounds the box and its text rather than a control with no size.
+Browsers without support for the modern focus rules show that ring for every focus, including a click, which is the safer way round.
+
+The indeterminate state is a visual and programmatic state of the checkbox itself, not a third value.
+A form submits it as unchecked, so a bulk-selection box in that state says something about the list below it and nothing about its own value.
+
+The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the browser’s own `:invalid` state alike.
 
 ## See also
 
@@ -5435,6 +5730,12 @@ Wrap editorial content in the [Prose](/docs/utilities-css-prose--docs) utility c
 
 To add white space below a single element, use [Margin Bottom](/docs/utilities-css-margin--docs) instead.
 
+### How to use
+
+Give a Column a name when you set `as=&quot;section&quot;`.
+A `section` reaches assistive technology as a landmark only once it has one, so give the heading inside it an `id` and point `aria-labelledby` at that id.
+Without a name the element groups the content in the markup but adds nothing anyone can navigate to.
+
 ## Examples
 
 ### Alignment
@@ -5480,6 +5781,25 @@ Five sizes of [space](/docs/brand-design-tokens-space--docs) are available for t
 The medium gap is the default.
 
 Align the elements horizontally or vertically through the alignment props.
+
+## Design
+
+The gap is the only spacing a Column provides.
+There is no padding, no margin, and no divider between items, so the space belongs to the container and the items keep whatever spacing they define for themselves.
+
+All five gaps scale with the width of the window rather than stepping at a breakpoint.
+The white space in a layout therefore grows in proportion with the type and the grid around it, instead of holding still until a threshold is crossed.
+
+Every item in a Column gets the same gap, which is why ‘When not to use’ steers editorial text towards [Prose](/docs/utilities-css-prose--docs).
+A heading needs less space above the paragraph it introduces than below the one before it, and a single gap cannot express that.
+
+## Accessibility
+
+A Column renders a `div` by default, which adds nothing to the accessibility tree.
+Its items are announced exactly as they would be without it, in the order they appear in the markup.
+
+The `as` prop can render an `article` or a `section` instead, which does reach assistive technology.
+‘How to use’ covers what a `section` needs before it becomes a landmark.
 
 ## See also
 
@@ -5734,6 +6054,25 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 This component uses a native date input, which is styled differently in different browsers and operating systems.
 Recreating the native functionality is quite difficult and prone to accessibility errors, which is why we’ve chosen not to do that.
 This does mean that this component does not look identical on all browsers and operating systems.
+
+The styling therefore stops at the box: the border, the padding and the type are ours, and the segments inside it, the format hint and the calendar that opens belong to the browser.
+Chromium lets its calendar button be replaced, so there it carries our icon; other browsers keep their own.
+
+The field is given a minimum width and height.
+A native date field is much smaller when empty than when filled on some devices, and without a floor a form would visibly resize as it was completed.
+
+Everything else — the border, the padding, the type, and the invalid and disabled states — matches a [Text Input](/docs/components-forms-text-input--docs), so a date sits level with the other fields of a form.
+
+## Accessibility
+
+A Date Input renders a native `input` of a date type, so screen readers announce it segment by segment and every browser’s own keyboard handling applies: arrow keys to change a part, typing to fill one, and the browser’s picker for those who prefer it.
+That behaviour is the reason for using the native control rather than rebuilding it.
+
+The format the field shows and expects comes from the browser and the operating system, not from the language of the page.
+A visitor whose browser is set to another locale sees the order of day, month and year they are used to, which is helpful — but it also means the page cannot promise which one they will see.
+
+The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the browser’s own `:invalid` state alike.
+The second matches a partially entered date as well, so a field can turn red while someone is still filling in its segments; set `aria-invalid` from your own validation to control when that happens.
 
 ## See also
 
@@ -6024,12 +6363,6 @@ const ArabicDatePicker = (props: DatePickerProps) =&gt; (
 );
 ```
 
-## Design
-
-The Date Picker is intentionally an inline component.
-Finding the optimal date is a focused task for the user; placing it directly on the page makes it easier to use and gives it the space and attention it deserves.
-If the layout truly has no room, placing the Date Picker inside a modal [Dialog](/docs/components-dialogs-dialog--docs) is an acceptable last resort.
-
 ## Examples
 
 ### Range
@@ -6083,11 +6416,30 @@ Different navigation icons can be used through the `*ButtonIcon` props, which ea
 Websites for the City of Amsterdam must use the default icons.
 For right-to-left scripts, give a custom icon a `data-directional=&quot;true&quot;` attribute so it mirrors like the default chevrons; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
+## Design
+
+The Date Picker is intentionally an inline component: the calendar sits directly in the page, not in a dropdown or popover opened from a field or button.
+Finding the optimal date is a focused task for the user; placing it directly on the page makes it easier to use and gives it the space and attention it deserves.
+If the layout truly has no room, placing the Date Picker inside a modal [Dialog](/docs/components-containers-dialog--docs) is an acceptable last resort.
+
+A date that falls outside the bounds is struck through rather than removed or greyed into the background.
+It keeps its place in the grid, so the shape of the month stays intact and the reason a date cannot be chosen is visible rather than inferred from a gap.
+
+The grid shows only the days of the month on view; the first week is padded with blank cells rather than the previous month’s tail.
+Our palette has no comfortable way to mark another month’s dates as secondary, and without that a second set of the same day numbers — two 1sts, two 30ths — would confuse more than it clarifies.
+Showing them would also raise a question the inline grid is better without: if someone picked a day carried in from a neighbouring month, should the grid jump to that month? Leaving those days out avoids it.
+
 ## Accessibility
 
 The grid takes its accessible name from the visible month caption, so screen readers announce which month is shown.
 Each day button is labelled with its full date, including the weekday, so a day number is never read out of context.
 In range mode, the start and end dates are announced as such; override `rangeStartAccessibleName` and `rangeEndAccessibleName` to localise these.
+
+Dates that cannot be chosen stay reachable with the keyboard and are still announced.
+Someone moving through the month therefore learns which days are unavailable instead of finding the grid silently skip over them.
+
+The month names, weekday names and spoken dates follow `locale`, while the navigation labels do not.
+‘Localisation’ under ‘How to use’ lists the ones you have to set yourself, and leaving them unset is what produces the mix of two languages a screen reader would read out.
 
 ## See also
 
@@ -6688,6 +7040,37 @@ The Dialog is a [query container](/docs/utilities-css-query-container--docs) for
 | Arrow keys  | Scroll the body when it has focus and its content overflows.     |
 | Escape      | Closes the Dialog.                                               |
 
+## Design
+
+A Dialog is built from three bands: a header with the heading and the close button, a body, and an optional footer.
+Only the body scrolls.
+The heading stays readable and the actions stay reachable however long the content grows, which is what keeps a user from scrolling to find the button they were looking for.
+
+Scrolling inside the body does not continue into the page behind once it reaches the end.
+Space for the scrollbar is reserved whether or not one appears, so the text does not shift sideways as content loads.
+
+Its width and its maximum height both change at the medium breakpoint, and a maximum width caps it beyond that.
+A Dialog is sized against the window rather than against its content, so it opens at a predictable size instead of filling the screen when it happens to hold a lot.
+
+The three bands are told apart by their padding alone; nothing is drawn between them.
+In forced colours mode that is not enough, so the header and the footer gain hairline separators there, marking the edges of the part that scrolls.
+
+Forced colours also draws the border in the system colour and gives it a floor of one pixel, so a theme that sets the border token to zero cannot leave the Dialog without an edge against the page behind it.
+
+## Accessibility
+
+A Dialog renders the native `dialog` element and is opened as a modal.
+The browser then makes the rest of the page inert, keeps Tab inside the Dialog without any focus trap of our own, closes it on Escape, and returns focus to whatever opened it.
+
+The heading is a level 1 Heading shown at the size of a level 3.
+A Dialog is its own document as far as its content is concerned, so the outline inside it starts afresh rather than continuing the page underneath.
+
+The body takes keyboard focus in its own right, so someone navigating by keyboard can scroll long content with the arrow keys even when nothing inside it is focusable, as [WCAG 2.1.1](https://www.w3.org/TR/WCAG22/#keyboard) requires.
+Chromium and Firefox already make an overflowing scroll container focusable; Safari does not, so the Dialog makes the body focusable itself.
+
+Scrolling of the page behind the Dialog is suppressed while it is open, but only where the browser supports the selector this relies on.
+Opening a modal does not lock scrolling on its own, and iOS Safari still needs JavaScript for a guarantee, so a gesture over the backdrop there can move the page underneath.
+
 ## See also
 
 - [Action Group](/docs/components-layout-action-group--docs) – lays out multiple Buttons.
@@ -6852,6 +7235,8 @@ Read the documentation by [NL Design System](https://www.nldesignsystem.nl/richt
 
 ### How to use
 
+#### No rich text
+
 Do not use rich text (such as links or lists) in an Error Message.
 Some screen readers, like VoiceOver, skip over rich text when reading out descriptions.
 For more information, see [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/descriptions/inhoud/).
@@ -6878,6 +7263,23 @@ Replace the icon with another to use Error Message in a different theme or visua
 Websites for the City of Amsterdam must use the default icon.
 
 &lt;Canvas of={ErrorMessageStories.WithCustomIcon} /&gt;
+
+## Design
+
+An Error Message is red text with an icon before it, and nothing else: no background, no border, no box.
+The [Field](/docs/components-forms-field--docs) around it is what marks the error more heavily, with a red rule along its leading edge, so the message itself can stay quiet.
+
+The icon keeps the message from depending on its colour alone, which is what a reader who does not distinguish red from the text around it needs.
+
+## Accessibility
+
+An Error Message renders a `p` element, so it is read as ordinary text when the field it describes is reached through `aria-describedby`.
+
+It opens with a word that is in the markup and hidden visually — ‘Invoerfout’ by default.
+A description read out on its own gives no clue that it is an error, so the prefix supplies the context that the colour and the icon carry visually.
+
+The component does not announce itself when it appears, and it is not a live region.
+Announcing it is the job of the field that now describes it, or of an [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) at the top of the form.
 
 ## See also
 
@@ -7056,6 +7458,8 @@ Use [Field Set](/docs/components-forms-field-set--docs) to wrap multiple inputs.
 
 ### How to use
 
+#### No rich text
+
 Do not use rich text (such as links or lists) in descriptions.
 Some screen readers, like VoiceOver, skip over rich text when reading out descriptions.
 For more information, see [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/descriptions/inhoud/).
@@ -7096,6 +7500,30 @@ Use the `inFieldSet` prop on the Labels of the Fields to show them in a lighter 
 
 There’s no need to add white space between the children of a Field.
 The component does this automatically.
+
+## Design
+
+The spacing between the children of a Field is not uniform.
+Everything sits a small distance apart, except the element directly before an Error Message, which gets more room.
+The message is then read as belonging to the field below it rather than to the description above it.
+
+Browsers that cannot express that condition fall back to the same small gap everywhere, which is acceptable: the order still reads correctly, only the emphasis is lost.
+
+An invalid Field is marked by a red rule along its leading edge and indented away from it.
+The whole question shifts, so the error is visible while scanning a long form rather than only when reading the field itself.
+
+In print, a Field is never split across two pages.
+
+## Accessibility
+
+A Field renders a `div` with no role of its own and adds nothing to the accessibility tree.
+It groups its parts visually, and nothing more.
+
+This is why ‘How to use’ insists on `aria-describedby`: the description and the Error Message are related to the input by that attribute alone, not by sitting inside the same Field.
+Someone reading the field on its own would otherwise get the label and nothing else.
+
+The red rule marking an invalid Field is not announced either, and neither is the colour of the Error Message.
+The hidden prefix inside the message is what says that something went wrong.
 
 ## See also
 
@@ -7330,11 +7758,34 @@ Use the `inFieldSet` prop to show the legend in a lighter style.
 There’s no need to add white space between the children of a Field Set.
 The component does this automatically.
 
+## Design
+
+The spacing between the children of a Field Set climbs in four steps.
+Ordinary children sit close together; the element before an Error Message gets more room; the element before a nested Field or Field Set more again; and two of those in a row are furthest apart.
+Depth in a form is expressed by white space rather than by boxes or rules, so the more a Field Set holds, the more clearly its parts separate.
+
+Browsers that cannot express those conditions fall back to the smallest gap everywhere, which is acceptable: the order still reads correctly, only the grouping is flatter.
+
+The legend loses the notch a browser normally cuts for it in the border, because there is no border to cut.
+It is laid out so that a border would pass around it rather than through it, which keeps the option open for a theme that draws one.
+
+An invalid Field Set is marked by a red rule along its leading edge and indented away from it, the same way a [Field](/docs/components-forms-field--docs) is.
+
+A Field Set does not grow to fit an input that asks for a width of its own, such as a Text Input with a `size` attribute.
+Without that, a single wide field would stretch the whole group and the layout around it.
+
+In print, a Field Set is never split across two pages.
+
 ## Accessibility
 
 A Field Set has the implicit ARIA role `group`.
 Set `role=&quot;radiogroup&quot;` when it groups [Radio](/docs/components-forms-radio--docs) buttons, so that screen readers announce it as a radio group.
 That role also permits `aria-required` on the Field Set, which the `group` role does not allow.
+
+The legend names that group, and screen readers repeat it before each option inside it.
+Someone moving from one Radio to the next therefore hears which question they are answering, not just the answer they are on.
+
+`legendIsPageHeading` wraps the legend in an `h1` rather than replacing it, so the same words serve as the heading of the page and as the name of the group.
 
 ## See also
 
@@ -7481,6 +7932,11 @@ Describes the content.
 
 Use a Figure to add a caption to an image, table, citation, illustration, diagram, code snippet, etc.
 
+### How to use
+
+Do not repeat the caption in the `alt` of an image inside the Figure.
+The caption already names the Figure for assistive technology, so the same words in both places are announced twice.
+
 ## Examples
 
 ### Inverse colour
@@ -7489,6 +7945,27 @@ Use the inverse colour if the Figure Caption sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
 &lt;Canvas of={FigureStories.InverseColour} /&gt;
+
+## Design
+
+The caption sits below the content it belongs to, separated by a small gap rather than a rule or a background.
+Proximity alone ties the two together, which keeps a Figure usable around any kind of content.
+
+A caption is set at the size of small body text, with the tighter line height that goes with it.
+It keeps the ordinary text colour instead of being greyed down, so a reader who needs the caption is not asked to read weaker text than the rest of the page.
+
+A Figure has no margins of its own.
+Browsers indent a `figure` by default; that indent is removed, which makes vertical rhythm a property of the layout rather than of the component.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+## Accessibility
+
+A Figure renders a `figure` element with a `figcaption` inside it.
+The pair is exposed as a figure, and the caption becomes its accessible name, so the caption describes the whole grouping rather than floating beside it as loose text.
+
+That grouping is what makes the caption more than proximity: it survives for someone who never sees the two sit together.
 
 ## Design tokens
 
@@ -7685,6 +8162,21 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 The filename label and button are displayed in the language of the browser and can vary between browsers and operating systems.
 
+The field itself gets the border, padding and type of the other form fields, and the button the browser draws inside it is restyled to look like a secondary [Button](/docs/components-buttons-button--docs).
+Hovering thickens that button’s outline with an inset ring rather than a wider border, so nothing beside it moves.
+
+The button takes the type of the field around it rather than setting its own.
+Browsers give a file selector button a font of their own, and inheriting it is what keeps the control from looking like a piece of another interface.
+
+## Accessibility
+
+A File Input renders a native `input` of type file, so the file dialog, the keyboard behaviour and the list of chosen files all come from the browser and the operating system.
+
+Both the button’s wording and the text stating what has been selected are generated by the browser, in the browser’s language rather than the page’s.
+A visitor on a page in one language may hear that text in another, and nothing the page does can change it.
+
+A [File List](/docs/components-forms-file-list--docs) beside the field is how a page states the selection in its own words and gives the user a way to remove a file.
+
 ## See also
 
 - [File List](/docs/components-forms-file-list--docs) – shows the files that the user has selected.
@@ -7837,6 +8329,29 @@ list of files and use `onDelete` when removing a file from the list.
 &lt;Canvas of={FileListStories.WithInput} /&gt;
 
 &lt;Source code={FileInputWithFileList} language=&quot;jsx&quot; /&gt;
+
+## Design
+
+Every item is one row: a preview of fixed width, then the name and details, then the delete button.
+The preview column is the same width whether it holds a thumbnail or the generic document icon, so the names line up down the list.
+
+A name too long for its row is cut off with an ellipsis on a single line rather than wrapped.
+Rows then stay the same height whatever has been uploaded, which keeps a list of several files scannable.
+
+The file type and size sit below the name in their own colour, so the name stays the thing you read first.
+
+## Accessibility
+
+A File List renders `ul` and `li` elements, so screen readers announce it as a list and report how many files it holds.
+
+Cutting off a long name is visual only.
+The whole name is in the markup and is announced in full, so nothing is lost to someone who cannot see where the row ends.
+
+The preview of an image file repeats the file name as its alternative text, so that name is announced twice: once for the thumbnail and once for the text beside it.
+
+Every delete button is labelled ‘Verwijder’, in Dutch and without the name of the file it removes.
+Someone reviewing the buttons of the page out of context hears the same word for each of them, and the label cannot be configured.
+Until it can, prefer a File List short enough to keep each button next to the file it belongs to.
 
 ## See also
 
@@ -10068,6 +10583,9 @@ Next to a sidebar, the main content goes in its own Grid Cell.
 Ensure the `span` and `start` values for a cell never exceed the number of columns available at that breakpoint.
 The browser would add columns to fit, which breaks the layout.
 
+Write the Cells in the order the content should be read, and use `start` only to decide where each one sits.
+Reading order and keyboard order follow the markup rather than the columns, so the two disagree as soon as `start` is used to reorder rather than to place.
+
 ## Examples
 
 The grey strokes in the examples below indicate the columns of the grid.
@@ -10264,6 +10782,18 @@ Many people keep a window at a fraction of a large monitor, and a tablet can sho
 
 The breakpoints also respond to the effective text size.
 When a user zooms in or sets a larger system font, the breakpoints kick in earlier, which may decrease the number of columns.
+
+## Accessibility
+
+A Grid renders a `div` by default and adds nothing to the accessibility tree.
+Cells are announced in the order they appear in the markup, whatever the grid does with them on screen.
+
+That matters because `start` can place a cell in a column that does not match its position in the code.
+A cell written second and started at column 7 is read second and reached second by the keyboard, even where it appears to the right of a cell written after it.
+‘How to use’ covers what that asks of the markup.
+
+The `as` prop can render an `article` or a `section` instead of a `div`.
+A `section` reaches assistive technology as a landmark only once it has a name, so give the heading inside it an `id` and point `aria-labelledby` at that id.
 
 ## See also
 
@@ -11896,6 +12426,24 @@ When used as part of an interactive element, they are blue.
 When disabled, they are grey.
 They must adhere to the same contrast ratio for accessibility as typography against a background colour.
 
+An Icon has no colour of its own: it takes the colour of the text around it, and its artwork is filled with that same colour.
+This is why an Icon inside a Button or a Link changes colour along with its label on hover, without either component saying anything about the icon.
+
+The artwork is drawn at one em of the container’s font size, and that font size comes from a token for each option of the `size` prop.
+Every option matches a step in the type scale, so choosing a size pairs an icon with a text style rather than with a measurement.
+Those tokens are set in rem, so an icon grows along with the font size a user has chosen.
+
+The `square` variant widens that container to match its height.
+An icon then sits in the middle of a square instead of a rectangle, which is what a surrounding button needs to end up square itself.
+
+## Accessibility
+
+The markup an Icon renders carries the `hidden` attribute, and the stylesheet is what reveals it again.
+If the stylesheet fails to load, the icon is absent rather than dropped into the page at its intrinsic size, and nothing about it reaches assistive technology.
+
+An Icon has no accessible name of its own and adds nothing to the name of whatever contains it.
+It is decoration for text that carries the meaning, which is why ‘When to use’ asks for accompanying text and ‘When not to use’ limits the exceptions to symbols everyone already knows.
+
 ## See also
 
 - [Icon Button](/docs/components-buttons-icon-button--docs) – a button that consists of a single icon.
@@ -12061,10 +12609,13 @@ Match the size of the Icon Button to the surrounding text.
 Only [functional icons](/docs/brand-assets-icons--docs#functional-icons) belong in an Icon Button.
 For other icons, use a [Button](/docs/components-buttons-button--docs) so that the user can read its label.
 
+Do not use an Icon Button to submit a form; that is a [Button](/docs/components-buttons-button--docs)’s job.
+Even the one icon-only submit in the system — the search button — is a Button, not an Icon Button.
+
 ### How to use
 
 An Icon Button still needs a label for screen reader users.
-Provide it through the `children` prop; it is read aloud even though it is not shown.
+Provide it through the `label` prop; it is read aloud even though it is not shown.
 
 ## Examples
 
@@ -12086,6 +12637,23 @@ Use the inverse colour on an azure, blue, green, magenta or purple background.
 It will make the icon white.
 
 &lt;Canvas of={IconButtonStories.InverseColour} /&gt;
+
+## Design
+
+An Icon Button has no shape of its own: no border, no background, and no padding.
+It takes up no more room than the icon it holds, which is what lets it sit inside a line of text without disturbing the line.
+
+The icon is given a square box, so the area that responds to the pointer is a square centred on the icon rather than a shape that follows its outline.
+Hovering tints that square with the icon’s own colour at one-eighth opacity instead of filling it, so the affordance appears without the icon shifting or changing weight.
+
+The focus outline is offset from the icon rather than drawn against it, which keeps a thin glyph readable inside the ring.
+
+## Accessibility
+
+An Icon Button renders a `button` element and always writes its label into the markup, hidden visually.
+Screen readers announce that label, so the button is never announced as unlabelled, and the icon contributes nothing to the name.
+
+Its `type` defaults to `button` rather than `submit`, so it never submits a form by accident: a close button dismisses a Dialog through its click handler, not by submitting a form the Dialog may contain.
 
 ## See also
 
@@ -12349,6 +12917,8 @@ Imagine what you would say when reading the page to someone over the phone witho
 The alternate text should be able to replace the image without altering the meaning of the page.
 Do not use `alt` for text that could be construed as a caption or title (source: [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt)).
 
+The text is worth writing well for more than one audience: it is what shows when the file fails to load, and search engines read it too.
+
 ## Examples
 
 ### Responsive images
@@ -12380,11 +12950,24 @@ An Image fills the width of its container and always has an aspect ratio, so the
 Every Image should be shown in one of the [available aspect ratios](/docs/brand-design-tokens-aspect-ratio--docs).
 The default is 16:9.
 If the intrinsic dimensions of the source do not match an aspect ratio, the image will be cropped to cover the intended area.
+The crop is taken from the centre, so the middle of a photograph is what survives a ratio it was not made for.
+
+Alternate text is displayed in italics.
+When a file fails to load, its description then reads as a stand-in rather than as a stray sentence in the surrounding copy.
+
+The component sets a width of 600 pixels in the markup, which the stylesheet immediately overrides.
+It only takes effect when that stylesheet does not arrive, and it keeps a missing image from rendering at whatever size the file happens to be.
+
+An Image carries a background colour and a background image that are both switched off by default.
+This is what lets a mode move the picture out of view and show a placeholder in the space it reserved, without the component knowing anything about that mode.
 
 ## Accessibility
 
-Non-visual browsers hide images with `alt=&quot;&quot;` from the user.
-The alternate text also displays if the image fails to load, and it can help search engine optimisation.
+An `img` with a description is exposed as an image with that text as its name.
+Setting `alt=&quot;&quot;` removes it from the accessibility tree instead, so a decorative image is passed over silently rather than announced as an image nobody named.
+
+Because the box is reserved before the file arrives, the page does not reflow as images load.
+Someone reading with a screen magnifier or following a keyboard focus ring does not lose their place halfway down a page.
 
 ## See also
 
@@ -12598,6 +13181,32 @@ Every image displays a thumbnail at about 20% of its width.
 Users can use buttons, thumbnails, or swiping to navigate between the images.
 The buttons are not displayed on a narrow touch device.
 The images do not slide automatically.
+
+The thumbnail strip always divides its width into five, whether there are two images or five.
+Thumbnails then keep the same size across every Image Slider on a site instead of stretching to fill the row.
+
+A thumbnail that is not in view is drawn at 40% opacity, and the one in view at full strength.
+Fading the rest is what marks the current image without adding a border or a marker that would crop into the picture.
+
+The previous and next buttons are hidden on a narrow screen with a coarse pointer.
+Swiping is already the natural gesture there, and the buttons would cover a sizeable part of a small image.
+
+Sliding is animated only for users who have not asked for reduced motion.
+Everyone else is moved to the next image directly, with no travel across the screen.
+
+## Accessibility
+
+The strip of images is a single focusable region that a keyboard user can scroll, and it announces politely as the image in view changes.
+Only the image currently in view is exposed; the others are hidden from assistive technology, so a screen reader reads one description rather than all of them at once.
+
+The thumbnails are marked up as a tab list.
+Each thumbnail states its position and the total, and it is named by the number and the alternate text of its image, for example ‘Afbeelding 2: …’.
+The word before the number comes from the `imageLabel` prop, which is where a page in another language changes it.
+
+Arrow keys move between thumbnails, and only the selected one is in the tab order, so Tab passes the whole strip in one step rather than stopping at every image.
+
+The tab list has no panels attached to it.
+Assistive technology therefore announces the thumbnails as tabs without being able to say which region each one controls, and the images stay reachable through the scrollable region instead.
 
 ## See also
 
@@ -13959,6 +14568,26 @@ This allows keyboard users to quickly navigate to the errors in the form.
 It also scrolls the component into view if it isn’t already.
 Note: this functionality has been disabled on this page, to prevent unexpected focus behaviour.
 
+## Design
+
+An Invalid Form Alert is an [Alert](/docs/components-feedback-alert--docs) holding a [Link List](/docs/components-navigation-link-list--docs), rather than a component with a look of its own.
+A reader who has met the red Alert elsewhere on the site recognises it here, and the errors read as what they are: a list of links to the questions that need attention.
+
+The component renders nothing at all when there are no errors, so a form needs no condition around it.
+
+## Accessibility
+
+The Alert is focused the first time it appears and scrolled into view, which moves a keyboard user straight to the summary instead of leaving them where they submitted from.
+It is given a negative tab index so that it can be focused this way without becoming a stop that everyone has to pass on every later visit to the form.
+
+Each error is a link to the field it concerns, so following one moves focus into the form at the question that needs answering.
+This is what ‘How to use’ is protecting when it asks for the `id` of the first field of a group: a link to the group as a whole would land nowhere in particular.
+
+The error count is added to the document title as well.
+A screen reader announces the title when a page loads or a route changes, so someone who submits a form and lands back on it hears that something went wrong before reading anything.
+
+Placing the component outside the `form` element, as ‘How to use’ asks, is what keeps some screen readers from skipping it in their forms mode.
+
 ## See also
 
 - [Error Message](/docs/components-forms-error-message--docs) – the per-field message linked from the Invalid Form Alert.
@@ -14447,6 +15076,26 @@ When a Label is used in a Field inside a Field Set, use the `inFieldSet` prop to
 
 &lt;Canvas of={LabelStories.InAFieldSet} /&gt;
 
+## Design
+
+A Label is set in bold, at the size of a level 3 Heading and with the tighter line height that goes with it.
+A question in a form is treated as a small heading, because that is what it is: the thing a reader scans for when working out what is being asked.
+
+Inside a Field Set that weight drops to regular.
+The legend then carries the emphasis for the group, and the labels of the individual options read as answers rather than as questions of their own.
+
+A Label that runs onto more than one line has its line lengths balanced, so it never ends on a single short word above the field.
+
+## Accessibility
+
+A Label renders a `label` element tied to its input, so activating the label moves focus to the field and a screen reader announces the label when the field is reached.
+
+The hint is written inside the label.
+It becomes part of the accessible name of the field, which is what makes ‘niet verplicht’ reach someone who never sees it beside the text.
+
+`isPageHeading` wraps the label in an `h1` rather than replacing it.
+The text then serves as the heading of the page and as the name of the field at once, so navigating by heading and reaching the input both produce the same words.
+
 ## See also
 
 - [Field](/docs/components-forms-field--docs) – wraps a single input together with its Label.
@@ -14655,6 +15304,27 @@ It will make the Link white.
 
 We discourage using styles for visited links because they often make the page less clear and navigation more challenging.
 It is not part of navigation elements that are frequently scanned.
+
+A Link inherits the typeface, size and line height of the text it sits in.
+Nothing about an inline link interrupts the line it belongs to: only its colour and its underline set it apart, at whatever size the surrounding text happens to be.
+
+The underline is thicker than the one a browser draws and sits further from the text, so descenders stay legible through it.
+On hover it thickens and moves closer to the text by the same amount, which leaves its lower edge exactly where it was.
+The line of text does not shift as the pointer passes over it.
+
+On a coloured background the hover colour is the same as the resting one.
+Black or white is already the only readable choice there, so hovering changes the underline alone.
+
+## Accessibility
+
+A Link renders an `a` element and is announced as a link, in the reading order of the sentence that holds it.
+
+### External links
+
+`rel=&quot;external&quot;` states the relationship for machines that read the markup, and nothing about it is announced.
+A link that leaves the website, opens a new window, or downloads a file has to say so in its own text: a reader who cannot see the address bar gets no other warning.
+
+Opening a new window also takes someone to a context they did not ask for and cannot leave with the back button, which is why ‘How to use’ discourages `target=&quot;_blank&quot;` rather than only asking for `noopener` alongside it.
 
 ## See also
 
@@ -14880,6 +15550,21 @@ Every list item starts with a chevron.
 It emphasizes the list structure and thematic coherence.
 The chevron is part of the link.
 Therefore, it is blue and clickable.
+
+The chevron stays beside the first line of a link that wraps, rather than centring itself against the whole block.
+A list of long links keeps a straight column of chevrons that way, in the place a list marker would occupy.
+
+Links are not underlined until the pointer is over them.
+The chevron identifies them in the meantime, the same way it does for a [Standalone Link](/docs/components-navigation-standalone-link--docs), which is what lets the two be swapped for one another.
+
+## Accessibility
+
+A Link List renders `ul` and `li` elements with the link inside each item, so screen readers announce it as a list and report how many links it holds before reading them.
+
+The chevron sits inside the link and adds nothing to its name.
+It also belongs to the target, so the whole of it responds to a click, not only the words.
+
+Because the chevron marks each link, colour is not the only thing distinguishing them from the text around them, as [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) requires.
 
 ## See also
 
@@ -15833,10 +16518,24 @@ Set the appropriate values for the sizing tokens.
 The Logo is 40 pixels tall at its minimum, growing to 60 pixels in wider windows.
 This also applies to sub-brand logos.
 
+Two rules produce that range: a fluid height that scales with the window, and a minimum height beneath it.
+The fluid value alone would carry on shrinking past 40 pixels on the narrowest screens, and the minimum is what stops it there.
+
+The colours are applied to the parts of the drawing — the emblem, the wordmark, and the sub-brand line — through the stylesheet rather than being baked into the artwork.
+Each brand therefore uses the same three tokens, and a theme can restyle all of them at once.
+The artwork also names its own colours, so a Logo still appears in the right red before the stylesheet arrives.
+
 Websites operated by one of the sub-brands use their specific logo.
 They have a separate status because of their unique service provision not directly associated with the City.
 
 [Stijlweb](https://www.amsterdam.nl/stijlweb/uitgangspunten/logo-gemeente-amsterdam/#hbab93411-6797-410f-8c1d-40fb988dd077) lists the sub-brands and their logos.
+
+## Accessibility
+
+A Logo renders an `svg` marked up as an image, with the brand’s name as its label, so it is announced as ‘Gemeente Amsterdam logo’ rather than passed over as decoration.
+Each brand carries its own label, and a custom logo supplies one alongside its artwork.
+
+That label is fixed text, not something automatic translation picks up, which is why an English site uses the English logo rather than relabelling the Dutch one, as the usage guidelines describe.
 
 ## See also
 
@@ -16587,6 +17286,12 @@ The icon and label of the link sit next to each other.
 In a wide window, the menu has a maximum width of 8rem.
 It adds whitespace at the top to align with the baseline of Page Header.
 The icon is larger and positioned above the label.
+
+In narrow and medium windows the Menu reaches both edges of the window by cancelling the horizontal padding of the Page Header with a negative margin of the same size.
+That ties the component to the one context it is used in, which is accepted here: it is the only way for a band of colour to span the window while the links stay aligned with the content around them.
+
+A link is only as wide as its icon and label in the narrow layout, so the area that responds to a click does not extend across the empty space beside the text.
+In the wide layout the links do stretch, since the column is barely wider than the labels themselves.
 
 ## Accessibility
 
@@ -19013,6 +19718,12 @@ The aspect ratio of 32:9 is most suitable.
 
 Follow [the general guidelines for images](/docs/components-media-image--docs).
 
+Put the background first and the content that sits on top after it.
+The Overlap stacks its children in the order you write them, so the last one is the one on top.
+
+Check that text placed over an image still has enough contrast against it.
+A photograph varies from one area to the next, so a colour that passes over the sky may fail a few hundred pixels along.
+
 ## Examples
 
 ### Hero image with Search Field
@@ -19021,6 +19732,24 @@ This allows for the use of a mood-setting image as a background.
 A [Grid](/docs/components-layout-grid--docs) provides horizontal space on both sides and columns for layout.
 
 Note: the library does not yet offer an option to vertically centre the form.
+
+## Design
+
+Every child is placed in the same single cell of a grid, one on top of the other.
+Nothing is taken out of the flow, so an Overlap still occupies space on the page and pushes what follows it down, which absolute positioning would not do.
+
+The tallest child decides the height.
+An image and the content over it therefore need to be a reasonable match in size, since the shorter of the two cannot stretch the container.
+
+Stacking order follows the markup and nothing else.
+There is no `z-index` to set or to fight with; moving something to the front means moving it later in the code.
+
+## Accessibility
+
+An Overlap renders a `div` and adds nothing to the accessibility tree.
+
+Because the stacking order is the source order, what is drawn on top is also what is read last.
+The visual arrangement and the reading order cannot drift apart here, which is the usual hazard with overlapping content.
 
 ## See also
 
@@ -19286,6 +20015,20 @@ With a Menu, that becomes 120 rems (1920 pixels).
 
 An element placed directly in the Page, outside a [Grid](/docs/components-layout-grid--docs), spans the full width of the Page rather than the full width of the window.
 
+The Page is at least as tall as the window, measured against the part of it that is actually visible rather than the nominal height.
+On a phone the browser’s own bars come and go as you scroll, and the two measurements differ by exactly that much; using the visible one keeps a short page from ending in a strip of background below the Page Footer.
+
+With a Menu the Page becomes a grid of named areas rather than a stack.
+The Skip Link keeps a row of its own across the full width, above both the menu column and the header, so it is still the first thing reached however the rest is arranged.
+
+## Accessibility
+
+A Page renders a `div` and adds nothing to the accessibility tree.
+The landmarks of a page come from what you put inside it: the `banner` of the [Page Header](/docs/components-containers-page-header--docs), the `contentinfo` of the [Page Footer](/docs/components-containers-page-footer--docs), and the `main` element around the content between them.
+
+With a Menu, the areas are placed by the grid rather than by their order in the markup.
+The children are still announced and reached by keyboard in the order they are written, which is why the Skip Link comes first in the code as well as on screen.
+
 ## See also
 
 - [Skip Link](/docs/components-navigation-skip-link--docs) – the first element in the Page, above the Page Header.
@@ -19475,6 +20218,25 @@ For an English website, update the visually hidden heading to ‘Support links�
 If your website is in Dutch, but the default heading of ‘Over deze website’ doesn’t reflect the content of the menu, choose a different heading as well.
 
 &lt;Canvas of={PageFooterStories.CustomMenuHeading} /&gt;
+
+## Design
+
+The Page Footer is two bands: a blue Spotlight holding the content, and a white strip below it holding the menu.
+The change of colour is what separates them, so neither band needs a rule or a border to mark where it ends.
+
+The menu links wrap onto as many lines as they need, with a wide gap between links and a narrow one between lines.
+Links stay grouped by row that way, instead of the rows drifting apart into a list.
+
+In print, the blue band keeps its colour rather than being flattened to save ink.
+
+## Accessibility
+
+A Page Footer renders a `footer` element, which is exposed as the `contentinfo` landmark.
+That is what ‘How to use’ means by the footer’s landmark providing enough guidance: a heading grouping its columns would restate what the landmark already says.
+
+The menu carries a heading that is present in the markup and hidden visually.
+Screen reader users get a name for the group of links, while sighted users read the grouping from its position and its colour.
+That heading is a real one, so it appears in the outline of the page and can be navigated to.
 
 ## See also
 
@@ -19788,6 +20550,42 @@ A different icon for the menu button must be an svg as well.
 
 &lt;Canvas of={PageHeaderStories.WithDifferentBranding} /&gt;
 
+## Design
+
+The logo and the navigation share one area of the header rather than sitting in two columns.
+The navigation holds a second, invisible copy of the logo, which reserves the space the real one occupies so the menu wraps around it at the right point.
+This is what allows every link to live inside a single `nav` element while the menu still behaves as if the logo were part of the same row.
+
+On narrow screens the standard logo is cropped to its emblem by a container 0.881 rem wide.
+That figure is the midpoint between the right edge of the emblem and the left edge of the wordmark, so the crop leaves equal space on both sides and does not depend on rounding to land in the right place.
+
+The brand name is set at the size of a level 3 Heading and balances its line lengths, so a name that wraps does not end on a single short word beside the logo.
+Below the wide breakpoint a short form replaces it where one is given.
+
+Menu links are hidden below the wide breakpoint unless they are fixed, and reappear inside the collapsible menu.
+The menu button’s icon turns into a cross when the menu opens, animated only for users who have not asked for reduced motion.
+
+In print, the menu button keeps its blue background rather than being flattened to save ink.
+
+## Accessibility
+
+A Page Header renders a `header` element, which is exposed as the `banner` landmark.
+
+The logo link is named by a sentence that is in the markup and hidden visually: ‘Ga naar de homepage’, followed by the brand name where there is one.
+A link named after the picture inside it would announce as a logo rather than as a way home, which tells a screen reader user what they are looking at instead of where the link goes.
+
+The navigation is labelled by a heading that is hidden visually and hidden from the outline as well.
+It gives the `nav` landmark a name without adding a heading to the page structure, so a screen reader user hears which navigation this is when they reach it and does not meet an extra entry when they list the headings.
+
+The menu button shows ‘Menu’ and announces something else.
+Its visible word is hidden from assistive technology, and a hidden phrase in its place says whether activating it will show or hide the menu, so the name states the action rather than only the destination.
+The button also reports whether the menu is open and names the region it controls.
+
+The invisible copy of the logo inside the navigation is hidden from assistive technology and from the keyboard, so it is neither announced nor focusable a second time.
+
+The list item holding the menu button carries the `hidden` attribute and is revealed by the stylesheet.
+If that stylesheet never arrives, the collapsible menu stays visible in full instead of leaving a button that cannot open anything.
+
 ## See also
 
 - [Page](/docs/components-containers-page--docs) – contains the Page Header.
@@ -19995,6 +20793,32 @@ return &lt;Pagination linkComponent={LinkComponent} /&gt;
 ## Features
 
 Pagination renders nothing when `totalPages` is 1 or less, so a set that fits on a single page needs no condition around it.
+
+## Design
+
+The whole set is centred and wraps onto as many lines as it needs.
+A long list of page numbers reflows on a narrow screen rather than overflowing or scrolling sideways.
+
+The current page is marked by weight and colour rather than by a box of its own, and it drops its underline on hover.
+It reads as a statement of where you are instead of as another link to follow.
+
+The chevrons on the previous and next links keep a fixed size instead of scaling with the text around them.
+They stay in proportion to the numbers they sit beside, which are the same size on every page.
+
+An ellipsis stands in for the page numbers that are left out, so the distance between what is shown stays visible.
+
+## Accessibility
+
+Pagination renders a `nav` around an ordered list, so it is a navigation landmark and the pages keep their order.
+The landmark is named by text that is in the markup and hidden visually.
+
+The current page is marked as such, so assistive technology reports which link is the page you are on rather than leaving it to be inferred from the styling.
+
+The previous and next links are named by hidden text that says which page they lead to, while their visible label stays short.
+That visible label is hidden from assistive technology, so the link is announced once rather than twice — and it is why ‘How to use’ asks that the two labels keep saying the same thing.
+
+The visible label also carries the `hidden` attribute and is revealed by the stylesheet.
+If that stylesheet never arrives, the fuller accessible text shows in its place rather than a bare chevron.
 
 ## Design tokens
 
@@ -20431,6 +21255,24 @@ This component sets `autocorrect=&quot;off&quot;` and `spellcheck=&quot;false&qu
 Passwords shouldn’t be checked for spelling or grammar.
 This may also prevent posting the password to third-party plugins.
 These props cannot be overridden.
+
+## Design
+
+A Password Input is identical to a [Text Input](/docs/components-forms-text-input--docs) in every respect a stylesheet controls: the same border, padding, type, width behaviour, and invalid and disabled states.
+Only the masking marks it as different, and the browser draws that.
+
+There is no control to reveal what has been typed.
+The component is the field and nothing more, so a service that wants a reveal button builds it beside the field rather than receiving one it cannot remove.
+
+## Accessibility
+
+A Password Input renders an `input` of type password, so the browser masks the value, keeps it out of autofill for ordinary fields, and lets a password manager recognise it.
+
+Its text direction is set to follow what is typed rather than the direction of the page.
+A password made of characters from another script is then displayed the way it was entered instead of being reordered around it.
+
+The `invalid` prop sets `aria-invalid` on the field, and that styling responds to the browser’s own `:invalid` state as well.
+A password is incomplete for most of the time it is being typed, so a `required` or `pattern` attribute would mark the field red throughout; leave the state to your own validation and set it through `invalid`.
 
 ## See also
 
@@ -21182,10 +22024,39 @@ Don’t forget to set the `hasSubsteps` prop on the parent step.
 
 &lt;Canvas of={ProgressListStories.WithSubsteps} /&gt;
 
+## Design
+
+Each step is marked by a circle, with a line running between one circle and the next.
+The line passes behind the circles, and each circle is ringed in the page background colour so a gap appears where the two meet.
+This is why the component asks to be used on a white background only: the ring is painted, not transparent.
+
+The line carries the progress as much as the circles do.
+It is dashed and grey ahead of the current step and solid and green behind it, so the state of a step is legible from the connection as well as from the marker.
+
+A marker is placed against the height of the heading beside it rather than against the top of the step, so the circle sits on the middle of the first line of that heading at every heading level.
+
+Substeps repeat the same arrangement at a smaller size, and their connecting line is drawn over the parent’s so the two do not show through one another.
+
+The last line in the list is removed rather than left hanging.
+
+A collapsible step is opened by its own heading: the button fills the width of the heading and takes its typeface, size and weight, so the whole line is the control.
+The chevron turns half a circle when the step opens, animated only for users who have not asked for reduced motion.
+
+In print, collapsed steps are expanded again.
+A printed Progress List shows the whole process rather than whatever happened to be open on screen.
+
 ## Accessibility
+
+A Progress List renders an ordered list, so it is announced as a list with a number of items, and the steps keep their order.
+
+The step in progress is marked as the current step, which lets assistive technology report where in the process the reader is without their having to count.
 
 The status is conveyed visually through both colour and an icon, and via screen reader text.
 You can customize the screen reader text with `completedAccessibleText` and `currentAccessibleText` (defaults: ‘Klaar’ and ‘Bezig’).
+Neither the colour of a marker nor the style of a connecting line reaches a screen reader, so that text is the only thing carrying the status.
+
+A collapsible step reports whether it is expanded and names the panel it controls.
+The content of a collapsed step is removed from the page rather than hidden visually, so it is not announced and not reachable by keyboard until the step is opened.
 
 ## Design tokens
 
@@ -22724,6 +23595,28 @@ Websites for the City of Amsterdam must use the default icon.
 
 &lt;Canvas of={RadioStories.WithCustomIcon} /&gt;
 
+## Design
+
+The circle is drawn as an SVG inside the label rather than by the browser, which is what makes a custom icon possible at all and keeps the control identical across browsers.
+It carries a separate ring that appears on hover, so the circle grows a halo instead of changing size or colour.
+
+A Radio is round and a [Checkbox](/docs/components-forms-checkbox--docs) is square, which is the only thing distinguishing one from the other at a glance.
+That difference is easy to miss, which is why ‘When not to use’ asks for a hint saying how many options may be chosen rather than trusting the shape to say it.
+
+In forced colours mode the drawing is redone in system colours, since the fills the tokens set are ignored there.
+
+## Accessibility
+
+A Radio renders a native `input` inside a `label`, so the whole label is the target and the browser supplies the role, the checked state, and the arrow-key behaviour that moves between the options of a group.
+
+The input is not hidden away: it is reduced to no width, which keeps it focusable, announced, and submitted with the form.
+Its focus ring is moved onto the label so the ring surrounds the circle and its text rather than a control with no size.
+
+A group of Radios takes one stop in the tab order, and the arrow keys move within it.
+That is browser behaviour tied to the shared `name`, so give every Radio in a group the same one.
+
+Marking every Radio in a failed group as invalid — as ‘How to use’ asks — is what puts the state on each option a screen reader reaches, since the group itself is only announced once.
+
 ## See also
 
 - [Checkbox](/docs/components-forms-checkbox--docs) – when a user can select more than one option.
@@ -22960,6 +23853,25 @@ The medium gap is the default.
 
 Align the elements horizontally or vertically through the alignment props.
 
+## Design
+
+A Row keeps its items on one line unless you allow it to wrap.
+Items are squeezed rather than moved down, which is what makes a Row a row: the arrangement you laid out is the arrangement that survives a narrow screen, until you decide otherwise.
+
+The gap is the only spacing a Row provides.
+There is no padding, no margin, and no divider between items, so the space belongs to the container and the items keep whatever spacing they define for themselves.
+
+All five gaps scale with the width of the window rather than stepping at a breakpoint.
+The white space in a layout therefore grows in proportion with the type and the grid around it, instead of holding still until a threshold is crossed.
+
+## Accessibility
+
+A Row renders a `div` by default, which adds nothing to the accessibility tree.
+Its items are announced exactly as they would be without it, in the order they appear in the markup.
+
+Alignment never changes that order.
+`align=&quot;end&quot;` moves items to the other end of the line visually, and a screen reader still reads them from the start.
+
 ## See also
 
 - [Column](/docs/components-layout-column--docs) – stacks its children vertically instead.
@@ -23160,9 +24072,29 @@ Users can initiate a search by using the search button or the Enter key.
 Both `autocomplete` and `spellcheck` are turned off by default.
 These features can be disruptive for a user searching for part of a word, and `autocomplete` may interfere with an Autosuggest component.
 
+## Design
+
+The input and the button are flush against one another and read as a single control, with the input taking whatever width is left over.
+
+A focused input lifts itself above the button so its focus ring is drawn in full rather than cut off where the two meet.
+That lift is contained within the component, so it can never end up in front of anything else on the page.
+
+The browser’s own button for clearing the field is restyled with our icon where a browser offers one, and greyed along with the rest when the field is disabled.
+
+In print, the field keeps its background colour instead of being flattened to save ink.
+
 ## Accessibility
 
 The component uses `role=&quot;search&quot;` for the search landmark role.
+It is a real `form`, so pressing Enter in the field submits it the way any form does, and assistive technology lists the search among the landmarks of the page.
+
+The label of the Input is always rendered visually hidden.
+It names the field for anyone who cannot see where it sits, which is why ‘How to use’ asks for a label that describes what is being searched rather than the word ‘Search’.
+
+The Button is icon-only and takes its accessible name from its `children`, so the magnifier is never announced as an unlabelled control.
+
+Disabling the Search Field disables both parts, and neither can enable itself again.
+The two can therefore never be announced in different states.
 
 ## See also
 
@@ -23371,6 +24303,25 @@ If the Select can become invalid, add an Error Message and its `id` to the `aria
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 &lt;Canvas of={SelectStories.InAFieldWithValidation} /&gt;
+
+## Design
+
+A Select shares its border, padding, type and states with a [Text Input](/docs/components-forms-text-input--docs), so a field the user types into and one they choose from sit level in the same form.
+
+The chevron browsers draw is replaced by one of ours, and the field reserves room for it at the end so a long option never runs underneath.
+It is drawn three times over — in the interactive blue, in the hover blue, and in grey when disabled — because a background image cannot take the colour of the text the way an icon in the markup would.
+
+A Select showing several options at once keeps the native appearance and no chevron, since there is nothing to expand.
+
+## Accessibility
+
+A Select renders a native `select` element with native `option` and `optgroup` elements inside it.
+The list that opens is the operating system’s own, so it behaves the way every other menu on that device does: the same keys, the same gestures, and the same behaviour with a screen reader, none of which the design system reimplements.
+
+That is also the reason the appearance stops at the closed field.
+An open list cannot be styled, and replacing it with markup we could style would mean rebuilding all of that behaviour.
+
+A disabled option is greyed but still announced, so the user hears that a choice exists and is unavailable rather than not hearing it at all.
 
 ## See also
 
@@ -23914,6 +24865,9 @@ After appearing, it pushes the rest of the page down.
 Following a Skip Link moves the starting point for sequential focus navigation to the target, so the next ‘Tab’ press continues from there.
 The target itself does not receive focus, and it does not need to: an `id` is enough, so leave `tabindex` off.
 
+A Skip Link is hidden by being clipped to a single pixel rather than by `display: none`, so it stays in the tab order and in the accessibility tree the whole time.
+This is what lets it be the first thing a keyboard user reaches while remaining invisible to everyone else, and it is why a screen reader user encounters it in reading order even though it is never drawn.
+
 ### Placement outside the landmarks
 
 A Skip Link comes before the Page Header, which puts it ahead of every landmark on the page.
@@ -24171,7 +25125,13 @@ Wrap its content in a Grid with extra large vertical padding.
 Use any of the [highlight colours](/docs/brand-design-tokens-colour--docs) for the background.
 The design system does not prescribe a meaning to any of these colours.
 The default is purple.
+
 Select [the correct colour](/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) for text and links against the background you choose.
+On a dark background, set `color=&quot;inverse&quot;` on every Heading, Paragraph, and Link inside the Spotlight.
+On a light one, keep the default colour for headings and paragraphs, and set `color=&quot;contrast&quot;` on links.
+
+Name the landmark when you use the `as` prop: give the heading inside the Spotlight an `id` and point `aria-labelledby` at it.
+Users of assistive technology can then tell this landmark apart from the others on the page.
 
 Find a fitting setup for the [amount and width of columns](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
 
@@ -24185,16 +25145,22 @@ Use a Spotlight to direct the user’s attention to the most important or action
 
 &lt;Canvas of={SpotlightStories.HighlightContent} /&gt;
 
+## Design
+
+A Spotlight is a background colour and nothing else: no padding, no border, no corner radius, and no width of its own.
+It fills whatever contains it and takes its shape from the Grid inside it, which is why ‘How to use’ asks for the full width of the Page and for a Grid with extra large vertical padding.
+
+In print, a Spotlight keeps its background colour instead of being flattened to save ink.
+
 ## Accessibility
 
-Which foreground colour to use depends on the highlight colour behind it.
-Follow [Pairing foreground with background colours](/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours).
+A Spotlight carries no colour that a screen reader can report, so its emphasis is entirely visual.
+Whatever the highlight is meant to signal has to be in the content itself.
 
-On a dark background, set `color=&quot;inverse&quot;` on every Heading, Paragraph, and Link inside the Spotlight.
-On a light one, keep the default colour for headings and paragraphs, and set `color=&quot;contrast&quot;` on links.
+The `as` prop is what gives a Spotlight a place in the structure of a page: `as=&quot;aside&quot;` makes it a complementary landmark, and `as=&quot;section&quot;` makes it a region once it has an accessible name.
+Without a name, a `section` groups the content in the markup but adds nothing anyone can navigate to; ‘How to use’ covers how to give it one.
 
-`as=&quot;aside&quot;` makes the Spotlight a complementary landmark, and `as=&quot;section&quot;` makes it a region once it has an accessible name.
-Point `aria-labelledby` at the `id` of the heading inside the Spotlight to name that landmark, so users of assistive technology can tell it apart from the other landmarks on the page.
+Which foreground colour to use depends on the highlight colour behind it, since the component sets only the background and leaves the text colour to the content inside it.
 
 ## See also
 
@@ -24402,6 +25368,16 @@ It will make the Standalone Link white.
 The Standalone Link has a chevron icon at the start to signify that it is a link.
 This also makes it visually identical to a single link in a [Link List](/docs/components-navigation-link-list--docs).
 As a result, pages can have sections with either one or several links used interchangeably; they look alike, and their semantics are correct.
+
+It carries no underline until the pointer is over it.
+The chevron is what identifies it in the meantime, which is why the underline can be spared: on its own line there is no running text for a link to be told apart from.
+
+## Accessibility
+
+A Standalone Link renders an `a` element and is announced by its text; the chevron adds nothing to the name.
+
+Because the chevron marks the link, colour is not the only thing distinguishing it from ordinary text, as [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) requires.
+This is what makes dropping the underline safe here, where an inline [Link](/docs/components-navigation-link--docs) keeps one.
 
 ## See also
 
@@ -24662,6 +25638,31 @@ A Switch must have a label, and in most cases, this label should be visible.
 
 &lt;Canvas of={SwitchStories.WithLabel} /&gt;
 
+## Design
+
+The track and the thumb are the whole of a Switch: a rounded bar with a circle that slides from one end to the other, and a colour change behind it.
+There is no text inside it, so it needs no room for words in either state and stays the same width whichever way it is set.
+
+The thumb moves by exactly the width of the track minus its borders, so it comes to rest flush against the end rather than at a distance measured separately for each size.
+
+The slide and the colour change behind the thumb are animated only for users who have not asked for reduced motion.
+Everyone else sees the new state at once, with no travel across the track.
+
+The track carries a transparent border rather than none at all.
+In forced colours mode a background is replaced by the system’s own, and the border is what remains to give the Switch an outline; a floor of one pixel keeps a theme from removing it by setting the token to zero.
+
+Hovering puts a shadow around the thumb rather than moving or resizing it.
+
+## Accessibility
+
+A Switch renders a checkbox marked as a switch, so it is announced as on or off rather than as checked or unchecked, and it is operated with Space like any other checkbox.
+
+The visible track is an empty `label` that supplies no name.
+A Switch therefore takes its name from a [Label](/docs/components-forms-label--docs) tied to it with `htmlFor`, which is what ‘How to use’ asks for; without one it is announced as an unnamed switch.
+
+The input is not hidden away: it is reduced to no width, which keeps it focusable, announced, and submitted with the form.
+Its focus ring is moved onto the track so the ring surrounds the switch rather than a control with no size.
+
 ## See also
 
 - [Checkbox](/docs/components-forms-checkbox--docs) – when the choice is part of a form rather than an instant setting.
@@ -24817,6 +25818,8 @@ Use a [Heading](/docs/components-text-heading--docs) in it, at the level that fi
 To place content between the Heading and the Table, keep the Caption but hide it visually, then position the heading and content above the Table.
 Do not use ARIA relations; they hurt the Table&#39;s semantics (see [this article](https://www.scottohara.me/blog/2019/04/19/tabled-tables.html)).
 
+Keep a Table narrow enough to fit where it is used.
+
 ## Examples
 
 ### With footer and row headers
@@ -24845,9 +25848,23 @@ In this case, use a [Figure](/docs/components-media-figure--docs) and let the Ta
 A Table wider than the space it sits in scrolls horizontally within its own container, rather than widening the page around it.
 That container takes keyboard focus, so someone can scroll it with the arrow keys, not only with a pointer or touch.
 
+## Design
+
+Rows are separated by a single rule beneath each one.
+There are no vertical lines, no zebra stripes, and no spacing between cells: the columns are held together by their alignment.
+
+Cells align to the top of their row, so the first line of every cell in a row starts level even when one of them wraps over several lines.
+Header cells in the head align to the bottom instead, which puts a column label that runs onto two lines directly above the values it names.
+
+The caption is bold and aligned with the start of the table rather than centred over it.
+It reads as the title of what follows, in the same place a heading would sit.
+
+In print, a Table is never split across two pages.
+
 ## Accessibility
 
 A Table caption creates the accessible name for the Table, announced by screen readers on every encounter.
+That is also why ‘How to use’ warns against ARIA relations as a substitute: they name the table without giving it the caption its semantics expect.
 
 The container that scrolls is a focusable group, which keeps the columns past its right edge reachable without a pointing device, as [WCAG 2.1.1](https://www.w3.org/TR/WCAG22/#keyboard) requires.
 
@@ -25058,6 +26075,19 @@ To drive that state yourself, pass `expanded` to a Link and update it from its `
 This example keeps a single branch open at a time by expanding the clicked branch and collapsing the others.
 
 &lt;Canvas of={TableOfContentsStories.Controlled} /&gt;
+
+## Design
+
+Nested lists are indented from their parent, so the depth of an entry is legible from its position alone.
+
+In collapsible mode that indent comes from somewhere else: every item gains a leading column exactly one line high, whether or not it has a toggle button to put there.
+Labels then line up down the whole tree, and a branch that gains or loses children does not shift the entries around it.
+
+The toggle sits beside the link rather than inside it, so expanding a branch and following it are separate targets.
+
+A chevron turns half a circle when a branch opens, animated only for users who have not asked for reduced motion.
+
+The link for the current page is set in bold and in a colour of its own.
 
 ## Accessibility
 
@@ -25480,6 +26510,37 @@ The user can navigate the links with their keyboard:
 | Shift + Tab | Go to the previous element that can have focus |
 | Enter       | Follow the link that has focus                 |
 
+## Design
+
+A separator line runs under the whole row.
+The link for the current page marks itself with a thicker stroke of its own on top of it, in the text colour rather than the separator’s grey.
+Every other link is underlined on hover — the ordinary link underline the rest of the system uses.
+The current link is spared it: a stroke and an underline at once would look overdone.
+
+The current link is also set in bold.
+A copy of the label at that weight sits invisibly behind every link, reserving the width the bold text will need, so the row does not shift as you move from one page to the next.
+
+Links do not shrink to fit.
+When the row is too long it scrolls sideways and snaps to the start of a link, which keeps every label readable rather than squeezing them until they wrap.
+
+The vertical orientation takes effect from the medium breakpoint upward.
+It moves the strokes to the side of the links and drops the scrolling, since a stacked list grows downward instead of running out of width.
+
+In forced colours mode the current link is filled with the system’s selection colour.
+The strokes that normally mark it are shadows, and shadows are not rendered in that mode.
+
+## Accessibility
+
+Tab Navigation renders a `nav` around a list of links, so it is a navigation landmark and the destinations are announced as links with their number.
+
+The landmark is named by a heading that is hidden visually and hidden from the outline as well, which is what the `accessibleName` prop sets.
+Two of them on one page therefore need two different names, as ‘How to use’ says.
+
+Each link is a real link with its own address, so it can be opened in a new window, shared, or bookmarked, and it is reached with Tab and followed with Enter like any other.
+This is the difference from [Tabs](/docs/components-containers-tabs--docs), where the arrow keys move between controls that reveal panels on the same page.
+
+The invisible bold copy of each label is hidden from assistive technology, so a link is announced once rather than twice.
+
 ## See also
 
 - [Tabs](/docs/components-containers-tabs--docs) – for switching between secondary content without navigating away.
@@ -25655,6 +26716,35 @@ Add an `aria-controls` attribute to each button and match its value to the `id` 
 | Right arrow    | If the tabs have focus, go to the next tab     |
 | Home           | If the tabs have focus, go to the first tab    |
 | End            | If the tabs have focus, go to the last tab     |
+
+## Design
+
+A line runs under the whole row of tabs, and the selected tab marks itself with a thicker line of its own on top of it.
+Hovering a tab that is not selected draws a line in the same colour but thinner than the selected tab’s, so a hovered tab reads as a step below the selected one rather than as a different treatment.
+
+The selected tab is also set in bold.
+A copy of the label at that bold weight sits invisibly behind every tab, reserving the width the bold text will need, so selecting a tab does not nudge its neighbours along the row.
+
+Tabs do not shrink to fit.
+When the row is too long it scrolls sideways and snaps to the start of a tab, which keeps every label readable instead of squeezing labels until they wrap or truncate.
+
+The focus ring is drawn inside a tab rather than around it.
+The row is a scrolling container, and a ring drawn outside the button would be clipped at its edge.
+
+In forced colours mode the selected tab is filled with the system’s selection colour.
+The lines that normally mark it are shadows, and shadows are not rendered in that mode.
+
+## Accessibility
+
+Tabs implement the tab pattern: the row is a tab list, each button is a tab that names the panel it controls and reports whether it is selected, and each panel is a tab panel labelled by its own tab.
+
+Only the selected tab is in the tab order.
+Tab therefore moves past the whole row in one step, and the arrow, Home and End keys move between the tabs, wrapping around at either end.
+
+The panel itself can be focused, so Tab from the selected tab lands on the content it revealed rather than skipping past it.
+Panels that are not selected are not rendered at all: their content is absent from the page, so it is neither announced nor found by ‘Find in page’.
+
+The invisible bold copy of each label is hidden from assistive technology, so a tab is announced once rather than twice.
 
 ## See also
 
@@ -25866,6 +26956,25 @@ If the Text Area can become invalid, add an Error Message and its `id` to the `a
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 &lt;Canvas of={TextAreaStories.InAFieldWithValidation} /&gt;
+
+## Design
+
+A Text Area shares its border, padding, type and states with a [Text Input](/docs/components-forms-text-input--docs), so a form built from both reads as one set of fields.
+
+It has a minimum height of its own, which is what says at a glance that more than one line is expected here.
+Setting `cols` switches the width from filling the container to sizing by character count, and the field still never grows past the space it has.
+
+The `resize` prop decides which directions the user may drag.
+The handle browsers put in the corner is left in place by default: it costs nothing, and it lets someone give themselves more room for a long answer without leaving the page.
+
+## Accessibility
+
+A Text Area renders a `textarea` element and is announced with its label and anything `aria-describedby` points at.
+
+Resizing is a convenience for people who need more room on screen, and it is not supported in Safari on iOS.
+Nothing depends on it, so a field there behaves as it would with `resize` set to none.
+
+The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the browser’s own `:invalid` state alike, as it does for a [Text Input](/docs/components-forms-text-input--docs).
 
 ## See also
 
@@ -26210,6 +27319,32 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 &lt;Canvas of={TextInputStories.InAFieldWithValidation} /&gt;
 
+## Design
+
+A Text Input fills the width of whatever holds it unless a `size` is given, and never grows past it.
+The default is a field as wide as the layout allows, which asks nothing of the person composing the form until they have a reason to say otherwise.
+
+The border is two pixels and the corners are square.
+Hovering adds a one-pixel ring inside that border rather than widening it, so the field appears to thicken without the layout moving underneath it.
+
+An invalid field turns its border red, and a disabled one greys its background rather than its border.
+The two states are told apart by which part changes, so neither is read as the other at a glance.
+
+The text inside the field is the size of body text with a tighter line height, and its padding is the same as a [Button](/docs/components-buttons-button--docs)’s.
+A field and a button on the same line therefore come out the same height.
+
+## Accessibility
+
+A Text Input renders an `input` element, so it is announced with its type, its label, and anything `aria-describedby` points at.
+
+The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the browser’s own `:invalid` state alike.
+The second matches as soon as the page loads for a field that is `required` and empty, so a form that leans on it marks its fields red before anyone has typed; set `aria-invalid` from your own validation to control when that happens.
+
+A disabled field is greyed and removed from the tab order, which is why ‘When not to use’ lists alternatives to it rather than treating it as an ordinary state.
+
+Placeholder text is styled but not recommended, and it is not a label: it disappears on the first keystroke and is not reliably announced.
+‘When not to use’ covers what to do instead.
+
 ## See also
 
 - [Text Area](/docs/components-forms-text-area--docs) – for multi-line text input.
@@ -26412,6 +27547,23 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 This component uses a native time input, which is styled differently in different browsers and operating systems.
 Recreating the native functionality is quite difficult and prone to accessibility errors, which is why we’ve chosen not to do that.
 This does mean that this component does not look identical on all browsers and operating systems.
+
+The styling therefore stops at the box: the border, the padding and the type are ours, and the segments inside it, the format hint and the clock that opens belong to the browser.
+Chromium lets its picker button be replaced, so there it carries our icon; other browsers keep their own.
+
+The field is given a minimum width and height, and the width Android devices impose on it is overridden.
+A native time field is much smaller when empty than when filled on some devices and far wider than it needs to be on others, and neither would sit comfortably in a form.
+
+Everything else — the border, the padding, the type, and the invalid and disabled states — matches a [Text Input](/docs/components-forms-text-input--docs), so a time sits level with the other fields of a form.
+
+## Accessibility
+
+A Time Input renders a native `input` of type time, so screen readers announce it segment by segment and every browser’s own keyboard handling applies: arrow keys to change a part, typing to fill one, and the browser’s picker for those who prefer it.
+
+Whether the field asks for a 24-hour time or for hours with AM and PM comes from the browser and the operating system, not from the language of the page.
+The value a form receives is the same either way, but which of the two a visitor sees is not something the page decides.
+
+The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the browser’s own `:invalid` state alike.
 
 ## See also
 
@@ -27239,7 +28391,7 @@ If two or more Buttons or links are in a row, put the one for the primary action
 
 ### How to use
 
-Replace the default &#39;group&#39; role with `role=&quot;toolbar&quot;` for Button toolbars.
+Give the group a name when a page holds several sets of actions and hearing ‘group’ on its own would not say which set this is: point `aria-labelledby` at a heading that names the set, or at text hidden with the `ams-visually-hidden` class.
 
 ## Examples
 
@@ -27265,6 +28417,23 @@ Putting the primary action first keeps the order of Buttons consistent on both n
 
 Sighted users will read the primary action first, in line with the natural reading order.
 The same goes for users of screen readers, who will hear the primary action first, and users of a keyboard, who will focus the primary action first.
+
+An Action Group places an even gutter between a set of actions, much as a [Row](/docs/components-layout-row--docs) does, and those actions can be [Buttons](/docs/components-buttons-button--docs), [Links](/docs/components-navigation-link--docs), or a mix of the two.
+While they fit on one line the group is only as wide as they are, so it can sit at the end of a Dialog or beside other content without claiming the whole line.
+
+The difference from a Row is that an Action Group stretches its actions.
+A Row lets each item keep its own width, side by side or wrapped onto new lines when you allow it.
+An Action Group makes every action grow to fill the width it has, so the moment they no longer sit in a row they stack into a single, full-width column.
+This follows from the space available rather than a breakpoint, as the ‘Stacked’ example shows.
+
+On a shared line, actions are centred against one another, so a Button and a Link of different heights meet on a common middle rather than a top edge.
+
+## Accessibility
+
+An Action Group renders a `div` with the `group` role, so assistive technology presents the actions as one set instead of as unrelated controls that happen to be adjacent.
+
+The group has no name of its own.
+Screen readers announce it as a group and then read the actions, which is enough when the page holds only one set; ‘How to use’ covers the case where it is not.
 
 ## Design tokens
 
@@ -27687,6 +28856,15 @@ This can be applied to the entire website or to a part of it.
 
 Add a close button if the user should be able to dismiss the Alert.
 
+Choose a `headingLevel` that fits the outline of the page around the Alert; there is no default.
+The heading keeps the size of a level 3 Heading whichever level you pick.
+
+You don’t need to set `headingId`: the Alert generates a unique id for its heading and labels itself with it, so several Alerts on a page never collide.
+Pass one only when the heading needs a specific id of your own.
+
+Write the heading and the text so they carry the message on their own.
+The severity reaches no one through the colour or the icon alone, which is what [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) asks you to avoid.
+
 ## Examples
 
 ### Warning
@@ -27719,6 +28897,35 @@ An informative message can emphasize matters that are useful to follow.
 Include an inline link in the text to guide the user.
 
 &lt;Canvas of={AlertStories.WithInlineLink} /&gt;
+
+## Design
+
+An Alert is outlined in the colour of its severity and carries a band of that same colour along its leading edge, with the icon centred in it.
+The band takes its dividing line from the outline, so the two meet as one continuous stroke of the same weight.
+
+The background behind the text stays white in all four variants.
+Only the outline, the band and the icon change colour, which keeps the text on the same background as the rest of the page and its contrast the same whatever the severity.
+
+The heading is fixed at the size of a level 3 Heading, independent of the `headingLevel` given to it.
+Two Alerts then look alike wherever they sit in the outline of a page.
+
+In print, the band keeps its colour rather than being flattened to save ink.
+It is the only part told to do so, because without it nothing distinguishes one severity from another on paper.
+
+## Accessibility
+
+An Alert renders a `section` labelled by its heading, which makes it a `region` landmark.
+Assistive technology lists it with the other landmarks, so users can reach the message directly instead of hunting for it.
+
+The label is wired up with `aria-labelledby` rather than left to the heading inside.
+NVDA in Chrome does not read that heading as the name of the section otherwise.
+Setting `headingId` to `null` removes the label, and the landmark with it.
+
+An Alert does not announce itself when it appears.
+It is not a live region, so it suits a message that is already there when a view renders rather than one that must interrupt.
+
+The icon carries no text alternative and the severity is conveyed by colour alone, so neither reaches a screen reader.
+Both are reinforcement for a message the heading and text already carry, as described under ‘How to use’.
 
 ## Design tokens
 
@@ -28857,6 +30064,11 @@ import * as AvatarStories from &quot;./Avatar.stories.tsx&quot;;
 
 Show an Avatar for the user of the website, or to associate a person with a content item.
 
+### How to use
+
+On a page in another language, set `initialsAccessibleName` and `userAccessibleName` so the Avatar is announced in that language rather than in Dutch.
+Each replaces the entire announcement and is used verbatim, so repeat the initials in `initialsAccessibleName` when they should still be spoken.
+
 ## Examples
 
 ### With image
@@ -28876,10 +30088,28 @@ A user icon displays if no label and image are provided.
 ## Design
 
 The Avatar contains 1 or 2 initial letters from the person’s full name, a picture, or a generic icon.
+The component takes the first two characters of the label and sets them in capitals, so the shape stays the same however the name was written.
 
 To personalize the Avatar, the user can be allowed to choose one of the [highlight colours](/docs/brand-design-tokens-colour--docs).
 The default is purple.
 The design system does not define a meaning to any of these background colours.
+
+The circle is sized from the text it holds rather than from a fixed measurement: its width follows the font size and line height of the initials.
+An Avatar showing an image drops the border and grows by exactly the space that border and its padding occupied, so both kinds line up at the same size beside each other.
+
+An image is cropped to the circle from its centre and scaled to cover it, whatever proportions it arrives in.
+A portrait that is not square therefore loses its edges rather than distorting.
+
+In print, an Avatar keeps its background colour instead of being flattened to save ink.
+
+## Accessibility
+
+An Avatar is announced exactly once, through a line of text that is in the markup but hidden visually.
+The initials themselves are marked `aria-hidden`, and an image is given an empty `alt`.
+
+That hidden text defaults to Dutch: ‘Initialen gebruiker’ followed by the initials, or ‘Gebruiker’ when the label is empty.
+It is built from the label even when an image is displayed, so an Avatar showing a photograph is still announced by its initials.
+Neither wording is fixed: both can be configured, so an Avatar can be announced in the language of the page it sits on.
 
 ## Design tokens
 
@@ -29009,7 +30239,7 @@ export const Test: Story = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/components/Badge/Badge.docs.mdx</div>
-              <div>## Usage guidelines ### How to write Let the Badge contain a short text or a number. ## Ex...</div>
+              <div>## Usage guidelines ### How to write Let the Badge contain a short text or a number. Write...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -29035,6 +30265,9 @@ import * as BadgeStories from &quot;./Badge.stories.tsx&quot;;
 
 Let the Badge contain a short text or a number.
 
+Write a label that stands on its own without the colour behind it.
+Nothing but the label reaches a screen reader, and a colour is not a message anyone should have to read, which is what [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) asks of you.
+
 ## Examples
 
 ### With icon
@@ -29050,6 +30283,21 @@ Use any of the feedback or highlight [colours](/docs/brand-design-tokens-colour-
 The default is green.
 Red, orange and green are especially useful for showing an error, warning, or success.
 However, they can also be combined with the other colours without carrying these meanings.
+
+A Badge is set in bold at the size and line height of body text, and it is padded on the left and right but not above and below.
+Its coloured block is therefore exactly as tall as one line of text, so a Badge placed in a sentence or a table cell does not push the lines around it apart.
+
+The corners are square and there is no border.
+The colour fills the block, which is what makes a Badge read as a label applied to something rather than as a control to press.
+
+In print, a Badge keeps its background colour instead of being flattened to save ink.
+
+## Accessibility
+
+A Badge renders a `span` with no role of its own, so its text is read as part of the sentence or the cell it sits in rather than announced separately.
+
+Neither the background colour nor an icon reaches a screen reader; the label carries the whole message on its own.
+‘How to write’ covers what that asks of the wording.
 
 ## Design tokens
 
@@ -29627,7 +30875,37 @@ On narrow screens or with longer labels, it wraps text without losing alignment.
 The three variants form a hierarchy of importance: primary, secondary, tertiary.
 This lets a screen present one clear focal action without ranking every other Button against it.
 
-The icon size stays constant regardless of the label length, so a row of Buttons aligns visually even when their text differs.
+A label is set at the same size and weight as body text, with a tighter line height of 1.4 against the 1.6 of running text.
+Nothing about the type marks a Button as important; its colour and its filled shape do that.
+
+All three variants carry a border of the same width, and the corners are square.
+A tertiary Button keeps that border transparent until the pointer is over it, and a secondary Button thickens its outline with an inset shadow rather than a wider border.
+Neither changes the space a Button takes up, so a row of Buttons never shifts as one of them is hovered.
+
+Hover styling applies only where a pointer can actually hover.
+On a touch screen it would otherwise stay behind after a tap, leaving the Button that was pressed last looking active.
+
+The button overrides the icon’s line height with its own, so the icon sits on the label’s line rather than on a taller one of its own.
+The icon keeps its default size, the same body-text size the label uses.
+An icon-only Button is square: the icon is given a square box, and the padding is equal on all four sides.
+
+A label that does not fit is hyphenated rather than left to overflow.
+The browser decides where to split it, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+In print, a Button keeps its background and border colours instead of being flattened to save ink.
+
+## Accessibility
+
+A Button renders a `button` element, which brings keyboard focus, activation with both Enter and Space, and the `button` role with it.
+
+Its `type` defaults to `button` rather than to `submit`.
+A Button inside a form therefore leaves that form alone until asked otherwise, which is why submitting takes an explicit `type=&quot;submit&quot;`.
+
+An icon-only Button takes its accessible name from the `children` you pass.
+That text is rendered in the markup and hidden visually, so screen readers announce the same words a visible label would have carried, and the icon adds nothing to the name.
+
+Disabling a Button with the `disabled` attribute removes it from the tab order, so a keyboard user never lands on it and reads no reason for it being unavailable.
+The same appearance applies to `aria-disabled=&quot;true&quot;`, which keeps the Button focusable and lets assistive technology announce it as disabled.
 
 ## See also
 
@@ -29809,6 +31087,20 @@ Use the verb&#39;s infinitive form, such as &quot;Kapotte parkeerautomaat melden
 The Call to Action Link features a green background to ensure it stands out.
 To clarify that it is not a button, which is not suitable for navigation, its text is underlined like links typically are.
 This informs users that a new page will open and that they can either copy the link or open it in a new window.
+
+Green is not used for a [Button](/docs/components-buttons-button--docs) anywhere in the system, so the colour marks the difference as much as the underline does.
+
+The corners are square and the vertical padding is slight, so the block hugs its line of text.
+It reads as a highlighted link rather than as a large control, which is the distinction the underline is there to protect.
+
+In print, it keeps its background colour instead of being flattened to save ink.
+
+## Accessibility
+
+A Call to Action Link renders an `a` element, so it is announced as a link and listed among the links of the page, however much it looks like a button.
+
+Someone who navigates by pulling up a list of links finds it there rather than among the controls, and hears where it goes rather than what it would do.
+That is the distinction the underline makes visually and the element makes for everyone else.
 
 ## See also
 
@@ -29994,6 +31286,27 @@ This means:
 This component does not restrict the user from entering information.
 The user can enter more than the character limit, but are told they’ve entered too many characters.
 This lets them type or copy and paste their full answer, then edit it down.
+
+## Design
+
+A Character Count is one line of small text below the field.
+It keeps the ordinary text colour instead of being greyed down, so a reader who needs to check the count is not asked to read weaker text than the rest of the form.
+
+Going over the limit turns it red, and that is the whole of the change: no icon, no border, and nothing about the field itself.
+
+Counting up towards the limit rather than down from it means the message says the same thing before and after the limit is passed.
+The wording never has to switch from characters remaining to characters too many.
+
+## Accessibility
+
+A Character Count is a status region, so screen readers announce the new count without moving focus and without interrupting what is being read.
+Someone typing hears the count between words rather than after every keystroke, which is what ‘Features’ above describes.
+
+The text is fixed Dutch — the count, the word ‘van’, the limit, and ‘tekens’ — and cannot be configured.
+That is worth weighing before using a Character Count on a page in another language.
+
+Going over the limit is signalled by colour alone, so the count itself has to be read for the change to register.
+The text says the same thing either way, which is what keeps the message complete without the colour.
 
 ## Design tokens
 
@@ -30223,6 +31536,30 @@ Websites for the City of Amsterdam must use the default icon.
 ## Design
 
 A list of Checkboxes is vertically stacked to enhance readability and usability.
+
+The box is drawn as an SVG inside the label rather than by the browser, which is what makes a custom icon possible at all and keeps the control identical across browsers.
+It carries a separate ring that appears on hover, so the box grows a halo instead of changing size or colour.
+
+The box and the label sit in one line box that never breaks between them, and the label may wrap onto as many lines as it needs beside it.
+
+Checked, indeterminate, invalid and disabled each change one thing: the fill, the mark inside, the outline colour, or the text colour.
+The states can therefore combine — an invalid checked box, a disabled indeterminate one — without any pair of them fighting over the same property.
+
+In forced colours mode the drawing is redone in system colours: the box takes the field colours, a selected one the active text colour, and a disabled one the greyed text colour.
+The fills the tokens set are ignored there, so without this a checked box and an empty one would look the same.
+
+## Accessibility
+
+A Checkbox renders a native `input` inside a `label`, so the whole label is the target and the browser supplies the role, the checked state and the keyboard behaviour.
+
+The input is not hidden away: it is reduced to no width, which keeps it focusable, announced, and submitted with the form.
+Its focus ring is moved onto the label so the ring surrounds the box and its text rather than a control with no size.
+Browsers without support for the modern focus rules show that ring for every focus, including a click, which is the safer way round.
+
+The indeterminate state is a visual and programmatic state of the checkbox itself, not a third value.
+A form submits it as unchecked, so a bulk-selection box in that state says something about the list below it and nothing about its own value.
+
+The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the browser’s own `:invalid` state alike.
 
 ## See also
 
@@ -30504,6 +31841,12 @@ Wrap editorial content in the [Prose](/docs/utilities-css-prose--docs) utility c
 
 To add white space below a single element, use [Margin Bottom](/docs/utilities-css-margin--docs) instead.
 
+### How to use
+
+Give a Column a name when you set `as=&quot;section&quot;`.
+A `section` reaches assistive technology as a landmark only once it has one, so give the heading inside it an `id` and point `aria-labelledby` at that id.
+Without a name the element groups the content in the markup but adds nothing anyone can navigate to.
+
 ## Examples
 
 ### Alignment
@@ -30549,6 +31892,25 @@ Five sizes of [space](/docs/brand-design-tokens-space--docs) are available for t
 The medium gap is the default.
 
 Align the elements horizontally or vertically through the alignment props.
+
+## Design
+
+The gap is the only spacing a Column provides.
+There is no padding, no margin, and no divider between items, so the space belongs to the container and the items keep whatever spacing they define for themselves.
+
+All five gaps scale with the width of the window rather than stepping at a breakpoint.
+The white space in a layout therefore grows in proportion with the type and the grid around it, instead of holding still until a threshold is crossed.
+
+Every item in a Column gets the same gap, which is why ‘When not to use’ steers editorial text towards [Prose](/docs/utilities-css-prose--docs).
+A heading needs less space above the paragraph it introduces than below the one before it, and a single gap cannot express that.
+
+## Accessibility
+
+A Column renders a `div` by default, which adds nothing to the accessibility tree.
+Its items are announced exactly as they would be without it, in the order they appear in the markup.
+
+The `as` prop can render an `article` or a `section` instead, which does reach assistive technology.
+‘How to use’ covers what a `section` needs before it becomes a landmark.
 
 ## See also
 
@@ -30804,6 +32166,25 @@ This component uses a native date input, which is styled differently in differen
 Recreating the native functionality is quite difficult and prone to accessibility errors, which is why we’ve chosen not to do that.
 This does mean that this component does not look identical on all browsers and operating systems.
 
+The styling therefore stops at the box: the border, the padding and the type are ours, and the segments inside it, the format hint and the calendar that opens belong to the browser.
+Chromium lets its calendar button be replaced, so there it carries our icon; other browsers keep their own.
+
+The field is given a minimum width and height.
+A native date field is much smaller when empty than when filled on some devices, and without a floor a form would visibly resize as it was completed.
+
+Everything else — the border, the padding, the type, and the invalid and disabled states — matches a [Text Input](/docs/components-forms-text-input--docs), so a date sits level with the other fields of a form.
+
+## Accessibility
+
+A Date Input renders a native `input` of a date type, so screen readers announce it segment by segment and every browser’s own keyboard handling applies: arrow keys to change a part, typing to fill one, and the browser’s picker for those who prefer it.
+That behaviour is the reason for using the native control rather than rebuilding it.
+
+The format the field shows and expects comes from the browser and the operating system, not from the language of the page.
+A visitor whose browser is set to another locale sees the order of day, month and year they are used to, which is helpful — but it also means the page cannot promise which one they will see.
+
+The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the browser’s own `:invalid` state alike.
+The second matches a partially entered date as well, so a field can turn red while someone is still filling in its segments; set `aria-invalid` from your own validation to control when that happens.
+
 ## See also
 
 - [Calendar](/docs/components-navigation-calendar--docs) – navigate between dates using a calendar view.
@@ -30971,6 +32352,8 @@ Read the documentation by [NL Design System](https://www.nldesignsystem.nl/richt
 
 ### How to use
 
+#### No rich text
+
 Do not use rich text (such as links or lists) in an Error Message.
 Some screen readers, like VoiceOver, skip over rich text when reading out descriptions.
 For more information, see [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/descriptions/inhoud/).
@@ -30997,6 +32380,23 @@ Replace the icon with another to use Error Message in a different theme or visua
 Websites for the City of Amsterdam must use the default icon.
 
 &lt;Canvas of={ErrorMessageStories.WithCustomIcon} /&gt;
+
+## Design
+
+An Error Message is red text with an icon before it, and nothing else: no background, no border, no box.
+The [Field](/docs/components-forms-field--docs) around it is what marks the error more heavily, with a red rule along its leading edge, so the message itself can stay quiet.
+
+The icon keeps the message from depending on its colour alone, which is what a reader who does not distinguish red from the text around it needs.
+
+## Accessibility
+
+An Error Message renders a `p` element, so it is read as ordinary text when the field it describes is reached through `aria-describedby`.
+
+It opens with a word that is in the markup and hidden visually — ‘Invoerfout’ by default.
+A description read out on its own gives no clue that it is an error, so the prefix supplies the context that the colour and the icon carry visually.
+
+The component does not announce itself when it appears, and it is not a live region.
+Announcing it is the job of the field that now describes it, or of an [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) at the top of the form.
 
 ## See also
 
@@ -31175,6 +32575,8 @@ Use [Field Set](/docs/components-forms-field-set--docs) to wrap multiple inputs.
 
 ### How to use
 
+#### No rich text
+
 Do not use rich text (such as links or lists) in descriptions.
 Some screen readers, like VoiceOver, skip over rich text when reading out descriptions.
 For more information, see [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/descriptions/inhoud/).
@@ -31215,6 +32617,30 @@ Use the `inFieldSet` prop on the Labels of the Fields to show them in a lighter 
 
 There’s no need to add white space between the children of a Field.
 The component does this automatically.
+
+## Design
+
+The spacing between the children of a Field is not uniform.
+Everything sits a small distance apart, except the element directly before an Error Message, which gets more room.
+The message is then read as belonging to the field below it rather than to the description above it.
+
+Browsers that cannot express that condition fall back to the same small gap everywhere, which is acceptable: the order still reads correctly, only the emphasis is lost.
+
+An invalid Field is marked by a red rule along its leading edge and indented away from it.
+The whole question shifts, so the error is visible while scanning a long form rather than only when reading the field itself.
+
+In print, a Field is never split across two pages.
+
+## Accessibility
+
+A Field renders a `div` with no role of its own and adds nothing to the accessibility tree.
+It groups its parts visually, and nothing more.
+
+This is why ‘How to use’ insists on `aria-describedby`: the description and the Error Message are related to the input by that attribute alone, not by sitting inside the same Field.
+Someone reading the field on its own would otherwise get the label and nothing else.
+
+The red rule marking an invalid Field is not announced either, and neither is the colour of the Error Message.
+The hidden prefix inside the message is what says that something went wrong.
 
 ## See also
 
@@ -31449,11 +32875,34 @@ Use the `inFieldSet` prop to show the legend in a lighter style.
 There’s no need to add white space between the children of a Field Set.
 The component does this automatically.
 
+## Design
+
+The spacing between the children of a Field Set climbs in four steps.
+Ordinary children sit close together; the element before an Error Message gets more room; the element before a nested Field or Field Set more again; and two of those in a row are furthest apart.
+Depth in a form is expressed by white space rather than by boxes or rules, so the more a Field Set holds, the more clearly its parts separate.
+
+Browsers that cannot express those conditions fall back to the smallest gap everywhere, which is acceptable: the order still reads correctly, only the grouping is flatter.
+
+The legend loses the notch a browser normally cuts for it in the border, because there is no border to cut.
+It is laid out so that a border would pass around it rather than through it, which keeps the option open for a theme that draws one.
+
+An invalid Field Set is marked by a red rule along its leading edge and indented away from it, the same way a [Field](/docs/components-forms-field--docs) is.
+
+A Field Set does not grow to fit an input that asks for a width of its own, such as a Text Input with a `size` attribute.
+Without that, a single wide field would stretch the whole group and the layout around it.
+
+In print, a Field Set is never split across two pages.
+
 ## Accessibility
 
 A Field Set has the implicit ARIA role `group`.
 Set `role=&quot;radiogroup&quot;` when it groups [Radio](/docs/components-forms-radio--docs) buttons, so that screen readers announce it as a radio group.
 That role also permits `aria-required` on the Field Set, which the `group` role does not allow.
+
+The legend names that group, and screen readers repeat it before each option inside it.
+Someone moving from one Radio to the next therefore hears which question they are answering, not just the answer they are on.
+
+`legendIsPageHeading` wraps the legend in an `h1` rather than replacing it, so the same words serve as the heading of the page and as the name of the group.
 
 ## See also
 
@@ -31655,6 +33104,21 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 ## Design
 
 The filename label and button are displayed in the language of the browser and can vary between browsers and operating systems.
+
+The field itself gets the border, padding and type of the other form fields, and the button the browser draws inside it is restyled to look like a secondary [Button](/docs/components-buttons-button--docs).
+Hovering thickens that button’s outline with an inset ring rather than a wider border, so nothing beside it moves.
+
+The button takes the type of the field around it rather than setting its own.
+Browsers give a file selector button a font of their own, and inheriting it is what keeps the control from looking like a piece of another interface.
+
+## Accessibility
+
+A File Input renders a native `input` of type file, so the file dialog, the keyboard behaviour and the list of chosen files all come from the browser and the operating system.
+
+Both the button’s wording and the text stating what has been selected are generated by the browser, in the browser’s language rather than the page’s.
+A visitor on a page in one language may hear that text in another, and nothing the page does can change it.
+
+A [File List](/docs/components-forms-file-list--docs) beside the field is how a page states the selection in its own words and gives the user a way to remove a file.
 
 ## See also
 
@@ -35147,10 +36611,13 @@ Match the size of the Icon Button to the surrounding text.
 Only [functional icons](/docs/brand-assets-icons--docs#functional-icons) belong in an Icon Button.
 For other icons, use a [Button](/docs/components-buttons-button--docs) so that the user can read its label.
 
+Do not use an Icon Button to submit a form; that is a [Button](/docs/components-buttons-button--docs)’s job.
+Even the one icon-only submit in the system — the search button — is a Button, not an Icon Button.
+
 ### How to use
 
 An Icon Button still needs a label for screen reader users.
-Provide it through the `children` prop; it is read aloud even though it is not shown.
+Provide it through the `label` prop; it is read aloud even though it is not shown.
 
 ## Examples
 
@@ -35172,6 +36639,23 @@ Use the inverse colour on an azure, blue, green, magenta or purple background.
 It will make the icon white.
 
 &lt;Canvas of={IconButtonStories.InverseColour} /&gt;
+
+## Design
+
+An Icon Button has no shape of its own: no border, no background, and no padding.
+It takes up no more room than the icon it holds, which is what lets it sit inside a line of text without disturbing the line.
+
+The icon is given a square box, so the area that responds to the pointer is a square centred on the icon rather than a shape that follows its outline.
+Hovering tints that square with the icon’s own colour at one-eighth opacity instead of filling it, so the affordance appears without the icon shifting or changing weight.
+
+The focus outline is offset from the icon rather than drawn against it, which keeps a thin glyph readable inside the ring.
+
+## Accessibility
+
+An Icon Button renders a `button` element and always writes its label into the markup, hidden visually.
+Screen readers announce that label, so the button is never announced as unlabelled, and the icon contributes nothing to the name.
+
+Its `type` defaults to `button` rather than `submit`, so it never submits a form by accident: a close button dismisses a Dialog through its click handler, not by submitting a form the Dialog may contain.
 
 ## See also
 
@@ -35349,6 +36833,8 @@ Imagine what you would say when reading the page to someone over the phone witho
 The alternate text should be able to replace the image without altering the meaning of the page.
 Do not use `alt` for text that could be construed as a caption or title (source: [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt)).
 
+The text is worth writing well for more than one audience: it is what shows when the file fails to load, and search engines read it too.
+
 ## Examples
 
 ### Responsive images
@@ -35380,11 +36866,24 @@ An Image fills the width of its container and always has an aspect ratio, so the
 Every Image should be shown in one of the [available aspect ratios](/docs/brand-design-tokens-aspect-ratio--docs).
 The default is 16:9.
 If the intrinsic dimensions of the source do not match an aspect ratio, the image will be cropped to cover the intended area.
+The crop is taken from the centre, so the middle of a photograph is what survives a ratio it was not made for.
+
+Alternate text is displayed in italics.
+When a file fails to load, its description then reads as a stand-in rather than as a stray sentence in the surrounding copy.
+
+The component sets a width of 600 pixels in the markup, which the stylesheet immediately overrides.
+It only takes effect when that stylesheet does not arrive, and it keeps a missing image from rendering at whatever size the file happens to be.
+
+An Image carries a background colour and a background image that are both switched off by default.
+This is what lets a mode move the picture out of view and show a placeholder in the space it reserved, without the component knowing anything about that mode.
 
 ## Accessibility
 
-Non-visual browsers hide images with `alt=&quot;&quot;` from the user.
-The alternate text also displays if the image fails to load, and it can help search engine optimisation.
+An `img` with a description is exposed as an image with that text as its name.
+Setting `alt=&quot;&quot;` removes it from the accessibility tree instead, so a decorative image is passed over silently rather than announced as an image nobody named.
+
+Because the box is reserved before the file arrives, the page does not reflow as images load.
+Someone reading with a screen magnifier or following a keyboard focus ring does not lose their place halfway down a page.
 
 ## See also
 
@@ -36575,6 +38074,26 @@ This allows keyboard users to quickly navigate to the errors in the form.
 It also scrolls the component into view if it isn’t already.
 Note: this functionality has been disabled on this page, to prevent unexpected focus behaviour.
 
+## Design
+
+An Invalid Form Alert is an [Alert](/docs/components-feedback-alert--docs) holding a [Link List](/docs/components-navigation-link-list--docs), rather than a component with a look of its own.
+A reader who has met the red Alert elsewhere on the site recognises it here, and the errors read as what they are: a list of links to the questions that need attention.
+
+The component renders nothing at all when there are no errors, so a form needs no condition around it.
+
+## Accessibility
+
+The Alert is focused the first time it appears and scrolled into view, which moves a keyboard user straight to the summary instead of leaving them where they submitted from.
+It is given a negative tab index so that it can be focused this way without becoming a stop that everyone has to pass on every later visit to the form.
+
+Each error is a link to the field it concerns, so following one moves focus into the form at the question that needs answering.
+This is what ‘How to use’ is protecting when it asks for the `id` of the first field of a group: a link to the group as a whole would land nowhere in particular.
+
+The error count is added to the document title as well.
+A screen reader announces the title when a page loads or a route changes, so someone who submits a form and lands back on it hears that something went wrong before reading anything.
+
+Placing the component outside the `form` element, as ‘How to use’ asks, is what keeps some screen readers from skipping it in their forms mode.
+
 ## See also
 
 - [Error Message](/docs/components-forms-error-message--docs) – the per-field message linked from the Invalid Form Alert.
@@ -37063,6 +38582,26 @@ When a Label is used in a Field inside a Field Set, use the `inFieldSet` prop to
 
 &lt;Canvas of={LabelStories.InAFieldSet} /&gt;
 
+## Design
+
+A Label is set in bold, at the size of a level 3 Heading and with the tighter line height that goes with it.
+A question in a form is treated as a small heading, because that is what it is: the thing a reader scans for when working out what is being asked.
+
+Inside a Field Set that weight drops to regular.
+The legend then carries the emphasis for the group, and the labels of the individual options read as answers rather than as questions of their own.
+
+A Label that runs onto more than one line has its line lengths balanced, so it never ends on a single short word above the field.
+
+## Accessibility
+
+A Label renders a `label` element tied to its input, so activating the label moves focus to the field and a screen reader announces the label when the field is reached.
+
+The hint is written inside the label.
+It becomes part of the accessible name of the field, which is what makes ‘niet verplicht’ reach someone who never sees it beside the text.
+
+`isPageHeading` wraps the label in an `h1` rather than replacing it.
+The text then serves as the heading of the page and as the name of the field at once, so navigating by heading and reaching the input both produce the same words.
+
 ## See also
 
 - [Field](/docs/components-forms-field--docs) – wraps a single input together with its Label.
@@ -37271,6 +38810,27 @@ It will make the Link white.
 
 We discourage using styles for visited links because they often make the page less clear and navigation more challenging.
 It is not part of navigation elements that are frequently scanned.
+
+A Link inherits the typeface, size and line height of the text it sits in.
+Nothing about an inline link interrupts the line it belongs to: only its colour and its underline set it apart, at whatever size the surrounding text happens to be.
+
+The underline is thicker than the one a browser draws and sits further from the text, so descenders stay legible through it.
+On hover it thickens and moves closer to the text by the same amount, which leaves its lower edge exactly where it was.
+The line of text does not shift as the pointer passes over it.
+
+On a coloured background the hover colour is the same as the resting one.
+Black or white is already the only readable choice there, so hovering changes the underline alone.
+
+## Accessibility
+
+A Link renders an `a` element and is announced as a link, in the reading order of the sentence that holds it.
+
+### External links
+
+`rel=&quot;external&quot;` states the relationship for machines that read the markup, and nothing about it is announced.
+A link that leaves the website, opens a new window, or downloads a file has to say so in its own text: a reader who cannot see the address bar gets no other warning.
+
+Opening a new window also takes someone to a context they did not ask for and cannot leave with the back button, which is why ‘How to use’ discourages `target=&quot;_blank&quot;` rather than only asking for `noopener` alongside it.
 
 ## See also
 
@@ -40657,6 +42217,12 @@ The aspect ratio of 32:9 is most suitable.
 
 Follow [the general guidelines for images](/docs/components-media-image--docs).
 
+Put the background first and the content that sits on top after it.
+The Overlap stacks its children in the order you write them, so the last one is the one on top.
+
+Check that text placed over an image still has enough contrast against it.
+A photograph varies from one area to the next, so a colour that passes over the sky may fail a few hundred pixels along.
+
 ## Examples
 
 ### Hero image with Search Field
@@ -40665,6 +42231,24 @@ This allows for the use of a mood-setting image as a background.
 A [Grid](/docs/components-layout-grid--docs) provides horizontal space on both sides and columns for layout.
 
 Note: the library does not yet offer an option to vertically centre the form.
+
+## Design
+
+Every child is placed in the same single cell of a grid, one on top of the other.
+Nothing is taken out of the flow, so an Overlap still occupies space on the page and pushes what follows it down, which absolute positioning would not do.
+
+The tallest child decides the height.
+An image and the content over it therefore need to be a reasonable match in size, since the shorter of the two cannot stretch the container.
+
+Stacking order follows the markup and nothing else.
+There is no `z-index` to set or to fight with; moving something to the front means moving it later in the code.
+
+## Accessibility
+
+An Overlap renders a `div` and adds nothing to the accessibility tree.
+
+Because the stacking order is the source order, what is drawn on top is also what is read last.
+The visual arrangement and the reading order cannot drift apart here, which is the usual hazard with overlapping content.
 
 ## See also
 
@@ -40865,6 +42449,20 @@ The Page is centered horizontally and sets a maximum width of 90 rems (usually 1
 With a Menu, that becomes 120 rems (1920 pixels).
 
 An element placed directly in the Page, outside a [Grid](/docs/components-layout-grid--docs), spans the full width of the Page rather than the full width of the window.
+
+The Page is at least as tall as the window, measured against the part of it that is actually visible rather than the nominal height.
+On a phone the browser’s own bars come and go as you scroll, and the two measurements differ by exactly that much; using the visible one keeps a short page from ending in a strip of background below the Page Footer.
+
+With a Menu the Page becomes a grid of named areas rather than a stack.
+The Skip Link keeps a row of its own across the full width, above both the menu column and the header, so it is still the first thing reached however the rest is arranged.
+
+## Accessibility
+
+A Page renders a `div` and adds nothing to the accessibility tree.
+The landmarks of a page come from what you put inside it: the `banner` of the [Page Header](/docs/components-containers-page-header--docs), the `contentinfo` of the [Page Footer](/docs/components-containers-page-footer--docs), and the `main` element around the content between them.
+
+With a Menu, the areas are placed by the grid rather than by their order in the markup.
+The children are still announced and reached by keyboard in the order they are written, which is why the Skip Link comes first in the code as well as on screen.
 
 ## See also
 
@@ -41074,6 +42672,32 @@ return &lt;Pagination linkComponent={LinkComponent} /&gt;
 ## Features
 
 Pagination renders nothing when `totalPages` is 1 or less, so a set that fits on a single page needs no condition around it.
+
+## Design
+
+The whole set is centred and wraps onto as many lines as it needs.
+A long list of page numbers reflows on a narrow screen rather than overflowing or scrolling sideways.
+
+The current page is marked by weight and colour rather than by a box of its own, and it drops its underline on hover.
+It reads as a statement of where you are instead of as another link to follow.
+
+The chevrons on the previous and next links keep a fixed size instead of scaling with the text around them.
+They stay in proportion to the numbers they sit beside, which are the same size on every page.
+
+An ellipsis stands in for the page numbers that are left out, so the distance between what is shown stays visible.
+
+## Accessibility
+
+Pagination renders a `nav` around an ordered list, so it is a navigation landmark and the pages keep their order.
+The landmark is named by text that is in the markup and hidden visually.
+
+The current page is marked as such, so assistive technology reports which link is the page you are on rather than leaving it to be inferred from the styling.
+
+The previous and next links are named by hidden text that says which page they lead to, while their visible label stays short.
+That visible label is hidden from assistive technology, so the link is announced once rather than twice — and it is why ‘How to use’ asks that the two labels keep saying the same thing.
+
+The visible label also carries the `hidden` attribute and is revealed by the stylesheet.
+If that stylesheet never arrives, the fuller accessible text shows in its place rather than a bare chevron.
 
 ## Design tokens
 
@@ -41510,6 +43134,24 @@ This component sets `autocorrect=&quot;off&quot;` and `spellcheck=&quot;false&qu
 Passwords shouldn’t be checked for spelling or grammar.
 This may also prevent posting the password to third-party plugins.
 These props cannot be overridden.
+
+## Design
+
+A Password Input is identical to a [Text Input](/docs/components-forms-text-input--docs) in every respect a stylesheet controls: the same border, padding, type, width behaviour, and invalid and disabled states.
+Only the masking marks it as different, and the browser draws that.
+
+There is no control to reveal what has been typed.
+The component is the field and nothing more, so a service that wants a reveal button builds it beside the field rather than receiving one it cannot remove.
+
+## Accessibility
+
+A Password Input renders an `input` of type password, so the browser masks the value, keeps it out of autofill for ordinary fields, and lets a password manager recognise it.
+
+Its text direction is set to follow what is typed rather than the direction of the page.
+A password made of characters from another script is then displayed the way it was entered instead of being reordered around it.
+
+The `invalid` prop sets `aria-invalid` on the field, and that styling responds to the browser’s own `:invalid` state as well.
+A password is incomplete for most of the time it is being typed, so a `required` or `pattern` attribute would mark the field red throughout; leave the state to your own validation and set it through `invalid`.
 
 ## See also
 
@@ -43495,6 +45137,28 @@ Websites for the City of Amsterdam must use the default icon.
 
 &lt;Canvas of={RadioStories.WithCustomIcon} /&gt;
 
+## Design
+
+The circle is drawn as an SVG inside the label rather than by the browser, which is what makes a custom icon possible at all and keeps the control identical across browsers.
+It carries a separate ring that appears on hover, so the circle grows a halo instead of changing size or colour.
+
+A Radio is round and a [Checkbox](/docs/components-forms-checkbox--docs) is square, which is the only thing distinguishing one from the other at a glance.
+That difference is easy to miss, which is why ‘When not to use’ asks for a hint saying how many options may be chosen rather than trusting the shape to say it.
+
+In forced colours mode the drawing is redone in system colours, since the fills the tokens set are ignored there.
+
+## Accessibility
+
+A Radio renders a native `input` inside a `label`, so the whole label is the target and the browser supplies the role, the checked state, and the arrow-key behaviour that moves between the options of a group.
+
+The input is not hidden away: it is reduced to no width, which keeps it focusable, announced, and submitted with the form.
+Its focus ring is moved onto the label so the ring surrounds the circle and its text rather than a control with no size.
+
+A group of Radios takes one stop in the tab order, and the arrow keys move within it.
+That is browser behaviour tied to the shared `name`, so give every Radio in a group the same one.
+
+Marking every Radio in a failed group as invalid — as ‘How to use’ asks — is what puts the state on each option a screen reader reaches, since the group itself is only announced once.
+
 ## See also
 
 - [Checkbox](/docs/components-forms-checkbox--docs) – when a user can select more than one option.
@@ -43731,6 +45395,25 @@ The medium gap is the default.
 
 Align the elements horizontally or vertically through the alignment props.
 
+## Design
+
+A Row keeps its items on one line unless you allow it to wrap.
+Items are squeezed rather than moved down, which is what makes a Row a row: the arrangement you laid out is the arrangement that survives a narrow screen, until you decide otherwise.
+
+The gap is the only spacing a Row provides.
+There is no padding, no margin, and no divider between items, so the space belongs to the container and the items keep whatever spacing they define for themselves.
+
+All five gaps scale with the width of the window rather than stepping at a breakpoint.
+The white space in a layout therefore grows in proportion with the type and the grid around it, instead of holding still until a threshold is crossed.
+
+## Accessibility
+
+A Row renders a `div` by default, which adds nothing to the accessibility tree.
+Its items are announced exactly as they would be without it, in the order they appear in the markup.
+
+Alignment never changes that order.
+`align=&quot;end&quot;` moves items to the other end of the line visually, and a screen reader still reads them from the start.
+
 ## See also
 
 - [Column](/docs/components-layout-column--docs) – stacks its children vertically instead.
@@ -43940,6 +45623,25 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 &lt;Canvas of={SelectStories.InAFieldWithValidation} /&gt;
 
+## Design
+
+A Select shares its border, padding, type and states with a [Text Input](/docs/components-forms-text-input--docs), so a field the user types into and one they choose from sit level in the same form.
+
+The chevron browsers draw is replaced by one of ours, and the field reserves room for it at the end so a long option never runs underneath.
+It is drawn three times over — in the interactive blue, in the hover blue, and in grey when disabled — because a background image cannot take the colour of the text the way an icon in the markup would.
+
+A Select showing several options at once keeps the native appearance and no chevron, since there is nothing to expand.
+
+## Accessibility
+
+A Select renders a native `select` element with native `option` and `optgroup` elements inside it.
+The list that opens is the operating system’s own, so it behaves the way every other menu on that device does: the same keys, the same gestures, and the same behaviour with a screen reader, none of which the design system reimplements.
+
+That is also the reason the appearance stops at the closed field.
+An open list cannot be styled, and replacing it with markup we could style would mean rebuilding all of that behaviour.
+
+A disabled option is greyed but still announced, so the user hears that a choice exists and is unavailable rather than not hearing it at all.
+
 ## See also
 
 - [Checkbox](/docs/components-forms-checkbox--docs) – use for multi-select interactions instead of a multi-Select.
@@ -44139,6 +45841,9 @@ After appearing, it pushes the rest of the page down.
 
 Following a Skip Link moves the starting point for sequential focus navigation to the target, so the next ‘Tab’ press continues from there.
 The target itself does not receive focus, and it does not need to: an `id` is enough, so leave `tabindex` off.
+
+A Skip Link is hidden by being clipped to a single pixel rather than by `display: none`, so it stays in the tab order and in the accessibility tree the whole time.
+This is what lets it be the first thing a keyboard user reaches while remaining invisible to everyone else, and it is why a screen reader user encounters it in reading order even though it is never drawn.
 
 ### Placement outside the landmarks
 
@@ -44359,6 +46064,16 @@ The Standalone Link has a chevron icon at the start to signify that it is a link
 This also makes it visually identical to a single link in a [Link List](/docs/components-navigation-link-list--docs).
 As a result, pages can have sections with either one or several links used interchangeably; they look alike, and their semantics are correct.
 
+It carries no underline until the pointer is over it.
+The chevron is what identifies it in the meantime, which is why the underline can be spared: on its own line there is no running text for a link to be told apart from.
+
+## Accessibility
+
+A Standalone Link renders an `a` element and is announced by its text; the chevron adds nothing to the name.
+
+Because the chevron marks the link, colour is not the only thing distinguishing it from ordinary text, as [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) requires.
+This is what makes dropping the underline safe here, where an inline [Link](/docs/components-navigation-link--docs) keeps one.
+
 ## See also
 
 - [Link](/docs/components-navigation-link--docs) – for inline links in running text.
@@ -44529,6 +46244,31 @@ A Switch must have a label, and in most cases, this label should be visible.
 ### With Label
 
 &lt;Canvas of={SwitchStories.WithLabel} /&gt;
+
+## Design
+
+The track and the thumb are the whole of a Switch: a rounded bar with a circle that slides from one end to the other, and a colour change behind it.
+There is no text inside it, so it needs no room for words in either state and stays the same width whichever way it is set.
+
+The thumb moves by exactly the width of the track minus its borders, so it comes to rest flush against the end rather than at a distance measured separately for each size.
+
+The slide and the colour change behind the thumb are animated only for users who have not asked for reduced motion.
+Everyone else sees the new state at once, with no travel across the track.
+
+The track carries a transparent border rather than none at all.
+In forced colours mode a background is replaced by the system’s own, and the border is what remains to give the Switch an outline; a floor of one pixel keeps a theme from removing it by setting the token to zero.
+
+Hovering puts a shadow around the thumb rather than moving or resizing it.
+
+## Accessibility
+
+A Switch renders a checkbox marked as a switch, so it is announced as on or off rather than as checked or unchecked, and it is operated with Space like any other checkbox.
+
+The visible track is an empty `label` that supplies no name.
+A Switch therefore takes its name from a [Label](/docs/components-forms-label--docs) tied to it with `htmlFor`, which is what ‘How to use’ asks for; without one it is announced as an unnamed switch.
+
+The input is not hidden away: it is reduced to no width, which keeps it focusable, announced, and submitted with the form.
+Its focus ring is moved onto the track so the ring surrounds the switch rather than a control with no size.
 
 ## See also
 
@@ -44740,6 +46480,25 @@ If the Text Area can become invalid, add an Error Message and its `id` to the `a
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 &lt;Canvas of={TextAreaStories.InAFieldWithValidation} /&gt;
+
+## Design
+
+A Text Area shares its border, padding, type and states with a [Text Input](/docs/components-forms-text-input--docs), so a form built from both reads as one set of fields.
+
+It has a minimum height of its own, which is what says at a glance that more than one line is expected here.
+Setting `cols` switches the width from filling the container to sizing by character count, and the field still never grows past the space it has.
+
+The `resize` prop decides which directions the user may drag.
+The handle browsers put in the corner is left in place by default: it costs nothing, and it lets someone give themselves more room for a long answer without leaving the page.
+
+## Accessibility
+
+A Text Area renders a `textarea` element and is announced with its label and anything `aria-describedby` points at.
+
+Resizing is a convenience for people who need more room on screen, and it is not supported in Safari on iOS.
+Nothing depends on it, so a field there behaves as it would with `resize` set to none.
+
+The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the browser’s own `:invalid` state alike, as it does for a [Text Input](/docs/components-forms-text-input--docs).
 
 ## See also
 
@@ -45084,6 +46843,32 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 &lt;Canvas of={TextInputStories.InAFieldWithValidation} /&gt;
 
+## Design
+
+A Text Input fills the width of whatever holds it unless a `size` is given, and never grows past it.
+The default is a field as wide as the layout allows, which asks nothing of the person composing the form until they have a reason to say otherwise.
+
+The border is two pixels and the corners are square.
+Hovering adds a one-pixel ring inside that border rather than widening it, so the field appears to thicken without the layout moving underneath it.
+
+An invalid field turns its border red, and a disabled one greys its background rather than its border.
+The two states are told apart by which part changes, so neither is read as the other at a glance.
+
+The text inside the field is the size of body text with a tighter line height, and its padding is the same as a [Button](/docs/components-buttons-button--docs)’s.
+A field and a button on the same line therefore come out the same height.
+
+## Accessibility
+
+A Text Input renders an `input` element, so it is announced with its type, its label, and anything `aria-describedby` points at.
+
+The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the browser’s own `:invalid` state alike.
+The second matches as soon as the page loads for a field that is `required` and empty, so a form that leans on it marks its fields red before anyone has typed; set `aria-invalid` from your own validation to control when that happens.
+
+A disabled field is greyed and removed from the tab order, which is why ‘When not to use’ lists alternatives to it rather than treating it as an ordinary state.
+
+Placeholder text is styled but not recommended, and it is not a label: it disappears on the first keystroke and is not reliably announced.
+‘When not to use’ covers what to do instead.
+
 ## See also
 
 - [Text Area](/docs/components-forms-text-area--docs) – for multi-line text input.
@@ -45286,6 +47071,23 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 This component uses a native time input, which is styled differently in different browsers and operating systems.
 Recreating the native functionality is quite difficult and prone to accessibility errors, which is why we’ve chosen not to do that.
 This does mean that this component does not look identical on all browsers and operating systems.
+
+The styling therefore stops at the box: the border, the padding and the type are ours, and the segments inside it, the format hint and the clock that opens belong to the browser.
+Chromium lets its picker button be replaced, so there it carries our icon; other browsers keep their own.
+
+The field is given a minimum width and height, and the width Android devices impose on it is overridden.
+A native time field is much smaller when empty than when filled on some devices and far wider than it needs to be on others, and neither would sit comfortably in a form.
+
+Everything else — the border, the padding, the type, and the invalid and disabled states — matches a [Text Input](/docs/components-forms-text-input--docs), so a time sits level with the other fields of a form.
+
+## Accessibility
+
+A Time Input renders a native `input` of type time, so screen readers announce it segment by segment and every browser’s own keyboard handling applies: arrow keys to change a part, typing to fill one, and the browser’s picker for those who prefer it.
+
+Whether the field asks for a 24-hour time or for hours with AM and PM comes from the browser and the operating system, not from the language of the page.
+The value a form receives is the same either way, but which of the two a visitor sees is not something the page decides.
+
+The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the browser’s own `:invalid` state alike.
 
 ## See also
 
