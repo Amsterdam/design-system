@@ -38,6 +38,7 @@ const meta = {
       </Table>
     ),
   ],
+  tags: ['!manifest'],
 } satisfies Meta<typeof Table.HeaderCell>
 
 export default meta

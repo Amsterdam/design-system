@@ -23,5 +23,5 @@ type Story = StoryObj<typeof meta>
  * The story shows a single visible paragraph; a second one appearing means the utility stopped hiding.
  */
 export const Test: Story = {
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

@@ -39,7 +39,7 @@ export const PathAndExclude: Story = {
       <DesignTokensTable path="ams.inputs.disabled" tokens={pathAndExcludeTokens} />
     </>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }
 
 export const Descriptions: Story = {
@@ -57,7 +57,7 @@ export const Descriptions: Story = {
       }}
     />
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }
 
 export const Test: Story = {
@@ -104,5 +104,5 @@ export const Test: Story = {
       }}
     />
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

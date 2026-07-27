@@ -68,5 +68,5 @@ export const Test: Story = {
       </SearchField>
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

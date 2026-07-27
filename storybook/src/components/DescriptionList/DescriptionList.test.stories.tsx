@@ -70,5 +70,5 @@ export const Test: Story = {
     ],
   },
   render: (args, context) => renderComponentVariants(DescriptionListWithContainerQueryExamples, { args }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

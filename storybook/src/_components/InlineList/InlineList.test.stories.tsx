@@ -29,5 +29,5 @@ export const Test: Story = {
       </InlineList.Item>
     </InlineList>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

@@ -19,6 +19,7 @@ const meta = {
       <Skeleton.Table {...args} />
     </Skeleton>
   ),
+  tags: ['!manifest'],
 } satisfies Meta<typeof Skeleton.Table>
 
 export default meta

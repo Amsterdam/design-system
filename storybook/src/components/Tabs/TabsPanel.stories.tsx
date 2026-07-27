@@ -22,6 +22,7 @@ const meta = {
     ),
   ],
   render: ({ children, ...args }) => <Tabs.Panel {...args}>{children}</Tabs.Panel>,
+  tags: ['!manifest'],
 } satisfies Meta<typeof Tabs.Panel>
 
 export default meta

@@ -47,5 +47,5 @@ export const Test: Story = {
       />
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

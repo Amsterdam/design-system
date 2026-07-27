@@ -23,6 +23,7 @@ const meta = {
       </Accordion>
     ),
   ],
+  tags: ['!manifest'],
 } satisfies Meta<typeof Accordion.Section>
 
 export default meta

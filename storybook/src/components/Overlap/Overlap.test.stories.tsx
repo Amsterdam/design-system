@@ -25,5 +25,5 @@ export const Test: Story = {
     children: [<img alt="" key={1} src="https://picsum.photos/id/122/1280/720" />, <p key={2}>Overlap test</p>],
   },
   render: (args, context) => renderComponentVariants(Overlap, { args }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }
