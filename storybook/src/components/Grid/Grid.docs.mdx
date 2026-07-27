@@ -7,6 +7,7 @@ import tokens from "#tokens/components/ams/grid.tokens.json";
 
 import * as GridStories from "./Grid.stories";
 import * as GridCellStories from "./GridCell.stories.tsx";
+import * as GridSubgridStories from "./GridSubgrid.stories.tsx";
 
 <Meta of={GridStories} />
 
@@ -22,13 +23,26 @@ import * as GridCellStories from "./GridCell.stories.tsx";
 
 ### Cell
 
-Every direct child of a Grid must be a Cell.
+Every direct child of a Grid must be a Cell or a Subgrid.
 Size and position it with the `span` and `start` props, which accept responsive values.
 Its `appearance` controls the background in Compact Mode.
 
 <Canvas of={GridCellStories.Cell} />
 
 <Controls of={GridCellStories.Cell} />
+
+### Subgrid
+
+Shares the columns it spans with its own children, so they align to the columns of the page.
+Place and size it with `span` and `start`, exactly like a Cell; those values also decide how many columns its children have to work with.
+Every direct child of a Subgrid must be a Cell.
+
+Use it for a region beside a sidebar, such as the results of an index page next to a filter column.
+Without it, a Cell inside a Cell has no columns to align to.
+
+<Canvas of={GridSubgridStories.Subgrid} />
+
+<Controls of={GridSubgridStories.Subgrid} />
 
 ## Usage guidelines
 
@@ -157,6 +171,8 @@ Cells flow automatically.
 A cell that doesn’t fit in the current row moves to the next, which keeps simple layouts simple.
 
 A Grid Cell is a [query container](/docs/utilities-css-query-container--docs) for inline size, so elements inside it can adapt their appearance to the width of the cell.
+A Subgrid is not: a grid container that establishes an independent formatting context cannot share its parent’s columns, so it would stop being a subgrid.
+Its Cells are query containers as usual, which is where components that need one belong.
 
 ## Design
 
