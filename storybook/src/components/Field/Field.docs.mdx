@@ -29,6 +29,8 @@ Use [Field Set](/docs/components-forms-field-set--docs) to wrap multiple inputs.
 
 ### How to use
 
+#### No rich text
+
 Do not use rich text (such as links or lists) in descriptions.
 Some screen readers, like VoiceOver, skip over rich text when reading out descriptions.
 For more information, see [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/descriptions/inhoud/).
@@ -69,6 +71,30 @@ Use the `inFieldSet` prop on the Labels of the Fields to show them in a lighter 
 
 There’s no need to add white space between the children of a Field.
 The component does this automatically.
+
+## Design
+
+The spacing between the children of a Field is not uniform.
+Everything sits a small distance apart, except the element directly before an Error Message, which gets more room.
+The message is then read as belonging to the field below it rather than to the description above it.
+
+Browsers that cannot express that condition fall back to the same small gap everywhere, which is acceptable: the order still reads correctly, only the emphasis is lost.
+
+An invalid Field is marked by a red rule along its leading edge and indented away from it.
+The whole question shifts, so the error is visible while scanning a long form rather than only when reading the field itself.
+
+In print, a Field is never split across two pages.
+
+## Accessibility
+
+A Field renders a `div` with no role of its own and adds nothing to the accessibility tree.
+It groups its parts visually, and nothing more.
+
+This is why ‘How to use’ insists on `aria-describedby`: the description and the Error Message are related to the input by that attribute alone, not by sitting inside the same Field.
+Someone reading the field on its own would otherwise get the label and nothing else.
+
+The red rule marking an invalid Field is not announced either, and neither is the colour of the Error Message.
+The hidden prefix inside the message is what says that something went wrong.
 
 ## See also
 

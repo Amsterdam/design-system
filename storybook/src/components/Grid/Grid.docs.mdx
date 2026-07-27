@@ -61,6 +61,9 @@ Next to a sidebar, the main content goes in its own Grid Cell.
 Ensure the `span` and `start` values for a cell never exceed the number of columns available at that breakpoint.
 The browser would add columns to fit, which breaks the layout.
 
+Write the Cells in the order the content should be read, and use `start` only to decide where each one sits.
+Reading order and keyboard order follow the markup rather than the columns, so the two disagree as soon as `start` is used to reorder rather than to place.
+
 ## Examples
 
 The grey strokes in the examples below indicate the columns of the grid.
@@ -257,6 +260,18 @@ Many people keep a window at a fraction of a large monitor, and a tablet can sho
 
 The breakpoints also respond to the effective text size.
 When a user zooms in or sets a larger system font, the breakpoints kick in earlier, which may decrease the number of columns.
+
+## Accessibility
+
+A Grid renders a `div` by default and adds nothing to the accessibility tree.
+Cells are announced in the order they appear in the markup, whatever the grid does with them on screen.
+
+That matters because `start` can place a cell in a column that does not match its position in the code.
+A cell written second and started at column 7 is read second and reached second by the keyboard, even where it appears to the right of a cell written after it.
+‘How to use’ covers what that asks of the markup.
+
+The `as` prop can render an `article` or a `section` instead of a `div`.
+A `section` reaches assistive technology as a landmark only once it has a name, so give the heading inside it an `id` and point `aria-labelledby` at that id.
 
 ## See also
 

@@ -49,6 +49,27 @@ This component does not restrict the user from entering information.
 The user can enter more than the character limit, but are told they’ve entered too many characters.
 This lets them type or copy and paste their full answer, then edit it down.
 
+## Design
+
+A Character Count is one line of small text below the field.
+It keeps the ordinary text colour instead of being greyed down, so a reader who needs to check the count is not asked to read weaker text than the rest of the form.
+
+Going over the limit turns it red, and that is the whole of the change: no icon, no border, and nothing about the field itself.
+
+Counting up towards the limit rather than down from it means the message says the same thing before and after the limit is passed.
+The wording never has to switch from characters remaining to characters too many.
+
+## Accessibility
+
+A Character Count is a status region, so screen readers announce the new count without moving focus and without interrupting what is being read.
+Someone typing hears the count between words rather than after every keystroke, which is what ‘Features’ above describes.
+
+The text is fixed Dutch — the count, the word ‘van’, the limit, and ‘tekens’ — and cannot be configured.
+That is worth weighing before using a Character Count on a page in another language.
+
+Going over the limit is signalled by colour alone, so the count itself has to be read for the change to register.
+The text says the same thing either way, which is what keeps the message complete without the colour.
+
 ## Design tokens
 
 <DesignTokensTable tokens={tokens} />

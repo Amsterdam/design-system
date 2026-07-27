@@ -34,6 +34,11 @@ Describes the content.
 
 Use a Figure to add a caption to an image, table, citation, illustration, diagram, code snippet, etc.
 
+### How to use
+
+Do not repeat the caption in the `alt` of an image inside the Figure.
+The caption already names the Figure for assistive technology, so the same words in both places are announced twice.
+
 ## Examples
 
 ### Inverse colour
@@ -42,6 +47,27 @@ Use the inverse colour if the Figure Caption sits on a dark background.
 This ensures the colour of the text provides enough contrast.
 
 <Canvas of={FigureStories.InverseColour} />
+
+## Design
+
+The caption sits below the content it belongs to, separated by a small gap rather than a rule or a background.
+Proximity alone ties the two together, which keeps a Figure usable around any kind of content.
+
+A caption is set at the size of small body text, with the tighter line height that goes with it.
+It keeps the ordinary text colour instead of being greyed down, so a reader who needs the caption is not asked to read weaker text than the rest of the page.
+
+A Figure has no margins of its own.
+Browsers indent a `figure` by default; that indent is removed, which makes vertical rhythm a property of the layout rather than of the component.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+## Accessibility
+
+A Figure renders a `figure` element with a `figcaption` inside it.
+The pair is exposed as a figure, and the caption becomes its accessible name, so the caption describes the whole grouping rather than floating beside it as loose text.
+
+That grouping is what makes the caption more than proximity: it survives for someone who never sees the two sit together.
 
 ## Design tokens
 

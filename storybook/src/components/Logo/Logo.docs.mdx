@@ -48,10 +48,24 @@ Set the appropriate values for the sizing tokens.
 The Logo is 40 pixels tall at its minimum, growing to 60 pixels in wider windows.
 This also applies to sub-brand logos.
 
+Two rules produce that range: a fluid height that scales with the window, and a minimum height beneath it.
+The fluid value alone would carry on shrinking past 40 pixels on the narrowest screens, and the minimum is what stops it there.
+
+The colours are applied to the parts of the drawing — the emblem, the wordmark, and the sub-brand line — through the stylesheet rather than being baked into the artwork.
+Each brand therefore uses the same three tokens, and a theme can restyle all of them at once.
+The artwork also names its own colours, so a Logo still appears in the right red before the stylesheet arrives.
+
 Websites operated by one of the sub-brands use their specific logo.
 They have a separate status because of their unique service provision not directly associated with the City.
 
 [Stijlweb](https://www.amsterdam.nl/stijlweb/uitgangspunten/logo-gemeente-amsterdam/#hbab93411-6797-410f-8c1d-40fb988dd077) lists the sub-brands and their logos.
+
+## Accessibility
+
+A Logo renders an `svg` marked up as an image, with the brand’s name as its label, so it is announced as ‘Gemeente Amsterdam logo’ rather than passed over as decoration.
+Each brand carries its own label, and a custom logo supplies one alongside its artwork.
+
+That label is fixed text, not something automatic translation picks up, which is why an English site uses the English logo rather than relabelling the Dutch one, as the usage guidelines describe.
 
 ## See also
 

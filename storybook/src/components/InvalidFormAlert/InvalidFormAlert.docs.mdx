@@ -51,6 +51,26 @@ This allows keyboard users to quickly navigate to the errors in the form.
 It also scrolls the component into view if it isn’t already.
 Note: this functionality has been disabled on this page, to prevent unexpected focus behaviour.
 
+## Design
+
+An Invalid Form Alert is an [Alert](/docs/components-feedback-alert--docs) holding a [Link List](/docs/components-navigation-link-list--docs), rather than a component with a look of its own.
+A reader who has met the red Alert elsewhere on the site recognises it here, and the errors read as what they are: a list of links to the questions that need attention.
+
+The component renders nothing at all when there are no errors, so a form needs no condition around it.
+
+## Accessibility
+
+The Alert is focused the first time it appears and scrolled into view, which moves a keyboard user straight to the summary instead of leaving them where they submitted from.
+It is given a negative tab index so that it can be focused this way without becoming a stop that everyone has to pass on every later visit to the form.
+
+Each error is a link to the field it concerns, so following one moves focus into the form at the question that needs answering.
+This is what ‘How to use’ is protecting when it asks for the `id` of the first field of a group: a link to the group as a whole would land nowhere in particular.
+
+The error count is added to the document title as well.
+A screen reader announces the title when a page loads or a route changes, so someone who submits a form and lands back on it hears that something went wrong before reading anything.
+
+Placing the component outside the `form` element, as ‘How to use’ asks, is what keeps some screen readers from skipping it in their forms mode.
+
 ## See also
 
 - [Error Message](/docs/components-forms-error-message--docs) – the per-field message linked from the Invalid Form Alert.

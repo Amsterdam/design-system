@@ -87,10 +87,39 @@ Don’t forget to set the `hasSubsteps` prop on the parent step.
 
 <Canvas of={ProgressListStories.WithSubsteps} />
 
+## Design
+
+Each step is marked by a circle, with a line running between one circle and the next.
+The line passes behind the circles, and each circle is ringed in the page background colour so a gap appears where the two meet.
+This is why the component asks to be used on a white background only: the ring is painted, not transparent.
+
+The line carries the progress as much as the circles do.
+It is dashed and grey ahead of the current step and solid and green behind it, so the state of a step is legible from the connection as well as from the marker.
+
+A marker is placed against the height of the heading beside it rather than against the top of the step, so the circle sits on the middle of the first line of that heading at every heading level.
+
+Substeps repeat the same arrangement at a smaller size, and their connecting line is drawn over the parent’s so the two do not show through one another.
+
+The last line in the list is removed rather than left hanging.
+
+A collapsible step is opened by its own heading: the button fills the width of the heading and takes its typeface, size and weight, so the whole line is the control.
+The chevron turns half a circle when the step opens, animated only for users who have not asked for reduced motion.
+
+In print, collapsed steps are expanded again.
+A printed Progress List shows the whole process rather than whatever happened to be open on screen.
+
 ## Accessibility
+
+A Progress List renders an ordered list, so it is announced as a list with a number of items, and the steps keep their order.
+
+The step in progress is marked as the current step, which lets assistive technology report where in the process the reader is without their having to count.
 
 The status is conveyed visually through both colour and an icon, and via screen reader text.
 You can customize the screen reader text with `completedAccessibleText` and `currentAccessibleText` (defaults: ‘Klaar’ and ‘Bezig’).
+Neither the colour of a marker nor the style of a connecting line reaches a screen reader, so that text is the only thing carrying the status.
+
+A collapsible step reports whether it is expanded and names the panel it controls.
+The content of a collapsed step is removed from the page rather than hidden visually, so it is not announced and not reachable by keyboard until the step is opened.
 
 ## Design tokens
 

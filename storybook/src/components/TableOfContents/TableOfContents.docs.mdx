@@ -82,6 +82,19 @@ This example keeps a single branch open at a time by expanding the clicked branc
 
 <Canvas of={TableOfContentsStories.Controlled} />
 
+## Design
+
+Nested lists are indented from their parent, so the depth of an entry is legible from its position alone.
+
+In collapsible mode that indent comes from somewhere else: every item gains a leading column exactly one line high, whether or not it has a toggle button to put there.
+Labels then line up down the whole tree, and a branch that gains or loses children does not shift the entries around it.
+
+The toggle sits beside the link rather than inside it, so expanding a branch and following it are separate targets.
+
+A chevron turns half a circle when a branch opens, animated only for users who have not asked for reduced motion.
+
+The link for the current page is set in bold and in a colour of its own.
+
 ## Accessibility
 
 - The component renders as a `nav` landmark, and a `heading` becomes its accessible name.

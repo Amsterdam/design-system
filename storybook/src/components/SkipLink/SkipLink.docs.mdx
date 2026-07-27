@@ -63,6 +63,9 @@ After appearing, it pushes the rest of the page down.
 Following a Skip Link moves the starting point for sequential focus navigation to the target, so the next ‘Tab’ press continues from there.
 The target itself does not receive focus, and it does not need to: an `id` is enough, so leave `tabindex` off.
 
+A Skip Link is hidden by being clipped to a single pixel rather than by `display: none`, so it stays in the tab order and in the accessibility tree the whole time.
+This is what lets it be the first thing a keyboard user reaches while remaining invisible to everyone else, and it is why a screen reader user encounters it in reading order even though it is never drawn.
+
 ### Placement outside the landmarks
 
 A Skip Link comes before the Page Header, which puts it ahead of every landmark on the page.

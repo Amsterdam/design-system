@@ -21,6 +21,12 @@ The aspect ratio of 32:9 is most suitable.
 
 Follow [the general guidelines for images](/docs/components-media-image--docs).
 
+Put the background first and the content that sits on top after it.
+The Overlap stacks its children in the order you write them, so the last one is the one on top.
+
+Check that text placed over an image still has enough contrast against it.
+A photograph varies from one area to the next, so a colour that passes over the sky may fail a few hundred pixels along.
+
 ## Examples
 
 ### Hero image with Search Field
@@ -29,6 +35,24 @@ This allows for the use of a mood-setting image as a background.
 A [Grid](/docs/components-layout-grid--docs) provides horizontal space on both sides and columns for layout.
 
 Note: the library does not yet offer an option to vertically centre the form.
+
+## Design
+
+Every child is placed in the same single cell of a grid, one on top of the other.
+Nothing is taken out of the flow, so an Overlap still occupies space on the page and pushes what follows it down, which absolute positioning would not do.
+
+The tallest child decides the height.
+An image and the content over it therefore need to be a reasonable match in size, since the shorter of the two cannot stretch the container.
+
+Stacking order follows the markup and nothing else.
+There is no `z-index` to set or to fight with; moving something to the front means moving it later in the code.
+
+## Accessibility
+
+An Overlap renders a `div` and adds nothing to the accessibility tree.
+
+Because the stacking order is the source order, what is drawn on top is also what is read last.
+The visual arrangement and the reading order cannot drift apart here, which is the usual hazard with overlapping content.
 
 ## See also
 

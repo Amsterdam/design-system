@@ -104,7 +104,37 @@ On narrow screens or with longer labels, it wraps text without losing alignment.
 The three variants form a hierarchy of importance: primary, secondary, tertiary.
 This lets a screen present one clear focal action without ranking every other Button against it.
 
-The icon size stays constant regardless of the label length, so a row of Buttons aligns visually even when their text differs.
+A label is set at the same size and weight as body text, with a tighter line height of 1.4 against the 1.6 of running text.
+Nothing about the type marks a Button as important; its colour and its filled shape do that.
+
+All three variants carry a border of the same width, and the corners are square.
+A tertiary Button keeps that border transparent until the pointer is over it, and a secondary Button thickens its outline with an inset shadow rather than a wider border.
+Neither changes the space a Button takes up, so a row of Buttons never shifts as one of them is hovered.
+
+Hover styling applies only where a pointer can actually hover.
+On a touch screen it would otherwise stay behind after a tap, leaving the Button that was pressed last looking active.
+
+The button overrides the icon’s line height with its own, so the icon sits on the label’s line rather than on a taller one of its own.
+The icon keeps its default size, the same body-text size the label uses.
+An icon-only Button is square: the icon is given a square box, and the padding is equal on all four sides.
+
+A label that does not fit is hyphenated rather than left to overflow.
+The browser decides where to split it, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+In print, a Button keeps its background and border colours instead of being flattened to save ink.
+
+## Accessibility
+
+A Button renders a `button` element, which brings keyboard focus, activation with both Enter and Space, and the `button` role with it.
+
+Its `type` defaults to `button` rather than to `submit`.
+A Button inside a form therefore leaves that form alone until asked otherwise, which is why submitting takes an explicit `type="submit"`.
+
+An icon-only Button takes its accessible name from the `children` you pass.
+That text is rendered in the markup and hidden visually, so screen readers announce the same words a visible label would have carried, and the icon adds nothing to the name.
+
+Disabling a Button with the `disabled` attribute removes it from the tab order, so a keyboard user never lands on it and reads no reason for it being unavailable.
+The same appearance applies to `aria-disabled="true"`, which keeps the Button focusable and lets assistive technology announce it as disabled.
 
 ## See also
 

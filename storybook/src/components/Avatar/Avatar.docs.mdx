@@ -23,6 +23,11 @@ import * as AvatarStories from "./Avatar.stories.tsx";
 
 Show an Avatar for the user of the website, or to associate a person with a content item.
 
+### How to use
+
+On a page in another language, set `initialsAccessibleName` and `userAccessibleName` so the Avatar is announced in that language rather than in Dutch.
+Each replaces the entire announcement and is used verbatim, so repeat the initials in `initialsAccessibleName` when they should still be spoken.
+
 ## Examples
 
 ### With image
@@ -42,10 +47,28 @@ A user icon displays if no label and image are provided.
 ## Design
 
 The Avatar contains 1 or 2 initial letters from the person’s full name, a picture, or a generic icon.
+The component takes the first two characters of the label and sets them in capitals, so the shape stays the same however the name was written.
 
 To personalize the Avatar, the user can be allowed to choose one of the [highlight colours](/docs/brand-design-tokens-colour--docs).
 The default is purple.
 The design system does not define a meaning to any of these background colours.
+
+The circle is sized from the text it holds rather than from a fixed measurement: its width follows the font size and line height of the initials.
+An Avatar showing an image drops the border and grows by exactly the space that border and its padding occupied, so both kinds line up at the same size beside each other.
+
+An image is cropped to the circle from its centre and scaled to cover it, whatever proportions it arrives in.
+A portrait that is not square therefore loses its edges rather than distorting.
+
+In print, an Avatar keeps its background colour instead of being flattened to save ink.
+
+## Accessibility
+
+An Avatar is announced exactly once, through a line of text that is in the markup but hidden visually.
+The initials themselves are marked `aria-hidden`, and an image is given an empty `alt`.
+
+That hidden text defaults to Dutch: ‘Initialen gebruiker’ followed by the initials, or ‘Gebruiker’ when the label is empty.
+It is built from the label even when an image is displayed, so an Avatar showing a photograph is still announced by its initials.
+Neither wording is fixed: both can be configured, so an Avatar can be announced in the language of the page it sits on.
 
 ## Design tokens
 

@@ -38,6 +38,9 @@ Ensure that the text is short, or the image tall, to prevent losing the break-ou
 
 On narrower screens, let the text move below the image.
 
+Write the Cells in the order the content should be read, and use `colStart` and `rowStart` only to decide where each one sits.
+Reading order and keyboard order follow the markup rather than the grid, so the two disagree as soon as a start value is used to reorder rather than to place.
+
 ## Examples
 
 ### Vertical layout
@@ -51,6 +54,23 @@ A large figure can be placed at the top of the Spotlight, with related text posi
 This component is an extension of [Grid](/docs/components-layout-grid--docs).
 It offers the same props, although `span` and `start` have been renamed to `colSpan` and `colStart`.
 Additionally, Breakout allows cells to span multiple rows.
+
+## Design
+
+The break-out effect is a Cell pulled outward by exactly the space the Grid holds it in: the horizontal padding at the current breakpoint, and the vertical gap above and below.
+The Spotlight inside it therefore reaches both edges of the window while every other Cell keeps its columns.
+Those offsets are restated at each breakpoint and for each vertical gap, because the space being cancelled is different in every one of those cases.
+
+Row spans and row starts are generated up to four.
+A higher number produces no rule at all rather than an error, so a Cell asking for five rows quietly spans one.
+
+The Cell holding the figure aligns to the bottom of its row, where every other Cell aligns to the top.
+That is what lets a tall image sit on the base line of the Spotlight and rise out of the top of it.
+
+## Accessibility
+
+A Breakout renders the same markup as a Grid and adds nothing to the accessibility tree.
+Cells are announced in the order they appear in the markup, whatever the grid does with them on screen, and ‘Usage guidelines’ covers what that asks of the markup.
 
 ## See also
 

@@ -72,6 +72,25 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 <Canvas of={TextAreaStories.InAFieldWithValidation} />
 
+## Design
+
+A Text Area shares its border, padding, type and states with a [Text Input](/docs/components-forms-text-input--docs), so a form built from both reads as one set of fields.
+
+It has a minimum height of its own, which is what says at a glance that more than one line is expected here.
+Setting `cols` switches the width from filling the container to sizing by character count, and the field still never grows past the space it has.
+
+The `resize` prop decides which directions the user may drag.
+The handle browsers put in the corner is left in place by default: it costs nothing, and it lets someone give themselves more room for a long answer without leaving the page.
+
+## Accessibility
+
+A Text Area renders a `textarea` element and is announced with its label and anything `aria-describedby` points at.
+
+Resizing is a convenience for people who need more room on screen, and it is not supported in Safari on iOS.
+Nothing depends on it, so a field there behaves as it would with `resize` set to none.
+
+The invalid styling responds to `aria-invalid="true"` and to the browser’s own `:invalid` state alike, as it does for a [Text Input](/docs/components-forms-text-input--docs).
+
 ## See also
 
 - [Text Input](/docs/components-forms-text-input--docs) – for single-line text input.
