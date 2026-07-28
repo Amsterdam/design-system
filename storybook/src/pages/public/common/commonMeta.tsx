@@ -5,6 +5,8 @@
 
 import type { Meta } from '@storybook/react-vite'
 
+import { buildPageParameters } from '#storybook/_common/buildPageParameters'
+
 import { PageLayout } from './PageLayout'
 
 export const commonMeta = {
@@ -23,3 +25,7 @@ export const commonMeta = {
     themes: { options: ['Spacious', 'Spacious Lo-fi'] },
   },
 } satisfies Meta
+
+/** Builds a public page's parameters with its description, preserving the shared parameters. */
+export const pageParameters = (description: string, extraParameters?: Meta['parameters']) =>
+  buildPageParameters(commonMeta.parameters, description, extraParameters)

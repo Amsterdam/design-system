@@ -20,11 +20,15 @@ import {
 
 import { exampleImageSource } from '#storybook/_common/exampleContent'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Article Page',
+  parameters: pageParameters(
+    'Presents a single news item or similar article in a clear reading order, ' +
+      'from its headline and lead to the related reading that follows.',
+  ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>

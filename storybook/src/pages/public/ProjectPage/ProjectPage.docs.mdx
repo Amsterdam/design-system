@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
 import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
 
@@ -9,10 +9,9 @@ import * as ProjectStories from "./ProjectPage.stories.tsx";
 
 <Meta of={ProjectStories} />
 
-# Project page
+<Title />
 
-This page shares all important public details about a construction or traffic project.
-Its main goal is to clearly inform residents and stakeholders.
+<Description of={ProjectStories} />
 
 ## Anatomy
 

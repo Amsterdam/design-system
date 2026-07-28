@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
 import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
 
@@ -9,10 +9,9 @@ import * as TableStories from "./TablePage.stories.tsx";
 
 <Meta of={TableStories} />
 
-# Table page
+<Title />
 
-These examples show how to use the Table component in Compact Mode to work with data sets.
-They include various ways to sort, filter and operate on data.
+<Description of={TableStories} />
 
 ## Anatomy
 

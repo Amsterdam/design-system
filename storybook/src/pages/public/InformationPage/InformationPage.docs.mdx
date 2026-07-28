@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
 import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
 
@@ -9,10 +9,10 @@ import * as InformationStories from "./InformationPage.stories.tsx";
 
 <Meta of={InformationStories} />
 
-# Information page
+<Title />
 
-Explains a subject that is neither a product nor a news article: background, rules, and what they mean for the reader.
-Use it when the reader wants to understand something, rather than arrange something.
+<Description of={InformationStories} />
+
 For a task that ends in a form or an application, use the [Product page](/docs/pages-public-product-page--docs) instead.
 
 ## Anatomy

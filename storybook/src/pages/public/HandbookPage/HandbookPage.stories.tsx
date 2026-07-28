@@ -11,22 +11,25 @@ import { useState } from 'react'
 
 import type { HandbookPage } from './pages'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 import { findAncestors, findPage, pages } from './pages'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Handbook Page',
-  parameters: {
-    ...commonMeta.parameters,
-    // Of the templates that use the shared public Page Layout, this is the only one that overrides its single
-    // Skip Link: a reader may want to reach either the Table of Contents or the content. Each targetId matches
-    // an id in the story below.
-    skipLinks: [
-      { label: 'Direct naar de inhoudsopgave', targetId: 'inhoudsopgave' },
-      { label: 'Direct naar de inhoud', targetId: 'inhoud' },
-    ],
-  },
+  parameters: pageParameters(
+    'Presents long-form reference material, such as a personnel handbook or policy document, ' +
+      'as a set of short pages that stay easy to navigate and read.',
+    {
+      // Of the templates that use the shared public Page Layout, this is the only one that overrides its single
+      // Skip Link: a reader may want to reach either the Table of Contents or the content. Each targetId matches
+      // an id in the story below.
+      skipLinks: [
+        { label: 'Direct naar de inhoudsopgave', targetId: 'inhoudsopgave' },
+        { label: 'Direct naar de inhoud', targetId: 'inhoud' },
+      ],
+    },
+  ),
 } satisfies Meta
 
 export default meta

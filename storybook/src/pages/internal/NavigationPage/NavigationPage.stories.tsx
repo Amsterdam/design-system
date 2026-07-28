@@ -9,12 +9,16 @@ import type { MouseEvent } from 'react'
 import { Breadcrumb, Grid, Heading, TabNavigation } from '@amsterdam/design-system-react'
 import { useRef, useState } from 'react'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 import { menuItems } from './menuItems'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Internal/Navigation Page',
+  parameters: pageParameters(
+    'Suits websites whose content is organised into a handful of main sections ' +
+      'that each have their own subsections.',
+  ),
   render: () => {
     const [currentMenuSlug, setCurrentMenuSlug] = useState(menuItems[0].slug)
     const [currentSubMenuSlug, setCurrentSubMenuSlug] = useState(menuItems[0].subMenuItems[0].slug)

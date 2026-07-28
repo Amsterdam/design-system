@@ -29,12 +29,16 @@ import {
   exampleStandaloneLink,
 } from '#storybook/_common/exampleContent'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 import { burgerzakenLinks, parkerenLinks, persons, shopGroups, shopLocations, topTaskLinks } from './data'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Navigation Page',
+  parameters: pageParameters(
+    'A signpost with little content of its own, grouping links to related pages ' +
+      'so visitors can find their way around a subject.',
+  ),
 } satisfies Meta
 
 export default meta

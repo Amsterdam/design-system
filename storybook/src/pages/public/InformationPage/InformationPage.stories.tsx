@@ -17,11 +17,15 @@ import {
   Table,
 } from '@amsterdam/design-system-react'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Information Page',
+  parameters: pageParameters(
+    'Explains a subject that is neither a product nor a news article: its background, the rules, ' +
+      'and what they mean for a reader who wants to understand something rather than arrange it.',
+  ),
 } satisfies Meta
 
 export default meta

@@ -21,7 +21,7 @@ import {
 
 import { exampleImageSource } from '#storybook/_common/exampleContent'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 
 const images = [268, 12, 267, 164, 128].map((id) => ({
   alt: '',
@@ -32,6 +32,10 @@ const images = [268, 12, 267, 164, 128].map((id) => ({
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Project Page',
+  parameters: pageParameters(
+    'Keeps residents and stakeholders informed about a construction or traffic project: ' +
+      'what it involves, where and why it happens, and when each phase takes place.',
+  ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>

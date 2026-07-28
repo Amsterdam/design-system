@@ -16,11 +16,15 @@ import {
   UnorderedList,
 } from '@amsterdam/design-system-react'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Product Page',
+  parameters: pageParameters(
+    'Brings together everything a resident needs to know about a product or service of the City, ' +
+      'and guides them toward the next step, such as an application.',
+  ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>

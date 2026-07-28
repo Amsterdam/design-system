@@ -9,7 +9,7 @@ import type { FormEvent } from 'react'
 import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from '@amsterdam/design-system-react'
 import { useEffect, useRef, useState } from 'react'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 
 const initialQuery = 'woningbouw'
 
@@ -59,6 +59,10 @@ const meta = {
   args: { initialPhase: 'idle' },
   // The initial phase only picks which state each story opens in; it is not a prop to configure.
   argTypes: { initialPhase: { table: { disable: true } } },
+  parameters: pageParameters(
+    'Shows how a search results page behaves while it fetches content, ' +
+      'keeping the layout stable as placeholders make way for the real results.',
+  ),
   render: ({ initialPhase }: LoadingPageArgs) => {
     const [phase, setPhase] = useState<Phase>(initialPhase)
     const [query, setQuery] = useState(initialQuery)
