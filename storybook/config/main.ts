@@ -4,6 +4,7 @@
  */
 
 import type { StorybookConfig } from '@storybook/react-vite'
+import type { PluginOption } from 'vite'
 
 import path from 'node:path'
 import process from 'node:process'
@@ -12,6 +13,31 @@ import remarkGfm from 'remark-gfm'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(__dirname, '../..')
+
+// Let the preview fill the window on a device with a display cutout, instead of being letterboxed
+// between two inert bands. Without this, `env(safe-area-inset-*)` stays `0px` and stories can’t
+// show whether they hold their content clear of the cutout.
+// Storybook’s preview template emits `<meta name="viewport" content="width=device-width,
+// initial-scale=1">` itself, and offers no option to configure it: `previewHead` only appends to the
+// head, and browsers disagree on which of two viewport meta elements wins. Rewriting the one that is
+// already there leaves exactly one, in the markup the browser parses, so there is no reflow.
+const viewportFitCover: PluginOption = {
+  name: 'ams-viewport-fit-cover',
+  transformIndexHtml: {
+    handler: (html) => {
+      const viewportMeta = /<meta\s+name="viewport"\s+content="([^"]*)"/i
+
+      if (!viewportMeta.test(html)) {
+        return html.replace(/<head>/i, '<head>\n    <meta name="viewport" content="viewport-fit=cover" />')
+      }
+
+      return html.replace(viewportMeta, (match, content: string) =>
+        content.includes('viewport-fit') ? match : match.replace(content, `${content}, viewport-fit=cover`),
+      )
+    },
+    order: 'post',
+  },
+}
 
 const config: StorybookConfig = {
   addons: [
@@ -74,6 +100,11 @@ const config: StorybookConfig = {
       tsconfigPath: 'tsconfig.docgen.json',
     },
   },
+
+  viteFinal: (viteConfig) => ({
+    ...viteConfig,
+    plugins: [...(viteConfig.plugins ?? []), viewportFitCover],
+  }),
 }
 
 export default config
