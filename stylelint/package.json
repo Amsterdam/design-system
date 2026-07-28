@@ -11,7 +11,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "postcss": "8.5.22"
+    "postcss": "8.5.23"
   },
   "devDependencies": {
     "stylelint": "17.14.1",
