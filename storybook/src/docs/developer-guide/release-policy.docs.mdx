@@ -39,8 +39,46 @@ The React package relies on the CSS package, while the CSS package depends on th
 Upgrading one of these packages likely means you will also need to upgrade the others to satisfy the peer dependency version requirements.
 
 Without additional configuration, tools like **Dependabot by GitHub** might create separate pull requests for each package, which could fail due to unmet peer dependency constraints.
-Grouping the design system packages into a single update can prevent this issue.
-[Their documentation](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates#grouping-related-dependencies-together) provides details on this.
+Grouping the design system packages into a single update prevents this issue.
+
+## Grouping dependency updates
+
+Two rules keep our packages together in one pull request.
+
+1. Put every package whose name starts with `@amsterdam/design-system-` in **one group**, and let that group accept major updates next to minor and patch ones.
+   Our major releases tend to move several packages at once, which is precisely when grouping matters most.
+2. **Exclude that same pattern** from any catch-all group you already have.
+   A dependency ends up in the first group it matches, so without this exclusion the order of your groups decides where our packages land.
+
+In Dependabot, both rules fit in the `groups` option in `.github/dependabot.yml`:
+
+```yaml
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      amsterdam-design-system:
+        patterns:
+          - "@amsterdam/design-system-*"
+        update-types:
+          - "major"
+          - "minor"
+          - "patch"
+      patch-and-minor-dependencies:
+        exclude-patterns:
+          - "@amsterdam/design-system-*"
+        update-types:
+          - "patch"
+          - "minor"
+```
+
+Dependencies that match no group still get their own pull request, so nothing goes unnoticed.
+[Dependabot’s documentation](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates#grouping-related-dependencies-together) describes the available options.
+Other update tools offer comparable grouping, and the two rules above apply there as well.
 
 ## Release cadence
 
