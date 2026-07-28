@@ -2,8 +2,10 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
 import { StatusBadge } from "#storybook/_components/StatusBadge/StatusBadge";
 
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as NavigationPageStories from "./NavigationPage.stories";
 
 <Meta of={NavigationPageStories} />
@@ -29,3 +31,9 @@ Too few make the vertical Tab Navigation redundant; too many make it hard to sca
 
 On narrow screens both Tab Navigations stack vertically.
 This is a known limitation, and the mobile design is being further explored.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} menu mode="compact" of={NavigationPageStories} />
