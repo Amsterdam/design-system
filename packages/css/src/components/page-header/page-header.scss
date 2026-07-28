@@ -6,9 +6,18 @@
 @use "../../common/breakpoint" as *;
 @use "../../common/print-exact" as *;
 @use "../../common/resets" as *;
+@use "../../common/safe-area" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-page-header {
+  /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+  --_ams-page-header-padding-inline-end: max(var(--ams-page-header-padding-inline), var(--ams-safe-area-inline-end));
+  --_ams-page-header-padding-inline-start: max(
+    var(--ams-page-header-padding-inline),
+    var(--ams-safe-area-inline-start)
+  );
+  /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
   /*
   * The logo link section is created twice: once outside the navigation and once hidden inside it.
   * This keeps all navigation in one nav element and lets the menu wrap around the logo link section.
@@ -17,20 +26,33 @@
   display: grid; /* Allows both instances of Logo Link to overlap */
   font-family: var(--ams-page-header-font-family);
   padding-block: var(--ams-page-header-padding-block);
-  padding-inline: var(--ams-page-header-padding-inline);
+  padding-inline-end: var(--_ams-page-header-padding-inline-end);
+  padding-inline-start: var(--_ams-page-header-padding-inline-start);
 
   @media (min-width: $ams-breakpoint-medium) {
-    padding-inline: var(
-      --ams-page-header-medium-padding-inline /* @deprecated */,
-      var(--ams-page-header-vi-medium-padding-inline)
+    /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+    --_ams-page-header-padding-inline-end: max(
+      var(--ams-page-header-medium-padding-inline /* @deprecated */, var(--ams-page-header-vi-medium-padding-inline)),
+      var(--ams-safe-area-inline-end)
     );
+    --_ams-page-header-padding-inline-start: max(
+      var(--ams-page-header-medium-padding-inline /* @deprecated */, var(--ams-page-header-vi-medium-padding-inline)),
+      var(--ams-safe-area-inline-start)
+    );
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
   }
 
   @media (min-width: $ams-breakpoint-wide) {
-    padding-inline: var(
-      --ams-page-header-wide-padding-inline /* @deprecated */,
-      var(--ams-page-header-vi-wide-padding-inline)
+    /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+    --_ams-page-header-padding-inline-end: max(
+      var(--ams-page-header-wide-padding-inline /* @deprecated */, var(--ams-page-header-vi-wide-padding-inline)),
+      var(--ams-safe-area-inline-end)
     );
+    --_ams-page-header-padding-inline-start: max(
+      var(--ams-page-header-wide-padding-inline /* @deprecated */, var(--ams-page-header-vi-wide-padding-inline)),
+      var(--ams-safe-area-inline-start)
+    );
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
   }
 }
 
