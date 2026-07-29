@@ -96,20 +96,32 @@ And `src={exampleImageSource(1440, 450)}` should become the literal URL it resol
 pnpm --filter=storybook run test
 ```
 
-It reports, per story, whether the comment sets are identical and whether the markup matches once whitespace beside `<` and `>` is normalised away.
+It checks three things per story: that the source sets `language: 'tsx'`, that the two copies carry the same comments, and that the markup matches once whitespace beside `<` and `>` is normalised away.
 That whitespace is exactly what JSX collapses at render time, so a difference there is cosmetic and anything else is drift.
 
-Three differences are legitimate, and the test encodes each one rather than leaving it to the reader:
+Two kinds of difference are legitimate, and the comparison allows for both:
 
 - A source that swaps `{exampleHeading()}` for the literal text is fine, and counts as a substitution rather than a difference.
   A `{…}` holding a bare identifier, a call or a template literal is therefore a wildcard.
   An object literal such as `span={{ narrow: 4, medium: 7, wide: 9 }}` is not, because cell sizes are exactly where silent drift hurts, so those are compared character for character.
 - A source may abbreviate content the page pulls in from elsewhere, **when it marks the gap with an ellipsis**.
-  An abbreviation with no marker is indistinguishable from drift.
-- A comment that explains the story’s own machinery rather than the page belongs only in the `render`.
-  The Home Page’s note about reading `args.children` is the example; it would be noise in markup someone copies.
+  An abbreviation with no marker is indistinguishable from drift, and the test reads it as drift.
 
-For a template you are writing, the test is a straight gate: both copies come from one source, so anything it reports is a mistake.
+Only JSX comments, written `{/* … */}`, are compared.
+A `//` line or a plain block comment is prose about the story rather than markup, and the two copies do not always write the same sentence the same way: the Handbook Page uses a `//` line in its source and a block comment in its render.
+
+For a template you are writing, the test is a straight gate.
+Both copies come from one source, so anything it reports is a mistake.
+
+### The accepted differences
+
+A handful of existing stories do differ, and the test carries an `acceptedDifferences` list naming each one and why.
+One entry is correct as it stands: the Home Page’s note about reading another story’s `args.children` explains that story’s own machinery, so it belongs only in the `render`.
+The other four are real drift in the template, worth fixing when someone is next in that file.
+
+The list is fail-closed in both directions.
+A story that is not on it may not differ, and a story that is on it must, so fixing a template fails the test until its entry is removed.
+That way the list stays a visible account of what is outstanding rather than a quiet exemption, and a new template, which has no entry, is gated strictly.
 
 ## Trimming
 
