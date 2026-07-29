@@ -49,9 +49,13 @@ Declare the viewport in your document’s `<head>`.
 `viewport-fit=cover` lets the page use the whole screen on a device with a display cutout, such as a notch or a camera housing.
 Without it, browsers reserve the area around the cutout, which leaves inert bands beside the page in landscape.
 
-With it, [Grid](/docs/components-layout-grid--docs), [Page Header](/docs/components-containers-page-header--docs), [Page Footer](/docs/components-containers-page-footer--docs) and [Menu](/docs/components-navigation-menu--docs) hold their content clear of the cutout, and Page Footer also clears the home indicator along the bottom of the screen.
+With it, [Grid](/docs/components-layout-grid--docs), [Page Header](/docs/components-containers-page-header--docs), [Page Footer](/docs/components-containers-page-footer--docs) and [Menu](/docs/components-navigation-menu--docs) hold their content clear of a cutout at the sides of the screen, and Page Footer also clears the home indicator along the bottom.
 They use whichever is larger: the space they already use, or the inset the device reports.
 A device without a cutout reports no inset, so nothing about your layout changes there.
+
+Nothing reserves space at the top yet.
+A browser reports no inset there, because its own toolbar already occupies that space, but a web app that sets `display: standalone` in its [web manifest](/docs/docs-developer-guide-web-app--docs) does.
+Such an app has to hold its own header clear of the cutout until the design system does.
 
 Don’t add `maximum-scale` or `user-scalable=no` to the viewport.
 Both stop people from zooming in, which fails [WCAG 1.4.4](https://www.w3.org/TR/WCAG22/#resize-text).
