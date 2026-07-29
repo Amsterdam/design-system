@@ -82,7 +82,6 @@ const meta = {
   },
   decorators: [withInWideWindowArg],
   parameters: {
-    layout: 'fullscreen',
     themes: {
       options: ['Compact', 'Compact Lo-fi'],
     },
