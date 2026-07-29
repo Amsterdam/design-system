@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Paragraph, Spotlight } from '@amsterdam/design-system-react'
+import { Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 import { gridGaps } from '@amsterdam/design-system-react/src/Grid/Grid'
 
@@ -62,10 +62,10 @@ export const Test: Story = {
               <Spotlight color="green" />
             </Breakout.Cell>
             <Breakout.Cell colSpan="all" rowStart={1}>
-              <Paragraph color="inverse">{`gapVertical: ${gap ?? 'x-large (default)'}`}</Paragraph>
+              <p style={{ color: 'white' }}>{`gapVertical: ${gap ?? 'x-large (default)'}`}</p>
             </Breakout.Cell>
             <Breakout.Cell colSpan="all" rowStart={2}>
-              <Paragraph color="inverse">De Spotlight reikt precies tot de gap boven en onder deze tekst.</Paragraph>
+              <p style={{ color: 'white' }}>De Spotlight reikt precies tot de gap boven en onder deze tekst.</p>
             </Breakout.Cell>
           </Breakout>
         ))}
