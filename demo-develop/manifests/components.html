@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -3796,9 +3796,13 @@ Additionally, Breakout allows cells to span multiple rows.
 
 ## Design
 
-The break-out effect is a Cell pulled outward by exactly the space the Grid holds it in: the horizontal padding at the current breakpoint, and the vertical gap above and below.
-The Spotlight inside it therefore reaches both edges of the window while every other Cell keeps its columns.
-The horizontal offsets are restated at each breakpoint and the vertical ones for each gap size, because the space being cancelled is different in every one of those cases.
+A Breakout Cell escapes the Grid by pulling itself outward by exactly the space the Grid puts around it: the margin at each side, and the vertical gap above and below.
+The Spotlight inside it then reaches both edges of the window, while every other Cell keeps to its columns.
+
+The vertical offsets are written out for each gap size, since each one cancels a different amount.
+The horizontal offsets simply follow the margin the Grid ends up with.
+So when that margin grows to clear a display cutout, the Spotlight still reaches the edge of the screen, and the content beside it moves clear of the cutout.
+Each side is cancelled on its own, so a cutout at one edge never pulls the Spotlight away from the other.
 
 Row spans and row starts are generated up to four.
 A higher number produces no rule at all rather than an error, so a Cell asking for five rows quietly spans one.
@@ -10688,6 +10692,8 @@ That keeps the start of each cell’s content at a consistent baseline – impor
 The Grid is full-width and non-nestable on purpose.
 A single, shared rhythm of columns across the page keeps content predictable for users; nesting would break that rhythm.
 
+The Grid has no vertical padding of its own; the `padding…` props add `l`, `xl`, or `2xl` where a design calls for it.
+
 The 4, 8, and 12 column counts halve cleanly into 2, 3, 4, and 6 subdivisions, so the same content can be arranged consistently across breakpoints.
 
 ### Breakpoints
@@ -10712,11 +10718,21 @@ In Compact Mode they use `m`, `l`, and `xl` respectively.
 This makes the margin smaller than the gap between cells on narrow windows: content sits closer to the edges of the device than the cells do to each other.
 That is deliberate, as Compact Mode has no need for the editorial white space beside the spacious grid.
 
-The Grid has no vertical padding of its own; the `padding…` props add `l`, `xl`, or `2xl` where a design calls for it.
 In Compact Mode every cell adds `m` of padding on all sides, inside the margins of the Grid.
 
-In Compact Mode the wide grid includes a vertical menu bar beside the grid, 128 pixels wide.
-On medium and narrow grids, the menu bar moves below the header.
+### Display cutouts
+
+Phones with a display cutout, such as a notch or a camera housing, need clear space along the edge of the screen.
+Where the margin is not already wide enough, the Grid widens it to match.
+It uses the larger of the two, never both added together.
+
+You mostly see this in landscape.
+iOS asks for the same space on both sides, so both margins grow: to around 62 pixels on a recent phone.
+At the widths a phone has in landscape, that is roughly a whole column of the medium grid.
+Compact Mode changes the most, since its margins start out the smallest.
+
+The margins only grow if the page asks for the whole screen with `viewport-fit=cover`.
+[Getting started](/docs/docs-developer-guide-getting-started--docs) explains how.
 
 ### Maximum width
 
@@ -10728,6 +10744,7 @@ There is no minimum: the grid scales as narrow as the available space.
 
 These tables show the pixel values at each breakpoint; between breakpoints, all values scale continuously.
 ‘Margin’ is the horizontal padding of the Grid itself; ‘Gap’ sits between the columns and, by default, between the rows as well.
+‘Menu bar’ is the vertical bar that Compact Mode places beside the wide grid, 128 pixels wide; on medium and narrow grids it moves below the header instead.
 Dimensions are multiples of 16, not the precise measurements of any specific device.
 We name the breakpoints ‘narrow’, ‘medium’, and ‘wide’ rather than ‘mobile’, ‘tablet’, and ‘desktop’ for this reason.
 
@@ -17289,6 +17306,7 @@ The icon is larger and positioned above the label.
 
 In narrow and medium windows the Menu reaches both edges of the window by cancelling the horizontal padding of the Page Header with a negative margin of the same size.
 That ties the component to the one context it is used in, which is accepted here: it is the only way for a band of colour to span the window while the links stay aligned with the content around them.
+Where that padding grows to clear a display cutout, the margin grows with it, so the blue still runs to the physical edge of the screen while the links move in.
 
 A link is only as wide as its icon and label in the narrow layout, so the area that responds to a click does not extend across the empty space beside the text.
 In the wide layout the links do stretch, since the column is barely wider than the labels themselves.
@@ -20227,6 +20245,10 @@ The change of colour is what separates them, so neither band needs a rule or a b
 The menu links wrap onto as many lines as they need, with a wide gap between links and a narrow one between lines.
 Links stay grouped by row that way, instead of the rows drifting apart into a list.
 
+The white strip is the last thing on the page, so it is where a phone’s home indicator would come to rest.
+Its padding grows to clear that, and to clear a display cutout beside it, on the same terms as the margin of the [Grid](/docs/components-layout-grid--docs).
+The band of colour still reaches the edges of the screen; only the links move.
+
 In print, the blue band keeps its colour rather than being flattened to save ink.
 
 ## Accessibility
@@ -20564,6 +20586,9 @@ Below the wide breakpoint a short form replaces it where one is given.
 
 Menu links are hidden below the wide breakpoint unless they are fixed, and reappear inside the collapsible menu.
 The menu button’s icon turns into a cross when the menu opens, animated only for users who have not asked for reduced motion.
+
+The header keeps the horizontal margin of the [Grid](/docs/components-layout-grid--docs) at every breakpoint, so the logo lines up with the content below it.
+It grows that margin to clear a display cutout on the same terms, which keeps the two aligned in landscape as well.
 
 In print, the menu button keeps its blue background rather than being flattened to save ink.
 
@@ -48545,11 +48570,35 @@ function App() {
 export default App
 ```
 
-## Reset styles
+## Setting up the document
 
 Add the `ams-body` [class name](/docs/utilities-css-body--docs) to your document’s `&lt;body&gt;` tag.
 This removes white space that the browser might add.
 In Compact Mode, it also sets the background color to match the Page component seamlessly.
+
+Declare the viewport in your document’s `&lt;head&gt;`.
+
+{/* prettier-ignore */}
+```html
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot; /&gt;
+```
+
+`width=device-width, initial-scale=1` makes the layout follow the width of the device.
+`viewport-fit=cover` lets the page use the whole screen on a device with a display cutout, such as a notch or a camera housing.
+Without it, browsers reserve the area around the cutout, which leaves inert bands beside the page in landscape.
+
+With it, [Grid](/docs/components-layout-grid--docs), [Page Header](/docs/components-containers-page-header--docs), [Page Footer](/docs/components-containers-page-footer--docs) and [Menu](/docs/components-navigation-menu--docs) hold their content clear of a cutout at the sides of the screen, and Page Footer also clears the home indicator along the bottom.
+They use whichever is larger: the space they already use, or the inset the device reports.
+A device without a cutout reports no inset, so nothing about your layout changes there.
+
+Nothing reserves space at the top yet.
+A browser reports no inset there, because its own toolbar already occupies that space, but a web app that sets `display: standalone` in its [web manifest](/docs/docs-developer-guide-web-app--docs) does.
+Such an app has to hold its own header clear of the cutout until the design system does.
+
+Don’t add `maximum-scale` or `user-scalable=no` to the viewport.
+Both stop people from zooming in, which fails [WCAG 1.4.4](https://www.w3.org/TR/WCAG22/#resize-text).
+
+## Reset styles
 
 We don’t have a separate, global reset stylesheet.
 This follows from our component-based architecture: every component overwrites user agent styles on the elements they render.
