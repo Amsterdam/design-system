@@ -118,18 +118,22 @@ $ams-breakout-row-span-max: 4;
    so they follow it through the breakpoints without repeating the media queries here. */
 .ams-breakout__cell--has-spotlight {
   display: grid; /* Stretches the empty Spotlight vertically. */
-  margin-block: calc(var(--ams-space-xl) * -1);
+  margin-block: calc(var(--ams-grid-row-gap-xl) * -1);
   /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in the `ams-grid` mixin. */
   margin-inline-end: calc(var(--_ams-grid-padding-inline-end) * -1);
   margin-inline-start: calc(var(--_ams-grid-padding-inline-start) * -1);
   /* stylelint-enable csstools/value-no-unknown-custom-properties */
 
-  .ams-breakout--gap-vertical--small > & {
-    margin-block: calc(var(--ams-space-l) * -1);
+  .ams-breakout--gap-vertical--none > & {
+    margin-block: 0;
   }
 
   .ams-breakout--gap-vertical--large > & {
-    margin-block: calc(var(--ams-space-2xl) * -1);
+    margin-block: calc(var(--ams-grid-row-gap-l) * -1);
+  }
+
+  .ams-breakout--gap-vertical--2x-large > & {
+    margin-block: calc(var(--ams-grid-row-gap-2xl) * -1);
   }
 }
 
