@@ -13,6 +13,7 @@
             "margin-block-start": {
               "$value": "calc(({ams.typography.heading.2.line-height} * {ams.typography.heading.2.font-size}) / 2)",
               "$extensions": {
+                "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
                 "nl.amsterdam.type": "dimension"
               }
             }
@@ -31,6 +32,7 @@
             "margin-block-start": {
               "$value": "calc(({ams.typography.heading.3.line-height} * {ams.typography.heading.3.font-size}) / 2)",
               "$extensions": {
+                "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
                 "nl.amsterdam.type": "dimension"
               }
             }
@@ -49,6 +51,7 @@
             "margin-block-start": {
               "$value": "calc(({ams.typography.heading.4.line-height} * {ams.typography.heading.4.font-size}) / 2)",
               "$extensions": {
+                "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
                 "nl.amsterdam.type": "dimension"
               }
             }
@@ -121,6 +124,7 @@
         "gap": {
           "$value": "{ams.space.m}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -139,6 +143,7 @@
           "gap": {
             "$value": "{ams.space.l}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
             }
@@ -151,7 +156,10 @@
                 "value": 1.5,
                 "unit": "rem"
               },
-              "$type": "dimension"
+              "$type": "dimension",
+              "$extensions": {
+                "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate."
+              }
             },
             "background-color": {
               "$value": "{ams.color.background.default}",
@@ -222,6 +230,7 @@
           "margin-block-end": {
             "$value": "{ams.space.s}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
             }
@@ -231,6 +240,7 @@
           "margin-block-end": {
             "$value": "{ams.space.l}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
             }
@@ -299,6 +309,7 @@
         "padding-block-start": {
           "$value": "{ams.space.m}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -308,6 +319,7 @@
             "margin-inline-end": {
               "$value": "{ams.space.m}",
               "$extensions": {
+                "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
                 "nl.amsterdam.subtype": "space",
                 "nl.amsterdam.type": "dimension"
               }
@@ -425,6 +437,7 @@
             "margin-block-start": {
               "$value": "calc({ams.typography.body-text.font-size} * {ams.typography.body-text.line-height} / 2)",
               "$extensions": {
+                "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
                 "nl.amsterdam.type": "dimension"
               }
             },
@@ -441,6 +454,7 @@
             "margin-block-end": {
               "$value": "{ams.space.m}",
               "$extensions": {
+                "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
                 "nl.amsterdam.subtype": "space",
                 "nl.amsterdam.type": "dimension"
               }
@@ -502,6 +516,7 @@
             "margin-block-end": {
               "$value": "{ams.space.l}",
               "$extensions": {
+                "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
                 "nl.amsterdam.subtype": "space",
                 "nl.amsterdam.type": "dimension"
               }

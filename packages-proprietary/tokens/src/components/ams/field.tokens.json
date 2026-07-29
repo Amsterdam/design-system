@@ -13,6 +13,7 @@
         "margin-block-end": {
           "$value": "{ams.space.xs}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -21,6 +22,7 @@
           "margin-block-end": {
             "$value": "{ams.space.s}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
             }
@@ -37,6 +39,7 @@
         "padding-inline-start": {
           "$value": "{ams.space.m}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
