@@ -5689,28 +5689,6 @@
         }
       }
     },
-    "development-safe-area": {
-      "id": "development-safe-area",
-      "name": "SafeArea",
-      "path": "./src/development/SafeArea/SafeArea.stories.tsx",
-      "jsDocTags": {},
-      "description": "A development aid, not a component. It reads the four safe area insets back on screen, so that\ntesting a device with a display cutout doesn’t depend on eyeballing the layout.\n\nTwo things have to be true before the insets report anything other than `0px`:\n\n- the story runs in a top-level browsing context, so open `iframe.html` rather than the manager;\n- the page opts into the full window with `viewport-fit=cover`, which `config/main.ts` adds to\n  the preview’s viewport meta element.\n\nThe story says which of the two is missing. Remove this section once we have decided whether the\nreadout is worth keeping.",
-      "reactComponentMeta": {
-        "displayName": "SafeArea",
-        "exportName": "SafeArea",
-        "filePath": "/home/runner/work/design-system/design-system/storybook/src/development/SafeArea/SafeArea.tsx",
-        "description": "Reads the safe area insets back on screen, to make on-device testing self-evident.\nA development aid, not a component: see the story for what the numbers mean.",
-        "props": {}
-      },
-      "stories": [
-        {
-          "id": "development-safe-area--default",
-          "name": "Default",
-          "snippet": "const Default = () => <SafeArea />;"
-        }
-      ],
-      "import": "import { SafeArea } from \"@amsterdam/storybook\";"
-    },
     "modes-lo-fi-actions": {
       "id": "modes-lo-fi-actions",
       "name": "Actions",
@@ -5809,6 +5787,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4279
+    "durationMs": 4380
   }
 }
