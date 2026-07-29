@@ -3798,7 +3798,7 @@ Additionally, Breakout allows cells to span multiple rows.
 
 The break-out effect is a Cell pulled outward by exactly the space the Grid holds it in: the horizontal padding at the current breakpoint, and the vertical gap above and below.
 The Spotlight inside it therefore reaches both edges of the window while every other Cell keeps its columns.
-Those offsets are restated at each breakpoint and for each vertical gap, because the space being cancelled is different in every one of those cases.
+The horizontal offsets are restated at each breakpoint and the vertical ones for each gap size, because the space being cancelled is different in every one of those cases.
 
 Row spans and row starts are generated up to four.
 A higher number produces no rule at all rather than an error, so a Cell asking for five rows quietly spans one.
