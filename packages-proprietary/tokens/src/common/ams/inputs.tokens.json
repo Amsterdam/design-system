@@ -80,6 +80,7 @@
       "padding-inline": {
         "$value": "{ams.space.m}",
         "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
         }

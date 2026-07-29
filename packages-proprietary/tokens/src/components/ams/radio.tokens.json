@@ -22,6 +22,7 @@
       "font-size": {
         "$value": "{ams.typography.body-text.font-size}",
         "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
           "nl.amsterdam.type": "fontSize"
         }
       },
@@ -41,6 +42,7 @@
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
           "nl.amsterdam.subtype": "lineHeight",
           "nl.amsterdam.type": "number"
         }
