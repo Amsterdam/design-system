@@ -60,7 +60,6 @@ Additionally, Breakout allows cells to span multiple rows.
 A Breakout Cell escapes the Grid by pulling itself outward by exactly the space the Grid puts around it: the margin at each side, and the vertical gap above and below.
 The Spotlight inside it then reaches both edges of the window, while every other Cell keeps to its columns.
 
-The vertical offsets are written out for each gap size, since each one cancels a different amount.
 The horizontal offsets simply follow the margin the Grid ends up with.
 So when that margin grows to clear a display cutout, the Spotlight still reaches the edge of the screen, and the content beside it moves clear of the cutout.
 Each side is cancelled on its own, so a cutout at one edge never pulls the Spotlight away from the other.
