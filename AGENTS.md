@@ -97,7 +97,9 @@ Creating files by hand means following the naming table above and each package's
 - Quality checklist covering accessibility, tests, clean implementation, documentation, and licensing: [definition-of-done.md](documentation/definition-of-done.md) — cross-check it before submitting work.
 - Testing: [tests.md](documentation/tests.md)
 - Component docs: [component-docs.md](documentation/component-docs.md) and [storybook.md](documentation/storybook.md)
-- Page templates: [page-anatomy.md](documentation/page-anatomy.md)
+- Design and Accessibility sections: [design-and-accessibility-sections.md](documentation/design-and-accessibility-sections.md), with [wcag-citations.md](documentation/wcag-citations.md) and [element-semantics.md](documentation/element-semantics.md)
+- Page templates: [page-templates.md](documentation/page-templates.md), with [page-layout-and-spacing.md](documentation/page-layout-and-spacing.md), [page-template-comments.md](documentation/page-template-comments.md) and [code-panel-source.md](documentation/code-panel-source.md)
+- Page anatomy: [page-anatomy.md](documentation/page-anatomy.md)
 - Git, reviews, releases: [git.md](documentation/git.md), [code-reviews.md](documentation/code-reviews.md), [publishing.md](documentation/publishing.md)
 - Release notes: [release-notes.md](documentation/release-notes.md)
 - Storybook home page figures: [introduction-statistics.md](documentation/introduction-statistics.md)

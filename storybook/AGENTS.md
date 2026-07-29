@@ -45,6 +45,13 @@ See [documentation/component-docs.md](../documentation/component-docs.md) for th
 A page template under `src/pages/` opens its docs page with an Anatomy section instead: a schematic of the page, read from the story itself.
 See [documentation/page-anatomy.md](../documentation/page-anatomy.md) for how to add one.
 
+For the Design and Accessibility sections specifically, see [documentation/design-and-accessibility-sections.md](../documentation/design-and-accessibility-sections.md), with [documentation/wcag-citations.md](../documentation/wcag-citations.md) for citing a criterion and [documentation/element-semantics.md](../documentation/element-semantics.md) for what screen readers do with an element.
+
+## Page templates
+
+Pages under `src/pages/` are worked examples that people copy, so they follow their own conventions.
+See [documentation/page-templates.md](../documentation/page-templates.md) for building one, plus [documentation/page-layout-and-spacing.md](../documentation/page-layout-and-spacing.md) for the Grid and vertical space lookups, [documentation/page-template-comments.md](../documentation/page-template-comments.md) for the canonical comment set, and [documentation/code-panel-source.md](../documentation/code-panel-source.md) for the hand-written `parameters.docs.source.code`.
+
 A CSS-only utility under `src/utilities/` has no TSDoc to read from.
 Its docs page imports the README from the CSS package and renders it with `<Markdown>{README}</Markdown>` in place of `<Title />` and `<Description />`.
 
