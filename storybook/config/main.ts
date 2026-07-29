@@ -27,8 +27,14 @@ const viewportFitCover: PluginOption = {
     handler: (html) => {
       const viewportMeta = /<meta\s+name="viewport"\s+content="([^"]*)"/i
 
+      // Should Storybook ever stop emitting the element, this has to carry the whole declaration:
+      // a viewport meta holding `viewport-fit` alone would drop the width and scale with it, and
+      // the preview would lay out at the browser’s default width instead of the device’s.
       if (!viewportMeta.test(html)) {
-        return html.replace(/<head>/i, '<head>\n    <meta name="viewport" content="viewport-fit=cover" />')
+        return html.replace(
+          /<head>/i,
+          '<head>\n    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />',
+        )
       }
 
       return html.replace(viewportMeta, (match, content: string) =>
