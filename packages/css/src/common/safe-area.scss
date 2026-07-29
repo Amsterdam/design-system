@@ -15,6 +15,9 @@
  */
 
 :root {
+  /* The block axis needs no swap: the design system is horizontal writing modes only, where the
+   * block end is always the bottom. */
+  --ams-safe-area-block-end: env(safe-area-inset-bottom, 0px);
   --ams-safe-area-inline-end: env(safe-area-inset-right, 0px);
   --ams-safe-area-inline-start: env(safe-area-inset-left, 0px);
 }
