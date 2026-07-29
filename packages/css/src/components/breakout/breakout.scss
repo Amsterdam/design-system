@@ -129,11 +129,15 @@ $ams-breakout-row-span-max: 4;
     );
   }
 
-  .ams-breakout--gap-vertical--small > & {
-    margin-block: calc(var(--ams-space-l) * -1);
+  .ams-breakout--gap-vertical--none > & {
+    margin-block: 0;
   }
 
   .ams-breakout--gap-vertical--large > & {
+    margin-block: calc(var(--ams-space-l) * -1);
+  }
+
+  .ams-breakout--gap-vertical--2x-large > & {
     margin-block: calc(var(--ams-space-2xl) * -1);
   }
 }
