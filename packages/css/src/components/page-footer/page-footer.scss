@@ -22,15 +22,15 @@
   /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
   --_ams-page-footer-menu-padding-block-end: max(
     var(--ams-page-footer-menu-padding-block),
-    var(--ams-safe-area-block-end)
+    var(--ams-safe-area-inset-block-end)
   );
   --_ams-page-footer-menu-padding-inline-end: max(
     var(--ams-page-footer-menu-padding-inline),
-    var(--ams-safe-area-inline-end)
+    var(--ams-safe-area-inset-inline-end)
   );
   --_ams-page-footer-menu-padding-inline-start: max(
     var(--ams-page-footer-menu-padding-inline),
-    var(--ams-safe-area-inline-start)
+    var(--ams-safe-area-inset-inline-start)
   );
   /* stylelint-enable csstools/value-no-unknown-custom-properties */
 
@@ -55,14 +55,14 @@
         --ams-page-footer-menu-medium-padding-inline /* @deprecated */,
         var(--ams-page-footer-menu-vi-medium-padding-inline)
       ),
-      var(--ams-safe-area-inline-end)
+      var(--ams-safe-area-inset-inline-end)
     );
     --_ams-page-footer-menu-padding-inline-start: max(
       var(
         --ams-page-footer-menu-medium-padding-inline /* @deprecated */,
         var(--ams-page-footer-menu-vi-medium-padding-inline)
       ),
-      var(--ams-safe-area-inline-start)
+      var(--ams-safe-area-inset-inline-start)
     );
     /* stylelint-enable csstools/value-no-unknown-custom-properties */
   }
@@ -74,14 +74,14 @@
         --ams-page-footer-menu-wide-padding-inline /* @deprecated */,
         var(--ams-page-footer-menu-vi-wide-padding-inline)
       ),
-      var(--ams-safe-area-inline-end)
+      var(--ams-safe-area-inset-inline-end)
     );
     --_ams-page-footer-menu-padding-inline-start: max(
       var(
         --ams-page-footer-menu-wide-padding-inline /* @deprecated */,
         var(--ams-page-footer-menu-vi-wide-padding-inline)
       ),
-      var(--ams-safe-area-inline-start)
+      var(--ams-safe-area-inset-inline-start)
     );
     /* stylelint-enable csstools/value-no-unknown-custom-properties */
   }

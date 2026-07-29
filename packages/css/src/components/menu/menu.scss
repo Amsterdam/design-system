@@ -13,8 +13,8 @@
   // The padding of Page Header, which resolves to the same value: its token aliases the Grid one.
   // Recomputed here rather than inherited, so a Menu outside a Page Header still bleeds correctly.
   /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
-  --_ams-menu-padding-inline-end: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inline-end));
-  --_ams-menu-padding-inline-start: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inline-start));
+  --_ams-menu-padding-inline-end: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-end));
+  --_ams-menu-padding-inline-start: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-start));
   /* stylelint-enable csstools/value-no-unknown-custom-properties */
 
   background-color: var(--ams-menu-background-color);
@@ -41,11 +41,11 @@
     /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
     --_ams-menu-padding-inline-end: max(
       var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
-      var(--ams-safe-area-inline-end)
+      var(--ams-safe-area-inset-inline-end)
     );
     --_ams-menu-padding-inline-start: max(
       var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
-      var(--ams-safe-area-inline-start)
+      var(--ams-safe-area-inset-inline-start)
     );
     /* stylelint-enable csstools/value-no-unknown-custom-properties */
 

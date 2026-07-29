@@ -11,10 +11,13 @@
 
 .ams-page-header {
   /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
-  --_ams-page-header-padding-inline-end: max(var(--ams-page-header-padding-inline), var(--ams-safe-area-inline-end));
+  --_ams-page-header-padding-inline-end: max(
+    var(--ams-page-header-padding-inline),
+    var(--ams-safe-area-inset-inline-end)
+  );
   --_ams-page-header-padding-inline-start: max(
     var(--ams-page-header-padding-inline),
-    var(--ams-safe-area-inline-start)
+    var(--ams-safe-area-inset-inline-start)
   );
   /* stylelint-enable csstools/value-no-unknown-custom-properties */
 
@@ -33,11 +36,11 @@
     /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
     --_ams-page-header-padding-inline-end: max(
       var(--ams-page-header-medium-padding-inline /* @deprecated */, var(--ams-page-header-vi-medium-padding-inline)),
-      var(--ams-safe-area-inline-end)
+      var(--ams-safe-area-inset-inline-end)
     );
     --_ams-page-header-padding-inline-start: max(
       var(--ams-page-header-medium-padding-inline /* @deprecated */, var(--ams-page-header-vi-medium-padding-inline)),
-      var(--ams-safe-area-inline-start)
+      var(--ams-safe-area-inset-inline-start)
     );
     /* stylelint-enable csstools/value-no-unknown-custom-properties */
   }
@@ -46,11 +49,11 @@
     /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
     --_ams-page-header-padding-inline-end: max(
       var(--ams-page-header-wide-padding-inline /* @deprecated */, var(--ams-page-header-vi-wide-padding-inline)),
-      var(--ams-safe-area-inline-end)
+      var(--ams-safe-area-inset-inline-end)
     );
     --_ams-page-header-padding-inline-start: max(
       var(--ams-page-header-wide-padding-inline /* @deprecated */, var(--ams-page-header-vi-wide-padding-inline)),
-      var(--ams-safe-area-inline-start)
+      var(--ams-safe-area-inset-inline-start)
     );
     /* stylelint-enable csstools/value-no-unknown-custom-properties */
   }
