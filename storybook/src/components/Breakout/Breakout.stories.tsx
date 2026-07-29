@@ -22,6 +22,9 @@ const meta = {
     as: asArgType(gridTags),
   },
   decorators: [wrapInPage],
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof Breakout>
 
 export default meta

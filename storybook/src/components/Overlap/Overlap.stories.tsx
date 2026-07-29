@@ -14,6 +14,9 @@ const meta = {
   title: 'Components/Layout/Overlap',
   component: Overlap,
   decorators: [wrapInPage],
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof Overlap>
 
 export default meta

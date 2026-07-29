@@ -166,6 +166,8 @@ That keeps the start of each cell’s content at a consistent baseline – impor
 The Grid is full-width and non-nestable on purpose.
 A single, shared rhythm of columns across the page keeps content predictable for users; nesting would break that rhythm.
 
+The Grid has no vertical padding of its own; the `padding…` props add `l`, `xl`, or `2xl` where a design calls for it.
+
 The 4, 8, and 12 column counts halve cleanly into 2, 3, 4, and 6 subdivisions, so the same content can be arranged consistently across breakpoints.
 
 ### Breakpoints
@@ -190,11 +192,21 @@ In Compact Mode they use `m`, `l`, and `xl` respectively.
 This makes the margin smaller than the gap between cells on narrow windows: content sits closer to the edges of the device than the cells do to each other.
 That is deliberate, as Compact Mode has no need for the editorial white space beside the spacious grid.
 
-The Grid has no vertical padding of its own; the `padding…` props add `l`, `xl`, or `2xl` where a design calls for it.
 In Compact Mode every cell adds `m` of padding on all sides, inside the margins of the Grid.
 
-In Compact Mode the wide grid includes a vertical menu bar beside the grid, 128 pixels wide.
-On medium and narrow grids, the menu bar moves below the header.
+### Display cutouts
+
+Phones with a display cutout, such as a notch or a camera housing, need clear space along the edge of the screen.
+Where the margin is not already wide enough, the Grid widens it to match.
+It uses the larger of the two, never both added together.
+
+You mostly see this in landscape.
+iOS asks for the same space on both sides, so both margins grow: to around 62 pixels on a recent phone.
+At the widths a phone has in landscape, that is roughly a whole column of the medium grid.
+Compact Mode changes the most, since its margins start out the smallest.
+
+The margins only grow if the page asks for the whole screen with `viewport-fit=cover`.
+[Getting started](/docs/docs-developer-guide-getting-started--docs) explains how.
 
 ### Maximum width
 
@@ -206,6 +218,7 @@ There is no minimum: the grid scales as narrow as the available space.
 
 These tables show the pixel values at each breakpoint; between breakpoints, all values scale continuously.
 ‘Margin’ is the horizontal padding of the Grid itself; ‘Gap’ sits between the columns and, by default, between the rows as well.
+‘Menu bar’ is the vertical bar that Compact Mode places beside the wide grid, 128 pixels wide; on medium and narrow grids it moves below the header instead.
 Dimensions are multiples of 16, not the precise measurements of any specific device.
 We name the breakpoints ‘narrow’, ‘medium’, and ‘wide’ rather than ‘mobile’, ‘tablet’, and ‘desktop’ for this reason.
 

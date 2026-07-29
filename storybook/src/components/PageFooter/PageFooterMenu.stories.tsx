@@ -23,6 +23,9 @@ const meta = {
       </PageFooter>
     ),
   ],
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof PageFooter.Menu>
 
 export default meta

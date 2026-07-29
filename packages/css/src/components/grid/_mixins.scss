@@ -4,28 +4,58 @@
  */
 
 @use "../../common/breakpoint" as *;
+@use "../../common/safe-area" as *;
 
 @mixin ams-grid {
+  /* The effective inline padding, published as custom properties so that elements which break out
+     of the Grid can negate exactly the padding it applies. The two sides need not be equal, since
+     they take their own safe area inset, so each has to be negated on its own. */
+  /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+  --_ams-grid-padding-inline-end: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-end));
+  --_ams-grid-padding-inline-start: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-start));
+  /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
   column-gap: var(--ams-grid-column-gap);
   display: grid;
   grid-template-columns: repeat(var(--ams-grid-column-count), minmax(0, 1fr));
-  padding-inline: var(--ams-grid-padding-inline);
+  padding-inline-end: var(--_ams-grid-padding-inline-end);
+  padding-inline-start: var(--_ams-grid-padding-inline-start);
   row-gap: var(--ams-grid-row-gap-xl);
 
   @media (min-width: $ams-breakpoint-medium) {
+    /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+    --_ams-grid-padding-inline-end: max(
+      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
+      var(--ams-safe-area-inset-inline-end)
+    );
+    --_ams-grid-padding-inline-start: max(
+      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
+      var(--ams-safe-area-inset-inline-start)
+    );
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
     grid-template-columns: repeat(
       var(--ams-grid-medium-column-count /* @deprecated */, var(--ams-grid-vi-medium-column-count)),
       minmax(0, 1fr)
     );
-    padding-inline: var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline));
   }
 
   @media (min-width: $ams-breakpoint-wide) {
+    /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+    --_ams-grid-padding-inline-end: max(
+      var(--ams-grid-wide-padding-inline /* @deprecated */, var(--ams-grid-vi-wide-padding-inline)),
+      var(--ams-safe-area-inset-inline-end)
+    );
+    --_ams-grid-padding-inline-start: max(
+      var(--ams-grid-wide-padding-inline /* @deprecated */, var(--ams-grid-vi-wide-padding-inline)),
+      var(--ams-safe-area-inset-inline-start)
+    );
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
     grid-template-columns: repeat(
       var(--ams-grid-wide-column-count /* @deprecated */, var(--ams-grid-vi-wide-column-count)),
       minmax(0, 1fr)
     );
-    padding-inline: var(--ams-grid-wide-padding-inline /* @deprecated */, var(--ams-grid-vi-wide-padding-inline));
   }
 }
 
