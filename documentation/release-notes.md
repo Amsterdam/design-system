@@ -47,6 +47,38 @@ That range is the truth.
 Work from it.
 Use the sources below to interpret it, never the other way around.
 
+## Reading the range
+
+Read the diff of every commit in the range with `git show --stat <sha>`.
+Do not classify from the subject line.
+It misleads in both directions, and the three questions below are the whole triage.
+
+**Did it ship?**
+A commit that touches `packages/` or `packages-proprietary/` publishes to npm.
+Everything else, including `storybook/`, `documentation/` and `.github/`, reaches no changelog at all and feeds the Docs section instead.
+
+**Is it user-facing?**
+Would someone _using_ the design system care?
+A `chore:` can be user-facing, and a `feat(Storybook)` may not ship at all.
+
+**Which bucket?**
+Changed, Added, Adjusted, Improved, Fixed or Docs, as described under Structure.
+Or none of them: leaving a commit out is a legitimate answer, and most releases have many.
+
+### Reconciling with the changelogs
+
+Do this in both directions.
+For every shipped commit, grep the five `CHANGELOG.md` files for its pull request number.
+Then reverse it: every changelog entry should map back to a commit in the range.
+
+Account for every gap rather than tidying it away, and confirm a suspected gap really shipped before reporting it:
+
+```sh
+git merge-base --is-ancestor <sha> <release-commit> && echo shipped
+git show origin/main:<path-to-file> | grep <the-new-api>
+npm view @amsterdam/design-system-react@<version> peerDependencies --json
+```
+
 ## Sources, and how each one lies
 
 **Each package’s `CHANGELOG.md`** gives the versions and the dates.
@@ -288,8 +320,26 @@ Concretely:
   Skeleton shipped with the Loading Page template in the same pull request, and the Documentation section is the only place it gets announced.
 - Reconcile the commit range against the changelogs in both directions, and account for every gap.
 - Verify the ‘nothing breaks’ claim against the changelogs _and_ the range: look for `!` in commit subjects, `BREAKING CHANGE:` footers, removals, and required properties.
+- Read both sides of every number you quote with `git show <sha>^:<path>` against `git show <sha>:<path>`, rather than repeating a figure from a commit message or a draft.
+- Take each deprecation’s removal date from the JSDoc comment or the token’s `$deprecated` field, and note the inversion where a value flips rather than simply going away.
 - Check whether any existing deprecation has passed its removal date.
   On 12 July 2026 six icons and a set of field tokens were three days past theirs, and no changelog mentioned it.
   These belong in the notes for the release that removes them, but they are worth raising with the team when you notice.
 - Confirm the release notes sort right after the Introduction: add the entry to `storySort.order` in [storybook/config/preview.tsx](../storybook/config/preview.tsx).
 - Run `pnpm exec prettier --check` and `pnpm exec eslint` on the file, and build Storybook once to confirm the MDX compiles.
+
+Building Storybook also gives you a way to check every link mechanically instead of by eye:
+
+```sh
+cd storybook && pnpm run build
+```
+
+```python
+import json, re
+
+index = json.load(open("storybook/dist/index.json"))["entries"]
+source = open("storybook/src/docs/release-notes.docs.mdx").read()
+
+for url, story_id in dict.fromkeys(re.findall(r"]\((/docs/([a-z0-9-]+--docs))\)", source)):
+    print("OK  " if story_id in index else "DEAD", url)
+```
