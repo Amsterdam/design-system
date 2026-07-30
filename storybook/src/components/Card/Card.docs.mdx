@@ -23,20 +23,26 @@ This component has no props to configure.
 
 ## Subcomponents
 
+### Image
+
+The image of the Card.
+It accepts all props of a regular [Image](/docs/components-media-image--docs), such as `aspectRatio` or a set of image sources.
+Only use decorative images with `alt=""` here.
+The heading provides screen reader users with enough context.
+
+<Canvas of={CardImageStories.Image} />
+
+<Controls of={CardImageStories.Image} />
+
 ### Heading
 
 Contains the name and link of the Card.
-Accepts all props of a regular Heading.
+Accepts all props of a regular [Heading](/docs/components-text-heading--docs).
 Set its `level` to fit the document outline.
 
 <Canvas of={CardHeadingStories.Heading} />
 
 <Controls of={CardHeadingStories.Heading} />
-
-### Content
-
-Groups everything in a Card that is not its image.
-Add it whenever a Card has an image: it is what allows the Card to switch to a [horizontal layout](#horizontal-layout).
 
 ### Heading Group
 
@@ -46,16 +52,10 @@ Displays a `tagline` above the heading.
 
 <Controls of={CardHeadingGroupStories.HeadingGroup} />
 
-### Image
+### Content
 
-The image of the Card.
-It accepts all props of a regular [Image](/docs/components-media-image--docs), such as `aspectRatio` or a set of image sources.
-Only use decorative images with `alt=""` here.
-Screen readers will not read the `alt` text of non-decorative images when navigating to a Card.
-
-<Canvas of={CardImageStories.Image} />
-
-<Controls of={CardImageStories.Image} />
+Groups everything in a Card that is not its image.
+Add it whenever you want to allow switching to a [horizontal layout](#horizontal-layout).
 
 ### Link
 
@@ -104,19 +104,20 @@ This ensures screen readers read out the heading before the metadata.
 
 ### Horizontal layout
 
-A Card that pairs an image with a Content places the image beside the content once there is room for it.
-This follows the width of the nearest [query container](/docs/utilities-css-query-container--docs) rather than the width of the viewport, so the same Card is horizontal in a wide Grid Cell and vertical in a narrow one, without any change to the markup.
-A Card that has an image but no Content stays vertical.
+A Card can place content beside the image once there is room for it.
+This follows the width of the nearest [query container](/docs/utilities-css-query-container--docs), so the same Card is horizontal in a wide Grid Cell and vertical in a narrow one, without any change to the markup.
+A Card that has an image but no Content subcomponent stays vertical.
 
-The image covers 4 of the 9 columns of the Grid Cell it sits in, which is the width of a Card spanning 4 columns.
-The images of horizontal and vertical Cards then line up on an index page that mixes the two.
-A Card that spans a different number of columns keeps the same proportion, so its image is no longer a whole number of columns wide and the two stop lining up.
+If the Card spans 9 columns of the Grid, the image covers 4 of them.
+In other contexts, the image scales proportionally.
+
+(Note that this example will appear vertically in a narrow window.)
 
 <Canvas of={CardStories.HorizontalLayout} />
 
 ### Top tasks
 
-A set of cards can be used to present links to frequently accessed interactions.
+A set of cards without images can present links to frequently accessed interactions.
 A short title and description are enough to guide the user to the page they need.
 Position 4 to 8 tasks on a [Grid](/docs/components-layout-grid--docs); left-align them and do not skip cells.
 For a group of links without a description, use a [Link List](/docs/components-navigation-link-list--docs) instead.
@@ -166,6 +167,7 @@ A description there would be read when browsing the page but skipped when moving
 ## See also
 
 - [Standalone Link](/docs/components-navigation-standalone-link--docs) – for a single link to a follow-up page when a Card is too much.
+- [Skeleton](/docs/components-feedback-skeleton--docs) – can increase the perceived performance of loading the Card’s content.
 - [Routing libraries](/docs/docs-developer-guide-routing-libraries--docs) – how to integrate links with external routing libraries.
 
 ## Design tokens

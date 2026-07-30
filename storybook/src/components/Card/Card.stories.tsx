@@ -35,7 +35,7 @@ type DefaultStory = StoryObj<DefaultProps>
 
 export const Default: DefaultStory = {
   args: {
-    aspectRatio: '4:3',
+    aspectRatio: '16:9',
     date: formatDate(Date.now()),
     heading: 'Nederlands eerste houten woonwijk komt in Zuidoost',
     imageSrc: 'https://picsum.photos/480/360',

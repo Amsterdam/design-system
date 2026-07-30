@@ -26,11 +26,8 @@ $ams-card-horizontal-breakpoint: 36rem;
   position: relative; // Allows stretching the card link below.
   touch-action: manipulation;
 
-  /*
-   * Set native outline to Card if it has a visible focus inside.
-   * It is okay to use the :has() pseudo-class here, because we have a fallback for browsers that do not support it.
-   */
-  /* stylelint-disable-next-line plugin/use-baseline */
+  /* Set native outline to Card if it has a visible focus inside. */
+  /* stylelint-disable-next-line plugin/use-baseline -- we have a fallback for browsers that do not support it. */
   &:has(:focus-visible) {
     outline-color: -webkit-focus-ring-color;
     outline-style: auto;
@@ -56,33 +53,17 @@ $ams-card-horizontal-breakpoint: 36rem;
    * column, the Content in the second. Every other Card is left unchanged, so a Card that is not built for
    * this layout stays vertical rather than breaking. Content is what makes the layout possible: it occupies
    * a single grid row beside the image, where several loose children would each start a row of their own.
-   * It is okay to use the :has() pseudo-class here, because the layout falls back to the vertical
-   * default in browsers that do not support it.
    */
-  /* stylelint-disable-next-line plugin/use-baseline */
+  /* stylelint-disable-next-line plugin/use-baseline -- unsupporting browsers get vertical layout. */
   .ams-card:has(> .ams-card__image):has(> .ams-card__content) {
     column-gap: var(--ams-card-horizontal-column-gap);
 
     /*
-     * The image covers the first 4 of the 9 page columns the Card spans, so that it is exactly as wide as a
-     * Card that spans 4 columns and the images of horizontal and vertical Cards line up. It therefore
-     * measures 4 column widths plus the 3 gutters between them, and a column width is what is left of the
-     * Card once its own 8 gutters are taken off, divided by 9. That is the expression below, written the way
-     * it is counted rather than reduced, so that changing the 4 needs no algebra. Note this is not
-     * `1fr 2fr`, which accounts for one gutter where the columns need several.
-     *
-     * The gutters here are the ones of the Grid, not of the Card: they are the gaps between the page columns
-     * the image covers. The Card’s own column gap only sets the distance between the image and the content,
-     * which therefore starts wherever that leaves it rather than on a column of the page.
-     *
-     * 4 of 9 is the results region of an index page beside a 3-column filter column. A Card spanning a
-     * different number of columns keeps the same proportion, so its image stops landing on the page columns
-     * — the case on the medium Grid, where that region is 5 columns wide. That is accepted: one expression
-     * keeps the Card from having to know the layout of the page it sits on.
+     * The interesting width aims to let the image cover the first 4 columns if the Card spans exactly 9.
+     * That seems to be a common layout for horizontal Cards, and it allows them to visually align with
+     * vertical ones. In other contexts, the image scales proportionally.
      */
-    grid-template-columns:
-      calc(4 * (100% - 8 * var(--ams-grid-column-gap)) / 9 + 3 * var(--ams-grid-column-gap))
-      minmax(0, 1fr);
+    grid-template-columns: calc((4 * 100% - 5 * var(--ams-grid-column-gap)) / 9) minmax(0, 1fr);
 
     > .ams-card__image {
       grid-column-start: 1;
