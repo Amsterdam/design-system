@@ -11,10 +11,7 @@ import { Card } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
 import { maximiseInlineSize, wrapInInlineSizeQueryContainer } from '#storybook/_common/decorators'
-import { exampleTopTask } from '#storybook/_common/exampleContent'
 import { formatDate } from '#storybook/_common/formatDate'
-
-const topTask = exampleTopTask()
 
 const meta = {
   title: 'Components/Navigation/Card',
@@ -25,35 +22,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
-  args: {
-    children: [
-      <Card.Heading key={1} level={2}>
-        <Card.Link href="/">{topTask.heading}</Card.Link>
-      </Card.Heading>,
-      <Paragraph key={2}>{topTask.description}</Paragraph>,
-    ],
-  },
-  decorators: [maximiseInlineSize('24rem')],
-}
-
-export const WithTagline: Story = {
-  args: {
-    children: [
-      <Card.HeadingGroup key={1} tagline="Dossier">
-        <Card.Heading level={2}>
-          <Card.Link href="/">Monitor Attracties MRA</Card.Link>
-        </Card.Heading>
-      </Card.HeadingGroup>,
-      <Paragraph key={2}>
-        Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
-      </Paragraph>,
-    ],
-  },
-  decorators: [maximiseInlineSize('24rem')],
-}
-
-type WithImageProps = {
+type DefaultProps = {
   aspectRatio: (typeof aspectRatioOptions)[number]
   date: string
   heading: string
@@ -62,9 +31,9 @@ type WithImageProps = {
   text: string
 } & Readonly<ComponentProps<typeof Card>>
 
-type WithImageStory = StoryObj<WithImageProps>
+type DefaultStory = StoryObj<DefaultProps>
 
-export const WithImage: WithImageStory = {
+export const Default: DefaultStory = {
   args: {
     aspectRatio: '4:3',
     date: formatDate(Date.now()),
@@ -86,7 +55,7 @@ export const WithImage: WithImageStory = {
     text: { control: 'text' },
   },
   // The query container keeps this Card below the width at which it would switch to a horizontal layout.
-  decorators: [maximiseInlineSize('24rem'), wrapInInlineSizeQueryContainer()],
+  decorators: [wrapInInlineSizeQueryContainer(), maximiseInlineSize('24rem')],
   render: ({ aspectRatio, date, heading, imageSrc, tagline, text, ...args }) => (
     <Card {...args}>
       <Card.Image alt="" aspectRatio={aspectRatio} src={imageSrc} />
@@ -105,15 +74,31 @@ export const WithImage: WithImageStory = {
   ),
 }
 
+export const WithTagline: Story = {
+  args: {
+    children: [
+      <Card.HeadingGroup key={1} tagline="Dossier">
+        <Card.Heading level={2}>
+          <Card.Link href="/">Monitor Attracties MRA</Card.Link>
+        </Card.Heading>
+      </Card.HeadingGroup>,
+      <Paragraph key={2}>
+        Ontwikkeling van het aantal attracties en bezoekers in de metropoolregio Amsterdam.
+      </Paragraph>,
+    ],
+  },
+  decorators: [maximiseInlineSize('24rem')],
+}
+
 /**
  * A Card that pairs an image with a Card Content switches to a horizontal layout once its container is wider
  * than 36rem. Resize the container to see it change; the markup is the same in both layouts.
  */
-export const HorizontalLayout: WithImageStory = {
-  args: WithImage.args,
-  argTypes: WithImage.argTypes,
+export const HorizontalLayout: DefaultStory = {
+  args: Default.args,
+  argTypes: Default.argTypes,
   decorators: [wrapInInlineSizeQueryContainer(undefined, { inlineSize: '56rem', maxInlineSize: '100%' })],
-  render: WithImage.render,
+  render: Default.render,
 }
 
 export const TopTasks: Story = {

@@ -49,7 +49,9 @@ Displays a `tagline` above the heading.
 ### Image
 
 The image of the Card.
-It accepts all props of a regular Image, such as `aspectRatio`.
+It accepts all props of a regular [Image](/docs/components-media-image--docs), such as `aspectRatio` or a set of image sources.
+Only use decorative images with `alt=""` here.
+Screen readers will not read the `alt` text of non-decorative images when navigating to a Card.
 
 <Canvas of={CardImageStories.Image} />
 
@@ -99,14 +101,6 @@ Wrap the Heading in a Heading Group and set its `tagline` property.
 This ensures screen readers read out the heading before the metadata.
 
 <Canvas of={CardStories.WithTagline} />
-
-### With image
-
-A Card often displays the image of the article it links to.
-The Card Image subcomponent renders an [Image](/docs/components-media-image--docs) component and accepts its properties, e.g. to set an aspect ratio or provide a set of image sources.
-Only use decorative images with `alt=""` here. Screen readers will not read the `alt` text of non-decorative images when navigating to a Card.
-
-<Canvas of={CardStories.WithImage} />
 
 ### Horizontal layout
 
@@ -166,7 +160,7 @@ A screen reader reads the title first, then the rest of the content.
 The layer that makes the Card clickable is empty and carries no text, so it adds nothing to the name of the link and is not announced.
 The rest of the Card stays ordinary content: a paragraph inside it is read as a paragraph, not as part of the link.
 
-An image in a Card is decoration, which is why ‘With image’ asks for an empty `alt`.
+An image in a Card is decoration, which is why the examples pass an empty `alt`.
 A description there would be read when browsing the page but skipped when moving between links, so it would reach some readers and not others.
 
 ## See also
