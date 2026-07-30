@@ -43,7 +43,7 @@ const NewsCard = () => (
  */
 export const Test: Story = {
   render: () => (
-    <div style={{ display: 'grid', gap: '2rem' }}>
+    <div className="_ams-tests-stack">
       <div className="ams-query-container-inline-size" style={{ inlineSize: '24rem' }}>
         <NewsCard />
       </div>
