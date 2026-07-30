@@ -50,6 +50,7 @@ $ams-card-horizontal-breakpoint: 36rem;
   /* stylelint-disable-next-line plugin/use-baseline -- unsupporting browsers get vertical layout. */
   .ams-card:has(> .ams-card__image):has(> .ams-card__content) {
     column-gap: var(--ams-card-horizontal-column-gap);
+    grid-template-areas: "image content";
 
     /*
      * The interesting width aims to let the image cover the first 4 columns if the Card spans exactly 9.
@@ -59,13 +60,14 @@ $ams-card-horizontal-breakpoint: 36rem;
     grid-template-columns: calc((4 * 100% - 5 * var(--ams-grid-column-gap)) / 9) minmax(0, 1fr);
 
     > .ams-card__image {
-      grid-column-start: 1;
+      grid-column: image;
       margin-block-end: 0; // The column gap handles the spacing in this layout.
     }
 
     // Anything that is not the image belongs in the second column, so a stray child never lands under it.
+    // Naming the column and not the area leaves its row to auto-placement, so two children never overlap.
     > :not(.ams-card__image) {
-      grid-column-start: 2;
+      grid-column: content;
     }
   }
 }
