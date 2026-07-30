@@ -174,7 +174,7 @@ Cells flow automatically.
 A cell that doesn’t fit in the current row moves to the next, which keeps simple layouts simple.
 
 A Grid Cell is a [query container](/docs/utilities-css-query-container--docs) for inline size, so elements inside it can adapt their appearance to the width of the cell.
-A Subgrid is not: a grid container that establishes an independent formatting context cannot share its parent’s columns, so it would stop being a subgrid.
+A Subgrid is not a query container: a grid container that establishes an independent formatting context cannot share its parent’s columns, so it would stop being a subgrid.
 Its Cells are query containers as usual, which is where components that need one belong.
 
 ## Design
