@@ -85,7 +85,6 @@ $ams-card-horizontal-breakpoint: 36rem;
       minmax(0, 1fr);
 
     > .ams-card__image {
-      align-self: start; // Keep the aspect ratio of the image; the taller of the two columns sets the height.
       grid-column-start: 1;
       margin-block-end: 0; // The column gap handles the spacing in this layout.
     }
