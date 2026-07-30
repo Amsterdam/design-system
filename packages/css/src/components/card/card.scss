@@ -14,12 +14,6 @@
  */
 $ams-card-horizontal-breakpoint: 36rem;
 
-@mixin horizontal-layout {
-  @container ams-query-container-inline-size (inline-size > #{$ams-card-horizontal-breakpoint}) {
-    @content;
-  }
-}
-
 .ams-card {
   display: grid;
   outline-offset: var(--ams-card-outline-offset);
@@ -47,12 +41,11 @@ $ams-card-horizontal-breakpoint: 36rem;
   }
 }
 
-@include horizontal-layout {
+@container ams-query-container-inline-size (inline-size > #{$ams-card-horizontal-breakpoint}) {
   /*
-   * Only a Card that pairs an image with a Content switches to a horizontal layout: the image in the first
-   * column, the Content in the second. Every other Card is left unchanged, so a Card that is not built for
-   * this layout stays vertical rather than breaking. Content is what makes the layout possible: it occupies
-   * a single grid row beside the image, where several loose children would each start a row of their own.
+   * Only a Card with both an image and Content switches to a horizontal layout. Cards that are
+   * not built for this layout stay vertical rather than breaking. Content is what makes the
+   * layout possible by grouping all other content into a single area beside the image.
    */
   /* stylelint-disable-next-line plugin/use-baseline -- unsupporting browsers get vertical layout. */
   .ams-card:has(> .ams-card__image):has(> .ams-card__content) {
