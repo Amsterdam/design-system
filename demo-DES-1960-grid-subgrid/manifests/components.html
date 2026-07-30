@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>3.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -10486,7 +10486,10 @@ import { GridColumnsGuide } from "@amsterdam/design-system-react";</code></pre>
 the page rather than on columns of its own. Here a sidebar takes 3 columns and the Subgrid the other 9;
 the Cells inside it line up with the column guide.</div>
               <pre><code>const Subgrid = () =&gt; &lt;&gt;
-    &lt;Grid.Cell className=&quot;_ams-item&quot; span={{ narrow: 4, medium: 2, wide: 3 }} /&gt;
+    &lt;Grid.Cell
+        className=&quot;_ams-item&quot;
+        span={{ narrow: 4, medium: 2, wide: 3 }}
+        style={{ blockSize: &#39;16rem&#39; }} /&gt;
     &lt;Grid.Subgrid
         span={{ narrow: 4, medium: 6, wide: 9 }}
         start={{ narrow: 1, medium: 3, wide: 4 }}&gt;

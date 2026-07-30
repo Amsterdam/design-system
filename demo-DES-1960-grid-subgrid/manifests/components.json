@@ -2339,7 +2339,7 @@
         {
           "id": "components-layout-grid--subgrid",
           "name": "Subgrid",
-          "snippet": "const Subgrid = () => <>\n    <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n    <Grid.Subgrid\n        span={{ narrow: 4, medium: 6, wide: 9 }}\n        start={{ narrow: 1, medium: 3, wide: 4 }}>\n        <Grid.Cell className=\"_ams-item\" span=\"all\" style={{ blockSize: '6rem' }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n    </Grid.Subgrid>\n</>;",
+          "snippet": "const Subgrid = () => <>\n    <Grid.Cell\n        className=\"_ams-item\"\n        span={{ narrow: 4, medium: 2, wide: 3 }}\n        style={{ blockSize: '16rem' }} />\n    <Grid.Subgrid\n        span={{ narrow: 4, medium: 6, wide: 9 }}\n        start={{ narrow: 1, medium: 3, wide: 4 }}>\n        <Grid.Cell className=\"_ams-item\" span=\"all\" style={{ blockSize: '6rem' }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n    </Grid.Subgrid>\n</>;",
           "description": "A Subgrid hands the columns it spans to its children, so a Cell inside it is placed on the columns of\nthe page rather than on columns of its own. Here a sidebar takes 3 columns and the Subgrid the other 9;\nthe Cells inside it line up with the column guide."
         }
       ],
@@ -5766,6 +5766,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 3390
+    "durationMs": 4144
   }
 }
