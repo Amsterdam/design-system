@@ -38,7 +38,10 @@ export type GridSubgridProps = {
    * @default div
    */
   readonly as?: GridCellTag
-  /** The amount of space between the rows of the subgrid. */
+  /**
+   * The amount of space between the rows of the subgrid.
+   * Defaults to the vertical gap of the Grid.
+   */
   readonly gapVertical?: GridGap
   /**
    * The amount of grid rows the subgrid spans.

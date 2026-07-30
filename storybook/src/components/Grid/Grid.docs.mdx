@@ -40,6 +40,9 @@ Every direct child of a Subgrid must be a Cell.
 Use it for a region beside a sidebar, such as the results of an index page next to a filter column.
 Without it, a Cell inside a Cell has no columns to align to.
 
+Its rows take the vertical gap of the Grid, so the region keeps the rhythm of the page.
+Give it its own `gapVertical` to space its rows differently.
+
 <Canvas of={GridSubgridStories.Subgrid} />
 
 <Controls of={GridSubgridStories.Subgrid} />

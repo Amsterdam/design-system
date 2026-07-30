@@ -119,13 +119,14 @@
  * `grid-template-columns` to `none`. The Cells inside a Subgrid are query containers themselves.
  *
  * Only the subgridded axis inherits the gutter of the Grid, so the column gap arrives on its own
- * but the row gap has to be set here. It matches the default of the Grid.
+ * but the row gap has to be set here. Inheriting it extends the same rule to the other axis: the
+ * Subgrid takes the row gap of the Grid, including one the Grid changed with `gapVertical`.
  */
 @mixin ams-grid__subgrid {
   align-items: start; // Match the Grid: a child keeps its own height rather than filling the row.
   display: grid;
   grid-template-columns: subgrid;
-  row-gap: var(--ams-grid-row-gap-xl);
+  row-gap: inherit;
 }
 
 @mixin ams-grid__subgrid--gap-vertical--none {
