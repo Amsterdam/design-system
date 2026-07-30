@@ -17,7 +17,10 @@ const meta = {
   argTypes: {
     as: asArgType(gridCellTags),
     gapVertical: {
-      control: { type: 'radio' },
+      control: {
+        labels: { undefined: 'inherit (default)' },
+        type: 'radio',
+      },
       options: ['none', 'large', undefined, '2x-large'],
     },
   },
