@@ -31,10 +31,16 @@
       "horizontal": {
         "column-gap": {
           "$value": "{ams.space.l}",
-          "$description": "The space between the image and the content of a horizontal Card. Independent of the column gap of the Grid, which the image is measured against so that it covers whole columns of the page.",
           "$extensions": {
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
+          }
+        },
+        "grid-template-columns": {
+          "$value": "calc((4 * 100% - 5 * {ams.grid.column-gap}) / 9) minmax(0, 1fr)",
+          "$description": "The image covers the first 4 columns if the Card spans exactly 9. That seems to be a common layout for horizontal Cards, and it allows them to visually align with vertical ones. In other contexts, the image scales proportionally.",
+          "$extensions": {
+            "nl.amsterdam.type": "gridTemplateColumns"
           }
         }
       },

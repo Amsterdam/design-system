@@ -51,13 +51,7 @@ $ams-card-horizontal-breakpoint: 36rem;
   .ams-card:has(> .ams-card__image):has(> .ams-card__content) {
     column-gap: var(--ams-card-horizontal-column-gap);
     grid-template-areas: "image content";
-
-    /*
-     * The interesting width aims to let the image cover the first 4 columns if the Card spans exactly 9.
-     * That seems to be a common layout for horizontal Cards, and it allows them to visually align with
-     * vertical ones. In other contexts, the image scales proportionally.
-     */
-    grid-template-columns: calc((4 * 100% - 5 * var(--ams-grid-column-gap)) / 9) minmax(0, 1fr);
+    grid-template-columns: var(--ams-card-horizontal-grid-template-columns);
 
     > .ams-card__image {
       grid-column: image;
