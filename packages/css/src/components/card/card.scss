@@ -21,7 +21,6 @@ $ams-card-horizontal-breakpoint: 36rem;
   touch-action: manipulation;
 
   /* Set native outline to Card if it has a visible focus inside. */
-  /* stylelint-disable-next-line plugin/use-baseline -- we have a fallback for browsers that do not support it. */
   &:has(:focus-visible) {
     outline-color: -webkit-focus-ring-color;
     outline-style: auto;
@@ -47,7 +46,6 @@ $ams-card-horizontal-breakpoint: 36rem;
    * not built for this layout stay vertical rather than breaking. Content is what makes the
    * layout possible by grouping all other content into a single area beside the image.
    */
-  /* stylelint-disable-next-line plugin/use-baseline -- unsupporting browsers get vertical layout. */
   .ams-card:has(> .ams-card__image):has(> .ams-card__content) {
     column-gap: var(--ams-card-horizontal-column-gap);
     grid-template-areas: "image content";
@@ -98,12 +96,7 @@ $ams-card-horizontal-breakpoint: 36rem;
     }
   }
 
-  /*
-   * Remove the outline from the link; it’s already on the Card.
-   * Reuses the `.ams-card:has(:focus-visible)` selector above, so that
-   * browsers that support it apply both styles, while those that don’t apply neither.
-   */
-  /* stylelint-disable-next-line plugin/use-baseline */
+  /* Remove the outline from the link; it’s already on the Card. */
   .ams-card:has(:focus-visible) &:focus {
     outline: none;
   }

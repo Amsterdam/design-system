@@ -20,8 +20,6 @@
   margin-block-end: var(--ams-field-set-child-margin-block-end);
 }
 
-/* stylelint-disable plugin/use-baseline -- Without support for `:has`, all elements have the same spacing, which is acceptable. */
-
 // We use :has here to increase the margin before the error message.
 .ams-field-set > :has(+ .ams-error-message) {
   margin-block-end: var(--ams-field-set-child-before-error-message-margin-block-end);
@@ -37,8 +35,6 @@
 .ams-field-set > :is(.ams-field, .ams-field-set):has(+ :is(.ams-field, .ams-field-set)) {
   margin-block-end: var(--ams-field-set-child-between-fields-and-field-sets-margin-block-end);
 }
-
-/* stylelint-enable plugin/use-baseline */
 
 .ams-field-set--invalid {
   border-inline-start: var(--ams-field-set-invalid-border-inline-start);
