@@ -44,9 +44,7 @@
  * `ams-body` on a wrapper `<div>` instead (see the decorator in config/preview.tsx), so the page
  * keeps scrolling. Lock the iframe’s root here; `:has()` reaches the modal nested inside it.
  * `:modal` matches only `showModal()` dialogs, so the non-modal ones in Test stories don’t lock. */
-@supports selector(:has(*)) {
-  html:has(.ams-dialog:modal),
-  html:has(.ams-modal-dialog:modal) {
-    overflow: hidden;
-  }
+html:has(.ams-dialog:modal),
+html:has(.ams-modal-dialog:modal) {
+  overflow: hidden;
 }

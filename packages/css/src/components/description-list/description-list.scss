@@ -106,7 +106,6 @@ $ams-description-list-breakpoint: 32rem;
   }
 
   // Remove whitespace between consecutive Terms
-  /* stylelint-disable-next-line plugin/use-baseline -- Suboptimal spacing in non-supporting browsers is acceptable */
   &:has(+ .ams-description-list__term) {
     margin-block-end: 0;
   }
