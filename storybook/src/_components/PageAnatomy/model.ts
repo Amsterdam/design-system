@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryFn, StoryObj } from '@storybook/react-vite'
 import type { ReactElement, ReactNode } from 'react'
 
 import { Children, createElement, isValidElement } from 'react'
@@ -374,8 +374,9 @@ export type StoryModule = {
  * loading states does not start one here. Nothing is mounted and the markup is thrown away.
  */
 export const readStoryTree = (of: StoryModule, name: string): ReactNode => {
-  const story = of[name] as StoryObj | undefined
-  const render = story?.render ?? of.default.render
+  // A story is an object carrying a render, or, in the older format Storybook still accepts, that function itself.
+  const story = of[name] as (Partial<StoryFn> & Partial<StoryObj>) | undefined
+  const render = typeof story === 'function' ? story : (story?.render ?? of.default.render)
 
   if (!render) return null
 

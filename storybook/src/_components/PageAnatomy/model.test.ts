@@ -196,6 +196,15 @@ describe('readStoryTree', () => {
   it('returns nothing when neither the story nor the meta renders', () => {
     expect(readStoryTree({ Default: {}, default: {} }, 'Default')).toBeNull()
   })
+
+  it('reads a story written as a render function, which the older format allows', () => {
+    const module: StoryModule = {
+      Default: Object.assign(() => createElement(Grid, {}, cell({ span: 4 })), { args: { phase: 'loaded' } }),
+      default: { args: { phase: 'idle' } },
+    }
+
+    expect(readStoryTree(module, 'Default')).not.toBeNull()
+  })
 })
 
 describe('paddingHeight and rowGapHeight', () => {
