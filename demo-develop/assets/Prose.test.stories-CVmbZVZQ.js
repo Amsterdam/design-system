@@ -1,0 +1,4 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{n as t,r as n}from"./Prose.stories-BEyY_BMP.js";var r,i,a;function o(){return(o=e((()=>{t(),r={...n,title:`Utilities/CSS/Prose`},i={tags:[`!dev`,`!autodocs`]},i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+  tags: ['!dev', '!autodocs']
+}`,...i.parameters?.docs?.source},description:{story:`The article and the width decorator come from the meta, so this snapshots the document we document.
+Duplicating the markup here would let the snapshot drift away from it.`,...i.parameters?.docs?.description}}},a=[`Test`]})))()}o();export{i as Test,a as __namedExportsOrder,r as default};
