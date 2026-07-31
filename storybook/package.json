@@ -49,7 +49,7 @@
     "remark-gfm": "4.0.1",
     "storybook": "10.5.5",
     "storybook-addon-pseudo-states": "10.5.5",
-    "vite": "8.1.5",
+    "vite": "8.2.0",
     "vitest": "4.1.10"
   }
 }
