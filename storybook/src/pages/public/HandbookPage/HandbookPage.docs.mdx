@@ -2,6 +2,9 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as HandbookStories from "./HandbookPage.stories.tsx";
 
 <Meta of={HandbookStories} />
@@ -9,6 +12,12 @@ import * as HandbookStories from "./HandbookPage.stories.tsx";
 # Handbook page
 
 Use this template for long-form reference content that is split across many short pages, such as a personnel handbook or a policy document.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={HandbookStories} />
 
 ## Structure
 

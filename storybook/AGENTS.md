@@ -42,6 +42,9 @@ When adding a new component, choose the most fitting existing category. Agents m
 Add further documentation in the structured MDX sections below them.
 See [documentation/component-docs.md](../documentation/component-docs.md) for the full content model and section order.
 
+A page template under `src/pages/` opens its docs page with an Anatomy section instead: a schematic of the page, read from the story itself.
+See [documentation/page-anatomy.md](../documentation/page-anatomy.md) for how to add one.
+
 ## Visual tests (Chromatic)
 
 - One story per visual variant / state in `<Name>.test.stories.tsx`.

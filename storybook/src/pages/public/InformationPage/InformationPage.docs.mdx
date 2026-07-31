@@ -2,6 +2,9 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as InformationStories from "./InformationPage.stories.tsx";
 
 <Meta of={InformationStories} />
@@ -11,6 +14,12 @@ import * as InformationStories from "./InformationPage.stories.tsx";
 Explains a subject that is neither a product nor a news article: background, rules, and what they mean for the reader.
 Use it when the reader wants to understand something, rather than arrange something.
 For a task that ends in a form or an application, use the [Product page](/docs/pages-public-product-page--docs) instead.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={InformationStories} />
 
 ## Structure
 

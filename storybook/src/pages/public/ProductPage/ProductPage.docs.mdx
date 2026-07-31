@@ -2,6 +2,9 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as ProductStories from "./ProductPage.stories.tsx";
 
 <Meta of={ProductStories} />
@@ -10,6 +13,12 @@ import * as ProductStories from "./ProductPage.stories.tsx";
 
 Lists all information about a product or service of the City.
 Often includes a Call to Action Link that directs the user to a form.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={ProductStories} />
 
 ## Headings
 
