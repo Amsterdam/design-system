@@ -100,10 +100,9 @@ const meta = {
 
     return (
       // The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
-      // This page has two Grids in one landmark, so a plain <main> wraps them both. A page that is a single
-      // section can put as="main" on the Grid itself instead.
+      // The Content Header and the results are each their own section, so a plain <main> wraps them both.
       <main id="inhoud">
-        {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
+        {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
         <Grid paddingTop="large">
           {/* Search is not a content page, so the title spans the full width, not the documented header cell. */}
           <Grid.Cell span="all">
@@ -130,9 +129,9 @@ const meta = {
          * one atomic update once it turns false. The ARIA spec allows this rather than requiring it, so not
          * every screen reader does.
          */}
-        {/* The search field is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
+        {/* This white section follows the Content Header, so it takes a paddingTop of 2x-large. */}
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-        <Grid aria-busy={phase === 'loading'} paddingBottom="2x-large" paddingTop="x-large">
+        <Grid aria-busy={phase === 'loading'} paddingBottom="2x-large" paddingTop="2x-large">
           <Grid.Cell span="all">
             {/*
              * Keep one status message in the DOM at all times and only change its text – from a loading message
@@ -201,10 +200,9 @@ type PageSourceOptions = {
 
 const pageShell = ({ busy, extraCells = '', status, statusCell = '' }: PageSourceOptions) =>
   `// The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
-// This page has two Grids in one landmark, so a plain <main> wraps them both. A page that is a single
-// section can put as="main" on the Grid itself instead.
+// The Content Header and the results are each their own section, so a plain <main> wraps them both.
 <main id="inhoud">
-  {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
+  {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
   <Grid paddingTop="large">
     {/* Search is not a content page, so the title spans the full width, not the documented header cell. */}
     <Grid.Cell span="all">
@@ -231,9 +229,9 @@ const pageShell = ({ busy, extraCells = '', status, statusCell = '' }: PageSourc
    * one atomic update once it turns false. The ARIA spec allows this rather than requiring it, so not
    * every screen reader does.
    */}
-  {/* The search field is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
+  {/* This white section follows the Content Header, so it takes a paddingTop of 2x-large. */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  <Grid aria-busy={${busy}} paddingBottom="2x-large" paddingTop="x-large">
+  <Grid aria-busy={${busy}} paddingBottom="2x-large" paddingTop="2x-large">
     <Grid.Cell span="all">
       {/*
        * Keep one status message in the DOM at all times and only change its text – from a loading message

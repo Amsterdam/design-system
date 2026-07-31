@@ -70,34 +70,36 @@ export const Default: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
-  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  {/*
-   * The main region here is a single section, so the Grid itself is that region. When the landmark has
-   * to hold several sections — more Grids, a Spotlight, a full-bleed image — wrap them in a plain
-   * <main> instead. Beside a sidebar, <main> goes in its own Grid Cell.
-   */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-  <Grid as="main" id="inhoud" paddingBottom="2x-large">
-    <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-      <Heading className="ams-mb-m" level={1}>Burgerzaken</Heading>
-      <Paragraph size="large">
-        Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een
-        geboorte aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
-      </Paragraph>
-    </Grid.Cell>
-    {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-    {burgerzakenLinks.map(({ heading, links }, index) => (
-      <Grid.Cell
-        key={heading}
-        span={{ narrow: 4, medium: 4, wide: 5 }}
-        start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
-      >
-        <Heading className="ams-mb-xs" level={2} size="level-3">{heading}</Heading>
-        {getLinks(links)}
+  <main id="inhoud">
+    {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
+    {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
+    {/* A white section follows it, so its paddingBottom is 2x-large. */}
+    <Grid paddingBottom="2x-large">
+      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading className="ams-mb-m" level={1}>Burgerzaken</Heading>
+        <Paragraph size="large">
+          Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een
+          geboorte aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
+        </Paragraph>
       </Grid.Cell>
-    ))}
-  </Grid>
+    </Grid>
+    {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    <Grid paddingBottom="2x-large">
+      {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
+      {burgerzakenLinks.map(({ heading, links }, index) => (
+        <Grid.Cell
+          key={heading}
+          span={{ narrow: 4, medium: 4, wide: 5 }}
+          start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+        >
+          <Heading className="ams-mb-xs" level={2} size="level-3">{heading}</Heading>
+          {getLinks(links)}
+        </Grid.Cell>
+      ))}
+    </Grid>
+  </main>
 </>`,
         language: 'tsx',
       },
@@ -115,38 +117,40 @@ export const Default: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
-      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-      {/*
-       * The main region here is a single section, so the Grid itself is that region. When the landmark has
-       * to hold several sections — more Grids, a Spotlight, a full-bleed image — wrap them in a plain
-       * <main> instead. Beside a sidebar, <main> goes in its own Grid Cell.
-       */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-      <Grid as="main" id="inhoud" paddingBottom="2x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-m" level={1}>
-            Burgerzaken
-          </Heading>
-          <Paragraph size="large">
-            Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een geboorte
-            aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
-          </Paragraph>
-        </Grid.Cell>
-        {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-        {burgerzakenLinks.map(({ heading, links }, index) => (
-          <Grid.Cell
-            key={heading}
-            span={{ narrow: 4, medium: 4, wide: 5 }}
-            start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
-          >
-            <Heading className="ams-mb-xs" level={2} size="level-3">
-              {heading}
+      <main id="inhoud">
+        {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
+        {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
+        {/* A white section follows it, so its paddingBottom is 2x-large. */}
+        <Grid paddingBottom="2x-large">
+          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <Heading className="ams-mb-m" level={1}>
+              Burgerzaken
             </Heading>
-            {getLinks(links)}
+            <Paragraph size="large">
+              Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een geboorte
+              aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
+            </Paragraph>
           </Grid.Cell>
-        ))}
-      </Grid>
+        </Grid>
+        {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        <Grid paddingBottom="2x-large">
+          {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
+          {burgerzakenLinks.map(({ heading, links }, index) => (
+            <Grid.Cell
+              key={heading}
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+            >
+              <Heading className="ams-mb-xs" level={2} size="level-3">
+                {heading}
+              </Heading>
+              {getLinks(links)}
+            </Grid.Cell>
+          ))}
+        </Grid>
+      </main>
     </>
   ),
 }
@@ -169,45 +173,52 @@ export const WithTopTasks: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
-  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-  <Grid as="main" id="inhoud" paddingBottom="2x-large">
-    <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-      <Heading level={1}>Leefomgeving</Heading>
-    </Grid.Cell>
-    {/* The two most important tasks get a full Card each; the groups below are plain heading + links. */}
-    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-      <Card>
-        <Card.Heading level={2}>
-          <Card.Link href="/">Doe een melding</Card.Link>
-        </Card.Heading>
-        <Paragraph>
-          Meld overlast van geluid of afval op straat. U kunt ook kapotte dingen melden of iets dat we
-          moeten opruimen.
-        </Paragraph>
-      </Card>
-    </Grid.Cell>
-    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-      <Card>
-        <Card.Heading level={2}>
-          <Card.Link href="/">Kondig een demonstratie of manifestatie aan</Card.Link>
-        </Card.Heading>
-        <Paragraph>Een demonstratie of manifestatie meldt u vooraf bij de gemeente.</Paragraph>
-      </Card>
-    </Grid.Cell>
-    {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-    {topTaskLinks.map(({ heading, links }, index) => (
-      <Grid.Cell
-        key={heading}
-        span={{ narrow: 4, medium: 4, wide: 5 }}
-        start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
-      >
-        <Heading className="ams-mb-xs" level={2} size="level-3">{heading}</Heading>
-        {getLinks(links)}
+  <main id="inhoud">
+    {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
+    {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
+    {/* A white section follows it, so its paddingBottom is 2x-large. */}
+    <Grid paddingBottom="2x-large">
+      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Leefomgeving</Heading>
       </Grid.Cell>
-    ))}
-  </Grid>
+    </Grid>
+    {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    <Grid paddingBottom="2x-large">
+      {/* The two most important tasks get a full Card each; the groups below are plain heading + links. */}
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Card>
+          <Card.Heading level={2}>
+            <Card.Link href="/">Doe een melding</Card.Link>
+          </Card.Heading>
+          <Paragraph>
+            Meld overlast van geluid of afval op straat. U kunt ook kapotte dingen melden of iets dat we
+            moeten opruimen.
+          </Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+        <Card>
+          <Card.Heading level={2}>
+            <Card.Link href="/">Kondig een demonstratie of manifestatie aan</Card.Link>
+          </Card.Heading>
+          <Paragraph>Een demonstratie of manifestatie meldt u vooraf bij de gemeente.</Paragraph>
+        </Card>
+      </Grid.Cell>
+      {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
+      {topTaskLinks.map(({ heading, links }, index) => (
+        <Grid.Cell
+          key={heading}
+          span={{ narrow: 4, medium: 4, wide: 5 }}
+          start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+        >
+          <Heading className="ams-mb-xs" level={2} size="level-3">{heading}</Heading>
+          {getLinks(links)}
+        </Grid.Cell>
+      ))}
+    </Grid>
+  </main>
 </>`,
         language: 'tsx',
       },
@@ -225,47 +236,54 @@ export const WithTopTasks: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
-      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-      <Grid as="main" id="inhoud" paddingBottom="2x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading level={1}>Leefomgeving</Heading>
-        </Grid.Cell>
-        {/* The two most important tasks get a full Card each; the groups below are plain heading + links. */}
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Card>
-            <Card.Heading level={2}>
-              <Card.Link href="/">Doe een melding</Card.Link>
-            </Card.Heading>
-            <Paragraph>
-              Meld overlast van geluid of afval op straat. U kunt ook kapotte dingen melden of iets dat we moeten
-              opruimen.
-            </Paragraph>
-          </Card>
-        </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-          <Card>
-            <Card.Heading level={2}>
-              <Card.Link href="/">Kondig een demonstratie of manifestatie aan</Card.Link>
-            </Card.Heading>
-            <Paragraph>Een demonstratie of manifestatie meldt u vooraf bij de gemeente.</Paragraph>
-          </Card>
-        </Grid.Cell>
-        {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-        {topTaskLinks.map(({ heading, links }, index) => (
-          <Grid.Cell
-            key={heading}
-            span={{ narrow: 4, medium: 4, wide: 5 }}
-            start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
-          >
-            <Heading className="ams-mb-xs" level={2} size="level-3">
-              {heading}
-            </Heading>
-            {getLinks(links)}
+      <main id="inhoud">
+        {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
+        {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
+        {/* A white section follows it, so its paddingBottom is 2x-large. */}
+        <Grid paddingBottom="2x-large">
+          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <Heading level={1}>Leefomgeving</Heading>
           </Grid.Cell>
-        ))}
-      </Grid>
+        </Grid>
+        {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        <Grid paddingBottom="2x-large">
+          {/* The two most important tasks get a full Card each; the groups below are plain heading + links. */}
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <Card>
+              <Card.Heading level={2}>
+                <Card.Link href="/">Doe een melding</Card.Link>
+              </Card.Heading>
+              <Paragraph>
+                Meld overlast van geluid of afval op straat. U kunt ook kapotte dingen melden of iets dat we moeten
+                opruimen.
+              </Paragraph>
+            </Card>
+          </Grid.Cell>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+            <Card>
+              <Card.Heading level={2}>
+                <Card.Link href="/">Kondig een demonstratie of manifestatie aan</Card.Link>
+              </Card.Heading>
+              <Paragraph>Een demonstratie of manifestatie meldt u vooraf bij de gemeente.</Paragraph>
+            </Card>
+          </Grid.Cell>
+          {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
+          {topTaskLinks.map(({ heading, links }, index) => (
+            <Grid.Cell
+              key={heading}
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
+            >
+              <Heading className="ams-mb-xs" level={2} size="level-3">
+                {heading}
+              </Heading>
+              {getLinks(links)}
+            </Grid.Cell>
+          ))}
+        </Grid>
+      </main>
     </>
   ),
 }
@@ -290,18 +308,24 @@ export const WithInteractiveElement: StoryObj = {
   </Grid>
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/*
-   * Spotlights and full-bleed images sit between the Grids, so a plain <main> wraps them all. A page that
-   * is a single section can put as="main" on the Grid itself instead.
+   * The Content Header, the Spotlights and the full-bleed images are each their own section, so a plain
+   * <main> wraps them all.
    */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
-    <Grid paddingBottom="x-large">
+    {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
+    {/* A white section follows it, so its paddingBottom is 2x-large. */}
+    <Grid paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-m" level={1}>Parkeren</Heading>
         <Paragraph size="large">
           Vind informatie over parkeervergunningen, parkeertarieven en betaald parkeren in Amsterdam.
         </Paragraph>
       </Grid.Cell>
+    </Grid>
+    {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
+    {/* A coloured Spotlight follows this one, so its paddingBottom is x-large. */}
+    <Grid paddingBottom="x-large">
       {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
       {parkerenLinks.map(({ heading, links }, index) => (
         <Grid.Cell
@@ -367,18 +391,24 @@ export const WithInteractiveElement: StoryObj = {
       </Grid>
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/*
-       * Spotlights and full-bleed images sit between the Grids, so a plain <main> wraps them all. A page that
-       * is a single section can put as="main" on the Grid itself instead.
+       * The Content Header, the Spotlights and the full-bleed images are each their own section, so a plain
+       * <main> wraps them all.
        */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
-        <Grid paddingBottom="x-large">
+        {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
+        {/* A white section follows it, so its paddingBottom is 2x-large. */}
+        <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
               Parkeren
             </Heading>
             <Paragraph size="large">{exampleParagraph()}</Paragraph>
           </Grid.Cell>
+        </Grid>
+        {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
+        {/* A coloured Spotlight follows this one, so its paddingBottom is x-large. */}
+        <Grid paddingBottom="x-large">
           {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
           {parkerenLinks.map(({ heading, links }, index) => (
             <Grid.Cell
