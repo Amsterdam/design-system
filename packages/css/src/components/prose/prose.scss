@@ -35,6 +35,11 @@ $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
     margin-block-end: var(--ams-space-l);
   }
 
+  /* Metadata Paragraph before the lead Paragraph: the Content Header holds them closer together */
+  > #{$_ams-paragraph}:has(+ .ams-paragraph--large) {
+    margin-block-end: var(--ams-space-m);
+  }
+
   /* Button or CTA Link followed by Button or CTA Link */
   > :is(#{$_ams-button-or-cta}):has(+ :is(#{$_ams-button-or-cta})) {
     margin-block-end: var(--ams-space-l);
@@ -80,12 +85,12 @@ $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
     margin-block-end: var(--ams-space-s);
   }
 
-  /* Heading level 1 followed by a regular Paragraph */
+  /* Heading level 1 followed by a regular Paragraph, typically the Metadata Paragraph of a Content Header */
   > .ams-heading--1:has(+ #{$_ams-paragraph}) {
-    margin-block-end: var(--ams-space-xs);
+    margin-block-end: var(--ams-space-m);
   }
 
-  /* Heading level 1 followed by a Paragraph (large), typically lead or metadata */
+  /* Heading level 1 followed by a Paragraph (large), typically the lead of a Content Header */
   > .ams-heading--1:has(+ .ams-paragraph--large) {
     margin-block-end: var(--ams-space-m);
   }
