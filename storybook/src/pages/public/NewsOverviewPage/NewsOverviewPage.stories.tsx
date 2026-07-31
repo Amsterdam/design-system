@@ -135,7 +135,8 @@ export const Default: StoryObj = {
        * columns of the page rather than on columns of their own. That is what lines the Cards up with the rest.
        */}
       <Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}>
-        <Grid.Cell span="all">
+        {/* The sentence is running text, which takes at most 7 of the 12 columns, so it stops short of the Cards. */}
+        <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
           <Heading className="ams-visually-hidden" level={2}>
             Nieuwsberichten
           </Heading>
@@ -269,7 +270,8 @@ export const Default: StoryObj = {
            * columns of the page rather than on columns of their own. That is what lines the Cards up with the rest.
            */}
           <Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}>
-            <Grid.Cell span="all">
+            {/* The sentence is running text, which takes at most 7 of the 12 columns, so it stops short of the Cards. */}
+            <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
               <Heading className="ams-visually-hidden" level={2}>
                 Nieuwsberichten
               </Heading>
