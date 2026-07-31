@@ -2,6 +2,9 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as SearchResultsStories from "./SearchResultsPage.stories.tsx";
 
 <Meta of={SearchResultsStories} />
@@ -11,6 +14,12 @@ import * as SearchResultsStories from "./SearchResultsPage.stories.tsx";
 What a visitor lands on after searching the site.
 It shares its layout with the [News Overview Page](/docs/pages-public-news-overview-page--docs): a filter column beside a list of results.
 The difference is the content, which comes from anywhere on the site and therefore has no image and no single content type.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={SearchResultsStories} />
 
 ## Structure
 
