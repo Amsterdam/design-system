@@ -32,7 +32,7 @@
   --_ams-page-anatomy-band-space: color-mix(in sRGB, var(--ams-color-highlight-purple) 10%, transparent);
 
   container: page-anatomy / inline-size;
-  font-family: "Amsterdam Sans", "Arial", sans-serif;
+  font-family: var(--ams-typography-font-family);
 }
 
 ._ams-page-anatomy__viewports,
