@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -18319,15 +18319,10 @@ export const WithSideNavigation: StoryObj = {
       &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/1040/780&quot; /&gt;
     &lt;/Grid.Cell&gt;
     {/*
-     * The navigation is longer than the section beside it, so on the wide grid its cell spans all four rows
-     * of that section. rowSpan accepts at most 4, which is what limits this page to six addresses. On the
-     * narrow and medium grids the navigation sits above the section instead, in a row of its own.
+     * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+     * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
      */}
-    &lt;Grid.Cell
-      rowSpan={{ narrow: 1, medium: 1, wide: 4 }}
-      span={{ narrow: 4, medium: 8, wide: 3 }}
-      start={{ narrow: 1, medium: 1, wide: 2 }}
-    &gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       {/*
        * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
        * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
@@ -18352,27 +18347,33 @@ export const WithSideNavigation: StoryObj = {
         &lt;/TableOfContents.List&gt;
       &lt;/TableOfContents&gt;
     &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
-      &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
-    &lt;/Grid.Cell&gt;
-    {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-    {shopLocations.map(({ postalCode, street }, index) =&gt; (
-      &lt;Grid.Cell key={street} span={4} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 5 }}&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-          {street}
-          &lt;br /&gt;
-          {postalCode} Amsterdam
-        &lt;/Paragraph&gt;
-        {/*
-         * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
-         * hidden address extends each accessible name. It follows the visible label rather than
-         * interrupting it, which keeps that label a contiguous part of the name for speech input.
-         */}
-        &lt;Button variant=&quot;secondary&quot;&gt;
-          Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
-        &lt;/Button&gt;
+    {/*
+     * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+     * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+     * the navigation beside it needs no row span and the page fits any number of them.
+     */}
+    &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-    ))}
+      {shopLocations.map(({ postalCode, street }) =&gt; (
+        &lt;Grid.Cell key={street} span={4}&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+            {street}
+            &lt;br /&gt;
+            {postalCode} Amsterdam
+          &lt;/Paragraph&gt;
+          {/*
+           * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+           * hidden address extends each accessible name. It follows the visible label rather than
+           * interrupting it, which keeps that label a contiguous part of the name for speech input.
+           */}
+          &lt;Button variant=&quot;secondary&quot;&gt;
+            Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+          &lt;/Button&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid.Subgrid&gt;
   &lt;/Grid&gt;
 &lt;/&gt;`,
         language: &#39;tsx&#39;,
@@ -18416,15 +18417,10 @@ export const WithSideNavigation: StoryObj = {
           &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src={exampleImageSource(1040, 780)} /&gt;
         &lt;/Grid.Cell&gt;
         {/*
-         * The navigation is longer than the section beside it, so on the wide grid its cell spans all four rows
-         * of that section. rowSpan accepts at most 4, which is what limits this page to six addresses. On the
-         * narrow and medium grids the navigation sits above the section instead, in a row of its own.
+         * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+         * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
          */}
-        &lt;Grid.Cell
-          rowSpan={{ narrow: 1, medium: 1, wide: 4 }}
-          span={{ narrow: 4, medium: 8, wide: 3 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           {/*
            * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
            * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
@@ -18449,27 +18445,33 @@ export const WithSideNavigation: StoryObj = {
             &lt;/TableOfContents.List&gt;
           &lt;/TableOfContents&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
-          &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-        {shopLocations.map(({ postalCode, street }, index) =&gt; (
-          &lt;Grid.Cell key={street} span={4} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 5 }}&gt;
-            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-              {street}
-              &lt;br /&gt;
-              {postalCode} Amsterdam
-            &lt;/Paragraph&gt;
-            {/*
-             * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
-             * hidden address extends each accessible name. It follows the visible label rather than
-             * interrupting it, which keeps that label a contiguous part of the name for speech input.
-             */}
-            &lt;Button variant=&quot;secondary&quot;&gt;
-              Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
-            &lt;/Button&gt;
+        {/*
+         * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+         * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+         * the navigation beside it needs no row span and the page fits any number of them.
+         */}
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
-        ))}
+          {shopLocations.map(({ postalCode, street }) =&gt; (
+            &lt;Grid.Cell key={street} span={4}&gt;
+              &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+                {street}
+                &lt;br /&gt;
+                {postalCode} Amsterdam
+              &lt;/Paragraph&gt;
+              {/*
+               * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+               * hidden address extends each accessible name. It follows the visible label rather than
+               * interrupting it, which keeps that label a contiguous part of the name for speech input.
+               */}
+              &lt;Button variant=&quot;secondary&quot;&gt;
+                Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+              &lt;/Button&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
     &lt;/&gt;
   ),
@@ -19191,15 +19193,10 @@ export const SubnavigationPage: StoryObj = {
         &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src={exampleImageSource(1040, 780)} /&gt;
       &lt;/Grid.Cell&gt;
       {/*
-       * The navigation is longer than the section beside it, so on the wide grid its cell spans all four rows
-       * of that section. rowSpan accepts at most 4, which is what limits this page to six addresses. On the
-       * narrow and medium grids the navigation sits above the section instead, in a row of its own.
+       * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+       * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
        */}
-      &lt;Grid.Cell
-        rowSpan={{ narrow: 1, medium: 1, wide: 4 }}
-        span={{ narrow: 4, medium: 8, wide: 3 }}
-        start={{ narrow: 1, medium: 1, wide: 2 }}
-      &gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         {/*
          * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
          * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
@@ -19224,27 +19221,33 @@ export const SubnavigationPage: StoryObj = {
           &lt;/TableOfContents.List&gt;
         &lt;/TableOfContents&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
-        &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-      {shopLocations.map(({ postalCode, street }, index) =&gt; (
-        &lt;Grid.Cell key={street} span={4} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 5 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-            {street}
-            &lt;br /&gt;
-            {postalCode} Amsterdam
-          &lt;/Paragraph&gt;
-          {/*
-           * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
-           * hidden address extends each accessible name. It follows the visible label rather than
-           * interrupting it, which keeps that label a contiguous part of the name for speech input.
-           */}
-          &lt;Button variant=&quot;secondary&quot;&gt;
-            Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
-          &lt;/Button&gt;
+      {/*
+       * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+       * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+       * the navigation beside it needs no row span and the page fits any number of them.
+       */}
+      &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-      ))}
+        {shopLocations.map(({ postalCode, street }) =&gt; (
+          &lt;Grid.Cell key={street} span={4}&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              {street}
+              &lt;br /&gt;
+              {postalCode} Amsterdam
+            &lt;/Paragraph&gt;
+            {/*
+             * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+             * hidden address extends each accessible name. It follows the visible label rather than
+             * interrupting it, which keeps that label a contiguous part of the name for speech input.
+             */}
+            &lt;Button variant=&quot;secondary&quot;&gt;
+              Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+            &lt;/Button&gt;
+          &lt;/Grid.Cell&gt;
+        ))}
+      &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
   &lt;/&gt;)
 );</code></pre>
@@ -19435,12 +19438,15 @@ Use a side navigation when the page presents one entry from a long list, and vis
 A [Table of Contents](/docs/components-navigation-table-of-contents--docs) is the navigation for this.
 Mark the entry on screen with `aria-current=&quot;page&quot;`, and set `defaultExpanded` on the outer list so its groups start open.
 
-The navigation is usually longer than the entry beside it.
-Give its Grid Cell a `rowSpan` for the number of rows that entry occupies, or it takes a row of its own and pushes everything below it.
-`rowSpan` accepts at most 4, so plan the entry for at most that many rows on the wide grid, or place the navigation above the content instead.
-Set `rowSpan` per grid variant: on narrower grids the navigation stacks above the content and spans a single row.
+Put the entry in a [Grid Subgrid](/docs/components-layout-grid--docs) rather than a Cell.
+A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
+It is a single item in the row of the Grid however many rows of its own it holds, so the navigation sits beside all of it and the entry can be any length.
 
-Because the entry’s parts each sit in their own Grid Cell, the space between them is the Grid’s row gap.
+Give the navigation the first place in the source order, so it precedes the entry for a screen reader and for the Tab key.
+It only sits beside the entry on the wide grid; on narrower screens it spans the full width above it.
+
+Because the entry’s parts each sit in their own Cell of the Subgrid, the space between them is the row gap.
+Leave the row gap of the Subgrid at the vertical gap of the Grid.
 That gap has no medium size, so the space below the entry’s heading is larger than the vertical space guide advises for a heading.
 Keep elements in one cell where you need the exact space between them.
 
@@ -43093,15 +43099,10 @@ export const WithSideNavigation: StoryObj = {
       &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/1040/780&quot; /&gt;
     &lt;/Grid.Cell&gt;
     {/*
-     * The navigation is longer than the section beside it, so on the wide grid its cell spans all four rows
-     * of that section. rowSpan accepts at most 4, which is what limits this page to six addresses. On the
-     * narrow and medium grids the navigation sits above the section instead, in a row of its own.
+     * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+     * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
      */}
-    &lt;Grid.Cell
-      rowSpan={{ narrow: 1, medium: 1, wide: 4 }}
-      span={{ narrow: 4, medium: 8, wide: 3 }}
-      start={{ narrow: 1, medium: 1, wide: 2 }}
-    &gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       {/*
        * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
        * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
@@ -43126,27 +43127,33 @@ export const WithSideNavigation: StoryObj = {
         &lt;/TableOfContents.List&gt;
       &lt;/TableOfContents&gt;
     &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
-      &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
-    &lt;/Grid.Cell&gt;
-    {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-    {shopLocations.map(({ postalCode, street }, index) =&gt; (
-      &lt;Grid.Cell key={street} span={4} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 5 }}&gt;
-        &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-          {street}
-          &lt;br /&gt;
-          {postalCode} Amsterdam
-        &lt;/Paragraph&gt;
-        {/*
-         * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
-         * hidden address extends each accessible name. It follows the visible label rather than
-         * interrupting it, which keeps that label a contiguous part of the name for speech input.
-         */}
-        &lt;Button variant=&quot;secondary&quot;&gt;
-          Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
-        &lt;/Button&gt;
+    {/*
+     * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+     * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+     * the navigation beside it needs no row span and the page fits any number of them.
+     */}
+    &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-    ))}
+      {shopLocations.map(({ postalCode, street }) =&gt; (
+        &lt;Grid.Cell key={street} span={4}&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+            {street}
+            &lt;br /&gt;
+            {postalCode} Amsterdam
+          &lt;/Paragraph&gt;
+          {/*
+           * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+           * hidden address extends each accessible name. It follows the visible label rather than
+           * interrupting it, which keeps that label a contiguous part of the name for speech input.
+           */}
+          &lt;Button variant=&quot;secondary&quot;&gt;
+            Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+          &lt;/Button&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid.Subgrid&gt;
   &lt;/Grid&gt;
 &lt;/&gt;`,
         language: &#39;tsx&#39;,
@@ -43190,15 +43197,10 @@ export const WithSideNavigation: StoryObj = {
           &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src={exampleImageSource(1040, 780)} /&gt;
         &lt;/Grid.Cell&gt;
         {/*
-         * The navigation is longer than the section beside it, so on the wide grid its cell spans all four rows
-         * of that section. rowSpan accepts at most 4, which is what limits this page to six addresses. On the
-         * narrow and medium grids the navigation sits above the section instead, in a row of its own.
+         * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+         * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
          */}
-        &lt;Grid.Cell
-          rowSpan={{ narrow: 1, medium: 1, wide: 4 }}
-          span={{ narrow: 4, medium: 8, wide: 3 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           {/*
            * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
            * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
@@ -43223,27 +43225,33 @@ export const WithSideNavigation: StoryObj = {
             &lt;/TableOfContents.List&gt;
           &lt;/TableOfContents&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
-          &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-        {shopLocations.map(({ postalCode, street }, index) =&gt; (
-          &lt;Grid.Cell key={street} span={4} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 5 }}&gt;
-            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-              {street}
-              &lt;br /&gt;
-              {postalCode} Amsterdam
-            &lt;/Paragraph&gt;
-            {/*
-             * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
-             * hidden address extends each accessible name. It follows the visible label rather than
-             * interrupting it, which keeps that label a contiguous part of the name for speech input.
-             */}
-            &lt;Button variant=&quot;secondary&quot;&gt;
-              Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
-            &lt;/Button&gt;
+        {/*
+         * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+         * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+         * the navigation beside it needs no row span and the page fits any number of them.
+         */}
+        &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
-        ))}
+          {shopLocations.map(({ postalCode, street }) =&gt; (
+            &lt;Grid.Cell key={street} span={4}&gt;
+              &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+                {street}
+                &lt;br /&gt;
+                {postalCode} Amsterdam
+              &lt;/Paragraph&gt;
+              {/*
+               * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+               * hidden address extends each accessible name. It follows the visible label rather than
+               * interrupting it, which keeps that label a contiguous part of the name for speech input.
+               */}
+              &lt;Button variant=&quot;secondary&quot;&gt;
+                Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+              &lt;/Button&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
     &lt;/&gt;
   ),
@@ -43965,15 +43973,10 @@ export const SubnavigationPage: StoryObj = {
         &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src={exampleImageSource(1040, 780)} /&gt;
       &lt;/Grid.Cell&gt;
       {/*
-       * The navigation is longer than the section beside it, so on the wide grid its cell spans all four rows
-       * of that section. rowSpan accepts at most 4, which is what limits this page to six addresses. On the
-       * narrow and medium grids the navigation sits above the section instead, in a row of its own.
+       * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+       * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
        */}
-      &lt;Grid.Cell
-        rowSpan={{ narrow: 1, medium: 1, wide: 4 }}
-        span={{ narrow: 4, medium: 8, wide: 3 }}
-        start={{ narrow: 1, medium: 1, wide: 2 }}
-      &gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         {/*
          * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
          * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
@@ -43998,27 +44001,33 @@ export const SubnavigationPage: StoryObj = {
           &lt;/TableOfContents.List&gt;
         &lt;/TableOfContents&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
-        &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-      {shopLocations.map(({ postalCode, street }, index) =&gt; (
-        &lt;Grid.Cell key={street} span={4} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 5 }}&gt;
-          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
-            {street}
-            &lt;br /&gt;
-            {postalCode} Amsterdam
-          &lt;/Paragraph&gt;
-          {/*
-           * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
-           * hidden address extends each accessible name. It follows the visible label rather than
-           * interrupting it, which keeps that label a contiguous part of the name for speech input.
-           */}
-          &lt;Button variant=&quot;secondary&quot;&gt;
-            Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
-          &lt;/Button&gt;
+      {/*
+       * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+       * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+       * the navigation beside it needs no row span and the page fits any number of them.
+       */}
+      &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-      ))}
+        {shopLocations.map(({ postalCode, street }) =&gt; (
+          &lt;Grid.Cell key={street} span={4}&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              {street}
+              &lt;br /&gt;
+              {postalCode} Amsterdam
+            &lt;/Paragraph&gt;
+            {/*
+             * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+             * hidden address extends each accessible name. It follows the visible label rather than
+             * interrupting it, which keeps that label a contiguous part of the name for speech input.
+             */}
+            &lt;Button variant=&quot;secondary&quot;&gt;
+              Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+            &lt;/Button&gt;
+          &lt;/Grid.Cell&gt;
+        ))}
+      &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
   &lt;/&gt;)
 );</code></pre>
@@ -44209,12 +44218,15 @@ Use a side navigation when the page presents one entry from a long list, and vis
 A [Table of Contents](/docs/components-navigation-table-of-contents--docs) is the navigation for this.
 Mark the entry on screen with `aria-current=&quot;page&quot;`, and set `defaultExpanded` on the outer list so its groups start open.
 
-The navigation is usually longer than the entry beside it.
-Give its Grid Cell a `rowSpan` for the number of rows that entry occupies, or it takes a row of its own and pushes everything below it.
-`rowSpan` accepts at most 4, so plan the entry for at most that many rows on the wide grid, or place the navigation above the content instead.
-Set `rowSpan` per grid variant: on narrower grids the navigation stacks above the content and spans a single row.
+Put the entry in a [Grid Subgrid](/docs/components-layout-grid--docs) rather than a Cell.
+A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
+It is a single item in the row of the Grid however many rows of its own it holds, so the navigation sits beside all of it and the entry can be any length.
 
-Because the entry’s parts each sit in their own Grid Cell, the space between them is the Grid’s row gap.
+Give the navigation the first place in the source order, so it precedes the entry for a screen reader and for the Tab key.
+It only sits beside the entry on the wide grid; on narrower screens it spans the full width above it.
+
+Because the entry’s parts each sit in their own Cell of the Subgrid, the space between them is the row gap.
+Leave the row gap of the Subgrid at the vertical gap of the Grid.
 That gap has no medium size, so the space below the entry’s heading is larger than the vertical space guide advises for a heading.
 Keep elements in one cell where you need the exact space between them.
 
