@@ -4912,8 +4912,8 @@
         {
           "id": "components-docs-page-anatomy--test",
           "name": "Test",
-          "snippet": "const Test = () => (\n  <div className=\"_ams-tests-stack\">\n    <PageAnatomy labels={articlePageLabels} of={ArticlePageStories} />\n    <PageAnatomy labels={homePageLabels} of={HomePageStories} />\n    <PageAnatomy labels={internalNavigationPageLabels} menu mode=\"compact\" of={InternalNavigationPageStories} />\n  </div>\n);",
-          "description": "Three pages, between them covering everything the drawing can show: a Spotlight and a full-bleed Image on the\nArticle Page, an Overlap on the Home Page, and Compact Mode, a Menu column, a row-spanning Cell and a transparent\none on the internal Navigation Page."
+          "snippet": "const Test = () => (\n  <div className=\"_ams-tests-stack\">\n    <PageAnatomy labels={articlePageLabels} of={ArticlePageStories} />\n    <PageAnatomy labels={homePageLabels} of={HomePageStories} />\n    <PageAnatomy labels={newsOverviewPageLabels} of={NewsOverviewPageStories} />\n    <PageAnatomy labels={internalNavigationPageLabels} menu mode=\"compact\" of={InternalNavigationPageStories} />\n  </div>\n);",
+          "description": "Four pages, between them covering everything the drawing can show: a Spotlight and a full-bleed Image on the\nArticle Page, an Overlap on the Home Page, a Subgrid holding a Cell that spans all of its columns on the News\nOverview Page, and Compact Mode, a Menu column, a row-spanning Cell and a transparent one on the internal\nNavigation Page."
         }
       ],
       "import": "import { PageAnatomy } from \"@amsterdam/storybook\";"
@@ -5972,6 +5972,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 3396
+    "durationMs": 4057
   }
 }

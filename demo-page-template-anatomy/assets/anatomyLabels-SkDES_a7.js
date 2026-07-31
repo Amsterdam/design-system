@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";var t,n=e((()=>{t=[[{height:32,label:`Breadcrumb`}],[{height:120,label:`Page title and search`}],[{height:380,label:`Filters`},{height:32,label:`Result count`},...Array.from({length:7},()=>({height:180,label:`News card`})),{height:44,label:`Pagination`}]]}));export{n,t};
