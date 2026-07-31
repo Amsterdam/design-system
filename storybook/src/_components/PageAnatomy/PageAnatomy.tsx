@@ -66,11 +66,17 @@ const touchesAbove = (sections: readonly AnatomySection[], index: number): boole
 const blockHeight = (block: AnatomyBlock, viewport: AnatomyViewport): number =>
   block.aspectRatio ? block.aspectRatio * viewport.contentWidth : block.height[viewport.key]
 
+/** The height a block covers, which for a Subgrid is the tallest of the cells that sit in its rows. */
+const coveringHeight = (block: AnatomyBlock, viewport: AnatomyViewport): number =>
+  block.blocks
+    ? Math.max(0, ...block.blocks.map((child) => coveringHeight(child, viewport)))
+    : blockHeight(block, viewport)
+
 /** The strip of a block that the blocks lying on it leave in the open, above them. */
 const stripAboveOverlay = (section: AnatomySection, block: AnatomyBlock, viewport: AnatomyViewport): number => {
   const covering = Math.max(
-    ...section.blocks.filter((other) => !other.bleed).map((other) => other.height[viewport.key]),
     0,
+    ...section.blocks.filter((other) => !other.bleed).map((other) => coveringHeight(other, viewport)),
   )
 
   return Math.max(0, (blockHeight(block, viewport) - covering) / 2)
