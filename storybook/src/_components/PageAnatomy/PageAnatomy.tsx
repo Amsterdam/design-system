@@ -15,7 +15,7 @@ import type {
   AnatomySection,
   AnatomyViewport,
   StoryModule,
-} from './anatomy'
+} from './model'
 
 import {
   anatomyViewports,
@@ -28,7 +28,7 @@ import {
   rowGapHeight,
   space,
   toContainerWidth,
-} from './anatomy'
+} from './model'
 
 import './page-anatomy.css'
 

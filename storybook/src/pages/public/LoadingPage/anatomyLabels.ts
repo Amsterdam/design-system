@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/anatomy'
+import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
 
 /**
  * Names every Grid Cell of the story the docs page draws, grouped per section and in the order they appear.

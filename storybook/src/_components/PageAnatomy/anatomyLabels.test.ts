@@ -10,9 +10,9 @@
 
 import { describe, expect, it } from 'vitest'
 
-import type { AnatomyLabels, StoryModule } from './anatomy'
+import type { AnatomyLabels, StoryModule } from './model'
 
-import { readPageAnatomy, readStoryTree } from './anatomy'
+import { readPageAnatomy, readStoryTree } from './model'
 
 /**
  * Every page template that draws its anatomy names each of its Grid Cells by hand. The drawing reads the cells from

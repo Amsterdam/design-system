@@ -7,9 +7,9 @@ import { Grid, Image, Overlap, Spotlight } from '@amsterdam/design-system-react'
 import { createElement, Fragment } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import type { StoryModule } from './anatomy'
+import type { StoryModule } from './model'
 
-import { paddingHeight, readPageAnatomy, readStoryTree, rowGapHeight, space, toContainerWidth } from './anatomy'
+import { paddingHeight, readPageAnatomy, readStoryTree, rowGapHeight, space, toContainerWidth } from './model'
 
 const cell = (props: Record<string, unknown>) => createElement(Grid.Cell, props)
 

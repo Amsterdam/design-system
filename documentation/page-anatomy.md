@@ -16,7 +16,7 @@ Two things are written by hand: the name of each cell, because no prop on a page
 Add an `anatomyLabels.ts` beside the story file.
 
 ```ts
-import type { AnatomyLabels } from "#storybook/_components/PageAnatomy/anatomy";
+import type { AnatomyLabels } from "#storybook/_components/PageAnatomy/model";
 
 export const anatomyLabels: AnatomyLabels = [
   [{ height: 32, label: "Breadcrumb" }],
