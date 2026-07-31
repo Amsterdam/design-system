@@ -15,6 +15,8 @@ export const anatomyLabels: AnatomyLabels = [
   [
     { height: 64, label: 'Page title' },
     { height: 300, label: 'Image slider' },
+  ],
+  [
     { height: 560, label: 'Project body' },
     { height: 152, label: 'News' },
     { height: 152, label: 'Works and detours' },

@@ -12,5 +12,6 @@ import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
  */
 export const anatomyLabels: AnatomyLabels = [
   [{ height: 32, label: 'Breadcrumb' }],
-  [{ height: 132, label: 'Page title' }, ...Array.from({ length: 10 }, () => ({ height: 152, label: 'Link section' }))],
+  [{ height: 132, label: 'Page title' }],
+  [...Array.from({ length: 10 }, () => ({ height: 152, label: 'Link section' }))],
 ]
