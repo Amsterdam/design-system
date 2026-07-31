@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";var t,n=e((()=>{t=[[{height:32,label:`Breadcrumb`}],[{height:132,label:`Article header`}],[`Hero image`],[{height:372,label:`Article body`}],[{height:132,label:`Newsletter`}],[{height:44,label:`Section heading`},{height:212,label:`News card`},{height:212,label:`News card`},{height:212,label:`News card`}]]}));export{n,t};
