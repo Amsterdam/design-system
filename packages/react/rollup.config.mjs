@@ -3,7 +3,6 @@ import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import { readFileSync } from 'fs'
 import dts from 'rollup-plugin-dts'
-import filesize from 'rollup-plugin-filesize'
 import nodeExternal from 'rollup-plugin-node-externals'
 import nodePolyfills from 'rollup-plugin-node-polyfills'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
@@ -56,7 +55,6 @@ export default [
         plugins: ['@babel/plugin-transform-runtime'],
         presets: ['@babel/preset-react'],
       }),
-      filesize(),
     ],
   },
   {

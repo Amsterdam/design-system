@@ -33,6 +33,10 @@ export const AddressTableBody = ({ addresses, firstRow = 1 }: AddressTableBodyPr
           index,
         ) => (
           <Table.Row key={id}>
+            {/*
+             * scope="row" makes the number the header of its row, so assistive technology can announce which
+             * row a cell belongs to. firstRow continues the numbering across pages instead of restarting at 1.
+             */}
             <Table.HeaderCell scope="row">{firstRow + index}</Table.HeaderCell>
             <Table.Cell>{straat}</Table.Cell>
             <Table.Cell align="end">{huisnummer}</Table.Cell>
@@ -49,6 +53,10 @@ export const AddressTableBody = ({ addresses, firstRow = 1 }: AddressTableBodyPr
       )
     ) : (
       <Table.Row>
+        {/*
+         * The empty state spans all eleven columns of AddressTableHeaderRow, so its message is not squeezed
+         * into the first one.
+         */}
         <Table.Cell colSpan={11}>Geen resultaten</Table.Cell>
       </Table.Row>
     )}

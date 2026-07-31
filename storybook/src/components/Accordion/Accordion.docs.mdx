@@ -105,6 +105,28 @@ This lets users scan every section label without expanding anything.
 Opening one section does not close the others.
 A user looking for a specific answer can leave related context open as they explore.
 
+The control is the heading rather than a button beside it.
+The button fills the width of the heading and takes its typeface, size, weight and line height, so the thing that looks like a heading is the thing you click, all the way to the end of the line.
+
+Its label starts where the surrounding text starts: there is no indent, and the chevron sits before the label rather than pushing it inward.
+An Accordion therefore lines up with the content above and below it instead of forming a box of its own.
+
+Sections are separated by white space alone, without rules or panels.
+The chevron and the heading carry the affordance, which keeps a long list of sections from reading as a stack of boxes.
+
+The chevron turns half a circle when a section opens.
+It is animated only for users who have not asked for reduced motion; everyone else sees it arrive already turned.
+
+## Accessibility
+
+Each section renders a heading containing a button that reports whether it is expanded and names the panel it controls.
+Screen readers therefore reach the sections by heading, as they would any other outline, and hear the state of each one.
+
+A collapsed panel is removed from the page rather than hidden visually, so its content is not announced, not reachable by keyboard, and — as ‘Find in page’ above explains — not searchable.
+
+The panel is a `section` labelled by its own heading, which makes it a landmark.
+This is the reason ‘Reduce landmarks’ offers `sectionAs="div"`: six or more sections put six or more regions in the landmark list, and a landmark per collapsed paragraph tells a screen reader user less than it costs them to walk past.
+
 ## See also
 
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.

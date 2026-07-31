@@ -4,6 +4,7 @@
  */
 
 .ams-table {
+  outline-offset: var(--ams-table-outline-offset);
   /* stylelint-disable-next-line defensive-css/require-scrollbar-gutter -- This scrolls horizontally only. */
   overflow-x: auto;
   overflow-y: hidden;

@@ -27,6 +27,7 @@
           "$value": "clamp(1.125rem, 1.0893rem + 0.1786vw, 1.25rem)",
           "$description": "Scales from 18px to 20px.",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.type": "fontSize"
           }
         },
@@ -37,6 +38,7 @@
         "line-height": {
           "$value": 1.6,
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "lineHeight"
           },
           "$type": "number"
@@ -151,12 +153,14 @@
           "font-size": {
             "$value": "{ams.typography.body-text.x-large.font-size}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
               "nl.amsterdam.type": "fontSize"
             }
           },
           "line-height": {
             "$value": 1.3,
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
               "nl.amsterdam.subtype": "lineHeight"
             },
             "$type": "number"
@@ -166,12 +170,14 @@
           "font-size": {
             "$value": "{ams.typography.body-text.large.font-size}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
               "nl.amsterdam.type": "fontSize"
             }
           },
           "line-height": {
             "$value": 1.3,
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
               "nl.amsterdam.subtype": "lineHeight"
             },
             "$type": "number"
@@ -181,12 +187,14 @@
           "font-size": {
             "$value": "{ams.typography.body-text.font-size}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
               "nl.amsterdam.type": "fontSize"
             }
           },
           "line-height": {
             "$value": 1.4,
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
               "nl.amsterdam.subtype": "lineHeight"
             },
             "$type": "number"

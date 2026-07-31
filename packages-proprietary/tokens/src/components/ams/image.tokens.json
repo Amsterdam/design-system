@@ -6,6 +6,24 @@
         "$extensions": {
           "nl.amsterdam.type": "aspectRatio"
         }
+      },
+      "background-color": {
+        "$value": "transparent",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "background-image": {
+        "$value": "none",
+        "$extensions": {
+          "nl.amsterdam.type": "backgroundImage"
+        }
+      },
+      "object-position": {
+        "$value": "50% 50%",
+        "$extensions": {
+          "nl.amsterdam.type": "objectPosition"
+        }
       }
     }
   }

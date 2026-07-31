@@ -9,6 +9,7 @@
         "$type": "dimension",
         "$description": "The distance between a focused element and its outline. Provides breathing room so the outline doesn't touch the element.",
         "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
           "nl.amsterdam.subtype": "space"
         }
       }

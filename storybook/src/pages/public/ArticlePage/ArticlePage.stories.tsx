@@ -18,7 +18,9 @@ import {
   StandaloneLink,
 } from '@amsterdam/design-system-react'
 
-import { commonMeta } from '../common/config'
+import { exampleImageSource } from '#storybook/_common/exampleContent'
+
+import { commonMeta } from '../common/commonMeta'
 
 const meta = {
   ...commonMeta,
@@ -26,6 +28,7 @@ const meta = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
+      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -34,6 +37,8 @@ const meta = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -41,6 +46,7 @@ const meta = {
               Met korting van A naar B op de deelscooter of -bakfiets
             </Heading>
             <Paragraph className="ams-mb-xl">
+              {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
               <time dateTime="2025-07-29">29 juli 2025</time>
             </Paragraph>
             <Paragraph size="large">
@@ -49,14 +55,27 @@ const meta = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
+        {/*
+         * A full-width hero image. srcSet lets the browser pick a size for the viewport, and aspectRatio crops
+         * it to a wide band. It sits in the first screenful, so it is not lazy-loaded: lazy loading suits
+         * images below the top of the page, and here it would delay the largest image in the viewport.
+         */}
+        {/* This image carries no information the text does not, so it takes an empty alt. */}
         <Image
           alt=""
           aspectRatio="16:5"
-          loading="lazy"
-          src="https://picsum.photos/1440/450"
-          srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
+          src={exampleImageSource(1440, 450)}
+          srcSet={`${exampleImageSource(640, 200)} 640w, ${exampleImageSource(1280, 400)} 1280w, ${exampleImageSource(1440, 450)} 1440w`}
         />
         <Grid paddingVertical="x-large">
+          {/*
+           * The body sits in a narrower cell, indented one column on wider screens, for a comfortable reading
+           * measure.
+           */}
+          {/*
+           * ams-prose sets the vertical rhythm between the direct children of this cell: the headings,
+           * paragraphs, and the link list. Typography comes from each component’s own class.
+           */}
           <Grid.Cell
             className="ams-prose"
             span={{ narrow: 4, medium: 6, wide: 7 }}
@@ -113,10 +132,14 @@ const meta = {
           </Grid.Cell>
         </Grid>
       </main>
+      {/*
+       * A newsletter call-out outside <main>: as="aside" makes it a complementary landmark, and aria-labelledby
+       * names that landmark after the heading below, whose id exists only to be referenced here.
+       */}
       <Spotlight aria-labelledby="blijf-op-de-hoogte" as="aside" color="green">
         <Grid paddingVertical="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-s" color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
+            <Heading className="ams-mb-xs" color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
               Blijf op de hoogte!
             </Heading>
             <Paragraph className="ams-mb-m" color="inverse">
@@ -129,7 +152,12 @@ const meta = {
           </Grid.Cell>
         </Grid>
       </Spotlight>
-      <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="large" paddingVertical="x-large">
+      {/*
+       * Related articles outside the article’s <main>: as="aside" makes it a complementary landmark, and
+       * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
+       */}
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      <Grid aria-labelledby="meer-nieuws" as="aside" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span="all">
           <Heading id="meer-nieuws" level={2} size="level-1">
             Meer nieuws
@@ -137,7 +165,8 @@ const meta = {
         </Grid.Cell>
         <Grid.Cell span={4}>
           <Card>
-            <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
+            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+            <Card.Image alt="" src={exampleImageSource(640, 360, 1)} />
             <Card.HeadingGroup tagline="Nieuws">
               <Card.Heading level={3}>
                 <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
@@ -151,7 +180,7 @@ const meta = {
         </Grid.Cell>
         <Grid.Cell span={4}>
           <Card>
-            <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
+            <Card.Image alt="" src={exampleImageSource(640, 360, 2)} />
             <Card.HeadingGroup tagline="Nieuws">
               <Card.Heading level={3}>
                 <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
@@ -164,7 +193,7 @@ const meta = {
         </Grid.Cell>
         <Grid.Cell span={4}>
           <Card>
-            <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
+            <Card.Image alt="" src={exampleImageSource(640, 360, 3)} />
             <Card.HeadingGroup tagline="Nieuws">
               <Card.Heading level={3}>
                 <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
@@ -187,8 +216,9 @@ export const Default: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear. Provide the source by hand so the panel shows a trimmed,
+        // annotated version of the page.
         code: `<>
   {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
   <Grid paddingTop="large">
@@ -199,11 +229,14 @@ export const Default: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
     <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-s" level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
         <Paragraph className="ams-mb-xl">
+          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
           <time dateTime="2025-07-29">29 juli 2025</time>
         </Paragraph>
         <Paragraph size="large">
@@ -213,18 +246,26 @@ export const Default: StoryObj = {
       </Grid.Cell>
     </Grid>
     {/*
-     * A full-width hero image. srcSet lets the browser pick a size for the viewport, loading="lazy" defers
-     * loading until it is near the viewport, and aspectRatio reserves its space so the layout does not jump.
+     * A full-width hero image. srcSet lets the browser pick a size for the viewport, and aspectRatio crops
+     * it to a wide band. It sits in the first screenful, so it is not lazy-loaded: lazy loading suits
+     * images below the top of the page, and here it would delay the largest image in the viewport.
      */}
+    {/* This image carries no information the text does not, so it takes an empty alt. */}
     <Image
       alt=""
       aspectRatio="16:5"
-      loading="lazy"
       src="https://picsum.photos/1440/450"
       srcSet="https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w"
     />
     <Grid paddingVertical="x-large">
-      {/* ams-prose applies article typography and vertical rhythm to the headings, paragraphs, and links. */}
+      {/*
+       * The body sits in a narrower cell, indented one column on wider screens, for a comfortable reading
+       * measure.
+       */}
+      {/*
+       * ams-prose sets the vertical rhythm between the direct children of this cell: the headings,
+       * paragraphs, and the link list. Typography comes from each component’s own class.
+       */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Paragraph>
           U kunt gebruikmaken van de kortingsacties via Amsterdam Bereikbaar. De actie geldt voor
@@ -262,12 +303,14 @@ export const Default: StoryObj = {
       </Grid.Cell>
     </Grid>
   </main>
-  {/* A newsletter call-out set apart as a labelled aside (aria-labelledby) on a green Spotlight. */}
+  {/*
+   * A newsletter call-out outside <main>: as="aside" makes it a complementary landmark, and aria-labelledby
+   * names that landmark after the heading below, whose id exists only to be referenced here.
+   */}
   <Spotlight aria-labelledby="blijf-op-de-hoogte" as="aside" color="green">
     <Grid paddingVertical="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        {/* color="inverse" adapts the heading, text, and link to the dark Spotlight background. */}
-        <Heading className="ams-mb-s" color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
+        <Heading className="ams-mb-xs" color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
           Blijf op de hoogte!
         </Heading>
         <Paragraph className="ams-mb-m" color="inverse">
@@ -277,13 +320,18 @@ export const Default: StoryObj = {
       </Grid.Cell>
     </Grid>
   </Spotlight>
-  {/* Related articles as a labelled aside (Grid as="aside"), outside the article’s <main>. */}
-  <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="large" paddingVertical="x-large">
+  {/*
+   * Related articles outside the article’s <main>: as="aside" makes it a complementary landmark, and
+   * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
+   */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  <Grid aria-labelledby="meer-nieuws" as="aside" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span="all">
       <Heading id="meer-nieuws" level={2} size="level-1">Meer nieuws</Heading>
     </Grid.Cell>
     <Grid.Cell span={4}>
       <Card>
+        {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
         <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
         <Card.HeadingGroup tagline="Nieuws">
           <Card.Heading level={3}>

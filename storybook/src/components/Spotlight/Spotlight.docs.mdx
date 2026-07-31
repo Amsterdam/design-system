@@ -31,7 +31,13 @@ Wrap its content in a Grid with extra large vertical padding.
 Use any of the [highlight colours](/docs/brand-design-tokens-colour--docs) for the background.
 The design system does not prescribe a meaning to any of these colours.
 The default is purple.
+
 Select [the correct colour](/docs/brand-design-tokens-colour--docs#pairing-foreground-with-background-colours) for text and links against the background you choose.
+On a dark background, set `color="inverse"` on every Heading, Paragraph, and Link inside the Spotlight.
+On a light one, keep the default colour for headings and paragraphs, and set `color="contrast"` on links.
+
+Name the landmark when you use the `as` prop: give the heading inside the Spotlight an `id` and point `aria-labelledby` at it.
+Users of assistive technology can then tell this landmark apart from the others on the page.
 
 Find a fitting setup for the [amount and width of columns](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
 
@@ -44,6 +50,23 @@ Use the `as` prop to render a meaningful HTML element: `as="section"` for a self
 Use a Spotlight to direct the user’s attention to the most important or actionable content on the page.
 
 <Canvas of={SpotlightStories.HighlightContent} />
+
+## Design
+
+A Spotlight is a background colour and nothing else: no padding, no border, no corner radius, and no width of its own.
+It fills whatever contains it and takes its shape from the Grid inside it, which is why ‘How to use’ asks for the full width of the Page and for a Grid with extra large vertical padding.
+
+In print, a Spotlight keeps its background colour instead of being flattened to save ink.
+
+## Accessibility
+
+A Spotlight carries no colour that a screen reader can report, so its emphasis is entirely visual.
+Whatever the highlight is meant to signal has to be in the content itself.
+
+The `as` prop is what gives a Spotlight a place in the structure of a page: `as="aside"` makes it a complementary landmark, and `as="section"` makes it a region once it has an accessible name.
+Without a name, a `section` groups the content in the markup but adds nothing anyone can navigate to; ‘How to use’ covers how to give it one.
+
+Which foreground colour to use depends on the highlight colour behind it, since the component sets only the background and leaves the text colour to the content inside it.
 
 ## See also
 

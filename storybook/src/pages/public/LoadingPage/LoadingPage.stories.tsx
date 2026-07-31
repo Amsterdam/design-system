@@ -9,7 +9,7 @@ import type { FormEvent } from 'react'
 import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from '@amsterdam/design-system-react'
 import { useEffect, useRef, useState } from 'react'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 
 const initialQuery = 'woningbouw'
 
@@ -50,6 +50,7 @@ type Phase = 'idle' | 'loaded' | 'loading'
 
 type LoadingPageArgs = { readonly initialPhase: Phase }
 
+// The Skeletons and the Cards share one span, so the placeholders cannot drift from the cells they stand in for.
 const cellSpan = { narrow: 4, medium: 4, wide: 4 } as const
 
 const meta = {
@@ -98,11 +99,21 @@ const meta = {
           : ''
 
     return (
+      // The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
+      // This page has two Grids in one landmark, so a plain <main> wraps them both. A page that is a single
+      // section can put as="main" on the Grid itself instead.
       <main id="inhoud">
-        <Grid gapVertical="large" paddingTop="x-large">
+        {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
+        <Grid paddingTop="large">
+          {/* Search is not a content page, so the title spans the full width, not the documented header cell. */}
           <Grid.Cell span="all">
             <Heading level={1}>Zoeken op amsterdam.nl</Heading>
           </Grid.Cell>
+          {/*
+           * The search field spans half the grid on wide screens rather than the documented header cell width, so
+           * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
+           * the full width at narrow.
+           */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}>
             <SearchField onSubmit={search}>
               <SearchField.Input defaultValue={initialQuery} label="Zoek op de website" name="search" />
@@ -114,14 +125,21 @@ const meta = {
         {/*
          * Mark the whole results region busy while it loads and let it announce once, rather than once per
          * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
-         * technologies, so this region is all a screen reader hears.
+         * technologies, so this region is all a screen reader hears. Be aware that aria-busy="true" also
+         * permits assistive technology to hold back updates from the live region below and deliver them as
+         * one atomic update once it turns false. The ARIA spec allows this rather than requiring it, so not
+         * every screen reader does.
          */}
-        <Grid aria-busy={phase === 'loading'} paddingVertical="x-large">
+        {/* The search field is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        <Grid aria-busy={phase === 'loading'} paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span="all">
             {/*
-             * Keep one status message in the DOM at all times and only change its text – from a loading
-             * message to the result count – so screen readers reliably announce the update. A Loading Region
-             * component to wrap this pattern is planned; until then it is plain HTML.
+             * Keep one status message in the DOM at all times and only change its text – from a loading message
+             * to the result count. A live region inserted together with its text is announced inconsistently
+             * across screen readers and browsers, so an always-present region is the more robust pattern. No
+             * component wraps this pattern yet, so the Grid carries the busy state and the message is a visually
+             * hidden <p>.
              */}
             <p className="ams-visually-hidden" role="status">
               {status}
@@ -135,7 +153,10 @@ const meta = {
           {/*
            * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
            * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
-           * Mirroring the shape keeps the layout from shifting when the real content arrives.
+           * Mirroring the shape keeps the layout shift small, but does not remove it: Skeleton.Heading is
+           * fixed to the Heading 2 size while this Card’s heading is level-3, the Skeleton spaces all its
+           * parts alike where the Card sets a smaller margin below its heading, and real headings and
+           * descriptions wrap onto more lines in these narrow cells than the placeholders show.
            */}
           {phase === 'loading' &&
             results.map((_, index) => (
@@ -152,6 +173,7 @@ const meta = {
             results.map((result) => (
               <Grid.Cell key={result.heading} span={cellSpan}>
                 <Card>
+                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
                   <Card.Image alt="" aspectRatio="16:9" src={result.imageSrc} />
                   <Card.Heading level={3}>
                     <Card.Link href="#">{result.heading}</Card.Link>
@@ -170,12 +192,124 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+type PageSourceOptions = {
+  busy: string
+  extraCells?: string
+  status: string
+  statusCell?: string
+}
+
+const pageShell = ({ busy, extraCells = '', status, statusCell = '' }: PageSourceOptions) =>
+  `// The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
+// This page has two Grids in one landmark, so a plain <main> wraps them both. A page that is a single
+// section can put as="main" on the Grid itself instead.
+<main id="inhoud">
+  {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
+  <Grid paddingTop="large">
+    {/* Search is not a content page, so the title spans the full width, not the documented header cell. */}
+    <Grid.Cell span="all">
+      <Heading level={1}>Zoeken op amsterdam.nl</Heading>
+    </Grid.Cell>
+    {/*
+     * The search field spans half the grid on wide screens rather than the documented header cell width, so
+     * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
+     * the full width at narrow.
+     */}
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}>
+      <SearchField onSubmit={search}>
+        <SearchField.Input defaultValue="woningbouw" label="Zoek op de website" name="search" />
+        <SearchField.Button />
+      </SearchField>
+    </Grid.Cell>
+  </Grid>
+
+  {/*
+   * Mark the whole results region busy while it loads and let it announce once, rather than once per
+   * Skeleton – which would repeat the message for every card. The Skeletons are hidden from assistive
+   * technologies, so this region is all a screen reader hears. Be aware that aria-busy="true" also
+   * permits assistive technology to hold back updates from the live region below and deliver them as
+   * one atomic update once it turns false. The ARIA spec allows this rather than requiring it, so not
+   * every screen reader does.
+   */}
+  {/* The search field is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  <Grid aria-busy={${busy}} paddingBottom="2x-large" paddingTop="x-large">
+    <Grid.Cell span="all">
+      {/*
+       * Keep one status message in the DOM at all times and only change its text – from a loading message
+       * to the result count. A live region inserted together with its text is announced inconsistently
+       * across screen readers and browsers, so an always-present region is the more robust pattern. No
+       * component wraps this pattern yet, so the Grid carries the busy state and the message is a visually
+       * hidden <p>.
+       */}
+      <p className="ams-visually-hidden" role="status">${status}</p>${statusCell}
+    </Grid.Cell>${extraCells}
+  </Grid>
+</main>`
+
+// Because these stories’ `render` takes an argument, the Code Panel rebuilds their source from the rendered tree:
+// JSX comments disappear and every `map` is expanded. Provide the source by hand so each story shows its own phase as
+// plain markup, without the state that switches between them.
+const idleSource = pageShell({
+  busy: 'false',
+  status: '',
+  statusCell: `
+      <Paragraph>Klik op de zoekknop om de resultaten te laden.</Paragraph>`,
+})
+
+const loadingSource = pageShell({
+  busy: 'true',
+  extraCells: `
+
+    {/*
+     * Compose each Skeleton from the same parts, in the same Grid cell, as the Card that will replace
+     * it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+     * Mirroring the shape keeps the layout shift small, but does not remove it: Skeleton.Heading is
+     * fixed to the Heading 2 size while this Card’s heading is level-3, the Skeleton spaces all its
+     * parts alike where the Card sets a smaller margin below its heading, and real headings and
+     * descriptions wrap onto more lines in these narrow cells than the placeholders show.
+     */}
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
+      <Skeleton>
+        <Skeleton.Image />
+        <Skeleton.Heading />
+        <Skeleton.Paragraph lines={2} />
+      </Skeleton>
+    </Grid.Cell>
+    {/* … five more Skeleton cells, one for each result that is loading … */}`,
+  status: 'Zoekresultaten voor ‘woningbouw’ worden geladen',
+})
+
+const loadedSource = pageShell({
+  busy: 'false',
+  extraCells: `
+
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
+      <Card>
+        {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+        <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1015/640/360" />
+        <Card.Heading level={3}>
+          <Card.Link href="#">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
+        </Card.Heading>
+        <Paragraph>Een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.</Paragraph>
+      </Card>
+    </Grid.Cell>
+    {/* … five more Cards, in the same cells the Skeletons occupied … */}`,
+  status: '6 resultaten voor ‘woningbouw’ gevonden',
+  statusCell: `
+      <Heading level={2} size="level-3">6 resultaten voor ‘woningbouw’</Heading>`,
+})
+
+export const Default: Story = {
+  parameters: { docs: { source: { code: idleSource, language: 'tsx' } } },
+}
 
 export const Loading: Story = {
   args: { initialPhase: 'loading' },
+  parameters: { docs: { source: { code: loadingSource, language: 'tsx' } } },
 }
 
 export const Loaded: Story = {
   args: { initialPhase: 'loaded' },
+  parameters: { docs: { source: { code: loadedSource, language: 'tsx' } } },
 }

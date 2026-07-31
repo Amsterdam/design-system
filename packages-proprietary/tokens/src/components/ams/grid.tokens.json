@@ -16,6 +16,7 @@
         "l": {
           "$value": "{ams.space.l}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -23,6 +24,7 @@
         "xl": {
           "$value": "{ams.space.xl}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -30,6 +32,7 @@
         "2xl": {
           "$value": "{ams.space.2xl}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -38,6 +41,7 @@
       "padding-inline": {
         "$value": "{ams.space.l}",
         "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
         }
@@ -46,6 +50,7 @@
         "l": {
           "$value": "{ams.space.l}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -53,6 +58,7 @@
         "xl": {
           "$value": "{ams.space.xl}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -60,6 +66,7 @@
         "2xl": {
           "$value": "{ams.space.2xl}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -103,6 +110,7 @@
         "padding-inline": {
           "$value": "{ams.space.xl}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -116,6 +124,7 @@
         "padding-inline": {
           "$value": "{ams.space.2xl}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }

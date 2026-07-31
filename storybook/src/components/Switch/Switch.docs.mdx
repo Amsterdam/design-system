@@ -35,6 +35,31 @@ A Switch must have a label, and in most cases, this label should be visible.
 
 <Canvas of={SwitchStories.WithLabel} />
 
+## Design
+
+The track and the thumb are the whole of a Switch: a rounded bar with a circle that slides from one end to the other, and a colour change behind it.
+There is no text inside it, so it needs no room for words in either state and stays the same width whichever way it is set.
+
+The thumb moves by exactly the width of the track minus its borders, so it comes to rest flush against the end rather than at a distance measured separately for each size.
+
+The slide and the colour change behind the thumb are animated only for users who have not asked for reduced motion.
+Everyone else sees the new state at once, with no travel across the track.
+
+The track carries a transparent border rather than none at all.
+In forced colours mode a background is replaced by the system’s own, and the border is what remains to give the Switch an outline; a floor of one pixel keeps a theme from removing it by setting the token to zero.
+
+Hovering puts a shadow around the thumb rather than moving or resizing it.
+
+## Accessibility
+
+A Switch renders a checkbox marked as a switch, so it is announced as on or off rather than as checked or unchecked, and it is operated with Space like any other checkbox.
+
+The visible track is an empty `label` that supplies no name.
+A Switch therefore takes its name from a [Label](/docs/components-forms-label--docs) tied to it with `htmlFor`, which is what ‘How to use’ asks for; without one it is announced as an unnamed switch.
+
+The input is not hidden away: it is reduced to no width, which keeps it focusable, announced, and submitted with the form.
+Its focus ring is moved onto the track so the ring surrounds the switch rather than a control with no size.
+
 ## See also
 
 - [Checkbox](/docs/components-forms-checkbox--docs) – when the choice is part of a form rather than an instant setting.

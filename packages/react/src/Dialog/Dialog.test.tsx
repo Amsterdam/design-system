@@ -72,6 +72,20 @@ describe('Dialog', () => {
     expect(getByText('Test content')).toBeInTheDocument()
   })
 
+  it('wraps the body in a keyboard-focusable group so long content can be scrolled', () => {
+    render(
+      <Dialog heading="Test heading" open>
+        Long content
+      </Dialog>,
+    )
+
+    const group = screen.getByRole('group')
+
+    expect(group).toHaveClass('ams-dialog__body')
+    expect(group).toHaveAttribute('tabindex', '0')
+    expect(group).toHaveTextContent('Long content')
+  })
+
   it('renders footer when provided', () => {
     render(<Dialog footer={<button>Click Me</button>} heading="Test heading" open />)
 

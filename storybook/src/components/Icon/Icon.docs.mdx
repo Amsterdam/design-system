@@ -93,6 +93,24 @@ When used as part of an interactive element, they are blue.
 When disabled, they are grey.
 They must adhere to the same contrast ratio for accessibility as typography against a background colour.
 
+An Icon has no colour of its own: it takes the colour of the text around it, and its artwork is filled with that same colour.
+This is why an Icon inside a Button or a Link changes colour along with its label on hover, without either component saying anything about the icon.
+
+The artwork is drawn at one em of the container’s font size, and that font size comes from a token for each option of the `size` prop.
+Every option matches a step in the type scale, so choosing a size pairs an icon with a text style rather than with a measurement.
+Those tokens are set in rem, so an icon grows along with the font size a user has chosen.
+
+The `square` variant widens that container to match its height.
+An icon then sits in the middle of a square instead of a rectangle, which is what a surrounding button needs to end up square itself.
+
+## Accessibility
+
+The markup an Icon renders carries the `hidden` attribute, and the stylesheet is what reveals it again.
+If the stylesheet fails to load, the icon is absent rather than dropped into the page at its intrinsic size, and nothing about it reaches assistive technology.
+
+An Icon has no accessible name of its own and adds nothing to the name of whatever contains it.
+It is decoration for text that carries the meaning, which is why ‘When to use’ asks for accompanying text and ‘When not to use’ limits the exceptions to symbols everyone already knows.
+
 ## See also
 
 - [Icon Button](/docs/components-buttons-icon-button--docs) – a button that consists of a single icon.

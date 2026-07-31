@@ -3,7 +3,7 @@
 # GitHub Actions workflows
 
 This folder holds every continuous integration and delivery workflow for the design system.
-There are fourteen of them, but they only do four kinds of work, and the file name now starts with the verb for that kind.
+There are fifteen of them, but they only do four kinds of work, and the file name now starts with the verb for that kind.
 Job ids and step names follow the same rule — a verb first, and a name that matches what actually happens — so keep new ones consistent with their neighbours rather than inventing a new style.
 Reading them by responsibility is the quickest way to understand the whole picture.
 
@@ -25,6 +25,7 @@ Changes reach `main` through a release pull request, which is what triggers the 
 | Check bundle size             | Every pull request                                             | Report the compressed size change of the published bundles.                                                                                |
 | Check PR title                | Pull request opened, edited, or synchronized                   | Enforce a Conventional Commit title (`feat`, `fix`, `chore`) so release-please can read it.                                                |
 | Check workflows               | Every pull request                                             | Lint the Actions workflow files themselves with actionlint, including shellcheck on their `run:` scripts.                                  |
+| Deploy acceptance Chromatic   | Push to `develop`                                              | Publish Storybook to Chromatic and accept the snapshots, keeping the baseline on the integration branch current.                           |
 | Deploy acceptance Storybook   | Push to any branch except `main`; pull request reopened        | Build Storybook and publish a per-branch preview to `gh-pages` under `demo-<branch>`. Records a GitHub Deployment and Environment.         |
 | Deploy production Storybook   | Push to `main`                                                 | Build Storybook and publish the live documentation site to the `gh-pages` root.                                                            |
 | Deploy production Chromatic   | Push to `main`                                                 | Publish Storybook to Chromatic and auto-accept the snapshots as the new baseline, keeping the public permalink and its MCP server in sync. |
@@ -44,6 +45,12 @@ The **Check** workflows run together and gate the merge.
 **Check workflows** lints the Actions workflow files themselves.
 
 At the same time, **Deploy acceptance Storybook** publishes a live Storybook preview for the branch at `demo-<branch>` on GitHub Pages.
+
+### Merging to `develop`
+
+**Deploy acceptance Chromatic** publishes Storybook to Chromatic and accepts the snapshots, so a build exists on the integration branch itself.
+Pull requests are squash-merged, so no build ever runs on a commit that stays in the history of `develop`.
+Chromatic carries baselines across that gap through the merge association from its GitHub App, and normally resolves a current one; a build on `develop` means resolution no longer rests on that indirection alone.
 
 ### Merging to `main`
 
@@ -96,5 +103,10 @@ The supporting scripts live in [`.github/scripts`](../scripts).
   Publish always executes from `develop`, then checks out `main` itself; this is intentional and noted inline in the file.
 - **Required status checks follow job names, not workflow names.**
   Branch protection and rulesets refer to a check by its job's `name:` (or its id, if the job has no `name:`) — never the workflow's name or file. If you rename a job that's a required check, update the required status checks in the repository settings in the same change, or the check gets stuck on “Expected — waiting for status” forever.
-- **Chromatic only snapshots the story named “Test”.**
+- **Chromatic snapshots a subset of the stories.**
+  `onlyStoryNames` in [`storybook/chromatic.config.json`](../../storybook/chromatic.config.json) limits it to the story named “Test” for each component and CSS utility, plus every story under `Pages`.
   That is a Storybook convention unrelated to any workflow name; see the [testing documentation](../../documentation/tests.md).
+- **A pull request's Chromatic baseline does not come from its own history.**
+  Because pull requests are squash-merged, no build runs on a commit that `develop` keeps, so Chromatic relies on the merge association from its GitHub App to carry baselines across.
+  **Deploy acceptance Chromatic** puts a build on `develop` itself, so resolution has something on the integration branch to land on.
+  If a pull request ever reports far more changes than it made, suspect the baseline before the diff: re-running Chromatic is the quickest way to tell the two apart, and the required ‘UI Tests’ check makes it a merge blocker until it is settled.

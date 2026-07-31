@@ -72,9 +72,21 @@ The terms and descriptions stack vertically by default.
 They sit next to each other when their [query container](/docs/utilities-css-query-container--docs) is wide enough (at least `32rem`).
 
 The column for the terms is as wide as the longest term, without wrapping.
-Its width can be adjusted to ‘large’ (50%), ‘medium’ (33%), or ‘small’ (20%), which also allows the terms to wrap.
+Its width can be adjusted to ‘wide’ (50%), ‘medium’ (33%), or ‘narrow’ (20%), which also allows the terms to wrap.
 
-The term is set in bold text.
+Terms use heading typography and descriptions use body text, which gives the two different line heights.
+Side by side, a term therefore gets half of that difference as extra space above it, so its first line sits level with the first line of its description.
+
+The term is set in bold text, and its line lengths are balanced so it does not end on a single short word.
+
+## Accessibility
+
+A Description List renders `dl`, `dt`, and `dd` elements.
+These tie each term to its descriptions in the markup instead of only through the layout, which is the kind of relationship [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks to be made available.
+A Section renders a `div` around one group, which HTML permits inside a `dl`.
+
+Screen readers expose description lists in noticeably different ways: the number of items they report, the context they give for a term or a description, and the commands available to move through the list all vary.
+The component leaves the native elements alone rather than adding `term` and `definition` roles, because overriding them changes how VoiceOver announces the list.
 
 ## See also
 

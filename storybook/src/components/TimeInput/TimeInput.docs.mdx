@@ -61,6 +61,23 @@ This component uses a native time input, which is styled differently in differen
 Recreating the native functionality is quite difficult and prone to accessibility errors, which is why we’ve chosen not to do that.
 This does mean that this component does not look identical on all browsers and operating systems.
 
+The styling therefore stops at the box: the border, the padding and the type are ours, and the segments inside it, the format hint and the clock that opens belong to the browser.
+Chromium lets its picker button be replaced, so there it carries our icon; other browsers keep their own.
+
+The field is given a minimum width and height, and the width Android devices impose on it is overridden.
+A native time field is much smaller when empty than when filled on some devices and far wider than it needs to be on others, and neither would sit comfortably in a form.
+
+Everything else — the border, the padding, the type, and the invalid and disabled states — matches a [Text Input](/docs/components-forms-text-input--docs), so a time sits level with the other fields of a form.
+
+## Accessibility
+
+A Time Input renders a native `input` of type time, so screen readers announce it segment by segment and every browser’s own keyboard handling applies: arrow keys to change a part, typing to fill one, and the browser’s picker for those who prefer it.
+
+Whether the field asks for a 24-hour time or for hours with AM and PM comes from the browser and the operating system, not from the language of the page.
+The value a form receives is the same either way, but which of the two a visitor sees is not something the page decides.
+
+The invalid styling responds to `aria-invalid="true"` and to the browser’s own `:invalid` state alike.
+
 ## See also
 
 - [Date Input](/docs/components-forms-date-input--docs) – the counterpart for entering a date.

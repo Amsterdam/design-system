@@ -42,9 +42,13 @@ Token files use the `.tokens.json` extension and follow the DTCG format:
 - Use the `$extensions` field for Amsterdam-specific metadata (e.g. `nl.amsterdam.type`, `nl.amsterdam.subtype`). Common `$extensions` types include `fontSize`, `lineHeight`, and `space` (via `nl.amsterdam.subtype`). See existing component tokens for examples.
 - Variant tokens are nested under the component (e.g. `ams.badge.azure.background-color`).
 
-## Compact mode
+## Modes
 
-Some token categories have `.compact.tokens.json` variants (e.g. `space.compact.tokens.json`, `typography.compact.tokens.json`). These provide denser values for compact layouts.
+Token files can have mode variants that override a subset of values; the mode names are listed in `build.js`.
+Compact mode (`.compact.tokens.json`, e.g. `space.compact.tokens.json`) provides denser values for compact layouts.
+Lo-fi mode (`.lo-fi.tokens.json`, e.g. `color.lo-fi.tokens.json`) renders components as a greyscale sketch.
+Mode files must only redefine tokens that exist in the base set.
+Each mode builds from its own files alone, so a `{ams.*}` reference in a mode file must resolve to a token defined within that mode's file set.
 
 ## Build
 
@@ -52,6 +56,8 @@ Some token categories have `.compact.tokens.json` variants (e.g. `space.compact.
 - Watch mode: `pnpm build:watch`
 - Output: `dist/` — never edit generated output directly.
 - Build config: `build.js` with custom Style Dictionary logic in `style-dictionary/` (includes `transforms/` and `dimensionToString.js`).
+- Lint command: `pnpm lint` reports tokens nothing consumes, and needs `dist/` to be built first.
+- Test command: `pnpm test`
 
 ## File locations
 
@@ -65,7 +71,7 @@ Some token categories have `.compact.tokens.json` variants (e.g. `space.compact.
 
 - Every token must have a `$value`. Type information is provided through either `$type` (DTCG standard) or `$extensions` with `nl.amsterdam.type` / `nl.amsterdam.subtype`. Some tokens (e.g. cursors, aspect ratios) have no type annotation — follow the existing pattern for the token category you are editing.
 - Token names use kebab-case and mirror CSS property names where applicable.
-- No unused tokens — every defined token must be consumed by CSS or another token.
+- No unused tokens — every defined token must be consumed by CSS or another token, which the [unused token check](lint/README.md) enforces.
 - No hardcoded design values in CSS or React — if a value is missing, add a token here first.
 - Changes to brand-level tokens in `src/brand/ams/` have wide impact; do not change them unless the task explicitly calls for brand updates.
 - When adding new component tokens, wire them into CSS (and React where applicable) in the same change so they are immediately used.

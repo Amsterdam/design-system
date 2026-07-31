@@ -4,28 +4,58 @@
  */
 
 @use "../../common/breakpoint" as *;
+@use "../../common/safe-area" as *;
 
 @mixin ams-grid {
+  /* The effective inline padding, published as custom properties so that elements which break out
+     of the Grid can negate exactly the padding it applies. The two sides need not be equal, since
+     they take their own safe area inset, so each has to be negated on its own. */
+  /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+  --_ams-grid-padding-inline-end: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-end));
+  --_ams-grid-padding-inline-start: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-start));
+  /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
   column-gap: var(--ams-grid-column-gap);
   display: grid;
   grid-template-columns: repeat(var(--ams-grid-column-count), minmax(0, 1fr));
-  padding-inline: var(--ams-grid-padding-inline);
+  padding-inline-end: var(--_ams-grid-padding-inline-end);
+  padding-inline-start: var(--_ams-grid-padding-inline-start);
   row-gap: var(--ams-grid-row-gap-xl);
 
   @media (min-width: $ams-breakpoint-medium) {
+    /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+    --_ams-grid-padding-inline-end: max(
+      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
+      var(--ams-safe-area-inset-inline-end)
+    );
+    --_ams-grid-padding-inline-start: max(
+      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
+      var(--ams-safe-area-inset-inline-start)
+    );
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
     grid-template-columns: repeat(
       var(--ams-grid-medium-column-count /* @deprecated */, var(--ams-grid-vi-medium-column-count)),
       minmax(0, 1fr)
     );
-    padding-inline: var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline));
   }
 
   @media (min-width: $ams-breakpoint-wide) {
+    /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+    --_ams-grid-padding-inline-end: max(
+      var(--ams-grid-wide-padding-inline /* @deprecated */, var(--ams-grid-vi-wide-padding-inline)),
+      var(--ams-safe-area-inset-inline-end)
+    );
+    --_ams-grid-padding-inline-start: max(
+      var(--ams-grid-wide-padding-inline /* @deprecated */, var(--ams-grid-vi-wide-padding-inline)),
+      var(--ams-safe-area-inset-inline-start)
+    );
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
     grid-template-columns: repeat(
       var(--ams-grid-wide-column-count /* @deprecated */, var(--ams-grid-vi-wide-column-count)),
       minmax(0, 1fr)
     );
-    padding-inline: var(--ams-grid-wide-padding-inline /* @deprecated */, var(--ams-grid-vi-wide-padding-inline));
   }
 }
 
@@ -79,6 +109,36 @@
 
 @mixin ams-grid--padding-vertical--2x-large {
   padding-block: var(--ams-grid-padding-block-2xl);
+}
+
+// Subgrid
+
+/*
+ * Deliberately not a query container, unlike a Cell: a grid container that establishes an independent
+ * formatting context is not a subgrid, so `container-type: inline-size` would silently reduce
+ * `grid-template-columns` to `none`. The Cells inside a Subgrid are query containers themselves.
+ *
+ * Only the subgridded axis inherits the gutter of the Grid, so the column gap arrives on its own
+ * but the row gap has to be set here. Inheriting it extends the same rule to the other axis: the
+ * Subgrid takes the row gap of the Grid, including one the Grid changed with `gapVertical`.
+ */
+@mixin ams-grid__subgrid {
+  align-items: start; // Match the Grid: a child keeps its own height rather than filling the row.
+  display: grid;
+  grid-template-columns: subgrid;
+  row-gap: inherit;
+}
+
+@mixin ams-grid__subgrid--gap-vertical--none {
+  row-gap: initial;
+}
+
+@mixin ams-grid__subgrid--gap-vertical--large {
+  row-gap: var(--ams-grid-row-gap-l);
+}
+
+@mixin ams-grid__subgrid--gap-vertical--2x-large {
+  row-gap: var(--ams-grid-row-gap-2xl);
 }
 
 // Cell

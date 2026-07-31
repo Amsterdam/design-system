@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "jsx": "react-jsx",
-    "lib": ["es2020", "dom"],
+    "lib": ["dom", "es2023"],
     "module": "es2020",
     "moduleResolution": "bundler",
     "noFallthroughCasesInSwitch": true,

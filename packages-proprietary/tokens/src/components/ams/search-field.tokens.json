@@ -14,6 +14,12 @@
             "nl.amsterdam.type": "color"
           }
         },
+        "border-radius": {
+          "$value": "{ams.inputs.border-radius}",
+          "$extensions": {
+            "nl.amsterdam.type": "borderRadius"
+          }
+        },
         "border-style": {
           "$value": "{ams.inputs.border-style}",
           "$extensions": {
@@ -142,6 +148,7 @@
             }
           },
           "color": {
+            "$deprecated": "Use `ams.search-field.input.cancel-button.background-image` instead, which carries the colour, because a data URI cannot reference a token. Will be removed on or after 2027-01-21.",
             "$value": "{ams.color.interactive.default}",
             "$extensions": {
               "nl.amsterdam.type": "color"

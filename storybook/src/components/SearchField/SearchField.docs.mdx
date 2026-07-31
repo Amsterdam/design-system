@@ -61,6 +61,8 @@ Use `autofocus` only if the search field is at the beginning of a page and there
 For more information: [Accessibility Tips: Be Cautious When Using Autofocus](https://www.boia.org/blog/accessibility-tips-be-cautious-when-using-autofocus)
 
 Provide a label that describes the purpose of the search.
+There is no way to show that label: the Input always renders it visually hidden.
+A placeholder is therefore the only visible text the field can carry, and it disappears on the first keystroke.
 
 ## Examples
 
@@ -92,9 +94,29 @@ Users can initiate a search by using the search button or the Enter key.
 Both `autocomplete` and `spellcheck` are turned off by default.
 These features can be disruptive for a user searching for part of a word, and `autocomplete` may interfere with an Autosuggest component.
 
+## Design
+
+The input and the button are flush against one another and read as a single control, with the input taking whatever width is left over.
+
+A focused input lifts itself above the button so its focus ring is drawn in full rather than cut off where the two meet.
+That lift is contained within the component, so it can never end up in front of anything else on the page.
+
+The browser’s own button for clearing the field is restyled with our icon where a browser offers one, and greyed along with the rest when the field is disabled.
+
+In print, the field keeps its background colour instead of being flattened to save ink.
+
 ## Accessibility
 
 The component uses `role="search"` for the search landmark role.
+It is a real `form`, so pressing Enter in the field submits it the way any form does, and assistive technology lists the search among the landmarks of the page.
+
+The label of the Input is always rendered visually hidden.
+It names the field for anyone who cannot see where it sits, which is why ‘How to use’ asks for a label that describes what is being searched rather than the word ‘Search’.
+
+The Button is icon-only and takes its accessible name from its `children`, so the magnifier is never announced as an unlabelled control.
+
+Disabling the Search Field disables both parts, and neither can enable itself again.
+The two can therefore never be announced in different states.
 
 ## See also
 

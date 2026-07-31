@@ -1,6 +1,12 @@
 {
   "ams": {
     "button": {
+      "border-radius": {
+        "$value": "{ams.border.radius}",
+        "$extensions": {
+          "nl.amsterdam.type": "borderRadius"
+        }
+      },
       "border-style": {
         "$value": "solid",
         "$extensions": {

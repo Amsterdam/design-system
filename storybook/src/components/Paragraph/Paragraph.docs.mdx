@@ -31,6 +31,9 @@ Start a new paragraph when the text shifts to a different topic or has its own p
 Consider whether a paragraph with more than 7 sentences or 140 words would be clearer if you divide the text into two paragraphs.
 Texts with not overly long paragraphs are easier to understand, and grouping makes information quicker to locate.
 
+The large and small sizes are a visual distinction only; nothing about them is announced.
+Say in the text itself whatever a size is meant to signal.
+
 ## Examples
 
 ### Large text
@@ -62,6 +65,28 @@ This ensures the colour of the text provides enough contrast.
 Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/docs/components-media-icon--docs) to align body text with an icon.
 
 <Canvas of={ParagraphStories.WithIcon} />
+
+## Design
+
+The large and small sizes wrap their text in a `b` and a `small` element.
+Browsers render those elements bold and smaller on their own, so a lead paragraph and small print keep an appearance of their own even if the stylesheet fails to load.
+Once it does load, their usual styling is switched off and the size prop alone sets the appearance, so the text does not turn bold or shrink a second time.
+
+Body text has the most generous line height of the three sizes, 1.6 against 1.5 for the large and small ones.
+Running text is read line after line and needs that space to stay easy to follow, while the shorter lines of a lead paragraph do not.
+
+A Paragraph has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+## Accessibility
+
+A Paragraph renders a `p` element, so screen readers can move through running text one paragraph at a time.
+
+The `b` and `small` elements that the large and small sizes add carry no meaning of their own; both are generic in the accessibility tree.
+A lead paragraph and small print are therefore a visual distinction only, and neither is announced any differently from body text.
 
 ## See also
 

@@ -16,7 +16,7 @@ import {
   UnorderedList,
 } from '@amsterdam/design-system-react'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 
 const meta = {
   ...commonMeta,
@@ -24,6 +24,7 @@ const meta = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
+      {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -32,15 +33,24 @@ const meta = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
-      <Grid as="main" id="inhoud" paddingBottom="x-large">
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+      <Grid as="main" id="inhoud" paddingBottom="2x-large">
+        {/* The title and lead span the wide intro column. */}
+        {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-xl" level={1}>
+          <Heading className="ams-mb-m" level={1}>
             Gratis laptop of tablet voor de basisschool aanvragen
           </Heading>
           <Paragraph size="large">
             U krijgt per huishouden 1 keer per 5 schooljaren een gratis laptop of tablet op de basisschool.
           </Paragraph>
         </Grid.Cell>
+        {/*
+         * The body sits in a narrower cell, indented one column on wider screens, for a comfortable reading
+         * measure.
+         */}
         <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <Heading className="ams-mb-s" level={2}>
             Voorwaarden
@@ -73,6 +83,7 @@ const meta = {
             <OrderedList.Item>Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.</OrderedList.Item>
             <OrderedList.Item>Hierna moet u inloggen met uw DigiD.</OrderedList.Item>
           </OrderedList>
+          {/* A prominent call to action for the main task on the page. */}
           <CallToActionLink className="ams-mb-xl" href="#">
             Start de check en vraag aan
           </CallToActionLink>
@@ -82,9 +93,13 @@ const meta = {
           </Heading>
           <UnorderedList className="ams-mb-xl">
             <UnorderedList.Item>
-              Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigID aan.
+              Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigiD aan.
             </UnorderedList.Item>
             <UnorderedList.Item>
+              {/*
+               * download asks the browser to save the linked file instead of navigating to it. It only applies
+               * to same-origin URLs.
+               */}
               Lees eerst{' '}
               <Link download href="#">
                 Toelichting Gratis laptop of tablet basisschool Schooljaar 2024-2025.pdf
@@ -156,8 +171,9 @@ export const Default: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments. Provide the source by hand so the guidance below stays visible in the panel.
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear. Provide the source by hand so the panel shows the whole
+        // page, with the notes on its layout and links kept.
         code: `<>
   {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
   <Grid paddingTop="large">
@@ -168,10 +184,14 @@ export const Default: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
-  <Grid as="main" id="inhoud" paddingBottom="x-large">
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+  <Grid as="main" id="inhoud" paddingBottom="2x-large">
     {/* The title and lead span the wide intro column. */}
+    {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-      <Heading className="ams-mb-xl" level={1}>Gratis laptop of tablet voor de basisschool aanvragen</Heading>
+      <Heading className="ams-mb-m" level={1}>Gratis laptop of tablet voor de basisschool aanvragen</Heading>
       <Paragraph size="large">
         U krijgt per huishouden 1 keer per 5 schooljaren een gratis laptop of tablet op de basisschool.
       </Paragraph>
@@ -210,7 +230,10 @@ export const Default: StoryObj = {
       <UnorderedList className="ams-mb-xl">
         <UnorderedList.Item>Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigiD aan.</UnorderedList.Item>
         <UnorderedList.Item>
-          {/* download hints the browser to save the PDF rather than open it in a new tab. */}
+          {/*
+           * download asks the browser to save the linked file instead of navigating to it. It only applies
+           * to same-origin URLs.
+           */}
           Lees eerst{' '}
           <Link download href="#">Toelichting Gratis laptop of tablet basisschool Schooljaar 2024-2025.pdf</Link>{' '}
           en{' '}

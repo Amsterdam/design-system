@@ -1,0 +1,15 @@
+{
+  "ams": {
+    "avatar": {
+      "image": {
+        "object-position": {
+          "$value": "-100vw 0",
+          "$description": "Moves the actual image out of view so the avatar background shows.",
+          "$extensions": {
+            "nl.amsterdam.type": "objectPosition"
+          }
+        }
+      }
+    }
+  }
+}

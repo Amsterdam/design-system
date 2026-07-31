@@ -66,8 +66,14 @@
           }
         },
         "disabled": {
-          "color": {
+          "background-color": {
             "$value": "{ams.color.interactive.disabled}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
+          "color": {
+            "$value": "{ams.color.interactive.inverse}",
             "$extensions": {
               "nl.amsterdam.type": "color"
             }

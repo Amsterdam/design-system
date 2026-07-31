@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 
 import type { SortOrder } from './common'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from './common'
 
 const meta = {
@@ -53,9 +53,10 @@ export const SortingWithSelect: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, dropping JSX
-        // comments and expanding the map. Provide the source by hand so the guidance stays in the panel.
-        code: `<Grid paddingBottom="x-large" paddingTop="large">
+        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, sorting
+        // scaffolding and all. Provide the source by hand so the panel shows the table markup on its own, with the
+        // guidance kept short.
+        code: `<Grid paddingVertical="x-large">
   <Grid.Cell appearance="transparent" span="all">
     <Heading level={1}>Vergunninghouders 2026/2027</Heading>
   </Grid.Cell>
@@ -95,7 +96,7 @@ export const SortingWithSelect: StoryObj = {
     const addresses = sortAddresses(bagAddresses.slice(0, 30), sortOrder)
 
     return (
-      <Grid paddingBottom="x-large" paddingTop="large">
+      <Grid paddingVertical="x-large">
         <Grid.Cell appearance="transparent" span="all">
           <Heading level={1}>Vergunninghouders 2026/2027</Heading>
         </Grid.Cell>
@@ -107,6 +108,7 @@ export const SortingWithSelect: StoryObj = {
             <form onSubmit={handleSortSubmit}>
               <Row alignVertical="center" wrap>
                 <Label htmlFor="sort">Sorteren op</Label>
+                {/* Submitting the form on change avoids a separate submit button (see handleSortChange). */}
                 <Select defaultValue={sortOrder} id="sort" name="sort" onChange={handleSortChange}>
                   {sortSelectOptions}
                 </Select>
@@ -129,6 +131,8 @@ export const SortingWithSelect: StoryObj = {
 
 // With Pagination
 
+// 50 rows at 5 per page make 10 pages: more than the seven page links Pagination shows at once, so this
+// example includes an ellipsis.
 const paginationOptions = {
   addresses: bagAddresses.slice(0, 50),
   pageSize: 5,
@@ -199,14 +203,14 @@ export const WithPagination = () => {
   }, [])
 
   return (
-    <Grid paddingBottom="x-large" paddingTop="large">
+    <Grid paddingVertical="x-large">
       <Grid.Cell appearance="transparent" span="all">
         <Heading level={1}>Vergunninghouders 2026/2027</Heading>
       </Grid.Cell>
       <Grid.Cell span="all">
         <Table className="ams-mb-l">
           {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
-          <Table.Caption className="ams-mb-m">
+          <Table.Caption>
             <Heading level={2}>Gegevens per adres</Heading>
           </Table.Caption>
           <Table.Header>
@@ -215,6 +219,11 @@ export const WithPagination = () => {
           <AddressTableBody addresses={paginatedAddresses} firstRow={firstRow} />
         </Table>
         <Row align="center">
+          {/*
+           * Pagination renders links, so pages stay shareable and open in a new tab. linkTemplate builds each
+           * href; linkComponent lets you pass your router’s link. Here a small wrapper keeps navigation inside
+           * Storybook rather than reloading the iframe – see PaginationLink and handlePaginationClick.
+           */}
           <Pagination
             linkComponent={PaginationLink}
             linkTemplate={paginationLinkTemplate}
@@ -230,16 +239,17 @@ export const WithPagination = () => {
 WithPagination.parameters = {
   docs: {
     source: {
-      // The Code Panel regenerates a `render` story’s source from the rendered tree, dropping JSX
-      // comments. Provide the source by hand so the guidance below stays visible in the panel.
-      code: `<Grid paddingBottom="x-large" paddingTop="large">
+      // Because this story’s `render` takes no argument, the Code Panel prints its source as written, pagination
+      // scaffolding and all. Provide the source by hand so the panel shows the table markup on its own, with the
+      // guidance kept short.
+      code: `<Grid paddingVertical="x-large">
   <Grid.Cell appearance="transparent" span="all">
     <Heading level={1}>Vergunninghouders 2026/2027</Heading>
   </Grid.Cell>
   <Grid.Cell span="all">
     <Table className="ams-mb-l">
       {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
-      <Table.Caption className="ams-mb-m">
+      <Table.Caption>
         <Heading level={2}>Gegevens per adres</Heading>
       </Table.Caption>
       <Table.Header>

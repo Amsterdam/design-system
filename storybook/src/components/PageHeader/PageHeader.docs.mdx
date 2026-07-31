@@ -193,6 +193,45 @@ A different icon for the menu button must be an svg as well.
 
 <Canvas of={PageHeaderStories.WithDifferentBranding} />
 
+## Design
+
+The logo and the navigation share one area of the header rather than sitting in two columns.
+The navigation holds a second, invisible copy of the logo, which reserves the space the real one occupies so the menu wraps around it at the right point.
+This is what allows every link to live inside a single `nav` element while the menu still behaves as if the logo were part of the same row.
+
+On narrow screens the standard logo is cropped to its emblem by a container 0.881 rem wide.
+That figure is the midpoint between the right edge of the emblem and the left edge of the wordmark, so the crop leaves equal space on both sides and does not depend on rounding to land in the right place.
+
+The brand name is set at the size of a level 3 Heading and balances its line lengths, so a name that wraps does not end on a single short word beside the logo.
+Below the wide breakpoint a short form replaces it where one is given.
+
+Menu links are hidden below the wide breakpoint unless they are fixed, and reappear inside the collapsible menu.
+The menu button’s icon turns into a cross when the menu opens, animated only for users who have not asked for reduced motion.
+
+The header keeps the horizontal margin of the [Grid](/docs/components-layout-grid--docs) at every breakpoint, so the logo lines up with the content below it.
+It grows that margin to clear a display cutout on the same terms, which keeps the two aligned in landscape as well.
+
+In print, the menu button keeps its blue background rather than being flattened to save ink.
+
+## Accessibility
+
+A Page Header renders a `header` element, which is exposed as the `banner` landmark.
+
+The logo link is named by a sentence that is in the markup and hidden visually: ‘Ga naar de homepage’, followed by the brand name where there is one.
+A link named after the picture inside it would announce as a logo rather than as a way home, which tells a screen reader user what they are looking at instead of where the link goes.
+
+The navigation is labelled by a heading that is hidden visually and hidden from the outline as well.
+It gives the `nav` landmark a name without adding a heading to the page structure, so a screen reader user hears which navigation this is when they reach it and does not meet an extra entry when they list the headings.
+
+The menu button shows ‘Menu’ and announces something else.
+Its visible word is hidden from assistive technology, and a hidden phrase in its place says whether activating it will show or hide the menu, so the name states the action rather than only the destination.
+The button also reports whether the menu is open and names the region it controls.
+
+The invisible copy of the logo inside the navigation is hidden from assistive technology and from the keyboard, so it is neither announced nor focusable a second time.
+
+The list item holding the menu button carries the `hidden` attribute and is revealed by the stylesheet.
+If that stylesheet never arrives, the collapsible menu stays visible in full instead of leaving a button that cannot open anything.
+
 ## See also
 
 - [Page](/docs/components-containers-page--docs) – contains the Page Header.

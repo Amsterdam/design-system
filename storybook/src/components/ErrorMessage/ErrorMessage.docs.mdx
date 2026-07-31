@@ -29,6 +29,8 @@ Read the documentation by [NL Design System](https://www.nldesignsystem.nl/richt
 
 ### How to use
 
+#### No rich text
+
 Do not use rich text (such as links or lists) in an Error Message.
 Some screen readers, like VoiceOver, skip over rich text when reading out descriptions.
 For more information, see [NL Design System](https://nldesignsystem.nl/richtlijnen/formulieren/descriptions/inhoud/).
@@ -55,6 +57,23 @@ Replace the icon with another to use Error Message in a different theme or visua
 Websites for the City of Amsterdam must use the default icon.
 
 <Canvas of={ErrorMessageStories.WithCustomIcon} />
+
+## Design
+
+An Error Message is red text with an icon before it, and nothing else: no background, no border, no box.
+The [Field](/docs/components-forms-field--docs) around it is what marks the error more heavily, with a red rule along its leading edge, so the message itself can stay quiet.
+
+The icon keeps the message from depending on its colour alone, which is what a reader who does not distinguish red from the text around it needs.
+
+## Accessibility
+
+An Error Message renders a `p` element, so it is read as ordinary text when the field it describes is reached through `aria-describedby`.
+
+It opens with a word that is in the markup and hidden visually — ‘Invoerfout’ by default.
+A description read out on its own gives no clue that it is an error, so the prefix supplies the context that the colour and the icon carry visually.
+
+The component does not announce itself when it appears, and it is not a live region.
+Announcing it is the job of the field that now describes it, or of an [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) at the top of the form.
 
 ## See also
 

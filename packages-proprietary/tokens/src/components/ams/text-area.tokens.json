@@ -13,6 +13,12 @@
           "nl.amsterdam.type": "color"
         }
       },
+      "border-radius": {
+        "$value": "{ams.inputs.border-radius}",
+        "$extensions": {
+          "nl.amsterdam.type": "borderRadius"
+        }
+      },
       "border-style": {
         "$value": "{ams.inputs.border-style}",
         "$extensions": {
@@ -73,6 +79,7 @@
       "padding-block": {
         "$value": "{ams.inputs.padding-block}",
         "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
         }

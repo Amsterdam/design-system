@@ -3,7 +3,6 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { GridColumnNumbers } from '@amsterdam/design-system-react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import {
@@ -21,9 +20,14 @@ import {
   UnorderedList,
 } from '@amsterdam/design-system-react'
 
-import { exampleHeading, exampleParagraph, exampleStandaloneLink } from '#storybook/_common/exampleContent'
+import {
+  exampleHeading,
+  exampleImageSource,
+  exampleParagraph,
+  exampleStandaloneLink,
+} from '#storybook/_common/exampleContent'
 
-import { commonMeta } from '../common/config'
+import { commonMeta } from '../common/commonMeta'
 import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from './data'
 
 const meta = {
@@ -50,13 +54,13 @@ export const Default: StoryObj = {
   parameters: {
     docs: {
       source: {
-        // The Code Panel regenerates a `render` story’s source from the rendered tree, which drops JSX
-        // comments and expands each `map`. Provide the source by hand so the guidance stays visible and
-        // the `map` and `getLinks` patterns read the way a developer would write them.
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
+        // patterns read the way a developer would write them.
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -64,7 +68,15 @@ export const Default: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
-  <Grid as="main" id="inhoud" paddingBottom="x-large">
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  {/*
+   * The main region here is a single section, so the Grid itself is that region. When the landmark has
+   * to hold several sections — more Grids, a Spotlight, a full-bleed image — wrap them in a plain
+   * <main> instead. Beside a sidebar, <main> goes in its own Grid Cell.
+   */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+  <Grid as="main" id="inhoud" paddingBottom="2x-large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Heading className="ams-mb-m" level={1}>Burgerzaken</Heading>
       <Paragraph size="large">
@@ -72,17 +84,14 @@ export const Default: StoryObj = {
         geboorte aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
       </Paragraph>
     </Grid.Cell>
-    {/*
-     * Two columns of link groups. On the even-indexed cells, start pins them to the content column; the
-     * odd-indexed cells (start undefined) fall in beside them.
-     */}
+    {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
     {burgerzakenLinks.map(({ heading, links }, index) => (
       <Grid.Cell
         key={heading}
         span={{ narrow: 4, medium: 4, wide: 5 }}
         start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
       >
-        <Heading className="ams-mb-s" level={2} size="level-3">{heading}</Heading>
+        <Heading className="ams-mb-xs" level={2} size="level-3">{heading}</Heading>
         {getLinks(links)}
       </Grid.Cell>
     ))}
@@ -94,7 +103,9 @@ export const Default: StoryObj = {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
+    // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
+      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -102,7 +113,15 @@ export const Default: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
-      <Grid as="main" id="inhoud" paddingBottom="x-large">
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      {/*
+       * The main region here is a single section, so the Grid itself is that region. When the landmark has
+       * to hold several sections — more Grids, a Spotlight, a full-bleed image — wrap them in a plain
+       * <main> instead. Beside a sidebar, <main> goes in its own Grid Cell.
+       */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+      <Grid as="main" id="inhoud" paddingBottom="2x-large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-m" level={1}>
             Burgerzaken
@@ -112,13 +131,14 @@ export const Default: StoryObj = {
             aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
           </Paragraph>
         </Grid.Cell>
+        {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
         {burgerzakenLinks.map(({ heading, links }, index) => (
           <Grid.Cell
             key={heading}
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
           >
-            <Heading className="ams-mb-s" level={2} size="level-3">
+            <Heading className="ams-mb-xs" level={2} size="level-3">
               {heading}
             </Heading>
             {getLinks(links)}
@@ -133,10 +153,13 @@ export const WithTopTasks: StoryObj = {
   parameters: {
     docs: {
       source: {
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
+        // patterns read the way a developer would write them.
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -144,7 +167,10 @@ export const WithTopTasks: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
-  <Grid as="main" id="inhoud" paddingBottom="x-large">
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+  <Grid as="main" id="inhoud" paddingBottom="2x-large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Heading className="ams-mb-m" level={1}>Leefomgeving</Heading>
     </Grid.Cell>
@@ -175,7 +201,7 @@ export const WithTopTasks: StoryObj = {
         span={{ narrow: 4, medium: 4, wide: 5 }}
         start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
       >
-        <Heading className="ams-mb-s" level={2} size="level-3">{heading}</Heading>
+        <Heading className="ams-mb-xs" level={2} size="level-3">{heading}</Heading>
         {getLinks(links)}
       </Grid.Cell>
     ))}
@@ -187,7 +213,9 @@ export const WithTopTasks: StoryObj = {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
+    // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
+      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -195,12 +223,16 @@ export const WithTopTasks: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
-      <Grid as="main" id="inhoud" paddingBottom="x-large">
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+      <Grid as="main" id="inhoud" paddingBottom="2x-large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-m" level={1}>
             Leefomgeving
           </Heading>
         </Grid.Cell>
+        {/* The two most important tasks get a full Card each; the groups below are plain heading + links. */}
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Card>
             <Card.Heading level={2}>
@@ -220,13 +252,14 @@ export const WithTopTasks: StoryObj = {
             <Paragraph>Een demonstratie of manifestatie meldt u vooraf bij de gemeente.</Paragraph>
           </Card>
         </Grid.Cell>
+        {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
         {topTaskLinks.map(({ heading, links }, index) => (
           <Grid.Cell
             key={heading}
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
           >
-            <Heading className="ams-mb-s" level={2} size="level-3">
+            <Heading className="ams-mb-xs" level={2} size="level-3">
               {heading}
             </Heading>
             {getLinks(links)}
@@ -241,10 +274,13 @@ export const WithInteractiveElement: StoryObj = {
   parameters: {
     docs: {
       source: {
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
+        // patterns read the way a developer would write them.
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -252,6 +288,12 @@ export const WithInteractiveElement: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/*
+   * Spotlights and full-bleed images sit between the Grids, so a plain <main> wraps them all. A page that
+   * is a single section can put as="main" on the Grid itself instead.
+   */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
     <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -260,23 +302,34 @@ export const WithInteractiveElement: StoryObj = {
           Vind informatie over parkeervergunningen, parkeertarieven en betaald parkeren in Amsterdam.
         </Paragraph>
       </Grid.Cell>
+      {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
       {parkerenLinks.map(({ heading, links }, index) => (
         <Grid.Cell
           key={heading}
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
         >
-          <Heading className="ams-mb-s" level={2} size="level-3">{heading}</Heading>
+          <Heading className="ams-mb-xs" level={2} size="level-3">{heading}</Heading>
           {getLinks(links)}
         </Grid.Cell>
       ))}
     </Grid>
+    {/*
+     * These bands sit inside <main>, so they stay plain <div>s; the Article Page marks its comparable
+     * pull-outs as labelled asides because those sit outside its <main>, where as="aside" makes them
+     * complementary landmarks.
+     */}
     <Spotlight>
-      <Grid paddingVertical="large">
+      <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-m" color="inverse" level={2} size="level-3">Parkeertarieven</Heading>
-          {/* An interactive element in the page: a search field. On the dark Spotlight, its links take color="inverse". */}
+          {/* An interactive element in the page: a search field. */}
           <SearchField className="ams-mb-m">
+            {/*
+             * SearchField renders the label visually hidden and offers no way to show it, so the placeholder is the
+             * only visible text this field can carry. It disappears on the first keystroke, so the field is then
+             * unlabelled on screen. The design system advises against placeholders; this one is a compromise.
+             */}
             <SearchField.Input label="Zoek op adres" placeholder="Zoek op adres" />
             <SearchField.Button />
           </SearchField>
@@ -287,6 +340,12 @@ export const WithInteractiveElement: StoryObj = {
         </Grid.Cell>
       </Grid>
     </Spotlight>
+    {/* A last section that is not a Grid takes ams-mb-2xl instead of a Grid’s paddingBottom. */}
+    {/*
+     * Image always reserves its box: .ams-image sets inline-size: 100% and an aspect ratio, so the
+     * layout does not shift while the file loads.
+     */}
+    {/* This image carries no information the text does not, so it takes an empty alt. */}
     <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1440/810" />
   </main>
 </>`,
@@ -296,7 +355,9 @@ export const WithInteractiveElement: StoryObj = {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
+    // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
+      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -304,6 +365,12 @@ export const WithInteractiveElement: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/*
+       * Spotlights and full-bleed images sit between the Grids, so a plain <main> wraps them all. A page that
+       * is a single section can put as="main" on the Grid itself instead.
+       */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -314,26 +381,38 @@ export const WithInteractiveElement: StoryObj = {
               {exampleParagraph()}
             </Paragraph>
           </Grid.Cell>
+          {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
           {parkerenLinks.map(({ heading, links }, index) => (
             <Grid.Cell
               key={heading}
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
             >
-              <Heading className="ams-mb-s" level={2} size="level-3">
+              <Heading className="ams-mb-xs" level={2} size="level-3">
                 {heading}
               </Heading>
               {getLinks(links)}
             </Grid.Cell>
           ))}
         </Grid>
+        {/*
+         * These bands sit inside <main>, so they stay plain <div>s; the Article Page marks its comparable
+         * pull-outs as labelled asides because those sit outside its <main>, where as="aside" makes them
+         * complementary landmarks.
+         */}
         <Spotlight>
-          <Grid paddingVertical="large">
+          <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
               <Heading className="ams-mb-m" color="inverse" level={2} size="level-3">
                 Parkeertarieven
               </Heading>
+              {/* An interactive element in the page: a search field. */}
               <SearchField className="ams-mb-m">
+                {/*
+                 * SearchField renders the label visually hidden and offers no way to show it, so the placeholder is the
+                 * only visible text this field can carry. It disappears on the first keystroke, so the field is then
+                 * unlabelled on screen. The design system advises against placeholders; this one is a compromise.
+                 */}
                 <SearchField.Input label="Zoek op adres" placeholder="Zoek op adres" />
                 <SearchField.Button />
               </SearchField>
@@ -348,6 +427,12 @@ export const WithInteractiveElement: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
+        {/* A last section that is not a Grid takes ams-mb-2xl instead of a Grid’s paddingBottom. */}
+        {/*
+         * Image always reserves its box: .ams-image sets inline-size: 100% and an aspect ratio, so the
+         * layout does not shift while the file loads.
+         */}
+        {/* This image carries no information the text does not, so it takes an empty alt. */}
         <Image alt="" aspectRatio="16:9" className="ams-mb-2xl" src="https://picsum.photos/id/133/1440/810" />
       </main>
     </>
@@ -358,8 +443,11 @@ export const WithImageGallery: StoryObj = {
   parameters: {
     docs: {
       source: {
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
+        // patterns read the way a developer would write them.
         code: `<>
-  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -368,6 +456,8 @@ export const WithImageGallery: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
     <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -378,7 +468,9 @@ export const WithImageGallery: StoryObj = {
         </Paragraph>
       </Grid.Cell>
     </Grid>
-    {/* A full-width banner image spans all columns; aspectRatio keeps it from shifting the layout. */}
+    {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
+    {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
+    {/* This image carries no information the text does not, so it takes an empty alt. */}
     <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
     <Grid paddingVertical="x-large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
@@ -392,30 +484,34 @@ export const WithImageGallery: StoryObj = {
       {/*
        * The image gallery. Each card spans 4 columns; the computed start lays them out two per row on
        * medium ([1, 5]) and three per row on wide ([1, 5, 9]) screens.
+       * Indexing a plain array produces a number, which is wider than the union Grid.Cell accepts, so each
+       * array is marked as const to keep its elements narrow.
        */}
-      {persons.map(({ imageSource, name, role }, index) => (
+      {persons.map(({ imageSource, name, role, suffix }, index) => (
         <Grid.Cell
           key={name}
           span={4}
-          start={{ narrow: 1, medium: [1, 5][index % 2], wide: [1, 5, 9][index % 3] }}
+          start={{ narrow: 1, medium: ([1, 5] as const)[index % 2], wide: ([1, 5, 9] as const)[index % 3] }}
         >
           <Card>
+            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
             <Card.Image alt="" src={imageSource} />
+            {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
             <Card.Heading level={3}>
-              <Card.Link href="#">{role} {name}</Card.Link>
+              <Card.Link href="#">{\`\${role} \${name}\${suffix ? \` (\${suffix})\` : ''}\`}</Card.Link>
             </Card.Heading>
           </Card>
         </Grid.Cell>
       ))}
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={2} size="level-3">Portefeuilleverdeling</Heading>
+        <Heading className="ams-mb-xs" level={2} size="level-3">Portefeuilleverdeling</Heading>
         <Paragraph className="ams-mb-s">
           Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders.
         </Paragraph>
         <StandaloneLink href="#">Portefeuilleverdeling</StandaloneLink>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <Heading className="ams-mb-s" level={2} size="level-3">Coalitieakkoord</Heading>
+        <Heading className="ams-mb-xs" level={2} size="level-3">Coalitieakkoord</Heading>
         <Paragraph className="ams-mb-s">
           In dit akkoord staan de plannen en visie van de coalitie PvdA, GroenLinks en D66 voor 2022-2026.
         </Paragraph>
@@ -425,8 +521,7 @@ export const WithImageGallery: StoryObj = {
     <Spotlight>
       <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          {/* On the dark Spotlight, color="inverse" switches the heading and links to their light variant. */}
-          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">Persberichten en nieuws</Heading>
+          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Persberichten en nieuws</Heading>
           <LinkList className="ams-mb-m">
             <LinkList.Link color="inverse" href="#">
               Proef elektrische fietsen voor sociale huurders op Strandeiland en Centrumeiland
@@ -436,7 +531,7 @@ export const WithImageGallery: StoryObj = {
           </LinkList>
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">Besluiten B en W</Heading>
+          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Besluiten B en W</Heading>
           <LinkList className="ams-mb-m">
             <LinkList.Link color="inverse" href="#">Nieuws uit B en W 9 juli 2025</LinkList.Link>
             <LinkList.Link color="inverse" href="#">Nieuws uit B en W 2 juli 2025</LinkList.Link>
@@ -446,14 +541,15 @@ export const WithImageGallery: StoryObj = {
         </Grid.Cell>
       </Grid>
     </Spotlight>
-    <Grid paddingVertical="x-large">
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    <Grid paddingBottom="2x-large" paddingTop="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={2} size="level-3">Pers en woordvoering</Heading>
+        <Heading className="ams-mb-xs" level={2} size="level-3">Pers en woordvoering</Heading>
         <Paragraph className="ams-mb-s">Voor vragen van journalisten aan de afdeling Bestuursvoorlichting.</Paragraph>
         <StandaloneLink href="#">Pers en woordvoering</StandaloneLink>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <Heading className="ams-mb-s" level={2} size="level-3">Meer over het college</Heading>
+        <Heading className="ams-mb-xs" level={2} size="level-3">Meer over het college</Heading>
         <LinkList className="ams-mb-m">
           <LinkList.Link href="#">Vervangingsregeling en locoburgemeesters</LinkList.Link>
           <LinkList.Link href="#">Gedragscode</LinkList.Link>
@@ -462,7 +558,7 @@ export const WithImageGallery: StoryObj = {
         </LinkList>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={2} size="level-3">Contact</Heading>
+        <Heading className="ams-mb-xs" level={2} size="level-3">Contact</Heading>
         <Paragraph className="ams-mb-s">Een bericht voor het college van burgemeester en wethouders kunt u:</Paragraph>
         <UnorderedList>
           <UnorderedList.Item>sturen naar Postbus 202, 1000 AE Amsterdam</UnorderedList.Item>
@@ -472,6 +568,10 @@ export const WithImageGallery: StoryObj = {
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading className="ams-mb-s" level={2} size="level-3">Rechtenvrije foto’s</Heading>
+        {/*
+         * Image always crops to an aspect ratio: omitting aspectRatio falls back to the 16:9 default,
+         * not to the file’s own ratio. This 640x360 source is already 16:9, so nothing is cropped.
+         */}
         <Image alt="" src="https://picsum.photos/640/360" />
       </Grid.Cell>
     </Grid>
@@ -484,6 +584,7 @@ export const WithImageGallery: StoryObj = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
+      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -492,6 +593,8 @@ export const WithImageGallery: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -504,7 +607,10 @@ export const WithImageGallery: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
+        {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
+        {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
+        {/* This image carries no information the text does not, so it takes an empty alt. */}
+        <Image alt="" aspectRatio="16:5" src={exampleImageSource(1440, 450, 11)} />
         <Grid paddingVertical="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
@@ -516,14 +622,22 @@ export const WithImageGallery: StoryObj = {
               gemeentesecretaris.
             </Paragraph>
           </Grid.Cell>
+          {/*
+           * The image gallery. Each card spans 4 columns; the computed start lays them out two per row on
+           * medium ([1, 5]) and three per row on wide ([1, 5, 9]) screens.
+           * Indexing a plain array produces a number, which is wider than the union Grid.Cell accepts, so each
+           * array is marked as const to keep its elements narrow.
+           */}
           {persons.map(({ imageSource, name, role, suffix }, index) => (
             <Grid.Cell
               key={name}
               span={4}
-              start={{ narrow: 1, medium: [1, 5][index % 2], wide: [1, 5, 9][index % 3] } as GridColumnNumbers}
+              start={{ narrow: 1, medium: ([1, 5] as const)[index % 2], wide: ([1, 5, 9] as const)[index % 3] }}
             >
               <Card>
+                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
                 <Card.Image alt="" src={imageSource} />
+                {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
                 <Card.Heading level={3}>
                   <Card.Link href="#">{`${role} ${name}${suffix ? ` (${suffix})` : ''}`}</Card.Link>
                 </Card.Heading>
@@ -531,7 +645,7 @@ export const WithImageGallery: StoryObj = {
             </Grid.Cell>
           ))}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2} size="level-3">
+            <Heading className="ams-mb-xs" level={2} size="level-3">
               Portefeuilleverdeling
             </Heading>
             <Paragraph className="ams-mb-s">
@@ -540,7 +654,7 @@ export const WithImageGallery: StoryObj = {
             <StandaloneLink href="#">Portefeuilleverdeling</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-s" level={2} size="level-3">
+            <Heading className="ams-mb-xs" level={2} size="level-3">
               Coalitieakkoord
             </Heading>
             <Paragraph className="ams-mb-s">
@@ -552,7 +666,7 @@ export const WithImageGallery: StoryObj = {
         <Spotlight>
           <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
                 Persberichten en nieuws
               </Heading>
               <LinkList className="ams-mb-m">
@@ -568,7 +682,7 @@ export const WithImageGallery: StoryObj = {
               </LinkList>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
                 Besluiten B en W
               </Heading>
               <LinkList className="ams-mb-m">
@@ -588,9 +702,10 @@ export const WithImageGallery: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Grid paddingVertical="x-large">
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        <Grid paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2} size="level-3">
+            <Heading className="ams-mb-xs" level={2} size="level-3">
               Pers en woordvoering
             </Heading>
             <Paragraph className="ams-mb-s">
@@ -599,7 +714,7 @@ export const WithImageGallery: StoryObj = {
             <StandaloneLink href="#">Pers en woordvoering</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-s" level={2} size="level-3">
+            <Heading className="ams-mb-xs" level={2} size="level-3">
               Meer over het college
             </Heading>
             <LinkList className="ams-mb-m">
@@ -610,7 +725,7 @@ export const WithImageGallery: StoryObj = {
             </LinkList>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2} size="level-3">
+            <Heading className="ams-mb-xs" level={2} size="level-3">
               Contact
             </Heading>
             <Paragraph className="ams-mb-s">
@@ -630,7 +745,11 @@ export const WithImageGallery: StoryObj = {
             <Heading className="ams-mb-s" level={2} size="level-3">
               Rechtenvrije foto’s
             </Heading>
-            <Image alt="" src="https://picsum.photos/640/360" />
+            {/*
+             * Image always crops to an aspect ratio: omitting aspectRatio falls back to the 16:9 default,
+             * not to the file’s own ratio. This 640x360 source is already 16:9, so nothing is cropped.
+             */}
+            <Image alt="" src={exampleImageSource(640, 360, 12)} />
           </Grid.Cell>
         </Grid>
       </main>
@@ -642,10 +761,13 @@ export const SubnavigationPage: StoryObj = {
   parameters: {
     docs: {
       source: {
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
+        // patterns read the way a developer would write them.
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 <>
-  {/* Keep the breadcrumb in its own Grid above <main>, so it sits outside the main content region. */}
+  {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
   <Grid paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Breadcrumb>
@@ -654,6 +776,8 @@ export const SubnavigationPage: StoryObj = {
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
     <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -664,10 +788,19 @@ export const SubnavigationPage: StoryObj = {
         </Paragraph>
       </Grid.Cell>
     </Grid>
+    {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
+    {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
+    {/* This image carries no information the text does not, so it takes an empty alt. */}
     <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
-    <Grid paddingVertical="large">
+    <Grid paddingVertical="x-large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        {/*
+         * This page nests one level deeper than the other navigation pages: level-2 section titles with
+         * level-3 groups under them. Those headings each want the size of their own level, so they set
+         * no size. The Spotlight headings below are the exception: they stay level={2} in the outline
+         * but take size="level-3", as Link Sections do.
+         */}
         <Heading className="ams-mb-s" level={2}>L2 Paragraaf titel</Heading>
         <Paragraph>Voorbeeldtekst bij dit onderwerp.</Paragraph>
       </Grid.Cell>
@@ -678,56 +811,57 @@ export const SubnavigationPage: StoryObj = {
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
         >
-          <Heading className="ams-mb-s" level={3}>{heading}</Heading>
+          <Heading className="ams-mb-xs" level={3}>{heading}</Heading>
           {getLinks(links)}
         </Grid.Cell>
       ))}
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={3}>Titel</Heading>
+        <Heading className="ams-mb-xs" level={3}>Titel</Heading>
         <Paragraph className="ams-mb-m">Voorbeeldtekst bij dit onderwerp.</Paragraph>
         <StandaloneLink href="#">Lees meer</StandaloneLink>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <Heading className="ams-mb-s" level={3}>Titel</Heading>
+        <Heading className="ams-mb-xs" level={3}>Titel</Heading>
         <Paragraph className="ams-mb-m">Voorbeeldtekst bij dit onderwerp.</Paragraph>
         <StandaloneLink href="#">Lees meer</StandaloneLink>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={3}>Titel</Heading>
+        <Heading className="ams-mb-xs" level={3}>Titel</Heading>
         <Paragraph className="ams-mb-m">Voorbeeldtekst bij dit onderwerp.</Paragraph>
         <StandaloneLink href="#">Lees meer</StandaloneLink>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <Heading className="ams-mb-s" level={3}>Titel</Heading>
+        <Heading className="ams-mb-xs" level={3}>Titel</Heading>
         <Paragraph className="ams-mb-m">Voorbeeldtekst bij dit onderwerp.</Paragraph>
         <StandaloneLink href="#">Lees meer</StandaloneLink>
       </Grid.Cell>
     </Grid>
     <Spotlight color="magenta">
-      <Grid paddingVertical="large">
+      <Grid paddingVertical="x-large">
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">Titel</Heading>
+          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Titel</Heading>
           <Paragraph color="inverse">Voorbeeldtekst bij dit onderwerp.</Paragraph>
         </Grid.Cell>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">Titel</Heading>
+          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Titel</Heading>
           <Paragraph color="inverse">Voorbeeldtekst bij dit onderwerp.</Paragraph>
         </Grid.Cell>
       </Grid>
     </Spotlight>
-    <Grid paddingVertical="large">
-      {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    <Grid paddingBottom="2x-large" paddingTop="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-s" level={2}>L2 Paragraaf titel</Heading>
         <Paragraph>Voorbeeldtekst bij dit onderwerp.</Paragraph>
       </Grid.Cell>
+      {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
       {burgerzakenLinks.slice(4, 8).map(({ heading, links }, index) => (
         <Grid.Cell
           key={heading}
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
         >
-          <Heading className="ams-mb-s" level={3}>{heading}</Heading>
+          <Heading className="ams-mb-xs" level={3}>{heading}</Heading>
           {getLinks(links)}
         </Grid.Cell>
       ))}
@@ -740,7 +874,9 @@ export const SubnavigationPage: StoryObj = {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
+    // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     <>
+      {/* Public page templates keep the Breadcrumb in its own Grid above <main>, so its nav sits outside it. */}
       <Grid paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Breadcrumb>
@@ -749,6 +885,8 @@ export const SubnavigationPage: StoryObj = {
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -761,50 +899,60 @@ export const SubnavigationPage: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
-        <Grid paddingVertical="large">
+        {/* Outside the Grid, the image spans the full Page width: up to 90rem, centred — not the full window. */}
+        {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to a banner’s 16:5. */}
+        {/* This image carries no information the text does not, so it takes an empty alt. */}
+        <Image alt="" aspectRatio="16:5" src={exampleImageSource(1440, 450)} />
+        <Grid paddingVertical="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            {/*
+             * This page nests one level deeper than the other navigation pages: level-2 section titles with
+             * level-3 groups under them. Those headings each want the size of their own level, so they set
+             * no size. The Spotlight headings below are the exception: they stay level={2} in the outline
+             * but take size="level-3", as Link Sections do.
+             */}
             <Heading className="ams-mb-s" level={2}>
               L2 Paragraaf titel
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
+          {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
           {burgerzakenLinks.slice(0, 6).map(({ heading, links }, index) => (
             <Grid.Cell
               key={heading}
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
             >
-              <Heading className="ams-mb-s" level={3}>
+              <Heading className="ams-mb-xs" level={3}>
                 {heading}
               </Heading>
               {getLinks(links)}
             </Grid.Cell>
           ))}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={3}>
+            <Heading className="ams-mb-xs" level={3}>
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-s" level={3}>
+            <Heading className="ams-mb-xs" level={3}>
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={3}>
+            <Heading className="ams-mb-xs" level={3}>
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-s" level={3}>
+            <Heading className="ams-mb-xs" level={3}>
               {exampleHeading()}
             </Heading>
             <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
@@ -812,36 +960,37 @@ export const SubnavigationPage: StoryObj = {
           </Grid.Cell>
         </Grid>
         <Spotlight color="magenta">
-          <Grid paddingVertical="large">
+          <Grid paddingVertical="x-large">
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
             </Grid.Cell>
             <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Grid paddingVertical="large">
-          {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        <Grid paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-s" level={2}>
               L2 Paragraaf titel
             </Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
+          {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
           {burgerzakenLinks.slice(4, 8).map(({ heading, links }, index) => (
             <Grid.Cell
               key={heading}
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
             >
-              <Heading className="ams-mb-s" level={3}>
+              <Heading className="ams-mb-xs" level={3}>
                 {heading}
               </Heading>
               {getLinks(links)}

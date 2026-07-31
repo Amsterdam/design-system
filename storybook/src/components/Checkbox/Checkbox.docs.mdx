@@ -105,6 +105,30 @@ Websites for the City of Amsterdam must use the default icon.
 
 A list of Checkboxes is vertically stacked to enhance readability and usability.
 
+The box is drawn as an SVG inside the label rather than by the browser, which is what makes a custom icon possible at all and keeps the control identical across browsers.
+It carries a separate ring that appears on hover, so the box grows a halo instead of changing size or colour.
+
+The box and the label sit in one line box that never breaks between them, and the label may wrap onto as many lines as it needs beside it.
+
+Checked, indeterminate, invalid and disabled each change one thing: the fill, the mark inside, the outline colour, or the text colour.
+The states can therefore combine — an invalid checked box, a disabled indeterminate one — without any pair of them fighting over the same property.
+
+In forced colours mode the drawing is redone in system colours: the box takes the field colours, a selected one the active text colour, and a disabled one the greyed text colour.
+The fills the tokens set are ignored there, so without this a checked box and an empty one would look the same.
+
+## Accessibility
+
+A Checkbox renders a native `input` inside a `label`, so the whole label is the target and the browser supplies the role, the checked state and the keyboard behaviour.
+
+The input is not hidden away: it is reduced to no width, which keeps it focusable, announced, and submitted with the form.
+Its focus ring is moved onto the label so the ring surrounds the box and its text rather than a control with no size.
+Browsers without support for the modern focus rules show that ring for every focus, including a click, which is the safer way round.
+
+The indeterminate state is a visual and programmatic state of the checkbox itself, not a third value.
+A form submits it as unchecked, so a bulk-selection box in that state says something about the list below it and nothing about its own value.
+
+The invalid styling responds to `aria-invalid="true"` and to the browser’s own `:invalid` state alike.
+
 ## See also
 
 - [Radio](/docs/components-forms-radio--docs) – when a user can select only one option from a list.

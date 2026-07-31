@@ -28,6 +28,7 @@
       "border-width": {
         "$value": "{ams.border.width.m}",
         "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
           "nl.amsterdam.type": "borderWidth"
         }
       },
@@ -159,6 +160,13 @@
         }
       },
       "body": {
+        "outline-offset": {
+          "$value": "{ams.focus.outline-offset}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
         "padding-block": {
           "$value": "0",
           "$type": "dimension",

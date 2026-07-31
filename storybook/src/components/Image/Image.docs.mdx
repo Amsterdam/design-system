@@ -25,6 +25,9 @@ The `alt` attribute is required.
 Use `alt=""` for decorative images – images that add little to the nearby text or contribute only to the visual atmosphere of the page.
 Non-decorative images need a text description.
 
+Leaving out `aspectRatio` falls back to the default ratio; no value preserves the proportions of the source file.
+Do not set `loading="lazy"` on an image in the first screenful of the page: there it delays the largest image in the viewport.
+
 ### How to write
 
 Describe the content of the image.
@@ -32,6 +35,8 @@ Imagine what you would say when reading the page to someone over the phone witho
 
 The alternate text should be able to replace the image without altering the meaning of the page.
 Do not use `alt` for text that could be construed as a caption or title (source: [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt)).
+
+The text is worth writing well for more than one audience: it is what shows when the file fails to load, and search engines read it too.
 
 ## Examples
 
@@ -57,16 +62,31 @@ For example, provide small, medium, and large variants for various screen sizes.
 This prevents unnecessary downloading of large files.
 Do this especially for the main image of a page, where the difference between sizes on a narrow and wide screen is most significant.
 
+An Image fills the width of its container and always has an aspect ratio, so the browser reserves its box before the file loads and the layout does not shift.
+
 ## Design
 
 Every Image should be shown in one of the [available aspect ratios](/docs/brand-design-tokens-aspect-ratio--docs).
 The default is 16:9.
 If the intrinsic dimensions of the source do not match an aspect ratio, the image will be cropped to cover the intended area.
+The crop is taken from the centre, so the middle of a photograph is what survives a ratio it was not made for.
+
+Alternate text is displayed in italics.
+When a file fails to load, its description then reads as a stand-in rather than as a stray sentence in the surrounding copy.
+
+The component sets a width of 600 pixels in the markup, which the stylesheet immediately overrides.
+It only takes effect when that stylesheet does not arrive, and it keeps a missing image from rendering at whatever size the file happens to be.
+
+An Image carries a background colour and a background image that are both switched off by default.
+This is what lets a mode move the picture out of view and show a placeholder in the space it reserved, without the component knowing anything about that mode.
 
 ## Accessibility
 
-Non-visual browsers hide images with `alt=""` from the user.
-The alternate text also displays if the image fails to load, and it can help search engine optimisation.
+An `img` with a description is exposed as an image with that text as its name.
+Setting `alt=""` removes it from the accessibility tree instead, so a decorative image is passed over silently rather than announced as an image nobody named.
+
+Because the box is reserved before the file arrives, the page does not reflow as images load.
+Someone reading with a screen magnifier or following a keyboard focus ring does not lose their place halfway down a page.
 
 ## See also
 
