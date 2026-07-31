@@ -1,6 +1,12 @@
 {
   "ams": {
     "border": {
+      "radius": {
+        "$value": "0",
+        "$extensions": {
+          "nl.amsterdam.type": "borderRadius"
+        }
+      },
       "width": {
         "s": {
           "$value": {
@@ -19,6 +25,7 @@
           },
           "$description": "2px equivalent. The default border width for inputs and containers.",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.type": "borderWidth"
           }
         },

@@ -135,7 +135,7 @@
           "padding-inline-start": {
             "$value": "{ams.unordered-list.item.margin-inline-start}",
             "$extensions": {
-              "nl.amsterdam.hint": "Starts the marker where the marker of Unordered List renders.",
+              "nl.amsterdam.hint": "Starts the marker where the marker of Unordered List renders. Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
             }

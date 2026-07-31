@@ -25,7 +25,18 @@ export default defineConfig([
   {
     name: 'amsterdam-design-system/global-ignores',
 
-    ignores: ['**/vendor/', '**/build/', '**/coverage/', '**/dist/', '**/tmp/', '**/AGENTS.md', '**/CHANGELOG.md'],
+    ignores: [
+      // Hidden directories hold tooling state, not source. `.github` is the exception we do lint.
+      '**/.*/',
+      '!.github/',
+      '**/vendor/',
+      '**/build/',
+      '**/coverage/',
+      '**/dist/',
+      '**/tmp/',
+      '**/AGENTS.md',
+      '**/CHANGELOG.md',
+    ],
   },
   {
     name: 'amsterdam-design-system/linter-options',

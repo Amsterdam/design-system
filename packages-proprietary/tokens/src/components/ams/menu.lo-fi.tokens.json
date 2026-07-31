@@ -1,0 +1,23 @@
+{
+  "ams": {
+    "menu": {
+      "link": {
+        "color": {
+          "$value": "#ffffff",
+          "$description": "Stays white: the menu keeps its dark background, unlike the surfaces that inverse text usually sits on.",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        },
+        "hover": {
+          "color": {
+            "$value": "#ffffff",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          }
+        }
+      }
+    }
+  }
+}

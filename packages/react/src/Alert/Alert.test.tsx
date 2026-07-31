@@ -106,6 +106,32 @@ describe('Alert', () => {
     expect(component).not.toHaveAttribute('aria-labelledby')
   })
 
+  it('generates a unique id to label each Alert by default', () => {
+    render(
+      <>
+        <Alert heading="First" headingLevel={2} />
+        <Alert heading="Second" headingLevel={2} />
+      </>,
+    )
+
+    const [first, second] = screen.getAllByRole('region')
+
+    const firstId = first.getAttribute('aria-labelledby')
+    const secondId = second.getAttribute('aria-labelledby')
+
+    expect(firstId).toBeTruthy()
+    expect(secondId).toBeTruthy()
+    expect(firstId).not.toEqual(secondId)
+  })
+
+  it('falls back to a generated id when headingId is an empty string', () => {
+    render(<Alert heading="Let op!" headingId="" headingLevel={2} />)
+
+    const component = screen.getByRole('region', { name: 'Let op!' })
+
+    expect(component.getAttribute('aria-labelledby')).toBeTruthy()
+  })
+
   it('passes additional props', () => {
     render(<Alert aria-hidden={false} data-test="data-test" heading="Let op!" headingLevel={2} id="id" />)
 

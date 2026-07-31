@@ -46,6 +46,9 @@ const meta = {
     open: { control: false },
   },
   decorators: [wrapInPage],
+  parameters: {
+    layout: 'fullscreen',
+  },
   // Control the mega menu so these example links can close it on click, the way an app would on navigation.
   // Seed from `defaultOpen` and defer to a provided `open` arg so a story can still set them through args.
   render: (args) => {

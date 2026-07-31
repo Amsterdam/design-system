@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
+import { gridGaps } from '@amsterdam/design-system-react/src/Grid/Grid'
 
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
@@ -20,6 +21,9 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
+
+/** Mirrors gridGaps in packages/react/src/Grid/Grid.tsx, preceded by the default. Each gap is cancelled by its own offset. */
+const gaps = [undefined, ...gridGaps] as const
 
 export const Test: Story = {
   args: {
@@ -46,6 +50,27 @@ export const Test: Story = {
       </Breakout.Cell>,
     ],
   },
-  render: (args, context) => renderComponentVariants(Breakout, { args }, context),
+  render: (args, context) => (
+    <>
+      {renderComponentVariants(Breakout, { args }, context)}
+      <div className="_ams-tests-stack">
+        {gaps.map((gap) => (
+          // The vertical padding is the largest one, so each Spotlight escapes into its own Breakout
+          // instead of into the one above or below it.
+          <Breakout gapVertical={gap} key={gap ?? 'default'} paddingVertical="2x-large">
+            <Breakout.Cell colSpan="all" has="spotlight" rowSpan={2} rowStart={1}>
+              <Spotlight color="green" />
+            </Breakout.Cell>
+            <Breakout.Cell colSpan="all" rowStart={1}>
+              <p style={{ color: 'white' }}>{`gapVertical: ${gap ?? 'x-large (default)'}`}</p>
+            </Breakout.Cell>
+            <Breakout.Cell colSpan="all" rowStart={2}>
+              <p style={{ color: 'white' }}>De Spotlight reikt precies tot de gap boven en onder deze tekst.</p>
+            </Breakout.Cell>
+          </Breakout>
+        ))}
+      </div>
+    </>
+  ),
   tags: ['!dev', '!autodocs'],
 }

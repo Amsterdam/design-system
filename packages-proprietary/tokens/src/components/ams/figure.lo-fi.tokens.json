@@ -1,0 +1,16 @@
+{
+  "ams": {
+    "figure": {
+      "caption": {
+        "inverse": {
+          "color": {
+            "$value": "#202020",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -20,6 +20,6 @@ export const commonMeta = {
     // 1200px default, so the visual test covers the widest layout we design for.
     chromatic: { modes: { '1440px': { viewport: 1440 } } },
     layout: 'fullscreen',
-    themes: { themeOverride: 'Spacious' },
+    themes: { options: ['Spacious', 'Spacious Lo-fi'] },
   },
 } satisfies Meta

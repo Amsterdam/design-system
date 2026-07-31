@@ -18,6 +18,7 @@
         "padding-block": {
           "$value": "{ams.space.l}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -25,6 +26,7 @@
         "padding-inline": {
           "$value": "{ams.grid.padding-inline}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -60,6 +62,7 @@
           "padding-inline": {
             "$value": "{ams.grid.vi-medium.padding-inline}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
             }
@@ -69,6 +72,7 @@
           "padding-inline": {
             "$value": "{ams.grid.vi-wide.padding-inline}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
             }

@@ -32,7 +32,7 @@
           "margin-inline-end": {
             "$value": "{ams.grid.padding-inline}",
             "$extensions": {
-              "nl.amsterdam.hint": "Must be the Grid inline padding, to make sure Skip Link and Grid line up.",
+              "nl.amsterdam.hint": "Must be the Grid inline padding, to make sure Skip Link and Grid line up. Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.type": "dimension",
               "nl.amsterdam.subtype": "space"
             }

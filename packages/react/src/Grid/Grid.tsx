@@ -9,6 +9,7 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 import { GridCell } from './GridCell'
+import { GridSubgrid } from './GridSubgrid'
 import { paddingClasses } from './paddingClasses'
 
 export type GridColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
@@ -84,4 +85,4 @@ GridRoot.displayName = 'Grid'
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}
  */
-export const Grid = Object.assign(GridRoot, { Cell: GridCell })
+export const Grid = Object.assign(GridRoot, { Cell: GridCell, Subgrid: GridSubgrid })

@@ -206,6 +206,32 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 <Canvas of={TextInputStories.InAFieldWithValidation} />
 
+## Design
+
+A Text Input fills the width of whatever holds it unless a `size` is given, and never grows past it.
+The default is a field as wide as the layout allows, which asks nothing of the person composing the form until they have a reason to say otherwise.
+
+The border is two pixels and the corners are square.
+Hovering adds a one-pixel ring inside that border rather than widening it, so the field appears to thicken without the layout moving underneath it.
+
+An invalid field turns its border red, and a disabled one greys its background rather than its border.
+The two states are told apart by which part changes, so neither is read as the other at a glance.
+
+The text inside the field is the size of body text with a tighter line height, and its padding is the same as a [Button](/docs/components-buttons-button--docs)’s.
+A field and a button on the same line therefore come out the same height.
+
+## Accessibility
+
+A Text Input renders an `input` element, so it is announced with its type, its label, and anything `aria-describedby` points at.
+
+The invalid styling responds to `aria-invalid="true"` and to the browser’s own `:invalid` state alike.
+The second matches as soon as the page loads for a field that is `required` and empty, so a form that leans on it marks its fields red before anyone has typed; set `aria-invalid` from your own validation to control when that happens.
+
+A disabled field is greyed and removed from the tab order, which is why ‘When not to use’ lists alternatives to it rather than treating it as an ordinary state.
+
+Placeholder text is styled but not recommended, and it is not a label: it disappears on the first keystroke and is not reliably announced.
+‘When not to use’ covers what to do instead.
+
 ## See also
 
 - [Text Area](/docs/components-forms-text-area--docs) – for multi-line text input.

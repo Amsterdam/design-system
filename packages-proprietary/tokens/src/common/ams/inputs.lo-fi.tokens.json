@@ -1,0 +1,13 @@
+{
+  "ams": {
+    "inputs": {
+      "border-radius": {
+        "$value": "8rem 0.5rem 7rem 0.5rem / 0.5rem 7rem 0.5rem 8rem",
+        "$description": "Asymmetric rounding makes borders look hand-drawn.",
+        "$extensions": {
+          "nl.amsterdam.type": "borderRadius"
+        }
+      }
+    }
+  }
+}

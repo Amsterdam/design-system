@@ -12,7 +12,7 @@ import { spotlightColors, spotlightTags } from '@amsterdam/design-system-react/s
 import { asArgType, colorArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
 import { exampleQuote } from '#storybook/_common/exampleContent'
-import { isCompactTheme } from '#storybook/_common/isCompactTheme'
+import { useIsCompactTheme } from '#storybook/_common/useIsCompactTheme'
 
 const quote = exampleQuote()
 
@@ -24,6 +24,9 @@ const meta = {
     color: colorArgType(spotlightColors, 'purple'),
   },
   decorators: [wrapInPage],
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof Spotlight>
 
 export default meta
@@ -31,24 +34,29 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: ({ as, color }, context) => (
-    <Spotlight as={as} color={color}>
-      <Grid paddingVertical="x-large">
-        <Grid.Cell appearance={isCompactTheme(context) ? 'transparent' : undefined} span="all">
-          <Blockquote color={!color || ['azure', 'green', 'magenta'].includes(color) ? 'inverse' : undefined}>
-            {quote}
-          </Blockquote>
-        </Grid.Cell>
-      </Grid>
-    </Spotlight>
-  ),
+  render: ({ as, color }) => {
+    const compact = useIsCompactTheme()
+
+    return (
+      <Spotlight as={as} color={color}>
+        <Grid paddingVertical="x-large">
+          <Grid.Cell appearance={compact ? 'transparent' : undefined} span="all">
+            <Blockquote color={!color || ['azure', 'green', 'magenta'].includes(color) ? 'inverse' : undefined}>
+              {quote}
+            </Blockquote>
+          </Grid.Cell>
+        </Grid>
+      </Spotlight>
+    )
+  },
 }
 
 export const HighlightContent: Story = {
   args: {
     color: 'green',
   },
-  render: ({ color }, context) => {
+  render: ({ color }) => {
+    const compact = useIsCompactTheme()
     const lightBackgroundColors = ['lime', 'orange', 'yellow']
     const textColor = lightBackgroundColors.includes(color!) ? undefined : 'inverse'
     const linkColor = lightBackgroundColors.includes(color!) ? 'contrast' : 'inverse'
@@ -56,10 +64,7 @@ export const HighlightContent: Story = {
     return (
       <Spotlight color={color}>
         <Grid paddingVertical="x-large">
-          <Grid.Cell
-            appearance={isCompactTheme(context) ? 'transparent' : undefined}
-            span={{ narrow: 4, medium: 5, wide: 7 }}
-          >
+          <Grid.Cell appearance={compact ? 'transparent' : undefined} span={{ narrow: 4, medium: 5, wide: 7 }}>
             <Heading className="ams-mb-s" color={textColor} level={2} size="level-3">
               Steun geven aan een partij
             </Heading>

@@ -39,7 +39,7 @@ const meta = {
 
   parameters: {
     layout: 'fullscreen',
-    themes: { themeOverride: 'Spacious' },
+    themes: { options: ['Spacious', 'Spacious Lo-fi'] },
   },
 } satisfies Meta
 

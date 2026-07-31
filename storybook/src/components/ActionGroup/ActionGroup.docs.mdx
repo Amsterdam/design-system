@@ -27,7 +27,7 @@ If two or more Buttons or links are in a row, put the one for the primary action
 
 ### How to use
 
-Replace the default 'group' role with `role="toolbar"` for Button toolbars.
+Give the group a name when a page holds several sets of actions and hearing ‘group’ on its own would not say which set this is: point `aria-labelledby` at a heading that names the set, or at text hidden with the `ams-visually-hidden` class.
 
 ## Examples
 
@@ -53,6 +53,23 @@ Putting the primary action first keeps the order of Buttons consistent on both n
 
 Sighted users will read the primary action first, in line with the natural reading order.
 The same goes for users of screen readers, who will hear the primary action first, and users of a keyboard, who will focus the primary action first.
+
+An Action Group places an even gutter between a set of actions, much as a [Row](/docs/components-layout-row--docs) does, and those actions can be [Buttons](/docs/components-buttons-button--docs), [Links](/docs/components-navigation-link--docs), or a mix of the two.
+While they fit on one line the group is only as wide as they are, so it can sit at the end of a Dialog or beside other content without claiming the whole line.
+
+The difference from a Row is that an Action Group stretches its actions.
+A Row lets each item keep its own width, side by side or wrapped onto new lines when you allow it.
+An Action Group makes every action grow to fill the width it has, so the moment they no longer sit in a row they stack into a single, full-width column.
+This follows from the space available rather than a breakpoint, as the ‘Stacked’ example shows.
+
+On a shared line, actions are centred against one another, so a Button and a Link of different heights meet on a common middle rather than a top edge.
+
+## Accessibility
+
+An Action Group renders a `div` with the `group` role, so assistive technology presents the actions as one set instead of as unrelated controls that happen to be adjacent.
+
+The group has no name of its own.
+Screen readers announce it as a group and then read the actions, which is enough when the page holds only one set; ‘How to use’ covers the case where it is not.
 
 ## Design tokens
 

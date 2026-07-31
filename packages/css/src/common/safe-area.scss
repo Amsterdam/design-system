@@ -1,0 +1,28 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/**
+ * The safe area insets a device reports are physical: `left` stays on the left in every writing
+ * direction. Components use logical properties, so map the insets to a logical pair here, once,
+ * rather than at every call site. Components that touch the edge of the window then hold their
+ * content clear of a display cutout with `max()`, which keeps the padding they already had
+ * whenever the inset is smaller – and it is `0px` on every device without a cutout.
+ *
+ * The insets only resolve to a non-zero value in a top-level browsing context, and only when the
+ * page opts in with `viewport-fit=cover` in its viewport meta element.
+ */
+
+:root {
+  /* The block axis needs no swap: the design system is horizontal writing modes only, where the
+   * block end is always the bottom. */
+  --ams-safe-area-inset-block-end: env(safe-area-inset-bottom, 0px);
+  --ams-safe-area-inset-inline-end: env(safe-area-inset-right, 0px);
+  --ams-safe-area-inset-inline-start: env(safe-area-inset-left, 0px);
+}
+
+:root:dir(rtl) {
+  --ams-safe-area-inset-inline-end: env(safe-area-inset-left, 0px);
+  --ams-safe-area-inset-inline-start: env(safe-area-inset-right, 0px);
+}

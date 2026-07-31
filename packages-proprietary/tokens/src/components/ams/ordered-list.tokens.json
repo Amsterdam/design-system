@@ -75,7 +75,7 @@
             "unit": "rem"
           },
           "$extensions": {
-            "nl.amsterdam.hint": "Divide your total indentation width over margin and padding to position the marker.",
+            "nl.amsterdam.hint": "Divide your total indentation width over margin and padding to position the marker. Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space"
           }
         },
@@ -85,7 +85,7 @@
             "unit": "rem"
           },
           "$extensions": {
-            "nl.amsterdam.hint": "The total level 1 indentation for Amsterdam is 40 pixels, or 2.5rem.",
+            "nl.amsterdam.hint": "The total level 1 indentation for Amsterdam is 40 pixels, or 2.5rem. Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space"
           }
         },
@@ -108,6 +108,7 @@
         "padding-block-end": {
           "$value": "{ams.space.s}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -115,6 +116,7 @@
         "padding-block-start": {
           "$value": "{ams.space.s}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -126,7 +128,7 @@
               "unit": "rem"
             },
             "$extensions": {
-              "nl.amsterdam.hint": "Indent less than the parent to start-align the child’s marker with the parent text.",
+              "nl.amsterdam.hint": "Indent less than the parent to start-align the child’s marker with the parent text. Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.subtype": "space"
             }
           },
@@ -136,7 +138,7 @@
               "unit": "rem"
             },
             "$extensions": {
-              "nl.amsterdam.hint": "The total level >=2 indentation for Amsterdam is 28 pixels, or 1.75rem.",
+              "nl.amsterdam.hint": "The total level >=2 indentation for Amsterdam is 28 pixels, or 1.75rem. Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.subtype": "space"
             }
           },
