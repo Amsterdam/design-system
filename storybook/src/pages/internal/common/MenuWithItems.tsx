@@ -14,14 +14,14 @@ import {
   SettingsFillIcon,
 } from '@amsterdam/design-system-react-icons'
 
-type MenuItem = {
+export type MenuItem = {
   href: string
   icon: MenuLinkProps['icon']
   text: string
 }
 
 // Menu links take the filled variant of an icon.
-const menuItems: MenuItem[] = [
+const defaultMenuItems: MenuItem[] = [
   {
     href: '#',
     icon: <PieChartFillIcon />,
@@ -49,10 +49,15 @@ const menuItems: MenuItem[] = [
   },
 ]
 
+type MenuWithItemsProps = {
+  // Templates that portray another application pass their own links; the rest share the default ones.
+  readonly items?: ReadonlyArray<MenuItem>
+} & MenuProps
+
 // Both Menus of a page must offer the same links, so one component renders the list for either position.
-export const MenuWithItems = (props: MenuProps) => (
-  <Menu {...props}>
-    {menuItems.map(({ href, icon, text }) => (
+export const MenuWithItems = ({ items = defaultMenuItems, ...restProps }: MenuWithItemsProps) => (
+  <Menu {...restProps}>
+    {items.map(({ href, icon, text }) => (
       <Menu.Link href={href} icon={icon} key={text}>
         {text}
       </Menu.Link>

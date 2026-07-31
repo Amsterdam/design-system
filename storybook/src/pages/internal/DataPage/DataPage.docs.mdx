@@ -1,0 +1,21 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import * as DataStories from "./DataPage.stories.tsx";
+
+<Meta of={DataStories} />
+
+# Data page
+
+This page shows all data of a single object in an internal application, here an inspection report for a bridge.
+
+The Menu lists the main sections of the application, from the object registry to inspections and settings.
+A sidebar lists the object’s metadata in a Description List and offers in-page navigation through a Table of Contents.
+The sections of the report follow next to it: status assessments with Badges, condition reports and documents in Tables, and empty states in plain text.
+
+The sections sit in a [Grid Subgrid](/docs/components-layout-grid--docs) rather than a Cell, so the Cells inside them are placed on the columns of the page.
+That keeps the sections aligned with the page title above them, and it holds them in a single grid item beside the sidebar, so neither column has to span rows to stay put.
+The layout is the one the [News Overview Page](/docs/pages-public-news-overview-page--docs) introduced for a filter column beside a list of results.
+
+Leave the row gap of the Subgrid at the vertical gap of the Grid, so the sections keep the rhythm of the page.

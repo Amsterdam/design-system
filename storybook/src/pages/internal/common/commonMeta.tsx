@@ -10,8 +10,8 @@ import { PageLayout } from './PageLayout'
 export const commonMeta = {
   decorators: [
     // Every internal template renders inside the same Page Layout, so each story supplies the page body only.
-    (Story) => (
-      <PageLayout>
+    (Story, { parameters }) => (
+      <PageLayout menuItems={parameters['menuItems']}>
         <Story />
       </PageLayout>
     ),
