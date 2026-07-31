@@ -37,12 +37,15 @@ Use a side navigation when the page presents one entry from a long list, and vis
 A [Table of Contents](/docs/components-navigation-table-of-contents--docs) is the navigation for this.
 Mark the entry on screen with `aria-current="page"`, and set `defaultExpanded` on the outer list so its groups start open.
 
-The navigation is usually longer than the entry beside it.
-Give its Grid Cell a `rowSpan` for the number of rows that entry occupies, or it takes a row of its own and pushes everything below it.
-`rowSpan` accepts at most 4, so plan the entry for at most that many rows on the wide grid, or place the navigation above the content instead.
-Set `rowSpan` per grid variant: on narrower grids the navigation stacks above the content and spans a single row.
+Put the entry in a [Grid Subgrid](/docs/components-layout-grid--docs) rather than a Cell.
+A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
+It is a single item in the row of the Grid however many rows of its own it holds, so the navigation sits beside all of it and the entry can be any length.
 
-Because the entry’s parts each sit in their own Grid Cell, the space between them is the Grid’s row gap.
+Give the navigation the first place in the source order, so it precedes the entry for a screen reader and for the Tab key.
+It only sits beside the entry on the wide grid; on narrower screens it spans the full width above it.
+
+Because the entry’s parts each sit in their own Cell of the Subgrid, the space between them is the row gap.
+Leave the row gap of the Subgrid at the vertical gap of the Grid.
 That gap has no medium size, so the space below the entry’s heading is larger than the vertical space guide advises for a heading.
 Keep elements in one cell where you need the exact space between them.
 

@@ -802,15 +802,10 @@ export const WithSideNavigation: StoryObj = {
       <Image alt="" aspectRatio="4:3" src="https://picsum.photos/1040/780" />
     </Grid.Cell>
     {/*
-     * The navigation is longer than the section beside it, so on the wide grid its cell spans all four rows
-     * of that section. rowSpan accepts at most 4, which is what limits this page to six addresses. On the
-     * narrow and medium grids the navigation sits above the section instead, in a row of its own.
+     * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+     * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
      */}
-    <Grid.Cell
-      rowSpan={{ narrow: 1, medium: 1, wide: 4 }}
-      span={{ narrow: 4, medium: 8, wide: 3 }}
-      start={{ narrow: 1, medium: 1, wide: 2 }}
-    >
+    <Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       {/*
        * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
        * group inherits it. aria-current="page" marks the shop on screen, and every other link gets
@@ -835,27 +830,33 @@ export const WithSideNavigation: StoryObj = {
         </TableOfContents.List>
       </TableOfContents>
     </Grid.Cell>
-    <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}>
-      <Heading level={2}>{currentShop}</Heading>
-    </Grid.Cell>
-    {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-    {shopLocations.map(({ postalCode, street }, index) => (
-      <Grid.Cell key={street} span={4} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 5 }}>
-        <Paragraph className="ams-mb-m">
-          {street}
-          <br />
-          {postalCode} Amsterdam
-        </Paragraph>
-        {/*
-         * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
-         * hidden address extends each accessible name. It follows the visible label rather than
-         * interrupting it, which keeps that label a contiguous part of the name for speech input.
-         */}
-        <Button variant="secondary">
-          Toon op de kaart<span className="ams-visually-hidden">, {street}</span>
-        </Button>
+    {/*
+     * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+     * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+     * the navigation beside it needs no row span and the page fits any number of them.
+     */}
+    <Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}>
+      <Grid.Cell span="all">
+        <Heading level={2}>{currentShop}</Heading>
       </Grid.Cell>
-    ))}
+      {shopLocations.map(({ postalCode, street }) => (
+        <Grid.Cell key={street} span={4}>
+          <Paragraph className="ams-mb-m">
+            {street}
+            <br />
+            {postalCode} Amsterdam
+          </Paragraph>
+          {/*
+           * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+           * hidden address extends each accessible name. It follows the visible label rather than
+           * interrupting it, which keeps that label a contiguous part of the name for speech input.
+           */}
+          <Button variant="secondary">
+            Toon op de kaart<span className="ams-visually-hidden">, {street}</span>
+          </Button>
+        </Grid.Cell>
+      ))}
+    </Grid.Subgrid>
   </Grid>
 </>`,
         language: 'tsx',
@@ -899,15 +900,10 @@ export const WithSideNavigation: StoryObj = {
           <Image alt="" aspectRatio="4:3" src={exampleImageSource(1040, 780)} />
         </Grid.Cell>
         {/*
-         * The navigation is longer than the section beside it, so on the wide grid its cell spans all four rows
-         * of that section. rowSpan accepts at most 4, which is what limits this page to six addresses. On the
-         * narrow and medium grids the navigation sits above the section instead, in a row of its own.
+         * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+         * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
          */}
-        <Grid.Cell
-          rowSpan={{ narrow: 1, medium: 1, wide: 4 }}
-          span={{ narrow: 4, medium: 8, wide: 3 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        >
+        <Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           {/*
            * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
            * group inherits it. aria-current="page" marks the shop on screen, and every other link gets
@@ -932,27 +928,33 @@ export const WithSideNavigation: StoryObj = {
             </TableOfContents.List>
           </TableOfContents>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}>
-          <Heading level={2}>{currentShop}</Heading>
-        </Grid.Cell>
-        {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
-        {shopLocations.map(({ postalCode, street }, index) => (
-          <Grid.Cell key={street} span={4} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 5 }}>
-            <Paragraph className="ams-mb-m">
-              {street}
-              <br />
-              {postalCode} Amsterdam
-            </Paragraph>
-            {/*
-             * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
-             * hidden address extends each accessible name. It follows the visible label rather than
-             * interrupting it, which keeps that label a contiguous part of the name for speech input.
-             */}
-            <Button variant="secondary">
-              Toon op de kaart<span className="ams-visually-hidden">, {street}</span>
-            </Button>
+        {/*
+         * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+         * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+         * the navigation beside it needs no row span and the page fits any number of them.
+         */}
+        <Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}>
+          <Grid.Cell span="all">
+            <Heading level={2}>{currentShop}</Heading>
           </Grid.Cell>
-        ))}
+          {shopLocations.map(({ postalCode, street }) => (
+            <Grid.Cell key={street} span={4}>
+              <Paragraph className="ams-mb-m">
+                {street}
+                <br />
+                {postalCode} Amsterdam
+              </Paragraph>
+              {/*
+               * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+               * hidden address extends each accessible name. It follows the visible label rather than
+               * interrupting it, which keeps that label a contiguous part of the name for speech input.
+               */}
+              <Button variant="secondary">
+                Toon op de kaart<span className="ams-visually-hidden">, {street}</span>
+              </Button>
+            </Grid.Cell>
+          ))}
+        </Grid.Subgrid>
       </Grid>
     </>
   ),
