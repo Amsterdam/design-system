@@ -73,7 +73,6 @@ The Page Header and the Page Footer add no vertical space of their own, so the f
 
 The first Grid has a `paddingTop` of `large` and no `paddingBottom`.
 On most pages it contains only the Breadcrumb, and on the question pages of a Form Flow only the back link.
-The Grid that follows the Breadcrumb has no `paddingTop`, so that the breadcrumb and the page title read as a single block.
 
 Not every page type has a breadcrumb.
 The Loading Page opens with its search field, and the Handbook Page relies on its table of contents.
@@ -86,9 +85,23 @@ The Grid that follows such a section is a regular one, with a `paddingVertical` 
 Only the Breadcrumb closes the gap below itself.
 The back link keeps the regular `x-large` between itself and the section that follows.
 
+### The Grid with the content header
+
+The Grid that follows the Breadcrumb holds the page title, usually with an optional metadata paragraph and a lead paragraph.
+It has no `paddingTop`, so that the breadcrumb and the page title read as a single block.
+For the space between those three, see [vertical space](/docs/docs-designer-guide-vertical-space--docs).
+
+Its `paddingBottom` depends on the section below it.
+A section on a white background takes `2x-large`, which sets the header apart from the body that follows.
+A coloured section takes `x-large`, because the edge of the colour marks that boundary already.
+A Spotlight and an Image are the two that occur in these templates.
+
+Not every page keeps its header in a Grid of its own.
+Where the header shares a Grid with the content below it, the row gap sets the space between the two.
+
 ### The Grids in between
 
-Every other Grid uses a `paddingVertical` of `x-large`, including the Grid inside a Spotlight.
+Every remaining Grid uses a `paddingVertical` of `x-large`, including the Grid inside a Spotlight.
 
 Two adjacent Grids therefore add up to twice that amount.
 Across a Spotlight this is intentional, because the coloured band separates the two paddings.
@@ -125,6 +138,7 @@ It is a bit **wider** than the body section and is positioned slightly further *
 ```
 
 Breadcrumbs use their own Grid placed directly above the header, using the same cell configuration.
+See [the Grid with the content header](#the-grid-with-the-content-header) for the space around and inside this section.
 
 ### Content page body
 

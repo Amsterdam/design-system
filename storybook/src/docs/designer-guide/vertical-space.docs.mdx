@@ -45,12 +45,17 @@ They inherit the Grid’s spacing and do not appear in the tables below.
 ### Content Heading
 
 A content page for a public website usually starts with a Breadcrumb, a level 1 Heading, and a lead Paragraph.
+A Metadata Paragraph may sit between the title and the lead, holding the publication date, the taxonomy tags, or both.
 The space between them is as follows:
 
 - Breadcrumb → Heading 1: **zero**
-- Heading 1 → Metadata Paragraph: **x-small**
+- Heading 1 → Metadata Paragraph: **medium**
+- Metadata Paragraph → Lead Paragraph: **medium**
 - Heading 1 → Lead Paragraph: **medium**
 - Lead Paragraph → Heading 2: **x-large**
+
+The space below the header is a padding of the Grid that holds it, not a margin on the lead Paragraph.
+See [the page structure for public websites](/docs/pages-public-introduction--docs) for the amount to use.
 
 ### Section Headings
 
@@ -85,7 +90,7 @@ They are the same as in the sections above.
 | **Heading 4**         |           |           |    `m`    |           |
 | **Blockquote**        |           |           |           |           |
 | **… List**            |           |    `s`    |   `xs`    |    `0`    |
-| **Paragraph**         |   `xs`    |    `s`    |   `xs`    |    `0`    |
+| **Paragraph**         |    `m`    |    `s`    |   `xs`    |    `0`    |
 | **Paragraph (large)** |    `m`    |           |           |           |
 | **Table**             |           |    `s`    |   `xs`    |    `0`    |
 
@@ -105,6 +110,7 @@ They are the same as in the sections above.
 | **Standalone Link**       |    `l`     |  `m`   |    `m`    |        `l`        |
 | **… List**                |    `l`     |  `m`   |    `m`    |        `l`        |
 | **Paragraph**             |    `l`     |  `m`   |    `m`    |        `l`        |
+| **Paragraph (large)**     |            |        |    `m`    |                   |
 | **Table**                 |    `l`     |  `l`   |    `l`    |        `l`        |
 
 - **Accordion** and **Table** with a Caption start with a **Heading** – use the space length for its size or level (2, 3, 4).
@@ -132,10 +138,10 @@ Add one of the [Margin](/docs/utilities-css-margin--docs) utility classes (`ams-
 
 ```tsx
 <Grid.Cell>
-  <Heading className="ams-mb-s" level={1}>
+  <Heading className="ams-mb-m" level={1}>
     Met korting van A naar B op de deelscooter of -bakfiets
   </Heading>
-  <Paragraph className="ams-mb-xl">29 juli 2025</Paragraph>
+  <Paragraph className="ams-mb-m">29 juli 2025</Paragraph>
   <Paragraph size="large">
     Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
     Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
