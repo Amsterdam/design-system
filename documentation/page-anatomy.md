@@ -33,6 +33,9 @@ An entry is a string, or an object that also sets a height in pixels of the page
 A section is a Grid, a Spotlight, an Overlap, or an Image that runs to the edges of the page.
 An Image of its own is a section with a single block; the Image inside an Overlap is a block alongside the Cells that lie on it.
 
+A Grid Subgrid holds Cells rather than content of its own, so it takes no name.
+Name the Cells inside it, in the order they appear, as though the Subgrid were not there.
+
 Do not count the sections by reading the story.
 Write the names as best you can and run the test below: it reports how many sections the story has and how many cells each one holds, which is faster and does not go wrong.
 

@@ -137,6 +137,11 @@ export type AnatomyBlock = {
   readonly aspectRatio?: number
   /** Whether the block runs to the edges of the page, outside the inline padding of the Grid. */
   readonly bleed: boolean
+  /**
+   * The blocks of a Grid Subgrid, which shares the columns of the Grid with its own children rather than holding
+   * content of itself. Only a block without these holds content, and only those take a name.
+   */
+  readonly blocks?: readonly AnatomyBlock[]
   /** The height of the block, per Grid variant. */
   readonly height: Record<Breakpoint, number>
   readonly label: string
@@ -201,8 +206,8 @@ const eachElement = (node: ReactNode, visit: (element: ReactElement) => void): v
 }
 
 /** Reads a `span` or a `start` prop, which is a single number, one number per Grid variant, or ‘all’. */
-const readColumns = (value: unknown, viewport: AnatomyViewport): number | undefined => {
-  if (value === 'all') return viewport.columns
+const readColumns = (value: unknown, viewport: AnatomyViewport, columns?: number): number | undefined => {
+  if (value === 'all') return columns ?? viewport.columns
   if (typeof value === 'number') return value
   if (typeof value === 'object' && value !== null) {
     const perVariant = value as Partial<Record<Breakpoint, number>>
@@ -216,8 +221,15 @@ const readColumns = (value: unknown, viewport: AnatomyViewport): number | undefi
 const perViewport = <T>(read: (viewport: AnatomyViewport) => T): Record<Breakpoint, T> =>
   Object.fromEntries(anatomyViewports().map((viewport) => [viewport.key, read(viewport)])) as Record<Breakpoint, T>
 
-const readCell = (element: ReactElement): AnatomyBlock => {
+/**
+ * Reads a Grid Cell or a Grid Subgrid. Both take the same placement props.
+ *
+ * A cell inside a Subgrid is placed on the columns of that Subgrid, which are the columns of the Grid it covers.
+ * Its own columns are numbered from one again, so a span of ‘all’ is the span of the Subgrid rather than of the Grid.
+ */
+const readCell = (element: ReactElement, columns?: Record<Breakpoint, number>): AnatomyBlock => {
   const { appearance, rowSpan, span, start } = propsOf(element)
+  const available = (viewport: AnatomyViewport) => columns?.[viewport.key] ?? viewport.columns
 
   return {
     appearance: appearance as string | undefined,
@@ -226,18 +238,31 @@ const readCell = (element: ReactElement): AnatomyBlock => {
     label: '',
     rowSpan: perViewport((viewport) => readColumns(rowSpan, viewport)),
     // A cell without a `span` spans a single column, as `grid-column-end: auto` does.
-    span: perViewport((viewport) => readColumns(span, viewport) ?? 1),
-    start: perViewport((viewport) => readColumns(start, viewport)),
+    span: perViewport((viewport) => readColumns(span, viewport, available(viewport)) ?? 1),
+    start: perViewport((viewport) => readColumns(start, viewport, available(viewport))),
   }
 }
 
-/** Collects the Grid Cells of a Grid. They can sit behind a fragment or a map, so this looks past anything else. */
-const readCells = (node: ReactNode, blocks: AnatomyBlock[] = []): AnatomyBlock[] => {
+/**
+ * Collects the Grid Cells of a Grid. They can sit behind a fragment or a map, so this looks past anything else.
+ * A Grid Subgrid is a block of its own that carries the cells inside it, because those sit on its columns.
+ */
+const readCells = (
+  node: ReactNode,
+  blocks: AnatomyBlock[] = [],
+  columns?: Record<Breakpoint, number>,
+): AnatomyBlock[] => {
   eachElement(node, (element) => {
-    if (displayNameOf(element) === 'Grid.Cell') {
-      blocks.push(readCell(element))
+    const name = displayNameOf(element)
+
+    if (name === 'Grid.Cell') {
+      blocks.push(readCell(element, columns))
+    } else if (name === 'Grid.Subgrid') {
+      const subgrid = readCell(element, columns)
+
+      blocks.push({ ...subgrid, blocks: readCells(propsOf(element)['children'] as ReactNode, [], subgrid.span) })
     } else {
-      readCells(propsOf(element)['children'] as ReactNode, blocks)
+      readCells(propsOf(element)['children'] as ReactNode, blocks, columns)
     }
   })
 
@@ -367,6 +392,10 @@ export const readStoryTree = (of: StoryModule, name: string): ReactNode => {
   return tree
 }
 
+/** The number of blocks that hold content: a Subgrid holds cells instead, so it counts as the cells inside it. */
+const countCells = (blocks: readonly AnatomyBlock[]): number =>
+  blocks.reduce((total, block) => total + (block.blocks ? countCells(block.blocks) : 1), 0)
+
 /** Reads the sections of a story and pairs them with the labels written for it. */
 export const readPageAnatomy = (story: ReactNode, labels: AnatomyLabels): PageAnatomy => {
   const sections = readSections(story)
@@ -378,23 +407,28 @@ export const readPageAnatomy = (story: ReactNode, labels: AnatomyLabels): PageAn
 
   const labelled = sections.map((section, index) => {
     const sectionLabels = labels[index] ?? []
+    const cells = countCells(section.blocks)
 
-    if (index < labels.length && section.blocks.length !== sectionLabels.length) {
-      problems.push(
-        `Section ${index + 1} has ${section.blocks.length} cells, and there are labels for ${sectionLabels.length}.`,
-      )
+    if (index < labels.length && cells !== sectionLabels.length) {
+      problems.push(`Section ${index + 1} has ${cells} cells, and there are labels for ${sectionLabels.length}.`)
     }
 
-    return {
-      ...section,
-      blocks: section.blocks.map((block, blockIndex) => {
-        const label = sectionLabels[blockIndex]
+    // A Subgrid holds cells rather than content, so the names go to the blocks inside it.
+    let taken = 0
+    const name = (blocks: readonly AnatomyBlock[]): AnatomyBlock[] =>
+      blocks.map((block) => {
+        if (block.blocks) return { ...block, blocks: name(block.blocks) }
+
+        const label = sectionLabels[taken]
+
+        taken += 1
 
         if (label === undefined) return block
 
         return { ...block, height: labelHeight(label) ?? block.height, label: labelText(label) }
-      }),
-    }
+      })
+
+    return { ...section, blocks: name(section.blocks) }
   })
 
   return { problems, sections: labelled }

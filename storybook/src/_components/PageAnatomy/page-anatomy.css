@@ -235,6 +235,15 @@
   margin-block-start: -1px;
 }
 
+/* A Grid Subgrid holds cells rather than content, and lays them out on the columns of the Grid it covers. It takes
+ * the row gap of that Grid, as the real one does. */
+._ams-page-anatomy__subgrid {
+  align-items: start;
+  display: grid;
+  grid-template-columns: subgrid;
+  row-gap: inherit;
+}
+
 /* A Grid Cell. The fixed minimum keeps room for the label in the narrowest drawing, where a short cell would
  * otherwise be a few pixels tall. */
 ._ams-page-anatomy__block {

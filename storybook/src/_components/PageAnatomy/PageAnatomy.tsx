@@ -98,34 +98,60 @@ const Blocks = ({
       }}
     >
       {section.blocks.map((block, index) => (
-        <div
-          className={clsx(
-            '_ams-page-anatomy__block',
-            block.bleed && '_ams-page-anatomy__block--bleed',
-            block.appearance === 'transparent' && '_ams-page-anatomy__block--transparent',
-          )}
-          key={`${block.label}-${index}`}
-          style={{
-            // A block that lies on top of another is centred on it, as the Grid inside an Overlap is.
-            alignSelf: section.overlap && !block.bleed ? 'center' : undefined,
-            blockSize: toContainerWidth(blockHeight(block, viewport), viewport.contentWidth),
-            gridColumn: block.bleed ? '1 / -1' : gridColumn(block.start[viewport.key], block.span[viewport.key]),
-            // The blocks of an Overlap share one row; a bleed block reaches past the inline padding of the Grid.
-            gridRow: section.overlap ? 1 : gridRow(block.rowSpan[viewport.key]),
-            marginInline: block.bleed ? toContainerWidth(-padding, viewport.contentWidth) : undefined,
-            paddingBlockStart:
-              section.overlap && block.bleed
-                ? // Halfway down the strip left in the open, less half a line so the label centres on that point.
-                  `calc(${toContainerWidth(stripAboveOverlay(section, block, viewport) / 2, viewport.contentWidth)} - 0.375rem)`
-                : undefined,
-          }}
-        >
-          <span className="_ams-page-anatomy__label">{block.label}</span>
-        </div>
+        <Block block={block} key={`${block.label}-${index}`} padding={padding} section={section} viewport={viewport} />
       ))}
     </div>
   )
 }
+
+const Block = ({
+  block,
+  padding,
+  section,
+  viewport,
+}: {
+  readonly block: AnatomyBlock
+  readonly padding: number
+  readonly section: AnatomySection
+  readonly viewport: AnatomyViewport
+}) => (
+  <div
+    className={clsx(
+      block.blocks ? '_ams-page-anatomy__subgrid' : '_ams-page-anatomy__block',
+      block.bleed && '_ams-page-anatomy__block--bleed',
+      block.appearance === 'transparent' && '_ams-page-anatomy__block--transparent',
+    )}
+    style={{
+      // A block that lies on top of another is centred on it, as the Grid inside an Overlap is.
+      alignSelf: section.overlap && !block.bleed ? 'center' : undefined,
+      // A Subgrid takes its height from the cells inside it, as the real one does.
+      blockSize: block.blocks ? undefined : toContainerWidth(blockHeight(block, viewport), viewport.contentWidth),
+      gridColumn: block.bleed ? '1 / -1' : gridColumn(block.start[viewport.key], block.span[viewport.key]),
+      // The blocks of an Overlap share one row; a bleed block reaches past the inline padding of the Grid.
+      gridRow: section.overlap ? 1 : gridRow(block.rowSpan[viewport.key]),
+      marginInline: block.bleed ? toContainerWidth(-padding, viewport.contentWidth) : undefined,
+      paddingBlockStart:
+        section.overlap && block.bleed
+          ? // Halfway down the strip left in the open, less half a line so the label centres on that point.
+            `calc(${toContainerWidth(stripAboveOverlay(section, block, viewport) / 2, viewport.contentWidth)} - 0.375rem)`
+          : undefined,
+    }}
+  >
+    {block.blocks ? (
+      block.blocks.map((child, childIndex) => (
+        <Block
+          block={child}
+          key={`${child.label}-${childIndex}`}
+          padding={padding}
+          section={section}
+          viewport={viewport}
+        />
+      ))
+    ) : (
+      <span className="_ams-page-anatomy__label">{block.label}</span>
+    )}
+  </div>
+)
 
 /** The three crosses, at the inline start of the Page Header and a padding down from its top, where the logo sits. */
 const Logo = ({ mode, viewport }: { readonly mode: AnatomyMode; readonly viewport: AnatomyViewport }) => {
