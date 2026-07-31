@@ -4867,12 +4867,12 @@
             },
             "parent": {
               "name": "AnatomyPage",
-              "fileName": "src/_components/PageAnatomy/anatomy.ts"
+              "fileName": "src/_components/PageAnatomy/model.ts"
             },
             "declarations": [
               {
                 "name": "TypeLiteral",
-                "fileName": "src/_components/PageAnatomy/anatomy.ts"
+                "fileName": "src/_components/PageAnatomy/model.ts"
               }
             ]
           },
@@ -4897,12 +4897,12 @@
             },
             "parent": {
               "name": "AnatomyPage",
-              "fileName": "src/_components/PageAnatomy/anatomy.ts"
+              "fileName": "src/_components/PageAnatomy/model.ts"
             },
             "declarations": [
               {
                 "name": "TypeLiteral",
-                "fileName": "src/_components/PageAnatomy/anatomy.ts"
+                "fileName": "src/_components/PageAnatomy/model.ts"
               }
             ]
           }
@@ -5972,6 +5972,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4402
+    "durationMs": 4459
   }
 }
