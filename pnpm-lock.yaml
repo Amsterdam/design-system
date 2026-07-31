@@ -336,6 +336,9 @@ importers:
       '@types/react':
         specifier: 18.3.31
         version: 18.3.31
+      '@types/react-dom':
+        specifier: 18.3.7
+        version: 18.3.7(@types/react@18.3.31)
       '@vitejs/plugin-react':
         specifier: 6.0.4
         version: 6.0.4(vite@8.2.0(@types/node@25.7.0)(esbuild@0.28.1)(sass@1.102.0)(terser@5.47.1)(yaml@2.9.0))
