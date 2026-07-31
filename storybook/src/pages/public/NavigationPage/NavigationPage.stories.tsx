@@ -174,7 +174,7 @@ export const WithTopTasks: StoryObj = {
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <Grid as="main" id="inhoud" paddingBottom="2x-large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-      <Heading className="ams-mb-m" level={1}>Leefomgeving</Heading>
+      <Heading level={1}>Leefomgeving</Heading>
     </Grid.Cell>
     {/* The two most important tasks get a full Card each; the groups below are plain heading + links. */}
     <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -230,9 +230,7 @@ export const WithTopTasks: StoryObj = {
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <Grid as="main" id="inhoud" paddingBottom="2x-large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-m" level={1}>
-            Leefomgeving
-          </Heading>
+          <Heading level={1}>Leefomgeving</Heading>
         </Grid.Cell>
         {/* The two most important tasks get a full Card each; the groups below are plain heading + links. */}
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -300,7 +298,7 @@ export const WithInteractiveElement: StoryObj = {
     <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-m" level={1}>Parkeren</Heading>
-        <Paragraph className="ams-mb-m" size="large">
+        <Paragraph size="large">
           Vind informatie over parkeervergunningen, parkeertarieven en betaald parkeren in Amsterdam.
         </Paragraph>
       </Grid.Cell>
@@ -379,9 +377,7 @@ export const WithInteractiveElement: StoryObj = {
             <Heading className="ams-mb-m" level={1}>
               Parkeren
             </Heading>
-            <Paragraph className="ams-mb-m" size="large">
-              {exampleParagraph()}
-            </Paragraph>
+            <Paragraph size="large">{exampleParagraph()}</Paragraph>
           </Grid.Cell>
           {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
           {parkerenLinks.map(({ heading, links }, index) => (
