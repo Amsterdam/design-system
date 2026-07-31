@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";var t;function n(){return(n=e((()=>{t=[[{height:64,label:`Breadcrumb and title`},{height:{narrow:40,medium:240,wide:240},label:`Project navigation`},{height:40,label:`Subnavigation`},{height:180,label:`Content`},{height:180,label:`Side panel`}]]})))()}export{n,t};
