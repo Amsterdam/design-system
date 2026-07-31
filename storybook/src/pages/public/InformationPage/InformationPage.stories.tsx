@@ -47,10 +47,11 @@ export const Default: StoryObj = {
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
-    <Grid paddingBottom="x-large">
+    {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+    <Grid paddingBottom="2x-large">
       {/* The title spans the wide intro column. The taxonomy tags below it are a metadata Paragraph. */}
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
+        <Heading className="ams-mb-m" level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
         <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
       </Grid.Cell>
       {/*
@@ -170,10 +171,11 @@ export const Default: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
-        <Grid paddingBottom="x-large">
+        {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+        <Grid paddingBottom="2x-large">
           {/* The title spans the wide intro column. The taxonomy tags below it are a metadata Paragraph. */}
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={1}>
+            <Heading className="ams-mb-m" level={1}>
               Natuurbescherming bij evenementen in parken en groengebieden
             </Heading>
             <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
@@ -308,13 +310,14 @@ export const WithTable: StoryObj = {
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
-    <Grid paddingBottom="x-large">
+    {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+    <Grid paddingBottom="2x-large">
       {/* Without an image beside it, the lead paragraph stays in the header cell with the title and metadata. */}
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={1}>
+        <Heading className="ams-mb-m" level={1}>
           Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning
         </Heading>
-        <Paragraph className="ams-mb-xl">
+        <Paragraph className="ams-mb-m">
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
           <time dateTime="2026-01-01">1 januari 2026</time> – Belastingen, Wonen, WOZ
         </Paragraph>
@@ -439,13 +442,14 @@ export const WithTable: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
-        <Grid paddingBottom="x-large">
+        {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+        <Grid paddingBottom="2x-large">
           {/* Without an image beside it, the lead paragraph stays in the header cell with the title and metadata. */}
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={1}>
+            <Heading className="ams-mb-m" level={1}>
               Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning
             </Heading>
-            <Paragraph className="ams-mb-xl">
+            <Paragraph className="ams-mb-m">
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
               <time dateTime="2026-01-01">1 januari 2026</time> – Belastingen, Wonen, WOZ
             </Paragraph>

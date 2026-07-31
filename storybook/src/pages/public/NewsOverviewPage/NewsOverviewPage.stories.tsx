@@ -72,7 +72,8 @@ export const Default: StoryObj = {
   </Grid>
   <main id="inhoud">
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    <Grid paddingBottom="x-large">
+    {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+    <Grid paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-m" level={1}>
           Nieuws uit Amsterdam
@@ -200,7 +201,8 @@ export const Default: StoryObj = {
       </Grid>
       <main id="inhoud">
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        <Grid paddingBottom="x-large">
+        {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+        <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
               Nieuws uit Amsterdam
