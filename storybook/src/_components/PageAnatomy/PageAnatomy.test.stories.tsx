@@ -11,6 +11,8 @@ import { anatomyLabels as articlePageLabels } from '../../pages/public/ArticlePa
 import * as ArticlePageStories from '../../pages/public/ArticlePage/ArticlePage.stories'
 import { anatomyLabels as homePageLabels } from '../../pages/public/HomePage/anatomyLabels'
 import * as HomePageStories from '../../pages/public/HomePage/HomePage.stories'
+import { anatomyLabels as newsOverviewPageLabels } from '../../pages/public/NewsOverviewPage/anatomyLabels'
+import * as NewsOverviewPageStories from '../../pages/public/NewsOverviewPage/NewsOverviewPage.stories'
 import { PageAnatomy } from './PageAnatomy'
 
 const meta = {
@@ -22,15 +24,17 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 /**
- * Three pages, between them covering everything the drawing can show: a Spotlight and a full-bleed Image on the
- * Article Page, an Overlap on the Home Page, and Compact Mode, a Menu column, a row-spanning Cell and a transparent
- * one on the internal Navigation Page.
+ * Four pages, between them covering everything the drawing can show: a Spotlight and a full-bleed Image on the
+ * Article Page, an Overlap on the Home Page, a Subgrid holding a Cell that spans all of its columns on the News
+ * Overview Page, and Compact Mode, a Menu column, a row-spanning Cell and a transparent one on the internal
+ * Navigation Page.
  */
 export const Test: Story = {
   render: () => (
     <div className="_ams-tests-stack">
       <PageAnatomy labels={articlePageLabels} of={ArticlePageStories} />
       <PageAnatomy labels={homePageLabels} of={HomePageStories} />
+      <PageAnatomy labels={newsOverviewPageLabels} of={NewsOverviewPageStories} />
       <PageAnatomy labels={internalNavigationPageLabels} menu mode="compact" of={InternalNavigationPageStories} />
     </div>
   ),
