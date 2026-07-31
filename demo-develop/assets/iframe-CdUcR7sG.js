@@ -1,0 +1,1 @@
+import{t as e}from"./iframe-BoF5-nKO.js";e();
