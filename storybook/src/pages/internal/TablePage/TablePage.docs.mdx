@@ -2,6 +2,9 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as TableStories from "./TablePage.stories.tsx";
 
 <Meta of={TableStories} />
@@ -10,6 +13,12 @@ import * as TableStories from "./TablePage.stories.tsx";
 
 These examples show how to use the Table component in Compact Mode to work with data sets.
 They include various ways to sort, filter and operate on data.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} menu mode="compact" of={TableStories} story="SortingWithSelect" />
 
 ## Make table state easy to share
 

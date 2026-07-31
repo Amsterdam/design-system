@@ -2,6 +2,9 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as ProjectStories from "./ProjectPage.stories.tsx";
 
 <Meta of={ProjectStories} />
@@ -10,6 +13,14 @@ import * as ProjectStories from "./ProjectPage.stories.tsx";
 
 This page shares all important public details about a construction or traffic project.
 Its main goal is to clearly inform residents and stakeholders.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={ProjectStories} />
+
+## Structure
 
 The page has a set structure.
 It includes sections that describe what the project is, its location, the reasons for it, and the timeline for planning or execution.

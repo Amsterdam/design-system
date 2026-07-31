@@ -17,7 +17,7 @@
   ],
   "private": true,
   "engines": {
-    "node": "^24",
+    "node": "^24.15.0",
     "pnpm": "^11"
   },
   "packageManager": "pnpm@11.18.0+sha512.33d83c77da82f49fba836925c6f1b841181ec3132b670639bd012f7075f5c7cf634c5f870147c19aae7478fac01df09d8892e880454896edd23ee9b33757563c",
@@ -71,7 +71,7 @@
     "globals": "17.8.0",
     "husky": "9.1.7",
     "nano-staged": "1.0.2",
-    "npm-check-updates": "22.2.9",
+    "npm-check-updates": "23.0.0",
     "npm-package-json-lint": "10.4.1",
     "plop": "4.0.5",
     "prettier": "3.9.6",
