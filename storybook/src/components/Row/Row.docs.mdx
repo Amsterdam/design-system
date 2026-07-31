@@ -93,6 +93,25 @@ The medium gap is the default.
 
 Align the elements horizontally or vertically through the alignment props.
 
+## Design
+
+A Row keeps its items on one line unless you allow it to wrap.
+Items are squeezed rather than moved down, which is what makes a Row a row: the arrangement you laid out is the arrangement that survives a narrow screen, until you decide otherwise.
+
+The gap is the only spacing a Row provides.
+There is no padding, no margin, and no divider between items, so the space belongs to the container and the items keep whatever spacing they define for themselves.
+
+All five gaps scale with the width of the window rather than stepping at a breakpoint.
+The white space in a layout therefore grows in proportion with the type and the grid around it, instead of holding still until a threshold is crossed.
+
+## Accessibility
+
+A Row renders a `div` by default, which adds nothing to the accessibility tree.
+Its items are announced exactly as they would be without it, in the order they appear in the markup.
+
+Alignment never changes that order.
+`align="end"` moves items to the other end of the line visually, and a screen reader still reads them from the start.
+
 ## See also
 
 - [Column](/docs/components-layout-column--docs) – stacks its children vertically instead.

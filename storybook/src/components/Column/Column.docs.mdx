@@ -30,6 +30,12 @@ Wrap editorial content in the [Prose](/docs/utilities-css-prose--docs) utility c
 
 To add white space below a single element, use [Margin Bottom](/docs/utilities-css-margin--docs) instead.
 
+### How to use
+
+Give a Column a name when you set `as="section"`.
+A `section` reaches assistive technology as a landmark only once it has one, so give the heading inside it an `id` and point `aria-labelledby` at that id.
+Without a name the element groups the content in the markup but adds nothing anyone can navigate to.
+
 ## Examples
 
 ### Alignment
@@ -75,6 +81,25 @@ Five sizes of [space](/docs/brand-design-tokens-space--docs) are available for t
 The medium gap is the default.
 
 Align the elements horizontally or vertically through the alignment props.
+
+## Design
+
+The gap is the only spacing a Column provides.
+There is no padding, no margin, and no divider between items, so the space belongs to the container and the items keep whatever spacing they define for themselves.
+
+All five gaps scale with the width of the window rather than stepping at a breakpoint.
+The white space in a layout therefore grows in proportion with the type and the grid around it, instead of holding still until a threshold is crossed.
+
+Every item in a Column gets the same gap, which is why ‘When not to use’ steers editorial text towards [Prose](/docs/utilities-css-prose--docs).
+A heading needs less space above the paragraph it introduces than below the one before it, and a single gap cannot express that.
+
+## Accessibility
+
+A Column renders a `div` by default, which adds nothing to the accessibility tree.
+Its items are announced exactly as they would be without it, in the order they appear in the markup.
+
+The `as` prop can render an `article` or a `section` instead, which does reach assistive technology.
+‘How to use’ covers what a `section` needs before it becomes a landmark.
 
 ## See also
 

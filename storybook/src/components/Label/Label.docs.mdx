@@ -64,6 +64,26 @@ When a Label is used in a Field inside a Field Set, use the `inFieldSet` prop to
 
 <Canvas of={LabelStories.InAFieldSet} />
 
+## Design
+
+A Label is set in bold, at the size of a level 3 Heading and with the tighter line height that goes with it.
+A question in a form is treated as a small heading, because that is what it is: the thing a reader scans for when working out what is being asked.
+
+Inside a Field Set that weight drops to regular.
+The legend then carries the emphasis for the group, and the labels of the individual options read as answers rather than as questions of their own.
+
+A Label that runs onto more than one line has its line lengths balanced, so it never ends on a single short word above the field.
+
+## Accessibility
+
+A Label renders a `label` element tied to its input, so activating the label moves focus to the field and a screen reader announces the label when the field is reached.
+
+The hint is written inside the label.
+It becomes part of the accessible name of the field, which is what makes ‘niet verplicht’ reach someone who never sees it beside the text.
+
+`isPageHeading` wraps the label in an `h1` rather than replacing it.
+The text then serves as the heading of the page and as the name of the field at once, so navigating by heading and reaching the input both produce the same words.
+
 ## See also
 
 - [Field](/docs/components-forms-field--docs) – wraps a single input together with its Label.

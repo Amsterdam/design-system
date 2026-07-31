@@ -7,6 +7,7 @@
 @use "../../common/hyphenation" as *;
 @use "../../common/print-exact" as *;
 @use "../../common/resets" as *;
+@use "../../common/safe-area" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-page-footer__spotlight {
@@ -18,26 +19,71 @@
 .ams-page-footer__menu {
   @include reset-ul;
 
+  /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+  --_ams-page-footer-menu-padding-block-end: max(
+    var(--ams-page-footer-menu-padding-block),
+    var(--ams-safe-area-inset-block-end)
+  );
+  --_ams-page-footer-menu-padding-inline-end: max(
+    var(--ams-page-footer-menu-padding-inline),
+    var(--ams-safe-area-inset-inline-end)
+  );
+  --_ams-page-footer-menu-padding-inline-start: max(
+    var(--ams-page-footer-menu-padding-inline),
+    var(--ams-safe-area-inset-inline-start)
+  );
+  /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
   background-color: var(--ams-page-footer-menu-background-color);
   column-gap: var(--ams-page-footer-menu-column-gap);
   display: flex;
   flex-wrap: wrap;
-  padding-block: var(--ams-page-footer-menu-padding-block);
-  padding-inline: var(--ams-page-footer-menu-padding-inline);
+
+  /* The last element on the page, so the home indicator overlays it once the page is scrolled to
+     the end. Take whichever is larger, as on the inline axis; the inset iOS reports already carries
+     enough room around the indicator to read as deliberate space. */
+  padding-block-end: var(--_ams-page-footer-menu-padding-block-end);
+  padding-block-start: var(--ams-page-footer-menu-padding-block);
+  padding-inline-end: var(--_ams-page-footer-menu-padding-inline-end);
+  padding-inline-start: var(--_ams-page-footer-menu-padding-inline-start);
   row-gap: var(--ams-page-footer-menu-row-gap);
 
   @media (min-width: $ams-breakpoint-medium) {
-    padding-inline: var(
-      --ams-page-footer-menu-medium-padding-inline /* @deprecated */,
-      var(--ams-page-footer-menu-vi-medium-padding-inline)
+    /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+    --_ams-page-footer-menu-padding-inline-end: max(
+      var(
+        --ams-page-footer-menu-medium-padding-inline /* @deprecated */,
+        var(--ams-page-footer-menu-vi-medium-padding-inline)
+      ),
+      var(--ams-safe-area-inset-inline-end)
     );
+    --_ams-page-footer-menu-padding-inline-start: max(
+      var(
+        --ams-page-footer-menu-medium-padding-inline /* @deprecated */,
+        var(--ams-page-footer-menu-vi-medium-padding-inline)
+      ),
+      var(--ams-safe-area-inset-inline-start)
+    );
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
   }
 
   @media (min-width: $ams-breakpoint-wide) {
-    padding-inline: var(
-      --ams-page-footer-menu-wide-padding-inline /* @deprecated */,
-      var(--ams-page-footer-menu-vi-wide-padding-inline)
+    /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+    --_ams-page-footer-menu-padding-inline-end: max(
+      var(
+        --ams-page-footer-menu-wide-padding-inline /* @deprecated */,
+        var(--ams-page-footer-menu-vi-wide-padding-inline)
+      ),
+      var(--ams-safe-area-inset-inline-end)
     );
+    --_ams-page-footer-menu-padding-inline-start: max(
+      var(
+        --ams-page-footer-menu-wide-padding-inline /* @deprecated */,
+        var(--ams-page-footer-menu-vi-wide-padding-inline)
+      ),
+      var(--ams-safe-area-inset-inline-start)
+    );
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
   }
 }
 

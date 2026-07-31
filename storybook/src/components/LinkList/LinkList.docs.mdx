@@ -88,6 +88,21 @@ It emphasizes the list structure and thematic coherence.
 The chevron is part of the link.
 Therefore, it is blue and clickable.
 
+The chevron stays beside the first line of a link that wraps, rather than centring itself against the whole block.
+A list of long links keeps a straight column of chevrons that way, in the place a list marker would occupy.
+
+Links are not underlined until the pointer is over them.
+The chevron identifies them in the meantime, the same way it does for a [Standalone Link](/docs/components-navigation-standalone-link--docs), which is what lets the two be swapped for one another.
+
+## Accessibility
+
+A Link List renders `ul` and `li` elements with the link inside each item, so screen readers announce it as a list and report how many links it holds before reading them.
+
+The chevron sits inside the link and adds nothing to its name.
+It also belongs to the target, so the whole of it responds to a click, not only the words.
+
+Because the chevron marks each link, colour is not the only thing distinguishing them from the text around them, as [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) requires.
+
 ## See also
 
 - [Link](/docs/components-navigation-link--docs) – for individual links.

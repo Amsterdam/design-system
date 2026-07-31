@@ -24,6 +24,9 @@ const meta = {
     color: colorArgType(spotlightColors, 'purple'),
   },
   decorators: [wrapInPage],
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof Spotlight>
 
 export default meta

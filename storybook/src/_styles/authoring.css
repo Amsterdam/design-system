@@ -83,8 +83,10 @@
     min-block-size: 3rem;
   }
 
-  /** Repeat declarations and increase specificity to override Grid Cell background and padding in Compact Mode. */
-  ._ams-grid-columns-guide + :is(.ams-breakout, .ams-grid) > & {
+  /** Repeat declarations and increase specificity to override Grid Cell background and padding in Compact Mode.
+      A Subgrid passes the columns of the Grid on to its own Cells, so they need the same treatment. */
+  ._ams-grid-columns-guide + :is(.ams-breakout, .ams-grid) > &,
+  ._ams-grid-columns-guide + :is(.ams-breakout, .ams-grid) > .ams-grid__subgrid > & {
     background-color: var(--_ams-color-pink);
     border-color: var(--_ams-color-grey);
     border-style: dashed;

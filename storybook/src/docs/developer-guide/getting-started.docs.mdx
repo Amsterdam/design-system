@@ -32,11 +32,35 @@ function App() {
 export default App
 ```
 
-## Reset styles
+## Setting up the document
 
 Add the `ams-body` [class name](/docs/utilities-css-body--docs) to your document’s `<body>` tag.
 This removes white space that the browser might add.
 In Compact Mode, it also sets the background color to match the Page component seamlessly.
+
+Declare the viewport in your document’s `<head>`.
+
+{/* prettier-ignore */}
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+```
+
+`width=device-width, initial-scale=1` makes the layout follow the width of the device.
+`viewport-fit=cover` lets the page use the whole screen on a device with a display cutout, such as a notch or a camera housing.
+Without it, browsers reserve the area around the cutout, which leaves inert bands beside the page in landscape.
+
+With it, [Grid](/docs/components-layout-grid--docs), [Page Header](/docs/components-containers-page-header--docs), [Page Footer](/docs/components-containers-page-footer--docs) and [Menu](/docs/components-navigation-menu--docs) hold their content clear of a cutout at the sides of the screen, and Page Footer also clears the home indicator along the bottom.
+They use whichever is larger: the space they already use, or the inset the device reports.
+A device without a cutout reports no inset, so nothing about your layout changes there.
+
+Nothing reserves space at the top yet.
+A browser reports no inset there, because its own toolbar already occupies that space, but a web app that sets `display: standalone` in its [web manifest](/docs/docs-developer-guide-web-app--docs) does.
+Such an app has to hold its own header clear of the cutout until the design system does.
+
+Don’t add `maximum-scale` or `user-scalable=no` to the viewport.
+Both stop people from zooming in, which fails [WCAG 1.4.4](https://www.w3.org/TR/WCAG22/#resize-text).
+
+## Reset styles
 
 We don’t have a separate, global reset stylesheet.
 This follows from our component-based architecture: every component overwrites user agent styles on the elements they render.

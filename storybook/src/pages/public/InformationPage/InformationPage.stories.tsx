@@ -12,7 +12,7 @@ import {
   Grid,
   Heading,
   Image,
-  LinkList,
+  Link,
   Paragraph,
   Table,
 } from '@amsterdam/design-system-react'
@@ -410,12 +410,10 @@ export const WithTable: StoryObj = {
               </Table.Row>
             </Table.Body>
           </Table>
+          {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
           <Figure.Caption>
-            <Heading className="ams-mb-xs" level={3}>Bron</Heading>
-            <LinkList>
-              <LinkList.Link href="#">Catalogus Basisregistratie WOZ</LinkList.Link>
-              <LinkList.Link href="#">Gegevenswoordenboek WOZ</LinkList.Link>
-            </LinkList>
+            Bronnen: <Link href="#">Catalogus Basisregistratie WOZ</Link> en{' '}
+            <Link href="#">Gegevenswoordenboek WOZ</Link>.
           </Figure.Caption>
         </Figure>
       </Grid.Cell>
@@ -544,14 +542,10 @@ export const WithTable: StoryObj = {
                   </Table.Row>
                 </Table.Body>
               </Table>
+              {/* Write any sources as one sentence, so the Figure Caption presents them in its small caption text. */}
               <Figure.Caption>
-                <Heading className="ams-mb-xs" level={3}>
-                  Bron
-                </Heading>
-                <LinkList>
-                  <LinkList.Link href="#">Catalogus Basisregistratie WOZ</LinkList.Link>
-                  <LinkList.Link href="#">Gegevenswoordenboek WOZ</LinkList.Link>
-                </LinkList>
+                Bronnen: <Link href="#">Catalogus Basisregistratie WOZ</Link> en{' '}
+                <Link href="#">Gegevenswoordenboek WOZ</Link>.
               </Figure.Caption>
             </Figure>
           </Grid.Cell>

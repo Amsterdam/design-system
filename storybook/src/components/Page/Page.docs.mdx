@@ -68,6 +68,20 @@ With a Menu, that becomes 120 rems (1920 pixels).
 
 An element placed directly in the Page, outside a [Grid](/docs/components-layout-grid--docs), spans the full width of the Page rather than the full width of the window.
 
+The Page is at least as tall as the window, measured against the part of it that is actually visible rather than the nominal height.
+On a phone the browser’s own bars come and go as you scroll, and the two measurements differ by exactly that much; using the visible one keeps a short page from ending in a strip of background below the Page Footer.
+
+With a Menu the Page becomes a grid of named areas rather than a stack.
+The Skip Link keeps a row of its own across the full width, above both the menu column and the header, so it is still the first thing reached however the rest is arranged.
+
+## Accessibility
+
+A Page renders a `div` and adds nothing to the accessibility tree.
+The landmarks of a page come from what you put inside it: the `banner` of the [Page Header](/docs/components-containers-page-header--docs), the `contentinfo` of the [Page Footer](/docs/components-containers-page-footer--docs), and the `main` element around the content between them.
+
+With a Menu, the areas are placed by the grid rather than by their order in the markup.
+The children are still announced and reached by keyboard in the order they are written, which is why the Skip Link comes first in the code as well as on screen.
+
 ## See also
 
 - [Skip Link](/docs/components-navigation-skip-link--docs) – the first element in the Page, above the Page Header.

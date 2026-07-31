@@ -112,29 +112,28 @@ $ams-breakout-row-span-max: 4;
   align-self: end;
 }
 
+/* Negate the padding the parent Breakout applies, per side: with a display cutout the two sides
+   differ, so a single `margin-inline` would leave a gap on one side and overhang on the other.
+   The custom properties are set by the `ams-grid` mixin on the Breakout and inherited from there,
+   so they follow it through the breakpoints without repeating the media queries here. */
 .ams-breakout__cell--has-spotlight {
   display: grid; /* Stretches the empty Spotlight vertically. */
-  margin-block: calc(var(--ams-space-xl) * -1);
-  margin-inline: calc(var(--ams-grid-padding-inline) * -1);
+  margin-block: calc(var(--ams-grid-row-gap-xl) * -1);
+  /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in the `ams-grid` mixin. */
+  margin-inline-end: calc(var(--_ams-grid-padding-inline-end) * -1);
+  margin-inline-start: calc(var(--_ams-grid-padding-inline-start) * -1);
+  /* stylelint-enable csstools/value-no-unknown-custom-properties */
 
-  @media (min-width: $ams-breakpoint-medium) {
-    margin-inline: calc(
-      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)) * -1
-    );
-  }
-
-  @media (min-width: $ams-breakpoint-wide) {
-    margin-inline: calc(
-      var(--ams-grid-wide-padding-inline /* @deprecated */, var(--ams-grid-vi-wide-padding-inline)) * -1
-    );
-  }
-
-  .ams-breakout--gap-vertical--small > & {
-    margin-block: calc(var(--ams-space-l) * -1);
+  .ams-breakout--gap-vertical--none > & {
+    margin-block: 0;
   }
 
   .ams-breakout--gap-vertical--large > & {
-    margin-block: calc(var(--ams-space-2xl) * -1);
+    margin-block: calc(var(--ams-grid-row-gap-l) * -1);
+  }
+
+  .ams-breakout--gap-vertical--2x-large > & {
+    margin-block: calc(var(--ams-grid-row-gap-2xl) * -1);
   }
 }
 

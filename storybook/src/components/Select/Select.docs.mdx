@@ -73,6 +73,25 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 
 <Canvas of={SelectStories.InAFieldWithValidation} />
 
+## Design
+
+A Select shares its border, padding, type and states with a [Text Input](/docs/components-forms-text-input--docs), so a field the user types into and one they choose from sit level in the same form.
+
+The chevron browsers draw is replaced by one of ours, and the field reserves room for it at the end so a long option never runs underneath.
+It is drawn three times over — in the interactive blue, in the hover blue, and in grey when disabled — because a background image cannot take the colour of the text the way an icon in the markup would.
+
+A Select showing several options at once keeps the native appearance and no chevron, since there is nothing to expand.
+
+## Accessibility
+
+A Select renders a native `select` element with native `option` and `optgroup` elements inside it.
+The list that opens is the operating system’s own, so it behaves the way every other menu on that device does: the same keys, the same gestures, and the same behaviour with a screen reader, none of which the design system reimplements.
+
+That is also the reason the appearance stops at the closed field.
+An open list cannot be styled, and replacing it with markup we could style would mean rebuilding all of that behaviour.
+
+A disabled option is greyed but still announced, so the user hears that a choice exists and is unavailable rather than not hearing it at all.
+
 ## See also
 
 - [Checkbox](/docs/components-forms-checkbox--docs) – use for multi-select interactions instead of a multi-Select.

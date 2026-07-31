@@ -18,6 +18,9 @@ const meta = {
   title: 'Components/Containers/Page Footer',
   component: PageFooter,
   decorators: [wrapInPage],
+  parameters: {
+    layout: 'fullscreen',
+  },
 } satisfies Meta<typeof PageFooter>
 
 export default meta
