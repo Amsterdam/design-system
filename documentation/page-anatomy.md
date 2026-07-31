@@ -106,5 +106,5 @@ That is the point of the test: the story is free to change, and the names have t
 ## Add it to the visual test only when it shows something new
 
 `PageAnatomy.test.stories.tsx` is the one story Chromatic snapshots for the drawing itself.
-It draws three pages, which between them cover a Spotlight, a full-bleed Image, an Overlap, Compact Mode, a Menu column, a row-spanning Cell and a transparent one.
+It draws four pages, which between them cover a Spotlight, a full-bleed Image, an Overlap, a Subgrid holding a Cell that spans all of its columns, Compact Mode, a Menu column, a row-spanning Cell and a transparent one.
 Leave it alone unless a new page type shows something none of those do, and add to that story rather than writing another: the snapshot glob matches a story named `Test`, so a second story is not picked up.
