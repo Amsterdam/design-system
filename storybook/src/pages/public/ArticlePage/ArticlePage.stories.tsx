@@ -40,7 +40,7 @@ const meta = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
-        {/* A coloured section follows the header — the hero Image — so its Grid keeps a paddingBottom of x-large. */}
+        {/* A coloured section follows — the hero Image — so this Grid takes a paddingBottom of x-large. */}
         <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
@@ -233,7 +233,7 @@ export const Default: StoryObj = {
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
-    {/* A coloured section follows the header — the hero Image — so its Grid keeps a paddingBottom of x-large. */}
+    {/* A coloured section follows — the hero Image — so this Grid takes a paddingBottom of x-large. */}
     <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-m" level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>

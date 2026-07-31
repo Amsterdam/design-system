@@ -72,14 +72,14 @@ export const Default: StoryObj = {
   </Grid>
   <main id="inhoud">
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Nieuws uit Amsterdam</Heading>
       </Grid.Cell>
       {/*
        * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-       * Grid Cell of its own, so the row gap of x-large sets it apart from the header above.
+       * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
        */}
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <SearchField>
@@ -205,14 +205,14 @@ export const Default: StoryObj = {
       </Grid>
       <main id="inhoud">
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading level={1}>Nieuws uit Amsterdam</Heading>
           </Grid.Cell>
           {/*
            * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-           * Grid Cell of its own, so the row gap of x-large sets it apart from the header above.
+           * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
            */}
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <SearchField>

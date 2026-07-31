@@ -38,9 +38,10 @@ The general structure for a page is:
   <Grid>
     <Breadcrumb />
   </Grid>
-  <Grid as="main" id="inhoud">
-    …
-  </Grid>
+  <main id="inhoud">
+    <Grid>{/* the Content Header */}</Grid>
+    <Grid>{/* the body */}</Grid>
+  </main>
   <PageFooter>
     <PageFooter.Spotlight>
       <Grid />
@@ -62,7 +63,8 @@ Most sections are a Grid, but a section can also be a Spotlight, an Image, or an
 A Spotlight contains a Grid, which in that position also spaces the content against the edges of the coloured band.
 
 A landmark is not always a section itself.
-A page either sets `as="main"` on the Grid that holds its content, wraps several sections in a `main` element, or places `main` in a Grid Cell beside a sidebar.
+The Content Header is a section of its own, so a content page wraps its sections in a `main` element, or places `main` in a Grid Cell beside a sidebar.
+A page that is a single section — a question page of a Form Flow, for instance — sets `as="main"` on that Grid instead.
 Such a wrapper takes no padding of its own, and the Grids inside and around it keep theirs.
 
 Sections create this space with the padding props of the Grid.
@@ -85,19 +87,19 @@ The Grid that follows such a section is a regular one, with a `paddingVertical` 
 Only the Breadcrumb closes the gap below itself.
 The back link keeps the regular `x-large` between itself and the section that follows.
 
-### The Grid with the content header
+### The Content Header Grid
 
-The Grid that follows the Breadcrumb holds the page title, usually with an optional metadata paragraph and a lead paragraph.
+The Grid that follows the Breadcrumb holds the Content Header: the page title, an optional Metadata Paragraph, and the lead paragraph.
 It has no `paddingTop`, so that the breadcrumb and the page title read as a single block.
 For the space between those three, see [vertical space](/docs/docs-designer-guide-vertical-space--docs).
 
 Its `paddingBottom` depends on the section below it.
-A section on a white background takes `2x-large`, which sets the header apart from the body that follows.
+A section on the regular background of the page takes `2x-large`, which sets the Content Header apart from the body that follows.
 A coloured section takes `x-large`, because the edge of the colour marks that boundary already.
 A Spotlight and an Image are the two that occur in these templates.
 
-Not every page keeps its header in a Grid of its own.
-Where the header shares a Grid with the content below it, the row gap sets the space between the two.
+Anything else in the Content Header Grid — a Search Field, an Image Slider — takes a Grid Cell of its own.
+The row gap of `x-large` then sets it apart from the title above it.
 
 ### The Grids in between
 
@@ -128,17 +130,17 @@ Do so for all variants of the Grid (narrow, medium, and wide: 4, 8, and 12 colum
 
 Some typical page sections always use the same values:
 
-### Content page header
+### Content Header
 
-The header section contains the page title, publication date, optional metadata, and the lead paragraph.
+The Content Header contains the page title, an optional Metadata Paragraph with the publication date or the taxonomy tags, and the lead paragraph.
 It is a bit **wider** than the body section and is positioned slightly further **to the left**.
 
 ```tsx
 <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }} />
 ```
 
-Breadcrumbs use their own Grid placed directly above the header, using the same cell configuration.
-See [the Grid with the content header](#the-grid-with-the-content-header) for the space around and inside this section.
+Breadcrumbs use their own Grid placed directly above the Content Header, using the same cell configuration.
+See [the Content Header Grid](#the-content-header-grid) for the space around and inside this section.
 
 ### Content page body
 

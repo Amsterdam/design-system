@@ -104,12 +104,12 @@ const meta = {
       <main id="inhoud">
         {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
         <Grid paddingTop="large">
-          {/* Search is not a content page, so the title spans the full width, not the documented header cell. */}
+          {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
           <Grid.Cell span="all">
             <Heading level={1}>Zoeken op amsterdam.nl</Heading>
           </Grid.Cell>
           {/*
-           * The search field spans half the grid on wide screens rather than the documented header cell width, so
+           * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
            * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
            * the full width at narrow.
            */}
@@ -129,7 +129,7 @@ const meta = {
          * one atomic update once it turns false. The ARIA spec allows this rather than requiring it, so not
          * every screen reader does.
          */}
-        {/* This white section follows the Content Header, so it takes a paddingTop of 2x-large. */}
+        {/* This section sits on the regular background below the Content Header, so it takes a paddingTop of 2x-large. */}
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid aria-busy={phase === 'loading'} paddingBottom="2x-large" paddingTop="2x-large">
           <Grid.Cell span="all">
@@ -204,12 +204,12 @@ const pageShell = ({ busy, extraCells = '', status, statusCell = '' }: PageSourc
 <main id="inhoud">
   {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
   <Grid paddingTop="large">
-    {/* Search is not a content page, so the title spans the full width, not the documented header cell. */}
+    {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
     <Grid.Cell span="all">
       <Heading level={1}>Zoeken op amsterdam.nl</Heading>
     </Grid.Cell>
     {/*
-     * The search field spans half the grid on wide screens rather than the documented header cell width, so
+     * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
      * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
      * the full width at narrow.
      */}
@@ -229,7 +229,7 @@ const pageShell = ({ busy, extraCells = '', status, statusCell = '' }: PageSourc
    * one atomic update once it turns false. The ARIA spec allows this rather than requiring it, so not
    * every screen reader does.
    */}
-  {/* This white section follows the Content Header, so it takes a paddingTop of 2x-large. */}
+  {/* This section sits on the regular background below the Content Header, so it takes a paddingTop of 2x-large. */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
   <Grid aria-busy={${busy}} paddingBottom="2x-large" paddingTop="2x-large">
     <Grid.Cell span="all">

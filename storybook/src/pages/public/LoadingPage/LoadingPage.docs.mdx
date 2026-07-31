@@ -22,10 +22,10 @@ This schematic shows the default sections for this page type and how the grids a
 
 ## Structure
 
-- The page has two Grids in one landmark, so a plain `main` wraps them both.
-  A page that is a single section can put `as="main"` on the Grid itself instead.
-- The first Grid holds the [Search Field](/docs/components-forms-search-field--docs) instead of a breadcrumb, so it still takes the `large` top padding.
-- Search is not a content page, so the title spans the full width rather than the [header Cell](/docs/pages-public-introduction--docs#content-page-header) other page types use.
+- The Content Header and the results are each their own section, so a plain `main` wraps them both.
+- This page opens with its title rather than a Breadcrumb, so the first Grid still takes the `large` top padding.
+  The [Search Field](/docs/components-forms-search-field--docs) is no part of the Content Header, so it takes a Grid Cell of its own below the title.
+- Search is not a content page, so the title spans the full width rather than the [Content Header Cell](/docs/pages-public-introduction--docs#content-header) other page types use.
 - The Search Field spans half the grid on wide screens, so the input does not stretch to an unusable length.
   It takes three quarters of the grid at medium and the full width at narrow.
 - The results are [Cards](/docs/components-navigation-card--docs) of 4 columns, in a second Grid.
@@ -53,5 +53,5 @@ The ‘Loaded’ example shows the results in place, under a heading that counts
 ## Layout and spacing
 
 - The first Grid takes a `paddingTop` of `large`, as the first Grid of every page does.
-- The Search Field is not a breadcrumb, so the Grid that follows it keeps the regular `x-large` top padding.
+- The results sit on the regular background below the Content Header, so their Grid takes a `paddingTop` of `2x-large`.
 - The last Grid before the Page Footer takes a `paddingBottom` of `2x-large`.

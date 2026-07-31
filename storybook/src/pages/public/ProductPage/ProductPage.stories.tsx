@@ -37,7 +37,7 @@ const meta = {
       <main id="inhoud">
         {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
         {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* A white section follows it, so its paddingBottom is 2x-large. */}
+        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           {/* The title and lead span the wide intro column. */}
           {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
@@ -195,7 +195,7 @@ export const Default: StoryObj = {
   <main id="inhoud">
     {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
     {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* A white section follows it, so its paddingBottom is 2x-large. */}
+    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       {/* The title and lead span the wide intro column. */}
       {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}

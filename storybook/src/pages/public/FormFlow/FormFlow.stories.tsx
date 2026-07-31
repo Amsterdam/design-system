@@ -62,8 +62,8 @@ export const LandingPage: StoryObj = {
         code: `// The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
 <main id="inhoud">
   {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
-  {/* This page opens with the header rather than a Breadcrumb, so that Grid takes the paddingTop of large. */}
-  {/* A white section follows it, so its paddingBottom is 2x-large. */}
+  {/* This page opens with the Content Header rather than a Breadcrumb, so that Grid takes the paddingTop of large. */}
+  {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
   <Grid paddingBottom="2x-large" paddingTop="large">
     <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
       <Heading className="ams-mb-m" level={1}>Waar u dit formulier voor gebruikt</Heading>
@@ -109,8 +109,8 @@ export const LandingPage: StoryObj = {
     // The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
     <main id="inhoud">
       {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
-      {/* This page opens with the header rather than a Breadcrumb, so that Grid takes the paddingTop of large. */}
-      {/* A white section follows it, so its paddingBottom is 2x-large. */}
+      {/* This page opens with the Content Header rather than a Breadcrumb, so that Grid takes the paddingTop of large. */}
+      {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
       <Grid paddingBottom="2x-large" paddingTop="large">
         <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading className="ams-mb-m" level={1}>

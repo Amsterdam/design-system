@@ -55,14 +55,14 @@ const meta = {
        */}
       <main id="inhoud">
         {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
-        {/* A white section follows it, so its paddingBottom is 2x-large. */}
+        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading level={1}>Centrumeiland: hét zelfbouweiland van Amsterdam</Heading>
           </Grid.Cell>
           {/*
            * The slider is no part of the Content Header, so it takes a Grid Cell of its own and the row gap
-           * of x-large sets it apart. It spans the full grid width, where the title keeps to the header cell.
+           * of x-large sets it apart. It spans the full grid width, where the title keeps to the Content Header Cell.
            */}
           <Grid.Cell span="all">
             {/*
@@ -73,7 +73,7 @@ const meta = {
           </Grid.Cell>
         </Grid>
         {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
-        {/* A coloured Spotlight follows this one, so its paddingBottom is x-large. */}
+        {/* A coloured Spotlight follows, so this Grid takes a paddingBottom of x-large. */}
         <Grid paddingBottom="x-large">
           {/*
            * This cell is not ams-prose, and components never set outer margins, so every element that is
@@ -413,14 +413,14 @@ export const Default: StoryObj = {
    */}
   <main id="inhoud">
     {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
-    {/* A white section follows it, so its paddingBottom is 2x-large. */}
+    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Centrumeiland: hét zelfbouweiland van Amsterdam</Heading>
       </Grid.Cell>
       {/*
        * The slider is no part of the Content Header, so it takes a Grid Cell of its own and the row gap
-       * of x-large sets it apart. It spans the full grid width, where the title keeps to the header cell.
+       * of x-large sets it apart. It spans the full grid width, where the title keeps to the Content Header Cell.
        */}
       <Grid.Cell span="all">
         {/*
@@ -431,7 +431,7 @@ export const Default: StoryObj = {
       </Grid.Cell>
     </Grid>
     {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
-    {/* A coloured Spotlight follows this one, so its paddingBottom is x-large. */}
+    {/* A coloured Spotlight follows, so this Grid takes a paddingBottom of x-large. */}
     <Grid paddingBottom="x-large">
       {/*
        * This cell is not ams-prose, and components never set outer margins, so every element that is

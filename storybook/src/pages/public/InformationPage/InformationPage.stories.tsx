@@ -47,16 +47,16 @@ export const Default: StoryObj = {
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
-    {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
-      {/* The title spans the wide intro column. The taxonomy tags below it are a metadata Paragraph. */}
+      {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-m" level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
         <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
       </Grid.Cell>
       {/*
        * The lead paragraph and the introductory image take the side-by-side Cell sizes, so the pair reaches a
-       * column further than the header Cell above it. Both stack on the narrow grid.
+       * column further than the Content Header Cell above it. Both stack on the narrow grid.
        */}
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Paragraph size="large">
@@ -171,9 +171,9 @@ export const Default: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
-        {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
-          {/* The title spans the wide intro column. The taxonomy tags below it are a metadata Paragraph. */}
+          {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
               Natuurbescherming bij evenementen in parken en groengebieden
@@ -182,7 +182,7 @@ export const Default: StoryObj = {
           </Grid.Cell>
           {/*
            * The lead paragraph and the introductory image take the side-by-side Cell sizes, so the pair reaches a
-           * column further than the header Cell above it. Both stack on the narrow grid.
+           * column further than the Content Header Cell above it. Both stack on the narrow grid.
            */}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Paragraph size="large">
@@ -310,9 +310,9 @@ export const WithTable: StoryObj = {
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
-    {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
-      {/* Without an image beside it, the lead paragraph stays in the header cell with the title and metadata. */}
+      {/* Without an image beside it, the lead paragraph stays in the Content Header Cell with the title and the metadata. */}
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-m" level={1}>
           Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning
@@ -442,9 +442,9 @@ export const WithTable: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
-        {/* A white section follows the header, so its Grid takes the wider paddingBottom of 2x-large. */}
+        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
-          {/* Without an image beside it, the lead paragraph stays in the header cell with the title and metadata. */}
+          {/* Without an image beside it, the lead paragraph stays in the Content Header Cell with the title and the metadata. */}
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
               Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning

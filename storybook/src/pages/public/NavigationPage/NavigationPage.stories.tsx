@@ -74,7 +74,7 @@ export const Default: StoryObj = {
   <main id="inhoud">
     {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
     {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* A white section follows it, so its paddingBottom is 2x-large. */}
+    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-m" level={1}>Burgerzaken</Heading>
@@ -121,7 +121,7 @@ export const Default: StoryObj = {
       <main id="inhoud">
         {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
         {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* A white section follows it, so its paddingBottom is 2x-large. */}
+        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
@@ -177,7 +177,7 @@ export const WithTopTasks: StoryObj = {
   <main id="inhoud">
     {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
     {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* A white section follows it, so its paddingBottom is 2x-large. */}
+    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Leefomgeving</Heading>
@@ -240,7 +240,7 @@ export const WithTopTasks: StoryObj = {
       <main id="inhoud">
         {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
         {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* A white section follows it, so its paddingBottom is 2x-large. */}
+        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading level={1}>Leefomgeving</Heading>
@@ -314,7 +314,7 @@ export const WithInteractiveElement: StoryObj = {
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
     {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
-    {/* A white section follows it, so its paddingBottom is 2x-large. */}
+    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading className="ams-mb-m" level={1}>Parkeren</Heading>
@@ -324,7 +324,7 @@ export const WithInteractiveElement: StoryObj = {
       </Grid.Cell>
     </Grid>
     {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
-    {/* A coloured Spotlight follows this one, so its paddingBottom is x-large. */}
+    {/* A coloured Spotlight follows, so this Grid takes a paddingBottom of x-large. */}
     <Grid paddingBottom="x-large">
       {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
       {parkerenLinks.map(({ heading, links }, index) => (
@@ -397,7 +397,7 @@ export const WithInteractiveElement: StoryObj = {
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
         {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
-        {/* A white section follows it, so its paddingBottom is 2x-large. */}
+        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading className="ams-mb-m" level={1}>
@@ -407,7 +407,7 @@ export const WithInteractiveElement: StoryObj = {
           </Grid.Cell>
         </Grid>
         {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
-        {/* A coloured Spotlight follows this one, so its paddingBottom is x-large. */}
+        {/* A coloured Spotlight follows, so this Grid takes a paddingBottom of x-large. */}
         <Grid paddingBottom="x-large">
           {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
           {parkerenLinks.map(({ heading, links }, index) => (
