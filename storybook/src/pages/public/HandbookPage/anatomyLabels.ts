@@ -12,7 +12,7 @@ import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
  */
 export const anatomyLabels: AnatomyLabels = [
   [
-    { height: 320, label: 'Table of contents' },
-    { height: 440, label: 'Chapter' },
+    { height: 'panel', label: 'Table of contents' },
+    { height: 'body', label: 'Chapter' },
   ],
 ]

@@ -110,22 +110,81 @@ const rowGapTokens = { '2x-large': '2xl', large: 'l', none: undefined } as const
 type Padding = keyof typeof paddingTokens
 type Gap = keyof typeof rowGapTokens
 
+/**
+ * The heights a block is drawn at, in pixels of the page it stands for.
+ *
+ * A schematic says what a page is made of, not how much of it there is, so a block takes a step of this scale
+ * rather than a measurement of its content. The same kind of content is then the same size on every page type, and
+ * nothing runs taller than a body of text — which on a real page is several times taller than this against its own
+ * width, and would leave the whole drawing to be scrolled past rather than read at a glance.
+ *
+ * The names are sizes with a typical use, not a taxonomy: a page title that carries a lead paragraph is a `card`,
+ * and a Compact Mode page has smaller titles than a Spacious Mode one.
+ */
+/* eslint-disable perfectionist/sort-objects -- Ordered by size, as the space scale above it is. */
+const blockHeights = {
+  /** A single line of text: a breadcrumb, a result count. */
+  line: 32,
+  /** A heading, a pagination, a search field. */
+  heading: 48,
+  /** A page title. */
+  title: 72,
+  /** A compact box in a row of them: a top task. */
+  tile: 96,
+  /** A card: a link section, a news card, a search result. */
+  card: 128,
+  /** A panel: a map, a set of filters, a table of contents, an image slider. */
+  panel: 192,
+  /** A body of text: an article, a product description, a set of questions. The tallest a block is drawn. */
+  body: 256,
+} as const
+/* eslint-enable perfectionist/sort-objects */
+
+export type BlockHeight = keyof typeof blockHeights
+
 /** The height a block takes when its label does not ask for another. */
-const defaultBlockHeight = 80
+const defaultBlockHeight = blockHeights.tile
+
+/**
+ * An Image is drawn at its aspect ratio up to a card's height, and past it at an ever smaller share of the rest,
+ * so that it never reaches a body's.
+ *
+ * A hero image drawn at its true ratio is taller on a wide page than everything else on that page put together,
+ * and no step of the scale above is. The drawing therefore keeps the ratio where an image is a band across the
+ * page, and flattens it where it is not.
+ */
+const imageHeightInFull = blockHeights.card
+const tallestImageHeight = blockHeights.body
+
+/** The height of the marker that stands in for a run of repeated Grid Cells. */
+const elidedBlockHeight = 40
+
+/**
+ * A run of identical Grid Cells is drawn in full up to this many rows, and from there as its first row, a marker
+ * for the ones in between, and its last row. Below it the marker stands in for a single row and takes one of its
+ * own, so the drawing is no shorter for it.
+ */
+const elidedFromRows = 4
 
 export type AnatomyLabel =
   | string
   | {
       /**
-       * The height of the block, in pixels of the page it stands for. Blocks are schematic: this is an impression.
-       * Accepts a number, or one number per Grid variant where the content changes shape between them.
+       * The height of the block, as a step of the scale above. Accepts one step, or one per Grid variant where the
+       * content changes shape between them.
        */
-      readonly height?: number | Record<Breakpoint, number>
+      readonly height?: BlockHeight | Record<Breakpoint, BlockHeight>
       readonly label: string
     }
 
 /** One label per Grid Cell, grouped per section, in the order they appear in the story. */
 export type AnatomyLabels = ReadonlyArray<readonly AnatomyLabel[]>
+
+/** The rows a marker stands in for, and how many cells lie beside one another on each of them. */
+export type ElidedRows = {
+  readonly perRow: number
+  readonly rows: number
+}
 
 export type AnatomyBlock = {
   /**
@@ -133,7 +192,7 @@ export type AnatomyBlock = {
    * transparent variant removes, so a transparent cell is drawn as bare page rather than as a block.
    */
   readonly appearance?: string
-  /** The aspect ratio of an Image, as a height divided by a width. Takes precedence over the height. */
+  /** The aspect ratio of an Image, as a height divided by a width, where its label sets no height of its own. */
   readonly aspectRatio?: number
   /** Whether the block runs to the edges of the page, outside the inline padding of the Grid. */
   readonly bleed: boolean
@@ -142,6 +201,11 @@ export type AnatomyBlock = {
    * content of itself. Only a block without these holds content, and only those take a name.
    */
   readonly blocks?: readonly AnatomyBlock[]
+  /**
+   * The rows of Grid Cells this block stands in for, where a run of identical ones is drawn as its first row, this
+   * marker, and its last row. Only a marker carries it, and a marker holds nothing else.
+   */
+  readonly elided?: ElidedRows
   /** The height of the block, per Grid variant. */
   readonly height: Record<Breakpoint, number>
   readonly label: string
@@ -356,7 +420,9 @@ const labelHeight = (label: AnatomyLabel): Record<Breakpoint, number> | undefine
 
   if (height === undefined) return undefined
 
-  return typeof height === 'number' ? perViewport(() => height) : height
+  return typeof height === 'string'
+    ? perViewport(() => blockHeights[height])
+    : perViewport((viewport) => blockHeights[height[viewport.key]])
 }
 
 export type StoryModule = {
@@ -426,7 +492,15 @@ export const readPageAnatomy = (story: ReactNode, labels: AnatomyLabels): PageAn
 
         if (label === undefined) return block
 
-        return { ...block, height: labelHeight(label) ?? block.height, label: labelText(label) }
+        const height = labelHeight(label)
+
+        // A label that sets a height sets it for an Image too, which otherwise takes one from its aspect ratio.
+        return {
+          ...block,
+          aspectRatio: height ? undefined : block.aspectRatio,
+          height: height ?? block.height,
+          label: labelText(label),
+        }
       })
 
     return { ...section, blocks: name(section.blocks) }
@@ -434,6 +508,155 @@ export const readPageAnatomy = (story: ReactNode, labels: AnatomyLabels): PageAn
 
   return { problems, sections: labelled }
 }
+
+/**
+ * The height an Image is drawn at, from the height its aspect ratio gives it across the page.
+ *
+ * Up to `imageHeightInFull` that is the height itself; past it, every further pixel adds a little less than the one
+ * before, so the drawing approaches `tallestImageHeight` without ever reaching it. Any aspect ratio therefore
+ * stays a band the eye can take in, and an image still grows taller as the page grows wider.
+ */
+export const imageHeight = (height: number): number => {
+  if (height <= imageHeightInFull) return height
+
+  const beyond = height - imageHeightInFull
+  const room = tallestImageHeight - imageHeightInFull
+
+  return imageHeightInFull + (room * beyond) / (beyond + room)
+}
+
+/** The height of a block at a viewport, in pixels of the page it stands for. */
+export const blockHeight = (block: AnatomyBlock, viewport: AnatomyViewport): number =>
+  block.aspectRatio ? imageHeight(block.aspectRatio * viewport.contentWidth) : block.height[viewport.key]
+
+/** Whether two Grid Cells are drawn alike at a viewport, and so read as a repeat of one another. */
+const repeats = (block: AnatomyBlock, other: AnatomyBlock, viewport: AnatomyViewport): boolean =>
+  !block.blocks &&
+  !other.blocks &&
+  !block.bleed &&
+  !other.bleed &&
+  block.label === other.label &&
+  block.appearance === other.appearance &&
+  block.span[viewport.key] === other.span[viewport.key] &&
+  block.rowSpan[viewport.key] === other.rowSpan[viewport.key] &&
+  blockHeight(block, viewport) === blockHeight(other, viewport)
+
+/**
+ * The number of cells of a run that lie beside one another on one row, counted from the column the run starts at.
+ * A cell that names a start of its own begins a new row wherever that is not the column the row has reached.
+ */
+const cellsPerRow = (run: readonly AnatomyBlock[], columns: number, viewport: AnatomyViewport): number => {
+  const span = run[0]!.span[viewport.key]
+  let column = run[0]!.start[viewport.key] ?? 1
+  let fitting = 0
+
+  for (const block of run) {
+    const start = block.start[viewport.key]
+
+    if ((start !== undefined && start !== column) || column + span - 1 > columns) break
+
+    fitting += 1
+    column += span
+  }
+
+  return Math.max(1, fitting)
+}
+
+/**
+ * The marker that stands in for the cells between the first row of a run and its last. It lies on the rows of that
+ * run, so it covers what one of them covers: as many cells as fit beside one another, from the column they start at.
+ */
+const elidedBlock = (
+  block: AnatomyBlock,
+  elided: ElidedRows,
+  columns: number,
+  viewport: AnatomyViewport,
+): AnatomyBlock => {
+  const start = block.start[viewport.key] ?? 1
+  const perRow = elided.perRow
+
+  return {
+    ...block,
+    elided,
+    height: { ...block.height, [viewport.key]: elidedBlockHeight },
+    rowSpan: { ...block.rowSpan, [viewport.key]: undefined },
+    span: { ...block.span, [viewport.key]: Math.min(perRow * block.span[viewport.key], columns - start + 1) },
+  }
+}
+
+/**
+ * Shortens every run of identical Grid Cells to its first row, a marker naming the cells in between, and its last
+ * row. A page that lists eight top tasks stacks all eight on a phone and lays them out four to a row on a desktop,
+ * so a run is elided at the Grid variants where it runs long and drawn in full at the ones where it does not.
+ */
+export const elideRepeats = (
+  blocks: readonly AnatomyBlock[],
+  viewport: AnatomyViewport,
+  columns: number,
+): readonly AnatomyBlock[] => {
+  const drawn: AnatomyBlock[] = []
+  let index = 0
+
+  while (index < blocks.length) {
+    const block = blocks[index]!
+
+    // A Subgrid holds its own cells on its own columns, so a run inside it is measured against those.
+    if (block.blocks) {
+      drawn.push({ ...block, blocks: elideRepeats(block.blocks, viewport, block.span[viewport.key]) })
+      index += 1
+      continue
+    }
+
+    let end = index + 1
+
+    while (end < blocks.length && repeats(block, blocks[end]!, viewport)) end += 1
+
+    const run = end - index
+    const perRow = cellsPerRow(blocks.slice(index, end), columns, viewport)
+
+    // The last row of a run holds what is left over, which is a full row only where the two divide evenly.
+    const lastRow = ((run - 1) % perRow) + 1
+    const rows = Math.ceil(run / perRow)
+
+    if (rows < elidedFromRows) {
+      drawn.push(...blocks.slice(index, end))
+    } else {
+      drawn.push(
+        ...blocks.slice(index, index + perRow),
+        elidedBlock(block, { perRow, rows: rows - 2 }, columns, viewport),
+        ...blocks.slice(end - lastRow, end),
+      )
+    }
+
+    index = end
+  }
+
+  return drawn
+}
+
+/**
+ * The sections as they are drawn at one Grid variant. The blocks of an Overlap lie on one another rather than
+ * following one another down the page, so nothing there is a repeat to elide.
+ */
+export const drawnSections = (
+  sections: readonly AnatomySection[],
+  viewport: AnatomyViewport,
+): readonly AnatomySection[] =>
+  sections.map((section) =>
+    section.overlap ? section : { ...section, blocks: elideRepeats(section.blocks, viewport, viewport.columns) },
+  )
+
+/**
+ * What a marker says it stands in for. Where the cells lie one under the other it is a count of them, and where
+ * they lie beside one another it names the rows and the cells on each: ‘3 × 2 more’ is three rows of two, which
+ * ‘6 more’ would leave open to reading as six more rows of two.
+ */
+export const elidedLabel = ({ perRow, rows }: ElidedRows): string =>
+  perRow === 1 ? `${rows} more` : `${rows} × ${perRow} more`
+
+/** Whether a drawing shortens a run of repeated cells anywhere, which its legend then names. */
+export const hasElidedBlocks = (blocks: readonly AnatomyBlock[]): boolean =>
+  blocks.some((block) => (block.blocks ? hasElidedBlocks(block.blocks) : block.elided !== undefined))
 
 /** The height of the logo, `ams.logo.block-size` against its `min-block-size` of 2.5rem. */
 export const logoHeight = (viewportWidth: number, mode?: AnatomyMode): number =>

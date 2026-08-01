@@ -12,15 +12,15 @@ import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
  */
 export const anatomyLabels: AnatomyLabels = [
   [
-    { height: 40, label: 'Page title' },
-    { height: 192, label: 'Content block' },
-    { height: 160, label: 'Content block' },
-    { height: 120, label: 'Content block' },
-    { height: 120, label: 'Content block' },
-    { height: 128, label: 'Content block' },
-    { height: 128, label: 'Content block' },
-    { height: 96, label: 'Content block' },
-    { height: 128, label: 'Content block' },
-    { height: 96, label: 'Content block' },
+    { height: 'heading', label: 'Page title' },
+    { height: 'card', label: 'Content block' },
+    { height: 'card', label: 'Content block' },
+    { height: 'tile', label: 'Content block' },
+    { height: 'tile', label: 'Content block' },
+    { height: 'card', label: 'Content block' },
+    { height: 'card', label: 'Content block' },
+    { height: 'tile', label: 'Content block' },
+    { height: 'card', label: 'Content block' },
+    { height: 'tile', label: 'Content block' },
   ],
 ]

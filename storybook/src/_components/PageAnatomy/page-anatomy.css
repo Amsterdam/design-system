@@ -25,6 +25,9 @@
   --_ams-page-anatomy-row: minmax(0, 320fr) minmax(0, 880fr) minmax(0, 240fr);
   --_ams-page-anatomy-single-row: minmax(0, 320fr) minmax(0, 880fr) minmax(0, 1440fr);
 
+  /* The name a view transition carries the drawing across under. Each set of drawings sets one of its own. */
+  --_ams-page-anatomy-transition: ams-page-anatomy;
+
   /* One colour stands for a Spotlight, whatever colour that Spotlight is: the drawing keeps its own palette.
    * Purple is far more saturated than the azure of the space bands, so it takes a much smaller share to weigh
    * the same. The second value darkens the space inside the band, which the first one already covers. */
@@ -59,6 +62,33 @@
   grid-column: 1 / -1;
 }
 
+/* The buttons that choose the one drawing there is room for. Where all three are drawn at once, there is nothing
+ * to choose between, so the narrowest container is the only one that shows them. */
+._ams-page-anatomy__switcher {
+  display: none;
+}
+
+._ams-page-anatomy__switch {
+  background-color: white;
+  border-color: var(--_ams-page-anatomy-chrome-line);
+  border-style: solid;
+  border-width: thin;
+  color: var(--ams-color-text);
+  cursor: var(--ams-button-cursor);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  outline-offset: var(--ams-focus-outline-offset);
+  padding-block: 0.375rem;
+  padding-inline: 0.75rem;
+}
+
+._ams-page-anatomy__switch[aria-pressed="true"] {
+  background-color: color-mix(in sRGB, var(--ams-color-interactive) 8%, white);
+  border-color: var(--_ams-page-anatomy-line);
+  color: var(--_ams-page-anatomy-label);
+  font-weight: var(--ams-typography-body-text-bold-font-weight);
+}
+
 @container page-anatomy (min-width: 60rem) {
   ._ams-page-anatomy__viewports {
     grid-template-columns: var(--_ams-page-anatomy-single-row);
@@ -69,8 +99,11 @@
   }
 }
 
-/* On a phone there is no width to share. Each drawing takes the row to itself, at its own size at most, which is
- * legible where a quarter of the width would not be. Only here do the three stop sharing a scale. */
+/* On a phone there is no width to share. A drawing takes the row to itself, at its own size at most, which is
+ * legible where a quarter of the width would not be. Only here do the three stop sharing a scale.
+ *
+ * Three pages one under the other is more scrolling than anyone reads, so only the chosen one is drawn, and the
+ * buttons above swap it for another. */
 @container page-anatomy (max-width: 40rem) {
   ._ams-page-anatomy__viewports {
     grid-template-columns: minmax(0, 1fr);
@@ -78,6 +111,26 @@
 
   ._ams-page-anatomy__viewport {
     max-inline-size: calc(var(--_ams-page-anatomy-width) * 1px);
+  }
+
+  ._ams-page-anatomy__viewport:not(._ams-page-anatomy__viewport--selected) {
+    display: none;
+  }
+
+  /* The drawing that is on its way out and the one coming in are the same thing at another width, so a view
+   * transition moves between the two rather than cutting. Each set of drawings names its own. */
+  @media (prefers-reduced-motion: no-preference) {
+    ._ams-page-anatomy__viewport--selected {
+      /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
+      view-transition-name: var(--_ams-page-anatomy-transition);
+    }
+  }
+
+  ._ams-page-anatomy__switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-block-end: 1rem;
   }
 }
 
@@ -278,6 +331,13 @@
   border-style: dashed;
 }
 
+/* A page that repeats one Grid Cell down a whole screen is drawn as its first row, this marker, and its last row.
+ * The dashes say that it is not a cell of the page but a count of the ones the drawing leaves out; it keeps the
+ * background of a cell, which the transparent variant above does not. */
+._ams-page-anatomy__block--repeat {
+  border-style: dashed;
+}
+
 ._ams-page-anatomy__label {
   color: var(--_ams-page-anatomy-label);
   font-size: 0.625rem;
@@ -332,6 +392,12 @@
 ._ams-page-anatomy__legend-item--block::before {
   background-color: color-mix(in sRGB, var(--ams-color-interactive) 6%, white);
   border-color: var(--_ams-page-anatomy-line);
+}
+
+._ams-page-anatomy__legend-item--repeat::before {
+  background-color: color-mix(in sRGB, var(--ams-color-interactive) 6%, white);
+  border-color: var(--_ams-page-anatomy-line);
+  border-style: dashed;
 }
 
 ._ams-page-anatomy__problems {
