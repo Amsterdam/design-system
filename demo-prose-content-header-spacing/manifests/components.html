@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">61/107 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">71/107 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">3/127 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">117 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">61/107 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">71/107 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">3/126 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">117 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -25644,7 +25644,7 @@ The two can therefore never be announced in different states.
       <div class="badges">
         <label for="c-85-pages-public-search-results-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-85-pages-public-search-results-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-85-pages-public-search-results-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-85-pages-public-search-results-page-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-85-pages-public-search-results-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -25670,13 +25670,13 @@ The two can therefore never be announced in different states.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  32 | const totalPages = 8
-  33 |
-&gt; 34 | const meta = {
+  30 | const totalPages = 8
+  31 |
+&gt; 32 | const meta = {
      | ^
-  35 |   ...commonMeta,
-  36 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  37 | } satisfies Meta
+  33 |   ...commonMeta,
+  34 |   title: &#39;Pages/Public/Search Results Page&#39;,
+  35 | } satisfies Meta
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -25687,7 +25687,6 @@ The two can therefore never be announced in different states.
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import {
-  Alert,
   Breadcrumb,
   Button,
   Card,
@@ -25702,7 +25701,6 @@ import {
   Paragraph,
   SearchField,
   Select,
-  StandaloneLink,
 } from &#39;@amsterdam/design-system-react&#39;
 
 import { commonMeta } from &#39;../common/commonMeta&#39;
@@ -25940,205 +25938,6 @@ export const Default: StoryObj = {
     &lt;/&gt;
   ),
 }
-
-/**
- * Nothing matched. The count is still announced, and an Alert offers a way on rather than leaving the visitor
- * at a dead end.
- */
-export const NoResults: StoryObj = {
-  parameters: {
-    docs: {
-      source: {
-        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, the story
-        // wrapper and its types included. Provide the source by hand so the panel shows the markup to compose,
-        // without that scaffolding.
-        code: `&lt;&gt;
-  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-  &lt;Grid paddingTop=&quot;large&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Breadcrumb&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-      &lt;/Breadcrumb&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-  &lt;main id=&quot;inhoud&quot;&gt;
-    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
-      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-        {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-        &lt;SearchField&gt;
-          &lt;SearchField.Input
-            defaultValue=&quot;veiligheidsregio Amstelland&quot;
-            label=&quot;Zoek op amsterdam.nl&quot;
-            name=&quot;trefwoord&quot;
-          /&gt;
-          &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-        &lt;/SearchField&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    {/*
-     * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-     * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-     */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      {/*
-       * The filter column comes first in source, so it precedes the results in the reading and tab order.
-       * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-       */}
-      &lt;Grid.Cell aria-labelledby=&quot;sorteren-en-filteren-no-results&quot; as=&quot;aside&quot; span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
-        &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;sorteren-en-filteren-no-results&quot; level={2}&gt;
-          Sorteren en filteren
-        &lt;/Heading&gt;
-        &lt;form method=&quot;get&quot;&gt;
-          &lt;Field className=&quot;ams-mb-l&quot;&gt;
-            &lt;Label htmlFor=&quot;sorteren-no-results&quot;&gt;Sorteren&lt;/Label&gt;
-            &lt;Select id=&quot;sorteren-no-results&quot; name=&quot;sorteren&quot;&gt;
-              &lt;Select.Option value=&quot;relevantie&quot;&gt;Op relevantie&lt;/Select.Option&gt;
-              &lt;Select.Option value=&quot;nieuwste&quot;&gt;Nieuwste eerst&lt;/Select.Option&gt;
-            &lt;/Select&gt;
-          &lt;/Field&gt;
-          &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              {searchTopics.map((topic) =&gt; (
-                &lt;Checkbox key={topic} name=&quot;soort&quot; value={topic.toLowerCase()}&gt;
-                  {topic}
-                &lt;/Checkbox&gt;
-              ))}
-            &lt;/Column&gt;
-          &lt;/FieldSet&gt;
-          {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-          &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
-        &lt;/form&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-       * columns of the page rather than on columns of their own.
-       */}
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-        {/* Prose takes at most 7 of the 12 columns, so on the wide grid these Cells stop short of the 9 beside the filters. */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-          &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;Zoekresultaten&lt;/Heading&gt;
-          {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-          &lt;Paragraph role=&quot;status&quot;&gt;Geen resultaten gevonden voor ‘veiligheidsregio Amstelland’&lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-          {/* An empty result set is not an error, so the Alert is informative rather than a warning. */}
-          &lt;Alert heading=&quot;Geen resultaten gevonden&quot; headingLevel={3}&gt;
-            &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
-              Probeer een kortere zoekterm, een ander woord, of zoek zonder filters.
-            &lt;/Paragraph&gt;
-            &lt;StandaloneLink href=&quot;#&quot;&gt;Wis alle filters&lt;/StandaloneLink&gt;
-          &lt;/Alert&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-    &lt;/Grid&gt;
-  &lt;/main&gt;
-&lt;/&gt;`,
-        language: &#39;tsx&#39;,
-      },
-    },
-  },
-  render: () =&gt; (
-    &lt;&gt;
-      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-      &lt;Grid paddingTop=&quot;large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Breadcrumb&gt;
-            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-          &lt;/Breadcrumb&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-      &lt;main id=&quot;inhoud&quot;&gt;
-        {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
-        &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
-          &lt;Grid.Cell
-            className=&quot;ams-prose&quot;
-            span={{ narrow: 4, medium: 7, wide: 9 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-            {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-            &lt;SearchField&gt;
-              &lt;SearchField.Input
-                defaultValue=&quot;veiligheidsregio Amstelland&quot;
-                label=&quot;Zoek op amsterdam.nl&quot;
-                name=&quot;trefwoord&quot;
-              /&gt;
-              &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-            &lt;/SearchField&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid&gt;
-        {/*
-         * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-         * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-         */}
-        &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          {/*
-           * The filter column comes first in source, so it precedes the results in the reading and tab order.
-           * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-           */}
-          &lt;Grid.Cell
-            aria-labelledby=&quot;sorteren-en-filteren-no-results&quot;
-            as=&quot;aside&quot;
-            span={{ narrow: 4, medium: 3, wide: 3 }}
-          &gt;
-            &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;sorteren-en-filteren-no-results&quot; level={2}&gt;
-              Sorteren en filteren
-            &lt;/Heading&gt;
-            &lt;form method=&quot;get&quot;&gt;
-              &lt;Field className=&quot;ams-mb-l&quot;&gt;
-                &lt;Label htmlFor=&quot;sorteren-no-results&quot;&gt;Sorteren&lt;/Label&gt;
-                &lt;Select id=&quot;sorteren-no-results&quot; name=&quot;sorteren&quot;&gt;
-                  &lt;Select.Option value=&quot;relevantie&quot;&gt;Op relevantie&lt;/Select.Option&gt;
-                  &lt;Select.Option value=&quot;nieuwste&quot;&gt;Nieuwste eerst&lt;/Select.Option&gt;
-                &lt;/Select&gt;
-              &lt;/Field&gt;
-              &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-                &lt;Column gap=&quot;x-small&quot;&gt;
-                  {searchTopics.map((topic) =&gt; (
-                    &lt;Checkbox key={topic} name=&quot;soort&quot; value={topic.toLowerCase()}&gt;
-                      {topic}
-                    &lt;/Checkbox&gt;
-                  ))}
-                &lt;/Column&gt;
-              &lt;/FieldSet&gt;
-              {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-              &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
-            &lt;/form&gt;
-          &lt;/Grid.Cell&gt;
-          {/*
-           * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-           * columns of the page rather than on columns of their own.
-           */}
-          &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-            {/* Prose takes at most 7 of the 12 columns, so on the wide grid these Cells stop short of the 9 beside the filters. */}
-            &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-              &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;
-                Zoekresultaten
-              &lt;/Heading&gt;
-              {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-              &lt;Paragraph role=&quot;status&quot;&gt;Geen resultaten gevonden voor ‘veiligheidsregio Amstelland’&lt;/Paragraph&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-              {/* An empty result set is not an error, so the Alert is informative rather than a warning. */}
-              &lt;Alert heading=&quot;Geen resultaten gevonden&quot; headingLevel={3}&gt;
-                &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
-                  Probeer een kortere zoekterm, een ander woord, of zoek zonder filters.
-                &lt;/Paragraph&gt;
-                &lt;StandaloneLink href=&quot;#&quot;&gt;Wis alle filters&lt;/StandaloneLink&gt;
-              &lt;/Alert&gt;
-            &lt;/Grid.Cell&gt;
-          &lt;/Grid.Subgrid&gt;
-        &lt;/Grid&gt;
-      &lt;/main&gt;
-    &lt;/&gt;
-  ),
-}
 </code></pre></div>
     </div>
         </div>
@@ -26161,7 +25960,6 @@ export const NoResults: StoryObj = {
                   <span class="ex-name">Imports</span>
                 </div>
                 <pre><code>import {
-    Alert,
     Breadcrumb,
     Button,
     Card,
@@ -26176,7 +25974,6 @@ export const NoResults: StoryObj = {
     Paragraph,
     SearchField,
     Select,
-    StandaloneLink,
 } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
@@ -26299,112 +26096,6 @@ export const NoResults: StoryObj = {
   &lt;/&gt;
 );</code></pre>
             </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">No Results</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              <div class="hint">Nothing matched. The count is still announced, and an Alert offers a way on rather than leaving the visitor
-at a dead end.</div>
-              <pre><code>const NoResults = () =&gt; (
-  &lt;&gt;
-    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-    &lt;Grid paddingTop=&quot;large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Breadcrumb&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-        &lt;/Breadcrumb&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    &lt;main id=&quot;inhoud&quot;&gt;
-      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-      {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
-      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
-        &lt;Grid.Cell
-          className=&quot;ams-prose&quot;
-          span={{ narrow: 4, medium: 7, wide: 9 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-          {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-          &lt;SearchField&gt;
-            &lt;SearchField.Input
-              defaultValue=&quot;veiligheidsregio Amstelland&quot;
-              label=&quot;Zoek op amsterdam.nl&quot;
-              name=&quot;trefwoord&quot;
-            /&gt;
-            &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-          &lt;/SearchField&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-      {/*
-       * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-       * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-       */}
-      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        {/*
-         * The filter column comes first in source, so it precedes the results in the reading and tab order.
-         * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-         */}
-        &lt;Grid.Cell
-          aria-labelledby=&quot;sorteren-en-filteren-no-results&quot;
-          as=&quot;aside&quot;
-          span={{ narrow: 4, medium: 3, wide: 3 }}
-        &gt;
-          &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;sorteren-en-filteren-no-results&quot; level={2}&gt;
-            Sorteren en filteren
-          &lt;/Heading&gt;
-          &lt;form method=&quot;get&quot;&gt;
-            &lt;Field className=&quot;ams-mb-l&quot;&gt;
-              &lt;Label htmlFor=&quot;sorteren-no-results&quot;&gt;Sorteren&lt;/Label&gt;
-              &lt;Select id=&quot;sorteren-no-results&quot; name=&quot;sorteren&quot;&gt;
-                &lt;Select.Option value=&quot;relevantie&quot;&gt;Op relevantie&lt;/Select.Option&gt;
-                &lt;Select.Option value=&quot;nieuwste&quot;&gt;Nieuwste eerst&lt;/Select.Option&gt;
-              &lt;/Select&gt;
-            &lt;/Field&gt;
-            &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                {searchTopics.map((topic) =&gt; (
-                  &lt;Checkbox key={topic} name=&quot;soort&quot; value={topic.toLowerCase()}&gt;
-                    {topic}
-                  &lt;/Checkbox&gt;
-                ))}
-              &lt;/Column&gt;
-            &lt;/FieldSet&gt;
-            {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-            &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
-          &lt;/form&gt;
-        &lt;/Grid.Cell&gt;
-        {/*
-         * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-         * columns of the page rather than on columns of their own.
-         */}
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-          {/* Prose takes at most 7 of the 12 columns, so on the wide grid these Cells stop short of the 9 beside the filters. */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-            &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;
-              Zoekresultaten
-            &lt;/Heading&gt;
-            {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-            &lt;Paragraph role=&quot;status&quot;&gt;Geen resultaten gevonden voor ‘veiligheidsregio Amstelland’&lt;/Paragraph&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-            {/* An empty result set is not an error, so the Alert is informative rather than a warning. */}
-            &lt;Alert heading=&quot;Geen resultaten gevonden&quot; headingLevel={3}&gt;
-              &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
-                Probeer een kortere zoekterm, een ander woord, of zoek zonder filters.
-              &lt;/Paragraph&gt;
-              &lt;StandaloneLink href=&quot;#&quot;&gt;Wis alle filters&lt;/StandaloneLink&gt;
-            &lt;/Alert&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-      &lt;/Grid&gt;
-    &lt;/main&gt;
-  &lt;/&gt;
-);</code></pre>
-            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -26479,12 +26170,6 @@ Leave the row gap of the Subgrid at the vertical gap of the Grid.
 ## Default
 
 A page of results with the term still in the search field.
-
-## No results
-
-An empty result set is a normal outcome, not an error, so the page says so plainly and offers a way on.
-The count is still announced, so a visitor using a screen reader hears that the search ran and returned nothing.
-Suggest what to change — a shorter term, a different word, or fewer filters — and give a way to clear the filters in one action.
 </code></pre></div>
             </div>
         </div>
@@ -49210,7 +48895,7 @@ Alignment never changes that order.
       <div class="badges">
         <label for="c-error-51-pages-public-search-results-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-51-pages-public-search-results-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-51-pages-public-search-results-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-error-51-pages-public-search-results-page-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-error-51-pages-public-search-results-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -49236,13 +48921,13 @@ Alignment never changes that order.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  32 | const totalPages = 8
-  33 |
-&gt; 34 | const meta = {
+  30 | const totalPages = 8
+  31 |
+&gt; 32 | const meta = {
      | ^
-  35 |   ...commonMeta,
-  36 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  37 | } satisfies Meta
+  33 |   ...commonMeta,
+  34 |   title: &#39;Pages/Public/Search Results Page&#39;,
+  35 | } satisfies Meta
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -49253,7 +48938,6 @@ Alignment never changes that order.
 import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import {
-  Alert,
   Breadcrumb,
   Button,
   Card,
@@ -49268,7 +48952,6 @@ import {
   Paragraph,
   SearchField,
   Select,
-  StandaloneLink,
 } from &#39;@amsterdam/design-system-react&#39;
 
 import { commonMeta } from &#39;../common/commonMeta&#39;
@@ -49506,205 +49189,6 @@ export const Default: StoryObj = {
     &lt;/&gt;
   ),
 }
-
-/**
- * Nothing matched. The count is still announced, and an Alert offers a way on rather than leaving the visitor
- * at a dead end.
- */
-export const NoResults: StoryObj = {
-  parameters: {
-    docs: {
-      source: {
-        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, the story
-        // wrapper and its types included. Provide the source by hand so the panel shows the markup to compose,
-        // without that scaffolding.
-        code: `&lt;&gt;
-  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-  &lt;Grid paddingTop=&quot;large&quot;&gt;
-    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-      &lt;Breadcrumb&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-      &lt;/Breadcrumb&gt;
-    &lt;/Grid.Cell&gt;
-  &lt;/Grid&gt;
-  &lt;main id=&quot;inhoud&quot;&gt;
-    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
-      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-        {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-        &lt;SearchField&gt;
-          &lt;SearchField.Input
-            defaultValue=&quot;veiligheidsregio Amstelland&quot;
-            label=&quot;Zoek op amsterdam.nl&quot;
-            name=&quot;trefwoord&quot;
-          /&gt;
-          &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-        &lt;/SearchField&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    {/*
-     * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-     * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-     */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      {/*
-       * The filter column comes first in source, so it precedes the results in the reading and tab order.
-       * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-       */}
-      &lt;Grid.Cell aria-labelledby=&quot;sorteren-en-filteren-no-results&quot; as=&quot;aside&quot; span={{ narrow: 4, medium: 3, wide: 3 }}&gt;
-        &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;sorteren-en-filteren-no-results&quot; level={2}&gt;
-          Sorteren en filteren
-        &lt;/Heading&gt;
-        &lt;form method=&quot;get&quot;&gt;
-          &lt;Field className=&quot;ams-mb-l&quot;&gt;
-            &lt;Label htmlFor=&quot;sorteren-no-results&quot;&gt;Sorteren&lt;/Label&gt;
-            &lt;Select id=&quot;sorteren-no-results&quot; name=&quot;sorteren&quot;&gt;
-              &lt;Select.Option value=&quot;relevantie&quot;&gt;Op relevantie&lt;/Select.Option&gt;
-              &lt;Select.Option value=&quot;nieuwste&quot;&gt;Nieuwste eerst&lt;/Select.Option&gt;
-            &lt;/Select&gt;
-          &lt;/Field&gt;
-          &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-            &lt;Column gap=&quot;x-small&quot;&gt;
-              {searchTopics.map((topic) =&gt; (
-                &lt;Checkbox key={topic} name=&quot;soort&quot; value={topic.toLowerCase()}&gt;
-                  {topic}
-                &lt;/Checkbox&gt;
-              ))}
-            &lt;/Column&gt;
-          &lt;/FieldSet&gt;
-          {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-          &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
-        &lt;/form&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-       * columns of the page rather than on columns of their own.
-       */}
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-        {/* Prose takes at most 7 of the 12 columns, so on the wide grid these Cells stop short of the 9 beside the filters. */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-          &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;Zoekresultaten&lt;/Heading&gt;
-          {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-          &lt;Paragraph role=&quot;status&quot;&gt;Geen resultaten gevonden voor ‘veiligheidsregio Amstelland’&lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-          {/* An empty result set is not an error, so the Alert is informative rather than a warning. */}
-          &lt;Alert heading=&quot;Geen resultaten gevonden&quot; headingLevel={3}&gt;
-            &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
-              Probeer een kortere zoekterm, een ander woord, of zoek zonder filters.
-            &lt;/Paragraph&gt;
-            &lt;StandaloneLink href=&quot;#&quot;&gt;Wis alle filters&lt;/StandaloneLink&gt;
-          &lt;/Alert&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid.Subgrid&gt;
-    &lt;/Grid&gt;
-  &lt;/main&gt;
-&lt;/&gt;`,
-        language: &#39;tsx&#39;,
-      },
-    },
-  },
-  render: () =&gt; (
-    &lt;&gt;
-      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-      &lt;Grid paddingTop=&quot;large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Breadcrumb&gt;
-            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-          &lt;/Breadcrumb&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-      &lt;main id=&quot;inhoud&quot;&gt;
-        {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
-        &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
-          &lt;Grid.Cell
-            className=&quot;ams-prose&quot;
-            span={{ narrow: 4, medium: 7, wide: 9 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-            {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-            &lt;SearchField&gt;
-              &lt;SearchField.Input
-                defaultValue=&quot;veiligheidsregio Amstelland&quot;
-                label=&quot;Zoek op amsterdam.nl&quot;
-                name=&quot;trefwoord&quot;
-              /&gt;
-              &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-            &lt;/SearchField&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid&gt;
-        {/*
-         * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-         * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-         */}
-        &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          {/*
-           * The filter column comes first in source, so it precedes the results in the reading and tab order.
-           * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-           */}
-          &lt;Grid.Cell
-            aria-labelledby=&quot;sorteren-en-filteren-no-results&quot;
-            as=&quot;aside&quot;
-            span={{ narrow: 4, medium: 3, wide: 3 }}
-          &gt;
-            &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;sorteren-en-filteren-no-results&quot; level={2}&gt;
-              Sorteren en filteren
-            &lt;/Heading&gt;
-            &lt;form method=&quot;get&quot;&gt;
-              &lt;Field className=&quot;ams-mb-l&quot;&gt;
-                &lt;Label htmlFor=&quot;sorteren-no-results&quot;&gt;Sorteren&lt;/Label&gt;
-                &lt;Select id=&quot;sorteren-no-results&quot; name=&quot;sorteren&quot;&gt;
-                  &lt;Select.Option value=&quot;relevantie&quot;&gt;Op relevantie&lt;/Select.Option&gt;
-                  &lt;Select.Option value=&quot;nieuwste&quot;&gt;Nieuwste eerst&lt;/Select.Option&gt;
-                &lt;/Select&gt;
-              &lt;/Field&gt;
-              &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-                &lt;Column gap=&quot;x-small&quot;&gt;
-                  {searchTopics.map((topic) =&gt; (
-                    &lt;Checkbox key={topic} name=&quot;soort&quot; value={topic.toLowerCase()}&gt;
-                      {topic}
-                    &lt;/Checkbox&gt;
-                  ))}
-                &lt;/Column&gt;
-              &lt;/FieldSet&gt;
-              {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-              &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
-            &lt;/form&gt;
-          &lt;/Grid.Cell&gt;
-          {/*
-           * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-           * columns of the page rather than on columns of their own.
-           */}
-          &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-            {/* Prose takes at most 7 of the 12 columns, so on the wide grid these Cells stop short of the 9 beside the filters. */}
-            &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-              &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;
-                Zoekresultaten
-              &lt;/Heading&gt;
-              {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-              &lt;Paragraph role=&quot;status&quot;&gt;Geen resultaten gevonden voor ‘veiligheidsregio Amstelland’&lt;/Paragraph&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-              {/* An empty result set is not an error, so the Alert is informative rather than a warning. */}
-              &lt;Alert heading=&quot;Geen resultaten gevonden&quot; headingLevel={3}&gt;
-                &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
-                  Probeer een kortere zoekterm, een ander woord, of zoek zonder filters.
-                &lt;/Paragraph&gt;
-                &lt;StandaloneLink href=&quot;#&quot;&gt;Wis alle filters&lt;/StandaloneLink&gt;
-              &lt;/Alert&gt;
-            &lt;/Grid.Cell&gt;
-          &lt;/Grid.Subgrid&gt;
-        &lt;/Grid&gt;
-      &lt;/main&gt;
-    &lt;/&gt;
-  ),
-}
 </code></pre></div>
     </div>
         </div>
@@ -49727,7 +49211,6 @@ export const NoResults: StoryObj = {
                   <span class="ex-name">Imports</span>
                 </div>
                 <pre><code>import {
-    Alert,
     Breadcrumb,
     Button,
     Card,
@@ -49742,7 +49225,6 @@ export const NoResults: StoryObj = {
     Paragraph,
     SearchField,
     Select,
-    StandaloneLink,
 } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
@@ -49865,112 +49347,6 @@ export const NoResults: StoryObj = {
   &lt;/&gt;
 );</code></pre>
             </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">No Results</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              <div class="hint">Nothing matched. The count is still announced, and an Alert offers a way on rather than leaving the visitor
-at a dead end.</div>
-              <pre><code>const NoResults = () =&gt; (
-  &lt;&gt;
-    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
-    &lt;Grid paddingTop=&quot;large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Breadcrumb&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
-        &lt;/Breadcrumb&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-    &lt;main id=&quot;inhoud&quot;&gt;
-      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-      {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
-      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
-        &lt;Grid.Cell
-          className=&quot;ams-prose&quot;
-          span={{ narrow: 4, medium: 7, wide: 9 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-          {/* Search Field renders its own form with role=search, so it needs no form around it. */}
-          &lt;SearchField&gt;
-            &lt;SearchField.Input
-              defaultValue=&quot;veiligheidsregio Amstelland&quot;
-              label=&quot;Zoek op amsterdam.nl&quot;
-              name=&quot;trefwoord&quot;
-            /&gt;
-            &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
-          &lt;/SearchField&gt;
-        &lt;/Grid.Cell&gt;
-      &lt;/Grid&gt;
-      {/*
-       * Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off.
-       * The last Grid before the Page Footer takes a paddingBottom of 2x-large.
-       */}
-      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        {/*
-         * The filter column comes first in source, so it precedes the results in the reading and tab order.
-         * It only sits beside them from the medium grid up; on narrow screens it spans the full width above them.
-         */}
-        &lt;Grid.Cell
-          aria-labelledby=&quot;sorteren-en-filteren-no-results&quot;
-          as=&quot;aside&quot;
-          span={{ narrow: 4, medium: 3, wide: 3 }}
-        &gt;
-          &lt;Heading className=&quot;ams-visually-hidden&quot; id=&quot;sorteren-en-filteren-no-results&quot; level={2}&gt;
-            Sorteren en filteren
-          &lt;/Heading&gt;
-          &lt;form method=&quot;get&quot;&gt;
-            &lt;Field className=&quot;ams-mb-l&quot;&gt;
-              &lt;Label htmlFor=&quot;sorteren-no-results&quot;&gt;Sorteren&lt;/Label&gt;
-              &lt;Select id=&quot;sorteren-no-results&quot; name=&quot;sorteren&quot;&gt;
-                &lt;Select.Option value=&quot;relevantie&quot;&gt;Op relevantie&lt;/Select.Option&gt;
-                &lt;Select.Option value=&quot;nieuwste&quot;&gt;Nieuwste eerst&lt;/Select.Option&gt;
-              &lt;/Select&gt;
-            &lt;/Field&gt;
-            &lt;FieldSet className=&quot;ams-mb-l&quot; legend=&quot;Soort artikel&quot;&gt;
-              &lt;Column gap=&quot;x-small&quot;&gt;
-                {searchTopics.map((topic) =&gt; (
-                  &lt;Checkbox key={topic} name=&quot;soort&quot; value={topic.toLowerCase()}&gt;
-                    {topic}
-                  &lt;/Checkbox&gt;
-                ))}
-              &lt;/Column&gt;
-            &lt;/FieldSet&gt;
-            {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
-            &lt;Button type=&quot;submit&quot;&gt;Resultaten tonen&lt;/Button&gt;
-          &lt;/form&gt;
-        &lt;/Grid.Cell&gt;
-        {/*
-         * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
-         * columns of the page rather than on columns of their own.
-         */}
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}&gt;
-          {/* Prose takes at most 7 of the 12 columns, so on the wide grid these Cells stop short of the 9 beside the filters. */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-            &lt;Heading className=&quot;ams-visually-hidden&quot; level={2}&gt;
-              Zoekresultaten
-            &lt;/Heading&gt;
-            {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
-            &lt;Paragraph role=&quot;status&quot;&gt;Geen resultaten gevonden voor ‘veiligheidsregio Amstelland’&lt;/Paragraph&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-            {/* An empty result set is not an error, so the Alert is informative rather than a warning. */}
-            &lt;Alert heading=&quot;Geen resultaten gevonden&quot; headingLevel={3}&gt;
-              &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
-                Probeer een kortere zoekterm, een ander woord, of zoek zonder filters.
-              &lt;/Paragraph&gt;
-              &lt;StandaloneLink href=&quot;#&quot;&gt;Wis alle filters&lt;/StandaloneLink&gt;
-            &lt;/Alert&gt;
-          &lt;/Grid.Cell&gt;
-        &lt;/Grid.Subgrid&gt;
-      &lt;/Grid&gt;
-    &lt;/main&gt;
-  &lt;/&gt;
-);</code></pre>
-            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -50045,12 +49421,6 @@ Leave the row gap of the Subgrid at the vertical gap of the Grid.
 ## Default
 
 A page of results with the term still in the search field.
-
-## No results
-
-An empty result set is a normal outcome, not an error, so the page says so plainly and offers a way on.
-The count is still announced, so a visitor using a screen reader hears that the search ran and returned nothing.
-Suggest what to change — a shorter term, a different word, or fewer filters — and give a way to clear the filters in one action.
 </code></pre></div>
             </div>
         </div>
