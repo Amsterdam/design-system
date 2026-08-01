@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4590,8 +4590,8 @@ The corners are square and the vertical padding is slight, so the block hugs its
 It reads as a highlighted link rather than as a large control, which is the distinction the underline is there to protect.
 
 Because the block itself stays small, the space around it does the work of drawing the eye.
-Give it an extra large space above and below, more than any pair of body elements takes, so it sits alone rather than reading as one more paragraph in the flow.
-The page templates achieve this by giving it a [Grid](/docs/components-layout-grid--docs) Cell of its own, where the row gap supplies that space on both sides at once.
+It takes an [x-large space](/docs/docs-designer-guide-vertical-space--docs) above and below it, where the body text it sits among takes medium, so it reads as the one action of the page rather than as another paragraph in the flow.
+[Prose](/docs/utilities-css-prose--docs) applies that space; outside a Prose container, set it with the `ams-mb-xl` [Margin](/docs/utilities-css-margin--docs) utility class on the Call to Action Link and on the element above it.
 
 In print, it keeps its background colour instead of being flattened to save ink.
 
@@ -8563,10 +8563,7 @@ export const LandingPage: StoryObj = {
           &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
         &lt;/OrderedList.Item&gt;
       &lt;/OrderedList&gt;
-    &lt;/Grid.Cell&gt;
-    {/* A single, prominent call to action that starts the form. */}
-    {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/* A single, prominent call to action that starts the form. */}
       &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
     &lt;/Grid.Cell&gt;
   &lt;/Grid&gt;
@@ -8622,10 +8619,7 @@ export const LandingPage: StoryObj = {
               &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
             &lt;/OrderedList.Item&gt;
           &lt;/OrderedList&gt;
-        &lt;/Grid.Cell&gt;
-        {/* A single, prominent call to action that starts the form. */}
-        {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/* A single, prominent call to action that starts the form. */}
           &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
@@ -9464,10 +9458,7 @@ import { FormPageLayout, PageLayout } from "@amsterdam/storybook";</code></pre>
             &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
           &lt;/OrderedList.Item&gt;
         &lt;/OrderedList&gt;
-      &lt;/Grid.Cell&gt;
-      {/* A single, prominent call to action that starts the form. */}
-      {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/* A single, prominent call to action that starts the form. */}
         &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
@@ -22869,17 +22860,9 @@ const meta = {
               &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
               &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
             &lt;/OrderedList&gt;
-          &lt;/Grid.Cell&gt;
-          {/* A prominent call to action for the main task on the page. */}
-          {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+            {/* A prominent call to action for the main task on the page. */}
             &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell
-            className=&quot;ams-prose&quot;
-            span={{ narrow: 4, medium: 6, wide: 7 }}
-            start={{ narrow: 1, medium: 2, wide: 3 }}
-          &gt;
+
             &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
             &lt;UnorderedList&gt;
               &lt;UnorderedList.Item&gt;
@@ -23010,13 +22993,9 @@ export const Default: StoryObj = {
           &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
           &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
         &lt;/OrderedList&gt;
-      &lt;/Grid.Cell&gt;
-      {/* A prominent call to action for the main task on the page. */}
-      {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/* A prominent call to action for the main task on the page. */}
         &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+
         &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
         &lt;UnorderedList&gt;
           &lt;UnorderedList.Item&gt;Ga naar &lt;Link href=&quot;#&quot;&gt;www.digid.nl&lt;/Link&gt; en vraag uw DigiD aan.&lt;/UnorderedList.Item&gt;
@@ -23189,17 +23168,9 @@ export const Default: StoryObj = {
             &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
             &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
           &lt;/OrderedList&gt;
-        &lt;/Grid.Cell&gt;
-        {/* A prominent call to action for the main task on the page. */}
-        {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/* A prominent call to action for the main task on the page. */}
           &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell
-          className=&quot;ams-prose&quot;
-          span={{ narrow: 4, medium: 6, wide: 7 }}
-          start={{ narrow: 1, medium: 2, wide: 3 }}
-        &gt;
+
           &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
           &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;
@@ -23306,10 +23277,8 @@ This schematic shows the default sections for this page type and how the grids a
 
 ## Spacing
 
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cells, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-  A section heading and the list or paragraph under it each get the space that guide asks for, without a margin of their own.
-- The [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) takes a Grid Cell of its own, between the two body Cells.
-  The row gap of `x-large` then sets it apart from the text on either side, which is what makes it stand out.
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+  A section heading, the list or paragraph under it, and the Call to Action Link each get the space that guide asks for, without a margin of their own.
 </code></pre></div>
             </div>
         </div>
@@ -33495,8 +33464,8 @@ The corners are square and the vertical padding is slight, so the block hugs its
 It reads as a highlighted link rather than as a large control, which is the distinction the underline is there to protect.
 
 Because the block itself stays small, the space around it does the work of drawing the eye.
-Give it an extra large space above and below, more than any pair of body elements takes, so it sits alone rather than reading as one more paragraph in the flow.
-The page templates achieve this by giving it a [Grid](/docs/components-layout-grid--docs) Cell of its own, where the row gap supplies that space on both sides at once.
+It takes an [x-large space](/docs/docs-designer-guide-vertical-space--docs) above and below it, where the body text it sits among takes medium, so it reads as the one action of the page rather than as another paragraph in the flow.
+[Prose](/docs/utilities-css-prose--docs) applies that space; outside a Prose container, set it with the `ams-mb-xl` [Margin](/docs/utilities-css-margin--docs) utility class on the Call to Action Link and on the element above it.
 
 In print, it keeps its background colour instead of being flattened to save ink.
 
@@ -35686,10 +35655,7 @@ export const LandingPage: StoryObj = {
           &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
         &lt;/OrderedList.Item&gt;
       &lt;/OrderedList&gt;
-    &lt;/Grid.Cell&gt;
-    {/* A single, prominent call to action that starts the form. */}
-    {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+      {/* A single, prominent call to action that starts the form. */}
       &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
     &lt;/Grid.Cell&gt;
   &lt;/Grid&gt;
@@ -35745,10 +35711,7 @@ export const LandingPage: StoryObj = {
               &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
             &lt;/OrderedList.Item&gt;
           &lt;/OrderedList&gt;
-        &lt;/Grid.Cell&gt;
-        {/* A single, prominent call to action that starts the form. */}
-        {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/* A single, prominent call to action that starts the form. */}
           &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
@@ -36587,10 +36550,7 @@ import { FormPageLayout, PageLayout } from "@amsterdam/storybook";</code></pre>
             &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
           &lt;/OrderedList.Item&gt;
         &lt;/OrderedList&gt;
-      &lt;/Grid.Cell&gt;
-      {/* A single, prominent call to action that starts the form. */}
-      {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/* A single, prominent call to action that starts the form. */}
         &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
@@ -46985,17 +46945,9 @@ const meta = {
               &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
               &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
             &lt;/OrderedList&gt;
-          &lt;/Grid.Cell&gt;
-          {/* A prominent call to action for the main task on the page. */}
-          {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+            {/* A prominent call to action for the main task on the page. */}
             &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell
-            className=&quot;ams-prose&quot;
-            span={{ narrow: 4, medium: 6, wide: 7 }}
-            start={{ narrow: 1, medium: 2, wide: 3 }}
-          &gt;
+
             &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
             &lt;UnorderedList&gt;
               &lt;UnorderedList.Item&gt;
@@ -47126,13 +47078,9 @@ export const Default: StoryObj = {
           &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
           &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
         &lt;/OrderedList&gt;
-      &lt;/Grid.Cell&gt;
-      {/* A prominent call to action for the main task on the page. */}
-      {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/* A prominent call to action for the main task on the page. */}
         &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+
         &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
         &lt;UnorderedList&gt;
           &lt;UnorderedList.Item&gt;Ga naar &lt;Link href=&quot;#&quot;&gt;www.digid.nl&lt;/Link&gt; en vraag uw DigiD aan.&lt;/UnorderedList.Item&gt;
@@ -47305,17 +47253,9 @@ export const Default: StoryObj = {
             &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
             &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
           &lt;/OrderedList&gt;
-        &lt;/Grid.Cell&gt;
-        {/* A prominent call to action for the main task on the page. */}
-        {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/* A prominent call to action for the main task on the page. */}
           &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell
-          className=&quot;ams-prose&quot;
-          span={{ narrow: 4, medium: 6, wide: 7 }}
-          start={{ narrow: 1, medium: 2, wide: 3 }}
-        &gt;
+
           &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
           &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;
@@ -47422,10 +47362,8 @@ This schematic shows the default sections for this page type and how the grids a
 
 ## Spacing
 
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cells, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-  A section heading and the list or paragraph under it each get the space that guide asks for, without a margin of their own.
-- The [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) takes a Grid Cell of its own, between the two body Cells.
-  The row gap of `x-large` then sets it apart from the text on either side, which is what makes it stand out.
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+  A section heading, the list or paragraph under it, and the Call to Action Link each get the space that guide asks for, without a margin of their own.
 </code></pre></div>
             </div>
         </div>
@@ -52789,11 +52727,10 @@ This family of components has **medium** space between each other:
 
 - Paragraph (except for the ‘large’ variant)
 - Description List, Link List, Ordered List, Unordered List
-- Button, Standalone Link, Call to Action Link
+- Button, Standalone Link
 
-The tables below give these values for a Call to Action Link that runs along with the text around it.
-Where it is the one call to action of a content page, give it a Grid Cell of its own instead, so it stands out.
-See [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) for that recommendation.
+A Call to Action Link belongs to this family as well, and is authored among this text.
+It takes **x-large** space above and below it, rather than medium, so that it stands out from that text.
 
 ### Body blocks
 
@@ -52870,36 +52807,38 @@ They are the same as in the sections above.
 
 ### Space below body text
 
-|                           | Blockquote | … List | Paragraph | Paragraph (large) |
-| :------------------------ | :--------: | :----: | :-------: | :---------------: |
-| **Heading 2**             |            |  `xl`  |   `xl`    |       `xl`        |
-| **Heading 3**             |            |  `l`   |    `l`    |                   |
-| **Heading 4**             |            |  `m`   |    `m`    |                   |
-| **Blockquote**            |            |  `l`   |    `l`    |       `xl`        |
-| **Button** / **CTA Link** |    `l`     |  `m`   |    `m`    |                   |
-| **Image**                 |    `l`     |  `l`   |    `l`    |       `xl`        |
-| **Standalone Link**       |    `l`     |  `m`   |    `m`    |        `l`        |
-| **… List**                |    `l`     |  `m`   |    `m`    |        `l`        |
-| **Paragraph**             |    `l`     |  `m`   |    `m`    |        `l`        |
-| **Paragraph (large)**     |            |        |    `m`    |                   |
-| **Table**                 |    `l`     |  `l`   |    `l`    |        `l`        |
+|                         | Blockquote | … List | Paragraph | Paragraph (large) |
+| :---------------------- | :--------: | :----: | :-------: | :---------------: |
+| **Heading 2**           |            |  `xl`  |   `xl`    |       `xl`        |
+| **Heading 3**           |            |  `l`   |    `l`    |                   |
+| **Heading 4**           |            |  `m`   |    `m`    |                   |
+| **Blockquote**          |            |  `l`   |    `l`    |       `xl`        |
+| **Button**              |    `l`     |  `m`   |    `m`    |                   |
+| **Call to Action Link** |    `xl`    |  `xl`  |   `xl`    |                   |
+| **Image**               |    `l`     |  `l`   |    `l`    |       `xl`        |
+| **Standalone Link**     |    `l`     |  `m`   |    `m`    |        `l`        |
+| **… List**              |    `l`     |  `m`   |    `m`    |        `l`        |
+| **Paragraph**           |    `l`     |  `m`   |    `m`    |        `l`        |
+| **Paragraph (large)**   |            |        |    `m`    |                   |
+| **Table**               |    `l`     |  `l`   |    `l`    |        `l`        |
 
 - **Accordion** and **Table** with a Caption start with a **Heading** – use the space length for its size or level (2, 3, 4).
 
 ### Space below other components
 
-|                           | Button / CTA Link | Image | … List | Standalone Link | Table |
-| :------------------------ | :---------------: | :---: | :----: | :-------------: | :---: |
-| **Heading 2**             |       `xl`        | `xl`  |  `xl`  |      `xl`       | `xl`  |
-| **Heading 3**             |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
-| **Heading 4**             |        `l`        |  `l`  |  `m`   |       `l`       |  `l`  |
-| **Blockquote**            |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
-| **Button** / **CTA Link** |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
-| **Image**                 |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
-| **Standalone Link**       |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
-| **… List**                |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
-| **Paragraph**             |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
-| **Table**                 |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
+|                         | Button | Call to Action Link | Image | … List | Standalone Link | Table |
+| :---------------------- | :----: | :-----------------: | :---: | :----: | :-------------: | :---: |
+| **Heading 2**           |  `xl`  |        `xl`         | `xl`  |  `xl`  |      `xl`       | `xl`  |
+| **Heading 3**           |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Heading 4**           |  `l`   |        `xl`         |  `l`  |  `m`   |       `l`       |  `l`  |
+| **Blockquote**          |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Button**              |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Call to Action Link** |  `xl`  |                     | `xl`  |  `xl`  |      `xl`       | `xl`  |
+| **Image**               |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Standalone Link**     |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **… List**              |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Paragraph**           |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Table**               |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
 
 ## Code examples
 
