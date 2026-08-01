@@ -127,7 +127,7 @@ export const verticalSpace: Record<string, SpaceSize> = {
   'Paragraph|Image': 'l',
   'Paragraph|Paragraph': 'm',
   'Paragraph|Paragraph (large)': 'm',
-  'Paragraph|Standalone Link': 'm',
+  'Paragraph|Standalone Link': 's',
   'Paragraph|Table': 'l',
   'Standalone Link|\u2026 List': 'm',
   'Standalone Link|Blockquote': 'l',

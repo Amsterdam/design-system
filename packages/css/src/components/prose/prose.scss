@@ -99,6 +99,11 @@ $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
     margin-block-end: var(--ams-space-m);
   }
 
+  /* Paragraph followed by a Standalone Link, which reads as a closing line to the text above it */
+  > #{$_ams-paragraph}:has(+ .ams-standalone-link) {
+    margin-block-end: var(--ams-space-s);
+  }
+
   /*
    * A Call to Action Link needs air on both sides to stand out from the text it is authored among.
    * These rules come last so they win from the ones above at equal specificity.
