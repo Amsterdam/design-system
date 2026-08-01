@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -15882,17 +15882,14 @@ const meta = {
       &lt;main id=&quot;inhoud&quot;&gt;
         {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
         &lt;Grid paddingTop=&quot;large&quot;&gt;
-          {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
-          &lt;/Grid.Cell&gt;
           {/*
-           * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-           * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-           * the full width at narrow.
+           * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+           * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+           * full width at narrow. The title follows that width, because search is not a content page.
            */}
-          {/* TODO Heading 1 --&gt; Search Field = m */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+            &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
             &lt;SearchField onSubmit={search}&gt;
               &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
               &lt;SearchField.Button /&gt;
@@ -15983,16 +15980,14 @@ const pageShell = ({ busy, extraCells = &#39;&#39;, status, statusCell = &#39;&#
 &lt;main id=&quot;inhoud&quot;&gt;
   {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
-    {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-    &lt;Grid.Cell span=&quot;all&quot;&gt;
-      &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
-    &lt;/Grid.Cell&gt;
     {/*
-     * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-     * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-     * the full width at narrow.
+     * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+     * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+     * full width at narrow. The title follows that width, because search is not a content page.
      */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+    {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+    &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+      &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
       &lt;SearchField onSubmit={search}&gt;
         &lt;SearchField.Input defaultValue=&quot;woningbouw&quot; label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
         &lt;SearchField.Button /&gt;
@@ -16167,17 +16162,14 @@ export const Loaded: Story = {
     &lt;main id=&quot;inhoud&quot;&gt;
       {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
-        {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
         {/*
-         * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-         * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-         * the full width at narrow.
+         * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+         * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+         * full width at narrow. The title follows that width, because search is not a content page.
          */}
-        {/* TODO Heading 1 --&gt; Search Field = m */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
           &lt;SearchField onSubmit={search}&gt;
             &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
             &lt;SearchField.Button /&gt;
@@ -16301,17 +16293,14 @@ export const Loaded: Story = {
     &lt;main id=&quot;inhoud&quot;&gt;
       {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
-        {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
         {/*
-         * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-         * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-         * the full width at narrow.
+         * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+         * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+         * full width at narrow. The title follows that width, because search is not a content page.
          */}
-        {/* TODO Heading 1 --&gt; Search Field = m */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
           &lt;SearchField onSubmit={search}&gt;
             &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
             &lt;SearchField.Button /&gt;
@@ -16435,17 +16424,14 @@ export const Loaded: Story = {
     &lt;main id=&quot;inhoud&quot;&gt;
       {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
-        {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
         {/*
-         * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-         * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-         * the full width at narrow.
+         * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+         * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+         * full width at narrow. The title follows that width, because search is not a content page.
          */}
-        {/* TODO Heading 1 --&gt; Search Field = m */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
           &lt;SearchField onSubmit={search}&gt;
             &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
             &lt;SearchField.Button /&gt;
@@ -20212,14 +20198,9 @@ export const Default: StoryObj = {
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Nieuws uit Amsterdam&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-       * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-       */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;SearchField&gt;
           &lt;SearchField.Input defaultValue=&quot;tramspoor&quot; label=&quot;Zoek in het nieuws&quot; name=&quot;trefwoord&quot; /&gt;
           &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
@@ -20345,14 +20326,13 @@ export const Default: StoryObj = {
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          &gt;
             &lt;Heading level={1}&gt;Nieuws uit Amsterdam&lt;/Heading&gt;
-          &lt;/Grid.Cell&gt;
-          {/*
-           * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-           * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-           */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
             &lt;SearchField&gt;
               &lt;SearchField.Input defaultValue=&quot;tramspoor&quot; label=&quot;Zoek in het nieuws&quot; name=&quot;trefwoord&quot; /&gt;
               &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
@@ -20528,14 +20508,13 @@ export const Default: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
       &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 7, wide: 9 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        &gt;
           &lt;Heading level={1}&gt;Nieuws uit Amsterdam&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        {/*
-         * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-         * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-         */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;SearchField&gt;
             &lt;SearchField.Input defaultValue=&quot;tramspoor&quot; label=&quot;Zoek in het nieuws&quot; name=&quot;trefwoord&quot; /&gt;
             &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
@@ -25760,14 +25739,9 @@ export const Default: StoryObj = {
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-       * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-       */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         {/* Search Field renders its own form with role=search, so it needs no form around it. */}
         &lt;SearchField&gt;
           &lt;SearchField.Input defaultValue=&quot;veiligheid&quot; label=&quot;Zoek op amsterdam.nl&quot; name=&quot;trefwoord&quot; /&gt;
@@ -25869,14 +25843,13 @@ export const Default: StoryObj = {
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          &gt;
             &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-          &lt;/Grid.Cell&gt;
-          {/*
-           * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-           * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-           */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
             {/* Search Field renders its own form with role=search, so it needs no form around it. */}
             &lt;SearchField&gt;
               &lt;SearchField.Input defaultValue={searchTerm} label=&quot;Zoek op amsterdam.nl&quot; name=&quot;trefwoord&quot; /&gt;
@@ -25992,14 +25965,9 @@ export const NoResults: StoryObj = {
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-       * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-       */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         {/* Search Field renders its own form with role=search, so it needs no form around it. */}
         &lt;SearchField&gt;
           &lt;SearchField.Input
@@ -26087,14 +26055,13 @@ export const NoResults: StoryObj = {
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          &gt;
             &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-          &lt;/Grid.Cell&gt;
-          {/*
-           * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-           * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-           */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
             {/* Search Field renders its own form with role=search, so it needs no form around it. */}
             &lt;SearchField&gt;
               &lt;SearchField.Input
@@ -26235,14 +26202,13 @@ export const NoResults: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
       &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 7, wide: 9 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        &gt;
           &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        {/*
-         * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-         * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-         */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           {/* Search Field renders its own form with role=search, so it needs no form around it. */}
           &lt;SearchField&gt;
             &lt;SearchField.Input defaultValue={searchTerm} label=&quot;Zoek op amsterdam.nl&quot; name=&quot;trefwoord&quot; /&gt;
@@ -26355,14 +26321,13 @@ at a dead end.</div>
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
       &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 7, wide: 9 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        &gt;
           &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        {/*
-         * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-         * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-         */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           {/* Search Field renders its own form with role=search, so it needs no form around it. */}
           &lt;SearchField&gt;
             &lt;SearchField.Input
@@ -41545,17 +41510,14 @@ const meta = {
       &lt;main id=&quot;inhoud&quot;&gt;
         {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
         &lt;Grid paddingTop=&quot;large&quot;&gt;
-          {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-          &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
-          &lt;/Grid.Cell&gt;
           {/*
-           * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-           * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-           * the full width at narrow.
+           * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+           * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+           * full width at narrow. The title follows that width, because search is not a content page.
            */}
-          {/* TODO Heading 1 --&gt; Search Field = m */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+            &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
             &lt;SearchField onSubmit={search}&gt;
               &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
               &lt;SearchField.Button /&gt;
@@ -41646,16 +41608,14 @@ const pageShell = ({ busy, extraCells = &#39;&#39;, status, statusCell = &#39;&#
 &lt;main id=&quot;inhoud&quot;&gt;
   {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
-    {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-    &lt;Grid.Cell span=&quot;all&quot;&gt;
-      &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
-    &lt;/Grid.Cell&gt;
     {/*
-     * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-     * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-     * the full width at narrow.
+     * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+     * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+     * full width at narrow. The title follows that width, because search is not a content page.
      */}
-    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+    {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+    &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+      &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
       &lt;SearchField onSubmit={search}&gt;
         &lt;SearchField.Input defaultValue=&quot;woningbouw&quot; label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
         &lt;SearchField.Button /&gt;
@@ -41830,17 +41790,14 @@ export const Loaded: Story = {
     &lt;main id=&quot;inhoud&quot;&gt;
       {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
-        {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
         {/*
-         * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-         * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-         * the full width at narrow.
+         * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+         * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+         * full width at narrow. The title follows that width, because search is not a content page.
          */}
-        {/* TODO Heading 1 --&gt; Search Field = m */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
           &lt;SearchField onSubmit={search}&gt;
             &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
             &lt;SearchField.Button /&gt;
@@ -41964,17 +41921,14 @@ export const Loaded: Story = {
     &lt;main id=&quot;inhoud&quot;&gt;
       {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
-        {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
         {/*
-         * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-         * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-         * the full width at narrow.
+         * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+         * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+         * full width at narrow. The title follows that width, because search is not a content page.
          */}
-        {/* TODO Heading 1 --&gt; Search Field = m */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
           &lt;SearchField onSubmit={search}&gt;
             &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
             &lt;SearchField.Button /&gt;
@@ -42098,17 +42052,14 @@ export const Loaded: Story = {
     &lt;main id=&quot;inhoud&quot;&gt;
       {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
-        {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-        &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
         {/*
-         * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-         * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-         * the full width at narrow.
+         * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+         * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+         * full width at narrow. The title follows that width, because search is not a content page.
          */}
-        {/* TODO Heading 1 --&gt; Search Field = m */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 6 }}&gt;
+          &lt;Heading level={1}&gt;Zoeken op amsterdam.nl&lt;/Heading&gt;
           &lt;SearchField onSubmit={search}&gt;
             &lt;SearchField.Input defaultValue={initialQuery} label=&quot;Zoek op de website&quot; name=&quot;search&quot; /&gt;
             &lt;SearchField.Button /&gt;
@@ -45291,14 +45242,9 @@ export const Default: StoryObj = {
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Nieuws uit Amsterdam&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-       * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-       */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;SearchField&gt;
           &lt;SearchField.Input defaultValue=&quot;tramspoor&quot; label=&quot;Zoek in het nieuws&quot; name=&quot;trefwoord&quot; /&gt;
           &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
@@ -45424,14 +45370,13 @@ export const Default: StoryObj = {
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          &gt;
             &lt;Heading level={1}&gt;Nieuws uit Amsterdam&lt;/Heading&gt;
-          &lt;/Grid.Cell&gt;
-          {/*
-           * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-           * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-           */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
             &lt;SearchField&gt;
               &lt;SearchField.Input defaultValue=&quot;tramspoor&quot; label=&quot;Zoek in het nieuws&quot; name=&quot;trefwoord&quot; /&gt;
               &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
@@ -45607,14 +45552,13 @@ export const Default: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
       &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 7, wide: 9 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        &gt;
           &lt;Heading level={1}&gt;Nieuws uit Amsterdam&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        {/*
-         * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-         * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-         */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;SearchField&gt;
             &lt;SearchField.Input defaultValue=&quot;tramspoor&quot; label=&quot;Zoek in het nieuws&quot; name=&quot;trefwoord&quot; /&gt;
             &lt;SearchField.Button&gt;Zoeken&lt;/SearchField.Button&gt;
@@ -49361,14 +49305,9 @@ export const Default: StoryObj = {
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-       * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-       */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         {/* Search Field renders its own form with role=search, so it needs no form around it. */}
         &lt;SearchField&gt;
           &lt;SearchField.Input defaultValue=&quot;veiligheid&quot; label=&quot;Zoek op amsterdam.nl&quot; name=&quot;trefwoord&quot; /&gt;
@@ -49470,14 +49409,13 @@ export const Default: StoryObj = {
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          &gt;
             &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-          &lt;/Grid.Cell&gt;
-          {/*
-           * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-           * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-           */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
             {/* Search Field renders its own form with role=search, so it needs no form around it. */}
             &lt;SearchField&gt;
               &lt;SearchField.Input defaultValue={searchTerm} label=&quot;Zoek op amsterdam.nl&quot; name=&quot;trefwoord&quot; /&gt;
@@ -49593,14 +49531,9 @@ export const NoResults: StoryObj = {
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-      &lt;/Grid.Cell&gt;
-      {/*
-       * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-       * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-       */}
-      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         {/* Search Field renders its own form with role=search, so it needs no form around it. */}
         &lt;SearchField&gt;
           &lt;SearchField.Input
@@ -49688,14 +49621,13 @@ export const NoResults: StoryObj = {
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          &gt;
             &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-          &lt;/Grid.Cell&gt;
-          {/*
-           * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-           * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-           */}
-          &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
             {/* Search Field renders its own form with role=search, so it needs no form around it. */}
             &lt;SearchField&gt;
               &lt;SearchField.Input
@@ -49836,14 +49768,13 @@ export const NoResults: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
       &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 7, wide: 9 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        &gt;
           &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        {/*
-         * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-         * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-         */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           {/* Search Field renders its own form with role=search, so it needs no form around it. */}
           &lt;SearchField&gt;
             &lt;SearchField.Input defaultValue={searchTerm} label=&quot;Zoek op amsterdam.nl&quot; name=&quot;trefwoord&quot; /&gt;
@@ -49956,14 +49887,13 @@ at a dead end.</div>
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
       &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 7, wide: 9 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        &gt;
           &lt;Heading level={1}&gt;Zoeken&lt;/Heading&gt;
-        &lt;/Grid.Cell&gt;
-        {/*
-         * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-         * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-         */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           {/* Search Field renders its own form with role=search, so it needs no form around it. */}
           &lt;SearchField&gt;
             &lt;SearchField.Input
@@ -52911,8 +52841,10 @@ The space between them is as follows:
 - Heading 1 → Lead Paragraph: **medium**
 - Lead Paragraph → Heading 2: **x-large**
 
-Only these three belong to the Content Header.
-Anything else below the title — a Search Field, an Image Slider — takes a Grid Cell of its own, which sets it apart by the row gap of **x-large**.
+A Search Field may take the place of the lead, on a page that opens with a search rather than with prose.
+It takes the same **medium** below the title, so the header holds together as one block whichever of the two follows it.
+
+Anything larger below the title — an Image Slider, for one — takes a Grid Cell of its own instead, which sets it apart by the row gap of **x-large**.
 
 The space below the Content Header is a padding of the Grid that holds it, not a margin on the lead Paragraph.
 See [the Content Header Grid](/docs/pages-public-introduction--docs#the-content-header-grid) for the amount to use.
@@ -55955,8 +55887,11 @@ It makes no difference which of the two the band belongs to: a Grid that ends in
 
 An image that shares its row with text, as the lead image does on the Information Page, is not such a band: the default background still runs along the boundary beside it, so the Grid keeps its `2x-large`.
 
-Anything else in the Content Header Grid — a Search Field, an Image Slider — takes a Grid Cell of its own.
-The row gap of `x-large` then sets it apart from the title above it.
+A page that opens with a search rather than with prose puts its Search Field in that same Cell, in the place of the lead.
+Prose then spaces it a medium below the title, as it does the lead.
+Where the field wants to be narrower than the documented Cell, so the input does not stretch to an unusable length, the whole Content Header Cell narrows with it.
+
+Anything larger — an Image Slider, for one — takes a Grid Cell of its own instead, and the row gap of `x-large` sets it apart from the title above it.
 
 ### The Grids in between
 
