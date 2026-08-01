@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -18181,8 +18181,8 @@ export const WithImageGallery: StoryObj = {
           &lt;UnorderedList.Item&gt;mailen met het &lt;Link href=&quot;#&quot;&gt;contactformulier&lt;/Link&gt;&lt;/UnorderedList.Item&gt;
         &lt;/UnorderedList&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Rechtenvrije foto’s&lt;/Heading&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Rechtenvrije foto’s&lt;/Heading&gt;
         {/*
          * Image always crops to an aspect ratio: omitting aspectRatio falls back to the 16:9 default,
          * not to the file’s own ratio. This 640x360 source is already 16:9, so nothing is cropped.
@@ -18367,8 +18367,8 @@ export const WithImageGallery: StoryObj = {
               &lt;/UnorderedList.Item&gt;
             &lt;/UnorderedList&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Rechtenvrije foto’s
             &lt;/Heading&gt;
             {/*
@@ -19304,8 +19304,8 @@ export const SubnavigationPage: StoryObj = {
             &lt;/UnorderedList.Item&gt;
           &lt;/UnorderedList&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Rechtenvrije foto’s
           &lt;/Heading&gt;
           {/*
@@ -23892,12 +23892,16 @@ const meta = {
               &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-            &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 5, wide: 7 }}
+          &gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Ontwikkeling Centrumeiland, herfst 2025
             &lt;/Heading&gt;
             {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-            &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+            &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
             &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
@@ -24129,10 +24133,10 @@ export const Default: StoryObj = {
           &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
         &lt;/LinkList&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
         {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-        &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+        &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
         &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
       &lt;/Grid.Cell&gt;
       {/* … a Plannen en publicaties cell, start-aligned to the left like Meer informatie … */}
@@ -24501,12 +24505,16 @@ export const Default: StoryObj = {
             &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-          &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 4, wide: 5 }}
+          start={{ narrow: 1, medium: 5, wide: 7 }}
+        &gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Ontwikkeling Centrumeiland, herfst 2025
           &lt;/Heading&gt;
           {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-          &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+          &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
           &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
@@ -43248,8 +43256,8 @@ export const WithImageGallery: StoryObj = {
           &lt;UnorderedList.Item&gt;mailen met het &lt;Link href=&quot;#&quot;&gt;contactformulier&lt;/Link&gt;&lt;/UnorderedList.Item&gt;
         &lt;/UnorderedList&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Rechtenvrije foto’s&lt;/Heading&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Rechtenvrije foto’s&lt;/Heading&gt;
         {/*
          * Image always crops to an aspect ratio: omitting aspectRatio falls back to the 16:9 default,
          * not to the file’s own ratio. This 640x360 source is already 16:9, so nothing is cropped.
@@ -43434,8 +43442,8 @@ export const WithImageGallery: StoryObj = {
               &lt;/UnorderedList.Item&gt;
             &lt;/UnorderedList&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Rechtenvrije foto’s
             &lt;/Heading&gt;
             {/*
@@ -44371,8 +44379,8 @@ export const SubnavigationPage: StoryObj = {
             &lt;/UnorderedList.Item&gt;
           &lt;/UnorderedList&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Rechtenvrije foto’s
           &lt;/Heading&gt;
           {/*
@@ -47823,12 +47831,16 @@ const meta = {
               &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-            &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 5, wide: 7 }}
+          &gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Ontwikkeling Centrumeiland, herfst 2025
             &lt;/Heading&gt;
             {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-            &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+            &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
             &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
@@ -48060,10 +48072,10 @@ export const Default: StoryObj = {
           &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
         &lt;/LinkList&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
         {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-        &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+        &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
         &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
       &lt;/Grid.Cell&gt;
       {/* … a Plannen en publicaties cell, start-aligned to the left like Meer informatie … */}
@@ -48432,12 +48444,16 @@ export const Default: StoryObj = {
             &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
-          &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-3&quot;&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 4, wide: 5 }}
+          start={{ narrow: 1, medium: 5, wide: 7 }}
+        &gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Ontwikkeling Centrumeiland, herfst 2025
           &lt;/Heading&gt;
           {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-          &lt;Image alt=&quot;&quot; className=&quot;ams-mb-m&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
+          &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/id/385/640/360&quot; /&gt;
           &lt;StandaloneLink href=&quot;#&quot;&gt;Meer video’s&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
@@ -52925,7 +52941,8 @@ They are the same as in the sections above.
 | **Heading 3**         |           |    `m`    |           |           |
 | **Heading 4**         |           |           |    `m`    |           |
 | **Blockquote**        |           |           |           |           |
-| **… List**            |           |    `s`    |   `xs`    |    `0`    |
+| **Image**             |    `m`    |    `s`    |   `xs`    |    `0`    |
+| **… List**            |    `m`    |    `s`    |   `xs`    |    `0`    |
 | **Paragraph**         |    `m`    |    `s`    |   `xs`    |    `0`    |
 | **Paragraph (large)** |    `m`    |           |           |           |
 | **Table**             |           |    `s`    |   `xs`    |    `0`    |
