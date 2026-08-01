@@ -84,7 +84,7 @@ const meta = {
               Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
               regelingen.
             </Paragraph>
-            <OrderedList className="ams-mb-xl">
+            <OrderedList className="ams-mb-m">
               <OrderedList.Item>Ontdek welke regelingen u hier kunt aanvragen.</OrderedList.Item>
               <OrderedList.Item>Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.</OrderedList.Item>
               <OrderedList.Item>Hierna moet u inloggen met uw DigiD.</OrderedList.Item>
@@ -231,7 +231,7 @@ export const Default: StoryObj = {
           Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
           regelingen.
         </Paragraph>
-        <OrderedList className="ams-mb-xl">
+        <OrderedList className="ams-mb-m">
           <OrderedList.Item>Ontdek welke regelingen u hier kunt aanvragen.</OrderedList.Item>
           <OrderedList.Item>Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.</OrderedList.Item>
           <OrderedList.Item>Hierna moet u inloggen met uw DigiD.</OrderedList.Item>

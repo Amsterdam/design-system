@@ -83,7 +83,7 @@ export const LandingPage: StoryObj = {
        * See https://design-system.service.gov.uk/patterns/start-using-a-service/
        */}
       <Heading className="ams-mb-s" level={2}>De stappen in dit formulier</Heading>
-      <OrderedList className="ams-mb-l">
+      <OrderedList className="ams-mb-m">
         <OrderedList.Item>
           <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak
           wilt hebben. En wanneer.
@@ -134,7 +134,7 @@ export const LandingPage: StoryObj = {
           <Heading className="ams-mb-s" level={2}>
             De stappen in dit formulier
           </Heading>
-          <OrderedList className="ams-mb-l">
+          <OrderedList className="ams-mb-m">
             <OrderedList.Item>
               <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak wilt
               hebben. En wanneer.
