@@ -141,11 +141,15 @@ const meta = {
        */}
       <Spotlight aria-labelledby="blijf-op-de-hoogte" as="aside" color="green">
         <Grid paddingVertical="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-xs" color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
+            <Heading color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
               Blijf op de hoogte!
             </Heading>
-            <Paragraph className="ams-mb-m" color="inverse">
+            <Paragraph color="inverse">
               Schrijf u nu in voor de Nieuwsbrief Amsterdam en ontvang wekelijks nieuws, tips en mooie verhalen over de
               stad en uw stadsdeel.
             </Paragraph>
@@ -313,11 +317,11 @@ export const Default: StoryObj = {
    */}
   <Spotlight aria-labelledby="blijf-op-de-hoogte" as="aside" color="green">
     <Grid paddingVertical="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Heading className="ams-mb-xs" color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Heading color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
           Blijf op de hoogte!
         </Heading>
-        <Paragraph className="ams-mb-m" color="inverse">
+        <Paragraph color="inverse">
           Schrijf u nu in voor de Nieuwsbrief Amsterdam en ontvang wekelijks nieuws, tips en mooie verhalen.
         </Paragraph>
         <StandaloneLink color="inverse" href="#">Ik wil de nieuwsbrief</StandaloneLink>

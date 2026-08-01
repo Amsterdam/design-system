@@ -62,13 +62,11 @@ const meta = {
       <Spotlight>
         <Grid paddingVertical="x-large">
           {spotlightSections.map(({ title, description, link }) => (
-            <Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" key={title} span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 {title}
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
-                {description}
-              </Paragraph>
+              <Paragraph color="inverse">{description}</Paragraph>
               <StandaloneLink color="inverse" href="#">
                 {link}
               </StandaloneLink>
@@ -152,9 +150,9 @@ export const Default: StoryObj = {
   <Spotlight>
     <Grid paddingVertical="x-large">
       {spotlightSections.map(({ title, description, link }) => (
-        <Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">{title}</Heading>
-          <Paragraph className="ams-mb-m" color="inverse">{description}</Paragraph>
+        <Grid.Cell className="ams-prose" key={title} span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2} size="level-3">{title}</Heading>
+          <Paragraph color="inverse">{description}</Paragraph>
           <StandaloneLink color="inverse" href="#">{link}</StandaloneLink>
         </Grid.Cell>
       ))}

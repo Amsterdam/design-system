@@ -218,8 +218,12 @@ const meta = {
            * Two link lists: the full-width narrow span stacks them, and from medium up the start values
            * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
            */}
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={2} size="level-3">
               Nieuws
             </Heading>
             <LinkList>
@@ -227,8 +231,12 @@ const meta = {
               <LinkList.Link href="#">17 november: bijeenkomst over Strandeiland (11 november 2025)</LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 5, wide: 7 }}
+          >
+            <Heading level={2} size="level-3">
               Werk aan de weg
             </Heading>
             <LinkList>
@@ -245,34 +253,30 @@ const meta = {
               </Heading>
             </Grid.Cell>
             {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
-              <Paragraph className="ams-mb-s" color="inverse">
-                Meer over de verschillende vormen van zelfbouw vindt u op:
-              </Paragraph>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
+              <Paragraph color="inverse">Meer over de verschillende vormen van zelfbouw vindt u op:</Paragraph>
               <StandaloneLink color="inverse" href="#">
                 Zelfbouw
               </StandaloneLink>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
-              <Paragraph className="ams-mb-s" color="inverse">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
+              <Paragraph color="inverse">
                 Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
               </Paragraph>
               <StandaloneLink color="inverse" href="#">
                 Aanbod kavels
               </StandaloneLink>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
-              <Paragraph className="ams-mb-s" color="inverse">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
+              <Paragraph color="inverse">
                 Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
               </Paragraph>
               <StandaloneLink color="inverse" href="#">
                 Prikbord
               </StandaloneLink>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
-              <Paragraph className="ams-mb-s" color="inverse">
-                Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.
-              </Paragraph>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
+              <Paragraph color="inverse">Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.</Paragraph>
               <StandaloneLink color="inverse" href="#">
                 Nieuwsbrief zelfbouw
               </StandaloneLink>
@@ -281,8 +285,12 @@ const meta = {
         </Spotlight>
         <Grid paddingVertical="x-large">
           {/* These four cells alternate between the same start positions, so they too read as two columns. */}
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={2} size="level-3">
               Meer informatie
             </Heading>
             <LinkList>
@@ -306,16 +314,24 @@ const meta = {
             <Image alt="" className="ams-mb-m" src="https://picsum.photos/id/385/640/360" />
             <StandaloneLink href="#">Meer video’s</StandaloneLink>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={2} size="level-3">
               Plannen en publicaties
             </Heading>
             <LinkList>
               <LinkList.Link href="#">Plannen en publicaties Centrumeiland</LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 5, wide: 7 }}
+          >
+            <Heading level={2} size="level-3">
               Blijf op de hoogte
             </Heading>
             <LinkList>
@@ -337,8 +353,8 @@ const meta = {
                 Contact
               </Heading>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Paragraph className="ams-mb-m" color="inverse">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Paragraph color="inverse">
                 Vragen over zelfbouw op Centrumeiland:{' '}
                 <Link color="inverse" href="mailto:zelfbouwcentrumeiland@amsterdam.nl">
                   zelfbouwcentrumeiland@amsterdam.nl
@@ -487,15 +503,15 @@ export const Default: StoryObj = {
        * Two link lists: the full-width narrow span stacks them, and from medium up the start values
        * put them side by side – halves of the medium grid, inset 5-column blocks on the wide one.
        */}
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Nieuws</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={2} size="level-3">Nieuws</Heading>
         <LinkList>
           <LinkList.Link href="#">Werkzaamheden Bert Haanstrakade en Pampuslaan (27 november 2025)</LinkList.Link>
           <LinkList.Link href="#">17 november: bijeenkomst over Strandeiland (11 november 2025)</LinkList.Link>
         </LinkList>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Werk aan de weg</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+        <Heading level={2} size="level-3">Werk aan de weg</Heading>
         <LinkList>
           <LinkList.Link href="#">Bert Haanstrakade, omleiding</LinkList.Link>
           <LinkList.Link href="#">Straten Centrumeiland, afsluitingen</LinkList.Link>
@@ -508,8 +524,8 @@ export const Default: StoryObj = {
           <Heading color="inverse" level={2}>Zelfbouw</Heading>
         </Grid.Cell>
         {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>
-          <Paragraph className="ams-mb-s" color="inverse">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
+          <Paragraph color="inverse">
             Meer over de verschillende vormen van zelfbouw vindt u op:
           </Paragraph>
           <StandaloneLink color="inverse" href="#">Zelfbouw</StandaloneLink>
@@ -519,8 +535,8 @@ export const Default: StoryObj = {
     </Spotlight>
     <Grid paddingVertical="x-large">
       {/* These four cells alternate between the same start positions, so they too read as two columns. */}
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Meer informatie</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={2} size="level-3">Meer informatie</Heading>
         <LinkList>
           <LinkList.Link href="#">Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw</LinkList.Link>
           <LinkList.Link href="#">Woningaanbod Centrumeiland</LinkList.Link>
@@ -534,8 +550,8 @@ export const Default: StoryObj = {
         <StandaloneLink href="#">Meer video’s</StandaloneLink>
       </Grid.Cell>
       {/* … a Plannen en publicaties cell, start-aligned to the left like Meer informatie … */}
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Blijf op de hoogte</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+        <Heading level={2} size="level-3">Blijf op de hoogte</Heading>
         <LinkList>
           <LinkList.Link href="#">Nieuwsbrief ontwikkeling IJburg</LinkList.Link>
           <LinkList.Link href="#">Hallo Centrumeiland: praat mee</LinkList.Link>

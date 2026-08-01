@@ -540,16 +540,16 @@ export const WithImageGallery: StoryObj = {
           </Card>
         </Grid.Cell>
       ))}
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Portefeuilleverdeling</Heading>
-        <Paragraph className="ams-mb-s">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={2} size="level-3">Portefeuilleverdeling</Heading>
+        <Paragraph>
           Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders.
         </Paragraph>
         <StandaloneLink href="#">Portefeuilleverdeling</StandaloneLink>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Coalitieakkoord</Heading>
-        <Paragraph className="ams-mb-s">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+        <Heading level={2} size="level-3">Coalitieakkoord</Heading>
+        <Paragraph>
           In dit akkoord staan de plannen en visie van de coalitie PvdA, GroenLinks en D66 voor 2022-2026.
         </Paragraph>
         <StandaloneLink href="#">Coalitieakkoord en Uitvoeringsagenda</StandaloneLink>
@@ -557,9 +557,9 @@ export const WithImageGallery: StoryObj = {
     </Grid>
     <Spotlight>
       <Grid paddingVertical="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Persberichten en nieuws</Heading>
-          <LinkList className="ams-mb-m">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Heading color="inverse" level={2} size="level-3">Persberichten en nieuws</Heading>
+          <LinkList>
             <LinkList.Link color="inverse" href="#">
               Proef elektrische fietsen voor sociale huurders op Strandeiland en Centrumeiland
             </LinkList.Link>
@@ -567,9 +567,9 @@ export const WithImageGallery: StoryObj = {
             <LinkList.Link color="inverse" href="#">Meer persberichten</LinkList.Link>
           </LinkList>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Besluiten B en W</Heading>
-          <LinkList className="ams-mb-m">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+          <Heading color="inverse" level={2} size="level-3">Besluiten B en W</Heading>
+          <LinkList>
             <LinkList.Link color="inverse" href="#">Nieuws uit B en W 9 juli 2025</LinkList.Link>
             <LinkList.Link color="inverse" href="#">Nieuws uit B en W 2 juli 2025</LinkList.Link>
             <LinkList.Link color="inverse" href="#">Nieuws uit B en W 25 juni 2025</LinkList.Link>
@@ -580,23 +580,23 @@ export const WithImageGallery: StoryObj = {
     </Spotlight>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large" paddingTop="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Pers en woordvoering</Heading>
-        <Paragraph className="ams-mb-s">Voor vragen van journalisten aan de afdeling Bestuursvoorlichting.</Paragraph>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={2} size="level-3">Pers en woordvoering</Heading>
+        <Paragraph>Voor vragen van journalisten aan de afdeling Bestuursvoorlichting.</Paragraph>
         <StandaloneLink href="#">Pers en woordvoering</StandaloneLink>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Meer over het college</Heading>
-        <LinkList className="ams-mb-m">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+        <Heading level={2} size="level-3">Meer over het college</Heading>
+        <LinkList>
           <LinkList.Link href="#">Vervangingsregeling en locoburgemeesters</LinkList.Link>
           <LinkList.Link href="#">Gedragscode</LinkList.Link>
           <LinkList.Link href="#">Declaraties en dienstreizen</LinkList.Link>
           <LinkList.Link href="#">Geschenkenregister college van B&W</LinkList.Link>
         </LinkList>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Contact</Heading>
-        <Paragraph className="ams-mb-s">Een bericht voor het college van burgemeester en wethouders kunt u:</Paragraph>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={2} size="level-3">Contact</Heading>
+        <Paragraph>Een bericht voor het college van burgemeester en wethouders kunt u:</Paragraph>
         <UnorderedList>
           <UnorderedList.Item>sturen naar Postbus 202, 1000 AE Amsterdam</UnorderedList.Item>
           <UnorderedList.Item>afgeven bij 1 van de <Link href="#">stadsloketten</Link></UnorderedList.Item>
@@ -682,20 +682,22 @@ export const WithImageGallery: StoryObj = {
               </Card>
             </Grid.Cell>
           ))}
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={2} size="level-3">
               Portefeuilleverdeling
             </Heading>
-            <Paragraph className="ams-mb-s">
-              Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders.
-            </Paragraph>
+            <Paragraph>Een alfabetisch overzicht van de portefeuilles van burgemeester en wethouders.</Paragraph>
             <StandaloneLink href="#">Portefeuilleverdeling</StandaloneLink>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+            <Heading level={2} size="level-3">
               Coalitieakkoord
             </Heading>
-            <Paragraph className="ams-mb-s">
+            <Paragraph>
               In dit akkoord staan de plannen en visie van de coalitie PvdA, GroenLinks en D66 voor 2022-2026.
             </Paragraph>
             <StandaloneLink href="#">Coalitieakkoord en Uitvoeringsagenda</StandaloneLink>
@@ -703,11 +705,15 @@ export const WithImageGallery: StoryObj = {
         </Grid>
         <Spotlight>
           <Grid paddingVertical="x-large">
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell
+              className="ams-prose"
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={{ narrow: 1, medium: 1, wide: 2 }}
+            >
+              <Heading color="inverse" level={2} size="level-3">
                 Persberichten en nieuws
               </Heading>
-              <LinkList className="ams-mb-m">
+              <LinkList>
                 <LinkList.Link color="inverse" href="#">
                   Proef elektrische fietsen voor sociale huurders op Strandeiland en Centrumeiland
                 </LinkList.Link>
@@ -719,11 +725,11 @@ export const WithImageGallery: StoryObj = {
                 </LinkList.Link>
               </LinkList>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 Besluiten B en W
               </Heading>
-              <LinkList className="ams-mb-m">
+              <LinkList>
                 <LinkList.Link color="inverse" href="#">
                   Nieuws uit B en W 9 juli 2025
                 </LinkList.Link>
@@ -742,33 +748,37 @@ export const WithImageGallery: StoryObj = {
         </Spotlight>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large" paddingTop="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={2} size="level-3">
               Pers en woordvoering
             </Heading>
-            <Paragraph className="ams-mb-s">
-              Voor vragen van journalisten aan de afdeling Bestuursvoorlichting.
-            </Paragraph>
+            <Paragraph>Voor vragen van journalisten aan de afdeling Bestuursvoorlichting.</Paragraph>
             <StandaloneLink href="#">Pers en woordvoering</StandaloneLink>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+            <Heading level={2} size="level-3">
               Meer over het college
             </Heading>
-            <LinkList className="ams-mb-m">
+            <LinkList>
               <LinkList.Link href="#">Vervangingsregeling en locoburgemeesters</LinkList.Link>
               <LinkList.Link href="#">Gedragscode</LinkList.Link>
               <LinkList.Link href="#">Declaraties en dienstreizen</LinkList.Link>
               <LinkList.Link href="#">Geschenkenregister college van B&W</LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={2} size="level-3">
               Contact
             </Heading>
-            <Paragraph className="ams-mb-s">
-              Een bericht voor het college van burgemeester en wethouders kunt u:
-            </Paragraph>
+            <Paragraph>Een bericht voor het college van burgemeester en wethouders kunt u:</Paragraph>
             <UnorderedList>
               <UnorderedList.Item>sturen naar Postbus 202, 1000 AE Amsterdam</UnorderedList.Item>
               <UnorderedList.Item>
@@ -883,8 +893,8 @@ export const WithSideNavigation: StoryObj = {
         <Heading level={2}>{currentShop}</Heading>
       </Grid.Cell>
       {shopLocations.map(({ postalCode, street }) => (
-        <Grid.Cell key={street} span={4}>
-          <Paragraph className="ams-mb-m">
+        <Grid.Cell className="ams-prose" key={street} span={4}>
+          <Paragraph>
             {street}
             <br />
             {postalCode} Amsterdam
@@ -996,8 +1006,8 @@ export const WithSideNavigation: StoryObj = {
             <Heading level={2}>{currentShop}</Heading>
           </Grid.Cell>
           {shopLocations.map(({ postalCode, street }) => (
-            <Grid.Cell key={street} span={4}>
-              <Paragraph className="ams-mb-m">
+            <Grid.Cell className="ams-prose" key={street} span={4}>
+              <Paragraph>
                 {street}
                 <br />
                 {postalCode} Amsterdam
@@ -1077,35 +1087,35 @@ export const SubnavigationPage: StoryObj = {
           {getLinks(links)}
         </Grid.Cell>
       ))}
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={3}>Titel</Heading>
-        <Paragraph className="ams-mb-m">Voorbeeldtekst bij dit onderwerp.</Paragraph>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={3}>Titel</Heading>
+        <Paragraph>Voorbeeldtekst bij dit onderwerp.</Paragraph>
         <StandaloneLink href="#">Lees meer</StandaloneLink>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <Heading className="ams-mb-xs" level={3}>Titel</Heading>
-        <Paragraph className="ams-mb-m">Voorbeeldtekst bij dit onderwerp.</Paragraph>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+        <Heading level={3}>Titel</Heading>
+        <Paragraph>Voorbeeldtekst bij dit onderwerp.</Paragraph>
         <StandaloneLink href="#">Lees meer</StandaloneLink>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={3}>Titel</Heading>
-        <Paragraph className="ams-mb-m">Voorbeeldtekst bij dit onderwerp.</Paragraph>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={3}>Titel</Heading>
+        <Paragraph>Voorbeeldtekst bij dit onderwerp.</Paragraph>
         <StandaloneLink href="#">Lees meer</StandaloneLink>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <Heading className="ams-mb-xs" level={3}>Titel</Heading>
-        <Paragraph className="ams-mb-m">Voorbeeldtekst bij dit onderwerp.</Paragraph>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+        <Heading level={3}>Titel</Heading>
+        <Paragraph>Voorbeeldtekst bij dit onderwerp.</Paragraph>
         <StandaloneLink href="#">Lees meer</StandaloneLink>
       </Grid.Cell>
     </Grid>
     <Spotlight color="magenta">
       <Grid paddingVertical="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Titel</Heading>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Heading color="inverse" level={2} size="level-3">Titel</Heading>
           <Paragraph color="inverse">Voorbeeldtekst bij dit onderwerp.</Paragraph>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Titel</Heading>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+          <Heading color="inverse" level={2} size="level-3">Titel</Heading>
           <Paragraph color="inverse">Voorbeeldtekst bij dit onderwerp.</Paragraph>
         </Grid.Cell>
       </Grid>
@@ -1197,45 +1207,49 @@ export const SubnavigationPage: StoryObj = {
               {getLinks(links)}
             </Grid.Cell>
           ))}
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={3}>
-              {exampleHeading()}
-            </Heading>
-            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={3}>{exampleHeading()}</Heading>
+            <Paragraph>{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-xs" level={3}>
-              {exampleHeading()}
-            </Heading>
-            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+            <Heading level={3}>{exampleHeading()}</Heading>
+            <Paragraph>{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={3}>
-              {exampleHeading()}
-            </Heading>
-            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={3}>{exampleHeading()}</Heading>
+            <Paragraph>{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-xs" level={3}>
-              {exampleHeading()}
-            </Heading>
-            <Paragraph className="ams-mb-m">{exampleParagraph()}</Paragraph>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+            <Heading level={3}>{exampleHeading()}</Heading>
+            <Paragraph>{exampleParagraph()}</Paragraph>
             <StandaloneLink href="#">{exampleStandaloneLink()}</StandaloneLink>
           </Grid.Cell>
         </Grid>
         <Spotlight color="magenta">
           <Grid paddingVertical="x-large">
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell
+              className="ams-prose"
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={{ narrow: 1, medium: 1, wide: 2 }}
+            >
+              <Heading color="inverse" level={2} size="level-3">
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 {exampleHeading()}
               </Heading>
               <Paragraph color="inverse">{exampleParagraph()}</Paragraph>
