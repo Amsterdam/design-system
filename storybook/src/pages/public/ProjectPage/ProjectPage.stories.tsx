@@ -117,13 +117,16 @@ const meta = {
             <Heading className="ams-mb-s" level={2}>
               Wanneer
             </Heading>
-            <Paragraph className="ams-mb-l">
+            <Paragraph>
               De bouwwerkzaamheden op Centrumeiland zijn in volle gang. Veel zelfbouwers zijn bezig met de bouw van hun
               eigen huis. De eerste bewoners zijn in 2020 naar het eiland verhuisd. De komende jaren starten
               verschillende ontwikkelaars, bouwgroepen en zelfbouwers ook met de bouw van hun nieuwe woningen. We
               verwachten dat bijna alle woningen en voorzieningen klaar zijn in 2028. Het laatste woonblok wordt
               opgeleverd in 2029.
             </Paragraph>
+          </Grid.Cell>
+          {/* A Progress List is a block of its own, so it takes its own Grid Cell and the row gap spaces it. */}
+          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
             {/*
              * A ProgressList shows a timeline. status="completed" marks a finished step, status="current"
              * the one in progress, and a step with no status is still to come. Substeps are nested by hand
@@ -450,10 +453,13 @@ export const Default: StoryObj = {
           van IJburg en ligt tussen Haveneiland en Strandeiland.
         </Paragraph>
         <Heading className="ams-mb-s" level={2}>Wanneer</Heading>
-        <Paragraph className="ams-mb-l">
+        <Paragraph>
           De bouwwerkzaamheden op Centrumeiland zijn in volle gang. We verwachten dat bijna alle woningen en
           voorzieningen klaar zijn in 2028.
         </Paragraph>
+      </Grid.Cell>
+      {/* A Progress List is a block of its own, so it takes its own Grid Cell and the row gap spaces it. */}
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         {/*
          * A ProgressList shows a timeline. status="completed" marks a finished step, status="current"
          * the one in progress, and a step with no status is still to come. Substeps are nested by hand
