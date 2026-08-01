@@ -56,7 +56,7 @@ export const Default: StoryObj = {
         <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
       </Grid.Cell>
       {/*
-       * The lead paragraph and the introductory image take the side-by-side Cell sizes, so the pair reaches a
+       * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
        * column further than the Content Header Cell above it. Both stack on the narrow grid.
        */}
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -185,7 +185,7 @@ export const Default: StoryObj = {
             <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
           </Grid.Cell>
           {/*
-           * The lead paragraph and the introductory image take the side-by-side Cell sizes, so the pair reaches a
+           * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
            * column further than the Content Header Cell above it. Both stack on the narrow grid.
            */}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
