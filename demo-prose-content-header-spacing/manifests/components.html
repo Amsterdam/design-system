@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>3.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4589,6 +4589,10 @@ Green is not used for a [Button](/docs/components-buttons-button--docs) anywhere
 The corners are square and the vertical padding is slight, so the block hugs its line of text.
 It reads as a highlighted link rather than as a large control, which is the distinction the underline is there to protect.
 
+Because the block itself stays small, the space around it does the work of drawing the eye.
+Give it an extra large space above and below, more than any pair of body elements takes, so it sits alone rather than reading as one more paragraph in the flow.
+The page templates achieve this by giving it a [Grid](/docs/components-layout-grid--docs) Cell of its own, where the row gap supplies that space on both sides at once.
+
 In print, it keeps its background colour instead of being flattened to save ink.
 
 ## Accessibility
@@ -8559,7 +8563,10 @@ export const LandingPage: StoryObj = {
           &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
         &lt;/OrderedList.Item&gt;
       &lt;/OrderedList&gt;
-      {/* A single, prominent call to action that starts the form. */}
+    &lt;/Grid.Cell&gt;
+    {/* A single, prominent call to action that starts the form. */}
+    {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
       &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
     &lt;/Grid.Cell&gt;
   &lt;/Grid&gt;
@@ -8615,7 +8622,10 @@ export const LandingPage: StoryObj = {
               &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
             &lt;/OrderedList.Item&gt;
           &lt;/OrderedList&gt;
-          {/* A single, prominent call to action that starts the form. */}
+        &lt;/Grid.Cell&gt;
+        {/* A single, prominent call to action that starts the form. */}
+        {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
           &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
@@ -9454,7 +9464,10 @@ import { FormPageLayout, PageLayout } from "@amsterdam/storybook";</code></pre>
             &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
           &lt;/OrderedList.Item&gt;
         &lt;/OrderedList&gt;
-        {/* A single, prominent call to action that starts the form. */}
+      &lt;/Grid.Cell&gt;
+      {/* A single, prominent call to action that starts the form. */}
+      {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
@@ -22856,9 +22869,17 @@ const meta = {
               &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
               &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
             &lt;/OrderedList&gt;
-            {/* A prominent call to action for the main task on the page. */}
+          &lt;/Grid.Cell&gt;
+          {/* A prominent call to action for the main task on the page. */}
+          {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
             &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
             &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
             &lt;UnorderedList&gt;
               &lt;UnorderedList.Item&gt;
@@ -22989,9 +23010,13 @@ export const Default: StoryObj = {
           &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
           &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
         &lt;/OrderedList&gt;
-        {/* A prominent call to action for the main task on the page. */}
+      &lt;/Grid.Cell&gt;
+      {/* A prominent call to action for the main task on the page. */}
+      {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
         &lt;UnorderedList&gt;
           &lt;UnorderedList.Item&gt;Ga naar &lt;Link href=&quot;#&quot;&gt;www.digid.nl&lt;/Link&gt; en vraag uw DigiD aan.&lt;/UnorderedList.Item&gt;
@@ -23164,9 +23189,17 @@ export const Default: StoryObj = {
             &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
             &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
           &lt;/OrderedList&gt;
-          {/* A prominent call to action for the main task on the page. */}
+        &lt;/Grid.Cell&gt;
+        {/* A prominent call to action for the main task on the page. */}
+        {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
           &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
           &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
           &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;
@@ -23273,8 +23306,10 @@ This schematic shows the default sections for this page type and how the grids a
 
 ## Spacing
 
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-  A section heading, the list or paragraph under it, and the Call to Action Link each get the space that guide asks for, without a margin of their own.
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cells, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+  A section heading and the list or paragraph under it each get the space that guide asks for, without a margin of their own.
+- The [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) takes a Grid Cell of its own, between the two body Cells.
+  The row gap of `x-large` then sets it apart from the text on either side, which is what makes it stand out.
 </code></pre></div>
             </div>
         </div>
@@ -33459,6 +33494,10 @@ Green is not used for a [Button](/docs/components-buttons-button--docs) anywhere
 The corners are square and the vertical padding is slight, so the block hugs its line of text.
 It reads as a highlighted link rather than as a large control, which is the distinction the underline is there to protect.
 
+Because the block itself stays small, the space around it does the work of drawing the eye.
+Give it an extra large space above and below, more than any pair of body elements takes, so it sits alone rather than reading as one more paragraph in the flow.
+The page templates achieve this by giving it a [Grid](/docs/components-layout-grid--docs) Cell of its own, where the row gap supplies that space on both sides at once.
+
 In print, it keeps its background colour instead of being flattened to save ink.
 
 ## Accessibility
@@ -35647,7 +35686,10 @@ export const LandingPage: StoryObj = {
           &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
         &lt;/OrderedList.Item&gt;
       &lt;/OrderedList&gt;
-      {/* A single, prominent call to action that starts the form. */}
+    &lt;/Grid.Cell&gt;
+    {/* A single, prominent call to action that starts the form. */}
+    {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
       &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
     &lt;/Grid.Cell&gt;
   &lt;/Grid&gt;
@@ -35703,7 +35745,10 @@ export const LandingPage: StoryObj = {
               &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
             &lt;/OrderedList.Item&gt;
           &lt;/OrderedList&gt;
-          {/* A single, prominent call to action that starts the form. */}
+        &lt;/Grid.Cell&gt;
+        {/* A single, prominent call to action that starts the form. */}
+        {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
           &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
@@ -36542,7 +36587,10 @@ import { FormPageLayout, PageLayout } from "@amsterdam/storybook";</code></pre>
             &lt;strong&gt;Controleren&lt;/strong&gt; - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
           &lt;/OrderedList.Item&gt;
         &lt;/OrderedList&gt;
-        {/* A single, prominent call to action that starts the form. */}
+      &lt;/Grid.Cell&gt;
+      {/* A single, prominent call to action that starts the form. */}
+      {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;CallToActionLink href=&quot;#&quot;&gt;Start het formulier&lt;/CallToActionLink&gt;
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
@@ -46937,9 +46985,17 @@ const meta = {
               &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
               &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
             &lt;/OrderedList&gt;
-            {/* A prominent call to action for the main task on the page. */}
+          &lt;/Grid.Cell&gt;
+          {/* A prominent call to action for the main task on the page. */}
+          {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
             &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
             &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
             &lt;UnorderedList&gt;
               &lt;UnorderedList.Item&gt;
@@ -47070,9 +47126,13 @@ export const Default: StoryObj = {
           &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
           &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
         &lt;/OrderedList&gt;
-        {/* A prominent call to action for the main task on the page. */}
+      &lt;/Grid.Cell&gt;
+      {/* A prominent call to action for the main task on the page. */}
+      {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
         &lt;UnorderedList&gt;
           &lt;UnorderedList.Item&gt;Ga naar &lt;Link href=&quot;#&quot;&gt;www.digid.nl&lt;/Link&gt; en vraag uw DigiD aan.&lt;/UnorderedList.Item&gt;
@@ -47245,9 +47305,17 @@ export const Default: StoryObj = {
             &lt;OrderedList.Item&gt;Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.&lt;/OrderedList.Item&gt;
             &lt;OrderedList.Item&gt;Hierna moet u inloggen met uw DigiD.&lt;/OrderedList.Item&gt;
           &lt;/OrderedList&gt;
-          {/* A prominent call to action for the main task on the page. */}
+        &lt;/Grid.Cell&gt;
+        {/* A prominent call to action for the main task on the page. */}
+        {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
           &lt;CallToActionLink href=&quot;#&quot;&gt;Start de check en vraag aan&lt;/CallToActionLink&gt;
-
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
           &lt;Heading level={2}&gt;Geen DigiD?&lt;/Heading&gt;
           &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;
@@ -47354,8 +47422,10 @@ This schematic shows the default sections for this page type and how the grids a
 
 ## Spacing
 
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-  A section heading, the list or paragraph under it, and the Call to Action Link each get the space that guide asks for, without a margin of their own.
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cells, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+  A section heading and the list or paragraph under it each get the space that guide asks for, without a margin of their own.
+- The [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) takes a Grid Cell of its own, between the two body Cells.
+  The row gap of `x-large` then sets it apart from the text on either side, which is what makes it stand out.
 </code></pre></div>
             </div>
         </div>
@@ -52720,6 +52790,10 @@ This family of components has **medium** space between each other:
 - Paragraph (except for the ‘large’ variant)
 - Description List, Link List, Ordered List, Unordered List
 - Button, Standalone Link, Call to Action Link
+
+The tables below give these values for a Call to Action Link that runs along with the text around it.
+Where it is the one call to action of a content page, give it a Grid Cell of its own instead, so it stands out.
+See [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) for that recommendation.
 
 ### Body blocks
 
