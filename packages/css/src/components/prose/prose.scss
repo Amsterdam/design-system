@@ -4,7 +4,6 @@
  */
 
 $_ams-body-block: ".ams-blockquote, .ams-image, .ams-paragraph--large, .ams-table";
-$_ams-button-or-cta: ".ams-button, .ams-call-to-action-link";
 $_ams-list-or-paragraph: ".ams-description-list, .ams-link-list, .ams-ordered-list, .ams-paragraph:not(.ams-paragraph--large), .ams-unordered-list";
 $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
 
@@ -40,8 +39,8 @@ $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
     margin-block-end: var(--ams-space-m);
   }
 
-  /* Button or CTA Link followed by Button or CTA Link */
-  > :is(#{$_ams-button-or-cta}):has(+ :is(#{$_ams-button-or-cta})) {
+  /* Button followed by Button */
+  > .ams-button:has(+ .ams-button) {
     margin-block-end: var(--ams-space-l);
   }
 
@@ -98,5 +97,16 @@ $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
   /* Heading level 2 or 3 followed by another heading */
   > :is(.ams-heading--2, .ams-heading--3):has(+ .ams-heading) {
     margin-block-end: var(--ams-space-m);
+  }
+
+  /*
+   * A Call to Action Link needs air on both sides to stand out from the text it is authored among.
+   * These rules come last so they win from the ones above at equal specificity.
+   * A heading directly above one is left to the heading rules: the guidance advises against that combination.
+   */
+  > :not(.ams-heading):has(+ .ams-call-to-action-link),
+  > .ams-call-to-action-link:has(+ :not(.ams-heading)),
+  > .ams-call-to-action-link:has(+ .ams-heading) {
+    margin-block-end: var(--ams-space-xl);
   }
 }
