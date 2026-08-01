@@ -511,8 +511,8 @@ export const WithImageGallery: StoryObj = {
     <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
     <Grid paddingVertical="x-large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
-        <Heading className="ams-mb-s" level={2}>Burgemeester en wethouders</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }}>
+        <Heading level={2}>Burgemeester en wethouders</Heading>
         <Paragraph>
           Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
           gemeentesecretaris.
@@ -653,10 +653,8 @@ export const WithImageGallery: StoryObj = {
         <Image alt="" aspectRatio="16:5" src={exampleImageSource(1440, 450, 11)} />
         <Grid paddingVertical="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Burgemeester en wethouders
-            </Heading>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }}>
+            <Heading level={2}>Burgemeester en wethouders</Heading>
             <Paragraph>
               Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
               gemeentesecretaris.
@@ -1058,14 +1056,14 @@ export const SubnavigationPage: StoryObj = {
     <Image alt="" aspectRatio="16:5" src="https://picsum.photos/1440/450" />
     <Grid paddingVertical="x-large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         {/*
          * This page nests one level deeper than the other navigation pages: level-2 section titles with
          * level-3 groups under them. Those headings each want the size of their own level, so they set
          * no size. The Spotlight headings below are the exception: they stay level={2} in the outline
          * but take size="level-3", as Link Sections do.
          */}
-        <Heading className="ams-mb-s" level={2}>L2 Paragraaf titel</Heading>
+        <Heading level={2}>L2 Paragraaf titel</Heading>
         <Paragraph>Voorbeeldtekst bij dit onderwerp.</Paragraph>
       </Grid.Cell>
       {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
@@ -1114,8 +1112,8 @@ export const SubnavigationPage: StoryObj = {
     </Spotlight>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large" paddingTop="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={2}>L2 Paragraaf titel</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={2}>L2 Paragraaf titel</Heading>
         <Paragraph>Voorbeeldtekst bij dit onderwerp.</Paragraph>
       </Grid.Cell>
       {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
@@ -1172,16 +1170,18 @@ export const SubnavigationPage: StoryObj = {
         <Image alt="" aspectRatio="16:5" src={exampleImageSource(1440, 450)} />
         <Grid paddingVertical="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             {/*
              * This page nests one level deeper than the other navigation pages: level-2 section titles with
              * level-3 groups under them. Those headings each want the size of their own level, so they set
              * no size. The Spotlight headings below are the exception: they stay level={2} in the outline
              * but take size="level-3", as Link Sections do.
              */}
-            <Heading className="ams-mb-s" level={2}>
-              L2 Paragraaf titel
-            </Heading>
+            <Heading level={2}>L2 Paragraaf titel</Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
           {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
@@ -1244,10 +1244,12 @@ export const SubnavigationPage: StoryObj = {
         </Spotlight>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large" paddingTop="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2}>
-              L2 Paragraaf titel
-            </Heading>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={2}>L2 Paragraaf titel</Heading>
             <Paragraph>{exampleParagraph()}</Paragraph>
           </Grid.Cell>
           {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}

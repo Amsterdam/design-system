@@ -76,15 +76,15 @@ export const LandingPage: StoryObj = {
   {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
   <Grid paddingBottom="2x-large">
-    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+    <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       {/*
        * Listing the steps is a choice, not a rule: GOV.UK asks a start page for what the service does,
        * what it costs, how long it takes and one call to action, and warns against making it too
        * complicated. Test whether users need the list, as you would a progress indicator.
        * See https://design-system.service.gov.uk/patterns/start-using-a-service/
        */}
-      <Heading className="ams-mb-s" level={2}>De stappen in dit formulier</Heading>
-      <OrderedList className="ams-mb-m">
+      <Heading level={2}>De stappen in dit formulier</Heading>
+      <OrderedList>
         <OrderedList.Item>
           <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak
           wilt hebben. En wanneer.
@@ -128,17 +128,19 @@ export const LandingPage: StoryObj = {
       {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       <Grid paddingBottom="2x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Grid.Cell
+          className="ams-prose"
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        >
           {/*
            * Listing the steps is a choice, not a rule: GOV.UK asks a start page for what the service does,
            * what it costs, how long it takes and one call to action, and warns against making it too
            * complicated. Test whether users need the list, as you would a progress indicator.
            * See https://design-system.service.gov.uk/patterns/start-using-a-service/
            */}
-          <Heading className="ams-mb-s" level={2}>
-            De stappen in dit formulier
-          </Heading>
-          <OrderedList className="ams-mb-m">
+          <Heading level={2}>De stappen in dit formulier</Heading>
+          <OrderedList>
             <OrderedList.Item>
               <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak wilt
               hebben. En wanneer.

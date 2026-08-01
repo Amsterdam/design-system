@@ -75,48 +75,41 @@ const meta = {
         {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
         {/* A coloured Spotlight follows, so this Grid takes a paddingBottom of x-large. */}
         <Grid paddingBottom="x-large">
-          {/*
-           * This cell is not ams-prose, and components never set outer margins, so every element that is
-           * followed by another sets its own bottom margin.
-           */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Wat
-            </Heading>
-            <Paragraph className="ams-mb-m">
+          {/* ams-prose sets the vertical rhythm between the direct children of this cell. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
+            <Heading level={2}>Wat</Heading>
+            <Paragraph>
               Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van <Link href="#">IJburg</Link>. Er
               komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
             </Paragraph>
-            <Paragraph className="ams-mb-m">
+            <Paragraph>
               Op verschillende zelfbouwkavels laten bewoners hun eigen droomwoning bouwen. Ook komen er sociale en
               middeldure huurwoningen. In totaal is de verdeling van huurwoningen straks 60 procent vrije sector en 40
               procent sociale en middeldure huur.
             </Paragraph>
-            <Paragraph className="ams-mb-m">
+            <Paragraph>
               Verder komen er verschillende voorzieningen zoals een basisschool, kinderdagverblijf,
               jongerentalentencentrum, horeca, broedplaats, verpleeghuis en passantenpension. Er komt een mix aan kleine
               winkels, bedrijven en kantoren. Het eiland is ongeveer 15 hectare groot. Dat komt overeen met ongeveer 23
               voetbalvelden. Dat is in oppervlakte vergelijkbaar met Steigereiland Zuid.
             </Paragraph>
-            <StandaloneLink className="ams-mb-xl" href="#">
-              Lees meer over Centrumeiland
-            </StandaloneLink>
-            <Heading className="ams-mb-s" level={2}>
-              Waar
-            </Heading>
-            <Paragraph className="ams-mb-m">
+            <StandaloneLink href="#">Lees meer over Centrumeiland</StandaloneLink>
+            <Heading level={2}>Waar</Heading>
+            <Paragraph>
               Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland van
               IJburg en ligt tussen Haveneiland en Strandeiland. Het stadsstrand van IJburg en natuurgebied Diemer
               Vijfhoek liggen om de hoek.
             </Paragraph>
-            <Paragraph className="ams-mb-xl">
+            <Paragraph>
               De wijk is goed bereikbaar met het openbaar vervoer, de fiets of de auto. De stad is niet ver weg: tram 26
               rijdt naar station Amsterdam Centraal en bus 66 gaat naar station Bijlmer Arena. Wie toch liever de auto
               pakt, is binnen enkele minuten op de A1 of A10.
             </Paragraph>
-            <Heading className="ams-mb-s" level={2}>
-              Wanneer
-            </Heading>
+            <Heading level={2}>Wanneer</Heading>
             <Paragraph>
               De bouwwerkzaamheden op Centrumeiland zijn in volle gang. Veel zelfbouwers zijn bezig met de bouw van hun
               eigen huis. De eerste bewoners zijn in 2020 naar het eiland verhuisd. De komende jaren starten
@@ -436,23 +429,20 @@ export const Default: StoryObj = {
     {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
     {/* A coloured Spotlight follows, so this Grid takes a paddingBottom of x-large. */}
     <Grid paddingBottom="x-large">
-      {/*
-       * This cell is not ams-prose, and components never set outer margins, so every element that is
-       * followed by another sets its own bottom margin.
-       */}
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Heading className="ams-mb-s" level={2}>Wat</Heading>
-        <Paragraph className="ams-mb-m">
+      {/* ams-prose sets the vertical rhythm between the direct children of this cell. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Heading level={2}>Wat</Heading>
+        <Paragraph>
           Centrumeiland is hét zelfbouweiland van de stad en maakt deel uit van <Link href="#">IJburg</Link>.
           Er komen zo’n 1.500 tot 1.700 woningen, waarvan 60 tot 70 procent zelfbouw.
         </Paragraph>
-        <StandaloneLink className="ams-mb-xl" href="#">Lees meer over Centrumeiland</StandaloneLink>
-        <Heading className="ams-mb-s" level={2}>Waar</Heading>
-        <Paragraph className="ams-mb-xl">
+        <StandaloneLink href="#">Lees meer over Centrumeiland</StandaloneLink>
+        <Heading level={2}>Waar</Heading>
+        <Paragraph>
           Centrumeiland ligt op IJburg aan de oostkant van Amsterdam, in het IJmeer. Het is het vierde eiland
           van IJburg en ligt tussen Haveneiland en Strandeiland.
         </Paragraph>
-        <Heading className="ams-mb-s" level={2}>Wanneer</Heading>
+        <Heading level={2}>Wanneer</Heading>
         <Paragraph>
           De bouwwerkzaamheden op Centrumeiland zijn in volle gang. We verwachten dat bijna alle woningen en
           voorzieningen klaar zijn in 2028.

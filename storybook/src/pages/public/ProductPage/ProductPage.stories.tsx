@@ -59,11 +59,13 @@ const meta = {
            * The body sits in a narrower cell, indented one column on wider screens, for a comfortable reading
            * measure.
            */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Voorwaarden
-            </Heading>
-            <UnorderedList className="ams-mb-xl">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
+            <Heading level={2}>Voorwaarden</Heading>
+            <UnorderedList>
               <UnorderedList.Item>U woont in Amsterdam of Weesp.</UnorderedList.Item>
               <UnorderedList.Item>
                 U heeft een <Link href="#">laag inkomen en weinig vermogen</Link>.
@@ -79,27 +81,21 @@ const meta = {
               <UnorderedList.Item>Uw kind doet eerst een computercursus.</UnorderedList.Item>
             </UnorderedList>
 
-            <Heading className="ams-mb-s" level={2}>
-              Aanvragen
-            </Heading>
-            <Paragraph className="ams-mb-m">
+            <Heading level={2}>Aanvragen</Heading>
+            <Paragraph>
               Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
               regelingen.
             </Paragraph>
-            <OrderedList className="ams-mb-m">
+            <OrderedList>
               <OrderedList.Item>Ontdek welke regelingen u hier kunt aanvragen.</OrderedList.Item>
               <OrderedList.Item>Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.</OrderedList.Item>
               <OrderedList.Item>Hierna moet u inloggen met uw DigiD.</OrderedList.Item>
             </OrderedList>
             {/* A prominent call to action for the main task on the page. */}
-            <CallToActionLink className="ams-mb-xl" href="#">
-              Start de check en vraag aan
-            </CallToActionLink>
+            <CallToActionLink href="#">Start de check en vraag aan</CallToActionLink>
 
-            <Heading className="ams-mb-s" level={2}>
-              Geen DigiD?
-            </Heading>
-            <UnorderedList className="ams-mb-xl">
+            <Heading level={2}>Geen DigiD?</Heading>
+            <UnorderedList>
               <UnorderedList.Item>
                 Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigiD aan.
               </UnorderedList.Item>
@@ -123,46 +119,36 @@ const meta = {
               </UnorderedList.Item>
             </UnorderedList>
 
-            <Heading className="ams-mb-s" level={2}>
-              Vragen?
-            </Heading>
-            <UnorderedList className="ams-mb-xl">
+            <Heading level={2}>Vragen?</Heading>
+            <UnorderedList>
               <UnorderedList.Item>Bel ons op 020 252 6000.</UnorderedList.Item>
               <UnorderedList.Item>Hulp nodig bij het aanvragen? Ga naar Buurtteam Amsterdam.</UnorderedList.Item>
             </UnorderedList>
 
-            <Heading className="ams-mb-s" level={2}>
-              Zo lang duurt het
-            </Heading>
-            <Paragraph className="ams-mb-xl">
+            <Heading level={2}>Zo lang duurt het</Heading>
+            <Paragraph>
               Na de aanvraag krijgt u binnen 8 weken een reactie. We vertellen u dan of u recht hebt op de regeling of
               niet. Het kan dus even duren voor u van ons hoort.
             </Paragraph>
 
-            <Heading className="ams-mb-s" level={2}>
-              Zonder computerles geen laptop
-            </Heading>
-            <Paragraph className="ams-mb-xl">
+            <Heading level={2}>Zonder computerles geen laptop</Heading>
+            <Paragraph>
               Als uw kind recht heeft op een laptop, moet het een computerles volgen. De les is verplicht, ook als uw
               kind in het verleden al zo’n les heeft gedaan.
             </Paragraph>
 
-            <Heading className="ams-mb-s" level={2}>
-              Maak binnen 2 weken een afspraak
-            </Heading>
-            <Paragraph className="ams-mb-m">
+            <Heading level={2}>Maak binnen 2 weken een afspraak</Heading>
+            <Paragraph>
               U krijgt een brief met een aanmeldcode om aan te melden en een afspraak te maken. Bewaar deze brief goed.
               Ga naar <Link href="#">Aanmelden Cyberschool</Link>. Vul de aanmeldcode in en kies zelf uw stadsdeel,
               datum en tijd. U hebt een e-mailadres of telefoonnummer nodig. U krijgt een bevestiging van uw afspraak.
             </Paragraph>
-            <Paragraph className="ams-mb-xl">
+            <Paragraph>
               Als u geen afspraak maakt, deelt de gemeente u in. U krijgt dan wel een uitnodiging. Na de computerles
               krijgt u een code om in de webshop een laptop of tablet uit te kiezen.
             </Paragraph>
 
-            <Heading className="ams-mb-s" level={2}>
-              Afspraak aanpassen
-            </Heading>
+            <Heading level={2}>Afspraak aanpassen</Heading>
             <Paragraph>
               Pas uw afspraak aan als u niet kunt of als u de les gemist heeft. Bel hiervoor met Cybersoek:{' '}
               <Link href="tel:+31206934582">020 6934 582</Link>.
@@ -212,9 +198,9 @@ export const Default: StoryObj = {
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       {/* The body sits in a narrower cell, indented one column on wider screens, for a comfortable reading measure. */}
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Heading className="ams-mb-s" level={2}>Voorwaarden</Heading>
-        <UnorderedList className="ams-mb-xl">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Heading level={2}>Voorwaarden</Heading>
+        <UnorderedList>
           <UnorderedList.Item>U woont in Amsterdam of Weesp.</UnorderedList.Item>
           <UnorderedList.Item>U heeft een <Link href="#">laag inkomen en weinig vermogen</Link>.</UnorderedList.Item>
           <UnorderedList.Item>U ontvangt kinderbijslag of pleegoudervergoeding voor uw kind.</UnorderedList.Item>
@@ -228,21 +214,21 @@ export const Default: StoryObj = {
           <UnorderedList.Item>Uw kind doet eerst een computercursus.</UnorderedList.Item>
         </UnorderedList>
 
-        <Heading className="ams-mb-s" level={2}>Aanvragen</Heading>
-        <Paragraph className="ams-mb-m">
+        <Heading level={2}>Aanvragen</Heading>
+        <Paragraph>
           Doe de check en kijk of u in aanmerking komt voor een gratis laptop of tablet voor uw kind of andere
           regelingen.
         </Paragraph>
-        <OrderedList className="ams-mb-m">
+        <OrderedList>
           <OrderedList.Item>Ontdek welke regelingen u hier kunt aanvragen.</OrderedList.Item>
           <OrderedList.Item>Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.</OrderedList.Item>
           <OrderedList.Item>Hierna moet u inloggen met uw DigiD.</OrderedList.Item>
         </OrderedList>
         {/* A prominent call to action for the main task on the page. */}
-        <CallToActionLink className="ams-mb-xl" href="#">Start de check en vraag aan</CallToActionLink>
+        <CallToActionLink href="#">Start de check en vraag aan</CallToActionLink>
 
-        <Heading className="ams-mb-s" level={2}>Geen DigiD?</Heading>
-        <UnorderedList className="ams-mb-xl">
+        <Heading level={2}>Geen DigiD?</Heading>
+        <UnorderedList>
           <UnorderedList.Item>Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigiD aan.</UnorderedList.Item>
           <UnorderedList.Item>
             {/*
@@ -259,37 +245,37 @@ export const Default: StoryObj = {
           </UnorderedList.Item>
         </UnorderedList>
 
-        <Heading className="ams-mb-s" level={2}>Vragen?</Heading>
-        <UnorderedList className="ams-mb-xl">
+        <Heading level={2}>Vragen?</Heading>
+        <UnorderedList>
           <UnorderedList.Item>Bel ons op 020 252 6000.</UnorderedList.Item>
           <UnorderedList.Item>Hulp nodig bij het aanvragen? Ga naar Buurtteam Amsterdam.</UnorderedList.Item>
         </UnorderedList>
 
-        <Heading className="ams-mb-s" level={2}>Zo lang duurt het</Heading>
-        <Paragraph className="ams-mb-xl">
+        <Heading level={2}>Zo lang duurt het</Heading>
+        <Paragraph>
           Na de aanvraag krijgt u binnen 8 weken een reactie. We vertellen u dan of u recht hebt op de regeling
           of niet. Het kan dus even duren voor u van ons hoort.
         </Paragraph>
 
-        <Heading className="ams-mb-s" level={2}>Zonder computerles geen laptop</Heading>
-        <Paragraph className="ams-mb-xl">
+        <Heading level={2}>Zonder computerles geen laptop</Heading>
+        <Paragraph>
           Als uw kind recht heeft op een laptop, moet het een computerles volgen. De les is verplicht, ook als
           uw kind in het verleden al zo’n les heeft gedaan.
         </Paragraph>
 
-        <Heading className="ams-mb-s" level={2}>Maak binnen 2 weken een afspraak</Heading>
-        <Paragraph className="ams-mb-m">
+        <Heading level={2}>Maak binnen 2 weken een afspraak</Heading>
+        <Paragraph>
           U krijgt een brief met een aanmeldcode om aan te melden en een afspraak te maken. Bewaar deze brief
           goed. Ga naar <Link href="#">Aanmelden Cyberschool</Link>. Vul de aanmeldcode in en kies zelf uw
           stadsdeel, datum en tijd. U hebt een e-mailadres of telefoonnummer nodig. U krijgt een bevestiging
           van uw afspraak.
         </Paragraph>
-        <Paragraph className="ams-mb-xl">
+        <Paragraph>
           Als u geen afspraak maakt, deelt de gemeente u in. U krijgt dan wel een uitnodiging. Na de
           computerles krijgt u een code om in de webshop een laptop of tablet uit te kiezen.
         </Paragraph>
 
-        <Heading className="ams-mb-s" level={2}>Afspraak aanpassen</Heading>
+        <Heading level={2}>Afspraak aanpassen</Heading>
         <Paragraph>
           Pas uw afspraak aan als u niet kunt of als u de les gemist heeft. Bel hiervoor met Cybersoek:{' '}
           <Link href="tel:+31206934582">020 6934 582</Link>.
