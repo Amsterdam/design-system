@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">61/107 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">71/107 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">3/126 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">117 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">61/107 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">71/107 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">3/127 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">117 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -17486,7 +17486,7 @@ A wide window shows both navigations, so give one of the two another name.
       <div class="badges">
         <label for="c-64-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-64-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-64-pages-public-navigation-page-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-64-pages-public-navigation-page-stories" class="badge ok as-toggle">6 stories</label>
         <label for="c-64-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -17512,13 +17512,13 @@ A wide window shows both navigations, so give one of the two another name.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  31 | import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
-  32 |
-&gt; 33 | const meta = {
+  33 | import { burgerzakenLinks, parkerenLinks, persons, shopGroups, shopLocations, topTaskLinks } from &#39;./data&#39;
+  34 |
+&gt; 35 | const meta = {
      | ^
-  34 |   ...commonMeta,
-  35 |   title: &#39;Pages/Public/Navigation Page&#39;,
-  36 | } satisfies Meta
+  36 |   ...commonMeta,
+  37 |   title: &#39;Pages/Public/Navigation Page&#39;,
+  38 | } satisfies Meta
 
 ./src/pages/public/NavigationPage/NavigationPage.stories.tsx:
 /**
@@ -17530,6 +17530,7 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import {
   Breadcrumb,
+  Button,
   Card,
   Grid,
   Heading,
@@ -17540,6 +17541,7 @@ import {
   SearchField,
   Spotlight,
   StandaloneLink,
+  TableOfContents,
   UnorderedList,
 } from &#39;@amsterdam/design-system-react&#39;
 
@@ -17551,7 +17553,7 @@ import {
 } from &#39;#storybook/_common/exampleContent&#39;
 
 import { commonMeta } from &#39;../common/commonMeta&#39;
-import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
+import { burgerzakenLinks, parkerenLinks, persons, shopGroups, shopLocations, topTaskLinks } from &#39;./data&#39;
 
 const meta = {
   ...commonMeta,
@@ -17583,7 +17585,7 @@ export const Default: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 &lt;&gt;
-  {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Breadcrumb&gt;
@@ -17628,7 +17630,7 @@ export const Default: StoryObj = {
   render: (args) =&gt; (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     &lt;&gt;
-      {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Breadcrumb&gt;
@@ -17682,7 +17684,7 @@ export const WithTopTasks: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 &lt;&gt;
-  {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Breadcrumb&gt;
@@ -17738,7 +17740,7 @@ export const WithTopTasks: StoryObj = {
   render: (args) =&gt; (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     &lt;&gt;
-      {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Breadcrumb&gt;
@@ -17803,7 +17805,7 @@ export const WithInteractiveElement: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 &lt;&gt;
-  {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Breadcrumb&gt;
@@ -17880,7 +17882,7 @@ export const WithInteractiveElement: StoryObj = {
   render: (args) =&gt; (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     &lt;&gt;
-      {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Breadcrumb&gt;
@@ -17970,7 +17972,7 @@ export const WithImageGallery: StoryObj = {
         // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
         // patterns read the way a developer would write them.
         code: `&lt;&gt;
-  {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Breadcrumb&gt;
@@ -18107,7 +18109,7 @@ export const WithImageGallery: StoryObj = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
-      {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Breadcrumb&gt;
@@ -18181,7 +18183,7 @@ export const WithImageGallery: StoryObj = {
               Coalitieakkoord
             &lt;/Heading&gt;
             &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
-              In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026.
+              In dit akkoord staan de plannen en visie van de coalitie PvdA, GroenLinks en D66 voor 2022-2026.
             &lt;/Paragraph&gt;
             &lt;StandaloneLink href=&quot;#&quot;&gt;Coalitieakkoord en Uitvoeringsagenda&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
@@ -18280,6 +18282,225 @@ export const WithImageGallery: StoryObj = {
   ),
 }
 
+const currentShop = shopGroups[0].shops[0]
+
+export const WithSideNavigation: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` patterns read
+        // the way a developer would write them.
+        code: `// currentShop is the shop on screen: it titles the section and marks that entry in the navigation.
+
+&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Waar te gebruiken&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Winkels&lt;/Heading&gt;
+      &lt;Paragraph size=&quot;large&quot;&gt;
+        Alle winkels met een fysiek adres vindt u op de kaart en in de lijst. Webshops vindt u alleen in de lijst.
+      &lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+    {/* Inside the Grid, the map lines up with the sections around it instead of spanning the full Page width. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to the map’s 4:3. */}
+      {/* This image carries no information the text does not, so it takes an empty alt. */}
+      &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/1040/780&quot; /&gt;
+    &lt;/Grid.Cell&gt;
+    {/*
+     * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+     * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
+     */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      {/*
+       * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
+       * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
+       * undefined, which drops the attribute.
+       */}
+      {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+      &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
+        &lt;TableOfContents.List defaultExpanded&gt;
+          {shopGroups.map(({ heading, shops }) =&gt; (
+            &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
+              &lt;TableOfContents.List&gt;
+                {shops.map((shop) =&gt; (
+                  &lt;TableOfContents.Link
+                    aria-current={shop === currentShop ? &#39;page&#39; : undefined}
+                    href=&quot;#&quot;
+                    key={shop}
+                    label={shop}
+                  /&gt;
+                ))}
+              &lt;/TableOfContents.List&gt;
+            &lt;/TableOfContents.Link&gt;
+          ))}
+        &lt;/TableOfContents.List&gt;
+      &lt;/TableOfContents&gt;
+    &lt;/Grid.Cell&gt;
+    {/*
+     * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+     * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+     * the navigation beside it needs no row span and the page fits any number of them.
+     */}
+    {/*
+     * The entry on screen is the main content; the navigation that switches between entries is not, so
+     * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+     * landmark, which is the trade-off for keeping the navigation out of it.
+     */}
+    {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+    &lt;Grid.Subgrid
+      as=&quot;main&quot;
+      id=&quot;inhoud&quot;
+      span={{ narrow: 4, medium: 8, wide: 8 }}
+      start={{ narrow: 1, medium: 1, wide: 5 }}
+    &gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      {shopLocations.map(({ postalCode, street }) =&gt; (
+        &lt;Grid.Cell key={street} span={4}&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+            {street}
+            &lt;br /&gt;
+            {postalCode} Amsterdam
+          &lt;/Paragraph&gt;
+          {/*
+           * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+           * hidden address extends each accessible name. It follows the visible label rather than
+           * interrupting it, which keeps that label a contiguous part of the name for speech input.
+           */}
+          &lt;Button variant=&quot;secondary&quot;&gt;
+            Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+          &lt;/Button&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid.Subgrid&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+    // This story overrides the single Skip Link of the shared Page Layout: a reader may want to reach either
+    // the navigation or the entry it selects. Each targetId matches an id in the story below.
+    skipLinks: [
+      { label: &#39;Direct naar de deelnemende winkels&#39;, targetId: &#39;deelnemende-winkels&#39; },
+      { label: &#39;Direct naar inhoud&#39;, targetId: &#39;inhoud&#39; },
+    ],
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    // currentShop is the shop on screen: it titles the section and marks that entry in the navigation.
+    &lt;&gt;
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+      &lt;Grid paddingTop=&quot;large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Breadcrumb&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Waar te gebruiken&lt;/Breadcrumb.Link&gt;
+          &lt;/Breadcrumb&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
+            Winkels
+          &lt;/Heading&gt;
+          &lt;Paragraph size=&quot;large&quot;&gt;
+            Alle winkels met een fysiek adres vindt u op de kaart en in de lijst. Webshops vindt u alleen in de lijst.
+          &lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+        {/* Inside the Grid, the map lines up with the sections around it instead of spanning the full Page width. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to the map’s 4:3. */}
+          {/* This image carries no information the text does not, so it takes an empty alt. */}
+          &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src={exampleImageSource(1040, 780)} /&gt;
+        &lt;/Grid.Cell&gt;
+        {/*
+         * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+         * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
+         */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/*
+           * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
+           * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
+           * undefined, which drops the attribute.
+           */}
+          {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+          &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
+            &lt;TableOfContents.List defaultExpanded&gt;
+              {shopGroups.map(({ heading, shops }) =&gt; (
+                &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
+                  &lt;TableOfContents.List&gt;
+                    {shops.map((shop) =&gt; (
+                      &lt;TableOfContents.Link
+                        aria-current={shop === currentShop ? &#39;page&#39; : undefined}
+                        href=&quot;#&quot;
+                        key={shop}
+                        label={shop}
+                      /&gt;
+                    ))}
+                  &lt;/TableOfContents.List&gt;
+                &lt;/TableOfContents.Link&gt;
+              ))}
+            &lt;/TableOfContents.List&gt;
+          &lt;/TableOfContents&gt;
+        &lt;/Grid.Cell&gt;
+        {/*
+         * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+         * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+         * the navigation beside it needs no row span and the page fits any number of them.
+         */}
+        {/*
+         * The entry on screen is the main content; the navigation that switches between entries is not, so
+         * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+         * landmark, which is the trade-off for keeping the navigation out of it.
+         */}
+        {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+        &lt;Grid.Subgrid
+          as=&quot;main&quot;
+          id=&quot;inhoud&quot;
+          span={{ narrow: 4, medium: 8, wide: 8 }}
+          start={{ narrow: 1, medium: 1, wide: 5 }}
+        &gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
+          &lt;/Grid.Cell&gt;
+          {shopLocations.map(({ postalCode, street }) =&gt; (
+            &lt;Grid.Cell key={street} span={4}&gt;
+              &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+                {street}
+                &lt;br /&gt;
+                {postalCode} Amsterdam
+              &lt;/Paragraph&gt;
+              {/*
+               * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+               * hidden address extends each accessible name. It follows the visible label rather than
+               * interrupting it, which keeps that label a contiguous part of the name for speech input.
+               */}
+              &lt;Button variant=&quot;secondary&quot;&gt;
+                Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+              &lt;/Button&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+        &lt;/Grid.Subgrid&gt;
+      &lt;/Grid&gt;
+    &lt;/&gt;
+  ),
+}
+
 export const SubnavigationPage: StoryObj = {
   parameters: {
     docs: {
@@ -18290,7 +18511,7 @@ export const SubnavigationPage: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 &lt;&gt;
-  {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Breadcrumb&gt;
@@ -18399,7 +18620,7 @@ export const SubnavigationPage: StoryObj = {
   render: (args) =&gt; (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     &lt;&gt;
-      {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Breadcrumb&gt;
@@ -18547,6 +18768,7 @@ export const SubnavigationPage: StoryObj = {
                 </div>
                 <pre><code>import {
     Breadcrumb,
+    Button,
     Card,
     Grid,
     Heading,
@@ -18557,6 +18779,7 @@ export const SubnavigationPage: StoryObj = {
     SearchField,
     Spotlight,
     StandaloneLink,
+    TableOfContents,
     UnorderedList,
 } from "@amsterdam/design-system-react";</code></pre>
               </div>
@@ -18572,7 +18795,7 @@ export const SubnavigationPage: StoryObj = {
               <pre><code>const Default = (args) =&gt; (
   // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
   (&lt;&gt;
-    {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Breadcrumb&gt;
@@ -18625,7 +18848,7 @@ export const SubnavigationPage: StoryObj = {
               <pre><code>const WithTopTasks = (args) =&gt; (
   // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
   (&lt;&gt;
-    {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Breadcrumb&gt;
@@ -18689,7 +18912,7 @@ export const SubnavigationPage: StoryObj = {
               <pre><code>const WithInteractiveElement = (args) =&gt; (
   // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
   (&lt;&gt;
-    {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Breadcrumb&gt;
@@ -18779,7 +19002,7 @@ export const SubnavigationPage: StoryObj = {
               
               <pre><code>const WithImageGallery = (args) =&gt; (
   &lt;&gt;
-    {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Breadcrumb&gt;
@@ -18853,7 +19076,7 @@ export const SubnavigationPage: StoryObj = {
             Coalitieakkoord
           &lt;/Heading&gt;
           &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
-            In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026.
+            In dit akkoord staan de plannen en visie van de coalitie PvdA, GroenLinks en D66 voor 2022-2026.
           &lt;/Paragraph&gt;
           &lt;StandaloneLink href=&quot;#&quot;&gt;Coalitieakkoord en Uitvoeringsagenda&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
@@ -18953,6 +19176,114 @@ export const SubnavigationPage: StoryObj = {
             </div>
             <div class="note ok">
               <div class="row">
+                <span class="ex-name">With Side Navigation</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithSideNavigation = (args) =&gt; (
+  // currentShop is the shop on screen: it titles the section and marks that entry in the navigation.
+  (&lt;&gt;
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+    &lt;Grid paddingTop=&quot;large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Breadcrumb&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Waar te gebruiken&lt;/Breadcrumb.Link&gt;
+        &lt;/Breadcrumb&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
+          Winkels
+        &lt;/Heading&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Alle winkels met een fysiek adres vindt u op de kaart en in de lijst. Webshops vindt u alleen in de lijst.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {/* Inside the Grid, the map lines up with the sections around it instead of spanning the full Page width. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to the map’s 4:3. */}
+        {/* This image carries no information the text does not, so it takes an empty alt. */}
+        &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src={exampleImageSource(1040, 780)} /&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+       * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
+       */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        {/*
+         * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
+         * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
+         * undefined, which drops the attribute.
+         */}
+        {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+        &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
+          &lt;TableOfContents.List defaultExpanded&gt;
+            {shopGroups.map(({ heading, shops }) =&gt; (
+              &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
+                &lt;TableOfContents.List&gt;
+                  {shops.map((shop) =&gt; (
+                    &lt;TableOfContents.Link
+                      aria-current={shop === currentShop ? &#39;page&#39; : undefined}
+                      href=&quot;#&quot;
+                      key={shop}
+                      label={shop}
+                    /&gt;
+                  ))}
+                &lt;/TableOfContents.List&gt;
+              &lt;/TableOfContents.Link&gt;
+            ))}
+          &lt;/TableOfContents.List&gt;
+        &lt;/TableOfContents&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+       * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+       * the navigation beside it needs no row span and the page fits any number of them.
+       */}
+      {/*
+       * The entry on screen is the main content; the navigation that switches between entries is not, so
+       * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+       * landmark, which is the trade-off for keeping the navigation out of it.
+       */}
+      {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+      &lt;Grid.Subgrid
+        as=&quot;main&quot;
+        id=&quot;inhoud&quot;
+        span={{ narrow: 4, medium: 8, wide: 8 }}
+        start={{ narrow: 1, medium: 1, wide: 5 }}
+      &gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        {shopLocations.map(({ postalCode, street }) =&gt; (
+          &lt;Grid.Cell key={street} span={4}&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              {street}
+              &lt;br /&gt;
+              {postalCode} Amsterdam
+            &lt;/Paragraph&gt;
+            {/*
+             * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+             * hidden address extends each accessible name. It follows the visible label rather than
+             * interrupting it, which keeps that label a contiguous part of the name for speech input.
+             */}
+            &lt;Button variant=&quot;secondary&quot;&gt;
+              Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+            &lt;/Button&gt;
+          &lt;/Grid.Cell&gt;
+        ))}
+      &lt;/Grid.Subgrid&gt;
+    &lt;/Grid&gt;
+  &lt;/&gt;)
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
                 <span class="ex-name">Subnavigation Page</span>
                 <span class="badge ok">story ok</span>
               </div>
@@ -18961,7 +19292,7 @@ export const SubnavigationPage: StoryObj = {
               <pre><code>const SubnavigationPage = (args) =&gt; (
   // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
   (&lt;&gt;
-    {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Breadcrumb&gt;
@@ -19130,6 +19461,38 @@ This schematic shows the default sections for this page type and how the grids a
 ## Spacing
 
 - Grids on this page type use the default x-large vertical gap.
+
+## With side navigation
+
+Use a side navigation when the page presents one entry from a long list, and visitors move between those entries without leaving the page.
+A [Table of Contents](/docs/components-navigation-table-of-contents--docs) is the navigation for this.
+Mark the entry on screen with `aria-current=&quot;page&quot;`, and set `defaultExpanded` on the outer list so its groups start open.
+
+Put the entry in a [Grid Subgrid](/docs/components-layout-grid--docs) rather than a Cell.
+A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
+It is a single item in the row of the Grid however many rows of its own it holds, so the navigation sits beside all of it and the entry can be any length.
+
+Give the navigation the first place in the source order, so it precedes the entry for a screen reader and for the Tab key.
+It only sits beside the entry on the wide grid; on narrower screens it spans the full width above it.
+
+Set `main` on the Subgrid rather than on the Grid around it.
+The navigation switches between entries and is a repeated block, so it does not belong to the main content area.
+This puts the page title outside the landmark, which is the trade-off for keeping the navigation out of it.
+
+Such a page has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
+Name each after the thing it reaches rather than numbering them.
+
+Because the entry’s parts each sit in their own Cell of the Subgrid, the space between them is the row gap.
+Leave the row gap of the Subgrid at the vertical gap of the Grid.
+That gap has no medium size, so the space below the entry’s heading is larger than the vertical space guide advises for a heading.
+Keep elements in one cell where you need the exact space between them.
+
+A map belongs on this page as an interactive component, not as an [Image](/docs/components-media-image--docs).
+Whichever you use, it needs a text alternative: here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
+
+Give a repeated action such as ‘Toon op de kaart’ a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on.
+Without it, every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
+Put the suffix after the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.
 </code></pre></div>
             </div>
         </div>
@@ -41938,7 +42301,7 @@ an inline `background-image` that no stylesheet can reach.</div>
       <div class="badges">
         <label for="c-error-38-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-38-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-38-pages-public-navigation-page-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-error-38-pages-public-navigation-page-stories" class="badge ok as-toggle">6 stories</label>
         <label for="c-error-38-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -41964,13 +42327,13 @@ an inline `background-image` that no stylesheet can reach.</div>
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  31 | import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
-  32 |
-&gt; 33 | const meta = {
+  33 | import { burgerzakenLinks, parkerenLinks, persons, shopGroups, shopLocations, topTaskLinks } from &#39;./data&#39;
+  34 |
+&gt; 35 | const meta = {
      | ^
-  34 |   ...commonMeta,
-  35 |   title: &#39;Pages/Public/Navigation Page&#39;,
-  36 | } satisfies Meta
+  36 |   ...commonMeta,
+  37 |   title: &#39;Pages/Public/Navigation Page&#39;,
+  38 | } satisfies Meta
 
 ./src/pages/public/NavigationPage/NavigationPage.stories.tsx:
 /**
@@ -41982,6 +42345,7 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import {
   Breadcrumb,
+  Button,
   Card,
   Grid,
   Heading,
@@ -41992,6 +42356,7 @@ import {
   SearchField,
   Spotlight,
   StandaloneLink,
+  TableOfContents,
   UnorderedList,
 } from &#39;@amsterdam/design-system-react&#39;
 
@@ -42003,7 +42368,7 @@ import {
 } from &#39;#storybook/_common/exampleContent&#39;
 
 import { commonMeta } from &#39;../common/commonMeta&#39;
-import { burgerzakenLinks, parkerenLinks, persons, topTaskLinks } from &#39;./data&#39;
+import { burgerzakenLinks, parkerenLinks, persons, shopGroups, shopLocations, topTaskLinks } from &#39;./data&#39;
 
 const meta = {
   ...commonMeta,
@@ -42035,7 +42400,7 @@ export const Default: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 &lt;&gt;
-  {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Breadcrumb&gt;
@@ -42080,7 +42445,7 @@ export const Default: StoryObj = {
   render: (args) =&gt; (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     &lt;&gt;
-      {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Breadcrumb&gt;
@@ -42134,7 +42499,7 @@ export const WithTopTasks: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 &lt;&gt;
-  {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Breadcrumb&gt;
@@ -42190,7 +42555,7 @@ export const WithTopTasks: StoryObj = {
   render: (args) =&gt; (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     &lt;&gt;
-      {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Breadcrumb&gt;
@@ -42255,7 +42620,7 @@ export const WithInteractiveElement: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 &lt;&gt;
-  {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Breadcrumb&gt;
@@ -42332,7 +42697,7 @@ export const WithInteractiveElement: StoryObj = {
   render: (args) =&gt; (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     &lt;&gt;
-      {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Breadcrumb&gt;
@@ -42422,7 +42787,7 @@ export const WithImageGallery: StoryObj = {
         // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` and `getLinks`
         // patterns read the way a developer would write them.
         code: `&lt;&gt;
-  {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Breadcrumb&gt;
@@ -42559,7 +42924,7 @@ export const WithImageGallery: StoryObj = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
     &lt;&gt;
-      {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Breadcrumb&gt;
@@ -42633,7 +42998,7 @@ export const WithImageGallery: StoryObj = {
               Coalitieakkoord
             &lt;/Heading&gt;
             &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
-              In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026.
+              In dit akkoord staan de plannen en visie van de coalitie PvdA, GroenLinks en D66 voor 2022-2026.
             &lt;/Paragraph&gt;
             &lt;StandaloneLink href=&quot;#&quot;&gt;Coalitieakkoord en Uitvoeringsagenda&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
@@ -42732,6 +43097,225 @@ export const WithImageGallery: StoryObj = {
   ),
 }
 
+const currentShop = shopGroups[0].shops[0]
+
+export const WithSideNavigation: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
+        // JSX comments disappear and every `map` is expanded. Provide the source by hand so the `map` patterns read
+        // the way a developer would write them.
+        code: `// currentShop is the shop on screen: it titles the section and marks that entry in the navigation.
+
+&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Waar te gebruiken&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Winkels&lt;/Heading&gt;
+      &lt;Paragraph size=&quot;large&quot;&gt;
+        Alle winkels met een fysiek adres vindt u op de kaart en in de lijst. Webshops vindt u alleen in de lijst.
+      &lt;/Paragraph&gt;
+    &lt;/Grid.Cell&gt;
+    {/* Inside the Grid, the map lines up with the sections around it instead of spanning the full Page width. */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to the map’s 4:3. */}
+      {/* This image carries no information the text does not, so it takes an empty alt. */}
+      &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src=&quot;https://picsum.photos/1040/780&quot; /&gt;
+    &lt;/Grid.Cell&gt;
+    {/*
+     * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+     * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
+     */}
+    &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      {/*
+       * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
+       * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
+       * undefined, which drops the attribute.
+       */}
+      {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+      &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
+        &lt;TableOfContents.List defaultExpanded&gt;
+          {shopGroups.map(({ heading, shops }) =&gt; (
+            &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
+              &lt;TableOfContents.List&gt;
+                {shops.map((shop) =&gt; (
+                  &lt;TableOfContents.Link
+                    aria-current={shop === currentShop ? &#39;page&#39; : undefined}
+                    href=&quot;#&quot;
+                    key={shop}
+                    label={shop}
+                  /&gt;
+                ))}
+              &lt;/TableOfContents.List&gt;
+            &lt;/TableOfContents.Link&gt;
+          ))}
+        &lt;/TableOfContents.List&gt;
+      &lt;/TableOfContents&gt;
+    &lt;/Grid.Cell&gt;
+    {/*
+     * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+     * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+     * the navigation beside it needs no row span and the page fits any number of them.
+     */}
+    {/*
+     * The entry on screen is the main content; the navigation that switches between entries is not, so
+     * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+     * landmark, which is the trade-off for keeping the navigation out of it.
+     */}
+    {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+    &lt;Grid.Subgrid
+      as=&quot;main&quot;
+      id=&quot;inhoud&quot;
+      span={{ narrow: 4, medium: 8, wide: 8 }}
+      start={{ narrow: 1, medium: 1, wide: 5 }}
+    &gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
+      &lt;/Grid.Cell&gt;
+      {shopLocations.map(({ postalCode, street }) =&gt; (
+        &lt;Grid.Cell key={street} span={4}&gt;
+          &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+            {street}
+            &lt;br /&gt;
+            {postalCode} Amsterdam
+          &lt;/Paragraph&gt;
+          {/*
+           * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+           * hidden address extends each accessible name. It follows the visible label rather than
+           * interrupting it, which keeps that label a contiguous part of the name for speech input.
+           */}
+          &lt;Button variant=&quot;secondary&quot;&gt;
+            Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+          &lt;/Button&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid.Subgrid&gt;
+  &lt;/Grid&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+    // This story overrides the single Skip Link of the shared Page Layout: a reader may want to reach either
+    // the navigation or the entry it selects. Each targetId matches an id in the story below.
+    skipLinks: [
+      { label: &#39;Direct naar de deelnemende winkels&#39;, targetId: &#39;deelnemende-winkels&#39; },
+      { label: &#39;Direct naar inhoud&#39;, targetId: &#39;inhoud&#39; },
+    ],
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: (args) =&gt; (
+    // currentShop is the shop on screen: it titles the section and marks that entry in the navigation.
+    &lt;&gt;
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+      &lt;Grid paddingTop=&quot;large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Breadcrumb&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Waar te gebruiken&lt;/Breadcrumb.Link&gt;
+          &lt;/Breadcrumb&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
+            Winkels
+          &lt;/Heading&gt;
+          &lt;Paragraph size=&quot;large&quot;&gt;
+            Alle winkels met een fysiek adres vindt u op de kaart en in de lijst. Webshops vindt u alleen in de lijst.
+          &lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+        {/* Inside the Grid, the map lines up with the sections around it instead of spanning the full Page width. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to the map’s 4:3. */}
+          {/* This image carries no information the text does not, so it takes an empty alt. */}
+          &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src={exampleImageSource(1040, 780)} /&gt;
+        &lt;/Grid.Cell&gt;
+        {/*
+         * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+         * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
+         */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          {/*
+           * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
+           * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
+           * undefined, which drops the attribute.
+           */}
+          {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+          &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
+            &lt;TableOfContents.List defaultExpanded&gt;
+              {shopGroups.map(({ heading, shops }) =&gt; (
+                &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
+                  &lt;TableOfContents.List&gt;
+                    {shops.map((shop) =&gt; (
+                      &lt;TableOfContents.Link
+                        aria-current={shop === currentShop ? &#39;page&#39; : undefined}
+                        href=&quot;#&quot;
+                        key={shop}
+                        label={shop}
+                      /&gt;
+                    ))}
+                  &lt;/TableOfContents.List&gt;
+                &lt;/TableOfContents.Link&gt;
+              ))}
+            &lt;/TableOfContents.List&gt;
+          &lt;/TableOfContents&gt;
+        &lt;/Grid.Cell&gt;
+        {/*
+         * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+         * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+         * the navigation beside it needs no row span and the page fits any number of them.
+         */}
+        {/*
+         * The entry on screen is the main content; the navigation that switches between entries is not, so
+         * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+         * landmark, which is the trade-off for keeping the navigation out of it.
+         */}
+        {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+        &lt;Grid.Subgrid
+          as=&quot;main&quot;
+          id=&quot;inhoud&quot;
+          span={{ narrow: 4, medium: 8, wide: 8 }}
+          start={{ narrow: 1, medium: 1, wide: 5 }}
+        &gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
+          &lt;/Grid.Cell&gt;
+          {shopLocations.map(({ postalCode, street }) =&gt; (
+            &lt;Grid.Cell key={street} span={4}&gt;
+              &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+                {street}
+                &lt;br /&gt;
+                {postalCode} Amsterdam
+              &lt;/Paragraph&gt;
+              {/*
+               * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+               * hidden address extends each accessible name. It follows the visible label rather than
+               * interrupting it, which keeps that label a contiguous part of the name for speech input.
+               */}
+              &lt;Button variant=&quot;secondary&quot;&gt;
+                Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+              &lt;/Button&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+        &lt;/Grid.Subgrid&gt;
+      &lt;/Grid&gt;
+    &lt;/&gt;
+  ),
+}
+
 export const SubnavigationPage: StoryObj = {
   parameters: {
     docs: {
@@ -42742,7 +43326,7 @@ export const SubnavigationPage: StoryObj = {
         code: `// getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
 
 &lt;&gt;
-  {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
   &lt;Grid paddingTop=&quot;large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Breadcrumb&gt;
@@ -42851,7 +43435,7 @@ export const SubnavigationPage: StoryObj = {
   render: (args) =&gt; (
     // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
     &lt;&gt;
-      {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
       &lt;Grid paddingTop=&quot;large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Breadcrumb&gt;
@@ -42999,6 +43583,7 @@ export const SubnavigationPage: StoryObj = {
                 </div>
                 <pre><code>import {
     Breadcrumb,
+    Button,
     Card,
     Grid,
     Heading,
@@ -43009,6 +43594,7 @@ export const SubnavigationPage: StoryObj = {
     SearchField,
     Spotlight,
     StandaloneLink,
+    TableOfContents,
     UnorderedList,
 } from "@amsterdam/design-system-react";</code></pre>
               </div>
@@ -43024,7 +43610,7 @@ export const SubnavigationPage: StoryObj = {
               <pre><code>const Default = (args) =&gt; (
   // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
   (&lt;&gt;
-    {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Breadcrumb&gt;
@@ -43077,7 +43663,7 @@ export const SubnavigationPage: StoryObj = {
               <pre><code>const WithTopTasks = (args) =&gt; (
   // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
   (&lt;&gt;
-    {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Breadcrumb&gt;
@@ -43141,7 +43727,7 @@ export const SubnavigationPage: StoryObj = {
               <pre><code>const WithInteractiveElement = (args) =&gt; (
   // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
   (&lt;&gt;
-    {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Breadcrumb&gt;
@@ -43231,7 +43817,7 @@ export const SubnavigationPage: StoryObj = {
               
               <pre><code>const WithImageGallery = (args) =&gt; (
   &lt;&gt;
-    {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Breadcrumb&gt;
@@ -43305,7 +43891,7 @@ export const SubnavigationPage: StoryObj = {
             Coalitieakkoord
           &lt;/Heading&gt;
           &lt;Paragraph className=&quot;ams-mb-s&quot;&gt;
-            In dit akkoord staan de plannen en visie van de coalitie Pvda, GroenLinks en D66 voor 2022-2026.
+            In dit akkoord staan de plannen en visie van de coalitie PvdA, GroenLinks en D66 voor 2022-2026.
           &lt;/Paragraph&gt;
           &lt;StandaloneLink href=&quot;#&quot;&gt;Coalitieakkoord en Uitvoeringsagenda&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
@@ -43405,6 +43991,114 @@ export const SubnavigationPage: StoryObj = {
             </div>
             <div class="note ok">
               <div class="row">
+                <span class="ex-name">With Side Navigation</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithSideNavigation = (args) =&gt; (
+  // currentShop is the shop on screen: it titles the section and marks that entry in the navigation.
+  (&lt;&gt;
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+    &lt;Grid paddingTop=&quot;large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Breadcrumb&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Waar te gebruiken&lt;/Breadcrumb.Link&gt;
+        &lt;/Breadcrumb&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
+          Winkels
+        &lt;/Heading&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Alle winkels met een fysiek adres vindt u op de kaart en in de lijst. Webshops vindt u alleen in de lijst.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {/* Inside the Grid, the map lines up with the sections around it instead of spanning the full Page width. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        {/* Image always reserves its box; aspectRatio only changes it from the default 16:9 to the map’s 4:3. */}
+        {/* This image carries no information the text does not, so it takes an empty alt. */}
+        &lt;Image alt=&quot;&quot; aspectRatio=&quot;4:3&quot; src={exampleImageSource(1040, 780)} /&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * The navigation comes first in source, so it precedes the content in the reading and tab order. It
+       * only sits beside the content on the wide grid; on narrower screens it spans the full width above it.
+       */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        {/*
+         * collapsible is the capability and defaultExpanded the initial state; set on the outer list, every
+         * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
+         * undefined, which drops the attribute.
+         */}
+        {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+        &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
+          &lt;TableOfContents.List defaultExpanded&gt;
+            {shopGroups.map(({ heading, shops }) =&gt; (
+              &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
+                &lt;TableOfContents.List&gt;
+                  {shops.map((shop) =&gt; (
+                    &lt;TableOfContents.Link
+                      aria-current={shop === currentShop ? &#39;page&#39; : undefined}
+                      href=&quot;#&quot;
+                      key={shop}
+                      label={shop}
+                    /&gt;
+                  ))}
+                &lt;/TableOfContents.List&gt;
+              &lt;/TableOfContents.Link&gt;
+            ))}
+          &lt;/TableOfContents.List&gt;
+        &lt;/TableOfContents&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * A Subgrid hands the columns it spans to its own children, so the Cells inside it are placed on the
+       * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
+       * the navigation beside it needs no row span and the page fits any number of them.
+       */}
+      {/*
+       * The entry on screen is the main content; the navigation that switches between entries is not, so
+       * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+       * landmark, which is the trade-off for keeping the navigation out of it.
+       */}
+      {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+      &lt;Grid.Subgrid
+        as=&quot;main&quot;
+        id=&quot;inhoud&quot;
+        span={{ narrow: 4, medium: 8, wide: 8 }}
+        start={{ narrow: 1, medium: 1, wide: 5 }}
+      &gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        {shopLocations.map(({ postalCode, street }) =&gt; (
+          &lt;Grid.Cell key={street} span={4}&gt;
+            &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;
+              {street}
+              &lt;br /&gt;
+              {postalCode} Amsterdam
+            &lt;/Paragraph&gt;
+            {/*
+             * Six buttons reading ‘Toon op de kaart’ are indistinguishable in a list of buttons, so a visually
+             * hidden address extends each accessible name. It follows the visible label rather than
+             * interrupting it, which keeps that label a contiguous part of the name for speech input.
+             */}
+            &lt;Button variant=&quot;secondary&quot;&gt;
+              Toon op de kaart&lt;span className=&quot;ams-visually-hidden&quot;&gt;, {street}&lt;/span&gt;
+            &lt;/Button&gt;
+          &lt;/Grid.Cell&gt;
+        ))}
+      &lt;/Grid.Subgrid&gt;
+    &lt;/Grid&gt;
+  &lt;/&gt;)
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
                 <span class="ex-name">Subnavigation Page</span>
                 <span class="badge ok">story ok</span>
               </div>
@@ -43413,7 +44107,7 @@ export const SubnavigationPage: StoryObj = {
               <pre><code>const SubnavigationPage = (args) =&gt; (
   // getLinks shows a single StandaloneLink when a group has one link, or a LinkList when it has several.
   (&lt;&gt;
-    {/* Public page templates keep the Breadcrumb in its own Grid above &lt;main&gt;, so its nav sits outside it. */}
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
     &lt;Grid paddingTop=&quot;large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Breadcrumb&gt;
@@ -43582,6 +44276,38 @@ This schematic shows the default sections for this page type and how the grids a
 ## Spacing
 
 - Grids on this page type use the default x-large vertical gap.
+
+## With side navigation
+
+Use a side navigation when the page presents one entry from a long list, and visitors move between those entries without leaving the page.
+A [Table of Contents](/docs/components-navigation-table-of-contents--docs) is the navigation for this.
+Mark the entry on screen with `aria-current=&quot;page&quot;`, and set `defaultExpanded` on the outer list so its groups start open.
+
+Put the entry in a [Grid Subgrid](/docs/components-layout-grid--docs) rather than a Cell.
+A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
+It is a single item in the row of the Grid however many rows of its own it holds, so the navigation sits beside all of it and the entry can be any length.
+
+Give the navigation the first place in the source order, so it precedes the entry for a screen reader and for the Tab key.
+It only sits beside the entry on the wide grid; on narrower screens it spans the full width above it.
+
+Set `main` on the Subgrid rather than on the Grid around it.
+The navigation switches between entries and is a repeated block, so it does not belong to the main content area.
+This puts the page title outside the landmark, which is the trade-off for keeping the navigation out of it.
+
+Such a page has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
+Name each after the thing it reaches rather than numbering them.
+
+Because the entry’s parts each sit in their own Cell of the Subgrid, the space between them is the row gap.
+Leave the row gap of the Subgrid at the vertical gap of the Grid.
+That gap has no medium size, so the space below the entry’s heading is larger than the vertical space guide advises for a heading.
+Keep elements in one cell where you need the exact space between them.
+
+A map belongs on this page as an interactive component, not as an [Image](/docs/components-media-image--docs).
+Whichever you use, it needs a text alternative: here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
+
+Give a repeated action such as ‘Toon op de kaart’ a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on.
+Without it, every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
+Put the suffix after the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.
 </code></pre></div>
             </div>
         </div>
