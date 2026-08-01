@@ -91,7 +91,8 @@ The back link keeps the regular `x-large` between itself and the section that fo
 
 The Grid that follows the Breadcrumb holds the Content Header: the page title, an optional Metadata Paragraph, and the lead paragraph.
 It has no `paddingTop`, so that the breadcrumb and the page title read as a single block.
-For the space between those three, see [vertical space](/docs/docs-designer-guide-vertical-space--docs).
+Its Cell carries the [Prose](/docs/utilities-css-prose--docs) utility class, which spaces those three as [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommends.
+The body Cells of these templates use it too, so a page template sets no bottom margins of its own within a Cell.
 
 Its `paddingBottom` depends on the section below it.
 A section on the regular background of the page takes `2x-large`, which sets the Content Header apart from the body that follows.
