@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -18299,13 +18299,7 @@ export const WithSideNavigation: StoryObj = {
   &lt;/Grid&gt;
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  {/*
-   * The side navigation switches between the entries this page shows, so it belongs to the main content
-   * and the Grid itself is that region. The Handbook Page keeps its Table of Contents in a Grid Cell
-   * outside &lt;main&gt;, because that one moves between the pages of a document.
-   */}
-  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;2x-large&quot;&gt;
+  &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Winkels&lt;/Heading&gt;
       &lt;Paragraph size=&quot;large&quot;&gt;
@@ -18328,7 +18322,8 @@ export const WithSideNavigation: StoryObj = {
        * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
        * undefined, which drops the attribute.
        */}
-      &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot;&gt;
+      {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+      &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
         &lt;TableOfContents.List defaultExpanded&gt;
           {shopGroups.map(({ heading, shops }) =&gt; (
             &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
@@ -18352,7 +18347,18 @@ export const WithSideNavigation: StoryObj = {
      * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
      * the navigation beside it needs no row span and the page fits any number of them.
      */}
-    &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+    {/*
+     * The entry on screen is the main content; the navigation that switches between entries is not, so
+     * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+     * landmark, which is the trade-off for keeping the navigation out of it.
+     */}
+    {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+    &lt;Grid.Subgrid
+      as=&quot;main&quot;
+      id=&quot;inhoud&quot;
+      span={{ narrow: 4, medium: 8, wide: 8 }}
+      start={{ narrow: 1, medium: 1, wide: 5 }}
+    &gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
         &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
@@ -18379,6 +18385,12 @@ export const WithSideNavigation: StoryObj = {
         language: &#39;tsx&#39;,
       },
     },
+    // This story overrides the single Skip Link of the shared Page Layout: a reader may want to reach either
+    // the navigation or the entry it selects. Each targetId matches an id in the story below.
+    skipLinks: [
+      { label: &#39;Direct naar de deelnemende winkels&#39;, targetId: &#39;deelnemende-winkels&#39; },
+      { label: &#39;Direct naar inhoud&#39;, targetId: &#39;inhoud&#39; },
+    ],
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
@@ -18395,13 +18407,7 @@ export const WithSideNavigation: StoryObj = {
       &lt;/Grid&gt;
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-      {/*
-       * The side navigation switches between the entries this page shows, so it belongs to the main content
-       * and the Grid itself is that region. The Handbook Page keeps its Table of Contents in a Grid Cell
-       * outside &lt;main&gt;, because that one moves between the pages of a document.
-       */}
-      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-      &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;2x-large&quot;&gt;
+      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
             Winkels
@@ -18426,7 +18432,8 @@ export const WithSideNavigation: StoryObj = {
            * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
            * undefined, which drops the attribute.
            */}
-          &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot;&gt;
+          {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+          &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
             &lt;TableOfContents.List defaultExpanded&gt;
               {shopGroups.map(({ heading, shops }) =&gt; (
                 &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
@@ -18450,7 +18457,18 @@ export const WithSideNavigation: StoryObj = {
          * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
          * the navigation beside it needs no row span and the page fits any number of them.
          */}
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+        {/*
+         * The entry on screen is the main content; the navigation that switches between entries is not, so
+         * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+         * landmark, which is the trade-off for keeping the navigation out of it.
+         */}
+        {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+        &lt;Grid.Subgrid
+          as=&quot;main&quot;
+          id=&quot;inhoud&quot;
+          span={{ narrow: 4, medium: 8, wide: 8 }}
+          start={{ narrow: 1, medium: 1, wide: 5 }}
+        &gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
             &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -19171,13 +19189,7 @@ export const SubnavigationPage: StoryObj = {
     &lt;/Grid&gt;
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-    {/*
-     * The side navigation switches between the entries this page shows, so it belongs to the main content
-     * and the Grid itself is that region. The Handbook Page keeps its Table of Contents in a Grid Cell
-     * outside &lt;main&gt;, because that one moves between the pages of a document.
-     */}
-    {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-    &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
           Winkels
@@ -19202,7 +19214,8 @@ export const SubnavigationPage: StoryObj = {
          * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
          * undefined, which drops the attribute.
          */}
-        &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot;&gt;
+        {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+        &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
           &lt;TableOfContents.List defaultExpanded&gt;
             {shopGroups.map(({ heading, shops }) =&gt; (
               &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
@@ -19226,7 +19239,18 @@ export const SubnavigationPage: StoryObj = {
        * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
        * the navigation beside it needs no row span and the page fits any number of them.
        */}
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+      {/*
+       * The entry on screen is the main content; the navigation that switches between entries is not, so
+       * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+       * landmark, which is the trade-off for keeping the navigation out of it.
+       */}
+      {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+      &lt;Grid.Subgrid
+        as=&quot;main&quot;
+        id=&quot;inhoud&quot;
+        span={{ narrow: 4, medium: 8, wide: 8 }}
+        start={{ narrow: 1, medium: 1, wide: 5 }}
+      &gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
           &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -19444,6 +19468,13 @@ It is a single item in the row of the Grid however many rows of its own it holds
 
 Give the navigation the first place in the source order, so it precedes the entry for a screen reader and for the Tab key.
 It only sits beside the entry on the wide grid; on narrower screens it spans the full width above it.
+
+Set `main` on the Subgrid rather than on the Grid around it.
+The navigation switches between entries and is a repeated block, so it does not belong to the main content area.
+This puts the page title outside the landmark, which is the trade-off for keeping the navigation out of it.
+
+Such a page has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
+Name each after the thing it reaches rather than numbering them.
 
 Because the entry’s parts each sit in their own Cell of the Subgrid, the space between them is the row gap.
 Leave the row gap of the Subgrid at the vertical gap of the Grid.
@@ -43079,13 +43110,7 @@ export const WithSideNavigation: StoryObj = {
   &lt;/Grid&gt;
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  {/*
-   * The side navigation switches between the entries this page shows, so it belongs to the main content
-   * and the Grid itself is that region. The Handbook Page keeps its Table of Contents in a Grid Cell
-   * outside &lt;main&gt;, because that one moves between the pages of a document.
-   */}
-  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-  &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;2x-large&quot;&gt;
+  &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
       &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;Winkels&lt;/Heading&gt;
       &lt;Paragraph size=&quot;large&quot;&gt;
@@ -43108,7 +43133,8 @@ export const WithSideNavigation: StoryObj = {
        * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
        * undefined, which drops the attribute.
        */}
-      &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot;&gt;
+      {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+      &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
         &lt;TableOfContents.List defaultExpanded&gt;
           {shopGroups.map(({ heading, shops }) =&gt; (
             &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
@@ -43132,7 +43158,18 @@ export const WithSideNavigation: StoryObj = {
      * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
      * the navigation beside it needs no row span and the page fits any number of them.
      */}
-    &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+    {/*
+     * The entry on screen is the main content; the navigation that switches between entries is not, so
+     * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+     * landmark, which is the trade-off for keeping the navigation out of it.
+     */}
+    {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+    &lt;Grid.Subgrid
+      as=&quot;main&quot;
+      id=&quot;inhoud&quot;
+      span={{ narrow: 4, medium: 8, wide: 8 }}
+      start={{ narrow: 1, medium: 1, wide: 5 }}
+    &gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
         &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
@@ -43159,6 +43196,12 @@ export const WithSideNavigation: StoryObj = {
         language: &#39;tsx&#39;,
       },
     },
+    // This story overrides the single Skip Link of the shared Page Layout: a reader may want to reach either
+    // the navigation or the entry it selects. Each targetId matches an id in the story below.
+    skipLinks: [
+      { label: &#39;Direct naar de deelnemende winkels&#39;, targetId: &#39;deelnemende-winkels&#39; },
+      { label: &#39;Direct naar inhoud&#39;, targetId: &#39;inhoud&#39; },
+    ],
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) =&gt; (
@@ -43175,13 +43218,7 @@ export const WithSideNavigation: StoryObj = {
       &lt;/Grid&gt;
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-      {/*
-       * The side navigation switches between the entries this page shows, so it belongs to the main content
-       * and the Grid itself is that region. The Handbook Page keeps its Table of Contents in a Grid Cell
-       * outside &lt;main&gt;, because that one moves between the pages of a document.
-       */}
-      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-      &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;2x-large&quot;&gt;
+      &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
             Winkels
@@ -43206,7 +43243,8 @@ export const WithSideNavigation: StoryObj = {
            * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
            * undefined, which drops the attribute.
            */}
-          &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot;&gt;
+          {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+          &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
             &lt;TableOfContents.List defaultExpanded&gt;
               {shopGroups.map(({ heading, shops }) =&gt; (
                 &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
@@ -43230,7 +43268,18 @@ export const WithSideNavigation: StoryObj = {
          * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
          * the navigation beside it needs no row span and the page fits any number of them.
          */}
-        &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+        {/*
+         * The entry on screen is the main content; the navigation that switches between entries is not, so
+         * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+         * landmark, which is the trade-off for keeping the navigation out of it.
+         */}
+        {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+        &lt;Grid.Subgrid
+          as=&quot;main&quot;
+          id=&quot;inhoud&quot;
+          span={{ narrow: 4, medium: 8, wide: 8 }}
+          start={{ narrow: 1, medium: 1, wide: 5 }}
+        &gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
             &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -43951,13 +44000,7 @@ export const SubnavigationPage: StoryObj = {
     &lt;/Grid&gt;
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-    {/*
-     * The side navigation switches between the entries this page shows, so it belongs to the main content
-     * and the Grid itself is that region. The Handbook Page keeps its Table of Contents in a Grid Cell
-     * outside &lt;main&gt;, because that one moves between the pages of a document.
-     */}
-    {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
-    &lt;Grid as=&quot;main&quot; id=&quot;inhoud&quot; paddingBottom=&quot;2x-large&quot;&gt;
+    &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
       &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
           Winkels
@@ -43982,7 +44025,8 @@ export const SubnavigationPage: StoryObj = {
          * group inherits it. aria-current=&quot;page&quot; marks the shop on screen, and every other link gets
          * undefined, which drops the attribute.
          */}
-        &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot;&gt;
+        {/* The first of the two Skip Links this story declares targets this id; Table of Contents renders the nav. */}
+        &lt;TableOfContents collapsible heading=&quot;Deelnemende winkels&quot; id=&quot;deelnemende-winkels&quot;&gt;
           &lt;TableOfContents.List defaultExpanded&gt;
             {shopGroups.map(({ heading, shops }) =&gt; (
               &lt;TableOfContents.Link href=&quot;#&quot; key={heading} label={heading}&gt;
@@ -44006,7 +44050,18 @@ export const SubnavigationPage: StoryObj = {
        * columns of the page rather than on columns of their own. It grows with the addresses it holds, so
        * the navigation beside it needs no row span and the page fits any number of them.
        */}
-      &lt;Grid.Subgrid span={{ narrow: 4, medium: 8, wide: 8 }} start={{ narrow: 1, medium: 1, wide: 5 }}&gt;
+      {/*
+       * The entry on screen is the main content; the navigation that switches between entries is not, so
+       * &lt;main&gt; is the Subgrid rather than the Grid around it. That leaves the page title outside the
+       * landmark, which is the trade-off for keeping the navigation out of it.
+       */}
+      {/* The second Skip Link targets this id, so the next Tab press lands on the entry itself. */}
+      &lt;Grid.Subgrid
+        as=&quot;main&quot;
+        id=&quot;inhoud&quot;
+        span={{ narrow: 4, medium: 8, wide: 8 }}
+        start={{ narrow: 1, medium: 1, wide: 5 }}
+      &gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
           &lt;Heading level={2}&gt;{currentShop}&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -44224,6 +44279,13 @@ It is a single item in the row of the Grid however many rows of its own it holds
 
 Give the navigation the first place in the source order, so it precedes the entry for a screen reader and for the Tab key.
 It only sits beside the entry on the wide grid; on narrower screens it spans the full width above it.
+
+Set `main` on the Subgrid rather than on the Grid around it.
+The navigation switches between entries and is a repeated block, so it does not belong to the main content area.
+This puts the page title outside the landmark, which is the trade-off for keeping the navigation out of it.
+
+Such a page has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
+Name each after the thing it reaches rather than numbering them.
 
 Because the entry’s parts each sit in their own Cell of the Subgrid, the space between them is the row gap.
 Leave the row gap of the Subgrid at the vertical gap of the Grid.
