@@ -22,6 +22,9 @@
   font-weight: var(--ams-figure-caption-font-weight);
   line-height: var(--ams-figure-caption-line-height);
 
+  /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
+  text-wrap: var(--ams-figure-caption-text-wrap);
+
   @include hyphenation;
   @include text-rendering;
 }

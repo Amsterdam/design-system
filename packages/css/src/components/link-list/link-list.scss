@@ -14,6 +14,9 @@
   display: grid;
   gap: var(--ams-link-list-gap);
 
+  /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
+  text-wrap: var(--ams-link-list-text-wrap);
+
   @include hyphenation;
   @include text-rendering;
 }
