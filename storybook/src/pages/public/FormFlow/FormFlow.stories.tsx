@@ -65,8 +65,9 @@ export const LandingPage: StoryObj = {
   {/* This page opens with the Content Header rather than a Breadcrumb, so that Grid takes the paddingTop of large. */}
   {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
   <Grid paddingBottom="2x-large" paddingTop="large">
-    <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-      <Heading className="ams-mb-m" level={1}>Waar u dit formulier voor gebruikt</Heading>
+    {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+    <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Heading level={1}>Waar u dit formulier voor gebruikt</Heading>
       <Paragraph size="large">
         Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
       </Paragraph>
@@ -112,10 +113,13 @@ export const LandingPage: StoryObj = {
       {/* This page opens with the Content Header rather than a Breadcrumb, so that Grid takes the paddingTop of large. */}
       {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
       <Grid paddingBottom="2x-large" paddingTop="large">
-        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-m" level={1}>
-            Waar u dit formulier voor gebruikt
-          </Heading>
+        {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+        <Grid.Cell
+          className="ams-prose"
+          span={{ narrow: 4, medium: 7, wide: 9 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        >
+          <Heading level={1}>Waar u dit formulier voor gebruikt</Heading>
           <Paragraph size="large">
             Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
           </Paragraph>

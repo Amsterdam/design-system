@@ -50,8 +50,9 @@ export const Default: StoryObj = {
     {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
         <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
       </Grid.Cell>
       {/*
@@ -174,10 +175,13 @@ export const Default: StoryObj = {
         {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Natuurbescherming bij evenementen in parken en groengebieden
-            </Heading>
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
             <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
           </Grid.Cell>
           {/*
@@ -313,11 +317,10 @@ export const WithTable: StoryObj = {
     {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       {/* Without an image beside it, the lead paragraph stays in the Content Header Cell with the title and the metadata. */}
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>
-          Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning
-        </Heading>
-        <Paragraph className="ams-mb-m">
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning</Heading>
+        <Paragraph>
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
           <time dateTime="2026-01-01">1 januari 2026</time> – Belastingen, Wonen, WOZ
         </Paragraph>
@@ -445,11 +448,14 @@ export const WithTable: StoryObj = {
         {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           {/* Without an image beside it, the lead paragraph stays in the Content Header Cell with the title and the metadata. */}
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning
-            </Heading>
-            <Paragraph className="ams-mb-m">
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning</Heading>
+            <Paragraph>
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
               <time dateTime="2026-01-01">1 januari 2026</time> – Belastingen, Wonen, WOZ
             </Paragraph>

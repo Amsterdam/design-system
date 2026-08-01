@@ -42,11 +42,14 @@ const meta = {
       <main id="inhoud">
         {/* A coloured section follows — the hero Image — so this Grid takes a paddingBottom of x-large. */}
         <Grid paddingBottom="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Met korting van A naar B op de deelscooter of -bakfiets
-            </Heading>
-            <Paragraph className="ams-mb-m">
+          {/* ams-prose sets the vertical rhythm between the title, the date, and the lead of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
+            <Paragraph>
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
               <time dateTime="2025-07-29">29 juli 2025</time>
             </Paragraph>
@@ -74,8 +77,7 @@ const meta = {
            * measure.
            */}
           {/*
-           * ams-prose sets the vertical rhythm between the direct children of this cell: the headings,
-           * paragraphs, and the link list. Typography comes from each component’s own class.
+           * Typography comes from each component’s own class; ams-prose only sets the vertical rhythm.
            */}
           <Grid.Cell
             className="ams-prose"
@@ -235,9 +237,10 @@ export const Default: StoryObj = {
   <main id="inhoud">
     {/* A coloured section follows — the hero Image — so this Grid takes a paddingBottom of x-large. */}
     <Grid paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
-        <Paragraph className="ams-mb-m">
+      {/* ams-prose sets the vertical rhythm between the title, the date, and the lead of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
+        <Paragraph>
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
           <time dateTime="2025-07-29">29 juli 2025</time>
         </Paragraph>
@@ -265,8 +268,7 @@ export const Default: StoryObj = {
        * measure.
        */}
       {/*
-       * ams-prose sets the vertical rhythm between the direct children of this cell: the headings,
-       * paragraphs, and the link list. Typography comes from each component’s own class.
+       * Typography comes from each component’s own class; ams-prose only sets the vertical rhythm.
        */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Paragraph>

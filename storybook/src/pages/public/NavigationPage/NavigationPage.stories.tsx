@@ -76,8 +76,9 @@ export const Default: StoryObj = {
     {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>Burgerzaken</Heading>
+      {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Burgerzaken</Heading>
         <Paragraph size="large">
           Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een
           geboorte aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
@@ -123,10 +124,13 @@ export const Default: StoryObj = {
         {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
         {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Burgerzaken
-            </Heading>
+          {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Burgerzaken</Heading>
             <Paragraph size="large">
               Heeft u een paspoort, rijbewijs of uittreksel nodig? Of wilt u een verhuizing doorgeven of een geboorte
               aangeven? Op deze pagina vindt u alle informatie en regelzaken rondom Burgerzaken.
@@ -316,8 +320,9 @@ export const WithInteractiveElement: StoryObj = {
     {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
     {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>Parkeren</Heading>
+      {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Parkeren</Heading>
         <Paragraph size="large">
           Vind informatie over parkeervergunningen, parkeertarieven en betaald parkeren in Amsterdam.
         </Paragraph>
@@ -399,10 +404,13 @@ export const WithInteractiveElement: StoryObj = {
         {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
         {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Parkeren
-            </Heading>
+          {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Parkeren</Heading>
             <Paragraph size="large">{exampleParagraph()}</Paragraph>
           </Grid.Cell>
         </Grid>
@@ -488,8 +496,9 @@ export const WithImageGallery: StoryObj = {
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
     <Grid paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>College van burgemeester en wethouders</Heading>
+      {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>College van burgemeester en wethouders</Heading>
         <Paragraph size="large">
           Het college van burgemeester en wethouders is verantwoordelijk voor het dagelijks bestuur van de
           gemeente Amsterdam.
@@ -625,10 +634,13 @@ export const WithImageGallery: StoryObj = {
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
         <Grid paddingBottom="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              College van burgemeester en wethouders
-            </Heading>
+          {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>College van burgemeester en wethouders</Heading>
             <Paragraph size="large">
               Het college van burgemeester en wethouders is verantwoordelijk voor het dagelijks bestuur van de gemeente
               Amsterdam.
@@ -809,8 +821,9 @@ export const WithSideNavigation: StoryObj = {
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
   <Grid paddingBottom="2x-large">
-    <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-      <Heading className="ams-mb-m" level={1}>Winkels</Heading>
+    {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+    <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Heading level={1}>Winkels</Heading>
       <Paragraph size="large">
         Alle winkels met een fysiek adres vindt u op de kaart en in de lijst. Webshops vindt u alleen in de lijst.
       </Paragraph>
@@ -917,10 +930,13 @@ export const WithSideNavigation: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       <Grid paddingBottom="2x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-          <Heading className="ams-mb-m" level={1}>
-            Winkels
-          </Heading>
+        {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+        <Grid.Cell
+          className="ams-prose"
+          span={{ narrow: 4, medium: 7, wide: 9 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        >
+          <Heading level={1}>Winkels</Heading>
           <Paragraph size="large">
             Alle winkels met een fysiek adres vindt u op de kaart en in de lijst. Webshops vindt u alleen in de lijst.
           </Paragraph>
@@ -1027,8 +1043,9 @@ export const SubnavigationPage: StoryObj = {
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
     <Grid paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>Onderwerp</Heading>
+      {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Onderwerp</Heading>
         <Paragraph size="large">
           Amsterdam wil een nieuwe traditie starten om met oud en nieuw naar een centrale nieuwjaarsviering
           te gaan in plaats van zelf vuurwerk af te steken.
@@ -1136,10 +1153,13 @@ export const SubnavigationPage: StoryObj = {
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
         <Grid paddingBottom="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              {exampleHeading()}
-            </Heading>
+          {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>{exampleHeading()}</Heading>
             <Paragraph size="large">
               Amsterdam wil een nieuwe traditie starten om met oud en nieuw naar een centrale nieuwjaarsviering te gaan
               in plaats van zelf vuurwerk af te steken.

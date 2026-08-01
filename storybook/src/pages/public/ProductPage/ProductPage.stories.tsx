@@ -40,11 +40,13 @@ const meta = {
         {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           {/* The title and lead span the wide intro column. */}
-          {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Gratis laptop of tablet voor de basisschool aanvragen
-            </Heading>
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Gratis laptop of tablet voor de basisschool aanvragen</Heading>
             <Paragraph size="large">
               U krijgt per huishouden 1 keer per 5 schooljaren een gratis laptop of tablet op de basisschool.
             </Paragraph>
@@ -198,9 +200,9 @@ export const Default: StoryObj = {
     {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       {/* The title and lead span the wide intro column. */}
-      {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>Gratis laptop of tablet voor de basisschool aanvragen</Heading>
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Gratis laptop of tablet voor de basisschool aanvragen</Heading>
         <Paragraph size="large">
           U krijgt per huishouden 1 keer per 5 schooljaren een gratis laptop of tablet op de basisschool.
         </Paragraph>
