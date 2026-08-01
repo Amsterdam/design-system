@@ -94,10 +94,12 @@ It has no `paddingTop`, so that the breadcrumb and the page title read as a sing
 Its Cell carries the [Prose](/docs/utilities-css-prose--docs) utility class, which spaces those three as [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommends.
 The body Cells of these templates use it too, so a page template sets no bottom margins of its own within a Cell.
 
-Its `paddingBottom` depends on the section below it.
-A section on the regular background of the page takes `2x-large`, which sets the Content Header apart from the body that follows.
-A coloured section takes `x-large`, because the edge of the colour marks that boundary already.
-A Spotlight and an Image are the two that occur in these templates.
+Its `paddingBottom` depends on what meets the boundary on either side of it.
+Where both this Grid and the one below it have the default background colour, it takes `2x-large`, which sets the Content Header apart from the body that follows.
+Where either of them meets that boundary with a full-width band — a Spotlight, or an Image or Image Slider spanning the whole Grid — `x-large` is enough, because the edge of that band marks the boundary already.
+It makes no difference which of the two the band belongs to: a Grid that ends in one takes `x-large` below it as much as one that is followed by a coloured section does.
+
+An image that shares its row with text, as the lead image does on the Information Page, is not such a band: the default background still runs along the boundary beside it, so the Grid keeps its `2x-large`.
 
 Anything else in the Content Header Grid — a Search Field, an Image Slider — takes a Grid Cell of its own.
 The row gap of `x-large` then sets it apart from the title above it.

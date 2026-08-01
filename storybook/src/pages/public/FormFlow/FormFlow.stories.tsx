@@ -63,7 +63,7 @@ export const LandingPage: StoryObj = {
 <main id="inhoud">
   {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
   {/* This page opens with the Content Header rather than a Breadcrumb, so that Grid takes the paddingTop of large. */}
-  {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+  {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
   <Grid paddingBottom="2x-large" paddingTop="large">
     {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
     <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -111,7 +111,7 @@ export const LandingPage: StoryObj = {
     <main id="inhoud">
       {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
       {/* This page opens with the Content Header rather than a Breadcrumb, so that Grid takes the paddingTop of large. */}
-      {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+      {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
       <Grid paddingBottom="2x-large" paddingTop="large">
         {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
         <Grid.Cell

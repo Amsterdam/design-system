@@ -47,7 +47,7 @@ export const Default: StoryObj = {
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
-    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
@@ -172,7 +172,7 @@ export const Default: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
-        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
           {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
@@ -310,7 +310,7 @@ export const WithTable: StoryObj = {
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
-    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       {/* Without an image beside it, the lead paragraph stays in the Content Header Cell with the title and the metadata. */}
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
@@ -441,7 +441,7 @@ export const WithTable: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
-        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           {/* Without an image beside it, the lead paragraph stays in the Content Header Cell with the title and the metadata. */}
           {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}

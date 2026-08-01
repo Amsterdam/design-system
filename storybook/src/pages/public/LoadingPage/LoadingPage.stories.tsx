@@ -113,6 +113,7 @@ const meta = {
            * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
            * the full width at narrow.
            */}
+          {/* TODO Heading 1 --> Search Field = m */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}>
             <SearchField onSubmit={search}>
               <SearchField.Input defaultValue={initialQuery} label="Zoek op de website" name="search" />
@@ -129,7 +130,7 @@ const meta = {
          * one atomic update once it turns false. The ARIA spec allows this rather than requiring it, so not
          * every screen reader does.
          */}
-        {/* This section sits on the regular background below the Content Header, so it takes a paddingTop of 2x-large. */}
+        {/* Both Grids have the default background colour, so this one takes a paddingTop of 2x-large. */}
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid aria-busy={phase === 'loading'} paddingBottom="2x-large" paddingTop="2x-large">
           <Grid.Cell span="all">
@@ -229,7 +230,7 @@ const pageShell = ({ busy, extraCells = '', status, statusCell = '' }: PageSourc
    * one atomic update once it turns false. The ARIA spec allows this rather than requiring it, so not
    * every screen reader does.
    */}
-  {/* This section sits on the regular background below the Content Header, so it takes a paddingTop of 2x-large. */}
+  {/* Both Grids have the default background colour, so this one takes a paddingTop of 2x-large. */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
   <Grid aria-busy={${busy}} paddingBottom="2x-large" paddingTop="2x-large">
     <Grid.Cell span="all">

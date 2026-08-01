@@ -74,7 +74,7 @@ export const Default: StoryObj = {
   <main id="inhoud">
     {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
     {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -122,7 +122,7 @@ export const Default: StoryObj = {
       <main id="inhoud">
         {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
         {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
           <Grid.Cell
@@ -181,7 +181,7 @@ export const WithTopTasks: StoryObj = {
   <main id="inhoud">
     {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
     {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Leefomgeving</Heading>
@@ -244,7 +244,7 @@ export const WithTopTasks: StoryObj = {
       <main id="inhoud">
         {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
         {/* That Grid has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading level={1}>Leefomgeving</Heading>
@@ -318,7 +318,7 @@ export const WithInteractiveElement: StoryObj = {
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
     {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
-    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -402,7 +402,7 @@ export const WithInteractiveElement: StoryObj = {
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
         {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
-        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
           <Grid.Cell

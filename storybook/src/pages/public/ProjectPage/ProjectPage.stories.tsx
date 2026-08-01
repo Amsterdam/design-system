@@ -55,8 +55,8 @@ const meta = {
        */}
       <main id="inhoud">
         {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
-        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
-        <Grid paddingBottom="2x-large">
+        {/* This Grid ends in a full-width Image Slider, whose edge marks the boundary, so a paddingBottom of x-large is enough. */}
+        <Grid paddingBottom="x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading level={1}>Centrumeiland: hét zelfbouweiland van Amsterdam</Heading>
           </Grid.Cell>
@@ -429,8 +429,8 @@ export const Default: StoryObj = {
    */}
   <main id="inhoud">
     {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
-    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
-    <Grid paddingBottom="2x-large">
+    {/* This Grid ends in a full-width Image Slider, whose edge marks the boundary, so a paddingBottom of x-large is enough. */}
+    <Grid paddingBottom="x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Centrumeiland: hét zelfbouweiland van Amsterdam</Heading>
       </Grid.Cell>

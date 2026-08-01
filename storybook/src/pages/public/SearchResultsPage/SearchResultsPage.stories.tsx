@@ -56,7 +56,7 @@ export const Default: StoryObj = {
   </Grid>
   <main id="inhoud">
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Zoeken</Heading>
@@ -165,7 +165,7 @@ export const Default: StoryObj = {
       </Grid>
       <main id="inhoud">
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading level={1}>Zoeken</Heading>
@@ -288,7 +288,7 @@ export const NoResults: StoryObj = {
   </Grid>
   <main id="inhoud">
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Zoeken</Heading>
@@ -383,7 +383,7 @@ export const NoResults: StoryObj = {
       </Grid>
       <main id="inhoud">
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        {/* The section below sits on the regular background, so this Grid takes a paddingBottom of 2x-large. */}
+        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading level={1}>Zoeken</Heading>
