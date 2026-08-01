@@ -58,14 +58,9 @@ export const Default: StoryObj = {
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Zoeken</Heading>
-      </Grid.Cell>
-      {/*
-       * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-       * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-       */}
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         {/* Search Field renders its own form with role=search, so it needs no form around it. */}
         <SearchField>
           <SearchField.Input defaultValue="veiligheid" label="Zoek op amsterdam.nl" name="trefwoord" />
@@ -167,14 +162,13 @@ export const Default: StoryObj = {
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={1}>Zoeken</Heading>
-          </Grid.Cell>
-          {/*
-           * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-           * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-           */}
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             {/* Search Field renders its own form with role=search, so it needs no form around it. */}
             <SearchField>
               <SearchField.Input defaultValue={searchTerm} label="Zoek op amsterdam.nl" name="trefwoord" />
@@ -290,14 +284,9 @@ export const NoResults: StoryObj = {
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Zoeken</Heading>
-      </Grid.Cell>
-      {/*
-       * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-       * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-       */}
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         {/* Search Field renders its own form with role=search, so it needs no form around it. */}
         <SearchField>
           <SearchField.Input
@@ -385,14 +374,13 @@ export const NoResults: StoryObj = {
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={1}>Zoeken</Heading>
-          </Grid.Cell>
-          {/*
-           * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-           * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-           */}
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             {/* Search Field renders its own form with role=search, so it needs no form around it. */}
             <SearchField>
               <SearchField.Input

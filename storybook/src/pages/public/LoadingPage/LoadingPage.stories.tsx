@@ -104,17 +104,14 @@ const meta = {
       <main id="inhoud">
         {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
         <Grid paddingTop="large">
-          {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-          <Grid.Cell span="all">
-            <Heading level={1}>Zoeken op amsterdam.nl</Heading>
-          </Grid.Cell>
           {/*
-           * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-           * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-           * the full width at narrow.
+           * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+           * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+           * full width at narrow. The title follows that width, because search is not a content page.
            */}
-          {/* TODO Heading 1 --> Search Field = m */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}>
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 6 }}>
+            <Heading level={1}>Zoeken op amsterdam.nl</Heading>
             <SearchField onSubmit={search}>
               <SearchField.Input defaultValue={initialQuery} label="Zoek op de website" name="search" />
               <SearchField.Button />
@@ -205,16 +202,14 @@ const pageShell = ({ busy, extraCells = '', status, statusCell = '' }: PageSourc
 <main id="inhoud">
   {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
   <Grid paddingTop="large">
-    {/* Search is not a content page, so the title spans the full width, not the documented Content Header Cell. */}
-    <Grid.Cell span="all">
-      <Heading level={1}>Zoeken op amsterdam.nl</Heading>
-    </Grid.Cell>
     {/*
-     * The search field spans half the grid on wide screens rather than the documented Content Header Cell, so
-     * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-     * the full width at narrow.
+     * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+     * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+     * full width at narrow. The title follows that width, because search is not a content page.
      */}
-    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}>
+    {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+    <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 6 }}>
+      <Heading level={1}>Zoeken op amsterdam.nl</Heading>
       <SearchField onSubmit={search}>
         <SearchField.Input defaultValue="woningbouw" label="Zoek op de website" name="search" />
         <SearchField.Button />

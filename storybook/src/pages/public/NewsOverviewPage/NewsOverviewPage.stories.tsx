@@ -74,14 +74,9 @@ export const Default: StoryObj = {
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Nieuws uit Amsterdam</Heading>
-      </Grid.Cell>
-      {/*
-       * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-       * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-       */}
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <SearchField>
           <SearchField.Input defaultValue="tramspoor" label="Zoek in het nieuws" name="trefwoord" />
           <SearchField.Button>Zoeken</SearchField.Button>
@@ -207,14 +202,13 @@ export const Default: StoryObj = {
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={1}>Nieuws uit Amsterdam</Heading>
-          </Grid.Cell>
-          {/*
-           * Only the title, the metadata and the lead paragraph belong to the Content Header. Anything else takes a
-           * Grid Cell of its own, so the row gap of x-large sets it apart from the title above.
-           */}
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <SearchField>
               <SearchField.Input defaultValue="tramspoor" label="Zoek in het nieuws" name="trefwoord" />
               <SearchField.Button>Zoeken</SearchField.Button>
