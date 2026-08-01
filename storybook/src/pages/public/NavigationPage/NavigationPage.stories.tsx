@@ -603,8 +603,8 @@ export const WithImageGallery: StoryObj = {
           <UnorderedList.Item>mailen met het <Link href="#">contactformulier</Link></UnorderedList.Item>
         </UnorderedList>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <Heading className="ams-mb-s" level={2} size="level-3">Rechtenvrije foto’s</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+        <Heading level={2} size="level-3">Rechtenvrije foto’s</Heading>
         {/*
          * Image always crops to an aspect ratio: omitting aspectRatio falls back to the 16:9 default,
          * not to the file’s own ratio. This 640x360 source is already 16:9, so nothing is cropped.
@@ -789,8 +789,8 @@ export const WithImageGallery: StoryObj = {
               </UnorderedList.Item>
             </UnorderedList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <Heading className="ams-mb-s" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
+            <Heading level={2} size="level-3">
               Rechtenvrije foto’s
             </Heading>
             {/*

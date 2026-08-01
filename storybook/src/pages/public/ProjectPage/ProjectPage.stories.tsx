@@ -306,12 +306,16 @@ const meta = {
               <LinkList.Link href="#">Meer projecten in Oost</LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-            <Heading className="ams-mb-m" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 5, wide: 7 }}
+          >
+            <Heading level={2} size="level-3">
               Ontwikkeling Centrumeiland, herfst 2025
             </Heading>
             {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-            <Image alt="" className="ams-mb-m" src="https://picsum.photos/id/385/640/360" />
+            <Image alt="" src="https://picsum.photos/id/385/640/360" />
             <StandaloneLink href="#">Meer video’s</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell
@@ -543,10 +547,10 @@ export const Default: StoryObj = {
           <LinkList.Link href="#">Meer projecten in Oost</LinkList.Link>
         </LinkList>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
-        <Heading className="ams-mb-m" level={2} size="level-3">Ontwikkeling Centrumeiland, herfst 2025</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
+        <Heading level={2} size="level-3">Ontwikkeling Centrumeiland, herfst 2025</Heading>
         {/* This image only contributes to the visual atmosphere of the page, so it takes an empty alt. */}
-        <Image alt="" className="ams-mb-m" src="https://picsum.photos/id/385/640/360" />
+        <Image alt="" src="https://picsum.photos/id/385/640/360" />
         <StandaloneLink href="#">Meer video’s</StandaloneLink>
       </Grid.Cell>
       {/* … a Plannen en publicaties cell, start-aligned to the left like Meer informatie … */}
