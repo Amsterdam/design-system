@@ -96,7 +96,10 @@ export const LandingPage: StoryObj = {
           <strong>Controleren</strong> - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
         </OrderedList.Item>
       </OrderedList>
-      {/* A single, prominent call to action that starts the form. */}
+    </Grid.Cell>
+    {/* A single, prominent call to action that starts the form. */}
+    {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
+    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
       <CallToActionLink href="#">Start het formulier</CallToActionLink>
     </Grid.Cell>
   </Grid>
@@ -152,7 +155,10 @@ export const LandingPage: StoryObj = {
               <strong>Controleren</strong> - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
             </OrderedList.Item>
           </OrderedList>
-          {/* A single, prominent call to action that starts the form. */}
+        </Grid.Cell>
+        {/* A single, prominent call to action that starts the form. */}
+        {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text above it. */}
+        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
           <CallToActionLink href="#">Start het formulier</CallToActionLink>
         </Grid.Cell>
       </Grid>

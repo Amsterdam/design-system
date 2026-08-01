@@ -91,9 +91,17 @@ const meta = {
               <OrderedList.Item>Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.</OrderedList.Item>
               <OrderedList.Item>Hierna moet u inloggen met uw DigiD.</OrderedList.Item>
             </OrderedList>
-            {/* A prominent call to action for the main task on the page. */}
+          </Grid.Cell>
+          {/* A prominent call to action for the main task on the page. */}
+          {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
+          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
             <CallToActionLink href="#">Start de check en vraag aan</CallToActionLink>
-
+          </Grid.Cell>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
             <Heading level={2}>Geen DigiD?</Heading>
             <UnorderedList>
               <UnorderedList.Item>
@@ -224,9 +232,13 @@ export const Default: StoryObj = {
           <OrderedList.Item>Kies welke regelingen u wilt aanvragen voor u en uw gezinsleden.</OrderedList.Item>
           <OrderedList.Item>Hierna moet u inloggen met uw DigiD.</OrderedList.Item>
         </OrderedList>
-        {/* A prominent call to action for the main task on the page. */}
+      </Grid.Cell>
+      {/* A prominent call to action for the main task on the page. */}
+      {/* It takes a Grid Cell of its own, so the row gap of x-large sets it apart from the text around it. */}
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <CallToActionLink href="#">Start de check en vraag aan</CallToActionLink>
-
+      </Grid.Cell>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading level={2}>Geen DigiD?</Heading>
         <UnorderedList>
           <UnorderedList.Item>Ga naar <Link href="#">www.digid.nl</Link> en vraag uw DigiD aan.</UnorderedList.Item>

@@ -47,6 +47,10 @@ Green is not used for a [Button](/docs/components-buttons-button--docs) anywhere
 The corners are square and the vertical padding is slight, so the block hugs its line of text.
 It reads as a highlighted link rather than as a large control, which is the distinction the underline is there to protect.
 
+Because the block itself stays small, the space around it does the work of drawing the eye.
+Give it an extra large space above and below, more than any pair of body elements takes, so it sits alone rather than reading as one more paragraph in the flow.
+The page templates achieve this by giving it a [Grid](/docs/components-layout-grid--docs) Cell of its own, where the row gap supplies that space on both sides at once.
+
 In print, it keeps its background colour instead of being flattened to save ink.
 
 ## Accessibility
