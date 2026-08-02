@@ -121,7 +121,7 @@ export const InFigure: Story = {
       <Table>
         <Table.Caption>
           {/* In a Figure, the Heading can be in the Table Caption again. */}
-          <Heading className="ams-mb-s" level={3}>
+          <Heading className="ams-mb-xs" level={3}>
             Kosten voor de aanvraag
           </Heading>
         </Table.Caption>
