@@ -460,10 +460,16 @@ export const Group: StoryObj = {
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
         <DescriptionList>
           <DescriptionList.Term>Adres</DescriptionList.Term>
-          <DescriptionList.Description>Gemeenteraad Amsterdam</DescriptionList.Description>
-          <DescriptionList.Description>Amstel 1</DescriptionList.Description>
-          <DescriptionList.Description>kamer 1B04</DescriptionList.Description>
-          <DescriptionList.Description>1011 PN Amsterdam</DescriptionList.Description>
+          {/* One Description holds the whole address: separate ones would read as alternative addresses. */}
+          <DescriptionList.Description>
+            Gemeenteraad Amsterdam
+            <br />
+            Amstel 1
+            <br />
+            kamer 1B04
+            <br />
+            1011 PN Amsterdam
+          </DescriptionList.Description>
         </DescriptionList>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
@@ -478,7 +484,7 @@ export const Group: StoryObj = {
           </DescriptionList.Description>
           <DescriptionList.Term>Website</DescriptionList.Term>
           <DescriptionList.Description>
-            <Link href="#">stadspartij-amsterdam.nl</Link>
+            <Link href="#" rel="external">stadspartij-amsterdam.nl</Link>
           </DescriptionList.Description>
         </DescriptionList>
       </Grid.Cell>
@@ -613,10 +619,15 @@ export const Group: StoryObj = {
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
             <DescriptionList>
               <DescriptionList.Term>Adres</DescriptionList.Term>
-              <DescriptionList.Description>Gemeenteraad Amsterdam</DescriptionList.Description>
-              <DescriptionList.Description>Amstel 1</DescriptionList.Description>
-              <DescriptionList.Description>kamer 1B04</DescriptionList.Description>
-              <DescriptionList.Description>1011 PN Amsterdam</DescriptionList.Description>
+              {/* One Description holds the whole address: separate ones would read as alternative addresses. */}
+              <DescriptionList.Description>
+                Gemeenteraad Amsterdam
+                <br />
+                Amstel 1<br />
+                kamer 1B04
+                <br />
+                1011 PN Amsterdam
+              </DescriptionList.Description>
             </DescriptionList>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
@@ -631,7 +642,9 @@ export const Group: StoryObj = {
               </DescriptionList.Description>
               <DescriptionList.Term>Website</DescriptionList.Term>
               <DescriptionList.Description>
-                <Link href="#">stadspartij-amsterdam.nl</Link>
+                <Link href="#" rel="external">
+                  stadspartij-amsterdam.nl
+                </Link>
               </DescriptionList.Description>
             </DescriptionList>
           </Grid.Cell>
