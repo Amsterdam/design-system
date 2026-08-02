@@ -6,7 +6,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import {
-  Accordion,
   Alert,
   Breadcrumb,
   Card,
@@ -119,7 +118,7 @@ export const Person: StoryObj = {
         <PhotoPlaceholder aspectRatio="3:4" />
       </Grid.Cell>
     </Grid>
-    <Spotlight as="section" color="magenta">
+    <Spotlight as="section">
       <Grid paddingVertical="x-large">
         <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
           <Heading color="inverse" level={2} size="level-3">Persberichten</Heading>
@@ -166,63 +165,63 @@ export const Person: StoryObj = {
         </Grid.Cell>
       </Grid>
     </Spotlight>
-    <Grid paddingVertical="x-large">
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading level={2} size="level-3">Contact</Heading>
-        <Paragraph>
-          Wilt u de burgemeester uitnodigen of een vraag stellen? Neem dan contact op met het secretariaat via het
-          mailformulier.
-        </Paragraph>
-        <StandaloneLink href="#">Mail of nodig de burgemeester uit</StandaloneLink>
-      </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading level={2} size="level-3">Instagram</Heading>
-        <Paragraph>Volg de burgemeester</Paragraph>
-        <StandaloneLink href="#">Instagram van de burgemeester</StandaloneLink>
-      </Grid.Cell>
-      {/* Prose has no rule for an Image Slider, so every element but the last in this cell sets its own margin. */}
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-s" level={2} size="level-3">Rechtenvrije foto’s</Heading>
-        {/*
-         * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
-         * optional caption; only alt is required.
-         */}
-        <ImageSlider className="ams-mb-m" images={pressPhotos} />
-        <StandaloneLink href="#">Bekijk de foto’s</StandaloneLink>
-      </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading level={2} size="level-3">Ambtswoning</Heading>
-        <Paragraph>
-          De burgemeester woont in de ambtswoning van de gemeente. Het pand wordt ook gebruikt voor ontvangsten en
-          officiële gelegenheden.
-        </Paragraph>
-        <StandaloneLink href="#">Over de ambtswoning</StandaloneLink>
-      </Grid.Cell>
-    </Grid>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-    <Grid paddingBottom="2x-large">
-      <Grid.Cell span="all">
-        {/* An Accordion opens with a Heading, so headingLevel places its sections in the page outline. */}
-        <Accordion headingLevel={2}>
-          <Accordion.Section defaultExpanded label="Loopbaan (cv)">
-            <Paragraph className="ams-mb-m">
-              Miriam Doornbos is sinds 2022 burgemeester van Amsterdam. Daarvoor was zij wethouder in een andere
-              gemeente en werkte zij als bestuurder in het onderwijs.
-            </Paragraph>
-            <Paragraph>Zij studeerde bestuurskunde en begon haar loopbaan bij de rijksoverheid.</Paragraph>
-          </Accordion.Section>
-          <Accordion.Section label="Nevenfuncties en neveninkomsten">
-            <Paragraph className="ams-mb-m">
-              Uit het ambt van burgemeester vloeien enkele nevenfuncties voort, zoals het voorzitterschap van de
-              veiligheidsregio. Deze functies zijn onbezoldigd.
-            </Paragraph>
-            <Paragraph>
-              De gemeente publiceert elk jaar een actueel overzicht van alle nevenfuncties en de bijbehorende
-              inkomsten.
-            </Paragraph>
-          </Accordion.Section>
-        </Accordion>
-      </Grid.Cell>
+    <Grid paddingBottom="2x-large" paddingTop="x-large">
+      {/*
+       * Two Subgrids make two columns of blocks. A Subgrid hands the columns it spans to its own Cells, so each
+       * column stacks on its own and the tall photo block does not push the block beside it down. They span the
+       * whole narrow grid, so it lays the right column out below the left one rather than interleaving the two.
+       */}
+      <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span="all">
+          <Heading level={2} size="level-3">Contact</Heading>
+          <Paragraph>
+            Wilt u de burgemeester uitnodigen of een vraag stellen? Neem dan contact op met het secretariaat via het
+            mailformulier.
+          </Paragraph>
+          <StandaloneLink href="#">Mail of nodig de burgemeester uit</StandaloneLink>
+        </Grid.Cell>
+        <Grid.Cell className="ams-prose" span="all">
+          <Heading level={2} size="level-3">Sociale media</Heading>
+          <Paragraph>Volg de burgemeester</Paragraph>
+          <LinkList>
+            <LinkList.Link href="#">Instagram burgemeester Miriam Doornbos</LinkList.Link>
+            <LinkList.Link href="#">LinkedIn burgemeester Miriam Doornbos</LinkList.Link>
+            <LinkList.Link href="#">Threads burgemeester Miriam Doornbos</LinkList.Link>
+          </LinkList>
+        </Grid.Cell>
+        <Grid.Cell className="ams-prose" span="all">
+          <Heading level={2} size="level-3">Meer informatie</Heading>
+          {/*
+           * The curriculum vitae and the list of additional positions carry too much text for this page, so each
+           * one is a page of its own that this section links to.
+           */}
+          <LinkList>
+            <LinkList.Link href="#">CV Miriam Doornbos</LinkList.Link>
+            <LinkList.Link href="#">Nevenfuncties en neveninkomsten</LinkList.Link>
+          </LinkList>
+        </Grid.Cell>
+      </Grid.Subgrid>
+      <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span="all">
+          <Heading level={2} size="level-3">Ambtswoning</Heading>
+          <Paragraph>
+            De burgemeester woont in de ambtswoning van de gemeente. Het pand wordt ook gebruikt voor ontvangsten en
+            officiële gelegenheden.
+          </Paragraph>
+          <StandaloneLink href="#">Over de ambtswoning</StandaloneLink>
+        </Grid.Cell>
+        {/* Prose has no rule for an Image Slider, so every element but the last in this cell sets its own margin. */}
+        <Grid.Cell span="all">
+          <Heading className="ams-mb-s" level={2} size="level-3">Rechtenvrije foto’s</Heading>
+          {/*
+           * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+           * optional caption; only alt is required.
+           */}
+          <ImageSlider className="ams-mb-m" images={pressPhotos} />
+          <StandaloneLink href="#">Bekijk de foto’s</StandaloneLink>
+        </Grid.Cell>
+      </Grid.Subgrid>
     </Grid>
   </main>
 </>`,
@@ -286,7 +285,7 @@ export const Person: StoryObj = {
             <PhotoPlaceholder aspectRatio="3:4" />
           </Grid.Cell>
         </Grid>
-        <Spotlight as="section" color="magenta">
+        <Spotlight as="section">
           <Grid paddingVertical="x-large">
             <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
               <Heading color="inverse" level={2} size="level-3">
@@ -337,71 +336,73 @@ export const Person: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        <Grid paddingVertical="x-large">
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading level={2} size="level-3">
-              Contact
-            </Heading>
-            <Paragraph>
-              Wilt u de burgemeester uitnodigen of een vraag stellen? Neem dan contact op met het secretariaat via het
-              mailformulier.
-            </Paragraph>
-            <StandaloneLink href="#">Mail of nodig de burgemeester uit</StandaloneLink>
-          </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading level={2} size="level-3">
-              Instagram
-            </Heading>
-            <Paragraph>Volg de burgemeester</Paragraph>
-            <StandaloneLink href="#">Instagram van de burgemeester</StandaloneLink>
-          </Grid.Cell>
-          {/* Prose has no rule for an Image Slider, so every element but the last in this cell sets its own margin. */}
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-s" level={2} size="level-3">
-              Rechtenvrije foto’s
-            </Heading>
-            {/*
-             * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
-             * optional caption; only alt is required.
-             */}
-            <ImageSlider className="ams-mb-m" images={pressPhotos} />
-            <StandaloneLink href="#">Bekijk de foto’s</StandaloneLink>
-          </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading level={2} size="level-3">
-              Ambtswoning
-            </Heading>
-            <Paragraph>
-              De burgemeester woont in de ambtswoning van de gemeente. Het pand wordt ook gebruikt voor ontvangsten en
-              officiële gelegenheden.
-            </Paragraph>
-            <StandaloneLink href="#">Over de ambtswoning</StandaloneLink>
-          </Grid.Cell>
-        </Grid>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-        <Grid paddingBottom="2x-large">
-          <Grid.Cell span="all">
-            {/* An Accordion opens with a Heading, so headingLevel places its sections in the page outline. */}
-            <Accordion headingLevel={2}>
-              <Accordion.Section defaultExpanded label="Loopbaan (cv)">
-                <Paragraph className="ams-mb-m">
-                  Miriam Doornbos is sinds 2022 burgemeester van Amsterdam. Daarvoor was zij wethouder in een andere
-                  gemeente en werkte zij als bestuurder in het onderwijs.
-                </Paragraph>
-                <Paragraph>Zij studeerde bestuurskunde en begon haar loopbaan bij de rijksoverheid.</Paragraph>
-              </Accordion.Section>
-              <Accordion.Section label="Nevenfuncties en neveninkomsten">
-                <Paragraph className="ams-mb-m">
-                  Uit het ambt van burgemeester vloeien enkele nevenfuncties voort, zoals het voorzitterschap van de
-                  veiligheidsregio. Deze functies zijn onbezoldigd.
-                </Paragraph>
-                <Paragraph>
-                  De gemeente publiceert elk jaar een actueel overzicht van alle nevenfuncties en de bijbehorende
-                  inkomsten.
-                </Paragraph>
-              </Accordion.Section>
-            </Accordion>
-          </Grid.Cell>
+        <Grid paddingBottom="2x-large" paddingTop="x-large">
+          {/*
+           * Two Subgrids make two columns of blocks. A Subgrid hands the columns it spans to its own Cells, so each
+           * column stacks on its own and the tall photo block does not push the block beside it down. They span the
+           * whole narrow grid, so it lays the right column out below the left one rather than interleaving the two.
+           */}
+          <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell className="ams-prose" span="all">
+              <Heading level={2} size="level-3">
+                Contact
+              </Heading>
+              <Paragraph>
+                Wilt u de burgemeester uitnodigen of een vraag stellen? Neem dan contact op met het secretariaat via het
+                mailformulier.
+              </Paragraph>
+              <StandaloneLink href="#">Mail of nodig de burgemeester uit</StandaloneLink>
+            </Grid.Cell>
+            <Grid.Cell className="ams-prose" span="all">
+              <Heading level={2} size="level-3">
+                Sociale media
+              </Heading>
+              <Paragraph>Volg de burgemeester</Paragraph>
+              <LinkList>
+                <LinkList.Link href="#">Instagram burgemeester Miriam Doornbos</LinkList.Link>
+                <LinkList.Link href="#">LinkedIn burgemeester Miriam Doornbos</LinkList.Link>
+                <LinkList.Link href="#">Threads burgemeester Miriam Doornbos</LinkList.Link>
+              </LinkList>
+            </Grid.Cell>
+            <Grid.Cell className="ams-prose" span="all">
+              <Heading level={2} size="level-3">
+                Meer informatie
+              </Heading>
+              {/*
+               * The curriculum vitae and the list of additional positions carry too much text for this page, so each
+               * one is a page of its own that this section links to.
+               */}
+              <LinkList>
+                <LinkList.Link href="#">CV Miriam Doornbos</LinkList.Link>
+                <LinkList.Link href="#">Nevenfuncties en neveninkomsten</LinkList.Link>
+              </LinkList>
+            </Grid.Cell>
+          </Grid.Subgrid>
+          <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell className="ams-prose" span="all">
+              <Heading level={2} size="level-3">
+                Ambtswoning
+              </Heading>
+              <Paragraph>
+                De burgemeester woont in de ambtswoning van de gemeente. Het pand wordt ook gebruikt voor ontvangsten en
+                officiële gelegenheden.
+              </Paragraph>
+              <StandaloneLink href="#">Over de ambtswoning</StandaloneLink>
+            </Grid.Cell>
+            {/* Prose has no rule for an Image Slider, so every element but the last in this cell sets its own margin. */}
+            <Grid.Cell span="all">
+              <Heading className="ams-mb-s" level={2} size="level-3">
+                Rechtenvrije foto’s
+              </Heading>
+              {/*
+               * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+               * optional caption; only alt is required.
+               */}
+              <ImageSlider className="ams-mb-m" images={pressPhotos} />
+              <StandaloneLink href="#">Bekijk de foto’s</StandaloneLink>
+            </Grid.Cell>
+          </Grid.Subgrid>
         </Grid>
       </main>
     </>
@@ -482,7 +483,7 @@ export const Group: StoryObj = {
         </DescriptionList>
       </Grid.Cell>
     </Grid>
-    <Spotlight as="section" color="magenta">
+    <Spotlight as="section">
       <Grid paddingVertical="x-large">
         {/* ams-prose sets the vertical rhythm between the elements of a cell, so none of them needs a margin. */}
         <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
@@ -635,7 +636,7 @@ export const Group: StoryObj = {
             </DescriptionList>
           </Grid.Cell>
         </Grid>
-        <Spotlight as="section" color="magenta">
+        <Spotlight as="section">
           <Grid paddingVertical="x-large">
             {/* ams-prose sets the vertical rhythm between the elements of a cell, so none of them needs a margin. */}
             <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
@@ -807,7 +808,7 @@ export const Location: StoryObj = {
         </UnorderedList>
       </Grid.Cell>
     </Grid>
-    <Spotlight as="section" color="magenta">
+    <Spotlight as="section">
       <Grid paddingVertical="x-large">
         <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
           <Heading color="inverse" level={2} size="level-3">Wel te huur</Heading>
@@ -971,7 +972,7 @@ export const Location: StoryObj = {
             </UnorderedList>
           </Grid.Cell>
         </Grid>
-        <Spotlight as="section" color="magenta">
+        <Spotlight as="section">
           <Grid paddingVertical="x-large">
             <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
               <Heading color="inverse" level={2} size="level-3">
@@ -1212,7 +1213,7 @@ export const LocationLarge: StoryObj = {
         </UnorderedList>
       </Grid.Cell>
     </Grid>
-    <Spotlight as="section" color="magenta">
+    <Spotlight as="section">
       <Grid paddingVertical="x-large">
         <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
           <Heading color="inverse" level={2}>Reserveren voor 1 tot 3 uur</Heading>
@@ -1500,7 +1501,7 @@ export const LocationLarge: StoryObj = {
             </UnorderedList>
           </Grid.Cell>
         </Grid>
-        <Spotlight as="section" color="magenta">
+        <Spotlight as="section">
           <Grid paddingVertical="x-large">
             <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
               <Heading color="inverse" level={2}>
@@ -1705,7 +1706,7 @@ export const Sublocation: StoryObj = {
         <StandaloneLink href="#">Bekijk de foto’s groot</StandaloneLink>
       </Grid.Cell>
     </Grid>
-    <Spotlight as="section" color="magenta">
+    <Spotlight as="section">
       <Grid paddingVertical="x-large">
         <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
           <Heading color="inverse" level={2} size="level-3">Wel te huur</Heading>
@@ -1856,7 +1857,7 @@ export const Sublocation: StoryObj = {
             <StandaloneLink href="#">Bekijk de foto’s groot</StandaloneLink>
           </Grid.Cell>
         </Grid>
-        <Spotlight as="section" color="magenta">
+        <Spotlight as="section">
           <Grid paddingVertical="x-large">
             <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
               <Heading color="inverse" level={2} size="level-3">

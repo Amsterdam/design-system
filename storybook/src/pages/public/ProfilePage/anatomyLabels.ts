@@ -27,8 +27,8 @@ export const anatomyLabels: AnatomyLabels = [
   [
     { height: 'card', label: 'Contact' },
     { height: 'card', label: 'Social media' },
-    { height: 'panel', label: 'Image slider' },
+    { height: 'card', label: 'Link section' },
     { height: 'card', label: 'Residence' },
+    { height: 'panel', label: 'Image slider' },
   ],
-  [{ height: 'card', label: 'Background detail' }],
 ]
