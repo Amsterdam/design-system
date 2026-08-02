@@ -64,11 +64,16 @@ export const HighlightContent: Story = {
     return (
       <Spotlight color={color}>
         <Grid paddingVertical="x-large">
-          <Grid.Cell appearance={compact ? 'transparent' : undefined} span={{ narrow: 4, medium: 5, wide: 7 }}>
-            <Heading className="ams-mb-s" color={textColor} level={2} size="level-3">
+          {/* ams-prose sets the vertical rhythm between the heading, the text and the link. */}
+          <Grid.Cell
+            appearance={compact ? 'transparent' : undefined}
+            className="ams-prose"
+            span={{ narrow: 4, medium: 5, wide: 7 }}
+          >
+            <Heading color={textColor} level={2} size="level-3">
               Steun geven aan een partij
             </Heading>
-            <Paragraph className="ams-mb-m" color={textColor}>
+            <Paragraph color={textColor}>
               Van 19 januari tot en met 2 februari kunt u uw steun geven aan een partij voor de gemeenteraad of een
               stadsdeel- of bestuurscommissie. Dit doet u met een ondersteuningsverklaring.
             </Paragraph>
