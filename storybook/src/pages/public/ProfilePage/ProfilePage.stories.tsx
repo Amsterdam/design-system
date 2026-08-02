@@ -120,7 +120,7 @@ export const Person: StoryObj = {
     </Grid>
     <Spotlight as="section">
       <Grid paddingVertical="x-large">
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading color="inverse" level={2} size="level-3">Persberichten</Heading>
           <Paragraph color="inverse">
             De laatste 3 persberichten van de burgemeester of waarin de burgemeester een aandeel heeft
@@ -145,7 +145,7 @@ export const Person: StoryObj = {
             </StandaloneLink>
           </Column>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
           <Heading color="inverse" level={2} size="level-3">Toespraken</Heading>
           <Paragraph color="inverse">De laatste 3 toespraken van de burgemeester</Paragraph>
           <LinkList>
@@ -172,7 +172,7 @@ export const Person: StoryObj = {
        * column stacks on its own and the tall photo block does not push the block beside it down. They span the
        * whole narrow grid, so it lays the right column out below the left one rather than interleaving the two.
        */}
-      <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Grid.Cell className="ams-prose" span="all">
           <Heading level={2} size="level-3">Contact</Heading>
           <Paragraph>
@@ -202,7 +202,7 @@ export const Person: StoryObj = {
           </LinkList>
         </Grid.Cell>
       </Grid.Subgrid>
-      <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Grid.Cell className="ams-prose" span="all">
           <Heading level={2} size="level-3">Ambtswoning</Heading>
           <Paragraph>
@@ -287,7 +287,11 @@ export const Person: StoryObj = {
         </Grid>
         <Spotlight as="section">
           <Grid paddingVertical="x-large">
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell
+              className="ams-prose"
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={{ narrow: 1, medium: 1, wide: 2 }}
+            >
               <Heading color="inverse" level={2} size="level-3">
                 Persberichten
               </Heading>
@@ -314,7 +318,7 @@ export const Person: StoryObj = {
                 </StandaloneLink>
               </Column>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
               <Heading color="inverse" level={2} size="level-3">
                 Toespraken
               </Heading>
@@ -343,7 +347,7 @@ export const Person: StoryObj = {
            * column stacks on its own and the tall photo block does not push the block beside it down. They span the
            * whole narrow grid, so it lays the right column out below the left one rather than interleaving the two.
            */}
-          <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Grid.Cell className="ams-prose" span="all">
               <Heading level={2} size="level-3">
                 Contact
@@ -379,7 +383,7 @@ export const Person: StoryObj = {
               </LinkList>
             </Grid.Cell>
           </Grid.Subgrid>
-          <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Grid.Cell className="ams-prose" span="all">
               <Heading level={2} size="level-3">
                 Ambtswoning
@@ -454,10 +458,11 @@ export const Group: StoryObj = {
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
         <PhotoPlaceholder aspectRatio="16:9" icon={PersonsIcon} />
       </Grid.Cell>
-      <Grid.Cell span="all">
+      {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Adres en contact</Heading>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <DescriptionList>
           <DescriptionList.Term>Adres</DescriptionList.Term>
           {/* One Description holds the whole address: separate ones would read as alternative addresses. */}
@@ -472,7 +477,7 @@ export const Group: StoryObj = {
           </DescriptionList.Description>
         </DescriptionList>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
         <DescriptionList>
           <DescriptionList.Term>Bellen</DescriptionList.Term>
           <DescriptionList.Description>
@@ -492,7 +497,7 @@ export const Group: StoryObj = {
     <Spotlight as="section">
       <Grid paddingVertical="x-large">
         {/* ams-prose sets the vertical rhythm between the elements of a cell, so none of them needs a margin. */}
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading color="inverse" level={2}>Persberichten</Heading>
           <Paragraph color="inverse">De fractie laat van zich horen over de onderwerpen die in de raad spelen.</Paragraph>
           <LinkList>
@@ -510,7 +515,7 @@ export const Group: StoryObj = {
             Meer persberichten van de fractie
           </StandaloneLink>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
           <Heading color="inverse" level={2}>Toespraken</Heading>
           <Paragraph color="inverse">Lees na wat de fractie in de raadsvergaderingen naar voren bracht.</Paragraph>
           <LinkList>
@@ -613,10 +618,11 @@ export const Group: StoryObj = {
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
             <PhotoPlaceholder aspectRatio="16:9" icon={PersonsIcon} />
           </Grid.Cell>
-          <Grid.Cell span="all">
+          {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
+          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading level={2}>Adres en contact</Heading>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <DescriptionList>
               <DescriptionList.Term>Adres</DescriptionList.Term>
               {/* One Description holds the whole address: separate ones would read as alternative addresses. */}
@@ -630,7 +636,7 @@ export const Group: StoryObj = {
               </DescriptionList.Description>
             </DescriptionList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
             <DescriptionList>
               <DescriptionList.Term>Bellen</DescriptionList.Term>
               <DescriptionList.Description>
@@ -652,7 +658,11 @@ export const Group: StoryObj = {
         <Spotlight as="section">
           <Grid paddingVertical="x-large">
             {/* ams-prose sets the vertical rhythm between the elements of a cell, so none of them needs a margin. */}
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell
+              className="ams-prose"
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={{ narrow: 1, medium: 1, wide: 2 }}
+            >
               <Heading color="inverse" level={2}>
                 Persberichten
               </Heading>
@@ -674,7 +684,7 @@ export const Group: StoryObj = {
                 Meer persberichten van de fractie
               </StandaloneLink>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
               <Heading color="inverse" level={2}>
                 Toespraken
               </Heading>
@@ -789,7 +799,8 @@ export const Location: StoryObj = {
       </Grid.Cell>
     </Grid>
     <Grid paddingVertical="x-large">
-      <Grid.Cell span="all">
+      {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Faciliteiten</Heading>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -952,7 +963,8 @@ export const Location: StoryObj = {
           </Grid.Cell>
         </Grid>
         <Grid paddingVertical="x-large">
-          <Grid.Cell span="all">
+          {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
+          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading level={2}>Faciliteiten</Heading>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -1212,7 +1224,8 @@ export const LocationLarge: StoryObj = {
       </Grid.Cell>
     </Grid>
     <Grid paddingBottom="x-large">
-      <Grid.Cell span="all">
+      {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Faciliteiten</Heading>
       </Grid.Cell>
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -1498,7 +1511,8 @@ export const LocationLarge: StoryObj = {
           </Grid.Cell>
         </Grid>
         <Grid paddingBottom="x-large">
-          <Grid.Cell span="all">
+          {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
+          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading level={2}>Faciliteiten</Heading>
           </Grid.Cell>
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
@@ -1748,7 +1762,7 @@ export const Sublocation: StoryObj = {
         </UnorderedList>
       </Grid.Cell>
       {/* Prose has no rule for an Image Slider, so every element but the last in this cell sets its own margin. */}
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
         {/*
          * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
          * optional caption; only alt is required.
@@ -1759,21 +1773,21 @@ export const Sublocation: StoryObj = {
     </Grid>
     <Spotlight as="section">
       <Grid paddingVertical="x-large">
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading color="inverse" level={2} size="level-3">Wel te huur</Heading>
           <Paragraph color="inverse">
             U huurt de voetbalvelden, de atletiekbaan en de kleedkamers per dagdeel. Verhuur is mogelijk van
             september tot en met juni, buiten de vaste trainingstijden van de verenigingen om.
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
           <Heading color="inverse" level={2} size="level-3">Niet te huur</Heading>
           <Paragraph color="inverse">
             Het clubhuis, de kantine en de opslagruimtes worden door de verenigingen zelf beheerd. Die ruimtes
             verhuurt de gemeente niet.
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading color="inverse" level={2} size="level-3">
             Voor scholen en voetbalscholen
           </Heading>
@@ -1782,7 +1796,7 @@ export const Sublocation: StoryObj = {
             kunnen alleen buiten het seizoen terecht, in overleg met de vereniging.
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
           <Heading color="inverse" level={2} size="level-3">Tarieven en huisregels</Heading>
           <LinkList>
             <LinkList.Link color="inverse" href="#">
@@ -1796,7 +1810,7 @@ export const Sublocation: StoryObj = {
       </Grid>
     </Spotlight>
     <Grid paddingVertical="x-large">
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2} size="level-3">Contact</Heading>
         <Paragraph>
           Vragen over de verhuur van Sportpark Sloten? Mail naar{' '}
@@ -1804,20 +1818,20 @@ export const Sublocation: StoryObj = {
           werkdagen antwoord.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading level={2} size="level-3">Openbaar vervoer</Heading>
         <Paragraph>
           Bus 62 stopt bij halte Sportpark Sloten, op 5 minuten lopen van de ingang. Vanaf station Lelylaan rijdt
           bus 63 tot aan de Sloterweg.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2} size="level-3">Zie ook</Heading>
         <LinkList>
           <LinkList.Link href="#">Alle sportparken in Amsterdam</LinkList.Link>
         </LinkList>
       </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading level={2} size="level-3">Parkeren</Heading>
         <Paragraph>
           Bezoekers parkeren op de betaalde parkeerplaats naast het sportpark. Op wedstrijddagen is die plek snel
@@ -1898,7 +1912,7 @@ export const Sublocation: StoryObj = {
             </UnorderedList>
           </Grid.Cell>
           {/* Prose has no rule for an Image Slider, so every element but the last in this cell sets its own margin. */}
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
             {/*
              * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
              * optional caption; only alt is required.
@@ -1909,7 +1923,11 @@ export const Sublocation: StoryObj = {
         </Grid>
         <Spotlight as="section">
           <Grid paddingVertical="x-large">
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell
+              className="ams-prose"
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={{ narrow: 1, medium: 1, wide: 2 }}
+            >
               <Heading color="inverse" level={2} size="level-3">
                 Wel te huur
               </Heading>
@@ -1918,7 +1936,7 @@ export const Sublocation: StoryObj = {
                 september tot en met juni, buiten de vaste trainingstijden van de verenigingen om.
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
               <Heading color="inverse" level={2} size="level-3">
                 Niet te huur
               </Heading>
@@ -1927,7 +1945,11 @@ export const Sublocation: StoryObj = {
                 verhuurt de gemeente niet.
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell
+              className="ams-prose"
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={{ narrow: 1, medium: 1, wide: 2 }}
+            >
               <Heading color="inverse" level={2} size="level-3">
                 Voor scholen en voetbalscholen
               </Heading>
@@ -1936,7 +1958,7 @@ export const Sublocation: StoryObj = {
                 kunnen alleen buiten het seizoen terecht, in overleg met de vereniging.
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
               <Heading color="inverse" level={2} size="level-3">
                 Tarieven en huisregels
               </Heading>
@@ -1952,7 +1974,11 @@ export const Sublocation: StoryObj = {
           </Grid>
         </Spotlight>
         <Grid paddingVertical="x-large">
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2} size="level-3">
               Contact
             </Heading>
@@ -1962,7 +1988,7 @@ export const Sublocation: StoryObj = {
               werkdagen antwoord.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading level={2} size="level-3">
               Openbaar vervoer
             </Heading>
@@ -1971,7 +1997,11 @@ export const Sublocation: StoryObj = {
               bus 63 tot aan de Sloterweg.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2} size="level-3">
               Zie ook
             </Heading>
@@ -1979,7 +2009,7 @@ export const Sublocation: StoryObj = {
               <LinkList.Link href="#">Alle sportparken in Amsterdam</LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading level={2} size="level-3">
               Parkeren
             </Heading>
