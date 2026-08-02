@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -21243,7 +21243,12 @@ The children are still announced and reached by keyboard in the order they are w
     <div class="meta" title="./src/_components/PageAnatomy/PageAnatomy.test.stories.tsx">components-docs-page-anatomy · ./src/_components/PageAnatomy/PageAnatomy.test.stories.tsx</div>
     
     <div class="hint">Draws the anatomy of a page template: the Page Header, the sections in between, and the Page Footer, at the three
-Grid variants side by side. The geometry comes from the story, so the drawing follows the page it documents.</div>
+Grid variants side by side. The geometry comes from the story, so the drawing follows the page it documents.
+
+Where there is no width for three drawings beside one another, they would take three pages of scrolling one under
+the other, so one is drawn at a time and the buttons above choose which. Switching between them at one width is
+also the closest look at what the Grid does that the drawing gives: the frame stays put while the page inside it
+lays itself out again.</div>
     
   </div>
 
@@ -21311,15 +21316,19 @@ story?: string = &#39;Default&#39;</code></pre>
               </div>
               
               <div class="hint">Four pages, between them covering everything the drawing can show: a Spotlight and a full-bleed Image on the
-Article Page, an Overlap on the Home Page, a Subgrid holding a Cell that spans all of its columns on the News
-Overview Page, and Compact Mode, a Menu column, a row-spanning Cell and a transparent one on the internal
-Navigation Page.</div>
+Article Page, an Overlap and a run of repeated Grid Cells on the Home Page, a Subgrid holding a Cell that spans
+all of its columns on the News Overview Page, and Compact Mode, a Menu column, a row-spanning Cell and a
+transparent one on the internal Navigation Page. The fifth is the Home Page again, in a container the width of a
+phone, where the three drawings no longer fit beside one another and buttons choose between them.</div>
               <pre><code>const Test = () =&gt; (
   &lt;div className=&quot;_ams-tests-stack&quot;&gt;
     &lt;PageAnatomy labels={articlePageLabels} of={ArticlePageStories} /&gt;
     &lt;PageAnatomy labels={homePageLabels} of={HomePageStories} /&gt;
     &lt;PageAnatomy labels={newsOverviewPageLabels} of={NewsOverviewPageStories} /&gt;
     &lt;PageAnatomy labels={internalNavigationPageLabels} menu mode=&quot;compact&quot; of={InternalNavigationPageStories} /&gt;
+    &lt;div style={{ maxInlineSize: &#39;24rem&#39; }}&gt;
+      &lt;PageAnatomy labels={homePageLabels} of={HomePageStories} /&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 );</code></pre>
             </div>
@@ -55334,6 +55343,13 @@ It reads the sections and the cells on them from the example itself, so it shows
 Side by side, the three drawings share one scale.
 The vertical space between the sections is the amount the tokens give it, and each square of the paper is one [`ams.space.m`](/docs/brand-design-tokens-space--docs): 16 pixels on a phone and 24 on a desktop.
 The height of a cell is an impression: nothing in the example says how tall its content is.
+It comes from a scale of seven steps, from a single line of text to a body of one, so the same kind of content is the same size on every page type and nothing is drawn taller than a body of text.
+Where there is no room for three drawings beside one another, the buttons above them choose which of the three to show.
+
+A page often repeats one cell down a whole screen, such as the eight top tasks of a home page.
+The drawing shows the first row of such a run and the last, with a dashed marker in between for the ones it leaves out.
+That marker counts cells where they lie one under the other, and rows where they lie beside one another: ‘8 more’, but ‘3 × 2 more’ for three rows of two.
+It all happens per Grid variant, because a run that fills a phone from top to bottom may take two rows on a desktop.
 
 ## Page structure
 
