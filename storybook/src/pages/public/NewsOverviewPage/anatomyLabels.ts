@@ -16,7 +16,7 @@ export const anatomyLabels: AnatomyLabels = [
   [
     { height: 'panel', label: 'Filters' },
     { height: 'line', label: 'Result count' },
-    ...Array.from({ length: 7 }, (): AnatomyLabel => ({ height: 'card', label: 'News card' })),
+    ...Array.from({ length: 6 }, (): AnatomyLabel => ({ height: 'card', label: 'News card' })),
     { height: 'heading', label: 'Pagination' },
   ],
 ]
