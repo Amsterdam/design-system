@@ -37,8 +37,8 @@ const pressPhotos = [
   { alt: 'Bezoekers op een markt in de stad.', id: 342 },
 ].map(({ alt, id }) => ({
   alt,
-  aspectRatio: '4:3' as const,
-  src: `https://picsum.photos/id/${id}/1440/1080`,
+  aspectRatio: '16:9' as const,
+  src: `https://picsum.photos/id/${id}/1440/810`,
 }))
 
 const sublocationPhotos = [
