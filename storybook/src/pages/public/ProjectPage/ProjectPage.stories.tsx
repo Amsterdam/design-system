@@ -353,7 +353,7 @@ const meta = {
         <Spotlight>
           <Grid paddingVertical="x-large">
             <Grid.Cell span="all">
-              <Heading className="ams-mb-s" color="inverse" level={2}>
+              <Heading color="inverse" level={2}>
                 Contact
               </Heading>
             </Grid.Cell>
@@ -569,10 +569,10 @@ export const Default: StoryObj = {
     <Spotlight>
       <Grid paddingVertical="x-large">
         <Grid.Cell span="all">
-          <Heading className="ams-mb-s" color="inverse" level={2}>Contact</Heading>
+          <Heading color="inverse" level={2}>Contact</Heading>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Paragraph className="ams-mb-m" color="inverse">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Paragraph color="inverse">
             Vragen over zelfbouw op Centrumeiland:{' '}
             <Link color="inverse" href="mailto:zelfbouwcentrumeiland@amsterdam.nl">zelfbouwcentrumeiland@amsterdam.nl</Link>
           </Paragraph>
