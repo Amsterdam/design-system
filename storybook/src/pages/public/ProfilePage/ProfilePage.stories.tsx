@@ -458,41 +458,50 @@ export const Group: StoryObj = {
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
         <PhotoPlaceholder aspectRatio="16:9" icon={PersonsIcon} />
       </Grid.Cell>
+    </Grid>
+    {/*
+     * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
+     * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+     * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+     */}
+    <Grid gapVertical="none" paddingBottom="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Grid.Cell className="ams-mb-s" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Adres en contact</Heading>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <DescriptionList>
-          <DescriptionList.Term>Adres</DescriptionList.Term>
-          {/* One Description holds the whole address: separate ones would read as alternative addresses. */}
-          <DescriptionList.Description>
-            Gemeenteraad Amsterdam
-            <br />
-            Amstel 1
-            <br />
-            kamer 1B04
-            <br />
-            1011 PN Amsterdam
-          </DescriptionList.Description>
-        </DescriptionList>
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <DescriptionList>
-          <DescriptionList.Term>Bellen</DescriptionList.Term>
-          <DescriptionList.Description>
-            <Link href="tel:+31205523477">020 552 3477</Link>
-          </DescriptionList.Description>
-          <DescriptionList.Term>Mailen</DescriptionList.Term>
-          <DescriptionList.Description>
-            <Link href="mailto:stadspartij@raad.amsterdam.nl">stadspartij@raad.amsterdam.nl</Link>
-          </DescriptionList.Description>
-          <DescriptionList.Term>Website</DescriptionList.Term>
-          <DescriptionList.Description>
-            <Link href="#" rel="external">stadspartij-amsterdam.nl</Link>
-          </DescriptionList.Description>
-        </DescriptionList>
-      </Grid.Cell>
+      <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+          <DescriptionList>
+            <DescriptionList.Term>Adres</DescriptionList.Term>
+            {/* One Description holds the whole address: separate ones would read as alternative addresses. */}
+            <DescriptionList.Description>
+              Gemeenteraad Amsterdam
+              <br />
+              Amstel 1
+              <br />
+              kamer 1B04
+              <br />
+              1011 PN Amsterdam
+            </DescriptionList.Description>
+          </DescriptionList>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+          <DescriptionList>
+            <DescriptionList.Term>Bellen</DescriptionList.Term>
+            <DescriptionList.Description>
+              <Link href="tel:+31205523477">020 552 3477</Link>
+            </DescriptionList.Description>
+            <DescriptionList.Term>Mailen</DescriptionList.Term>
+            <DescriptionList.Description>
+              <Link href="mailto:stadspartij@raad.amsterdam.nl">stadspartij@raad.amsterdam.nl</Link>
+            </DescriptionList.Description>
+            <DescriptionList.Term>Website</DescriptionList.Term>
+            <DescriptionList.Description>
+              <Link href="#" rel="external">stadspartij-amsterdam.nl</Link>
+            </DescriptionList.Description>
+          </DescriptionList>
+        </Grid.Cell>
+      </Grid.Subgrid>
     </Grid>
     <Spotlight as="section">
       <Grid paddingVertical="x-large">
@@ -627,42 +636,59 @@ export const Group: StoryObj = {
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 4 }}>
             <PhotoPlaceholder aspectRatio="16:9" icon={PersonsIcon} />
           </Grid.Cell>
+        </Grid>
+        {/*
+         * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
+         * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+         * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+         */}
+        <Grid gapVertical="none" paddingBottom="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Grid.Cell
+            className="ams-mb-s"
+            span={{ narrow: 4, medium: 8, wide: 10 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2}>Adres en contact</Heading>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <DescriptionList>
-              <DescriptionList.Term>Adres</DescriptionList.Term>
-              {/* One Description holds the whole address: separate ones would read as alternative addresses. */}
-              <DescriptionList.Description>
-                Gemeenteraad Amsterdam
-                <br />
-                Amstel 1<br />
-                kamer 1B04
-                <br />
-                1011 PN Amsterdam
-              </DescriptionList.Description>
-            </DescriptionList>
-          </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <DescriptionList>
-              <DescriptionList.Term>Bellen</DescriptionList.Term>
-              <DescriptionList.Description>
-                <Link href="tel:+31205523477">020 552 3477</Link>
-              </DescriptionList.Description>
-              <DescriptionList.Term>Mailen</DescriptionList.Term>
-              <DescriptionList.Description>
-                <Link href="mailto:stadspartij@raad.amsterdam.nl">stadspartij@raad.amsterdam.nl</Link>
-              </DescriptionList.Description>
-              <DescriptionList.Term>Website</DescriptionList.Term>
-              <DescriptionList.Description>
-                <Link href="#" rel="external">
-                  stadspartij-amsterdam.nl
-                </Link>
-              </DescriptionList.Description>
-            </DescriptionList>
-          </Grid.Cell>
+          <Grid.Subgrid
+            gapVertical="x-large"
+            span={{ narrow: 4, medium: 8, wide: 10 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+              <DescriptionList>
+                <DescriptionList.Term>Adres</DescriptionList.Term>
+                {/* One Description holds the whole address: separate ones would read as alternative addresses. */}
+                <DescriptionList.Description>
+                  Gemeenteraad Amsterdam
+                  <br />
+                  Amstel 1<br />
+                  kamer 1B04
+                  <br />
+                  1011 PN Amsterdam
+                </DescriptionList.Description>
+              </DescriptionList>
+            </Grid.Cell>
+            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+              <DescriptionList>
+                <DescriptionList.Term>Bellen</DescriptionList.Term>
+                <DescriptionList.Description>
+                  <Link href="tel:+31205523477">020 552 3477</Link>
+                </DescriptionList.Description>
+                <DescriptionList.Term>Mailen</DescriptionList.Term>
+                <DescriptionList.Description>
+                  <Link href="mailto:stadspartij@raad.amsterdam.nl">stadspartij@raad.amsterdam.nl</Link>
+                </DescriptionList.Description>
+                <DescriptionList.Term>Website</DescriptionList.Term>
+                <DescriptionList.Description>
+                  <Link href="#" rel="external">
+                    stadspartij-amsterdam.nl
+                  </Link>
+                </DescriptionList.Description>
+              </DescriptionList>
+            </Grid.Cell>
+          </Grid.Subgrid>
         </Grid>
         <Spotlight as="section">
           <Grid paddingVertical="x-large">
