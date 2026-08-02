@@ -92,8 +92,6 @@ They are the same as in the sections above.
 - For every combination of two components, find the top one in the column headers and the one below in the row headers.
   The cell where they meet shows the recommended spacing size between them.
 - An empty cell or a missing component means we advise against that combination.
-- The four lists differ only below a level 3 or 4 heading.
-  They are named apart throughout all the same, so a value is never in two places at once.
 
 ### Space below headings
 
@@ -112,43 +110,48 @@ They are the same as in the sections above.
 
 - Use the visual size of **Headings**.
   For instance, with a `<Heading level={2} size="level-3" />`, refer to ‘Heading 3’ in these tables.
+- This is the only table where the four lists differ, so it is the only one that names them apart.
+  The two below hold them together as ‘… List’.
 
 ### Space below body text
 
-|                              | Blockquote | Description / Link List | Ordered / Unordered List | Paragraph | Paragraph (large) |
-| :--------------------------- | :--------: | :---------------------: | :----------------------: | :-------: | :---------------: |
-| **Heading 2**                |            |          `xl`           |           `xl`           |   `xl`    |       `xl`        |
-| **Heading 3**                |            |           `l`           |           `l`            |    `l`    |                   |
-| **Heading 4**                |            |           `m`           |           `m`            |    `m`    |                   |
-| **Blockquote**               |            |           `l`           |           `l`            |    `l`    |       `xl`        |
-| **Button**                   |    `l`     |           `m`           |           `m`            |    `m`    |                   |
-| **Call to Action Link**      |    `xl`    |          `xl`           |           `xl`           |   `xl`    |                   |
-| **Image**                    |    `l`     |           `l`           |           `l`            |    `l`    |       `xl`        |
-| **Standalone Link**          |    `l`     |           `m`           |           `m`            |    `s`    |        `l`        |
-| **Description / Link List**  |    `l`     |           `m`           |           `m`            |    `m`    |        `l`        |
-| **Ordered / Unordered List** |    `l`     |           `m`           |           `m`            |    `m`    |        `l`        |
-| **Paragraph**                |    `l`     |           `m`           |           `m`            |    `m`    |        `l`        |
-| **Paragraph (large)**        |            |                         |                          |    `m`    |                   |
-| **Table**                    |    `l`     |           `l`           |           `l`            |    `l`    |        `l`        |
+|                         | Blockquote | … List | Paragraph | Paragraph (large) |
+| :---------------------- | :--------: | :----: | :-------: | :---------------: |
+| **Heading 2**           |            |  `xl`  |   `xl`    |       `xl`        |
+| **Heading 3**           |            |  `l`   |    `l`    |                   |
+| **Heading 4**           |            |  `m`   |    `m`    |                   |
+| **Blockquote**          |            |  `l`   |    `l`    |       `xl`        |
+| **Button**              |    `l`     |  `m`   |    `m`    |                   |
+| **Call to Action Link** |    `xl`    |  `xl`  |   `xl`    |                   |
+| **Image**               |    `l`     |  `l`   |    `l`    |       `xl`        |
+| **Standalone Link**     |    `l`     |  `m`   |    `s`    |        `l`        |
+| **… List**              |    `l`     |  `m`   |    `m`    |        `l`        |
+| **Paragraph**           |    `l`     |  `m`   |    `m`    |        `l`        |
+| **Paragraph (large)**   |            |        |    `m`    |                   |
+| **Table**               |    `l`     |  `l`   |    `l`    |        `l`        |
 
+- ‘… List’ is a Description List, Link List, Ordered List, or Unordered List.
+  All four take the space in this column and this row.
 - **Accordion** and **Table** with a Caption start with a **Heading** – use the space length for its size or level (2, 3, 4).
 
 ### Space below other components
 
-|                              | Button | Call to Action Link | Image | Description / Link List | Ordered / Unordered List | Standalone Link | Table |
-| :--------------------------- | :----: | :-----------------: | :---: | :---------------------: | :----------------------: | :-------------: | :---: |
-| **Heading 2**                |  `xl`  |        `xl`         | `xl`  |          `xl`           |           `xl`           |      `xl`       | `xl`  |
-| **Heading 3**                |  `l`   |        `xl`         |  `l`  |           `l`           |           `l`            |       `l`       |  `l`  |
-| **Heading 4**                |  `l`   |        `xl`         |  `l`  |           `m`           |           `m`            |       `l`       |  `l`  |
-| **Blockquote**               |  `l`   |        `xl`         |  `l`  |           `l`           |           `l`            |       `l`       |  `l`  |
-| **Button**                   |  `l`   |        `xl`         |  `l`  |           `m`           |           `m`            |       `m`       |  `l`  |
-| **Call to Action Link**      |  `xl`  |                     | `xl`  |          `xl`           |           `xl`           |      `xl`       | `xl`  |
-| **Image**                    |  `l`   |        `xl`         |  `l`  |           `l`           |           `l`            |       `l`       |  `l`  |
-| **Standalone Link**          |  `m`   |        `xl`         |  `l`  |           `m`           |           `m`            |       `m`       |  `l`  |
-| **Description / Link List**  |  `m`   |        `xl`         |  `l`  |           `m`           |           `m`            |       `m`       |  `l`  |
-| **Ordered / Unordered List** |  `m`   |        `xl`         |  `l`  |           `m`           |           `m`            |       `m`       |  `l`  |
-| **Paragraph**                |  `m`   |        `xl`         |  `l`  |           `m`           |           `m`            |       `m`       |  `l`  |
-| **Table**                    |  `l`   |        `xl`         |  `l`  |           `l`           |           `l`            |       `l`       |  `l`  |
+|                         | Button | Call to Action Link | Image | … List | Standalone Link | Table |
+| :---------------------- | :----: | :-----------------: | :---: | :----: | :-------------: | :---: |
+| **Heading 2**           |  `xl`  |        `xl`         | `xl`  |  `xl`  |      `xl`       | `xl`  |
+| **Heading 3**           |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Heading 4**           |  `l`   |        `xl`         |  `l`  |  `m`   |       `l`       |  `l`  |
+| **Blockquote**          |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Button**              |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Call to Action Link** |  `xl`  |                     | `xl`  |  `xl`  |      `xl`       | `xl`  |
+| **Image**               |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Standalone Link**     |  `m`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **… List**              |  `m`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Paragraph**           |  `m`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Table**               |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
+
+- ‘… List’ is a Description List, Link List, Ordered List, or Unordered List.
+  All four take the space in this column and this row.
 
 ## Code examples
 
