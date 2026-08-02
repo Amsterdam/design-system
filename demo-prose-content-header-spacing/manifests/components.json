@@ -4789,12 +4789,12 @@
       "name": "PageAnatomy",
       "path": "./src/_components/PageAnatomy/PageAnatomy.test.stories.tsx",
       "jsDocTags": {},
-      "description": "Draws the anatomy of a page template: the Page Header, the sections in between, and the Page Footer, at the three\nGrid variants side by side. The geometry comes from the story, so the drawing follows the page it documents.",
+      "description": "Draws the anatomy of a page template: the Page Header, the sections in between, and the Page Footer, at the three\nGrid variants side by side. The geometry comes from the story, so the drawing follows the page it documents.\n\nWhere there is no width for three drawings beside one another, they would take three pages of scrolling one under\nthe other, so one is drawn at a time and the buttons above choose which. Switching between them at one width is\nalso the closest look at what the Grid does that the drawing gives: the frame stays put while the page inside it\nlays itself out again.",
       "reactComponentMeta": {
         "displayName": "PageAnatomy",
         "exportName": "PageAnatomy",
         "filePath": "/home/runner/work/design-system/design-system/storybook/src/_components/PageAnatomy/PageAnatomy.tsx",
-        "description": "Draws the anatomy of a page template: the Page Header, the sections in between, and the Page Footer, at the three\nGrid variants side by side. The geometry comes from the story, so the drawing follows the page it documents.",
+        "description": "Draws the anatomy of a page template: the Page Header, the sections in between, and the Page Footer, at the three\nGrid variants side by side. The geometry comes from the story, so the drawing follows the page it documents.\n\nWhere there is no width for three drawings beside one another, they would take three pages of scrolling one under\nthe other, so one is drawn at a time and the buttons above choose which. Switching between them at one width is\nalso the closest look at what the Grid does that the drawing gives: the frame stays put while the page inside it\nlays itself out again.",
         "props": {
           "labels": {
             "name": "labels",
@@ -4912,8 +4912,8 @@
         {
           "id": "components-docs-page-anatomy--test",
           "name": "Test",
-          "snippet": "const Test = () => (\n  <div className=\"_ams-tests-stack\">\n    <PageAnatomy labels={articlePageLabels} of={ArticlePageStories} />\n    <PageAnatomy labels={homePageLabels} of={HomePageStories} />\n    <PageAnatomy labels={newsOverviewPageLabels} of={NewsOverviewPageStories} />\n    <PageAnatomy labels={internalNavigationPageLabels} menu mode=\"compact\" of={InternalNavigationPageStories} />\n  </div>\n);",
-          "description": "Four pages, between them covering everything the drawing can show: a Spotlight and a full-bleed Image on the\nArticle Page, an Overlap on the Home Page, a Subgrid holding a Cell that spans all of its columns on the News\nOverview Page, and Compact Mode, a Menu column, a row-spanning Cell and a transparent one on the internal\nNavigation Page."
+          "snippet": "const Test = () => (\n  <div className=\"_ams-tests-stack\">\n    <PageAnatomy labels={articlePageLabels} of={ArticlePageStories} />\n    <PageAnatomy labels={homePageLabels} of={HomePageStories} />\n    <PageAnatomy labels={newsOverviewPageLabels} of={NewsOverviewPageStories} />\n    <PageAnatomy labels={internalNavigationPageLabels} menu mode=\"compact\" of={InternalNavigationPageStories} />\n    <div style={{ maxInlineSize: '24rem' }}>\n      <PageAnatomy labels={homePageLabels} of={HomePageStories} />\n    </div>\n  </div>\n);",
+          "description": "Four pages, between them covering everything the drawing can show: a Spotlight and a full-bleed Image on the\nArticle Page, an Overlap and a run of repeated Grid Cells on the Home Page, a Subgrid holding a Cell that spans\nall of its columns on the News Overview Page, and Compact Mode, a Menu column, a row-spanning Cell and a\ntransparent one on the internal Navigation Page. The fifth is the Home Page again, in a container the width of a\nphone, where the three drawings no longer fit beside one another and buttons choose between them."
         }
       ],
       "import": "import { PageAnatomy } from \"@amsterdam/storybook\";"
@@ -5971,6 +5971,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4457
+    "durationMs": 4447
   }
 }
