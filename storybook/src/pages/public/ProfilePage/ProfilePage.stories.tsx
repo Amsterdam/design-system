@@ -1120,13 +1120,8 @@ export const LocationLarge: StoryObj = {
     <Grid paddingVertical="x-large">
       {/* An Alert sits in its own Grid Cell and takes no margin of its own; the Grid spaces it. */}
       <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Alert
-          closeable
-          closeButtonLabel="Sluiten"
-          heading="Werkzaamheden Muzenplein en Apollolaan"
-          headingId="apollohal-werkzaamheden-heading"
-          headingLevel={2}
-        >
+        {/* Alert generates a unique id for its heading, so only pass headingId to reference that heading elsewhere. */}
+        <Alert closeable closeButtonLabel="Sluiten" heading="Werkzaamheden Muzenplein en Apollolaan" headingLevel={2}>
           <Paragraph>
             Vanaf 27 oktober 2025 voert de gemeente werkzaamheden uit op het Muzenplein en de Apollolaan. Van 10
             november 2025 tot juni 2026 is het Muzenplein afgesloten voor auto’s. De Apollohal is in die periode
@@ -1404,11 +1399,11 @@ export const LocationLarge: StoryObj = {
         <Grid paddingVertical="x-large">
           {/* An Alert sits in its own Grid Cell and takes no margin of its own; the Grid spaces it. */}
           <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+            {/* Alert generates a unique id for its heading, so only pass headingId to reference that heading elsewhere. */}
             <Alert
               closeable
               closeButtonLabel="Sluiten"
               heading="Werkzaamheden Muzenplein en Apollolaan"
-              headingId="apollohal-werkzaamheden-heading"
               headingLevel={2}
             >
               <Paragraph>
