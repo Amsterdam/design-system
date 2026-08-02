@@ -90,12 +90,12 @@ export const Default: StoryObj = {
     <Grid paddingBottom="2x-large">
       {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
       {burgerzakenLinks.map(({ heading, links }, index) => (
-        <Grid.Cell
+        <Grid.Cell className="ams-prose"
           key={heading}
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
         >
-          <Heading className="ams-mb-xs" level={2} size="level-3">{heading}</Heading>
+          <Heading level={2} size="level-3">{heading}</Heading>
           {getLinks(links)}
         </Grid.Cell>
       ))}
@@ -143,11 +143,12 @@ export const Default: StoryObj = {
           {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
           {burgerzakenLinks.map(({ heading, links }, index) => (
             <Grid.Cell
+              className="ams-prose"
               key={heading}
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
             >
-              <Heading className="ams-mb-xs" level={2} size="level-3">
+              <Heading level={2} size="level-3">
                 {heading}
               </Heading>
               {getLinks(links)}
@@ -212,12 +213,12 @@ export const WithTopTasks: StoryObj = {
       </Grid.Cell>
       {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
       {topTaskLinks.map(({ heading, links }, index) => (
-        <Grid.Cell
+        <Grid.Cell className="ams-prose"
           key={heading}
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
         >
-          <Heading className="ams-mb-xs" level={2} size="level-3">{heading}</Heading>
+          <Heading level={2} size="level-3">{heading}</Heading>
           {getLinks(links)}
         </Grid.Cell>
       ))}
@@ -276,11 +277,12 @@ export const WithTopTasks: StoryObj = {
           {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
           {topTaskLinks.map(({ heading, links }, index) => (
             <Grid.Cell
+              className="ams-prose"
               key={heading}
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
             >
-              <Heading className="ams-mb-xs" level={2} size="level-3">
+              <Heading level={2} size="level-3">
                 {heading}
               </Heading>
               {getLinks(links)}
@@ -333,12 +335,12 @@ export const WithInteractiveElement: StoryObj = {
     <Grid paddingBottom="x-large">
       {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
       {parkerenLinks.map(({ heading, links }, index) => (
-        <Grid.Cell
+        <Grid.Cell className="ams-prose"
           key={heading}
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
         >
-          <Heading className="ams-mb-xs" level={2} size="level-3">{heading}</Heading>
+          <Heading level={2} size="level-3">{heading}</Heading>
           {getLinks(links)}
         </Grid.Cell>
       ))}
@@ -420,11 +422,12 @@ export const WithInteractiveElement: StoryObj = {
           {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
           {parkerenLinks.map(({ heading, links }, index) => (
             <Grid.Cell
+              className="ams-prose"
               key={heading}
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
             >
-              <Heading className="ams-mb-xs" level={2} size="level-3">
+              <Heading level={2} size="level-3">
                 {heading}
               </Heading>
               {getLinks(links)}
@@ -1078,12 +1081,12 @@ export const SubnavigationPage: StoryObj = {
       </Grid.Cell>
       {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
       {burgerzakenLinks.slice(0, 6).map(({ heading, links }, index) => (
-        <Grid.Cell
+        <Grid.Cell className="ams-prose"
           key={heading}
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
         >
-          <Heading className="ams-mb-xs" level={3}>{heading}</Heading>
+          <Heading level={3}>{heading}</Heading>
           {getLinks(links)}
         </Grid.Cell>
       ))}
@@ -1128,12 +1131,12 @@ export const SubnavigationPage: StoryObj = {
       </Grid.Cell>
       {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
       {burgerzakenLinks.slice(4, 8).map(({ heading, links }, index) => (
-        <Grid.Cell
+        <Grid.Cell className="ams-prose"
           key={heading}
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
         >
-          <Heading className="ams-mb-xs" level={3}>{heading}</Heading>
+          <Heading level={3}>{heading}</Heading>
           {getLinks(links)}
         </Grid.Cell>
       ))}
@@ -1197,13 +1200,12 @@ export const SubnavigationPage: StoryObj = {
           {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
           {burgerzakenLinks.slice(0, 6).map(({ heading, links }, index) => (
             <Grid.Cell
+              className="ams-prose"
               key={heading}
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
             >
-              <Heading className="ams-mb-xs" level={3}>
-                {heading}
-              </Heading>
+              <Heading level={3}>{heading}</Heading>
               {getLinks(links)}
             </Grid.Cell>
           ))}
@@ -1269,13 +1271,12 @@ export const SubnavigationPage: StoryObj = {
           {/* start pins the even-indexed cells to the content column; odd-indexed cells fall in beside them. */}
           {burgerzakenLinks.slice(4, 8).map(({ heading, links }, index) => (
             <Grid.Cell
+              className="ams-prose"
               key={heading}
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }}
             >
-              <Heading className="ams-mb-xs" level={3}>
-                {heading}
-              </Heading>
+              <Heading level={3}>{heading}</Heading>
               {getLinks(links)}
             </Grid.Cell>
           ))}
