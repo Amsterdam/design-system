@@ -247,6 +247,9 @@ const aspectRatios: Record<string, number> = {
   '9:16': 16 / 9,
 }
 
+/** The `ams.image.aspect-ratio` token, which an Image reserves a box of where it names no ratio of its own. */
+const defaultAspectRatio = aspectRatios['16:9']!
+
 type Props = Record<string, unknown>
 
 const propsOf = (element: ReactElement): Props => (element.props ?? {}) as Props
@@ -288,6 +291,10 @@ const readColumns = (value: unknown, viewport: AnatomyViewport, columns?: number
 const perViewport = <T>(read: (viewport: AnatomyViewport) => T): Record<Breakpoint, T> =>
   Object.fromEntries(anatomyViewports().map((viewport) => [viewport.key, read(viewport)])) as Record<Breakpoint, T>
 
+/** The aspect ratio an Image reserves a box of, which is the token's 16:9 where it names none of its own. */
+const imageRatio = (element: ReactElement): number =>
+  aspectRatios[String(propsOf(element)['aspectRatio'])] ?? defaultAspectRatio
+
 /**
  * The aspect ratio of an Image that is the whole of what a Grid Cell holds, which gives the cell its shape.
  *
@@ -299,7 +306,7 @@ const readCellRatio = (children: ReactNode): number | undefined => {
 
   if (rest.length > 0 || !isValidElement(only) || displayNameOf(only) !== 'Image') return undefined
 
-  return aspectRatios[String(propsOf(only)['aspectRatio'])]
+  return imageRatio(only)
 }
 
 /**
@@ -380,7 +387,7 @@ const findGrid = (node: ReactNode): ReactElement | undefined => {
 
 /** An Image is a block of its own: it has no Grid, and runs to the edges of the page. */
 const readImage = (element: ReactElement): AnatomyBlock => ({
-  aspectRatio: aspectRatios[String(propsOf(element)['aspectRatio'])],
+  aspectRatio: imageRatio(element),
   bleed: true,
   height: perViewport(() => defaultBlockHeight),
   label: '',

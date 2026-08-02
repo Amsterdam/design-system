@@ -170,6 +170,14 @@ describe('readPageAnatomy', () => {
     expect(block?.bleed).toBe(false)
   })
 
+  it('reads an Image that names no aspect ratio as the 16:9 its token reserves', () => {
+    const story = createElement(Grid, {}, cell({ children: image(), span: 5 }))
+
+    const [block] = readPageAnatomy(story, [['Map']]).sections[0]?.blocks ?? []
+
+    expect(block?.aspectRatio).toBe(9 / 16)
+  })
+
   it('leaves a Grid Cell that holds an Image among other content no shape of its own', () => {
     const children = [createElement('p', { key: 'text' }, 'Body'), image('4:3')]
     const story = createElement(Grid, {}, cell({ children, span: 7 }))

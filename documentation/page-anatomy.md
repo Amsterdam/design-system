@@ -78,6 +78,7 @@ export const anatomyLabels: AnatomyLabels = [
 
 An Image takes its height from its `aspectRatio` where a label gives it none, up to a `card`, and past that at an ever smaller share of the rest, so that it never reaches a `body`.
 It does so wherever it is: across the whole width of the page where it runs to the edges, and across the width of its own columns where it fills a Grid Cell.
+An Image that names no `aspectRatio` reserves a box of 16:9, as the token does, so leaving one out is not a way to escape the ratio.
 A cell that holds an image among other content — an article body with one halfway down it — is as tall as that content instead, so it takes a step like any other.
 Give the Image a step of its own where the flattened height reads wrong.
 
