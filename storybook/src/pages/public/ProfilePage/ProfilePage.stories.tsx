@@ -94,12 +94,10 @@ export const Person: StoryObj = {
       <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Burgemeester Miriam Doornbos</Heading>
       </Grid.Cell>
-      {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Paragraph className="ams-mb-l" size="large">
-          De functie van burgemeester wordt uitgevoerd door Miriam Doornbos.
-        </Paragraph>
-        <Paragraph className="ams-mb-m">Zij is verantwoordelijk voor de portefeuilles:</Paragraph>
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Paragraph size="large">De functie van burgemeester wordt uitgevoerd door Miriam Doornbos.</Paragraph>
+        <Paragraph>Zij is verantwoordelijk voor de portefeuilles:</Paragraph>
         <UnorderedList>
           <UnorderedList.Item>Algemene Zaken</UnorderedList.Item>
           <UnorderedList.Item>Openbare Orde en Veiligheid</UnorderedList.Item>
@@ -123,12 +121,12 @@ export const Person: StoryObj = {
     </Grid>
     <Spotlight as="section" color="magenta">
       <Grid paddingVertical="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Persberichten</Heading>
-          <Paragraph className="ams-mb-m" color="inverse">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2} size="level-3">Persberichten</Heading>
+          <Paragraph color="inverse">
             De laatste 3 persberichten van de burgemeester of waarin de burgemeester een aandeel heeft
           </Paragraph>
-          <LinkList className="ams-mb-m">
+          <LinkList>
             <LinkList.Link color="inverse" href="#">
               Gemeente investeert in veilige fietsroutes naar school
             </LinkList.Link>
@@ -148,12 +146,10 @@ export const Person: StoryObj = {
             </StandaloneLink>
           </Column>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Toespraken</Heading>
-          <Paragraph className="ams-mb-m" color="inverse">
-            De laatste 3 toespraken van de burgemeester
-          </Paragraph>
-          <LinkList className="ams-mb-m">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2} size="level-3">Toespraken</Heading>
+          <Paragraph color="inverse">De laatste 3 toespraken van de burgemeester</Paragraph>
+          <LinkList>
             <LinkList.Link color="inverse" href="#">
               Toespraak bij de opening van het culturele seizoen
             </LinkList.Link>
@@ -171,19 +167,20 @@ export const Person: StoryObj = {
       </Grid>
     </Spotlight>
     <Grid paddingVertical="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Contact</Heading>
-        <Paragraph className="ams-mb-m">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2} size="level-3">Contact</Heading>
+        <Paragraph>
           Wilt u de burgemeester uitnodigen of een vraag stellen? Neem dan contact op met het secretariaat via het
           mailformulier.
         </Paragraph>
         <StandaloneLink href="#">Mail of nodig de burgemeester uit</StandaloneLink>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Instagram</Heading>
-        <Paragraph className="ams-mb-m">Volg de burgemeester</Paragraph>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2} size="level-3">Instagram</Heading>
+        <Paragraph>Volg de burgemeester</Paragraph>
         <StandaloneLink href="#">Instagram van de burgemeester</StandaloneLink>
       </Grid.Cell>
+      {/* Prose has no rule for an Image Slider, so every element but the last in this cell sets its own margin. */}
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
         <Heading className="ams-mb-s" level={2} size="level-3">Rechtenvrije foto’s</Heading>
         {/*
@@ -193,9 +190,9 @@ export const Person: StoryObj = {
         <ImageSlider className="ams-mb-m" images={pressPhotos} />
         <StandaloneLink href="#">Bekijk de foto’s</StandaloneLink>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Ambtswoning</Heading>
-        <Paragraph className="ams-mb-m">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2} size="level-3">Ambtswoning</Heading>
+        <Paragraph>
           De burgemeester woont in de ambtswoning van de gemeente. Het pand wordt ook gebruikt voor ontvangsten en
           officiële gelegenheden.
         </Paragraph>
@@ -260,12 +257,14 @@ export const Person: StoryObj = {
           <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Heading level={1}>Burgemeester Miriam Doornbos</Heading>
           </Grid.Cell>
-          {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Paragraph className="ams-mb-l" size="large">
-              De functie van burgemeester wordt uitgevoerd door Miriam Doornbos.
-            </Paragraph>
-            <Paragraph className="ams-mb-m">Zij is verantwoordelijk voor de portefeuilles:</Paragraph>
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Paragraph size="large">De functie van burgemeester wordt uitgevoerd door Miriam Doornbos.</Paragraph>
+            <Paragraph>Zij is verantwoordelijk voor de portefeuilles:</Paragraph>
             <UnorderedList>
               <UnorderedList.Item>Algemene Zaken</UnorderedList.Item>
               <UnorderedList.Item>Openbare Orde en Veiligheid</UnorderedList.Item>
@@ -289,14 +288,14 @@ export const Person: StoryObj = {
         </Grid>
         <Spotlight as="section" color="magenta">
           <Grid paddingVertical="x-large">
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 Persberichten
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
+              <Paragraph color="inverse">
                 De laatste 3 persberichten van de burgemeester of waarin de burgemeester een aandeel heeft
               </Paragraph>
-              <LinkList className="ams-mb-m">
+              <LinkList>
                 <LinkList.Link color="inverse" href="#">
                   Gemeente investeert in veilige fietsroutes naar school
                 </LinkList.Link>
@@ -316,14 +315,12 @@ export const Person: StoryObj = {
                 </StandaloneLink>
               </Column>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 Toespraken
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
-                De laatste 3 toespraken van de burgemeester
-              </Paragraph>
-              <LinkList className="ams-mb-m">
+              <Paragraph color="inverse">De laatste 3 toespraken van de burgemeester</Paragraph>
+              <LinkList>
                 <LinkList.Link color="inverse" href="#">
                   Toespraak bij de opening van het culturele seizoen
                 </LinkList.Link>
@@ -341,23 +338,24 @@ export const Person: StoryObj = {
           </Grid>
         </Spotlight>
         <Grid paddingVertical="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2} size="level-3">
               Contact
             </Heading>
-            <Paragraph className="ams-mb-m">
+            <Paragraph>
               Wilt u de burgemeester uitnodigen of een vraag stellen? Neem dan contact op met het secretariaat via het
               mailformulier.
             </Paragraph>
             <StandaloneLink href="#">Mail of nodig de burgemeester uit</StandaloneLink>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2} size="level-3">
               Instagram
             </Heading>
-            <Paragraph className="ams-mb-m">Volg de burgemeester</Paragraph>
+            <Paragraph>Volg de burgemeester</Paragraph>
             <StandaloneLink href="#">Instagram van de burgemeester</StandaloneLink>
           </Grid.Cell>
+          {/* Prose has no rule for an Image Slider, so every element but the last in this cell sets its own margin. */}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
             <Heading className="ams-mb-s" level={2} size="level-3">
               Rechtenvrije foto’s
@@ -369,11 +367,11 @@ export const Person: StoryObj = {
             <ImageSlider className="ams-mb-m" images={pressPhotos} />
             <StandaloneLink href="#">Bekijk de foto’s</StandaloneLink>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2} size="level-3">
               Ambtswoning
             </Heading>
-            <Paragraph className="ams-mb-m">
+            <Paragraph>
               De burgemeester woont in de ambtswoning van de gemeente. Het pand wordt ook gebruikt voor ontvangsten en
               officiële gelegenheden.
             </Paragraph>
@@ -486,12 +484,11 @@ export const Group: StoryObj = {
     </Grid>
     <Spotlight as="section" color="magenta">
       <Grid paddingVertical="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-s" color="inverse" level={2}>Persberichten</Heading>
-          <Paragraph className="ams-mb-m" color="inverse">
-            De fractie laat van zich horen over de onderwerpen die in de raad spelen.
-          </Paragraph>
-          <LinkList className="ams-mb-m">
+        {/* ams-prose sets the vertical rhythm between the elements of a cell, so none of them needs a margin. */}
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2}>Persberichten</Heading>
+          <Paragraph color="inverse">De fractie laat van zich horen over de onderwerpen die in de raad spelen.</Paragraph>
+          <LinkList>
             <LinkList.Link color="inverse" href="#">
               Stadspartij wil meer betaalbare woningen in nieuwe wijken
             </LinkList.Link>
@@ -506,12 +503,10 @@ export const Group: StoryObj = {
             Meer persberichten van de fractie
           </StandaloneLink>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-s" color="inverse" level={2}>Toespraken</Heading>
-          <Paragraph className="ams-mb-m" color="inverse">
-            Lees na wat de fractie in de raadsvergaderingen naar voren bracht.
-          </Paragraph>
-          <LinkList className="ams-mb-m">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2}>Toespraken</Heading>
+          <Paragraph color="inverse">Lees na wat de fractie in de raadsvergaderingen naar voren bracht.</Paragraph>
+          <LinkList>
             <LinkList.Link color="inverse" href="#">
               Algemene beschouwingen: de bijdrage van Karin Bosman
             </LinkList.Link>
@@ -642,14 +637,15 @@ export const Group: StoryObj = {
         </Grid>
         <Spotlight as="section" color="magenta">
           <Grid paddingVertical="x-large">
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2}>
+            {/* ams-prose sets the vertical rhythm between the elements of a cell, so none of them needs a margin. */}
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2}>
                 Persberichten
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
+              <Paragraph color="inverse">
                 De fractie laat van zich horen over de onderwerpen die in de raad spelen.
               </Paragraph>
-              <LinkList className="ams-mb-m">
+              <LinkList>
                 <LinkList.Link color="inverse" href="#">
                   Stadspartij wil meer betaalbare woningen in nieuwe wijken
                 </LinkList.Link>
@@ -664,14 +660,12 @@ export const Group: StoryObj = {
                 Meer persberichten van de fractie
               </StandaloneLink>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2}>
                 Toespraken
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
-                Lees na wat de fractie in de raadsvergaderingen naar voren bracht.
-              </Paragraph>
-              <LinkList className="ams-mb-m">
+              <Paragraph color="inverse">Lees na wat de fractie in de raadsvergaderingen naar voren bracht.</Paragraph>
+              <LinkList>
                 <LinkList.Link color="inverse" href="#">
                   Algemene beschouwingen: de bijdrage van Karin Bosman
                 </LinkList.Link>
@@ -757,8 +751,9 @@ export const Location: StoryObj = {
   <main id="inhoud">
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     <Grid paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>Sportpark Riekerhaven</Heading>
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Sportpark Riekerhaven</Heading>
         <Paragraph size="large">
           Sportpark Riekerhaven ligt in Nieuw-West, tussen de Riekerhaven en de Anderlechtlaan. Op het park sporten
           voetballers, cricketers, honkballers en atleten, en er is ruimte voor buurtactiviteiten.
@@ -814,27 +809,27 @@ export const Location: StoryObj = {
     </Grid>
     <Spotlight as="section" color="magenta">
       <Grid paddingVertical="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Wel te huur</Heading>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2} size="level-3">Wel te huur</Heading>
           <Paragraph color="inverse">De beachvolleybalvelden zijn te huur.</Paragraph>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Niet te huur</Heading>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2} size="level-3">Niet te huur</Heading>
           <Paragraph color="inverse">
             Sportvelden kunnen niet worden gehuurd. De gemeente verhuurt deze velden alleen aan de sportclubs met
             een eigen clubgebouw.
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2} size="level-3">
             Voor scholen en voetbalscholen
           </Heading>
           <Paragraph color="inverse">
             Bent u een school voor primair of voortgezet onderwijs, of een voetbalschool, neem dan contact op.
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Tarieven en huisregels</Heading>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2} size="level-3">Tarieven en huisregels</Heading>
           <LinkList>
             <LinkList.Link color="inverse" href="#">
               Tarieven
@@ -847,29 +842,29 @@ export const Location: StoryObj = {
       </Grid>
     </Spotlight>
     <Grid paddingVertical="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Contact</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2} size="level-3">Contact</Heading>
         <Paragraph>
           Heeft u vragen over de activiteiten op het sportpark of wilt u een veld huren? Mail dan naar{' '}
           <Link href="mailto:sportverhuur@amsterdam.nl">sportverhuur@amsterdam.nl</Link>.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Openbaar vervoer</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2} size="level-3">Openbaar vervoer</Heading>
         <Paragraph>Uw bezoekers kunnen via 9292.nl hun reis plannen.</Paragraph>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Zie ook</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2} size="level-3">Zie ook</Heading>
         <LinkList>
           <LinkList.Link href="#">Urban Sport Zone Zeeburgereiland</LinkList.Link>
         </LinkList>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Auto of fiets parkeren</Heading>
-        <Paragraph className="ams-mb-s">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2} size="level-3">Auto of fiets parkeren</Heading>
+        <Paragraph>
           Bij de ingang liggen 2 gratis parkeerplaatsen voor bezoekers met een gehandicaptenparkeerkaart.
         </Paragraph>
-        <Paragraph className="ams-mb-s">
+        <Paragraph>
           Op de parkeerplaats naast het sportpark betaalt u € 2,60 per uur en € 26,00 per dag, van 07.00 tot 19.00
           uur.
         </Paragraph>
@@ -916,10 +911,13 @@ export const Location: StoryObj = {
       <main id="inhoud">
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         <Grid paddingBottom="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Sportpark Riekerhaven
-            </Heading>
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Sportpark Riekerhaven</Heading>
             <Paragraph size="large">
               Sportpark Riekerhaven ligt in Nieuw-West, tussen de Riekerhaven en de Anderlechtlaan. Op het park sporten
               voetballers, cricketers, honkballers en atleten, en er is ruimte voor buurtactiviteiten.
@@ -975,14 +973,14 @@ export const Location: StoryObj = {
         </Grid>
         <Spotlight as="section" color="magenta">
           <Grid paddingVertical="x-large">
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 Wel te huur
               </Heading>
               <Paragraph color="inverse">De beachvolleybalvelden zijn te huur.</Paragraph>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 Niet te huur
               </Heading>
               <Paragraph color="inverse">
@@ -990,16 +988,16 @@ export const Location: StoryObj = {
                 een eigen clubgebouw.
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 Voor scholen en voetbalscholen
               </Heading>
               <Paragraph color="inverse">
                 Bent u een school voor primair of voortgezet onderwijs, of een voetbalschool, neem dan contact op.
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 Tarieven en huisregels
               </Heading>
               <LinkList>
@@ -1014,8 +1012,8 @@ export const Location: StoryObj = {
           </Grid>
         </Spotlight>
         <Grid paddingVertical="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2} size="level-3">
               Contact
             </Heading>
             <Paragraph>
@@ -1023,28 +1021,28 @@ export const Location: StoryObj = {
               <Link href="mailto:sportverhuur@amsterdam.nl">sportverhuur@amsterdam.nl</Link>.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2} size="level-3">
               Openbaar vervoer
             </Heading>
             <Paragraph>Uw bezoekers kunnen via 9292.nl hun reis plannen.</Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2} size="level-3">
               Zie ook
             </Heading>
             <LinkList>
               <LinkList.Link href="#">Urban Sport Zone Zeeburgereiland</LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2} size="level-3">
               Auto of fiets parkeren
             </Heading>
-            <Paragraph className="ams-mb-s">
+            <Paragraph>
               Bij de ingang liggen 2 gratis parkeerplaatsen voor bezoekers met een gehandicaptenparkeerkaart.
             </Paragraph>
-            <Paragraph className="ams-mb-s">
+            <Paragraph>
               Op de parkeerplaats naast het sportpark betaalt u € 2,60 per uur en € 26,00 per dag, van 07.00 tot 19.00
               uur.
             </Paragraph>
@@ -1096,8 +1094,9 @@ export const LocationLarge: StoryObj = {
   <main id="inhoud">
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     <Grid paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>Apollohal</Heading>
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Apollohal</Heading>
         <Paragraph size="large">
           In de Apollohal aan de Apollolaan sport u in een grote zaal of in 1 van de 2 gymzalen. Verenigingen,
           scholen en bedrijven huren er zalen voor trainingen, wedstrijden en evenementen.
@@ -1137,8 +1136,8 @@ export const LocationLarge: StoryObj = {
       </Grid.Cell>
     </Grid>
     <Grid paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Heading className="ams-mb-s" level={2}>Over de Apollohal</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Heading level={2}>Over de Apollohal</Heading>
         <Paragraph>
           De Apollohal is een sporthal in Amsterdam-Zuid met moderne voorzieningen en een rijke sporthistorie. Het
           gebouw heeft 1 grote zaal en 2 gymzalen en is geschikt voor veel verschillende sporten en evenementen.
@@ -1220,12 +1219,12 @@ export const LocationLarge: StoryObj = {
     </Grid>
     <Spotlight as="section" color="magenta">
       <Grid paddingVertical="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-s" color="inverse" level={2}>Reserveren voor 1 tot 3 uur</Heading>
-          <Paragraph className="ams-mb-m" color="inverse">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2}>Reserveren voor 1 tot 3 uur</Heading>
+          <Paragraph color="inverse">
             Huurt u een zaal voor 1 tot 3 uur? Dan reserveert u die zelf online in het reserveringssysteem.
           </Paragraph>
-          <Paragraph className="ams-mb-m" color="inverse">
+          <Paragraph color="inverse">
             U betaalt direct met iDEAL of met Vero. Zodra u betaald heeft, is uw reservering definitief.
           </Paragraph>
           <LinkList>
@@ -1237,9 +1236,9 @@ export const LocationLarge: StoryObj = {
             </LinkList.Link>
           </LinkList>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-s" color="inverse" level={2}>Langer dan 3 uur reserveren</Heading>
-          <Paragraph className="ams-mb-m" color="inverse">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2}>Langer dan 3 uur reserveren</Heading>
+          <Paragraph color="inverse">
             Heeft u een zaal langer dan 3 uur nodig? Stuur dan een e-mail naar sportverhuur@amsterdam.nl. Vermeld uw
             naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
             van uw activiteit.
@@ -1250,8 +1249,8 @@ export const LocationLarge: StoryObj = {
             </LinkList.Link>
           </LinkList>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-s" color="inverse" level={2}>Evenementen</Heading>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2}>Evenementen</Heading>
           <Paragraph color="inverse">
             In de grote zaal is plaats voor 550 toeschouwers. De zaal is geschikt voor sportevenementen, markten,
             yoga-evenementen, dansworkshops en concerten. In de hele Apollohal kunnen maximaal 1.000 bezoekers
@@ -1262,9 +1261,9 @@ export const LocationLarge: StoryObj = {
             .
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-s" color="inverse" level={2}>Huisregels en tarieven</Heading>
-          <Paragraph className="ams-mb-m" color="inverse">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2}>Huisregels en tarieven</Heading>
+          <Paragraph color="inverse">
             In de huisregels leest u wat er wel en niet mag in de Apollohal. In het tarievenoverzicht ziet u wat het
             huren van een zaal kost.
           </Paragraph>
@@ -1280,16 +1279,16 @@ export const LocationLarge: StoryObj = {
       </Grid>
     </Spotlight>
     <Grid paddingVertical="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-s" level={2}>Gevonden voorwerpen</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2}>Gevonden voorwerpen</Heading>
         <Paragraph>
           Bent u iets kwijtgeraakt in de Apollohal? Vraag ernaar bij de balie in de voorhal. Wij bewaren gevonden
           voorwerpen 4 weken.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-s" level={2}>Contact en openingstijden</Heading>
-        <Paragraph className="ams-mb-m">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2}>Contact en openingstijden</Heading>
+        <Paragraph>
           Apollolaan 4
           <br />
           1077 BA Amsterdam
@@ -1300,29 +1299,29 @@ export const LocationLarge: StoryObj = {
         </Paragraph>
         <Paragraph>Maandag tot en met zondag van 08.30 tot 23.00 uur.</Paragraph>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-s" level={2}>Rolstoeltoegankelijk</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2}>Rolstoeltoegankelijk</Heading>
         <Paragraph>
           De Apollohal is rolstoeltoegankelijk. Er is een aangepaste ingang, een lift naar de bovenzaal en er zijn 3
           rolstoeltoegankelijke toiletten.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-s" level={2}>Fietsenstalling</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2}>Fietsenstalling</Heading>
         <Paragraph>
           Voor de ingang staan fietsenrekken voor ongeveer 100 fietsen. Zet uw fiets in een rek, zodat de ingang
           vrij blijft.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-s" level={2}>Openbaar vervoer</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2}>Openbaar vervoer</Heading>
         <Paragraph>
           Tram 12 stopt aan de Apollolaan, op 2 minuten lopen van de hal. Tram 5 en 24 en bus 246 stoppen bij het
           Olympiaplein, op 8 minuten lopen.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-s" level={2}>Betaald parkeren</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2}>Betaald parkeren</Heading>
         <Paragraph>
           Bij de Apollohal zijn 12 parkeerplaatsen: 8 gewone plaatsen, 2 plaatsen voor elektrische auto’s en 2
           gehandicaptenparkeerplaatsen. U betaalt het reguliere parkeertarief van de buurt.
@@ -1375,10 +1374,13 @@ export const LocationLarge: StoryObj = {
       <main id="inhoud">
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         <Grid paddingBottom="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Apollohal
-            </Heading>
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Apollohal</Heading>
             <Paragraph size="large">
               In de Apollohal aan de Apollolaan sport u in een grote zaal of in 1 van de 2 gymzalen. Verenigingen,
               scholen en bedrijven huren er zalen voor trainingen, wedstrijden en evenementen.
@@ -1418,10 +1420,12 @@ export const LocationLarge: StoryObj = {
           </Grid.Cell>
         </Grid>
         <Grid paddingBottom="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Over de Apollohal
-            </Heading>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
+            <Heading level={2}>Over de Apollohal</Heading>
             <Paragraph>
               De Apollohal is een sporthal in Amsterdam-Zuid met moderne voorzieningen en een rijke sporthistorie. Het
               gebouw heeft 1 grote zaal en 2 gymzalen en is geschikt voor veel verschillende sporten en evenementen.
@@ -1503,14 +1507,14 @@ export const LocationLarge: StoryObj = {
         </Grid>
         <Spotlight as="section" color="magenta">
           <Grid paddingVertical="x-large">
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2}>
                 Reserveren voor 1 tot 3 uur
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
+              <Paragraph color="inverse">
                 Huurt u een zaal voor 1 tot 3 uur? Dan reserveert u die zelf online in het reserveringssysteem.
               </Paragraph>
-              <Paragraph className="ams-mb-m" color="inverse">
+              <Paragraph color="inverse">
                 U betaalt direct met iDEAL of met Vero. Zodra u betaald heeft, is uw reservering definitief.
               </Paragraph>
               <LinkList>
@@ -1522,11 +1526,11 @@ export const LocationLarge: StoryObj = {
                 </LinkList.Link>
               </LinkList>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2}>
                 Langer dan 3 uur reserveren
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
+              <Paragraph color="inverse">
                 Heeft u een zaal langer dan 3 uur nodig? Stuur dan een e-mail naar sportverhuur@amsterdam.nl. Vermeld uw
                 naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
                 van uw activiteit.
@@ -1537,8 +1541,8 @@ export const LocationLarge: StoryObj = {
                 </LinkList.Link>
               </LinkList>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2}>
                 Evenementen
               </Heading>
               <Paragraph color="inverse">
@@ -1551,11 +1555,11 @@ export const LocationLarge: StoryObj = {
                 .
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-s" color="inverse" level={2}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2}>
                 Huisregels en tarieven
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
+              <Paragraph color="inverse">
                 In de huisregels leest u wat er wel en niet mag in de Apollohal. In het tarievenoverzicht ziet u wat het
                 huren van een zaal kost.
               </Paragraph>
@@ -1571,20 +1575,16 @@ export const LocationLarge: StoryObj = {
           </Grid>
         </Spotlight>
         <Grid paddingVertical="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Gevonden voorwerpen
-            </Heading>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2}>Gevonden voorwerpen</Heading>
             <Paragraph>
               Bent u iets kwijtgeraakt in de Apollohal? Vraag ernaar bij de balie in de voorhal. Wij bewaren gevonden
               voorwerpen 4 weken.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Contact en openingstijden
-            </Heading>
-            <Paragraph className="ams-mb-m">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2}>Contact en openingstijden</Heading>
+            <Paragraph>
               Apollolaan 4
               <br />
               1077 BA Amsterdam
@@ -1595,37 +1595,29 @@ export const LocationLarge: StoryObj = {
             </Paragraph>
             <Paragraph>Maandag tot en met zondag van 08.30 tot 23.00 uur.</Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Rolstoeltoegankelijk
-            </Heading>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2}>Rolstoeltoegankelijk</Heading>
             <Paragraph>
               De Apollohal is rolstoeltoegankelijk. Er is een aangepaste ingang, een lift naar de bovenzaal en er zijn 3
               rolstoeltoegankelijke toiletten.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Fietsenstalling
-            </Heading>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2}>Fietsenstalling</Heading>
             <Paragraph>
               Voor de ingang staan fietsenrekken voor ongeveer 100 fietsen. Zet uw fiets in een rek, zodat de ingang
               vrij blijft.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Openbaar vervoer
-            </Heading>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2}>Openbaar vervoer</Heading>
             <Paragraph>
               Tram 12 stopt aan de Apollolaan, op 2 minuten lopen van de hal. Tram 5 en 24 en bus 246 stoppen bij het
               Olympiaplein, op 8 minuten lopen.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Betaald parkeren
-            </Heading>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2}>Betaald parkeren</Heading>
             <Paragraph>
               Bij de Apollohal zijn 12 parkeerplaatsen: 8 gewone plaatsen, 2 plaatsen voor elektrische auto’s en 2
               gehandicaptenparkeerplaatsen. U betaalt het reguliere parkeertarief van de buurt.
@@ -1684,8 +1676,9 @@ export const Sublocation: StoryObj = {
   <main id="inhoud">
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     <Grid>
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>Sportpark Sloten</Heading>
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Sportpark Sloten</Heading>
         <Paragraph size="large">
           Sportpark Sloten ligt aan de Sloterweg in Nieuw-West en biedt ruimte aan voetbal, atletiek en korfbal.
           Verenigingen, scholen en buurtbewoners huren er velden, banen en kleedkamers voor trainingen, wedstrijden
@@ -1694,8 +1687,8 @@ export const Sublocation: StoryObj = {
       </Grid.Cell>
     </Grid>
     <Grid paddingVertical="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={2}>Faciliteiten</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={2}>Faciliteiten</Heading>
         <UnorderedList>
           <UnorderedList.Item>4 kunstgrasvelden voor voetbal</UnorderedList.Item>
           <UnorderedList.Item>2 natuurgrasvelden voor voetbal</UnorderedList.Item>
@@ -1707,6 +1700,7 @@ export const Sublocation: StoryObj = {
           <UnorderedList.Item>een fietsenstalling en een parkeerterrein</UnorderedList.Item>
         </UnorderedList>
       </Grid.Cell>
+      {/* Prose has no rule for an Image Slider, so every element but the last in this cell sets its own margin. */}
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
         {/*
          * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
@@ -1718,22 +1712,22 @@ export const Sublocation: StoryObj = {
     </Grid>
     <Spotlight as="section" color="magenta">
       <Grid paddingVertical="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Wel te huur</Heading>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2} size="level-3">Wel te huur</Heading>
           <Paragraph color="inverse">
             U huurt de voetbalvelden, de atletiekbaan en de kleedkamers per dagdeel. Verhuur is mogelijk van
             september tot en met juni, buiten de vaste trainingstijden van de verenigingen om.
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Niet te huur</Heading>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2} size="level-3">Niet te huur</Heading>
           <Paragraph color="inverse">
             Het clubhuis, de kantine en de opslagruimtes worden door de verenigingen zelf beheerd. Die ruimtes
             verhuurt de gemeente niet.
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2} size="level-3">
             Voor scholen en voetbalscholen
           </Heading>
           <Paragraph color="inverse">
@@ -1741,8 +1735,8 @@ export const Sublocation: StoryObj = {
             kunnen alleen buiten het seizoen terecht, in overleg met de vereniging.
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Tarieven en huisregels</Heading>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Heading color="inverse" level={2} size="level-3">Tarieven en huisregels</Heading>
           <LinkList>
             <LinkList.Link color="inverse" href="#">
               Tarieven
@@ -1755,29 +1749,29 @@ export const Sublocation: StoryObj = {
       </Grid>
     </Spotlight>
     <Grid paddingVertical="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Contact</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2} size="level-3">Contact</Heading>
         <Paragraph>
           Vragen over de verhuur van Sportpark Sloten? Mail naar{' '}
           <Link href="mailto:sportverhuur@amsterdam.nl">sportverhuur@amsterdam.nl</Link>. U krijgt binnen 5
           werkdagen antwoord.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Openbaar vervoer</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2} size="level-3">Openbaar vervoer</Heading>
         <Paragraph>
           Bus 62 stopt bij halte Sportpark Sloten, op 5 minuten lopen van de ingang. Vanaf station Lelylaan rijdt
           bus 63 tot aan de Sloterweg.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Zie ook</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2} size="level-3">Zie ook</Heading>
         <LinkList>
           <LinkList.Link href="#">Alle sportparken in Amsterdam</LinkList.Link>
         </LinkList>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-        <Heading className="ams-mb-xs" level={2} size="level-3">Parkeren</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Heading level={2} size="level-3">Parkeren</Heading>
         <Paragraph>
           Bezoekers parkeren op de betaalde parkeerplaats naast het sportpark. Op wedstrijddagen is die plek snel
           vol, dus kom bij voorkeur met de fiets of het openbaar vervoer.
@@ -1825,10 +1819,13 @@ export const Sublocation: StoryObj = {
       <main id="inhoud">
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         <Grid>
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Sportpark Sloten
-            </Heading>
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Sportpark Sloten</Heading>
             <Paragraph size="large">
               Sportpark Sloten ligt aan de Sloterweg in Nieuw-West en biedt ruimte aan voetbal, atletiek en korfbal.
               Verenigingen, scholen en buurtbewoners huren er velden, banen en kleedkamers voor trainingen, wedstrijden
@@ -1837,10 +1834,12 @@ export const Sublocation: StoryObj = {
           </Grid.Cell>
         </Grid>
         <Grid paddingVertical="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Faciliteiten
-            </Heading>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={2}>Faciliteiten</Heading>
             <UnorderedList>
               <UnorderedList.Item>4 kunstgrasvelden voor voetbal</UnorderedList.Item>
               <UnorderedList.Item>2 natuurgrasvelden voor voetbal</UnorderedList.Item>
@@ -1852,6 +1851,7 @@ export const Sublocation: StoryObj = {
               <UnorderedList.Item>een fietsenstalling en een parkeerterrein</UnorderedList.Item>
             </UnorderedList>
           </Grid.Cell>
+          {/* Prose has no rule for an Image Slider, so every element but the last in this cell sets its own margin. */}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
             {/*
              * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
@@ -1863,8 +1863,8 @@ export const Sublocation: StoryObj = {
         </Grid>
         <Spotlight as="section" color="magenta">
           <Grid paddingVertical="x-large">
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 Wel te huur
               </Heading>
               <Paragraph color="inverse">
@@ -1872,8 +1872,8 @@ export const Sublocation: StoryObj = {
                 september tot en met juni, buiten de vaste trainingstijden van de verenigingen om.
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 Niet te huur
               </Heading>
               <Paragraph color="inverse">
@@ -1881,8 +1881,8 @@ export const Sublocation: StoryObj = {
                 verhuurt de gemeente niet.
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 Voor scholen en voetbalscholen
               </Heading>
               <Paragraph color="inverse">
@@ -1890,8 +1890,8 @@ export const Sublocation: StoryObj = {
                 kunnen alleen buiten het seizoen terecht, in overleg met de vereniging.
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+              <Heading color="inverse" level={2} size="level-3">
                 Tarieven en huisregels
               </Heading>
               <LinkList>
@@ -1906,8 +1906,8 @@ export const Sublocation: StoryObj = {
           </Grid>
         </Spotlight>
         <Grid paddingVertical="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2} size="level-3">
               Contact
             </Heading>
             <Paragraph>
@@ -1916,8 +1916,8 @@ export const Sublocation: StoryObj = {
               werkdagen antwoord.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2} size="level-3">
               Openbaar vervoer
             </Heading>
             <Paragraph>
@@ -1925,16 +1925,16 @@ export const Sublocation: StoryObj = {
               bus 63 tot aan de Sloterweg.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2} size="level-3">
               Zie ook
             </Heading>
             <LinkList>
               <LinkList.Link href="#">Alle sportparken in Amsterdam</LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Heading className="ams-mb-xs" level={2} size="level-3">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Heading level={2} size="level-3">
               Parkeren
             </Heading>
             <Paragraph>
