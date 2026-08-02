@@ -45,8 +45,9 @@ export const PageFooterContent = ({ cellAppearance }: PageFooterContentProps) =>
       <Grid paddingVertical="x-large">
         {/* A Subgrid stacks Contact and Vacatures in one column, spaced by the row gap of the Grid. */}
         <Grid.Subgrid span={4}>
-          <Grid.Cell appearance={cellAppearance} span="all">
-            <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+          {/* ams-prose sets the vertical rhythm between the heading and the links of each section. */}
+          <Grid.Cell appearance={cellAppearance} className="ams-prose" span="all">
+            <Heading color="inverse" level={2} size="level-3">
               Contact
             </Heading>
             <LinkList>
@@ -61,8 +62,8 @@ export const PageFooterContent = ({ cellAppearance }: PageFooterContentProps) =>
               </LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell appearance={cellAppearance} span="all">
-            <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+          <Grid.Cell appearance={cellAppearance} className="ams-prose" span="all">
+            <Heading color="inverse" level={2} size="level-3">
               Vacatures
             </Heading>
             <StandaloneLink color="inverse" href="#">
@@ -70,8 +71,8 @@ export const PageFooterContent = ({ cellAppearance }: PageFooterContentProps) =>
             </StandaloneLink>
           </Grid.Cell>
         </Grid.Subgrid>
-        <Grid.Cell appearance={cellAppearance} span={4}>
-          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+        <Grid.Cell appearance={cellAppearance} className="ams-prose" span={4}>
+          <Heading color="inverse" level={2} size="level-3">
             Volg ons
           </Heading>
           <LinkList>
@@ -82,8 +83,8 @@ export const PageFooterContent = ({ cellAppearance }: PageFooterContentProps) =>
             ))}
           </LinkList>
         </Grid.Cell>
-        <Grid.Cell appearance={cellAppearance} span={4}>
-          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+        <Grid.Cell appearance={cellAppearance} className="ams-prose" span={4}>
+          <Heading color="inverse" level={2} size="level-3">
             Doen in de stad
           </Heading>
           <LinkList>
