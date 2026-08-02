@@ -8,10 +8,17 @@ import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { GridColumnNumber, GridColumnNumbers, GridGap, GridRowNumber, GridRowNumbers } from './Grid'
+import type { GridColumnNumber, GridColumnNumbers, GridRowNumber, GridRowNumbers } from './Grid'
 import type { GridCellTag } from './GridCell'
 
 import { gridSubgridClasses } from './gridSubgridClasses'
+
+/**
+ * A Subgrid inherits the row gap of the Grid, so it needs a value for the x-large that Grid has by default.
+ * Without it, a Subgrid inside a Grid that lowers its gap has no way back to the regular spacing.
+ */
+export const gridSubgridGaps = ['none', 'large', 'x-large', '2x-large'] as const
+export type GridSubgridGap = (typeof gridSubgridGaps)[number]
 
 type GridSubgridSpanAllProp = {
   /** Lets the subgrid span the full width of all grid variants. */
@@ -42,7 +49,7 @@ export type GridSubgridProps = {
    * The amount of space between the rows of the subgrid.
    * Defaults to the vertical gap of the Grid.
    */
-  readonly gapVertical?: GridGap
+  readonly gapVertical?: GridSubgridGap
   /**
    * The amount of grid rows the subgrid spans.
    * Accepts a number or an object of numbers per grid variant.
