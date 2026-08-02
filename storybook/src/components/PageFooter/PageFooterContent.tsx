@@ -43,30 +43,36 @@ export const PageFooterContent = ({ cellAppearance }: PageFooterContentProps) =>
   <>
     <PageFooter.Spotlight>
       <Grid paddingVertical="x-large">
-        <Grid.Cell appearance={cellAppearance} span={4}>
-          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
-            Contact
-          </Heading>
-          <LinkList className="ams-mb-xl">
-            <LinkList.Link color="inverse" href="#" icon={<MailIcon />}>
-              Contactformulier
-            </LinkList.Link>
-            <LinkList.Link color="inverse" href="#" icon={<PhoneIcon />}>
-              14 020
-            </LinkList.Link>
-            <LinkList.Link color="inverse" href="#" icon={<ClockIcon />}>
-              Adressen en openingstijden
-            </LinkList.Link>
-          </LinkList>
-          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
-            Vacatures
-          </Heading>
-          <StandaloneLink color="inverse" href="#">
-            Werken bij Amsterdam
-          </StandaloneLink>
-        </Grid.Cell>
-        <Grid.Cell appearance={cellAppearance} span={4}>
-          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+        {/* A Subgrid stacks Contact and Vacatures in one column, spaced by the row gap of the Grid. */}
+        <Grid.Subgrid span={4}>
+          {/* ams-prose sets the vertical rhythm between the heading and the links of each section. */}
+          <Grid.Cell appearance={cellAppearance} className="ams-prose" span="all">
+            <Heading color="inverse" level={2} size="level-3">
+              Contact
+            </Heading>
+            <LinkList>
+              <LinkList.Link color="inverse" href="#" icon={<MailIcon />}>
+                Contactformulier
+              </LinkList.Link>
+              <LinkList.Link color="inverse" href="#" icon={<PhoneIcon />}>
+                14 020
+              </LinkList.Link>
+              <LinkList.Link color="inverse" href="#" icon={<ClockIcon />}>
+                Adressen en openingstijden
+              </LinkList.Link>
+            </LinkList>
+          </Grid.Cell>
+          <Grid.Cell appearance={cellAppearance} className="ams-prose" span="all">
+            <Heading color="inverse" level={2} size="level-3">
+              Vacatures
+            </Heading>
+            <StandaloneLink color="inverse" href="#">
+              Werken bij Amsterdam
+            </StandaloneLink>
+          </Grid.Cell>
+        </Grid.Subgrid>
+        <Grid.Cell appearance={cellAppearance} className="ams-prose" span={4}>
+          <Heading color="inverse" level={2} size="level-3">
             Volg ons
           </Heading>
           <LinkList>
@@ -77,8 +83,8 @@ export const PageFooterContent = ({ cellAppearance }: PageFooterContentProps) =>
             ))}
           </LinkList>
         </Grid.Cell>
-        <Grid.Cell appearance={cellAppearance} span={4}>
-          <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+        <Grid.Cell appearance={cellAppearance} className="ams-prose" span={4}>
+          <Heading color="inverse" level={2} size="level-3">
             Doen in de stad
           </Heading>
           <LinkList>

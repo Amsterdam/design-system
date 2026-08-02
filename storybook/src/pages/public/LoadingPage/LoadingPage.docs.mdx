@@ -1,0 +1,57 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
+import * as LoadingStories from "./LoadingPage.stories.tsx";
+
+<Meta of={LoadingStories} />
+
+# Loading page
+
+Use this template for a page that fetches its content after the first render, such as a page of search results.
+It stands in [Skeletons](/docs/components-feedback-skeleton--docs) for the results while they load, and tells screen reader users what is happening.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={LoadingStories} />
+
+## Structure
+
+- The Content Header and the results are each their own section, so a plain `main` wraps them both.
+- This page opens with its title rather than a Breadcrumb, so the first Grid still takes the `large` top padding.
+  The [Search Field](/docs/components-forms-search-field--docs) takes the place of the lead paragraph in the Content Header Cell, so [Prose](/docs/utilities-css-prose--docs) spaces it a medium below the title.
+- That Cell spans half the grid on wide screens, so the search input does not stretch to an unusable length.
+  It takes three quarters of the grid at medium and the full width at narrow.
+  The title follows that width rather than the [Content Header Cell](/docs/pages-public-introduction--docs#content-header) other page types use, because search is not a content page.
+- The results are [Cards](/docs/components-navigation-card--docs) of 4 columns, in a second Grid.
+
+## Loading
+
+The ‘Loading’ example shows the page while the results are on their way.
+
+- Compose each Skeleton from the same parts, in the same Grid Cell, as the Card that will replace it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+  Mirroring the shape keeps the layout shift small, but does not remove it.
+- Mark the whole results region busy while it loads, and let it announce once.
+  Marking each Skeleton would repeat the message for every card.
+  The Skeletons are hidden from assistive technologies, so the status message is all a screen reader hears.
+- Be aware that `aria-busy="true"` also permits assistive technology to hold back updates from the status message and deliver them as one update once it turns false.
+  The ARIA specification allows this rather than requiring it, so not every screen reader does it.
+
+## Loaded
+
+The ‘Loaded’ example shows the results in place, under a heading that counts them.
+
+- Keep one status message in the DOM at all times and only change its text, from a loading message to the result count.
+  A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
+- No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
+
+## Layout and spacing
+
+- The first Grid takes a `paddingTop` of `large`, as the first Grid of every page does.
+- Both Grids have the default background colour, so the second one takes a `paddingTop` of `2x-large`.
+- The last Grid before the Page Footer takes a `paddingBottom` of `2x-large`.

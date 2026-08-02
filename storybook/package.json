@@ -39,6 +39,7 @@
     "@storybook/mdx2-csf": "1.1.0",
     "@storybook/react-vite": "10.5.5",
     "@types/react": "18.3.31",
+    "@types/react-dom": "18.3.7",
     "@vitejs/plugin-react": "6.0.4",
     "chromatic": "18.1.0",
     "eslint-plugin-mdx": "3.8.1",
@@ -48,7 +49,7 @@
     "remark-gfm": "4.0.1",
     "storybook": "10.5.5",
     "storybook-addon-pseudo-states": "10.5.5",
-    "vite": "8.1.5",
+    "vite": "8.2.0",
     "vitest": "4.1.10"
   }
 }

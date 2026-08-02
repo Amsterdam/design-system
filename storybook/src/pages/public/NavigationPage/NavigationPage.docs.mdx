@@ -2,6 +2,9 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as NavigationStories from "./NavigationPage.stories.tsx";
 
 <Meta of={NavigationStories} />
@@ -10,6 +13,12 @@ import * as NavigationStories from "./NavigationPage.stories.tsx";
 
 A navigation page does not have much content of its own.
 Instead, it presents groups of links to various pages related to a specific subject.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={NavigationStories} />
 
 ## Headings
 
@@ -21,3 +30,35 @@ Instead, it presents groups of links to various pages related to a specific subj
 ## Spacing
 
 - Grids on this page type use the default x-large vertical gap.
+
+## With side navigation
+
+Use a side navigation when the page presents one entry from a long list, and visitors move between those entries without leaving the page.
+A [Table of Contents](/docs/components-navigation-table-of-contents--docs) is the navigation for this.
+Mark the entry on screen with `aria-current="page"`, and set `defaultExpanded` on the outer list so its groups start open.
+
+Put the entry in a [Grid Subgrid](/docs/components-layout-grid--docs) rather than a Cell.
+A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
+It is a single item in the row of the Grid however many rows of its own it holds, so the navigation sits beside all of it and the entry can be any length.
+
+Give the navigation the first place in the source order, so it precedes the entry for a screen reader and for the Tab key.
+It only sits beside the entry on the wide grid; on narrower screens it spans the full width above it.
+
+Set `main` on the Subgrid rather than on the Grid around it.
+The navigation switches between entries and is a repeated block, so it does not belong to the main content area.
+This puts the page title outside the landmark, which is the trade-off for keeping the navigation out of it.
+
+Such a page has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
+Name each after the thing it reaches rather than numbering them.
+
+Because the entry’s parts each sit in their own Cell of the Subgrid, the space between them is the row gap.
+Leave the row gap of the Subgrid at the vertical gap of the Grid.
+That gap has no medium size, so the space below the entry’s heading is larger than the vertical space guide advises for a heading.
+Keep elements in one cell where you need the exact space between them.
+
+A map belongs on this page as an interactive component, not as an [Image](/docs/components-media-image--docs).
+Whichever you use, it needs a text alternative: here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
+
+Give a repeated action such as ‘Toon op de kaart’ a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on.
+Without it, every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
+Put the suffix after the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.

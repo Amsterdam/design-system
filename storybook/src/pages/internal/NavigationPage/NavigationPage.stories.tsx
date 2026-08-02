@@ -97,13 +97,12 @@ const meta = {
         </Grid.Cell>
         {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
         <Grid.Cell
+          className="ams-prose"
           span={{ narrow: 4, medium: 6, wide: 7 }}
           start={{ narrow: 1, medium: 3, wide: 3 }}
           style={{ blockSize: `${currentSubMenu.cellHeights[0]}vb` }}
         >
-          <Heading className="ams-mb-m" level={2}>
-            {currentMenu.label}
-          </Heading>
+          <Heading level={2}>{currentMenu.label}</Heading>
           <Heading level={3}>{currentSubMenu.label}</Heading>
         </Grid.Cell>
         <Grid.Cell
@@ -176,8 +175,8 @@ export const Default: StoryObj = {
     </TabNavigation>
   </Grid.Cell>
   {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
-  <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 3, wide: 3 }}>
-    <Heading className="ams-mb-m" level={2}>{currentMenu.label}</Heading>
+  <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 3, wide: 3 }}>
+    <Heading level={2}>{currentMenu.label}</Heading>
     <Heading level={3}>{currentSubMenu.label}</Heading>
   </Grid.Cell>
   <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }} />

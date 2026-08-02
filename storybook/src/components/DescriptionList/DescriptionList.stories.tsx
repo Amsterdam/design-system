@@ -98,8 +98,8 @@ export const RichDescription: Story = {
   render: (args) => (
     <DescriptionList {...args}>
       <DescriptionList.Term key={1}>Amsterdam Light Festival</DescriptionList.Term>
-      <DescriptionList.Description key={2}>
-        <Paragraph className="ams-mb-s" color={args.color}>
+      <DescriptionList.Description className="ams-prose" key={2}>
+        <Paragraph color={args.color}>
           Een jaarlijks evenement waarbij kunstenaars van over de hele wereld hun{' '}
           <strong>creatieve lichtinstallaties</strong> tonen. De kunstwerken zijn verspreid over de stad en zijn zowel
           vanaf het water als vanaf de kant te bewonderen.

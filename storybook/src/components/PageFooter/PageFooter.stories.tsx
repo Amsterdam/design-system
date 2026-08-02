@@ -47,11 +47,12 @@ export const CustomContent: Story = {
       <PageFooter {...args}>
         <PageFooter.Spotlight>
           <Grid paddingVertical="x-large">
-            <Grid.Cell appearance={cellAppearance} span={4}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+            {/* ams-prose sets the vertical rhythm between the heading and the text and links below it. */}
+            <Grid.Cell appearance={cellAppearance} className="ams-prose" span={4}>
+              <Heading color="inverse" level={2} size="level-3">
                 Contact
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
+              <Paragraph color="inverse">
                 Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
               </Paragraph>
               <LinkList>
@@ -63,11 +64,11 @@ export const CustomContent: Story = {
                 </LinkList.Link>
               </LinkList>
             </Grid.Cell>
-            <Grid.Cell appearance={cellAppearance} span={4}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+            <Grid.Cell appearance={cellAppearance} className="ams-prose" span={4}>
+              <Heading color="inverse" level={2} size="level-3">
                 Panels en enquêtes
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
+              <Paragraph color="inverse">
                 Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
               </Paragraph>
               <LinkList>
@@ -82,8 +83,8 @@ export const CustomContent: Story = {
                 </LinkList.Link>
               </LinkList>
             </Grid.Cell>
-            <Grid.Cell appearance={cellAppearance} span={4}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+            <Grid.Cell appearance={cellAppearance} className="ams-prose" span={4}>
+              <Heading color="inverse" level={2} size="level-3">
                 Onderzoek en Statistiek
               </Heading>
               <LinkList>

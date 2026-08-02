@@ -81,12 +81,11 @@ export const WithFooterAndRowHeaders: Story = {
 
 export const WithHeadingAndDescription: Story = {
   render: () => (
-    <>
+    // ams-prose sets the vertical rhythm between the heading, the description and the table.
+    <div className="ams-prose">
       {/* Move the Heading outside the Table to have content between them. */}
-      <Heading className="ams-mb-xs" level={3}>
-        Kosten voor de aanvraag
-      </Heading>
-      <Paragraph className="ams-mb-m" size="small">
+      <Heading level={3}>Kosten voor de aanvraag</Heading>
+      <Paragraph size="small">
         Prijzen zijn geldig vanaf 1 januari 2025. Bron: Rijksdienst voor Identiteitsgegevens.
       </Paragraph>
       <Table>
@@ -112,7 +111,7 @@ export const WithHeadingAndDescription: Story = {
           </Table.Row>
         </Table.Body>
       </Table>
-    </>
+    </div>
   ),
 }
 

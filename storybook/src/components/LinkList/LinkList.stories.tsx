@@ -39,12 +39,11 @@ export const Default: Story = {
 export const WithHeading: Story = {
   ...StoryTemplate,
   render: ({ children, ...args }) => (
-    <>
-      <Heading className="ams-mb-s" level={3}>
-        Adres en inschrijving
-      </Heading>
+    // ams-prose sets the vertical rhythm between the heading and the list.
+    <div className="ams-prose">
+      <Heading level={3}>Adres en inschrijving</Heading>
       <LinkList {...args}>{children}</LinkList>
-    </>
+    </div>
   ),
 }
 export const CustomIcons: Story = {

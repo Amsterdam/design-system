@@ -4,9 +4,9 @@
  */
 
 $_ams-body-block: ".ams-blockquote, .ams-image, .ams-paragraph--large, .ams-table";
-$_ams-button-or-cta: ".ams-button, .ams-call-to-action-link";
 $_ams-list-or-paragraph: ".ams-description-list, .ams-link-list, .ams-ordered-list, .ams-paragraph:not(.ams-paragraph--large), .ams-unordered-list";
 $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
+$_ams-spaced-from-heading: ".ams-description-list, .ams-image, .ams-link-list, .ams-standalone-link, .ams-table";
 
 .ams-prose {
   /* Base spacing, for elements that none of the context-aware rules below match */
@@ -35,8 +35,13 @@ $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
     margin-block-end: var(--ams-space-l);
   }
 
-  /* Button or CTA Link followed by Button or CTA Link */
-  > :is(#{$_ams-button-or-cta}):has(+ :is(#{$_ams-button-or-cta})) {
+  /* Metadata Paragraph before the lead Paragraph: the Content Header holds them closer together */
+  > #{$_ams-paragraph}:has(+ .ams-paragraph--large) {
+    margin-block-end: var(--ams-space-m);
+  }
+
+  /* Button followed by Button */
+  > .ams-button:has(+ .ams-button) {
     margin-block-end: var(--ams-space-l);
   }
 
@@ -80,18 +85,47 @@ $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
     margin-block-end: var(--ams-space-s);
   }
 
-  /* Heading level 1 followed by a regular Paragraph */
-  > .ams-heading--1:has(+ #{$_ams-paragraph}) {
-    margin-block-end: var(--ams-space-xs);
+  /* Heading level 1 followed by its content: the Metadata Paragraph or the lead of a Content Header, a list, an image */
+  > .ams-heading--1:has(+ :not(.ams-heading)) {
+    margin-block-end: var(--ams-space-m);
   }
 
-  /* Heading level 1 followed by a Paragraph (large), typically lead or metadata */
-  > .ams-heading--1:has(+ .ams-paragraph--large) {
-    margin-block-end: var(--ams-space-m);
+  /* Heading level 4 followed by its content, which sits straight beneath it */
+  > .ams-heading--4:has(+ :not(.ams-heading)) {
+    margin-block-end: 0;
+  }
+
+  /*
+   * Below a level 3 or 4 heading, only a Paragraph and a text list take the tightest space.
+   * Everything else needs a step more: it is set more loosely, or starts with an icon or an edge instead of a
+   * line of text, so at the tighter space the heading would read as part of it rather than as the space above it.
+   */
+  > .ams-heading--3:has(+ :is(#{$_ams-spaced-from-heading})) {
+    margin-block-end: var(--ams-space-s);
+  }
+
+  > .ams-heading--4:has(+ :is(#{$_ams-spaced-from-heading})) {
+    margin-block-end: var(--ams-space-xs);
   }
 
   /* Heading level 2 or 3 followed by another heading */
   > :is(.ams-heading--2, .ams-heading--3):has(+ .ams-heading) {
     margin-block-end: var(--ams-space-m);
+  }
+
+  /* Paragraph followed by a Standalone Link, which reads as a closing line to the text above it */
+  > #{$_ams-paragraph}:has(+ .ams-standalone-link) {
+    margin-block-end: var(--ams-space-s);
+  }
+
+  /*
+   * A Call to Action Link needs air on both sides to stand out from the text it is authored among.
+   * These rules come last so they win from the ones above at equal specificity.
+   * A heading directly above one is left to the heading rules: the guidance advises against that combination.
+   */
+  > :not(.ams-heading):has(+ .ams-call-to-action-link),
+  > .ams-call-to-action-link:has(+ :not(.ams-heading)),
+  > .ams-call-to-action-link:has(+ .ams-heading) {
+    margin-block-end: var(--ams-space-xl);
   }
 }
