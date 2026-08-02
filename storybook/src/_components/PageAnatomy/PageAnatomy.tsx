@@ -6,6 +6,8 @@
 import type { CSSProperties, HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
+import { useId, useState } from 'react'
+import { flushSync } from 'react-dom'
 
 import type {
   AnatomyBlock,
@@ -14,12 +16,17 @@ import type {
   AnatomyPage,
   AnatomySection,
   AnatomyViewport,
+  Breakpoint,
   StoryModule,
 } from './model'
 
 import {
   anatomyViewports,
+  blockHeight,
   columnGapWidth,
+  drawnSections,
+  elidedLabel,
+  hasElidedBlocks,
   logoHeight,
   paddingHeight,
   pageHeaderHeight,
@@ -62,9 +69,6 @@ const gridRow = (rowSpan: number | undefined): string | undefined => (rowSpan ? 
  */
 const touchesAbove = (sections: readonly AnatomySection[], index: number): boolean =>
   !sections[index]?.paddingTop && (index === 0 || !sections[index - 1]?.paddingBottom)
-
-const blockHeight = (block: AnatomyBlock, viewport: AnatomyViewport): number =>
-  block.aspectRatio ? block.aspectRatio * viewport.contentWidth : block.height[viewport.key]
 
 /** The height a block covers, which for a Subgrid is the tallest of the cells that sit in its rows. */
 const coveringHeight = (block: AnatomyBlock, viewport: AnatomyViewport): number =>
@@ -126,6 +130,7 @@ const Block = ({
       block.blocks ? '_ams-page-anatomy__subgrid' : '_ams-page-anatomy__block',
       block.bleed && '_ams-page-anatomy__block--bleed',
       block.appearance === 'transparent' && '_ams-page-anatomy__block--transparent',
+      block.elided !== undefined && '_ams-page-anatomy__block--repeat',
     )}
     style={{
       // A block that lies on top of another is centred on it, as the Grid inside an Overlap is.
@@ -154,7 +159,9 @@ const Block = ({
         />
       ))
     ) : (
-      <span className="_ams-page-anatomy__label">{block.label}</span>
+      <span className="_ams-page-anatomy__label">
+        {block.elided === undefined ? block.label : elidedLabel(block.elided)}
+      </span>
     )}
   </div>
 )
@@ -206,10 +213,12 @@ const Space = ({
 const Drawing = ({
   mode,
   sections,
+  selected,
   viewport,
 }: {
   readonly mode: AnatomyMode
   readonly sections: readonly AnatomySection[]
+  readonly selected: boolean
   readonly viewport: AnatomyViewport
 }) => {
   // The narrowest drawing has no room to name the amount of space; there, the colour stands on its own.
@@ -217,7 +226,7 @@ const Drawing = ({
 
   return (
     <li
-      className="_ams-page-anatomy__viewport"
+      className={clsx('_ams-page-anatomy__viewport', selected && '_ams-page-anatomy__viewport--selected')}
       style={{ '--_ams-page-anatomy-width': viewport.width } as CSSProperties}
     >
       <p className="_ams-page-anatomy__caption">
@@ -305,6 +314,11 @@ const Drawing = ({
 /**
  * Draws the anatomy of a page template: the Page Header, the sections in between, and the Page Footer, at the three
  * Grid variants side by side. The geometry comes from the story, so the drawing follows the page it documents.
+ *
+ * Where there is no width for three drawings beside one another, they would take three pages of scrolling one under
+ * the other, so one is drawn at a time and the buttons above choose which. Switching between them at one width is
+ * also the closest look at what the Grid does that the drawing gives: the frame stays put while the page inside it
+ * lays itself out again.
  */
 export const PageAnatomy = ({
   className,
@@ -316,9 +330,27 @@ export const PageAnatomy = ({
   style,
   ...restProps
 }: PageAnatomyProps) => {
+  const [selected, setSelected] = useState<Breakpoint>('narrow')
+  // A view transition names the elements it carries across, and a documentation page may hold more than one drawing.
+  const transitionName = `ams-page-anatomy-${useId().replace(/[^a-z\d]/gi, '')}`
   const { problems, sections } = readPageAnatomy(readStoryTree(of, story), labels)
   const viewports = anatomyViewports({ menu, mode })
   const widest = viewports[viewports.length - 1]?.width ?? 0
+  const drawings = viewports.map((viewport) => ({ drawn: drawnSections(sections, viewport), viewport }))
+
+  /**
+   * Swaps one drawing for another. The two are of different heights, so a view transition carries the page across
+   * rather than cutting to it. React would batch the state change past the transition, which `flushSync` prevents.
+   */
+  const select = (key: Breakpoint) => {
+    if (key === selected) return
+
+    if ('startViewTransition' in document && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.startViewTransition(() => flushSync(() => setSelected(key)))
+    } else {
+      setSelected(key)
+    }
+  }
 
   return (
     <div
@@ -337,6 +369,7 @@ export const PageAnatomy = ({
             )
             .join(' '),
           '--_ams-page-anatomy-single-row': viewports.map((viewport) => `minmax(0, ${viewport.width}fr)`).join(' '),
+          '--_ams-page-anatomy-transition': transitionName,
         } as CSSProperties
       }
     >
@@ -345,15 +378,37 @@ export const PageAnatomy = ({
           The labels no longer match the story. {problems.join(' ')}
         </p>
       )}
-      <ol className="_ams-page-anatomy__viewports">
+      <div aria-label="Grid variant" className="_ams-page-anatomy__switcher" role="group">
         {viewports.map((viewport) => (
-          <Drawing key={viewport.key} mode={mode} sections={sections} viewport={viewport} />
+          <button
+            aria-pressed={viewport.key === selected}
+            className="_ams-page-anatomy__switch"
+            key={viewport.key}
+            onClick={() => select(viewport.key)}
+            type="button"
+          >
+            {viewport.label}
+          </button>
+        ))}
+      </div>
+      <ol className="_ams-page-anatomy__viewports">
+        {drawings.map(({ drawn, viewport }) => (
+          <Drawing
+            key={viewport.key}
+            mode={mode}
+            sections={drawn}
+            selected={viewport.key === selected}
+            viewport={viewport}
+          />
         ))}
       </ol>
       <ul className="_ams-page-anatomy__legend">
         <li className="_ams-page-anatomy__legend-item _ams-page-anatomy__legend-item--columns">Grid columns</li>
         <li className="_ams-page-anatomy__legend-item _ams-page-anatomy__legend-item--space">Vertical space</li>
         <li className="_ams-page-anatomy__legend-item _ams-page-anatomy__legend-item--block">Grid Cell</li>
+        {drawings.some(({ drawn }) => drawn.some((section) => hasElidedBlocks(section.blocks))) && (
+          <li className="_ams-page-anatomy__legend-item _ams-page-anatomy__legend-item--repeat">More of the same</li>
+        )}
         {sections.some((section) => section.spotlight) && (
           <li className="_ams-page-anatomy__legend-item _ams-page-anatomy__legend-item--spotlight">Spotlight</li>
         )}

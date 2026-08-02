@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
+import type { AnatomyLabel, AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
 
 /**
  * Names every Grid Cell of the Default story for the anatomy drawing on the docs page, grouped per section and in the
@@ -11,16 +11,19 @@ import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
  * a height are written by hand. Adding or removing a section or a cell means editing this list too.
  */
 export const anatomyLabels: AnatomyLabels = [
-  ['Hero image', { height: 64, label: 'Search field' }],
-  [{ height: 44, label: 'Section heading' }, ...Array.from({ length: 8 }, () => ({ height: 96, label: 'Top task' }))],
+  ['Hero image', { height: 'heading', label: 'Search field' }],
   [
-    { height: 168, label: 'Link section' },
-    { height: 168, label: 'Link section' },
+    { height: 'heading', label: 'Section heading' },
+    ...Array.from({ length: 8 }, (): AnatomyLabel => ({ height: 'tile', label: 'Top task' })),
   ],
   [
-    { height: 44, label: 'Section heading' },
-    { height: 212, label: 'News card' },
-    { height: 212, label: 'News card' },
-    { height: 212, label: 'News card' },
+    { height: 'card', label: 'Link section' },
+    { height: 'card', label: 'Link section' },
+  ],
+  [
+    { height: 'heading', label: 'Section heading' },
+    { height: 'card', label: 'News card' },
+    { height: 'card', label: 'News card' },
+    { height: 'card', label: 'News card' },
   ],
 ]

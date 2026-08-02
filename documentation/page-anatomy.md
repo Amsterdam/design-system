@@ -19,16 +19,16 @@ Add an `anatomyLabels.ts` beside the story file.
 import type { AnatomyLabels } from "#storybook/_components/PageAnatomy/model";
 
 export const anatomyLabels: AnatomyLabels = [
-  [{ height: 32, label: "Breadcrumb" }],
+  [{ height: "line", label: "Breadcrumb" }],
   [
-    { height: 132, label: "Page title" },
-    { height: 372, label: "Article body" },
+    { height: "title", label: "Page title" },
+    { height: "body", label: "Article body" },
   ],
 ];
 ```
 
 One array per section, one entry per Grid Cell, both in the order they appear in the story.
-An entry is a string, or an object that also sets a height in pixels of the page it stands for.
+An entry is a string, or an object that also names a height from the scale below.
 
 A section is a Grid, a Spotlight, an Overlap, or an Image that runs to the edges of the page.
 An Image of its own is a section with a single block; the Image inside an Overlap is a block alongside the Cells that lie on it.
@@ -50,17 +50,46 @@ The cell that holds the title of a content page is ‘Page title’.
 
 ### Choosing heights
 
-Heights are an impression, so aim for a truthful proportion rather than a measurement.
-Two things are not yours to set: an Image takes its height from its `aspectRatio`, and the Page Header takes its from the tokens.
+A height is a step of a scale of seven, not a measurement of the content:
 
-Where a cell changes shape between Grid variants, give it a height per variant.
+- `line`, 32 pixels — a single line of text: a breadcrumb, a result count.
+- `heading`, 48 — a heading, a pagination, a search field.
+- `title`, 72 — a page title.
+- `tile`, 96 — a compact box in a row of them: a top task.
+- `card`, 128 — a link section, a news card, a search result.
+- `panel`, 192 — a map, a set of filters, a table of contents, an image slider.
+- `body`, 256 — a body of text: an article, a product description, a set of questions.
+
+Pick the step by what the cell holds, so that the same kind of content is the same size on every page type.
+The names are sizes with a typical use rather than a taxonomy: a page title that carries a lead paragraph is a `card`, and a Compact Mode page has smaller titles than a Spacious Mode one.
+
+Nothing is drawn taller than a `body`, whatever the page does.
+An article body on a real page is several times taller than that against its own width, and a schematic that has to be scrolled past says less than one that is read at a glance.
+The Page Header is the one height that is not yours to set at all: it comes from the tokens.
+
+Where a cell changes shape between Grid variants, give it a step per variant.
 A vertical Tab Navigation runs horizontally below the medium breakpoint, so the cell that holds it is short there:
 
 ```ts
 export const anatomyLabels: AnatomyLabels = [
-  [{ height: { narrow: 40, medium: 240, wide: 240 }, label: "Project navigation" }],
+  [{ height: { narrow: "heading", medium: "panel", wide: "panel" }, label: "Project navigation" }],
 ];
 ```
+
+An Image takes its height from its `aspectRatio` where a label gives it none, up to a `card`, and past that at an ever smaller share of the rest, so that it never reaches a `body`.
+Give the Image a step of its own where the flattened height reads wrong.
+
+### Repeated cells draw themselves shorter
+
+A page that lists eight top tasks stacks all eight on a phone, which is a screen of the same block over and over.
+The drawing shortens a run of identical cells to its first row, a marker naming what it stands for, and its last row.
+
+The marker counts cells where they lie one under the other, and rows where they lie beside one another: ‘8 more’, but ‘3 × 2 more’ for three rows of two.
+A plain count would read there as six more rows.
+
+It does that from four rows up, and per Grid variant: the same eight tasks lie two to a row on the medium grid and four on the wide one, so that run is elided on the first two and drawn in full on the third.
+Nothing about this is written by hand, and a run counts as identical when the cells share a name, a span, a row span and a height.
+Where a run should be drawn in full, give its cells names that differ.
 
 ## Add the section to the documentation page
 
@@ -106,5 +135,6 @@ That is the point of the test: the story is free to change, and the names have t
 ## Add it to the visual test only when it shows something new
 
 `PageAnatomy.test.stories.tsx` is the one story Chromatic snapshots for the drawing itself.
-It draws four pages, which between them cover a Spotlight, a full-bleed Image, an Overlap, a Subgrid holding a Cell that spans all of its columns, Compact Mode, a Menu column, a row-spanning Cell and a transparent one.
+It draws five pages, which between them cover a Spotlight, a full-bleed Image, an Overlap, a run of repeated Cells, a Subgrid holding a Cell that spans all of its columns, Compact Mode, a Menu column, a row-spanning Cell and a transparent one.
+The last of the five sits in a container the width of a phone, where one drawing is shown at a time and buttons choose which.
 Leave it alone unless a new page type shows something none of those do, and add to that story rather than writing another: the snapshot glob matches a story named `Test`, so a second story is not picked up.

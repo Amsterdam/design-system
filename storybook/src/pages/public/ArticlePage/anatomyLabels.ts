@@ -11,15 +11,15 @@ import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
  * a height are written by hand. Adding or removing a section or a cell means editing this list too.
  */
 export const anatomyLabels: AnatomyLabels = [
-  [{ height: 32, label: 'Breadcrumb' }],
-  [{ height: 132, label: 'Article header' }],
+  [{ height: 'line', label: 'Breadcrumb' }],
+  [{ height: 'card', label: 'Article header' }],
   ['Hero image'],
-  [{ height: 372, label: 'Article body' }],
-  [{ height: 132, label: 'Newsletter' }],
+  [{ height: 'body', label: 'Article body' }],
+  [{ height: 'card', label: 'Newsletter' }],
   [
-    { height: 44, label: 'Section heading' },
-    { height: 212, label: 'News card' },
-    { height: 212, label: 'News card' },
-    { height: 212, label: 'News card' },
+    { height: 'heading', label: 'Section heading' },
+    { height: 'card', label: 'News card' },
+    { height: 'card', label: 'News card' },
+    { height: 'card', label: 'News card' },
   ],
 ]
