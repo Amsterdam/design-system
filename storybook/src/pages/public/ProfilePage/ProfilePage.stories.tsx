@@ -792,7 +792,7 @@ export const Location: StoryObj = {
       <Grid.Cell span="all">
         <Heading level={2}>Faciliteiten</Heading>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <UnorderedList>
           <UnorderedList.Item>3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar</UnorderedList.Item>
           <UnorderedList.Item>
@@ -806,7 +806,7 @@ export const Location: StoryObj = {
           <UnorderedList.Item>Verenigingsgebouw</UnorderedList.Item>
         </UnorderedList>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
         <UnorderedList>
           <UnorderedList.Item>
             400 meter lange atletiekbaan, in het midden ligt een veld voor uiteenlopende sporten en spellen
@@ -823,18 +823,18 @@ export const Location: StoryObj = {
     </Grid>
     <Spotlight as="section">
       <Grid paddingVertical="x-large">
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading color="inverse" level={2} size="level-3">Wel te huur</Heading>
           <Paragraph color="inverse">De beachvolleybalvelden zijn te huur.</Paragraph>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
           <Heading color="inverse" level={2} size="level-3">Niet te huur</Heading>
           <Paragraph color="inverse">
             Sportvelden kunnen niet worden gehuurd. De gemeente verhuurt deze velden alleen aan de sportclubs met
             een eigen clubgebouw.
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading color="inverse" level={2} size="level-3">
             Voor scholen en voetbalscholen
           </Heading>
@@ -842,7 +842,7 @@ export const Location: StoryObj = {
             Bent u een school voor primair of voortgezet onderwijs, of een voetbalschool, neem dan contact op.
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
           <Heading color="inverse" level={2} size="level-3">Tarieven en huisregels</Heading>
           <LinkList>
             <LinkList.Link color="inverse" href="#">
@@ -856,24 +856,24 @@ export const Location: StoryObj = {
       </Grid>
     </Spotlight>
     <Grid paddingVertical="x-large">
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2} size="level-3">Contact</Heading>
         <Paragraph>
           Heeft u vragen over de activiteiten op het sportpark of wilt u een veld huren? Mail dan naar{' '}
           <Link href="mailto:sportverhuur@amsterdam.nl">sportverhuur@amsterdam.nl</Link>.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading level={2} size="level-3">Openbaar vervoer</Heading>
         <Paragraph>Uw bezoekers kunnen via 9292.nl hun reis plannen.</Paragraph>
       </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2} size="level-3">Zie ook</Heading>
         <LinkList>
           <LinkList.Link href="#">Urban Sport Zone Zeeburgereiland</LinkList.Link>
         </LinkList>
       </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading level={2} size="level-3">Auto of fiets parkeren</Heading>
         <Paragraph>
           Bij de ingang liggen 2 gratis parkeerplaatsen voor bezoekers met een gehandicaptenparkeerkaart.
@@ -887,10 +887,9 @@ export const Location: StoryObj = {
     </Grid>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
-      <Grid.Cell span="all">
+      {/* The heading and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Locatie</Heading>
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }}>
         <Image
           alt="Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West."
           aspectRatio="16:9"
@@ -956,7 +955,7 @@ export const Location: StoryObj = {
           <Grid.Cell span="all">
             <Heading level={2}>Faciliteiten</Heading>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <UnorderedList>
               <UnorderedList.Item>3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar</UnorderedList.Item>
               <UnorderedList.Item>
@@ -970,7 +969,7 @@ export const Location: StoryObj = {
               <UnorderedList.Item>Verenigingsgebouw</UnorderedList.Item>
             </UnorderedList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
             <UnorderedList>
               <UnorderedList.Item>
                 400 meter lange atletiekbaan, in het midden ligt een veld voor uiteenlopende sporten en spellen
@@ -987,13 +986,17 @@ export const Location: StoryObj = {
         </Grid>
         <Spotlight as="section">
           <Grid paddingVertical="x-large">
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell
+              className="ams-prose"
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={{ narrow: 1, medium: 1, wide: 2 }}
+            >
               <Heading color="inverse" level={2} size="level-3">
                 Wel te huur
               </Heading>
               <Paragraph color="inverse">De beachvolleybalvelden zijn te huur.</Paragraph>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
               <Heading color="inverse" level={2} size="level-3">
                 Niet te huur
               </Heading>
@@ -1002,7 +1005,11 @@ export const Location: StoryObj = {
                 een eigen clubgebouw.
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell
+              className="ams-prose"
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={{ narrow: 1, medium: 1, wide: 2 }}
+            >
               <Heading color="inverse" level={2} size="level-3">
                 Voor scholen en voetbalscholen
               </Heading>
@@ -1010,7 +1017,7 @@ export const Location: StoryObj = {
                 Bent u een school voor primair of voortgezet onderwijs, of een voetbalschool, neem dan contact op.
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
               <Heading color="inverse" level={2} size="level-3">
                 Tarieven en huisregels
               </Heading>
@@ -1026,7 +1033,11 @@ export const Location: StoryObj = {
           </Grid>
         </Spotlight>
         <Grid paddingVertical="x-large">
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2} size="level-3">
               Contact
             </Heading>
@@ -1035,13 +1046,17 @@ export const Location: StoryObj = {
               <Link href="mailto:sportverhuur@amsterdam.nl">sportverhuur@amsterdam.nl</Link>.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading level={2} size="level-3">
               Openbaar vervoer
             </Heading>
             <Paragraph>Uw bezoekers kunnen via 9292.nl hun reis plannen.</Paragraph>
           </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2} size="level-3">
               Zie ook
             </Heading>
@@ -1049,7 +1064,7 @@ export const Location: StoryObj = {
               <LinkList.Link href="#">Urban Sport Zone Zeeburgereiland</LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading level={2} size="level-3">
               Auto of fiets parkeren
             </Heading>
@@ -1065,10 +1080,13 @@ export const Location: StoryObj = {
         </Grid>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
-          <Grid.Cell span="all">
+          {/* The heading and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 8, wide: 10 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2}>Locatie</Heading>
-          </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }}>
             <Image
               alt="Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West."
               aspectRatio="16:9"
@@ -1197,7 +1215,7 @@ export const LocationLarge: StoryObj = {
       <Grid.Cell span="all">
         <Heading level={2}>Faciliteiten</Heading>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <UnorderedList>
           <UnorderedList.Item>
             8 kleedkamers met douches voor sporters en 2 kleedkamers voor scheidsrechters, inclusief voorzieningen
@@ -1212,7 +1230,7 @@ export const LocationLarge: StoryObj = {
           <UnorderedList.Item>Er zijn kluisjes met codeslot</UnorderedList.Item>
         </UnorderedList>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
         <UnorderedList>
           <UnorderedList.Item>
             Horeca in de voorhal, open tijdens openingstijden, met broodjes, snacks, fruit, koffie, thee, fris en
@@ -1229,7 +1247,7 @@ export const LocationLarge: StoryObj = {
     </Grid>
     <Spotlight as="section">
       <Grid paddingVertical="x-large">
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading color="inverse" level={2}>Reserveren voor 1 tot 3 uur</Heading>
           <Paragraph color="inverse">
             Huurt u een zaal voor 1 tot 3 uur? Dan reserveert u die zelf online in het reserveringssysteem.
@@ -1246,7 +1264,7 @@ export const LocationLarge: StoryObj = {
             </LinkList.Link>
           </LinkList>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
           <Heading color="inverse" level={2}>Langer dan 3 uur reserveren</Heading>
           <Paragraph color="inverse">
             Heeft u een zaal langer dan 3 uur nodig? Stuur dan een e-mail naar sportverhuur@amsterdam.nl. Vermeld uw
@@ -1259,7 +1277,7 @@ export const LocationLarge: StoryObj = {
             </LinkList.Link>
           </LinkList>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading color="inverse" level={2}>Evenementen</Heading>
           <Paragraph color="inverse">
             In de grote zaal is plaats voor 550 toeschouwers. De zaal is geschikt voor sportevenementen, markten,
@@ -1271,7 +1289,7 @@ export const LocationLarge: StoryObj = {
             .
           </Paragraph>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
           <Heading color="inverse" level={2}>Huisregels en tarieven</Heading>
           <Paragraph color="inverse">
             In de huisregels leest u wat er wel en niet mag in de Apollohal. In het tarievenoverzicht ziet u wat het
@@ -1289,14 +1307,14 @@ export const LocationLarge: StoryObj = {
       </Grid>
     </Spotlight>
     <Grid paddingVertical="x-large">
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Gevonden voorwerpen</Heading>
         <Paragraph>
           Bent u iets kwijtgeraakt in de Apollohal? Vraag ernaar bij de balie in de voorhal. Wij bewaren gevonden
           voorwerpen 4 weken.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading level={2}>Contact en openingstijden</Heading>
         <Paragraph>
           Apollolaan 4
@@ -1309,28 +1327,28 @@ export const LocationLarge: StoryObj = {
         </Paragraph>
         <Paragraph>Maandag tot en met zondag van 08.30 tot 23.00 uur.</Paragraph>
       </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Rolstoeltoegankelijk</Heading>
         <Paragraph>
           De Apollohal is rolstoeltoegankelijk. Er is een aangepaste ingang, een lift naar de bovenzaal en er zijn 3
           rolstoeltoegankelijke toiletten.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading level={2}>Fietsenstalling</Heading>
         <Paragraph>
           Voor de ingang staan fietsenrekken voor ongeveer 100 fietsen. Zet uw fiets in een rek, zodat de ingang
           vrij blijft.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Openbaar vervoer</Heading>
         <Paragraph>
           Tram 12 stopt aan de Apollolaan, op 2 minuten lopen van de hal. Tram 5 en 24 en bus 246 stoppen bij het
           Olympiaplein, op 8 minuten lopen.
         </Paragraph>
       </Grid.Cell>
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading level={2}>Betaald parkeren</Heading>
         <Paragraph>
           Bij de Apollohal zijn 12 parkeerplaatsen: 8 gewone plaatsen, 2 plaatsen voor elektrische auto’s en 2
@@ -1340,16 +1358,13 @@ export const LocationLarge: StoryObj = {
     </Grid>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
-      <Grid.Cell span="all">
+      {/* The heading, the paragraph and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Locatie en plattegrond</Heading>
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
         <Paragraph>
           De Apollohal staat op de hoek van de Apollolaan en het Muzenplein. Bekijk de indeling van de zalen op de{' '}
           <Link href="#">plattegrond van de Apollohal (PDF, 228 kB)</Link>.
         </Paragraph>
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }}>
         <Image
           alt="Kaart met de ligging van de Apollohal tussen de Apollolaan en het Muzenplein."
           aspectRatio="16:9"
@@ -1486,7 +1501,7 @@ export const LocationLarge: StoryObj = {
           <Grid.Cell span="all">
             <Heading level={2}>Faciliteiten</Heading>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <UnorderedList>
               <UnorderedList.Item>
                 8 kleedkamers met douches voor sporters en 2 kleedkamers voor scheidsrechters, inclusief voorzieningen
@@ -1501,7 +1516,7 @@ export const LocationLarge: StoryObj = {
               <UnorderedList.Item>Er zijn kluisjes met codeslot</UnorderedList.Item>
             </UnorderedList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
             <UnorderedList>
               <UnorderedList.Item>
                 Horeca in de voorhal, open tijdens openingstijden, met broodjes, snacks, fruit, koffie, thee, fris en
@@ -1518,7 +1533,11 @@ export const LocationLarge: StoryObj = {
         </Grid>
         <Spotlight as="section">
           <Grid paddingVertical="x-large">
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell
+              className="ams-prose"
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={{ narrow: 1, medium: 1, wide: 2 }}
+            >
               <Heading color="inverse" level={2}>
                 Reserveren voor 1 tot 3 uur
               </Heading>
@@ -1537,7 +1556,7 @@ export const LocationLarge: StoryObj = {
                 </LinkList.Link>
               </LinkList>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
               <Heading color="inverse" level={2}>
                 Langer dan 3 uur reserveren
               </Heading>
@@ -1552,7 +1571,11 @@ export const LocationLarge: StoryObj = {
                 </LinkList.Link>
               </LinkList>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell
+              className="ams-prose"
+              span={{ narrow: 4, medium: 4, wide: 5 }}
+              start={{ narrow: 1, medium: 1, wide: 2 }}
+            >
               <Heading color="inverse" level={2}>
                 Evenementen
               </Heading>
@@ -1566,7 +1589,7 @@ export const LocationLarge: StoryObj = {
                 .
               </Paragraph>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
               <Heading color="inverse" level={2}>
                 Huisregels en tarieven
               </Heading>
@@ -1586,14 +1609,18 @@ export const LocationLarge: StoryObj = {
           </Grid>
         </Spotlight>
         <Grid paddingVertical="x-large">
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2}>Gevonden voorwerpen</Heading>
             <Paragraph>
               Bent u iets kwijtgeraakt in de Apollohal? Vraag ernaar bij de balie in de voorhal. Wij bewaren gevonden
               voorwerpen 4 weken.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading level={2}>Contact en openingstijden</Heading>
             <Paragraph>
               Apollolaan 4
@@ -1606,28 +1633,36 @@ export const LocationLarge: StoryObj = {
             </Paragraph>
             <Paragraph>Maandag tot en met zondag van 08.30 tot 23.00 uur.</Paragraph>
           </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2}>Rolstoeltoegankelijk</Heading>
             <Paragraph>
               De Apollohal is rolstoeltoegankelijk. Er is een aangepaste ingang, een lift naar de bovenzaal en er zijn 3
               rolstoeltoegankelijke toiletten.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading level={2}>Fietsenstalling</Heading>
             <Paragraph>
               Voor de ingang staan fietsenrekken voor ongeveer 100 fietsen. Zet uw fiets in een rek, zodat de ingang
               vrij blijft.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 4, wide: 5 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2}>Openbaar vervoer</Heading>
             <Paragraph>
               Tram 12 stopt aan de Apollolaan, op 2 minuten lopen van de hal. Tram 5 en 24 en bus 246 stoppen bij het
               Olympiaplein, op 8 minuten lopen.
             </Paragraph>
           </Grid.Cell>
-          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading level={2}>Betaald parkeren</Heading>
             <Paragraph>
               Bij de Apollohal zijn 12 parkeerplaatsen: 8 gewone plaatsen, 2 plaatsen voor elektrische auto’s en 2
@@ -1637,16 +1672,17 @@ export const LocationLarge: StoryObj = {
         </Grid>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
-          <Grid.Cell span="all">
+          {/* The heading, the paragraph and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 8, wide: 10 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2}>Locatie en plattegrond</Heading>
-          </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }}>
             <Paragraph>
               De Apollohal staat op de hoek van de Apollolaan en het Muzenplein. Bekijk de indeling van de zalen op de{' '}
               <Link href="#">plattegrond van de Apollohal (PDF, 228 kB)</Link>.
             </Paragraph>
-          </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }}>
             <Image
               alt="Kaart met de ligging van de Apollohal tussen de Apollolaan en het Muzenplein."
               aspectRatio="16:9"
@@ -1791,10 +1827,9 @@ export const Sublocation: StoryObj = {
     </Grid>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
-      <Grid.Cell span="all">
+      {/* The heading and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Locatie</Heading>
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }}>
         <Image
           alt="Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West."
           aspectRatio="16:9"
@@ -1956,10 +1991,13 @@ export const Sublocation: StoryObj = {
         </Grid>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
-          <Grid.Cell span="all">
+          {/* The heading and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 8, wide: 10 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2}>Locatie</Heading>
-          </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }}>
             <Image
               alt="Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West."
               aspectRatio="16:9"
