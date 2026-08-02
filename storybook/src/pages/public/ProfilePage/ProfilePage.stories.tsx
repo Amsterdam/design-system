@@ -536,42 +536,51 @@ export const Group: StoryObj = {
       </Grid>
     </Spotlight>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-    <Grid paddingBottom="2x-large" paddingTop="x-large">
-      <Grid.Cell span="all">
+    {/*
+     * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
+     * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
+     * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+     */}
+    <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
+      <Grid.Cell className="ams-mb-s" span="all">
         <Heading level={2}>Raadsleden</Heading>
       </Grid.Cell>
-      {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
-      {councilMembers.map(({ name, role }) => (
-        <Grid.Cell key={name} span={4}>
-          <Card>
-            {/*
-             * Screen readers skip a Card’s image, so only use a decorative one with an empty alt. The
-             * placeholder takes the class Card.Image would set, so it sits in the same place.
-             */}
-            <PhotoPlaceholder aspectRatio="16:9" className="ams-card__image" />
-            {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
-            <Card.Heading level={3}>
-              {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-              <Card.Link href="#">{name}</Card.Link>
-            </Card.Heading>
-            <Paragraph size="small">{role}</Paragraph>
-          </Card>
-        </Grid.Cell>
-      ))}
-      <Grid.Cell span="all">
+      <Grid.Subgrid className="ams-mb-xl" gapVertical="x-large" span="all">
+        {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
+        {councilMembers.map(({ name, role }) => (
+          <Grid.Cell key={name} span={4}>
+            <Card>
+              {/*
+               * Screen readers skip a Card’s image, so only use a decorative one with an empty alt. The
+               * placeholder takes the class Card.Image would set, so it sits in the same place.
+               */}
+              <PhotoPlaceholder aspectRatio="16:9" className="ams-card__image" />
+              {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
+              <Card.Heading level={3}>
+                {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+                <Card.Link href="#">{name}</Card.Link>
+              </Card.Heading>
+              <Paragraph size="small">{role}</Paragraph>
+            </Card>
+          </Grid.Cell>
+        ))}
+      </Grid.Subgrid>
+      <Grid.Cell className="ams-mb-s" span="all">
         <Heading level={2}>Fractievertegenwoordigers</Heading>
       </Grid.Cell>
-      {groupRepresentatives.map(({ name, role }) => (
-        <Grid.Cell key={name} span={4}>
-          <Card>
-            <PhotoPlaceholder aspectRatio="16:9" className="ams-card__image" />
-            <Card.Heading level={3}>
-              <Card.Link href="#">{name}</Card.Link>
-            </Card.Heading>
-            <Paragraph size="small">{role}</Paragraph>
-          </Card>
-        </Grid.Cell>
-      ))}
+      <Grid.Subgrid gapVertical="x-large" span="all">
+        {groupRepresentatives.map(({ name, role }) => (
+          <Grid.Cell key={name} span={4}>
+            <Card>
+              <PhotoPlaceholder aspectRatio="16:9" className="ams-card__image" />
+              <Card.Heading level={3}>
+                <Card.Link href="#">{name}</Card.Link>
+              </Card.Heading>
+              <Paragraph size="small">{role}</Paragraph>
+            </Card>
+          </Grid.Cell>
+        ))}
+      </Grid.Subgrid>
     </Grid>
   </main>
 </>`,
@@ -707,42 +716,51 @@ export const Group: StoryObj = {
           </Grid>
         </Spotlight>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-        <Grid paddingBottom="2x-large" paddingTop="x-large">
-          <Grid.Cell span="all">
+        {/*
+         * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
+         * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
+         * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+         */}
+        <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
+          <Grid.Cell className="ams-mb-s" span="all">
             <Heading level={2}>Raadsleden</Heading>
           </Grid.Cell>
-          {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
-          {councilMembers.map(({ name, role }) => (
-            <Grid.Cell key={name} span={4}>
-              <Card>
-                {/*
-                 * Screen readers skip a Card’s image, so only use a decorative one with an empty alt. The
-                 * placeholder takes the class Card.Image would set, so it sits in the same place.
-                 */}
-                <PhotoPlaceholder aspectRatio="16:9" className="ams-card__image" />
-                {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
-                <Card.Heading level={3}>
-                  {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-                  <Card.Link href="#">{name}</Card.Link>
-                </Card.Heading>
-                <Paragraph size="small">{role}</Paragraph>
-              </Card>
-            </Grid.Cell>
-          ))}
-          <Grid.Cell span="all">
+          <Grid.Subgrid className="ams-mb-xl" gapVertical="x-large" span="all">
+            {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
+            {councilMembers.map(({ name, role }) => (
+              <Grid.Cell key={name} span={4}>
+                <Card>
+                  {/*
+                   * Screen readers skip a Card’s image, so only use a decorative one with an empty alt. The
+                   * placeholder takes the class Card.Image would set, so it sits in the same place.
+                   */}
+                  <PhotoPlaceholder aspectRatio="16:9" className="ams-card__image" />
+                  {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
+                  <Card.Heading level={3}>
+                    {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+                    <Card.Link href="#">{name}</Card.Link>
+                  </Card.Heading>
+                  <Paragraph size="small">{role}</Paragraph>
+                </Card>
+              </Grid.Cell>
+            ))}
+          </Grid.Subgrid>
+          <Grid.Cell className="ams-mb-s" span="all">
             <Heading level={2}>Fractievertegenwoordigers</Heading>
           </Grid.Cell>
-          {groupRepresentatives.map(({ name, role }) => (
-            <Grid.Cell key={name} span={4}>
-              <Card>
-                <PhotoPlaceholder aspectRatio="16:9" className="ams-card__image" />
-                <Card.Heading level={3}>
-                  <Card.Link href="#">{name}</Card.Link>
-                </Card.Heading>
-                <Paragraph size="small">{role}</Paragraph>
-              </Card>
-            </Grid.Cell>
-          ))}
+          <Grid.Subgrid gapVertical="x-large" span="all">
+            {groupRepresentatives.map(({ name, role }) => (
+              <Grid.Cell key={name} span={4}>
+                <Card>
+                  <PhotoPlaceholder aspectRatio="16:9" className="ams-card__image" />
+                  <Card.Heading level={3}>
+                    <Card.Link href="#">{name}</Card.Link>
+                  </Card.Heading>
+                  <Paragraph size="small">{role}</Paragraph>
+                </Card>
+              </Grid.Cell>
+            ))}
+          </Grid.Subgrid>
         </Grid>
       </main>
     </>
@@ -798,39 +816,45 @@ export const Location: StoryObj = {
         />
       </Grid.Cell>
     </Grid>
-    <Grid paddingVertical="x-large">
+    {/*
+     * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
+     * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+     */}
+    <Grid gapVertical="none" paddingVertical="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Grid.Cell className="ams-mb-s" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Faciliteiten</Heading>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <UnorderedList>
-          <UnorderedList.Item>3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar</UnorderedList.Item>
-          <UnorderedList.Item>
-            Twee van de velden kunnen worden gekoppeld tot één groot veld voor cricket
-          </UnorderedList.Item>
-          <UnorderedList.Item>
-            Veld drie is tevens een jeugdhonkbalveld met blauwe honkbalbelijning
-          </UnorderedList.Item>
-          <UnorderedList.Item>Beachvolleybal</UnorderedList.Item>
-          <UnorderedList.Item>Cricketveld en -pitch</UnorderedList.Item>
-          <UnorderedList.Item>Verenigingsgebouw</UnorderedList.Item>
-        </UnorderedList>
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <UnorderedList>
-          <UnorderedList.Item>
-            400 meter lange atletiekbaan, in het midden ligt een veld voor uiteenlopende sporten en spellen
-          </UnorderedList.Item>
-          <UnorderedList.Item>
-            Atletiekgebouw met ruimte voor vergaderen, wedstrijdsecretariaat, 2 kleedkamers, invalidentoilet en
-            ruimte voor scheidsrechters en EHBO
-          </UnorderedList.Item>
-          <UnorderedList.Item>
-            Multifunctioneel verenigingsgebouw met 8 kleedkamers en sportkantine
-          </UnorderedList.Item>
-        </UnorderedList>
-      </Grid.Cell>
+      <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+          <UnorderedList>
+            <UnorderedList.Item>3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar</UnorderedList.Item>
+            <UnorderedList.Item>
+              Twee van de velden kunnen worden gekoppeld tot één groot veld voor cricket
+            </UnorderedList.Item>
+            <UnorderedList.Item>
+              Veld drie is tevens een jeugdhonkbalveld met blauwe honkbalbelijning
+            </UnorderedList.Item>
+            <UnorderedList.Item>Beachvolleybal</UnorderedList.Item>
+            <UnorderedList.Item>Cricketveld en -pitch</UnorderedList.Item>
+            <UnorderedList.Item>Verenigingsgebouw</UnorderedList.Item>
+          </UnorderedList>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+          <UnorderedList>
+            <UnorderedList.Item>
+              400 meter lange atletiekbaan, in het midden ligt een veld voor uiteenlopende sporten en spellen
+            </UnorderedList.Item>
+            <UnorderedList.Item>
+              Atletiekgebouw met ruimte voor vergaderen, wedstrijdsecretariaat, 2 kleedkamers, invalidentoilet en
+              ruimte voor scheidsrechters en EHBO
+            </UnorderedList.Item>
+            <UnorderedList.Item>
+              Multifunctioneel verenigingsgebouw met 8 kleedkamers en sportkantine
+            </UnorderedList.Item>
+          </UnorderedList>
+        </Grid.Cell>
+      </Grid.Subgrid>
     </Grid>
     <Spotlight as="section">
       <Grid paddingVertical="x-large">
@@ -962,39 +986,53 @@ export const Location: StoryObj = {
             />
           </Grid.Cell>
         </Grid>
-        <Grid paddingVertical="x-large">
+        {/*
+         * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
+         * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+         */}
+        <Grid gapVertical="none" paddingVertical="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Grid.Cell
+            className="ams-mb-s"
+            span={{ narrow: 4, medium: 8, wide: 10 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2}>Faciliteiten</Heading>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <UnorderedList>
-              <UnorderedList.Item>3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar</UnorderedList.Item>
-              <UnorderedList.Item>
-                Twee van de velden kunnen worden gekoppeld tot één groot veld voor cricket
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                Veld drie is tevens een jeugdhonkbalveld met blauwe honkbalbelijning
-              </UnorderedList.Item>
-              <UnorderedList.Item>Beachvolleybal</UnorderedList.Item>
-              <UnorderedList.Item>Cricketveld en -pitch</UnorderedList.Item>
-              <UnorderedList.Item>Verenigingsgebouw</UnorderedList.Item>
-            </UnorderedList>
-          </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <UnorderedList>
-              <UnorderedList.Item>
-                400 meter lange atletiekbaan, in het midden ligt een veld voor uiteenlopende sporten en spellen
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                Atletiekgebouw met ruimte voor vergaderen, wedstrijdsecretariaat, 2 kleedkamers, invalidentoilet en
-                ruimte voor scheidsrechters en EHBO
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                Multifunctioneel verenigingsgebouw met 8 kleedkamers en sportkantine
-              </UnorderedList.Item>
-            </UnorderedList>
-          </Grid.Cell>
+          <Grid.Subgrid
+            gapVertical="x-large"
+            span={{ narrow: 4, medium: 8, wide: 10 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+              <UnorderedList>
+                <UnorderedList.Item>3 x FIFA-gecertificeerde kunstgrasvelden naast elkaar</UnorderedList.Item>
+                <UnorderedList.Item>
+                  Twee van de velden kunnen worden gekoppeld tot één groot veld voor cricket
+                </UnorderedList.Item>
+                <UnorderedList.Item>
+                  Veld drie is tevens een jeugdhonkbalveld met blauwe honkbalbelijning
+                </UnorderedList.Item>
+                <UnorderedList.Item>Beachvolleybal</UnorderedList.Item>
+                <UnorderedList.Item>Cricketveld en -pitch</UnorderedList.Item>
+                <UnorderedList.Item>Verenigingsgebouw</UnorderedList.Item>
+              </UnorderedList>
+            </Grid.Cell>
+            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+              <UnorderedList>
+                <UnorderedList.Item>
+                  400 meter lange atletiekbaan, in het midden ligt een veld voor uiteenlopende sporten en spellen
+                </UnorderedList.Item>
+                <UnorderedList.Item>
+                  Atletiekgebouw met ruimte voor vergaderen, wedstrijdsecretariaat, 2 kleedkamers, invalidentoilet en
+                  ruimte voor scheidsrechters en EHBO
+                </UnorderedList.Item>
+                <UnorderedList.Item>
+                  Multifunctioneel verenigingsgebouw met 8 kleedkamers en sportkantine
+                </UnorderedList.Item>
+              </UnorderedList>
+            </Grid.Cell>
+          </Grid.Subgrid>
         </Grid>
         <Spotlight as="section">
           <Grid paddingVertical="x-large">
@@ -1185,78 +1223,86 @@ export const LocationLarge: StoryObj = {
         </Paragraph>
       </Grid.Cell>
     </Grid>
-    <Grid paddingBottom="x-large">
-      <Grid.Cell span="all">
+    {/*
+     * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
+     * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+     */}
+    <Grid gapVertical="none" paddingBottom="x-large">
+      <Grid.Cell className="ams-mb-s" span="all">
         <Heading level={2}>Zalen en sportmogelijkheden</Heading>
       </Grid.Cell>
-      {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
-      <Grid.Cell span={4}>
-        <Card>
-          {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-          <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1015/640/360" />
-          {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
-          <Card.Heading level={3}>
-            {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-            <Card.Link href="#">Grote zaal</Card.Link>
-          </Card.Heading>
-          <Paragraph size="small">Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.</Paragraph>
-        </Card>
-      </Grid.Cell>
-      <Grid.Cell span={4}>
-        <Card>
-          <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1016/640/360" />
-          <Card.Heading level={3}>
-            <Card.Link href="#">Du Midi benedenzaal</Card.Link>
-          </Card.Heading>
-          <Paragraph size="small">Badminton, basketbal, volleybal, dansen en vechtsport.</Paragraph>
-        </Card>
-      </Grid.Cell>
-      <Grid.Cell span={4}>
-        <Card>
-          <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1029/640/360" />
-          <Card.Heading level={3}>
-            <Card.Link href="#">Du Midi bovenzaal</Card.Link>
-          </Card.Heading>
-          <Paragraph size="small">
-            Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
-          </Paragraph>
-        </Card>
-      </Grid.Cell>
+      <Grid.Subgrid gapVertical="x-large" span="all">
+        {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
+        <Grid.Cell span={4}>
+          <Card>
+            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+            <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1015/640/360" />
+            {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
+            <Card.Heading level={3}>
+              {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+              <Card.Link href="#">Grote zaal</Card.Link>
+            </Card.Heading>
+            <Paragraph size="small">Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.</Paragraph>
+          </Card>
+        </Grid.Cell>
+        <Grid.Cell span={4}>
+          <Card>
+            <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1016/640/360" />
+            <Card.Heading level={3}>
+              <Card.Link href="#">Du Midi benedenzaal</Card.Link>
+            </Card.Heading>
+            <Paragraph size="small">Badminton, basketbal, volleybal, dansen en vechtsport.</Paragraph>
+          </Card>
+        </Grid.Cell>
+        <Grid.Cell span={4}>
+          <Card>
+            <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1029/640/360" />
+            <Card.Heading level={3}>
+              <Card.Link href="#">Du Midi bovenzaal</Card.Link>
+            </Card.Heading>
+            <Paragraph size="small">
+              Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
+            </Paragraph>
+          </Card>
+        </Grid.Cell>
+      </Grid.Subgrid>
     </Grid>
-    <Grid paddingBottom="x-large">
+    <Grid gapVertical="none" paddingBottom="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Grid.Cell className="ams-mb-s" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Faciliteiten</Heading>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <UnorderedList>
-          <UnorderedList.Item>
-            8 kleedkamers met douches voor sporters en 2 kleedkamers voor scheidsrechters, inclusief voorzieningen
-            voor mensen met een beperking
-          </UnorderedList.Item>
-          <UnorderedList.Item>
-            25 toiletten, waarvan 6 urinoirs, en daarnaast 3 rolstoeltoegankelijke toiletten
-          </UnorderedList.Item>
-          <UnorderedList.Item>
-            Groot materiaal is beschikbaar voor verenigingen en scholen; klein materiaal is niet aanwezig
-          </UnorderedList.Item>
-          <UnorderedList.Item>Er zijn kluisjes met codeslot</UnorderedList.Item>
-        </UnorderedList>
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-        <UnorderedList>
-          <UnorderedList.Item>
-            Horeca in de voorhal, open tijdens openingstijden, met broodjes, snacks, fruit, koffie, thee, fris en
-            alcoholvrije dranken
-          </UnorderedList.Item>
-          <UnorderedList.Item>
-            1 vergaderruimte voor maximaal 20 personen, alleen te huur voor verenigingen
-          </UnorderedList.Item>
-          <UnorderedList.Item>Gratis wifi</UnorderedList.Item>
-          <UnorderedList.Item>EHBO en AED in de voorhal</UnorderedList.Item>
-          <UnorderedList.Item>10 nooduitgangen</UnorderedList.Item>
-        </UnorderedList>
-      </Grid.Cell>
+      <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+          <UnorderedList>
+            <UnorderedList.Item>
+              8 kleedkamers met douches voor sporters en 2 kleedkamers voor scheidsrechters, inclusief voorzieningen
+              voor mensen met een beperking
+            </UnorderedList.Item>
+            <UnorderedList.Item>
+              25 toiletten, waarvan 6 urinoirs, en daarnaast 3 rolstoeltoegankelijke toiletten
+            </UnorderedList.Item>
+            <UnorderedList.Item>
+              Groot materiaal is beschikbaar voor verenigingen en scholen; klein materiaal is niet aanwezig
+            </UnorderedList.Item>
+            <UnorderedList.Item>Er zijn kluisjes met codeslot</UnorderedList.Item>
+          </UnorderedList>
+        </Grid.Cell>
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+          <UnorderedList>
+            <UnorderedList.Item>
+              Horeca in de voorhal, open tijdens openingstijden, met broodjes, snacks, fruit, koffie, thee, fris en
+              alcoholvrije dranken
+            </UnorderedList.Item>
+            <UnorderedList.Item>
+              1 vergaderruimte voor maximaal 20 personen, alleen te huur voor verenigingen
+            </UnorderedList.Item>
+            <UnorderedList.Item>Gratis wifi</UnorderedList.Item>
+            <UnorderedList.Item>EHBO en AED in de voorhal</UnorderedList.Item>
+            <UnorderedList.Item>10 nooduitgangen</UnorderedList.Item>
+          </UnorderedList>
+        </Grid.Cell>
+      </Grid.Subgrid>
     </Grid>
     <Spotlight as="section">
       <Grid paddingVertical="x-large">
@@ -1472,78 +1518,94 @@ export const LocationLarge: StoryObj = {
             </Paragraph>
           </Grid.Cell>
         </Grid>
-        <Grid paddingBottom="x-large">
-          <Grid.Cell span="all">
+        {/*
+         * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
+         * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+         */}
+        <Grid gapVertical="none" paddingBottom="x-large">
+          <Grid.Cell className="ams-mb-s" span="all">
             <Heading level={2}>Zalen en sportmogelijkheden</Heading>
           </Grid.Cell>
-          {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
-          <Grid.Cell span={4}>
-            <Card>
-              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-              <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1015/640/360" />
-              {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
-              <Card.Heading level={3}>
-                {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-                <Card.Link href="#">Grote zaal</Card.Link>
-              </Card.Heading>
-              <Paragraph size="small">Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.</Paragraph>
-            </Card>
-          </Grid.Cell>
-          <Grid.Cell span={4}>
-            <Card>
-              <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1016/640/360" />
-              <Card.Heading level={3}>
-                <Card.Link href="#">Du Midi benedenzaal</Card.Link>
-              </Card.Heading>
-              <Paragraph size="small">Badminton, basketbal, volleybal, dansen en vechtsport.</Paragraph>
-            </Card>
-          </Grid.Cell>
-          <Grid.Cell span={4}>
-            <Card>
-              <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1029/640/360" />
-              <Card.Heading level={3}>
-                <Card.Link href="#">Du Midi bovenzaal</Card.Link>
-              </Card.Heading>
-              <Paragraph size="small">
-                Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
-              </Paragraph>
-            </Card>
-          </Grid.Cell>
+          <Grid.Subgrid gapVertical="x-large" span="all">
+            {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
+            <Grid.Cell span={4}>
+              <Card>
+                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1015/640/360" />
+                {/* Level 3 keeps the card under the level-2 section heading; Card.Heading supplies its own size. */}
+                <Card.Heading level={3}>
+                  {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+                  <Card.Link href="#">Grote zaal</Card.Link>
+                </Card.Heading>
+                <Paragraph size="small">Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.</Paragraph>
+              </Card>
+            </Grid.Cell>
+            <Grid.Cell span={4}>
+              <Card>
+                <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1016/640/360" />
+                <Card.Heading level={3}>
+                  <Card.Link href="#">Du Midi benedenzaal</Card.Link>
+                </Card.Heading>
+                <Paragraph size="small">Badminton, basketbal, volleybal, dansen en vechtsport.</Paragraph>
+              </Card>
+            </Grid.Cell>
+            <Grid.Cell span={4}>
+              <Card>
+                <Card.Image alt="" aspectRatio="16:9" src="https://picsum.photos/id/1029/640/360" />
+                <Card.Heading level={3}>
+                  <Card.Link href="#">Du Midi bovenzaal</Card.Link>
+                </Card.Heading>
+                <Paragraph size="small">
+                  Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
+                </Paragraph>
+              </Card>
+            </Grid.Cell>
+          </Grid.Subgrid>
         </Grid>
-        <Grid paddingBottom="x-large">
+        <Grid gapVertical="none" paddingBottom="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+          <Grid.Cell
+            className="ams-mb-s"
+            span={{ narrow: 4, medium: 8, wide: 10 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
             <Heading level={2}>Faciliteiten</Heading>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <UnorderedList>
-              <UnorderedList.Item>
-                8 kleedkamers met douches voor sporters en 2 kleedkamers voor scheidsrechters, inclusief voorzieningen
-                voor mensen met een beperking
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                25 toiletten, waarvan 6 urinoirs, en daarnaast 3 rolstoeltoegankelijke toiletten
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                Groot materiaal is beschikbaar voor verenigingen en scholen; klein materiaal is niet aanwezig
-              </UnorderedList.Item>
-              <UnorderedList.Item>Er zijn kluisjes met codeslot</UnorderedList.Item>
-            </UnorderedList>
-          </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
-            <UnorderedList>
-              <UnorderedList.Item>
-                Horeca in de voorhal, open tijdens openingstijden, met broodjes, snacks, fruit, koffie, thee, fris en
-                alcoholvrije dranken
-              </UnorderedList.Item>
-              <UnorderedList.Item>
-                1 vergaderruimte voor maximaal 20 personen, alleen te huur voor verenigingen
-              </UnorderedList.Item>
-              <UnorderedList.Item>Gratis wifi</UnorderedList.Item>
-              <UnorderedList.Item>EHBO en AED in de voorhal</UnorderedList.Item>
-              <UnorderedList.Item>10 nooduitgangen</UnorderedList.Item>
-            </UnorderedList>
-          </Grid.Cell>
+          <Grid.Subgrid
+            gapVertical="x-large"
+            span={{ narrow: 4, medium: 8, wide: 10 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+              <UnorderedList>
+                <UnorderedList.Item>
+                  8 kleedkamers met douches voor sporters en 2 kleedkamers voor scheidsrechters, inclusief voorzieningen
+                  voor mensen met een beperking
+                </UnorderedList.Item>
+                <UnorderedList.Item>
+                  25 toiletten, waarvan 6 urinoirs, en daarnaast 3 rolstoeltoegankelijke toiletten
+                </UnorderedList.Item>
+                <UnorderedList.Item>
+                  Groot materiaal is beschikbaar voor verenigingen en scholen; klein materiaal is niet aanwezig
+                </UnorderedList.Item>
+                <UnorderedList.Item>Er zijn kluisjes met codeslot</UnorderedList.Item>
+              </UnorderedList>
+            </Grid.Cell>
+            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
+              <UnorderedList>
+                <UnorderedList.Item>
+                  Horeca in de voorhal, open tijdens openingstijden, met broodjes, snacks, fruit, koffie, thee, fris en
+                  alcoholvrije dranken
+                </UnorderedList.Item>
+                <UnorderedList.Item>
+                  1 vergaderruimte voor maximaal 20 personen, alleen te huur voor verenigingen
+                </UnorderedList.Item>
+                <UnorderedList.Item>Gratis wifi</UnorderedList.Item>
+                <UnorderedList.Item>EHBO en AED in de voorhal</UnorderedList.Item>
+                <UnorderedList.Item>10 nooduitgangen</UnorderedList.Item>
+              </UnorderedList>
+            </Grid.Cell>
+          </Grid.Subgrid>
         </Grid>
         <Spotlight as="section">
           <Grid paddingVertical="x-large">
