@@ -3,6 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
+import type { ImageProps } from '@amsterdam/design-system-react'
 import type { ReactNode } from 'react'
 
 import { Grid, Image, Overlap, Spotlight } from '@amsterdam/design-system-react'
@@ -13,6 +14,8 @@ import type { AnatomyBlock, AnatomyLabel, AnatomyLabels, AnatomyViewport, StoryM
 
 import {
   anatomyViewports,
+  blockHeight,
+  cellWidth,
   drawnSections,
   elidedLabel,
   imageHeight,
@@ -25,6 +28,8 @@ import {
 } from './model'
 
 const cell = (props: Record<string, unknown>) => createElement(Grid.Cell, props)
+
+const image = (aspectRatio?: ImageProps['aspectRatio']) => createElement(Image, { alt: '', aspectRatio, src: '' })
 
 const [narrow, medium, wide] = anatomyViewports()
 
@@ -154,6 +159,24 @@ describe('readPageAnatomy', () => {
 
     expect(block?.bleed).toBe(true)
     expect(block?.aspectRatio).toBe(5 / 16)
+  })
+
+  it('gives a Grid Cell the aspect ratio of an Image it holds on its own', () => {
+    const story = createElement(Grid, {}, cell({ children: image('4:3'), span: 5 }))
+
+    const [block] = readPageAnatomy(story, [['Lead image']]).sections[0]?.blocks ?? []
+
+    expect(block?.aspectRatio).toBe(3 / 4)
+    expect(block?.bleed).toBe(false)
+  })
+
+  it('leaves a Grid Cell that holds an Image among other content no shape of its own', () => {
+    const children = [createElement('p', { key: 'text' }, 'Body'), image('4:3')]
+    const story = createElement(Grid, {}, cell({ children, span: 7 }))
+
+    const [block] = readPageAnatomy(story, [['Article body']]).sections[0]?.blocks ?? []
+
+    expect(block?.aspectRatio).toBeUndefined()
   })
 
   it('resolves the step of the scale a label names to the height it stands for', () => {
@@ -401,6 +424,53 @@ describe('paddingHeight and rowGapHeight', () => {
     expect(rowGapHeight(undefined, 1440)).toBe(60)
     expect(rowGapHeight('large', 1440)).toBe(36)
     expect(rowGapHeight('none', 1440)).toBe(0)
+  })
+})
+
+describe('cellWidth', () => {
+  it('measures a cell across its columns and the gaps in between them', () => {
+    // The wide Grid runs across 1440 pixels, less a 2x-large padding of 90 on either side, over 12 columns of 50
+    // and 11 gaps of 60.
+    expect(cellWidth(12, wide!)).toBe(1260)
+    expect(cellWidth(5, wide!)).toBe(490)
+    expect(cellWidth(1, wide!)).toBe(50)
+  })
+
+  it('takes the smaller inline padding of Compact Mode', () => {
+    const [, , compactWide] = anatomyViewports({ mode: 'compact' })
+
+    expect(cellWidth(12, compactWide!, 'compact')).toBe(1376)
+  })
+})
+
+describe('blockHeight', () => {
+  it('draws a full-bleed Image across the whole width the Grid runs across', () => {
+    const story = createElement(Image, { alt: '', aspectRatio: '16:5', src: '' })
+
+    const [block] = readPageAnatomy(story, [['Hero image']]).sections[0]?.blocks ?? []
+
+    // A sixteenth of five of the 1440 the wide Grid runs across, flattened as every image is.
+    expect(blockHeight(block!, wide!)).toBe(imageHeight(450))
+  })
+
+  it('draws an Image in a Grid Cell across the width of that cell alone', () => {
+    const span = { narrow: 4, medium: 4, wide: 5 }
+    const story = createElement(Grid, {}, cell({ children: image('4:3'), span }))
+
+    const [block] = readPageAnatomy(story, [['Lead image']]).sections[0]?.blocks ?? []
+
+    // Three quarters of a cell 490 wide on the wide Grid, and of one 272 wide on the narrow one.
+    expect(blockHeight(block!, wide!)).toBe(imageHeight(367.5))
+    expect(blockHeight(block!, narrow!)).toBe(imageHeight(204))
+  })
+
+  it('draws a block that has no shape of its own to the step its label names', () => {
+    const story = createElement(Grid, {}, cell({ span: 5 }))
+
+    const [block] =
+      readPageAnatomy(story, [[{ height: 'panel', label: 'Table of contents' }]]).sections[0]?.blocks ?? []
+
+    expect(blockHeight(block!, wide!)).toBe(192)
   })
 })
 

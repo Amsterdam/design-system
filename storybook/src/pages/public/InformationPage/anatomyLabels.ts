@@ -12,6 +12,8 @@ import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
  */
 export const anatomyLabels: AnatomyLabels = [
   [{ height: 'line', label: 'Breadcrumb' }],
-  [{ height: 'title', label: 'Page title' }, { height: 'card', label: 'Lead paragraph' }, 'Introductory image'],
+  // The introductory image takes its height from its aspect ratio, and the lead paragraph beside it reaches about as
+  // far on the wide grid and past it on the two narrower ones, which a card would draw the other way around.
+  [{ height: 'title', label: 'Page title' }, { height: 'panel', label: 'Lead paragraph' }, 'Introductory image'],
   [{ height: 'body', label: 'Information body' }],
 ]
