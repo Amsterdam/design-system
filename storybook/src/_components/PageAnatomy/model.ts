@@ -192,7 +192,10 @@ export type AnatomyBlock = {
    * transparent variant removes, so a transparent cell is drawn as bare page rather than as a block.
    */
   readonly appearance?: string
-  /** The aspect ratio of an Image, as a height divided by a width, where its label sets no height of its own. */
+  /**
+   * The aspect ratio of an Image, as a height divided by a width, where its label sets no height of its own. A block
+   * that has one takes its shape from the width it runs across.
+   */
   readonly aspectRatio?: number
   /** Whether the block runs to the edges of the page, outside the inline padding of the Grid. */
   readonly bleed: boolean
@@ -234,7 +237,7 @@ export type PageAnatomy = {
   readonly sections: readonly AnatomySection[]
 }
 
-/** The height a full-bleed block takes, as a fraction of the width of the page. */
+/** The height an Image takes, as a fraction of the width it runs across. */
 const aspectRatios: Record<string, number> = {
   '1:1': 1,
   '16:5': 5 / 16,
@@ -243,6 +246,9 @@ const aspectRatios: Record<string, number> = {
   '4:3': 3 / 4,
   '9:16': 16 / 9,
 }
+
+/** The `ams.image.aspect-ratio` token, which an Image reserves a box of where it names no ratio of its own. */
+const defaultAspectRatio = aspectRatios['16:9']!
 
 type Props = Record<string, unknown>
 
@@ -285,6 +291,24 @@ const readColumns = (value: unknown, viewport: AnatomyViewport, columns?: number
 const perViewport = <T>(read: (viewport: AnatomyViewport) => T): Record<Breakpoint, T> =>
   Object.fromEntries(anatomyViewports().map((viewport) => [viewport.key, read(viewport)])) as Record<Breakpoint, T>
 
+/** The aspect ratio an Image reserves a box of, which is the token's 16:9 where it names none of its own. */
+const imageRatio = (element: ReactElement): number =>
+  aspectRatios[String(propsOf(element)['aspectRatio'])] ?? defaultAspectRatio
+
+/**
+ * The aspect ratio of an Image that is the whole of what a Grid Cell holds, which gives the cell its shape.
+ *
+ * A cell that holds an image among other content – an article body with one halfway down it – is as tall as that
+ * content, which nothing in the story says, so it keeps the height its label gives it.
+ */
+const readCellRatio = (children: ReactNode): number | undefined => {
+  const [only, ...rest] = Children.toArray(children)
+
+  if (rest.length > 0 || !isValidElement(only) || displayNameOf(only) !== 'Image') return undefined
+
+  return imageRatio(only)
+}
+
 /**
  * Reads a Grid Cell or a Grid Subgrid. Both take the same placement props.
  *
@@ -292,11 +316,12 @@ const perViewport = <T>(read: (viewport: AnatomyViewport) => T): Record<Breakpoi
  * Its own columns are numbered from one again, so a span of ‘all’ is the span of the Subgrid rather than of the Grid.
  */
 const readCell = (element: ReactElement, columns?: Record<Breakpoint, number>): AnatomyBlock => {
-  const { appearance, rowSpan, span, start } = propsOf(element)
+  const { appearance, children, rowSpan, span, start } = propsOf(element)
   const available = (viewport: AnatomyViewport) => columns?.[viewport.key] ?? viewport.columns
 
   return {
     appearance: appearance as string | undefined,
+    aspectRatio: readCellRatio(children as ReactNode),
     bleed: false,
     height: perViewport(() => defaultBlockHeight),
     label: '',
@@ -362,7 +387,7 @@ const findGrid = (node: ReactNode): ReactElement | undefined => {
 
 /** An Image is a block of its own: it has no Grid, and runs to the edges of the page. */
 const readImage = (element: ReactElement): AnatomyBlock => ({
-  aspectRatio: aspectRatios[String(propsOf(element)['aspectRatio'])],
+  aspectRatio: imageRatio(element),
   bleed: true,
   height: perViewport(() => defaultBlockHeight),
   label: '',
@@ -510,7 +535,20 @@ export const readPageAnatomy = (story: ReactNode, labels: AnatomyLabels): PageAn
 }
 
 /**
- * The height an Image is drawn at, from the height its aspect ratio gives it across the page.
+ * The width of a Grid Cell that spans a number of columns, in pixels of the page it stands for.
+ *
+ * The columns divide the width the Grid runs across, less its inline padding on either side and a gap in between
+ * each pair. A cell that covers several of them covers the gaps in between as well.
+ */
+export const cellWidth = (span: number, viewport: AnatomyViewport, mode?: AnatomyMode): number => {
+  const gap = columnGapWidth(viewport.width, mode)
+  const inside = viewport.contentWidth - 2 * space(viewport.paddingInline, viewport.width, mode)
+
+  return ((inside - (viewport.columns - 1) * gap) / viewport.columns) * span + (span - 1) * gap
+}
+
+/**
+ * The height an Image is drawn at, from the height its aspect ratio gives it over the width it runs across.
  *
  * Up to `imageHeightInFull` that is the height itself; past it, every further pixel adds a little less than the one
  * before, so the drawing approaches `tallestImageHeight` without ever reaching it. Any aspect ratio therefore
@@ -525,12 +563,21 @@ export const imageHeight = (height: number): number => {
   return imageHeightInFull + (room * beyond) / (beyond + room)
 }
 
-/** The height of a block at a viewport, in pixels of the page it stands for. */
-export const blockHeight = (block: AnatomyBlock, viewport: AnatomyViewport): number =>
-  block.aspectRatio ? imageHeight(block.aspectRatio * viewport.contentWidth) : block.height[viewport.key]
+/**
+ * The height of a block at a viewport, in pixels of the page it stands for.
+ *
+ * An Image takes its shape from the width it runs across: the whole of the content width where it bleeds past the
+ * Grid, and the width of its own columns where it sits in a cell.
+ */
+export const blockHeight = (block: AnatomyBlock, viewport: AnatomyViewport, mode?: AnatomyMode): number =>
+  block.aspectRatio
+    ? imageHeight(
+        block.aspectRatio * (block.bleed ? viewport.contentWidth : cellWidth(block.span[viewport.key], viewport, mode)),
+      )
+    : block.height[viewport.key]
 
 /** Whether two Grid Cells are drawn alike at a viewport, and so read as a repeat of one another. */
-const repeats = (block: AnatomyBlock, other: AnatomyBlock, viewport: AnatomyViewport): boolean =>
+const repeats = (block: AnatomyBlock, other: AnatomyBlock, viewport: AnatomyViewport, mode?: AnatomyMode): boolean =>
   !block.blocks &&
   !other.blocks &&
   !block.bleed &&
@@ -539,7 +586,7 @@ const repeats = (block: AnatomyBlock, other: AnatomyBlock, viewport: AnatomyView
   block.appearance === other.appearance &&
   block.span[viewport.key] === other.span[viewport.key] &&
   block.rowSpan[viewport.key] === other.rowSpan[viewport.key] &&
-  blockHeight(block, viewport) === blockHeight(other, viewport)
+  blockHeight(block, viewport, mode) === blockHeight(other, viewport, mode)
 
 /**
  * The number of cells of a run that lie beside one another on one row, counted from the column the run starts at.
@@ -593,6 +640,7 @@ export const elideRepeats = (
   blocks: readonly AnatomyBlock[],
   viewport: AnatomyViewport,
   columns: number,
+  mode?: AnatomyMode,
 ): readonly AnatomyBlock[] => {
   const drawn: AnatomyBlock[] = []
   let index = 0
@@ -602,14 +650,14 @@ export const elideRepeats = (
 
     // A Subgrid holds its own cells on its own columns, so a run inside it is measured against those.
     if (block.blocks) {
-      drawn.push({ ...block, blocks: elideRepeats(block.blocks, viewport, block.span[viewport.key]) })
+      drawn.push({ ...block, blocks: elideRepeats(block.blocks, viewport, block.span[viewport.key], mode) })
       index += 1
       continue
     }
 
     let end = index + 1
 
-    while (end < blocks.length && repeats(block, blocks[end]!, viewport)) end += 1
+    while (end < blocks.length && repeats(block, blocks[end]!, viewport, mode)) end += 1
 
     const run = end - index
     const perRow = cellsPerRow(blocks.slice(index, end), columns, viewport)
@@ -641,9 +689,10 @@ export const elideRepeats = (
 export const drawnSections = (
   sections: readonly AnatomySection[],
   viewport: AnatomyViewport,
+  mode?: AnatomyMode,
 ): readonly AnatomySection[] =>
   sections.map((section) =>
-    section.overlap ? section : { ...section, blocks: elideRepeats(section.blocks, viewport, viewport.columns) },
+    section.overlap ? section : { ...section, blocks: elideRepeats(section.blocks, viewport, viewport.columns, mode) },
   )
 
 /**
