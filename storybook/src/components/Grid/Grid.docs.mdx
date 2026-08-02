@@ -42,6 +42,7 @@ Without it, a Cell inside a Cell has no columns to align to.
 
 Its rows take the vertical gap of the Grid, so the region keeps the rhythm of the page.
 Give it its own `gapVertical` to space its rows differently.
+It takes `x-large` as well, which the Grid has no need of: that is the gap a Grid gives by default, and only a Subgrid can end up without it, in a Grid that lowered or removed its own.
 
 <Canvas of={GridSubgridStories.Subgrid} />
 

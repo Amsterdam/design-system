@@ -4,6 +4,7 @@
  */
 
 import type { GridGap } from '@amsterdam/design-system-react/src/Grid/Grid'
+import type { GridSubgridGap } from '@amsterdam/design-system-react/src/Grid/GridSubgrid'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid } from '@amsterdam/design-system-react/src'
@@ -38,7 +39,7 @@ const SubgridCase = ({
   subgridGapVertical,
 }: {
   readonly gapVertical?: GridGap
-  readonly subgridGapVertical?: GridGap
+  readonly subgridGapVertical?: GridSubgridGap
 }) => (
   <Grid gapVertical={gapVertical} paddingVertical="large">
     <Grid.Cell {...item} span={quarter} />
@@ -113,6 +114,8 @@ export const Test: Story = {
       <SubgridCase />
       <SubgridCase gapVertical="none" />
       <SubgridCase subgridGapVertical="2x-large" />
+      {/* The reason x-large exists: the Grid drops its gap, and the Subgrid puts the regular one back. */}
+      <SubgridCase gapVertical="none" subgridGapVertical="x-large" />
       <SubgridPlacementCase />
       <SubgridRowSpanCase />
     </div>
