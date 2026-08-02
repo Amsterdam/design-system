@@ -72,11 +72,11 @@ export const Default: StoryObj = {
   </Grid>
   <main id="inhoud">
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    <Grid paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>
-          Nieuws uit Amsterdam
-        </Heading>
+    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
+    <Grid paddingBottom="2x-large">
+      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Nieuws uit Amsterdam</Heading>
         <SearchField>
           <SearchField.Input defaultValue="tramspoor" label="Zoek in het nieuws" name="trefwoord" />
           <SearchField.Button>Zoeken</SearchField.Button>
@@ -200,11 +200,15 @@ export const Default: StoryObj = {
       </Grid>
       <main id="inhoud">
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        <Grid paddingBottom="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Nieuws uit Amsterdam
-            </Heading>
+        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
+        <Grid paddingBottom="2x-large">
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Nieuws uit Amsterdam</Heading>
             <SearchField>
               <SearchField.Input defaultValue="tramspoor" label="Zoek in het nieuws" name="trefwoord" />
               <SearchField.Button>Zoeken</SearchField.Button>

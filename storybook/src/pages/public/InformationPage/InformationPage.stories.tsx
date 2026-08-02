@@ -47,15 +47,17 @@ export const Default: StoryObj = {
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
-    <Grid paddingBottom="x-large">
-      {/* The title spans the wide intro column. The taxonomy tags below it are a metadata Paragraph. */}
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
+    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
+    <Grid paddingBottom="2x-large">
+      {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
         <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
       </Grid.Cell>
       {/*
-       * The lead paragraph and the introductory image take the side-by-side Cell sizes, so the pair reaches a
-       * column further than the header Cell above it. Both stack on the narrow grid.
+       * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
+       * column further than the Content Header Cell above it. Both stack on the narrow grid.
        */}
       <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Paragraph size="large">
@@ -78,14 +80,14 @@ export const Default: StoryObj = {
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
       {/* The body sits in a narrower cell, indented one column on wider screens, for a comfortable reading measure. */}
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Heading className="ams-mb-s" level={2}>Regels tijdens het broedseizoen</Heading>
-        <Paragraph className="ams-mb-l">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Heading level={2}>Regels tijdens het broedseizoen</Heading>
+        <Paragraph>
           Van half maart tot half juli broeden veel vogels in de parken. In die periode gelden extra regels voor
           geluid, verlichting en de opbouw van podia.
         </Paragraph>
         {/* The Accordion’s headings sit one level below the section heading above it, so headingLevel is 3 here. */}
-        <Accordion className="ams-mb-xl" headingLevel={3}>
+        <Accordion headingLevel={3}>
           <Accordion.Section label="Wanneer is het broedseizoen?">
             <Paragraph>
               Het broedseizoen loopt globaal van 15 maart tot 15 juli. De precieze periode verschilt per vogelsoort
@@ -120,26 +122,26 @@ export const Default: StoryObj = {
           </Accordion.Section>
         </Accordion>
 
-        <Heading className="ams-mb-s" level={2}>Onderzoek naar planten en dieren</Heading>
-        <Paragraph className="ams-mb-l">
+        <Heading level={2}>Onderzoek naar planten en dieren</Heading>
+        <Paragraph>
           Voor elk groot evenement in een park laat de organisator een natuurtoets uitvoeren. Het onderzoek brengt
           in kaart welke soorten er leven en hoe kwetsbaar zij zijn. De uitkomsten bepalen waar podia, hekken en
           horeca mogen staan.
         </Paragraph>
         {/* An image within the body column is as wide as the text above it. */}
-        <Image alt="" className="ams-mb-xl" loading="lazy" src="https://picsum.photos/id/1016/1280/720" />
+        <Image alt="" loading="lazy" src="https://picsum.photos/id/1016/1280/720" />
 
-        <Heading className="ams-mb-s" level={2}>Bezwaar maken tegen een vergunning</Heading>
-        <Paragraph className="ams-mb-m">
+        <Heading level={2}>Bezwaar maken tegen een vergunning</Heading>
+        <Paragraph>
           Bent u het niet eens met een verleende vergunning? Dan kunt u binnen 6 weken na de bekendmaking bezwaar
           maken. De termijn begint op de dag na de publicatie in het Gemeenteblad.
         </Paragraph>
-        <Paragraph className="ams-mb-l">
+        <Paragraph>
           Een bezwaar schorst de vergunning niet. Wilt u dat het evenement voorlopig niet doorgaat, dan vraagt u de
           rechtbank daarnaast om een voorlopige voorziening.
         </Paragraph>
-        <Heading className="ams-mb-xs" level={3}>Wat zet u in uw bezwaarschrift?</Heading>
-        <Paragraph className="ams-mb-m">
+        <Heading level={3}>Wat zet u in uw bezwaarschrift?</Heading>
+        <Paragraph>
           Beschrijf om welke vergunning het gaat, waarom u het er niet mee eens bent, en wat u anders zou willen
           zien. Vermeld ook uw naam, adres en de datum.
         </Paragraph>
@@ -170,17 +172,21 @@ export const Default: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
-        <Grid paddingBottom="x-large">
-          {/* The title spans the wide intro column. The taxonomy tags below it are a metadata Paragraph. */}
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={1}>
-              Natuurbescherming bij evenementen in parken en groengebieden
-            </Heading>
+        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
+        <Grid paddingBottom="2x-large">
+          {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
             <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
           </Grid.Cell>
           {/*
-           * The lead paragraph and the introductory image take the side-by-side Cell sizes, so the pair reaches a
-           * column further than the header Cell above it. Both stack on the narrow grid.
+           * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
+           * column further than the Content Header Cell above it. Both stack on the narrow grid.
            */}
           <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             <Paragraph size="large">
@@ -203,16 +209,18 @@ export const Default: StoryObj = {
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
           {/* The body sits in a narrower cell, indented one column on wider screens, for a comfortable reading measure. */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Regels tijdens het broedseizoen
-            </Heading>
-            <Paragraph className="ams-mb-l">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
+            <Heading level={2}>Regels tijdens het broedseizoen</Heading>
+            <Paragraph>
               Van half maart tot half juli broeden veel vogels in de parken. In die periode gelden extra regels voor
               geluid, verlichting en de opbouw van podia.
             </Paragraph>
             {/* The Accordion’s headings sit one level below the section heading above it, so headingLevel is 3 here. */}
-            <Accordion className="ams-mb-xl" headingLevel={3}>
+            <Accordion headingLevel={3}>
               <Accordion.Section label="Wanneer is het broedseizoen?">
                 <Paragraph>
                   Het broedseizoen loopt globaal van 15 maart tot 15 juli. De precieze periode verschilt per vogelsoort
@@ -247,32 +255,26 @@ export const Default: StoryObj = {
               </Accordion.Section>
             </Accordion>
 
-            <Heading className="ams-mb-s" level={2}>
-              Onderzoek naar planten en dieren
-            </Heading>
-            <Paragraph className="ams-mb-l">
+            <Heading level={2}>Onderzoek naar planten en dieren</Heading>
+            <Paragraph>
               Voor elk groot evenement in een park laat de organisator een natuurtoets uitvoeren. Het onderzoek brengt
               in kaart welke soorten er leven en hoe kwetsbaar zij zijn. De uitkomsten bepalen waar podia, hekken en
               horeca mogen staan.
             </Paragraph>
             {/* An image within the body column is as wide as the text above it. */}
-            <Image alt="" className="ams-mb-xl" loading="lazy" src="https://picsum.photos/id/1016/1280/720" />
+            <Image alt="" loading="lazy" src="https://picsum.photos/id/1016/1280/720" />
 
-            <Heading className="ams-mb-s" level={2}>
-              Bezwaar maken tegen een vergunning
-            </Heading>
-            <Paragraph className="ams-mb-m">
+            <Heading level={2}>Bezwaar maken tegen een vergunning</Heading>
+            <Paragraph>
               Bent u het niet eens met een verleende vergunning? Dan kunt u binnen 6 weken na de bekendmaking bezwaar
               maken. De termijn begint op de dag na de publicatie in het Gemeenteblad.
             </Paragraph>
-            <Paragraph className="ams-mb-l">
+            <Paragraph>
               Een bezwaar schorst de vergunning niet. Wilt u dat het evenement voorlopig niet doorgaat, dan vraagt u de
               rechtbank daarnaast om een voorlopige voorziening.
             </Paragraph>
-            <Heading className="ams-mb-xs" level={3}>
-              Wat zet u in uw bezwaarschrift?
-            </Heading>
-            <Paragraph className="ams-mb-m">
+            <Heading level={3}>Wat zet u in uw bezwaarschrift?</Heading>
+            <Paragraph>
               Beschrijf om welke vergunning het gaat, waarom u het er niet mee eens bent, en wat u anders zou willen
               zien. Vermeld ook uw naam, adres en de datum.
             </Paragraph>
@@ -308,13 +310,13 @@ export const WithTable: StoryObj = {
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
-    <Grid paddingBottom="x-large">
-      {/* Without an image beside it, the lead paragraph stays in the header cell with the title and metadata. */}
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-xs" level={1}>
-          Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning
-        </Heading>
-        <Paragraph className="ams-mb-xl">
+    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
+    <Grid paddingBottom="2x-large">
+      {/* Without an image beside it, the lead paragraph stays in the Content Header Cell with the title and the metadata. */}
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning</Heading>
+        <Paragraph>
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
           <time dateTime="2026-01-01">1 januari 2026</time> – Belastingen, Wonen, WOZ
         </Paragraph>
@@ -327,19 +329,19 @@ export const WithTable: StoryObj = {
     </Grid>
     <Grid paddingBottom="x-large">
       {/* The body sits in a narrower cell, indented one column on wider screens, for a comfortable reading measure. */}
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Heading className="ams-mb-s" level={2}>Hoe de WOZ-waarde tot stand komt</Heading>
-        <Paragraph className="ams-mb-m">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Heading level={2}>Hoe de WOZ-waarde tot stand komt</Heading>
+        <Paragraph>
           De WOZ-waarde is de waarde die uw woning op de peildatum zou opbrengen bij verkoop. De peildatum ligt
           altijd een jaar voor het belastingjaar, zodat de gemeente verkoopcijfers van een heel jaar kan gebruiken.
         </Paragraph>
-        <Paragraph className="ams-mb-l">
+        <Paragraph>
           Voor de vergelijking gebruikt de gemeente woningen die in dezelfde periode zijn verkocht en die op uw
           woning lijken in type, grootte, bouwjaar en ligging. Verschillen tussen die woningen en de uwe worden
           verrekend.
         </Paragraph>
-        <Heading className="ams-mb-xs" level={3}>Niet eens met de waarde</Heading>
-        <Paragraph className="ams-mb-m">
+        <Heading level={3}>Niet eens met de waarde</Heading>
+        <Paragraph>
           Bekijk eerst het taxatieverslag. Daarin staat welke woningen zijn vergeleken en welke kenmerken zijn
           gebruikt. Klopt een kenmerk niet, geef dat dan aan ons door.
         </Paragraph>
@@ -439,13 +441,17 @@ export const WithTable: StoryObj = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
-        <Grid paddingBottom="x-large">
-          {/* Without an image beside it, the lead paragraph stays in the header cell with the title and metadata. */}
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-xs" level={1}>
-              Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning
-            </Heading>
-            <Paragraph className="ams-mb-xl">
+        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
+        <Grid paddingBottom="2x-large">
+          {/* Without an image beside it, the lead paragraph stays in the Content Header Cell with the title and the metadata. */}
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning</Heading>
+            <Paragraph>
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
               <time dateTime="2026-01-01">1 januari 2026</time> – Belastingen, Wonen, WOZ
             </Paragraph>
@@ -458,23 +464,23 @@ export const WithTable: StoryObj = {
         </Grid>
         <Grid paddingBottom="x-large">
           {/* The body sits in a narrower cell, indented one column on wider screens, for a comfortable reading measure. */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-s" level={2}>
-              Hoe de WOZ-waarde tot stand komt
-            </Heading>
-            <Paragraph className="ams-mb-m">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
+            <Heading level={2}>Hoe de WOZ-waarde tot stand komt</Heading>
+            <Paragraph>
               De WOZ-waarde is de waarde die uw woning op de peildatum zou opbrengen bij verkoop. De peildatum ligt
               altijd een jaar voor het belastingjaar, zodat de gemeente verkoopcijfers van een heel jaar kan gebruiken.
             </Paragraph>
-            <Paragraph className="ams-mb-l">
+            <Paragraph>
               Voor de vergelijking gebruikt de gemeente woningen die in dezelfde periode zijn verkocht en die op uw
               woning lijken in type, grootte, bouwjaar en ligging. Verschillen tussen die woningen en de uwe worden
               verrekend.
             </Paragraph>
-            <Heading className="ams-mb-xs" level={3}>
-              Niet eens met de waarde
-            </Heading>
-            <Paragraph className="ams-mb-m">
+            <Heading level={3}>Niet eens met de waarde</Heading>
+            <Paragraph>
               Bekijk eerst het taxatieverslag. Daarin staat welke woningen zijn vergeleken en welke kenmerken zijn
               gebruikt. Klopt een kenmerk niet, geef dat dan aan ons door.
             </Paragraph>

@@ -59,82 +59,104 @@ export const LandingPage: StoryObj = {
         // Because this story’s `render` takes an argument, the Code Panel rebuilds its source from the rendered tree:
         // JSX comments disappear and every `map` is expanded. Provide the source by hand so the panel shows the form
         // markup on its own, with the accessibility guidance kept short.
-        code: `// One Grid for the whole page combines both rules: a paddingTop of large and a paddingBottom of 2x-large.
-// The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
-<Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
-  <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-    <Heading className="ams-mb-m" level={1}>Waar u dit formulier voor gebruikt</Heading>
-    <Paragraph size="large">
-      Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
-    </Paragraph>
-  </Grid.Cell>
-  <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-    {/*
-     * Listing the steps is a choice, not a rule: GOV.UK asks a start page for what the service does,
-     * what it costs, how long it takes and one call to action, and warns against making it too
-     * complicated. Test whether users need the list, as you would a progress indicator.
-     * See https://design-system.service.gov.uk/patterns/start-using-a-service/
-     */}
-    <Heading className="ams-mb-s" level={2}>De stappen in dit formulier</Heading>
-    <OrderedList className="ams-mb-l">
-      <OrderedList.Item>
-        <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak
-        wilt hebben. En wanneer.
-      </OrderedList.Item>
-      <OrderedList.Item>
-        <strong>Uw gegevens</strong> - Vul uw contactgegevens in.
-      </OrderedList.Item>
-      <OrderedList.Item>
-        <strong>Controleren</strong> - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
-      </OrderedList.Item>
-    </OrderedList>
-    {/* A single, prominent call to action that starts the form. */}
-    <CallToActionLink href="#">Start het formulier</CallToActionLink>
-  </Grid.Cell>
-</Grid>`,
+        code: `// The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
+<main id="inhoud">
+  {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
+  {/* This page opens with the Content Header rather than a Breadcrumb, so that Grid takes the paddingTop of large. */}
+  {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
+  <Grid paddingBottom="2x-large" paddingTop="large">
+    {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+    <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+      <Heading level={1}>Waar u dit formulier voor gebruikt</Heading>
+      <Paragraph size="large">
+        Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
+      </Paragraph>
+    </Grid.Cell>
+  </Grid>
+  {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
+  {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+  <Grid paddingBottom="2x-large">
+    <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      {/*
+       * Listing the steps is a choice, not a rule: GOV.UK asks a start page for what the service does,
+       * what it costs, how long it takes and one call to action, and warns against making it too
+       * complicated. Test whether users need the list, as you would a progress indicator.
+       * See https://design-system.service.gov.uk/patterns/start-using-a-service/
+       */}
+      <Heading level={2}>De stappen in dit formulier</Heading>
+      <OrderedList>
+        <OrderedList.Item>
+          <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak
+          wilt hebben. En wanneer.
+        </OrderedList.Item>
+        <OrderedList.Item>
+          <strong>Uw gegevens</strong> - Vul uw contactgegevens in.
+        </OrderedList.Item>
+        <OrderedList.Item>
+          <strong>Controleren</strong> - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
+        </OrderedList.Item>
+      </OrderedList>
+      {/* A single, prominent call to action that starts the form. */}
+      <CallToActionLink href="#">Start het formulier</CallToActionLink>
+    </Grid.Cell>
+  </Grid>
+</main>`,
         language: 'tsx',
       },
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
-    // One Grid for the whole page combines both rules: a paddingTop of large and a paddingBottom of 2x-large.
     // The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
-    <Grid as="main" id="inhoud" paddingBottom="2x-large" paddingTop="large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>
-          Waar u dit formulier voor gebruikt
-        </Heading>
-        <Paragraph size="large">
-          Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
-        </Paragraph>
-      </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        {/*
-         * Listing the steps is a choice, not a rule: GOV.UK asks a start page for what the service does,
-         * what it costs, how long it takes and one call to action, and warns against making it too
-         * complicated. Test whether users need the list, as you would a progress indicator.
-         * See https://design-system.service.gov.uk/patterns/start-using-a-service/
-         */}
-        <Heading className="ams-mb-s" level={2}>
-          De stappen in dit formulier
-        </Heading>
-        <OrderedList className="ams-mb-l">
-          <OrderedList.Item>
-            <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak wilt
-            hebben. En wanneer.
-          </OrderedList.Item>
-          <OrderedList.Item>
-            <strong>Uw gegevens</strong> - Vul uw contactgegevens in.
-          </OrderedList.Item>
-          <OrderedList.Item>
-            <strong>Controleren</strong> - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
-          </OrderedList.Item>
-        </OrderedList>
-        {/* A single, prominent call to action that starts the form. */}
-        <CallToActionLink href="#">Start het formulier</CallToActionLink>
-      </Grid.Cell>
-    </Grid>
+    <main id="inhoud">
+      {/* The Content Header takes a Grid of its own, so the space below it is a padding rather than a row gap. */}
+      {/* This page opens with the Content Header rather than a Breadcrumb, so that Grid takes the paddingTop of large. */}
+      {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
+      <Grid paddingBottom="2x-large" paddingTop="large">
+        {/* ams-prose sets the vertical rhythm between the title and the lead of this Content Header. */}
+        <Grid.Cell
+          className="ams-prose"
+          span={{ narrow: 4, medium: 7, wide: 9 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        >
+          <Heading level={1}>Waar u dit formulier voor gebruikt</Heading>
+          <Paragraph size="large">
+            Met dit formulier maakt u een afspraak bij een Stadsloket in Amsterdam of Weesp.
+          </Paragraph>
+        </Grid.Cell>
+      </Grid>
+      {/* Two adjacent Grids add their touching paddings together, so this one leaves its paddingTop off. */}
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      <Grid paddingBottom="2x-large">
+        <Grid.Cell
+          className="ams-prose"
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        >
+          {/*
+           * Listing the steps is a choice, not a rule: GOV.UK asks a start page for what the service does,
+           * what it costs, how long it takes and one call to action, and warns against making it too
+           * complicated. Test whether users need the list, as you would a progress indicator.
+           * See https://design-system.service.gov.uk/patterns/start-using-a-service/
+           */}
+          <Heading level={2}>De stappen in dit formulier</Heading>
+          <OrderedList>
+            <OrderedList.Item>
+              <strong>Afspraak</strong> - Kies waarvoor u een afspraak wilt maken. Kies ook waar u de afspraak wilt
+              hebben. En wanneer.
+            </OrderedList.Item>
+            <OrderedList.Item>
+              <strong>Uw gegevens</strong> - Vul uw contactgegevens in.
+            </OrderedList.Item>
+            <OrderedList.Item>
+              <strong>Controleren</strong> - Controleer de gegevens die u heeft ingevuld. Verstuur de aanvraag.
+            </OrderedList.Item>
+          </OrderedList>
+          {/* A single, prominent call to action that starts the form. */}
+          <CallToActionLink href="#">Start het formulier</CallToActionLink>
+        </Grid.Cell>
+      </Grid>
+    </main>
   ),
 }
 

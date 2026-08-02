@@ -11,9 +11,6 @@ import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
  * written by hand. Adding or removing a section or a cell means editing this list too.
  */
 export const anatomyLabels: AnatomyLabels = [
-  [
-    { height: 'title', label: 'Page title' },
-    { height: 'heading', label: 'Search field' },
-  ],
+  [{ height: 'card', label: 'Page title and search' }],
   [{ height: 'body', label: 'Search results' }],
 ]

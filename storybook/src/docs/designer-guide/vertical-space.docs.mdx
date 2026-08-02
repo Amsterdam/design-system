@@ -26,7 +26,10 @@ This family of components has **medium** space between each other:
 
 - Paragraph (except for the ‘large’ variant)
 - Description List, Link List, Ordered List, Unordered List
-- Button, Standalone Link, Call to Action Link
+- Button, Standalone Link
+
+A Call to Action Link belongs to this family as well, and is authored among this text.
+It takes **x-large** space above and below it, rather than medium, so that it stands out from that text.
 
 ### Body blocks
 
@@ -38,19 +41,30 @@ These components have **large** space between each other, as well as above and b
 
 These components each sit in their own Grid Cell and need **no** extra spacing:
 
-- Alert, Breadcrumb, Breakout, Image Slider, Spotlight
+- Alert, Breadcrumb, Breakout, Image Slider, Progress List, Spotlight
 
 They inherit the Grid’s spacing and do not appear in the tables below.
 
-### Content Heading
+### Content Header
 
-A content page for a public website usually starts with a Breadcrumb, a level 1 Heading, and a lead Paragraph.
+A content page for a public website usually starts with a Breadcrumb and a Content Header.
+That header holds a level 1 Heading and a lead Paragraph.
+A Metadata Paragraph may sit between the two, holding the publication date, the taxonomy tags, or both.
 The space between them is as follows:
 
 - Breadcrumb → Heading 1: **zero**
-- Heading 1 → Metadata Paragraph: **x-small**
+- Heading 1 → Metadata Paragraph: **medium**
+- Metadata Paragraph → Lead Paragraph: **medium**
 - Heading 1 → Lead Paragraph: **medium**
 - Lead Paragraph → Heading 2: **x-large**
+
+A Search Field may take the place of the lead, on a page that opens with a search rather than with prose.
+It takes the same **medium** below the title, so the header holds together as one block whichever of the two follows it.
+
+Anything larger below the title — an Image Slider, for one — takes a Grid Cell of its own instead, which sets it apart by the row gap of **x-large**.
+
+The space below the Content Header is a padding of the Grid that holds it, not a margin on the lead Paragraph.
+See [the Content Header Grid](/docs/pages-public-introduction--docs#the-content-header-grid) for the amount to use.
 
 ### Section Headings
 
@@ -84,8 +98,9 @@ They are the same as in the sections above.
 | **Heading 3**         |           |    `m`    |           |           |
 | **Heading 4**         |           |           |    `m`    |           |
 | **Blockquote**        |           |           |           |           |
-| **… List**            |           |    `s`    |   `xs`    |    `0`    |
-| **Paragraph**         |   `xs`    |    `s`    |   `xs`    |    `0`    |
+| **Image**             |    `m`    |    `s`    |   `xs`    |    `0`    |
+| **… List**            |    `m`    |    `s`    |   `xs`    |    `0`    |
+| **Paragraph**         |    `m`    |    `s`    |   `xs`    |    `0`    |
 | **Paragraph (large)** |    `m`    |           |           |           |
 | **Table**             |           |    `s`    |   `xs`    |    `0`    |
 
@@ -94,35 +109,38 @@ They are the same as in the sections above.
 
 ### Space below body text
 
-|                           | Blockquote | … List | Paragraph | Paragraph (large) |
-| :------------------------ | :--------: | :----: | :-------: | :---------------: |
-| **Heading 2**             |            |  `xl`  |   `xl`    |       `xl`        |
-| **Heading 3**             |            |  `l`   |    `l`    |                   |
-| **Heading 4**             |            |  `m`   |    `m`    |                   |
-| **Blockquote**            |            |  `l`   |    `l`    |       `xl`        |
-| **Button** / **CTA Link** |    `l`     |  `m`   |    `m`    |                   |
-| **Image**                 |    `l`     |  `l`   |    `l`    |       `xl`        |
-| **Standalone Link**       |    `l`     |  `m`   |    `m`    |        `l`        |
-| **… List**                |    `l`     |  `m`   |    `m`    |        `l`        |
-| **Paragraph**             |    `l`     |  `m`   |    `m`    |        `l`        |
-| **Table**                 |    `l`     |  `l`   |    `l`    |        `l`        |
+|                         | Blockquote | … List | Paragraph | Paragraph (large) |
+| :---------------------- | :--------: | :----: | :-------: | :---------------: |
+| **Heading 2**           |            |  `xl`  |   `xl`    |       `xl`        |
+| **Heading 3**           |            |  `l`   |    `l`    |                   |
+| **Heading 4**           |            |  `m`   |    `m`    |                   |
+| **Blockquote**          |            |  `l`   |    `l`    |       `xl`        |
+| **Button**              |    `l`     |  `m`   |    `m`    |                   |
+| **Call to Action Link** |    `xl`    |  `xl`  |   `xl`    |                   |
+| **Image**               |    `l`     |  `l`   |    `l`    |       `xl`        |
+| **Standalone Link**     |    `l`     |  `m`   |    `s`    |        `l`        |
+| **… List**              |    `l`     |  `m`   |    `m`    |        `l`        |
+| **Paragraph**           |    `l`     |  `m`   |    `m`    |        `l`        |
+| **Paragraph (large)**   |            |        |    `m`    |                   |
+| **Table**               |    `l`     |  `l`   |    `l`    |        `l`        |
 
 - **Accordion** and **Table** with a Caption start with a **Heading** – use the space length for its size or level (2, 3, 4).
 
 ### Space below other components
 
-|                           | Button / CTA Link | Image | … List | Standalone Link | Table |
-| :------------------------ | :---------------: | :---: | :----: | :-------------: | :---: |
-| **Heading 2**             |       `xl`        | `xl`  |  `xl`  |      `xl`       | `xl`  |
-| **Heading 3**             |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
-| **Heading 4**             |        `l`        |  `l`  |  `m`   |       `l`       |  `l`  |
-| **Blockquote**            |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
-| **Button** / **CTA Link** |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
-| **Image**                 |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
-| **Standalone Link**       |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
-| **… List**                |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
-| **Paragraph**             |        `l`        |  `l`  |  `m`   |       `m`       |  `l`  |
-| **Table**                 |        `l`        |  `l`  |  `l`   |       `l`       |  `l`  |
+|                         | Button | Call to Action Link | Image | … List | Standalone Link | Table |
+| :---------------------- | :----: | :-----------------: | :---: | :----: | :-------------: | :---: |
+| **Heading 2**           |  `xl`  |        `xl`         | `xl`  |  `xl`  |      `xl`       | `xl`  |
+| **Heading 3**           |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Heading 4**           |  `l`   |        `xl`         |  `l`  |  `m`   |       `l`       |  `l`  |
+| **Blockquote**          |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Button**              |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Call to Action Link** |  `xl`  |                     | `xl`  |  `xl`  |      `xl`       | `xl`  |
+| **Image**               |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
+| **Standalone Link**     |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **… List**              |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Paragraph**           |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Table**               |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
 
 ## Code examples
 
@@ -132,10 +150,10 @@ Add one of the [Margin](/docs/utilities-css-margin--docs) utility classes (`ams-
 
 ```tsx
 <Grid.Cell>
-  <Heading className="ams-mb-s" level={1}>
+  <Heading className="ams-mb-m" level={1}>
     Met korting van A naar B op de deelscooter of -bakfiets
   </Heading>
-  <Paragraph className="ams-mb-xl">29 juli 2025</Paragraph>
+  <Paragraph className="ams-mb-m">29 juli 2025</Paragraph>
   <Paragraph size="large">
     Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
     Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.

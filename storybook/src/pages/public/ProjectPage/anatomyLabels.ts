@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
+import type { AnatomyLabel, AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
 
 /**
  * Names every Grid Cell of the story the docs page draws, grouped per section and in the order they appear.
@@ -15,16 +15,16 @@ export const anatomyLabels: AnatomyLabels = [
   [
     { height: 'title', label: 'Page title' },
     { height: 'panel', label: 'Image slider' },
+  ],
+  [
     { height: 'body', label: 'Project body' },
+    { height: 'panel', label: 'Timeline' },
     { height: 'card', label: 'News' },
     { height: 'card', label: 'Works and detours' },
   ],
   [
     { height: 'heading', label: 'Section heading' },
-    { height: 'card', label: 'Link section' },
-    { height: 'card', label: 'Link section' },
-    { height: 'card', label: 'Link section' },
-    { height: 'card', label: 'Link section' },
+    ...Array.from({ length: 4 }, (): AnatomyLabel => ({ height: 'card', label: 'Link section' })),
   ],
   [
     { height: 'panel', label: 'Related projects' },
@@ -34,8 +34,7 @@ export const anatomyLabels: AnatomyLabels = [
   ],
   [
     { height: 'heading', label: 'Section heading' },
-    { height: 'card', label: 'Link section' },
-    { height: 'card', label: 'Link section' },
+    ...Array.from({ length: 2 }, (): AnatomyLabel => ({ height: 'card', label: 'Link section' })),
   ],
   [{ height: 'panel', label: 'Map' }],
 ]
