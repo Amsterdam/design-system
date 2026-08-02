@@ -1133,7 +1133,8 @@ export const LocationLarge: StoryObj = {
     </Grid>
     <Grid paddingVertical="x-large">
       {/* An Alert sits in its own Grid Cell and takes no margin of its own; the Grid spaces it. */}
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      {/* This cell is as wide as a regular content body, but it start-aligns with the Content Header above it. */}
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         {/* Alert generates a unique id for its heading, so only pass headingId to reference that heading elsewhere. */}
         <Alert closeable closeButtonLabel="Sluiten" heading="Werkzaamheden Muzenplein en Apollolaan" headingLevel={2}>
           <Paragraph>
@@ -1145,7 +1146,7 @@ export const LocationLarge: StoryObj = {
       </Grid.Cell>
     </Grid>
     <Grid paddingBottom="x-large">
-      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2}>Over de Apollohal</Heading>
         <Paragraph>
           De Apollohal is een sporthal in Amsterdam-Zuid met moderne voorzieningen en een rijke sporthistorie. Het
@@ -1412,7 +1413,8 @@ export const LocationLarge: StoryObj = {
         </Grid>
         <Grid paddingVertical="x-large">
           {/* An Alert sits in its own Grid Cell and takes no margin of its own; the Grid spaces it. */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          {/* This cell is as wide as a regular content body, but it start-aligns with the Content Header above it. */}
+          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
             {/* Alert generates a unique id for its heading, so only pass headingId to reference that heading elsewhere. */}
             <Alert
               closeable
@@ -1432,7 +1434,7 @@ export const LocationLarge: StoryObj = {
           <Grid.Cell
             className="ams-prose"
             span={{ narrow: 4, medium: 6, wide: 7 }}
-            start={{ narrow: 1, medium: 2, wide: 3 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
           >
             <Heading level={2}>Over de Apollohal</Heading>
             <Paragraph>
