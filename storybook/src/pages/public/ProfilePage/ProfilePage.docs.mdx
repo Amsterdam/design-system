@@ -2,6 +2,9 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as ProfileStories from "./ProfilePage.stories.tsx";
 
 <Meta of={ProfileStories} />
@@ -14,6 +17,12 @@ It answers who or what the subject is, what it offers, and how to reach or visit
 All five variants share the same skeleton.
 The page opens with a breadcrumb, a title and a lead paragraph, followed by the sections that describe the subject.
 A Spotlight then groups the calls to action, and a set of side-by-side blocks carries the practical details.
+
+## Anatomy
+
+This schematic shows the sections of a person profile and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={ProfileStories} story="Person" />
 
 ## Variants
 
@@ -55,8 +64,9 @@ Every Grid in between takes a `paddingVertical` of `x-large`, and the last one b
 Two Grids that touch add their paddings together, so leave the padding off one of the two sides.
 Across a Spotlight or a full-width image that doubling is what sets the band apart, so keep it there.
 
-Within a Grid Cell, every element but the last sets its own bottom margin with an `ams-mb-*` utility.
-Look each pair up in the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guide rather than working from feel, and use a heading's visual size rather than its level.
+Within a Grid Cell, the [Prose](/docs/utilities-css-prose--docs) utility class sets the space between the elements, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+It spaces a heading by its visual size rather than its level, so a level 2 Heading at `size="level-3"` opens a subsection rather than a section.
+The Cells that hold an Image Slider are the exception: Prose has no rules for one, so every element but the last there sets its own bottom margin with an `ams-mb-*` utility.
 
 Cells of the same Grid are spaced by its row gap instead, which stays at the default of `x-large`.
 That gap has no medium step, so a title and a lead in separate cells sit further apart than the guide advises for that pair.
