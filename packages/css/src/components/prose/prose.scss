@@ -4,9 +4,9 @@
  */
 
 $_ams-body-block: ".ams-blockquote, .ams-image, .ams-paragraph--large, .ams-table";
-$_ams-link-or-description-list: ".ams-description-list, .ams-link-list";
 $_ams-list-or-paragraph: ".ams-description-list, .ams-link-list, .ams-ordered-list, .ams-paragraph:not(.ams-paragraph--large), .ams-unordered-list";
 $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
+$_ams-spaced-from-heading: ".ams-description-list, .ams-image, .ams-link-list";
 
 .ams-prose {
   /* Base spacing, for elements that none of the context-aware rules below match */
@@ -96,14 +96,15 @@ $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
   }
 
   /*
-   * A Link List or Description List needs a step more than an Ordered or Unordered List below a heading.
-   * Its items are set further apart, so a tight space would read as part of the list rather than above it.
+   * A Description List, Image, or Link List needs a step more below a heading than a Paragraph or a text list.
+   * These are set more loosely, or start with an edge instead of a line of text, so at the tighter space the
+   * heading would read as part of them rather than as the space above them.
    */
-  > .ams-heading--3:has(+ :is(#{$_ams-link-or-description-list})) {
+  > .ams-heading--3:has(+ :is(#{$_ams-spaced-from-heading})) {
     margin-block-end: var(--ams-space-s);
   }
 
-  > .ams-heading--4:has(+ :is(#{$_ams-link-or-description-list})) {
+  > .ams-heading--4:has(+ :is(#{$_ams-spaced-from-heading})) {
     margin-block-end: var(--ams-space-xs);
   }
 
