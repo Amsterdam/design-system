@@ -81,6 +81,10 @@ $ams-grid-row-span-max: 4;
   @include ams-grid__subgrid--gap-vertical--large;
 }
 
+.ams-grid__subgrid--gap-vertical--x-large {
+  @include ams-grid__subgrid--gap-vertical--x-large;
+}
+
 .ams-grid__subgrid--gap-vertical--2x-large {
   @include ams-grid__subgrid--gap-vertical--2x-large;
 }

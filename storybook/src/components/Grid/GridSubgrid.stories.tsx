@@ -21,7 +21,7 @@ const meta = {
         labels: { undefined: 'inherit (default)' },
         type: 'radio',
       },
-      options: ['none', 'large', undefined, '2x-large'],
+      options: [undefined, 'none', 'large', 'x-large', '2x-large'],
     },
   },
   decorators: [

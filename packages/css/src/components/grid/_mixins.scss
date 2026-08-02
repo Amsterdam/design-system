@@ -137,6 +137,11 @@
   row-gap: var(--ams-grid-row-gap-l);
 }
 
+/* Restates the row gap a Grid has by default, for a Subgrid that would otherwise inherit a narrower one. */
+@mixin ams-grid__subgrid--gap-vertical--x-large {
+  row-gap: var(--ams-grid-row-gap-xl);
+}
+
 @mixin ams-grid__subgrid--gap-vertical--2x-large {
   row-gap: var(--ams-grid-row-gap-2xl);
 }
