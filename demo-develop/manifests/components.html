@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -10518,7 +10518,7 @@ as?: &quot;div&quot; | &quot;section&quot; | &quot;article&quot; | &quot;main&qu
  * The amount of space between the rows of the subgrid.
  * Defaults to the vertical gap of the Grid.
  */
-gapVertical?: &quot;none&quot; | &quot;large&quot; | &quot;2x-large&quot;
+gapVertical?: &quot;none&quot; | &quot;large&quot; | &quot;2x-large&quot; | &quot;x-large&quot;
 
 /**
  * The amount of grid rows the subgrid spans.
@@ -10635,6 +10635,7 @@ Without it, a Cell inside a Cell has no columns to align to.
 
 Its rows take the vertical gap of the Grid, so the region keeps the rhythm of the page.
 Give it its own `gapVertical` to space its rows differently.
+It takes `x-large` as well, which the Grid has no need of: that is the gap a Grid gives by default, and only a Subgrid can end up without it, in a Grid that lowered or removed its own.
 
 &lt;Canvas of={GridSubgridStories.Subgrid} /&gt;
 
