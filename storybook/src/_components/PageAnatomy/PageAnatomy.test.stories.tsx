@@ -37,7 +37,7 @@ export const Test: Story = {
       <PageAnatomy labels={homePageLabels} of={HomePageStories} />
       <PageAnatomy labels={newsOverviewPageLabels} of={NewsOverviewPageStories} />
       <PageAnatomy labels={internalNavigationPageLabels} menu mode="compact" of={InternalNavigationPageStories} />
-      <div style={{ maxInlineSize: '22rem' }}>
+      <div style={{ maxInlineSize: '24rem' }}>
         <PageAnatomy labels={homePageLabels} of={HomePageStories} />
       </div>
     </div>
