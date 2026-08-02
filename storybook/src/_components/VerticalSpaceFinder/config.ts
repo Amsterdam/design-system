@@ -102,7 +102,6 @@ export const verticalSpace: Record<string, SpaceSize> = {
   'Heading 2|Image': 's',
   'Heading 2|Ordered / Unordered List': 's',
   'Heading 2|Paragraph': 's',
-  'Heading 2|Standalone Link': 's',
   'Heading 2|Table': 's',
   'Heading 3|Description / Link List': 's',
   'Heading 3|Heading 4': 'm',
