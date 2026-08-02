@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -16541,10 +16541,10 @@ This schematic shows the default sections for this page type and how the grids a
 
 - The Content Header and the results are each their own section, so a plain `main` wraps them both.
 - This page opens with its title rather than a Breadcrumb, so the first Grid still takes the `large` top padding.
-  The [Search Field](/docs/components-forms-search-field--docs) is no part of the Content Header, so it takes a Grid Cell of its own below the title.
-- Search is not a content page, so the title spans the full width rather than the [Content Header Cell](/docs/pages-public-introduction--docs#content-header) other page types use.
-- The Search Field spans half the grid on wide screens, so the input does not stretch to an unusable length.
+  The [Search Field](/docs/components-forms-search-field--docs) takes the place of the lead paragraph in the Content Header Cell, so [Prose](/docs/utilities-css-prose--docs) spaces it a medium below the title.
+- That Cell spans half the grid on wide screens, so the search input does not stretch to an unusable length.
   It takes three quarters of the grid at medium and the full width at narrow.
+  The title follows that width rather than the [Content Header Cell](/docs/pages-public-introduction--docs#content-header) other page types use, because search is not a content page.
 - The results are [Cards](/docs/components-navigation-card--docs) of 4 columns, in a second Grid.
 
 ## Loading
@@ -16570,7 +16570,7 @@ The ‘Loaded’ example shows the results in place, under a heading that counts
 ## Layout and spacing
 
 - The first Grid takes a `paddingTop` of `large`, as the first Grid of every page does.
-- Both Grids have the default background colour, so their Grid takes a `paddingTop` of `2x-large`.
+- Both Grids have the default background colour, so the second one takes a `paddingTop` of `2x-large`.
 - The last Grid before the Page Footer takes a `paddingBottom` of `2x-large`.
 </code></pre></div>
             </div>
@@ -20669,7 +20669,7 @@ This schematic shows the default sections for this page type and how the grids a
 ## Structure
 
 The breadcrumb sits in its own Grid above `main`, as on every public page.
-The Grid below it carries the Content Header and the search field, and the Grid below that carries the filter column and the results.
+The Grid below it carries the Content Header, whose Cell holds the search field in the place of a lead paragraph, and the Grid below that carries the filter column and the results.
 
 Write the filter column first.
 It then precedes the results in the reading and the tab order, which is the order someone filtering wants, and no `start` value has to move it back.
@@ -26144,7 +26144,7 @@ This schematic shows the default sections for this page type and how the grids a
 
 ## Structure
 
-The breadcrumb sits in its own Grid above `main`, and the Grid below it carries the Content Header and the search field.
+The breadcrumb sits in its own Grid above `main`, and the Grid below it carries the Content Header, whose Cell holds the search field in the place of a lead paragraph.
 
 Repeat the search field on the results page and fill it with the term that was searched for.
 Refining a search is the most common thing to do next, and a visitor who has to go back to find the field will type the whole query again.
@@ -41865,10 +41865,10 @@ This schematic shows the default sections for this page type and how the grids a
 
 - The Content Header and the results are each their own section, so a plain `main` wraps them both.
 - This page opens with its title rather than a Breadcrumb, so the first Grid still takes the `large` top padding.
-  The [Search Field](/docs/components-forms-search-field--docs) is no part of the Content Header, so it takes a Grid Cell of its own below the title.
-- Search is not a content page, so the title spans the full width rather than the [Content Header Cell](/docs/pages-public-introduction--docs#content-header) other page types use.
-- The Search Field spans half the grid on wide screens, so the input does not stretch to an unusable length.
+  The [Search Field](/docs/components-forms-search-field--docs) takes the place of the lead paragraph in the Content Header Cell, so [Prose](/docs/utilities-css-prose--docs) spaces it a medium below the title.
+- That Cell spans half the grid on wide screens, so the search input does not stretch to an unusable length.
   It takes three quarters of the grid at medium and the full width at narrow.
+  The title follows that width rather than the [Content Header Cell](/docs/pages-public-introduction--docs#content-header) other page types use, because search is not a content page.
 - The results are [Cards](/docs/components-navigation-card--docs) of 4 columns, in a second Grid.
 
 ## Loading
@@ -41894,7 +41894,7 @@ The ‘Loaded’ example shows the results in place, under a heading that counts
 ## Layout and spacing
 
 - The first Grid takes a `paddingTop` of `large`, as the first Grid of every page does.
-- Both Grids have the default background colour, so their Grid takes a `paddingTop` of `2x-large`.
+- Both Grids have the default background colour, so the second one takes a `paddingTop` of `2x-large`.
 - The last Grid before the Page Footer takes a `paddingBottom` of `2x-large`.
 </code></pre></div>
             </div>
@@ -45409,7 +45409,7 @@ This schematic shows the default sections for this page type and how the grids a
 ## Structure
 
 The breadcrumb sits in its own Grid above `main`, as on every public page.
-The Grid below it carries the Content Header and the search field, and the Grid below that carries the filter column and the results.
+The Grid below it carries the Content Header, whose Cell holds the search field in the place of a lead paragraph, and the Grid below that carries the filter column and the results.
 
 Write the filter column first.
 It then precedes the results in the reading and the tab order, which is the order someone filtering wants, and no `start` value has to move it back.
@@ -49397,7 +49397,7 @@ This schematic shows the default sections for this page type and how the grids a
 
 ## Structure
 
-The breadcrumb sits in its own Grid above `main`, and the Grid below it carries the Content Header and the search field.
+The breadcrumb sits in its own Grid above `main`, and the Grid below it carries the Content Header, whose Cell holds the search field in the place of a lead paragraph.
 
 Repeat the search field on the results page and fill it with the term that was searched for.
 Refining a search is the most common thing to do next, and a visitor who has to go back to find the field will type the whole query again.
