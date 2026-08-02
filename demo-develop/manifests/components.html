@@ -52243,8 +52243,9 @@ The space before and after level 2, 3, and 4 headings is generally as follows:
 - Heading 3 → Body text: **x-small**
 - Heading 4 → Body text: **zero**
 
-A Description List, an Image, and a Link List each take one step more below a level 3 or 4 heading: **small** and **x-small**.
-These are set more loosely than a Paragraph, or start with an edge instead of a line of text, so at the tighter space the heading would read as part of them rather than as the space above them.
+Only a Paragraph and an Ordered or Unordered List take those two tightest values.
+Everything else takes one step more below a level 3 or 4 heading — **small** and **x-small** — because it is set more loosely, or starts with an icon or an edge instead of a line of text.
+At the tighter space the heading would read as part of it rather than as the space above it.
 
 A few exceptions here – find them in the Space Finder above, or the Tables below.
 
@@ -52258,8 +52259,6 @@ They are the same as in the sections above.
 - For every combination of two components, find the top one in the column headers and the one below in the row headers.
   The cell where they meet shows the recommended spacing size between them.
 - An empty cell or a missing component means we advise against that combination.
-- ‘… List’ refers to Description List, Link List, Ordered List, and Unordered List.
-  The four take the same space everywhere except below a level 3 or 4 heading, where the first table names them apart.
 
 ### Space below headings
 
@@ -52268,16 +52267,18 @@ They are the same as in the sections above.
 | **Heading 2**                |   `xl`    |           |           |           |
 | **Heading 3**                |           |    `m`    |           |           |
 | **Heading 4**                |           |           |    `m`    |           |
-| **Blockquote**               |           |           |           |           |
 | **Image**                    |    `m`    |    `s`    |    `s`    |   `xs`    |
+| **Standalone Link**          |           |    `s`    |    `s`    |   `xs`    |
 | **Description / Link List**  |    `m`    |    `s`    |    `s`    |   `xs`    |
 | **Ordered / Unordered List** |    `m`    |    `s`    |   `xs`    |    `0`    |
 | **Paragraph**                |    `m`    |    `s`    |   `xs`    |    `0`    |
 | **Paragraph (large)**        |    `m`    |           |           |           |
-| **Table**                    |           |    `s`    |   `xs`    |    `0`    |
+| **Table**                    |           |    `s`    |    `s`    |   `xs`    |
 
 - Use the visual size of **Headings**.
   For instance, with a `&lt;Heading level={2} size=&quot;level-3&quot; /&gt;`, refer to ‘Heading 3’ in these tables.
+- This is the only table where the four lists differ, so it is the only one that names them apart.
+  The two below hold them together as ‘… List’.
 
 ### Space below body text
 
@@ -52296,6 +52297,8 @@ They are the same as in the sections above.
 | **Paragraph (large)**   |            |        |    `m`    |                   |
 | **Table**               |    `l`     |  `l`   |    `l`    |        `l`        |
 
+- ‘… List’ is a Description List, Link List, Ordered List, or Unordered List.
+  All four take the space in this column and this row.
 - **Accordion** and **Table** with a Caption start with a **Heading** – use the space length for its size or level (2, 3, 4).
 
 ### Space below other components
@@ -52309,10 +52312,13 @@ They are the same as in the sections above.
 | **Button**              |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
 | **Call to Action Link** |  `xl`  |                     | `xl`  |  `xl`  |      `xl`       | `xl`  |
 | **Image**               |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
-| **Standalone Link**     |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
-| **… List**              |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
-| **Paragraph**           |  `l`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Standalone Link**     |  `m`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **… List**              |  `m`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
+| **Paragraph**           |  `m`   |        `xl`         |  `l`  |  `m`   |       `m`       |  `l`  |
 | **Table**               |  `l`   |        `xl`         |  `l`  |  `l`   |       `l`       |  `l`  |
+
+- ‘… List’ is a Description List, Link List, Ordered List, or Unordered List.
+  All four take the space in this column and this row.
 
 ## Code examples
 
