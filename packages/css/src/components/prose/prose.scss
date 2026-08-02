@@ -4,6 +4,7 @@
  */
 
 $_ams-body-block: ".ams-blockquote, .ams-image, .ams-paragraph--large, .ams-table";
+$_ams-link-or-description-list: ".ams-description-list, .ams-link-list";
 $_ams-list-or-paragraph: ".ams-description-list, .ams-link-list, .ams-ordered-list, .ams-paragraph:not(.ams-paragraph--large), .ams-unordered-list";
 $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
 
@@ -92,6 +93,18 @@ $_ams-paragraph: ".ams-paragraph:not(.ams-paragraph--large)";
   /* Heading level 4 followed by its content, which sits straight beneath it */
   > .ams-heading--4:has(+ :not(.ams-heading)) {
     margin-block-end: 0;
+  }
+
+  /*
+   * A Link List or Description List needs a step more than an Ordered or Unordered List below a heading.
+   * Its items are set further apart, so a tight space would read as part of the list rather than above it.
+   */
+  > .ams-heading--3:has(+ :is(#{$_ams-link-or-description-list})) {
+    margin-block-end: var(--ams-space-s);
+  }
+
+  > .ams-heading--4:has(+ :is(#{$_ams-link-or-description-list})) {
+    margin-block-end: var(--ams-space-xs);
   }
 
   /* Heading level 2 or 3 followed by another heading */
