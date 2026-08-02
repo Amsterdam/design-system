@@ -4912,7 +4912,7 @@
         {
           "id": "components-docs-page-anatomy--test",
           "name": "Test",
-          "snippet": "const Test = () => (\n  <div className=\"_ams-tests-stack\">\n    <PageAnatomy labels={articlePageLabels} of={ArticlePageStories} />\n    <PageAnatomy labels={homePageLabels} of={HomePageStories} />\n    <PageAnatomy labels={newsOverviewPageLabels} of={NewsOverviewPageStories} />\n    <PageAnatomy labels={internalNavigationPageLabels} menu mode=\"compact\" of={InternalNavigationPageStories} />\n    <div style={{ maxInlineSize: '22rem' }}>\n      <PageAnatomy labels={homePageLabels} of={HomePageStories} />\n    </div>\n  </div>\n);",
+          "snippet": "const Test = () => (\n  <div className=\"_ams-tests-stack\">\n    <PageAnatomy labels={articlePageLabels} of={ArticlePageStories} />\n    <PageAnatomy labels={homePageLabels} of={HomePageStories} />\n    <PageAnatomy labels={newsOverviewPageLabels} of={NewsOverviewPageStories} />\n    <PageAnatomy labels={internalNavigationPageLabels} menu mode=\"compact\" of={InternalNavigationPageStories} />\n    <div style={{ maxInlineSize: '24rem' }}>\n      <PageAnatomy labels={homePageLabels} of={HomePageStories} />\n    </div>\n  </div>\n);",
           "description": "Four pages, between them covering everything the drawing can show: a Spotlight and a full-bleed Image on the\nArticle Page, an Overlap and a run of repeated Grid Cells on the Home Page, a Subgrid holding a Cell that spans\nall of its columns on the News Overview Page, and Compact Mode, a Menu column, a row-spanning Cell and a\ntransparent one on the internal Navigation Page. The fifth is the Home Page again, in a container the width of a\nphone, where the three drawings no longer fit beside one another and buttons choose between them."
         }
       ],
@@ -5977,6 +5977,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 4569
+    "durationMs": 4447
   }
 }
