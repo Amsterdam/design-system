@@ -75,6 +75,10 @@ The space before and after level 2, 3, and 4 headings is generally as follows:
 - Heading 2/3 → Heading 3/4: **medium**
 - Heading 2 → Body text: **small**
 - Heading 3 → Body text: **x-small**
+- Heading 4 → Body text: **zero**
+
+A Description List, an Image, and a Link List each take one step more below a level 3 or 4 heading: **small** and **x-small**.
+These are set more loosely than a Paragraph, or start with an edge instead of a line of text, so at the tighter space the heading would read as part of them rather than as the space above them.
 
 A few exceptions here – find them in the Space Finder above, or the Tables below.
 
@@ -89,20 +93,22 @@ They are the same as in the sections above.
   The cell where they meet shows the recommended spacing size between them.
 - An empty cell or a missing component means we advise against that combination.
 - ‘… List’ refers to Description List, Link List, Ordered List, and Unordered List.
+  The four take the same space everywhere except below a level 3 or 4 heading, where the first table names them apart.
 
 ### Space below headings
 
-|                       | Heading 1 | Heading 2 | Heading 3 | Heading 4 |
-| :-------------------- | :-------: | :-------: | :-------: | :-------: |
-| **Heading 2**         |   `xl`    |           |           |           |
-| **Heading 3**         |           |    `m`    |           |           |
-| **Heading 4**         |           |           |    `m`    |           |
-| **Blockquote**        |           |           |           |           |
-| **Image**             |    `m`    |    `s`    |   `xs`    |    `0`    |
-| **… List**            |    `m`    |    `s`    |   `xs`    |    `0`    |
-| **Paragraph**         |    `m`    |    `s`    |   `xs`    |    `0`    |
-| **Paragraph (large)** |    `m`    |           |           |           |
-| **Table**             |           |    `s`    |   `xs`    |    `0`    |
+|                              | Heading 1 | Heading 2 | Heading 3 | Heading 4 |
+| :--------------------------- | :-------: | :-------: | :-------: | :-------: |
+| **Heading 2**                |   `xl`    |           |           |           |
+| **Heading 3**                |           |    `m`    |           |           |
+| **Heading 4**                |           |           |    `m`    |           |
+| **Blockquote**               |           |           |           |           |
+| **Image**                    |    `m`    |    `s`    |    `s`    |   `xs`    |
+| **Description / Link List**  |    `m`    |    `s`    |    `s`    |   `xs`    |
+| **Ordered / Unordered List** |    `m`    |    `s`    |   `xs`    |    `0`    |
+| **Paragraph**                |    `m`    |    `s`    |   `xs`    |    `0`    |
+| **Paragraph (large)**        |    `m`    |           |           |           |
+| **Table**                    |           |    `s`    |   `xs`    |    `0`    |
 
 - Use the visual size of **Headings**.
   For instance, with a `<Heading level={2} size="level-3" />`, refer to ‘Heading 3’ in these tables.
