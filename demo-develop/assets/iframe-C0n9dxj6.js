@@ -1,0 +1,1 @@
+import{t as e}from"./iframe-IIegko30.js";e();
