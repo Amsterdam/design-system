@@ -37,10 +37,19 @@ The `level` prop has no default; determine the correct level for each instance.
 Every page should have one Heading with level 1.
 Do not skip levels: a level 2 Heading must be followed by level 3, not level 4.
 
-- Content pages, e.g. for articles, products, events etc. must not use the size prop on their Headings.
-- Most Headings on overview pages, e.g. Card, Table of Contents, and Link Sections, use a size of 'level-3'.
-- The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
-  Most of them can be given a different size if appropriate.
+#### Sections and blocks
+
+The size follows what the Heading introduces.
+
+A heading of a **section** keeps the size of its level and sets no `size`: a run of body text, or a group of blocks such as a row of Cards.
+
+A heading of a **single block** takes a `size` one step smaller, so a level 2 Heading takes `size="level-3"`.
+Such a block is one of several beside or below one another, each holding a short paragraph, a Link List, or a single link.
+At the size of its own level the heading outweighs the few lines it introduces.
+
+The `level` follows the outline of the page either way.
+
+Components that carry a heading of their own — Accordion, Alert, Card, Dialog, Table of Contents, and the caption of a Table — size it themselves.
 
 ### How to write
 
