@@ -252,8 +252,8 @@ const meta = {
            * between the Cells.
            */}
           <Grid gapVertical="none" paddingVertical="x-large">
-            <Grid.Cell className="ams-mb-s" span="all">
-              <Heading color="inverse" level={2}>
+            <Grid.Cell span="all">
+              <Heading className="ams-mb-s" color="inverse" level={2}>
                 Zelfbouw
               </Heading>
             </Grid.Cell>
@@ -359,8 +359,8 @@ const meta = {
          */}
         <Spotlight>
           <Grid gapVertical="none" paddingVertical="x-large">
-            <Grid.Cell className="ams-mb-s" span="all">
-              <Heading color="inverse" level={2}>
+            <Grid.Cell span="all">
+              <Heading className="ams-mb-s" color="inverse" level={2}>
                 Contact
               </Heading>
             </Grid.Cell>
@@ -538,8 +538,8 @@ export const Default: StoryObj = {
        * between the Cells.
        */}
       <Grid gapVertical="none" paddingVertical="x-large">
-        <Grid.Cell className="ams-mb-s" span="all">
-          <Heading color="inverse" level={2}>Zelfbouw</Heading>
+        <Grid.Cell span="all">
+          <Heading className="ams-mb-s" color="inverse" level={2}>Zelfbouw</Heading>
         </Grid.Cell>
         <Grid.Subgrid gapVertical="x-large" span="all">
           {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
@@ -584,8 +584,8 @@ export const Default: StoryObj = {
      */}
     <Spotlight>
       <Grid gapVertical="none" paddingVertical="x-large">
-        <Grid.Cell className="ams-mb-s" span="all">
-          <Heading color="inverse" level={2}>Contact</Heading>
+        <Grid.Cell span="all">
+          <Heading className="ams-mb-s" color="inverse" level={2}>Contact</Heading>
         </Grid.Cell>
         <Grid.Subgrid gapVertical="x-large" span="all">
           <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>

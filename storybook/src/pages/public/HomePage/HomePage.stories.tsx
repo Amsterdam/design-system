@@ -35,9 +35,9 @@ const meta = {
        * between the Cells.
        */}
       <Grid gapVertical="none" paddingVertical="x-large">
-        <Grid.Cell className="ams-mb-m" span="all">
+        <Grid.Cell span="all">
           {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-          <Heading level={2} size="level-1">
+          <Heading className="ams-mb-m" level={2} size="level-1">
             {topTaskSection.title}
           </Heading>
         </Grid.Cell>
@@ -83,8 +83,8 @@ const meta = {
       </Spotlight>
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
-        <Grid.Cell className="ams-mb-m" span="all">
-          <Heading level={2} size="level-1">
+        <Grid.Cell span="all">
+          <Heading className="ams-mb-m" level={2} size="level-1">
             {newsSection.title}
           </Heading>
         </Grid.Cell>
@@ -134,9 +134,9 @@ export const Default: StoryObj = {
    * between the Cells.
    */}
   <Grid gapVertical="none" paddingVertical="x-large">
-    <Grid.Cell className="ams-mb-m" span="all">
+    <Grid.Cell span="all">
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-      <Heading level={2} size="level-1">{topTaskSection.title}</Heading>
+      <Heading className="ams-mb-m" level={2} size="level-1">{topTaskSection.title}</Heading>
     </Grid.Cell>
     <Grid.Subgrid gapVertical="x-large" span="all">
       {/*
@@ -176,8 +176,8 @@ export const Default: StoryObj = {
   </Spotlight>
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
   <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
-    <Grid.Cell className="ams-mb-m" span="all">
-      <Heading level={2} size="level-1">{newsSection.title}</Heading>
+    <Grid.Cell span="all">
+      <Heading className="ams-mb-m" level={2} size="level-1">{newsSection.title}</Heading>
     </Grid.Cell>
     <Grid.Subgrid gapVertical="x-large" span="all">
       {newsSection.items.map(({ title, description, image }) => (

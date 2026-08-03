@@ -170,8 +170,8 @@ const meta = {
        * between the Cells.
        */}
       <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
-        <Grid.Cell className="ams-mb-m" span="all">
-          <Heading id="meer-nieuws" level={2} size="level-1">
+        <Grid.Cell span="all">
+          <Heading className="ams-mb-m" id="meer-nieuws" level={2} size="level-1">
             Meer nieuws
           </Heading>
         </Grid.Cell>
@@ -346,8 +346,8 @@ export const Default: StoryObj = {
    * between the Cells.
    */}
   <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
-    <Grid.Cell className="ams-mb-m" span="all">
-      <Heading id="meer-nieuws" level={2} size="level-1">Meer nieuws</Heading>
+    <Grid.Cell span="all">
+      <Heading className="ams-mb-m" id="meer-nieuws" level={2} size="level-1">Meer nieuws</Heading>
     </Grid.Cell>
     <Grid.Subgrid gapVertical="x-large" span="all">
       <Grid.Cell span={4}>

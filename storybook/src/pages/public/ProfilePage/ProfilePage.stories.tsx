@@ -466,8 +466,8 @@ export const Group: StoryObj = {
      */}
     <Grid gapVertical="none" paddingBottom="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      <Grid.Cell className="ams-mb-s" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading level={2}>Adres en contact</Heading>
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading className="ams-mb-s" level={2}>Adres en contact</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
@@ -551,8 +551,8 @@ export const Group: StoryObj = {
      * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
      */}
     <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
-      <Grid.Cell className="ams-mb-s" span="all">
-        <Heading level={2}>Raadsleden</Heading>
+      <Grid.Cell span="all">
+        <Heading className="ams-mb-s" level={2}>Raadsleden</Heading>
       </Grid.Cell>
       <Grid.Subgrid className="ams-mb-xl" gapVertical="x-large" span="all">
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -574,8 +574,8 @@ export const Group: StoryObj = {
           </Grid.Cell>
         ))}
       </Grid.Subgrid>
-      <Grid.Cell className="ams-mb-s" span="all">
-        <Heading level={2}>Fractievertegenwoordigers</Heading>
+      <Grid.Cell span="all">
+        <Heading className="ams-mb-s" level={2}>Fractievertegenwoordigers</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span="all">
         {groupRepresentatives.map(({ name, role }) => (
@@ -644,12 +644,10 @@ export const Group: StoryObj = {
          */}
         <Grid gapVertical="none" paddingBottom="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          <Grid.Cell
-            className="ams-mb-s"
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          >
-            <Heading level={2}>Adres en contact</Heading>
+          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <Heading className="ams-mb-s" level={2}>
+              Adres en contact
+            </Heading>
           </Grid.Cell>
           <Grid.Subgrid
             gapVertical="x-large"
@@ -748,8 +746,10 @@ export const Group: StoryObj = {
          * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
          */}
         <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
-          <Grid.Cell className="ams-mb-s" span="all">
-            <Heading level={2}>Raadsleden</Heading>
+          <Grid.Cell span="all">
+            <Heading className="ams-mb-s" level={2}>
+              Raadsleden
+            </Heading>
           </Grid.Cell>
           <Grid.Subgrid className="ams-mb-xl" gapVertical="x-large" span="all">
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -771,8 +771,10 @@ export const Group: StoryObj = {
               </Grid.Cell>
             ))}
           </Grid.Subgrid>
-          <Grid.Cell className="ams-mb-s" span="all">
-            <Heading level={2}>Fractievertegenwoordigers</Heading>
+          <Grid.Cell span="all">
+            <Heading className="ams-mb-s" level={2}>
+              Fractievertegenwoordigers
+            </Heading>
           </Grid.Cell>
           <Grid.Subgrid gapVertical="x-large" span="all">
             {groupRepresentatives.map(({ name, role }) => (
@@ -849,8 +851,8 @@ export const Location: StoryObj = {
      */}
     <Grid gapVertical="none" paddingVertical="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      <Grid.Cell className="ams-mb-s" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading level={2}>Faciliteiten</Heading>
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading className="ams-mb-s" level={2}>Faciliteiten</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
@@ -1020,12 +1022,10 @@ export const Location: StoryObj = {
          */}
         <Grid gapVertical="none" paddingVertical="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          <Grid.Cell
-            className="ams-mb-s"
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          >
-            <Heading level={2}>Faciliteiten</Heading>
+          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <Heading className="ams-mb-s" level={2}>
+              Faciliteiten
+            </Heading>
           </Grid.Cell>
           <Grid.Subgrid
             gapVertical="x-large"
@@ -1257,8 +1257,8 @@ export const LocationLarge: StoryObj = {
      * between the Cells.
      */}
     <Grid gapVertical="none" paddingBottom="x-large">
-      <Grid.Cell className="ams-mb-s" span="all">
-        <Heading level={2}>Zalen en sportmogelijkheden</Heading>
+      <Grid.Cell span="all">
+        <Heading className="ams-mb-s" level={2}>Zalen en sportmogelijkheden</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span="all">
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -1298,8 +1298,8 @@ export const LocationLarge: StoryObj = {
     </Grid>
     <Grid gapVertical="none" paddingBottom="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      <Grid.Cell className="ams-mb-s" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading level={2}>Faciliteiten</Heading>
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading className="ams-mb-s" level={2}>Faciliteiten</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
@@ -1548,8 +1548,10 @@ export const LocationLarge: StoryObj = {
          * between the Cells.
          */}
         <Grid gapVertical="none" paddingBottom="x-large">
-          <Grid.Cell className="ams-mb-s" span="all">
-            <Heading level={2}>Zalen en sportmogelijkheden</Heading>
+          <Grid.Cell span="all">
+            <Heading className="ams-mb-s" level={2}>
+              Zalen en sportmogelijkheden
+            </Heading>
           </Grid.Cell>
           <Grid.Subgrid gapVertical="x-large" span="all">
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -1589,12 +1591,10 @@ export const LocationLarge: StoryObj = {
         </Grid>
         <Grid gapVertical="none" paddingBottom="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          <Grid.Cell
-            className="ams-mb-s"
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          >
-            <Heading level={2}>Faciliteiten</Heading>
+          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <Heading className="ams-mb-s" level={2}>
+              Faciliteiten
+            </Heading>
           </Grid.Cell>
           <Grid.Subgrid
             gapVertical="x-large"

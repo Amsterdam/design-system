@@ -223,8 +223,8 @@ export type AnatomyBlock = {
   /** The number of rows the block spans, per Grid variant. */
   readonly rowSpan: Record<Breakpoint, number | undefined>
   /**
-   * The space an `ams-mb-*` utility on the Cell puts below it. A Grid that has given up its row gap leaves the
-   * spacing to these, so the drawing has to read them to show the page it stands for.
+   * The space the content of the Cell puts below itself with an `ams-mb-*` utility. A Grid that has given up its
+   * row gap leaves the spacing to that margin, so the drawing has to read it to show the page it stands for.
    */
   readonly spaceAfter?: SpaceToken
   /** The number of columns the block spans, per Grid variant. */
@@ -326,13 +326,20 @@ const readCellRatio = (children: ReactNode): number | undefined => {
 const spaceAfterPattern = /(?:^|\s)ams-mb-(2xl|xl|xs|s|m|l)(?:\s|$)/
 
 /**
- * The space an `ams-mb-*` utility on a Cell puts below it.
+ * The space the content of a Cell puts below itself with an `ams-mb-*` utility.
  *
- * A Grid that gives up its row gap leaves the spacing to these, so a drawing that ignored them would show a heading
- * sitting against the section it introduces.
+ * A Grid that gives up its row gap leaves the spacing to that margin, so a drawing that ignored it would show a
+ * heading sitting against the section it introduces. The utility goes on the content rather than on the Cell,
+ * which only ever takes the props of the Grid, so this reads the last thing the Cell holds: a grid item opens an
+ * independent formatting context, so the margin of that last child adds to the height of the Cell rather than
+ * collapsing through it.
  */
-const readSpaceAfter = (className: unknown): SpaceToken | undefined =>
-  typeof className === 'string' ? (spaceAfterPattern.exec(className)?.[1] as SpaceToken | undefined) : undefined
+const readSpaceAfter = (children: ReactNode): SpaceToken | undefined => {
+  const last = Children.toArray(children).filter(isValidElement).at(-1)
+  const className = last ? propsOf(last)['className'] : undefined
+
+  return typeof className === 'string' ? (spaceAfterPattern.exec(className)?.[1] as SpaceToken | undefined) : undefined
+}
 
 /**
  * Reads a Grid Cell or a Grid Subgrid. Both take the same placement props.
@@ -341,7 +348,7 @@ const readSpaceAfter = (className: unknown): SpaceToken | undefined =>
  * Its own columns are numbered from one again, so a span of ‘all’ is the span of the Subgrid rather than of the Grid.
  */
 const readCell = (element: ReactElement, columns?: Record<Breakpoint, number>): AnatomyBlock => {
-  const { appearance, children, className, gapVertical, rowSpan, span, start } = propsOf(element)
+  const { appearance, children, gapVertical, rowSpan, span, start } = propsOf(element)
   const available = (viewport: AnatomyViewport) => columns?.[viewport.key] ?? viewport.columns
 
   return {
@@ -352,7 +359,7 @@ const readCell = (element: ReactElement, columns?: Record<Breakpoint, number>): 
     height: perViewport(() => defaultBlockHeight),
     label: '',
     rowSpan: perViewport((viewport) => readColumns(rowSpan, viewport)),
-    spaceAfter: readSpaceAfter(className),
+    spaceAfter: readSpaceAfter(children as ReactNode),
     // A cell without a `span` spans a single column, as `grid-column-end: auto` does.
     span: perViewport((viewport) => readColumns(span, viewport, available(viewport)) ?? 1),
     start: perViewport((viewport) => readColumns(start, viewport, available(viewport))),
