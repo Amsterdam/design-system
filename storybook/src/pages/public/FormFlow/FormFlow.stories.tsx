@@ -25,7 +25,6 @@ import {
 } from '@amsterdam/design-system-react'
 import { ChevronBackwardIcon } from '@amsterdam/design-system-react-icons'
 
-
 import { FormPageLayout } from '../common/FormPageLayout'
 import { PageLayout } from '../common/PageLayout'
 
