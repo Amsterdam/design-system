@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>3.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1886,8 +1886,8 @@ const meta = {
        * between the Cells.
        */}
       &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-          &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
             Meer nieuws
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -2062,8 +2062,8 @@ export const Default: StoryObj = {
    * between the Cells.
    */}
   &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-    &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-      &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;Meer nieuws&lt;/Heading&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;Meer nieuws&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
     &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       &lt;Grid.Cell span={4}&gt;
@@ -2297,8 +2297,8 @@ export const Default: StoryObj = {
      * between the Cells.
      */}
     &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-        &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
           Meer nieuws
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
@@ -11765,9 +11765,9 @@ const meta = {
        * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
           {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-          &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
             {topTaskSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -11813,8 +11813,8 @@ const meta = {
       &lt;/Spotlight&gt;
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
             {newsSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -11864,9 +11864,9 @@ export const Default: StoryObj = {
    * between the Cells.
    */}
   &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-    &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
     &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       {/*
@@ -11906,8 +11906,8 @@ export const Default: StoryObj = {
   &lt;/Spotlight&gt;
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
   &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-    &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
     &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       {newsSection.items.map(({ title, description, image }) =&gt; (
@@ -11985,9 +11985,9 @@ export const Default: StoryObj = {
      * between the Cells.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
         {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-        &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
           {topTaskSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
@@ -12033,8 +12033,8 @@ export const Default: StoryObj = {
     &lt;/Spotlight&gt;
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
           {newsSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
@@ -23882,8 +23882,8 @@ export const Group: StoryObj = {
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Adres en contact&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -23960,17 +23960,17 @@ export const Group: StoryObj = {
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
-    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     {/*
-     * The row gap would put an x-large below each heading, where the guidance asks for a small at this size.
-     * So the Grid gives up its gap, each heading sets the space itself, and the Subgrids put the gap back
-     * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+     * the padding of the second rather than a margin on the Subgrid of the first.
      */}
-    &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+    &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Raadsleden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
         {councilMembers.map(({ name, role }) =&gt; (
           &lt;Grid.Cell key={name} span={4}&gt;
@@ -23990,8 +23990,11 @@ export const Group: StoryObj = {
           &lt;/Grid.Cell&gt;
         ))}
       &lt;/Grid.Subgrid&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+    &lt;/Grid&gt;
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -24060,12 +24063,10 @@ export const Group: StoryObj = {
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Adres en contact
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -24157,17 +24158,19 @@ export const Group: StoryObj = {
             &lt;/Grid.Cell&gt;
           &lt;/Grid&gt;
         &lt;/Spotlight&gt;
-        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         {/*
-         * The row gap would put an x-large below each heading, where the guidance asks for a small at this size.
-         * So the Grid gives up its gap, each heading sets the space itself, and the Subgrids put the gap back
-         * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+         * the padding of the second rather than a margin on the Subgrid of the first.
          */}
-        &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+        &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Raadsleden
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
             {councilMembers.map(({ name, role }) =&gt; (
               &lt;Grid.Cell key={name} span={4}&gt;
@@ -24187,8 +24190,13 @@ export const Group: StoryObj = {
               &lt;/Grid.Cell&gt;
             ))}
           &lt;/Grid.Subgrid&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+        &lt;/Grid&gt;
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Fractievertegenwoordigers
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -24265,8 +24273,8 @@ export const Location: StoryObj = {
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -24436,12 +24444,10 @@ export const Location: StoryObj = {
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Faciliteiten
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -24673,8 +24679,8 @@ export const LocationLarge: StoryObj = {
      * between the Cells.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -24714,8 +24720,8 @@ export const LocationLarge: StoryObj = {
     &lt;/Grid&gt;
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -24964,8 +24970,10 @@ export const LocationLarge: StoryObj = {
          * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Zalen en sportmogelijkheden
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -25005,12 +25013,10 @@ export const LocationLarge: StoryObj = {
         &lt;/Grid&gt;
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Faciliteiten
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -25829,12 +25835,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Adres en contact
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -25926,17 +25930,19 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
-      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       {/*
-       * The row gap would put an x-large below each heading, where the guidance asks for a small at this size.
-       * So the Grid gives up its gap, each heading sets the space itself, and the Subgrids put the gap back
-       * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+       * the padding of the second rather than a margin on the Subgrid of the first.
        */}
-      &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+      &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Raadsleden
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
           {councilMembers.map(({ name, role }) =&gt; (
             &lt;Grid.Cell key={name} span={4}&gt;
@@ -25956,8 +25962,13 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             &lt;/Grid.Cell&gt;
           ))}
         &lt;/Grid.Subgrid&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+      &lt;/Grid&gt;
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Fractievertegenwoordigers
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -26038,12 +26049,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Faciliteiten
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -26283,8 +26292,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
        * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Zalen en sportmogelijkheden
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -26324,12 +26335,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
       &lt;/Grid&gt;
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Faciliteiten
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -27351,8 +27360,8 @@ const meta = {
            * between the Cells.
            */}
           &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-            &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
                 Zelfbouw
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
@@ -27458,8 +27467,8 @@ const meta = {
          */}
         &lt;Spotlight&gt;
           &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-            &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
                 Contact
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
@@ -27637,8 +27646,8 @@ export const Default: StoryObj = {
        * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
@@ -27683,8 +27692,8 @@ export const Default: StoryObj = {
      */}
     &lt;Spotlight&gt;
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
@@ -27982,8 +27991,8 @@ export const Default: StoryObj = {
          * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
               Zelfbouw
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -28089,8 +28098,8 @@ export const Default: StoryObj = {
        */}
       &lt;Spotlight&gt;
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
               Contact
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -34918,8 +34927,8 @@ const meta = {
        * between the Cells.
        */}
       &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-          &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
             Meer nieuws
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -35094,8 +35103,8 @@ export const Default: StoryObj = {
    * between the Cells.
    */}
   &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-    &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-      &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;Meer nieuws&lt;/Heading&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;Meer nieuws&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
     &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       &lt;Grid.Cell span={4}&gt;
@@ -35329,8 +35338,8 @@ export const Default: StoryObj = {
      * between the Cells.
      */}
     &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-        &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
           Meer nieuws
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
@@ -41612,9 +41621,9 @@ const meta = {
        * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
           {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-          &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
             {topTaskSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -41660,8 +41669,8 @@ const meta = {
       &lt;/Spotlight&gt;
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
             {newsSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -41711,9 +41720,9 @@ export const Default: StoryObj = {
    * between the Cells.
    */}
   &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-    &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
     &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       {/*
@@ -41753,8 +41762,8 @@ export const Default: StoryObj = {
   &lt;/Spotlight&gt;
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
   &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-    &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
     &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       {newsSection.items.map(({ title, description, image }) =&gt; (
@@ -41832,9 +41841,9 @@ export const Default: StoryObj = {
      * between the Cells.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
         {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-        &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
           {topTaskSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
@@ -41880,8 +41889,8 @@ export const Default: StoryObj = {
     &lt;/Spotlight&gt;
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-m&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
           {newsSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
@@ -51235,8 +51244,8 @@ export const Group: StoryObj = {
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Adres en contact&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -51313,17 +51322,17 @@ export const Group: StoryObj = {
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
-    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     {/*
-     * The row gap would put an x-large below each heading, where the guidance asks for a small at this size.
-     * So the Grid gives up its gap, each heading sets the space itself, and the Subgrids put the gap back
-     * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+     * the padding of the second rather than a margin on the Subgrid of the first.
      */}
-    &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+    &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Raadsleden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
         {councilMembers.map(({ name, role }) =&gt; (
           &lt;Grid.Cell key={name} span={4}&gt;
@@ -51343,8 +51352,11 @@ export const Group: StoryObj = {
           &lt;/Grid.Cell&gt;
         ))}
       &lt;/Grid.Subgrid&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+    &lt;/Grid&gt;
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -51413,12 +51425,10 @@ export const Group: StoryObj = {
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Adres en contact
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -51510,17 +51520,19 @@ export const Group: StoryObj = {
             &lt;/Grid.Cell&gt;
           &lt;/Grid&gt;
         &lt;/Spotlight&gt;
-        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         {/*
-         * The row gap would put an x-large below each heading, where the guidance asks for a small at this size.
-         * So the Grid gives up its gap, each heading sets the space itself, and the Subgrids put the gap back
-         * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+         * the padding of the second rather than a margin on the Subgrid of the first.
          */}
-        &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+        &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Raadsleden
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
             {councilMembers.map(({ name, role }) =&gt; (
               &lt;Grid.Cell key={name} span={4}&gt;
@@ -51540,8 +51552,13 @@ export const Group: StoryObj = {
               &lt;/Grid.Cell&gt;
             ))}
           &lt;/Grid.Subgrid&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+        &lt;/Grid&gt;
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Fractievertegenwoordigers
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -51618,8 +51635,8 @@ export const Location: StoryObj = {
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -51789,12 +51806,10 @@ export const Location: StoryObj = {
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Faciliteiten
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -52026,8 +52041,8 @@ export const LocationLarge: StoryObj = {
      * between the Cells.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -52067,8 +52082,8 @@ export const LocationLarge: StoryObj = {
     &lt;/Grid&gt;
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -52317,8 +52332,10 @@ export const LocationLarge: StoryObj = {
          * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Zalen en sportmogelijkheden
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -52358,12 +52375,10 @@ export const LocationLarge: StoryObj = {
         &lt;/Grid&gt;
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Faciliteiten
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -53182,12 +53197,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Adres en contact
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -53279,17 +53292,19 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
-      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       {/*
-       * The row gap would put an x-large below each heading, where the guidance asks for a small at this size.
-       * So the Grid gives up its gap, each heading sets the space itself, and the Subgrids put the gap back
-       * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+       * the padding of the second rather than a margin on the Subgrid of the first.
        */}
-      &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+      &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Raadsleden
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
           {councilMembers.map(({ name, role }) =&gt; (
             &lt;Grid.Cell key={name} span={4}&gt;
@@ -53309,8 +53324,13 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             &lt;/Grid.Cell&gt;
           ))}
         &lt;/Grid.Subgrid&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+      &lt;/Grid&gt;
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Fractievertegenwoordigers
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -53391,12 +53411,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Faciliteiten
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -53636,8 +53654,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
        * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Zalen en sportmogelijkheden
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -53677,12 +53697,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
       &lt;/Grid&gt;
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Faciliteiten
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -54486,8 +54504,8 @@ const meta = {
            * between the Cells.
            */}
           &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-            &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
                 Zelfbouw
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
@@ -54593,8 +54611,8 @@ const meta = {
          */}
         &lt;Spotlight&gt;
           &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-            &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
                 Contact
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
@@ -54772,8 +54790,8 @@ export const Default: StoryObj = {
        * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
@@ -54818,8 +54836,8 @@ export const Default: StoryObj = {
      */}
     &lt;Spotlight&gt;
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
@@ -55117,8 +55135,8 @@ export const Default: StoryObj = {
          * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
               Zelfbouw
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -55224,8 +55242,8 @@ export const Default: StoryObj = {
        */}
       &lt;Spotlight&gt;
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
               Contact
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
