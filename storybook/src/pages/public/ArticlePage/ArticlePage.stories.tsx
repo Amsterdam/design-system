@@ -164,54 +164,61 @@ const meta = {
        * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
        */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-      <Grid aria-labelledby="meer-nieuws" as="aside" paddingBottom="2x-large" paddingTop="x-large">
-        <Grid.Cell span="all">
+      {/*
+       * The Grid gives up its row gap so the heading can set the medium the vertical space guidance asks for
+       * below a heading shown at the largest size, and the Subgrid puts the regular gap back between the Cells
+       * it holds. Left to the row gap, the heading would sit an x-large from the section it introduces.
+       */}
+      <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
+        <Grid.Cell className="ams-mb-m" span="all">
           <Heading id="meer-nieuws" level={2} size="level-1">
             Meer nieuws
           </Heading>
         </Grid.Cell>
-        <Grid.Cell span={4}>
-          <Card>
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            <Card.Image alt="" src={exampleImageSource(640, 360, 1)} />
-            <Card.HeadingGroup tagline="Nieuws">
-              <Card.Heading level={3}>
-                <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
-              </Card.Heading>
-            </Card.HeadingGroup>
-            <Paragraph>
-              U kunt &apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
-              te maken met het verduurzamen van woningen.
-            </Paragraph>
-          </Card>
-        </Grid.Cell>
-        <Grid.Cell span={4}>
-          <Card>
-            <Card.Image alt="" src={exampleImageSource(640, 360, 2)} />
-            <Card.HeadingGroup tagline="Nieuws">
-              <Card.Heading level={3}>
-                <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
-              </Card.Heading>
-            </Card.HeadingGroup>
-            <Paragraph>
-              We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
-            </Paragraph>
-          </Card>
-        </Grid.Cell>
-        <Grid.Cell span={4}>
-          <Card>
-            <Card.Image alt="" src={exampleImageSource(640, 360, 3)} />
-            <Card.HeadingGroup tagline="Nieuws">
-              <Card.Heading level={3}>
-                <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
-              </Card.Heading>
-            </Card.HeadingGroup>
-            <Paragraph>
-              Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
-              halen in het centrum.
-            </Paragraph>
-          </Card>
-        </Grid.Cell>
+        <Grid.Subgrid gapVertical="x-large" span="all">
+          <Grid.Cell span={4}>
+            <Card>
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              <Card.Image alt="" src={exampleImageSource(640, 360, 1)} />
+              <Card.HeadingGroup tagline="Nieuws">
+                <Card.Heading level={3}>
+                  <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
+                </Card.Heading>
+              </Card.HeadingGroup>
+              <Paragraph>
+                U kunt &apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
+                te maken met het verduurzamen van woningen.
+              </Paragraph>
+            </Card>
+          </Grid.Cell>
+          <Grid.Cell span={4}>
+            <Card>
+              <Card.Image alt="" src={exampleImageSource(640, 360, 2)} />
+              <Card.HeadingGroup tagline="Nieuws">
+                <Card.Heading level={3}>
+                  <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
+                </Card.Heading>
+              </Card.HeadingGroup>
+              <Paragraph>
+                We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+              </Paragraph>
+            </Card>
+          </Grid.Cell>
+          <Grid.Cell span={4}>
+            <Card>
+              <Card.Image alt="" src={exampleImageSource(640, 360, 3)} />
+              <Card.HeadingGroup tagline="Nieuws">
+                <Card.Heading level={3}>
+                  <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
+                </Card.Heading>
+              </Card.HeadingGroup>
+              <Paragraph>
+                Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
+                halen in het centrum.
+              </Paragraph>
+            </Card>
+          </Grid.Cell>
+        </Grid.Subgrid>
       </Grid>
     </>
   ),
@@ -333,46 +340,53 @@ export const Default: StoryObj = {
    * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
    */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  <Grid aria-labelledby="meer-nieuws" as="aside" paddingBottom="2x-large" paddingTop="x-large">
-    <Grid.Cell span="all">
+  {/*
+   * The Grid gives up its row gap so the heading can set the medium the vertical space guidance asks for
+   * below a heading shown at the largest size, and the Subgrid puts the regular gap back between the Cells
+   * it holds. Left to the row gap, the heading would sit an x-large from the section it introduces.
+   */}
+  <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
+    <Grid.Cell className="ams-mb-m" span="all">
       <Heading id="meer-nieuws" level={2} size="level-1">Meer nieuws</Heading>
     </Grid.Cell>
-    <Grid.Cell span={4}>
-      <Card>
-        {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-        <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
-        <Card.HeadingGroup tagline="Nieuws">
-          <Card.Heading level={3}>
-            <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
-          </Card.Heading>
-        </Card.HeadingGroup>
-        <Paragraph>
-          U kunt 's avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
-        </Paragraph>
-      </Card>
-    </Grid.Cell>
-    <Grid.Cell span={4}>
-      <Card>
-        <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
-        <Card.HeadingGroup tagline="Nieuws">
-          <Card.Heading level={3}>
-            <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
-          </Card.Heading>
-        </Card.HeadingGroup>
-        <Paragraph>We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.</Paragraph>
-      </Card>
-    </Grid.Cell>
-    <Grid.Cell span={4}>
-      <Card>
-        <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
-        <Card.HeadingGroup tagline="Nieuws">
-          <Card.Heading level={3}>
-            <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
-          </Card.Heading>
-        </Card.HeadingGroup>
-        <Paragraph>Afvalboten, bakfietsen en ondergrondse containers in het centrum.</Paragraph>
-      </Card>
-    </Grid.Cell>
+    <Grid.Subgrid gapVertical="x-large" span="all">
+      <Grid.Cell span={4}>
+        <Card>
+          {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+          <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
+          <Card.HeadingGroup tagline="Nieuws">
+            <Card.Heading level={3}>
+              <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
+            </Card.Heading>
+          </Card.HeadingGroup>
+          <Paragraph>
+            U kunt 's avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
+          </Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell span={4}>
+        <Card>
+          <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
+          <Card.HeadingGroup tagline="Nieuws">
+            <Card.Heading level={3}>
+              <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
+            </Card.Heading>
+          </Card.HeadingGroup>
+          <Paragraph>We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.</Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell span={4}>
+        <Card>
+          <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
+          <Card.HeadingGroup tagline="Nieuws">
+            <Card.Heading level={3}>
+              <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
+            </Card.Heading>
+          </Card.HeadingGroup>
+          <Paragraph>Afvalboten, bakfietsen en ondergrondse containers in het centrum.</Paragraph>
+        </Card>
+      </Grid.Cell>
+    </Grid.Subgrid>
   </Grid>
 </>`,
         language: 'tsx',

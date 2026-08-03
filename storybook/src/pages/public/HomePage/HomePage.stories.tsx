@@ -29,31 +29,38 @@ const meta = {
        * silently if that story ever switches to a render function, leaving this hero empty.
        */}
       <Overlap>{OverlapStory.args?.children}</Overlap>
-      <Grid paddingVertical="x-large">
-        <Grid.Cell span="all">
+      {/*
+       * The Grid gives up its row gap so the heading can set the medium the vertical space guidance asks for
+       * below a heading shown at the largest size, and the Subgrid puts the regular gap back between the Cells
+       * it holds. Left to the row gap, the heading would sit an x-large from the section it introduces.
+       */}
+      <Grid gapVertical="none" paddingVertical="x-large">
+        <Grid.Cell className="ams-mb-m" span="all">
           {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
           <Heading level={2} size="level-1">
             {topTaskSection.title}
           </Heading>
         </Grid.Cell>
-        {/*
-         * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
-         * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
-         * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
-         * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
-         * both the wide and medium grids, and stack on the narrow one.
-         */}
-        {topTaskSection.tasks.map(({ title, description }) => (
-          <Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}>
-            <Card>
-              {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-              <Card.Heading level={3}>
-                <Card.Link href="#">{title}</Card.Link>
-              </Card.Heading>
-              <Paragraph>{description}</Paragraph>
-            </Card>
-          </Grid.Cell>
-        ))}
+        <Grid.Subgrid gapVertical="x-large" span="all">
+          {/*
+           * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
+           * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
+           * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
+           * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
+           * both the wide and medium grids, and stack on the narrow one.
+           */}
+          {topTaskSection.tasks.map(({ title, description }) => (
+            <Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}>
+              <Card>
+                {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+                <Card.Heading level={3}>
+                  <Card.Link href="#">{title}</Card.Link>
+                </Card.Heading>
+                <Paragraph>{description}</Paragraph>
+              </Card>
+            </Grid.Cell>
+          ))}
+        </Grid.Subgrid>
       </Grid>
       {/*
        * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside <main>.
@@ -75,27 +82,29 @@ const meta = {
         </Grid>
       </Spotlight>
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-      <Grid paddingBottom="2x-large" paddingTop="x-large">
-        <Grid.Cell span="all">
+      <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
+        <Grid.Cell className="ams-mb-m" span="all">
           <Heading level={2} size="level-1">
             {newsSection.title}
           </Heading>
         </Grid.Cell>
-        {newsSection.items.map(({ title, description, image }) => (
-          <Grid.Cell key={title} span={4}>
-            <Card>
-              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-              <Card.Image alt="" src={image} />
-              {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
-              <Card.HeadingGroup tagline="Nieuws">
-                <Card.Heading level={3}>
-                  <Card.Link href="#">{title}</Card.Link>
-                </Card.Heading>
-              </Card.HeadingGroup>
-              <Paragraph>{description}</Paragraph>
-            </Card>
-          </Grid.Cell>
-        ))}
+        <Grid.Subgrid gapVertical="x-large" span="all">
+          {newsSection.items.map(({ title, description, image }) => (
+            <Grid.Cell key={title} span={4}>
+              <Card>
+                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                <Card.Image alt="" src={image} />
+                {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
+                <Card.HeadingGroup tagline="Nieuws">
+                  <Card.Heading level={3}>
+                    <Card.Link href="#">{title}</Card.Link>
+                  </Card.Heading>
+                </Card.HeadingGroup>
+                <Paragraph>{description}</Paragraph>
+              </Card>
+            </Grid.Cell>
+          ))}
+        </Grid.Subgrid>
       </Grid>
     </main>
   ),
@@ -119,29 +128,36 @@ export const Default: StoryObj = {
   <h1 className="ams-visually-hidden">Homepage van de gemeente Amsterdam</h1>
   {/* A hero that overlaps a full-width image with the block beneath it – see the Overlap component. */}
   <Overlap>{/* … */}</Overlap>
-  <Grid paddingVertical="x-large">
-    <Grid.Cell span="all">
+  {/*
+   * The Grid gives up its row gap so the heading can set the medium the vertical space guidance asks for
+   * below a heading shown at the largest size, and the Subgrid puts the regular gap back between the Cells
+   * it holds. Left to the row gap, the heading would sit an x-large from the section it introduces.
+   */}
+  <Grid gapVertical="none" paddingVertical="x-large">
+    <Grid.Cell className="ams-mb-m" span="all">
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
       <Heading level={2} size="level-1">{topTaskSection.title}</Heading>
     </Grid.Cell>
-    {/*
-     * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
-     * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
-     * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
-     * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
-     * both the wide and medium grids, and stack on the narrow one.
-     */}
-    {topTaskSection.tasks.map(({ title, description }) => (
-      <Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}>
-        <Card>
-          {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-          <Card.Heading level={3}>
-            <Card.Link href="#">{title}</Card.Link>
-          </Card.Heading>
-          <Paragraph>{description}</Paragraph>
-        </Card>
-      </Grid.Cell>
-    ))}
+    <Grid.Subgrid gapVertical="x-large" span="all">
+      {/*
+       * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
+       * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
+       * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
+       * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
+       * both the wide and medium grids, and stack on the narrow one.
+       */}
+      {topTaskSection.tasks.map(({ title, description }) => (
+        <Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}>
+          <Card>
+            {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+            <Card.Heading level={3}>
+              <Card.Link href="#">{title}</Card.Link>
+            </Card.Heading>
+            <Paragraph>{description}</Paragraph>
+          </Card>
+        </Grid.Cell>
+      ))}
+    </Grid.Subgrid>
   </Grid>
   {/*
    * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside <main>.
@@ -159,25 +175,27 @@ export const Default: StoryObj = {
     </Grid>
   </Spotlight>
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  <Grid paddingBottom="2x-large" paddingTop="x-large">
-    <Grid.Cell span="all">
+  <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
+    <Grid.Cell className="ams-mb-m" span="all">
       <Heading level={2} size="level-1">{newsSection.title}</Heading>
     </Grid.Cell>
-    {newsSection.items.map(({ title, description, image }) => (
-      <Grid.Cell key={title} span={4}>
-        <Card>
-          {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-          <Card.Image alt="" src={image} />
-          {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
-          <Card.HeadingGroup tagline="Nieuws">
-            <Card.Heading level={3}>
-              <Card.Link href="#">{title}</Card.Link>
-            </Card.Heading>
-          </Card.HeadingGroup>
-          <Paragraph>{description}</Paragraph>
-        </Card>
-      </Grid.Cell>
-    ))}
+    <Grid.Subgrid gapVertical="x-large" span="all">
+      {newsSection.items.map(({ title, description, image }) => (
+        <Grid.Cell key={title} span={4}>
+          <Card>
+            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+            <Card.Image alt="" src={image} />
+            {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
+            <Card.HeadingGroup tagline="Nieuws">
+              <Card.Heading level={3}>
+                <Card.Link href="#">{title}</Card.Link>
+              </Card.Heading>
+            </Card.HeadingGroup>
+            <Paragraph>{description}</Paragraph>
+          </Card>
+        </Grid.Cell>
+      ))}
+    </Grid.Subgrid>
   </Grid>
 </main>`,
         language: 'tsx',
