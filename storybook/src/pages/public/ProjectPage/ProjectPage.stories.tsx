@@ -650,10 +650,9 @@ export const WithBreakout: StoryObj = {
   <main id="inhoud">
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
     <Grid paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>
-          Amstelstation: vernieuwing van het station en het stationsplein
-        </Heading>
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Amstelstation: vernieuwing van het station en het stationsplein</Heading>
         <Paragraph size="large">
           Het Amstelstation en het plein ervoor worden de komende jaren vernieuwd. Het station krijgt een ruimere
           hal en een tweede ingang aan de zuidkant. Reizigers houden tijdens de werkzaamheden toegang tot de trein,
@@ -676,9 +675,9 @@ export const WithBreakout: StoryObj = {
      */}
     <Spotlight color="yellow">
       <Grid paddingVertical="x-large">
-        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-          <Heading className="ams-mb-s" level={2}>Amstelstationstraat afgesloten tot en met 12 september</Heading>
-          <Paragraph className="ams-mb-m">
+        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          <Heading level={2}>Amstelstationstraat afgesloten tot en met 12 september</Heading>
+          <Paragraph>
             Tot en met 12 september vervangen we de riolering onder de Amstelstationstraat. Doorgaand autoverkeer
             rijdt om via de Wibautstraat. De ingang van het station aan de kant van het Julianaplein blijft de hele
             periode open.
@@ -718,39 +717,37 @@ export const WithBreakout: StoryObj = {
           </TableOfContents.List>
         </TableOfContents>
       </Grid.Cell>
-      {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
       <Grid.Cell
+        className="ams-prose"
         span={{ narrow: 4, medium: 6, wide: 7 }}
         start={{ narrow: 1, medium: 2, wide: 3 }}
       >
         {/* Every section heading carries the id its Table of Contents entry points at. */}
-        <Heading className="ams-mb-s" id="wat" level={2}>Wat gaan we doen</Heading>
-        <Paragraph className="ams-mb-m">
+        <Heading id="wat" level={2}>Wat gaan we doen</Heading>
+        <Paragraph>
           De stationshal van het Amstelstation is te klein voor het aantal reizigers dat er dagelijks doorheen
           loopt. We vergroten de hal, verbreden de perrontrappen en maken een tweede ingang aan de zuidkant van het
           station.
         </Paragraph>
-        <Paragraph className="ams-mb-m">
+        <Paragraph>
           Op het Julianaplein komt meer ruimte voor voetgangers en fietsers. De taxistandplaats en de bushaltes
           verhuizen naar de oostkant van het plein. Daaronder komt een fietsenstalling met 7.000 plekken.
         </Paragraph>
-        <Paragraph className="ams-mb-m">
+        <Paragraph>
           Het stationsgebouw uit 1939 blijft behouden. De gevels en de grote hal met de wandschildering worden
           gerestaureerd.
         </Paragraph>
-        <StandaloneLink className="ams-mb-xl" href="#">
-          Lees meer over het ontwerp van het nieuwe station
-        </StandaloneLink>
-        <Heading className="ams-mb-s" id="waar" level={2}>Waar</Heading>
-        <Paragraph className="ams-mb-m">
+        <StandaloneLink href="#">Lees meer over het ontwerp van het nieuwe station</StandaloneLink>
+        <Heading id="waar" level={2}>Waar</Heading>
+        <Paragraph>
           Het Amstelstation ligt in stadsdeel Oost, tussen de Wibautstraat en de Amstel. Het project loopt van het
           Julianaplein aan de noordkant tot de Spaklerweg aan de zuidkant.
         </Paragraph>
-        <Paragraph className="ams-mb-xl">
+        <Paragraph>
           De werkzaamheden raken de buurten Weesperzijde, Omval en Amstelkwartier. Bewoners en ondernemers krijgen
           bericht voordat het werk in hun straat begint.
         </Paragraph>
-        <Heading className="ams-mb-s" id="wanneer" level={2}>Wanneer</Heading>
+        <Heading id="wanneer" level={2}>Wanneer</Heading>
         <Paragraph>
           De vernieuwing gebeurt in stappen, zodat het station open blijft. We beginnen aan de zuidkant en werken
           toe naar het Julianaplein. De laatste werkzaamheden ronden we naar verwachting in 2030 af.
@@ -831,8 +828,8 @@ export const WithBreakout: StoryObj = {
        * These two Cells set no rowStart: the rows above them are taken, so they fall in underneath the
        * body on every grid, in source order.
        */}
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Heading className="ams-mb-xs" id="nieuws" level={2} size="level-3">Nieuws</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Heading id="nieuws" level={2} size="level-3">Nieuws</Heading>
         <LinkList>
           <LinkList.Link href="#">Fietsenstalling Julianaplein opent in het voorjaar (14 juli 2026)</LinkList.Link>
           <LinkList.Link href="#">Bushaltes verplaatst naar de Spaklerweg (2 juni 2026)</LinkList.Link>
@@ -844,8 +841,8 @@ export const WithBreakout: StoryObj = {
           <LinkList.Link href="#">Bekijk al het nieuws over dit project</LinkList.Link>
         </LinkList>
       </Grid.Cell>
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Heading className="ams-mb-xs" id="werk-aan-de-weg" level={2} size="level-3">Werk aan de weg</Heading>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Heading id="werk-aan-de-weg" level={2} size="level-3">Werk aan de weg</Heading>
         <LinkList>
           <LinkList.Link href="#">Amstelstationstraat: afsluiting tot en met 12 september</LinkList.Link>
           <LinkList.Link href="#">Julianaplein: omleiding voor fietsers</LinkList.Link>
@@ -884,22 +881,24 @@ export const WithBreakout: StoryObj = {
         />
       </Breakout.Cell>
       <Breakout.Cell
+        className="ams-prose"
         colSpan={{ narrow: 4, medium: 6, wide: 7 }}
         colStart={{ narrow: 1, medium: 2, wide: 3 }}
         rowStart={{ narrow: 2, medium: 3, wide: 3 }}
       >
-        <Heading className="ams-mb-s" id="deelprojecten" level={2}>Deelprojecten</Heading>
+        <Heading id="deelprojecten" level={2}>Deelprojecten</Heading>
         <Paragraph>
           De vernieuwing bestaat uit deelprojecten die deels tegelijk lopen. Elk deelproject heeft een eigen
           planning en een eigen aanspreekpunt.
         </Paragraph>
       </Breakout.Cell>
       <Breakout.Cell
+        className="ams-prose"
         colSpan={{ narrow: 4, medium: 4, wide: 5 }}
         colStart={{ narrow: 1, medium: 1, wide: 2 }}
         rowStart={{ narrow: 3, medium: 4, wide: 4 }}
       >
-        <Heading className="ams-mb-xs" level={3}>Station en perrons</Heading>
+        <Heading level={3}>Station en perrons</Heading>
         <LinkList>
           <LinkList.Link color="contrast" href="#">
             Verbouwing van de stationshal
@@ -919,11 +918,12 @@ export const WithBreakout: StoryObj = {
         </LinkList>
       </Breakout.Cell>
       <Breakout.Cell
+        className="ams-prose"
         colSpan={{ narrow: 4, medium: 4, wide: 5 }}
         colStart={{ narrow: 1, medium: 5, wide: 7 }}
         rowStart={{ narrow: 4, medium: 4, wide: 4 }}
       >
-        <Heading className="ams-mb-xs" level={3}>Plein en omgeving</Heading>
+        <Heading level={3}>Plein en omgeving</Heading>
         <LinkList>
           <LinkList.Link color="contrast" href="#">
             Herinrichting van het Julianaplein
@@ -945,12 +945,12 @@ export const WithBreakout: StoryObj = {
     </Breakout>
     <Grid paddingVertical="x-large">
       {/*
-       * One Cell holds all five link sections. Their spacing then comes from a margin per pair, where
-       * separate Cells would take it from the row gap, which is one value for the whole Grid.
+       * One Cell holds all five link sections, so ams-prose spaces them against one another. Separate
+       * Cells would take that space from the row gap, which is one value for the whole Grid.
        */}
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Heading className="ams-mb-xs" id="themas" level={2} size="level-3">Thema’s</Heading>
-        <LinkList className="ams-mb-l">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Heading id="themas" level={2} size="level-3">Thema’s</Heading>
+        <LinkList>
           <LinkList.Link href="#">Bereikbaarheid tijdens de werkzaamheden</LinkList.Link>
           <LinkList.Link href="#">Duurzaam en circulair bouwen</LinkList.Link>
           <LinkList.Link href="#">Groen en biodiversiteit</LinkList.Link>
@@ -959,8 +959,8 @@ export const WithBreakout: StoryObj = {
           </LinkList.Link>
           <LinkList.Link href="#">Bekijk alle thema’s</LinkList.Link>
         </LinkList>
-        <Heading className="ams-mb-xs" id="documenten" level={2} size="level-3">Documenten</Heading>
-        <LinkList className="ams-mb-l">
+        <Heading id="documenten" level={2} size="level-3">Documenten</Heading>
+        <LinkList>
           <LinkList.Link href="#">Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)</LinkList.Link>
           <LinkList.Link href="#">Voorlopig ontwerp Julianaplein (pdf, 8,1 MB)</LinkList.Link>
           <LinkList.Link className="ams-mb-m" href="#">
@@ -968,27 +968,23 @@ export const WithBreakout: StoryObj = {
           </LinkList.Link>
           <LinkList.Link href="#">Bekijk alle documenten</LinkList.Link>
         </LinkList>
-        <Heading className="ams-mb-xs" id="video" level={2} size="level-3">Video</Heading>
+        <Heading id="video" level={2} size="level-3">Video</Heading>
         {/*
          * A Paragraph between the heading and the image: the vertical space guide documents no value for
          * a heading directly above an image, which is a sign to introduce the image in words first.
          */}
-        <Paragraph className="ams-mb-l">
-          In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.
-        </Paragraph>
+        <Paragraph>In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.</Paragraph>
         {/* This image carries no information the text does not, so it takes an empty alt. */}
-        <Image alt="" className="ams-mb-l" src="https://picsum.photos/1280/720" />
-        <StandaloneLink className="ams-mb-l" href="#">
-          Bekijk meer video’s over dit project
-        </StandaloneLink>
-        <Heading className="ams-mb-xs" id="meer-informatie" level={2} size="level-3">Meer informatie</Heading>
-        <LinkList className="ams-mb-l">
+        <Image alt="" src="https://picsum.photos/1280/720" />
+        <StandaloneLink href="#">Bekijk meer video’s over dit project</StandaloneLink>
+        <Heading id="meer-informatie" level={2} size="level-3">Meer informatie</Heading>
+        <LinkList>
           <LinkList.Link href="#">Amstelkwartier: woningbouw en openbare ruimte</LinkList.Link>
           <LinkList.Link href="#">Wibautstraat: vernieuwing van de rijbanen</LinkList.Link>
           <LinkList.Link href="#">Fietsparkeren in Amsterdam</LinkList.Link>
           <LinkList.Link href="#">Meer projecten in Oost</LinkList.Link>
         </LinkList>
-        <Heading className="ams-mb-xs" id="blijf-op-de-hoogte" level={2} size="level-3">Blijf op de hoogte</Heading>
+        <Heading id="blijf-op-de-hoogte" level={2} size="level-3">Blijf op de hoogte</Heading>
         <LinkList>
           <LinkList.Link href="#">Nieuwsbrief vernieuwing Amstelstation</LinkList.Link>
           <LinkList.Link href="#">Informatieavonden en inloopspreekuren</LinkList.Link>
@@ -1019,8 +1015,8 @@ export const WithBreakout: StoryObj = {
           </Heading>
         </Grid.Cell>
         <Grid.Subgrid gapVertical="x-large" span="all">
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Paragraph className="ams-mb-m" color="inverse">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Paragraph color="inverse">
               Hilde Verkerk
               <br />
               Omgevingsmanager
@@ -1035,8 +1031,8 @@ export const WithBreakout: StoryObj = {
               </LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-            <Paragraph className="ams-mb-m" color="inverse">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Paragraph color="inverse">
               Joris Bramer
               <br />
               Communicatieadviseur
@@ -1088,10 +1084,13 @@ export const WithBreakout: StoryObj = {
       <main id="inhoud">
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
         <Grid paddingBottom="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Amstelstation: vernieuwing van het station en het stationsplein
-            </Heading>
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Amstelstation: vernieuwing van het station en het stationsplein</Heading>
             <Paragraph size="large">
               Het Amstelstation en het plein ervoor worden de komende jaren vernieuwd. Het station krijgt een ruimere
               hal en een tweede ingang aan de zuidkant. Reizigers houden tijdens de werkzaamheden toegang tot de trein,
@@ -1114,11 +1113,13 @@ export const WithBreakout: StoryObj = {
          */}
         <Spotlight color="yellow">
           <Grid paddingVertical="x-large">
-            <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-              <Heading className="ams-mb-s" level={2}>
-                Amstelstationstraat afgesloten tot en met 12 september
-              </Heading>
-              <Paragraph className="ams-mb-m">
+            <Grid.Cell
+              className="ams-prose"
+              span={{ narrow: 4, medium: 6, wide: 7 }}
+              start={{ narrow: 1, medium: 2, wide: 3 }}
+            >
+              <Heading level={2}>Amstelstationstraat afgesloten tot en met 12 september</Heading>
+              <Paragraph>
                 Tot en met 12 september vervangen we de riolering onder de Amstelstationstraat. Doorgaand autoverkeer
                 rijdt om via de Wibautstraat. De ingang van het station aan de kant van het Julianaplein blijft de hele
                 periode open.
@@ -1158,40 +1159,41 @@ export const WithBreakout: StoryObj = {
               </TableOfContents.List>
             </TableOfContents>
           </Grid.Cell>
-          {/* This cell is not ams-prose, so every element but the last sets its own bottom margin. */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
             {/* Every section heading carries the id its Table of Contents entry points at. */}
-            <Heading className="ams-mb-s" id="wat" level={2}>
+            <Heading id="wat" level={2}>
               Wat gaan we doen
             </Heading>
-            <Paragraph className="ams-mb-m">
+            <Paragraph>
               De stationshal van het Amstelstation is te klein voor het aantal reizigers dat er dagelijks doorheen
               loopt. We vergroten de hal, verbreden de perrontrappen en maken een tweede ingang aan de zuidkant van het
               station.
             </Paragraph>
-            <Paragraph className="ams-mb-m">
+            <Paragraph>
               Op het Julianaplein komt meer ruimte voor voetgangers en fietsers. De taxistandplaats en de bushaltes
               verhuizen naar de oostkant van het plein. Daaronder komt een fietsenstalling met 7.000 plekken.
             </Paragraph>
-            <Paragraph className="ams-mb-m">
+            <Paragraph>
               Het stationsgebouw uit 1939 blijft behouden. De gevels en de grote hal met de wandschildering worden
               gerestaureerd.
             </Paragraph>
-            <StandaloneLink className="ams-mb-xl" href="#">
-              Lees meer over het ontwerp van het nieuwe station
-            </StandaloneLink>
-            <Heading className="ams-mb-s" id="waar" level={2}>
+            <StandaloneLink href="#">Lees meer over het ontwerp van het nieuwe station</StandaloneLink>
+            <Heading id="waar" level={2}>
               Waar
             </Heading>
-            <Paragraph className="ams-mb-m">
+            <Paragraph>
               Het Amstelstation ligt in stadsdeel Oost, tussen de Wibautstraat en de Amstel. Het project loopt van het
               Julianaplein aan de noordkant tot de Spaklerweg aan de zuidkant.
             </Paragraph>
-            <Paragraph className="ams-mb-xl">
+            <Paragraph>
               De werkzaamheden raken de buurten Weesperzijde, Omval en Amstelkwartier. Bewoners en ondernemers krijgen
               bericht voordat het werk in hun straat begint.
             </Paragraph>
-            <Heading className="ams-mb-s" id="wanneer" level={2}>
+            <Heading id="wanneer" level={2}>
               Wanneer
             </Heading>
             <Paragraph>
@@ -1274,8 +1276,12 @@ export const WithBreakout: StoryObj = {
            * These two Cells set no rowStart: the rows above them are taken, so they fall in underneath the
            * body on every grid, in source order.
            */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-xs" id="nieuws" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
+            <Heading id="nieuws" level={2} size="level-3">
               Nieuws
             </Heading>
             <LinkList>
@@ -1289,8 +1295,12 @@ export const WithBreakout: StoryObj = {
               <LinkList.Link href="#">Bekijk al het nieuws over dit project</LinkList.Link>
             </LinkList>
           </Grid.Cell>
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-xs" id="werk-aan-de-weg" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
+            <Heading id="werk-aan-de-weg" level={2} size="level-3">
               Werk aan de weg
             </Heading>
             <LinkList>
@@ -1331,11 +1341,12 @@ export const WithBreakout: StoryObj = {
             />
           </Breakout.Cell>
           <Breakout.Cell
+            className="ams-prose"
             colSpan={{ narrow: 4, medium: 6, wide: 7 }}
             colStart={{ narrow: 1, medium: 2, wide: 3 }}
             rowStart={{ narrow: 2, medium: 3, wide: 3 }}
           >
-            <Heading className="ams-mb-s" id="deelprojecten" level={2}>
+            <Heading id="deelprojecten" level={2}>
               Deelprojecten
             </Heading>
             <Paragraph>
@@ -1344,13 +1355,12 @@ export const WithBreakout: StoryObj = {
             </Paragraph>
           </Breakout.Cell>
           <Breakout.Cell
+            className="ams-prose"
             colSpan={{ narrow: 4, medium: 4, wide: 5 }}
             colStart={{ narrow: 1, medium: 1, wide: 2 }}
             rowStart={{ narrow: 3, medium: 4, wide: 4 }}
           >
-            <Heading className="ams-mb-xs" level={3}>
-              Station en perrons
-            </Heading>
+            <Heading level={3}>Station en perrons</Heading>
             <LinkList>
               <LinkList.Link color="contrast" href="#">
                 Verbouwing van de stationshal
@@ -1370,13 +1380,12 @@ export const WithBreakout: StoryObj = {
             </LinkList>
           </Breakout.Cell>
           <Breakout.Cell
+            className="ams-prose"
             colSpan={{ narrow: 4, medium: 4, wide: 5 }}
             colStart={{ narrow: 1, medium: 5, wide: 7 }}
             rowStart={{ narrow: 4, medium: 4, wide: 4 }}
           >
-            <Heading className="ams-mb-xs" level={3}>
-              Plein en omgeving
-            </Heading>
+            <Heading level={3}>Plein en omgeving</Heading>
             <LinkList>
               <LinkList.Link color="contrast" href="#">
                 Herinrichting van het Julianaplein
@@ -1398,14 +1407,18 @@ export const WithBreakout: StoryObj = {
         </Breakout>
         <Grid paddingVertical="x-large">
           {/*
-           * One Cell holds all five link sections. Their spacing then comes from a margin per pair, where
-           * separate Cells would take it from the row gap, which is one value for the whole Grid.
+           * One Cell holds all five link sections, so ams-prose spaces them against one another. Separate
+           * Cells would take that space from the row gap, which is one value for the whole Grid.
            */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-xs" id="themas" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
+            <Heading id="themas" level={2} size="level-3">
               Thema’s
             </Heading>
-            <LinkList className="ams-mb-l">
+            <LinkList>
               <LinkList.Link href="#">Bereikbaarheid tijdens de werkzaamheden</LinkList.Link>
               <LinkList.Link href="#">Duurzaam en circulair bouwen</LinkList.Link>
               <LinkList.Link href="#">Groen en biodiversiteit</LinkList.Link>
@@ -1414,10 +1427,10 @@ export const WithBreakout: StoryObj = {
               </LinkList.Link>
               <LinkList.Link href="#">Bekijk alle thema’s</LinkList.Link>
             </LinkList>
-            <Heading className="ams-mb-xs" id="documenten" level={2} size="level-3">
+            <Heading id="documenten" level={2} size="level-3">
               Documenten
             </Heading>
-            <LinkList className="ams-mb-l">
+            <LinkList>
               <LinkList.Link href="#">Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)</LinkList.Link>
               <LinkList.Link href="#">Voorlopig ontwerp Julianaplein (pdf, 8,1 MB)</LinkList.Link>
               <LinkList.Link className="ams-mb-m" href="#">
@@ -1425,31 +1438,27 @@ export const WithBreakout: StoryObj = {
               </LinkList.Link>
               <LinkList.Link href="#">Bekijk alle documenten</LinkList.Link>
             </LinkList>
-            <Heading className="ams-mb-xs" id="video" level={2} size="level-3">
+            <Heading id="video" level={2} size="level-3">
               Video
             </Heading>
             {/*
              * A Paragraph between the heading and the image: the vertical space guide documents no value for
              * a heading directly above an image, which is a sign to introduce the image in words first.
              */}
-            <Paragraph className="ams-mb-l">
-              In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.
-            </Paragraph>
+            <Paragraph>In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.</Paragraph>
             {/* This image carries no information the text does not, so it takes an empty alt. */}
-            <Image alt="" className="ams-mb-l" src={exampleImageSource(1280, 720, 3)} />
-            <StandaloneLink className="ams-mb-l" href="#">
-              Bekijk meer video’s over dit project
-            </StandaloneLink>
-            <Heading className="ams-mb-xs" id="meer-informatie" level={2} size="level-3">
+            <Image alt="" src={exampleImageSource(1280, 720, 3)} />
+            <StandaloneLink href="#">Bekijk meer video’s over dit project</StandaloneLink>
+            <Heading id="meer-informatie" level={2} size="level-3">
               Meer informatie
             </Heading>
-            <LinkList className="ams-mb-l">
+            <LinkList>
               <LinkList.Link href="#">Amstelkwartier: woningbouw en openbare ruimte</LinkList.Link>
               <LinkList.Link href="#">Wibautstraat: vernieuwing van de rijbanen</LinkList.Link>
               <LinkList.Link href="#">Fietsparkeren in Amsterdam</LinkList.Link>
               <LinkList.Link href="#">Meer projecten in Oost</LinkList.Link>
             </LinkList>
-            <Heading className="ams-mb-xs" id="blijf-op-de-hoogte" level={2} size="level-3">
+            <Heading id="blijf-op-de-hoogte" level={2} size="level-3">
               Blijf op de hoogte
             </Heading>
             <LinkList>
@@ -1482,8 +1491,8 @@ export const WithBreakout: StoryObj = {
               </Heading>
             </Grid.Cell>
             <Grid.Subgrid gapVertical="x-large" span="all">
-              <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-                <Paragraph className="ams-mb-m" color="inverse">
+              <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+                <Paragraph color="inverse">
                   Hilde Verkerk
                   <br />
                   Omgevingsmanager
@@ -1498,8 +1507,8 @@ export const WithBreakout: StoryObj = {
                   </LinkList.Link>
                 </LinkList>
               </Grid.Cell>
-              <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-                <Paragraph className="ams-mb-m" color="inverse">
+              <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+                <Paragraph color="inverse">
                   Joris Bramer
                   <br />
                   Communicatieadviseur
