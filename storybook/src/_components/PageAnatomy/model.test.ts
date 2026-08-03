@@ -433,6 +433,13 @@ describe('paddingHeight and rowGapHeight', () => {
     expect(rowGapHeight('large', 1440)).toBe(36)
     expect(rowGapHeight('none', 1440)).toBe(0)
   })
+
+  // A Subgrid states this where the Grid around it has given its own gap up, so it has to measure the same as
+  // the default a Grid gives.
+  it('reads an x-large row gap as the one it defaults to', () => {
+    expect(rowGapHeight('x-large', 1440)).toBe(rowGapHeight(undefined, 1440))
+    expect(rowGapHeight('x-large', 1440)).toBe(60)
+  })
 })
 
 describe('cellWidth', () => {

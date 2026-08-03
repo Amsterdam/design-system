@@ -460,14 +460,14 @@ export const Group: StoryObj = {
       </Grid.Cell>
     </Grid>
     {/*
-     * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
-     * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
-     * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+     * A Grid of its own, so its row gap can go. That gap would put an x-large below the heading, where the
+     * guidance asks for a small at this size, so the heading sets the space itself and the Subgrid puts the
+     * gap back between the Cells. It sets no paddingTop: the Content Header above already spaces the two.
      */}
     <Grid gapVertical="none" paddingBottom="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      <Grid.Cell className="ams-mb-s" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading level={2}>Adres en contact</Heading>
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading className="ams-mb-s" level={2}>Adres en contact</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
@@ -544,17 +544,17 @@ export const Group: StoryObj = {
         </Grid.Cell>
       </Grid>
     </Spotlight>
-    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     {/*
-     * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
-     * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+     * the padding of the second rather than a margin on the Subgrid of the first.
      */}
-    <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
-      <Grid.Cell className="ams-mb-s" span="all">
-        <Heading level={2}>Raadsleden</Heading>
+    <Grid gapVertical="none" paddingTop="x-large">
+      <Grid.Cell span="all">
+        <Heading className="ams-mb-s" level={2}>Raadsleden</Heading>
       </Grid.Cell>
-      <Grid.Subgrid className="ams-mb-xl" gapVertical="x-large" span="all">
+      <Grid.Subgrid gapVertical="x-large" span="all">
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
         {councilMembers.map(({ name, role }) => (
           <Grid.Cell key={name} span={4}>
@@ -574,8 +574,11 @@ export const Group: StoryObj = {
           </Grid.Cell>
         ))}
       </Grid.Subgrid>
-      <Grid.Cell className="ams-mb-s" span="all">
-        <Heading level={2}>Fractievertegenwoordigers</Heading>
+    </Grid>
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
+      <Grid.Cell span="all">
+        <Heading className="ams-mb-s" level={2}>Fractievertegenwoordigers</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span="all">
         {groupRepresentatives.map(({ name, role }) => (
@@ -638,18 +641,16 @@ export const Group: StoryObj = {
           </Grid.Cell>
         </Grid>
         {/*
-         * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
-         * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
-         * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+         * A Grid of its own, so its row gap can go. That gap would put an x-large below the heading, where the
+         * guidance asks for a small at this size, so the heading sets the space itself and the Subgrid puts the
+         * gap back between the Cells. It sets no paddingTop: the Content Header above already spaces the two.
          */}
         <Grid gapVertical="none" paddingBottom="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          <Grid.Cell
-            className="ams-mb-s"
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          >
-            <Heading level={2}>Adres en contact</Heading>
+          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <Heading className="ams-mb-s" level={2}>
+              Adres en contact
+            </Heading>
           </Grid.Cell>
           <Grid.Subgrid
             gapVertical="x-large"
@@ -741,17 +742,19 @@ export const Group: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         {/*
-         * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
-         * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+         * the padding of the second rather than a margin on the Subgrid of the first.
          */}
-        <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
-          <Grid.Cell className="ams-mb-s" span="all">
-            <Heading level={2}>Raadsleden</Heading>
+        <Grid gapVertical="none" paddingTop="x-large">
+          <Grid.Cell span="all">
+            <Heading className="ams-mb-s" level={2}>
+              Raadsleden
+            </Heading>
           </Grid.Cell>
-          <Grid.Subgrid className="ams-mb-xl" gapVertical="x-large" span="all">
+          <Grid.Subgrid gapVertical="x-large" span="all">
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
             {councilMembers.map(({ name, role }) => (
               <Grid.Cell key={name} span={4}>
@@ -771,8 +774,13 @@ export const Group: StoryObj = {
               </Grid.Cell>
             ))}
           </Grid.Subgrid>
-          <Grid.Cell className="ams-mb-s" span="all">
-            <Heading level={2}>Fractievertegenwoordigers</Heading>
+        </Grid>
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
+          <Grid.Cell span="all">
+            <Heading className="ams-mb-s" level={2}>
+              Fractievertegenwoordigers
+            </Heading>
           </Grid.Cell>
           <Grid.Subgrid gapVertical="x-large" span="all">
             {groupRepresentatives.map(({ name, role }) => (
@@ -843,13 +851,14 @@ export const Location: StoryObj = {
       </Grid.Cell>
     </Grid>
     {/*
-     * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
      */}
     <Grid gapVertical="none" paddingVertical="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      <Grid.Cell className="ams-mb-s" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading level={2}>Faciliteiten</Heading>
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading className="ams-mb-s" level={2}>Faciliteiten</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
@@ -1013,17 +1022,16 @@ export const Location: StoryObj = {
           </Grid.Cell>
         </Grid>
         {/*
-         * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
          */}
         <Grid gapVertical="none" paddingVertical="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          <Grid.Cell
-            className="ams-mb-s"
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          >
-            <Heading level={2}>Faciliteiten</Heading>
+          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <Heading className="ams-mb-s" level={2}>
+              Faciliteiten
+            </Heading>
           </Grid.Cell>
           <Grid.Subgrid
             gapVertical="x-large"
@@ -1250,12 +1258,13 @@ export const LocationLarge: StoryObj = {
       </Grid.Cell>
     </Grid>
     {/*
-     * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
      */}
     <Grid gapVertical="none" paddingBottom="x-large">
-      <Grid.Cell className="ams-mb-s" span="all">
-        <Heading level={2}>Zalen en sportmogelijkheden</Heading>
+      <Grid.Cell span="all">
+        <Heading className="ams-mb-s" level={2}>Zalen en sportmogelijkheden</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span="all">
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -1295,8 +1304,8 @@ export const LocationLarge: StoryObj = {
     </Grid>
     <Grid gapVertical="none" paddingBottom="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      <Grid.Cell className="ams-mb-s" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading level={2}>Faciliteiten</Heading>
+      <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading className="ams-mb-s" level={2}>Faciliteiten</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
@@ -1540,12 +1549,15 @@ export const LocationLarge: StoryObj = {
           </Grid.Cell>
         </Grid>
         {/*
-         * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
          */}
         <Grid gapVertical="none" paddingBottom="x-large">
-          <Grid.Cell className="ams-mb-s" span="all">
-            <Heading level={2}>Zalen en sportmogelijkheden</Heading>
+          <Grid.Cell span="all">
+            <Heading className="ams-mb-s" level={2}>
+              Zalen en sportmogelijkheden
+            </Heading>
           </Grid.Cell>
           <Grid.Subgrid gapVertical="x-large" span="all">
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -1585,12 +1597,10 @@ export const LocationLarge: StoryObj = {
         </Grid>
         <Grid gapVertical="none" paddingBottom="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          <Grid.Cell
-            className="ams-mb-s"
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          >
-            <Heading level={2}>Faciliteiten</Heading>
+          <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+            <Heading className="ams-mb-s" level={2}>
+              Faciliteiten
+            </Heading>
           </Grid.Cell>
           <Grid.Subgrid
             gapVertical="x-large"

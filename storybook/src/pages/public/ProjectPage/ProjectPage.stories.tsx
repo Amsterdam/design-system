@@ -246,41 +246,48 @@ const meta = {
           </Grid.Cell>
         </Grid>
         <Spotlight color="azure">
-          <Grid paddingVertical="x-large">
+          {/*
+           * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+           * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+           * between the Cells.
+           */}
+          <Grid gapVertical="none" paddingVertical="x-large">
             <Grid.Cell span="all">
-              <Heading color="inverse" level={2}>
+              <Heading className="ams-mb-s" color="inverse" level={2}>
                 Zelfbouw
               </Heading>
             </Grid.Cell>
-            {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
-              <Paragraph color="inverse">Meer over de verschillende vormen van zelfbouw vindt u op:</Paragraph>
-              <StandaloneLink color="inverse" href="#">
-                Zelfbouw
-              </StandaloneLink>
-            </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
-              <Paragraph color="inverse">
-                Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
-              </Paragraph>
-              <StandaloneLink color="inverse" href="#">
-                Aanbod kavels
-              </StandaloneLink>
-            </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
-              <Paragraph color="inverse">
-                Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
-              </Paragraph>
-              <StandaloneLink color="inverse" href="#">
-                Prikbord
-              </StandaloneLink>
-            </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
-              <Paragraph color="inverse">Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.</Paragraph>
-              <StandaloneLink color="inverse" href="#">
-                Nieuwsbrief zelfbouw
-              </StandaloneLink>
-            </Grid.Cell>
+            <Grid.Subgrid gapVertical="x-large" span="all">
+              {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+              <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
+                <Paragraph color="inverse">Meer over de verschillende vormen van zelfbouw vindt u op:</Paragraph>
+                <StandaloneLink color="inverse" href="#">
+                  Zelfbouw
+                </StandaloneLink>
+              </Grid.Cell>
+              <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
+                <Paragraph color="inverse">
+                  Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
+                </Paragraph>
+                <StandaloneLink color="inverse" href="#">
+                  Aanbod kavels
+                </StandaloneLink>
+              </Grid.Cell>
+              <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
+                <Paragraph color="inverse">
+                  Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
+                </Paragraph>
+                <StandaloneLink color="inverse" href="#">
+                  Prikbord
+                </StandaloneLink>
+              </Grid.Cell>
+              <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
+                <Paragraph color="inverse">Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.</Paragraph>
+                <StandaloneLink color="inverse" href="#">
+                  Nieuwsbrief zelfbouw
+                </StandaloneLink>
+              </Grid.Cell>
+            </Grid.Subgrid>
           </Grid>
         </Spotlight>
         <Grid paddingVertical="x-large">
@@ -351,41 +358,43 @@ const meta = {
          * rather than repeating the azure of the first.
          */}
         <Spotlight>
-          <Grid paddingVertical="x-large">
+          <Grid gapVertical="none" paddingVertical="x-large">
             <Grid.Cell span="all">
-              <Heading color="inverse" level={2}>
+              <Heading className="ams-mb-s" color="inverse" level={2}>
                 Contact
               </Heading>
             </Grid.Cell>
-            <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Paragraph color="inverse">
-                Vragen over zelfbouw op Centrumeiland:{' '}
-                <Link color="inverse" href="mailto:zelfbouwcentrumeiland@amsterdam.nl">
-                  zelfbouwcentrumeiland@amsterdam.nl
-                </Link>
-              </Paragraph>
-              <Paragraph color="inverse">
-                Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
-              </Paragraph>
-            </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-              <Paragraph color="inverse">
-                Maud van Esch
-                <br />
-                Omgevingsmanager IJburg
-                <br />
-                <Link color="inverse" href="mailto:m.van.esch@amsterdam.nl">
-                  m.van.esch@amsterdam.nl
-                </Link>
-                <br />
-                <Link color="inverse" href="tel:+316645899537">
-                  06 4589 9537
-                </Link>
-                <br />
-                Voor vragen over werkzaamheden of bouwactiviteiten
-              </Paragraph>
-            </Grid.Cell>
+            <Grid.Subgrid gapVertical="x-large" span="all">
+              <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+                <Paragraph color="inverse">
+                  Vragen over zelfbouw op Centrumeiland:{' '}
+                  <Link color="inverse" href="mailto:zelfbouwcentrumeiland@amsterdam.nl">
+                    zelfbouwcentrumeiland@amsterdam.nl
+                  </Link>
+                </Paragraph>
+                <Paragraph color="inverse">
+                  Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
+                </Paragraph>
+              </Grid.Cell>
+              <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+                {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+                <Paragraph color="inverse">
+                  Maud van Esch
+                  <br />
+                  Omgevingsmanager IJburg
+                  <br />
+                  <Link color="inverse" href="mailto:m.van.esch@amsterdam.nl">
+                    m.van.esch@amsterdam.nl
+                  </Link>
+                  <br />
+                  <Link color="inverse" href="tel:+316645899537">
+                    06 4589 9537
+                  </Link>
+                  <br />
+                  Voor vragen over werkzaamheden of bouwactiviteiten
+                </Paragraph>
+              </Grid.Cell>
+            </Grid.Subgrid>
           </Grid>
         </Spotlight>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
@@ -523,18 +532,25 @@ export const Default: StoryObj = {
       </Grid.Cell>
     </Grid>
     <Spotlight color="azure">
-      <Grid paddingVertical="x-large">
+      {/*
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
+       */}
+      <Grid gapVertical="none" paddingVertical="x-large">
         <Grid.Cell span="all">
-          <Heading color="inverse" level={2}>Zelfbouw</Heading>
+          <Heading className="ams-mb-s" color="inverse" level={2}>Zelfbouw</Heading>
         </Grid.Cell>
-        {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
-          <Paragraph color="inverse">
-            Meer over de verschillende vormen van zelfbouw vindt u op:
-          </Paragraph>
-          <StandaloneLink color="inverse" href="#">Zelfbouw</StandaloneLink>
-        </Grid.Cell>
-        {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
+        <Grid.Subgrid gapVertical="x-large" span="all">
+          {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 3 }}>
+            <Paragraph color="inverse">
+              Meer over de verschillende vormen van zelfbouw vindt u op:
+            </Paragraph>
+            <StandaloneLink color="inverse" href="#">Zelfbouw</StandaloneLink>
+          </Grid.Cell>
+          {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
+        </Grid.Subgrid>
       </Grid>
     </Spotlight>
     <Grid paddingVertical="x-large">
@@ -567,26 +583,28 @@ export const Default: StoryObj = {
      * rather than repeating the azure of the first.
      */}
     <Spotlight>
-      <Grid paddingVertical="x-large">
+      <Grid gapVertical="none" paddingVertical="x-large">
         <Grid.Cell span="all">
-          <Heading color="inverse" level={2}>Contact</Heading>
+          <Heading className="ams-mb-s" color="inverse" level={2}>Contact</Heading>
         </Grid.Cell>
-        <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Paragraph color="inverse">
-            Vragen over zelfbouw op Centrumeiland:{' '}
-            <Link color="inverse" href="mailto:zelfbouwcentrumeiland@amsterdam.nl">zelfbouwcentrumeiland@amsterdam.nl</Link>
-          </Paragraph>
-        </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-          <Paragraph color="inverse">
-            Maud van Esch
-            <br />
-            Omgevingsmanager IJburg
-            <br />
-            <Link color="inverse" href="mailto:m.van.esch@amsterdam.nl">m.van.esch@amsterdam.nl</Link>
-          </Paragraph>
-        </Grid.Cell>
+        <Grid.Subgrid gapVertical="x-large" span="all">
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Paragraph color="inverse">
+              Vragen over zelfbouw op Centrumeiland:{' '}
+              <Link color="inverse" href="mailto:zelfbouwcentrumeiland@amsterdam.nl">zelfbouwcentrumeiland@amsterdam.nl</Link>
+            </Paragraph>
+          </Grid.Cell>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+            {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+            <Paragraph color="inverse">
+              Maud van Esch
+              <br />
+              Omgevingsmanager IJburg
+              <br />
+              <Link color="inverse" href="mailto:m.van.esch@amsterdam.nl">m.van.esch@amsterdam.nl</Link>
+            </Paragraph>
+          </Grid.Cell>
+        </Grid.Subgrid>
       </Grid>
     </Spotlight>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
