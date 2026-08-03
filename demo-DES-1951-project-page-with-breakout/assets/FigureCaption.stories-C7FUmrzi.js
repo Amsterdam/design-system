@@ -1,0 +1,5 @@
+import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./jsx-runtime-ATHzeHXA.js";import{$ as r,w as i}from"./index.esm-D2EqI6HK.js";import{n as a,t as o}from"./Figure-DzwdVKd1.js";import{m as s,r as c}from"./exampleContent-DsZ2XVq0.js";import{d as l,f as u,r as d}from"./argTypes-CTYEle7b.js";var f=t({Caption:()=>h,__namedExportsOrder:()=>g,default:()=>m}),p,m,h,g;function _(){return(_=e((()=>{r(),a(),l(),s(),p=n(),m={title:`Components/Media/Figure`,component:o.Caption,argTypes:{children:d(`The text for the caption.`),color:u},render:({children:e,...t})=>(0,p.jsxs)(o,{children:[(0,p.jsx)(i,{alt:``,aspectRatio:`16:5`,sizes:`(max-width: 37.5rem) 640px, (max-width: 72.5rem) 1280px, 1440px`,src:`https://picsum.photos/1440/450`,srcSet:`https://picsum.photos/640/200 640w, https://picsum.photos/1280/400 1280w, https://picsum.photos/1440/450 1440w`}),(0,p.jsx)(o.Caption,{...t,children:e})]}),tags:[`!manifest`]},h={args:{children:c()}},h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: exampleCaption()
+  }
+}`,...h.parameters?.docs?.source}}},g=[`Caption`]})))()}export{f as n,_ as r,h as t};
