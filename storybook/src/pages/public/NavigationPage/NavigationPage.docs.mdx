@@ -19,18 +19,19 @@ This schematic shows the default sections for this page type and how the grids a
 
 <PageAnatomy labels={anatomyLabels} of={NavigationStories} />
 
-## Headings
+## Usage guidelines
 
-- Use a level 1 Heading for the page title.
-- Set a size of ‘level-3’ to the headings in Link Sections (blocks consisting of a Heading, Paragraph, Standalone Link and/or a Link List).
-  Card Headings already set this by default.
-- If multiple Cards and Link Sections are grouped, update their Heading levels accordingly.
+### When to use
 
-## Spacing
+Use this page as the entry point of one subject, where the page itself carries little content and mostly points onward.
 
-- Grids on this page type use the default x-large vertical gap.
+### When not to use
 
-## With side navigation
+Use a [Home Page](/docs/pages-public-home-page--docs) for the entry point of the whole site.
+
+## Variants
+
+### With side navigation
 
 Use a side navigation when the page presents one entry from a long list, and visitors move between those entries without leaving the page.
 A [Table of Contents](/docs/components-navigation-table-of-contents--docs) is the navigation for this.
@@ -47,17 +48,37 @@ Set `main` on the Subgrid rather than on the Grid around it.
 The navigation switches between entries and is a repeated block, so it does not belong to the main content area.
 This puts the page title outside the landmark, which is the trade-off for keeping the navigation out of it.
 
-Such a page has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
-Name each after the thing it reaches rather than numbering them.
-
 Because the entry’s parts each sit in their own Cell of the Subgrid, the space between them is the row gap.
 Leave the row gap of the Subgrid at the vertical gap of the Grid.
 That gap has no medium size, so the space below the entry’s heading is larger than the vertical space guide advises for a heading.
 Keep elements in one cell where you need the exact space between them.
 
 A map belongs on this page as an interactive component, not as an [Image](/docs/components-media-image--docs).
-Whichever you use, it needs a text alternative: here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
+
+## Structure
+
+- Set a size of ‘level-3’ on the headings in Link Sections (blocks consisting of a Heading, Paragraph, Standalone Link and/or a Link List).
+  Card Headings already set this by default.
+- If multiple Cards and Link Sections are grouped, update their Heading levels accordingly.
+
+## Layout and spacing
+
+- Grids on this page type use the default x-large vertical gap.
+
+## Accessibility
+
+A page with a side navigation has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
+Name each after the thing it reaches rather than numbering them.
+
+A map needs a text alternative, whether it is an image or an interactive component.
+Here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
 
 Give a repeated action such as ‘Toon op de kaart’ a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on.
 Without it, every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
 Put the suffix after the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.
+
+## See also
+
+- [Home Page](/docs/pages-public-home-page--docs) – the same job for the whole site.
+- [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the side navigation.
+- [Grid](/docs/components-layout-grid--docs) – the Subgrid the entry sits in.

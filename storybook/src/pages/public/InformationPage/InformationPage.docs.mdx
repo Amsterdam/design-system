@@ -13,45 +13,25 @@ import * as InformationStories from "./InformationPage.stories.tsx";
 
 <Description of={InformationStories} />
 
-For a task that ends in a form or an application, use the [Product page](/docs/pages-public-product-page--docs) instead.
-
 ## Anatomy
 
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
 <PageAnatomy labels={anatomyLabels} of={InformationStories} />
 
-## Structure
+## Usage guidelines
 
-- The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
-- The Content Header contains the title and a Metadata Paragraph that classifies the page: taxonomy tags, optionally preceded by a date.
-  The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
-- The body holds several sections, each opening with a level 2 Heading.
-- The Content Header Grid holds the title and the metadata in one Cell.
-  Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
-- Each section below the Content Header sits in its own Grid, so the padding between those Grids sets them apart rather than a row gap.
+### When to use
 
-## Headings
+Use this page to explain a subject a reader wants to understand: its background, the rules, and what they mean.
 
-- Use a level 1 Heading for the title of the page.
-- Use level 2 Headings for the section titles, and level 3 for subsections.
-- Set the Accordion’s `headingLevel` one level below the section heading it follows.
-  In the first example that is level 3.
+### When not to use
 
-## Layout and spacing
+For a task that ends in a form or an application, use the [Product Page](/docs/pages-public-product-page--docs) instead.
 
-- The Grids use the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
-  The Cells for the lead paragraph and the Image take the sizes for side-by-side blocks, which reach one column further than the Content Header Cell above them.
-- All body sections share a single Grid Cell, indented one column on wider screens for a comfortable reading measure.
-- Where the lead paragraph takes a Cell of its own, the Grid’s row gap sets the space between it and the metadata above.
-  That gap stays at `x-large` rather than the medium that [vertical space](/docs/docs-designer-guide-vertical-space--docs) asks for within a Cell: the default background colour of the page runs along it — at the left-hand side, and across the full width on the narrow grid — so the wider gap still reads as one Content Header.
-- An [Image](/docs/components-media-image--docs) always reserves its box, so the layout does not shift while it loads.
-  Use `aspectRatio` to change the ratio it crops to; leaving it off keeps the default of 16:9.
-  Do not lazy-load an image in the first screenful, where it would only delay the largest image in the viewport.
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-  An Accordion starts with a Heading, which is why Prose gives it the space that heading level calls for.
+## Variants
 
-## Default
+### Default
 
 The lead paragraph and a lead Image sit side by side below the title, and stack on the narrow grid.
 
@@ -60,7 +40,7 @@ Keep the answers short enough to read without scrolling back to the question.
 
 Images within the body are as wide as the text column.
 
-## With Table
+### With Table
 
 Without an image beside it, the lead paragraph stays in the Content Header Cell with the title and the metadata.
 
@@ -75,3 +55,36 @@ The Figure supplies the space between them, so the table needs no margin of its 
 Write any sources as one sentence, with a [Link](/docs/components-navigation-link--docs) for each of them.
 The Figure Caption then presents them in the small caption text it is meant for.
 Note that the whole caption becomes the accessible name of the Figure, so keep it short.
+
+## Structure
+
+- The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
+- The Content Header contains the title and a Metadata Paragraph that classifies the page: taxonomy tags, optionally preceded by a date.
+  The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
+- The body holds several sections, each opening with a level 2 Heading.
+- The Content Header Grid holds the title and the metadata in one Cell.
+  Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
+- Each section below the Content Header sits in its own Grid, so the padding between those Grids sets them apart rather than a row gap.
+
+- Set the Accordion’s `headingLevel` one level below the section heading it follows.
+  In the ‘Default’ example that is level 3.
+
+## Layout and spacing
+
+- The Grids use the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
+  The Cells for the lead paragraph and the Image take the sizes for side-by-side blocks, which reach one column further than the Content Header Cell above them.
+- All body sections share a single Grid Cell, indented one column on wider screens for a comfortable reading measure.
+- Where the lead paragraph takes a Cell of its own, the Grid’s row gap sets the space between it and the metadata above.
+  That gap stays at `x-large` rather than the medium that [vertical space](/docs/docs-designer-guide-vertical-space--docs) asks for within a Cell: the default background colour of the page runs along it — at the left-hand side, and across the full width on the narrow grid — so the wider gap still reads as one Content Header.
+- An [Image](/docs/components-media-image--docs) always reserves its box, so the layout does not shift while it loads.
+  Use `aspectRatio` to change the ratio it crops to; leaving it off keeps the default of 16:9.
+  Do not lazy-load an image in the first screenful, where it would only delay the largest image in the viewport.
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+  An Accordion starts with a Heading, which is why Prose gives it the space that heading level calls for.
+
+## See also
+
+- [Product Page](/docs/pages-public-product-page--docs) – for a subject that ends in an application.
+- [Accordion](/docs/components-containers-accordion--docs) – groups the detail questions.
+- [Table](/docs/components-containers-table--docs) – for reference data, and what its Caption is for.
+- [Figure](/docs/components-media-figure--docs) – pairs the table with its sources.

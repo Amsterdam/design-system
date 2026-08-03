@@ -14,13 +14,23 @@ import * as NewsOverviewStories from "./NewsOverviewPage.stories.tsx";
 <Description of={NewsOverviewStories} />
 
 The page is a filter column beside a list of results, and the same layout serves all of those content types.
-Use a [Home Page](/docs/pages-public-home-page--docs) section instead when a handful of items is enough and nobody needs to filter them.
 
 ## Anatomy
 
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
 <PageAnatomy labels={anatomyLabels} of={NewsOverviewStories} />
+
+## Usage guidelines
+
+### When to use
+
+Use this page for an index of one content type that a visitor narrows down with filters.
+
+### When not to use
+
+Use a [Home Page](/docs/pages-public-home-page--docs) section instead when a handful of items is enough and nobody needs to filter them.
+Use a [Search Results Page](/docs/pages-public-search-results-page--docs) where a result can be any kind of content.
 
 ## Structure
 
@@ -44,14 +54,9 @@ It applies the punctuation and the conjunction of the language itself, so the se
 Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell spanning all the columns of the Subgrid.
 Leave it out when everything fits on one page.
 
-## Headings
-
 The page title is the only Heading 1.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
-
 Neither Heading 2 has a place in the design, so both are visually hidden.
-They are still worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
-The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
 ## Layout and spacing
 
@@ -71,3 +76,18 @@ The medium grid leaves the results 5 columns, which is not enough for a row.
 Give each Card 4 of those 5 there and leave the last column empty: that is below the width at which a Card with an image goes horizontal, so the Cards turn into a single column of vertical ones and the image spans the full width of each.
 
 Two adjacent Grids add their touching paddings together, so the Grid holding the filter column and the results leaves its `paddingTop` off.
+
+## Accessibility
+
+The two hidden Heading 2s are worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
+The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
+
+Announce the number of results in a `role="status"` paragraph and name the filters that produced it.
+A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
+
+## See also
+
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same layout for results of any type.
+- [Loading Page](/docs/pages-public-loading-page--docs) – this layout while its results are on their way.
+- [Card](/docs/components-navigation-card--docs) – the result, and when it turns horizontal.
+- [Pagination](/docs/components-navigation-pagination--docs) – closes the list.

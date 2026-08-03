@@ -23,30 +23,50 @@ This schematic shows the sections of a person profile and how the grids and vert
 
 <PageAnatomy labels={anatomyLabels} of={ProfileStories} story="Person" />
 
+## Usage guidelines
+
+### When to use
+
+Use this page for a single subject people want to reach or visit: a person with a public role, a body that acts as one, or a place.
+
+### When not to use
+
+Use a [Product Page](/docs/pages-public-product-page--docs) where the subject is something to arrange rather than someone to reach.
+
 ## Variants
 
-**Person** profiles an individual with a public role, such as the mayor.
+### Person
+
+Profiles an individual with a public role, such as the mayor.
 A portrait sits beside the lead, and a Link List at the end points to the curriculum vitae and the additional positions, which carry too much text to sit on this page.
 
-**Group** profiles a body of people that acts as one, such as a party group in the city council.
+### Group
+
+Profiles a body of people that acts as one, such as a party group in the city council.
 It adds an address and contact block built from Description Lists, and closes with a grid of Cards, one per member.
 
-**Location** profiles a single place people can visit.
+### Location
+
+Profiles a single place people can visit.
 A full-width image establishes the place, and the practical blocks answer what can be hired, how to get there and where to park.
 
-**Location large** is the same page for a venue with several halls and much more practical information.
+### Location large
+
+The same page for a venue with several halls and much more practical information.
 It adds an Alert for temporary disruptions, Cards for the individual spaces, and a longer run of detail blocks.
 
-**Sublocation** profiles a place that belongs to a larger one, so its breadcrumb is one level deeper.
+### Sublocation
+
+Profiles a place that belongs to a larger one, so its breadcrumb is one level deeper.
 It drops the full-width image and instead pairs the facilities list with an Image Slider.
 
-## How to build these pages
+## Structure
 
 The Layout does not render `<main>`, so each page provides its own `<main id="inhoud">`, which is the Skip Link target.
 The Breadcrumb sits in its own Grid above it.
 
-A Spotlight has to be a sibling of the Grids rather than a child of a Grid Cell, because it needs the full page width.
-It carries its own Grid, and every Heading, Paragraph and link inside it needs `color="inverse"`, because these pages use the default purple background.
+A [Spotlight](/docs/components-containers-spotlight--docs) has to be a sibling of the Grids rather than a child of a Grid Cell, because it needs the full page width.
+It carries its own Grid.
 
 Use the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells) for each kind of section.
 Note that the title and lead sit one column further right than the sections below them, which is deliberate.
@@ -83,9 +103,7 @@ Put the two in one Cell when the exact value matters, and accept the row gap whe
 
 ## See also
 
-- [Card](/docs/components-navigation-card--docs)
-- [Description List](/docs/components-text-description-list--docs)
-- [Grid](/docs/components-layout-grid--docs)
-- [Image Slider](/docs/components-media-image-slider--docs)
-- [Link List](/docs/components-navigation-link-list--docs)
-- [Spotlight](/docs/components-containers-spotlight--docs)
+- [Description List](/docs/components-text-description-list--docs) – the address and contact blocks.
+- [Grid](/docs/components-layout-grid--docs) – the Subgrid that keeps uneven columns apart.
+- [Image Slider](/docs/components-media-image-slider--docs) – for a set of photos.
+- [Spotlight](/docs/components-containers-spotlight--docs) – the call-to-action band, and what its contents need.
