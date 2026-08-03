@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -10270,6 +10270,11 @@ Every direct child of a Grid must be a Cell or a Subgrid.
 Size and position it with the `span` and `start` props, which accept responsive values.
 Its `appearance` controls the background in Compact Mode.
 
+`rowSpan` lets a Cell cover several rows, and `rowStart` puts it in a row of your choosing.
+Reach for `rowStart` only where automatic placement cannot do the job: it never moves back a column without moving down a row, so a Cell that comes first in the source and sits to the right of the one after it pushes that one down.
+A sidebar on the trailing side needs a row of its own for that reason; one on the leading side does not, because placement runs towards it.
+Set it on the sidebar rather than on everything around it, and leave the rest to automatic placement.
+
 &lt;Canvas of={GridCellStories.Cell} /&gt;
 
 &lt;Controls of={GridCellStories.Cell} /&gt;
@@ -10282,6 +10287,9 @@ Every direct child of a Subgrid must be a Cell.
 
 Use it for a region beside a sidebar, such as the results of an index page next to a filter column.
 Without it, a Cell inside a Cell has no columns to align to.
+
+It takes `rowSpan` and `rowStart` for the same reasons a Cell does.
+A Subgrid is placed as one item, so a region beside a sidebar on the trailing side takes a `rowStart` of its own.
 
 Its rows take the vertical gap of the Grid, so the region keeps the rhythm of the page.
 Give it its own `gapVertical` to space its rows differently.
@@ -10574,7 +10582,7 @@ A `section` reaches assistive technology as a landmark only once it has a name, 
       <div class="row">
         <span class="ex-name">Grid.Cell</span>
         <span class="badge ok">
-          5 prop types
+          6 prop types
         </span>
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
@@ -10608,6 +10616,15 @@ as?: &quot;article&quot; | &quot;main&quot; | &quot;div&quot; | &quot;section&qu
 rowSpan?: GridRowNumber | GridRowNumbers | undefined
 
 /**
+ * The index of the grid row the cell starts at.
+ * Accepts a number or an object of numbers per grid variant.
+ * 
+ * Only needed to place a cell before a sibling that starts at an earlier column:
+ * automatic placement never moves back a column without moving down a row.
+ */
+rowStart?: GridRowNumber | GridRowNumbers | undefined
+
+/**
  * Lets the cell span the full width of all grid variants.
  */
 span?: &quot;all&quot;
@@ -10623,7 +10640,7 @@ start?: GridColumnNumber | GridColumnNumbers | undefined</code></pre>
       <div class="row">
         <span class="ex-name">Grid.Subgrid</span>
         <span class="badge ok">
-          5 prop types
+          6 prop types
         </span>
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
@@ -10651,6 +10668,15 @@ gapVertical?: &quot;none&quot; | &quot;large&quot; | &quot;2x-large&quot; | &quo
  * Accepts a number or an object of numbers per grid variant.
  */
 rowSpan?: GridRowNumber | GridRowNumbers | undefined
+
+/**
+ * The index of the grid row the subgrid starts at.
+ * Accepts a number or an object of numbers per grid variant.
+ * 
+ * Only needed to place a subgrid before a sibling that starts at an earlier column:
+ * automatic placement never moves back a column without moving down a row.
+ */
+rowStart?: GridRowNumber | GridRowNumbers | undefined
 
 /**
  * Lets the subgrid span the full width of all grid variants.
