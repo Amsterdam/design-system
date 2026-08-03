@@ -89,6 +89,7 @@
         "gap": {
           "$value": "{ams.unordered-list.gap}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -128,7 +129,7 @@
             },
             "$type": "dimension",
             "$extensions": {
-              "nl.amsterdam.hint": "Together with the item padding and the marker width, starts the line at the 2.5rem text indent of Unordered List.",
+              "nl.amsterdam.hint": "Together with the item padding and the marker width, starts the line at the 2.5rem text indent of Unordered List. Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.subtype": "space"
             }
           },
