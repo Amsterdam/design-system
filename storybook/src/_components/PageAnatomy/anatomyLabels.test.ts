@@ -28,7 +28,11 @@ const labelModules = import.meta.glob('../../pages/**/anatomyLabels.ts', { eager
 const storyModules = import.meta.glob('../../pages/**/*.stories.tsx', { eager: true }) as Record<string, StoryModule>
 
 /** The story each page draws, where it is not the Default one. */
-const storyNames: Record<string, string> = { FormFlow: 'MultipleQuestions', TablePage: 'SortingWithSelect' }
+const storyNames: Record<string, string> = {
+  FormFlow: 'MultipleQuestions',
+  ProfilePage: 'Person',
+  TablePage: 'SortingWithSelect',
+}
 
 const pages = Object.keys(labelModules)
   .map((path) => ({
