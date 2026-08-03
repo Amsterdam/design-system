@@ -251,13 +251,13 @@ const meta = {
         </Grid>
         <Spotlight color="azure">
           {/*
-           * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+           * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
            * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
            * between the Cells.
            */}
           <Grid gapVertical="none" paddingVertical="x-large">
             <Grid.Cell span="all">
-              <Heading className="ams-mb-s" color="inverse" level={2}>
+              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
                 Zelfbouw
               </Heading>
             </Grid.Cell>
@@ -360,7 +360,7 @@ const meta = {
         <Spotlight>
           <Grid gapVertical="none" paddingVertical="x-large">
             <Grid.Cell span="all">
-              <Heading className="ams-mb-s" color="inverse" level={2}>
+              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
                 Contact
               </Heading>
             </Grid.Cell>
@@ -533,13 +533,13 @@ export const Default: StoryObj = {
     </Grid>
     <Spotlight color="azure">
       {/*
-       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
        * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
        * between the Cells.
        */}
       <Grid gapVertical="none" paddingVertical="x-large">
         <Grid.Cell span="all">
-          <Heading className="ams-mb-s" color="inverse" level={2}>Zelfbouw</Heading>
+          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Zelfbouw</Heading>
         </Grid.Cell>
         <Grid.Subgrid gapVertical="x-large" span="all">
           {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
@@ -585,7 +585,7 @@ export const Default: StoryObj = {
     <Spotlight>
       <Grid gapVertical="none" paddingVertical="x-large">
         <Grid.Cell span="all">
-          <Heading className="ams-mb-s" color="inverse" level={2}>Contact</Heading>
+          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">Contact</Heading>
         </Grid.Cell>
         <Grid.Subgrid gapVertical="x-large" span="all">
           <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 6 }}>

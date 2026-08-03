@@ -60,8 +60,8 @@ A Subgrid hands the columns it spans to its own Cells, so each column stacks on 
 Two Subgrids that each span the whole narrow grid also lay the right column out below the left one there, rather than interleaving the two.
 
 A Subgrid is also what lets a section heading sit the space the guidance asks for above the sections it introduces.
-A heading in a Cell of its own is spaced by the row gap of the Grid, which is an x-large where a level 2 heading asks for a small.
-Give that Grid a `gapVertical` of `none`, let the heading Cell set the small with an `ams-mb-s`, and put the Cells below it in a Subgrid with a `gapVertical` of `x-large`, which is the gap the Grid used to give them.
+A heading in a Cell of its own is spaced by the row gap of the Grid, which is an x-large where the guidance asks for a small or less.
+Give that Grid a `gapVertical` of `none`, let the heading Cell set the right amount with an `ams-mb-*` utility, and put the Cells below it in a Subgrid with a `gapVertical` of `x-large`, which is the gap the Grid used to give them.
 A section that shares its Grid with the Content Header needs a Grid of its own first, since the header depends on that row gap.
 
 ## Layout and spacing
