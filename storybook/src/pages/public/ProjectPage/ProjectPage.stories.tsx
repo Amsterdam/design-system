@@ -307,11 +307,9 @@ const meta = {
               <LinkList.Link href="#">Nieuwe bruggen op IJburg</LinkList.Link>
               <LinkList.Link href="#">IJburg: nieuwe eilanden en woningbouw</LinkList.Link>
               <LinkList.Link href="#">IJburg - stations Bijlmer Arena en Weesp: nieuwe busverbindingen</LinkList.Link>
-              <LinkList.Link className="ams-mb-m" href="#">
-                IJburg: verlengen IJtram
-              </LinkList.Link>
-              <LinkList.Link href="#">Meer projecten in Oost</LinkList.Link>
+              <LinkList.Link href="#">IJburg: verlengen IJtram</LinkList.Link>
             </LinkList>
+            <StandaloneLink href="#">Meer projecten in Oost</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell
             className="ams-prose"
@@ -333,9 +331,7 @@ const meta = {
             <Heading level={2} size="level-3">
               Plannen en publicaties
             </Heading>
-            <LinkList>
-              <LinkList.Link href="#">Plannen en publicaties Centrumeiland</LinkList.Link>
-            </LinkList>
+            <StandaloneLink href="#">Plannen en publicaties Centrumeiland</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell
             className="ams-prose"
@@ -560,8 +556,8 @@ export const Default: StoryObj = {
         <LinkList>
           <LinkList.Link href="#">Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw</LinkList.Link>
           <LinkList.Link href="#">Woningaanbod Centrumeiland</LinkList.Link>
-          <LinkList.Link href="#">Meer projecten in Oost</LinkList.Link>
         </LinkList>
+        <StandaloneLink href="#">Meer projecten in Oost</StandaloneLink>
       </Grid.Cell>
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}>
         <Heading level={2} size="level-3">Ontwikkeling Centrumeiland, herfst 2025</Heading>

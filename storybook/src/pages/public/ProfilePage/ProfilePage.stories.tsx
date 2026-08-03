@@ -939,9 +939,7 @@ export const Location: StoryObj = {
       </Grid.Cell>
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2} size="level-3">Zie ook</Heading>
-        <LinkList>
-          <LinkList.Link href="#">Urban Sport Zone Zeeburgereiland</LinkList.Link>
-        </LinkList>
+        <StandaloneLink href="#">Urban Sport Zone Zeeburgereiland</StandaloneLink>
       </Grid.Cell>
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading level={2} size="level-3">Auto of fiets parkeren</Heading>
@@ -1144,9 +1142,7 @@ export const Location: StoryObj = {
             <Heading level={2} size="level-3">
               Zie ook
             </Heading>
-            <LinkList>
-              <LinkList.Link href="#">Urban Sport Zone Zeeburgereiland</LinkList.Link>
-            </LinkList>
+            <StandaloneLink href="#">Urban Sport Zone Zeeburgereiland</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading level={2} size="level-3">
@@ -1365,11 +1361,7 @@ export const LocationLarge: StoryObj = {
             naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
             van uw activiteit.
           </Paragraph>
-          <LinkList>
-            <LinkList.Link color="inverse" href="mailto:sportverhuur@amsterdam.nl" icon={MailIcon}>
-              Stuur uw aanvraag per e-mail in
-            </LinkList.Link>
-          </LinkList>
+          <StandaloneLink color="inverse" href="mailto:sportverhuur@amsterdam.nl" icon={MailIcon}>Stuur uw aanvraag per e-mail in</StandaloneLink>
         </Grid.Cell>
         <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
           <Heading color="inverse" level={2}>Evenementen</Heading>
@@ -1672,11 +1664,9 @@ export const LocationLarge: StoryObj = {
                 naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
                 van uw activiteit.
               </Paragraph>
-              <LinkList>
-                <LinkList.Link color="inverse" href="mailto:sportverhuur@amsterdam.nl" icon={MailIcon}>
-                  Stuur uw aanvraag per e-mail in
-                </LinkList.Link>
-              </LinkList>
+              <StandaloneLink color="inverse" href="mailto:sportverhuur@amsterdam.nl" icon={MailIcon}>
+                Stuur uw aanvraag per e-mail in
+              </StandaloneLink>
             </Grid.Cell>
             <Grid.Cell
               className="ams-prose"
@@ -1920,9 +1910,7 @@ export const Sublocation: StoryObj = {
       </Grid.Cell>
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={2} size="level-3">Zie ook</Heading>
-        <LinkList>
-          <LinkList.Link href="#">Alle sportparken in Amsterdam</LinkList.Link>
-        </LinkList>
+        <StandaloneLink href="#">Alle sportparken in Amsterdam</StandaloneLink>
       </Grid.Cell>
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
         <Heading level={2} size="level-3">Parkeren</Heading>
@@ -2098,9 +2086,7 @@ export const Sublocation: StoryObj = {
             <Heading level={2} size="level-3">
               Zie ook
             </Heading>
-            <LinkList>
-              <LinkList.Link href="#">Alle sportparken in Amsterdam</LinkList.Link>
-            </LinkList>
+            <StandaloneLink href="#">Alle sportparken in Amsterdam</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
             <Heading level={2} size="level-3">
