@@ -331,9 +331,7 @@ const meta = {
             <Heading level={2} size="level-3">
               Plannen en publicaties
             </Heading>
-            <LinkList>
-              <LinkList.Link href="#">Plannen en publicaties Centrumeiland</LinkList.Link>
-            </LinkList>
+            <StandaloneLink href="#">Plannen en publicaties Centrumeiland</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell
             className="ams-prose"
