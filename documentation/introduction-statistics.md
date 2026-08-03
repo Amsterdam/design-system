@@ -99,9 +99,19 @@ Run the suite.
 Seventeen of them are titled `Components/Docs/*`, so they match the Chromatic pattern for components while sitting nowhere near `src/components`.
 Counting only `src/components` loses them.
 
-**Snapshots are not tests.**
-Chromatic captures more than one snapshot per story, and the multiplier lives in its project settings rather than in this repository.
-The figure counts tests.
+**Snapshots are not tests, and neither is the check title.**
+Chromatic captures more than one snapshot per story — two, at the time of writing — and the multiplier lives in its project settings rather than in this repository.
+The `UI Tests` check reports a third number again: on build 1593 it read `417 tests unchanged` while the run had matched 123.
+
+Take the number from the run log, which states the rule it applied:
+
+```text
+Running 123 tests for stories matching 'Components/**/**/Test', … (skipping 295 tests)
+→ Tested 418 stories across 108 components; captured 246 snapshots
+```
+
+Three numbers, one of them the answer.
+The figure counts tests run, not stories published and not snapshots captured.
 
 **A figure can fall.**
 Tests dropped from `1500+` to `1300+` in July 2026 when the rule above was first applied to a claim that predated it.
