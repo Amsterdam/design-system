@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -11320,10 +11320,20 @@ The `level` prop has no default; determine the correct level for each instance.
 Every page should have one Heading with level 1.
 Do not skip levels: a level 2 Heading must be followed by level 3, not level 4.
 
-- Content pages, e.g. for articles, products, events etc. must not use the size prop on their Headings.
-- Most Headings on overview pages, e.g. Card, Table of Contents, and Link Sections, use a size of &#39;level-3&#39;.
-- The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
-  Most of them can be given a different size if appropriate.
+#### Sections and blocks
+
+The size follows what the Heading introduces.
+
+A heading keeps the size of its level, and sets no `size`, when it introduces a **content body**: a section of an article, or the entry a navigation page shows beside its navigation.
+
+A heading of a **block** takes a `size` one step smaller, so a level 2 Heading takes `size=&quot;level-3&quot;`.
+That is a block holding a short paragraph, a Link List, or a single link, and equally the heading above a group of such blocks or a row of Cards.
+Overview and navigation pages are built from these, and content pages carry them too, in a Spotlight or at the foot of the page.
+At the size of its own level the heading outweighs the few lines it introduces.
+
+The `level` follows the outline of the page either way.
+
+Components that carry a heading of their own — Accordion, Alert, Card, Dialog, Table of Contents, and the caption of a Table — size it themselves.
 
 ### How to write
 
@@ -17350,7 +17360,7 @@ export const WithImageGallery: StoryObj = {
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
-        &lt;Heading level={2}&gt;Burgemeester en wethouders&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Burgemeester en wethouders&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
           gemeentesecretaris.
@@ -17492,7 +17502,9 @@ export const WithImageGallery: StoryObj = {
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
-            &lt;Heading level={2}&gt;Burgemeester en wethouders&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Burgemeester en wethouders
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
               gemeentesecretaris.
@@ -18430,7 +18442,9 @@ export const SubnavigationPage: StoryObj = {
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
-          &lt;Heading level={2}&gt;Burgemeester en wethouders&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Burgemeester en wethouders
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
             gemeentesecretaris.
@@ -23674,7 +23688,7 @@ export const Group: StoryObj = {
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
       &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Adres en contact&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Adres en contact&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -23714,7 +23728,7 @@ export const Group: StoryObj = {
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         {/* ams-prose sets the vertical rhythm between the elements of a cell, so none of them needs a margin. */}
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Persberichten&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Persberichten&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;De fractie laat van zich horen over de onderwerpen die in de raad spelen.&lt;/Paragraph&gt;
           &lt;LinkList&gt;
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
@@ -23732,7 +23746,7 @@ export const Group: StoryObj = {
           &lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Toespraken&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Toespraken&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;Lees na wat de fractie in de raadsvergaderingen naar voren bracht.&lt;/Paragraph&gt;
           &lt;LinkList&gt;
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
@@ -23759,7 +23773,7 @@ export const Group: StoryObj = {
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Raadsleden&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Raadsleden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -23776,7 +23790,7 @@ export const Group: StoryObj = {
                 {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                 &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+              &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
         ))}
@@ -23785,7 +23799,7 @@ export const Group: StoryObj = {
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Fractievertegenwoordigers&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -23795,7 +23809,7 @@ export const Group: StoryObj = {
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+              &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
         ))}
@@ -23855,7 +23869,7 @@ export const Group: StoryObj = {
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
               Adres en contact
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -23906,7 +23920,7 @@ export const Group: StoryObj = {
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={{ narrow: 1, medium: 1, wide: 2 }}
             &gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Persberichten
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -23928,7 +23942,7 @@ export const Group: StoryObj = {
               &lt;/StandaloneLink&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Toespraken
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;Lees na wat de fractie in de raadsvergaderingen naar voren bracht.&lt;/Paragraph&gt;
@@ -23957,7 +23971,7 @@ export const Group: StoryObj = {
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
               Raadsleden
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -23976,7 +23990,7 @@ export const Group: StoryObj = {
                     {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                     &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
                   &lt;/Card.Heading&gt;
-                  &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
                 &lt;/Card&gt;
               &lt;/Grid.Cell&gt;
             ))}
@@ -23985,7 +23999,7 @@ export const Group: StoryObj = {
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
               Fractievertegenwoordigers
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -23997,7 +24011,7 @@ export const Group: StoryObj = {
                   &lt;Card.Heading level={3}&gt;
                     &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
                   &lt;/Card.Heading&gt;
-                  &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
                 &lt;/Card&gt;
               &lt;/Grid.Cell&gt;
             ))}
@@ -24058,14 +24072,14 @@ export const Location: StoryObj = {
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     {/*
-     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
      * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
      * between the Cells.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
       &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -24164,7 +24178,7 @@ export const Location: StoryObj = {
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
       {/* The heading and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Locatie&lt;/Heading&gt;
         &lt;Image
           alt=&quot;Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West.&quot;
           aspectRatio=&quot;16:9&quot;
@@ -24227,14 +24241,14 @@ export const Location: StoryObj = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
         {/*
-         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
          * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
          * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
               Faciliteiten
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -24373,7 +24387,9 @@ export const Location: StoryObj = {
             span={{ narrow: 4, medium: 8, wide: 10 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Locatie
+            &lt;/Heading&gt;
             &lt;Image
               alt=&quot;Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West.&quot;
               aspectRatio=&quot;16:9&quot;
@@ -24452,7 +24468,7 @@ export const LocationLarge: StoryObj = {
     &lt;/Grid&gt;
     &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Over de Apollohal&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Over de Apollohal&lt;/Heading&gt;
         &lt;Paragraph&gt;
           De Apollohal is een sporthal in Amsterdam-Zuid met moderne voorzieningen en een rijke sporthistorie. Het
           gebouw heeft 1 grote zaal en 2 gymzalen en is geschikt voor veel verschillende sporten en evenementen.
@@ -24467,7 +24483,7 @@ export const LocationLarge: StoryObj = {
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -24480,7 +24496,7 @@ export const LocationLarge: StoryObj = {
               {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
               &lt;Card.Link href=&quot;#&quot;&gt;Grote zaal&lt;/Card.Link&gt;
             &lt;/Card.Heading&gt;
-            &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
+            &lt;Paragraph&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
           &lt;/Card&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={4}&gt;
@@ -24489,7 +24505,7 @@ export const LocationLarge: StoryObj = {
             &lt;Card.Heading level={3}&gt;
               &lt;Card.Link href=&quot;#&quot;&gt;Du Midi benedenzaal&lt;/Card.Link&gt;
             &lt;/Card.Heading&gt;
-            &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
+            &lt;Paragraph&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
           &lt;/Card&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={4}&gt;
@@ -24498,7 +24514,7 @@ export const LocationLarge: StoryObj = {
             &lt;Card.Heading level={3}&gt;
               &lt;Card.Link href=&quot;#&quot;&gt;Du Midi bovenzaal&lt;/Card.Link&gt;
             &lt;/Card.Heading&gt;
-            &lt;Paragraph size=&quot;small&quot;&gt;
+            &lt;Paragraph&gt;
               Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
             &lt;/Paragraph&gt;
           &lt;/Card&gt;
@@ -24508,7 +24524,7 @@ export const LocationLarge: StoryObj = {
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
       &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -24545,7 +24561,7 @@ export const LocationLarge: StoryObj = {
     &lt;Spotlight as=&quot;section&quot;&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Reserveren voor 1 tot 3 uur&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Reserveren voor 1 tot 3 uur&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;
             Huurt u een zaal voor 1 tot 3 uur? Dan reserveert u die zelf online in het reserveringssysteem.
           &lt;/Paragraph&gt;
@@ -24562,7 +24578,7 @@ export const LocationLarge: StoryObj = {
           &lt;/LinkList&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Langer dan 3 uur reserveren&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Langer dan 3 uur reserveren&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;
             Heeft u een zaal langer dan 3 uur nodig? Stuur dan een e-mail naar sportverhuur@amsterdam.nl. Vermeld uw
             naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
@@ -24571,7 +24587,7 @@ export const LocationLarge: StoryObj = {
           &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;Stuur uw aanvraag per e-mail in&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Evenementen&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Evenementen&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;
             In de grote zaal is plaats voor 550 toeschouwers. De zaal is geschikt voor sportevenementen, markten,
             yoga-evenementen, dansworkshops en concerten. In de hele Apollohal kunnen maximaal 1.000 bezoekers
@@ -24583,7 +24599,7 @@ export const LocationLarge: StoryObj = {
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Huisregels en tarieven&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Huisregels en tarieven&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;
             In de huisregels leest u wat er wel en niet mag in de Apollohal. In het tarievenoverzicht ziet u wat het
             huren van een zaal kost.
@@ -24601,14 +24617,14 @@ export const LocationLarge: StoryObj = {
     &lt;/Spotlight&gt;
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Gevonden voorwerpen&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Gevonden voorwerpen&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Bent u iets kwijtgeraakt in de Apollohal? Vraag ernaar bij de balie in de voorhal. Wij bewaren gevonden
           voorwerpen 4 weken.
         &lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-        &lt;Heading level={2}&gt;Contact en openingstijden&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Contact en openingstijden&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Apollolaan 4
           &lt;br /&gt;
@@ -24621,28 +24637,28 @@ export const LocationLarge: StoryObj = {
         &lt;Paragraph&gt;Maandag tot en met zondag van 08.30 tot 23.00 uur.&lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Rolstoeltoegankelijk&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Rolstoeltoegankelijk&lt;/Heading&gt;
         &lt;Paragraph&gt;
           De Apollohal is rolstoeltoegankelijk. Er is een aangepaste ingang, een lift naar de bovenzaal en er zijn 3
           rolstoeltoegankelijke toiletten.
         &lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-        &lt;Heading level={2}&gt;Fietsenstalling&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Fietsenstalling&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Voor de ingang staan fietsenrekken voor ongeveer 100 fietsen. Zet uw fiets in een rek, zodat de ingang
           vrij blijft.
         &lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Openbaar vervoer&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Openbaar vervoer&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Tram 12 stopt aan de Apollolaan, op 2 minuten lopen van de hal. Tram 5 en 24 en bus 246 stoppen bij het
           Olympiaplein, op 8 minuten lopen.
         &lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-        &lt;Heading level={2}&gt;Betaald parkeren&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Betaald parkeren&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Bij de Apollohal zijn 12 parkeerplaatsen: 8 gewone plaatsen, 2 plaatsen voor elektrische auto’s en 2
           gehandicaptenparkeerplaatsen. U betaalt het reguliere parkeertarief van de buurt.
@@ -24653,7 +24669,7 @@ export const LocationLarge: StoryObj = {
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
       {/* The heading, the paragraph and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Locatie en plattegrond&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Locatie en plattegrond&lt;/Heading&gt;
         &lt;Paragraph&gt;
           De Apollohal staat op de hoek van de Apollolaan en het Muzenplein. Bekijk de indeling van de zalen op de{&#39; &#39;}
           &lt;Link href=&quot;#&quot;&gt;plattegrond van de Apollohal (PDF, 228 kB)&lt;/Link&gt;.
@@ -24739,7 +24755,9 @@ export const LocationLarge: StoryObj = {
             span={{ narrow: 4, medium: 6, wide: 7 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Over de Apollohal&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Over de Apollohal
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               De Apollohal is een sporthal in Amsterdam-Zuid met moderne voorzieningen en een rijke sporthistorie. Het
               gebouw heeft 1 grote zaal en 2 gymzalen en is geschikt voor veel verschillende sporten en evenementen.
@@ -24754,7 +24772,7 @@ export const LocationLarge: StoryObj = {
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
               Zalen en sportmogelijkheden
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -24769,7 +24787,7 @@ export const LocationLarge: StoryObj = {
                   {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                   &lt;Card.Link href=&quot;#&quot;&gt;Grote zaal&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={4}&gt;
@@ -24778,7 +24796,7 @@ export const LocationLarge: StoryObj = {
                 &lt;Card.Heading level={3}&gt;
                   &lt;Card.Link href=&quot;#&quot;&gt;Du Midi benedenzaal&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={4}&gt;
@@ -24787,9 +24805,7 @@ export const LocationLarge: StoryObj = {
                 &lt;Card.Heading level={3}&gt;
                   &lt;Card.Link href=&quot;#&quot;&gt;Du Midi bovenzaal&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;
-                  Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
-                &lt;/Paragraph&gt;
+                &lt;Paragraph&gt;Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
           &lt;/Grid.Subgrid&gt;
@@ -24797,7 +24813,7 @@ export const LocationLarge: StoryObj = {
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
               Faciliteiten
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -24844,7 +24860,7 @@ export const LocationLarge: StoryObj = {
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={{ narrow: 1, medium: 1, wide: 2 }}
             &gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Reserveren voor 1 tot 3 uur
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -24863,7 +24879,7 @@ export const LocationLarge: StoryObj = {
               &lt;/LinkList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Langer dan 3 uur reserveren
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -24880,7 +24896,7 @@ export const LocationLarge: StoryObj = {
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={{ narrow: 1, medium: 1, wide: 2 }}
             &gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Evenementen
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -24894,7 +24910,7 @@ export const LocationLarge: StoryObj = {
               &lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Huisregels en tarieven
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -24918,14 +24934,18 @@ export const LocationLarge: StoryObj = {
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Gevonden voorwerpen&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Gevonden voorwerpen
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Bent u iets kwijtgeraakt in de Apollohal? Vraag ernaar bij de balie in de voorhal. Wij bewaren gevonden
               voorwerpen 4 weken.
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading level={2}&gt;Contact en openingstijden&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Contact en openingstijden
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Apollolaan 4
               &lt;br /&gt;
@@ -24942,14 +24962,18 @@ export const LocationLarge: StoryObj = {
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Rolstoeltoegankelijk&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Rolstoeltoegankelijk
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               De Apollohal is rolstoeltoegankelijk. Er is een aangepaste ingang, een lift naar de bovenzaal en er zijn 3
               rolstoeltoegankelijke toiletten.
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading level={2}&gt;Fietsenstalling&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Fietsenstalling
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Voor de ingang staan fietsenrekken voor ongeveer 100 fietsen. Zet uw fiets in een rek, zodat de ingang
               vrij blijft.
@@ -24960,14 +24984,18 @@ export const LocationLarge: StoryObj = {
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Openbaar vervoer&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Openbaar vervoer
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Tram 12 stopt aan de Apollolaan, op 2 minuten lopen van de hal. Tram 5 en 24 en bus 246 stoppen bij het
               Olympiaplein, op 8 minuten lopen.
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading level={2}&gt;Betaald parkeren&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Betaald parkeren
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Bij de Apollohal zijn 12 parkeerplaatsen: 8 gewone plaatsen, 2 plaatsen voor elektrische auto’s en 2
               gehandicaptenparkeerplaatsen. U betaalt het reguliere parkeertarief van de buurt.
@@ -24982,7 +25010,9 @@ export const LocationLarge: StoryObj = {
             span={{ narrow: 4, medium: 8, wide: 10 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Locatie en plattegrond&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Locatie en plattegrond
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               De Apollohal staat op de hoek van de Apollolaan en het Muzenplein. Bekijk de indeling van de zalen op de{&#39; &#39;}
               &lt;Link href=&quot;#&quot;&gt;plattegrond van de Apollohal (PDF, 228 kB)&lt;/Link&gt;.
@@ -25039,7 +25069,7 @@ export const Sublocation: StoryObj = {
     &lt;/Grid&gt;
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Faciliteiten&lt;/Heading&gt;
         &lt;UnorderedList&gt;
           &lt;UnorderedList.Item&gt;4 kunstgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
           &lt;UnorderedList.Item&gt;2 natuurgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
@@ -25131,7 +25161,7 @@ export const Sublocation: StoryObj = {
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
       {/* The heading and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Locatie&lt;/Heading&gt;
         &lt;Image
           alt=&quot;Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West.&quot;
           aspectRatio=&quot;16:9&quot;
@@ -25187,7 +25217,9 @@ export const Sublocation: StoryObj = {
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Faciliteiten
+            &lt;/Heading&gt;
             &lt;UnorderedList&gt;
               &lt;UnorderedList.Item&gt;4 kunstgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
               &lt;UnorderedList.Item&gt;2 natuurgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
@@ -25313,7 +25345,9 @@ export const Sublocation: StoryObj = {
             span={{ narrow: 4, medium: 8, wide: 10 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Locatie
+            &lt;/Heading&gt;
             &lt;Image
               alt=&quot;Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West.&quot;
               aspectRatio=&quot;16:9&quot;
@@ -25613,7 +25647,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
             Adres en contact
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -25664,7 +25698,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Persberichten
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -25686,7 +25720,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             &lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Toespraken
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;Lees na wat de fractie in de raadsvergaderingen naar voren bracht.&lt;/Paragraph&gt;
@@ -25715,7 +25749,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
             Raadsleden
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -25734,7 +25768,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
                   {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                   &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
           ))}
@@ -25743,7 +25777,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
             Fractievertegenwoordigers
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -25755,7 +25789,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
                 &lt;Card.Heading level={3}&gt;
                   &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
           ))}
@@ -25820,14 +25854,14 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       {/*
-       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
        * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
        * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
             Faciliteiten
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -25966,7 +26000,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 8, wide: 10 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Locatie
+          &lt;/Heading&gt;
           &lt;Image
             alt=&quot;Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West.&quot;
             aspectRatio=&quot;16:9&quot;
@@ -26053,7 +26089,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 6, wide: 7 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Over de Apollohal&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Over de Apollohal
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             De Apollohal is een sporthal in Amsterdam-Zuid met moderne voorzieningen en een rijke sporthistorie. Het
             gebouw heeft 1 grote zaal en 2 gymzalen en is geschikt voor veel verschillende sporten en evenementen.
@@ -26068,7 +26106,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
             Zalen en sportmogelijkheden
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -26083,7 +26121,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
                 {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                 &lt;Card.Link href=&quot;#&quot;&gt;Grote zaal&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
+              &lt;Paragraph&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell span={4}&gt;
@@ -26092,7 +26130,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Du Midi benedenzaal&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
+              &lt;Paragraph&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell span={4}&gt;
@@ -26101,9 +26139,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Du Midi bovenzaal&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;
-                Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
-              &lt;/Paragraph&gt;
+              &lt;Paragraph&gt;Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.&lt;/Paragraph&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid.Subgrid&gt;
@@ -26111,7 +26147,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
             Faciliteiten
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -26158,7 +26194,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Reserveren voor 1 tot 3 uur
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -26177,7 +26213,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             &lt;/LinkList&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Langer dan 3 uur reserveren
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -26194,7 +26230,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Evenementen
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -26208,7 +26244,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Huisregels en tarieven
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -26232,14 +26268,18 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Gevonden voorwerpen&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Gevonden voorwerpen
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Bent u iets kwijtgeraakt in de Apollohal? Vraag ernaar bij de balie in de voorhal. Wij bewaren gevonden
             voorwerpen 4 weken.
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading level={2}&gt;Contact en openingstijden&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Contact en openingstijden
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Apollolaan 4
             &lt;br /&gt;
@@ -26256,14 +26296,18 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Rolstoeltoegankelijk&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Rolstoeltoegankelijk
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             De Apollohal is rolstoeltoegankelijk. Er is een aangepaste ingang, een lift naar de bovenzaal en er zijn 3
             rolstoeltoegankelijke toiletten.
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading level={2}&gt;Fietsenstalling&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Fietsenstalling
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Voor de ingang staan fietsenrekken voor ongeveer 100 fietsen. Zet uw fiets in een rek, zodat de ingang
             vrij blijft.
@@ -26274,14 +26318,18 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Openbaar vervoer&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Openbaar vervoer
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Tram 12 stopt aan de Apollolaan, op 2 minuten lopen van de hal. Tram 5 en 24 en bus 246 stoppen bij het
             Olympiaplein, op 8 minuten lopen.
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading level={2}&gt;Betaald parkeren&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Betaald parkeren
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Bij de Apollohal zijn 12 parkeerplaatsen: 8 gewone plaatsen, 2 plaatsen voor elektrische auto’s en 2
             gehandicaptenparkeerplaatsen. U betaalt het reguliere parkeertarief van de buurt.
@@ -26296,7 +26344,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 8, wide: 10 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Locatie en plattegrond&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Locatie en plattegrond
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             De Apollohal staat op de hoek van de Apollolaan en het Muzenplein. Bekijk de indeling van de zalen op de{&#39; &#39;}
             &lt;Link href=&quot;#&quot;&gt;plattegrond van de Apollohal (PDF, 228 kB)&lt;/Link&gt;.
@@ -26361,7 +26411,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Faciliteiten
+          &lt;/Heading&gt;
           &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;4 kunstgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
             &lt;UnorderedList.Item&gt;2 natuurgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
@@ -26487,7 +26539,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 8, wide: 10 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Locatie
+          &lt;/Heading&gt;
           &lt;Image
             alt=&quot;Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West.&quot;
             aspectRatio=&quot;16:9&quot;
@@ -26574,8 +26628,8 @@ A Subgrid hands the columns it spans to its own Cells, so each column stacks on 
 Two Subgrids that each span the whole narrow grid also lay the right column out below the left one there, rather than interleaving the two.
 
 A Subgrid is also what lets a section heading sit the space the guidance asks for above the sections it introduces.
-A heading in a Cell of its own is spaced by the row gap of the Grid, which is an x-large where a level 2 heading asks for a small.
-Give that Grid a `gapVertical` of `none`, let the heading Cell set the small with an `ams-mb-s`, and put the Cells below it in a Subgrid with a `gapVertical` of `x-large`, which is the gap the Grid used to give them.
+A heading in a Cell of its own is spaced by the row gap of the Grid, which is an x-large where the guidance asks for a small or less.
+Give that Grid a `gapVertical` of `none`, let the heading Cell set the right amount with an `ams-mb-*` utility, and put the Cells below it in a Subgrid with a `gapVertical` of `x-large`, which is the gap the Grid used to give them.
 A section that shares its Grid with the Content Header needs a Grid of its own first, since the header depends on that row gap.
 
 ## Layout and spacing
@@ -27339,13 +27393,13 @@ const meta = {
         &lt;/Grid&gt;
         &lt;Spotlight color=&quot;azure&quot;&gt;
           {/*
-           * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+           * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
            * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
            * between the Cells.
            */}
           &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Zelfbouw
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
@@ -27448,7 +27502,7 @@ const meta = {
         &lt;Spotlight&gt;
           &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Contact
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
@@ -27621,13 +27675,13 @@ export const Default: StoryObj = {
     &lt;/Grid&gt;
     &lt;Spotlight color=&quot;azure&quot;&gt;
       {/*
-       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
        * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
        * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Zelfbouw&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
@@ -27673,7 +27727,7 @@ export const Default: StoryObj = {
     &lt;Spotlight&gt;
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Contact&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
@@ -27966,13 +28020,13 @@ export const Default: StoryObj = {
       &lt;/Grid&gt;
       &lt;Spotlight color=&quot;azure&quot;&gt;
         {/*
-         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
          * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
          * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Zelfbouw
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -28075,7 +28129,7 @@ export const Default: StoryObj = {
       &lt;Spotlight&gt;
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Contact
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -40550,7 +40604,7 @@ export const WithImageGallery: StoryObj = {
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
-        &lt;Heading level={2}&gt;Burgemeester en wethouders&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Burgemeester en wethouders&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
           gemeentesecretaris.
@@ -40692,7 +40746,9 @@ export const WithImageGallery: StoryObj = {
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
-            &lt;Heading level={2}&gt;Burgemeester en wethouders&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Burgemeester en wethouders
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
               gemeentesecretaris.
@@ -41630,7 +41686,9 @@ export const SubnavigationPage: StoryObj = {
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }}&gt;
-          &lt;Heading level={2}&gt;Burgemeester en wethouders&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Burgemeester en wethouders
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
             gemeentesecretaris.
@@ -44279,7 +44337,7 @@ export const Group: StoryObj = {
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
       &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Adres en contact&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Adres en contact&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -44319,7 +44377,7 @@ export const Group: StoryObj = {
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         {/* ams-prose sets the vertical rhythm between the elements of a cell, so none of them needs a margin. */}
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Persberichten&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Persberichten&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;De fractie laat van zich horen over de onderwerpen die in de raad spelen.&lt;/Paragraph&gt;
           &lt;LinkList&gt;
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
@@ -44337,7 +44395,7 @@ export const Group: StoryObj = {
           &lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Toespraken&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Toespraken&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;Lees na wat de fractie in de raadsvergaderingen naar voren bracht.&lt;/Paragraph&gt;
           &lt;LinkList&gt;
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
@@ -44364,7 +44422,7 @@ export const Group: StoryObj = {
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Raadsleden&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Raadsleden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -44381,7 +44439,7 @@ export const Group: StoryObj = {
                 {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                 &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+              &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
         ))}
@@ -44390,7 +44448,7 @@ export const Group: StoryObj = {
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Fractievertegenwoordigers&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -44400,7 +44458,7 @@ export const Group: StoryObj = {
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+              &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
         ))}
@@ -44460,7 +44518,7 @@ export const Group: StoryObj = {
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
               Adres en contact
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -44511,7 +44569,7 @@ export const Group: StoryObj = {
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={{ narrow: 1, medium: 1, wide: 2 }}
             &gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Persberichten
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -44533,7 +44591,7 @@ export const Group: StoryObj = {
               &lt;/StandaloneLink&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Toespraken
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;Lees na wat de fractie in de raadsvergaderingen naar voren bracht.&lt;/Paragraph&gt;
@@ -44562,7 +44620,7 @@ export const Group: StoryObj = {
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
               Raadsleden
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -44581,7 +44639,7 @@ export const Group: StoryObj = {
                     {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                     &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
                   &lt;/Card.Heading&gt;
-                  &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
                 &lt;/Card&gt;
               &lt;/Grid.Cell&gt;
             ))}
@@ -44590,7 +44648,7 @@ export const Group: StoryObj = {
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
               Fractievertegenwoordigers
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -44602,7 +44660,7 @@ export const Group: StoryObj = {
                   &lt;Card.Heading level={3}&gt;
                     &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
                   &lt;/Card.Heading&gt;
-                  &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+                  &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
                 &lt;/Card&gt;
               &lt;/Grid.Cell&gt;
             ))}
@@ -44663,14 +44721,14 @@ export const Location: StoryObj = {
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     {/*
-     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
      * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
      * between the Cells.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
       &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -44769,7 +44827,7 @@ export const Location: StoryObj = {
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
       {/* The heading and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Locatie&lt;/Heading&gt;
         &lt;Image
           alt=&quot;Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West.&quot;
           aspectRatio=&quot;16:9&quot;
@@ -44832,14 +44890,14 @@ export const Location: StoryObj = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
         {/*
-         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
          * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
          * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
               Faciliteiten
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -44978,7 +45036,9 @@ export const Location: StoryObj = {
             span={{ narrow: 4, medium: 8, wide: 10 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Locatie
+            &lt;/Heading&gt;
             &lt;Image
               alt=&quot;Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West.&quot;
               aspectRatio=&quot;16:9&quot;
@@ -45057,7 +45117,7 @@ export const LocationLarge: StoryObj = {
     &lt;/Grid&gt;
     &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Over de Apollohal&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Over de Apollohal&lt;/Heading&gt;
         &lt;Paragraph&gt;
           De Apollohal is een sporthal in Amsterdam-Zuid met moderne voorzieningen en een rijke sporthistorie. Het
           gebouw heeft 1 grote zaal en 2 gymzalen en is geschikt voor veel verschillende sporten en evenementen.
@@ -45072,7 +45132,7 @@ export const LocationLarge: StoryObj = {
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -45085,7 +45145,7 @@ export const LocationLarge: StoryObj = {
               {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
               &lt;Card.Link href=&quot;#&quot;&gt;Grote zaal&lt;/Card.Link&gt;
             &lt;/Card.Heading&gt;
-            &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
+            &lt;Paragraph&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
           &lt;/Card&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={4}&gt;
@@ -45094,7 +45154,7 @@ export const LocationLarge: StoryObj = {
             &lt;Card.Heading level={3}&gt;
               &lt;Card.Link href=&quot;#&quot;&gt;Du Midi benedenzaal&lt;/Card.Link&gt;
             &lt;/Card.Heading&gt;
-            &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
+            &lt;Paragraph&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
           &lt;/Card&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell span={4}&gt;
@@ -45103,7 +45163,7 @@ export const LocationLarge: StoryObj = {
             &lt;Card.Heading level={3}&gt;
               &lt;Card.Link href=&quot;#&quot;&gt;Du Midi bovenzaal&lt;/Card.Link&gt;
             &lt;/Card.Heading&gt;
-            &lt;Paragraph size=&quot;small&quot;&gt;
+            &lt;Paragraph&gt;
               Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
             &lt;/Paragraph&gt;
           &lt;/Card&gt;
@@ -45113,7 +45173,7 @@ export const LocationLarge: StoryObj = {
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
       &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -45150,7 +45210,7 @@ export const LocationLarge: StoryObj = {
     &lt;Spotlight as=&quot;section&quot;&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Reserveren voor 1 tot 3 uur&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Reserveren voor 1 tot 3 uur&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;
             Huurt u een zaal voor 1 tot 3 uur? Dan reserveert u die zelf online in het reserveringssysteem.
           &lt;/Paragraph&gt;
@@ -45167,7 +45227,7 @@ export const LocationLarge: StoryObj = {
           &lt;/LinkList&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Langer dan 3 uur reserveren&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Langer dan 3 uur reserveren&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;
             Heeft u een zaal langer dan 3 uur nodig? Stuur dan een e-mail naar sportverhuur@amsterdam.nl. Vermeld uw
             naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
@@ -45176,7 +45236,7 @@ export const LocationLarge: StoryObj = {
           &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;Stuur uw aanvraag per e-mail in&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Evenementen&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Evenementen&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;
             In de grote zaal is plaats voor 550 toeschouwers. De zaal is geschikt voor sportevenementen, markten,
             yoga-evenementen, dansworkshops en concerten. In de hele Apollohal kunnen maximaal 1.000 bezoekers
@@ -45188,7 +45248,7 @@ export const LocationLarge: StoryObj = {
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Huisregels en tarieven&lt;/Heading&gt;
+          &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Huisregels en tarieven&lt;/Heading&gt;
           &lt;Paragraph color=&quot;inverse&quot;&gt;
             In de huisregels leest u wat er wel en niet mag in de Apollohal. In het tarievenoverzicht ziet u wat het
             huren van een zaal kost.
@@ -45206,14 +45266,14 @@ export const LocationLarge: StoryObj = {
     &lt;/Spotlight&gt;
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Gevonden voorwerpen&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Gevonden voorwerpen&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Bent u iets kwijtgeraakt in de Apollohal? Vraag ernaar bij de balie in de voorhal. Wij bewaren gevonden
           voorwerpen 4 weken.
         &lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-        &lt;Heading level={2}&gt;Contact en openingstijden&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Contact en openingstijden&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Apollolaan 4
           &lt;br /&gt;
@@ -45226,28 +45286,28 @@ export const LocationLarge: StoryObj = {
         &lt;Paragraph&gt;Maandag tot en met zondag van 08.30 tot 23.00 uur.&lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Rolstoeltoegankelijk&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Rolstoeltoegankelijk&lt;/Heading&gt;
         &lt;Paragraph&gt;
           De Apollohal is rolstoeltoegankelijk. Er is een aangepaste ingang, een lift naar de bovenzaal en er zijn 3
           rolstoeltoegankelijke toiletten.
         &lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-        &lt;Heading level={2}&gt;Fietsenstalling&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Fietsenstalling&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Voor de ingang staan fietsenrekken voor ongeveer 100 fietsen. Zet uw fiets in een rek, zodat de ingang
           vrij blijft.
         &lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Openbaar vervoer&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Openbaar vervoer&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Tram 12 stopt aan de Apollolaan, op 2 minuten lopen van de hal. Tram 5 en 24 en bus 246 stoppen bij het
           Olympiaplein, op 8 minuten lopen.
         &lt;/Paragraph&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-        &lt;Heading level={2}&gt;Betaald parkeren&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Betaald parkeren&lt;/Heading&gt;
         &lt;Paragraph&gt;
           Bij de Apollohal zijn 12 parkeerplaatsen: 8 gewone plaatsen, 2 plaatsen voor elektrische auto’s en 2
           gehandicaptenparkeerplaatsen. U betaalt het reguliere parkeertarief van de buurt.
@@ -45258,7 +45318,7 @@ export const LocationLarge: StoryObj = {
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
       {/* The heading, the paragraph and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Locatie en plattegrond&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Locatie en plattegrond&lt;/Heading&gt;
         &lt;Paragraph&gt;
           De Apollohal staat op de hoek van de Apollolaan en het Muzenplein. Bekijk de indeling van de zalen op de{&#39; &#39;}
           &lt;Link href=&quot;#&quot;&gt;plattegrond van de Apollohal (PDF, 228 kB)&lt;/Link&gt;.
@@ -45344,7 +45404,9 @@ export const LocationLarge: StoryObj = {
             span={{ narrow: 4, medium: 6, wide: 7 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Over de Apollohal&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Over de Apollohal
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               De Apollohal is een sporthal in Amsterdam-Zuid met moderne voorzieningen en een rijke sporthistorie. Het
               gebouw heeft 1 grote zaal en 2 gymzalen en is geschikt voor veel verschillende sporten en evenementen.
@@ -45359,7 +45421,7 @@ export const LocationLarge: StoryObj = {
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
               Zalen en sportmogelijkheden
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -45374,7 +45436,7 @@ export const LocationLarge: StoryObj = {
                   {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                   &lt;Card.Link href=&quot;#&quot;&gt;Grote zaal&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={4}&gt;
@@ -45383,7 +45445,7 @@ export const LocationLarge: StoryObj = {
                 &lt;Card.Heading level={3}&gt;
                   &lt;Card.Link href=&quot;#&quot;&gt;Du Midi benedenzaal&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell span={4}&gt;
@@ -45392,9 +45454,7 @@ export const LocationLarge: StoryObj = {
                 &lt;Card.Heading level={3}&gt;
                   &lt;Card.Link href=&quot;#&quot;&gt;Du Midi bovenzaal&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;
-                  Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
-                &lt;/Paragraph&gt;
+                &lt;Paragraph&gt;Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
           &lt;/Grid.Subgrid&gt;
@@ -45402,7 +45462,7 @@ export const LocationLarge: StoryObj = {
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
               Faciliteiten
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -45449,7 +45509,7 @@ export const LocationLarge: StoryObj = {
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={{ narrow: 1, medium: 1, wide: 2 }}
             &gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Reserveren voor 1 tot 3 uur
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -45468,7 +45528,7 @@ export const LocationLarge: StoryObj = {
               &lt;/LinkList&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Langer dan 3 uur reserveren
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -45485,7 +45545,7 @@ export const LocationLarge: StoryObj = {
               span={{ narrow: 4, medium: 4, wide: 5 }}
               start={{ narrow: 1, medium: 1, wide: 2 }}
             &gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Evenementen
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -45499,7 +45559,7 @@ export const LocationLarge: StoryObj = {
               &lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Huisregels en tarieven
               &lt;/Heading&gt;
               &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -45523,14 +45583,18 @@ export const LocationLarge: StoryObj = {
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Gevonden voorwerpen&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Gevonden voorwerpen
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Bent u iets kwijtgeraakt in de Apollohal? Vraag ernaar bij de balie in de voorhal. Wij bewaren gevonden
               voorwerpen 4 weken.
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading level={2}&gt;Contact en openingstijden&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Contact en openingstijden
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Apollolaan 4
               &lt;br /&gt;
@@ -45547,14 +45611,18 @@ export const LocationLarge: StoryObj = {
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Rolstoeltoegankelijk&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Rolstoeltoegankelijk
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               De Apollohal is rolstoeltoegankelijk. Er is een aangepaste ingang, een lift naar de bovenzaal en er zijn 3
               rolstoeltoegankelijke toiletten.
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading level={2}&gt;Fietsenstalling&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Fietsenstalling
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Voor de ingang staan fietsenrekken voor ongeveer 100 fietsen. Zet uw fiets in een rek, zodat de ingang
               vrij blijft.
@@ -45565,14 +45633,18 @@ export const LocationLarge: StoryObj = {
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Openbaar vervoer&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Openbaar vervoer
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Tram 12 stopt aan de Apollolaan, op 2 minuten lopen van de hal. Tram 5 en 24 en bus 246 stoppen bij het
               Olympiaplein, op 8 minuten lopen.
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading level={2}&gt;Betaald parkeren&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Betaald parkeren
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               Bij de Apollohal zijn 12 parkeerplaatsen: 8 gewone plaatsen, 2 plaatsen voor elektrische auto’s en 2
               gehandicaptenparkeerplaatsen. U betaalt het reguliere parkeertarief van de buurt.
@@ -45587,7 +45659,9 @@ export const LocationLarge: StoryObj = {
             span={{ narrow: 4, medium: 8, wide: 10 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Locatie en plattegrond&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Locatie en plattegrond
+            &lt;/Heading&gt;
             &lt;Paragraph&gt;
               De Apollohal staat op de hoek van de Apollolaan en het Muzenplein. Bekijk de indeling van de zalen op de{&#39; &#39;}
               &lt;Link href=&quot;#&quot;&gt;plattegrond van de Apollohal (PDF, 228 kB)&lt;/Link&gt;.
@@ -45644,7 +45718,7 @@ export const Sublocation: StoryObj = {
     &lt;/Grid&gt;
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Faciliteiten&lt;/Heading&gt;
         &lt;UnorderedList&gt;
           &lt;UnorderedList.Item&gt;4 kunstgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
           &lt;UnorderedList.Item&gt;2 natuurgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
@@ -45736,7 +45810,7 @@ export const Sublocation: StoryObj = {
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
       {/* The heading and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+        &lt;Heading level={2} size=&quot;level-3&quot;&gt;Locatie&lt;/Heading&gt;
         &lt;Image
           alt=&quot;Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West.&quot;
           aspectRatio=&quot;16:9&quot;
@@ -45792,7 +45866,9 @@ export const Sublocation: StoryObj = {
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Faciliteiten
+            &lt;/Heading&gt;
             &lt;UnorderedList&gt;
               &lt;UnorderedList.Item&gt;4 kunstgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
               &lt;UnorderedList.Item&gt;2 natuurgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
@@ -45918,7 +45994,9 @@ export const Sublocation: StoryObj = {
             span={{ narrow: 4, medium: 8, wide: 10 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Locatie
+            &lt;/Heading&gt;
             &lt;Image
               alt=&quot;Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West.&quot;
               aspectRatio=&quot;16:9&quot;
@@ -46218,7 +46296,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
             Adres en contact
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -46269,7 +46347,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Persberichten
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -46291,7 +46369,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             &lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Toespraken
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;Lees na wat de fractie in de raadsvergaderingen naar voren bracht.&lt;/Paragraph&gt;
@@ -46320,7 +46398,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
             Raadsleden
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -46339,7 +46417,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
                   {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                   &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
           ))}
@@ -46348,7 +46426,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
             Fractievertegenwoordigers
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -46360,7 +46438,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
                 &lt;Card.Heading level={3}&gt;
                   &lt;Card.Link href=&quot;#&quot;&gt;{name}&lt;/Card.Link&gt;
                 &lt;/Card.Heading&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;{role}&lt;/Paragraph&gt;
+                &lt;Paragraph&gt;{role}&lt;/Paragraph&gt;
               &lt;/Card&gt;
             &lt;/Grid.Cell&gt;
           ))}
@@ -46425,14 +46503,14 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       {/*
-       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
        * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
        * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
             Faciliteiten
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -46571,7 +46649,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 8, wide: 10 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Locatie
+          &lt;/Heading&gt;
           &lt;Image
             alt=&quot;Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West.&quot;
             aspectRatio=&quot;16:9&quot;
@@ -46658,7 +46738,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 6, wide: 7 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Over de Apollohal&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Over de Apollohal
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             De Apollohal is een sporthal in Amsterdam-Zuid met moderne voorzieningen en een rijke sporthistorie. Het
             gebouw heeft 1 grote zaal en 2 gymzalen en is geschikt voor veel verschillende sporten en evenementen.
@@ -46673,7 +46755,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2} size=&quot;level-3&quot;&gt;
             Zalen en sportmogelijkheden
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -46688,7 +46770,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
                 {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                 &lt;Card.Link href=&quot;#&quot;&gt;Grote zaal&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
+              &lt;Paragraph&gt;Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.&lt;/Paragraph&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell span={4}&gt;
@@ -46697,7 +46779,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Du Midi benedenzaal&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
+              &lt;Paragraph&gt;Badminton, basketbal, volleybal, dansen en vechtsport.&lt;/Paragraph&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell span={4}&gt;
@@ -46706,9 +46788,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
               &lt;Card.Heading level={3}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Du Midi bovenzaal&lt;/Card.Link&gt;
               &lt;/Card.Heading&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;
-                Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
-              &lt;/Paragraph&gt;
+              &lt;Paragraph&gt;Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.&lt;/Paragraph&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid.Subgrid&gt;
@@ -46716,7 +46796,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; level={2} size=&quot;level-3&quot;&gt;
             Faciliteiten
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
@@ -46763,7 +46843,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Reserveren voor 1 tot 3 uur
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -46782,7 +46862,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             &lt;/LinkList&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Langer dan 3 uur reserveren
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -46799,7 +46879,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Evenementen
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -46813,7 +46893,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Huisregels en tarieven
             &lt;/Heading&gt;
             &lt;Paragraph color=&quot;inverse&quot;&gt;
@@ -46837,14 +46917,18 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Gevonden voorwerpen&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Gevonden voorwerpen
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Bent u iets kwijtgeraakt in de Apollohal? Vraag ernaar bij de balie in de voorhal. Wij bewaren gevonden
             voorwerpen 4 weken.
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading level={2}&gt;Contact en openingstijden&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Contact en openingstijden
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Apollolaan 4
             &lt;br /&gt;
@@ -46861,14 +46945,18 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Rolstoeltoegankelijk&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Rolstoeltoegankelijk
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             De Apollohal is rolstoeltoegankelijk. Er is een aangepaste ingang, een lift naar de bovenzaal en er zijn 3
             rolstoeltoegankelijke toiletten.
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading level={2}&gt;Fietsenstalling&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Fietsenstalling
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Voor de ingang staan fietsenrekken voor ongeveer 100 fietsen. Zet uw fiets in een rek, zodat de ingang
             vrij blijft.
@@ -46879,14 +46967,18 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Openbaar vervoer&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Openbaar vervoer
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Tram 12 stopt aan de Apollolaan, op 2 minuten lopen van de hal. Tram 5 en 24 en bus 246 stoppen bij het
             Olympiaplein, op 8 minuten lopen.
           &lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
-          &lt;Heading level={2}&gt;Betaald parkeren&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Betaald parkeren
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             Bij de Apollohal zijn 12 parkeerplaatsen: 8 gewone plaatsen, 2 plaatsen voor elektrische auto’s en 2
             gehandicaptenparkeerplaatsen. U betaalt het reguliere parkeertarief van de buurt.
@@ -46901,7 +46993,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 8, wide: 10 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Locatie en plattegrond&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Locatie en plattegrond
+          &lt;/Heading&gt;
           &lt;Paragraph&gt;
             De Apollohal staat op de hoek van de Apollolaan en het Muzenplein. Bekijk de indeling van de zalen op de{&#39; &#39;}
             &lt;Link href=&quot;#&quot;&gt;plattegrond van de Apollohal (PDF, 228 kB)&lt;/Link&gt;.
@@ -46966,7 +47060,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 4, wide: 5 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Faciliteiten
+          &lt;/Heading&gt;
           &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;4 kunstgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
             &lt;UnorderedList.Item&gt;2 natuurgrasvelden voor voetbal&lt;/UnorderedList.Item&gt;
@@ -47092,7 +47188,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           span={{ narrow: 4, medium: 8, wide: 10 }}
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
-          &lt;Heading level={2}&gt;Locatie&lt;/Heading&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+            Locatie
+          &lt;/Heading&gt;
           &lt;Image
             alt=&quot;Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West.&quot;
             aspectRatio=&quot;16:9&quot;
@@ -47179,8 +47277,8 @@ A Subgrid hands the columns it spans to its own Cells, so each column stacks on 
 Two Subgrids that each span the whole narrow grid also lay the right column out below the left one there, rather than interleaving the two.
 
 A Subgrid is also what lets a section heading sit the space the guidance asks for above the sections it introduces.
-A heading in a Cell of its own is spaced by the row gap of the Grid, which is an x-large where a level 2 heading asks for a small.
-Give that Grid a `gapVertical` of `none`, let the heading Cell set the small with an `ams-mb-s`, and put the Cells below it in a Subgrid with a `gapVertical` of `x-large`, which is the gap the Grid used to give them.
+A heading in a Cell of its own is spaced by the row gap of the Grid, which is an x-large where the guidance asks for a small or less.
+Give that Grid a `gapVertical` of `none`, let the heading Cell set the right amount with an `ams-mb-*` utility, and put the Cells below it in a Subgrid with a `gapVertical` of `x-large`, which is the gap the Grid used to give them.
 A section that shares its Grid with the Content Header needs a Grid of its own first, since the header depends on that row gap.
 
 ## Layout and spacing
@@ -47517,13 +47615,13 @@ const meta = {
         &lt;/Grid&gt;
         &lt;Spotlight color=&quot;azure&quot;&gt;
           {/*
-           * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+           * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
            * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
            * between the Cells.
            */}
           &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Zelfbouw
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
@@ -47626,7 +47724,7 @@ const meta = {
         &lt;Spotlight&gt;
           &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
                 Contact
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
@@ -47799,13 +47897,13 @@ export const Default: StoryObj = {
     &lt;/Grid&gt;
     &lt;Spotlight color=&quot;azure&quot;&gt;
       {/*
-       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
        * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
        * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Zelfbouw&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
@@ -47851,7 +47949,7 @@ export const Default: StoryObj = {
     &lt;Spotlight&gt;
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
+          &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Contact&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
@@ -48144,13 +48242,13 @@ export const Default: StoryObj = {
       &lt;/Grid&gt;
       &lt;Spotlight color=&quot;azure&quot;&gt;
         {/*
-         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
          * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
          * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Zelfbouw
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -48253,7 +48351,7 @@ export const Default: StoryObj = {
       &lt;Spotlight&gt;
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
               Contact
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
@@ -52671,6 +52769,11 @@ The general structure for a page is:
 
 Public websites cannot use the [Menu](/docs/components-navigation-menu--docs) component.
 They should offer navigation using the Page Header only.
+
+## Headings on a page
+
+Below the page title, a [Heading](/docs/components-text-heading--docs#sections-and-blocks) keeps the size of its level where it introduces a content body, and takes a `size` one step smaller where it introduces a block or a group of blocks.
+Most of the sections below are groups of blocks, so on all but the content page types every heading under the title takes the smaller size.
 
 ## Vertical space between sections
 
