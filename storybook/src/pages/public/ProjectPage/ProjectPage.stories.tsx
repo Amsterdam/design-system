@@ -247,9 +247,9 @@ const meta = {
         </Grid>
         <Spotlight color="azure">
           {/*
-           * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-           * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds. Left
-           * to the row gap, the heading would sit an x-large from the section it introduces.
+           * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+           * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+           * between the Cells.
            */}
           <Grid gapVertical="none" paddingVertical="x-large">
             <Grid.Cell className="ams-mb-s" span="all">
@@ -533,9 +533,9 @@ export const Default: StoryObj = {
     </Grid>
     <Spotlight color="azure">
       {/*
-       * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-       * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds. Left
-       * to the row gap, the heading would sit an x-large from the section it introduces.
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
        */}
       <Grid gapVertical="none" paddingVertical="x-large">
         <Grid.Cell className="ams-mb-s" span="all">

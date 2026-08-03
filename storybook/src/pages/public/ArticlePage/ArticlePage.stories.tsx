@@ -165,9 +165,9 @@ const meta = {
        */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       {/*
-       * The Grid gives up its row gap so the heading can set the medium the vertical space guidance asks for
-       * below a heading shown at the largest size, and the Subgrid puts the regular gap back between the Cells
-       * it holds. Left to the row gap, the heading would sit an x-large from the section it introduces.
+       * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
        */}
       <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell className="ams-mb-m" span="all">
@@ -341,9 +341,9 @@ export const Default: StoryObj = {
    */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
   {/*
-   * The Grid gives up its row gap so the heading can set the medium the vertical space guidance asks for
-   * below a heading shown at the largest size, and the Subgrid puts the regular gap back between the Cells
-   * it holds. Left to the row gap, the heading would sit an x-large from the section it introduces.
+   * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+   * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+   * between the Cells.
    */}
   <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell className="ams-mb-m" span="all">

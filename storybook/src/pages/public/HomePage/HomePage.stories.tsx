@@ -30,9 +30,9 @@ const meta = {
        */}
       <Overlap>{OverlapStory.args?.children}</Overlap>
       {/*
-       * The Grid gives up its row gap so the heading can set the medium the vertical space guidance asks for
-       * below a heading shown at the largest size, and the Subgrid puts the regular gap back between the Cells
-       * it holds. Left to the row gap, the heading would sit an x-large from the section it introduces.
+       * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
        */}
       <Grid gapVertical="none" paddingVertical="x-large">
         <Grid.Cell className="ams-mb-m" span="all">
@@ -129,9 +129,9 @@ export const Default: StoryObj = {
   {/* A hero that overlaps a full-width image with the block beneath it – see the Overlap component. */}
   <Overlap>{/* … */}</Overlap>
   {/*
-   * The Grid gives up its row gap so the heading can set the medium the vertical space guidance asks for
-   * below a heading shown at the largest size, and the Subgrid puts the regular gap back between the Cells
-   * it holds. Left to the row gap, the heading would sit an x-large from the section it introduces.
+   * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+   * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+   * between the Cells.
    */}
   <Grid gapVertical="none" paddingVertical="x-large">
     <Grid.Cell className="ams-mb-m" span="all">
