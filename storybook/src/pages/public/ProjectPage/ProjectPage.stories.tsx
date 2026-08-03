@@ -751,10 +751,13 @@ export const WithBreakout: StoryObj = {
           bericht voordat het werk in hun straat begint.
         </Paragraph>
         <Heading className="ams-mb-s" id="wanneer" level={2}>Wanneer</Heading>
-        <Paragraph className="ams-mb-l">
+        <Paragraph>
           De vernieuwing gebeurt in stappen, zodat het station open blijft. We beginnen aan de zuidkant en werken
           toe naar het Julianaplein. De laatste werkzaamheden ronden we naar verwachting in 2030 af.
         </Paragraph>
+      </Grid.Cell>
+      {/* A Progress List is a block of its own, so it takes its own Grid Cell and the row gap spaces it. */}
+      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         {/*
          * A ProgressList shows a timeline. status="completed" marks a finished step, status="current"
          * the one in progress, and a step with no status is still to come. Substeps are nested by hand
@@ -1184,10 +1187,13 @@ export const WithBreakout: StoryObj = {
             <Heading className="ams-mb-s" id="wanneer" level={2}>
               Wanneer
             </Heading>
-            <Paragraph className="ams-mb-l">
+            <Paragraph>
               De vernieuwing gebeurt in stappen, zodat het station open blijft. We beginnen aan de zuidkant en werken
               toe naar het Julianaplein. De laatste werkzaamheden ronden we naar verwachting in 2030 af.
             </Paragraph>
+          </Grid.Cell>
+          {/* A Progress List is a block of its own, so it takes its own Grid Cell and the row gap spaces it. */}
+          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
             {/*
              * A ProgressList shows a timeline. status="completed" marks a finished step, status="current"
              * the one in progress, and a step with no status is still to come. Substeps are nested by hand
