@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1880,54 +1880,61 @@ const meta = {
        * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
        */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-      &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      {/*
+       * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
+       */}
+      &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
             Meer nieuws
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
-              te maken met het verduurzamen van woningen.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
-              halen in het centrum.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Cell span={4}&gt;
+            &lt;Card&gt;
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
+              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Paragraph&gt;
+                U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
+                te maken met het verduurzamen van woningen.
+              &lt;/Paragraph&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={4}&gt;
+            &lt;Card&gt;
+              &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
+              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Paragraph&gt;
+                We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+              &lt;/Paragraph&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={4}&gt;
+            &lt;Card&gt;
+              &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
+              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Paragraph&gt;
+                Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
+                halen in het centrum.
+              &lt;/Paragraph&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
     &lt;/&gt;
   ),
@@ -2049,46 +2056,53 @@ export const Default: StoryObj = {
    * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
    */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+  {/*
+   * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+   * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+   * between the Cells.
+   */}
+  &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span=&quot;all&quot;&gt;
-      &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;Meer nieuws&lt;/Heading&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;Meer nieuws&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={4}&gt;
-      &lt;Card&gt;
-        {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
-        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-          &lt;Card.Heading level={3}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-        &lt;/Card.HeadingGroup&gt;
-        &lt;Paragraph&gt;
-          U kunt &#39;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
-        &lt;/Paragraph&gt;
-      &lt;/Card&gt;
-    &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={4}&gt;
-      &lt;Card&gt;
-        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
-        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-          &lt;Card.Heading level={3}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-        &lt;/Card.HeadingGroup&gt;
-        &lt;Paragraph&gt;We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.&lt;/Paragraph&gt;
-      &lt;/Card&gt;
-    &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={4}&gt;
-      &lt;Card&gt;
-        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
-        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-          &lt;Card.Heading level={3}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-        &lt;/Card.HeadingGroup&gt;
-        &lt;Paragraph&gt;Afvalboten, bakfietsen en ondergrondse containers in het centrum.&lt;/Paragraph&gt;
-      &lt;/Card&gt;
-    &lt;/Grid.Cell&gt;
+    &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;
+            U kunt &#39;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
+          &lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.&lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;Afvalboten, bakfietsen en ondergrondse containers in het centrum.&lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid.Subgrid&gt;
   &lt;/Grid&gt;
 &lt;/&gt;`,
         language: &#39;tsx&#39;,
@@ -2277,54 +2291,61 @@ export const Default: StoryObj = {
      * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
      */}
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-    &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+    {/*
+     * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
+     */}
+    &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
           Meer nieuws
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={4}&gt;
-        &lt;Card&gt;
-          {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
-          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-            &lt;Card.Heading level={3}&gt;
-              &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
-            &lt;/Card.Heading&gt;
-          &lt;/Card.HeadingGroup&gt;
-          &lt;Paragraph&gt;
-            U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
-            te maken met het verduurzamen van woningen.
-          &lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={4}&gt;
-        &lt;Card&gt;
-          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
-          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-            &lt;Card.Heading level={3}&gt;
-              &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
-            &lt;/Card.Heading&gt;
-          &lt;/Card.HeadingGroup&gt;
-          &lt;Paragraph&gt;
-            We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
-          &lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={4}&gt;
-        &lt;Card&gt;
-          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
-          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-            &lt;Card.Heading level={3}&gt;
-              &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
-            &lt;/Card.Heading&gt;
-          &lt;/Card.HeadingGroup&gt;
-          &lt;Paragraph&gt;
-            Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
-            halen in het centrum.
-          &lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/Grid.Cell&gt;
+      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
+              te maken met het verduurzamen van woningen.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
+              halen in het centrum.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
   &lt;/&gt;
 );</code></pre>
@@ -11738,31 +11759,38 @@ const meta = {
        * silently if that story ever switches to a render function, leaving this hero empty.
        */}
       &lt;Overlap&gt;{OverlapStory.args?.children}&lt;/Overlap&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/*
+       * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
+       */}
+      &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
           {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-          &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
             {topTaskSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        {/*
-         * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
-         * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
-         * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
-         * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
-         * both the wide and medium grids, and stack on the narrow one.
-         */}
-        {topTaskSection.tasks.map(({ title, description }) =&gt; (
-          &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-            &lt;Card&gt;
-              {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-              &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-        ))}
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          {/*
+           * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
+           * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
+           * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
+           * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
+           * both the wide and medium grids, and stack on the narrow one.
+           */}
+          {topTaskSection.tasks.map(({ title, description }) =&gt; (
+            &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Card&gt;
+                {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+                &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
       {/*
        * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -11784,27 +11812,29 @@ const meta = {
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-      &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
             {newsSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        {newsSection.items.map(({ title, description, image }) =&gt; (
-          &lt;Grid.Cell key={title} span={4}&gt;
-            &lt;Card&gt;
-              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-              &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
-              {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
-              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-        ))}
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          {newsSection.items.map(({ title, description, image }) =&gt; (
+            &lt;Grid.Cell key={title} span={4}&gt;
+              &lt;Card&gt;
+                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
+                {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
+                &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+                  &lt;Card.Heading level={3}&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+                  &lt;/Card.Heading&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
     &lt;/main&gt;
   ),
@@ -11828,29 +11858,36 @@ export const Default: StoryObj = {
   &lt;h1 className=&quot;ams-visually-hidden&quot;&gt;Homepage van de gemeente Amsterdam&lt;/h1&gt;
   {/* A hero that overlaps a full-width image with the block beneath it – see the Overlap component. */}
   &lt;Overlap&gt;{/* … */}&lt;/Overlap&gt;
-  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+  {/*
+   * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+   * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+   * between the Cells.
+   */}
+  &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span=&quot;all&quot;&gt;
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    {/*
-     * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
-     * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
-     * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
-     * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
-     * both the wide and medium grids, and stack on the narrow one.
-     */}
-    {topTaskSection.tasks.map(({ title, description }) =&gt; (
-      &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-        &lt;Card&gt;
-          {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-          &lt;Card.Heading level={3}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/Grid.Cell&gt;
-    ))}
+    &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      {/*
+       * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
+       * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
+       * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
+       * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
+       * both the wide and medium grids, and stack on the narrow one.
+       */}
+      {topTaskSection.tasks.map(({ title, description }) =&gt; (
+        &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+          &lt;Card&gt;
+            {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+            &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid.Subgrid&gt;
   &lt;/Grid&gt;
   {/*
    * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -11868,25 +11905,27 @@ export const Default: StoryObj = {
     &lt;/Grid&gt;
   &lt;/Spotlight&gt;
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+  &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span=&quot;all&quot;&gt;
-      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    {newsSection.items.map(({ title, description, image }) =&gt; (
-      &lt;Grid.Cell key={title} span={4}&gt;
-        &lt;Card&gt;
-          {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-          &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
-          {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
-          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-            &lt;Card.Heading level={3}&gt;
-              &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-            &lt;/Card.Heading&gt;
-          &lt;/Card.HeadingGroup&gt;
-          &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/Grid.Cell&gt;
-    ))}
+    &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      {newsSection.items.map(({ title, description, image }) =&gt; (
+        &lt;Grid.Cell key={title} span={4}&gt;
+          &lt;Card&gt;
+            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+            &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
+            {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid.Subgrid&gt;
   &lt;/Grid&gt;
 &lt;/main&gt;`,
         language: &#39;tsx&#39;,
@@ -11940,31 +11979,38 @@ export const Default: StoryObj = {
      * silently if that story ever switches to a render function, leaving this hero empty.
      */}
     &lt;Overlap&gt;{OverlapStory.args?.children}&lt;/Overlap&gt;
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    {/*
+     * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
+     */}
+    &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
         {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-        &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
           {topTaskSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      {/*
-       * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
-       * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
-       * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
-       * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
-       * both the wide and medium grids, and stack on the narrow one.
-       */}
-      {topTaskSection.tasks.map(({ title, description }) =&gt; (
-        &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Card&gt;
-            {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-            &lt;Card.Heading level={3}&gt;
-              &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-            &lt;/Card.Heading&gt;
-            &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-      ))}
+      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        {/*
+         * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
+         * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
+         * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
+         * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
+         * both the wide and medium grids, and stack on the narrow one.
+         */}
+        {topTaskSection.tasks.map(({ title, description }) =&gt; (
+          &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+            &lt;Card&gt;
+              {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+              &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+        ))}
+      &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
     {/*
      * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -11986,27 +12032,29 @@ export const Default: StoryObj = {
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+    &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
           {newsSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      {newsSection.items.map(({ title, description, image }) =&gt; (
-        &lt;Grid.Cell key={title} span={4}&gt;
-          &lt;Card&gt;
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
-            {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-      ))}
+      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        {newsSection.items.map(({ title, description, image }) =&gt; (
+          &lt;Grid.Cell key={title} span={4}&gt;
+            &lt;Card&gt;
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
+              {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
+              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+        ))}
+      &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
   &lt;/main&gt;)
 );</code></pre>
@@ -23828,14 +23876,14 @@ export const Group: StoryObj = {
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     {/*
-     * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
-     * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
-     * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+     * A Grid of its own, so its row gap can go. That gap would put an x-large below the heading, where the
+     * guidance asks for a small at this size, so the heading sets the space itself and the Subgrid puts the
+     * gap back between the Cells. It sets no paddingTop: the Content Header above already spaces the two.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Adres en contact&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -23912,17 +23960,17 @@ export const Group: StoryObj = {
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
-    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     {/*
-     * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
-     * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+     * the padding of the second rather than a margin on the Subgrid of the first.
      */}
-    &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+    &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Raadsleden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
         {councilMembers.map(({ name, role }) =&gt; (
           &lt;Grid.Cell key={name} span={4}&gt;
@@ -23942,8 +23990,11 @@ export const Group: StoryObj = {
           &lt;/Grid.Cell&gt;
         ))}
       &lt;/Grid.Subgrid&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+    &lt;/Grid&gt;
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -24006,18 +24057,16 @@ export const Group: StoryObj = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
         {/*
-         * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
-         * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
-         * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+         * A Grid of its own, so its row gap can go. That gap would put an x-large below the heading, where the
+         * guidance asks for a small at this size, so the heading sets the space itself and the Subgrid puts the
+         * gap back between the Cells. It sets no paddingTop: the Content Header above already spaces the two.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Adres en contact
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -24109,17 +24158,19 @@ export const Group: StoryObj = {
             &lt;/Grid.Cell&gt;
           &lt;/Grid&gt;
         &lt;/Spotlight&gt;
-        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         {/*
-         * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
-         * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+         * the padding of the second rather than a margin on the Subgrid of the first.
          */}
-        &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+        &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Raadsleden
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
             {councilMembers.map(({ name, role }) =&gt; (
               &lt;Grid.Cell key={name} span={4}&gt;
@@ -24139,8 +24190,13 @@ export const Group: StoryObj = {
               &lt;/Grid.Cell&gt;
             ))}
           &lt;/Grid.Subgrid&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+        &lt;/Grid&gt;
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Fractievertegenwoordigers
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -24211,13 +24267,14 @@ export const Location: StoryObj = {
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     {/*
-     * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -24381,17 +24438,16 @@ export const Location: StoryObj = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
         {/*
-         * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Faciliteiten
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -24618,12 +24674,13 @@ export const LocationLarge: StoryObj = {
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     {/*
-     * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -24663,8 +24720,8 @@ export const LocationLarge: StoryObj = {
     &lt;/Grid&gt;
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -24908,12 +24965,15 @@ export const LocationLarge: StoryObj = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
         {/*
-         * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Zalen en sportmogelijkheden
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -24953,12 +25013,10 @@ export const LocationLarge: StoryObj = {
         &lt;/Grid&gt;
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Faciliteiten
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -25771,18 +25829,16 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       {/*
-       * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
-       * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
-       * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+       * A Grid of its own, so its row gap can go. That gap would put an x-large below the heading, where the
+       * guidance asks for a small at this size, so the heading sets the space itself and the Subgrid puts the
+       * gap back between the Cells. It sets no paddingTop: the Content Header above already spaces the two.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Adres en contact
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -25874,17 +25930,19 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
-      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       {/*
-       * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
-       * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
-       * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+       * the padding of the second rather than a margin on the Subgrid of the first.
        */}
-      &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+      &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Raadsleden
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
           {councilMembers.map(({ name, role }) =&gt; (
             &lt;Grid.Cell key={name} span={4}&gt;
@@ -25904,8 +25962,13 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             &lt;/Grid.Cell&gt;
           ))}
         &lt;/Grid.Subgrid&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+      &lt;/Grid&gt;
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Fractievertegenwoordigers
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -25980,17 +26043,16 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       {/*
-       * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-       * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Faciliteiten
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -26225,12 +26287,15 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       {/*
-       * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-       * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Zalen en sportmogelijkheden
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -26270,12 +26335,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
       &lt;/Grid&gt;
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Faciliteiten
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -27291,41 +27354,48 @@ const meta = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
         &lt;Spotlight color=&quot;azure&quot;&gt;
-          &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          {/*
+           * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+           * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+           * between the Cells.
+           */}
+          &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
                 Zelfbouw
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
-            {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;Meer over de verschillende vormen van zelfbouw vindt u op:&lt;/Paragraph&gt;
-              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Zelfbouw
-              &lt;/StandaloneLink&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;
-                Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
-              &lt;/Paragraph&gt;
-              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Aanbod kavels
-              &lt;/StandaloneLink&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;
-                Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
-              &lt;/Paragraph&gt;
-              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Prikbord
-              &lt;/StandaloneLink&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.&lt;/Paragraph&gt;
-              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Nieuwsbrief zelfbouw
-              &lt;/StandaloneLink&gt;
-            &lt;/Grid.Cell&gt;
+            &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+              {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;Meer over de verschillende vormen van zelfbouw vindt u op:&lt;/Paragraph&gt;
+                &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                  Zelfbouw
+                &lt;/StandaloneLink&gt;
+              &lt;/Grid.Cell&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
+                &lt;/Paragraph&gt;
+                &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                  Aanbod kavels
+                &lt;/StandaloneLink&gt;
+              &lt;/Grid.Cell&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
+                &lt;/Paragraph&gt;
+                &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                  Prikbord
+                &lt;/StandaloneLink&gt;
+              &lt;/Grid.Cell&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.&lt;/Paragraph&gt;
+                &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                  Nieuwsbrief zelfbouw
+                &lt;/StandaloneLink&gt;
+              &lt;/Grid.Cell&gt;
+            &lt;/Grid.Subgrid&gt;
           &lt;/Grid&gt;
         &lt;/Spotlight&gt;
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
@@ -27396,41 +27466,43 @@ const meta = {
          * rather than repeating the azure of the first.
          */}
         &lt;Spotlight&gt;
-          &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
                 Contact
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;
-                Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
-                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
-                  zelfbouwcentrumeiland@amsterdam.nl
-                &lt;/Link&gt;
-              &lt;/Paragraph&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;
-                Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
-              &lt;/Paragraph&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-              {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-              &lt;Paragraph color=&quot;inverse&quot;&gt;
-                Maud van Esch
-                &lt;br /&gt;
-                Omgevingsmanager IJburg
-                &lt;br /&gt;
-                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
-                  m.van.esch@amsterdam.nl
-                &lt;/Link&gt;
-                &lt;br /&gt;
-                &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
-                  06 4589 9537
-                &lt;/Link&gt;
-                &lt;br /&gt;
-                Voor vragen over werkzaamheden of bouwactiviteiten
-              &lt;/Paragraph&gt;
-            &lt;/Grid.Cell&gt;
+            &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+                  &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
+                    zelfbouwcentrumeiland@amsterdam.nl
+                  &lt;/Link&gt;
+                &lt;/Paragraph&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
+                &lt;/Paragraph&gt;
+              &lt;/Grid.Cell&gt;
+              &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+                {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Maud van Esch
+                  &lt;br /&gt;
+                  Omgevingsmanager IJburg
+                  &lt;br /&gt;
+                  &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
+                    m.van.esch@amsterdam.nl
+                  &lt;/Link&gt;
+                  &lt;br /&gt;
+                  &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
+                    06 4589 9537
+                  &lt;/Link&gt;
+                  &lt;br /&gt;
+                  Voor vragen over werkzaamheden of bouwactiviteiten
+                &lt;/Paragraph&gt;
+              &lt;/Grid.Cell&gt;
+            &lt;/Grid.Subgrid&gt;
           &lt;/Grid&gt;
         &lt;/Spotlight&gt;
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
@@ -27568,18 +27640,25 @@ export const Default: StoryObj = {
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     &lt;Spotlight color=&quot;azure&quot;&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/*
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
+       */}
+      &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Paragraph color=&quot;inverse&quot;&gt;
-            Meer over de verschillende vormen van zelfbouw vindt u op:
-          &lt;/Paragraph&gt;
-          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Zelfbouw&lt;/StandaloneLink&gt;
-        &lt;/Grid.Cell&gt;
-        {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+            &lt;Paragraph color=&quot;inverse&quot;&gt;
+              Meer over de verschillende vormen van zelfbouw vindt u op:
+            &lt;/Paragraph&gt;
+            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Zelfbouw&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
@@ -27612,26 +27691,28 @@ export const Default: StoryObj = {
      * rather than repeating the azure of the first.
      */}
     &lt;Spotlight&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-          &lt;Paragraph color=&quot;inverse&quot;&gt;
-            Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
-            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;zelfbouwcentrumeiland@amsterdam.nl&lt;/Link&gt;
-          &lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-          {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-          &lt;Paragraph color=&quot;inverse&quot;&gt;
-            Maud van Esch
-            &lt;br /&gt;
-            Omgevingsmanager IJburg
-            &lt;br /&gt;
-            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;m.van.esch@amsterdam.nl&lt;/Link&gt;
-          &lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+            &lt;Paragraph color=&quot;inverse&quot;&gt;
+              Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+              &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;zelfbouwcentrumeiland@amsterdam.nl&lt;/Link&gt;
+            &lt;/Paragraph&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+            {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+            &lt;Paragraph color=&quot;inverse&quot;&gt;
+              Maud van Esch
+              &lt;br /&gt;
+              Omgevingsmanager IJburg
+              &lt;br /&gt;
+              &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;m.van.esch@amsterdam.nl&lt;/Link&gt;
+            &lt;/Paragraph&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
@@ -27904,41 +27985,48 @@ export const Default: StoryObj = {
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       &lt;Spotlight color=&quot;azure&quot;&gt;
-        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        {/*
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
+         */}
+        &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
               Zelfbouw
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
-          {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;Meer over de verschillende vormen van zelfbouw vindt u op:&lt;/Paragraph&gt;
-            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-              Zelfbouw
-            &lt;/StandaloneLink&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;
-              Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
-            &lt;/Paragraph&gt;
-            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-              Aanbod kavels
-            &lt;/StandaloneLink&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;
-              Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
-            &lt;/Paragraph&gt;
-            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-              Prikbord
-            &lt;/StandaloneLink&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.&lt;/Paragraph&gt;
-            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-              Nieuwsbrief zelfbouw
-            &lt;/StandaloneLink&gt;
-          &lt;/Grid.Cell&gt;
+          &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+            {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;Meer over de verschillende vormen van zelfbouw vindt u op:&lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Zelfbouw
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Aanbod kavels
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Prikbord
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.&lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Nieuwsbrief zelfbouw
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
@@ -28009,41 +28097,43 @@ export const Default: StoryObj = {
        * rather than repeating the azure of the first.
        */}
       &lt;Spotlight&gt;
-        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
               Contact
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;
-              Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
-              &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
-                zelfbouwcentrumeiland@amsterdam.nl
-              &lt;/Link&gt;
-            &lt;/Paragraph&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;
-              Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
-            &lt;/Paragraph&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-            {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-            &lt;Paragraph color=&quot;inverse&quot;&gt;
-              Maud van Esch
-              &lt;br /&gt;
-              Omgevingsmanager IJburg
-              &lt;br /&gt;
-              &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
-                m.van.esch@amsterdam.nl
-              &lt;/Link&gt;
-              &lt;br /&gt;
-              &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
-                06 4589 9537
-              &lt;/Link&gt;
-              &lt;br /&gt;
-              Voor vragen over werkzaamheden of bouwactiviteiten
-            &lt;/Paragraph&gt;
-          &lt;/Grid.Cell&gt;
+          &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
+                  zelfbouwcentrumeiland@amsterdam.nl
+                &lt;/Link&gt;
+              &lt;/Paragraph&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
+              &lt;/Paragraph&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Maud van Esch
+                &lt;br /&gt;
+                Omgevingsmanager IJburg
+                &lt;br /&gt;
+                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
+                  m.van.esch@amsterdam.nl
+                &lt;/Link&gt;
+                &lt;br /&gt;
+                &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
+                  06 4589 9537
+                &lt;/Link&gt;
+                &lt;br /&gt;
+                Voor vragen over werkzaamheden of bouwactiviteiten
+              &lt;/Paragraph&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
@@ -34831,54 +34921,61 @@ const meta = {
        * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
        */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-      &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      {/*
+       * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
+       */}
+      &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
             Meer nieuws
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
-              te maken met het verduurzamen van woningen.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={4}&gt;
-          &lt;Card&gt;
-            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;
-              Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
-              halen in het centrum.
-            &lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Cell span={4}&gt;
+            &lt;Card&gt;
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
+              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Paragraph&gt;
+                U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
+                te maken met het verduurzamen van woningen.
+              &lt;/Paragraph&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={4}&gt;
+            &lt;Card&gt;
+              &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
+              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Paragraph&gt;
+                We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+              &lt;/Paragraph&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={4}&gt;
+            &lt;Card&gt;
+              &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
+              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Paragraph&gt;
+                Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
+                halen in het centrum.
+              &lt;/Paragraph&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
     &lt;/&gt;
   ),
@@ -35000,46 +35097,53 @@ export const Default: StoryObj = {
    * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
    */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+  {/*
+   * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+   * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+   * between the Cells.
+   */}
+  &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span=&quot;all&quot;&gt;
-      &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;Meer nieuws&lt;/Heading&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;Meer nieuws&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={4}&gt;
-      &lt;Card&gt;
-        {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
-        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-          &lt;Card.Heading level={3}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-        &lt;/Card.HeadingGroup&gt;
-        &lt;Paragraph&gt;
-          U kunt &#39;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
-        &lt;/Paragraph&gt;
-      &lt;/Card&gt;
-    &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={4}&gt;
-      &lt;Card&gt;
-        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
-        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-          &lt;Card.Heading level={3}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-        &lt;/Card.HeadingGroup&gt;
-        &lt;Paragraph&gt;We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.&lt;/Paragraph&gt;
-      &lt;/Card&gt;
-    &lt;/Grid.Cell&gt;
-    &lt;Grid.Cell span={4}&gt;
-      &lt;Card&gt;
-        &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
-        &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-          &lt;Card.Heading level={3}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-        &lt;/Card.HeadingGroup&gt;
-        &lt;Paragraph&gt;Afvalboten, bakfietsen en ondergrondse containers in het centrum.&lt;/Paragraph&gt;
-      &lt;/Card&gt;
-    &lt;/Grid.Cell&gt;
+    &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=1&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;
+            U kunt &#39;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
+          &lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=2&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.&lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell span={4}&gt;
+        &lt;Card&gt;
+          &lt;Card.Image alt=&quot;&quot; src=&quot;https://picsum.photos/640/360?random=3&quot; /&gt;
+          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+          &lt;/Card.HeadingGroup&gt;
+          &lt;Paragraph&gt;Afvalboten, bakfietsen en ondergrondse containers in het centrum.&lt;/Paragraph&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid.Subgrid&gt;
   &lt;/Grid&gt;
 &lt;/&gt;`,
         language: &#39;tsx&#39;,
@@ -35228,54 +35332,61 @@ export const Default: StoryObj = {
      * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
      */}
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-    &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+    {/*
+     * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
+     */}
+    &lt;Grid aria-labelledby=&quot;meer-nieuws&quot; as=&quot;aside&quot; gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; id=&quot;meer-nieuws&quot; level={2} size=&quot;level-1&quot;&gt;
           Meer nieuws
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={4}&gt;
-        &lt;Card&gt;
-          {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
-          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-            &lt;Card.Heading level={3}&gt;
-              &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
-            &lt;/Card.Heading&gt;
-          &lt;/Card.HeadingGroup&gt;
-          &lt;Paragraph&gt;
-            U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
-            te maken met het verduurzamen van woningen.
-          &lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={4}&gt;
-        &lt;Card&gt;
-          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
-          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-            &lt;Card.Heading level={3}&gt;
-              &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
-            &lt;/Card.Heading&gt;
-          &lt;/Card.HeadingGroup&gt;
-          &lt;Paragraph&gt;
-            We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
-          &lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/Grid.Cell&gt;
-      &lt;Grid.Cell span={4}&gt;
-        &lt;Card&gt;
-          &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
-          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-            &lt;Card.Heading level={3}&gt;
-              &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
-            &lt;/Card.Heading&gt;
-          &lt;/Card.HeadingGroup&gt;
-          &lt;Paragraph&gt;
-            Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
-            halen in het centrum.
-          &lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/Grid.Cell&gt;
+      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 1)} /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Waarom we op zoek zijn naar vleermuizen&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              U kunt &amp;apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
+              te maken met het verduurzamen van woningen.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 2)} /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Meer aandacht voor voetgangers, een jaar lang&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell span={4}&gt;
+          &lt;Card&gt;
+            &lt;Card.Image alt=&quot;&quot; src={exampleImageSource(640, 360, 3)} /&gt;
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;Nieuwe manieren om afval op te halen&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;
+              Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
+              halen in het centrum.
+            &lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
   &lt;/&gt;
 );</code></pre>
@@ -41504,31 +41615,38 @@ const meta = {
        * silently if that story ever switches to a render function, leaving this hero empty.
        */}
       &lt;Overlap&gt;{OverlapStory.args?.children}&lt;/Overlap&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/*
+       * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
+       */}
+      &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
           {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-          &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
             {topTaskSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        {/*
-         * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
-         * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
-         * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
-         * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
-         * both the wide and medium grids, and stack on the narrow one.
-         */}
-        {topTaskSection.tasks.map(({ title, description }) =&gt; (
-          &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-            &lt;Card&gt;
-              {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-              &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-        ))}
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          {/*
+           * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
+           * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
+           * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
+           * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
+           * both the wide and medium grids, and stack on the narrow one.
+           */}
+          {topTaskSection.tasks.map(({ title, description }) =&gt; (
+            &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Card&gt;
+                {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+                &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
       {/*
        * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -41550,27 +41668,29 @@ const meta = {
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-      &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
             {newsSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        {newsSection.items.map(({ title, description, image }) =&gt; (
-          &lt;Grid.Cell key={title} span={4}&gt;
-            &lt;Card&gt;
-              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-              &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
-              {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
-              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-            &lt;/Card&gt;
-          &lt;/Grid.Cell&gt;
-        ))}
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          {newsSection.items.map(({ title, description, image }) =&gt; (
+            &lt;Grid.Cell key={title} span={4}&gt;
+              &lt;Card&gt;
+                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
+                {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
+                &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+                  &lt;Card.Heading level={3}&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+                  &lt;/Card.Heading&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+              &lt;/Card&gt;
+            &lt;/Grid.Cell&gt;
+          ))}
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
     &lt;/main&gt;
   ),
@@ -41594,29 +41714,36 @@ export const Default: StoryObj = {
   &lt;h1 className=&quot;ams-visually-hidden&quot;&gt;Homepage van de gemeente Amsterdam&lt;/h1&gt;
   {/* A hero that overlaps a full-width image with the block beneath it – see the Overlap component. */}
   &lt;Overlap&gt;{/* … */}&lt;/Overlap&gt;
-  &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+  {/*
+   * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+   * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+   * between the Cells.
+   */}
+  &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span=&quot;all&quot;&gt;
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    {/*
-     * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
-     * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
-     * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
-     * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
-     * both the wide and medium grids, and stack on the narrow one.
-     */}
-    {topTaskSection.tasks.map(({ title, description }) =&gt; (
-      &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-        &lt;Card&gt;
-          {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-          &lt;Card.Heading level={3}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/Grid.Cell&gt;
-    ))}
+    &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      {/*
+       * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
+       * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
+       * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
+       * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
+       * both the wide and medium grids, and stack on the narrow one.
+       */}
+      {topTaskSection.tasks.map(({ title, description }) =&gt; (
+        &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+          &lt;Card&gt;
+            {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+            &lt;Card.Heading level={3}&gt;
+              &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+            &lt;/Card.Heading&gt;
+            &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid.Subgrid&gt;
   &lt;/Grid&gt;
   {/*
    * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -41634,25 +41761,27 @@ export const Default: StoryObj = {
     &lt;/Grid&gt;
   &lt;/Spotlight&gt;
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+  &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span=&quot;all&quot;&gt;
-      &lt;Heading level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
+      &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    {newsSection.items.map(({ title, description, image }) =&gt; (
-      &lt;Grid.Cell key={title} span={4}&gt;
-        &lt;Card&gt;
-          {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-          &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
-          {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
-          &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-            &lt;Card.Heading level={3}&gt;
-              &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-            &lt;/Card.Heading&gt;
-          &lt;/Card.HeadingGroup&gt;
-          &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/Grid.Cell&gt;
-    ))}
+    &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      {newsSection.items.map(({ title, description, image }) =&gt; (
+        &lt;Grid.Cell key={title} span={4}&gt;
+          &lt;Card&gt;
+            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+            &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
+            {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
+            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+            &lt;/Card.HeadingGroup&gt;
+            &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+          &lt;/Card&gt;
+        &lt;/Grid.Cell&gt;
+      ))}
+    &lt;/Grid.Subgrid&gt;
   &lt;/Grid&gt;
 &lt;/main&gt;`,
         language: &#39;tsx&#39;,
@@ -41706,31 +41835,38 @@ export const Default: StoryObj = {
      * silently if that story ever switches to a render function, leaving this hero empty.
      */}
     &lt;Overlap&gt;{OverlapStory.args?.children}&lt;/Overlap&gt;
-    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+    {/*
+     * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
+     */}
+    &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
         {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
-        &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
           {topTaskSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      {/*
-       * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
-       * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
-       * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
-       * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
-       * both the wide and medium grids, and stack on the narrow one.
-       */}
-      {topTaskSection.tasks.map(({ title, description }) =&gt; (
-        &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Card&gt;
-            {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
-            &lt;Card.Heading level={3}&gt;
-              &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-            &lt;/Card.Heading&gt;
-            &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-      ))}
+      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        {/*
+         * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
+         * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
+         * fill the row exactly; on the medium grid both drop to two per row, and on the narrow grid every cell
+         * is full width. The two Spotlight blocks at {{ narrow: 4, medium: 4, wide: 6 }} sit side by side on
+         * both the wide and medium grids, and stack on the narrow one.
+         */}
+        {topTaskSection.tasks.map(({ title, description }) =&gt; (
+          &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+            &lt;Card&gt;
+              {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
+              &lt;Card.Heading level={3}&gt;
+                &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+              &lt;/Card.Heading&gt;
+              &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+        ))}
+      &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
     {/*
      * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -41752,27 +41888,29 @@ export const Default: StoryObj = {
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-    &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+    &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
-        &lt;Heading level={2} size=&quot;level-1&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;
           {newsSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      {newsSection.items.map(({ title, description, image }) =&gt; (
-        &lt;Grid.Cell key={title} span={4}&gt;
-          &lt;Card&gt;
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
-            {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
-            &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-      ))}
+      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        {newsSection.items.map(({ title, description, image }) =&gt; (
+          &lt;Grid.Cell key={title} span={4}&gt;
+            &lt;Card&gt;
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
+              {/* Card.HeadingGroup adds a short tagline above the Card’s heading. */}
+              &lt;Card.HeadingGroup tagline=&quot;Nieuws&quot;&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{title}&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Paragraph&gt;{description}&lt;/Paragraph&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+        ))}
+      &lt;/Grid.Subgrid&gt;
     &lt;/Grid&gt;
   &lt;/main&gt;)
 );</code></pre>
@@ -51100,14 +51238,14 @@ export const Group: StoryObj = {
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     {/*
-     * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
-     * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
-     * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+     * A Grid of its own, so its row gap can go. That gap would put an x-large below the heading, where the
+     * guidance asks for a small at this size, so the heading sets the space itself and the Subgrid puts the
+     * gap back between the Cells. It sets no paddingTop: the Content Header above already spaces the two.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Adres en contact&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -51184,17 +51322,17 @@ export const Group: StoryObj = {
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
-    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     {/*
-     * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
-     * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+     * the padding of the second rather than a margin on the Subgrid of the first.
      */}
-    &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+    &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Raadsleden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
         {councilMembers.map(({ name, role }) =&gt; (
           &lt;Grid.Cell key={name} span={4}&gt;
@@ -51214,8 +51352,11 @@ export const Group: StoryObj = {
           &lt;/Grid.Cell&gt;
         ))}
       &lt;/Grid.Subgrid&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+    &lt;/Grid&gt;
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -51278,18 +51419,16 @@ export const Group: StoryObj = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
         {/*
-         * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
-         * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
-         * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+         * A Grid of its own, so its row gap can go. That gap would put an x-large below the heading, where the
+         * guidance asks for a small at this size, so the heading sets the space itself and the Subgrid puts the
+         * gap back between the Cells. It sets no paddingTop: the Content Header above already spaces the two.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Adres en contact
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -51381,17 +51520,19 @@ export const Group: StoryObj = {
             &lt;/Grid.Cell&gt;
           &lt;/Grid&gt;
         &lt;/Spotlight&gt;
-        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         {/*
-         * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
-         * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+         * the padding of the second rather than a margin on the Subgrid of the first.
          */}
-        &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+        &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Raadsleden
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
             {councilMembers.map(({ name, role }) =&gt; (
               &lt;Grid.Cell key={name} span={4}&gt;
@@ -51411,8 +51552,13 @@ export const Group: StoryObj = {
               &lt;/Grid.Cell&gt;
             ))}
           &lt;/Grid.Subgrid&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+        &lt;/Grid&gt;
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Fractievertegenwoordigers
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -51483,13 +51629,14 @@ export const Location: StoryObj = {
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     {/*
-     * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -51653,17 +51800,16 @@ export const Location: StoryObj = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
         {/*
-         * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Faciliteiten
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -51890,12 +52036,13 @@ export const LocationLarge: StoryObj = {
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     {/*
-     * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-        &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -51935,8 +52082,8 @@ export const LocationLarge: StoryObj = {
     &lt;/Grid&gt;
     &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-      &lt;Grid.Cell className=&quot;ams-mb-s&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
-        &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;Faciliteiten&lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
@@ -52180,12 +52327,15 @@ export const LocationLarge: StoryObj = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
         {/*
-         * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
          */}
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-          &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-            &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Zalen en sportmogelijkheden
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -52225,12 +52375,10 @@ export const LocationLarge: StoryObj = {
         &lt;/Grid&gt;
         &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-          &lt;Grid.Cell
-            className=&quot;ams-mb-s&quot;
-            span={{ narrow: 4, medium: 8, wide: 10 }}
-            start={{ narrow: 1, medium: 1, wide: 2 }}
-          &gt;
-            &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+              Faciliteiten
+            &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Subgrid
             gapVertical=&quot;x-large&quot;
@@ -53043,18 +53191,16 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       {/*
-       * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
-       * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
-       * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+       * A Grid of its own, so its row gap can go. That gap would put an x-large below the heading, where the
+       * guidance asks for a small at this size, so the heading sets the space itself and the Subgrid puts the
+       * gap back between the Cells. It sets no paddingTop: the Content Header above already spaces the two.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Adres en contact&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Adres en contact
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -53146,17 +53292,19 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
-      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
       {/*
-       * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
-       * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
-       * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+       * the padding of the second rather than a margin on the Subgrid of the first.
        */}
-      &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Raadsleden&lt;/Heading&gt;
+      &lt;Grid gapVertical=&quot;none&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Raadsleden
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Subgrid className=&quot;ams-mb-xl&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
           {councilMembers.map(({ name, role }) =&gt; (
             &lt;Grid.Cell key={name} span={4}&gt;
@@ -53176,8 +53324,13 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
             &lt;/Grid.Cell&gt;
           ))}
         &lt;/Grid.Subgrid&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Fractievertegenwoordigers&lt;/Heading&gt;
+      &lt;/Grid&gt;
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Fractievertegenwoordigers
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {groupRepresentatives.map(({ name, role }) =&gt; (
@@ -53252,17 +53405,16 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       {/*
-       * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-       * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Faciliteiten
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -53497,12 +53649,15 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       {/*
-       * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-       * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
-        &lt;Grid.Cell className=&quot;ams-mb-s&quot; span=&quot;all&quot;&gt;
-          &lt;Heading level={2}&gt;Zalen en sportmogelijkheden&lt;/Heading&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Zalen en sportmogelijkheden
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -53542,12 +53697,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
       &lt;/Grid&gt;
       &lt;Grid gapVertical=&quot;none&quot; paddingBottom=&quot;x-large&quot;&gt;
         {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
-        &lt;Grid.Cell
-          className=&quot;ams-mb-s&quot;
-          span={{ narrow: 4, medium: 8, wide: 10 }}
-          start={{ narrow: 1, medium: 1, wide: 2 }}
-        &gt;
-          &lt;Heading level={2}&gt;Faciliteiten&lt;/Heading&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; level={2}&gt;
+            Faciliteiten
+          &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Subgrid
           gapVertical=&quot;x-large&quot;
@@ -54345,41 +54498,48 @@ const meta = {
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
         &lt;Spotlight color=&quot;azure&quot;&gt;
-          &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          {/*
+           * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+           * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+           * between the Cells.
+           */}
+          &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
                 Zelfbouw
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
-            {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;Meer over de verschillende vormen van zelfbouw vindt u op:&lt;/Paragraph&gt;
-              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Zelfbouw
-              &lt;/StandaloneLink&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;
-                Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
-              &lt;/Paragraph&gt;
-              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Aanbod kavels
-              &lt;/StandaloneLink&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;
-                Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
-              &lt;/Paragraph&gt;
-              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Prikbord
-              &lt;/StandaloneLink&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.&lt;/Paragraph&gt;
-              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Nieuwsbrief zelfbouw
-              &lt;/StandaloneLink&gt;
-            &lt;/Grid.Cell&gt;
+            &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+              {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;Meer over de verschillende vormen van zelfbouw vindt u op:&lt;/Paragraph&gt;
+                &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                  Zelfbouw
+                &lt;/StandaloneLink&gt;
+              &lt;/Grid.Cell&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
+                &lt;/Paragraph&gt;
+                &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                  Aanbod kavels
+                &lt;/StandaloneLink&gt;
+              &lt;/Grid.Cell&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
+                &lt;/Paragraph&gt;
+                &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                  Prikbord
+                &lt;/StandaloneLink&gt;
+              &lt;/Grid.Cell&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.&lt;/Paragraph&gt;
+                &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                  Nieuwsbrief zelfbouw
+                &lt;/StandaloneLink&gt;
+              &lt;/Grid.Cell&gt;
+            &lt;/Grid.Subgrid&gt;
           &lt;/Grid&gt;
         &lt;/Spotlight&gt;
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
@@ -54450,41 +54610,43 @@ const meta = {
          * rather than repeating the azure of the first.
          */}
         &lt;Spotlight&gt;
-          &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
-              &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+              &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
                 Contact
               &lt;/Heading&gt;
             &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;
-                Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
-                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
-                  zelfbouwcentrumeiland@amsterdam.nl
-                &lt;/Link&gt;
-              &lt;/Paragraph&gt;
-              &lt;Paragraph color=&quot;inverse&quot;&gt;
-                Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
-              &lt;/Paragraph&gt;
-            &lt;/Grid.Cell&gt;
-            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-              {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-              &lt;Paragraph color=&quot;inverse&quot;&gt;
-                Maud van Esch
-                &lt;br /&gt;
-                Omgevingsmanager IJburg
-                &lt;br /&gt;
-                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
-                  m.van.esch@amsterdam.nl
-                &lt;/Link&gt;
-                &lt;br /&gt;
-                &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
-                  06 4589 9537
-                &lt;/Link&gt;
-                &lt;br /&gt;
-                Voor vragen over werkzaamheden of bouwactiviteiten
-              &lt;/Paragraph&gt;
-            &lt;/Grid.Cell&gt;
+            &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+                  &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
+                    zelfbouwcentrumeiland@amsterdam.nl
+                  &lt;/Link&gt;
+                &lt;/Paragraph&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
+                &lt;/Paragraph&gt;
+              &lt;/Grid.Cell&gt;
+              &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+                {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Maud van Esch
+                  &lt;br /&gt;
+                  Omgevingsmanager IJburg
+                  &lt;br /&gt;
+                  &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
+                    m.van.esch@amsterdam.nl
+                  &lt;/Link&gt;
+                  &lt;br /&gt;
+                  &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
+                    06 4589 9537
+                  &lt;/Link&gt;
+                  &lt;br /&gt;
+                  Voor vragen over werkzaamheden of bouwactiviteiten
+                &lt;/Paragraph&gt;
+              &lt;/Grid.Cell&gt;
+            &lt;/Grid.Subgrid&gt;
           &lt;/Grid&gt;
         &lt;/Spotlight&gt;
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
@@ -54622,18 +54784,25 @@ export const Default: StoryObj = {
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     &lt;Spotlight color=&quot;azure&quot;&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/*
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
+       */}
+      &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Zelfbouw&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-          &lt;Paragraph color=&quot;inverse&quot;&gt;
-            Meer over de verschillende vormen van zelfbouw vindt u op:
-          &lt;/Paragraph&gt;
-          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Zelfbouw&lt;/StandaloneLink&gt;
-        &lt;/Grid.Cell&gt;
-        {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+            &lt;Paragraph color=&quot;inverse&quot;&gt;
+              Meer over de verschillende vormen van zelfbouw vindt u op:
+            &lt;/Paragraph&gt;
+            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Zelfbouw&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          {/* … three more columns (Aanbod kavels, Prikbord, Nieuwsbrief zelfbouw) … */}
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
@@ -54666,26 +54835,28 @@ export const Default: StoryObj = {
      * rather than repeating the azure of the first.
      */}
     &lt;Spotlight&gt;
-      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
-          &lt;Heading color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
+          &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;Contact&lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-          &lt;Paragraph color=&quot;inverse&quot;&gt;
-            Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
-            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;zelfbouwcentrumeiland@amsterdam.nl&lt;/Link&gt;
-          &lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-          {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-          &lt;Paragraph color=&quot;inverse&quot;&gt;
-            Maud van Esch
-            &lt;br /&gt;
-            Omgevingsmanager IJburg
-            &lt;br /&gt;
-            &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;m.van.esch@amsterdam.nl&lt;/Link&gt;
-          &lt;/Paragraph&gt;
-        &lt;/Grid.Cell&gt;
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+            &lt;Paragraph color=&quot;inverse&quot;&gt;
+              Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+              &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;zelfbouwcentrumeiland@amsterdam.nl&lt;/Link&gt;
+            &lt;/Paragraph&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+            {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+            &lt;Paragraph color=&quot;inverse&quot;&gt;
+              Maud van Esch
+              &lt;br /&gt;
+              Omgevingsmanager IJburg
+              &lt;br /&gt;
+              &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;m.van.esch@amsterdam.nl&lt;/Link&gt;
+            &lt;/Paragraph&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
@@ -54958,41 +55129,48 @@ export const Default: StoryObj = {
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       &lt;Spotlight color=&quot;azure&quot;&gt;
-        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        {/*
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
+         */}
+        &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
               Zelfbouw
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
-          {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;Meer over de verschillende vormen van zelfbouw vindt u op:&lt;/Paragraph&gt;
-            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-              Zelfbouw
-            &lt;/StandaloneLink&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;
-              Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
-            &lt;/Paragraph&gt;
-            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-              Aanbod kavels
-            &lt;/StandaloneLink&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;
-              Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
-            &lt;/Paragraph&gt;
-            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-              Prikbord
-            &lt;/StandaloneLink&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.&lt;/Paragraph&gt;
-            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-              Nieuwsbrief zelfbouw
-            &lt;/StandaloneLink&gt;
-          &lt;/Grid.Cell&gt;
+          &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+            {/* The promo cells span 3 columns of the wide grid, so four of them line up only on wide screens. */}
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;Meer over de verschillende vormen van zelfbouw vindt u op:&lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Zelfbouw
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Op de kavelkaart is te zien welke kavels in de toekomst op Centrumeiland vrij komen.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Aanbod kavels
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Op zoek naar medebouwers of samen met anderen bouwen? Plaats een oproep.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Prikbord
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;Meld u aan en blijf op de hoogte over zelfbouw in Amsterdam.&lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Nieuwsbrief zelfbouw
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
@@ -55063,41 +55241,43 @@ export const Default: StoryObj = {
        * rather than repeating the azure of the first.
        */}
       &lt;Spotlight&gt;
-        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
-            &lt;Heading color=&quot;inverse&quot; level={2}&gt;
+            &lt;Heading className=&quot;ams-mb-s&quot; color=&quot;inverse&quot; level={2}&gt;
               Contact
             &lt;/Heading&gt;
           &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;
-              Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
-              &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
-                zelfbouwcentrumeiland@amsterdam.nl
-              &lt;/Link&gt;
-            &lt;/Paragraph&gt;
-            &lt;Paragraph color=&quot;inverse&quot;&gt;
-              Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
-            &lt;/Paragraph&gt;
-          &lt;/Grid.Cell&gt;
-          &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
-            {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
-            &lt;Paragraph color=&quot;inverse&quot;&gt;
-              Maud van Esch
-              &lt;br /&gt;
-              Omgevingsmanager IJburg
-              &lt;br /&gt;
-              &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
-                m.van.esch@amsterdam.nl
-              &lt;/Link&gt;
-              &lt;br /&gt;
-              &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
-                06 4589 9537
-              &lt;/Link&gt;
-              &lt;br /&gt;
-              Voor vragen over werkzaamheden of bouwactiviteiten
-            &lt;/Paragraph&gt;
-          &lt;/Grid.Cell&gt;
+          &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Vragen over zelfbouw op Centrumeiland:{&#39; &#39;}
+                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:zelfbouwcentrumeiland@amsterdam.nl&quot;&gt;
+                  zelfbouwcentrumeiland@amsterdam.nl
+                &lt;/Link&gt;
+              &lt;/Paragraph&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Elke donderdag is er van 16.00 uur tot 17.00 uur een telefonisch spreekuur. Aanmelden via e-mail.
+              &lt;/Paragraph&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              {/* These lines are kept in one Paragraph so they read as a single contact block, not as running text. */}
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Maud van Esch
+                &lt;br /&gt;
+                Omgevingsmanager IJburg
+                &lt;br /&gt;
+                &lt;Link color=&quot;inverse&quot; href=&quot;mailto:m.van.esch@amsterdam.nl&quot;&gt;
+                  m.van.esch@amsterdam.nl
+                &lt;/Link&gt;
+                &lt;br /&gt;
+                &lt;Link color=&quot;inverse&quot; href=&quot;tel:+316645899537&quot;&gt;
+                  06 4589 9537
+                &lt;/Link&gt;
+                &lt;br /&gt;
+                Voor vragen over werkzaamheden of bouwactiviteiten
+              &lt;/Paragraph&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
