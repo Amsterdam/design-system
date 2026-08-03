@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
 import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
 
@@ -9,10 +9,9 @@ import * as ProfileStories from "./ProfilePage.stories.tsx";
 
 <Meta of={ProfileStories} />
 
-# Profile page
+<Title />
 
-A profile page presents a single subject: a person, a group of people, or a place.
-It answers who or what the subject is, what it offers, and how to reach or visit it.
+<Description of={ProfileStories} />
 
 All five variants share the same skeleton.
 The page opens with a breadcrumb, a title and a lead paragraph, followed by the sections that describe the subject.

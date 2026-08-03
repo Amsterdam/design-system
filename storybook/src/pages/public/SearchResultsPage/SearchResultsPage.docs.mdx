@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
 import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
 
@@ -9,10 +9,11 @@ import * as SearchResultsStories from "./SearchResultsPage.stories.tsx";
 
 <Meta of={SearchResultsStories} />
 
-# Search results page
+<Title />
 
-What a visitor lands on after searching the site.
-It shares its layout with the [News Overview Page](/docs/pages-public-news-overview-page--docs): a filter column beside a list of results.
+<Description of={SearchResultsStories} />
+
+It shares that layout with the [News Overview Page](/docs/pages-public-news-overview-page--docs): a filter column beside a list of results.
 The difference is the content, which comes from anywhere on the site and therefore has no image and no single content type.
 
 ## Anatomy

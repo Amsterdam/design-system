@@ -26,7 +26,7 @@ import { MailIcon, PersonsIcon } from '@amsterdam/design-system-react-icons'
 
 import { PhotoPlaceholder } from '#storybook/_components/PhotoPlaceholder/PhotoPlaceholder'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 import { councilMembers, groupRepresentatives } from './data'
 
 // Lorem Picsum is mostly landscapes, so these ids are hand-picked: each one is a photo in which a
@@ -56,6 +56,10 @@ const sublocationPhotos = [
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Profile Page',
+  parameters: pageParameters(
+    'Presents a single person, group of people, or place: ' +
+      'who or what the subject is, what it offers, and how to reach or visit it.',
+  ),
 } satisfies Meta
 
 export default meta
