@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -8450,13 +8450,13 @@ onDelete?: () =&gt; void</code></pre>
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  37 | )
-  38 |
-&gt; 39 | const meta = {
+  36 | )
+  37 |
+&gt; 38 | const meta = {
      | ^
-  40 |   title: &#39;Pages/Public/Form Flow&#39;,
-  41 |
-  42 |   parameters: buildPageParameters(
+  39 |   title: &#39;Pages/Public/Form Flow&#39;,
+  40 |   parameters: {
+  41 |     docs: {
 
 ./src/pages/public/FormFlow/FormFlow.stories.tsx:
 /**
@@ -8486,7 +8486,6 @@ import {
 } from &#39;@amsterdam/design-system-react&#39;
 import { ChevronBackwardIcon } from &#39;@amsterdam/design-system-react-icons&#39;
 
-import { buildPageParameters } from &#39;#storybook/_common/buildPageParameters&#39;
 
 import { FormPageLayout } from &#39;../common/FormPageLayout&#39;
 import { PageLayout } from &#39;../common/PageLayout&#39;
@@ -8499,15 +8498,17 @@ const formPageLayoutDecorator: Decorator = (Story) =&gt; (
 
 const meta = {
   title: &#39;Pages/Public/Form Flow&#39;,
-
-  parameters: buildPageParameters(
-    {
-      layout: &#39;fullscreen&#39;,
-      themes: { options: [&#39;Spacious&#39;, &#39;Spacious Lo-fi&#39;] },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          &#39;Guides the user through a task one step at a time, with a stripped-back header and footer &#39; +
+          &#39;that keep the focus on answering each question.&#39;,
+      },
     },
-    &#39;Guides the user through a task one step at a time, with a stripped-back header and footer &#39; +
-      &#39;that keep the focus on answering each question.&#39;,
-  ),
+    layout: &#39;fullscreen&#39;,
+    themes: { options: [&#39;Spacious&#39;, &#39;Spacious Lo-fi&#39;] },
+  },
 } satisfies Meta
 
 export default meta
@@ -35435,13 +35436,13 @@ This schematic shows the default sections for this page type and how the grids a
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  37 | )
-  38 |
-&gt; 39 | const meta = {
+  36 | )
+  37 |
+&gt; 38 | const meta = {
      | ^
-  40 |   title: &#39;Pages/Public/Form Flow&#39;,
-  41 |
-  42 |   parameters: buildPageParameters(
+  39 |   title: &#39;Pages/Public/Form Flow&#39;,
+  40 |   parameters: {
+  41 |     docs: {
 
 ./src/pages/public/FormFlow/FormFlow.stories.tsx:
 /**
@@ -35471,7 +35472,6 @@ import {
 } from &#39;@amsterdam/design-system-react&#39;
 import { ChevronBackwardIcon } from &#39;@amsterdam/design-system-react-icons&#39;
 
-import { buildPageParameters } from &#39;#storybook/_common/buildPageParameters&#39;
 
 import { FormPageLayout } from &#39;../common/FormPageLayout&#39;
 import { PageLayout } from &#39;../common/PageLayout&#39;
@@ -35484,15 +35484,17 @@ const formPageLayoutDecorator: Decorator = (Story) =&gt; (
 
 const meta = {
   title: &#39;Pages/Public/Form Flow&#39;,
-
-  parameters: buildPageParameters(
-    {
-      layout: &#39;fullscreen&#39;,
-      themes: { options: [&#39;Spacious&#39;, &#39;Spacious Lo-fi&#39;] },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          &#39;Guides the user through a task one step at a time, with a stripped-back header and footer &#39; +
+          &#39;that keep the focus on answering each question.&#39;,
+      },
     },
-    &#39;Guides the user through a task one step at a time, with a stripped-back header and footer &#39; +
-      &#39;that keep the focus on answering each question.&#39;,
-  ),
+    layout: &#39;fullscreen&#39;,
+    themes: { options: [&#39;Spacious&#39;, &#39;Spacious Lo-fi&#39;] },
+  },
 } satisfies Meta
 
 export default meta
