@@ -141,6 +141,32 @@ describe('GridCell', () => {
     )
   })
 
+  it('renders no class name for an undefined value for rowStart', () => {
+    const { container } = render(<Grid.Cell />)
+
+    const elementWithRowStartClass = container.querySelector('[class*="ams-grid__cell--row-start"]')
+
+    expect(elementWithRowStartClass).not.toBeInTheDocument()
+  })
+
+  it('renders a class name for a single number value for rowStart', () => {
+    const { container } = render(<Grid.Cell rowStart={2} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-grid__cell--row-start-2')
+  })
+
+  it('renders class names for an object value for rowStart', () => {
+    const { container } = render(<Grid.Cell rowStart={{ narrow: 1, medium: 3, wide: 4 }} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass(
+      'ams-grid__cell--row-start-1 ams-grid__cell--row-start-3-medium ams-grid__cell--row-start-4-wide',
+    )
+  })
+
   it('renders the correct class name for the “all” value of span', () => {
     const { container } = render(<Grid.Cell span="all" />)
 
