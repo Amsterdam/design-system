@@ -27,6 +27,11 @@ Every direct child of a Grid must be a Cell or a Subgrid.
 Size and position it with the `span` and `start` props, which accept responsive values.
 Its `appearance` controls the background in Compact Mode.
 
+`rowSpan` lets a Cell cover several rows, and `rowStart` puts it in a row of your choosing.
+Reach for `rowStart` only where automatic placement cannot do the job: it never moves back a column without moving down a row, so a Cell that comes first in the source and sits to the right of the one after it pushes that one down.
+A sidebar on the trailing side needs a row of its own for that reason; one on the leading side does not, because placement runs towards it.
+Set it on the sidebar rather than on everything around it, and leave the rest to automatic placement.
+
 <Canvas of={GridCellStories.Cell} />
 
 <Controls of={GridCellStories.Cell} />
@@ -39,6 +44,9 @@ Every direct child of a Subgrid must be a Cell.
 
 Use it for a region beside a sidebar, such as the results of an index page next to a filter column.
 Without it, a Cell inside a Cell has no columns to align to.
+
+It takes `rowSpan` and `rowStart` for the same reasons a Cell does.
+A Subgrid is placed as one item, so a region beside a sidebar on the trailing side takes a `rowStart` of its own.
 
 Its rows take the vertical gap of the Grid, so the region keeps the rhythm of the page.
 Give it its own `gapVertical` to space its rows differently.

@@ -11,8 +11,10 @@ export const gridSubgridClasses = (
   colSpan?: GridSubgridProps['span'],
   colStart?: GridSubgridProps['start'],
   rowSpan?: GridSubgridProps['rowSpan'],
+  rowStart?: GridSubgridProps['rowStart'],
 ): string[] => [
   ...addGridClass('ams-grid__subgrid--span-', colSpan),
   ...addGridClass('ams-grid__subgrid--start-', colStart),
   ...addGridClass('ams-grid__subgrid--row-span-', rowSpan),
+  ...addGridClass('ams-grid__subgrid--row-start-', rowStart),
 ]

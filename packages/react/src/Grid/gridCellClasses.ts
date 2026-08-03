@@ -20,8 +20,10 @@ export const gridCellClasses = (
   colSpan?: GridCellProps['span'],
   colStart?: GridCellProps['start'],
   rowSpan?: GridCellProps['rowSpan'],
+  rowStart?: GridCellProps['rowStart'],
 ): string[] => [
   ...addGridClass('ams-grid__cell--span-', colSpan),
   ...addGridClass('ams-grid__cell--start-', colStart),
   ...addGridClass('ams-grid__cell--row-span-', rowSpan),
+  ...addGridClass('ams-grid__cell--row-start-', rowStart),
 ]
