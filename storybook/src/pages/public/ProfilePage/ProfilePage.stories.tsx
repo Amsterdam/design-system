@@ -569,7 +569,7 @@ export const Group: StoryObj = {
                 {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                 <Card.Link href="#">{name}</Card.Link>
               </Card.Heading>
-              <Paragraph size="small">{role}</Paragraph>
+              <Paragraph>{role}</Paragraph>
             </Card>
           </Grid.Cell>
         ))}
@@ -588,7 +588,7 @@ export const Group: StoryObj = {
               <Card.Heading level={3}>
                 <Card.Link href="#">{name}</Card.Link>
               </Card.Heading>
-              <Paragraph size="small">{role}</Paragraph>
+              <Paragraph>{role}</Paragraph>
             </Card>
           </Grid.Cell>
         ))}
@@ -769,7 +769,7 @@ export const Group: StoryObj = {
                     {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                     <Card.Link href="#">{name}</Card.Link>
                   </Card.Heading>
-                  <Paragraph size="small">{role}</Paragraph>
+                  <Paragraph>{role}</Paragraph>
                 </Card>
               </Grid.Cell>
             ))}
@@ -790,7 +790,7 @@ export const Group: StoryObj = {
                   <Card.Heading level={3}>
                     <Card.Link href="#">{name}</Card.Link>
                   </Card.Heading>
-                  <Paragraph size="small">{role}</Paragraph>
+                  <Paragraph>{role}</Paragraph>
                 </Card>
               </Grid.Cell>
             ))}
@@ -1273,7 +1273,7 @@ export const LocationLarge: StoryObj = {
               {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
               <Card.Link href="#">Grote zaal</Card.Link>
             </Card.Heading>
-            <Paragraph size="small">Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.</Paragraph>
+            <Paragraph>Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.</Paragraph>
           </Card>
         </Grid.Cell>
         <Grid.Cell span={4}>
@@ -1282,7 +1282,7 @@ export const LocationLarge: StoryObj = {
             <Card.Heading level={3}>
               <Card.Link href="#">Du Midi benedenzaal</Card.Link>
             </Card.Heading>
-            <Paragraph size="small">Badminton, basketbal, volleybal, dansen en vechtsport.</Paragraph>
+            <Paragraph>Badminton, basketbal, volleybal, dansen en vechtsport.</Paragraph>
           </Card>
         </Grid.Cell>
         <Grid.Cell span={4}>
@@ -1291,7 +1291,7 @@ export const LocationLarge: StoryObj = {
             <Card.Heading level={3}>
               <Card.Link href="#">Du Midi bovenzaal</Card.Link>
             </Card.Heading>
-            <Paragraph size="small">
+            <Paragraph>
               Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
             </Paragraph>
           </Card>
@@ -1564,7 +1564,7 @@ export const LocationLarge: StoryObj = {
                   {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                   <Card.Link href="#">Grote zaal</Card.Link>
                 </Card.Heading>
-                <Paragraph size="small">Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.</Paragraph>
+                <Paragraph>Badminton, basketbal, handbal, korfbal, volleybal en zaalvoetbal.</Paragraph>
               </Card>
             </Grid.Cell>
             <Grid.Cell span={4}>
@@ -1573,7 +1573,7 @@ export const LocationLarge: StoryObj = {
                 <Card.Heading level={3}>
                   <Card.Link href="#">Du Midi benedenzaal</Card.Link>
                 </Card.Heading>
-                <Paragraph size="small">Badminton, basketbal, volleybal, dansen en vechtsport.</Paragraph>
+                <Paragraph>Badminton, basketbal, volleybal, dansen en vechtsport.</Paragraph>
               </Card>
             </Grid.Cell>
             <Grid.Cell span={4}>
@@ -1582,9 +1582,7 @@ export const LocationLarge: StoryObj = {
                 <Card.Heading level={3}>
                   <Card.Link href="#">Du Midi bovenzaal</Card.Link>
                 </Card.Heading>
-                <Paragraph size="small">
-                  Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.
-                </Paragraph>
+                <Paragraph>Badminton, basketbal, korfbal, volleybal, schermen, dansen en vechtsport.</Paragraph>
               </Card>
             </Grid.Cell>
           </Grid.Subgrid>
