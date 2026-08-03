@@ -567,8 +567,8 @@ export const WithImageGallery: StoryObj = {
               Proef elektrische fietsen voor sociale huurders op Strandeiland en Centrumeiland
             </LinkList.Link>
             <LinkList.Link color="inverse" href="#">Definitief ontwerp voor nieuwe Jaap Eden IJshal</LinkList.Link>
-            <LinkList.Link color="inverse" href="#">Meer persberichten</LinkList.Link>
           </LinkList>
+          <StandaloneLink color="inverse" href="#">Meer persberichten</StandaloneLink>
         </Grid.Cell>
         <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
           <Heading color="inverse" level={2} size="level-3">Besluiten B en W</Heading>
@@ -576,8 +576,8 @@ export const WithImageGallery: StoryObj = {
             <LinkList.Link color="inverse" href="#">Nieuws uit B en W 9 juli 2025</LinkList.Link>
             <LinkList.Link color="inverse" href="#">Nieuws uit B en W 2 juli 2025</LinkList.Link>
             <LinkList.Link color="inverse" href="#">Nieuws uit B en W 25 juni 2025</LinkList.Link>
-            <LinkList.Link color="inverse" href="#">Meer besluiten B en W</LinkList.Link>
           </LinkList>
+          <StandaloneLink color="inverse" href="#">Meer besluiten B en W</StandaloneLink>
         </Grid.Cell>
       </Grid>
     </Spotlight>
@@ -723,10 +723,10 @@ export const WithImageGallery: StoryObj = {
                 <LinkList.Link color="inverse" href="#">
                   Definitief ontwerp voor nieuwe Jaap Eden IJshal
                 </LinkList.Link>
-                <LinkList.Link color="inverse" href="#">
-                  Meer persberichten
-                </LinkList.Link>
               </LinkList>
+              <StandaloneLink color="inverse" href="#">
+                Meer persberichten
+              </StandaloneLink>
             </Grid.Cell>
             <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }}>
               <Heading color="inverse" level={2} size="level-3">
@@ -742,10 +742,10 @@ export const WithImageGallery: StoryObj = {
                 <LinkList.Link color="inverse" href="#">
                   Nieuws uit B en W 25 juni 2025
                 </LinkList.Link>
-                <LinkList.Link color="inverse" href="#">
-                  Meer besluiten B en W
-                </LinkList.Link>
               </LinkList>
+              <StandaloneLink color="inverse" href="#">
+                Meer besluiten B en W
+              </StandaloneLink>
             </Grid.Cell>
           </Grid>
         </Spotlight>

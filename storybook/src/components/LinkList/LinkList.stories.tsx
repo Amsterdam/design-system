@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Heading } from '@amsterdam/design-system-react'
+import { Heading, StandaloneLink } from '@amsterdam/design-system-react'
 import { HouseIcon, PhoneIcon, SpeechBalloonEllipsisIcon } from '@amsterdam/design-system-react-icons'
 import { LinkList } from '@amsterdam/design-system-react/src'
 
@@ -46,6 +46,17 @@ export const WithHeading: Story = {
     </div>
   ),
 }
+export const LinkToTheWiderSet: Story = {
+  ...StoryTemplate,
+  render: ({ children, ...args }) => (
+    // ams-prose sets the medium the vertical space guidance asks for between the list and the link below it.
+    <div className="ams-prose">
+      <LinkList {...args}>{children}</LinkList>
+      <StandaloneLink href="#">Alle onderwerpen</StandaloneLink>
+    </div>
+  ),
+}
+
 export const CustomIcons: Story = {
   ...StoryTemplate,
   args: {

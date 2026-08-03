@@ -37,6 +37,10 @@ Use a Link List to present multiple links within a theme.
 
 ### When not to use
 
+Do not put a link to the wider set in the list itself.
+A list of three news items and a fourth link reading ‘More news’ says that all four are the same kind of thing, where the last one is about the set rather than one of it.
+Give that link a [Standalone Link](/docs/components-navigation-standalone-link--docs) below the list instead, as in the example.
+
 For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.
 
 ## Examples
@@ -47,6 +51,14 @@ A list of links often appears in a block with a [Heading](/docs/components-text-
 Use a size of ‘level-3’ for the Heading and add a small bottom margin.
 
 <Canvas of={LinkListStories.WithHeading} />
+
+### A link to the wider set
+
+A list of links is often drawn from a longer one, with a link to the rest below it.
+That link goes outside the list, as a [Standalone Link](/docs/components-navigation-standalone-link--docs): it points at the set the list came from rather than being one of its members, and a reader hears the list end before it.
+[Prose](/docs/utilities-css-prose--docs) spaces the two, so neither takes a margin of its own.
+
+<Canvas of={LinkListStories.LinkToTheWiderSet} />
 
 ### Custom icons
 
