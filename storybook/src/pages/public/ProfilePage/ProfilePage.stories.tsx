@@ -1808,7 +1808,7 @@ export const Sublocation: StoryObj = {
         <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
         <Breadcrumb.Link href="#">Sport en bewegen</Breadcrumb.Link>
         <Breadcrumb.Link href="#">Sportparken</Breadcrumb.Link>
-        <Breadcrumb.Link href="#">Sportpark Sloten</Breadcrumb.Link>
+        <Breadcrumb.Link href="#">Nieuw-West</Breadcrumb.Link>
       </Breadcrumb>
     </Grid.Cell>
   </Grid>
@@ -1950,7 +1950,7 @@ export const Sublocation: StoryObj = {
             <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
             <Breadcrumb.Link href="#">Sport en bewegen</Breadcrumb.Link>
             <Breadcrumb.Link href="#">Sportparken</Breadcrumb.Link>
-            <Breadcrumb.Link href="#">Sportpark Sloten</Breadcrumb.Link>
+            <Breadcrumb.Link href="#">Nieuw-West</Breadcrumb.Link>
           </Breadcrumb>
         </Grid.Cell>
       </Grid>
