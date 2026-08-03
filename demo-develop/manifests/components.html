@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.7s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -15699,6 +15699,14 @@ Use a Link List to present multiple links within a theme.
 
 ### When not to use
 
+Do not put a link to the wider set in the list itself.
+A list of three news items and a fourth link reading ‘More news’ says that all four are the same kind of thing, where the last one is about the set rather than one of it.
+Give that link a [Standalone Link](/docs/components-navigation-standalone-link--docs) below the list instead, as in the example.
+
+Do not use a Link List for a single link.
+It is announced as a list of one item, which tells a reader nothing they could not see.
+A [Standalone Link](/docs/components-navigation-standalone-link--docs) is the component for one link on a line of its own.
+
 For additional guidelines, refer to the [Link](/docs/components-navigation-link--docs) component.
 
 ## Examples
@@ -15709,6 +15717,14 @@ A list of links often appears in a block with a [Heading](/docs/components-text-
 Use a size of ‘level-3’ for the Heading and add a small bottom margin.
 
 &lt;Canvas of={LinkListStories.WithHeading} /&gt;
+
+### A link to the wider set
+
+A list of links is often drawn from a longer one, with a link to the rest below it.
+That link goes outside the list, as a [Standalone Link](/docs/components-navigation-standalone-link--docs): it points at the set the list came from rather than being one of its members, and a reader hears the list end before it.
+[Prose](/docs/utilities-css-prose--docs) spaces the two, so neither takes a margin of its own.
+
+&lt;Canvas of={LinkListStories.LinkToTheWiderSet} /&gt;
 
 ### Custom icons
 
@@ -18189,8 +18205,8 @@ export const WithImageGallery: StoryObj = {
               Proef elektrische fietsen voor sociale huurders op Strandeiland en Centrumeiland
             &lt;/LinkList.Link&gt;
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Definitief ontwerp voor nieuwe Jaap Eden IJshal&lt;/LinkList.Link&gt;
-            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer persberichten&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
+          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer persberichten&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
           &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Besluiten B en W&lt;/Heading&gt;
@@ -18198,8 +18214,8 @@ export const WithImageGallery: StoryObj = {
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 9 juli 2025&lt;/LinkList.Link&gt;
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 2 juli 2025&lt;/LinkList.Link&gt;
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 25 juni 2025&lt;/LinkList.Link&gt;
-            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer besluiten B en W&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
+          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer besluiten B en W&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
@@ -18345,10 +18361,10 @@ export const WithImageGallery: StoryObj = {
                 &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
                   Definitief ontwerp voor nieuwe Jaap Eden IJshal
                 &lt;/LinkList.Link&gt;
-                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                  Meer persberichten
-                &lt;/LinkList.Link&gt;
               &lt;/LinkList&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Meer persberichten
+              &lt;/StandaloneLink&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
               &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
@@ -18364,10 +18380,10 @@ export const WithImageGallery: StoryObj = {
                 &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
                   Nieuws uit B en W 25 juni 2025
                 &lt;/LinkList.Link&gt;
-                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                  Meer besluiten B en W
-                &lt;/LinkList.Link&gt;
               &lt;/LinkList&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Meer besluiten B en W
+              &lt;/StandaloneLink&gt;
             &lt;/Grid.Cell&gt;
           &lt;/Grid&gt;
         &lt;/Spotlight&gt;
@@ -19283,10 +19299,10 @@ export const SubnavigationPage: StoryObj = {
               &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
                 Definitief ontwerp voor nieuwe Jaap Eden IJshal
               &lt;/LinkList.Link&gt;
-              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Meer persberichten
-              &lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
+            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+              Meer persberichten
+            &lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
             &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
@@ -19302,10 +19318,10 @@ export const SubnavigationPage: StoryObj = {
               &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
                 Nieuws uit B en W 25 juni 2025
               &lt;/LinkList.Link&gt;
-              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Meer besluiten B en W
-              &lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
+            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+              Meer besluiten B en W
+            &lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
@@ -24355,9 +24371,7 @@ export const Location: StoryObj = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Zie ook&lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/StandaloneLink&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Auto of fiets parkeren&lt;/Heading&gt;
@@ -24560,9 +24574,7 @@ export const Location: StoryObj = {
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Zie ook
             &lt;/Heading&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
@@ -24781,11 +24793,7 @@ export const LocationLarge: StoryObj = {
             naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
             van uw activiteit.
           &lt;/Paragraph&gt;
-          &lt;LinkList&gt;
-            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;
-              Stuur uw aanvraag per e-mail in
-            &lt;/LinkList.Link&gt;
-          &lt;/LinkList&gt;
+          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;Stuur uw aanvraag per e-mail in&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Heading color=&quot;inverse&quot; level={2}&gt;Evenementen&lt;/Heading&gt;
@@ -25088,11 +25096,9 @@ export const LocationLarge: StoryObj = {
                 naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
                 van uw activiteit.
               &lt;/Paragraph&gt;
-              &lt;LinkList&gt;
-                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;
-                  Stuur uw aanvraag per e-mail in
-                &lt;/LinkList.Link&gt;
-              &lt;/LinkList&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;
+                Stuur uw aanvraag per e-mail in
+              &lt;/StandaloneLink&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell
               className=&quot;ams-prose&quot;
@@ -25336,9 +25342,7 @@ export const Sublocation: StoryObj = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Zie ook&lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/StandaloneLink&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Parkeren&lt;/Heading&gt;
@@ -25514,9 +25518,7 @@ export const Sublocation: StoryObj = {
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Zie ook
             &lt;/Heading&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
@@ -26165,9 +26167,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Zie ook
           &lt;/Heading&gt;
-          &lt;LinkList&gt;
-            &lt;LinkList.Link href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/LinkList.Link&gt;
-          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
@@ -26410,11 +26410,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
               naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
               van uw activiteit.
             &lt;/Paragraph&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;
-                Stuur uw aanvraag per e-mail in
-              &lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;
+              Stuur uw aanvraag per e-mail in
+            &lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
             className=&quot;ams-prose&quot;
@@ -26694,9 +26692,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Zie ook
           &lt;/Heading&gt;
-          &lt;LinkList&gt;
-            &lt;LinkList.Link href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/LinkList.Link&gt;
-          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
@@ -27415,11 +27411,9 @@ const meta = {
               &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwe bruggen op IJburg&lt;/LinkList.Link&gt;
               &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: nieuwe eilanden en woningbouw&lt;/LinkList.Link&gt;
               &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg - stations Bijlmer Arena en Weesp: nieuwe busverbindingen&lt;/LinkList.Link&gt;
-              &lt;LinkList.Link className=&quot;ams-mb-m&quot; href=&quot;#&quot;&gt;
-                IJburg: verlengen IJtram
-              &lt;/LinkList.Link&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: verlengen IJtram&lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
             className=&quot;ams-prose&quot;
@@ -27441,9 +27435,7 @@ const meta = {
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Plannen en publicaties
             &lt;/Heading&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
             className=&quot;ams-prose&quot;
@@ -27668,8 +27660,8 @@ export const Default: StoryObj = {
         &lt;LinkList&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
         &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/StandaloneLink&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
@@ -28046,11 +28038,9 @@ export const Default: StoryObj = {
             &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwe bruggen op IJburg&lt;/LinkList.Link&gt;
             &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: nieuwe eilanden en woningbouw&lt;/LinkList.Link&gt;
             &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg - stations Bijlmer Arena en Weesp: nieuwe busverbindingen&lt;/LinkList.Link&gt;
-            &lt;LinkList.Link className=&quot;ams-mb-m&quot; href=&quot;#&quot;&gt;
-              IJburg: verlengen IJtram
-            &lt;/LinkList.Link&gt;
-            &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: verlengen IJtram&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
           className=&quot;ams-prose&quot;
@@ -28072,9 +28062,7 @@ export const Default: StoryObj = {
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Plannen en publicaties
           &lt;/Heading&gt;
-          &lt;LinkList&gt;
-            &lt;LinkList.Link href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/LinkList.Link&gt;
-          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
           className=&quot;ams-prose&quot;
@@ -46478,8 +46466,8 @@ export const WithImageGallery: StoryObj = {
               Proef elektrische fietsen voor sociale huurders op Strandeiland en Centrumeiland
             &lt;/LinkList.Link&gt;
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Definitief ontwerp voor nieuwe Jaap Eden IJshal&lt;/LinkList.Link&gt;
-            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer persberichten&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
+          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer persberichten&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
           &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;Besluiten B en W&lt;/Heading&gt;
@@ -46487,8 +46475,8 @@ export const WithImageGallery: StoryObj = {
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 9 juli 2025&lt;/LinkList.Link&gt;
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 2 juli 2025&lt;/LinkList.Link&gt;
             &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Nieuws uit B en W 25 juni 2025&lt;/LinkList.Link&gt;
-            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer besluiten B en W&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
+          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;Meer besluiten B en W&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
     &lt;/Spotlight&gt;
@@ -46634,10 +46622,10 @@ export const WithImageGallery: StoryObj = {
                 &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
                   Definitief ontwerp voor nieuwe Jaap Eden IJshal
                 &lt;/LinkList.Link&gt;
-                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                  Meer persberichten
-                &lt;/LinkList.Link&gt;
               &lt;/LinkList&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Meer persberichten
+              &lt;/StandaloneLink&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
               &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
@@ -46653,10 +46641,10 @@ export const WithImageGallery: StoryObj = {
                 &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
                   Nieuws uit B en W 25 juni 2025
                 &lt;/LinkList.Link&gt;
-                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                  Meer besluiten B en W
-                &lt;/LinkList.Link&gt;
               &lt;/LinkList&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+                Meer besluiten B en W
+              &lt;/StandaloneLink&gt;
             &lt;/Grid.Cell&gt;
           &lt;/Grid&gt;
         &lt;/Spotlight&gt;
@@ -47572,10 +47560,10 @@ export const SubnavigationPage: StoryObj = {
               &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
                 Definitief ontwerp voor nieuwe Jaap Eden IJshal
               &lt;/LinkList.Link&gt;
-              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Meer persberichten
-              &lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
+            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+              Meer persberichten
+            &lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
             &lt;Heading color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
@@ -47591,10 +47579,10 @@ export const SubnavigationPage: StoryObj = {
               &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
                 Nieuws uit B en W 25 juni 2025
               &lt;/LinkList.Link&gt;
-              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;#&quot;&gt;
-                Meer besluiten B en W
-              &lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
+            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;#&quot;&gt;
+              Meer besluiten B en W
+            &lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
         &lt;/Grid&gt;
       &lt;/Spotlight&gt;
@@ -51717,9 +51705,7 @@ export const Location: StoryObj = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Zie ook&lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/StandaloneLink&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Auto of fiets parkeren&lt;/Heading&gt;
@@ -51922,9 +51908,7 @@ export const Location: StoryObj = {
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Zie ook
             &lt;/Heading&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
@@ -52143,11 +52127,7 @@ export const LocationLarge: StoryObj = {
             naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
             van uw activiteit.
           &lt;/Paragraph&gt;
-          &lt;LinkList&gt;
-            &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;
-              Stuur uw aanvraag per e-mail in
-            &lt;/LinkList.Link&gt;
-          &lt;/LinkList&gt;
+          &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;Stuur uw aanvraag per e-mail in&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           &lt;Heading color=&quot;inverse&quot; level={2}&gt;Evenementen&lt;/Heading&gt;
@@ -52450,11 +52430,9 @@ export const LocationLarge: StoryObj = {
                 naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
                 van uw activiteit.
               &lt;/Paragraph&gt;
-              &lt;LinkList&gt;
-                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;
-                  Stuur uw aanvraag per e-mail in
-                &lt;/LinkList.Link&gt;
-              &lt;/LinkList&gt;
+              &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;
+                Stuur uw aanvraag per e-mail in
+              &lt;/StandaloneLink&gt;
             &lt;/Grid.Cell&gt;
             &lt;Grid.Cell
               className=&quot;ams-prose&quot;
@@ -52698,9 +52676,7 @@ export const Sublocation: StoryObj = {
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Zie ook&lt;/Heading&gt;
-        &lt;LinkList&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/LinkList.Link&gt;
-        &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/StandaloneLink&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Parkeren&lt;/Heading&gt;
@@ -52876,9 +52852,7 @@ export const Sublocation: StoryObj = {
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Zie ook
             &lt;/Heading&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
@@ -53527,9 +53501,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Zie ook
           &lt;/Heading&gt;
-          &lt;LinkList&gt;
-            &lt;LinkList.Link href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/LinkList.Link&gt;
-          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Urban Sport Zone Zeeburgereiland&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
@@ -53772,11 +53744,9 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
               naam, de sport, de zaal, de begindatum en einddatum, de tijden van uw voorkeur en een korte omschrijving
               van uw activiteit.
             &lt;/Paragraph&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;
-                Stuur uw aanvraag per e-mail in
-              &lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            &lt;StandaloneLink color=&quot;inverse&quot; href=&quot;mailto:sportverhuur@amsterdam.nl&quot; icon={MailIcon}&gt;
+              Stuur uw aanvraag per e-mail in
+            &lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
             className=&quot;ams-prose&quot;
@@ -54056,9 +54026,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Zie ook
           &lt;/Heading&gt;
-          &lt;LinkList&gt;
-            &lt;LinkList.Link href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/LinkList.Link&gt;
-          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Alle sportparken in Amsterdam&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }}&gt;
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
@@ -54559,11 +54527,9 @@ const meta = {
               &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwe bruggen op IJburg&lt;/LinkList.Link&gt;
               &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: nieuwe eilanden en woningbouw&lt;/LinkList.Link&gt;
               &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg - stations Bijlmer Arena en Weesp: nieuwe busverbindingen&lt;/LinkList.Link&gt;
-              &lt;LinkList.Link className=&quot;ams-mb-m&quot; href=&quot;#&quot;&gt;
-                IJburg: verlengen IJtram
-              &lt;/LinkList.Link&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: verlengen IJtram&lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
             className=&quot;ams-prose&quot;
@@ -54585,9 +54551,7 @@ const meta = {
             &lt;Heading level={2} size=&quot;level-3&quot;&gt;
               Plannen en publicaties
             &lt;/Heading&gt;
-            &lt;LinkList&gt;
-              &lt;LinkList.Link href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/LinkList.Link&gt;
-            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/StandaloneLink&gt;
           &lt;/Grid.Cell&gt;
           &lt;Grid.Cell
             className=&quot;ams-prose&quot;
@@ -54812,8 +54776,8 @@ export const Default: StoryObj = {
         &lt;LinkList&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Blok 16: Amsterdams nabuurschap, een nieuwe vorm van zelfbouw&lt;/LinkList.Link&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Woningaanbod Centrumeiland&lt;/LinkList.Link&gt;
-          &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
         &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/StandaloneLink&gt;
       &lt;/Grid.Cell&gt;
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 5, wide: 7 }}&gt;
         &lt;Heading level={2} size=&quot;level-3&quot;&gt;Ontwikkeling Centrumeiland, herfst 2025&lt;/Heading&gt;
@@ -55190,11 +55154,9 @@ export const Default: StoryObj = {
             &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwe bruggen op IJburg&lt;/LinkList.Link&gt;
             &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: nieuwe eilanden en woningbouw&lt;/LinkList.Link&gt;
             &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg - stations Bijlmer Arena en Weesp: nieuwe busverbindingen&lt;/LinkList.Link&gt;
-            &lt;LinkList.Link className=&quot;ams-mb-m&quot; href=&quot;#&quot;&gt;
-              IJburg: verlengen IJtram
-            &lt;/LinkList.Link&gt;
-            &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;IJburg: verlengen IJtram&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
           className=&quot;ams-prose&quot;
@@ -55216,9 +55178,7 @@ export const Default: StoryObj = {
           &lt;Heading level={2} size=&quot;level-3&quot;&gt;
             Plannen en publicaties
           &lt;/Heading&gt;
-          &lt;LinkList&gt;
-            &lt;LinkList.Link href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/LinkList.Link&gt;
-          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Plannen en publicaties Centrumeiland&lt;/StandaloneLink&gt;
         &lt;/Grid.Cell&gt;
         &lt;Grid.Cell
           className=&quot;ams-prose&quot;

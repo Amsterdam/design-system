@@ -1,0 +1,6 @@
+import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./jsx-runtime-ATHzeHXA.js";import{I as r,Q as i}from"./index.esm-cAj_xdzm.js";import{n as a,t as o}from"./ProgressList-qmfzWeM4.js";var s=t({Substep:()=>u,__namedExportsOrder:()=>d,default:()=>l}),c,l,u,d;function f(){return(f=e((()=>{i(),a(),c=n(),l={title:`Components/Containers/Progress List`,component:o.Substep,argTypes:{status:{control:{labels:{undefined:`default`},type:`radio`},options:[void 0,`current`,`completed`]}},decorators:[e=>(0,c.jsx)(o,{collapsible:!0,headingLevel:3,children:(0,c.jsx)(o.Step,{hasSubsteps:!0,heading:`2027`,status:`current`,children:(0,c.jsx)(o.Substeps,{children:(0,c.jsx)(e,{})})})})]},u={args:{children:(0,c.jsx)(r,{children:`Juni: Raadhuisstraat, Westermarkt en Rozengracht`}),status:`current`}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: <Paragraph>Juni: Raadhuisstraat, Westermarkt en Rozengracht</Paragraph>,
+    status: 'current'
+  }
+}`,...u.parameters?.docs?.source}}},d=[`Substep`]})))()}export{u as n,f as r,s as t};
