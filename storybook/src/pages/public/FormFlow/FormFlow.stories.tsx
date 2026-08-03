@@ -25,7 +25,6 @@ import {
 } from '@amsterdam/design-system-react'
 import { ChevronBackwardIcon } from '@amsterdam/design-system-react-icons'
 
-import { buildPageParameters } from '#storybook/_common/buildPageParameters'
 
 import { FormPageLayout } from '../common/FormPageLayout'
 import { PageLayout } from '../common/PageLayout'
@@ -38,15 +37,17 @@ const formPageLayoutDecorator: Decorator = (Story) => (
 
 const meta = {
   title: 'Pages/Public/Form Flow',
-
-  parameters: buildPageParameters(
-    {
-      layout: 'fullscreen',
-      themes: { options: ['Spacious', 'Spacious Lo-fi'] },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Guides the user through a task one step at a time, with a stripped-back header and footer ' +
+          'that keep the focus on answering each question.',
+      },
     },
-    'Guides the user through a task one step at a time, with a stripped-back header and footer ' +
-      'that keep the focus on answering each question.',
-  ),
+    layout: 'fullscreen',
+    themes: { options: ['Spacious', 'Spacious Lo-fi'] },
+  },
 } satisfies Meta
 
 export default meta
