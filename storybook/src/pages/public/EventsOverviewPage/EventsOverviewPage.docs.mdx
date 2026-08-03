@@ -2,6 +2,9 @@
 
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as EventsOverviewStories from "./EventsOverviewPage.stories.tsx";
 
 <Meta of={EventsOverviewStories} />
@@ -11,6 +14,12 @@ import * as EventsOverviewStories from "./EventsOverviewPage.stories.tsx";
 An index of activities that a visitor narrows down: a city events calendar, a course programme, a schedule of public meetings.
 Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) instead when the items are not dated, or when the date is a publication date rather than something to plan around.
 What sets this page apart is that people arrive with a date in mind, so it gives them a calendar and date facets as well as the usual subject filters.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={EventsOverviewStories} />
 
 ## Structure
 
