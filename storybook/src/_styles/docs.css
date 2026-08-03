@@ -135,7 +135,6 @@
  * controls do nothing; each subcomponent has a working Controls block beside its own example.
  * Hide the tab bar, keeping the table of the main component. Matching on what an element contains
  * because only `.tabbutton` is a stable Storybook class – the wrappers are generated. */
-/* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
 .sbdocs-content div:has(.tabbutton):not(:has([role="tabpanel"])) {
   display: none;
 }
