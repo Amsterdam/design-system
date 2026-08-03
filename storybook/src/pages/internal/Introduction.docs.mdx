@@ -19,62 +19,16 @@ This mode increases information density and improves the use of available screen
 Compact Mode automatically adjusts all components.
 As a result, they remain consistent and equally suitable for task-oriented workflows as they are for content-driven public websites.
 
-## Page structure
+## What sets these pages apart
 
-The general structure for a page is:
+Internal websites may use a [Menu](/docs/components-navigation-menu--docs) beside the page, which a public website cannot.
 
-```tsx
-<Page withMenu>
-  <SkipLink className="ams-page__area--skip-link" href="#inhoud">
-    Direct naar inhoud
-  </SkipLink>
-  <PageHeader className="ams-page__area--header" noMenuButtonOnWideWindow>
-    <Menu />
-  </PageHeader>
-  <Menu className="ams-page__area--menu" inWideWindow />
-  <main className="ams-page__area--body" id="inhoud">
-    <Grid />
-  </main>
-  <PageFooter className="ams-page__area--footer" />
-</Page>
-```
-
-### Positioning classes
-
-All children of `Page` have a class name starting with `ams-page__area--` to lay them out correctly on the underlying grid.
-
-### With menu
-
-Internal websites may use a [Menu](/docs/components-navigation-menu--docs) to support navigation across major functional areas or modules.
-This pattern helps users move efficiently between different parts of the website while keeping the structure clear and predictable.
-
-The component must be rendered twice.
-
-1. One instance, for narrow and medium windows, sits in the Page Header.
-   The user can access it through the menu button.
-   Hide the menu button on wide windows: this instance hides itself there, so the button would open an empty menu.
-2. A second Menu goes between the Page Header and the main content.
-   This is for wide windows, where the menu is positioned to the side.
-   The `inWideWindow` prop ensures that only one of both components is present at all times.
-
-Make sure that both menus have the same items.
-
-## Vertical space
-
-Between the Page Header and the Page Footer, an internal page holds one or more Grids.
-Give each of them a `paddingVertical` of `x-large`.
-The public templates vary this padding along the page; internal pages use the same value everywhere.
-
-Leave `gapVertical` at its default of `x-large` as well, so the space between the rows matches the space above and below them.
-
-Use the [Margin](/docs/utilities-css-margin--docs) utility classes for the space between the elements within a Grid Cell, in the amounts of the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guide.
+They also give every Grid the same `paddingVertical` of `x-large`, where a public page varies that padding along the page.
+Both differences are covered where the rules are: [Page structure](/docs/pages-guidelines-page-structure--docs) and [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs).
 
 ## See also
 
-- [Breadcrumb](/docs/components-navigation-breadcrumb--docs)
-- [Grid](/docs/components-layout-grid--docs)
-- [Menu](/docs/components-navigation-menu--docs)
-- [Page Footer](/docs/components-containers-page-footer--docs)
-- [Page Header](/docs/components-containers-page-header--docs)
-- [Page](/docs/components-containers-page--docs)
-- [Skip Link](/docs/components-navigation-skip-link--docs)
+- [Choosing a page type](/docs/pages-guidelines-choosing-a-page-type--docs) – what each of these page types is for.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every page shares, including the two Menus.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the Grid padding and the Cell sizes.
+- [Public websites](/docs/pages-public-introduction--docs) – the page types for the City’s public sites.
