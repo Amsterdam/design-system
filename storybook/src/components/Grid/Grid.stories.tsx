@@ -28,6 +28,7 @@ const meta = {
   },
   subcomponents: {
     'Grid.Cell': Grid.Cell,
+    'Grid.Subgrid': Grid.Subgrid,
   },
 } satisfies Meta<typeof Grid>
 
