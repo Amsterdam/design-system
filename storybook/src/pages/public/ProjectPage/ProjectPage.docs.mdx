@@ -46,11 +46,12 @@ This suits a project with a handful of related sections, where a reader can take
 Longer projects need more sections, and a reader who wants one of them should not have to scroll past the others to find it.
 Open such a page with a lead paragraph, list its sections in a [Table of Contents](/docs/components-navigation-table-of-contents--docs) beside the body, and give every section heading the `id` its entry points at.
 
-Place that Table of Contents in a [Breakout](/docs/components-layout-breakout--docs) rather than a [Grid](/docs/components-layout-grid--docs).
-Only a Breakout can put a Cell in a row of your choosing, which is what lets the Table of Contents come first in the reading order and still sit to the right of the body on a wide screen.
-In a Grid it would push the body down a row.
+Give that Table of Contents a `rowStart` of 1 in its [Grid](/docs/components-layout-grid--docs) Cell.
+That is what lets it come first in the reading order and still sit to the right of the body on a wide screen.
+Automatic placement never moves back a column without moving down a row, so without a row of its own it would push the body down one.
+No other cell in that Grid needs a row.
 
-A Breakout also lets an image overlap the [Spotlight](/docs/components-containers-spotlight--docs) below it, which sets a band apart from the sections around it.
+Further down, a [Breakout](/docs/components-layout-breakout--docs) lets an image overlap the [Spotlight](/docs/components-containers-spotlight--docs) below it, which sets a band apart from the sections around it.
 The Cell holding the Spotlight needs `has="spotlight"`, and the Cell holding the image `has="figure"`.
 Give every Cell inside that band an explicit row: a Cell without one avoids the rows the Spotlight occupies and lands underneath the band instead of in it.
 Let the image take a single row on the narrow grid, so it sits above the band rather than over it.
@@ -60,8 +61,8 @@ Yellow is a light background, so headings and paragraphs keep their default colo
 Purple is a dark one, where everything takes `color="inverse"`.
 
 Stack a run of short link sections in one Grid Cell rather than giving each its own.
-The space between them then comes from a margin per pair, which is what the vertical space guide is written in terms of.
-Separate Cells would take it from the row gap instead, and that is a single value for the whole Grid.
+[Prose](/docs/utilities-css-prose--docs) then spaces them against one another, pair by pair, as the vertical space guide asks.
+Separate Cells would take that space from the row gap instead, and that is a single value for the whole Grid.
 
 Contact details are a [Link List](/docs/components-navigation-link-list--docs) whose links carry an icon instead of the chevron the list draws by default.
 Keep the name and the role above it in a Paragraph: they are not links, and a list of two items reads as a set of ways to get in touch.

@@ -690,16 +690,13 @@ export const WithBreakout: StoryObj = {
     </Spotlight>
     {/*
      * The Table of Contents comes first in source, so it precedes the body in the reading and tab order.
-     * gridRowStart then puts it beside the body on the wide grid rather than above it: Grid.Cell offers
-     * rowSpan but no rowStart, and without a row of its own the cell joins the automatic placement, where
-     * a body Cell starting at an earlier column can no longer share its row. No other cell needs one.
+     * rowStart then puts it beside the body on the wide grid rather than above it: without a row of its
+     * own the cell joins the automatic placement, which never moves back a column without moving down a
+     * row, so the body Cell starting at an earlier column could no longer share its row. No other cell
+     * needs one.
      */}
     <Grid paddingVertical="x-large">
-      <Grid.Cell
-        span={{ narrow: 4, medium: 8, wide: 3 }}
-        start={{ narrow: 1, medium: 1, wide: 10 }}
-        style={{ gridRowStart: 1 }}
-      >
+      <Grid.Cell rowStart={1} span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 10 }}>
         {/* The Table of Contents renders its own heading, at the size of a level 3 Heading. */}
         <TableOfContents heading="Op deze pagina">
           <TableOfContents.List>
@@ -1132,16 +1129,13 @@ export const WithBreakout: StoryObj = {
         </Spotlight>
         {/*
          * The Table of Contents comes first in source, so it precedes the body in the reading and tab order.
-         * gridRowStart then puts it beside the body on the wide grid rather than above it: Grid.Cell offers
-         * rowSpan but no rowStart, and without a row of its own the cell joins the automatic placement, where
-         * a body Cell starting at an earlier column can no longer share its row. No other cell needs one.
+         * rowStart then puts it beside the body on the wide grid rather than above it: without a row of its
+         * own the cell joins the automatic placement, which never moves back a column without moving down a
+         * row, so the body Cell starting at an earlier column could no longer share its row. No other cell
+         * needs one.
          */}
         <Grid paddingVertical="x-large">
-          <Grid.Cell
-            span={{ narrow: 4, medium: 8, wide: 3 }}
-            start={{ narrow: 1, medium: 1, wide: 10 }}
-            style={{ gridRowStart: 1 }}
-          >
+          <Grid.Cell rowStart={1} span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 10 }}>
             {/* The Table of Contents renders its own heading, at the size of a level 3 Heading. */}
             <TableOfContents heading="Op deze pagina">
               <TableOfContents.List>
