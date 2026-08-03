@@ -544,17 +544,17 @@ export const Group: StoryObj = {
         </Grid.Cell>
       </Grid>
     </Spotlight>
-    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     {/*
-     * The row gap would put an x-large below each heading, where the guidance asks for a small at this size.
-     * So the Grid gives up its gap, each heading sets the space itself, and the Subgrids put the gap back
-     * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+     * the padding of the second rather than a margin on the Subgrid of the first.
      */}
-    <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
+    <Grid gapVertical="none" paddingTop="x-large">
       <Grid.Cell span="all">
         <Heading className="ams-mb-s" level={2}>Raadsleden</Heading>
       </Grid.Cell>
-      <Grid.Subgrid className="ams-mb-xl" gapVertical="x-large" span="all">
+      <Grid.Subgrid gapVertical="x-large" span="all">
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
         {councilMembers.map(({ name, role }) => (
           <Grid.Cell key={name} span={4}>
@@ -574,6 +574,9 @@ export const Group: StoryObj = {
           </Grid.Cell>
         ))}
       </Grid.Subgrid>
+    </Grid>
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
       <Grid.Cell span="all">
         <Heading className="ams-mb-s" level={2}>Fractievertegenwoordigers</Heading>
       </Grid.Cell>
@@ -739,19 +742,19 @@ export const Group: StoryObj = {
             </Grid.Cell>
           </Grid>
         </Spotlight>
-        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         {/*
-         * The row gap would put an x-large below each heading, where the guidance asks for a small at this size.
-         * So the Grid gives up its gap, each heading sets the space itself, and the Subgrids put the gap back
-         * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cards. Each of the two sections takes a Grid of its own, so the boundary between them is
+         * the padding of the second rather than a margin on the Subgrid of the first.
          */}
-        <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
+        <Grid gapVertical="none" paddingTop="x-large">
           <Grid.Cell span="all">
             <Heading className="ams-mb-s" level={2}>
               Raadsleden
             </Heading>
           </Grid.Cell>
-          <Grid.Subgrid className="ams-mb-xl" gapVertical="x-large" span="all">
+          <Grid.Subgrid gapVertical="x-large" span="all">
             {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
             {councilMembers.map(({ name, role }) => (
               <Grid.Cell key={name} span={4}>
@@ -771,6 +774,9 @@ export const Group: StoryObj = {
               </Grid.Cell>
             ))}
           </Grid.Subgrid>
+        </Grid>
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span="all">
             <Heading className="ams-mb-s" level={2}>
               Fractievertegenwoordigers
