@@ -1002,7 +1002,12 @@ export const WithBreakout: StoryObj = {
      * color="inverse".
      */}
     <Spotlight>
-      <Grid paddingVertical="x-large">
+      {/*
+       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
+       */}
+      <Grid gapVertical="none" paddingVertical="x-large">
         <Grid.Cell span="all">
           {/*
            * The Page Footer heads its own contact block ‘Contact’ as well, so someone browsing the page
@@ -1013,37 +1018,39 @@ export const WithBreakout: StoryObj = {
             Contact<span className="ams-visually-hidden"> over dit project</span>
           </Heading>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Paragraph className="ams-mb-m" color="inverse">
-            Hilde Verkerk
-            <br />
-            Omgevingsmanager
-          </Paragraph>
-          {/* A Link List of contact details: an icon per link replaces the chevron the list draws by default. */}
-          <LinkList>
-            <LinkList.Link color="inverse" href="mailto:h.verkerk@amsterdam.nl" icon={<MailIcon />}>
-              h.verkerk@amsterdam.nl
-            </LinkList.Link>
-            <LinkList.Link color="inverse" href="tel:+31618342210" icon={<PhoneIcon />}>
-              06 1834 2210
-            </LinkList.Link>
-          </LinkList>
-        </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-          <Paragraph className="ams-mb-m" color="inverse">
-            Joris Bramer
-            <br />
-            Communicatieadviseur
-          </Paragraph>
-          <LinkList>
-            <LinkList.Link color="inverse" href="mailto:j.bramer@amsterdam.nl" icon={<MailIcon />}>
-              j.bramer@amsterdam.nl
-            </LinkList.Link>
-            <LinkList.Link color="inverse" href="tel:+31611294478" icon={<PhoneIcon />}>
-              06 1129 4478
-            </LinkList.Link>
-          </LinkList>
-        </Grid.Cell>
+        <Grid.Subgrid gapVertical="x-large" span="all">
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Paragraph className="ams-mb-m" color="inverse">
+              Hilde Verkerk
+              <br />
+              Omgevingsmanager
+            </Paragraph>
+            {/* A Link List of contact details: an icon per link replaces the chevron the list draws by default. */}
+            <LinkList>
+              <LinkList.Link color="inverse" href="mailto:h.verkerk@amsterdam.nl" icon={<MailIcon />}>
+                h.verkerk@amsterdam.nl
+              </LinkList.Link>
+              <LinkList.Link color="inverse" href="tel:+31618342210" icon={<PhoneIcon />}>
+                06 1834 2210
+              </LinkList.Link>
+            </LinkList>
+          </Grid.Cell>
+          <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+            <Paragraph className="ams-mb-m" color="inverse">
+              Joris Bramer
+              <br />
+              Communicatieadviseur
+            </Paragraph>
+            <LinkList>
+              <LinkList.Link color="inverse" href="mailto:j.bramer@amsterdam.nl" icon={<MailIcon />}>
+                j.bramer@amsterdam.nl
+              </LinkList.Link>
+              <LinkList.Link color="inverse" href="tel:+31611294478" icon={<PhoneIcon />}>
+                06 1129 4478
+              </LinkList.Link>
+            </LinkList>
+          </Grid.Cell>
+        </Grid.Subgrid>
       </Grid>
     </Spotlight>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
@@ -1458,7 +1465,12 @@ export const WithBreakout: StoryObj = {
          * color="inverse".
          */}
         <Spotlight>
-          <Grid paddingVertical="x-large">
+          {/*
+           * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+           * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+           * between the Cells.
+           */}
+          <Grid gapVertical="none" paddingVertical="x-large">
             <Grid.Cell span="all">
               {/*
                * The Page Footer heads its own contact block ‘Contact’ as well, so someone browsing the page
@@ -1469,37 +1481,39 @@ export const WithBreakout: StoryObj = {
                 Contact<span className="ams-visually-hidden"> over dit project</span>
               </Heading>
             </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Paragraph className="ams-mb-m" color="inverse">
-                Hilde Verkerk
-                <br />
-                Omgevingsmanager
-              </Paragraph>
-              {/* A Link List of contact details: an icon per link replaces the chevron the list draws by default. */}
-              <LinkList>
-                <LinkList.Link color="inverse" href="mailto:h.verkerk@amsterdam.nl" icon={<MailIcon />}>
-                  h.verkerk@amsterdam.nl
-                </LinkList.Link>
-                <LinkList.Link color="inverse" href="tel:+31618342210" icon={<PhoneIcon />}>
-                  06 1834 2210
-                </LinkList.Link>
-              </LinkList>
-            </Grid.Cell>
-            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
-              <Paragraph className="ams-mb-m" color="inverse">
-                Joris Bramer
-                <br />
-                Communicatieadviseur
-              </Paragraph>
-              <LinkList>
-                <LinkList.Link color="inverse" href="mailto:j.bramer@amsterdam.nl" icon={<MailIcon />}>
-                  j.bramer@amsterdam.nl
-                </LinkList.Link>
-                <LinkList.Link color="inverse" href="tel:+31611294478" icon={<PhoneIcon />}>
-                  06 1129 4478
-                </LinkList.Link>
-              </LinkList>
-            </Grid.Cell>
+            <Grid.Subgrid gapVertical="x-large" span="all">
+              <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+                <Paragraph className="ams-mb-m" color="inverse">
+                  Hilde Verkerk
+                  <br />
+                  Omgevingsmanager
+                </Paragraph>
+                {/* A Link List of contact details: an icon per link replaces the chevron the list draws by default. */}
+                <LinkList>
+                  <LinkList.Link color="inverse" href="mailto:h.verkerk@amsterdam.nl" icon={<MailIcon />}>
+                    h.verkerk@amsterdam.nl
+                  </LinkList.Link>
+                  <LinkList.Link color="inverse" href="tel:+31618342210" icon={<PhoneIcon />}>
+                    06 1834 2210
+                  </LinkList.Link>
+                </LinkList>
+              </Grid.Cell>
+              <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }}>
+                <Paragraph className="ams-mb-m" color="inverse">
+                  Joris Bramer
+                  <br />
+                  Communicatieadviseur
+                </Paragraph>
+                <LinkList>
+                  <LinkList.Link color="inverse" href="mailto:j.bramer@amsterdam.nl" icon={<MailIcon />}>
+                    j.bramer@amsterdam.nl
+                  </LinkList.Link>
+                  <LinkList.Link color="inverse" href="tel:+31611294478" icon={<PhoneIcon />}>
+                    06 1129 4478
+                  </LinkList.Link>
+                </LinkList>
+              </Grid.Cell>
+            </Grid.Subgrid>
           </Grid>
         </Spotlight>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
