@@ -460,9 +460,9 @@ export const Group: StoryObj = {
       </Grid.Cell>
     </Grid>
     {/*
-     * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
-     * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
-     * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+     * A Grid of its own, so its row gap can go. That gap would put an x-large below the heading, where the
+     * guidance asks for a small at this size, so the heading sets the space itself and the Subgrid puts the
+     * gap back between the Cells. It sets no paddingTop: the Content Header above already spaces the two.
      */}
     <Grid gapVertical="none" paddingBottom="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
@@ -546,9 +546,9 @@ export const Group: StoryObj = {
     </Spotlight>
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     {/*
-     * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
-     * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+     * The row gap would put an x-large below each heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, each heading sets the space itself, and the Subgrids put the gap back
+     * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
      */}
     <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
       <Grid.Cell className="ams-mb-s" span="all">
@@ -638,9 +638,9 @@ export const Group: StoryObj = {
           </Grid.Cell>
         </Grid>
         {/*
-         * A Grid of its own, so its row gap can go: the heading then sets the small the vertical space guidance
-         * asks for below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
-         * It sets no paddingTop, because the paddingBottom of the Content Header above already spaces the two.
+         * A Grid of its own, so its row gap can go. That gap would put an x-large below the heading, where the
+         * guidance asks for a small at this size, so the heading sets the space itself and the Subgrid puts the
+         * gap back between the Cells. It sets no paddingTop: the Content Header above already spaces the two.
          */}
         <Grid gapVertical="none" paddingBottom="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
@@ -743,9 +743,9 @@ export const Group: StoryObj = {
         </Spotlight>
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         {/*
-         * The Grid gives up its row gap so each heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrids put the regular gap back between the Cards they hold. The
-         * first Subgrid carries the x-large the guidance asks for above the heading of the next section.
+         * The row gap would put an x-large below each heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, each heading sets the space itself, and the Subgrids put the gap back
+         * between the Cards. The first Subgrid also carries the x-large that belongs above the next heading.
          */}
         <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell className="ams-mb-s" span="all">
@@ -843,8 +843,9 @@ export const Location: StoryObj = {
       </Grid.Cell>
     </Grid>
     {/*
-     * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
      */}
     <Grid gapVertical="none" paddingVertical="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
@@ -1013,8 +1014,9 @@ export const Location: StoryObj = {
           </Grid.Cell>
         </Grid>
         {/*
-         * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
          */}
         <Grid gapVertical="none" paddingVertical="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
@@ -1250,8 +1252,9 @@ export const LocationLarge: StoryObj = {
       </Grid.Cell>
     </Grid>
     {/*
-     * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-     * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+     * between the Cells.
      */}
     <Grid gapVertical="none" paddingBottom="x-large">
       <Grid.Cell className="ams-mb-s" span="all">
@@ -1540,8 +1543,9 @@ export const LocationLarge: StoryObj = {
           </Grid.Cell>
         </Grid>
         {/*
-         * The Grid gives up its row gap so the heading can set the small the vertical space guidance asks for
-         * below a level 2 heading, and the Subgrid puts the regular gap back between the Cells it holds.
+         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
          */}
         <Grid gapVertical="none" paddingBottom="x-large">
           <Grid.Cell className="ams-mb-s" span="all">
