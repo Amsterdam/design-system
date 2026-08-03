@@ -831,23 +831,19 @@ export const WithBreakout: StoryObj = {
           <LinkList.Link href="#">Fietsenstalling Julianaplein opent in het voorjaar (14 juli 2026)</LinkList.Link>
           <LinkList.Link href="#">Bushaltes verplaatst naar de Spaklerweg (2 juni 2026)</LinkList.Link>
           <LinkList.Link href="#">Terugblik op de informatieavond van 21 mei (28 mei 2026)</LinkList.Link>
-          {/* A bottom margin on the second to last link sets the closing link apart from the items above it. */}
-          <LinkList.Link className="ams-mb-m" href="#">
-            Wandschildering in de stationshal gerestaureerd (9 april 2026)
-          </LinkList.Link>
-          <LinkList.Link href="#">Bekijk al het nieuws over dit project</LinkList.Link>
+          <LinkList.Link href="#">Wandschildering in de stationshal gerestaureerd (9 april 2026)</LinkList.Link>
         </LinkList>
+        {/* A link to the wider set is about the list rather than one of it, so it sits outside as a Standalone Link. */}
+        <StandaloneLink href="#">Bekijk al het nieuws over dit project</StandaloneLink>
       </Grid.Cell>
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading id="werk-aan-de-weg" level={2} size="level-3">Werk aan de weg</Heading>
         <LinkList>
           <LinkList.Link href="#">Amstelstationstraat: afsluiting tot en met 12 september</LinkList.Link>
           <LinkList.Link href="#">Julianaplein: omleiding voor fietsers</LinkList.Link>
-          <LinkList.Link className="ams-mb-m" href="#">
-            Spaklerweg: nachtelijke afsluitingen
-          </LinkList.Link>
-          <LinkList.Link href="#">Bekijk alle wegwerkzaamheden in Oost</LinkList.Link>
+          <LinkList.Link href="#">Spaklerweg: nachtelijke afsluitingen</LinkList.Link>
         </LinkList>
+        <StandaloneLink href="#">Bekijk alle wegwerkzaamheden in Oost</StandaloneLink>
       </Grid.Cell>
     </Grid>
     {/*
@@ -951,20 +947,16 @@ export const WithBreakout: StoryObj = {
           <LinkList.Link href="#">Bereikbaarheid tijdens de werkzaamheden</LinkList.Link>
           <LinkList.Link href="#">Duurzaam en circulair bouwen</LinkList.Link>
           <LinkList.Link href="#">Groen en biodiversiteit</LinkList.Link>
-          <LinkList.Link className="ams-mb-m" href="#">
-            Toegankelijkheid van het station
-          </LinkList.Link>
-          <LinkList.Link href="#">Bekijk alle thema’s</LinkList.Link>
+          <LinkList.Link href="#">Toegankelijkheid van het station</LinkList.Link>
         </LinkList>
+        <StandaloneLink href="#">Bekijk alle thema’s</StandaloneLink>
         <Heading id="documenten" level={2} size="level-3">Documenten</Heading>
         <LinkList>
           <LinkList.Link href="#">Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)</LinkList.Link>
           <LinkList.Link href="#">Voorlopig ontwerp Julianaplein (pdf, 8,1 MB)</LinkList.Link>
-          <LinkList.Link className="ams-mb-m" href="#">
-            Verkeersbesluit Amstelstationstraat (pdf, 310 kB)
-          </LinkList.Link>
-          <LinkList.Link href="#">Bekijk alle documenten</LinkList.Link>
+          <LinkList.Link href="#">Verkeersbesluit Amstelstationstraat (pdf, 310 kB)</LinkList.Link>
         </LinkList>
+        <StandaloneLink href="#">Bekijk alle documenten</StandaloneLink>
         <Heading id="video" level={2} size="level-3">Video</Heading>
         {/*
          * A Paragraph between the heading and the image: the vertical space guide documents no value for
@@ -1282,12 +1274,10 @@ export const WithBreakout: StoryObj = {
               <LinkList.Link href="#">Fietsenstalling Julianaplein opent in het voorjaar (14 juli 2026)</LinkList.Link>
               <LinkList.Link href="#">Bushaltes verplaatst naar de Spaklerweg (2 juni 2026)</LinkList.Link>
               <LinkList.Link href="#">Terugblik op de informatieavond van 21 mei (28 mei 2026)</LinkList.Link>
-              {/* A bottom margin on the second to last link sets the closing link apart from the items above it. */}
-              <LinkList.Link className="ams-mb-m" href="#">
-                Wandschildering in de stationshal gerestaureerd (9 april 2026)
-              </LinkList.Link>
-              <LinkList.Link href="#">Bekijk al het nieuws over dit project</LinkList.Link>
+              <LinkList.Link href="#">Wandschildering in de stationshal gerestaureerd (9 april 2026)</LinkList.Link>
             </LinkList>
+            {/* A link to the wider set is about the list rather than one of it, so it sits outside as a Standalone Link. */}
+            <StandaloneLink href="#">Bekijk al het nieuws over dit project</StandaloneLink>
           </Grid.Cell>
           <Grid.Cell
             className="ams-prose"
@@ -1300,11 +1290,9 @@ export const WithBreakout: StoryObj = {
             <LinkList>
               <LinkList.Link href="#">Amstelstationstraat: afsluiting tot en met 12 september</LinkList.Link>
               <LinkList.Link href="#">Julianaplein: omleiding voor fietsers</LinkList.Link>
-              <LinkList.Link className="ams-mb-m" href="#">
-                Spaklerweg: nachtelijke afsluitingen
-              </LinkList.Link>
-              <LinkList.Link href="#">Bekijk alle wegwerkzaamheden in Oost</LinkList.Link>
+              <LinkList.Link href="#">Spaklerweg: nachtelijke afsluitingen</LinkList.Link>
             </LinkList>
+            <StandaloneLink href="#">Bekijk alle wegwerkzaamheden in Oost</StandaloneLink>
           </Grid.Cell>
         </Grid>
         {/*
@@ -1416,22 +1404,18 @@ export const WithBreakout: StoryObj = {
               <LinkList.Link href="#">Bereikbaarheid tijdens de werkzaamheden</LinkList.Link>
               <LinkList.Link href="#">Duurzaam en circulair bouwen</LinkList.Link>
               <LinkList.Link href="#">Groen en biodiversiteit</LinkList.Link>
-              <LinkList.Link className="ams-mb-m" href="#">
-                Toegankelijkheid van het station
-              </LinkList.Link>
-              <LinkList.Link href="#">Bekijk alle thema’s</LinkList.Link>
+              <LinkList.Link href="#">Toegankelijkheid van het station</LinkList.Link>
             </LinkList>
+            <StandaloneLink href="#">Bekijk alle thema’s</StandaloneLink>
             <Heading id="documenten" level={2} size="level-3">
               Documenten
             </Heading>
             <LinkList>
               <LinkList.Link href="#">Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)</LinkList.Link>
               <LinkList.Link href="#">Voorlopig ontwerp Julianaplein (pdf, 8,1 MB)</LinkList.Link>
-              <LinkList.Link className="ams-mb-m" href="#">
-                Verkeersbesluit Amstelstationstraat (pdf, 310 kB)
-              </LinkList.Link>
-              <LinkList.Link href="#">Bekijk alle documenten</LinkList.Link>
+              <LinkList.Link href="#">Verkeersbesluit Amstelstationstraat (pdf, 310 kB)</LinkList.Link>
             </LinkList>
+            <StandaloneLink href="#">Bekijk alle documenten</StandaloneLink>
             <Heading id="video" level={2} size="level-3">
               Video
             </Heading>
