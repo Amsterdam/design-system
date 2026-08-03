@@ -676,7 +676,7 @@ export const WithBreakout: StoryObj = {
     <Spotlight color="yellow">
       <Grid paddingVertical="x-large">
         <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-          <Heading level={2}>Amstelstationstraat afgesloten tot en met 12 september</Heading>
+          <Heading level={2} size="level-3">Amstelstationstraat afgesloten tot en met 12 september</Heading>
           <Paragraph>
             Tot en met 12 september vervangen we de riolering onder de Amstelstationstraat. Doorgaand autoverkeer
             rijdt om via de Wibautstraat. De ingang van het station aan de kant van het Julianaplein blijft de hele
@@ -988,7 +988,7 @@ export const WithBreakout: StoryObj = {
      */}
     <Spotlight>
       {/*
-       * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+       * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
        * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
        * between the Cells.
        */}
@@ -999,7 +999,7 @@ export const WithBreakout: StoryObj = {
            * by heading meets the word twice. The hidden phrase tells the two apart without repeating
            * ‘over dit project’ on screen, where the surrounding page already says so.
            */}
-          <Heading className="ams-mb-s" color="inverse" level={2}>
+          <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
             Contact<span className="ams-visually-hidden"> over dit project</span>
           </Heading>
         </Grid.Cell>
@@ -1107,7 +1107,9 @@ export const WithBreakout: StoryObj = {
               span={{ narrow: 4, medium: 6, wide: 7 }}
               start={{ narrow: 1, medium: 2, wide: 3 }}
             >
-              <Heading level={2}>Amstelstationstraat afgesloten tot en met 12 september</Heading>
+              <Heading level={2} size="level-3">
+                Amstelstationstraat afgesloten tot en met 12 september
+              </Heading>
               <Paragraph>
                 Tot en met 12 september vervangen we de riolering onder de Amstelstationstraat. Doorgaand autoverkeer
                 rijdt om via de Wibautstraat. De ingang van het station aan de kant van het Julianaplein blijft de hele
@@ -1453,7 +1455,7 @@ export const WithBreakout: StoryObj = {
          */}
         <Spotlight>
           {/*
-           * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+           * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
            * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
            * between the Cells.
            */}
@@ -1464,7 +1466,7 @@ export const WithBreakout: StoryObj = {
                * by heading meets the word twice. The hidden phrase tells the two apart without repeating
                * ‘over dit project’ on screen, where the surrounding page already says so.
                */}
-              <Heading className="ams-mb-s" color="inverse" level={2}>
+              <Heading className="ams-mb-xs" color="inverse" level={2} size="level-3">
                 Contact<span className="ams-visually-hidden"> over dit project</span>
               </Heading>
             </Grid.Cell>
