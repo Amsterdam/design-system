@@ -104,8 +104,11 @@ const columnGapToken: SpaceToken = 'xl'
 /** The space token behind each value of the Grid padding props. */
 const paddingTokens = { large: 'l', 'x-large': 'xl', '2x-large': '2xl' } as const
 
-/** The space token behind each value of the Grid `gapVertical` prop. Its default is `x-large`. */
-const rowGapTokens = { '2x-large': '2xl', large: 'l', none: undefined } as const
+/**
+ * The space token behind each value of the Grid `gapVertical` prop. Its default is `x-large`.
+ * A Subgrid takes `x-large` as well, to state the gap the Grid gives by default where the Grid has given it up.
+ */
+const rowGapTokens = { '2x-large': '2xl', large: 'l', none: undefined, 'x-large': 'xl' } as const
 
 type Padding = keyof typeof paddingTokens
 type Gap = keyof typeof rowGapTokens
@@ -209,11 +212,21 @@ export type AnatomyBlock = {
    * marker, and its last row. Only a marker carries it, and a marker holds nothing else.
    */
   readonly elided?: ElidedRows
+  /**
+   * The row gap a Subgrid sets for the blocks it holds. Without one it takes the gap of the Grid, as the real
+   * Subgrid does through `row-gap: inherit`.
+   */
+  readonly gapVertical?: Gap
   /** The height of the block, per Grid variant. */
   readonly height: Record<Breakpoint, number>
   readonly label: string
   /** The number of rows the block spans, per Grid variant. */
   readonly rowSpan: Record<Breakpoint, number | undefined>
+  /**
+   * The space an `ams-mb-*` utility on the Cell puts below it. A Grid that has given up its row gap leaves the
+   * spacing to these, so the drawing has to read them to show the page it stands for.
+   */
+  readonly spaceAfter?: SpaceToken
   /** The number of columns the block spans, per Grid variant. */
   readonly span: Record<Breakpoint, number>
   /** The column the block starts at, per Grid variant. Undefined leaves the placement to the browser. */
@@ -309,6 +322,18 @@ const readCellRatio = (children: ReactNode): number | undefined => {
   return imageRatio(only)
 }
 
+/** The space tokens of the margin utilities, longest first so that `xs` is not read as an `s`. */
+const spaceAfterPattern = /(?:^|\s)ams-mb-(2xl|xl|xs|s|m|l)(?:\s|$)/
+
+/**
+ * The space an `ams-mb-*` utility on a Cell puts below it.
+ *
+ * A Grid that gives up its row gap leaves the spacing to these, so a drawing that ignored them would show a heading
+ * sitting against the section it introduces.
+ */
+const readSpaceAfter = (className: unknown): SpaceToken | undefined =>
+  typeof className === 'string' ? (spaceAfterPattern.exec(className)?.[1] as SpaceToken | undefined) : undefined
+
 /**
  * Reads a Grid Cell or a Grid Subgrid. Both take the same placement props.
  *
@@ -316,16 +341,18 @@ const readCellRatio = (children: ReactNode): number | undefined => {
  * Its own columns are numbered from one again, so a span of ‘all’ is the span of the Subgrid rather than of the Grid.
  */
 const readCell = (element: ReactElement, columns?: Record<Breakpoint, number>): AnatomyBlock => {
-  const { appearance, children, rowSpan, span, start } = propsOf(element)
+  const { appearance, children, className, gapVertical, rowSpan, span, start } = propsOf(element)
   const available = (viewport: AnatomyViewport) => columns?.[viewport.key] ?? viewport.columns
 
   return {
     appearance: appearance as string | undefined,
     aspectRatio: readCellRatio(children as ReactNode),
     bleed: false,
+    gapVertical: gapVertical as Gap | undefined,
     height: perViewport(() => defaultBlockHeight),
     label: '',
     rowSpan: perViewport((viewport) => readColumns(rowSpan, viewport)),
+    spaceAfter: readSpaceAfter(className),
     // A cell without a `span` spans a single column, as `grid-column-end: auto` does.
     span: perViewport((viewport) => readColumns(span, viewport, available(viewport)) ?? 1),
     start: perViewport((viewport) => readColumns(start, viewport, available(viewport))),

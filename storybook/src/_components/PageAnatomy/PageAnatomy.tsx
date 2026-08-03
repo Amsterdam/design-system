@@ -141,6 +141,10 @@ const Block = ({
       gridColumn: block.bleed ? '1 / -1' : gridColumn(block.start[viewport.key], block.span[viewport.key]),
       // The blocks of an Overlap share one row; a bleed block reaches past the inline padding of the Grid.
       gridRow: section.overlap ? 1 : gridRow(block.rowSpan[viewport.key]),
+      // A margin utility on the Cell, which is what spaces it where the Grid has given up its row gap.
+      marginBlockEnd: block.spaceAfter
+        ? toContainerWidth(space(block.spaceAfter, viewport.width, mode), viewport.contentWidth)
+        : undefined,
       marginInline: block.bleed
         ? toContainerWidth(-space(viewport.paddingInline, viewport.width, mode), viewport.contentWidth)
         : undefined,
@@ -149,6 +153,13 @@ const Block = ({
           ? // Halfway down the strip left in the open, less half a line so the label centres on that point.
             `calc(${toContainerWidth(stripAboveOverlay(section, block, viewport, mode) / 2, viewport.contentWidth)} - 0.375rem)`
           : undefined,
+      // A Subgrid spaces its own rows, and takes the gap of the Grid where it names none.
+      rowGap: block.blocks
+        ? toContainerWidth(
+            rowGapHeight(block.gapVertical ?? section.gapVertical, viewport.width, mode),
+            viewport.contentWidth,
+          )
+        : undefined,
     }}
   >
     {block.blocks ? (
