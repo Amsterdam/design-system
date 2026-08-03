@@ -17,6 +17,11 @@ import type { Meta } from '@storybook/react-vite'
  * Spreading `...commonMeta` and then setting `parameters` on a meta replaces the
  * whole `parameters` object, so pass the shared parameters as `baseParameters`
  * to fold them back in. Any `extraParameters` are merged last.
+ *
+ * `docs` is merged a level deeper than the rest, so that settings either side
+ * already carries, such as `docs.source` or `docs.page`, survive. The
+ * `description` argument is the one field that always wins: a page that wants a
+ * different subtitle passes it there rather than through `extraParameters`.
  */
 export const buildPageParameters = (
   baseParameters: Meta['parameters'],
@@ -24,6 +29,14 @@ export const buildPageParameters = (
   extraParameters?: Meta['parameters'],
 ): Meta['parameters'] => ({
   ...baseParameters,
-  docs: { description: { component: description } },
   ...extraParameters,
+  docs: {
+    ...baseParameters?.['docs'],
+    ...extraParameters?.['docs'],
+    description: {
+      ...baseParameters?.['docs']?.description,
+      ...extraParameters?.['docs']?.description,
+      component: description,
+    },
+  },
 })
