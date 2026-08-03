@@ -6128,19 +6128,19 @@
     },
     "components-layout-grid": {
       "id": "components-layout-grid",
-      "name": "Grid.Subgrid",
-      "path": "./src/components/Grid/GridSubgrid.stories.tsx",
+      "name": "Grid",
+      "path": "./src/components/Grid/Grid.stories.tsx",
       "jsDocTags": {
         "see": [
           "{@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}"
         ]
       },
-      "description": "A region of the Grid that shares its columns with its children, so they align to the columns of the page.\nEvery direct child must be a Grid Cell.",
+      "description": "Divides the screen into columns to align the elements of a page.",
       "reactComponentMeta": {
-        "displayName": "Grid.Subgrid",
+        "displayName": "Grid",
         "exportName": "Grid",
         "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
-        "description": "A region of the Grid that shares its columns with its children, so they align to the columns of the page.\nEvery direct child must be a Grid Cell.",
+        "description": "Divides the screen into columns to align the elements of a page.",
         "jsDocTags": {
           "see": [
             "{@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}"
@@ -6185,13 +6185,13 @@
               "value": "div"
             },
             "parent": {
-              "name": "GridSubgridProps",
-              "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+              "name": "GridProps",
+              "fileName": "../packages/react/src/Grid/Grid.tsx"
             },
             "declarations": [
               {
                 "name": "TypeLiteral",
-                "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                "fileName": "../packages/react/src/Grid/Grid.tsx"
               }
             ]
           },
@@ -6200,11 +6200,39 @@
             "required": false,
             "type": {
               "name": "enum",
-              "raw": "\"none\" | \"large\" | \"2x-large\" | \"x-large\"",
+              "raw": "\"none\" | \"large\" | \"2x-large\"",
               "value": [
                 {
                   "value": "\"none\""
                 },
+                {
+                  "value": "\"large\""
+                },
+                {
+                  "value": "\"2x-large\""
+                }
+              ]
+            },
+            "description": "The amount of space between rows.",
+            "defaultValue": null,
+            "parent": {
+              "name": "GridProps",
+              "fileName": "../packages/react/src/Grid/Grid.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/Grid/Grid.tsx"
+              }
+            ]
+          },
+          "paddingBottom": {
+            "name": "paddingBottom",
+            "required": false,
+            "type": {
+              "name": "enum",
+              "raw": "\"large\" | \"2x-large\" | \"x-large\"",
+              "value": [
                 {
                   "value": "\"large\""
                 },
@@ -6216,87 +6244,433 @@
                 }
               ]
             },
-            "description": "The amount of space between the rows of the subgrid.\nDefaults to the vertical gap of the Grid.",
+            "description": "The amount of space below.",
             "defaultValue": null,
             "parent": {
-              "name": "GridSubgridProps",
-              "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+              "name": "GridPaddingTopAndBottomProps",
+              "fileName": "../packages/react/src/Grid/Grid.tsx"
             },
             "declarations": [
               {
                 "name": "TypeLiteral",
-                "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                "fileName": "../packages/react/src/Grid/Grid.tsx"
               }
             ]
           },
-          "rowSpan": {
-            "name": "rowSpan",
+          "paddingTop": {
+            "name": "paddingTop",
             "required": false,
             "type": {
-              "name": "GridRowNumber | GridRowNumbers | undefined"
+              "name": "enum",
+              "raw": "\"large\" | \"2x-large\" | \"x-large\"",
+              "value": [
+                {
+                  "value": "\"large\""
+                },
+                {
+                  "value": "\"2x-large\""
+                },
+                {
+                  "value": "\"x-large\""
+                }
+              ]
             },
-            "description": "The amount of grid rows the subgrid spans.\nAccepts a number or an object of numbers per grid variant.",
+            "description": "The amount of space above.",
             "defaultValue": null,
             "parent": {
-              "name": "GridSubgridProps",
-              "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+              "name": "GridPaddingTopAndBottomProps",
+              "fileName": "../packages/react/src/Grid/Grid.tsx"
             },
             "declarations": [
               {
                 "name": "TypeLiteral",
-                "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                "fileName": "../packages/react/src/Grid/Grid.tsx"
               }
             ]
           },
-          "span": {
-            "name": "span",
+          "paddingVertical": {
+            "name": "paddingVertical",
             "required": false,
             "type": {
-              "name": "\"all\""
+              "name": "enum",
+              "raw": "\"large\" | \"2x-large\" | \"x-large\"",
+              "value": [
+                {
+                  "value": "\"large\""
+                },
+                {
+                  "value": "\"2x-large\""
+                },
+                {
+                  "value": "\"x-large\""
+                }
+              ]
             },
-            "description": "Lets the subgrid span the full width of all grid variants.",
+            "description": "The amount of space above and below.",
             "defaultValue": null,
             "parent": {
-              "name": "GridSubgridSpanAllProp",
-              "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+              "name": "GridPaddingVerticalProp",
+              "fileName": "../packages/react/src/Grid/Grid.tsx"
             },
             "declarations": [
               {
                 "name": "TypeLiteral",
-                "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
-              }
-            ]
-          },
-          "start": {
-            "name": "start",
-            "required": false,
-            "type": {
-              "name": "GridColumnNumber | GridColumnNumbers | undefined"
-            },
-            "description": "The index of the grid column the subgrid starts at.\nAccepts a number or an object of numbers per grid variant.",
-            "defaultValue": null,
-            "parent": {
-              "name": "GridSubgridSpanAndStartProps",
-              "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
-            },
-            "declarations": [
-              {
-                "name": "TypeLiteral",
-                "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                "fileName": "../packages/react/src/Grid/Grid.tsx"
               }
             ]
           }
         }
       },
+      "subcomponents": {
+        "Grid.Cell": {
+          "name": "Grid.Cell",
+          "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+          "description": "One cell within the Grid, spanning one or more columns and optionally rows.",
+          "import": "import { Grid } from \"@amsterdam/design-system-react/src\";",
+          "jsDocTags": {
+            "see": [
+              "{@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}"
+            ]
+          },
+          "reactComponentMeta": {
+            "displayName": "Grid.Cell",
+            "exportName": "Grid",
+            "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+            "description": "One cell within the Grid, spanning one or more columns and optionally rows.",
+            "jsDocTags": {
+              "see": [
+                "{@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}"
+              ]
+            },
+            "props": {
+              "appearance": {
+                "name": "appearance",
+                "required": false,
+                "type": {
+                  "name": "enum",
+                  "raw": "\"flush\" | \"transparent\"",
+                  "value": [
+                    {
+                      "value": "\"flush\""
+                    },
+                    {
+                      "value": "\"transparent\""
+                    }
+                  ]
+                },
+                "description": "Controls the background of the cell.\n\nIn Compact Mode, cells have a background colour and padding to set them apart.\nThe flush variant removes the padding but keeps the background colour.\nThe transparent variant removes both background and padding.\n\nIn Spacious Mode, cells are always transparent and without padding; this prop has no effect.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "GridCellProps",
+                  "fileName": "../packages/react/src/Grid/GridCell.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Grid/GridCell.tsx"
+                  }
+                ]
+              },
+              "as": {
+                "name": "as",
+                "required": false,
+                "type": {
+                  "name": "enum",
+                  "raw": "\"article\" | \"main\" | \"div\" | \"section\" | \"footer\" | \"aside\" | \"header\" | \"nav\"",
+                  "value": [
+                    {
+                      "value": "\"article\""
+                    },
+                    {
+                      "value": "\"main\""
+                    },
+                    {
+                      "value": "\"div\""
+                    },
+                    {
+                      "value": "\"section\""
+                    },
+                    {
+                      "value": "\"footer\""
+                    },
+                    {
+                      "value": "\"aside\""
+                    },
+                    {
+                      "value": "\"header\""
+                    },
+                    {
+                      "value": "\"nav\""
+                    }
+                  ]
+                },
+                "description": "The HTML tag to use.",
+                "defaultValue": {
+                  "value": "div"
+                },
+                "parent": {
+                  "name": "GridCellProps",
+                  "fileName": "../packages/react/src/Grid/GridCell.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Grid/GridCell.tsx"
+                  }
+                ]
+              },
+              "rowSpan": {
+                "name": "rowSpan",
+                "required": false,
+                "type": {
+                  "name": "GridRowNumber | GridRowNumbers | undefined"
+                },
+                "description": "The amount of grid rows the cell spans.\nAccepts a number or an object of numbers per grid variant.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "GridCellProps",
+                  "fileName": "../packages/react/src/Grid/GridCell.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Grid/GridCell.tsx"
+                  }
+                ]
+              },
+              "span": {
+                "name": "span",
+                "required": false,
+                "type": {
+                  "name": "\"all\""
+                },
+                "description": "Lets the cell span the full width of all grid variants.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "GridCellSpanAllProp",
+                  "fileName": "../packages/react/src/Grid/GridCell.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Grid/GridCell.tsx"
+                  }
+                ]
+              },
+              "start": {
+                "name": "start",
+                "required": false,
+                "type": {
+                  "name": "GridColumnNumber | GridColumnNumbers | undefined"
+                },
+                "description": "The index of the grid column the cell starts at.\nAccepts a number or an object of numbers per grid variant.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "GridCellSpanAndStartProps",
+                  "fileName": "../packages/react/src/Grid/GridCell.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Grid/GridCell.tsx"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "Grid.Subgrid": {
+          "name": "Grid.Subgrid",
+          "path": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+          "description": "A region of the Grid that shares its columns with its children, so they align to the columns of the page.\nEvery direct child must be a Grid Cell.",
+          "import": "import { Grid } from \"@amsterdam/design-system-react/src\";",
+          "jsDocTags": {
+            "see": [
+              "{@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}"
+            ]
+          },
+          "reactComponentMeta": {
+            "displayName": "Grid.Subgrid",
+            "exportName": "Grid",
+            "filePath": "/home/runner/work/design-system/design-system/packages/react/src/index.ts",
+            "description": "A region of the Grid that shares its columns with its children, so they align to the columns of the page.\nEvery direct child must be a Grid Cell.",
+            "jsDocTags": {
+              "see": [
+                "{@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}"
+              ]
+            },
+            "props": {
+              "as": {
+                "name": "as",
+                "required": false,
+                "type": {
+                  "name": "enum",
+                  "raw": "\"article\" | \"main\" | \"div\" | \"section\" | \"footer\" | \"aside\" | \"header\" | \"nav\"",
+                  "value": [
+                    {
+                      "value": "\"article\""
+                    },
+                    {
+                      "value": "\"main\""
+                    },
+                    {
+                      "value": "\"div\""
+                    },
+                    {
+                      "value": "\"section\""
+                    },
+                    {
+                      "value": "\"footer\""
+                    },
+                    {
+                      "value": "\"aside\""
+                    },
+                    {
+                      "value": "\"header\""
+                    },
+                    {
+                      "value": "\"nav\""
+                    }
+                  ]
+                },
+                "description": "The HTML tag to use.",
+                "defaultValue": {
+                  "value": "div"
+                },
+                "parent": {
+                  "name": "GridSubgridProps",
+                  "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                  }
+                ]
+              },
+              "gapVertical": {
+                "name": "gapVertical",
+                "required": false,
+                "type": {
+                  "name": "enum",
+                  "raw": "\"none\" | \"large\" | \"2x-large\" | \"x-large\"",
+                  "value": [
+                    {
+                      "value": "\"none\""
+                    },
+                    {
+                      "value": "\"large\""
+                    },
+                    {
+                      "value": "\"2x-large\""
+                    },
+                    {
+                      "value": "\"x-large\""
+                    }
+                  ]
+                },
+                "description": "The amount of space between the rows of the subgrid.\nDefaults to the vertical gap of the Grid.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "GridSubgridProps",
+                  "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                  }
+                ]
+              },
+              "rowSpan": {
+                "name": "rowSpan",
+                "required": false,
+                "type": {
+                  "name": "GridRowNumber | GridRowNumbers | undefined"
+                },
+                "description": "The amount of grid rows the subgrid spans.\nAccepts a number or an object of numbers per grid variant.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "GridSubgridProps",
+                  "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                  }
+                ]
+              },
+              "span": {
+                "name": "span",
+                "required": false,
+                "type": {
+                  "name": "\"all\""
+                },
+                "description": "Lets the subgrid span the full width of all grid variants.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "GridSubgridSpanAllProp",
+                  "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                  }
+                ]
+              },
+              "start": {
+                "name": "start",
+                "required": false,
+                "type": {
+                  "name": "GridColumnNumber | GridColumnNumbers | undefined"
+                },
+                "description": "The index of the grid column the subgrid starts at.\nAccepts a number or an object of numbers per grid variant.",
+                "defaultValue": null,
+                "parent": {
+                  "name": "GridSubgridSpanAndStartProps",
+                  "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                },
+                "declarations": [
+                  {
+                    "name": "TypeLiteral",
+                    "fileName": "../packages/react/src/Grid/GridSubgrid.tsx"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
       "stories": [
         {
-          "id": "components-layout-grid--subgrid",
-          "name": "Subgrid",
-          "snippet": "const Subgrid = () => <>\n    <Grid.Cell\n        className=\"_ams-item\"\n        span={{ narrow: 4, medium: 2, wide: 3 }}\n        style={{ blockSize: '16rem' }} />\n    <Grid.Subgrid\n        span={{ narrow: 4, medium: 6, wide: 9 }}\n        start={{ narrow: 1, medium: 3, wide: 4 }}>\n        <Grid.Cell className=\"_ams-item\" span=\"all\" style={{ blockSize: '6rem' }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n        <Grid.Cell className=\"_ams-item\" span={{ narrow: 4, medium: 2, wide: 3 }} />\n    </Grid.Subgrid>\n</>;",
-          "description": "A Subgrid hands the columns it spans to its children, so a Cell inside it is placed on the columns of\nthe page rather than on columns of its own. Here a sidebar takes 3 columns and the Subgrid the other 9;\nthe Cells inside it line up with the column guide."
+          "id": "components-layout-grid--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Grid>{[\n      <Grid.Cell className=\"_ams-item\" key={1} span=\"all\" />,\n      <Grid.Cell className=\"_ams-item\" key={2} span={{ narrow: 4, medium: 4, wide: 8 }} />,\n      <Grid.Cell className=\"_ams-item\" key={3} span={4} />,\n    ]}</Grid>;"
+        },
+        {
+          "id": "components-layout-grid--vertical-padding",
+          "name": "Vertical Padding",
+          "snippet": "const VerticalPadding = () => <Grid><Grid.Cell className=\"_ams-item\" span=\"all\" /></Grid>;"
+        },
+        {
+          "id": "components-layout-grid--vertical-gap",
+          "name": "Vertical Gap",
+          "snippet": "const VerticalGap = () => <Grid>{[\n      <Grid.Cell className=\"_ams-item\" key={1} span=\"all\" />,\n      <Grid.Cell className=\"_ams-item\" key={2} span=\"all\" />,\n    ]}</Grid>;"
+        },
+        {
+          "id": "components-layout-grid--span-rows",
+          "name": "Span Rows",
+          "snippet": "const SpanRows = () => <Grid>{[\n      <Grid.Cell className=\"_ams-item\" key={1} rowSpan={2} span={2} />,\n      <Grid.Cell className=\"_ams-item\" key={2} span={{ narrow: 2, medium: 6, wide: 10 }} />,\n      <Grid.Cell className=\"_ams-item\" key={3} span={{ narrow: 2, medium: 6, wide: 10 }} />,\n    ]}</Grid>;"
+        },
+        {
+          "id": "components-layout-grid--background-in-compact-mode",
+          "name": "Background In Compact Mode",
+          "snippet": "const BackgroundInCompactMode = () => <Grid>{[\n      <Grid.Cell key={1} span={4}>\n        <Paragraph>Default</Paragraph>\n      </Grid.Cell>,\n      <Grid.Cell appearance=\"flush\" key={2} span={4}>\n        <Paragraph>Flush</Paragraph>\n      </Grid.Cell>,\n      <Grid.Cell appearance=\"transparent\" key={3} span={4}>\n        <Paragraph>Transparent</Paragraph>\n      </Grid.Cell>,\n    ]}</Grid>;"
         }
       ],
-      "import": "import { Grid } from \"@amsterdam/design-system-react/src\";\nimport { GridColumnsGuide } from \"@amsterdam/design-system-react\";",
+      "import": "import { Grid } from \"@amsterdam/design-system-react/src\";\nimport { GridColumnsGuide, Paragraph } from \"@amsterdam/design-system-react\";",
       "docs": {
         "components-layout-grid--docs": {
           "id": "components-layout-grid--docs",
@@ -10291,140 +10665,6 @@
         }
       }
     },
-    "components-docs-page-anatomy": {
-      "id": "components-docs-page-anatomy",
-      "name": "PageAnatomy",
-      "path": "./src/_components/PageAnatomy/PageAnatomy.test.stories.tsx",
-      "jsDocTags": {},
-      "description": "Draws the anatomy of a page template: the Page Header, the sections in between, and the Page Footer, at the three\nGrid variants side by side. The geometry comes from the story, so the drawing follows the page it documents.\n\nWhere there is no width for three drawings beside one another, they would take three pages of scrolling one under\nthe other, so one is drawn at a time and the buttons above choose which. Switching between them at one width is\nalso the closest look at what the Grid does that the drawing gives: the frame stays put while the page inside it\nlays itself out again.",
-      "reactComponentMeta": {
-        "displayName": "PageAnatomy",
-        "exportName": "PageAnatomy",
-        "filePath": "/home/runner/work/design-system/design-system/storybook/src/_components/PageAnatomy/PageAnatomy.tsx",
-        "description": "Draws the anatomy of a page template: the Page Header, the sections in between, and the Page Footer, at the three\nGrid variants side by side. The geometry comes from the story, so the drawing follows the page it documents.\n\nWhere there is no width for three drawings beside one another, they would take three pages of scrolling one under\nthe other, so one is drawn at a time and the buttons above choose which. Switching between them at one width is\nalso the closest look at what the Grid does that the drawing gives: the frame stays put while the page inside it\nlays itself out again.",
-        "props": {
-          "labels": {
-            "name": "labels",
-            "required": true,
-            "type": {
-              "name": "AnatomyLabels"
-            },
-            "description": "One label per Grid Cell, grouped per section, in the order they appear in the story.\nA label is either a string, or an object that also sets the height of the block.",
-            "defaultValue": null,
-            "parent": {
-              "name": "PageAnatomyProps",
-              "fileName": "src/_components/PageAnatomy/PageAnatomy.tsx"
-            },
-            "declarations": [
-              {
-                "name": "TypeLiteral",
-                "fileName": "src/_components/PageAnatomy/PageAnatomy.tsx"
-              }
-            ]
-          },
-          "of": {
-            "name": "of",
-            "required": true,
-            "type": {
-              "name": "StoryModule"
-            },
-            "description": "The module of the story file to draw, as imported in the docs page.",
-            "defaultValue": null,
-            "parent": {
-              "name": "PageAnatomyProps",
-              "fileName": "src/_components/PageAnatomy/PageAnatomy.tsx"
-            },
-            "declarations": [
-              {
-                "name": "TypeLiteral",
-                "fileName": "src/_components/PageAnatomy/PageAnatomy.tsx"
-              }
-            ]
-          },
-          "story": {
-            "name": "story",
-            "required": false,
-            "type": {
-              "name": "string"
-            },
-            "description": "The story to draw.",
-            "defaultValue": {
-              "value": "'Default'"
-            },
-            "parent": {
-              "name": "PageAnatomyProps",
-              "fileName": "src/_components/PageAnatomy/PageAnatomy.tsx"
-            },
-            "declarations": [
-              {
-                "name": "TypeLiteral",
-                "fileName": "src/_components/PageAnatomy/PageAnatomy.tsx"
-              }
-            ]
-          },
-          "menu": {
-            "name": "menu",
-            "required": false,
-            "type": {
-              "name": "boolean"
-            },
-            "description": "Whether the Page lays out a column for a Menu beside its header, body and footer.",
-            "defaultValue": {
-              "value": "false"
-            },
-            "parent": {
-              "name": "AnatomyPage",
-              "fileName": "src/_components/PageAnatomy/model.ts"
-            },
-            "declarations": [
-              {
-                "name": "TypeLiteral",
-                "fileName": "src/_components/PageAnatomy/model.ts"
-              }
-            ]
-          },
-          "mode": {
-            "name": "mode",
-            "required": false,
-            "type": {
-              "name": "enum",
-              "raw": "\"compact\" | \"spacious\"",
-              "value": [
-                {
-                  "value": "\"compact\""
-                },
-                {
-                  "value": "\"spacious\""
-                }
-              ]
-            },
-            "description": "",
-            "defaultValue": {
-              "value": "'spacious'"
-            },
-            "parent": {
-              "name": "AnatomyPage",
-              "fileName": "src/_components/PageAnatomy/model.ts"
-            },
-            "declarations": [
-              {
-                "name": "TypeLiteral",
-                "fileName": "src/_components/PageAnatomy/model.ts"
-              }
-            ]
-          }
-        }
-      },
-      "stories": [
-        {
-          "id": "components-docs-page-anatomy--test",
-          "name": "Test",
-          "snippet": "const Test = () => (\n  <div className=\"_ams-tests-stack\">\n    <PageAnatomy labels={articlePageLabels} of={ArticlePageStories} />\n    <PageAnatomy labels={homePageLabels} of={HomePageStories} />\n    <PageAnatomy labels={newsOverviewPageLabels} of={NewsOverviewPageStories} />\n    <PageAnatomy labels={internalNavigationPageLabels} menu mode=\"compact\" of={InternalNavigationPageStories} />\n    <div style={{ maxInlineSize: '24rem' }}>\n      <PageAnatomy labels={homePageLabels} of={HomePageStories} />\n    </div>\n  </div>\n);",
-          "description": "Four pages, between them covering everything the drawing can show: a Spotlight and a full-bleed Image on the\nArticle Page, an Overlap and a run of repeated Grid Cells on the Home Page, a Subgrid holding a Cell that spans\nall of its columns on the News Overview Page, and Compact Mode, a Menu column, a row-spanning Cell and a\ntransparent one on the internal Navigation Page. The fifth is the Home Page again, in a container the width of a\nphone, where the three drawings no longer fit beside one another and buttons choose between them."
-        }
-      ],
-      "import": "import { PageAnatomy } from \"@amsterdam/storybook\";"
-    },
     "utilities-css-aspect-ratio": {
       "id": "utilities-css-aspect-ratio",
       "name": "AspectRatio",
@@ -11287,6 +11527,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5082
+    "durationMs": 5279
   }
 }
