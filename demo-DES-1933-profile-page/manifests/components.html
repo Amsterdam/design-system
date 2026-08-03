@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.1s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -10674,6 +10674,11 @@ The browser would add columns to fit, which breaks the layout.
 
 Write the Cells in the order the content should be read, and use `start` only to decide where each one sits.
 Reading order and keyboard order follow the markup rather than the columns, so the two disagree as soon as `start` is used to reorder rather than to place.
+
+A Subgrid groups its Cells in the markup as well as on the grid, so it decides the order everything inside it is read in.
+Two Subgrids beside one another are read one after the other, the whole of the left column before the whole of the right, where the same Cells written straight into the Grid would have been read across each row in turn.
+Keyboard order and screen reader order follow that grouping, and so does the narrow grid: two Subgrids that each span its 4 columns stack there, so the second column lands below the whole of the first rather than interleaving with it.
+Reach for a Subgrid where reading a column at a time suits the content, and leave the Cells in the Grid where reading across the rows does.
 
 ## Examples
 
@@ -24593,7 +24598,7 @@ export const LocationLarge: StoryObj = {
       {/* This cell is as wide as a regular content body, but it start-aligns with the Content Header above it. */}
       &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         {/* Alert generates a unique id for its heading, so only pass headingId to reference that heading elsewhere. */}
-        &lt;Alert closeable closeButtonLabel=&quot;Sluiten&quot; heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot; headingLevel={2}&gt;
+        &lt;Alert heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot; headingLevel={2}&gt;
           &lt;Paragraph&gt;
             Vanaf 27 oktober 2025 voert de gemeente werkzaamheden uit op het Muzenplein en de Apollolaan. Van 10
             november 2025 tot juni 2026 is het Muzenplein afgesloten voor auto’s. De Apollohal is in die periode
@@ -24879,12 +24884,7 @@ export const LocationLarge: StoryObj = {
           {/* This cell is as wide as a regular content body, but it start-aligns with the Content Header above it. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
             {/* Alert generates a unique id for its heading, so only pass headingId to reference that heading elsewhere. */}
-            &lt;Alert
-              closeable
-              closeButtonLabel=&quot;Sluiten&quot;
-              heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot;
-              headingLevel={2}
-            &gt;
+            &lt;Alert heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot; headingLevel={2}&gt;
               &lt;Paragraph&gt;
                 Vanaf 27 oktober 2025 voert de gemeente werkzaamheden uit op het Muzenplein en de Apollolaan. Van 10
                 november 2025 tot juni 2026 is het Muzenplein afgesloten voor auto’s. De Apollohal is in die periode
@@ -25176,7 +25176,7 @@ export const Sublocation: StoryObj = {
         &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
         &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sport en bewegen&lt;/Breadcrumb.Link&gt;
         &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportparken&lt;/Breadcrumb.Link&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportpark Sloten&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Nieuw-West&lt;/Breadcrumb.Link&gt;
       &lt;/Breadcrumb&gt;
     &lt;/Grid.Cell&gt;
   &lt;/Grid&gt;
@@ -25318,7 +25318,7 @@ export const Sublocation: StoryObj = {
             &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
             &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sport en bewegen&lt;/Breadcrumb.Link&gt;
             &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportparken&lt;/Breadcrumb.Link&gt;
-            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportpark Sloten&lt;/Breadcrumb.Link&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Nieuw-West&lt;/Breadcrumb.Link&gt;
           &lt;/Breadcrumb&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
@@ -26201,12 +26201,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
         {/* This cell is as wide as a regular content body, but it start-aligns with the Content Header above it. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           {/* Alert generates a unique id for its heading, so only pass headingId to reference that heading elsewhere. */}
-          &lt;Alert
-            closeable
-            closeButtonLabel=&quot;Sluiten&quot;
-            heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot;
-            headingLevel={2}
-          &gt;
+          &lt;Alert heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot; headingLevel={2}&gt;
             &lt;Paragraph&gt;
               Vanaf 27 oktober 2025 voert de gemeente werkzaamheden uit op het Muzenplein en de Apollolaan. Van 10
               november 2025 tot juni 2026 is het Muzenplein afgesloten voor auto’s. De Apollohal is in die periode
@@ -26498,7 +26493,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
           &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sport en bewegen&lt;/Breadcrumb.Link&gt;
           &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportparken&lt;/Breadcrumb.Link&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportpark Sloten&lt;/Breadcrumb.Link&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Nieuw-West&lt;/Breadcrumb.Link&gt;
         &lt;/Breadcrumb&gt;
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
@@ -51875,7 +51870,7 @@ export const LocationLarge: StoryObj = {
       {/* This cell is as wide as a regular content body, but it start-aligns with the Content Header above it. */}
       &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         {/* Alert generates a unique id for its heading, so only pass headingId to reference that heading elsewhere. */}
-        &lt;Alert closeable closeButtonLabel=&quot;Sluiten&quot; heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot; headingLevel={2}&gt;
+        &lt;Alert heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot; headingLevel={2}&gt;
           &lt;Paragraph&gt;
             Vanaf 27 oktober 2025 voert de gemeente werkzaamheden uit op het Muzenplein en de Apollolaan. Van 10
             november 2025 tot juni 2026 is het Muzenplein afgesloten voor auto’s. De Apollohal is in die periode
@@ -52161,12 +52156,7 @@ export const LocationLarge: StoryObj = {
           {/* This cell is as wide as a regular content body, but it start-aligns with the Content Header above it. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
             {/* Alert generates a unique id for its heading, so only pass headingId to reference that heading elsewhere. */}
-            &lt;Alert
-              closeable
-              closeButtonLabel=&quot;Sluiten&quot;
-              heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot;
-              headingLevel={2}
-            &gt;
+            &lt;Alert heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot; headingLevel={2}&gt;
               &lt;Paragraph&gt;
                 Vanaf 27 oktober 2025 voert de gemeente werkzaamheden uit op het Muzenplein en de Apollolaan. Van 10
                 november 2025 tot juni 2026 is het Muzenplein afgesloten voor auto’s. De Apollohal is in die periode
@@ -52458,7 +52448,7 @@ export const Sublocation: StoryObj = {
         &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
         &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sport en bewegen&lt;/Breadcrumb.Link&gt;
         &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportparken&lt;/Breadcrumb.Link&gt;
-        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportpark Sloten&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Nieuw-West&lt;/Breadcrumb.Link&gt;
       &lt;/Breadcrumb&gt;
     &lt;/Grid.Cell&gt;
   &lt;/Grid&gt;
@@ -52600,7 +52590,7 @@ export const Sublocation: StoryObj = {
             &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
             &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sport en bewegen&lt;/Breadcrumb.Link&gt;
             &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportparken&lt;/Breadcrumb.Link&gt;
-            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportpark Sloten&lt;/Breadcrumb.Link&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Nieuw-West&lt;/Breadcrumb.Link&gt;
           &lt;/Breadcrumb&gt;
         &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
@@ -53483,12 +53473,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
         {/* This cell is as wide as a regular content body, but it start-aligns with the Content Header above it. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
           {/* Alert generates a unique id for its heading, so only pass headingId to reference that heading elsewhere. */}
-          &lt;Alert
-            closeable
-            closeButtonLabel=&quot;Sluiten&quot;
-            heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot;
-            headingLevel={2}
-          &gt;
+          &lt;Alert heading=&quot;Werkzaamheden Muzenplein en Apollolaan&quot; headingLevel={2}&gt;
             &lt;Paragraph&gt;
               Vanaf 27 oktober 2025 voert de gemeente werkzaamheden uit op het Muzenplein en de Apollolaan. Van 10
               november 2025 tot juni 2026 is het Muzenplein afgesloten voor auto’s. De Apollohal is in die periode
@@ -53780,7 +53765,7 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
           &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
           &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sport en bewegen&lt;/Breadcrumb.Link&gt;
           &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportparken&lt;/Breadcrumb.Link&gt;
-          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Sportpark Sloten&lt;/Breadcrumb.Link&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Nieuw-West&lt;/Breadcrumb.Link&gt;
         &lt;/Breadcrumb&gt;
       &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
