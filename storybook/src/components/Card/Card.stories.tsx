@@ -16,6 +16,12 @@ import { formatDate } from '#storybook/_common/formatDate'
 const meta = {
   title: 'Components/Navigation/Card',
   component: Card,
+  subcomponents: {
+    'Card.Heading': Card.Heading,
+    'Card.HeadingGroup': Card.HeadingGroup,
+    'Card.Image': Card.Image,
+    'Card.Link': Card.Link,
+  },
 } satisfies Meta<typeof Card>
 
 export default meta

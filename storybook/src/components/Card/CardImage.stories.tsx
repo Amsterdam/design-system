@@ -29,6 +29,7 @@ const meta = {
       </Card>
     ),
   ],
+  tags: ['!manifest'],
 } satisfies Meta<typeof Card.Image>
 
 export default meta

@@ -64,5 +64,5 @@ export const Test: Story = {
       <ImageSlider images={sliderImages} />
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

@@ -16,6 +16,9 @@ const linkList = exampleLinkList()
 const meta = {
   title: 'Components/Navigation/Link List',
   component: LinkList,
+  subcomponents: {
+    'LinkList.Link': LinkList.Link,
+  },
 } satisfies Meta<typeof LinkList>
 
 export default meta

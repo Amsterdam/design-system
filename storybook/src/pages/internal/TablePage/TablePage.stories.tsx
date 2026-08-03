@@ -11,12 +11,16 @@ import { useEffect, useState } from 'react'
 
 import type { SortOrder } from './common'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from './common'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Internal/Table Page',
+  parameters: pageParameters(
+    'Helps users work through large sets of data, with the sorting, filtering, and paging state ' +
+      'kept in the URL so a particular view can be bookmarked or shared.',
+  ),
 } satisfies Meta
 
 export default meta

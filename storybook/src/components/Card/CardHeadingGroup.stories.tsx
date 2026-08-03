@@ -17,6 +17,7 @@ const meta = {
       </Card>
     ),
   ],
+  tags: ['!manifest'],
 } satisfies Meta<typeof Card.HeadingGroup>
 
 export default meta

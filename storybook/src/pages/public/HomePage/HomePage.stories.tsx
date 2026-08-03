@@ -8,12 +8,16 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Card, Grid, Heading, Overlap, Paragraph, Spotlight, StandaloneLink } from '@amsterdam/design-system-react'
 
 import { Default as OverlapStory } from '../../../components/Overlap/Overlap.stories'
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 import { newsSection, spotlightSections, topTaskSection } from './data'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Home Page',
+  parameters: pageParameters(
+    'The entry point of a public website, offering a broad overview of its main subjects, ' +
+      'common tasks, and recent news.',
+  ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args: unknown) => (
     // The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.

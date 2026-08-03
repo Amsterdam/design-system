@@ -99,5 +99,5 @@ export const Test: Story = {
       </Accordion.Section>
     </>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

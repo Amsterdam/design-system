@@ -36,8 +36,14 @@ const formPageLayoutDecorator: Decorator = (Story) => (
 
 const meta = {
   title: 'Pages/Public/Form Flow',
-
   parameters: {
+    docs: {
+      description: {
+        component:
+          'Guides the user through a task one step at a time, with a stripped-back header and footer ' +
+          'that keep the focus on answering each question.',
+      },
+    },
     layout: 'fullscreen',
     themes: { options: ['Spacious', 'Spacious Lo-fi'] },
   },

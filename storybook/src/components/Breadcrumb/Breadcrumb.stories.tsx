@@ -10,6 +10,9 @@ import { Breadcrumb } from '@amsterdam/design-system-react/src'
 const meta = {
   title: 'Components/Navigation/Breadcrumb',
   component: Breadcrumb,
+  subcomponents: {
+    'Breadcrumb.Link': Breadcrumb.Link,
+  },
 } satisfies Meta<typeof Breadcrumb>
 
 export default meta

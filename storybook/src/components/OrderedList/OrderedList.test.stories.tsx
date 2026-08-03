@@ -36,5 +36,5 @@ export const Test: Story = {
     ],
   },
   render: (args, context) => renderComponentVariants(OrderedList, { args }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

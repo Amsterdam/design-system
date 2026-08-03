@@ -11,6 +11,10 @@ import { Table } from '@amsterdam/design-system-react/src'
 const meta = {
   title: 'Components/Containers/Table',
   component: Table,
+  subcomponents: {
+    'Table.Cell': Table.Cell,
+    'Table.HeaderCell': Table.HeaderCell,
+  },
 } satisfies Meta<typeof Table>
 
 export default meta

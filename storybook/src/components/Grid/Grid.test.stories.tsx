@@ -120,5 +120,5 @@ export const Test: Story = {
       <SubgridRowSpanCase />
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

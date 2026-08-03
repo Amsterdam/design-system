@@ -21,6 +21,10 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
+  subcomponents: {
+    'PageFooter.Menu': PageFooter.Menu,
+    'PageFooter.MenuLink': PageFooter.MenuLink,
+  },
 } satisfies Meta<typeof PageFooter>
 
 export default meta

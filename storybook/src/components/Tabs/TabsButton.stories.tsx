@@ -29,6 +29,7 @@ const meta = {
     ),
   ],
   render: ({ children, ...args }) => <Tabs.Button {...args}>{children}</Tabs.Button>,
+  tags: ['!manifest'],
 } satisfies Meta<typeof Tabs.Button>
 
 export default meta

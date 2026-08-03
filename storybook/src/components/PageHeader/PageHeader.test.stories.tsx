@@ -119,5 +119,5 @@ export const Test: Story = {
       </>
     )
   },
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

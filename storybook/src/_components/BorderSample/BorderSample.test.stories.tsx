@@ -23,5 +23,5 @@ export const Test: Story = {
       <BorderSample lineStyle="dashed" width="4px" />
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

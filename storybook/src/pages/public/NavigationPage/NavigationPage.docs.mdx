@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
 import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
 
@@ -9,10 +9,9 @@ import * as NavigationStories from "./NavigationPage.stories.tsx";
 
 <Meta of={NavigationStories} />
 
-# Navigation page
+<Title />
 
-A navigation page does not have much content of its own.
-Instead, it presents groups of links to various pages related to a specific subject.
+<Description of={NavigationStories} />
 
 ## Anatomy
 

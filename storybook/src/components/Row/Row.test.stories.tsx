@@ -29,5 +29,5 @@ export const Test: Story = {
     ],
   },
   render: (args, context) => renderComponentVariants(Row, { args }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }
