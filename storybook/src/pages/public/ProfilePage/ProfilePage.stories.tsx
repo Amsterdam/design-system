@@ -467,7 +467,7 @@ export const Group: StoryObj = {
     <Grid gapVertical="none" paddingBottom="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
       <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={2}>Adres en contact</Heading>
+        <Heading className="ams-mb-s" level={2} size="level-3">Adres en contact</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
@@ -552,7 +552,7 @@ export const Group: StoryObj = {
      */}
     <Grid gapVertical="none" paddingTop="x-large">
       <Grid.Cell span="all">
-        <Heading className="ams-mb-s" level={2}>Raadsleden</Heading>
+        <Heading className="ams-mb-s" level={2} size="level-3">Raadsleden</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span="all">
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -578,7 +578,7 @@ export const Group: StoryObj = {
     {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
     <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
       <Grid.Cell span="all">
-        <Heading className="ams-mb-s" level={2}>Fractievertegenwoordigers</Heading>
+        <Heading className="ams-mb-s" level={2} size="level-3">Fractievertegenwoordigers</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span="all">
         {groupRepresentatives.map(({ name, role }) => (
@@ -648,7 +648,7 @@ export const Group: StoryObj = {
         <Grid gapVertical="none" paddingBottom="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
           <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2}>
+            <Heading className="ams-mb-s" level={2} size="level-3">
               Adres en contact
             </Heading>
           </Grid.Cell>
@@ -750,7 +750,7 @@ export const Group: StoryObj = {
          */}
         <Grid gapVertical="none" paddingTop="x-large">
           <Grid.Cell span="all">
-            <Heading className="ams-mb-s" level={2}>
+            <Heading className="ams-mb-s" level={2} size="level-3">
               Raadsleden
             </Heading>
           </Grid.Cell>
@@ -778,7 +778,7 @@ export const Group: StoryObj = {
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
         <Grid gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
           <Grid.Cell span="all">
-            <Heading className="ams-mb-s" level={2}>
+            <Heading className="ams-mb-s" level={2} size="level-3">
               Fractievertegenwoordigers
             </Heading>
           </Grid.Cell>
@@ -851,14 +851,14 @@ export const Location: StoryObj = {
       </Grid.Cell>
     </Grid>
     {/*
-     * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+     * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
      * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
      * between the Cells.
      */}
     <Grid gapVertical="none" paddingVertical="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
       <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={2}>Faciliteiten</Heading>
+        <Heading className="ams-mb-xs" level={2} size="level-3">Faciliteiten</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
@@ -957,7 +957,7 @@ export const Location: StoryObj = {
     <Grid paddingBottom="2x-large">
       {/* The heading and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading level={2}>Locatie</Heading>
+        <Heading level={2} size="level-3">Locatie</Heading>
         <Image
           alt="Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West."
           aspectRatio="16:9"
@@ -1020,14 +1020,14 @@ export const Location: StoryObj = {
           </Grid.Cell>
         </Grid>
         {/*
-         * The row gap would put an x-large below the heading, where the guidance asks for a small at this size.
+         * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
          * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
          * between the Cells.
          */}
         <Grid gapVertical="none" paddingVertical="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
           <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2}>
+            <Heading className="ams-mb-xs" level={2} size="level-3">
               Faciliteiten
             </Heading>
           </Grid.Cell>
@@ -1166,7 +1166,9 @@ export const Location: StoryObj = {
             span={{ narrow: 4, medium: 8, wide: 10 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
-            <Heading level={2}>Locatie</Heading>
+            <Heading level={2} size="level-3">
+              Locatie
+            </Heading>
             <Image
               alt="Kaart met de ligging van Sportpark Riekerhaven aan de Anderlechtlaan in Amsterdam Nieuw-West."
               aspectRatio="16:9"
@@ -1260,7 +1262,7 @@ export const LocationLarge: StoryObj = {
      */}
     <Grid gapVertical="none" paddingBottom="x-large">
       <Grid.Cell span="all">
-        <Heading className="ams-mb-s" level={2}>Zalen en sportmogelijkheden</Heading>
+        <Heading className="ams-mb-s" level={2} size="level-3">Zalen en sportmogelijkheden</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span="all">
         {/* Preview cards take a span of 4, so they fit three to a row on the wide grid and two on the medium one. */}
@@ -1301,7 +1303,7 @@ export const LocationLarge: StoryObj = {
     <Grid gapVertical="none" paddingBottom="x-large">
       {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
       <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={2}>Faciliteiten</Heading>
+        <Heading className="ams-mb-xs" level={2} size="level-3">Faciliteiten</Heading>
       </Grid.Cell>
       <Grid.Subgrid gapVertical="x-large" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }}>
@@ -1446,7 +1448,7 @@ export const LocationLarge: StoryObj = {
     <Grid paddingBottom="2x-large">
       {/* The heading, the paragraph and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading level={2}>Locatie en plattegrond</Heading>
+        <Heading level={2} size="level-3">Locatie en plattegrond</Heading>
         <Paragraph>
           De Apollohal staat op de hoek van de Apollolaan en het Muzenplein. Bekijk de indeling van de zalen op de{' '}
           <Link href="#">plattegrond van de Apollohal (PDF, 228 kB)</Link>.
@@ -1549,7 +1551,7 @@ export const LocationLarge: StoryObj = {
          */}
         <Grid gapVertical="none" paddingBottom="x-large">
           <Grid.Cell span="all">
-            <Heading className="ams-mb-s" level={2}>
+            <Heading className="ams-mb-s" level={2} size="level-3">
               Zalen en sportmogelijkheden
             </Heading>
           </Grid.Cell>
@@ -1590,7 +1592,7 @@ export const LocationLarge: StoryObj = {
         <Grid gapVertical="none" paddingBottom="x-large">
           {/* The heading spans the columns its two sections occupy, so it starts where they do. */}
           <Grid.Cell span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={2}>
+            <Heading className="ams-mb-xs" level={2} size="level-3">
               Faciliteiten
             </Heading>
           </Grid.Cell>
@@ -1787,7 +1789,9 @@ export const LocationLarge: StoryObj = {
             span={{ narrow: 4, medium: 8, wide: 10 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
-            <Heading level={2}>Locatie en plattegrond</Heading>
+            <Heading level={2} size="level-3">
+              Locatie en plattegrond
+            </Heading>
             <Paragraph>
               De Apollohal staat op de hoek van de Apollolaan en het Muzenplein. Bekijk de indeling van de zalen op de{' '}
               <Link href="#">plattegrond van de Apollohal (PDF, 228 kB)</Link>.
@@ -1844,7 +1848,7 @@ export const Sublocation: StoryObj = {
     </Grid>
     <Grid paddingVertical="x-large">
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading level={2}>Faciliteiten</Heading>
+        <Heading level={2} size="level-3">Faciliteiten</Heading>
         <UnorderedList>
           <UnorderedList.Item>4 kunstgrasvelden voor voetbal</UnorderedList.Item>
           <UnorderedList.Item>2 natuurgrasvelden voor voetbal</UnorderedList.Item>
@@ -1936,7 +1940,7 @@ export const Sublocation: StoryObj = {
     <Grid paddingBottom="2x-large">
       {/* The heading and the map share a Cell, so Prose spaces them rather than the Grid’s row gap. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 8, wide: 10 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading level={2}>Locatie</Heading>
+        <Heading level={2} size="level-3">Locatie</Heading>
         <Image
           alt="Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West."
           aspectRatio="16:9"
@@ -1992,7 +1996,9 @@ export const Sublocation: StoryObj = {
             span={{ narrow: 4, medium: 4, wide: 5 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
-            <Heading level={2}>Faciliteiten</Heading>
+            <Heading level={2} size="level-3">
+              Faciliteiten
+            </Heading>
             <UnorderedList>
               <UnorderedList.Item>4 kunstgrasvelden voor voetbal</UnorderedList.Item>
               <UnorderedList.Item>2 natuurgrasvelden voor voetbal</UnorderedList.Item>
@@ -2118,7 +2124,9 @@ export const Sublocation: StoryObj = {
             span={{ narrow: 4, medium: 8, wide: 10 }}
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
-            <Heading level={2}>Locatie</Heading>
+            <Heading level={2} size="level-3">
+              Locatie
+            </Heading>
             <Image
               alt="Kaart met de ligging van Sportpark Sloten aan de Sloterweg in Nieuw-West."
               aspectRatio="16:9"

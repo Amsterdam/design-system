@@ -515,7 +515,7 @@ export const WithImageGallery: StoryObj = {
     <Grid paddingVertical="x-large">
       {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }}>
-        <Heading level={2}>Burgemeester en wethouders</Heading>
+        <Heading level={2} size="level-3">Burgemeester en wethouders</Heading>
         <Paragraph>
           Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
           gemeentesecretaris.
@@ -657,7 +657,9 @@ export const WithImageGallery: StoryObj = {
         <Grid paddingVertical="x-large">
           {/* This cell is as wide as a regular content body, but it start-aligns with the grid it introduces. */}
           <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }}>
-            <Heading level={2}>Burgemeester en wethouders</Heading>
+            <Heading level={2} size="level-3">
+              Burgemeester en wethouders
+            </Heading>
             <Paragraph>
               Het college bestaat uit de burgemeester en 9 wethouders en wordt ambtelijk ondersteund door de
               gemeentesecretaris.
