@@ -19,9 +19,6 @@ const meta = {
   component: OrderedList,
   args: {
     children: orderedListItems,
-    markers: undefined,
-    reversed: undefined,
-    start: undefined,
   },
   argTypes: {
     color: inverseColorArgType,

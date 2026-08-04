@@ -108,9 +108,6 @@ export const HorizontalLayout: DefaultStory = {
 }
 
 export const TopTasks: Story = {
-  args: {
-    style: undefined,
-  },
   parameters: {
     layout: 'fullscreen',
   },

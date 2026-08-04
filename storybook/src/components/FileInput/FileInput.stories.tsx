@@ -14,7 +14,6 @@ const meta = {
   title: 'Components/Forms/File Input',
   component: FileInput,
   args: {
-    accept: undefined,
     disabled: false,
     multiple: false,
   },

@@ -20,10 +20,7 @@ const meta = {
   args: {
     children: 'Versturen',
     disabled: false,
-    icon: undefined,
     iconBefore: false,
-    iconOnly: undefined,
-    variant: 'primary',
   },
   argTypes: {
     disabled: disabledArgType,

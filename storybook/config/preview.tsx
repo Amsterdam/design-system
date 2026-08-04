@@ -7,6 +7,7 @@ import { clsx } from 'clsx'
 import { addons } from 'storybook/preview-api'
 
 import { collapseInlineObjects, maxInlineWidth } from './collapseInlineObjects'
+import { filterSourceProps } from './filterSourceProps'
 import { sortLiteralUnionValues } from './sortLiteralUnionValues'
 import { matchTheme, readStoredTheme, THEME_EVENT, THEME_KEY, themeNames } from './themes'
 import { viewports } from './viewports'
@@ -236,10 +237,12 @@ export const parameters = {
   // examples. The decorator above refines the language per story through `parameters.lang` or a
   // `locale` arg; docs prose keeps Storybook’s English default.
   htmlLang: 'nl',
-  // Widen the Code Panel’s line budget. Without this, react-element-to-jsx-string – which generates the
-  // source for stories with a `render` function – puts every element with more than one attribute onto
-  // multiple lines. Keeping attributes inline until a line reaches this length shows more code at once.
+  // Options for react-element-to-jsx-string, which generates the Code Panel’s source. `filterProps` leaves
+  // out the props that only serve the controls table (see the module). `maxInlineAttributesLineLength`
+  // widens the line budget: without it, every element with more than one attribute goes onto multiple
+  // lines. Keeping attributes inline until a line reaches this length shows more code at once.
   jsx: {
+    filterProps: filterSourceProps,
     maxInlineAttributesLineLength: maxInlineWidth,
   },
   options: {
