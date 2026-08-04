@@ -166,6 +166,9 @@ They inherit the component’s meta and must not define argTypes of their own.
 Note that `renderComponentVariants` reads both the argTypes and the args of the meta to build its variant matrix – changing options, hiding args, or giving an arg a value can change what the Test story renders and snapshots.
 The matrix holds each configuration once: it opens every state with the component as the meta’s args leave it, and leaves out any prop value that baseline already shows, whether the meta set it or the prop defaults to it.
 
+A `play` function has to allow for that matrix rendering the component more than once, since `args.children` repeat with it: a query for a single element throws where a test id or a role occurs once per configuration.
+Either take the first match, as Tabs and Image Slider do, or give the interaction its own instance outside the matrix, as Accordion does.
+
 CSS utilities under `Utilities/` have test stories as well, but cannot use `renderComponentVariants`.
 The component next to each utility is a mock that renders a bare element; the utility class comes from the story’s `render`, so a generated matrix would show elements without the class on them.
 Their test stories build the matrix by hand instead, covering the scale the CSS ships: all five gaps, all six margins, all six aspect ratios, and both sides of the container query.
