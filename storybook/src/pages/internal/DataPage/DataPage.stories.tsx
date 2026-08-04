@@ -147,8 +147,9 @@ const meta = {
        * beside the sidebar, so neither the sidebar nor the sections need to span rows.
        */}
       <Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}>
-        <Grid.Cell id="risicoscan" span="all">
-          <Heading className="ams-mb-m" level={2}>
+        <Grid.Cell span="all">
+          {/* Every section heading carries the id its Table of Contents entry points at. */}
+          <Heading className="ams-mb-m" id="risicoscan" level={2}>
             Amsterdamse risicoscan bruggen
           </Heading>
           <Column gap="small">
@@ -162,8 +163,8 @@ const meta = {
             </Row>
           </Column>
         </Grid.Cell>
-        <Grid.Cell id="rode-sheet" span="all">
-          <Heading className="ams-mb-m" level={2}>
+        <Grid.Cell span="all">
+          <Heading className="ams-mb-m" id="rode-sheet" level={2}>
             Amsterdamse risicoscan bruggen | Rode-sheet
           </Heading>
           <Column gap="small">
@@ -174,8 +175,8 @@ const meta = {
             <Paragraph>Definitieve constructieve risicobeoordeling</Paragraph>
           </Column>
         </Grid.Cell>
-        <Grid.Cell id="arb-conditierapport" span="all">
-          <Heading className="ams-mb-m" level={2}>
+        <Grid.Cell span="all">
+          <Heading className="ams-mb-m" id="arb-conditierapport" level={2}>
             Amsterdamse risicoscan bruggen Conditierapport
           </Heading>
           <Row align="end" className="ams-mb-m" wrap>
@@ -234,9 +235,11 @@ const meta = {
             </Table.Body>
           </Table>
         </Grid.Cell>
-        <Grid.Cell id="fmeca-conditierapport" span="all">
+        <Grid.Cell span="all">
           <Row align="between" alignVertical="center" className="ams-mb-m" wrap>
-            <Heading level={2}>FMECA Conditierapport</Heading>
+            <Heading id="fmeca-conditierapport" level={2}>
+              FMECA Conditierapport
+            </Heading>
             <StandaloneLink href="#" icon={DownloadIcon}>
               Excel export
             </StandaloneLink>
@@ -281,10 +284,12 @@ const meta = {
             </Table.Body>
           </Table>
         </Grid.Cell>
-        <Grid.Cell id="maatregelen" span="all">
+        <Grid.Cell span="all">
           <Table>
             <Table.Caption className="ams-mb-m">
-              <Heading level={2}>Maatregelen</Heading>
+              <Heading id="maatregelen" level={2}>
+                Maatregelen
+              </Heading>
             </Table.Caption>
             <Table.Header>
               <Table.Row>
@@ -302,10 +307,12 @@ const meta = {
             </Table.Body>
           </Table>
         </Grid.Cell>
-        <Grid.Cell id="documenten" span="all">
+        <Grid.Cell span="all">
           <Table>
             <Table.Caption className="ams-mb-m">
-              <Heading level={2}>Documenten</Heading>
+              <Heading id="documenten" level={2}>
+                Documenten
+              </Heading>
             </Table.Caption>
             <Table.Header>
               <Table.Row>
@@ -335,10 +342,12 @@ const meta = {
             </Table.Body>
           </Table>
         </Grid.Cell>
-        <Grid.Cell id="nader-onderzoek" span="all">
+        <Grid.Cell span="all">
           <Table>
             <Table.Caption className="ams-mb-m">
-              <Heading level={2}>Nader onderzoek</Heading>
+              <Heading id="nader-onderzoek" level={2}>
+                Nader onderzoek
+              </Heading>
             </Table.Caption>
             <Table.Header>
               <Table.Row>
@@ -354,8 +363,8 @@ const meta = {
             </Table.Body>
           </Table>
         </Grid.Cell>
-        <Grid.Cell id="aanpassingen" span="all">
-          <Heading className="ams-mb-m" level={2}>
+        <Grid.Cell span="all">
+          <Heading className="ams-mb-m" id="aanpassingen" level={2}>
             Aanpassingen
           </Heading>
           <Paragraph>Er zijn momenteel geen versiewijzigingen ingevoerd.</Paragraph>
@@ -415,8 +424,9 @@ export const Default: StoryObj = {
    * beside the sidebar, so neither the sidebar nor the sections need to span rows.
    */}
   <Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}>
-    <Grid.Cell id="risicoscan" span="all">
-      <Heading className="ams-mb-m" level={2}>Amsterdamse risicoscan bruggen</Heading>
+    <Grid.Cell span="all">
+      {/* Every section heading carries the id its Table of Contents entry points at. */}
+      <Heading className="ams-mb-m" id="risicoscan" level={2}>Amsterdamse risicoscan bruggen</Heading>
       <Column gap="small">
         <Row alignVertical="center" gap="small">
           <Badge color="azure" label="Onbepaald" />
@@ -425,8 +435,8 @@ export const Default: StoryObj = {
         {/* … */}
       </Column>
     </Grid.Cell>
-    <Grid.Cell id="arb-conditierapport" span="all">
-      <Heading className="ams-mb-m" level={2}>Amsterdamse risicoscan bruggen Conditierapport</Heading>
+    <Grid.Cell span="all">
+      <Heading className="ams-mb-m" id="arb-conditierapport" level={2}>Amsterdamse risicoscan bruggen Conditierapport</Heading>
       <Row align="end" className="ams-mb-m" wrap>
         <Button icon={ChevronDownIcon} variant="secondary">Decompositie uitklappen</Button>
         <Button icon={ChevronUpIcon} variant="secondary">Decompositie inklappen</Button>
@@ -461,11 +471,11 @@ export const Default: StoryObj = {
         </Table.Body>
       </Table>
     </Grid.Cell>
-    <Grid.Cell id="documenten" span="all">
+    <Grid.Cell span="all">
       <Table>
         {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
         <Table.Caption className="ams-mb-m">
-          <Heading level={2}>Documenten</Heading>
+          <Heading id="documenten" level={2}>Documenten</Heading>
         </Table.Caption>
         <Table.Header>
           <Table.Row>
