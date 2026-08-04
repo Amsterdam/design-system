@@ -22,5 +22,5 @@ export const Test: Story = {
       <ColorSample value="" />
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

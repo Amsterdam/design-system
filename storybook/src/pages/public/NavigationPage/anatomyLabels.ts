@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
+import type { AnatomyLabel, AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
 
 /**
  * Names every Grid Cell of the story the docs page draws, grouped per section and in the order they appear.
@@ -11,6 +11,7 @@ import type { AnatomyLabels } from '#storybook/_components/PageAnatomy/model'
  * written by hand. Adding or removing a section or a cell means editing this list too.
  */
 export const anatomyLabels: AnatomyLabels = [
-  [{ height: 32, label: 'Breadcrumb' }],
-  [{ height: 132, label: 'Page title' }, ...Array.from({ length: 10 }, () => ({ height: 152, label: 'Link section' }))],
+  [{ height: 'line', label: 'Breadcrumb' }],
+  [{ height: 'title', label: 'Page title' }],
+  [...Array.from({ length: 10 }, (): AnatomyLabel => ({ height: 'card', label: 'Link section' }))],
 ]

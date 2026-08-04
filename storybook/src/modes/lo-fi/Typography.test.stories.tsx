@@ -74,5 +74,5 @@ export const Test: Story = {
       </Blockquote>
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

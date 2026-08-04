@@ -52,5 +52,5 @@ export const Test: Story = {
       </TabNavigation>
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

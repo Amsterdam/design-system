@@ -26,6 +26,9 @@ const meta = {
       />,
     ],
   },
+  subcomponents: {
+    'FileList.Item': FileList.Item,
+  },
 } satisfies Meta<typeof FileList>
 
 export default meta

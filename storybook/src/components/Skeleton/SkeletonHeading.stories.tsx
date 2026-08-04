@@ -18,6 +18,7 @@ const meta = {
       <Skeleton.Heading {...args} />
     </Skeleton>
   ),
+  tags: ['!manifest'],
 } satisfies Meta<typeof Skeleton.Heading>
 
 export default meta

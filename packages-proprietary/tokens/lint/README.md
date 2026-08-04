@@ -67,8 +67,8 @@ The tokens have to be built before the check can read them:
 pnpm --filter @amsterdam/design-system-tokens run build
 ```
 
-All four built CSS files are read.
-Today `index.css` declares every token, `compact.css` redeclares a denser subset, and the two `.theme.css` variants declare the same names under a different selector, so reading `index.css` alone would give the same answer.
+All six built CSS files are read.
+Today `index.css` declares every token, `compact.css` redeclares the subset that makes layouts denser, `lo-fi.css` redeclares the subset that renders components as a greyscale sketch, and the three `.theme.css` variants declare the same names under a different selector, so reading `index.css` alone would give the same answer.
 Reading all of them means a build output added later is covered without a change here.
 
 When none can be read, the check says so and fails rather than reporting every token as unused.

@@ -143,6 +143,49 @@ export const topTaskLinks: LinkGroup[] = [
   },
 ]
 
+type ShopGroup = {
+  heading: string
+  shops: string[]
+}
+
+export const shopGroups: ShopGroup[] = [
+  {
+    heading: 'Fysieke winkels',
+    shops: [
+      'Boekhandel De Zeearend',
+      'Elektro Meerhuizen',
+      'Fietsenzaak De Spaak',
+      'Modehuis Zonnehof',
+      'Schoenenwinkel Ravelijn',
+      'Speelgoedwinkel Kwikstaart',
+      'Sportzaak Waterlint',
+      'Warenhuis Grachtgoed',
+    ],
+  },
+  {
+    heading: 'Kringloopwinkels',
+    shops: ['Kringloop Sluisbuurt', 'Kringloopwarenhuis De Tweede Ronde'],
+  },
+  {
+    heading: 'Webshops',
+    shops: ['Webwinkel Stadslicht'],
+  },
+]
+
+type ShopLocation = {
+  postalCode: string
+  street: string
+}
+
+export const shopLocations: ShopLocation[] = [
+  { postalCode: '1053 KZ', street: 'Bilderdijkstraat 118' },
+  { postalCode: '1094 HL', street: 'Javastraat 42' },
+  { postalCode: '1053 EL', street: 'Kinkerstraat 250' },
+  { postalCode: '1093 EK', street: 'Linnaeusstraat 71' },
+  { postalCode: '1019 BM', street: 'Oostelijke Handelskade 12' },
+  { postalCode: '1016 LZ', street: 'Rozengracht 204' },
+]
+
 type Person = {
   imageSource: string
   name: string

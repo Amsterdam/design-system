@@ -26,6 +26,7 @@ const meta = {
       </PageFooter>
     ),
   ],
+  tags: ['!manifest'],
 } satisfies Meta<typeof PageFooter.MenuLink>
 
 export default meta

@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Heading } from '@amsterdam/design-system-react'
+import { Heading, StandaloneLink } from '@amsterdam/design-system-react'
 import { HouseIcon, PhoneIcon, SpeechBalloonEllipsisIcon } from '@amsterdam/design-system-react-icons'
 import { LinkList } from '@amsterdam/design-system-react/src'
 
@@ -16,6 +16,9 @@ const linkList = exampleLinkList()
 const meta = {
   title: 'Components/Navigation/Link List',
   component: LinkList,
+  subcomponents: {
+    'LinkList.Link': LinkList.Link,
+  },
 } satisfies Meta<typeof LinkList>
 
 export default meta
@@ -39,14 +42,24 @@ export const Default: Story = {
 export const WithHeading: Story = {
   ...StoryTemplate,
   render: ({ children, ...args }) => (
-    <>
-      <Heading className="ams-mb-s" level={3}>
-        Adres en inschrijving
-      </Heading>
+    // ams-prose sets the vertical rhythm between the heading and the list.
+    <div className="ams-prose">
+      <Heading level={3}>Adres en inschrijving</Heading>
       <LinkList {...args}>{children}</LinkList>
-    </>
+    </div>
   ),
 }
+export const LinkToTheWiderSet: Story = {
+  ...StoryTemplate,
+  render: ({ children, ...args }) => (
+    // ams-prose sets the medium the vertical space guidance asks for between the list and the link below it.
+    <div className="ams-prose">
+      <LinkList {...args}>{children}</LinkList>
+      <StandaloneLink href="#">Alle onderwerpen</StandaloneLink>
+    </div>
+  ),
+}
+
 export const CustomIcons: Story = {
   ...StoryTemplate,
   args: {

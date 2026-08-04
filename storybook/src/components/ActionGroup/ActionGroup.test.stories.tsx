@@ -25,5 +25,5 @@ export const Test: Story = {
     children: [<button key={1}>Stoppen</button>, <button key={2}>Verder</button>],
   },
   render: (args, context) => renderComponentVariants(ActionGroup, { args }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

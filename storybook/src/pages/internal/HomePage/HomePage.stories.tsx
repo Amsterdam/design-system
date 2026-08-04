@@ -9,7 +9,7 @@ import { Grid, Heading, Paragraph } from '@amsterdam/design-system-react'
 
 import { exampleParagraph } from '#storybook/_common/exampleContent'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 
 const exampleParagraph1 = exampleParagraph()
 const exampleParagraph2 = exampleParagraph()
@@ -17,6 +17,10 @@ const exampleParagraph2 = exampleParagraph()
 const meta = {
   ...commonMeta,
   title: 'Pages/Internal/Home Page',
+  parameters: pageParameters(
+    'The entry point of an internal website, such as a backoffice system. ' +
+      'This example concentrates on the overall page layout rather than any particular content.',
+  ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <Grid paddingVertical="x-large">

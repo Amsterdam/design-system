@@ -58,6 +58,7 @@ const meta = {
       </ProgressList.Step>
     )
   },
+  tags: ['!manifest'],
 } satisfies Meta<typeof ProgressList.Step>
 
 export default meta

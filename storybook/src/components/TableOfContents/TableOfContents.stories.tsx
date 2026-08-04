@@ -36,6 +36,9 @@ const meta = {
       control: { type: 'text' },
     },
   },
+  subcomponents: {
+    'TableOfContents.Link': TableOfContents.Link,
+  },
 } satisfies Meta<typeof TableOfContents>
 
 export default meta

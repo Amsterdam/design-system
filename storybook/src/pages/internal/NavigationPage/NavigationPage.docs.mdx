@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
 import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
 import { StatusBadge } from "#storybook/_components/StatusBadge/StatusBadge";
@@ -15,9 +15,28 @@ import * as NavigationPageStories from "./NavigationPage.stories";
   status="experimental"
 />
 
-# Navigation page
+<Title />
 
-Use this template when content is organised into main sections that each have subsections.
+<Description of={NavigationPageStories} />
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} menu mode="compact" of={NavigationPageStories} />
+
+## Usage guidelines
+
+### When to use
+
+This template works best with 3–7 main sections.
+Too few make the vertical Tab Navigation redundant; too many make it hard to scan.
+
+### When not to use
+
+Use an [Internal Home Page](/docs/pages-internal-home-page--docs) where the Menu alone carries the navigation.
+
+## Structure
 
 The main navigation is provided by the [Menu](/docs/components-navigation-menu--docs) component.
 Within the body of the page, a vertical [Tab Navigation](/docs/components-navigation-tab-navigation--docs) shows its main sections, each with an icon.
@@ -26,14 +45,20 @@ A second, horizontal Tab Navigation across the top shows the sub-items for the a
 Clicking a main section selects it, updates the sub-navigation, and resets its scroll position to the start.
 Each link has an `href` with a slug-based path, making the pattern suitable for both server-rendered pages and single-page applications.
 
-This template works best with 3–7 main sections.
-Too few make the vertical Tab Navigation redundant; too many make it hard to scan.
+## Layout and spacing
 
 On narrow screens both Tab Navigations stack vertically.
 This is a known limitation, and the mobile design is being further explored.
 
-## Anatomy
+## Accessibility
 
-This schematic shows the default sections for this page type and how the grids and vertical space work.
+Each Tab Navigation renders a `nav` element and takes an `accessibleName` of its own, so a screen reader offers two named navigation landmarks rather than two it cannot tell apart.
+The link for the section on screen carries `aria-current="page"` in both.
 
-<PageAnatomy labels={anatomyLabels} menu mode="compact" of={NavigationPageStories} />
+Where the two stack on a narrow window, every main section and every sub-item precedes the content in the reading order.
+That is the cost of the layout recorded above, and the part of this template still being explored.
+
+## See also
+
+- [Tab Navigation](/docs/components-navigation-tab-navigation--docs) – both navigations on this page.
+- [Menu](/docs/components-navigation-menu--docs) – the navigation across modules.

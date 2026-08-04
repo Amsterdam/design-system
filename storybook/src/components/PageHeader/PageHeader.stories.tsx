@@ -73,6 +73,9 @@ const meta = {
       />
     )
   },
+  subcomponents: {
+    'PageHeader.MenuLink': PageHeader.MenuLink,
+  },
 } satisfies Meta<typeof PageHeader>
 
 export default meta
@@ -103,8 +106,9 @@ export const Default: PageHeaderStory = {
             </LinkList.Link>
           </LinkList>
         </PageHeader.GridCellNarrowWindowOnly>
-        <Grid.Cell span={4}>
-          <Heading className="ams-mb-s" level={2} size="level-3">
+        {/* ams-prose sets the vertical rhythm between the heading and the links of each section. */}
+        <Grid.Cell className="ams-prose" span={4}>
+          <Heading level={2} size="level-3">
             Onderdelen
           </Heading>
           <LinkList>
@@ -115,8 +119,8 @@ export const Default: PageHeaderStory = {
             ))}
           </LinkList>
         </Grid.Cell>
-        <Grid.Cell span={4}>
-          <Heading className="ams-mb-s" level={2} size="level-3">
+        <Grid.Cell className="ams-prose" span={4}>
+          <Heading level={2} size="level-3">
             Over ons
           </Heading>
           <LinkList>
@@ -127,8 +131,8 @@ export const Default: PageHeaderStory = {
             ))}
           </LinkList>
         </Grid.Cell>
-        <Grid.Cell span={4}>
-          <Heading className="ams-mb-s" level={2} size="level-3">
+        <Grid.Cell className="ams-prose" span={4}>
+          <Heading level={2} size="level-3">
             Help
           </Heading>
           <LinkList>

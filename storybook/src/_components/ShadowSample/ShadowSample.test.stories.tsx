@@ -23,5 +23,5 @@ export const Test: Story = {
       <ShadowSample value="4px 4px 8px 0 rgba(0,0,0,0.25)" />
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

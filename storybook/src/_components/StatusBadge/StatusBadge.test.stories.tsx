@@ -22,5 +22,5 @@ export const Test: Story = {
       <StatusBadge description="Use the Alert component instead." status="deprecated" />
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

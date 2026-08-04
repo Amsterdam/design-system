@@ -37,12 +37,13 @@ describe('GridSubgrid', () => {
     expect(component).toHaveClass('ams-grid__subgrid extra')
   })
 
-  it('renders no class names for undefined values for span, start and rowSpan', () => {
+  it('renders no class names for undefined values for span, start, rowSpan and rowStart', () => {
     const { container } = render(<Grid.Subgrid />)
 
     expect(container.querySelector('[class*="ams-grid__subgrid--span"]')).not.toBeInTheDocument()
     expect(container.querySelector('[class*="ams-grid__subgrid--start"]')).not.toBeInTheDocument()
     expect(container.querySelector('[class*="ams-grid__subgrid--row-span"]')).not.toBeInTheDocument()
+    expect(container.querySelector('[class*="ams-grid__subgrid--row-start"]')).not.toBeInTheDocument()
   })
 
   it('renders class names for single number values for span and start', () => {
@@ -79,6 +80,26 @@ describe('GridSubgrid', () => {
     const component = container.querySelector(':only-child')
 
     expect(component).toHaveClass('ams-grid__subgrid--row-span-2')
+  })
+
+  it('renders a class name for a single number value for rowStart', () => {
+    const { container } = render(<Grid.Subgrid rowStart={2} />)
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass('ams-grid__subgrid--row-start-2')
+  })
+
+  it('renders class names for objects for rowSpan and rowStart', () => {
+    const { container } = render(
+      <Grid.Subgrid rowSpan={{ narrow: 1, medium: 2, wide: 3 }} rowStart={{ narrow: 2, medium: 3, wide: 4 }} />,
+    )
+
+    const component = container.querySelector(':only-child')
+
+    expect(component).toHaveClass(
+      'ams-grid__subgrid--row-span-1 ams-grid__subgrid--row-span-2-medium ams-grid__subgrid--row-span-3-wide ams-grid__subgrid--row-start-2 ams-grid__subgrid--row-start-3-medium ams-grid__subgrid--row-start-4-wide',
+    )
   })
 
   it.each(gridGaps)('renders a class name for the %s vertical gap', (gap) => {

@@ -8,10 +8,17 @@ import type { ElementType, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { GridColumnNumber, GridColumnNumbers, GridGap, GridRowNumber, GridRowNumbers } from './Grid'
+import type { GridColumnNumber, GridColumnNumbers, GridRowNumber, GridRowNumbers } from './Grid'
 import type { GridCellTag } from './GridCell'
 
 import { gridSubgridClasses } from './gridSubgridClasses'
+
+/**
+ * A Subgrid inherits the row gap of the Grid, so it needs a value for the x-large that Grid has by default.
+ * Without it, a Subgrid inside a Grid that lowers its gap has no way back to the regular spacing.
+ */
+export const gridSubgridGaps = ['none', 'large', 'x-large', '2x-large'] as const
+export type GridSubgridGap = (typeof gridSubgridGaps)[number]
 
 type GridSubgridSpanAllProp = {
   /** Lets the subgrid span the full width of all grid variants. */
@@ -42,12 +49,20 @@ export type GridSubgridProps = {
    * The amount of space between the rows of the subgrid.
    * Defaults to the vertical gap of the Grid.
    */
-  readonly gapVertical?: GridGap
+  readonly gapVertical?: GridSubgridGap
   /**
    * The amount of grid rows the subgrid spans.
    * Accepts a number or an object of numbers per grid variant.
    */
   readonly rowSpan?: GridRowNumber | GridRowNumbers
+  /**
+   * The index of the grid row the subgrid starts at.
+   * Accepts a number or an object of numbers per grid variant.
+   *
+   * Only needed to place a subgrid before a sibling that starts at an earlier column:
+   * automatic placement never moves back a column without moving down a row.
+   */
+  readonly rowStart?: GridRowNumber | GridRowNumbers
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>> &
   (GridSubgridSpanAllProp | GridSubgridSpanAndStartProps)
 
@@ -58,7 +73,7 @@ export type GridSubgridProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}
  */
 export const GridSubgrid = forwardRef<HTMLElement, GridSubgridProps>(
-  ({ as, children, className, gapVertical, rowSpan, span, start, ...restProps }, ref) => {
+  ({ as, children, className, gapVertical, rowSpan, rowStart, span, start, ...restProps }, ref) => {
     const Tag = (as ?? 'div') as ElementType
 
     return (
@@ -67,7 +82,7 @@ export const GridSubgrid = forwardRef<HTMLElement, GridSubgridProps>(
         className={clsx(
           'ams-grid__subgrid',
           gapVertical && `ams-grid__subgrid--gap-vertical--${gapVertical}`,
-          gridSubgridClasses(span, start, rowSpan),
+          gridSubgridClasses(span, start, rowSpan, rowStart),
           className,
         )}
         ref={ref}

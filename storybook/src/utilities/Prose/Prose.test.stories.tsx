@@ -23,5 +23,5 @@ type Story = StoryObj<typeof meta>
  * Duplicating the markup here would let the snapshot drift away from it.
  */
 export const Test: Story = {
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

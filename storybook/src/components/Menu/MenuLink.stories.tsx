@@ -33,6 +33,7 @@ const meta = {
     },
   },
   render: ({ children, ...args }) => <Menu.Link {...args}>{children}</Menu.Link>,
+  tags: ['!manifest'],
 } satisfies Meta<typeof Menu.Link>
 
 export default meta

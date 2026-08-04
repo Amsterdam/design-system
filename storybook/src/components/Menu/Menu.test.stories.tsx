@@ -39,5 +39,5 @@ export const Test: Story = {
       </Menu.Link>
     </Menu>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

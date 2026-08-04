@@ -22,5 +22,5 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args, context) => renderComponentVariants(Checkbox, { args, variants: ['disabled'] }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

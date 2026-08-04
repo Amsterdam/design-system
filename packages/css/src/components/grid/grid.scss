@@ -81,6 +81,10 @@ $ams-grid-row-span-max: 4;
   @include ams-grid__subgrid--gap-vertical--large;
 }
 
+.ams-grid__subgrid--gap-vertical--x-large {
+  @include ams-grid__subgrid--gap-vertical--x-large;
+}
+
 .ams-grid__subgrid--gap-vertical--2x-large {
   @include ams-grid__subgrid--gap-vertical--2x-large;
 }
@@ -178,6 +182,33 @@ $ams-grid-row-span-max: 4;
     .ams-grid__cell--row-span-#{$i}-wide,
     .ams-grid__subgrid--row-span-#{$i}-wide {
       @include ams-grid__cell--row-span-wide($i);
+    }
+  }
+}
+
+// Cell and Subgrid row start
+
+@for $i from 1 through $ams-grid-row-span-max {
+  .ams-grid__cell--row-start-#{$i},
+  .ams-grid__subgrid--row-start-#{$i} {
+    @include ams-grid__cell--row-start($i);
+  }
+}
+
+@media (min-width: $ams-breakpoint-medium) {
+  @for $i from 1 through $ams-grid-row-span-max {
+    .ams-grid__cell--row-start-#{$i}-medium,
+    .ams-grid__subgrid--row-start-#{$i}-medium {
+      @include ams-grid__cell--row-start-medium($i);
+    }
+  }
+}
+
+@media (min-width: $ams-breakpoint-wide) {
+  @for $i from 1 through $ams-grid-row-span-max {
+    .ams-grid__cell--row-start-#{$i}-wide,
+    .ams-grid__subgrid--row-start-#{$i}-wide {
+      @include ams-grid__cell--row-start-wide($i);
     }
   }
 }

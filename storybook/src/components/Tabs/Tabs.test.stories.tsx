@@ -73,5 +73,5 @@ export const Test: Story = {
     await expect(gegevensParagraph).not.toBeVisible()
   },
   render: (args, context) => renderComponentVariants(Tabs, { args }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

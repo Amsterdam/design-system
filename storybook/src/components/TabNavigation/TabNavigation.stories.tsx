@@ -33,6 +33,9 @@ const meta = {
       options: [undefined, 'vertical'],
     },
   },
+  subcomponents: {
+    'TabNavigation.Link': TabNavigation.Link,
+  },
 } satisfies Meta<typeof TabNavigation>
 
 export default meta

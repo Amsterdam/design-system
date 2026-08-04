@@ -116,6 +116,7 @@ For details, rely on the official documentation and per-package instructions:
 - Page templates: [documentation/page-anatomy.md](documentation/page-anatomy.md) — how a page template documents its own layout with a schematic read from its story.
 - Git and contribution workflow: [documentation/git.md](documentation/git.md), [documentation/code-reviews.md](documentation/code-reviews.md), and [documentation/publishing.md](documentation/publishing.md).
 - Release notes: [documentation/release-notes.md](documentation/release-notes.md) — how to summarise a release for the people who use the design system, and why the changelogs alone are not enough.
+- Introduction statistics: [documentation/introduction-statistics.md](documentation/introduction-statistics.md) — how the six figures on the Storybook home page are counted, and when to recount them.
 
 Key agent expectations:
 

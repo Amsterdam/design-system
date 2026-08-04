@@ -29,6 +29,7 @@ const meta = {
     ),
   ],
   render: ({ children, ...args }) => <TabNavigation.Link {...args}>{children}</TabNavigation.Link>,
+  tags: ['!manifest'],
 } satisfies Meta<typeof TabNavigation.Link>
 
 export default meta

@@ -50,6 +50,7 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
+  tags: ['!manifest'],
 } satisfies Meta<typeof Breakout.Cell>
 
 export default meta

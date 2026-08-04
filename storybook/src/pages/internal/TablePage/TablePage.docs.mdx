@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
 import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
 
@@ -9,10 +9,9 @@ import * as TableStories from "./TablePage.stories.tsx";
 
 <Meta of={TableStories} />
 
-# Table page
+<Title />
 
-These examples show how to use the Table component in Compact Mode to work with data sets.
-They include various ways to sort, filter and operate on data.
+<Description of={TableStories} />
 
 ## Anatomy
 
@@ -20,7 +19,29 @@ This schematic shows the default sections for this page type and how the grids a
 
 <PageAnatomy labels={anatomyLabels} menu mode="compact" of={TableStories} story="SortingWithSelect" />
 
-## Make table state easy to share
+## Usage guidelines
+
+### When to use
+
+Use this page where the work is reading, sorting and filtering a large set of records.
+
+### When not to use
+
+Use a [Table](/docs/components-containers-table--docs) inside another page type where the data supports the page rather than being the page.
+
+## Variants
+
+### Sorting with a Select
+
+The recommended layout: a visible heading and the sort and filter controls on one row above the table.
+
+### With Pagination
+
+The same table split over pages, with the current page in the URL.
+
+## Structure
+
+### Make table state easy to share
 
 Store the current state of the table features in the URL – the sort column and direction, active filters, the current page of a paginated set, etc.
 This works _with_ the web platform instead of around it: it allows users to bookmark, share or navigate to a specific state of the table.
@@ -32,10 +53,9 @@ https://yourapp.amsterdam.nl/some-table-page?status=4&sort=name-asc&page-size=20
 
 This is why we use links and forms for table controls rather than buttons.
 
-## Sort and filter controls
+### Sort and filter controls
 
 Place sort and filter controls in a row outside the table, never inside the `<caption>`.
-The `<caption>` provides the table’s accessible name, and its full subtree is part of that name: a `<select>` placed there would have its current value concatenated into the name on every announcement.
 
 There are two ways to lay this out, and both keep a `<caption>` on the table for its accessible name and data-table semantics:
 
@@ -44,4 +64,15 @@ There are two ways to lay this out, and both keep a `<caption>` on the table for
 - **Controls inline after the heading (recommended).** Place a visible heading and the controls on one row above the table – the heading on the start, the controls on the end – and give the table a visually hidden `<caption>` carrying the same text.
   The heading text is duplicated for assistive technology; this is the trade-off for placing the controls on the same line as the heading.
 
-The **Sorting With Select** story demonstrates the recommended layout.
+## Accessibility
+
+The `<caption>` provides the table’s accessible name, and its full subtree is part of that name: a `<select>` placed there would have its current value concatenated into the name on every announcement.
+This is why the controls sit outside it.
+
+Where the controls share a row with a visible heading, the table keeps a visually hidden `<caption>` carrying the same text.
+The heading text is duplicated for assistive technology; this is the trade-off for placing the controls on the same line as the heading.
+
+## See also
+
+- [Table](/docs/components-containers-table--docs) – the table itself, and what its Caption is for.
+- [Pagination](/docs/components-navigation-pagination--docs) – splits a long set over pages.

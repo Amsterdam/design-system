@@ -4,6 +4,7 @@
  */
 
 import type { GridGap } from '@amsterdam/design-system-react/src/Grid/Grid'
+import type { GridSubgridGap } from '@amsterdam/design-system-react/src/Grid/GridSubgrid'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid } from '@amsterdam/design-system-react/src'
@@ -27,6 +28,7 @@ const half = { narrow: 2, medium: 4, wide: 6 } as const
 const threeQuarters = { narrow: 3, medium: 6, wide: 9 } as const
 const secondQuarter = { narrow: 2, medium: 3, wide: 4 } as const
 const thirdQuarter = { narrow: 3, medium: 5, wide: 7 } as const
+const fourthQuarter = { narrow: 4, medium: 7, wide: 10 } as const
 
 /*
  * The first row sits on the columns of the page. The Cells of the Subgrid below it must line up with
@@ -38,7 +40,7 @@ const SubgridCase = ({
   subgridGapVertical,
 }: {
   readonly gapVertical?: GridGap
-  readonly subgridGapVertical?: GridGap
+  readonly subgridGapVertical?: GridSubgridGap
 }) => (
   <Grid gapVertical={gapVertical} paddingVertical="large">
     <Grid.Cell {...item} span={quarter} />
@@ -103,6 +105,29 @@ const SubgridRowSpanCase = () => (
   </Grid>
 )
 
+/*
+ * A trailing-side sidebar that comes first in the source: automatic placement would push the wider Cells
+ * after it down a row, because it never moves back a column without moving down one. A rowStart of 1 on the
+ * sidebar alone keeps them level. The last case does the same for a Subgrid, which is placed as one item.
+ */
+const RowStartCase = () => (
+  <Grid paddingVertical="large">
+    <Grid.Cell {...item} rowStart={1} span={quarter} start={fourthQuarter} />
+    <Grid.Cell {...item} span={threeQuarters} />
+    <Grid.Cell {...item} span={threeQuarters} />
+  </Grid>
+)
+
+const SubgridRowStartCase = () => (
+  <Grid paddingVertical="large">
+    <Grid.Cell {...item} rowStart={1} span={quarter} start={fourthQuarter} />
+    <Grid.Subgrid span={threeQuarters}>
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+    </Grid.Subgrid>
+  </Grid>
+)
+
 export const Test: Story = {
   args: {
     children: [<Grid.Cell key={1} span="all" />, <Grid.Cell key={2} span="all" />],
@@ -113,9 +138,13 @@ export const Test: Story = {
       <SubgridCase />
       <SubgridCase gapVertical="none" />
       <SubgridCase subgridGapVertical="2x-large" />
+      {/* The reason x-large exists: the Grid drops its gap, and the Subgrid puts the regular one back. */}
+      <SubgridCase gapVertical="none" subgridGapVertical="x-large" />
       <SubgridPlacementCase />
       <SubgridRowSpanCase />
+      <RowStartCase />
+      <SubgridRowStartCase />
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

@@ -137,6 +137,11 @@
   row-gap: var(--ams-grid-row-gap-l);
 }
 
+/* Restates the row gap a Grid has by default, for a Subgrid that would otherwise inherit a narrower one. */
+@mixin ams-grid__subgrid--gap-vertical--x-large {
+  row-gap: var(--ams-grid-row-gap-xl);
+}
+
 @mixin ams-grid__subgrid--gap-vertical--2x-large {
   row-gap: var(--ams-grid-row-gap-2xl);
 }
@@ -182,19 +187,38 @@
 }
 
 // Cell row span
+// The end line rather than the `grid-row` shorthand, which would reset the start line a Cell may also set.
 
 @mixin ams-grid__cell--row-span($i) {
-  grid-row: span $i;
+  grid-row-end: span $i;
 }
 
 @mixin ams-grid__cell--row-span-medium($i) {
   @media (min-width: $ams-breakpoint-medium) {
-    grid-row: span $i;
+    grid-row-end: span $i;
   }
 }
 
 @mixin ams-grid__cell--row-span-wide($i) {
   @media (min-width: $ams-breakpoint-wide) {
-    grid-row: span $i;
+    grid-row-end: span $i;
+  }
+}
+
+// Cell row start
+
+@mixin ams-grid__cell--row-start($i) {
+  grid-row-start: $i;
+}
+
+@mixin ams-grid__cell--row-start-medium($i) {
+  @media (min-width: $ams-breakpoint-medium) {
+    grid-row-start: $i;
+  }
+}
+
+@mixin ams-grid__cell--row-start-wide($i) {
+  @media (min-width: $ams-breakpoint-wide) {
+    grid-row-start: $i;
   }
 }

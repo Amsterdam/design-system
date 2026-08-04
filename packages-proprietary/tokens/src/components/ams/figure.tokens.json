@@ -40,6 +40,12 @@
             "nl.amsterdam.type": "number"
           }
         },
+        "text-wrap": {
+          "$value": "balance",
+          "$extensions": {
+            "nl.amsterdam.type": "textWrap"
+          }
+        },
         "inverse": {
           "color": {
             "$value": "{ams.color.text.inverse}",
