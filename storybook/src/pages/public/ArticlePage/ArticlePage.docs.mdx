@@ -46,6 +46,16 @@ Use an [Information Page](/docs/pages-public-information-page--docs) for a subje
 - The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the article body.
   Each of those Cells carries the class; the space between them is a padding of the Grid.
 
+## Accessibility
+
+The Breadcrumb takes a Grid above `main`, so its `nav` element stays outside the article rather than reading as part of it.
+
+Two blocks sit outside `main` as well: the newsletter Spotlight and the related articles below it.
+Each renders with `as="aside"` and is named by `aria-labelledby` pointing at its own heading, so both reach a screen reader as complementary landmarks that can be skipped to or past.
+The headings they point at carry an `id` that exists only to be referenced.
+
+The hero Image and the Card images take an empty `alt`, because the text beside them already says what they show.
+
 ## See also
 
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – lists articles like this one.

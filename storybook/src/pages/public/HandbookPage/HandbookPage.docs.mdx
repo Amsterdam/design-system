@@ -45,6 +45,15 @@ Use an [Information Page](/docs/pages-public-information-page--docs) where a sin
 - The Grid uses the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
 - The Prose utility class handles vertical spacing within the content area automatically.
 
+## Accessibility
+
+This page has two places worth reaching, so it declares two Skip Links rather than the single one every other template carries: one targets the Table of Contents, the other the `id` on `main`.
+
+The entry for the page on screen carries `aria-current="page"`, which a screen reader announces along with the link.
+
+The Table of Contents stays mounted as the reader moves from page to page.
+The link they just activated therefore keeps focus, where a navigation rebuilt per page would drop it back to the top of the document.
+
 ## See also
 
 - [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the navigation column, and how to control it.

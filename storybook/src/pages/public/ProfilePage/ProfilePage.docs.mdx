@@ -93,6 +93,15 @@ That gap has no medium step, so a title and a lead in separate cells sit further
 This is a property of the Grid rather than a mistake.
 Put the two in one Cell when the exact value matters, and accept the row gap when the cells have to differ in width, as they do here to leave room for the photo.
 
+## Accessibility
+
+Spotlights and full-bleed images sit between the Grids rather than inside one, so a plain `main` wraps them all.
+A page that is a single section sets `as="main"` on that Grid instead.
+
+The Spotlight on these pages renders as a `section` with no accessible name.
+A `section` is exposed as a region only when it has one, and as `generic` otherwise, so this band is a visual grouping rather than a landmark.
+The Article Page names its equivalent band after its heading, which is what turns one into a landmark a reader can reach.
+
 ## See also
 
 - [Description List](/docs/components-text-description-list--docs) – the address and contact blocks.

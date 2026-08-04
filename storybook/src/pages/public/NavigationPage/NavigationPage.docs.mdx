@@ -93,15 +93,13 @@ It mixes running text with the Link Sections, so its headings take the levels of
 
 ## Accessibility
 
-A page with a side navigation has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
-Name each after the thing it reaches rather than numbering them.
+A page with a side navigation has two places worth reaching, so it declares two [Skip Links](/docs/components-navigation-skip-link--docs) rather than one: one to the navigation and one to the entry, each named after what it reaches rather than numbered.
 
-A map needs a text alternative, whether it is an image or an interactive component.
+A map needs a text alternative whether it is an image or an interactive component.
 Here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
 
-Give a repeated action such as ‘Toon op de kaart’ a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on.
-Without it, every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
-Put the suffix after the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.
+A repeated action such as ‘Toon op de kaart’ carries a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on, because without one every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
+The suffix follows the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.
 
 ## See also
 

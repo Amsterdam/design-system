@@ -66,14 +66,16 @@ The results in place, under a heading that counts them.
 
 ## Accessibility
 
-- Mark the whole results region busy while it loads, and let it announce once.
-  Marking each Skeleton would repeat the message for every card.
-  The Skeletons are hidden from assistive technologies, so the status message is all a screen reader hears.
-- Be aware that `aria-busy="true"` also permits assistive technology to hold back updates from the status message and deliver them as one update once it turns false.
-  The ARIA specification allows this rather than requiring it, so not every screen reader does it.
-- Keep one status message in the DOM at all times and only change its text, from a loading message to the result count.
-  A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
-- No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
+The whole results region is marked busy while it loads, and announces once.
+Marking each Skeleton would repeat the message for every card, and the Skeletons are hidden from assistive technologies in any case, so the status message is all a screen reader hears.
+
+`aria-busy="true"` also permits assistive technology to hold updates back from the status message and deliver them together once it turns false.
+The ARIA specification allows this rather than requiring it, so not every screen reader does it.
+
+One status message stays in the DOM throughout and only its text changes, from a loading message to the result count.
+A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
+
+No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
 
 ## See also
 
