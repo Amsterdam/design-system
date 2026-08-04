@@ -163,7 +163,8 @@ It unhides the arg, offers a text control, and sets the description – `childre
 
 Test stories (`*.test.stories.tsx`) render all states of a component in the single story named ‘Test’, which is the only story Chromatic snapshots for a component.
 They inherit the component’s meta and must not define argTypes of their own.
-Note that `renderComponentVariants` reads the meta’s argTypes to build its variant matrix – changing options or hiding args can change what the Test story renders and snapshots.
+Note that `renderComponentVariants` reads both the argTypes and the args of the meta to build its variant matrix – changing options, hiding args, or giving an arg a value can change what the Test story renders and snapshots.
+The matrix holds each configuration once: it opens every state with the component as the meta’s args leave it, and leaves out any prop value that baseline already shows, whether the meta set it or the prop defaults to it.
 
 CSS utilities under `Utilities/` have test stories as well, but cannot use `renderComponentVariants`.
 The component next to each utility is a mock that renders a bare element; the utility class comes from the story’s `render`, so a generated matrix would show elements without the class on them.
