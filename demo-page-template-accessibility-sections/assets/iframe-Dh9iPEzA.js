@@ -1,0 +1,1 @@
+import{t as e}from"./iframe-Bnvf-s2q.js";e();
