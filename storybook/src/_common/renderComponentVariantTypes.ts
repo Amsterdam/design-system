@@ -16,6 +16,9 @@ export type VariantValue = string | number | boolean | IconProps['svg']
  */
 export type VariantState = 'disabled' | 'hovered'
 
+/** The state a cell renders in: the component as it stands, or under one modifier. */
+export type CellState = 'default' | VariantState
+
 export type PropWithValues = {
   /** The value the prop takes when a story leaves it out, as far as the arg types declare one. */
   defaultValue: VariantValue | undefined
@@ -33,7 +36,7 @@ export type VariantMatrixEntry = {
   hasIcon: { icon: IconProps['svg'] } | null
   propName?: string
   size: string | undefined
-  state: string
+  state: CellState
   variant?: VariantValue
 }
 
@@ -56,6 +59,6 @@ export type BuildComponentPropsParams = {
   propName?: string
   size?: string | undefined
   sizePropName: string
-  state: string
+  state: CellState
   variant?: VariantValue
 }

@@ -7,6 +7,7 @@ import type { StrictArgTypes } from 'storybook/internal/csf'
 
 import type {
   BuildVariantMatrixParams,
+  CellState,
   PropWithValues,
   VariantMatrixEntry,
   VariantValue,
@@ -65,7 +66,9 @@ export const buildVariantMatrix = (
   const baselineValueOf = ({ defaultValue, name }: PropWithValues): VariantValue | undefined =>
     (args?.[name] as VariantValue | undefined) ?? defaultValue
 
-  return ['default', ...variants].flatMap((state) =>
+  const states: CellState[] = ['default', ...variants]
+
+  return states.flatMap((state) =>
     sizes.flatMap((size) => [
       { hasIcon: null, size, state },
       ...matrixProps.flatMap((prop) =>

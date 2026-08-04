@@ -7,6 +7,8 @@ import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 import { createElement } from 'react'
 import { describe, expect, it } from 'vitest'
 
+import type { BuildComponentPropsParams } from './renderComponentVariantTypes'
+
 import { buildComponentProps } from './buildComponentProps'
 
 const baseParams = {
@@ -17,7 +19,7 @@ const baseParams = {
   sizePropName: 'size',
   state: 'default',
   variant: 'primary',
-}
+} satisfies BuildComponentPropsParams
 
 describe('buildComponentProps', () => {
   it('spreads args and sets the variant on the target prop', () => {
