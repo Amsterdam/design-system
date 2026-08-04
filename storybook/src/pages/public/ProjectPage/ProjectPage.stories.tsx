@@ -937,10 +937,7 @@ export const WithBreakout: StoryObj = {
       </Breakout.Cell>
     </Breakout>
     <Grid paddingVertical="x-large">
-      {/*
-       * One Cell holds all five link sections, so ams-prose spaces them against one another. Separate
-       * Cells would take that space from the row gap, which is one value for the whole Grid.
-       */}
+      {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading id="themas" level={2} size="level-3">Thema’s</Heading>
         <LinkList>
@@ -950,6 +947,8 @@ export const WithBreakout: StoryObj = {
           <LinkList.Link href="#">Toegankelijkheid van het station</LinkList.Link>
         </LinkList>
         <StandaloneLink href="#">Bekijk alle thema’s</StandaloneLink>
+      </Grid.Cell>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading id="documenten" level={2} size="level-3">Documenten</Heading>
         <LinkList>
           <LinkList.Link href="#">Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)</LinkList.Link>
@@ -957,6 +956,8 @@ export const WithBreakout: StoryObj = {
           <LinkList.Link href="#">Verkeersbesluit Amstelstationstraat (pdf, 310 kB)</LinkList.Link>
         </LinkList>
         <StandaloneLink href="#">Bekijk alle documenten</StandaloneLink>
+      </Grid.Cell>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading id="video" level={2} size="level-3">Video</Heading>
         {/*
          * A Paragraph between the heading and the image: the vertical space guide documents no value for
@@ -966,6 +967,8 @@ export const WithBreakout: StoryObj = {
         {/* This image carries no information the text does not, so it takes an empty alt. */}
         <Image alt="" src="https://picsum.photos/1280/720" />
         <StandaloneLink href="#">Bekijk meer video’s over dit project</StandaloneLink>
+      </Grid.Cell>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading id="meer-informatie" level={2} size="level-3">Meer informatie</Heading>
         <LinkList>
           <LinkList.Link href="#">Amstelkwartier: woningbouw en openbare ruimte</LinkList.Link>
@@ -973,6 +976,8 @@ export const WithBreakout: StoryObj = {
           <LinkList.Link href="#">Fietsparkeren in Amsterdam</LinkList.Link>
           <LinkList.Link href="#">Meer projecten in Oost</LinkList.Link>
         </LinkList>
+      </Grid.Cell>
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Heading id="blijf-op-de-hoogte" level={2} size="level-3">Blijf op de hoogte</Heading>
         <LinkList>
           <LinkList.Link href="#">Nieuwsbrief vernieuwing Amstelstation</LinkList.Link>
@@ -1390,10 +1395,7 @@ export const WithBreakout: StoryObj = {
           </Breakout.Cell>
         </Breakout>
         <Grid paddingVertical="x-large">
-          {/*
-           * One Cell holds all five link sections, so ams-prose spaces them against one another. Separate
-           * Cells would take that space from the row gap, which is one value for the whole Grid.
-           */}
+          {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
           <Grid.Cell
             className="ams-prose"
             span={{ narrow: 4, medium: 6, wide: 7 }}
@@ -1409,6 +1411,12 @@ export const WithBreakout: StoryObj = {
               <LinkList.Link href="#">Toegankelijkheid van het station</LinkList.Link>
             </LinkList>
             <StandaloneLink href="#">Bekijk alle thema’s</StandaloneLink>
+          </Grid.Cell>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
             <Heading id="documenten" level={2} size="level-3">
               Documenten
             </Heading>
@@ -1418,6 +1426,12 @@ export const WithBreakout: StoryObj = {
               <LinkList.Link href="#">Verkeersbesluit Amstelstationstraat (pdf, 310 kB)</LinkList.Link>
             </LinkList>
             <StandaloneLink href="#">Bekijk alle documenten</StandaloneLink>
+          </Grid.Cell>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
             <Heading id="video" level={2} size="level-3">
               Video
             </Heading>
@@ -1429,6 +1443,12 @@ export const WithBreakout: StoryObj = {
             {/* This image carries no information the text does not, so it takes an empty alt. */}
             <Image alt="" src={exampleImageSource(1280, 720, 3)} />
             <StandaloneLink href="#">Bekijk meer video’s over dit project</StandaloneLink>
+          </Grid.Cell>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
             <Heading id="meer-informatie" level={2} size="level-3">
               Meer informatie
             </Heading>
@@ -1438,6 +1458,12 @@ export const WithBreakout: StoryObj = {
               <LinkList.Link href="#">Fietsparkeren in Amsterdam</LinkList.Link>
               <LinkList.Link href="#">Meer projecten in Oost</LinkList.Link>
             </LinkList>
+          </Grid.Cell>
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
             <Heading id="blijf-op-de-hoogte" level={2} size="level-3">
               Blijf op de hoogte
             </Heading>

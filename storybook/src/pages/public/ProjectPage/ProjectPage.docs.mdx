@@ -60,9 +60,9 @@ Choose the text colour for a Spotlight from the highlight colour behind it, not 
 Yellow is a light background, so headings and paragraphs keep their default colour and only links take `color="contrast"`.
 Purple is a dark one, where everything takes `color="inverse"`.
 
-Stack a run of short link sections in one Grid Cell rather than giving each its own.
-[Prose](/docs/utilities-css-prose--docs) then spaces them against one another, pair by pair, as the vertical space guide asks.
-Separate Cells would take that space from the row gap instead, and that is a single value for the whole Grid.
+Give every link section a Grid Cell of its own, as the other page templates do.
+Each one is a block, and the row gap of the Grid is what sets one block apart from the next.
+[Prose](/docs/utilities-css-prose--docs) is then left with the elements within a section: its heading, its list, and the link to the wider set below them.
 
 Contact details are a [Link List](/docs/components-navigation-link-list--docs) whose links carry an icon instead of the chevron the list draws by default.
 Keep the name and the role above it in a Paragraph: they are not links, and a list of two items reads as a set of ways to get in touch.
