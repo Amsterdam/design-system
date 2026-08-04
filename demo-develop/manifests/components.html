@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/288 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">118 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/289 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">118 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.1s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -27105,7 +27105,7 @@ status?: &quot;current&quot; | &quot;completed&quot;</code></pre>
       <div class="badges">
         <label for="c-63-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-63-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-63-pages-public-project-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-63-pages-public-project-page-stories" class="badge ok as-toggle">2 stories</label>
         <label for="c-63-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -27131,13 +27131,13 @@ status?: &quot;current&quot; | &quot;completed&quot;</code></pre>
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  30 | }))
-  31 |
-&gt; 32 | const meta = {
+  33 | }))
+  34 |
+&gt; 35 | const meta = {
      | ^
-  33 |   ...commonMeta,
-  34 |   title: &#39;Pages/Public/Project Page&#39;,
-  35 |   parameters: pageParameters(
+  36 |   ...commonMeta,
+  37 |   title: &#39;Pages/Public/Project Page&#39;,
+  38 |   parameters: pageParameters(
 
 ./src/pages/public/ProjectPage/ProjectPage.stories.tsx:
 /**
@@ -27149,6 +27149,7 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import {
   Breadcrumb,
+  Breakout,
   Grid,
   Heading,
   Image,
@@ -27159,7 +27160,9 @@ import {
   ProgressList,
   Spotlight,
   StandaloneLink,
+  TableOfContents,
 } from &#39;@amsterdam/design-system-react&#39;
+import { MailIcon, PhoneIcon } from &#39;@amsterdam/design-system-react-icons&#39;
 
 import { exampleImageSource } from &#39;#storybook/_common/exampleContent&#39;
 
@@ -27762,6 +27765,927 @@ export const Default: StoryObj = {
     },
   },
 }
+
+export const WithBreakout: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, the story
+        // wrapper and its types included. Provide the source by hand so the panel shows the markup to compose,
+        // without that scaffolding.
+        code: `&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Oost&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+  {/*
+   * The Spotlight bands below carry the project’s own content rather than supporting content, so they
+   * sit inside &lt;main&gt;. That makes &lt;main&gt; the wrapper around several Grids instead of a Grid itself.
+   */}
+  &lt;main id=&quot;inhoud&quot;&gt;
+    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading level={1}&gt;Amstelstation: vernieuwing van het station en het stationsplein&lt;/Heading&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Het Amstelstation en het plein ervoor worden de komende jaren vernieuwd. Het station krijgt een ruimere
+          hal en een tweede ingang aan de zuidkant. Reizigers houden tijdens de werkzaamheden toegang tot de trein,
+          de metro en de tram.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        {/*
+         * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+         * optional caption; only alt is required.
+         */}
+        {/* controls adds the previous and next buttons. The thumbnails below render either way. */}
+        &lt;ImageSlider controls images={images} /&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/*
+     * A Spotlight for news that matters only for a while. Yellow is a light highlight colour, so the
+     * heading and the paragraph keep their default colour and only the link takes color=&quot;contrast&quot;.
+     */}
+    &lt;Spotlight color=&quot;yellow&quot;&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;Amstelstationstraat afgesloten tot en met 12 september&lt;/Heading&gt;
+          &lt;Paragraph&gt;
+            Tot en met 12 september vervangen we de riolering onder de Amstelstationstraat. Doorgaand autoverkeer
+            rijdt om via de Wibautstraat. De ingang van het station aan de kant van het Julianaplein blijft de hele
+            periode open.
+          &lt;/Paragraph&gt;
+          &lt;StandaloneLink color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Bekijk de omleidingsroutes
+          &lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    {/*
+     * The Table of Contents comes first in source, so it precedes the body in the reading and tab order.
+     * rowStart then puts it beside the body on the wide grid rather than above it: without a row of its
+     * own the cell joins the automatic placement, which never moves back a column without moving down a
+     * row, so the body Cell starting at an earlier column could no longer share its row. No other cell
+     * needs one.
+     */}
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell rowStart={1} span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 10 }}&gt;
+        {/* The Table of Contents renders its own heading, at the size of a level 3 Heading. */}
+        &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+          &lt;TableOfContents.List&gt;
+            &lt;TableOfContents.Link href=&quot;#wat&quot; label=&quot;Wat gaan we doen&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#waar&quot; label=&quot;Waar&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#wanneer&quot; label=&quot;Wanneer&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#nieuws&quot; label=&quot;Nieuws&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#werk-aan-de-weg&quot; label=&quot;Werk aan de weg&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#deelprojecten&quot; label=&quot;Deelprojecten&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#themas&quot; label=&quot;Thema’s&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#documenten&quot; label=&quot;Documenten&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#video&quot; label=&quot;Video&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#meer-informatie&quot; label=&quot;Meer informatie&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#blijf-op-de-hoogte&quot; label=&quot;Blijf op de hoogte&quot; /&gt;
+          &lt;/TableOfContents.List&gt;
+        &lt;/TableOfContents&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell
+        className=&quot;ams-prose&quot;
+        span={{ narrow: 4, medium: 6, wide: 7 }}
+        start={{ narrow: 1, medium: 2, wide: 3 }}
+      &gt;
+        {/* Every section heading carries the id its Table of Contents entry points at. */}
+        &lt;Heading id=&quot;wat&quot; level={2}&gt;Wat gaan we doen&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          De stationshal van het Amstelstation is te klein voor het aantal reizigers dat er dagelijks doorheen
+          loopt. We vergroten de hal, verbreden de perrontrappen en maken een tweede ingang aan de zuidkant van het
+          station.
+        &lt;/Paragraph&gt;
+        &lt;Paragraph&gt;
+          Op het Julianaplein komt meer ruimte voor voetgangers en fietsers. De taxistandplaats en de bushaltes
+          verhuizen naar de oostkant van het plein. Daaronder komt een fietsenstalling met 7.000 plekken.
+        &lt;/Paragraph&gt;
+        &lt;Paragraph&gt;
+          Het stationsgebouw uit 1939 blijft behouden. De gevels en de grote hal met de wandschildering worden
+          gerestaureerd.
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer over het ontwerp van het nieuwe station&lt;/StandaloneLink&gt;
+        &lt;Heading id=&quot;waar&quot; level={2}&gt;Waar&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Het Amstelstation ligt in stadsdeel Oost, tussen de Wibautstraat en de Amstel. Het project loopt van het
+          Julianaplein aan de noordkant tot de Spaklerweg aan de zuidkant.
+        &lt;/Paragraph&gt;
+        &lt;Paragraph&gt;
+          De werkzaamheden raken de buurten Weesperzijde, Omval en Amstelkwartier. Bewoners en ondernemers krijgen
+          bericht voordat het werk in hun straat begint.
+        &lt;/Paragraph&gt;
+        &lt;Heading id=&quot;wanneer&quot; level={2}&gt;Wanneer&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          De vernieuwing gebeurt in stappen, zodat het station open blijft. We beginnen aan de zuidkant en werken
+          toe naar het Julianaplein. De laatste werkzaamheden ronden we naar verwachting in 2030 af.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {/* A Progress List is a block of its own, so it takes its own Grid Cell and the row gap spaces it. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/*
+         * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
+         * the one in progress, and a step with no status is still to come. Substeps are nested by hand
+         * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
+         * connecting lines correctly. collapsible gives every step its own fold button and decides what
+         * opens first: completed steps start collapsed, all others expanded, so the finished years here
+         * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
+         */}
+        &lt;ProgressList collapsible headingLevel={3}&gt;
+          {/*
+           * A Substep takes any content, so a month gets a level 4 Heading above its description. That is
+           * one level below the step headings the list renders itself.
+           */}
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2024&quot; status=&quot;completed&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                &lt;Paragraph&gt;Sloop van de fietsenstalling aan de Spaklerweg.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                &lt;Heading level={4}&gt;Oktober&lt;/Heading&gt;
+                &lt;Paragraph&gt;Start bouw van de tijdelijke stationshal aan de zuidkant.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2025&quot; status=&quot;completed&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                &lt;Heading level={4}&gt;Januari&lt;/Heading&gt;
+                &lt;Paragraph&gt;Tijdelijke stationshal in gebruik genomen.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                &lt;Heading level={4}&gt;September&lt;/Heading&gt;
+                &lt;Paragraph&gt;
+                  Start vervanging van de riolering onder de &lt;Link href=&quot;#&quot;&gt;Amstelstationstraat&lt;/Link&gt;.
+                &lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep status=&quot;current&quot;&gt;
+                &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                &lt;Paragraph&gt;Start verbouwing van de bestaande stationshal.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+              &lt;ProgressList.Substep&gt;
+                &lt;Heading level={4}&gt;November&lt;/Heading&gt;
+                &lt;Paragraph&gt;De nieuwe perrontrappen gaan open voor reizigers.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2028&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep&gt;
+                &lt;Heading level={4}&gt;Voorjaar&lt;/Heading&gt;
+                &lt;Paragraph&gt;Oplevering van de fietsenstalling onder het Julianaplein.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2030&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep&gt;
+                &lt;Heading level={4}&gt;Najaar&lt;/Heading&gt;
+                &lt;Paragraph&gt;Het plein en de tweede ingang aan de zuidkant zijn klaar.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+        &lt;/ProgressList&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * These two Cells set no rowStart: the rows above them are taken, so they fall in underneath the
+       * body on every grid, in source order.
+       */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;nieuws&quot; level={2} size=&quot;level-3&quot;&gt;Nieuws&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsenstalling Julianaplein opent in het voorjaar (14 juli 2026)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Bushaltes verplaatst naar de Spaklerweg (2 juni 2026)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Terugblik op de informatieavond van 21 mei (28 mei 2026)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Wandschildering in de stationshal gerestaureerd (9 april 2026)&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+        {/* A link to the wider set is about the list rather than one of it, so it sits outside as a Standalone Link. */}
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk al het nieuws over dit project&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;werk-aan-de-weg&quot; level={2} size=&quot;level-3&quot;&gt;Werk aan de weg&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelstationstraat: afsluiting tot en met 12 september&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Julianaplein: omleiding voor fietsers&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Spaklerweg: nachtelijke afsluitingen&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle wegwerkzaamheden in Oost&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/*
+     * A Breakout lets an image overlap the Spotlight below it. The Cell with has=&quot;spotlight&quot; stretches
+     * over the gaps and margins around it, so only that band reaches the edges of the Page; the image
+     * keeps to the grid. Both Cells need explicit rows, and so does everything inside the Spotlight:
+     * an automatically placed cell avoids the rows the Spotlight already occupies.
+     */}
+    {/*
+     * That stretch is a negative block margin of one x-large, so the band paints an x-large below the
+     * last row. Without a paddingBottom to land in, it would cover the space the next Grid opens with
+     * and leave its heading against the colour.
+     */}
+    &lt;Breakout paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;spotlight&quot; rowSpan={3} rowStart={2}&gt;
+        &lt;Spotlight color=&quot;yellow&quot; /&gt;
+      &lt;/Breakout.Cell&gt;
+      {/*
+       * A map of the project area is not decorative: a reader looks at it to see where the work is, so
+       * it takes an alt. Name the subject and how far it reaches, and leave the rest to the ‘Waar’
+       * section, which carries the same information in words.
+       */}
+      {/* On the narrow grid the image takes a single row, so it sits above the band rather than over it. */}
+      &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;figure&quot; rowSpan={{ narrow: 1, medium: 2, wide: 2 }} rowStart={1}&gt;
+        &lt;Image
+          alt=&quot;Kaart van het stationsgebied met de locaties van de deelprojecten.&quot;
+          src=&quot;https://picsum.photos/1440/810&quot;
+        /&gt;
+      &lt;/Breakout.Cell&gt;
+      &lt;Breakout.Cell
+        className=&quot;ams-prose&quot;
+        colSpan={{ narrow: 4, medium: 6, wide: 7 }}
+        colStart={{ narrow: 1, medium: 2, wide: 3 }}
+        rowStart={{ narrow: 2, medium: 3, wide: 3 }}
+      &gt;
+        &lt;Heading id=&quot;deelprojecten&quot; level={2}&gt;Deelprojecten&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          De vernieuwing bestaat uit deelprojecten die deels tegelijk lopen. Elk deelproject heeft een eigen
+          planning en een eigen aanspreekpunt.
+        &lt;/Paragraph&gt;
+      &lt;/Breakout.Cell&gt;
+      &lt;Breakout.Cell
+        className=&quot;ams-prose&quot;
+        colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+        colStart={{ narrow: 1, medium: 1, wide: 2 }}
+        rowStart={{ narrow: 3, medium: 4, wide: 4 }}
+      &gt;
+        &lt;Heading level={3}&gt;Station en perrons&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Verbouwing van de stationshal
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Nieuwe perrontrappen
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Tweede ingang aan de zuidkant
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Restauratie van de wandschildering
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Toegankelijkheid van de perrons
+          &lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Breakout.Cell&gt;
+      &lt;Breakout.Cell
+        className=&quot;ams-prose&quot;
+        colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+        colStart={{ narrow: 1, medium: 5, wide: 7 }}
+        rowStart={{ narrow: 4, medium: 4, wide: 4 }}
+      &gt;
+        &lt;Heading level={3}&gt;Plein en omgeving&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Herinrichting van het Julianaplein
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Fietsenstalling onder het plein
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Bus- en tramhaltes
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Riolering Amstelstationstraat
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Groen langs de Amstel
+          &lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Breakout.Cell&gt;
+    &lt;/Breakout&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;themas&quot; level={2} size=&quot;level-3&quot;&gt;Thema’s&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Bereikbaarheid tijdens de werkzaamheden&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Duurzaam en circulair bouwen&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Groen en biodiversiteit&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;Documenten&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Voorlopig ontwerp Julianaplein (pdf, 8,1 MB)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;Video&lt;/Heading&gt;
+        {/*
+         * A Paragraph between the heading and the image: the vertical space guide documents no value for
+         * a heading directly above an image, which is a sign to introduce the image in words first.
+         */}
+        &lt;Paragraph&gt;In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.&lt;/Paragraph&gt;
+        {/* This image carries no information the text does not, so it takes an empty alt. */}
+        &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;Meer informatie&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelkwartier: woningbouw en openbare ruimte&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Wibautstraat: vernieuwing van de rijbanen&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;Blijf op de hoogte&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief vernieuwing Amstelstation&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Informatieavonden en inloopspreekuren&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Instagram: Amstelstation&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/*
+     * The highlight colours have no prescribed meaning, so this band takes the default purple rather
+     * than repeating the yellow above. Purple is a dark background, so everything in it takes
+     * color=&quot;inverse&quot;.
+     */}
+    &lt;Spotlight&gt;
+      {/*
+       * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
+       */}
+      &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/*
+           * The Page Footer heads its own contact block ‘Contact’ as well, so someone browsing the page
+           * by heading meets the word twice. The hidden phrase tells the two apart without repeating
+           * ‘over dit project’ on screen, where the surrounding page already says so.
+           */}
+          &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
+            Contact&lt;span className=&quot;ams-visually-hidden&quot;&gt; over dit project&lt;/span&gt;
+          &lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+            &lt;Paragraph color=&quot;inverse&quot;&gt;
+              Hilde Verkerk
+              &lt;br /&gt;
+              Omgevingsmanager
+            &lt;/Paragraph&gt;
+            {/* A Link List of contact details: an icon per link replaces the chevron the list draws by default. */}
+            &lt;LinkList&gt;
+              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:h.verkerk@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                h.verkerk@amsterdam.nl
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31618342210&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                06 1834 2210
+              &lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+            &lt;Paragraph color=&quot;inverse&quot;&gt;
+              Joris Bramer
+              &lt;br /&gt;
+              Communicatieadviseur
+            &lt;/Paragraph&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:j.bramer@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                j.bramer@amsterdam.nl
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31611294478&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                06 1129 4478
+              &lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Image
+          alt=&quot;Kaart van het projectgebied, van het Julianaplein tot de Spaklerweg.&quot;
+          src=&quot;https://picsum.photos/1440/810&quot;
+        /&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/main&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  render: () =&gt; (
+    &lt;&gt;
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+      &lt;Grid paddingTop=&quot;large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Breadcrumb&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Oost&lt;/Breadcrumb.Link&gt;
+          &lt;/Breadcrumb&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+      {/*
+       * The Spotlight bands below carry the project’s own content rather than supporting content, so they
+       * sit inside &lt;main&gt;. That makes &lt;main&gt; the wrapper around several Grids instead of a Grid itself.
+       */}
+      &lt;main id=&quot;inhoud&quot;&gt;
+        {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+        &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          &gt;
+            &lt;Heading level={1}&gt;Amstelstation: vernieuwing van het station en het stationsplein&lt;/Heading&gt;
+            &lt;Paragraph size=&quot;large&quot;&gt;
+              Het Amstelstation en het plein ervoor worden de komende jaren vernieuwd. Het station krijgt een ruimere
+              hal en een tweede ingang aan de zuidkant. Reizigers houden tijdens de werkzaamheden toegang tot de trein,
+              de metro en de tram.
+            &lt;/Paragraph&gt;
+          &lt;/Grid.Cell&gt;
+          {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            {/*
+             * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+             * optional caption; only alt is required.
+             */}
+            {/* controls adds the previous and next buttons. The thumbnails below render either way. */}
+            &lt;ImageSlider controls images={images} /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+        {/*
+         * A Spotlight for news that matters only for a while. Yellow is a light highlight colour, so the
+         * heading and the paragraph keep their default colour and only the link takes color=&quot;contrast&quot;.
+         */}
+        &lt;Spotlight color=&quot;yellow&quot;&gt;
+          &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+            &lt;Grid.Cell
+              className=&quot;ams-prose&quot;
+              span={{ narrow: 4, medium: 6, wide: 7 }}
+              start={{ narrow: 1, medium: 2, wide: 3 }}
+            &gt;
+              &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+                Amstelstationstraat afgesloten tot en met 12 september
+              &lt;/Heading&gt;
+              &lt;Paragraph&gt;
+                Tot en met 12 september vervangen we de riolering onder de Amstelstationstraat. Doorgaand autoverkeer
+                rijdt om via de Wibautstraat. De ingang van het station aan de kant van het Julianaplein blijft de hele
+                periode open.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Bekijk de omleidingsroutes
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid&gt;
+        &lt;/Spotlight&gt;
+        {/*
+         * The Table of Contents comes first in source, so it precedes the body in the reading and tab order.
+         * rowStart then puts it beside the body on the wide grid rather than above it: without a row of its
+         * own the cell joins the automatic placement, which never moves back a column without moving down a
+         * row, so the body Cell starting at an earlier column could no longer share its row. No other cell
+         * needs one.
+         */}
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell rowStart={1} span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 10 }}&gt;
+            {/* The Table of Contents renders its own heading, at the size of a level 3 Heading. */}
+            &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+              &lt;TableOfContents.List&gt;
+                &lt;TableOfContents.Link href=&quot;#wat&quot; label=&quot;Wat gaan we doen&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#waar&quot; label=&quot;Waar&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#wanneer&quot; label=&quot;Wanneer&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#nieuws&quot; label=&quot;Nieuws&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#werk-aan-de-weg&quot; label=&quot;Werk aan de weg&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#deelprojecten&quot; label=&quot;Deelprojecten&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#themas&quot; label=&quot;Thema’s&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#documenten&quot; label=&quot;Documenten&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#video&quot; label=&quot;Video&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#meer-informatie&quot; label=&quot;Meer informatie&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#blijf-op-de-hoogte&quot; label=&quot;Blijf op de hoogte&quot; /&gt;
+              &lt;/TableOfContents.List&gt;
+            &lt;/TableOfContents&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            {/* Every section heading carries the id its Table of Contents entry points at. */}
+            &lt;Heading id=&quot;wat&quot; level={2}&gt;
+              Wat gaan we doen
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;
+              De stationshal van het Amstelstation is te klein voor het aantal reizigers dat er dagelijks doorheen
+              loopt. We vergroten de hal, verbreden de perrontrappen en maken een tweede ingang aan de zuidkant van het
+              station.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph&gt;
+              Op het Julianaplein komt meer ruimte voor voetgangers en fietsers. De taxistandplaats en de bushaltes
+              verhuizen naar de oostkant van het plein. Daaronder komt een fietsenstalling met 7.000 plekken.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph&gt;
+              Het stationsgebouw uit 1939 blijft behouden. De gevels en de grote hal met de wandschildering worden
+              gerestaureerd.
+            &lt;/Paragraph&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer over het ontwerp van het nieuwe station&lt;/StandaloneLink&gt;
+            &lt;Heading id=&quot;waar&quot; level={2}&gt;
+              Waar
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;
+              Het Amstelstation ligt in stadsdeel Oost, tussen de Wibautstraat en de Amstel. Het project loopt van het
+              Julianaplein aan de noordkant tot de Spaklerweg aan de zuidkant.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph&gt;
+              De werkzaamheden raken de buurten Weesperzijde, Omval en Amstelkwartier. Bewoners en ondernemers krijgen
+              bericht voordat het werk in hun straat begint.
+            &lt;/Paragraph&gt;
+            &lt;Heading id=&quot;wanneer&quot; level={2}&gt;
+              Wanneer
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;
+              De vernieuwing gebeurt in stappen, zodat het station open blijft. We beginnen aan de zuidkant en werken
+              toe naar het Julianaplein. De laatste werkzaamheden ronden we naar verwachting in 2030 af.
+            &lt;/Paragraph&gt;
+          &lt;/Grid.Cell&gt;
+          {/* A Progress List is a block of its own, so it takes its own Grid Cell and the row gap spaces it. */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+            {/*
+             * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
+             * the one in progress, and a step with no status is still to come. Substeps are nested by hand
+             * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
+             * connecting lines correctly. collapsible gives every step its own fold button and decides what
+             * opens first: completed steps start collapsed, all others expanded, so the finished years here
+             * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
+             */}
+            &lt;ProgressList collapsible headingLevel={3}&gt;
+              {/*
+               * A Substep takes any content, so a month gets a level 4 Heading above its description. That is
+               * one level below the step headings the list renders itself.
+               */}
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2024&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Sloop van de fietsenstalling aan de Spaklerweg.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Heading level={4}&gt;Oktober&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Start bouw van de tijdelijke stationshal aan de zuidkant.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2025&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Heading level={4}&gt;Januari&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Tijdelijke stationshal in gebruik genomen.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Heading level={4}&gt;September&lt;/Heading&gt;
+                    &lt;Paragraph&gt;
+                      Start vervanging van de riolering onder de &lt;Link href=&quot;#&quot;&gt;Amstelstationstraat&lt;/Link&gt;.
+                    &lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;current&quot;&gt;
+                    &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Start verbouwing van de bestaande stationshal.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep&gt;
+                    &lt;Heading level={4}&gt;November&lt;/Heading&gt;
+                    &lt;Paragraph&gt;De nieuwe perrontrappen gaan open voor reizigers.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2028&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep&gt;
+                    &lt;Heading level={4}&gt;Voorjaar&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Oplevering van de fietsenstalling onder het Julianaplein.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2030&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep&gt;
+                    &lt;Heading level={4}&gt;Najaar&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Het plein en de tweede ingang aan de zuidkant zijn klaar.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+            &lt;/ProgressList&gt;
+          &lt;/Grid.Cell&gt;
+          {/*
+           * These two Cells set no rowStart: the rows above them are taken, so they fall in underneath the
+           * body on every grid, in source order.
+           */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;nieuws&quot; level={2} size=&quot;level-3&quot;&gt;
+              Nieuws
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsenstalling Julianaplein opent in het voorjaar (14 juli 2026)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Bushaltes verplaatst naar de Spaklerweg (2 juni 2026)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Terugblik op de informatieavond van 21 mei (28 mei 2026)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Wandschildering in de stationshal gerestaureerd (9 april 2026)&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+            {/* A link to the wider set is about the list rather than one of it, so it sits outside as a Standalone Link. */}
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk al het nieuws over dit project&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;werk-aan-de-weg&quot; level={2} size=&quot;level-3&quot;&gt;
+              Werk aan de weg
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelstationstraat: afsluiting tot en met 12 september&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Julianaplein: omleiding voor fietsers&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Spaklerweg: nachtelijke afsluitingen&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle wegwerkzaamheden in Oost&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+        {/*
+         * A Breakout lets an image overlap the Spotlight below it. The Cell with has=&quot;spotlight&quot; stretches
+         * over the gaps and margins around it, so only that band reaches the edges of the Page; the image
+         * keeps to the grid. Both Cells need explicit rows, and so does everything inside the Spotlight:
+         * an automatically placed cell avoids the rows the Spotlight already occupies.
+         */}
+        {/*
+         * That stretch is a negative block margin of one x-large, so the band paints an x-large below the
+         * last row. Without a paddingBottom to land in, it would cover the space the next Grid opens with
+         * and leave its heading against the colour.
+         */}
+        &lt;Breakout paddingBottom=&quot;x-large&quot;&gt;
+          &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;spotlight&quot; rowSpan={3} rowStart={2}&gt;
+            &lt;Spotlight color=&quot;yellow&quot; /&gt;
+          &lt;/Breakout.Cell&gt;
+          {/*
+           * A map of the project area is not decorative: a reader looks at it to see where the work is, so
+           * it takes an alt. Name the subject and how far it reaches, and leave the rest to the ‘Waar’
+           * section, which carries the same information in words.
+           */}
+          {/* On the narrow grid the image takes a single row, so it sits above the band rather than over it. */}
+          &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;figure&quot; rowSpan={{ narrow: 1, medium: 2, wide: 2 }} rowStart={1}&gt;
+            &lt;Image
+              alt=&quot;Kaart van het stationsgebied met de locaties van de deelprojecten.&quot;
+              src={exampleImageSource(1440, 810, 2)}
+            /&gt;
+          &lt;/Breakout.Cell&gt;
+          &lt;Breakout.Cell
+            className=&quot;ams-prose&quot;
+            colSpan={{ narrow: 4, medium: 6, wide: 7 }}
+            colStart={{ narrow: 1, medium: 2, wide: 3 }}
+            rowStart={{ narrow: 2, medium: 3, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;deelprojecten&quot; level={2}&gt;
+              Deelprojecten
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;
+              De vernieuwing bestaat uit deelprojecten die deels tegelijk lopen. Elk deelproject heeft een eigen
+              planning en een eigen aanspreekpunt.
+            &lt;/Paragraph&gt;
+          &lt;/Breakout.Cell&gt;
+          &lt;Breakout.Cell
+            className=&quot;ams-prose&quot;
+            colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+            colStart={{ narrow: 1, medium: 1, wide: 2 }}
+            rowStart={{ narrow: 3, medium: 4, wide: 4 }}
+          &gt;
+            &lt;Heading level={3}&gt;Station en perrons&lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Verbouwing van de stationshal
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Nieuwe perrontrappen
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Tweede ingang aan de zuidkant
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Restauratie van de wandschildering
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Toegankelijkheid van de perrons
+              &lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Breakout.Cell&gt;
+          &lt;Breakout.Cell
+            className=&quot;ams-prose&quot;
+            colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+            colStart={{ narrow: 1, medium: 5, wide: 7 }}
+            rowStart={{ narrow: 4, medium: 4, wide: 4 }}
+          &gt;
+            &lt;Heading level={3}&gt;Plein en omgeving&lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Herinrichting van het Julianaplein
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Fietsenstalling onder het plein
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Bus- en tramhaltes
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Riolering Amstelstationstraat
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Groen langs de Amstel
+              &lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Breakout.Cell&gt;
+        &lt;/Breakout&gt;
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;themas&quot; level={2} size=&quot;level-3&quot;&gt;
+              Thema’s
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Bereikbaarheid tijdens de werkzaamheden&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Duurzaam en circulair bouwen&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Groen en biodiversiteit&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;
+              Documenten
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Voorlopig ontwerp Julianaplein (pdf, 8,1 MB)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;
+              Video
+            &lt;/Heading&gt;
+            {/*
+             * A Paragraph between the heading and the image: the vertical space guide documents no value for
+             * a heading directly above an image, which is a sign to introduce the image in words first.
+             */}
+            &lt;Paragraph&gt;In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.&lt;/Paragraph&gt;
+            {/* This image carries no information the text does not, so it takes an empty alt. */}
+            &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720, 3)} /&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;
+              Meer informatie
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelkwartier: woningbouw en openbare ruimte&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Wibautstraat: vernieuwing van de rijbanen&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;
+              Blijf op de hoogte
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief vernieuwing Amstelstation&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Informatieavonden en inloopspreekuren&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Instagram: Amstelstation&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+        {/*
+         * The highlight colours have no prescribed meaning, so this band takes the default purple rather
+         * than repeating the yellow above. Purple is a dark background, so everything in it takes
+         * color=&quot;inverse&quot;.
+         */}
+        &lt;Spotlight&gt;
+          {/*
+           * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
+           * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+           * between the Cells.
+           */}
+          &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              {/*
+               * The Page Footer heads its own contact block ‘Contact’ as well, so someone browsing the page
+               * by heading meets the word twice. The hidden phrase tells the two apart without repeating
+               * ‘over dit project’ on screen, where the surrounding page already says so.
+               */}
+              &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
+                Contact&lt;span className=&quot;ams-visually-hidden&quot;&gt; over dit project&lt;/span&gt;
+              &lt;/Heading&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Hilde Verkerk
+                  &lt;br /&gt;
+                  Omgevingsmanager
+                &lt;/Paragraph&gt;
+                {/* A Link List of contact details: an icon per link replaces the chevron the list draws by default. */}
+                &lt;LinkList&gt;
+                  &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:h.verkerk@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                    h.verkerk@amsterdam.nl
+                  &lt;/LinkList.Link&gt;
+                  &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31618342210&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                    06 1834 2210
+                  &lt;/LinkList.Link&gt;
+                &lt;/LinkList&gt;
+              &lt;/Grid.Cell&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Joris Bramer
+                  &lt;br /&gt;
+                  Communicatieadviseur
+                &lt;/Paragraph&gt;
+                &lt;LinkList&gt;
+                  &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:j.bramer@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                    j.bramer@amsterdam.nl
+                  &lt;/LinkList.Link&gt;
+                  &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31611294478&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                    06 1129 4478
+                  &lt;/LinkList.Link&gt;
+                &lt;/LinkList&gt;
+              &lt;/Grid.Cell&gt;
+            &lt;/Grid.Subgrid&gt;
+          &lt;/Grid&gt;
+        &lt;/Spotlight&gt;
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Image
+              alt=&quot;Kaart van het projectgebied, van het Julianaplein tot de Spaklerweg.&quot;
+              src={exampleImageSource(1440, 810, 4)}
+            /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+      &lt;/main&gt;
+    &lt;/&gt;
+  ),
+}
 </code></pre></div>
     </div>
         </div>
@@ -27785,6 +28709,7 @@ export const Default: StoryObj = {
                 </div>
                 <pre><code>import {
     Breadcrumb,
+    Breakout,
     Grid,
     Heading,
     Image,
@@ -27795,7 +28720,9 @@ export const Default: StoryObj = {
     ProgressList,
     Spotlight,
     StandaloneLink,
-} from "@amsterdam/design-system-react";</code></pre>
+    TableOfContents,
+} from "@amsterdam/design-system-react";
+import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               </div>
           
           
@@ -28176,6 +29103,499 @@ export const Default: StoryObj = {
   &lt;/&gt;
 );</code></pre>
             </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">With Breakout</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithBreakout = () =&gt; (
+  &lt;&gt;
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+    &lt;Grid paddingTop=&quot;large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Breadcrumb&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Oost&lt;/Breadcrumb.Link&gt;
+        &lt;/Breadcrumb&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+    {/*
+     * The Spotlight bands below carry the project’s own content rather than supporting content, so they
+     * sit inside &lt;main&gt;. That makes &lt;main&gt; the wrapper around several Grids instead of a Grid itself.
+     */}
+    &lt;main id=&quot;inhoud&quot;&gt;
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+        {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 7, wide: 9 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        &gt;
+          &lt;Heading level={1}&gt;Amstelstation: vernieuwing van het station en het stationsplein&lt;/Heading&gt;
+          &lt;Paragraph size=&quot;large&quot;&gt;
+            Het Amstelstation en het plein ervoor worden de komende jaren vernieuwd. Het station krijgt een ruimere
+            hal en een tweede ingang aan de zuidkant. Reizigers houden tijdens de werkzaamheden toegang tot de trein,
+            de metro en de tram.
+          &lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+        {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/*
+           * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+           * optional caption; only alt is required.
+           */}
+          {/* controls adds the previous and next buttons. The thumbnails below render either way. */}
+          &lt;ImageSlider controls images={images} /&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      {/*
+       * A Spotlight for news that matters only for a while. Yellow is a light highlight colour, so the
+       * heading and the paragraph keep their default colour and only the link takes color=&quot;contrast&quot;.
+       */}
+      &lt;Spotlight color=&quot;yellow&quot;&gt;
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Amstelstationstraat afgesloten tot en met 12 september
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;
+              Tot en met 12 september vervangen we de riolering onder de Amstelstationstraat. Doorgaand autoverkeer
+              rijdt om via de Wibautstraat. De ingang van het station aan de kant van het Julianaplein blijft de hele
+              periode open.
+            &lt;/Paragraph&gt;
+            &lt;StandaloneLink color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Bekijk de omleidingsroutes
+            &lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+      &lt;/Spotlight&gt;
+      {/*
+       * The Table of Contents comes first in source, so it precedes the body in the reading and tab order.
+       * rowStart then puts it beside the body on the wide grid rather than above it: without a row of its
+       * own the cell joins the automatic placement, which never moves back a column without moving down a
+       * row, so the body Cell starting at an earlier column could no longer share its row. No other cell
+       * needs one.
+       */}
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell rowStart={1} span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 10 }}&gt;
+          {/* The Table of Contents renders its own heading, at the size of a level 3 Heading. */}
+          &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+            &lt;TableOfContents.List&gt;
+              &lt;TableOfContents.Link href=&quot;#wat&quot; label=&quot;Wat gaan we doen&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#waar&quot; label=&quot;Waar&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#wanneer&quot; label=&quot;Wanneer&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#nieuws&quot; label=&quot;Nieuws&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#werk-aan-de-weg&quot; label=&quot;Werk aan de weg&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#deelprojecten&quot; label=&quot;Deelprojecten&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#themas&quot; label=&quot;Thema’s&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#documenten&quot; label=&quot;Documenten&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#video&quot; label=&quot;Video&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#meer-informatie&quot; label=&quot;Meer informatie&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#blijf-op-de-hoogte&quot; label=&quot;Blijf op de hoogte&quot; /&gt;
+            &lt;/TableOfContents.List&gt;
+          &lt;/TableOfContents&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          {/* Every section heading carries the id its Table of Contents entry points at. */}
+          &lt;Heading id=&quot;wat&quot; level={2}&gt;
+            Wat gaan we doen
+          &lt;/Heading&gt;
+          &lt;Paragraph&gt;
+            De stationshal van het Amstelstation is te klein voor het aantal reizigers dat er dagelijks doorheen
+            loopt. We vergroten de hal, verbreden de perrontrappen en maken een tweede ingang aan de zuidkant van het
+            station.
+          &lt;/Paragraph&gt;
+          &lt;Paragraph&gt;
+            Op het Julianaplein komt meer ruimte voor voetgangers en fietsers. De taxistandplaats en de bushaltes
+            verhuizen naar de oostkant van het plein. Daaronder komt een fietsenstalling met 7.000 plekken.
+          &lt;/Paragraph&gt;
+          &lt;Paragraph&gt;
+            Het stationsgebouw uit 1939 blijft behouden. De gevels en de grote hal met de wandschildering worden
+            gerestaureerd.
+          &lt;/Paragraph&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer over het ontwerp van het nieuwe station&lt;/StandaloneLink&gt;
+          &lt;Heading id=&quot;waar&quot; level={2}&gt;
+            Waar
+          &lt;/Heading&gt;
+          &lt;Paragraph&gt;
+            Het Amstelstation ligt in stadsdeel Oost, tussen de Wibautstraat en de Amstel. Het project loopt van het
+            Julianaplein aan de noordkant tot de Spaklerweg aan de zuidkant.
+          &lt;/Paragraph&gt;
+          &lt;Paragraph&gt;
+            De werkzaamheden raken de buurten Weesperzijde, Omval en Amstelkwartier. Bewoners en ondernemers krijgen
+            bericht voordat het werk in hun straat begint.
+          &lt;/Paragraph&gt;
+          &lt;Heading id=&quot;wanneer&quot; level={2}&gt;
+            Wanneer
+          &lt;/Heading&gt;
+          &lt;Paragraph&gt;
+            De vernieuwing gebeurt in stappen, zodat het station open blijft. We beginnen aan de zuidkant en werken
+            toe naar het Julianaplein. De laatste werkzaamheden ronden we naar verwachting in 2030 af.
+          &lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+        {/* A Progress List is a block of its own, so it takes its own Grid Cell and the row gap spaces it. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
+           * the one in progress, and a step with no status is still to come. Substeps are nested by hand
+           * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
+           * connecting lines correctly. collapsible gives every step its own fold button and decides what
+           * opens first: completed steps start collapsed, all others expanded, so the finished years here
+           * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
+           */}
+          &lt;ProgressList collapsible headingLevel={3}&gt;
+            {/*
+             * A Substep takes any content, so a month gets a level 4 Heading above its description. That is
+             * one level below the step headings the list renders itself.
+             */}
+            &lt;ProgressList.Step hasSubsteps heading=&quot;2024&quot; status=&quot;completed&quot;&gt;
+              &lt;ProgressList.Substeps&gt;
+                &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                  &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Sloop van de fietsenstalling aan de Spaklerweg.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+                &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                  &lt;Heading level={4}&gt;Oktober&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Start bouw van de tijdelijke stationshal aan de zuidkant.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+              &lt;/ProgressList.Substeps&gt;
+            &lt;/ProgressList.Step&gt;
+            &lt;ProgressList.Step hasSubsteps heading=&quot;2025&quot; status=&quot;completed&quot;&gt;
+              &lt;ProgressList.Substeps&gt;
+                &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                  &lt;Heading level={4}&gt;Januari&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Tijdelijke stationshal in gebruik genomen.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+                &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                  &lt;Heading level={4}&gt;September&lt;/Heading&gt;
+                  &lt;Paragraph&gt;
+                    Start vervanging van de riolering onder de &lt;Link href=&quot;#&quot;&gt;Amstelstationstraat&lt;/Link&gt;.
+                  &lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+              &lt;/ProgressList.Substeps&gt;
+            &lt;/ProgressList.Step&gt;
+            &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+              &lt;ProgressList.Substeps&gt;
+                &lt;ProgressList.Substep status=&quot;current&quot;&gt;
+                  &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Start verbouwing van de bestaande stationshal.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+                &lt;ProgressList.Substep&gt;
+                  &lt;Heading level={4}&gt;November&lt;/Heading&gt;
+                  &lt;Paragraph&gt;De nieuwe perrontrappen gaan open voor reizigers.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+              &lt;/ProgressList.Substeps&gt;
+            &lt;/ProgressList.Step&gt;
+            &lt;ProgressList.Step hasSubsteps heading=&quot;2028&quot;&gt;
+              &lt;ProgressList.Substeps&gt;
+                &lt;ProgressList.Substep&gt;
+                  &lt;Heading level={4}&gt;Voorjaar&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Oplevering van de fietsenstalling onder het Julianaplein.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+              &lt;/ProgressList.Substeps&gt;
+            &lt;/ProgressList.Step&gt;
+            &lt;ProgressList.Step hasSubsteps heading=&quot;2030&quot;&gt;
+              &lt;ProgressList.Substeps&gt;
+                &lt;ProgressList.Substep&gt;
+                  &lt;Heading level={4}&gt;Najaar&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Het plein en de tweede ingang aan de zuidkant zijn klaar.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+              &lt;/ProgressList.Substeps&gt;
+            &lt;/ProgressList.Step&gt;
+          &lt;/ProgressList&gt;
+        &lt;/Grid.Cell&gt;
+        {/*
+         * These two Cells set no rowStart: the rows above them are taken, so they fall in underneath the
+         * body on every grid, in source order.
+         */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;nieuws&quot; level={2} size=&quot;level-3&quot;&gt;
+            Nieuws
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsenstalling Julianaplein opent in het voorjaar (14 juli 2026)&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Bushaltes verplaatst naar de Spaklerweg (2 juni 2026)&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Terugblik op de informatieavond van 21 mei (28 mei 2026)&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Wandschildering in de stationshal gerestaureerd (9 april 2026)&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+          {/* A link to the wider set is about the list rather than one of it, so it sits outside as a Standalone Link. */}
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk al het nieuws over dit project&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;werk-aan-de-weg&quot; level={2} size=&quot;level-3&quot;&gt;
+            Werk aan de weg
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelstationstraat: afsluiting tot en met 12 september&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Julianaplein: omleiding voor fietsers&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Spaklerweg: nachtelijke afsluitingen&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle wegwerkzaamheden in Oost&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      {/*
+       * A Breakout lets an image overlap the Spotlight below it. The Cell with has=&quot;spotlight&quot; stretches
+       * over the gaps and margins around it, so only that band reaches the edges of the Page; the image
+       * keeps to the grid. Both Cells need explicit rows, and so does everything inside the Spotlight:
+       * an automatically placed cell avoids the rows the Spotlight already occupies.
+       */}
+      {/*
+       * That stretch is a negative block margin of one x-large, so the band paints an x-large below the
+       * last row. Without a paddingBottom to land in, it would cover the space the next Grid opens with
+       * and leave its heading against the colour.
+       */}
+      &lt;Breakout paddingBottom=&quot;x-large&quot;&gt;
+        &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;spotlight&quot; rowSpan={3} rowStart={2}&gt;
+          &lt;Spotlight color=&quot;yellow&quot; /&gt;
+        &lt;/Breakout.Cell&gt;
+        {/*
+         * A map of the project area is not decorative: a reader looks at it to see where the work is, so
+         * it takes an alt. Name the subject and how far it reaches, and leave the rest to the ‘Waar’
+         * section, which carries the same information in words.
+         */}
+        {/* On the narrow grid the image takes a single row, so it sits above the band rather than over it. */}
+        &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;figure&quot; rowSpan={{ narrow: 1, medium: 2, wide: 2 }} rowStart={1}&gt;
+          &lt;Image
+            alt=&quot;Kaart van het stationsgebied met de locaties van de deelprojecten.&quot;
+            src={exampleImageSource(1440, 810, 2)}
+          /&gt;
+        &lt;/Breakout.Cell&gt;
+        &lt;Breakout.Cell
+          className=&quot;ams-prose&quot;
+          colSpan={{ narrow: 4, medium: 6, wide: 7 }}
+          colStart={{ narrow: 1, medium: 2, wide: 3 }}
+          rowStart={{ narrow: 2, medium: 3, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;deelprojecten&quot; level={2}&gt;
+            Deelprojecten
+          &lt;/Heading&gt;
+          &lt;Paragraph&gt;
+            De vernieuwing bestaat uit deelprojecten die deels tegelijk lopen. Elk deelproject heeft een eigen
+            planning en een eigen aanspreekpunt.
+          &lt;/Paragraph&gt;
+        &lt;/Breakout.Cell&gt;
+        &lt;Breakout.Cell
+          className=&quot;ams-prose&quot;
+          colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+          colStart={{ narrow: 1, medium: 1, wide: 2 }}
+          rowStart={{ narrow: 3, medium: 4, wide: 4 }}
+        &gt;
+          &lt;Heading level={3}&gt;Station en perrons&lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Verbouwing van de stationshal
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Nieuwe perrontrappen
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Tweede ingang aan de zuidkant
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Restauratie van de wandschildering
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Toegankelijkheid van de perrons
+            &lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Breakout.Cell&gt;
+        &lt;Breakout.Cell
+          className=&quot;ams-prose&quot;
+          colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+          colStart={{ narrow: 1, medium: 5, wide: 7 }}
+          rowStart={{ narrow: 4, medium: 4, wide: 4 }}
+        &gt;
+          &lt;Heading level={3}&gt;Plein en omgeving&lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Herinrichting van het Julianaplein
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Fietsenstalling onder het plein
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Bus- en tramhaltes
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Riolering Amstelstationstraat
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Groen langs de Amstel
+            &lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Breakout.Cell&gt;
+      &lt;/Breakout&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;themas&quot; level={2} size=&quot;level-3&quot;&gt;
+            Thema’s
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Bereikbaarheid tijdens de werkzaamheden&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Duurzaam en circulair bouwen&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Groen en biodiversiteit&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;
+            Documenten
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Voorlopig ontwerp Julianaplein (pdf, 8,1 MB)&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;
+            Video
+          &lt;/Heading&gt;
+          {/*
+           * A Paragraph between the heading and the image: the vertical space guide documents no value for
+           * a heading directly above an image, which is a sign to introduce the image in words first.
+           */}
+          &lt;Paragraph&gt;In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.&lt;/Paragraph&gt;
+          {/* This image carries no information the text does not, so it takes an empty alt. */}
+          &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720, 3)} /&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;
+            Meer informatie
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelkwartier: woningbouw en openbare ruimte&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Wibautstraat: vernieuwing van de rijbanen&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;
+            Blijf op de hoogte
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief vernieuwing Amstelstation&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Informatieavonden en inloopspreekuren&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Instagram: Amstelstation&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      {/*
+       * The highlight colours have no prescribed meaning, so this band takes the default purple rather
+       * than repeating the yellow above. Purple is a dark background, so everything in it takes
+       * color=&quot;inverse&quot;.
+       */}
+      &lt;Spotlight&gt;
+        {/*
+         * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
+         */}
+        &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            {/*
+             * The Page Footer heads its own contact block ‘Contact’ as well, so someone browsing the page
+             * by heading meets the word twice. The hidden phrase tells the two apart without repeating
+             * ‘over dit project’ on screen, where the surrounding page already says so.
+             */}
+            &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
+              Contact&lt;span className=&quot;ams-visually-hidden&quot;&gt; over dit project&lt;/span&gt;
+            &lt;/Heading&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Hilde Verkerk
+                &lt;br /&gt;
+                Omgevingsmanager
+              &lt;/Paragraph&gt;
+              {/* A Link List of contact details: an icon per link replaces the chevron the list draws by default. */}
+              &lt;LinkList&gt;
+                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:h.verkerk@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                  h.verkerk@amsterdam.nl
+                &lt;/LinkList.Link&gt;
+                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31618342210&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                  06 1834 2210
+                &lt;/LinkList.Link&gt;
+              &lt;/LinkList&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Joris Bramer
+                &lt;br /&gt;
+                Communicatieadviseur
+              &lt;/Paragraph&gt;
+              &lt;LinkList&gt;
+                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:j.bramer@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                  j.bramer@amsterdam.nl
+                &lt;/LinkList.Link&gt;
+                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31611294478&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                  06 1129 4478
+                &lt;/LinkList.Link&gt;
+              &lt;/LinkList&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
+        &lt;/Grid&gt;
+      &lt;/Spotlight&gt;
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Image
+            alt=&quot;Kaart van het projectgebied, van het Julianaplein tot de Spaklerweg.&quot;
+            src={exampleImageSource(1440, 810, 4)}
+          /&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/main&gt;
+  &lt;/&gt;
+);</code></pre>
+            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -28215,8 +29635,8 @@ The page has a set structure.
 It includes sections that describe what the project is, its location, the reasons for it, and the timeline for planning or execution.
 This standard format helps users compare projects and find information more easily.
 
-The ‘when’ section usually features a timeline of important milestones, shown in a Progress List.
-This gives a brief overview of the project&#39;s current status and future phases.
+The ‘when’ section usually features a timeline of important milestones, shown in a [Progress List](/docs/components-containers-progress-list--docs).
+This gives a brief overview of the project’s current status and future phases.
 
 Visual elements enhance the text.
 Large images provide context or show the impact.
@@ -28225,6 +29645,37 @@ A video may be included to clarify complex issues or planned changes.
 
 Related information is organized in link blocks.
 These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
+
+## Default
+
+Give the page a single body column and pair the link sections two per row.
+This suits a project with a handful of related sections, where a reader can take in the whole page by scrolling.
+
+## With Breakout
+
+Longer projects need more sections, and a reader who wants one of them should not have to scroll past the others to find it.
+Open such a page with a lead paragraph, list its sections in a [Table of Contents](/docs/components-navigation-table-of-contents--docs) beside the body, and give every section heading the `id` its entry points at.
+
+Give that Table of Contents a `rowStart` of 1 in its [Grid](/docs/components-layout-grid--docs) Cell.
+That is what lets it come first in the reading order and still sit to the right of the body on a wide screen.
+Automatic placement never moves back a column without moving down a row, so without a row of its own it would push the body down one.
+No other cell in that Grid needs a row.
+
+Further down, a [Breakout](/docs/components-layout-breakout--docs) lets an image overlap the [Spotlight](/docs/components-containers-spotlight--docs) below it, which sets a band apart from the sections around it.
+The Cell holding the Spotlight needs `has=&quot;spotlight&quot;`, and the Cell holding the image `has=&quot;figure&quot;`.
+Give every Cell inside that band an explicit row: a Cell without one avoids the rows the Spotlight occupies and lands underneath the band instead of in it.
+Let the image take a single row on the narrow grid, so it sits above the band rather than over it.
+
+Choose the text colour for a Spotlight from the highlight colour behind it, not from the other bands on the page.
+Yellow is a light background, so headings and paragraphs keep their default colour and only links take `color=&quot;contrast&quot;`.
+Purple is a dark one, where everything takes `color=&quot;inverse&quot;`.
+
+Give every link section a Grid Cell of its own, as the other page templates do.
+Each one is a block, and the row gap of the Grid is what sets one block apart from the next.
+[Prose](/docs/utilities-css-prose--docs) is then left with the elements within a section: its heading, its list, and the link to the wider set below them.
+
+Contact details are a [Link List](/docs/components-navigation-link-list--docs) whose links carry an icon instead of the chevron the list draws by default.
+Keep the name and the role above it in a Paragraph: they are not links, and a list of two items reads as a set of ways to get in touch.
 </code></pre></div>
             </div>
         </div>
@@ -47327,7 +48778,7 @@ Put the two in one Cell when the exact value matters, and accept the row gap whe
       <div class="badges">
         <label for="c-error-12-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
         <label for="c-error-12-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-error-12-pages-public-project-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-error-12-pages-public-project-page-stories" class="badge ok as-toggle">2 stories</label>
         <label for="c-error-12-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -47353,13 +48804,13 @@ Put the two in one Cell when the exact value matters, and accept the row gap whe
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  30 | }))
-  31 |
-&gt; 32 | const meta = {
+  33 | }))
+  34 |
+&gt; 35 | const meta = {
      | ^
-  33 |   ...commonMeta,
-  34 |   title: &#39;Pages/Public/Project Page&#39;,
-  35 |   parameters: pageParameters(
+  36 |   ...commonMeta,
+  37 |   title: &#39;Pages/Public/Project Page&#39;,
+  38 |   parameters: pageParameters(
 
 ./src/pages/public/ProjectPage/ProjectPage.stories.tsx:
 /**
@@ -47371,6 +48822,7 @@ import type { Meta, StoryObj } from &#39;@storybook/react-vite&#39;
 
 import {
   Breadcrumb,
+  Breakout,
   Grid,
   Heading,
   Image,
@@ -47381,7 +48833,9 @@ import {
   ProgressList,
   Spotlight,
   StandaloneLink,
+  TableOfContents,
 } from &#39;@amsterdam/design-system-react&#39;
+import { MailIcon, PhoneIcon } from &#39;@amsterdam/design-system-react-icons&#39;
 
 import { exampleImageSource } from &#39;#storybook/_common/exampleContent&#39;
 
@@ -47984,6 +49438,927 @@ export const Default: StoryObj = {
     },
   },
 }
+
+export const WithBreakout: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, the story
+        // wrapper and its types included. Provide the source by hand so the panel shows the markup to compose,
+        // without that scaffolding.
+        code: `&lt;&gt;
+  {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+  &lt;Grid paddingTop=&quot;large&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+      &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+        &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Oost&lt;/Breadcrumb.Link&gt;
+      &lt;/Breadcrumb&gt;
+    &lt;/Grid.Cell&gt;
+  &lt;/Grid&gt;
+  {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+  {/*
+   * The Spotlight bands below carry the project’s own content rather than supporting content, so they
+   * sit inside &lt;main&gt;. That makes &lt;main&gt; the wrapper around several Grids instead of a Grid itself.
+   */}
+  &lt;main id=&quot;inhoud&quot;&gt;
+    {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+    &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+      {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Heading level={1}&gt;Amstelstation: vernieuwing van het station en het stationsplein&lt;/Heading&gt;
+        &lt;Paragraph size=&quot;large&quot;&gt;
+          Het Amstelstation en het plein ervoor worden de komende jaren vernieuwd. Het station krijgt een ruimere
+          hal en een tweede ingang aan de zuidkant. Reizigers houden tijdens de werkzaamheden toegang tot de trein,
+          de metro en de tram.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        {/*
+         * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+         * optional caption; only alt is required.
+         */}
+        {/* controls adds the previous and next buttons. The thumbnails below render either way. */}
+        &lt;ImageSlider controls images={images} /&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/*
+     * A Spotlight for news that matters only for a while. Yellow is a light highlight colour, so the
+     * heading and the paragraph keep their default colour and only the link takes color=&quot;contrast&quot;.
+     */}
+    &lt;Spotlight color=&quot;yellow&quot;&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          &lt;Heading level={2} size=&quot;level-3&quot;&gt;Amstelstationstraat afgesloten tot en met 12 september&lt;/Heading&gt;
+          &lt;Paragraph&gt;
+            Tot en met 12 september vervangen we de riolering onder de Amstelstationstraat. Doorgaand autoverkeer
+            rijdt om via de Wibautstraat. De ingang van het station aan de kant van het Julianaplein blijft de hele
+            periode open.
+          &lt;/Paragraph&gt;
+          &lt;StandaloneLink color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Bekijk de omleidingsroutes
+          &lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    {/*
+     * The Table of Contents comes first in source, so it precedes the body in the reading and tab order.
+     * rowStart then puts it beside the body on the wide grid rather than above it: without a row of its
+     * own the cell joins the automatic placement, which never moves back a column without moving down a
+     * row, so the body Cell starting at an earlier column could no longer share its row. No other cell
+     * needs one.
+     */}
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell rowStart={1} span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 10 }}&gt;
+        {/* The Table of Contents renders its own heading, at the size of a level 3 Heading. */}
+        &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+          &lt;TableOfContents.List&gt;
+            &lt;TableOfContents.Link href=&quot;#wat&quot; label=&quot;Wat gaan we doen&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#waar&quot; label=&quot;Waar&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#wanneer&quot; label=&quot;Wanneer&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#nieuws&quot; label=&quot;Nieuws&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#werk-aan-de-weg&quot; label=&quot;Werk aan de weg&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#deelprojecten&quot; label=&quot;Deelprojecten&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#themas&quot; label=&quot;Thema’s&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#documenten&quot; label=&quot;Documenten&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#video&quot; label=&quot;Video&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#meer-informatie&quot; label=&quot;Meer informatie&quot; /&gt;
+            &lt;TableOfContents.Link href=&quot;#blijf-op-de-hoogte&quot; label=&quot;Blijf op de hoogte&quot; /&gt;
+          &lt;/TableOfContents.List&gt;
+        &lt;/TableOfContents&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell
+        className=&quot;ams-prose&quot;
+        span={{ narrow: 4, medium: 6, wide: 7 }}
+        start={{ narrow: 1, medium: 2, wide: 3 }}
+      &gt;
+        {/* Every section heading carries the id its Table of Contents entry points at. */}
+        &lt;Heading id=&quot;wat&quot; level={2}&gt;Wat gaan we doen&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          De stationshal van het Amstelstation is te klein voor het aantal reizigers dat er dagelijks doorheen
+          loopt. We vergroten de hal, verbreden de perrontrappen en maken een tweede ingang aan de zuidkant van het
+          station.
+        &lt;/Paragraph&gt;
+        &lt;Paragraph&gt;
+          Op het Julianaplein komt meer ruimte voor voetgangers en fietsers. De taxistandplaats en de bushaltes
+          verhuizen naar de oostkant van het plein. Daaronder komt een fietsenstalling met 7.000 plekken.
+        &lt;/Paragraph&gt;
+        &lt;Paragraph&gt;
+          Het stationsgebouw uit 1939 blijft behouden. De gevels en de grote hal met de wandschildering worden
+          gerestaureerd.
+        &lt;/Paragraph&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer over het ontwerp van het nieuwe station&lt;/StandaloneLink&gt;
+        &lt;Heading id=&quot;waar&quot; level={2}&gt;Waar&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          Het Amstelstation ligt in stadsdeel Oost, tussen de Wibautstraat en de Amstel. Het project loopt van het
+          Julianaplein aan de noordkant tot de Spaklerweg aan de zuidkant.
+        &lt;/Paragraph&gt;
+        &lt;Paragraph&gt;
+          De werkzaamheden raken de buurten Weesperzijde, Omval en Amstelkwartier. Bewoners en ondernemers krijgen
+          bericht voordat het werk in hun straat begint.
+        &lt;/Paragraph&gt;
+        &lt;Heading id=&quot;wanneer&quot; level={2}&gt;Wanneer&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          De vernieuwing gebeurt in stappen, zodat het station open blijft. We beginnen aan de zuidkant en werken
+          toe naar het Julianaplein. De laatste werkzaamheden ronden we naar verwachting in 2030 af.
+        &lt;/Paragraph&gt;
+      &lt;/Grid.Cell&gt;
+      {/* A Progress List is a block of its own, so it takes its own Grid Cell and the row gap spaces it. */}
+      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        {/*
+         * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
+         * the one in progress, and a step with no status is still to come. Substeps are nested by hand
+         * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
+         * connecting lines correctly. collapsible gives every step its own fold button and decides what
+         * opens first: completed steps start collapsed, all others expanded, so the finished years here
+         * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
+         */}
+        &lt;ProgressList collapsible headingLevel={3}&gt;
+          {/*
+           * A Substep takes any content, so a month gets a level 4 Heading above its description. That is
+           * one level below the step headings the list renders itself.
+           */}
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2024&quot; status=&quot;completed&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                &lt;Paragraph&gt;Sloop van de fietsenstalling aan de Spaklerweg.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                &lt;Heading level={4}&gt;Oktober&lt;/Heading&gt;
+                &lt;Paragraph&gt;Start bouw van de tijdelijke stationshal aan de zuidkant.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2025&quot; status=&quot;completed&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                &lt;Heading level={4}&gt;Januari&lt;/Heading&gt;
+                &lt;Paragraph&gt;Tijdelijke stationshal in gebruik genomen.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+              &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                &lt;Heading level={4}&gt;September&lt;/Heading&gt;
+                &lt;Paragraph&gt;
+                  Start vervanging van de riolering onder de &lt;Link href=&quot;#&quot;&gt;Amstelstationstraat&lt;/Link&gt;.
+                &lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep status=&quot;current&quot;&gt;
+                &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                &lt;Paragraph&gt;Start verbouwing van de bestaande stationshal.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+              &lt;ProgressList.Substep&gt;
+                &lt;Heading level={4}&gt;November&lt;/Heading&gt;
+                &lt;Paragraph&gt;De nieuwe perrontrappen gaan open voor reizigers.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2028&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep&gt;
+                &lt;Heading level={4}&gt;Voorjaar&lt;/Heading&gt;
+                &lt;Paragraph&gt;Oplevering van de fietsenstalling onder het Julianaplein.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+          &lt;ProgressList.Step hasSubsteps heading=&quot;2030&quot;&gt;
+            &lt;ProgressList.Substeps&gt;
+              &lt;ProgressList.Substep&gt;
+                &lt;Heading level={4}&gt;Najaar&lt;/Heading&gt;
+                &lt;Paragraph&gt;Het plein en de tweede ingang aan de zuidkant zijn klaar.&lt;/Paragraph&gt;
+              &lt;/ProgressList.Substep&gt;
+            &lt;/ProgressList.Substeps&gt;
+          &lt;/ProgressList.Step&gt;
+        &lt;/ProgressList&gt;
+      &lt;/Grid.Cell&gt;
+      {/*
+       * These two Cells set no rowStart: the rows above them are taken, so they fall in underneath the
+       * body on every grid, in source order.
+       */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;nieuws&quot; level={2} size=&quot;level-3&quot;&gt;Nieuws&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsenstalling Julianaplein opent in het voorjaar (14 juli 2026)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Bushaltes verplaatst naar de Spaklerweg (2 juni 2026)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Terugblik op de informatieavond van 21 mei (28 mei 2026)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Wandschildering in de stationshal gerestaureerd (9 april 2026)&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+        {/* A link to the wider set is about the list rather than one of it, so it sits outside as a Standalone Link. */}
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk al het nieuws over dit project&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;werk-aan-de-weg&quot; level={2} size=&quot;level-3&quot;&gt;Werk aan de weg&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelstationstraat: afsluiting tot en met 12 september&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Julianaplein: omleiding voor fietsers&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Spaklerweg: nachtelijke afsluitingen&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle wegwerkzaamheden in Oost&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/*
+     * A Breakout lets an image overlap the Spotlight below it. The Cell with has=&quot;spotlight&quot; stretches
+     * over the gaps and margins around it, so only that band reaches the edges of the Page; the image
+     * keeps to the grid. Both Cells need explicit rows, and so does everything inside the Spotlight:
+     * an automatically placed cell avoids the rows the Spotlight already occupies.
+     */}
+    {/*
+     * That stretch is a negative block margin of one x-large, so the band paints an x-large below the
+     * last row. Without a paddingBottom to land in, it would cover the space the next Grid opens with
+     * and leave its heading against the colour.
+     */}
+    &lt;Breakout paddingBottom=&quot;x-large&quot;&gt;
+      &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;spotlight&quot; rowSpan={3} rowStart={2}&gt;
+        &lt;Spotlight color=&quot;yellow&quot; /&gt;
+      &lt;/Breakout.Cell&gt;
+      {/*
+       * A map of the project area is not decorative: a reader looks at it to see where the work is, so
+       * it takes an alt. Name the subject and how far it reaches, and leave the rest to the ‘Waar’
+       * section, which carries the same information in words.
+       */}
+      {/* On the narrow grid the image takes a single row, so it sits above the band rather than over it. */}
+      &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;figure&quot; rowSpan={{ narrow: 1, medium: 2, wide: 2 }} rowStart={1}&gt;
+        &lt;Image
+          alt=&quot;Kaart van het stationsgebied met de locaties van de deelprojecten.&quot;
+          src=&quot;https://picsum.photos/1440/810&quot;
+        /&gt;
+      &lt;/Breakout.Cell&gt;
+      &lt;Breakout.Cell
+        className=&quot;ams-prose&quot;
+        colSpan={{ narrow: 4, medium: 6, wide: 7 }}
+        colStart={{ narrow: 1, medium: 2, wide: 3 }}
+        rowStart={{ narrow: 2, medium: 3, wide: 3 }}
+      &gt;
+        &lt;Heading id=&quot;deelprojecten&quot; level={2}&gt;Deelprojecten&lt;/Heading&gt;
+        &lt;Paragraph&gt;
+          De vernieuwing bestaat uit deelprojecten die deels tegelijk lopen. Elk deelproject heeft een eigen
+          planning en een eigen aanspreekpunt.
+        &lt;/Paragraph&gt;
+      &lt;/Breakout.Cell&gt;
+      &lt;Breakout.Cell
+        className=&quot;ams-prose&quot;
+        colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+        colStart={{ narrow: 1, medium: 1, wide: 2 }}
+        rowStart={{ narrow: 3, medium: 4, wide: 4 }}
+      &gt;
+        &lt;Heading level={3}&gt;Station en perrons&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Verbouwing van de stationshal
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Nieuwe perrontrappen
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Tweede ingang aan de zuidkant
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Restauratie van de wandschildering
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Toegankelijkheid van de perrons
+          &lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Breakout.Cell&gt;
+      &lt;Breakout.Cell
+        className=&quot;ams-prose&quot;
+        colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+        colStart={{ narrow: 1, medium: 5, wide: 7 }}
+        rowStart={{ narrow: 4, medium: 4, wide: 4 }}
+      &gt;
+        &lt;Heading level={3}&gt;Plein en omgeving&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Herinrichting van het Julianaplein
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Fietsenstalling onder het plein
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Bus- en tramhaltes
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Riolering Amstelstationstraat
+          &lt;/LinkList.Link&gt;
+          &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+            Groen langs de Amstel
+          &lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Breakout.Cell&gt;
+    &lt;/Breakout&gt;
+    &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+      {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;themas&quot; level={2} size=&quot;level-3&quot;&gt;Thema’s&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Bereikbaarheid tijdens de werkzaamheden&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Duurzaam en circulair bouwen&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Groen en biodiversiteit&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;Documenten&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Voorlopig ontwerp Julianaplein (pdf, 8,1 MB)&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;Video&lt;/Heading&gt;
+        {/*
+         * A Paragraph between the heading and the image: the vertical space guide documents no value for
+         * a heading directly above an image, which is a sign to introduce the image in words first.
+         */}
+        &lt;Paragraph&gt;In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.&lt;/Paragraph&gt;
+        {/* This image carries no information the text does not, so it takes an empty alt. */}
+        &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;Meer informatie&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelkwartier: woningbouw en openbare ruimte&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Wibautstraat: vernieuwing van de rijbanen&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+        &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;Blijf op de hoogte&lt;/Heading&gt;
+        &lt;LinkList&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief vernieuwing Amstelstation&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Informatieavonden en inloopspreekuren&lt;/LinkList.Link&gt;
+          &lt;LinkList.Link href=&quot;#&quot;&gt;Instagram: Amstelstation&lt;/LinkList.Link&gt;
+        &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/*
+     * The highlight colours have no prescribed meaning, so this band takes the default purple rather
+     * than repeating the yellow above. Purple is a dark background, so everything in it takes
+     * color=&quot;inverse&quot;.
+     */}
+    &lt;Spotlight&gt;
+      {/*
+       * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
+       */}
+      &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/*
+           * The Page Footer heads its own contact block ‘Contact’ as well, so someone browsing the page
+           * by heading meets the word twice. The hidden phrase tells the two apart without repeating
+           * ‘over dit project’ on screen, where the surrounding page already says so.
+           */}
+          &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
+            Contact&lt;span className=&quot;ams-visually-hidden&quot;&gt; over dit project&lt;/span&gt;
+          &lt;/Heading&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+            &lt;Paragraph color=&quot;inverse&quot;&gt;
+              Hilde Verkerk
+              &lt;br /&gt;
+              Omgevingsmanager
+            &lt;/Paragraph&gt;
+            {/* A Link List of contact details: an icon per link replaces the chevron the list draws by default. */}
+            &lt;LinkList&gt;
+              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:h.verkerk@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                h.verkerk@amsterdam.nl
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31618342210&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                06 1834 2210
+              &lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+            &lt;Paragraph color=&quot;inverse&quot;&gt;
+              Joris Bramer
+              &lt;br /&gt;
+              Communicatieadviseur
+            &lt;/Paragraph&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:j.bramer@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                j.bramer@amsterdam.nl
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31611294478&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                06 1129 4478
+              &lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid.Subgrid&gt;
+      &lt;/Grid&gt;
+    &lt;/Spotlight&gt;
+    {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+    &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;Image
+          alt=&quot;Kaart van het projectgebied, van het Julianaplein tot de Spaklerweg.&quot;
+          src=&quot;https://picsum.photos/1440/810&quot;
+        /&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+  &lt;/main&gt;
+&lt;/&gt;`,
+        language: &#39;tsx&#39;,
+      },
+    },
+  },
+  render: () =&gt; (
+    &lt;&gt;
+      {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+      &lt;Grid paddingTop=&quot;large&quot;&gt;
+        &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+          &lt;Breadcrumb&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+            &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Oost&lt;/Breadcrumb.Link&gt;
+          &lt;/Breadcrumb&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+      {/*
+       * The Spotlight bands below carry the project’s own content rather than supporting content, so they
+       * sit inside &lt;main&gt;. That makes &lt;main&gt; the wrapper around several Grids instead of a Grid itself.
+       */}
+      &lt;main id=&quot;inhoud&quot;&gt;
+        {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+        &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+          {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          &gt;
+            &lt;Heading level={1}&gt;Amstelstation: vernieuwing van het station en het stationsplein&lt;/Heading&gt;
+            &lt;Paragraph size=&quot;large&quot;&gt;
+              Het Amstelstation en het plein ervoor worden de komende jaren vernieuwd. Het station krijgt een ruimere
+              hal en een tweede ingang aan de zuidkant. Reizigers houden tijdens de werkzaamheden toegang tot de trein,
+              de metro en de tram.
+            &lt;/Paragraph&gt;
+          &lt;/Grid.Cell&gt;
+          {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            {/*
+             * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+             * optional caption; only alt is required.
+             */}
+            {/* controls adds the previous and next buttons. The thumbnails below render either way. */}
+            &lt;ImageSlider controls images={images} /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+        {/*
+         * A Spotlight for news that matters only for a while. Yellow is a light highlight colour, so the
+         * heading and the paragraph keep their default colour and only the link takes color=&quot;contrast&quot;.
+         */}
+        &lt;Spotlight color=&quot;yellow&quot;&gt;
+          &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+            &lt;Grid.Cell
+              className=&quot;ams-prose&quot;
+              span={{ narrow: 4, medium: 6, wide: 7 }}
+              start={{ narrow: 1, medium: 2, wide: 3 }}
+            &gt;
+              &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+                Amstelstationstraat afgesloten tot en met 12 september
+              &lt;/Heading&gt;
+              &lt;Paragraph&gt;
+                Tot en met 12 september vervangen we de riolering onder de Amstelstationstraat. Doorgaand autoverkeer
+                rijdt om via de Wibautstraat. De ingang van het station aan de kant van het Julianaplein blijft de hele
+                periode open.
+              &lt;/Paragraph&gt;
+              &lt;StandaloneLink color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Bekijk de omleidingsroutes
+              &lt;/StandaloneLink&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid&gt;
+        &lt;/Spotlight&gt;
+        {/*
+         * The Table of Contents comes first in source, so it precedes the body in the reading and tab order.
+         * rowStart then puts it beside the body on the wide grid rather than above it: without a row of its
+         * own the cell joins the automatic placement, which never moves back a column without moving down a
+         * row, so the body Cell starting at an earlier column could no longer share its row. No other cell
+         * needs one.
+         */}
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell rowStart={1} span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 10 }}&gt;
+            {/* The Table of Contents renders its own heading, at the size of a level 3 Heading. */}
+            &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+              &lt;TableOfContents.List&gt;
+                &lt;TableOfContents.Link href=&quot;#wat&quot; label=&quot;Wat gaan we doen&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#waar&quot; label=&quot;Waar&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#wanneer&quot; label=&quot;Wanneer&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#nieuws&quot; label=&quot;Nieuws&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#werk-aan-de-weg&quot; label=&quot;Werk aan de weg&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#deelprojecten&quot; label=&quot;Deelprojecten&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#themas&quot; label=&quot;Thema’s&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#documenten&quot; label=&quot;Documenten&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#video&quot; label=&quot;Video&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#meer-informatie&quot; label=&quot;Meer informatie&quot; /&gt;
+                &lt;TableOfContents.Link href=&quot;#blijf-op-de-hoogte&quot; label=&quot;Blijf op de hoogte&quot; /&gt;
+              &lt;/TableOfContents.List&gt;
+            &lt;/TableOfContents&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            {/* Every section heading carries the id its Table of Contents entry points at. */}
+            &lt;Heading id=&quot;wat&quot; level={2}&gt;
+              Wat gaan we doen
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;
+              De stationshal van het Amstelstation is te klein voor het aantal reizigers dat er dagelijks doorheen
+              loopt. We vergroten de hal, verbreden de perrontrappen en maken een tweede ingang aan de zuidkant van het
+              station.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph&gt;
+              Op het Julianaplein komt meer ruimte voor voetgangers en fietsers. De taxistandplaats en de bushaltes
+              verhuizen naar de oostkant van het plein. Daaronder komt een fietsenstalling met 7.000 plekken.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph&gt;
+              Het stationsgebouw uit 1939 blijft behouden. De gevels en de grote hal met de wandschildering worden
+              gerestaureerd.
+            &lt;/Paragraph&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer over het ontwerp van het nieuwe station&lt;/StandaloneLink&gt;
+            &lt;Heading id=&quot;waar&quot; level={2}&gt;
+              Waar
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;
+              Het Amstelstation ligt in stadsdeel Oost, tussen de Wibautstraat en de Amstel. Het project loopt van het
+              Julianaplein aan de noordkant tot de Spaklerweg aan de zuidkant.
+            &lt;/Paragraph&gt;
+            &lt;Paragraph&gt;
+              De werkzaamheden raken de buurten Weesperzijde, Omval en Amstelkwartier. Bewoners en ondernemers krijgen
+              bericht voordat het werk in hun straat begint.
+            &lt;/Paragraph&gt;
+            &lt;Heading id=&quot;wanneer&quot; level={2}&gt;
+              Wanneer
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;
+              De vernieuwing gebeurt in stappen, zodat het station open blijft. We beginnen aan de zuidkant en werken
+              toe naar het Julianaplein. De laatste werkzaamheden ronden we naar verwachting in 2030 af.
+            &lt;/Paragraph&gt;
+          &lt;/Grid.Cell&gt;
+          {/* A Progress List is a block of its own, so it takes its own Grid Cell and the row gap spaces it. */}
+          &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+            {/*
+             * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
+             * the one in progress, and a step with no status is still to come. Substeps are nested by hand
+             * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
+             * connecting lines correctly. collapsible gives every step its own fold button and decides what
+             * opens first: completed steps start collapsed, all others expanded, so the finished years here
+             * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
+             */}
+            &lt;ProgressList collapsible headingLevel={3}&gt;
+              {/*
+               * A Substep takes any content, so a month gets a level 4 Heading above its description. That is
+               * one level below the step headings the list renders itself.
+               */}
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2024&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Sloop van de fietsenstalling aan de Spaklerweg.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Heading level={4}&gt;Oktober&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Start bouw van de tijdelijke stationshal aan de zuidkant.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2025&quot; status=&quot;completed&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Heading level={4}&gt;Januari&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Tijdelijke stationshal in gebruik genomen.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                    &lt;Heading level={4}&gt;September&lt;/Heading&gt;
+                    &lt;Paragraph&gt;
+                      Start vervanging van de riolering onder de &lt;Link href=&quot;#&quot;&gt;Amstelstationstraat&lt;/Link&gt;.
+                    &lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep status=&quot;current&quot;&gt;
+                    &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Start verbouwing van de bestaande stationshal.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                  &lt;ProgressList.Substep&gt;
+                    &lt;Heading level={4}&gt;November&lt;/Heading&gt;
+                    &lt;Paragraph&gt;De nieuwe perrontrappen gaan open voor reizigers.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2028&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep&gt;
+                    &lt;Heading level={4}&gt;Voorjaar&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Oplevering van de fietsenstalling onder het Julianaplein.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+              &lt;ProgressList.Step hasSubsteps heading=&quot;2030&quot;&gt;
+                &lt;ProgressList.Substeps&gt;
+                  &lt;ProgressList.Substep&gt;
+                    &lt;Heading level={4}&gt;Najaar&lt;/Heading&gt;
+                    &lt;Paragraph&gt;Het plein en de tweede ingang aan de zuidkant zijn klaar.&lt;/Paragraph&gt;
+                  &lt;/ProgressList.Substep&gt;
+                &lt;/ProgressList.Substeps&gt;
+              &lt;/ProgressList.Step&gt;
+            &lt;/ProgressList&gt;
+          &lt;/Grid.Cell&gt;
+          {/*
+           * These two Cells set no rowStart: the rows above them are taken, so they fall in underneath the
+           * body on every grid, in source order.
+           */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;nieuws&quot; level={2} size=&quot;level-3&quot;&gt;
+              Nieuws
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsenstalling Julianaplein opent in het voorjaar (14 juli 2026)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Bushaltes verplaatst naar de Spaklerweg (2 juni 2026)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Terugblik op de informatieavond van 21 mei (28 mei 2026)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Wandschildering in de stationshal gerestaureerd (9 april 2026)&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+            {/* A link to the wider set is about the list rather than one of it, so it sits outside as a Standalone Link. */}
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk al het nieuws over dit project&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;werk-aan-de-weg&quot; level={2} size=&quot;level-3&quot;&gt;
+              Werk aan de weg
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelstationstraat: afsluiting tot en met 12 september&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Julianaplein: omleiding voor fietsers&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Spaklerweg: nachtelijke afsluitingen&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle wegwerkzaamheden in Oost&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+        {/*
+         * A Breakout lets an image overlap the Spotlight below it. The Cell with has=&quot;spotlight&quot; stretches
+         * over the gaps and margins around it, so only that band reaches the edges of the Page; the image
+         * keeps to the grid. Both Cells need explicit rows, and so does everything inside the Spotlight:
+         * an automatically placed cell avoids the rows the Spotlight already occupies.
+         */}
+        {/*
+         * That stretch is a negative block margin of one x-large, so the band paints an x-large below the
+         * last row. Without a paddingBottom to land in, it would cover the space the next Grid opens with
+         * and leave its heading against the colour.
+         */}
+        &lt;Breakout paddingBottom=&quot;x-large&quot;&gt;
+          &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;spotlight&quot; rowSpan={3} rowStart={2}&gt;
+            &lt;Spotlight color=&quot;yellow&quot; /&gt;
+          &lt;/Breakout.Cell&gt;
+          {/*
+           * A map of the project area is not decorative: a reader looks at it to see where the work is, so
+           * it takes an alt. Name the subject and how far it reaches, and leave the rest to the ‘Waar’
+           * section, which carries the same information in words.
+           */}
+          {/* On the narrow grid the image takes a single row, so it sits above the band rather than over it. */}
+          &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;figure&quot; rowSpan={{ narrow: 1, medium: 2, wide: 2 }} rowStart={1}&gt;
+            &lt;Image
+              alt=&quot;Kaart van het stationsgebied met de locaties van de deelprojecten.&quot;
+              src={exampleImageSource(1440, 810, 2)}
+            /&gt;
+          &lt;/Breakout.Cell&gt;
+          &lt;Breakout.Cell
+            className=&quot;ams-prose&quot;
+            colSpan={{ narrow: 4, medium: 6, wide: 7 }}
+            colStart={{ narrow: 1, medium: 2, wide: 3 }}
+            rowStart={{ narrow: 2, medium: 3, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;deelprojecten&quot; level={2}&gt;
+              Deelprojecten
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;
+              De vernieuwing bestaat uit deelprojecten die deels tegelijk lopen. Elk deelproject heeft een eigen
+              planning en een eigen aanspreekpunt.
+            &lt;/Paragraph&gt;
+          &lt;/Breakout.Cell&gt;
+          &lt;Breakout.Cell
+            className=&quot;ams-prose&quot;
+            colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+            colStart={{ narrow: 1, medium: 1, wide: 2 }}
+            rowStart={{ narrow: 3, medium: 4, wide: 4 }}
+          &gt;
+            &lt;Heading level={3}&gt;Station en perrons&lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Verbouwing van de stationshal
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Nieuwe perrontrappen
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Tweede ingang aan de zuidkant
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Restauratie van de wandschildering
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Toegankelijkheid van de perrons
+              &lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Breakout.Cell&gt;
+          &lt;Breakout.Cell
+            className=&quot;ams-prose&quot;
+            colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+            colStart={{ narrow: 1, medium: 5, wide: 7 }}
+            rowStart={{ narrow: 4, medium: 4, wide: 4 }}
+          &gt;
+            &lt;Heading level={3}&gt;Plein en omgeving&lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Herinrichting van het Julianaplein
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Fietsenstalling onder het plein
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Bus- en tramhaltes
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Riolering Amstelstationstraat
+              &lt;/LinkList.Link&gt;
+              &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+                Groen langs de Amstel
+              &lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Breakout.Cell&gt;
+        &lt;/Breakout&gt;
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;themas&quot; level={2} size=&quot;level-3&quot;&gt;
+              Thema’s
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Bereikbaarheid tijdens de werkzaamheden&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Duurzaam en circulair bouwen&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Groen en biodiversiteit&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;
+              Documenten
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Voorlopig ontwerp Julianaplein (pdf, 8,1 MB)&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;
+              Video
+            &lt;/Heading&gt;
+            {/*
+             * A Paragraph between the heading and the image: the vertical space guide documents no value for
+             * a heading directly above an image, which is a sign to introduce the image in words first.
+             */}
+            &lt;Paragraph&gt;In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.&lt;/Paragraph&gt;
+            {/* This image carries no information the text does not, so it takes an empty alt. */}
+            &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720, 3)} /&gt;
+            &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;
+              Meer informatie
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelkwartier: woningbouw en openbare ruimte&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Wibautstraat: vernieuwing van de rijbanen&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;
+              Blijf op de hoogte
+            &lt;/Heading&gt;
+            &lt;LinkList&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief vernieuwing Amstelstation&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Informatieavonden en inloopspreekuren&lt;/LinkList.Link&gt;
+              &lt;LinkList.Link href=&quot;#&quot;&gt;Instagram: Amstelstation&lt;/LinkList.Link&gt;
+            &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+        {/*
+         * The highlight colours have no prescribed meaning, so this band takes the default purple rather
+         * than repeating the yellow above. Purple is a dark background, so everything in it takes
+         * color=&quot;inverse&quot;.
+         */}
+        &lt;Spotlight&gt;
+          {/*
+           * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
+           * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+           * between the Cells.
+           */}
+          &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
+            &lt;Grid.Cell span=&quot;all&quot;&gt;
+              {/*
+               * The Page Footer heads its own contact block ‘Contact’ as well, so someone browsing the page
+               * by heading meets the word twice. The hidden phrase tells the two apart without repeating
+               * ‘over dit project’ on screen, where the surrounding page already says so.
+               */}
+              &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
+                Contact&lt;span className=&quot;ams-visually-hidden&quot;&gt; over dit project&lt;/span&gt;
+              &lt;/Heading&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Hilde Verkerk
+                  &lt;br /&gt;
+                  Omgevingsmanager
+                &lt;/Paragraph&gt;
+                {/* A Link List of contact details: an icon per link replaces the chevron the list draws by default. */}
+                &lt;LinkList&gt;
+                  &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:h.verkerk@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                    h.verkerk@amsterdam.nl
+                  &lt;/LinkList.Link&gt;
+                  &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31618342210&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                    06 1834 2210
+                  &lt;/LinkList.Link&gt;
+                &lt;/LinkList&gt;
+              &lt;/Grid.Cell&gt;
+              &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+                &lt;Paragraph color=&quot;inverse&quot;&gt;
+                  Joris Bramer
+                  &lt;br /&gt;
+                  Communicatieadviseur
+                &lt;/Paragraph&gt;
+                &lt;LinkList&gt;
+                  &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:j.bramer@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                    j.bramer@amsterdam.nl
+                  &lt;/LinkList.Link&gt;
+                  &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31611294478&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                    06 1129 4478
+                  &lt;/LinkList.Link&gt;
+                &lt;/LinkList&gt;
+              &lt;/Grid.Cell&gt;
+            &lt;/Grid.Subgrid&gt;
+          &lt;/Grid&gt;
+        &lt;/Spotlight&gt;
+        {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+        &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            &lt;Image
+              alt=&quot;Kaart van het projectgebied, van het Julianaplein tot de Spaklerweg.&quot;
+              src={exampleImageSource(1440, 810, 4)}
+            /&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+      &lt;/main&gt;
+    &lt;/&gt;
+  ),
+}
 </code></pre></div>
     </div>
         </div>
@@ -48007,6 +50382,7 @@ export const Default: StoryObj = {
                 </div>
                 <pre><code>import {
     Breadcrumb,
+    Breakout,
     Grid,
     Heading,
     Image,
@@ -48017,7 +50393,9 @@ export const Default: StoryObj = {
     ProgressList,
     Spotlight,
     StandaloneLink,
-} from "@amsterdam/design-system-react";</code></pre>
+    TableOfContents,
+} from "@amsterdam/design-system-react";
+import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               </div>
           
           
@@ -48398,6 +50776,499 @@ export const Default: StoryObj = {
   &lt;/&gt;
 );</code></pre>
             </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">With Breakout</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const WithBreakout = () =&gt; (
+  &lt;&gt;
+    {/* Keep the breadcrumb in its own Grid above &lt;main&gt;, so it sits outside the main content region. */}
+    &lt;Grid paddingTop=&quot;large&quot;&gt;
+      &lt;Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
+        &lt;Breadcrumb&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Home&lt;/Breadcrumb.Link&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Bouwprojecten en verkeersprojecten&lt;/Breadcrumb.Link&gt;
+          &lt;Breadcrumb.Link href=&quot;#&quot;&gt;Oost&lt;/Breadcrumb.Link&gt;
+        &lt;/Breadcrumb&gt;
+      &lt;/Grid.Cell&gt;
+    &lt;/Grid&gt;
+    {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
+    {/*
+     * The Spotlight bands below carry the project’s own content rather than supporting content, so they
+     * sit inside &lt;main&gt;. That makes &lt;main&gt; the wrapper around several Grids instead of a Grid itself.
+     */}
+    &lt;main id=&quot;inhoud&quot;&gt;
+      {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
+      &lt;Grid paddingBottom=&quot;x-large&quot;&gt;
+        {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 7, wide: 9 }}
+          start={{ narrow: 1, medium: 1, wide: 2 }}
+        &gt;
+          &lt;Heading level={1}&gt;Amstelstation: vernieuwing van het station en het stationsplein&lt;/Heading&gt;
+          &lt;Paragraph size=&quot;large&quot;&gt;
+            Het Amstelstation en het plein ervoor worden de komende jaren vernieuwd. Het station krijgt een ruimere
+            hal en een tweede ingang aan de zuidkant. Reizigers houden tijdens de werkzaamheden toegang tot de trein,
+            de metro en de tram.
+          &lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+        {/* The slider spans the full grid width, where the title above it keeps to the narrower header cell. */}
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          {/*
+           * ImageSlider takes an array of images. Each entry accepts the props of an Image plus an
+           * optional caption; only alt is required.
+           */}
+          {/* controls adds the previous and next buttons. The thumbnails below render either way. */}
+          &lt;ImageSlider controls images={images} /&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      {/*
+       * A Spotlight for news that matters only for a while. Yellow is a light highlight colour, so the
+       * heading and the paragraph keep their default colour and only the link takes color=&quot;contrast&quot;.
+       */}
+      &lt;Spotlight color=&quot;yellow&quot;&gt;
+        &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
+            &lt;Heading level={2} size=&quot;level-3&quot;&gt;
+              Amstelstationstraat afgesloten tot en met 12 september
+            &lt;/Heading&gt;
+            &lt;Paragraph&gt;
+              Tot en met 12 september vervangen we de riolering onder de Amstelstationstraat. Doorgaand autoverkeer
+              rijdt om via de Wibautstraat. De ingang van het station aan de kant van het Julianaplein blijft de hele
+              periode open.
+            &lt;/Paragraph&gt;
+            &lt;StandaloneLink color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Bekijk de omleidingsroutes
+            &lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+        &lt;/Grid&gt;
+      &lt;/Spotlight&gt;
+      {/*
+       * The Table of Contents comes first in source, so it precedes the body in the reading and tab order.
+       * rowStart then puts it beside the body on the wide grid rather than above it: without a row of its
+       * own the cell joins the automatic placement, which never moves back a column without moving down a
+       * row, so the body Cell starting at an earlier column could no longer share its row. No other cell
+       * needs one.
+       */}
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell rowStart={1} span={{ narrow: 4, medium: 8, wide: 3 }} start={{ narrow: 1, medium: 1, wide: 10 }}&gt;
+          {/* The Table of Contents renders its own heading, at the size of a level 3 Heading. */}
+          &lt;TableOfContents heading=&quot;Op deze pagina&quot;&gt;
+            &lt;TableOfContents.List&gt;
+              &lt;TableOfContents.Link href=&quot;#wat&quot; label=&quot;Wat gaan we doen&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#waar&quot; label=&quot;Waar&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#wanneer&quot; label=&quot;Wanneer&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#nieuws&quot; label=&quot;Nieuws&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#werk-aan-de-weg&quot; label=&quot;Werk aan de weg&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#deelprojecten&quot; label=&quot;Deelprojecten&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#themas&quot; label=&quot;Thema’s&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#documenten&quot; label=&quot;Documenten&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#video&quot; label=&quot;Video&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#meer-informatie&quot; label=&quot;Meer informatie&quot; /&gt;
+              &lt;TableOfContents.Link href=&quot;#blijf-op-de-hoogte&quot; label=&quot;Blijf op de hoogte&quot; /&gt;
+            &lt;/TableOfContents.List&gt;
+          &lt;/TableOfContents&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          {/* Every section heading carries the id its Table of Contents entry points at. */}
+          &lt;Heading id=&quot;wat&quot; level={2}&gt;
+            Wat gaan we doen
+          &lt;/Heading&gt;
+          &lt;Paragraph&gt;
+            De stationshal van het Amstelstation is te klein voor het aantal reizigers dat er dagelijks doorheen
+            loopt. We vergroten de hal, verbreden de perrontrappen en maken een tweede ingang aan de zuidkant van het
+            station.
+          &lt;/Paragraph&gt;
+          &lt;Paragraph&gt;
+            Op het Julianaplein komt meer ruimte voor voetgangers en fietsers. De taxistandplaats en de bushaltes
+            verhuizen naar de oostkant van het plein. Daaronder komt een fietsenstalling met 7.000 plekken.
+          &lt;/Paragraph&gt;
+          &lt;Paragraph&gt;
+            Het stationsgebouw uit 1939 blijft behouden. De gevels en de grote hal met de wandschildering worden
+            gerestaureerd.
+          &lt;/Paragraph&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Lees meer over het ontwerp van het nieuwe station&lt;/StandaloneLink&gt;
+          &lt;Heading id=&quot;waar&quot; level={2}&gt;
+            Waar
+          &lt;/Heading&gt;
+          &lt;Paragraph&gt;
+            Het Amstelstation ligt in stadsdeel Oost, tussen de Wibautstraat en de Amstel. Het project loopt van het
+            Julianaplein aan de noordkant tot de Spaklerweg aan de zuidkant.
+          &lt;/Paragraph&gt;
+          &lt;Paragraph&gt;
+            De werkzaamheden raken de buurten Weesperzijde, Omval en Amstelkwartier. Bewoners en ondernemers krijgen
+            bericht voordat het werk in hun straat begint.
+          &lt;/Paragraph&gt;
+          &lt;Heading id=&quot;wanneer&quot; level={2}&gt;
+            Wanneer
+          &lt;/Heading&gt;
+          &lt;Paragraph&gt;
+            De vernieuwing gebeurt in stappen, zodat het station open blijft. We beginnen aan de zuidkant en werken
+            toe naar het Julianaplein. De laatste werkzaamheden ronden we naar verwachting in 2030 af.
+          &lt;/Paragraph&gt;
+        &lt;/Grid.Cell&gt;
+        {/* A Progress List is a block of its own, so it takes its own Grid Cell and the row gap spaces it. */}
+        &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
+          {/*
+           * A ProgressList shows a timeline. status=&quot;completed&quot; marks a finished step, status=&quot;current&quot;
+           * the one in progress, and a step with no status is still to come. Substeps are nested by hand
+           * in a ProgressList.Substeps; hasSubsteps only tells the CSS about them, so that it draws the
+           * connecting lines correctly. collapsible gives every step its own fold button and decides what
+           * opens first: completed steps start collapsed, all others expanded, so the finished years here
+           * arrive folded. headingLevel is 3 because the list sits under the ‘Wanneer’ heading of level 2.
+           */}
+          &lt;ProgressList collapsible headingLevel={3}&gt;
+            {/*
+             * A Substep takes any content, so a month gets a level 4 Heading above its description. That is
+             * one level below the step headings the list renders itself.
+             */}
+            &lt;ProgressList.Step hasSubsteps heading=&quot;2024&quot; status=&quot;completed&quot;&gt;
+              &lt;ProgressList.Substeps&gt;
+                &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                  &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Sloop van de fietsenstalling aan de Spaklerweg.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+                &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                  &lt;Heading level={4}&gt;Oktober&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Start bouw van de tijdelijke stationshal aan de zuidkant.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+              &lt;/ProgressList.Substeps&gt;
+            &lt;/ProgressList.Step&gt;
+            &lt;ProgressList.Step hasSubsteps heading=&quot;2025&quot; status=&quot;completed&quot;&gt;
+              &lt;ProgressList.Substeps&gt;
+                &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                  &lt;Heading level={4}&gt;Januari&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Tijdelijke stationshal in gebruik genomen.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+                &lt;ProgressList.Substep status=&quot;completed&quot;&gt;
+                  &lt;Heading level={4}&gt;September&lt;/Heading&gt;
+                  &lt;Paragraph&gt;
+                    Start vervanging van de riolering onder de &lt;Link href=&quot;#&quot;&gt;Amstelstationstraat&lt;/Link&gt;.
+                  &lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+              &lt;/ProgressList.Substeps&gt;
+            &lt;/ProgressList.Step&gt;
+            &lt;ProgressList.Step hasSubsteps heading=&quot;2026&quot; status=&quot;current&quot;&gt;
+              &lt;ProgressList.Substeps&gt;
+                &lt;ProgressList.Substep status=&quot;current&quot;&gt;
+                  &lt;Heading level={4}&gt;Maart&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Start verbouwing van de bestaande stationshal.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+                &lt;ProgressList.Substep&gt;
+                  &lt;Heading level={4}&gt;November&lt;/Heading&gt;
+                  &lt;Paragraph&gt;De nieuwe perrontrappen gaan open voor reizigers.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+              &lt;/ProgressList.Substeps&gt;
+            &lt;/ProgressList.Step&gt;
+            &lt;ProgressList.Step hasSubsteps heading=&quot;2028&quot;&gt;
+              &lt;ProgressList.Substeps&gt;
+                &lt;ProgressList.Substep&gt;
+                  &lt;Heading level={4}&gt;Voorjaar&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Oplevering van de fietsenstalling onder het Julianaplein.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+              &lt;/ProgressList.Substeps&gt;
+            &lt;/ProgressList.Step&gt;
+            &lt;ProgressList.Step hasSubsteps heading=&quot;2030&quot;&gt;
+              &lt;ProgressList.Substeps&gt;
+                &lt;ProgressList.Substep&gt;
+                  &lt;Heading level={4}&gt;Najaar&lt;/Heading&gt;
+                  &lt;Paragraph&gt;Het plein en de tweede ingang aan de zuidkant zijn klaar.&lt;/Paragraph&gt;
+                &lt;/ProgressList.Substep&gt;
+              &lt;/ProgressList.Substeps&gt;
+            &lt;/ProgressList.Step&gt;
+          &lt;/ProgressList&gt;
+        &lt;/Grid.Cell&gt;
+        {/*
+         * These two Cells set no rowStart: the rows above them are taken, so they fall in underneath the
+         * body on every grid, in source order.
+         */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;nieuws&quot; level={2} size=&quot;level-3&quot;&gt;
+            Nieuws
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsenstalling Julianaplein opent in het voorjaar (14 juli 2026)&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Bushaltes verplaatst naar de Spaklerweg (2 juni 2026)&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Terugblik op de informatieavond van 21 mei (28 mei 2026)&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Wandschildering in de stationshal gerestaureerd (9 april 2026)&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+          {/* A link to the wider set is about the list rather than one of it, so it sits outside as a Standalone Link. */}
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk al het nieuws over dit project&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;werk-aan-de-weg&quot; level={2} size=&quot;level-3&quot;&gt;
+            Werk aan de weg
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelstationstraat: afsluiting tot en met 12 september&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Julianaplein: omleiding voor fietsers&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Spaklerweg: nachtelijke afsluitingen&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle wegwerkzaamheden in Oost&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      {/*
+       * A Breakout lets an image overlap the Spotlight below it. The Cell with has=&quot;spotlight&quot; stretches
+       * over the gaps and margins around it, so only that band reaches the edges of the Page; the image
+       * keeps to the grid. Both Cells need explicit rows, and so does everything inside the Spotlight:
+       * an automatically placed cell avoids the rows the Spotlight already occupies.
+       */}
+      {/*
+       * That stretch is a negative block margin of one x-large, so the band paints an x-large below the
+       * last row. Without a paddingBottom to land in, it would cover the space the next Grid opens with
+       * and leave its heading against the colour.
+       */}
+      &lt;Breakout paddingBottom=&quot;x-large&quot;&gt;
+        &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;spotlight&quot; rowSpan={3} rowStart={2}&gt;
+          &lt;Spotlight color=&quot;yellow&quot; /&gt;
+        &lt;/Breakout.Cell&gt;
+        {/*
+         * A map of the project area is not decorative: a reader looks at it to see where the work is, so
+         * it takes an alt. Name the subject and how far it reaches, and leave the rest to the ‘Waar’
+         * section, which carries the same information in words.
+         */}
+        {/* On the narrow grid the image takes a single row, so it sits above the band rather than over it. */}
+        &lt;Breakout.Cell colSpan=&quot;all&quot; has=&quot;figure&quot; rowSpan={{ narrow: 1, medium: 2, wide: 2 }} rowStart={1}&gt;
+          &lt;Image
+            alt=&quot;Kaart van het stationsgebied met de locaties van de deelprojecten.&quot;
+            src={exampleImageSource(1440, 810, 2)}
+          /&gt;
+        &lt;/Breakout.Cell&gt;
+        &lt;Breakout.Cell
+          className=&quot;ams-prose&quot;
+          colSpan={{ narrow: 4, medium: 6, wide: 7 }}
+          colStart={{ narrow: 1, medium: 2, wide: 3 }}
+          rowStart={{ narrow: 2, medium: 3, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;deelprojecten&quot; level={2}&gt;
+            Deelprojecten
+          &lt;/Heading&gt;
+          &lt;Paragraph&gt;
+            De vernieuwing bestaat uit deelprojecten die deels tegelijk lopen. Elk deelproject heeft een eigen
+            planning en een eigen aanspreekpunt.
+          &lt;/Paragraph&gt;
+        &lt;/Breakout.Cell&gt;
+        &lt;Breakout.Cell
+          className=&quot;ams-prose&quot;
+          colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+          colStart={{ narrow: 1, medium: 1, wide: 2 }}
+          rowStart={{ narrow: 3, medium: 4, wide: 4 }}
+        &gt;
+          &lt;Heading level={3}&gt;Station en perrons&lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Verbouwing van de stationshal
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Nieuwe perrontrappen
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Tweede ingang aan de zuidkant
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Restauratie van de wandschildering
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Toegankelijkheid van de perrons
+            &lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Breakout.Cell&gt;
+        &lt;Breakout.Cell
+          className=&quot;ams-prose&quot;
+          colSpan={{ narrow: 4, medium: 4, wide: 5 }}
+          colStart={{ narrow: 1, medium: 5, wide: 7 }}
+          rowStart={{ narrow: 4, medium: 4, wide: 4 }}
+        &gt;
+          &lt;Heading level={3}&gt;Plein en omgeving&lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Herinrichting van het Julianaplein
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Fietsenstalling onder het plein
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Bus- en tramhaltes
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Riolering Amstelstationstraat
+            &lt;/LinkList.Link&gt;
+            &lt;LinkList.Link color=&quot;contrast&quot; href=&quot;#&quot;&gt;
+              Groen langs de Amstel
+            &lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Breakout.Cell&gt;
+      &lt;/Breakout&gt;
+      &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
+        {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;themas&quot; level={2} size=&quot;level-3&quot;&gt;
+            Thema’s
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Bereikbaarheid tijdens de werkzaamheden&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Duurzaam en circulair bouwen&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Groen en biodiversiteit&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;
+            Documenten
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Voorlopig ontwerp Julianaplein (pdf, 8,1 MB)&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;
+            Video
+          &lt;/Heading&gt;
+          {/*
+           * A Paragraph between the heading and the image: the vertical space guide documents no value for
+           * a heading directly above an image, which is a sign to introduce the image in words first.
+           */}
+          &lt;Paragraph&gt;In deze animatie ziet u hoe het station en het plein er na de vernieuwing uitzien.&lt;/Paragraph&gt;
+          {/* This image carries no information the text does not, so it takes an empty alt. */}
+          &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720, 3)} /&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;
+            Meer informatie
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelkwartier: woningbouw en openbare ruimte&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Wibautstraat: vernieuwing van de rijbanen&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
+          &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;
+            Blijf op de hoogte
+          &lt;/Heading&gt;
+          &lt;LinkList&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief vernieuwing Amstelstation&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Informatieavonden en inloopspreekuren&lt;/LinkList.Link&gt;
+            &lt;LinkList.Link href=&quot;#&quot;&gt;Instagram: Amstelstation&lt;/LinkList.Link&gt;
+          &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+      {/*
+       * The highlight colours have no prescribed meaning, so this band takes the default purple rather
+       * than repeating the yellow above. Purple is a dark background, so everything in it takes
+       * color=&quot;inverse&quot;.
+       */}
+      &lt;Spotlight&gt;
+        {/*
+         * The row gap would put an x-large below the heading, where the guidance asks for an x-small at this size.
+         * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+         * between the Cells.
+         */}
+        &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
+          &lt;Grid.Cell span=&quot;all&quot;&gt;
+            {/*
+             * The Page Footer heads its own contact block ‘Contact’ as well, so someone browsing the page
+             * by heading meets the word twice. The hidden phrase tells the two apart without repeating
+             * ‘over dit project’ on screen, where the surrounding page already says so.
+             */}
+            &lt;Heading className=&quot;ams-mb-xs&quot; color=&quot;inverse&quot; level={2} size=&quot;level-3&quot;&gt;
+              Contact&lt;span className=&quot;ams-visually-hidden&quot;&gt; over dit project&lt;/span&gt;
+            &lt;/Heading&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Hilde Verkerk
+                &lt;br /&gt;
+                Omgevingsmanager
+              &lt;/Paragraph&gt;
+              {/* A Link List of contact details: an icon per link replaces the chevron the list draws by default. */}
+              &lt;LinkList&gt;
+                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:h.verkerk@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                  h.verkerk@amsterdam.nl
+                &lt;/LinkList.Link&gt;
+                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31618342210&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                  06 1834 2210
+                &lt;/LinkList.Link&gt;
+              &lt;/LinkList&gt;
+            &lt;/Grid.Cell&gt;
+            &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 4, wide: 6 }}&gt;
+              &lt;Paragraph color=&quot;inverse&quot;&gt;
+                Joris Bramer
+                &lt;br /&gt;
+                Communicatieadviseur
+              &lt;/Paragraph&gt;
+              &lt;LinkList&gt;
+                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;mailto:j.bramer@amsterdam.nl&quot; icon={&lt;MailIcon /&gt;}&gt;
+                  j.bramer@amsterdam.nl
+                &lt;/LinkList.Link&gt;
+                &lt;LinkList.Link color=&quot;inverse&quot; href=&quot;tel:+31611294478&quot; icon={&lt;PhoneIcon /&gt;}&gt;
+                  06 1129 4478
+                &lt;/LinkList.Link&gt;
+              &lt;/LinkList&gt;
+            &lt;/Grid.Cell&gt;
+          &lt;/Grid.Subgrid&gt;
+        &lt;/Grid&gt;
+      &lt;/Spotlight&gt;
+      {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
+      &lt;Grid paddingBottom=&quot;2x-large&quot; paddingTop=&quot;x-large&quot;&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;Image
+            alt=&quot;Kaart van het projectgebied, van het Julianaplein tot de Spaklerweg.&quot;
+            src={exampleImageSource(1440, 810, 4)}
+          /&gt;
+        &lt;/Grid.Cell&gt;
+      &lt;/Grid&gt;
+    &lt;/main&gt;
+  &lt;/&gt;
+);</code></pre>
+            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -48437,8 +51308,8 @@ The page has a set structure.
 It includes sections that describe what the project is, its location, the reasons for it, and the timeline for planning or execution.
 This standard format helps users compare projects and find information more easily.
 
-The ‘when’ section usually features a timeline of important milestones, shown in a Progress List.
-This gives a brief overview of the project&#39;s current status and future phases.
+The ‘when’ section usually features a timeline of important milestones, shown in a [Progress List](/docs/components-containers-progress-list--docs).
+This gives a brief overview of the project’s current status and future phases.
 
 Visual elements enhance the text.
 Large images provide context or show the impact.
@@ -48447,6 +51318,37 @@ A video may be included to clarify complex issues or planned changes.
 
 Related information is organized in link blocks.
 These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
+
+## Default
+
+Give the page a single body column and pair the link sections two per row.
+This suits a project with a handful of related sections, where a reader can take in the whole page by scrolling.
+
+## With Breakout
+
+Longer projects need more sections, and a reader who wants one of them should not have to scroll past the others to find it.
+Open such a page with a lead paragraph, list its sections in a [Table of Contents](/docs/components-navigation-table-of-contents--docs) beside the body, and give every section heading the `id` its entry points at.
+
+Give that Table of Contents a `rowStart` of 1 in its [Grid](/docs/components-layout-grid--docs) Cell.
+That is what lets it come first in the reading order and still sit to the right of the body on a wide screen.
+Automatic placement never moves back a column without moving down a row, so without a row of its own it would push the body down one.
+No other cell in that Grid needs a row.
+
+Further down, a [Breakout](/docs/components-layout-breakout--docs) lets an image overlap the [Spotlight](/docs/components-containers-spotlight--docs) below it, which sets a band apart from the sections around it.
+The Cell holding the Spotlight needs `has=&quot;spotlight&quot;`, and the Cell holding the image `has=&quot;figure&quot;`.
+Give every Cell inside that band an explicit row: a Cell without one avoids the rows the Spotlight occupies and lands underneath the band instead of in it.
+Let the image take a single row on the narrow grid, so it sits above the band rather than over it.
+
+Choose the text colour for a Spotlight from the highlight colour behind it, not from the other bands on the page.
+Yellow is a light background, so headings and paragraphs keep their default colour and only links take `color=&quot;contrast&quot;`.
+Purple is a dark one, where everything takes `color=&quot;inverse&quot;`.
+
+Give every link section a Grid Cell of its own, as the other page templates do.
+Each one is a block, and the row gap of the Grid is what sets one block apart from the next.
+[Prose](/docs/utilities-css-prose--docs) is then left with the elements within a section: its heading, its list, and the link to the wider set below them.
+
+Contact details are a [Link List](/docs/components-navigation-link-list--docs) whose links carry an icon instead of the chevron the list draws by default.
+Keep the name and the role above it in a Paragraph: they are not links, and a list of two items reads as a set of ways to get in touch.
 </code></pre></div>
             </div>
         </div>
@@ -49056,7 +51958,7 @@ Faster and cheaper to build and iterate with.
     &lt;strong&gt;1300+&lt;/strong&gt; design tokens
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;32&lt;/strong&gt; templates
+    &lt;strong&gt;33&lt;/strong&gt; templates
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
     &lt;strong&gt;3&lt;/strong&gt; modes
