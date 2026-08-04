@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/289 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">118 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/289 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -2125,22 +2125,38 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={ArticleStories} /&gt;
 
+## Usage guidelines
+
+### When to use
+
+Use this page for a single dated article: a news item, a press release, or a blog post.
+
+### When not to use
+
+Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) to list several of them.
+Use an [Information Page](/docs/pages-public-information-page--docs) for a subject that stays true rather than one that happened on a date.
+
 ## Structure
 
 - The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the article content.
 - The Content Header contains the title, a Metadata Paragraph with the publication date, and the lead paragraph.
 - A full-width hero [Image](/docs/components-media-image--docs) separates the Content Header from the body.
   It uses a 16:5 aspect ratio.
-- The title uses a level 1 Heading; each section uses a level 2 Heading.
 - The body ends with a [Link List](/docs/components-navigation-link-list--docs) of related articles.
-- A [Spotlight](/docs/components-containers-spotlight--docs) holds a newsletter call-to-action; all text and link components inside use `color=&quot;inverse&quot;`.
+- A [Spotlight](/docs/components-containers-spotlight--docs) holds a newsletter call-to-action.
 - The page closes with a Grid of [Cards](/docs/components-navigation-card--docs) referring to other recent news.
 
 ## Layout and spacing
 
-- The Grids use the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the article body, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+- The Grids use the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the article body.
   Each of those Cells carries the class; the space between them is a padding of the Grid.
+
+## See also
+
+- [News Overview Page](/docs/pages-public-news-overview-page--docs) – lists articles like this one.
+- [Spotlight](/docs/components-containers-spotlight--docs) – the call-to-action band, and what its contents need.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the values behind the section above.
 </code></pre></div>
             </div>
         </div>
@@ -9897,7 +9913,23 @@ This schematic shows the sections of a question page and how the grids and verti
 
 &lt;PageAnatomy labels={anatomyLabels} of={FormStories} story=&quot;MultipleQuestions&quot; /&gt;
 
-## Landing Page
+## Usage guidelines
+
+### When to use
+
+Use this flow for any task a visitor completes by answering questions: an application, a report, a registration.
+
+### When not to use
+
+Use a [Product Page](/docs/pages-public-product-page--docs) to explain the task and lead into this flow.
+
+### How to write
+
+Ask one thing per page, and write each question as the label or legend rather than as a separate sentence above it.
+
+## Variants
+
+### Landing Page
 
 Most form flows start with a landing page that explains the process and provides a call to action to start the form flow.
 
@@ -9905,7 +9937,7 @@ Most form flows start with a landing page that explains the process and provides
 {/*
 TODO: Decide what we want to do here first.
 
-## First Form Page
+### First Form Page
 
 The first form page is the same as other form pages, with one exception: it does not have a back link.
 A back link helps users feel secure that their progress is preserved while moving between form pages.
@@ -9914,7 +9946,7 @@ Additionally, users might reach the first form page from a source other than the
 
 \*/}
 
-## Single Question
+### Single Question
 
 On a form page with one question, the label or legend for the question is the level 1 heading of the page.
 For labels, wrap the `h1` around it.
@@ -9922,18 +9954,18 @@ For legends, wrap it around the `h1`.
 
 For more information, see [Making labels and legends headings](https://design-system.service.gov.uk/get-started/labels-legends-headings/).
 
-## Single Question With Subquestions
+### Single Question With Subquestions
 
 A single question can have subquestions. Wrap the Fields in a Field Set, and use the Field Set’s legend as the level 1 heading of the page.
 
-## With Multiple Questions
+### With Multiple Questions
 
 When a form page has multiple questions, place an `h1` outside the `form`-tag,
 which describes the group of questions.
 
 For more information, see [Question pages - Asking complex questions without using hint text](https://design-system.service.gov.uk/patterns/question-pages/#asking-complex-questions-without-using-hint-text)
 
-## With Validation Error
+### With Validation Error
 
 If the user’s answers fail validation:
 
@@ -9952,10 +9984,21 @@ For more information:
 - [Recover from validation errors](https://design-system.service.gov.uk/patterns/validation/)
 - [Error summary](https://design-system.service.gov.uk/components/error-summary/)
 
-## References
+## Accessibility
 
-- [Gov.uk on question pages](https://design-system.service.gov.uk/patterns/question-pages/)
-- [NL Design System on forms](https://nldesignsystem.nl/richtlijnen/formulieren/)
+On a page with one question, the label or legend for that question is the level 1 heading of the page, so the heading and the question are the same thing rather than two readings of it.
+
+On a page with several, the level 1 heading sits outside the `form` and describes the group.
+
+An [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) takes focus when validation fails, and prefixes the page `&lt;title&gt;` with the number of errors so a screen reader announces it immediately.
+
+## See also
+
+- [Product Page](/docs/pages-public-product-page--docs) – explains the task this flow carries out.
+- [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) – the summary at the top of a failed page.
+- [Field](/docs/components-forms-field--docs) – how to mark a single question invalid.
+- [Gov.uk on question pages](https://design-system.service.gov.uk/patterns/question-pages/) – the pattern this flow follows.
+- [NL Design System on forms](https://nldesignsystem.nl/richtlijnen/formulieren/) – the national guidance.
 </code></pre></div>
             </div>
         </div>
@@ -10318,7 +10361,7 @@ The Grid manages its own gaps; the utility classes interfere with that.
 
 ### How to use
 
-Follow the [optimal sizes of Grid Cells](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells) for typical page sections.
+Follow the [optimal sizes of Grid Cells](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells) for typical page sections.
 
 Use the `as` prop to give a Grid or a Grid Cell a meaningful HTML element when one applies.
 For example, set a top-level Cell that holds the main content of the page to `as=&quot;main&quot;`, or a sidebar Cell to `as=&quot;aside&quot;`.
@@ -11080,6 +11123,16 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={HandbookStories} /&gt;
 
+## Usage guidelines
+
+### When to use
+
+Use this page for reference material long enough to need splitting: a personnel handbook, a policy document, a set of regulations.
+
+### When not to use
+
+Use an [Information Page](/docs/pages-public-information-page--docs) where a single page carries the whole subject.
+
 ## Structure
 
 - Two [Skip Links](/docs/components-navigation-skip-link--docs) at the top of the page let keyboard users jump straight to the table of contents or to the content.
@@ -11093,8 +11146,14 @@ This schematic shows the default sections for this page type and how the grids a
 
 ## Layout and spacing
 
-- The Grid uses the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
+- The Grid uses the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
 - The Prose utility class handles vertical spacing within the content area automatically.
+
+## See also
+
+- [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the navigation column, and how to control it.
+- [Skip Link](/docs/components-navigation-skip-link--docs) – why this page needs two.
+- [Information Page](/docs/pages-public-information-page--docs) – for a subject that fits on one page.
 </code></pre></div>
             </div>
         </div>
@@ -11847,55 +11906,39 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={HomeStories} /&gt;
 
-## Layout
+## Usage guidelines
 
-A typical layout for a homepage:
+### When to use
 
-```tsx
-&lt;Page&gt;
-  &lt;SkipLink href=&quot;#inhoud&quot;&gt;Direct naar inhoud&lt;/SkipLink&gt;
-  &lt;PageHeader /&gt;
-  &lt;main id=&quot;inhoud&quot;&gt;
-    &lt;Overlap&gt;
-      &lt;Search /&gt;
-    &lt;/Overlap&gt;
-    &lt;Grid&gt;
-      &lt;AppComponent1 /&gt;
-      &lt;AppComponent2 /&gt;
-      &lt;AppComponent3 /&gt;
-    &lt;/Grid&gt;
-  &lt;/main&gt;
-  &lt;PageFooter&gt;
-    &lt;PageFooter.Spotlight&gt;
-      &lt;Grid /&gt;
-    &lt;/PageFooter.Spotlight&gt;
-    &lt;PageFooter.Menu /&gt;
-  &lt;/PageFooter&gt;
-&lt;/Page&gt;
-```
+Use this page as the entry point of a website, where a visitor arrives without a subject in mind.
 
-1. The Skip Link prevents users from having to pass all preceding navigation links.
-2. The Page container sets a maximum width for the entire page.
-3. The Grid divides the available width into 4, 8, or 12 columns.
-4. The Page Header shows the logo and menus for the website.
-5. The main element wraps everything between Page Header and Page Footer.
-   It carries an id for the skip link to target.
-6. An Overlap stacks a Search Field on a background Image.
-   It is as wide as the Grid, hence it is a sibling of it.
-7. Other components in the main area are laid out on a Grid again.
-8. The Page Footer contains its own Grid.
-   This allows its background colour to stretch to the Page’s width.
+### When not to use
 
-## Headings
+Use a [Navigation Page](/docs/pages-public-navigation-page--docs) for the entry point of one subject within the site.
 
-- If there is no single, most prominent heading for the home page, add a visually hidden level 1 heading with a text like ‘Homepage van (name of the organisation)’.
+## Structure
+
+The page opens with an [Overlap](/docs/components-layout-overlap--docs) rather than a breadcrumb, stacking a [Search Field](/docs/components-forms-search-field--docs) on a background [Image](/docs/components-media-image--docs).
+An Overlap runs to the full width of the page, so it is a sibling of the Grids rather than a child of a Cell.
+Everything below it sits on a Grid again.
+See [Page structure](/docs/pages-guidelines-page-structure--docs) for the shell around it.
+
+A home page has no single most prominent subject, so it usually has no visible level 1 [Heading](/docs/components-text-heading--docs).
+
+- Add a visually hidden level 1 heading with a text like ‘Homepage van (name of the organisation)’.
   Assign level 2 and a size of ‘level-1’ to the visible headings.
 - Use the default size of ‘level-3’ headings in Cards and set their appropriate levels.
 - Do the same for blocks consisting of Heading, Paragraph, Standalone Link and Link List.
 
-## Spacing
+## Layout and spacing
 
 - In Grids of Cards, use a large vertical gap.
+
+## See also
+
+- [Navigation Page](/docs/pages-public-navigation-page--docs) – the same job for a single subject.
+- [Overlap](/docs/components-layout-overlap--docs) – the full-width opening section.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every page shares.
 </code></pre></div>
             </div>
         </div>
@@ -12144,6 +12187,17 @@ import * as HomeStories from &quot;./HomePage.stories.tsx&quot;;
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
 &lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={HomeStories} /&gt;
+
+## Usage guidelines
+
+### When to use
+
+Use this page as the landing page of a backoffice system, where a Menu carries the navigation and the page itself orients the user.
+
+## See also
+
+- [Navigation Page](/docs/pages-internal-navigation-page--docs) – for a system organised into sections with subsections.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell, including the two Menus an internal page needs.
 </code></pre></div>
             </div>
         </div>
@@ -13260,7 +13314,7 @@ const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/Information Page&#39;,
   parameters: pageParameters(
-    &#39;Explains a subject that is neither a product nor a news article: its background, the rules, &#39; +
+    &#39;Explains a subject in full: its background, the rules that apply, &#39; +
       &#39;and what they mean for a reader who wants to understand something rather than arrange it.&#39;,
   ),
 } satisfies Meta
@@ -14126,7 +14180,7 @@ export const WithTable: StoryObj = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/public/InformationPage/InformationPage.docs.mdx</div>
-              <div>For a task that ends in a form or an application, use the [Product page](/docs/pages-publi...</div>
+              <div>## Anatomy This schematic shows the default sections for this page type and how the grids ...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -14142,45 +14196,25 @@ import * as InformationStories from &quot;./InformationPage.stories.tsx&quot;;
 
 &lt;Description of={InformationStories} /&gt;
 
-For a task that ends in a form or an application, use the [Product page](/docs/pages-public-product-page--docs) instead.
-
 ## Anatomy
 
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
 &lt;PageAnatomy labels={anatomyLabels} of={InformationStories} /&gt;
 
-## Structure
+## Usage guidelines
 
-- The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
-- The Content Header contains the title and a Metadata Paragraph that classifies the page: taxonomy tags, optionally preceded by a date.
-  The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
-- The body holds several sections, each opening with a level 2 Heading.
-- The Content Header Grid holds the title and the metadata in one Cell.
-  Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
-- Each section below the Content Header sits in its own Grid, so the padding between those Grids sets them apart rather than a row gap.
+### When to use
 
-## Headings
+Use this page to explain a subject a reader wants to understand: its background, the rules, and what they mean.
 
-- Use a level 1 Heading for the title of the page.
-- Use level 2 Headings for the section titles, and level 3 for subsections.
-- Set the Accordion’s `headingLevel` one level below the section heading it follows.
-  In the first example that is level 3.
+### When not to use
 
-## Layout and spacing
+For a task that ends in a form or an application, use the [Product Page](/docs/pages-public-product-page--docs) instead.
 
-- The Grids use the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
-  The Cells for the lead paragraph and the Image take the sizes for side-by-side blocks, which reach one column further than the Content Header Cell above them.
-- All body sections share a single Grid Cell, indented one column on wider screens for a comfortable reading measure.
-- Where the lead paragraph takes a Cell of its own, the Grid’s row gap sets the space between it and the metadata above.
-  That gap stays at `x-large` rather than the medium that [vertical space](/docs/docs-designer-guide-vertical-space--docs) asks for within a Cell: the default background colour of the page runs along it — at the left-hand side, and across the full width on the narrow grid — so the wider gap still reads as one Content Header.
-- An [Image](/docs/components-media-image--docs) always reserves its box, so the layout does not shift while it loads.
-  Use `aspectRatio` to change the ratio it crops to; leaving it off keeps the default of 16:9.
-  Do not lazy-load an image in the first screenful, where it would only delay the largest image in the viewport.
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-  An Accordion starts with a Heading, which is why Prose gives it the space that heading level calls for.
+## Variants
 
-## Default
+### Default
 
 The lead paragraph and a lead Image sit side by side below the title, and stack on the narrow grid.
 
@@ -14189,7 +14223,7 @@ Keep the answers short enough to read without scrolling back to the question.
 
 Images within the body are as wide as the text column.
 
-## With Table
+### With Table
 
 Without an image beside it, the lead paragraph stays in the Content Header Cell with the title and the metadata.
 
@@ -14204,6 +14238,39 @@ The Figure supplies the space between them, so the table needs no margin of its 
 Write any sources as one sentence, with a [Link](/docs/components-navigation-link--docs) for each of them.
 The Figure Caption then presents them in the small caption text it is meant for.
 Note that the whole caption becomes the accessible name of the Figure, so keep it short.
+
+## Structure
+
+- The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
+- The Content Header contains the title and a Metadata Paragraph that classifies the page: taxonomy tags, optionally preceded by a date.
+  The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
+- The body holds several sections, each opening with a level 2 Heading.
+- The Content Header Grid holds the title and the metadata in one Cell.
+  Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
+- Each section below the Content Header sits in its own Grid, so the padding between those Grids sets them apart rather than a row gap.
+
+- Set the Accordion’s `headingLevel` one level below the section heading it follows.
+  In the ‘Default’ example that is level 3.
+
+## Layout and spacing
+
+- The Grids use the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
+  The Cells for the lead paragraph and the Image take the sizes for side-by-side blocks, which reach one column further than the Content Header Cell above them.
+- All body sections share a single Grid Cell, indented one column on wider screens for a comfortable reading measure.
+- Where the lead paragraph takes a Cell of its own, the Grid’s row gap sets the space between it and the metadata above.
+  That gap stays at `x-large` rather than the medium that [vertical space](/docs/docs-designer-guide-vertical-space--docs) asks for within a Cell: the default background colour of the page runs along it — at the left-hand side, and across the full width on the narrow grid — so the wider gap still reads as one Content Header.
+- An [Image](/docs/components-media-image--docs) always reserves its box, so the layout does not shift while it loads.
+  Use `aspectRatio` to change the ratio it crops to; leaving it off keeps the default of 16:9.
+  Do not lazy-load an image in the first screenful, where it would only delay the largest image in the viewport.
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+  An Accordion starts with a Heading, which is why Prose gives it the space that heading level calls for.
+
+## See also
+
+- [Product Page](/docs/pages-public-product-page--docs) – for a subject that ends in an application.
+- [Accordion](/docs/components-containers-accordion--docs) – groups the detail questions.
+- [Table](/docs/components-containers-table--docs) – for reference data, and what its Caption is for.
+- [Figure](/docs/components-media-figure--docs) – pairs the table with its sources.
 </code></pre></div>
             </div>
         </div>
@@ -15294,7 +15361,7 @@ const meta = {
   // The initial phase only picks which state each story opens in; it is not a prop to configure.
   argTypes: { initialPhase: { table: { disable: true } } },
   parameters: pageParameters(
-    &#39;Shows how a search results page behaves while it fetches content, &#39; +
+    &#39;Shows how a page behaves while it fetches its content, &#39; +
       &#39;keeping the layout stable as placeholders make way for the real results.&#39;,
   ),
   render: ({ initialPhase }: LoadingPageArgs) =&gt; {
@@ -15974,10 +16041,10 @@ export const Loaded: Story = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/public/LoadingPage/LoadingPage.docs.mdx</div>
-              <div># Loading page Use this template for a page that fetches its content after the first rende...</div>
+              <div>It stands in [Skeletons](/docs/components-feedback-skeleton--docs) for the results while t...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { PageAnatomy } from &quot;#storybook/_components/PageAnatomy/PageAnatomy&quot;;
 
@@ -15986,9 +16053,10 @@ import * as LoadingStories from &quot;./LoadingPage.stories.tsx&quot;;
 
 &lt;Meta of={LoadingStories} /&gt;
 
-# Loading page
+&lt;Title /&gt;
 
-Use this template for a page that fetches its content after the first render, such as a page of search results.
+&lt;Description of={LoadingStories} /&gt;
+
 It stands in [Skeletons](/docs/components-feedback-skeleton--docs) for the results while they load, and tells screen reader users what is happening.
 
 ## Anatomy
@@ -15997,6 +16065,33 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={LoadingStories} /&gt;
 
+## Usage guidelines
+
+### When to use
+
+Use this page where the content arrives after the first render, so the reader sees the shell before the results.
+
+### When not to use
+
+Where the server renders the results with the page, use the [Search Results Page](/docs/pages-public-search-results-page--docs), which has no loading state to manage.
+
+## Variants
+
+### Default
+
+The page before a search has run, with an empty field and no results region.
+
+### Loading
+
+The page while the results are on their way.
+
+Compose each Skeleton from the same parts, in the same Grid Cell, as the Card that will replace it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+Mirroring the shape keeps the layout shift small, but does not remove it.
+
+### Loaded
+
+The results in place, under a heading that counts them.
+
 ## Structure
 
 - The Content Header and the results are each their own section, so a plain `main` wraps them both.
@@ -16004,34 +16099,31 @@ This schematic shows the default sections for this page type and how the grids a
   The [Search Field](/docs/components-forms-search-field--docs) takes the place of the lead paragraph in the Content Header Cell, so [Prose](/docs/utilities-css-prose--docs) spaces it a medium below the title.
 - That Cell spans half the grid on wide screens, so the search input does not stretch to an unusable length.
   It takes three quarters of the grid at medium and the full width at narrow.
-  The title follows that width rather than the [Content Header Cell](/docs/pages-public-introduction--docs#content-header) other page types use, because search is not a content page.
+  The title follows that width rather than the [Content Header Cell](/docs/pages-guidelines-layout-and-spacing--docs#content-header) other page types use, because search is not a content page.
 - The results are [Cards](/docs/components-navigation-card--docs) of 4 columns, in a second Grid.
-
-## Loading
-
-The ‘Loading’ example shows the page while the results are on their way.
-
-- Compose each Skeleton from the same parts, in the same Grid Cell, as the Card that will replace it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
-  Mirroring the shape keeps the layout shift small, but does not remove it.
-- Mark the whole results region busy while it loads, and let it announce once.
-  Marking each Skeleton would repeat the message for every card.
-  The Skeletons are hidden from assistive technologies, so the status message is all a screen reader hears.
-- Be aware that `aria-busy=&quot;true&quot;` also permits assistive technology to hold back updates from the status message and deliver them as one update once it turns false.
-  The ARIA specification allows this rather than requiring it, so not every screen reader does it.
-
-## Loaded
-
-The ‘Loaded’ example shows the results in place, under a heading that counts them.
-
-- Keep one status message in the DOM at all times and only change its text, from a loading message to the result count.
-  A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
-- No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
 
 ## Layout and spacing
 
 - The first Grid takes a `paddingTop` of `large`, as the first Grid of every page does.
 - Both Grids have the default background colour, so the second one takes a `paddingTop` of `2x-large`.
 - The last Grid before the Page Footer takes a `paddingBottom` of `2x-large`.
+
+## Accessibility
+
+- Mark the whole results region busy while it loads, and let it announce once.
+  Marking each Skeleton would repeat the message for every card.
+  The Skeletons are hidden from assistive technologies, so the status message is all a screen reader hears.
+- Be aware that `aria-busy=&quot;true&quot;` also permits assistive technology to hold back updates from the status message and deliver them as one update once it turns false.
+  The ARIA specification allows this rather than requiring it, so not every screen reader does it.
+- Keep one status message in the DOM at all times and only change its text, from a loading message to the result count.
+  A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
+- No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
+
+## See also
+
+- [Skeleton](/docs/components-feedback-skeleton--docs) – what stands in for a result while it loads.
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same page without a loading state.
+- [News Overview Page](/docs/pages-public-news-overview-page--docs) – the filter-and-results layout these share.
 </code></pre></div>
             </div>
         </div>
@@ -18882,18 +18974,40 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={NavigationStories} /&gt;
 
-## Headings
+## Usage guidelines
 
-- Use a level 1 Heading for the page title.
-- Set a size of ‘level-3’ to the headings in Link Sections (blocks consisting of a Heading, Paragraph, Standalone Link and/or a Link List).
-  Card Headings already set this by default.
-- If multiple Cards and Link Sections are grouped, update their Heading levels accordingly.
+### When to use
 
-## Spacing
+Use this page as the entry point of one subject, where the page itself carries little content and mostly points onward.
 
-- Grids on this page type use the default x-large vertical gap.
+### When not to use
 
-## With side navigation
+Use a [Home Page](/docs/pages-public-home-page--docs) for the entry point of the whole site.
+
+## Variants
+
+### Default
+
+The plain form: a Content Header, then Link Sections that each pair a heading with a Link List.
+Every section heading is a level 2 Heading at `size=&quot;level-3&quot;`, because a group of links is a block rather than a body of content.
+
+### With top tasks
+
+Adds a row of [Cards](/docs/components-navigation-card--docs) above the Link Sections for the handful of things most visitors come to do.
+The Cards carry a heading and a link and no image, so they take 3 columns each on the wide grid and fit four to a row.
+
+### With an interactive element
+
+Adds a [Spotlight](/docs/components-containers-spotlight--docs) holding a [Search Field](/docs/components-forms-search-field--docs) and the links around it, for a subject where a visitor looks something up rather than browses to it.
+A full-width [Image](/docs/components-media-image--docs) closes the page.
+
+### With an image gallery
+
+Opens with a full-width Image at a 16:5 ratio and introduces the people behind the subject as Cards that each carry a portrait.
+Those Card Headings are level 3, because the heading above the set is the level 2.
+A gallery of images closes the page, below the contact details.
+
+### With side navigation
 
 Use a side navigation when the page presents one entry from a long list, and visitors move between those entries without leaving the page.
 A [Table of Contents](/docs/components-navigation-table-of-contents--docs) is the navigation for this.
@@ -18910,20 +19024,45 @@ Set `main` on the Subgrid rather than on the Grid around it.
 The navigation switches between entries and is a repeated block, so it does not belong to the main content area.
 This puts the page title outside the landmark, which is the trade-off for keeping the navigation out of it.
 
-Such a page has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
-Name each after the thing it reaches rather than numbering them.
-
 Because the entry’s parts each sit in their own Cell of the Subgrid, the space between them is the row gap.
 Leave the row gap of the Subgrid at the vertical gap of the Grid.
 That gap has no medium size, so the space below the entry’s heading is larger than the vertical space guide advises for a heading.
 Keep elements in one cell where you need the exact space between them.
 
 A map belongs on this page as an interactive component, not as an [Image](/docs/components-media-image--docs).
-Whichever you use, it needs a text alternative: here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
+
+### Subnavigation page
+
+The page one level further down, so its breadcrumb carries two links rather than one.
+It mixes running text with the Link Sections, so its headings take the levels of a content page: a level 2 opens a section and a level 3 a block within it.
+
+## Structure
+
+- Set a size of ‘level-3’ on the headings in Link Sections (blocks consisting of a Heading, Paragraph, Standalone Link and/or a Link List).
+  Card Headings already set this by default.
+- If multiple Cards and Link Sections are grouped, update their Heading levels accordingly.
+
+## Layout and spacing
+
+- Grids on this page type use the default x-large vertical gap.
+
+## Accessibility
+
+A page with a side navigation has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
+Name each after the thing it reaches rather than numbering them.
+
+A map needs a text alternative, whether it is an image or an interactive component.
+Here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
 
 Give a repeated action such as ‘Toon op de kaart’ a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on.
 Without it, every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
 Put the suffix after the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.
+
+## See also
+
+- [Home Page](/docs/pages-public-home-page--docs) – the same job for the whole site.
+- [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the side navigation.
+- [Grid](/docs/components-layout-grid--docs) – the Subgrid the entry sits in.
 </code></pre></div>
             </div>
         </div>
@@ -19313,7 +19452,7 @@ export const Default: StoryObj = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/internal/NavigationPage/NavigationPage.docs.mdx</div>
-              <div>The main navigation is provided by the [Menu](/docs/components-navigation-menu--docs) comp...</div>
+              <div>## Anatomy This schematic shows the default sections for this page type and how the grids ...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -19335,6 +19474,25 @@ import * as NavigationPageStories from &quot;./NavigationPage.stories&quot;;
 
 &lt;Description of={NavigationPageStories} /&gt;
 
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+&lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={NavigationPageStories} /&gt;
+
+## Usage guidelines
+
+### When to use
+
+This template works best with 3–7 main sections.
+Too few make the vertical Tab Navigation redundant; too many make it hard to scan.
+
+### When not to use
+
+Use an [Internal Home Page](/docs/pages-internal-home-page--docs) where the Menu alone carries the navigation.
+
+## Structure
+
 The main navigation is provided by the [Menu](/docs/components-navigation-menu--docs) component.
 Within the body of the page, a vertical [Tab Navigation](/docs/components-navigation-tab-navigation--docs) shows its main sections, each with an icon.
 A second, horizontal Tab Navigation across the top shows the sub-items for the active section.
@@ -19342,17 +19500,15 @@ A second, horizontal Tab Navigation across the top shows the sub-items for the a
 Clicking a main section selects it, updates the sub-navigation, and resets its scroll position to the start.
 Each link has an `href` with a slug-based path, making the pattern suitable for both server-rendered pages and single-page applications.
 
-This template works best with 3–7 main sections.
-Too few make the vertical Tab Navigation redundant; too many make it hard to scan.
+## Layout and spacing
 
 On narrow screens both Tab Navigations stack vertically.
 This is a known limitation, and the mobile design is being further explored.
 
-## Anatomy
+## See also
 
-This schematic shows the default sections for this page type and how the grids and vertical space work.
-
-&lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={NavigationPageStories} /&gt;
+- [Tab Navigation](/docs/components-navigation-tab-navigation--docs) – both navigations on this page.
+- [Menu](/docs/components-navigation-menu--docs) – the navigation across modules.
 </code></pre></div>
             </div>
         </div>
@@ -19405,7 +19561,7 @@ This schematic shows the default sections for this page type and how the grids a
      | ^
   51 |   ...commonMeta,
   52 |   title: &#39;Pages/Public/News Overview Page&#39;,
-  53 | } satisfies Meta
+  53 |   parameters: pageParameters(
 
 ./src/pages/public/NewsOverviewPage/NewsOverviewPage.stories.tsx:
 /**
@@ -19432,7 +19588,7 @@ import {
   Select,
 } from &#39;@amsterdam/design-system-react&#39;
 
-import { commonMeta } from &#39;../common/commonMeta&#39;
+import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import { newsArticles, newsCategories, newsDistricts } from &#39;./data&#39;
 
 const searchTerm = &#39;tramspoor&#39;
@@ -19460,6 +19616,10 @@ const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/News Overview Page&#39;,
+  parameters: pageParameters(
+    &#39;Lists content items that a visitor narrows down with filters: &#39; +
+      &#39;news, blogs, vacancies, activities, or search results.&#39;,
+  ),
 } satisfies Meta
 
 export default meta
@@ -19926,10 +20086,10 @@ export const Default: StoryObj = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/public/NewsOverviewPage/NewsOverviewPage.docs.mdx</div>
-              <div># News overview page An index of content items that a visitor narrows down: news, blogs, v...</div>
+              <div>The page is a filter column beside a list of results, and the same layout serves all of th...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { PageAnatomy } from &quot;#storybook/_components/PageAnatomy/PageAnatomy&quot;;
 
@@ -19938,17 +20098,28 @@ import * as NewsOverviewStories from &quot;./NewsOverviewPage.stories.tsx&quot;;
 
 &lt;Meta of={NewsOverviewStories} /&gt;
 
-# News overview page
+&lt;Title /&gt;
 
-An index of content items that a visitor narrows down: news, blogs, vacancies, activities, or search results.
+&lt;Description of={NewsOverviewStories} /&gt;
+
 The page is a filter column beside a list of results, and the same layout serves all of those content types.
-Use a [Home Page](/docs/pages-public-home-page--docs) section instead when a handful of items is enough and nobody needs to filter them.
 
 ## Anatomy
 
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
 &lt;PageAnatomy labels={anatomyLabels} of={NewsOverviewStories} /&gt;
+
+## Usage guidelines
+
+### When to use
+
+Use this page for an index of one content type that a visitor narrows down with filters.
+
+### When not to use
+
+Use a [Home Page](/docs/pages-public-home-page--docs) section instead when a handful of items is enough and nobody needs to filter them.
+Use a [Search Results Page](/docs/pages-public-search-results-page--docs) where a result can be any kind of content.
 
 ## Structure
 
@@ -19972,14 +20143,9 @@ It applies the punctuation and the conjunction of the language itself, so the se
 Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell spanning all the columns of the Subgrid.
 Leave it out when everything fits on one page.
 
-## Headings
-
 The page title is the only Heading 1.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
-
 Neither Heading 2 has a place in the design, so both are visually hidden.
-They are still worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
-The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
 ## Layout and spacing
 
@@ -19999,6 +20165,21 @@ The medium grid leaves the results 5 columns, which is not enough for a row.
 Give each Card 4 of those 5 there and leave the last column empty: that is below the width at which a Card with an image goes horizontal, so the Cards turn into a single column of vertical ones and the image spans the full width of each.
 
 Two adjacent Grids add their touching paddings together, so the Grid holding the filter column and the results leaves its `paddingTop` off.
+
+## Accessibility
+
+The two hidden Heading 2s are worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
+The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
+
+Announce the number of results in a `role=&quot;status&quot;` paragraph and name the filters that produced it.
+A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
+
+## See also
+
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same layout for results of any type.
+- [Loading Page](/docs/pages-public-loading-page--docs) – this layout while its results are on their way.
+- [Card](/docs/components-navigation-card--docs) – the result, and when it turns horizontal.
+- [Pagination](/docs/components-navigation-pagination--docs) – closes the list.
 </code></pre></div>
             </div>
         </div>
@@ -20679,7 +20860,7 @@ As a root layout component, it must be used for all websites for the City of Ams
 
 Use the Page as it is.
 Its children – a [Skip Link](/docs/components-navigation-skip-link--docs), the Page Header, the sections of the page, and the Page Footer – follow one another in document order.
-See the [introduction to the public templates](/docs/pages-public-introduction--docs) for the structure of a page.
+See [Page structure](/docs/pages-guidelines-page-structure--docs) for the structure of a page.
 
 #### Internal websites
 
@@ -23155,15 +23336,30 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={ProductStories} /&gt;
 
-## Headings
+## Usage guidelines
 
-- Use a level 1 Heading for the title of the page.
-- Use level 2 Headings for the section titles.
+### When to use
 
-## Spacing
+Use this page for a product or service a resident can arrange, where the page has to end in a next step.
 
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-  A section heading, the list or paragraph under it, and the Call to Action Link each get the space that guide asks for, without a margin of their own.
+### When not to use
+
+Use an [Information Page](/docs/pages-public-information-page--docs) for a subject a reader wants to understand rather than arrange.
+
+## Structure
+
+The body ends in a [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) to the next step, such as an application.
+
+## Layout and spacing
+
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell.
+  A section heading, the list or paragraph under it, and the Call to Action Link each get the space the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guide asks for, without a margin of their own.
+
+## See also
+
+- [Information Page](/docs/pages-public-information-page--docs) – for a subject with no action attached.
+- [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) – the next step this page leads to.
+- [Form Flow](/docs/pages-public-form-flow--docs) – where that next step usually goes.
 </code></pre></div>
             </div>
         </div>
@@ -23216,7 +23412,7 @@ This schematic shows the default sections for this page type and how the grids a
      | ^
   57 |   ...commonMeta,
   58 |   title: &#39;Pages/Public/Profile Page&#39;,
-  59 | } satisfies Meta
+  59 |   parameters: pageParameters(
 
 ./src/pages/public/ProfilePage/ProfilePage.stories.tsx:
 /**
@@ -23247,7 +23443,7 @@ import { MailIcon, PersonsIcon } from &#39;@amsterdam/design-system-react-icons&
 
 import { PhotoPlaceholder } from &#39;#storybook/_components/PhotoPlaceholder/PhotoPlaceholder&#39;
 
-import { commonMeta } from &#39;../common/commonMeta&#39;
+import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import { councilMembers, groupRepresentatives } from &#39;./data&#39;
 
 // Lorem Picsum is mostly landscapes, so these ids are hand-picked: each one is a photo in which a
@@ -23277,6 +23473,10 @@ const sublocationPhotos = [
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/Profile Page&#39;,
+  parameters: pageParameters(
+    &#39;Presents a single person, group of people, or place: &#39; +
+      &#39;who or what the subject is, what it offers, and how to reach or visit it.&#39;,
+  ),
 } satisfies Meta
 
 export default meta
@@ -26565,10 +26765,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/public/ProfilePage/ProfilePage.docs.mdx</div>
-              <div># Profile page A profile page presents a single subject: a person, a group of people, or a...</div>
+              <div>All five variants share the same skeleton. The page opens with a breadcrumb, a title and a...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { PageAnatomy } from &quot;#storybook/_components/PageAnatomy/PageAnatomy&quot;;
 
@@ -26577,10 +26777,9 @@ import * as ProfileStories from &quot;./ProfilePage.stories.tsx&quot;;
 
 &lt;Meta of={ProfileStories} /&gt;
 
-# Profile page
+&lt;Title /&gt;
 
-A profile page presents a single subject: a person, a group of people, or a place.
-It answers who or what the subject is, what it offers, and how to reach or visit it.
+&lt;Description of={ProfileStories} /&gt;
 
 All five variants share the same skeleton.
 The page opens with a breadcrumb, a title and a lead paragraph, followed by the sections that describe the subject.
@@ -26592,45 +26791,57 @@ This schematic shows the sections of a person profile and how the grids and vert
 
 &lt;PageAnatomy labels={anatomyLabels} of={ProfileStories} story=&quot;Person&quot; /&gt;
 
+## Usage guidelines
+
+### When to use
+
+Use this page for a single subject people want to reach or visit: a person with a public role, a body that acts as one, or a place.
+
+### When not to use
+
+Use a [Product Page](/docs/pages-public-product-page--docs) where the subject is something to arrange rather than someone to reach.
+
 ## Variants
 
-**Person** profiles an individual with a public role, such as the mayor.
+### Person
+
+Profiles an individual with a public role, such as the mayor.
 A portrait sits beside the lead, and a Link List at the end points to the curriculum vitae and the additional positions, which carry too much text to sit on this page.
 
-**Group** profiles a body of people that acts as one, such as a party group in the city council.
+### Group
+
+Profiles a body of people that acts as one, such as a party group in the city council.
 It adds an address and contact block built from Description Lists, and closes with a grid of Cards, one per member.
 
-**Location** profiles a single place people can visit.
+### Location
+
+Profiles a single place people can visit.
 A full-width image establishes the place, and the practical blocks answer what can be hired, how to get there and where to park.
 
-**Location large** is the same page for a venue with several halls and much more practical information.
+### Location large
+
+The same page for a venue with several halls and much more practical information.
 It adds an Alert for temporary disruptions, Cards for the individual spaces, and a longer run of detail blocks.
 
-**Sublocation** profiles a place that belongs to a larger one, so its breadcrumb is one level deeper.
+### Sublocation
+
+Profiles a place that belongs to a larger one, so its breadcrumb is one level deeper.
 It drops the full-width image and instead pairs the facilities list with an Image Slider.
 
-## How to build these pages
+## Structure
 
 The Layout does not render `&lt;main&gt;`, so each page provides its own `&lt;main id=&quot;inhoud&quot;&gt;`, which is the Skip Link target.
 The Breadcrumb sits in its own Grid above it.
 
-A Spotlight has to be a sibling of the Grids rather than a child of a Grid Cell, because it needs the full page width.
-It carries its own Grid, and every Heading, Paragraph and link inside it needs `color=&quot;inverse&quot;`, because these pages use the default purple background.
+A [Spotlight](/docs/components-containers-spotlight--docs) has to be a sibling of the Grids rather than a child of a Grid Cell, because it needs the full page width.
+It carries its own Grid.
 
-Use the [recommended Cell sizes](/docs/pages-public-introduction--docs) for each kind of section.
+Use the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells) for each kind of section.
 Note that the title and lead sit one column further right than the sections below them, which is deliberate.
 
-Group a set of photos in an Image Slider rather than a Row.
-Images in a Row keep their intrinsic width instead of shrinking, so they overflow the Cell and cover the next column.
+Group a set of photos in an [Image Slider](/docs/components-media-image-slider--docs) rather than a [Row](/docs/components-layout-row--docs).
 
-Where a column of blocks sits beside a much taller one, give each column a [Grid Subgrid](/docs/components-layout-grid--docs) rather than placing every block in a Cell of the Grid itself.
-A Subgrid hands the columns it spans to its own Cells, so each column stacks on its own and a tall block does not push the block beside it down.
-Two Subgrids that each span the whole narrow grid also lay the right column out below the left one there, rather than interleaving the two.
-
-A Subgrid is also what lets a section heading sit the space the guidance asks for above the sections it introduces.
-A heading in a Cell of its own is spaced by the row gap of the Grid, which is an x-large where the guidance asks for a small or less.
-Give that Grid a `gapVertical` of `none`, let the heading Cell set the right amount with an `ams-mb-*` utility, and put the Cells below it in a Subgrid with a `gapVertical` of `x-large`, which is the gap the Grid used to give them.
-A section that shares its Grid with the Content Header needs a Grid of its own first, since the header depends on that row gap.
+Where a column of blocks sits beside a much taller one, give each column a [Grid Subgrid](/docs/components-layout-grid--docs#subgrid) rather than placing every block in a Cell of the Grid itself, so a tall block does not push the block beside it down.
 
 ## Layout and spacing
 
@@ -26652,12 +26863,11 @@ Put the two in one Cell when the exact value matters, and accept the row gap whe
 
 ## See also
 
-- [Card](/docs/components-navigation-card--docs)
-- [Description List](/docs/components-text-description-list--docs)
-- [Grid](/docs/components-layout-grid--docs)
-- [Image Slider](/docs/components-media-image-slider--docs)
-- [Link List](/docs/components-navigation-link-list--docs)
-- [Spotlight](/docs/components-containers-spotlight--docs)
+- [Description List](/docs/components-text-description-list--docs) – the address and contact blocks.
+- [Grid](/docs/components-layout-grid--docs) – the Subgrid that keeps uneven columns apart.
+- [Image Slider](/docs/components-media-image-slider--docs) – for a set of photos.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – how to space a section heading above the blocks it introduces.
+- [Spotlight](/docs/components-containers-spotlight--docs) – the call-to-action band, and what its contents need.
 </code></pre></div>
             </div>
         </div>
@@ -29629,29 +29839,24 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={ProjectStories} /&gt;
 
-## Structure
+## Usage guidelines
 
-The page has a set structure.
-It includes sections that describe what the project is, its location, the reasons for it, and the timeline for planning or execution.
-This standard format helps users compare projects and find information more easily.
+### When to use
 
-The ‘when’ section usually features a timeline of important milestones, shown in a [Progress List](/docs/components-containers-progress-list--docs).
-This gives a brief overview of the project’s current status and future phases.
+Use this page for a construction or traffic project that runs over time and affects a neighbourhood.
 
-Visual elements enhance the text.
-Large images provide context or show the impact.
-A map indicates the project location and the areas affected.
-A video may be included to clarify complex issues or planned changes.
+### When not to use
 
-Related information is organized in link blocks.
-These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
+Use an [Article Page](/docs/pages-public-article-page--docs) for a single announcement about that project.
 
-## Default
+## Variants
 
-Give the page a single body column and pair the link sections two per row.
+### Default
+
+Give the page a single body column and pair the Link Sections two per row.
 This suits a project with a handful of related sections, where a reader can take in the whole page by scrolling.
 
-## With Breakout
+### With Breakout
 
 Longer projects need more sections, and a reader who wants one of them should not have to scroll past the others to find it.
 Open such a page with a lead paragraph, list its sections in a [Table of Contents](/docs/components-navigation-table-of-contents--docs) beside the body, and give every section heading the `id` its entry points at.
@@ -29670,12 +29875,35 @@ Choose the text colour for a Spotlight from the highlight colour behind it, not 
 Yellow is a light background, so headings and paragraphs keep their default colour and only links take `color=&quot;contrast&quot;`.
 Purple is a dark one, where everything takes `color=&quot;inverse&quot;`.
 
-Give every link section a Grid Cell of its own, as the other page templates do.
+Give every Link Section a Grid Cell of its own, as the other page templates do.
 Each one is a block, and the row gap of the Grid is what sets one block apart from the next.
 [Prose](/docs/utilities-css-prose--docs) is then left with the elements within a section: its heading, its list, and the link to the wider set below them.
 
 Contact details are a [Link List](/docs/components-navigation-link-list--docs) whose links carry an icon instead of the chevron the list draws by default.
 Keep the name and the role above it in a Paragraph: they are not links, and a list of two items reads as a set of ways to get in touch.
+
+## Structure
+
+The page has a set structure.
+It includes sections that describe what the project is, its location, the reasons for it, and the timeline for planning or execution.
+This standard format helps users compare projects and find information more easily.
+
+The ‘when’ section usually features a timeline of important milestones, shown in a [Progress List](/docs/components-containers-progress-list--docs).
+This gives a brief overview of the project’s current status and future phases.
+
+Visual elements enhance the text.
+Large images provide context or show the impact.
+A map indicates the project location and the areas affected.
+A video may be included to clarify complex issues or planned changes.
+
+Related information is organized in Link Sections.
+These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
+
+## See also
+
+- [Progress List](/docs/components-containers-progress-list--docs) – the timeline of milestones.
+- [Article Page](/docs/pages-public-article-page--docs) – for a single update about the project.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the Cell sizes each section takes.
 </code></pre></div>
             </div>
         </div>
@@ -31073,7 +31301,7 @@ label?: string = &#39;Zoeken&#39;</code></pre>
      | ^
   33 |   ...commonMeta,
   34 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  35 | } satisfies Meta
+  35 |   parameters: pageParameters(
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -31100,7 +31328,7 @@ import {
   Select,
 } from &#39;@amsterdam/design-system-react&#39;
 
-import { commonMeta } from &#39;../common/commonMeta&#39;
+import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import { searchResults, searchTopics } from &#39;./data&#39;
 
 const searchTerm = &#39;veiligheid&#39;
@@ -31110,6 +31338,10 @@ const totalPages = 8
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/Search Results Page&#39;,
+  parameters: pageParameters(
+    &#39;Presents what a visitor finds after searching the site: a column of filters beside the results, &#39; +
+      &#39;with the term still in the field so the search can be refined.&#39;,
+  ),
 } satisfies Meta
 
 export default meta
@@ -31504,10 +31736,10 @@ export const Default: StoryObj = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/public/SearchResultsPage/SearchResultsPage.docs.mdx</div>
-              <div># Search results page What a visitor lands on after searching the site. It shares its layo...</div>
+              <div>A result can come from anywhere on the site, so it has no image and belongs to no single c...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { PageAnatomy } from &quot;#storybook/_components/PageAnatomy/PageAnatomy&quot;;
 
@@ -31516,17 +31748,27 @@ import * as SearchResultsStories from &quot;./SearchResultsPage.stories.tsx&quot
 
 &lt;Meta of={SearchResultsStories} /&gt;
 
-# Search results page
+&lt;Title /&gt;
 
-What a visitor lands on after searching the site.
-It shares its layout with the [News Overview Page](/docs/pages-public-news-overview-page--docs): a filter column beside a list of results.
-The difference is the content, which comes from anywhere on the site and therefore has no image and no single content type.
+&lt;Description of={SearchResultsStories} /&gt;
+
+A result can come from anywhere on the site, so it has no image and belongs to no single content type.
 
 ## Anatomy
 
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
 &lt;PageAnatomy labels={anatomyLabels} of={SearchResultsStories} /&gt;
+
+## Usage guidelines
+
+### When to use
+
+Use this page for the results of a site-wide search, where a result can be any kind of content.
+
+### When not to use
+
+Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) for an index of one content type, where every item has an image.
 
 ## Structure
 
@@ -31541,15 +31783,9 @@ Keep it out of the filter form as well: nesting one `form` inside another is inv
 Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) and announce the total in a `role=&quot;status&quot;` paragraph, as on any index page.
 Name the term that was searched for in that sentence, so it is clear what produced the list.
 
-## Headings
-
 The page title is the only Heading 1, and it names the activity rather than the query.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
 Neither Heading 2 has a place in the design, so both are visually hidden, as on the News Overview Page.
-The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
-
-A result title is the title of the page it links to.
-Do not shorten it to fit, and do not mark the matched words inside it: a highlight inside a link makes the link harder to read out.
 
 ## Layout and spacing
 
@@ -31564,9 +31800,20 @@ The News Overview Page gives a Card 4 of those 5 to keep it below the width at w
 Give the Pagination the width of the results above it rather than that of the region, so the column has one edge.
 Leave the row gap of the Subgrid at the vertical gap of the Grid.
 
-## Default
+## Accessibility
 
-A page of results with the term still in the search field.
+The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
+
+Announce the total in a `role=&quot;status&quot;` paragraph, and name the term that was searched for in that sentence, so it is clear what produced the list.
+
+A result title is the title of the page it links to.
+Do not shorten it to fit, and do not mark the matched words inside it: a highlight inside a link makes the link harder to read out.
+
+## See also
+
+- [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for one content type.
+- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way.
+- [Search Field](/docs/components-forms-search-field--docs) – the field this page repeats.
 </code></pre></div>
             </div>
         </div>
@@ -32626,7 +32873,7 @@ On a light one, keep the default colour for headings and paragraphs, and set `co
 Name the landmark when you use the `as` prop: give the heading inside the Spotlight an `id` and point `aria-labelledby` at it.
 Users of assistive technology can then tell this landmark apart from the others on the page.
 
-Find a fitting setup for the [amount and width of columns](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
+Find a fitting setup for the [amount and width of columns](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
 
 Use the `as` prop to render a meaningful HTML element: `as=&quot;section&quot;` for a self-contained content area, `as=&quot;aside&quot;` for supporting content.
 
@@ -34089,7 +34336,29 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={TableStories} story=&quot;SortingWithSelect&quot; /&gt;
 
-## Make table state easy to share
+## Usage guidelines
+
+### When to use
+
+Use this page where the work is reading, sorting and filtering a large set of records.
+
+### When not to use
+
+Use a [Table](/docs/components-containers-table--docs) inside another page type where the data supports the page rather than being the page.
+
+## Variants
+
+### Sorting with a Select
+
+The recommended layout: a visible heading and the sort and filter controls on one row above the table.
+
+### With Pagination
+
+The same table split over pages, with the current page in the URL.
+
+## Structure
+
+### Make table state easy to share
 
 Store the current state of the table features in the URL – the sort column and direction, active filters, the current page of a paginated set, etc.
 This works _with_ the web platform instead of around it: it allows users to bookmark, share or navigate to a specific state of the table.
@@ -34101,10 +34370,9 @@ https://yourapp.amsterdam.nl/some-table-page?status=4&amp;sort=name-asc&amp;page
 
 This is why we use links and forms for table controls rather than buttons.
 
-## Sort and filter controls
+### Sort and filter controls
 
 Place sort and filter controls in a row outside the table, never inside the `&lt;caption&gt;`.
-The `&lt;caption&gt;` provides the table’s accessible name, and its full subtree is part of that name: a `&lt;select&gt;` placed there would have its current value concatenated into the name on every announcement.
 
 There are two ways to lay this out, and both keep a `&lt;caption&gt;` on the table for its accessible name and data-table semantics:
 
@@ -34113,7 +34381,18 @@ There are two ways to lay this out, and both keep a `&lt;caption&gt;` on the tab
 - **Controls inline after the heading (recommended).** Place a visible heading and the controls on one row above the table – the heading on the start, the controls on the end – and give the table a visually hidden `&lt;caption&gt;` carrying the same text.
   The heading text is duplicated for assistive technology; this is the trade-off for placing the controls on the same line as the heading.
 
-The **Sorting With Select** story demonstrates the recommended layout.
+## Accessibility
+
+The `&lt;caption&gt;` provides the table’s accessible name, and its full subtree is part of that name: a `&lt;select&gt;` placed there would have its current value concatenated into the name on every announcement.
+This is why the controls sit outside it.
+
+Where the controls share a row with a visible heading, the table keeps a visually hidden `&lt;caption&gt;` carrying the same text.
+The heading text is duplicated for assistive technology; this is the trade-off for placing the controls on the same line as the heading.
+
+## See also
+
+- [Table](/docs/components-containers-table--docs) – the table itself, and what its Caption is for.
+- [Pagination](/docs/components-navigation-pagination--docs) – splits a long set over pages.
 </code></pre></div>
             </div>
         </div>
@@ -36904,22 +37183,38 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={ArticleStories} /&gt;
 
+## Usage guidelines
+
+### When to use
+
+Use this page for a single dated article: a news item, a press release, or a blog post.
+
+### When not to use
+
+Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) to list several of them.
+Use an [Information Page](/docs/pages-public-information-page--docs) for a subject that stays true rather than one that happened on a date.
+
 ## Structure
 
 - The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the article content.
 - The Content Header contains the title, a Metadata Paragraph with the publication date, and the lead paragraph.
 - A full-width hero [Image](/docs/components-media-image--docs) separates the Content Header from the body.
   It uses a 16:5 aspect ratio.
-- The title uses a level 1 Heading; each section uses a level 2 Heading.
 - The body ends with a [Link List](/docs/components-navigation-link-list--docs) of related articles.
-- A [Spotlight](/docs/components-containers-spotlight--docs) holds a newsletter call-to-action; all text and link components inside use `color=&quot;inverse&quot;`.
+- A [Spotlight](/docs/components-containers-spotlight--docs) holds a newsletter call-to-action.
 - The page closes with a Grid of [Cards](/docs/components-navigation-card--docs) referring to other recent news.
 
 ## Layout and spacing
 
-- The Grids use the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the article body, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+- The Grids use the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the article body.
   Each of those Cells carries the class; the space between them is a padding of the Grid.
+
+## See also
+
+- [News Overview Page](/docs/pages-public-news-overview-page--docs) – lists articles like this one.
+- [Spotlight](/docs/components-containers-spotlight--docs) – the call-to-action band, and what its contents need.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the values behind the section above.
 </code></pre></div>
             </div>
         </div>
@@ -38413,7 +38708,23 @@ This schematic shows the sections of a question page and how the grids and verti
 
 &lt;PageAnatomy labels={anatomyLabels} of={FormStories} story=&quot;MultipleQuestions&quot; /&gt;
 
-## Landing Page
+## Usage guidelines
+
+### When to use
+
+Use this flow for any task a visitor completes by answering questions: an application, a report, a registration.
+
+### When not to use
+
+Use a [Product Page](/docs/pages-public-product-page--docs) to explain the task and lead into this flow.
+
+### How to write
+
+Ask one thing per page, and write each question as the label or legend rather than as a separate sentence above it.
+
+## Variants
+
+### Landing Page
 
 Most form flows start with a landing page that explains the process and provides a call to action to start the form flow.
 
@@ -38421,7 +38732,7 @@ Most form flows start with a landing page that explains the process and provides
 {/*
 TODO: Decide what we want to do here first.
 
-## First Form Page
+### First Form Page
 
 The first form page is the same as other form pages, with one exception: it does not have a back link.
 A back link helps users feel secure that their progress is preserved while moving between form pages.
@@ -38430,7 +38741,7 @@ Additionally, users might reach the first form page from a source other than the
 
 \*/}
 
-## Single Question
+### Single Question
 
 On a form page with one question, the label or legend for the question is the level 1 heading of the page.
 For labels, wrap the `h1` around it.
@@ -38438,18 +38749,18 @@ For legends, wrap it around the `h1`.
 
 For more information, see [Making labels and legends headings](https://design-system.service.gov.uk/get-started/labels-legends-headings/).
 
-## Single Question With Subquestions
+### Single Question With Subquestions
 
 A single question can have subquestions. Wrap the Fields in a Field Set, and use the Field Set’s legend as the level 1 heading of the page.
 
-## With Multiple Questions
+### With Multiple Questions
 
 When a form page has multiple questions, place an `h1` outside the `form`-tag,
 which describes the group of questions.
 
 For more information, see [Question pages - Asking complex questions without using hint text](https://design-system.service.gov.uk/patterns/question-pages/#asking-complex-questions-without-using-hint-text)
 
-## With Validation Error
+### With Validation Error
 
 If the user’s answers fail validation:
 
@@ -38468,10 +38779,21 @@ For more information:
 - [Recover from validation errors](https://design-system.service.gov.uk/patterns/validation/)
 - [Error summary](https://design-system.service.gov.uk/components/error-summary/)
 
-## References
+## Accessibility
 
-- [Gov.uk on question pages](https://design-system.service.gov.uk/patterns/question-pages/)
-- [NL Design System on forms](https://nldesignsystem.nl/richtlijnen/formulieren/)
+On a page with one question, the label or legend for that question is the level 1 heading of the page, so the heading and the question are the same thing rather than two readings of it.
+
+On a page with several, the level 1 heading sits outside the `form` and describes the group.
+
+An [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) takes focus when validation fails, and prefixes the page `&lt;title&gt;` with the number of errors so a screen reader announces it immediately.
+
+## See also
+
+- [Product Page](/docs/pages-public-product-page--docs) – explains the task this flow carries out.
+- [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) – the summary at the top of a failed page.
+- [Field](/docs/components-forms-field--docs) – how to mark a single question invalid.
+- [Gov.uk on question pages](https://design-system.service.gov.uk/patterns/question-pages/) – the pattern this flow follows.
+- [NL Design System on forms](https://nldesignsystem.nl/richtlijnen/formulieren/) – the national guidance.
 </code></pre></div>
             </div>
         </div>
@@ -38865,6 +39187,16 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={HandbookStories} /&gt;
 
+## Usage guidelines
+
+### When to use
+
+Use this page for reference material long enough to need splitting: a personnel handbook, a policy document, a set of regulations.
+
+### When not to use
+
+Use an [Information Page](/docs/pages-public-information-page--docs) where a single page carries the whole subject.
+
 ## Structure
 
 - Two [Skip Links](/docs/components-navigation-skip-link--docs) at the top of the page let keyboard users jump straight to the table of contents or to the content.
@@ -38878,8 +39210,14 @@ This schematic shows the default sections for this page type and how the grids a
 
 ## Layout and spacing
 
-- The Grid uses the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
+- The Grid uses the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
 - The Prose utility class handles vertical spacing within the content area automatically.
+
+## See also
+
+- [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the navigation column, and how to control it.
+- [Skip Link](/docs/components-navigation-skip-link--docs) – why this page needs two.
+- [Information Page](/docs/pages-public-information-page--docs) – for a subject that fits on one page.
 </code></pre></div>
             </div>
         </div>
@@ -39303,55 +39641,39 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={HomeStories} /&gt;
 
-## Layout
+## Usage guidelines
 
-A typical layout for a homepage:
+### When to use
 
-```tsx
-&lt;Page&gt;
-  &lt;SkipLink href=&quot;#inhoud&quot;&gt;Direct naar inhoud&lt;/SkipLink&gt;
-  &lt;PageHeader /&gt;
-  &lt;main id=&quot;inhoud&quot;&gt;
-    &lt;Overlap&gt;
-      &lt;Search /&gt;
-    &lt;/Overlap&gt;
-    &lt;Grid&gt;
-      &lt;AppComponent1 /&gt;
-      &lt;AppComponent2 /&gt;
-      &lt;AppComponent3 /&gt;
-    &lt;/Grid&gt;
-  &lt;/main&gt;
-  &lt;PageFooter&gt;
-    &lt;PageFooter.Spotlight&gt;
-      &lt;Grid /&gt;
-    &lt;/PageFooter.Spotlight&gt;
-    &lt;PageFooter.Menu /&gt;
-  &lt;/PageFooter&gt;
-&lt;/Page&gt;
-```
+Use this page as the entry point of a website, where a visitor arrives without a subject in mind.
 
-1. The Skip Link prevents users from having to pass all preceding navigation links.
-2. The Page container sets a maximum width for the entire page.
-3. The Grid divides the available width into 4, 8, or 12 columns.
-4. The Page Header shows the logo and menus for the website.
-5. The main element wraps everything between Page Header and Page Footer.
-   It carries an id for the skip link to target.
-6. An Overlap stacks a Search Field on a background Image.
-   It is as wide as the Grid, hence it is a sibling of it.
-7. Other components in the main area are laid out on a Grid again.
-8. The Page Footer contains its own Grid.
-   This allows its background colour to stretch to the Page’s width.
+### When not to use
 
-## Headings
+Use a [Navigation Page](/docs/pages-public-navigation-page--docs) for the entry point of one subject within the site.
 
-- If there is no single, most prominent heading for the home page, add a visually hidden level 1 heading with a text like ‘Homepage van (name of the organisation)’.
+## Structure
+
+The page opens with an [Overlap](/docs/components-layout-overlap--docs) rather than a breadcrumb, stacking a [Search Field](/docs/components-forms-search-field--docs) on a background [Image](/docs/components-media-image--docs).
+An Overlap runs to the full width of the page, so it is a sibling of the Grids rather than a child of a Cell.
+Everything below it sits on a Grid again.
+See [Page structure](/docs/pages-guidelines-page-structure--docs) for the shell around it.
+
+A home page has no single most prominent subject, so it usually has no visible level 1 [Heading](/docs/components-text-heading--docs).
+
+- Add a visually hidden level 1 heading with a text like ‘Homepage van (name of the organisation)’.
   Assign level 2 and a size of ‘level-1’ to the visible headings.
 - Use the default size of ‘level-3’ headings in Cards and set their appropriate levels.
 - Do the same for blocks consisting of Heading, Paragraph, Standalone Link and Link List.
 
-## Spacing
+## Layout and spacing
 
 - In Grids of Cards, use a large vertical gap.
+
+## See also
+
+- [Navigation Page](/docs/pages-public-navigation-page--docs) – the same job for a single subject.
+- [Overlap](/docs/components-layout-overlap--docs) – the full-width opening section.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every page shares.
 </code></pre></div>
             </div>
         </div>
@@ -39600,6 +39922,17 @@ import * as HomeStories from &quot;./HomePage.stories.tsx&quot;;
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
 &lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={HomeStories} /&gt;
+
+## Usage guidelines
+
+### When to use
+
+Use this page as the landing page of a backoffice system, where a Menu carries the navigation and the page itself orients the user.
+
+## See also
+
+- [Navigation Page](/docs/pages-internal-navigation-page--docs) – for a system organised into sections with subsections.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell, including the two Menus an internal page needs.
 </code></pre></div>
             </div>
         </div>
@@ -39680,7 +40013,7 @@ const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/Information Page&#39;,
   parameters: pageParameters(
-    &#39;Explains a subject that is neither a product nor a news article: its background, the rules, &#39; +
+    &#39;Explains a subject in full: its background, the rules that apply, &#39; +
       &#39;and what they mean for a reader who wants to understand something rather than arrange it.&#39;,
   ),
 } satisfies Meta
@@ -40546,7 +40879,7 @@ export const WithTable: StoryObj = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/public/InformationPage/InformationPage.docs.mdx</div>
-              <div>For a task that ends in a form or an application, use the [Product page](/docs/pages-publi...</div>
+              <div>## Anatomy This schematic shows the default sections for this page type and how the grids ...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -40562,45 +40895,25 @@ import * as InformationStories from &quot;./InformationPage.stories.tsx&quot;;
 
 &lt;Description of={InformationStories} /&gt;
 
-For a task that ends in a form or an application, use the [Product page](/docs/pages-public-product-page--docs) instead.
-
 ## Anatomy
 
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
 &lt;PageAnatomy labels={anatomyLabels} of={InformationStories} /&gt;
 
-## Structure
+## Usage guidelines
 
-- The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
-- The Content Header contains the title and a Metadata Paragraph that classifies the page: taxonomy tags, optionally preceded by a date.
-  The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
-- The body holds several sections, each opening with a level 2 Heading.
-- The Content Header Grid holds the title and the metadata in one Cell.
-  Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
-- Each section below the Content Header sits in its own Grid, so the padding between those Grids sets them apart rather than a row gap.
+### When to use
 
-## Headings
+Use this page to explain a subject a reader wants to understand: its background, the rules, and what they mean.
 
-- Use a level 1 Heading for the title of the page.
-- Use level 2 Headings for the section titles, and level 3 for subsections.
-- Set the Accordion’s `headingLevel` one level below the section heading it follows.
-  In the first example that is level 3.
+### When not to use
 
-## Layout and spacing
+For a task that ends in a form or an application, use the [Product Page](/docs/pages-public-product-page--docs) instead.
 
-- The Grids use the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
-  The Cells for the lead paragraph and the Image take the sizes for side-by-side blocks, which reach one column further than the Content Header Cell above them.
-- All body sections share a single Grid Cell, indented one column on wider screens for a comfortable reading measure.
-- Where the lead paragraph takes a Cell of its own, the Grid’s row gap sets the space between it and the metadata above.
-  That gap stays at `x-large` rather than the medium that [vertical space](/docs/docs-designer-guide-vertical-space--docs) asks for within a Cell: the default background colour of the page runs along it — at the left-hand side, and across the full width on the narrow grid — so the wider gap still reads as one Content Header.
-- An [Image](/docs/components-media-image--docs) always reserves its box, so the layout does not shift while it loads.
-  Use `aspectRatio` to change the ratio it crops to; leaving it off keeps the default of 16:9.
-  Do not lazy-load an image in the first screenful, where it would only delay the largest image in the viewport.
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-  An Accordion starts with a Heading, which is why Prose gives it the space that heading level calls for.
+## Variants
 
-## Default
+### Default
 
 The lead paragraph and a lead Image sit side by side below the title, and stack on the narrow grid.
 
@@ -40609,7 +40922,7 @@ Keep the answers short enough to read without scrolling back to the question.
 
 Images within the body are as wide as the text column.
 
-## With Table
+### With Table
 
 Without an image beside it, the lead paragraph stays in the Content Header Cell with the title and the metadata.
 
@@ -40624,6 +40937,39 @@ The Figure supplies the space between them, so the table needs no margin of its 
 Write any sources as one sentence, with a [Link](/docs/components-navigation-link--docs) for each of them.
 The Figure Caption then presents them in the small caption text it is meant for.
 Note that the whole caption becomes the accessible name of the Figure, so keep it short.
+
+## Structure
+
+- The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
+- The Content Header contains the title and a Metadata Paragraph that classifies the page: taxonomy tags, optionally preceded by a date.
+  The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
+- The body holds several sections, each opening with a level 2 Heading.
+- The Content Header Grid holds the title and the metadata in one Cell.
+  Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
+- Each section below the Content Header sits in its own Grid, so the padding between those Grids sets them apart rather than a row gap.
+
+- Set the Accordion’s `headingLevel` one level below the section heading it follows.
+  In the ‘Default’ example that is level 3.
+
+## Layout and spacing
+
+- The Grids use the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
+  The Cells for the lead paragraph and the Image take the sizes for side-by-side blocks, which reach one column further than the Content Header Cell above them.
+- All body sections share a single Grid Cell, indented one column on wider screens for a comfortable reading measure.
+- Where the lead paragraph takes a Cell of its own, the Grid’s row gap sets the space between it and the metadata above.
+  That gap stays at `x-large` rather than the medium that [vertical space](/docs/docs-designer-guide-vertical-space--docs) asks for within a Cell: the default background colour of the page runs along it — at the left-hand side, and across the full width on the narrow grid — so the wider gap still reads as one Content Header.
+- An [Image](/docs/components-media-image--docs) always reserves its box, so the layout does not shift while it loads.
+  Use `aspectRatio` to change the ratio it crops to; leaving it off keeps the default of 16:9.
+  Do not lazy-load an image in the first screenful, where it would only delay the largest image in the viewport.
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+  An Accordion starts with a Heading, which is why Prose gives it the space that heading level calls for.
+
+## See also
+
+- [Product Page](/docs/pages-public-product-page--docs) – for a subject that ends in an application.
+- [Accordion](/docs/components-containers-accordion--docs) – groups the detail questions.
+- [Table](/docs/components-containers-table--docs) – for reference data, and what its Caption is for.
+- [Figure](/docs/components-media-figure--docs) – pairs the table with its sources.
 </code></pre></div>
             </div>
         </div>
@@ -40741,7 +41087,7 @@ const meta = {
   // The initial phase only picks which state each story opens in; it is not a prop to configure.
   argTypes: { initialPhase: { table: { disable: true } } },
   parameters: pageParameters(
-    &#39;Shows how a search results page behaves while it fetches content, &#39; +
+    &#39;Shows how a page behaves while it fetches its content, &#39; +
       &#39;keeping the layout stable as placeholders make way for the real results.&#39;,
   ),
   render: ({ initialPhase }: LoadingPageArgs) =&gt; {
@@ -41421,10 +41767,10 @@ export const Loaded: Story = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/public/LoadingPage/LoadingPage.docs.mdx</div>
-              <div># Loading page Use this template for a page that fetches its content after the first rende...</div>
+              <div>It stands in [Skeletons](/docs/components-feedback-skeleton--docs) for the results while t...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { PageAnatomy } from &quot;#storybook/_components/PageAnatomy/PageAnatomy&quot;;
 
@@ -41433,9 +41779,10 @@ import * as LoadingStories from &quot;./LoadingPage.stories.tsx&quot;;
 
 &lt;Meta of={LoadingStories} /&gt;
 
-# Loading page
+&lt;Title /&gt;
 
-Use this template for a page that fetches its content after the first render, such as a page of search results.
+&lt;Description of={LoadingStories} /&gt;
+
 It stands in [Skeletons](/docs/components-feedback-skeleton--docs) for the results while they load, and tells screen reader users what is happening.
 
 ## Anatomy
@@ -41444,6 +41791,33 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={LoadingStories} /&gt;
 
+## Usage guidelines
+
+### When to use
+
+Use this page where the content arrives after the first render, so the reader sees the shell before the results.
+
+### When not to use
+
+Where the server renders the results with the page, use the [Search Results Page](/docs/pages-public-search-results-page--docs), which has no loading state to manage.
+
+## Variants
+
+### Default
+
+The page before a search has run, with an empty field and no results region.
+
+### Loading
+
+The page while the results are on their way.
+
+Compose each Skeleton from the same parts, in the same Grid Cell, as the Card that will replace it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+Mirroring the shape keeps the layout shift small, but does not remove it.
+
+### Loaded
+
+The results in place, under a heading that counts them.
+
 ## Structure
 
 - The Content Header and the results are each their own section, so a plain `main` wraps them both.
@@ -41451,34 +41825,31 @@ This schematic shows the default sections for this page type and how the grids a
   The [Search Field](/docs/components-forms-search-field--docs) takes the place of the lead paragraph in the Content Header Cell, so [Prose](/docs/utilities-css-prose--docs) spaces it a medium below the title.
 - That Cell spans half the grid on wide screens, so the search input does not stretch to an unusable length.
   It takes three quarters of the grid at medium and the full width at narrow.
-  The title follows that width rather than the [Content Header Cell](/docs/pages-public-introduction--docs#content-header) other page types use, because search is not a content page.
+  The title follows that width rather than the [Content Header Cell](/docs/pages-guidelines-layout-and-spacing--docs#content-header) other page types use, because search is not a content page.
 - The results are [Cards](/docs/components-navigation-card--docs) of 4 columns, in a second Grid.
-
-## Loading
-
-The ‘Loading’ example shows the page while the results are on their way.
-
-- Compose each Skeleton from the same parts, in the same Grid Cell, as the Card that will replace it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
-  Mirroring the shape keeps the layout shift small, but does not remove it.
-- Mark the whole results region busy while it loads, and let it announce once.
-  Marking each Skeleton would repeat the message for every card.
-  The Skeletons are hidden from assistive technologies, so the status message is all a screen reader hears.
-- Be aware that `aria-busy=&quot;true&quot;` also permits assistive technology to hold back updates from the status message and deliver them as one update once it turns false.
-  The ARIA specification allows this rather than requiring it, so not every screen reader does it.
-
-## Loaded
-
-The ‘Loaded’ example shows the results in place, under a heading that counts them.
-
-- Keep one status message in the DOM at all times and only change its text, from a loading message to the result count.
-  A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
-- No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
 
 ## Layout and spacing
 
 - The first Grid takes a `paddingTop` of `large`, as the first Grid of every page does.
 - Both Grids have the default background colour, so the second one takes a `paddingTop` of `2x-large`.
 - The last Grid before the Page Footer takes a `paddingBottom` of `2x-large`.
+
+## Accessibility
+
+- Mark the whole results region busy while it loads, and let it announce once.
+  Marking each Skeleton would repeat the message for every card.
+  The Skeletons are hidden from assistive technologies, so the status message is all a screen reader hears.
+- Be aware that `aria-busy=&quot;true&quot;` also permits assistive technology to hold back updates from the status message and deliver them as one update once it turns false.
+  The ARIA specification allows this rather than requiring it, so not every screen reader does it.
+- Keep one status message in the DOM at all times and only change its text, from a loading message to the result count.
+  A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
+- No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
+
+## See also
+
+- [Skeleton](/docs/components-feedback-skeleton--docs) – what stands in for a result while it loads.
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same page without a loading state.
+- [News Overview Page](/docs/pages-public-news-overview-page--docs) – the filter-and-results layout these share.
 </code></pre></div>
             </div>
         </div>
@@ -43577,18 +43948,40 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={NavigationStories} /&gt;
 
-## Headings
+## Usage guidelines
 
-- Use a level 1 Heading for the page title.
-- Set a size of ‘level-3’ to the headings in Link Sections (blocks consisting of a Heading, Paragraph, Standalone Link and/or a Link List).
-  Card Headings already set this by default.
-- If multiple Cards and Link Sections are grouped, update their Heading levels accordingly.
+### When to use
 
-## Spacing
+Use this page as the entry point of one subject, where the page itself carries little content and mostly points onward.
 
-- Grids on this page type use the default x-large vertical gap.
+### When not to use
 
-## With side navigation
+Use a [Home Page](/docs/pages-public-home-page--docs) for the entry point of the whole site.
+
+## Variants
+
+### Default
+
+The plain form: a Content Header, then Link Sections that each pair a heading with a Link List.
+Every section heading is a level 2 Heading at `size=&quot;level-3&quot;`, because a group of links is a block rather than a body of content.
+
+### With top tasks
+
+Adds a row of [Cards](/docs/components-navigation-card--docs) above the Link Sections for the handful of things most visitors come to do.
+The Cards carry a heading and a link and no image, so they take 3 columns each on the wide grid and fit four to a row.
+
+### With an interactive element
+
+Adds a [Spotlight](/docs/components-containers-spotlight--docs) holding a [Search Field](/docs/components-forms-search-field--docs) and the links around it, for a subject where a visitor looks something up rather than browses to it.
+A full-width [Image](/docs/components-media-image--docs) closes the page.
+
+### With an image gallery
+
+Opens with a full-width Image at a 16:5 ratio and introduces the people behind the subject as Cards that each carry a portrait.
+Those Card Headings are level 3, because the heading above the set is the level 2.
+A gallery of images closes the page, below the contact details.
+
+### With side navigation
 
 Use a side navigation when the page presents one entry from a long list, and visitors move between those entries without leaving the page.
 A [Table of Contents](/docs/components-navigation-table-of-contents--docs) is the navigation for this.
@@ -43605,20 +43998,45 @@ Set `main` on the Subgrid rather than on the Grid around it.
 The navigation switches between entries and is a repeated block, so it does not belong to the main content area.
 This puts the page title outside the landmark, which is the trade-off for keeping the navigation out of it.
 
-Such a page has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
-Name each after the thing it reaches rather than numbering them.
-
 Because the entry’s parts each sit in their own Cell of the Subgrid, the space between them is the row gap.
 Leave the row gap of the Subgrid at the vertical gap of the Grid.
 That gap has no medium size, so the space below the entry’s heading is larger than the vertical space guide advises for a heading.
 Keep elements in one cell where you need the exact space between them.
 
 A map belongs on this page as an interactive component, not as an [Image](/docs/components-media-image--docs).
-Whichever you use, it needs a text alternative: here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
+
+### Subnavigation page
+
+The page one level further down, so its breadcrumb carries two links rather than one.
+It mixes running text with the Link Sections, so its headings take the levels of a content page: a level 2 opens a section and a level 3 a block within it.
+
+## Structure
+
+- Set a size of ‘level-3’ on the headings in Link Sections (blocks consisting of a Heading, Paragraph, Standalone Link and/or a Link List).
+  Card Headings already set this by default.
+- If multiple Cards and Link Sections are grouped, update their Heading levels accordingly.
+
+## Layout and spacing
+
+- Grids on this page type use the default x-large vertical gap.
+
+## Accessibility
+
+A page with a side navigation has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
+Name each after the thing it reaches rather than numbering them.
+
+A map needs a text alternative, whether it is an image or an interactive component.
+Here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
 
 Give a repeated action such as ‘Toon op de kaart’ a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on.
 Without it, every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
 Put the suffix after the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.
+
+## See also
+
+- [Home Page](/docs/pages-public-home-page--docs) – the same job for the whole site.
+- [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the side navigation.
+- [Grid](/docs/components-layout-grid--docs) – the Subgrid the entry sits in.
 </code></pre></div>
             </div>
         </div>
@@ -44008,7 +44426,7 @@ export const Default: StoryObj = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/internal/NavigationPage/NavigationPage.docs.mdx</div>
-              <div>The main navigation is provided by the [Menu](/docs/components-navigation-menu--docs) comp...</div>
+              <div>## Anatomy This schematic shows the default sections for this page type and how the grids ...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -44030,6 +44448,25 @@ import * as NavigationPageStories from &quot;./NavigationPage.stories&quot;;
 
 &lt;Description of={NavigationPageStories} /&gt;
 
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+&lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={NavigationPageStories} /&gt;
+
+## Usage guidelines
+
+### When to use
+
+This template works best with 3–7 main sections.
+Too few make the vertical Tab Navigation redundant; too many make it hard to scan.
+
+### When not to use
+
+Use an [Internal Home Page](/docs/pages-internal-home-page--docs) where the Menu alone carries the navigation.
+
+## Structure
+
 The main navigation is provided by the [Menu](/docs/components-navigation-menu--docs) component.
 Within the body of the page, a vertical [Tab Navigation](/docs/components-navigation-tab-navigation--docs) shows its main sections, each with an icon.
 A second, horizontal Tab Navigation across the top shows the sub-items for the active section.
@@ -44037,17 +44474,15 @@ A second, horizontal Tab Navigation across the top shows the sub-items for the a
 Clicking a main section selects it, updates the sub-navigation, and resets its scroll position to the start.
 Each link has an `href` with a slug-based path, making the pattern suitable for both server-rendered pages and single-page applications.
 
-This template works best with 3–7 main sections.
-Too few make the vertical Tab Navigation redundant; too many make it hard to scan.
+## Layout and spacing
 
 On narrow screens both Tab Navigations stack vertically.
 This is a known limitation, and the mobile design is being further explored.
 
-## Anatomy
+## See also
 
-This schematic shows the default sections for this page type and how the grids and vertical space work.
-
-&lt;PageAnatomy labels={anatomyLabels} menu mode=&quot;compact&quot; of={NavigationPageStories} /&gt;
+- [Tab Navigation](/docs/components-navigation-tab-navigation--docs) – both navigations on this page.
+- [Menu](/docs/components-navigation-menu--docs) – the navigation across modules.
 </code></pre></div>
             </div>
         </div>
@@ -44100,7 +44535,7 @@ This schematic shows the default sections for this page type and how the grids a
      | ^
   51 |   ...commonMeta,
   52 |   title: &#39;Pages/Public/News Overview Page&#39;,
-  53 | } satisfies Meta
+  53 |   parameters: pageParameters(
 
 ./src/pages/public/NewsOverviewPage/NewsOverviewPage.stories.tsx:
 /**
@@ -44127,7 +44562,7 @@ import {
   Select,
 } from &#39;@amsterdam/design-system-react&#39;
 
-import { commonMeta } from &#39;../common/commonMeta&#39;
+import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import { newsArticles, newsCategories, newsDistricts } from &#39;./data&#39;
 
 const searchTerm = &#39;tramspoor&#39;
@@ -44155,6 +44590,10 @@ const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/News Overview Page&#39;,
+  parameters: pageParameters(
+    &#39;Lists content items that a visitor narrows down with filters: &#39; +
+      &#39;news, blogs, vacancies, activities, or search results.&#39;,
+  ),
 } satisfies Meta
 
 export default meta
@@ -44621,10 +45060,10 @@ export const Default: StoryObj = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/public/NewsOverviewPage/NewsOverviewPage.docs.mdx</div>
-              <div># News overview page An index of content items that a visitor narrows down: news, blogs, v...</div>
+              <div>The page is a filter column beside a list of results, and the same layout serves all of th...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { PageAnatomy } from &quot;#storybook/_components/PageAnatomy/PageAnatomy&quot;;
 
@@ -44633,17 +45072,28 @@ import * as NewsOverviewStories from &quot;./NewsOverviewPage.stories.tsx&quot;;
 
 &lt;Meta of={NewsOverviewStories} /&gt;
 
-# News overview page
+&lt;Title /&gt;
 
-An index of content items that a visitor narrows down: news, blogs, vacancies, activities, or search results.
+&lt;Description of={NewsOverviewStories} /&gt;
+
 The page is a filter column beside a list of results, and the same layout serves all of those content types.
-Use a [Home Page](/docs/pages-public-home-page--docs) section instead when a handful of items is enough and nobody needs to filter them.
 
 ## Anatomy
 
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
 &lt;PageAnatomy labels={anatomyLabels} of={NewsOverviewStories} /&gt;
+
+## Usage guidelines
+
+### When to use
+
+Use this page for an index of one content type that a visitor narrows down with filters.
+
+### When not to use
+
+Use a [Home Page](/docs/pages-public-home-page--docs) section instead when a handful of items is enough and nobody needs to filter them.
+Use a [Search Results Page](/docs/pages-public-search-results-page--docs) where a result can be any kind of content.
 
 ## Structure
 
@@ -44667,14 +45117,9 @@ It applies the punctuation and the conjunction of the language itself, so the se
 Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell spanning all the columns of the Subgrid.
 Leave it out when everything fits on one page.
 
-## Headings
-
 The page title is the only Heading 1.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
-
 Neither Heading 2 has a place in the design, so both are visually hidden.
-They are still worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
-The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
 ## Layout and spacing
 
@@ -44694,6 +45139,21 @@ The medium grid leaves the results 5 columns, which is not enough for a row.
 Give each Card 4 of those 5 there and leave the last column empty: that is below the width at which a Card with an image goes horizontal, so the Cards turn into a single column of vertical ones and the image spans the full width of each.
 
 Two adjacent Grids add their touching paddings together, so the Grid holding the filter column and the results leaves its `paddingTop` off.
+
+## Accessibility
+
+The two hidden Heading 2s are worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
+The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
+
+Announce the number of results in a `role=&quot;status&quot;` paragraph and name the filters that produced it.
+A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
+
+## See also
+
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same layout for results of any type.
+- [Loading Page](/docs/pages-public-loading-page--docs) – this layout while its results are on their way.
+- [Card](/docs/components-navigation-card--docs) – the result, and when it turns horizontal.
+- [Pagination](/docs/components-navigation-pagination--docs) – closes the list.
 </code></pre></div>
             </div>
         </div>
@@ -45255,15 +45715,30 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={ProductStories} /&gt;
 
-## Headings
+## Usage guidelines
 
-- Use a level 1 Heading for the title of the page.
-- Use level 2 Headings for the section titles.
+### When to use
 
-## Spacing
+Use this page for a product or service a resident can arrange, where the page has to end in a next step.
 
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-  A section heading, the list or paragraph under it, and the Call to Action Link each get the space that guide asks for, without a margin of their own.
+### When not to use
+
+Use an [Information Page](/docs/pages-public-information-page--docs) for a subject a reader wants to understand rather than arrange.
+
+## Structure
+
+The body ends in a [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) to the next step, such as an application.
+
+## Layout and spacing
+
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell.
+  A section heading, the list or paragraph under it, and the Call to Action Link each get the space the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guide asks for, without a margin of their own.
+
+## See also
+
+- [Information Page](/docs/pages-public-information-page--docs) – for a subject with no action attached.
+- [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) – the next step this page leads to.
+- [Form Flow](/docs/pages-public-form-flow--docs) – where that next step usually goes.
 </code></pre></div>
             </div>
         </div>
@@ -45316,7 +45791,7 @@ This schematic shows the default sections for this page type and how the grids a
      | ^
   57 |   ...commonMeta,
   58 |   title: &#39;Pages/Public/Profile Page&#39;,
-  59 | } satisfies Meta
+  59 |   parameters: pageParameters(
 
 ./src/pages/public/ProfilePage/ProfilePage.stories.tsx:
 /**
@@ -45347,7 +45822,7 @@ import { MailIcon, PersonsIcon } from &#39;@amsterdam/design-system-react-icons&
 
 import { PhotoPlaceholder } from &#39;#storybook/_components/PhotoPlaceholder/PhotoPlaceholder&#39;
 
-import { commonMeta } from &#39;../common/commonMeta&#39;
+import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import { councilMembers, groupRepresentatives } from &#39;./data&#39;
 
 // Lorem Picsum is mostly landscapes, so these ids are hand-picked: each one is a photo in which a
@@ -45377,6 +45852,10 @@ const sublocationPhotos = [
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/Profile Page&#39;,
+  parameters: pageParameters(
+    &#39;Presents a single person, group of people, or place: &#39; +
+      &#39;who or what the subject is, what it offers, and how to reach or visit it.&#39;,
+  ),
 } satisfies Meta
 
 export default meta
@@ -48665,10 +49144,10 @@ import { PhotoPlaceholder } from "@amsterdam/storybook";</code></pre>
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/public/ProfilePage/ProfilePage.docs.mdx</div>
-              <div># Profile page A profile page presents a single subject: a person, a group of people, or a...</div>
+              <div>All five variants share the same skeleton. The page opens with a breadcrumb, a title and a...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { PageAnatomy } from &quot;#storybook/_components/PageAnatomy/PageAnatomy&quot;;
 
@@ -48677,10 +49156,9 @@ import * as ProfileStories from &quot;./ProfilePage.stories.tsx&quot;;
 
 &lt;Meta of={ProfileStories} /&gt;
 
-# Profile page
+&lt;Title /&gt;
 
-A profile page presents a single subject: a person, a group of people, or a place.
-It answers who or what the subject is, what it offers, and how to reach or visit it.
+&lt;Description of={ProfileStories} /&gt;
 
 All five variants share the same skeleton.
 The page opens with a breadcrumb, a title and a lead paragraph, followed by the sections that describe the subject.
@@ -48692,45 +49170,57 @@ This schematic shows the sections of a person profile and how the grids and vert
 
 &lt;PageAnatomy labels={anatomyLabels} of={ProfileStories} story=&quot;Person&quot; /&gt;
 
+## Usage guidelines
+
+### When to use
+
+Use this page for a single subject people want to reach or visit: a person with a public role, a body that acts as one, or a place.
+
+### When not to use
+
+Use a [Product Page](/docs/pages-public-product-page--docs) where the subject is something to arrange rather than someone to reach.
+
 ## Variants
 
-**Person** profiles an individual with a public role, such as the mayor.
+### Person
+
+Profiles an individual with a public role, such as the mayor.
 A portrait sits beside the lead, and a Link List at the end points to the curriculum vitae and the additional positions, which carry too much text to sit on this page.
 
-**Group** profiles a body of people that acts as one, such as a party group in the city council.
+### Group
+
+Profiles a body of people that acts as one, such as a party group in the city council.
 It adds an address and contact block built from Description Lists, and closes with a grid of Cards, one per member.
 
-**Location** profiles a single place people can visit.
+### Location
+
+Profiles a single place people can visit.
 A full-width image establishes the place, and the practical blocks answer what can be hired, how to get there and where to park.
 
-**Location large** is the same page for a venue with several halls and much more practical information.
+### Location large
+
+The same page for a venue with several halls and much more practical information.
 It adds an Alert for temporary disruptions, Cards for the individual spaces, and a longer run of detail blocks.
 
-**Sublocation** profiles a place that belongs to a larger one, so its breadcrumb is one level deeper.
+### Sublocation
+
+Profiles a place that belongs to a larger one, so its breadcrumb is one level deeper.
 It drops the full-width image and instead pairs the facilities list with an Image Slider.
 
-## How to build these pages
+## Structure
 
 The Layout does not render `&lt;main&gt;`, so each page provides its own `&lt;main id=&quot;inhoud&quot;&gt;`, which is the Skip Link target.
 The Breadcrumb sits in its own Grid above it.
 
-A Spotlight has to be a sibling of the Grids rather than a child of a Grid Cell, because it needs the full page width.
-It carries its own Grid, and every Heading, Paragraph and link inside it needs `color=&quot;inverse&quot;`, because these pages use the default purple background.
+A [Spotlight](/docs/components-containers-spotlight--docs) has to be a sibling of the Grids rather than a child of a Grid Cell, because it needs the full page width.
+It carries its own Grid.
 
-Use the [recommended Cell sizes](/docs/pages-public-introduction--docs) for each kind of section.
+Use the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells) for each kind of section.
 Note that the title and lead sit one column further right than the sections below them, which is deliberate.
 
-Group a set of photos in an Image Slider rather than a Row.
-Images in a Row keep their intrinsic width instead of shrinking, so they overflow the Cell and cover the next column.
+Group a set of photos in an [Image Slider](/docs/components-media-image-slider--docs) rather than a [Row](/docs/components-layout-row--docs).
 
-Where a column of blocks sits beside a much taller one, give each column a [Grid Subgrid](/docs/components-layout-grid--docs) rather than placing every block in a Cell of the Grid itself.
-A Subgrid hands the columns it spans to its own Cells, so each column stacks on its own and a tall block does not push the block beside it down.
-Two Subgrids that each span the whole narrow grid also lay the right column out below the left one there, rather than interleaving the two.
-
-A Subgrid is also what lets a section heading sit the space the guidance asks for above the sections it introduces.
-A heading in a Cell of its own is spaced by the row gap of the Grid, which is an x-large where the guidance asks for a small or less.
-Give that Grid a `gapVertical` of `none`, let the heading Cell set the right amount with an `ams-mb-*` utility, and put the Cells below it in a Subgrid with a `gapVertical` of `x-large`, which is the gap the Grid used to give them.
-A section that shares its Grid with the Content Header needs a Grid of its own first, since the header depends on that row gap.
+Where a column of blocks sits beside a much taller one, give each column a [Grid Subgrid](/docs/components-layout-grid--docs#subgrid) rather than placing every block in a Cell of the Grid itself, so a tall block does not push the block beside it down.
 
 ## Layout and spacing
 
@@ -48752,12 +49242,11 @@ Put the two in one Cell when the exact value matters, and accept the row gap whe
 
 ## See also
 
-- [Card](/docs/components-navigation-card--docs)
-- [Description List](/docs/components-text-description-list--docs)
-- [Grid](/docs/components-layout-grid--docs)
-- [Image Slider](/docs/components-media-image-slider--docs)
-- [Link List](/docs/components-navigation-link-list--docs)
-- [Spotlight](/docs/components-containers-spotlight--docs)
+- [Description List](/docs/components-text-description-list--docs) – the address and contact blocks.
+- [Grid](/docs/components-layout-grid--docs) – the Subgrid that keeps uneven columns apart.
+- [Image Slider](/docs/components-media-image-slider--docs) – for a set of photos.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – how to space a section heading above the blocks it introduces.
+- [Spotlight](/docs/components-containers-spotlight--docs) – the call-to-action band, and what its contents need.
 </code></pre></div>
             </div>
         </div>
@@ -51302,29 +51791,24 @@ This schematic shows the default sections for this page type and how the grids a
 
 &lt;PageAnatomy labels={anatomyLabels} of={ProjectStories} /&gt;
 
-## Structure
+## Usage guidelines
 
-The page has a set structure.
-It includes sections that describe what the project is, its location, the reasons for it, and the timeline for planning or execution.
-This standard format helps users compare projects and find information more easily.
+### When to use
 
-The ‘when’ section usually features a timeline of important milestones, shown in a [Progress List](/docs/components-containers-progress-list--docs).
-This gives a brief overview of the project’s current status and future phases.
+Use this page for a construction or traffic project that runs over time and affects a neighbourhood.
 
-Visual elements enhance the text.
-Large images provide context or show the impact.
-A map indicates the project location and the areas affected.
-A video may be included to clarify complex issues or planned changes.
+### When not to use
 
-Related information is organized in link blocks.
-These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
+Use an [Article Page](/docs/pages-public-article-page--docs) for a single announcement about that project.
 
-## Default
+## Variants
 
-Give the page a single body column and pair the link sections two per row.
+### Default
+
+Give the page a single body column and pair the Link Sections two per row.
 This suits a project with a handful of related sections, where a reader can take in the whole page by scrolling.
 
-## With Breakout
+### With Breakout
 
 Longer projects need more sections, and a reader who wants one of them should not have to scroll past the others to find it.
 Open such a page with a lead paragraph, list its sections in a [Table of Contents](/docs/components-navigation-table-of-contents--docs) beside the body, and give every section heading the `id` its entry points at.
@@ -51343,12 +51827,35 @@ Choose the text colour for a Spotlight from the highlight colour behind it, not 
 Yellow is a light background, so headings and paragraphs keep their default colour and only links take `color=&quot;contrast&quot;`.
 Purple is a dark one, where everything takes `color=&quot;inverse&quot;`.
 
-Give every link section a Grid Cell of its own, as the other page templates do.
+Give every Link Section a Grid Cell of its own, as the other page templates do.
 Each one is a block, and the row gap of the Grid is what sets one block apart from the next.
 [Prose](/docs/utilities-css-prose--docs) is then left with the elements within a section: its heading, its list, and the link to the wider set below them.
 
 Contact details are a [Link List](/docs/components-navigation-link-list--docs) whose links carry an icon instead of the chevron the list draws by default.
 Keep the name and the role above it in a Paragraph: they are not links, and a list of two items reads as a set of ways to get in touch.
+
+## Structure
+
+The page has a set structure.
+It includes sections that describe what the project is, its location, the reasons for it, and the timeline for planning or execution.
+This standard format helps users compare projects and find information more easily.
+
+The ‘when’ section usually features a timeline of important milestones, shown in a [Progress List](/docs/components-containers-progress-list--docs).
+This gives a brief overview of the project’s current status and future phases.
+
+Visual elements enhance the text.
+Large images provide context or show the impact.
+A map indicates the project location and the areas affected.
+A video may be included to clarify complex issues or planned changes.
+
+Related information is organized in Link Sections.
+These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
+
+## See also
+
+- [Progress List](/docs/components-containers-progress-list--docs) – the timeline of milestones.
+- [Article Page](/docs/pages-public-article-page--docs) – for a single update about the project.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the Cell sizes each section takes.
 </code></pre></div>
             </div>
         </div>
@@ -51401,7 +51908,7 @@ Keep the name and the role above it in a Paragraph: they are not links, and a li
      | ^
   33 |   ...commonMeta,
   34 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  35 | } satisfies Meta
+  35 |   parameters: pageParameters(
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -51428,7 +51935,7 @@ import {
   Select,
 } from &#39;@amsterdam/design-system-react&#39;
 
-import { commonMeta } from &#39;../common/commonMeta&#39;
+import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
 import { searchResults, searchTopics } from &#39;./data&#39;
 
 const searchTerm = &#39;veiligheid&#39;
@@ -51438,6 +51945,10 @@ const totalPages = 8
 const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/Search Results Page&#39;,
+  parameters: pageParameters(
+    &#39;Presents what a visitor finds after searching the site: a column of filters beside the results, &#39; +
+      &#39;with the term still in the field so the search can be refined.&#39;,
+  ),
 } satisfies Meta
 
 export default meta
@@ -51832,10 +52343,10 @@ export const Default: StoryObj = {
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/pages/public/SearchResultsPage/SearchResultsPage.docs.mdx</div>
-              <div># Search results page What a visitor lands on after searching the site. It shares its layo...</div>
+              <div>A result can come from anywhere on the site, so it has no image and belongs to no single c...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
-import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+import { Description, Meta, Title } from &quot;@storybook/addon-docs/blocks&quot;;
 
 import { PageAnatomy } from &quot;#storybook/_components/PageAnatomy/PageAnatomy&quot;;
 
@@ -51844,17 +52355,27 @@ import * as SearchResultsStories from &quot;./SearchResultsPage.stories.tsx&quot
 
 &lt;Meta of={SearchResultsStories} /&gt;
 
-# Search results page
+&lt;Title /&gt;
 
-What a visitor lands on after searching the site.
-It shares its layout with the [News Overview Page](/docs/pages-public-news-overview-page--docs): a filter column beside a list of results.
-The difference is the content, which comes from anywhere on the site and therefore has no image and no single content type.
+&lt;Description of={SearchResultsStories} /&gt;
+
+A result can come from anywhere on the site, so it has no image and belongs to no single content type.
 
 ## Anatomy
 
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
 &lt;PageAnatomy labels={anatomyLabels} of={SearchResultsStories} /&gt;
+
+## Usage guidelines
+
+### When to use
+
+Use this page for the results of a site-wide search, where a result can be any kind of content.
+
+### When not to use
+
+Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) for an index of one content type, where every item has an image.
 
 ## Structure
 
@@ -51869,15 +52390,9 @@ Keep it out of the filter form as well: nesting one `form` inside another is inv
 Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) and announce the total in a `role=&quot;status&quot;` paragraph, as on any index page.
 Name the term that was searched for in that sentence, so it is clear what produced the list.
 
-## Headings
-
 The page title is the only Heading 1, and it names the activity rather than the query.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
 Neither Heading 2 has a place in the design, so both are visually hidden, as on the News Overview Page.
-The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
-
-A result title is the title of the page it links to.
-Do not shorten it to fit, and do not mark the matched words inside it: a highlight inside a link makes the link harder to read out.
 
 ## Layout and spacing
 
@@ -51892,9 +52407,20 @@ The News Overview Page gives a Card 4 of those 5 to keep it below the width at w
 Give the Pagination the width of the results above it rather than that of the region, so the column has one edge.
 Leave the row gap of the Subgrid at the vertical gap of the Grid.
 
-## Default
+## Accessibility
 
-A page of results with the term still in the search field.
+The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
+
+Announce the total in a `role=&quot;status&quot;` paragraph, and name the term that was searched for in that sentence, so it is clear what produced the list.
+
+A result title is the title of the page it links to.
+Do not shorten it to fit, and do not mark the matched words inside it: a highlight inside a link makes the link harder to read out.
+
+## See also
+
+- [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for one content type.
+- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way.
+- [Search Field](/docs/components-forms-search-field--docs) – the field this page repeats.
 </code></pre></div>
             </div>
         </div>
@@ -52658,7 +53184,7 @@ It takes the same **medium** below the title, so the header holds together as on
 Anything larger below the title — an Image Slider, for one — takes a Grid Cell of its own instead, which sets it apart by the row gap of **x-large**.
 
 The space below the Content Header is a padding of the Grid that holds it, not a margin on the lead Paragraph.
-See [the Content Header Grid](/docs/pages-public-introduction--docs#the-content-header-grid) for the amount to use.
+See [the Content Header Grid](/docs/pages-guidelines-layout-and-spacing--docs#the-content-header-grid) for the amount to use.
 
 ### Section Headings
 
@@ -55588,19 +56114,19 @@ Use the ‘Go to full screen’ (or press `alt+F`) or ‘Open canvas in new tab�
   aria-label="Docs">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Pages/Public/Introduction</h2>
+      <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Choosing a page type</h2>
       <div class="badges">
         
-        <label for="doc-30-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-30-pages-guidelines-choosing-a-page-type-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
-    <div class="meta" title="./src/pages/public/Introduction.docs.mdx">pages-public-introduction--docs · ./src/pages/public/Introduction.docs.mdx</div>
-    <div># Public websites The City maintains numerous websites for various target audiences: citiz...</div>
+    <div class="meta" title="./src/pages/guidelines/choosing-a-page-type.docs.mdx">pages-guidelines-choosing-a-page-type--docs · ./src/pages/guidelines/choosing-a-page-type.docs.mdx</div>
+    <div># Choosing a page type Start from what the page is for rather than from what it looks like...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-30-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-30-pages-guidelines-choosing-a-page-type-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -55611,39 +56137,86 @@ Use the ‘Go to full screen’ (or press `alt+F`) or ‘Open canvas in new tab�
 
 import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
-&lt;Meta title=&quot;Pages/Public/Introduction&quot; /&gt;
+&lt;Meta title=&quot;Pages/Guidelines/Choosing a page type&quot; /&gt;
 
-# Public websites
+# Choosing a page type
 
-The City maintains numerous websites for various target audiences: citizens, entrepreneurs and visitors.
-This section presents a number of page types for websites of which Amsterdam is the primary sender, and the intended audience is the general public or a specific part of it.
+Start from what the page is for rather than from what it looks like.
+Two questions settle most of it: is the site public or internal, and does the page carry content, help someone find content, or carry a task?
 
-## Spacious Mode
+## Public pages that carry content
 
-Public websites must use the default Spacious Mode, which applies generous
-[typography](/docs/brand-design-tokens-typography--docs) and [spacing](/docs/brand-design-tokens-space--docs).
-This appearance keeps the focus on the content.
-It makes information easy to read and helps users find what they need without distractions.
+The [Article Page](/docs/pages-public-article-page--docs) presents a single news item, from its headline and lead to the related reading that follows.
+The [Information Page](/docs/pages-public-information-page--docs) explains a subject that is neither a product nor a news article, for a reader who wants to understand something rather than arrange it.
+The [Product Page](/docs/pages-public-product-page--docs) brings together everything a resident needs to know about a product or service of the City, and guides them toward the next step.
+The [Project Page](/docs/pages-public-project-page--docs) keeps residents and stakeholders informed about a construction or traffic project.
+The [Profile Page](/docs/pages-public-profile-page--docs) presents a single person, group of people, or place.
+The [Handbook Page](/docs/pages-public-handbook-page--docs) presents long-form reference material as a set of short pages that stay easy to navigate.
 
-## Anatomy
+## Public pages that help people find content
 
-The ‘Docs’ page of each page type opens with a schematic of its Default example, drawn once per Grid variant: the narrow, medium, and wide grids of 4, 8, and 12 columns.
-It reads the sections and the cells on them from the example itself, so it shows the same page.
+The [Home Page](/docs/pages-public-home-page--docs) is the entry point of a website, offering a broad overview of its main subjects, common tasks, and recent news.
+The [Navigation Page](/docs/pages-public-navigation-page--docs) is a signpost with little content of its own, grouping links to related pages.
+The [News Overview Page](/docs/pages-public-news-overview-page--docs) lists content items that a visitor narrows down with filters.
+The [Search Results Page](/docs/pages-public-search-results-page--docs) presents what a visitor finds after searching the site, in that same filter-and-results layout.
+The [Loading Page](/docs/pages-public-loading-page--docs) shows how such a page behaves while it fetches its content.
 
-Side by side, the three drawings share one scale.
-The vertical space between the sections is the amount the tokens give it, and each square of the paper is one [`ams.space.m`](/docs/brand-design-tokens-space--docs): 16 pixels on a phone and 24 on a desktop.
-The height of a cell is an impression: nothing in the example says how tall its content is.
-It comes from a scale of seven steps, from a single line of text to a body of one, so the same kind of content is the same size on every page type and nothing is drawn taller than a body of text.
-Where there is no room for three drawings beside one another, the buttons above them choose which of the three to show.
+## Public pages that carry a task
 
-A page often repeats one cell down a whole screen, such as the eight top tasks of a home page.
-The drawing shows the first row of such a run and the last, with a dashed marker in between for the ones it leaves out.
-That marker counts cells where they lie one under the other, and rows where they lie beside one another: ‘8 more’, but ‘3 × 2 more’ for three rows of two.
-It all happens per Grid variant, because a run that fills a phone from top to bottom may take two rows on a desktop.
+The [Form Flow](/docs/pages-public-form-flow--docs) guides the user through a task one step at a time, with a stripped-back header and footer that keep the focus on answering each question.
 
-## Page structure
+## Internal pages
 
-The general structure for a page is:
+The [Home Page](/docs/pages-internal-home-page--docs) is the entry point of an internal website, such as a backoffice system.
+The [Navigation Page](/docs/pages-internal-navigation-page--docs) suits websites whose content is organised into a handful of main sections that each have their own subsections.
+The [Table Page](/docs/pages-internal-table-page--docs) helps users work through large sets of data, with the sorting, filtering, and paging state kept in the URL.
+
+## When none of these fits
+
+Most new page types turn out to be an arrangement of sections these templates already use, so [Composing your own page](/docs/pages-guidelines-composing-your-own-page--docs) is the place to start.
+Where your context needs something else, design it, and tell us about it: templates that prove themselves in a service are candidates to join the design system.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Page structure</h2>
+      <div class="badges">
+        
+        <label for="doc-31-pages-guidelines-page-structure-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/pages/guidelines/page-structure.docs.mdx">pages-guidelines-page-structure--docs · ./src/pages/guidelines/page-structure.docs.mdx</div>
+    <div># Page structure Every page template is built from the same shell. This page gives that sh...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-31-pages-guidelines-page-structure-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Pages/Guidelines/Page structure&quot; /&gt;
+
+# Page structure
+
+Every page template is built from the same shell.
+This page gives that shell for both contexts, and the rules that hold for any page inside it.
+
+## A public page
 
 ```tsx
 &lt;Page&gt;
@@ -55667,15 +56240,113 @@ The general structure for a page is:
 &lt;/Page&gt;
 ```
 
-### No Menu
-
 Public websites cannot use the [Menu](/docs/components-navigation-menu--docs) component.
 They should offer navigation using the Page Header only.
 
+## An internal page
+
+```tsx
+&lt;Page withMenu&gt;
+  &lt;SkipLink className=&quot;ams-page__area--skip-link&quot; href=&quot;#inhoud&quot;&gt;
+    Direct naar inhoud
+  &lt;/SkipLink&gt;
+  &lt;PageHeader className=&quot;ams-page__area--header&quot; noMenuButtonOnWideWindow&gt;
+    &lt;Menu /&gt;
+  &lt;/PageHeader&gt;
+  &lt;Menu className=&quot;ams-page__area--menu&quot; inWideWindow /&gt;
+  &lt;main className=&quot;ams-page__area--body&quot; id=&quot;inhoud&quot;&gt;
+    &lt;Grid /&gt;
+  &lt;/main&gt;
+  &lt;PageFooter className=&quot;ams-page__area--footer&quot; /&gt;
+&lt;/Page&gt;
+```
+
+All children of `Page` have a class name starting with `ams-page__area--` to lay them out correctly on the underlying grid.
+
+Internal websites may use a [Menu](/docs/components-navigation-menu--docs) to support navigation across major functional areas or modules.
+This pattern helps users move efficiently between different parts of the website while keeping the structure clear and predictable.
+
+The component must be rendered twice.
+
+1. One instance, for narrow and medium windows, sits in the Page Header.
+   The user can access it through the menu button.
+   Hide the menu button on wide windows: this instance hides itself there, so the button would open an empty menu.
+2. A second Menu goes between the Page Header and the main content.
+   This is for wide windows, where the menu is positioned to the side.
+   The `inWideWindow` prop ensures that only one of both components is present at all times.
+
+Make sure that both menus have the same items.
+
+## Landmarks
+
+A landmark is not always a section itself.
+The Content Header is a section of its own, so a content page wraps its sections in a `main` element, or places `main` in a Grid Cell beside a sidebar.
+A page that is a single section — a question page of a Form Flow, for instance — sets `as=&quot;main&quot;` on that Grid instead.
+Such a wrapper takes no padding of its own, and the Grids inside and around it keep theirs.
+
+The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) takes a Grid of its own above `main`, so that its `nav` element stays outside the main landmark.
+
+## The skip link
+
+Every page opens with a [Skip Link](/docs/components-navigation-skip-link--docs) targeting `#inhoud`, which is the `id` of the `main` element.
+The shared layout of these templates renders it, so a template itself only has to provide the `main` it points at.
+
 ## Headings on a page
 
-Below the page title, a [Heading](/docs/components-text-heading--docs#sections-and-blocks) keeps the size of its level where it introduces a content body, and takes a `size` one step smaller where it introduces a block or a group of blocks.
-Most of the sections below are groups of blocks, so on all but the content page types every heading under the title takes the smaller size.
+The page title is a level 1 [Heading](/docs/components-text-heading--docs#sections-and-blocks), and the sections below it are level 2.
+
+On a public page, a Heading below the title keeps the size of its level where it introduces a content body, and takes a `size` one step smaller where it introduces a block or a group of blocks.
+Most sections are groups of blocks, so on all but the content page types every heading under the title takes the smaller size.
+
+Internal pages leave every heading at the size of its level.
+Compact Mode already sets the type down a step, and a second reduction would leave too little between a section and the block inside it.
+
+## See also
+
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – where the space between these sections comes from.
+- [Page](/docs/components-containers-page--docs) – the outermost wrapper.
+- [Page Header](/docs/components-containers-page-header--docs) – the top of every page.
+- [Page Footer](/docs/components-containers-page-footer--docs) – the bottom of every page.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Layout and spacing</h2>
+      <div class="badges">
+        
+        <label for="doc-32-pages-guidelines-layout-and-spacing-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/pages/guidelines/layout-and-spacing.docs.mdx">pages-guidelines-layout-and-spacing--docs · ./src/pages/guidelines/layout-and-spacing.docs.mdx</div>
+    <div># Layout and spacing Laying out a page is a lookup rather than a judgement call. This page...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-32-pages-guidelines-layout-and-spacing-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Pages/Guidelines/Layout and spacing&quot; /&gt;
+
+# Layout and spacing
+
+Laying out a page is a lookup rather than a judgement call.
+This page gives the values; a template’s own documentation page only records where it departs from them.
 
 ## Vertical space between sections
 
@@ -55683,14 +56354,12 @@ Between the Page Header and the Page Footer, the Page holds a sequence of sectio
 Most sections are a Grid, but a section can also be a Spotlight, an Image, or an Overlap.
 A Spotlight contains a Grid, which in that position also spaces the content against the edges of the coloured band.
 
-A landmark is not always a section itself.
-The Content Header is a section of its own, so a content page wraps its sections in a `main` element, or places `main` in a Grid Cell beside a sidebar.
-A page that is a single section — a question page of a Form Flow, for instance — sets `as=&quot;main&quot;` on that Grid instead.
-Such a wrapper takes no padding of its own, and the Grids inside and around it keep theirs.
-
 Sections create this space with the padding props of the Grid.
 A section that is not a Grid has no padding props and takes its space from the Grids around it.
 The Page Header and the Page Footer add no vertical space of their own, so the first and the last Grid provide it.
+
+Internal pages give every Grid the same `paddingVertical` of `x-large`.
+The sequence below applies to public pages, which vary the padding along the page.
 
 ### The first Grid
 
@@ -55698,7 +56367,7 @@ The first Grid has a `paddingTop` of `large` and no `paddingBottom`.
 On most pages it contains only the Breadcrumb, and on the question pages of a Form Flow only the back link.
 
 Not every page type has a breadcrumb.
-The Loading Page opens with its search field, and the Handbook Page relies on its table of contents.
+A page deep in a handbook relies on its table of contents instead, for one.
 Where the first Grid holds content instead of a breadcrumb, it still takes the `large` top padding.
 
 A page may also open with a section that is not a Grid.
@@ -55747,11 +56416,25 @@ A page that needs only one Grid combines both rules: a `paddingTop` of `large` a
 
 ### Vertical gaps
 
-Leave `gapVertical` at its default of `x-large`.
+Usually, leave `gapVertical` at its default of `x-large`.
+
+## Space inside a Grid Cell
+
+The [Prose](/docs/utilities-css-prose--docs) utility class sets the space between most types of elements of a Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+A Cell that carries it needs little bottom margins of its own.
+
+Where Prose has no rule for an element, every element but the last sets its own bottom margin with an [`ams-mb-*`](/docs/utilities-css-margin--docs) utility class, in the amount the vertical space guide gives.
+
+### Spacing a section heading
+
+A heading in a Cell of its own is spaced by the row gap of the Grid, which is an `x-large` where the guidance asks for a `small` or less.
+
+Give that Grid a `gapVertical` of `none`, let the heading Cell set the right amount with an `ams-mb-*` utility, and put the Cells below it in a [Grid Subgrid](/docs/components-layout-grid--docs#subgrid) with a `gapVertical` of `x-large`, which is the gap the Grid used to give them.
+A section that shares its Grid with the Content Header needs a Grid of its own first, since the header depends on that row gap.
 
 ## How to size the Grid Cells
 
-Everything on the page is wrapped in a [Grid Cell](/docs/components-layout-grid--docs).
+Almost everything on the page is wrapped in a [Grid Cell](/docs/components-layout-grid--docs).
 Its `span` and `start` props let you define where all sections go on the page.
 Do so for all variants of the Grid (narrow, medium, and wide: 4, 8, and 12 columns).
 
@@ -55769,7 +56452,7 @@ It is a bit **wider** than the body section and is positioned slightly further *
 Breadcrumbs use their own Grid placed directly above the Content Header, using the same cell configuration.
 See [the Content Header Grid](#the-content-header-grid) for the space around and inside this section.
 
-### Content page body
+### Content Body
 
 The body section contains the main textual content of the page.
 It spans **7 columns** on the wide grid and **6 columns** on the medium-wide grid to maintain an optimal line length for readability.
@@ -55781,20 +56464,37 @@ This also applies to forms.
 
 ### Side-by-side blocks
 
-Link Sections (a block with a header, paragraph, and standalone link) can be displayed **side by side**, for example within a Spotlight.
-To achieve this, use the following configuration.
-The `start` prop is not needed here.
+Link Sections (a block with a heading, paragraph, and standalone link) can be displayed **side by side**, for example within a Spotlight.
+Two of them take half the wide grid each, and the `start` prop is not needed.
 
 ```tsx
 &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }} /&gt;
 ```
 
-On navigation pages, similar sections use Link Lists and are 1 column **narrower** on wide screens.
-When rendering them in a loop, the `start` position is only necessary for the odd cells:
+Where a set of blocks sits under a heading of its own, put them in a [Grid Subgrid](/docs/components-layout-grid--docs#subgrid) spanning the whole Grid.
+The Subgrid hands its columns to its own Cells, so each block is placed against the columns of the page without repeating a `start`, and the heading above keeps a Cell in the Grid itself.
 
 ```tsx
-&lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }} /&gt;
+&lt;Grid&gt;
+  &lt;Grid.Cell span=&quot;all&quot;&gt;{/* the heading */}&lt;/Grid.Cell&gt;
+  &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} /&gt;
+  &lt;/Grid.Subgrid&gt;
+&lt;/Grid&gt;
 ```
+
+Where two columns run beside one another and one is much taller, give **each column** its own Subgrid instead.
+A Subgrid is a single item in the row of the Grid however many rows it holds, so the columns stack independently rather than a tall block pushing its neighbour down.
+On the narrow grid the second column then lands below the whole of the first rather than interleaving with it.
+
+```tsx
+&lt;Grid&gt;
+  &lt;Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }} /&gt;
+  &lt;Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 5 }} /&gt;
+&lt;/Grid&gt;
+```
+
+Blocks placed straight into a Grid rather than a Subgrid still need a `start` on every other Cell to hold the left-hand column, which is worth avoiding where a Subgrid will do.
 
 ### Top tasks
 
@@ -55819,12 +56519,212 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
 
 ## See also
 
-- [Breadcrumb](/docs/components-navigation-breadcrumb--docs)
-- [Grid](/docs/components-layout-grid--docs)
-- [Page Footer](/docs/components-containers-page-footer--docs)
-- [Page Header](/docs/components-containers-page-header--docs)
-- [Page](/docs/components-containers-page--docs)
-- [Skip Link](/docs/components-navigation-skip-link--docs)
+- [Vertical space](/docs/docs-designer-guide-vertical-space--docs) – the space between any two components.
+- [Grid](/docs/components-layout-grid--docs) – the component that carries all of this.
+- [Prose](/docs/utilities-css-prose--docs) – the utility that spaces the contents of a Cell.
+- [Margin](/docs/utilities-css-margin--docs) – the utility classes for everything Prose does not cover.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Reading the anatomy</h2>
+      <div class="badges">
+        
+        <label for="doc-33-pages-guidelines-reading-the-anatomy-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/pages/guidelines/reading-the-anatomy.docs.mdx">pages-guidelines-reading-the-anatomy--docs · ./src/pages/guidelines/reading-the-anatomy.docs.mdx</div>
+    <div># Reading the anatomy The ‘Docs’ page of each page type opens with a schematic of its Defa...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-33-pages-guidelines-reading-the-anatomy-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Pages/Guidelines/Reading the anatomy&quot; /&gt;
+
+# Reading the anatomy
+
+The ‘Docs’ page of each page type opens with a schematic of its Default example, drawn once per Grid variant: the narrow, medium, and wide grids of 4, 8, and 12 columns.
+It reads the sections and the cells on them from the example itself, so it shows the same page.
+
+Side by side, the three drawings share one scale.
+The vertical space between the sections is the amount the tokens give it, and each square of the paper is one [`ams.space.m`](/docs/brand-design-tokens-space--docs): 16 pixels on a phone and 24 on a desktop.
+The height of a cell is an impression: nothing in the example says how tall its content is.
+It comes from a scale of seven steps, from a single line of text to a body of one, so the same kind of content is the same size on every page type and nothing is drawn taller than a body of text.
+Where there is no room for three drawings beside one another, the buttons above them choose which of the three to show.
+
+## Repeated cells
+
+A page often repeats one cell down a whole screen, such as the eight top tasks of a home page.
+The drawing shows the first row of such a run and the last, with a dashed marker in between for the ones it leaves out.
+That marker counts cells where they lie one under the other, and rows where they lie beside one another: ‘8 more’, but ‘3 × 2 more’ for three rows of two.
+It all happens per Grid variant, because a run that fills a phone from top to bottom may take two rows on a desktop.
+
+## See also
+
+- [Choosing a page type](/docs/pages-guidelines-choosing-a-page-type--docs) – what each page type is for.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the values the drawing shows.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Pages/Guidelines/Composing your own page</h2>
+      <div class="badges">
+        
+        <label for="doc-34-pages-guidelines-composing-your-own-page-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/pages/guidelines/composing-your-own-page.docs.mdx">pages-guidelines-composing-your-own-page--docs · ./src/pages/guidelines/composing-your-own-page.docs.mdx</div>
+    <div># Composing your own page Most page types turn out to be an arrangement of sections these ...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-34-pages-guidelines-composing-your-own-page-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Pages/Guidelines/Composing your own page&quot; /&gt;
+
+# Composing your own page
+
+Most page types turn out to be an arrangement of sections these templates already use.
+Build a page we do not list by naming its bands and looking up what each one takes, and invent where your context asks for something the set does not cover.
+
+## The sections a page is made of
+
+Walk your design from top to bottom and name each band as one of these:
+
+- A **breadcrumb**, in a Grid of its own above the main landmark.
+- A **content header**: the page title, an optional metadata line, and the lead paragraph.
+- A **body**: the running text of the page, in a cell narrow enough to read comfortably.
+- **Side-by-side blocks**: any number of short blocks that each end in a link.
+- **Top tasks**: a row of Cards with a heading and a paragraph, and no image.
+- **Preview cards**: Cards that do carry the image of the page they point at.
+- A **Spotlight band**: a full-width coloured band, usually holding a call to action.
+- A **full-bleed image**: an Image or Image Slider that runs to the edges of the page.
+
+Naming the bands is the design decision.
+Everything after it is a lookup in [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs).
+
+## The order to decide in
+
+1. **Public or internal.** They differ in mode, in navigation, and in how the padding varies down the page.
+2. **Content, findability, or a task.** See [Choosing a page type](/docs/pages-guidelines-choosing-a-page-type--docs) for what each group looks like.
+3. **One column, or a body beside a sidebar.**
+4. **Which sections, top to bottom**, in the vocabulary above.
+5. **Look up** the Cell sizes and the Grid padding. Do not measure the design.
+
+## A variant is often enough
+
+A page that differs from an existing template in its content rather than its structure is usually a variant of that template.
+The [Profile Page](/docs/pages-public-profile-page--docs) covers a person, a group and three kinds of place in one template, which saves reaching for something new each time the subject changes.
+
+Where your context genuinely calls for a page type we do not have, design it.
+The sections above are there so it comes out consistent with the rest, not to keep the set closed.
+
+We would like to see it either way.
+A page type that works in one service usually works in others, and templates that prove themselves are candidates to join the design system.
+Tell us what you built and what you had to invent for it, and we will look at taking it on.
+
+## See also
+
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every page shares.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the values each section takes.
+- [Reading the anatomy](/docs/pages-guidelines-reading-the-anatomy--docs) – how to read the schematics.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Pages/Public/Introduction</h2>
+      <div class="badges">
+        
+        <label for="doc-35-pages-public-introduction-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/pages/public/Introduction.docs.mdx">pages-public-introduction--docs · ./src/pages/public/Introduction.docs.mdx</div>
+    <div># Public websites The City maintains numerous websites for various target audiences: citiz...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-35-pages-public-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>{/* @license CC0-1.0 */}
+
+import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
+
+&lt;Meta title=&quot;Pages/Public/Introduction&quot; /&gt;
+
+# Public websites
+
+The City maintains numerous websites for various target audiences: citizens, entrepreneurs and visitors.
+This section presents a number of page types for websites of which Amsterdam is the primary sender, and the intended audience is the general public or a specific part of it.
+
+## Spacious Mode
+
+Public websites must use the default Spacious Mode, which applies generous
+[typography](/docs/brand-design-tokens-typography--docs) and [spacing](/docs/brand-design-tokens-space--docs).
+This appearance keeps the focus on the content.
+It makes information easy to read and helps users find what they need without distractions.
+
+## What sets these pages apart
+
+Public websites cannot use the [Menu](/docs/components-navigation-menu--docs) component.
+They should offer navigation using the Page Header only.
+
+They also vary the vertical padding along the page, where an internal page gives every Grid the same amount.
+Both differences are covered where the rules are: [Page structure](/docs/pages-guidelines-page-structure--docs) and [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs).
+
+## See also
+
+- [Choosing a page type](/docs/pages-guidelines-choosing-a-page-type--docs) – what each of these page types is for.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every page shares.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the Grid padding and the Cell sizes.
+- [Internal websites](/docs/pages-internal-introduction--docs) – the page types for backoffice systems.
 </code></pre>
           </div>
         </div>
@@ -55839,7 +56739,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
       <h2><span class="status-dot dot-ok"></span> Pages/Internal/Introduction</h2>
       <div class="badges">
         
-        <label for="doc-31-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-36-pages-internal-introduction-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/pages/internal/Introduction.docs.mdx">pages-internal-introduction--docs · ./src/pages/internal/Introduction.docs.mdx</div>
@@ -55848,7 +56748,7 @@ These layouts require **4 columns** for each Card, which can be achieved with a 
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-31-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-36-pages-internal-introduction-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -55876,65 +56776,19 @@ This mode increases information density and improves the use of available screen
 Compact Mode automatically adjusts all components.
 As a result, they remain consistent and equally suitable for task-oriented workflows as they are for content-driven public websites.
 
-## Page structure
+## What sets these pages apart
 
-The general structure for a page is:
+Internal websites may use a [Menu](/docs/components-navigation-menu--docs) beside the page, which a public website cannot.
 
-```tsx
-&lt;Page withMenu&gt;
-  &lt;SkipLink className=&quot;ams-page__area--skip-link&quot; href=&quot;#inhoud&quot;&gt;
-    Direct naar inhoud
-  &lt;/SkipLink&gt;
-  &lt;PageHeader className=&quot;ams-page__area--header&quot; noMenuButtonOnWideWindow&gt;
-    &lt;Menu /&gt;
-  &lt;/PageHeader&gt;
-  &lt;Menu className=&quot;ams-page__area--menu&quot; inWideWindow /&gt;
-  &lt;main className=&quot;ams-page__area--body&quot; id=&quot;inhoud&quot;&gt;
-    &lt;Grid /&gt;
-  &lt;/main&gt;
-  &lt;PageFooter className=&quot;ams-page__area--footer&quot; /&gt;
-&lt;/Page&gt;
-```
-
-### Positioning classes
-
-All children of `Page` have a class name starting with `ams-page__area--` to lay them out correctly on the underlying grid.
-
-### With menu
-
-Internal websites may use a [Menu](/docs/components-navigation-menu--docs) to support navigation across major functional areas or modules.
-This pattern helps users move efficiently between different parts of the website while keeping the structure clear and predictable.
-
-The component must be rendered twice.
-
-1. One instance, for narrow and medium windows, sits in the Page Header.
-   The user can access it through the menu button.
-   Hide the menu button on wide windows: this instance hides itself there, so the button would open an empty menu.
-2. A second Menu goes between the Page Header and the main content.
-   This is for wide windows, where the menu is positioned to the side.
-   The `inWideWindow` prop ensures that only one of both components is present at all times.
-
-Make sure that both menus have the same items.
-
-## Vertical space
-
-Between the Page Header and the Page Footer, an internal page holds one or more Grids.
-Give each of them a `paddingVertical` of `x-large`.
-The public templates vary this padding along the page; internal pages use the same value everywhere.
-
-Leave `gapVertical` at its default of `x-large` as well, so the space between the rows matches the space above and below them.
-
-Use the [Margin](/docs/utilities-css-margin--docs) utility classes for the space between the elements within a Grid Cell, in the amounts of the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guide.
+They also give every Grid the same `paddingVertical` of `x-large`, where a public page varies that padding along the page.
+Both differences are covered where the rules are: [Page structure](/docs/pages-guidelines-page-structure--docs) and [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs).
 
 ## See also
 
-- [Breadcrumb](/docs/components-navigation-breadcrumb--docs)
-- [Grid](/docs/components-layout-grid--docs)
-- [Menu](/docs/components-navigation-menu--docs)
-- [Page Footer](/docs/components-containers-page-footer--docs)
-- [Page Header](/docs/components-containers-page-header--docs)
-- [Page](/docs/components-containers-page--docs)
-- [Skip Link](/docs/components-navigation-skip-link--docs)
+- [Choosing a page type](/docs/pages-guidelines-choosing-a-page-type--docs) – what each of these page types is for.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every page shares, including the two Menus.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the Grid padding and the Cell sizes.
+- [Public websites](/docs/pages-public-introduction--docs) – the page types for the City’s public sites.
 </code></pre>
           </div>
         </div>
