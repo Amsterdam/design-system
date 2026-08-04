@@ -95,8 +95,8 @@ const meta = {
        * placing them straight in the Grid would drop the second one below the sections beside them.
        */}
       <Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}>
-        <Grid.Cell span="all">
-          <DescriptionList className="ams-mb-l">
+        <Grid.Cell className="ams-prose" span="all">
+          <DescriptionList>
             <DescriptionList.Term>Projectnummer</DescriptionList.Term>
             <DescriptionList.Description>1001260601</DescriptionList.Description>
             <DescriptionList.Term>Object</DescriptionList.Term>
@@ -122,7 +122,7 @@ const meta = {
               <Badge color="orange" label="Bezig" />
             </DescriptionList.Description>
           </DescriptionList>
-          <Button className="ams-mb-l" icon={DocumentIcon} variant="secondary">
+          <Button icon={DocumentIcon} variant="secondary">
             Toon paspoort
           </Button>
         </Grid.Cell>
@@ -147,9 +147,9 @@ const meta = {
        * beside the sidebar, so neither the sidebar nor the sections need to span rows.
        */}
       <Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}>
-        <Grid.Cell span="all">
+        <Grid.Cell className="ams-prose" span="all">
           {/* Every section heading carries the id its Table of Contents entry points at. */}
-          <Heading className="ams-mb-m" id="risicoscan" level={2}>
+          <Heading id="risicoscan" level={2}>
             Amsterdamse risicoscan bruggen
           </Heading>
           <Column gap="small">
@@ -163,8 +163,8 @@ const meta = {
             </Row>
           </Column>
         </Grid.Cell>
-        <Grid.Cell span="all">
-          <Heading className="ams-mb-m" id="rode-sheet" level={2}>
+        <Grid.Cell className="ams-prose" span="all">
+          <Heading id="rode-sheet" level={2}>
             Amsterdamse risicoscan bruggen | Rode-sheet
           </Heading>
           <Column gap="small">
@@ -175,11 +175,11 @@ const meta = {
             <Paragraph>Definitieve constructieve risicobeoordeling</Paragraph>
           </Column>
         </Grid.Cell>
-        <Grid.Cell span="all">
-          <Heading className="ams-mb-m" id="arb-conditierapport" level={2}>
+        <Grid.Cell className="ams-prose" span="all">
+          <Heading id="arb-conditierapport" level={2}>
             Amsterdamse risicoscan bruggen Conditierapport
           </Heading>
-          <Row align="end" className="ams-mb-m" wrap>
+          <Row align="end" wrap>
             <Button icon={ChevronDownIcon} variant="secondary">
               Decompositie uitklappen
             </Button>
@@ -236,7 +236,11 @@ const meta = {
           </Table>
         </Grid.Cell>
         <Grid.Cell span="all">
-          <Row align="between" alignVertical="center" className="ams-mb-m" wrap>
+          {/*
+           * A Row hides the heading from Prose, which spaces the direct children of a Cell, so this section
+           * sets the margins itself. They are the amounts Prose gives the same elements one section up.
+           */}
+          <Row align="between" alignVertical="center" className="ams-mb-s" wrap>
             <Heading id="fmeca-conditierapport" level={2}>
               FMECA Conditierapport
             </Heading>
@@ -244,7 +248,7 @@ const meta = {
               Excel export
             </StandaloneLink>
           </Row>
-          <Row align="end" className="ams-mb-m" wrap>
+          <Row align="end" className="ams-mb-l" wrap>
             <Button icon={ChevronDownIcon} variant="secondary">
               Decompositie uitklappen
             </Button>
@@ -286,7 +290,7 @@ const meta = {
         </Grid.Cell>
         <Grid.Cell span="all">
           <Table>
-            <Table.Caption className="ams-mb-m">
+            <Table.Caption>
               <Heading id="maatregelen" level={2}>
                 Maatregelen
               </Heading>
@@ -309,7 +313,7 @@ const meta = {
         </Grid.Cell>
         <Grid.Cell span="all">
           <Table>
-            <Table.Caption className="ams-mb-m">
+            <Table.Caption>
               <Heading id="documenten" level={2}>
                 Documenten
               </Heading>
@@ -344,7 +348,7 @@ const meta = {
         </Grid.Cell>
         <Grid.Cell span="all">
           <Table>
-            <Table.Caption className="ams-mb-m">
+            <Table.Caption>
               <Heading id="nader-onderzoek" level={2}>
                 Nader onderzoek
               </Heading>
@@ -363,8 +367,8 @@ const meta = {
             </Table.Body>
           </Table>
         </Grid.Cell>
-        <Grid.Cell span="all">
-          <Heading className="ams-mb-m" id="aanpassingen" level={2}>
+        <Grid.Cell className="ams-prose" span="all">
+          <Heading id="aanpassingen" level={2}>
             Aanpassingen
           </Heading>
           <Paragraph>Er zijn momenteel geen versiewijzigingen ingevoerd.</Paragraph>
@@ -400,14 +404,15 @@ export const Default: StoryObj = {
    * placing them straight in the Grid would drop the second one below the sections beside them.
    */}
   <Grid.Subgrid span={{ narrow: 4, medium: 3, wide: 3 }}>
-    <Grid.Cell span="all">
+    {/* Prose spaces the direct children of a Cell, so nothing in one sets a bottom margin of its own. */}
+    <Grid.Cell className="ams-prose" span="all">
       {/* A Section only groups several terms that share one description, so these pairs do without. */}
-      <DescriptionList className="ams-mb-l">
+      <DescriptionList>
         <DescriptionList.Term>Projectnummer</DescriptionList.Term>
         <DescriptionList.Description>1001260601</DescriptionList.Description>
         {/* … more pairs … */}
       </DescriptionList>
-      <Button className="ams-mb-l" icon={DocumentIcon} variant="secondary">Toon paspoort</Button>
+      <Button icon={DocumentIcon} variant="secondary">Toon paspoort</Button>
     </Grid.Cell>
     <Grid.Cell span="all">
       <TableOfContents heading="Op deze pagina">
@@ -424,9 +429,9 @@ export const Default: StoryObj = {
    * beside the sidebar, so neither the sidebar nor the sections need to span rows.
    */}
   <Grid.Subgrid span={{ narrow: 4, medium: 5, wide: 9 }} start={{ narrow: 1, medium: 4, wide: 4 }}>
-    <Grid.Cell span="all">
+    <Grid.Cell className="ams-prose" span="all">
       {/* Every section heading carries the id its Table of Contents entry points at. */}
-      <Heading className="ams-mb-m" id="risicoscan" level={2}>Amsterdamse risicoscan bruggen</Heading>
+      <Heading id="risicoscan" level={2}>Amsterdamse risicoscan bruggen</Heading>
       <Column gap="small">
         <Row alignVertical="center" gap="small">
           <Badge color="azure" label="Onbepaald" />
@@ -435,9 +440,9 @@ export const Default: StoryObj = {
         {/* … */}
       </Column>
     </Grid.Cell>
-    <Grid.Cell span="all">
-      <Heading className="ams-mb-m" id="arb-conditierapport" level={2}>Amsterdamse risicoscan bruggen Conditierapport</Heading>
-      <Row align="end" className="ams-mb-m" wrap>
+    <Grid.Cell className="ams-prose" span="all">
+      <Heading id="arb-conditierapport" level={2}>Amsterdamse risicoscan bruggen Conditierapport</Heading>
+      <Row align="end" wrap>
         <Button icon={ChevronDownIcon} variant="secondary">Decompositie uitklappen</Button>
         <Button icon={ChevronUpIcon} variant="secondary">Decompositie inklappen</Button>
       </Row>
@@ -474,7 +479,7 @@ export const Default: StoryObj = {
     <Grid.Cell span="all">
       <Table>
         {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
-        <Table.Caption className="ams-mb-m">
+        <Table.Caption>
           <Heading id="documenten" level={2}>Documenten</Heading>
         </Table.Caption>
         <Table.Header>
