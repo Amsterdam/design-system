@@ -69,6 +69,15 @@ Follow these guidelines:
    Changing them can therefore change snapshots; the args of an individual presentation story don’t reach Chromatic.
    This does not hold for page templates, whose stories Chromatic snapshots one by one.
 
+### Args that only serve the controls
+
+The Boolean flags of the first guideline reach the Code Panel too, teaching readers to write a `disabled={false}` that changes nothing.
+So do the event handlers an `action` or a controlled story adds, which print as an empty `() => {}`.
+`storybook/config/filterSourceProps.ts` leaves both out of the generated source.
+
+Add a Boolean prop to the list in that module as soon as a story gives it `false`, so it stays out of the code view.
+Only add a prop that is off by default: where a prop is on by default, such as Ordered List’s `markers`, `false` switches the default off and the code view has to show it.
+
 ### Choosing a control
 
 Pick the control that matches the shape of the prop.
