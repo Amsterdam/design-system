@@ -25,6 +25,9 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
+  subcomponents: {
+    'Breakout.Cell': Breakout.Cell,
+  },
 } satisfies Meta<typeof Breakout>
 
 export default meta
@@ -71,12 +74,13 @@ export const VerticalLayout: Story = {
         <Image alt="" src="https://picsum.photos/1440/810" />
       </Breakout.Cell>,
       <Breakout.Cell
+        className="ams-prose"
         colSpan={{ narrow: 4, medium: 5, wide: 7 }}
         colStart={{ narrow: 1, medium: 2, wide: 3 }}
         key={3}
         rowStart={3}
       >
-        <Paragraph className="ams-mb-s">
+        <Paragraph>
           Vertel ons in het evenementenformulier wat u wilt gaan doen. U checkt daarmee of u een vergunning nodig hebt.
         </Paragraph>
         <Paragraph>

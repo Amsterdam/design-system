@@ -9,12 +9,16 @@ import type { MouseEvent } from 'react'
 import { Breadcrumb, Grid, Heading, TabNavigation } from '@amsterdam/design-system-react'
 import { useRef, useState } from 'react'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 import { menuItems } from './menuItems'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Internal/Navigation Page',
+  parameters: pageParameters(
+    'Suits websites whose content is organised into a handful of main sections ' +
+      'that each have their own subsections.',
+  ),
   render: () => {
     const [currentMenuSlug, setCurrentMenuSlug] = useState(menuItems[0].slug)
     const [currentSubMenuSlug, setCurrentSubMenuSlug] = useState(menuItems[0].subMenuItems[0].slug)
@@ -97,13 +101,12 @@ const meta = {
         </Grid.Cell>
         {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
         <Grid.Cell
+          className="ams-prose"
           span={{ narrow: 4, medium: 6, wide: 7 }}
           start={{ narrow: 1, medium: 3, wide: 3 }}
           style={{ blockSize: `${currentSubMenu.cellHeights[0]}vb` }}
         >
-          <Heading className="ams-mb-m" level={2}>
-            {currentMenu.label}
-          </Heading>
+          <Heading level={2}>{currentMenu.label}</Heading>
           <Heading level={3}>{currentSubMenu.label}</Heading>
         </Grid.Cell>
         <Grid.Cell
@@ -176,8 +179,8 @@ export const Default: StoryObj = {
     </TabNavigation>
   </Grid.Cell>
   {/* The content area, start-aligned next to the vertical navigation. Its cells stand in for content. */}
-  <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 3, wide: 3 }}>
-    <Heading className="ams-mb-m" level={2}>{currentMenu.label}</Heading>
+  <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 3, wide: 3 }}>
+    <Heading level={2}>{currentMenu.label}</Heading>
     <Heading level={3}>{currentSubMenu.label}</Heading>
   </Grid.Cell>
   <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} start={{ narrow: 1, medium: 3, wide: 10 }} />

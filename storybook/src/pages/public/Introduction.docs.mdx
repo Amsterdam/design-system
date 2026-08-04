@@ -16,160 +16,17 @@ Public websites must use the default Spacious Mode, which applies generous
 This appearance keeps the focus on the content.
 It makes information easy to read and helps users find what they need without distractions.
 
-## Page structure
-
-The general structure for a page is:
-
-```tsx
-<Page>
-  <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
-  <PageHeader>
-    <Grid />
-  </PageHeader>
-  <Grid>
-    <Breadcrumb />
-  </Grid>
-  <Grid as="main" id="inhoud">
-    …
-  </Grid>
-  <PageFooter>
-    <PageFooter.Spotlight>
-      <Grid />
-    </PageFooter.Spotlight>
-    <PageFooter.Menu />
-  </PageFooter>
-</Page>
-```
-
-### No Menu
+## What sets these pages apart
 
 Public websites cannot use the [Menu](/docs/components-navigation-menu--docs) component.
 They should offer navigation using the Page Header only.
 
-## Vertical space between sections
-
-Between the Page Header and the Page Footer, the Page holds a sequence of sections.
-Most sections are a Grid, but a section can also be a Spotlight, an Image, or an Overlap.
-A Spotlight contains a Grid, which in that position also spaces the content against the edges of the coloured band.
-
-A landmark is not always a section itself.
-A page either sets `as="main"` on the Grid that holds its content, wraps several sections in a `main` element, or places `main` in a Grid Cell beside a sidebar.
-Such a wrapper takes no padding of its own, and the Grids inside and around it keep theirs.
-
-Sections create this space with the padding props of the Grid.
-A section that is not a Grid has no padding props and takes its space from the Grids around it.
-The Page Header and the Page Footer add no vertical space of their own, so the first and the last Grid provide it.
-
-### The first Grid
-
-The first Grid has a `paddingTop` of `large` and no `paddingBottom`.
-On most pages it contains only the Breadcrumb, and on the question pages of a Form Flow only the back link.
-The Grid that follows the Breadcrumb has no `paddingTop`, so that the breadcrumb and the page title read as a single block.
-
-Not every page type has a breadcrumb.
-The Loading Page opens with its search field, and the Handbook Page relies on its table of contents.
-Where the first Grid holds content instead of a breadcrumb, it still takes the `large` top padding.
-
-A page may also open with a section that is not a Grid.
-The Home Page starts with an Overlap, which sits flush against the Page Header.
-The Grid that follows such a section is a regular one, with a `paddingVertical` of `x-large`.
-
-Only the Breadcrumb closes the gap below itself.
-The back link keeps the regular `x-large` between itself and the section that follows.
-
-### The Grids in between
-
-Every other Grid uses a `paddingVertical` of `x-large`, including the Grid inside a Spotlight.
-
-Two adjacent Grids therefore add up to twice that amount.
-Across a Spotlight this is intentional, because the coloured band separates the two paddings.
-Between two plain Grids, leave the padding off one of the touching sides, unless the extra whitespace is deliberate.
-
-### The last Grid
-
-The last Grid before the Page Footer has a `paddingBottom` of `2x-large`.
-
-A last section that is not a Grid has no Grid after it to take its space from.
-Give it the `ams-mb-2xl` [Margin](/docs/utilities-css-margin--docs) utility class instead, for the same amount of space.
-
-A page that needs only one Grid combines both rules: a `paddingTop` of `large` and a `paddingBottom` of `2x-large`.
-
-### Vertical gaps
-
-Leave `gapVertical` at its default of `x-large`.
-
-## How to size the Grid Cells
-
-Everything on the page is wrapped in a [Grid Cell](/docs/components-layout-grid--docs).
-Its `span` and `start` props let you define where all sections go on the page.
-Do so for all variants of the Grid (narrow, medium, and wide: 4, 8, and 12 columns).
-
-Some typical page sections always use the same values:
-
-### Content page header
-
-The header section contains the page title, publication date, optional metadata, and the lead paragraph.
-It is a bit **wider** than the body section and is positioned slightly further **to the left**.
-
-```tsx
-<Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }} />
-```
-
-Breadcrumbs use their own Grid placed directly above the header, using the same cell configuration.
-
-### Content page body
-
-The body section contains the main textual content of the page.
-It spans **7 columns** on the wide grid and **6 columns** on the medium-wide grid to maintain an optimal line length for readability.
-This also applies to forms.
-
-```tsx
-<Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }} />
-```
-
-### Side-by-side blocks
-
-Link Sections (a block with a header, paragraph, and standalone link) can be displayed **side by side**, for example within a Spotlight.
-To achieve this, use the following configuration.
-The `start` prop is not needed here.
-
-```tsx
-<Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }} />
-```
-
-On navigation pages, similar sections use Link Lists and are 1 column **narrower** on wide screens.
-When rendering them in a loop, the `start` position is only necessary for the odd cells:
-
-```tsx
-<Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }} />
-```
-
-### Top tasks
-
-Top-task overviews use Cards that contain only a heading and a paragraph, without an image.
-On the wide grid, each Card spans 3 columns, fitting **4 per row**.
-On the narrow and medium-wide grids, each Card spans 4 columns.
-The `start` prop is not needed here.
-
-```tsx
-<Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} />
-```
-
-### Preview cards
-
-Index pages such as news overviews or search results use Cards as well for navigation.
-They usually do include the image of the target content.
-These layouts require **4 columns** for each Card, which can be achieved with a single spanning value:
-
-```tsx
-<Grid.Cell span={4} />
-```
+They also vary the vertical padding along the page, where an internal page gives every Grid the same amount.
+Both differences are covered where the rules are: [Page structure](/docs/pages-guidelines-page-structure--docs) and [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs).
 
 ## See also
 
-- [Breadcrumb](/docs/components-navigation-breadcrumb--docs)
-- [Grid](/docs/components-layout-grid--docs)
-- [Page Footer](/docs/components-containers-page-footer--docs)
-- [Page Header](/docs/components-containers-page-header--docs)
-- [Page](/docs/components-containers-page--docs)
-- [Skip Link](/docs/components-navigation-skip-link--docs)
+- [Choosing a page type](/docs/pages-guidelines-choosing-a-page-type--docs) – what each of these page types is for.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every page shares.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the Grid padding and the Cell sizes.
+- [Internal websites](/docs/pages-internal-introduction--docs) – the page types for backoffice systems.

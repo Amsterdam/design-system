@@ -14,6 +14,13 @@ import { maximiseInlineSize } from '#storybook/_common/decorators'
 const meta = {
   title: 'Components/Feedback/Skeleton',
   component: Skeleton,
+  subcomponents: {
+    'Skeleton.Heading': Skeleton.Heading,
+    'Skeleton.Image': Skeleton.Image,
+    'Skeleton.List': Skeleton.List,
+    'Skeleton.Paragraph': Skeleton.Paragraph,
+    'Skeleton.Table': Skeleton.Table,
+  },
 } satisfies Meta<typeof Skeleton>
 
 export default meta

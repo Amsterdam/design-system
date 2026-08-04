@@ -26,6 +26,7 @@ const meta = {
       </Card>
     ),
   ],
+  tags: ['!manifest'],
 } satisfies Meta<typeof Card.Link>
 
 export default meta

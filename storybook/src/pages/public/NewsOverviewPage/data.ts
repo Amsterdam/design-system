@@ -89,14 +89,4 @@ export const newsArticles: ReadonlyArray<NewsArticle> = [
     teaser:
       'De woningblokken in de Spaarndammerbuurt gelden als het hoogtepunt van de Amsterdamse School. Honderd jaar later wonen er nog steeds Amsterdammers.',
   },
-  {
-    title: 'Wat vindt u van de inzameling van grof afval in Amsterdam?',
-    category: 'Algemeen, Oost',
-    date: '6 oktober 2023',
-    id: 'grof-afval',
-    imageSource: exampleImageSource(640, 360, 6),
-    isoDate: '2023-10-06',
-    teaser:
-      'We willen weten hoe Amsterdammers de inzameling van grof afval ervaren. Vul de vragenlijst in en vertel wat er volgens u beter kan.',
-  },
 ]

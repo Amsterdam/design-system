@@ -20,11 +20,15 @@ import {
 
 import { exampleImageSource } from '#storybook/_common/exampleContent'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Article Page',
+  parameters: pageParameters(
+    'Presents a single news item or similar article in a clear reading order, ' +
+      'from its headline and lead to the related reading that follows.',
+  ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <>
@@ -40,12 +44,16 @@ const meta = {
       {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
       {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
       <main id="inhoud">
+        {/* A coloured section follows — the hero Image — so this Grid takes a paddingBottom of x-large. */}
         <Grid paddingBottom="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-s" level={1}>
-              Met korting van A naar B op de deelscooter of -bakfiets
-            </Heading>
-            <Paragraph className="ams-mb-xl">
+          {/* ams-prose sets the vertical rhythm between the title, the date, and the lead of this Content Header. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
+            <Paragraph>
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
               <time dateTime="2025-07-29">29 juli 2025</time>
             </Paragraph>
@@ -73,8 +81,7 @@ const meta = {
            * measure.
            */}
           {/*
-           * ams-prose sets the vertical rhythm between the direct children of this cell: the headings,
-           * paragraphs, and the link list. Typography comes from each component’s own class.
+           * Typography comes from each component’s own class; ams-prose only sets the vertical rhythm.
            */}
           <Grid.Cell
             className="ams-prose"
@@ -138,11 +145,15 @@ const meta = {
        */}
       <Spotlight aria-labelledby="blijf-op-de-hoogte" as="aside" color="green">
         <Grid paddingVertical="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-            <Heading className="ams-mb-xs" color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          >
+            <Heading color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
               Blijf op de hoogte!
             </Heading>
-            <Paragraph className="ams-mb-m" color="inverse">
+            <Paragraph color="inverse">
               Schrijf u nu in voor de Nieuwsbrief Amsterdam en ontvang wekelijks nieuws, tips en mooie verhalen over de
               stad en uw stadsdeel.
             </Paragraph>
@@ -157,54 +168,61 @@ const meta = {
        * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
        */}
       {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-      <Grid aria-labelledby="meer-nieuws" as="aside" paddingBottom="2x-large" paddingTop="x-large">
+      {/*
+       * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+       * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+       * between the Cells.
+       */}
+      <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
         <Grid.Cell span="all">
-          <Heading id="meer-nieuws" level={2} size="level-1">
+          <Heading className="ams-mb-m" id="meer-nieuws" level={2} size="level-1">
             Meer nieuws
           </Heading>
         </Grid.Cell>
-        <Grid.Cell span={4}>
-          <Card>
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            <Card.Image alt="" src={exampleImageSource(640, 360, 1)} />
-            <Card.HeadingGroup tagline="Nieuws">
-              <Card.Heading level={3}>
-                <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
-              </Card.Heading>
-            </Card.HeadingGroup>
-            <Paragraph>
-              U kunt &apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
-              te maken met het verduurzamen van woningen.
-            </Paragraph>
-          </Card>
-        </Grid.Cell>
-        <Grid.Cell span={4}>
-          <Card>
-            <Card.Image alt="" src={exampleImageSource(640, 360, 2)} />
-            <Card.HeadingGroup tagline="Nieuws">
-              <Card.Heading level={3}>
-                <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
-              </Card.Heading>
-            </Card.HeadingGroup>
-            <Paragraph>
-              We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
-            </Paragraph>
-          </Card>
-        </Grid.Cell>
-        <Grid.Cell span={4}>
-          <Card>
-            <Card.Image alt="" src={exampleImageSource(640, 360, 3)} />
-            <Card.HeadingGroup tagline="Nieuws">
-              <Card.Heading level={3}>
-                <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
-              </Card.Heading>
-            </Card.HeadingGroup>
-            <Paragraph>
-              Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
-              halen in het centrum.
-            </Paragraph>
-          </Card>
-        </Grid.Cell>
+        <Grid.Subgrid gapVertical="x-large" span="all">
+          <Grid.Cell span={4}>
+            <Card>
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              <Card.Image alt="" src={exampleImageSource(640, 360, 1)} />
+              <Card.HeadingGroup tagline="Nieuws">
+                <Card.Heading level={3}>
+                  <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
+                </Card.Heading>
+              </Card.HeadingGroup>
+              <Paragraph>
+                U kunt &apos;s avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen. Dat heeft
+                te maken met het verduurzamen van woningen.
+              </Paragraph>
+            </Card>
+          </Grid.Cell>
+          <Grid.Cell span={4}>
+            <Card>
+              <Card.Image alt="" src={exampleImageSource(640, 360, 2)} />
+              <Card.HeadingGroup tagline="Nieuws">
+                <Card.Heading level={3}>
+                  <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
+                </Card.Heading>
+              </Card.HeadingGroup>
+              <Paragraph>
+                We gaan de veiligheid voor voetgangers verbeteren, meer ruimte maken, en lopen en wandelen stimuleren.
+              </Paragraph>
+            </Card>
+          </Grid.Cell>
+          <Grid.Cell span={4}>
+            <Card>
+              <Card.Image alt="" src={exampleImageSource(640, 360, 3)} />
+              <Card.HeadingGroup tagline="Nieuws">
+                <Card.Heading level={3}>
+                  <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
+                </Card.Heading>
+              </Card.HeadingGroup>
+              <Paragraph>
+                Afvalboten, bakfietsen en ondergrondse containers. We experimenteren met nieuwe manieren om afval op te
+                halen in het centrum.
+              </Paragraph>
+            </Card>
+          </Grid.Cell>
+        </Grid.Subgrid>
       </Grid>
     </>
   ),
@@ -232,10 +250,12 @@ export const Default: StoryObj = {
   {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
   {/* The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content. */}
   <main id="inhoud">
+    {/* A coloured section follows — the hero Image — so this Grid takes a paddingBottom of x-large. */}
     <Grid paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-s" level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
-        <Paragraph className="ams-mb-xl">
+      {/* ams-prose sets the vertical rhythm between the title, the date, and the lead of this Content Header. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
+        <Paragraph>
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
           <time dateTime="2025-07-29">29 juli 2025</time>
         </Paragraph>
@@ -263,8 +283,7 @@ export const Default: StoryObj = {
        * measure.
        */}
       {/*
-       * ams-prose sets the vertical rhythm between the direct children of this cell: the headings,
-       * paragraphs, and the link list. Typography comes from each component’s own class.
+       * Typography comes from each component’s own class; ams-prose only sets the vertical rhythm.
        */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
         <Paragraph>
@@ -309,11 +328,11 @@ export const Default: StoryObj = {
    */}
   <Spotlight aria-labelledby="blijf-op-de-hoogte" as="aside" color="green">
     <Grid paddingVertical="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-        <Heading className="ams-mb-xs" color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
+        <Heading color="inverse" id="blijf-op-de-hoogte" level={2} size="level-3">
           Blijf op de hoogte!
         </Heading>
-        <Paragraph className="ams-mb-m" color="inverse">
+        <Paragraph color="inverse">
           Schrijf u nu in voor de Nieuwsbrief Amsterdam en ontvang wekelijks nieuws, tips en mooie verhalen.
         </Paragraph>
         <StandaloneLink color="inverse" href="#">Ik wil de nieuwsbrief</StandaloneLink>
@@ -325,46 +344,53 @@ export const Default: StoryObj = {
    * aria-labelledby names that landmark after the heading below, whose id exists only to be referenced here.
    */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  <Grid aria-labelledby="meer-nieuws" as="aside" paddingBottom="2x-large" paddingTop="x-large">
+  {/*
+   * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
+   * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
+   * between the Cells.
+   */}
+  <Grid aria-labelledby="meer-nieuws" as="aside" gapVertical="none" paddingBottom="2x-large" paddingTop="x-large">
     <Grid.Cell span="all">
-      <Heading id="meer-nieuws" level={2} size="level-1">Meer nieuws</Heading>
+      <Heading className="ams-mb-m" id="meer-nieuws" level={2} size="level-1">Meer nieuws</Heading>
     </Grid.Cell>
-    <Grid.Cell span={4}>
-      <Card>
-        {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-        <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
-        <Card.HeadingGroup tagline="Nieuws">
-          <Card.Heading level={3}>
-            <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
-          </Card.Heading>
-        </Card.HeadingGroup>
-        <Paragraph>
-          U kunt 's avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
-        </Paragraph>
-      </Card>
-    </Grid.Cell>
-    <Grid.Cell span={4}>
-      <Card>
-        <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
-        <Card.HeadingGroup tagline="Nieuws">
-          <Card.Heading level={3}>
-            <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
-          </Card.Heading>
-        </Card.HeadingGroup>
-        <Paragraph>We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.</Paragraph>
-      </Card>
-    </Grid.Cell>
-    <Grid.Cell span={4}>
-      <Card>
-        <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
-        <Card.HeadingGroup tagline="Nieuws">
-          <Card.Heading level={3}>
-            <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
-          </Card.Heading>
-        </Card.HeadingGroup>
-        <Paragraph>Afvalboten, bakfietsen en ondergrondse containers in het centrum.</Paragraph>
-      </Card>
-    </Grid.Cell>
+    <Grid.Subgrid gapVertical="x-large" span="all">
+      <Grid.Cell span={4}>
+        <Card>
+          {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+          <Card.Image alt="" src="https://picsum.photos/640/360?random=1" />
+          <Card.HeadingGroup tagline="Nieuws">
+            <Card.Heading level={3}>
+              <Card.Link href="#">Waarom we op zoek zijn naar vleermuizen</Card.Link>
+            </Card.Heading>
+          </Card.HeadingGroup>
+          <Paragraph>
+            U kunt 's avonds ecologen in oranje hesjes tegenkomen. Zij zijn op zoek naar vleermuizen.
+          </Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell span={4}>
+        <Card>
+          <Card.Image alt="" src="https://picsum.photos/640/360?random=2" />
+          <Card.HeadingGroup tagline="Nieuws">
+            <Card.Heading level={3}>
+              <Card.Link href="#">Meer aandacht voor voetgangers, een jaar lang</Card.Link>
+            </Card.Heading>
+          </Card.HeadingGroup>
+          <Paragraph>We gaan de veiligheid voor voetgangers verbeteren en meer ruimte maken.</Paragraph>
+        </Card>
+      </Grid.Cell>
+      <Grid.Cell span={4}>
+        <Card>
+          <Card.Image alt="" src="https://picsum.photos/640/360?random=3" />
+          <Card.HeadingGroup tagline="Nieuws">
+            <Card.Heading level={3}>
+              <Card.Link href="#">Nieuwe manieren om afval op te halen</Card.Link>
+            </Card.Heading>
+          </Card.HeadingGroup>
+          <Paragraph>Afvalboten, bakfietsen en ondergrondse containers in het centrum.</Paragraph>
+        </Card>
+      </Grid.Cell>
+    </Grid.Subgrid>
   </Grid>
 </>`,
         language: 'tsx',

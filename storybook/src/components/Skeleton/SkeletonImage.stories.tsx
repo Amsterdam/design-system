@@ -22,6 +22,7 @@ const meta = {
       <Skeleton.Image {...args} />
     </Skeleton>
   ),
+  tags: ['!manifest'],
 } satisfies Meta<typeof Skeleton.Image>
 
 export default meta

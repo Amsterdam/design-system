@@ -1,13 +1,31 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as HomeStories from "./HomePage.stories.tsx";
 
 <Meta of={HomeStories} />
 
-# Home page
+<Title />
 
-The home page of an internal website can have varying types of content.
+<Description of={HomeStories} />
 
-Our single example in this category currently focuses on the overall layout.
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} menu mode="compact" of={HomeStories} />
+
+## Usage guidelines
+
+### When to use
+
+Use this page as the landing page of a backoffice system, where a Menu carries the navigation and the page itself orients the user.
+
+## See also
+
+- [Navigation Page](/docs/pages-internal-navigation-page--docs) – for a system organised into sections with subsections.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell, including the two Menus an internal page needs.

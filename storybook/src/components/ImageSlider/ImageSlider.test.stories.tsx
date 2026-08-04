@@ -92,5 +92,5 @@ export const Test: Story = {
       {renderComponentVariants(ImageSlider, { args }, context)}
     </>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

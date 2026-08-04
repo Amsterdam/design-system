@@ -17,5 +17,5 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: () => <GridColumnsGuide />,
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

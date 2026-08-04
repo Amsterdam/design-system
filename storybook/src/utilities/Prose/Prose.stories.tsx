@@ -10,6 +10,7 @@ import {
   CallToActionLink,
   Heading,
   Link,
+  LinkList,
   OrderedList,
   Paragraph,
   Table,
@@ -162,6 +163,13 @@ const render = (props: ProseProps) => (
       alle werkzaamheden. U kunt zich daar ook inschrijven voor de digitale nieuwsbrief, zodat we u per e-mail op de
       hoogte houden van wijzigingen in de planning en tijdelijke omleidingen.
     </Paragraph>
+
+    <Heading level={3}>Meer over dit project</Heading>
+    <LinkList>
+      <LinkList.Link href="#">Plannen en tekeningen</LinkList.Link>
+      <LinkList.Link href="#">Verslagen van de informatiebijeenkomsten</LinkList.Link>
+      <LinkList.Link href="#">Contact met de omgevingsmanager</LinkList.Link>
+    </LinkList>
     <CallToActionLink href="#">Aanmelden voor de nieuwsbrief</CallToActionLink>
   </article>
 )

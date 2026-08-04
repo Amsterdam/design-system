@@ -23,5 +23,5 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   render: (args, context) => renderComponentVariants(Column, { args, layout: 'grid' }, context),
 
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

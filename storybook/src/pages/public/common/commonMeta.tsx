@@ -23,3 +23,20 @@ export const commonMeta = {
     themes: { options: ['Spacious', 'Spacious Lo-fi'] },
   },
 } satisfies Meta
+
+/**
+ * Builds a public page's parameters from the shared ones plus its description.
+ *
+ * A page story renders through `render`, so Storybook has no component to take a
+ * description from. `docs.description.component` gives the page its subtitle.
+ *
+ * Spreading `...commonMeta` into a meta and then setting `parameters` replaces the
+ * whole object rather than merging into it, so the shared parameters are spread
+ * back in here. Storybook only merges parameters across preview, meta and story;
+ * `commonMeta` is a plain object, so this last step is ours to do.
+ */
+export const pageParameters = (description: string, extraParameters?: Meta['parameters']) => ({
+  ...commonMeta.parameters,
+  ...extraParameters,
+  docs: { description: { component: description } },
+})

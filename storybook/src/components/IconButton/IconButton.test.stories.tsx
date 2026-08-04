@@ -22,5 +22,5 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   render: (args, context) => renderComponentVariants(IconButton, { args, variants: ['hovered', 'disabled'] }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

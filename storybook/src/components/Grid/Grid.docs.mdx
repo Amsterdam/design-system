@@ -27,6 +27,11 @@ Every direct child of a Grid must be a Cell or a Subgrid.
 Size and position it with the `span` and `start` props, which accept responsive values.
 Its `appearance` controls the background in Compact Mode.
 
+`rowSpan` lets a Cell cover several rows, and `rowStart` puts it in a row of your choosing.
+Reach for `rowStart` only where automatic placement cannot do the job: it never moves back a column without moving down a row, so a Cell that comes first in the source and sits to the right of the one after it pushes that one down.
+A sidebar on the trailing side needs a row of its own for that reason; one on the leading side does not, because placement runs towards it.
+Set it on the sidebar rather than on everything around it, and leave the rest to automatic placement.
+
 <Canvas of={GridCellStories.Cell} />
 
 <Controls of={GridCellStories.Cell} />
@@ -40,8 +45,12 @@ Every direct child of a Subgrid must be a Cell.
 Use it for a region beside a sidebar, such as the results of an index page next to a filter column.
 Without it, a Cell inside a Cell has no columns to align to.
 
+It takes `rowSpan` and `rowStart` for the same reasons a Cell does.
+A Subgrid is placed as one item, so a region beside a sidebar on the trailing side takes a `rowStart` of its own.
+
 Its rows take the vertical gap of the Grid, so the region keeps the rhythm of the page.
 Give it its own `gapVertical` to space its rows differently.
+It takes `x-large` as well, which the Grid has no need of: that is the gap a Grid gives by default, and only a Subgrid can end up without it, in a Grid that lowered or removed its own.
 
 <Canvas of={GridSubgridStories.Subgrid} />
 
@@ -66,7 +75,7 @@ The Grid manages its own gaps; the utility classes interfere with that.
 
 ### How to use
 
-Follow the [optimal sizes of Grid Cells](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells) for typical page sections.
+Follow the [optimal sizes of Grid Cells](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells) for typical page sections.
 
 Use the `as` prop to give a Grid or a Grid Cell a meaningful HTML element when one applies.
 For example, set a top-level Cell that holds the main content of the page to `as="main"`, or a sidebar Cell to `as="aside"`.
@@ -80,6 +89,11 @@ The browser would add columns to fit, which breaks the layout.
 
 Write the Cells in the order the content should be read, and use `start` only to decide where each one sits.
 Reading order and keyboard order follow the markup rather than the columns, so the two disagree as soon as `start` is used to reorder rather than to place.
+
+A Subgrid groups its Cells in the markup as well as on the grid, so it decides the order everything inside it is read in.
+Two Subgrids beside one another are read one after the other, the whole of the left column before the whole of the right, where the same Cells written straight into the Grid would have been read across each row in turn.
+Keyboard order and screen reader order follow that grouping, and so does the narrow grid: two Subgrids that each span its 4 columns stack there, so the second column lands below the whole of the first rather than interleaving with it.
+Reach for a Subgrid where reading a column at a time suits the content, and leave the Cells in the Grid where reading across the rows does.
 
 ## Examples
 

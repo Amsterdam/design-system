@@ -34,6 +34,12 @@
           "nl.amsterdam.type": "number"
         }
       },
+      "text-wrap": {
+        "$value": "balance",
+        "$extensions": {
+          "nl.amsterdam.type": "textWrap"
+        }
+      },
       "list": {
         "gap": {
           "$value": "{ams.space.s}",
@@ -65,6 +71,7 @@
         "gap": {
           "$value": "{ams.space.xs}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }

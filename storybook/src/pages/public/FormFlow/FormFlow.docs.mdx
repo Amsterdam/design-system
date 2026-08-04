@@ -1,19 +1,44 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as FormStories from "./FormFlow.stories.tsx";
 
 <Meta of={FormStories} />
 
-# Form Flow
+<Title />
 
-These examples describe a user-friendly form flow.
-Form pages have a minimal header and footer in order to remove distractions.
+<Description of={FormStories} />
+
 Start with asking [one thing per page](https://www.gov.uk/service-manual/design/form-structure#start-with-one-thing-per-page).
 This can be a single question, or a group of related questions.
 
-## Landing Page
+## Anatomy
+
+This schematic shows the sections of a question page and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={FormStories} story="MultipleQuestions" />
+
+## Usage guidelines
+
+### When to use
+
+Use this flow for any task a visitor completes by answering questions: an application, a report, a registration.
+
+### When not to use
+
+Use a [Product Page](/docs/pages-public-product-page--docs) to explain the task and lead into this flow.
+
+### How to write
+
+Ask one thing per page, and write each question as the label or legend rather than as a separate sentence above it.
+
+## Variants
+
+### Landing Page
 
 Most form flows start with a landing page that explains the process and provides a call to action to start the form flow.
 
@@ -21,7 +46,7 @@ Most form flows start with a landing page that explains the process and provides
 {/*
 TODO: Decide what we want to do here first.
 
-## First Form Page
+### First Form Page
 
 The first form page is the same as other form pages, with one exception: it does not have a back link.
 A back link helps users feel secure that their progress is preserved while moving between form pages.
@@ -30,7 +55,7 @@ Additionally, users might reach the first form page from a source other than the
 
 \*/}
 
-## Single Question
+### Single Question
 
 On a form page with one question, the label or legend for the question is the level 1 heading of the page.
 For labels, wrap the `h1` around it.
@@ -38,18 +63,18 @@ For legends, wrap it around the `h1`.
 
 For more information, see [Making labels and legends headings](https://design-system.service.gov.uk/get-started/labels-legends-headings/).
 
-## Single Question With Subquestions
+### Single Question With Subquestions
 
 A single question can have subquestions. Wrap the Fields in a Field Set, and use the Field Set’s legend as the level 1 heading of the page.
 
-## With Multiple Questions
+### With Multiple Questions
 
 When a form page has multiple questions, place an `h1` outside the `form`-tag,
 which describes the group of questions.
 
 For more information, see [Question pages - Asking complex questions without using hint text](https://design-system.service.gov.uk/patterns/question-pages/#asking-complex-questions-without-using-hint-text)
 
-## With Validation Error
+### With Validation Error
 
 If the user’s answers fail validation:
 
@@ -68,7 +93,18 @@ For more information:
 - [Recover from validation errors](https://design-system.service.gov.uk/patterns/validation/)
 - [Error summary](https://design-system.service.gov.uk/components/error-summary/)
 
-## References
+## Accessibility
 
-- [Gov.uk on question pages](https://design-system.service.gov.uk/patterns/question-pages/)
-- [NL Design System on forms](https://nldesignsystem.nl/richtlijnen/formulieren/)
+On a page with one question, the label or legend for that question is the level 1 heading of the page, so the heading and the question are the same thing rather than two readings of it.
+
+On a page with several, the level 1 heading sits outside the `form` and describes the group.
+
+An [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) takes focus when validation fails, and prefixes the page `<title>` with the number of errors so a screen reader announces it immediately.
+
+## See also
+
+- [Product Page](/docs/pages-public-product-page--docs) – explains the task this flow carries out.
+- [Invalid Form Alert](/docs/components-forms-invalid-form-alert--docs) – the summary at the top of a failed page.
+- [Field](/docs/components-forms-field--docs) – how to mark a single question invalid.
+- [Gov.uk on question pages](https://design-system.service.gov.uk/patterns/question-pages/) – the pattern this flow follows.
+- [NL Design System on forms](https://nldesignsystem.nl/richtlijnen/formulieren/) – the national guidance.

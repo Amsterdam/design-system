@@ -25,5 +25,5 @@ export const Test: Story = {
     children: 'Amsterdam Light Festival maakt de stad ook deze winter een beetje mooier',
   },
   render: (args, context) => renderComponentVariants(Heading, { args }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

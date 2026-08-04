@@ -54,5 +54,5 @@ export const Test: Story = {
     ],
   },
   render: (args, context) => renderComponentVariants(Table, { args }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

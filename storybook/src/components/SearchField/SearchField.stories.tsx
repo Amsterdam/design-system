@@ -45,6 +45,10 @@ const meta = {
       <SearchField.Button />
     </SearchField>
   ),
+  subcomponents: {
+    'SearchField.Button': SearchField.Button,
+    'SearchField.Input': SearchField.Input,
+  },
 } satisfies Meta<StoryProps>
 
 export default meta

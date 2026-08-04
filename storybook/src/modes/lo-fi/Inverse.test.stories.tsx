@@ -110,5 +110,5 @@ export const Test: Story = {
       </Menu>
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

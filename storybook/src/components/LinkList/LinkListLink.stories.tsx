@@ -36,6 +36,7 @@ const meta = {
     ),
   ],
   render: ({ children, ...args }) => <LinkList.Link {...args}>{children}</LinkList.Link>,
+  tags: ['!manifest'],
 } satisfies Meta<typeof LinkList.Link>
 
 export default meta

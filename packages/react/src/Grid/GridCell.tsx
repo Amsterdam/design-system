@@ -58,6 +58,14 @@ export type GridCellProps = {
    * Accepts a number or an object of numbers per grid variant.
    */
   readonly rowSpan?: GridRowNumber | GridRowNumbers
+  /**
+   * The index of the grid row the cell starts at.
+   * Accepts a number or an object of numbers per grid variant.
+   *
+   * Only needed to place a cell before a sibling that starts at an earlier column:
+   * automatic placement never moves back a column without moving down a row.
+   */
+  readonly rowStart?: GridRowNumber | GridRowNumbers
 } & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>> &
   (GridCellSpanAllProp | GridCellSpanAndStartProps)
 
@@ -67,7 +75,7 @@ export type GridCellProps = {
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}
  */
 export const GridCell = forwardRef<HTMLElement, GridCellProps>(
-  ({ appearance, as, children, className, rowSpan, span, start, ...restProps }, ref) => {
+  ({ appearance, as, children, className, rowSpan, rowStart, span, start, ...restProps }, ref) => {
     const Tag = (as ?? 'div') as ElementType
 
     return (
@@ -76,7 +84,7 @@ export const GridCell = forwardRef<HTMLElement, GridCellProps>(
         className={clsx(
           'ams-grid__cell',
           appearance && `ams-grid__cell--${appearance}`,
-          gridCellClasses(span, start, rowSpan),
+          gridCellClasses(span, start, rowSpan, rowStart),
           className,
         )}
         ref={ref}

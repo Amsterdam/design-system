@@ -22,7 +22,7 @@ import {
   Select,
 } from '@amsterdam/design-system-react'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 import { newsArticles, newsCategories, newsDistricts } from './data'
 
 const searchTerm = 'tramspoor'
@@ -50,6 +50,10 @@ const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/News Overview Page',
+  parameters: pageParameters(
+    'Lists content items that a visitor narrows down with filters: ' +
+      'news, blogs, vacancies, activities, or search results.',
+  ),
 } satisfies Meta
 
 export default meta
@@ -72,11 +76,11 @@ export const Default: StoryObj = {
   </Grid>
   <main id="inhoud">
     {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-    <Grid paddingBottom="x-large">
-      <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-        <Heading className="ams-mb-m" level={1}>
-          Nieuws uit Amsterdam
-        </Heading>
+    {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
+    <Grid paddingBottom="2x-large">
+      {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+      <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
+        <Heading level={1}>Nieuws uit Amsterdam</Heading>
         <SearchField>
           <SearchField.Input defaultValue="tramspoor" label="Zoek in het nieuws" name="trefwoord" />
           <SearchField.Button>Zoeken</SearchField.Button>
@@ -200,11 +204,15 @@ export const Default: StoryObj = {
       </Grid>
       <main id="inhoud">
         {/* The Grid after the Breadcrumb has no paddingTop, so the breadcrumb and the page title read as one block. */}
-        <Grid paddingBottom="x-large">
-          <Grid.Cell span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
-            <Heading className="ams-mb-m" level={1}>
-              Nieuws uit Amsterdam
-            </Heading>
+        {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
+        <Grid paddingBottom="2x-large">
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          <Grid.Cell
+            className="ams-prose"
+            span={{ narrow: 4, medium: 7, wide: 9 }}
+            start={{ narrow: 1, medium: 1, wide: 2 }}
+          >
+            <Heading level={1}>Nieuws uit Amsterdam</Heading>
             <SearchField>
               <SearchField.Input defaultValue="tramspoor" label="Zoek in het nieuws" name="trefwoord" />
               <SearchField.Button>Zoeken</SearchField.Button>

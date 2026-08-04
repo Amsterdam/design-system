@@ -25,5 +25,5 @@ export const Test: Story = {
     children: <FileList.Item file={new File(['sample1'], 'sample1.txt', { type: 'text/plain' })} />,
   },
   render: (args, context) => renderComponentVariants(FileList, { args }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

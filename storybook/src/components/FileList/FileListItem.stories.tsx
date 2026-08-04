@@ -23,6 +23,7 @@ const meta = {
       </FileList>
     ),
   ],
+  tags: ['!manifest'],
 } satisfies Meta<typeof FileList.Item>
 
 export default meta

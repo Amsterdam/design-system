@@ -23,5 +23,5 @@ export const Test: Story = {
       <AspectRatioSample value="9 / 16" />
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

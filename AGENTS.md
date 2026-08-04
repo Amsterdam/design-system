@@ -113,8 +113,10 @@ For details, rely on the official documentation and per-package instructions:
 - Testing: [documentation/tests.md](documentation/tests.md), plus [packages/react/AGENTS.md](packages/react/AGENTS.md) and [storybook/AGENTS.md](storybook/AGENTS.md) for unit, interaction, visual, and accessibility tests.
 - Accessibility and quality: [documentation/definition-of-done.md](documentation/definition-of-done.md) (full quality checklist including WCAG 2.2 Level AA).
 - Component docs and Storybook: [documentation/component-docs.md](documentation/component-docs.md) and [documentation/storybook.md](documentation/storybook.md).
+- Page templates: [documentation/page-anatomy.md](documentation/page-anatomy.md) — how a page template documents its own layout with a schematic read from its story.
 - Git and contribution workflow: [documentation/git.md](documentation/git.md), [documentation/code-reviews.md](documentation/code-reviews.md), and [documentation/publishing.md](documentation/publishing.md).
 - Release notes: [documentation/release-notes.md](documentation/release-notes.md) — how to summarise a release for the people who use the design system, and why the changelogs alone are not enough.
+- Introduction statistics: [documentation/introduction-statistics.md](documentation/introduction-statistics.md) — how the six figures on the Storybook home page are counted, and when to recount them.
 
 Key agent expectations:
 

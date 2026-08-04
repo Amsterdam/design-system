@@ -92,5 +92,5 @@ export const Test: Story = {
       </ProgressList>
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

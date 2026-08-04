@@ -11,12 +11,16 @@ import { useEffect, useState } from 'react'
 
 import type { SortOrder } from './common'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 import { AddressTableBody, AddressTableHeaderRow, bagAddresses, sortAddresses, sortOptions } from './common'
 
 const meta = {
   ...commonMeta,
   title: 'Pages/Internal/Table Page',
+  parameters: pageParameters(
+    'Helps users work through large sets of data, with the sorting, filtering, and paging state ' +
+      'kept in the URL so a particular view can be bookmarked or shared.',
+  ),
 } satisfies Meta
 
 export default meta
@@ -186,63 +190,14 @@ const PaginationLink = ({ onClick, ...props }: AnchorHTMLAttributes<HTMLAnchorEl
   />
 )
 
-export const WithPagination = () => {
-  const { addresses, pageSize } = paginationOptions
-  const [page, setPage] = useState(getPageFromUrl)
-
-  const firstRow = (page - 1) * pageSize + 1
-  const lastRow = Math.min(page * pageSize, addresses.length)
-  const paginatedAddresses = addresses.slice(firstRow - 1, lastRow)
-
-  // Sync React state with the URL, both for back/forward navigation
-  // and for the synthetic popstate dispatched in handlePaginationClick.
-  useEffect(() => {
-    const handlePopState = () => setPage(getPageFromUrl())
-    window.addEventListener('popstate', handlePopState)
-    return () => window.removeEventListener('popstate', handlePopState)
-  }, [])
-
-  return (
-    <Grid paddingVertical="x-large">
-      <Grid.Cell appearance="transparent" span="all">
-        <Heading level={1}>Vergunninghouders 2026/2027</Heading>
-      </Grid.Cell>
-      <Grid.Cell span="all">
-        <Table className="ams-mb-l">
-          {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
-          <Table.Caption>
-            <Heading level={2}>Gegevens per adres</Heading>
-          </Table.Caption>
-          <Table.Header>
-            <AddressTableHeaderRow />
-          </Table.Header>
-          <AddressTableBody addresses={paginatedAddresses} firstRow={firstRow} />
-        </Table>
-        <Row align="center">
-          {/*
-           * Pagination renders links, so pages stay shareable and open in a new tab. linkTemplate builds each
-           * href; linkComponent lets you pass your router’s link. Here a small wrapper keeps navigation inside
-           * Storybook rather than reloading the iframe – see PaginationLink and handlePaginationClick.
-           */}
-          <Pagination
-            linkComponent={PaginationLink}
-            linkTemplate={paginationLinkTemplate}
-            page={page}
-            totalPages={totalPaginationPages}
-          />
-        </Row>
-      </Grid.Cell>
-    </Grid>
-  )
-}
-
-WithPagination.parameters = {
-  docs: {
-    source: {
-      // Because this story’s `render` takes no argument, the Code Panel prints its source as written, pagination
-      // scaffolding and all. Provide the source by hand so the panel shows the table markup on its own, with the
-      // guidance kept short.
-      code: `<Grid paddingVertical="x-large">
+export const WithPagination: StoryObj = {
+  parameters: {
+    docs: {
+      source: {
+        // Because this story’s `render` takes no argument, the Code Panel prints its source as written, pagination
+        // scaffolding and all. Provide the source by hand so the panel shows the table markup on its own, with the
+        // guidance kept short.
+        code: `<Grid paddingVertical="x-large">
   <Grid.Cell appearance="transparent" span="all">
     <Heading level={1}>Vergunninghouders 2026/2027</Heading>
   </Grid.Cell>
@@ -272,7 +227,57 @@ WithPagination.parameters = {
     </Row>
   </Grid.Cell>
 </Grid>`,
-      language: 'tsx',
+        language: 'tsx',
+      },
     },
+  },
+  render: () => {
+    const { addresses, pageSize } = paginationOptions
+    const [page, setPage] = useState(getPageFromUrl)
+
+    const firstRow = (page - 1) * pageSize + 1
+    const lastRow = Math.min(page * pageSize, addresses.length)
+    const paginatedAddresses = addresses.slice(firstRow - 1, lastRow)
+
+    // Sync React state with the URL, both for back/forward navigation
+    // and for the synthetic popstate dispatched in handlePaginationClick.
+    useEffect(() => {
+      const handlePopState = () => setPage(getPageFromUrl())
+      window.addEventListener('popstate', handlePopState)
+      return () => window.removeEventListener('popstate', handlePopState)
+    }, [])
+
+    return (
+      <Grid paddingVertical="x-large">
+        <Grid.Cell appearance="transparent" span="all">
+          <Heading level={1}>Vergunninghouders 2026/2027</Heading>
+        </Grid.Cell>
+        <Grid.Cell span="all">
+          <Table className="ams-mb-l">
+            {/* If nothing sits between the Heading and the Table, wrap the Heading in the Caption. */}
+            <Table.Caption>
+              <Heading level={2}>Gegevens per adres</Heading>
+            </Table.Caption>
+            <Table.Header>
+              <AddressTableHeaderRow />
+            </Table.Header>
+            <AddressTableBody addresses={paginatedAddresses} firstRow={firstRow} />
+          </Table>
+          <Row align="center">
+            {/*
+             * Pagination renders links, so pages stay shareable and open in a new tab. linkTemplate builds each
+             * href; linkComponent lets you pass your router’s link. Here a small wrapper keeps navigation inside
+             * Storybook rather than reloading the iframe – see PaginationLink and handlePaginationClick.
+             */}
+            <Pagination
+              linkComponent={PaginationLink}
+              linkTemplate={paginationLinkTemplate}
+              page={page}
+              totalPages={totalPaginationPages}
+            />
+          </Row>
+        </Grid.Cell>
+      </Grid>
+    )
   },
 }

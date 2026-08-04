@@ -18,6 +18,7 @@ const meta = {
       <Skeleton.Paragraph {...args} />
     </Skeleton>
   ),
+  tags: ['!manifest'],
 } satisfies Meta<typeof Skeleton.Paragraph>
 
 export default meta

@@ -9,7 +9,7 @@ import type { FormEvent } from 'react'
 import { Card, Grid, Heading, Paragraph, SearchField, Skeleton } from '@amsterdam/design-system-react'
 import { useEffect, useRef, useState } from 'react'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 
 const initialQuery = 'woningbouw'
 
@@ -59,6 +59,10 @@ const meta = {
   args: { initialPhase: 'idle' },
   // The initial phase only picks which state each story opens in; it is not a prop to configure.
   argTypes: { initialPhase: { table: { disable: true } } },
+  parameters: pageParameters(
+    'Shows how a page behaves while it fetches its content, ' +
+      'keeping the layout stable as placeholders make way for the real results.',
+  ),
   render: ({ initialPhase }: LoadingPageArgs) => {
     const [phase, setPhase] = useState<Phase>(initialPhase)
     const [query, setQuery] = useState(initialQuery)
@@ -100,21 +104,18 @@ const meta = {
 
     return (
       // The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
-      // This page has two Grids in one landmark, so a plain <main> wraps them both. A page that is a single
-      // section can put as="main" on the Grid itself instead.
+      // The Content Header and the results are each their own section, so a plain <main> wraps them both.
       <main id="inhoud">
-        {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
+        {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
         <Grid paddingTop="large">
-          {/* Search is not a content page, so the title spans the full width, not the documented header cell. */}
-          <Grid.Cell span="all">
-            <Heading level={1}>Zoeken op amsterdam.nl</Heading>
-          </Grid.Cell>
           {/*
-           * The search field spans half the grid on wide screens rather than the documented header cell width, so
-           * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-           * the full width at narrow.
+           * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+           * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+           * full width at narrow. The title follows that width, because search is not a content page.
            */}
-          <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}>
+          {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+          <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 6 }}>
+            <Heading level={1}>Zoeken op amsterdam.nl</Heading>
             <SearchField onSubmit={search}>
               <SearchField.Input defaultValue={initialQuery} label="Zoek op de website" name="search" />
               <SearchField.Button />
@@ -130,9 +131,9 @@ const meta = {
          * one atomic update once it turns false. The ARIA spec allows this rather than requiring it, so not
          * every screen reader does.
          */}
-        {/* The search field is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
+        {/* Both Grids have the default background colour, so this one takes a paddingTop of 2x-large. */}
         {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-        <Grid aria-busy={phase === 'loading'} paddingBottom="2x-large" paddingTop="x-large">
+        <Grid aria-busy={phase === 'loading'} paddingBottom="2x-large" paddingTop="2x-large">
           <Grid.Cell span="all">
             {/*
              * Keep one status message in the DOM at all times and only change its text – from a loading message
@@ -201,21 +202,18 @@ type PageSourceOptions = {
 
 const pageShell = ({ busy, extraCells = '', status, statusCell = '' }: PageSourceOptions) =>
   `// The Skip Link in the Page Layout targets this id, so the next Tab press lands in the main content.
-// This page has two Grids in one landmark, so a plain <main> wraps them both. A page that is a single
-// section can put as="main" on the Grid itself instead.
+// The Content Header and the results are each their own section, so a plain <main> wraps them both.
 <main id="inhoud">
-  {/* The first Grid holds the search field instead of a breadcrumb, so it still takes the large top padding. */}
+  {/* This page opens with its title rather than a Breadcrumb, so this Grid takes the large top padding. */}
   <Grid paddingTop="large">
-    {/* Search is not a content page, so the title spans the full width, not the documented header cell. */}
-    <Grid.Cell span="all">
-      <Heading level={1}>Zoeken op amsterdam.nl</Heading>
-    </Grid.Cell>
     {/*
-     * The search field spans half the grid on wide screens rather than the documented header cell width, so
-     * the input does not stretch to an unusable length. It takes three quarters of the grid at medium and
-     * the full width at narrow.
+     * The Content Header takes half the grid on wide screens rather than the documented Cell, so the search
+     * input does not stretch to an unusable length. It takes three quarters of the grid at medium and the
+     * full width at narrow. The title follows that width, because search is not a content page.
      */}
-    <Grid.Cell span={{ narrow: 4, medium: 6, wide: 6 }}>
+    {/* ams-prose sets the vertical rhythm between the title and the search field. */}
+    <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 6, wide: 6 }}>
+      <Heading level={1}>Zoeken op amsterdam.nl</Heading>
       <SearchField onSubmit={search}>
         <SearchField.Input defaultValue="woningbouw" label="Zoek op de website" name="search" />
         <SearchField.Button />
@@ -231,9 +229,9 @@ const pageShell = ({ busy, extraCells = '', status, statusCell = '' }: PageSourc
    * one atomic update once it turns false. The ARIA spec allows this rather than requiring it, so not
    * every screen reader does.
    */}
-  {/* The search field is not a Breadcrumb, so this Grid keeps the regular x-large top padding. */}
+  {/* Both Grids have the default background colour, so this one takes a paddingTop of 2x-large. */}
   {/* The last Grid before the Page Footer takes a paddingBottom of 2x-large. */}
-  <Grid aria-busy={${busy}} paddingBottom="2x-large" paddingTop="x-large">
+  <Grid aria-busy={${busy}} paddingBottom="2x-large" paddingTop="2x-large">
     <Grid.Cell span="all">
       {/*
        * Keep one status message in the DOM at all times and only change its text – from a loading message
