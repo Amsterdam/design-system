@@ -68,6 +68,15 @@ Do not use rich text (such as links or lists) in an Error Message. [Find out why
 
 <Canvas of={FieldSetStories.WithValidation} />
 
+### Disabled
+
+A disabled Field Set disables every form control it contains, in a single attribute rather than one per control.
+
+The Field Set itself keeps its appearance: the legend and the labels stay in their usual colour.
+Each control inside shows that it is unavailable in its own way, so a [Text Input](/docs/components-forms-text-input--docs) takes the same grey fill and grey text it has when it is disabled on its own.
+
+<Canvas of={FieldSetStories.Disabled} />
+
 ### With Heading in Legend
 
 If the Field Set holds the only question on the page, its Legend serves as the main heading as well.

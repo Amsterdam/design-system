@@ -3,7 +3,7 @@
  * Copyright Gemeente Amsterdam
  */
 
-import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
+import type { FieldsetHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react'
 
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
@@ -28,7 +28,7 @@ export type FieldSetProps = {
    */
   readonly legendIsPageHeading?: boolean
 } & HintProps &
-  Readonly<PropsWithChildren<HTMLAttributes<HTMLFieldSetElement>>>
+  Readonly<PropsWithChildren<FieldsetHTMLAttributes<HTMLFieldSetElement>>>
 
 /**
  * Groups a set of Radio buttons or Checkboxes, or other related form fields.
