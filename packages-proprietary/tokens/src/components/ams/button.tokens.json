@@ -168,6 +168,12 @@
           }
         },
         "disabled": {
+          "background-color": {
+            "$value": "{ams.inputs.disabled.background-color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
           "border-color": {
             "$value": "{ams.color.interactive.disabled}",
             "$extensions": {
@@ -226,6 +232,12 @@
           }
         },
         "disabled": {
+          "background-color": {
+            "$value": "{ams.inputs.disabled.background-color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
           "color": {
             "$value": "{ams.color.interactive.disabled}",
             "$extensions": {

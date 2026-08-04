@@ -58,6 +58,12 @@ export const LongLabel: Story = {
   },
 }
 
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+}
+
 export const InAFieldSet: Story = {
   argTypes: {
     checked: {

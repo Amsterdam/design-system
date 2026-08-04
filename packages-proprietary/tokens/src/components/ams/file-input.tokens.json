@@ -170,6 +170,12 @@
           }
         },
         "disabled": {
+          "background-color": {
+            "$value": "{ams.button.secondary.disabled.background-color}",
+            "$extensions": {
+              "nl.amsterdam.type": "color"
+            }
+          },
           "color": {
             "$value": "{ams.button.secondary.disabled.color}",
             "$extensions": {

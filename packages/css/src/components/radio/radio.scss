@@ -98,6 +98,7 @@
   cursor: var(--ams-radio-disabled-cursor);
 
   .ams-radio__circle {
+    fill: var(--ams-radio-circle-disabled-fill);
     stroke: var(--ams-radio-circle-disabled-stroke);
   }
 
@@ -213,6 +214,7 @@
   .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label,
   .ams-radio__input[aria-invalid="true"]:disabled + .ams-radio__label:hover {
     .ams-radio__circle {
+      fill: Canvas;
       stroke: GrayText;
     }
 

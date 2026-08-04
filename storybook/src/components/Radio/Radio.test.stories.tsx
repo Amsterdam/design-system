@@ -21,6 +21,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args, context) => renderComponentVariants(Radio, { args }, context),
+  render: (args, context) => renderComponentVariants(Radio, { args, variants: ['disabled'] }, context),
   tags: ['!dev', '!autodocs', '!manifest'],
 }

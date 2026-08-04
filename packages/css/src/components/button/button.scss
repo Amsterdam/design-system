@@ -67,6 +67,7 @@
 
   &:disabled,
   &[aria-disabled="true"] {
+    background-color: var(--ams-button-secondary-disabled-background-color);
     border-color: var(--ams-button-secondary-disabled-border-color);
     color: var(--ams-button-secondary-disabled-color);
   }
@@ -86,6 +87,7 @@
 
   &:disabled,
   &[aria-disabled="true"] {
+    background-color: var(--ams-button-tertiary-disabled-background-color);
     color: var(--ams-button-tertiary-disabled-color);
   }
 

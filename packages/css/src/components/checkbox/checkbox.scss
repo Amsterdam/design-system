@@ -91,9 +91,11 @@
     cursor: var(--ams-checkbox-disabled-cursor);
 
     .ams-checkbox__rectangle {
+      fill: var(--ams-checkbox-rectangle-disabled-fill);
       stroke: var(--ams-checkbox-rectangle-disabled-stroke);
 
       @media (forced-colors: active) {
+        fill: Canvas;
         stroke: GrayText;
       }
     }
