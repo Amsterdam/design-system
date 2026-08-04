@@ -61,11 +61,13 @@ Follow these guidelines:
 1. For Boolean props, set their default value to `false`, unless this has side effects e.g. rendering a class name.
    In that case, don’t specify a value.
    Storybook will then display a button ‘Set boolean’ that shows a switch.
-2. Don’t use an empty string as a placeholder value – it can defeat component behaviour such as generating an id or rendering an optional hint.
+2. For other props, don’t set an arg to the value the prop has by default.
+   The `undefined` option labelled with that default already selects it – see [Choosing a control](#choosing-a-control) – so an arg would only add the prop to the code view.
+3. Don’t use an empty string as a placeholder value – it can defeat component behaviour such as generating an id or rendering an optional hint.
    Leave the arg out instead.
-3. Hide args with `table: { disable: true }` in the `argTypes` object if they don’t apply to the story, e.g. if the story composes multiple instances of the component.
+4. Hide args with `table: { disable: true }` in the `argTypes` object if they don’t apply to the story, e.g. if the story composes multiple instances of the component.
    We don’t hide ‘less relevant’ args in other cases, not even in stories that focus on a single prop.
-4. Note that the args and argTypes of the meta feed the Test story, which is the only story Chromatic snapshots for a component or a CSS utility – see [Test stories](#test-stories).
+5. Note that the args and argTypes of the meta feed the Test story, which is the only story Chromatic snapshots for a component or a CSS utility – see [Test stories](#test-stories).
    Changing them can therefore change snapshots; the args of an individual presentation story don’t reach Chromatic.
    This does not hold for page templates, whose stories Chromatic snapshots one by one.
 
