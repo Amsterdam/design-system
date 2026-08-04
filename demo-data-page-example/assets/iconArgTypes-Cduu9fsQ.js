@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";import{et as t,tt as n}from"./index.esm-C4JxZd6v.js";var r,i,a=e((()=>{n(),r=e=>({control:{labels:{undefined:e?`${e} (default)`:`none`},type:`select`},mapping:t,options:[void 0,...Object.keys(t).filter(t=>t!==e)]}),i={control:{type:`select`},mapping:t,options:Object.keys(t)}}));export{a as n,i as r,r as t};
