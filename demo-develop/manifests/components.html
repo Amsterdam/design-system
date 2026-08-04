@@ -588,7 +588,7 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/294 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/295 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
   </div>
 </header>
 <main>
@@ -7449,7 +7449,7 @@ The hidden prefix inside the message is what says that something went wrong.
       <div class="badges">
         <label for="c-24-components-forms-field-set-props" class="badge ok as-toggle">6 prop types</label>
         
-        <label for="c-24-components-forms-field-set-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-24-components-forms-field-set-stories" class="badge ok as-toggle">7 stories</label>
         <label for="c-24-components-forms-field-set-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -7543,7 +7543,7 @@ import { FieldSet } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;FieldSet invalid={false} legend=&quot;Wat is uw naam?&quot;&gt;
+              <pre><code>const Default = () =&gt; &lt;FieldSet disabled={false} invalid={false} legend=&quot;Wat is uw naam?&quot;&gt;
     &lt;Field&gt;
         &lt;Label htmlFor=&quot;input-a1&quot; inFieldSet&gt;Voornaam
                     &lt;/Label&gt;
@@ -7575,7 +7575,11 @@ import { FieldSet } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const WithDescription = () =&gt; &lt;FieldSet aria-describedby=&quot;description-b&quot; invalid={false} legend=&quot;Wat is uw naam?&quot;&gt;
+              <pre><code>const WithDescription = () =&gt; &lt;FieldSet
+    aria-describedby=&quot;description-b&quot;
+    disabled={false}
+    invalid={false}
+    legend=&quot;Wat is uw naam?&quot;&gt;
     &lt;Paragraph id=&quot;description-b&quot;&gt;Vul uw naam in zoals in uw paspoort staat.&lt;/Paragraph&gt;
     &lt;Field&gt;
         &lt;Label htmlFor=&quot;input-b1&quot; inFieldSet&gt;Voornaam
@@ -7609,6 +7613,7 @@ import { FieldSet } from "@amsterdam/design-system-react/src";</code></pre>
               
               
               <pre><code>const WithHint = () =&gt; &lt;FieldSet
+    disabled={false}
     invalid={false}
     legend=&quot;Wat is uw naam?&quot;
     hint=&quot;verplicht&quot;
@@ -7672,12 +7677,36 @@ import { FieldSet } from "@amsterdam/design-system-react/src";</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
+                <span class="ex-name">Disabled</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Disabled = () =&gt; &lt;FieldSet disabled invalid={false} legend=&quot;Wat is uw naam?&quot;&gt;
+    &lt;Field&gt;
+        &lt;Label htmlFor=&quot;input-d1&quot; inFieldSet&gt;Voornaam
+                    &lt;/Label&gt;
+        &lt;TextInput id=&quot;input-d1&quot; value={givenName} /&gt;
+    &lt;/Field&gt;
+    &lt;Field&gt;
+        &lt;Label htmlFor=&quot;input-d2&quot; inFieldSet&gt;Achternaam
+                    &lt;/Label&gt;
+        &lt;TextInput id=&quot;input-d2&quot; value={familyName} /&gt;
+    &lt;/Field&gt;
+&lt;/FieldSet&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
                 <span class="ex-name">With Heading In Legend</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const WithHeadingInLegend = () =&gt; &lt;FieldSet invalid={false} legend=&quot;Wat is uw naam?&quot; legendIsPageHeading&gt;
+              <pre><code>const WithHeadingInLegend = () =&gt; &lt;FieldSet
+    disabled={false}
+    invalid={false}
+    legend=&quot;Wat is uw naam?&quot;
+    legendIsPageHeading&gt;
     &lt;Field&gt;
         &lt;Label htmlFor=&quot;input-h1&quot; inFieldSet&gt;Voornaam
                     &lt;/Label&gt;
@@ -7709,7 +7738,7 @@ import { FieldSet } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const WithANestedFieldSet = () =&gt; &lt;FieldSet invalid={false} legend=&quot;Contact&quot;&gt;
+              <pre><code>const WithANestedFieldSet = () =&gt; &lt;FieldSet disabled={false} invalid={false} legend=&quot;Contact&quot;&gt;
     &lt;Field&gt;
         &lt;Label htmlFor=&quot;input-i1&quot; inFieldSet&gt;Waarover wilt u contact opnemen?
                     &lt;/Label&gt;
@@ -7810,6 +7839,15 @@ Add an `aria-describedby` attribute to the input and provide the `id` of Error M
 Do not use rich text (such as links or lists) in an Error Message. [Find out why](/docs/components-forms-error-message--docs#no-rich-text).
 
 &lt;Canvas of={FieldSetStories.WithValidation} /&gt;
+
+### Disabled
+
+A disabled Field Set disables every form control it contains, in a single attribute rather than one per control.
+
+The Field Set itself keeps its appearance: the legend and the labels stay in their usual colour.
+Each control inside shows that it is unavailable in its own way, so a [Text Input](/docs/components-forms-text-input--docs) takes the same grey fill and grey text it has when it is disabled on its own.
+
+&lt;Canvas of={FieldSetStories.Disabled} /&gt;
 
 ### With Heading in Legend
 
