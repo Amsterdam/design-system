@@ -82,6 +82,17 @@ Note that the whole caption becomes the accessible name of the Figure, so keep i
 - The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
   An Accordion starts with a Heading, which is why Prose gives it the space that heading level calls for.
 
+## Accessibility
+
+The Breadcrumb takes a Grid above `main`, so its `nav` element stays outside the page content.
+
+An [Accordion](/docs/components-containers-accordion--docs) renders a heading for every section it holds, which lands in the heading outline of the page around it.
+Its `headingLevel` of 3 under a level 2 section heading is what keeps that outline continuous.
+
+Images that repeat what the text beside them says take an empty `alt`.
+
+What a Table and a Figure each take their accessible name from is the part of this page easiest to get wrong; the ‘With Table’ variant above covers it.
+
 ## See also
 
 - [Product Page](/docs/pages-public-product-page--docs) – for a subject that ends in an application.
