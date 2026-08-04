@@ -43,7 +43,7 @@ import {
 
 import type { MenuItem } from '../common/MenuWithItems'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 
 const documents = [
   { addedOn: '28-5-2026', icon: DocumentIcon, name: 'brugdek-bovenaanzicht.jpg', size: '317,79 kB' },
@@ -71,10 +71,11 @@ const menuItems: MenuItem[] = [
 const meta = {
   ...commonMeta,
   title: 'Pages/Internal/Data Page',
-  parameters: {
-    ...commonMeta.parameters,
-    menuItems,
-  },
+  parameters: pageParameters(
+    'Shows everything recorded about a single object, with its metadata and the sections ' +
+      'of its record beside one another.',
+    { menuItems },
+  ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: (args) => (
     <Grid paddingVertical="x-large">
