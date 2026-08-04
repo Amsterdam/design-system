@@ -23,13 +23,15 @@ type Story = StoryObj<typeof meta>
 export const Test: Story = {
   args: {
     children: (
-      // We add a label to prevent Chromatic from raising an accessibility error.
+      // The label names the input, which Chromatic needs, and wraps it so that no id repeats across the variants.
       <div>
-        <label htmlFor="input-a1">Voornaam</label>
-        <input id="input-a1" value="Yassine" />
+        <label>
+          Voornaam
+          <input readOnly value="Yassine" />
+        </label>
       </div>
     ),
   },
-  render: (args, context) => renderComponentVariants(FieldSet, { args }, context),
+  render: (args, context) => renderComponentVariants(FieldSet, { args, variants: ['disabled'] }, context),
   tags: ['!dev', '!autodocs', '!manifest'],
 }
