@@ -86,6 +86,13 @@ A Cell that carries it needs no bottom margins of its own.
 
 Where Prose has no rule for an element, every element but the last sets its own bottom margin with an [`ams-mb-*`](/docs/utilities-css-margin--docs) utility class, in the amount the vertical space guide gives.
 
+### Spacing a section heading
+
+A heading in a Cell of its own is spaced by the row gap of the Grid, which is an `x-large` where the guidance asks for a `small` or less.
+
+Give that Grid a `gapVertical` of `none`, let the heading Cell set the right amount with an `ams-mb-*` utility, and put the Cells below it in a [Grid Subgrid](/docs/components-layout-grid--docs#subgrid) with a `gapVertical` of `x-large`, which is the gap the Grid used to give them.
+A section that shares its Grid with the Content Header needs a Grid of its own first, since the header depends on that row gap.
+
 ## How to size the Grid Cells
 
 Everything on the page is wrapped in a [Grid Cell](/docs/components-layout-grid--docs).
