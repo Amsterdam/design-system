@@ -1,21 +1,69 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as DataStories from "./DataPage.stories.tsx";
 
 <Meta of={DataStories} />
 
-# Data page
+<Title />
 
-This page shows all data of a single object in an internal application, here an inspection report for a bridge.
+<Description of={DataStories} />
 
-The Menu lists the main sections of the application, from the object registry to inspections and settings.
-A sidebar lists the object’s metadata in a Description List and offers in-page navigation through a Table of Contents.
-The sections of the report follow next to it: status assessments with Badges, condition reports and documents in Tables, and empty states in plain text.
+## Anatomy
 
-The sections sit in a [Grid Subgrid](/docs/components-layout-grid--docs) rather than a Cell, so the Cells inside them are placed on the columns of the page.
-That keeps the sections aligned with the page title above them, and it holds them in a single grid item beside the sidebar, so neither column has to span rows to stay put.
-The layout is the one the [News Overview Page](/docs/pages-public-news-overview-page--docs) introduced for a filter column beside a list of results.
+This schematic shows the default sections for this page type and how the grids and vertical space work.
 
-Leave the row gap of the Subgrid at the vertical gap of the Grid, so the sections keep the rhythm of the page.
+<PageAnatomy labels={anatomyLabels} menu mode="compact" of={DataStories} />
+
+## Usage guidelines
+
+### When to use
+
+Use this page for everything an application records about a single object, where the reader needs its metadata in view while working through the record.
+
+### When not to use
+
+Use a [Table Page](/docs/pages-internal-table-page--docs) to work through a set of such objects rather than one of them.
+
+## Structure
+
+The page title names the object.
+The actions that apply to the whole of it sit beside that title rather than with any one section below.
+
+A sidebar carries what stays true of the object: its metadata in a [Description List](/docs/components-text-description-list--docs), a button opening the passport that holds the rest, and a [Table of Contents](/docs/components-navigation-table-of-contents--docs) listing the sections beside it.
+The record follows: assessments a reader takes in at a glance, condition reports and documents in [Tables](/docs/components-containers-table--docs).
+
+Pair a term with its description directly in that Description List.
+A Section groups several terms that share one description, which does not arise here.
+
+A record is rarely complete.
+A section with nothing to show keeps its table and fills a row with the news, so that the reader learns the section exists and is empty rather than meeting a gap where it should be.
+
+## Layout and spacing
+
+Each column is a [Grid Subgrid](/docs/components-layout-grid--docs#subgrid) rather than a Cell, which is what [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs#side-by-side-blocks) asks for where two columns run beside one another and one is much taller.
+A Subgrid is a single item in the row of the Grid however many Cells it holds, so neither column has to span rows to stay beside the other, and every Cell still lands on the columns of the page.
+
+[Prose](/docs/utilities-css-prose--docs) spaces the Cells whose contents it can reach.
+The section that pairs its heading with a download link puts both in a [Row](/docs/components-layout-row--docs), which hides that heading from Prose, so the Cell sets its own margins in the amounts Prose gives the same elements a section above.
+
+## Accessibility
+
+The sidebar comes first in source, so its metadata and its links precede the sections in the reading and the tab order.
+The layout these templates share wraps the body in `main`, which puts the sidebar inside that landmark rather than beside it.
+
+Every section heading carries the `id` its Table of Contents entry points at.
+Following an entry moves the reading position to the heading itself, rather than to the box drawn around the section.
+
+Each table names itself with a `caption`, in whichever of the two ways the [Table Page](/docs/pages-internal-table-page--docs) documents: wrapped around the visible heading where nothing sits between the two, and visually hidden where a row of buttons does.
+Where a checkbox or a button repeats down a table, a visually hidden phrase extends its accessible name with the row it belongs to, so that a screen reader tells one ‘Inspectie’ or ‘Toon onderdelen’ from the next.
+
+## See also
+
+- [Table Page](/docs/pages-internal-table-page--docs) – for working through a set of objects rather than one of them.
+- [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the in-page navigation the sidebar carries.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the Cell sizes and the Grid padding this page follows.
