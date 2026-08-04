@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/289 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/294 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.0s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -3451,7 +3451,7 @@ rowStart?: BreakoutRowNumber | BreakoutRowNumbers | undefined</code></pre>
       <div class="badges">
         <label for="c-11-components-buttons-button-props" class="badge ok as-toggle">4 prop types</label>
         
-        <label for="c-11-components-buttons-button-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-11-components-buttons-button-stories" class="badge ok as-toggle">8 stories</label>
         <label for="c-11-components-buttons-button-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -3512,7 +3512,8 @@ variant?: &quot;primary&quot; | &quot;secondary&quot; | &quot;tertiary&quot; = &
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Button } from "@amsterdam/design-system-react/src";
+                <pre><code>import { ActionGroup } from "@amsterdam/design-system-react";
+import { Button } from "@amsterdam/design-system-react/src";
 import { CloseIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               </div>
           
@@ -3558,6 +3559,25 @@ import { CloseIcon } from "@amsterdam/design-system-react-icons";</code></pre>
     iconBefore={false}
     iconOnly={undefined}
     variant=&quot;tertiary&quot;&gt;Terug&lt;/Button&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Disabled</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Disabled = ({ disabled }) =&gt; (
+  &lt;ActionGroup&gt;
+    &lt;Button disabled={disabled}&gt;Versturen&lt;/Button&gt;
+    &lt;Button disabled={disabled} variant=&quot;secondary&quot;&gt;
+      Annuleren
+    &lt;/Button&gt;
+    &lt;Button disabled={disabled} variant=&quot;tertiary&quot;&gt;
+      Terug
+    &lt;/Button&gt;
+  &lt;/ActionGroup&gt;
+);</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -3695,6 +3715,14 @@ Tertiary Buttons distinguish themselves from secondary Buttons when even less em
 They are also the choice for icon-only Buttons.
 
 &lt;Canvas of={ButtonStories.Tertiary} /&gt;
+
+### Disabled
+
+A disabled Button gets a grey background in every variant.
+The primary variant uses a darker grey than the secondary and tertiary ones, because its label is white.
+Switch off `disabled` to compare the three with their normal appearance.
+
+&lt;Canvas of={ButtonStories.Disabled} /&gt;
 
 ### With icon
 
@@ -4903,7 +4931,7 @@ The text says the same thing either way, which is what keeps the message complet
       <div class="badges">
         <label for="c-16-components-forms-checkbox-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-16-components-forms-checkbox-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-16-components-forms-checkbox-stories" class="badge ok as-toggle">6 stories</label>
         <label for="c-16-components-forms-checkbox-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -5050,6 +5078,30 @@ import { Column, CustomIcon, ErrorMessage, FieldSet, Paragraph } from "@amsterda
             disabled={false}
             indeterminate={false}
             invalid={false}&gt;Ik heb alle gegevens correct en volledig ingevuld. Ik begrijp dat een verhuizing via internet dezelfde juridische status heeft als een verhuizing met een geschreven geldige handtekening.&lt;/Checkbox&gt;
+    );
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Disabled</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Disabled = () =&gt; {
+    const [, setArgs] = useArgs()
+
+    const handleClick = (event: MouseEvent&lt;HTMLInputElement&gt;) =&gt; {
+      setArgs({ checked: event.currentTarget.checked })
+    }
+
+    return (
+        &lt;Checkbox
+            onClick={handleClick}
+            checked={false}
+            disabled
+            indeterminate={false}
+            invalid={false}&gt;Checkbox label&lt;/Checkbox&gt;
     );
 };</code></pre>
             </div>
@@ -5211,6 +5263,13 @@ It is written in the first person when asking the user to agree to the terms and
 ### Long label
 
 &lt;Canvas of={CheckboxStories.LongLabel} /&gt;
+
+### Disabled
+
+A disabled Checkbox fills its square to show it is unavailable.
+Switch on `checked` or `indeterminate` to see that a selected disabled Checkbox keeps its darker fill, so the mark stays legible.
+
+&lt;Canvas of={CheckboxStories.Disabled} /&gt;
 
 ### In a Field Set
 
@@ -5881,7 +5940,7 @@ To highlight the error even more, the parent [Field](/docs/components-forms-fiel
 
 ### Disabled
 
-A field that can not (yet) be used is indicated with a grey border.
+A field that cannot (yet) be used takes a grey background, and its value greys out with it.
 It will not respond to interactions, e.g. with the mouse or keyboard.
 
 &lt;Canvas of={DateInputStories.Disabled} /&gt;
@@ -22599,7 +22658,7 @@ A lead paragraph and small print are therefore a visual distinction only, and ne
       <div class="badges">
         <label for="c-59-components-forms-password-input-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-59-components-forms-password-input-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-59-components-forms-password-input-stories" class="badge ok as-toggle">5 stories</label>
         <label for="c-59-components-forms-password-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -22667,6 +22726,15 @@ import { PasswordInput } from "@amsterdam/design-system-react/src";</code></pre>
               
               
               <pre><code>const Size = () =&gt; &lt;PasswordInput disabled={false} invalid={false} size={10} /&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Disabled</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Disabled = () =&gt; &lt;PasswordInput disabled invalid={false} defaultValue=&quot;Wachtwoord&quot; /&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -22768,6 +22836,13 @@ Use the `size` attribute for this.
 The input won’t grow beyond the width of its container.
 
 &lt;Canvas of={PasswordInputStories.Size} /&gt;
+
+### Disabled
+
+A field that cannot (yet) be used takes a grey background, and the masked value greys out with it.
+It will not respond to interactions, e.g. with the mouse or keyboard.
+
+&lt;Canvas of={PasswordInputStories.Disabled} /&gt;
 
 ### In a Field
 
@@ -30364,7 +30439,7 @@ import * as QueryContainerStories from &quot;./QueryContainer.stories.tsx&quot;;
       <div class="badges">
         <label for="c-66-components-forms-radio-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-66-components-forms-radio-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-66-components-forms-radio-stories" class="badge ok as-toggle">5 stories</label>
         <label for="c-66-components-forms-radio-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -30450,6 +30525,23 @@ import { Radio } from "@amsterdam/design-system-react/src";</code></pre>
     }
 
     return &lt;Radio onClick={handleClick} checked={false} disabled={false} invalid={false}&gt;Radio label&lt;/Radio&gt;;
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Disabled</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Disabled = () =&gt; {
+    const [, setArgs] = useArgs()
+
+    const handleClick = (event: MouseEvent&lt;HTMLInputElement&gt;) =&gt; {
+      setArgs({ checked: event.currentTarget.checked })
+    }
+
+    return &lt;Radio onClick={handleClick} checked={false} disabled invalid={false}&gt;Radio label&lt;/Radio&gt;;
 };</code></pre>
             </div>
             <div class="note ok">
@@ -30611,6 +30703,12 @@ Labels should be concise.
 Try to keep labels shorter than 4 words.
 
 ## Examples
+
+### Disabled
+
+A disabled Radio fills its circle to show it is unavailable.
+
+&lt;Canvas of={RadioStories.Disabled} /&gt;
 
 ### In a Field Set
 
@@ -33234,7 +33332,7 @@ This is what makes dropping the underline safe here, where an inline [Link](/doc
       <div class="badges">
         
         
-        <label for="c-75-components-forms-switch-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-75-components-forms-switch-stories" class="badge ok as-toggle">3 stories</label>
         <label for="c-75-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -33286,6 +33384,23 @@ import { Switch } from "@amsterdam/design-system-react/src";</code></pre>
     }
 
     return &lt;Switch onClick={handleClick} checked={false} disabled={false} /&gt;;
+};</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Disabled</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Disabled = () =&gt; {
+    const [, setArgs] = useArgs()
+
+    const handleClick = (event: MouseEvent&lt;HTMLInputElement&gt;) =&gt; {
+      setArgs({ checked: event.currentTarget.checked })
+    }
+
+    return &lt;Switch onClick={handleClick} checked={false} disabled /&gt;;
 };</code></pre>
             </div>
             <div class="note ok">
@@ -33358,6 +33473,14 @@ The action takes place immediately when the user operates the switch.
 A Switch must have a label, and in most cases, this label should be visible.
 
 ## Examples
+
+### Disabled
+
+A disabled Switch turns its track a light grey and stops responding to the pointer.
+That grey replaces the colour of both settings, so the position of the thumb is the only thing that still distinguishes on from off.
+Turn on `checked` to compare the two.
+
+&lt;Canvas of={SwitchStories.Disabled} /&gt;
 
 ### With Label
 
@@ -35820,7 +35943,7 @@ To highlight the error even more, the parent [Field](/docs/components-forms-fiel
 
 ### Disabled
 
-A field that can not (yet) be used is indicated with a grey border.
+A field that cannot (yet) be used takes a grey background, and its value greys out with it.
 It will not respond to interactions, e.g. with the mouse or keyboard.
 
 &lt;Canvas of={TextInputStories.Disabled} /&gt;
@@ -55768,9 +55891,11 @@ These tokens are used by
 [Search Field](/docs/components-forms-search-field--docs),
 [Select](/docs/components-forms-select--docs),
 [Text Area](/docs/components-forms-text-area--docs),
-[Text Input](/docs/components-forms-text-input--docs),
-[Time Input](/docs/components-forms-time-input--docs) and
-(one of them) by [Button](/docs/components-buttons-button--docs).
+[Text Input](/docs/components-forms-text-input--docs) and
+[Time Input](/docs/components-forms-time-input--docs).
+[Button](/docs/components-buttons-button--docs) uses two of them, and
+[Checkbox](/docs/components-forms-checkbox--docs) and
+[Radio](/docs/components-forms-radio--docs) use one.
 
 ## Default
 
@@ -55783,8 +55908,10 @@ These tokens are used by
 
 ## Disabled
 
-The background colour marks an input as unavailable in Date Input, Password Input, Search Field, Select, Text Area, Text Input and Time Input.
-File Input keeps the default background.
+The background colour marks a control as unavailable.
+Date Input, Password Input, Search Field, Select, Text Area, Text Input and Time Input apply it to the field.
+Checkbox and Radio fill their square and circle with it, and Button uses it for the secondary and tertiary variants.
+File Input applies it to the file selector button only; its own field keeps the default background.
 
 &lt;DesignTokensTable path=&quot;ams.inputs.disabled&quot; showDescriptions tokens={tokens} /&gt;
 
