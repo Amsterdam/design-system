@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -28079,10 +28079,7 @@ export const WithBreakout: StoryObj = {
       &lt;/Breakout.Cell&gt;
     &lt;/Breakout&gt;
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      {/*
-       * One Cell holds all five link sections, so ams-prose spaces them against one another. Separate
-       * Cells would take that space from the row gap, which is one value for the whole Grid.
-       */}
+      {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading id=&quot;themas&quot; level={2} size=&quot;level-3&quot;&gt;Thema’s&lt;/Heading&gt;
         &lt;LinkList&gt;
@@ -28092,6 +28089,8 @@ export const WithBreakout: StoryObj = {
           &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
         &lt;/LinkList&gt;
         &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;Documenten&lt;/Heading&gt;
         &lt;LinkList&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)&lt;/LinkList.Link&gt;
@@ -28099,6 +28098,8 @@ export const WithBreakout: StoryObj = {
           &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
         &lt;/LinkList&gt;
         &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;Video&lt;/Heading&gt;
         {/*
          * A Paragraph between the heading and the image: the vertical space guide documents no value for
@@ -28108,6 +28109,8 @@ export const WithBreakout: StoryObj = {
         {/* This image carries no information the text does not, so it takes an empty alt. */}
         &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
         &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;Meer informatie&lt;/Heading&gt;
         &lt;LinkList&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelkwartier: woningbouw en openbare ruimte&lt;/LinkList.Link&gt;
@@ -28115,6 +28118,8 @@ export const WithBreakout: StoryObj = {
           &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
         &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;Blijf op de hoogte&lt;/Heading&gt;
         &lt;LinkList&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief vernieuwing Amstelstation&lt;/LinkList.Link&gt;
@@ -28532,10 +28537,7 @@ export const WithBreakout: StoryObj = {
           &lt;/Breakout.Cell&gt;
         &lt;/Breakout&gt;
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-          {/*
-           * One Cell holds all five link sections, so ams-prose spaces them against one another. Separate
-           * Cells would take that space from the row gap, which is one value for the whole Grid.
-           */}
+          {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
           &lt;Grid.Cell
             className=&quot;ams-prose&quot;
             span={{ narrow: 4, medium: 6, wide: 7 }}
@@ -28551,6 +28553,12 @@ export const WithBreakout: StoryObj = {
               &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
             &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
             &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;
               Documenten
             &lt;/Heading&gt;
@@ -28560,6 +28568,12 @@ export const WithBreakout: StoryObj = {
               &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
             &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
             &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;
               Video
             &lt;/Heading&gt;
@@ -28571,6 +28585,12 @@ export const WithBreakout: StoryObj = {
             {/* This image carries no information the text does not, so it takes an empty alt. */}
             &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720, 3)} /&gt;
             &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
             &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;
               Meer informatie
             &lt;/Heading&gt;
@@ -28580,6 +28600,12 @@ export const WithBreakout: StoryObj = {
               &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
               &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
             &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;
               Blijf op de hoogte
             &lt;/Heading&gt;
@@ -29421,10 +29447,7 @@ import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</cod
         &lt;/Breakout.Cell&gt;
       &lt;/Breakout&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        {/*
-         * One Cell holds all five link sections, so ams-prose spaces them against one another. Separate
-         * Cells would take that space from the row gap, which is one value for the whole Grid.
-         */}
+        {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
         &lt;Grid.Cell
           className=&quot;ams-prose&quot;
           span={{ narrow: 4, medium: 6, wide: 7 }}
@@ -29440,6 +29463,12 @@ import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</cod
             &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
           &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
           &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;
             Documenten
           &lt;/Heading&gt;
@@ -29449,6 +29478,12 @@ import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</cod
             &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
           &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
           &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;
             Video
           &lt;/Heading&gt;
@@ -29460,6 +29495,12 @@ import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</cod
           {/* This image carries no information the text does not, so it takes an empty alt. */}
           &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720, 3)} /&gt;
           &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
           &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;
             Meer informatie
           &lt;/Heading&gt;
@@ -29469,6 +29510,12 @@ import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</cod
             &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
             &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
           &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;
             Blijf op de hoogte
           &lt;/Heading&gt;
@@ -29623,9 +29670,9 @@ Choose the text colour for a Spotlight from the highlight colour behind it, not 
 Yellow is a light background, so headings and paragraphs keep their default colour and only links take `color=&quot;contrast&quot;`.
 Purple is a dark one, where everything takes `color=&quot;inverse&quot;`.
 
-Stack a run of short link sections in one Grid Cell rather than giving each its own.
-[Prose](/docs/utilities-css-prose--docs) then spaces them against one another, pair by pair, as the vertical space guide asks.
-Separate Cells would take that space from the row gap instead, and that is a single value for the whole Grid.
+Give every link section a Grid Cell of its own, as the other page templates do.
+Each one is a block, and the row gap of the Grid is what sets one block apart from the next.
+[Prose](/docs/utilities-css-prose--docs) is then left with the elements within a section: its heading, its list, and the link to the wider set below them.
 
 Contact details are a [Link List](/docs/components-navigation-link-list--docs) whose links carry an icon instead of the chevron the list draws by default.
 Keep the name and the role above it in a Paragraph: they are not links, and a list of two items reads as a set of ways to get in touch.
@@ -49705,10 +49752,7 @@ export const WithBreakout: StoryObj = {
       &lt;/Breakout.Cell&gt;
     &lt;/Breakout&gt;
     &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-      {/*
-       * One Cell holds all five link sections, so ams-prose spaces them against one another. Separate
-       * Cells would take that space from the row gap, which is one value for the whole Grid.
-       */}
+      {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading id=&quot;themas&quot; level={2} size=&quot;level-3&quot;&gt;Thema’s&lt;/Heading&gt;
         &lt;LinkList&gt;
@@ -49718,6 +49762,8 @@ export const WithBreakout: StoryObj = {
           &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
         &lt;/LinkList&gt;
         &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;Documenten&lt;/Heading&gt;
         &lt;LinkList&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Nota van uitgangspunten Amstelstation (pdf, 2,4 MB)&lt;/LinkList.Link&gt;
@@ -49725,6 +49771,8 @@ export const WithBreakout: StoryObj = {
           &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
         &lt;/LinkList&gt;
         &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;Video&lt;/Heading&gt;
         {/*
          * A Paragraph between the heading and the image: the vertical space guide documents no value for
@@ -49734,6 +49782,8 @@ export const WithBreakout: StoryObj = {
         {/* This image carries no information the text does not, so it takes an empty alt. */}
         &lt;Image alt=&quot;&quot; src=&quot;https://picsum.photos/1280/720&quot; /&gt;
         &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;Meer informatie&lt;/Heading&gt;
         &lt;LinkList&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Amstelkwartier: woningbouw en openbare ruimte&lt;/LinkList.Link&gt;
@@ -49741,6 +49791,8 @@ export const WithBreakout: StoryObj = {
           &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
         &lt;/LinkList&gt;
+      &lt;/Grid.Cell&gt;
+      &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
         &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;Blijf op de hoogte&lt;/Heading&gt;
         &lt;LinkList&gt;
           &lt;LinkList.Link href=&quot;#&quot;&gt;Nieuwsbrief vernieuwing Amstelstation&lt;/LinkList.Link&gt;
@@ -50158,10 +50210,7 @@ export const WithBreakout: StoryObj = {
           &lt;/Breakout.Cell&gt;
         &lt;/Breakout&gt;
         &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-          {/*
-           * One Cell holds all five link sections, so ams-prose spaces them against one another. Separate
-           * Cells would take that space from the row gap, which is one value for the whole Grid.
-           */}
+          {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
           &lt;Grid.Cell
             className=&quot;ams-prose&quot;
             span={{ narrow: 4, medium: 6, wide: 7 }}
@@ -50177,6 +50226,12 @@ export const WithBreakout: StoryObj = {
               &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
             &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
             &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;
               Documenten
             &lt;/Heading&gt;
@@ -50186,6 +50241,12 @@ export const WithBreakout: StoryObj = {
               &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
             &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
             &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;
               Video
             &lt;/Heading&gt;
@@ -50197,6 +50258,12 @@ export const WithBreakout: StoryObj = {
             {/* This image carries no information the text does not, so it takes an empty alt. */}
             &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720, 3)} /&gt;
             &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
             &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;
               Meer informatie
             &lt;/Heading&gt;
@@ -50206,6 +50273,12 @@ export const WithBreakout: StoryObj = {
               &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
               &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
             &lt;/LinkList&gt;
+          &lt;/Grid.Cell&gt;
+          &lt;Grid.Cell
+            className=&quot;ams-prose&quot;
+            span={{ narrow: 4, medium: 6, wide: 7 }}
+            start={{ narrow: 1, medium: 2, wide: 3 }}
+          &gt;
             &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;
               Blijf op de hoogte
             &lt;/Heading&gt;
@@ -51047,10 +51120,7 @@ import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</cod
         &lt;/Breakout.Cell&gt;
       &lt;/Breakout&gt;
       &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
-        {/*
-         * One Cell holds all five link sections, so ams-prose spaces them against one another. Separate
-         * Cells would take that space from the row gap, which is one value for the whole Grid.
-         */}
+        {/* Every link section is a block of its own, so each takes a Grid Cell and the row gap spaces them. */}
         &lt;Grid.Cell
           className=&quot;ams-prose&quot;
           span={{ narrow: 4, medium: 6, wide: 7 }}
@@ -51066,6 +51136,12 @@ import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</cod
             &lt;LinkList.Link href=&quot;#&quot;&gt;Toegankelijkheid van het station&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
           &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle thema’s&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
           &lt;Heading id=&quot;documenten&quot; level={2} size=&quot;level-3&quot;&gt;
             Documenten
           &lt;/Heading&gt;
@@ -51075,6 +51151,12 @@ import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</cod
             &lt;LinkList.Link href=&quot;#&quot;&gt;Verkeersbesluit Amstelstationstraat (pdf, 310 kB)&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
           &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk alle documenten&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
           &lt;Heading id=&quot;video&quot; level={2} size=&quot;level-3&quot;&gt;
             Video
           &lt;/Heading&gt;
@@ -51086,6 +51168,12 @@ import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</cod
           {/* This image carries no information the text does not, so it takes an empty alt. */}
           &lt;Image alt=&quot;&quot; src={exampleImageSource(1280, 720, 3)} /&gt;
           &lt;StandaloneLink href=&quot;#&quot;&gt;Bekijk meer video’s over dit project&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
           &lt;Heading id=&quot;meer-informatie&quot; level={2} size=&quot;level-3&quot;&gt;
             Meer informatie
           &lt;/Heading&gt;
@@ -51095,6 +51183,12 @@ import { MailIcon, PhoneIcon } from "@amsterdam/design-system-react-icons";</cod
             &lt;LinkList.Link href=&quot;#&quot;&gt;Fietsparkeren in Amsterdam&lt;/LinkList.Link&gt;
             &lt;LinkList.Link href=&quot;#&quot;&gt;Meer projecten in Oost&lt;/LinkList.Link&gt;
           &lt;/LinkList&gt;
+        &lt;/Grid.Cell&gt;
+        &lt;Grid.Cell
+          className=&quot;ams-prose&quot;
+          span={{ narrow: 4, medium: 6, wide: 7 }}
+          start={{ narrow: 1, medium: 2, wide: 3 }}
+        &gt;
           &lt;Heading id=&quot;blijf-op-de-hoogte&quot; level={2} size=&quot;level-3&quot;&gt;
             Blijf op de hoogte
           &lt;/Heading&gt;
@@ -51249,9 +51343,9 @@ Choose the text colour for a Spotlight from the highlight colour behind it, not 
 Yellow is a light background, so headings and paragraphs keep their default colour and only links take `color=&quot;contrast&quot;`.
 Purple is a dark one, where everything takes `color=&quot;inverse&quot;`.
 
-Stack a run of short link sections in one Grid Cell rather than giving each its own.
-[Prose](/docs/utilities-css-prose--docs) then spaces them against one another, pair by pair, as the vertical space guide asks.
-Separate Cells would take that space from the row gap instead, and that is a single value for the whole Grid.
+Give every link section a Grid Cell of its own, as the other page templates do.
+Each one is a block, and the row gap of the Grid is what sets one block apart from the next.
+[Prose](/docs/utilities-css-prose--docs) is then left with the elements within a section: its heading, its list, and the link to the wider set below them.
 
 Contact details are a [Link List](/docs/components-navigation-link-list--docs) whose links carry an icon instead of the chevron the list draws by default.
 Keep the name and the role above it in a Paragraph: they are not links, and a list of two items reads as a set of ways to get in touch.
