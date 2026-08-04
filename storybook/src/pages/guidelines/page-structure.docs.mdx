@@ -88,8 +88,11 @@ The shared layout of these templates renders it, so a template itself only has t
 
 The page title is a level 1 [Heading](/docs/components-text-heading--docs#sections-and-blocks), and the sections below it are level 2.
 
-Below the page title, a Heading keeps the size of its level where it introduces a content body, and takes a `size` one step smaller where it introduces a block or a group of blocks.
-Most of the sections below are groups of blocks, so on all but the content page types every heading under the title takes the smaller size.
+On a public page, a Heading below the title keeps the size of its level where it introduces a content body, and takes a `size` one step smaller where it introduces a block or a group of blocks.
+Most sections are groups of blocks, so on all but the content page types every heading under the title takes the smaller size.
+
+Internal pages leave every heading at the size of its level.
+Compact Mode already sets the type down a step, and a second reduction would leave too little between a section and the block inside it.
 
 ## See also
 

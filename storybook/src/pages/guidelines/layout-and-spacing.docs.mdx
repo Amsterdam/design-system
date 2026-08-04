@@ -28,7 +28,7 @@ The first Grid has a `paddingTop` of `large` and no `paddingBottom`.
 On most pages it contains only the Breadcrumb, and on the question pages of a Form Flow only the back link.
 
 Not every page type has a breadcrumb.
-The Loading Page opens with its search field, and the Handbook Page relies on its table of contents.
+A page deep in a handbook relies on its table of contents instead, for one.
 Where the first Grid holds content instead of a breadcrumb, it still takes the `large` top padding.
 
 A page may also open with a section that is not a Grid.
@@ -77,12 +77,12 @@ A page that needs only one Grid combines both rules: a `paddingTop` of `large` a
 
 ### Vertical gaps
 
-Leave `gapVertical` at its default of `x-large`.
+Usually, leave `gapVertical` at its default of `x-large`.
 
 ## Space inside a Grid Cell
 
-The [Prose](/docs/utilities-css-prose--docs) utility class sets the space between the elements of a Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-A Cell that carries it needs no bottom margins of its own.
+The [Prose](/docs/utilities-css-prose--docs) utility class sets the space between most types of elements of a Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+A Cell that carries it needs little bottom margins of its own.
 
 Where Prose has no rule for an element, every element but the last sets its own bottom margin with an [`ams-mb-*`](/docs/utilities-css-margin--docs) utility class, in the amount the vertical space guide gives.
 
@@ -95,7 +95,7 @@ A section that shares its Grid with the Content Header needs a Grid of its own f
 
 ## How to size the Grid Cells
 
-Everything on the page is wrapped in a [Grid Cell](/docs/components-layout-grid--docs).
+Almost everything on the page is wrapped in a [Grid Cell](/docs/components-layout-grid--docs).
 Its `span` and `start` props let you define where all sections go on the page.
 Do so for all variants of the Grid (narrow, medium, and wide: 4, 8, and 12 columns).
 
@@ -113,7 +113,7 @@ It is a bit **wider** than the body section and is positioned slightly further *
 Breadcrumbs use their own Grid placed directly above the Content Header, using the same cell configuration.
 See [the Content Header Grid](#the-content-header-grid) for the space around and inside this section.
 
-### Content page body
+### Content Body
 
 The body section contains the main textual content of the page.
 It spans **7 columns** on the wide grid and **6 columns** on the medium-wide grid to maintain an optimal line length for readability.
@@ -125,20 +125,37 @@ This also applies to forms.
 
 ### Side-by-side blocks
 
-Link Sections (a block with a header, paragraph, and standalone link) can be displayed **side by side**, for example within a Spotlight.
-To achieve this, use the following configuration.
-The `start` prop is not needed here.
+Link Sections (a block with a heading, paragraph, and standalone link) can be displayed **side by side**, for example within a Spotlight.
+Two of them take half the wide grid each, and the `start` prop is not needed.
 
 ```tsx
 <Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }} />
 ```
 
-On navigation pages, similar sections use Link Lists and are 1 column **narrower** on wide screens.
-When rendering them in a loop, the `start` position is only necessary for the odd cells:
+Where a set of blocks sits under a heading of its own, put them in a [Grid Subgrid](/docs/components-layout-grid--docs#subgrid) spanning the whole Grid.
+The Subgrid hands its columns to its own Cells, so each block is placed against the columns of the page without repeating a `start`, and the heading above keeps a Cell in the Grid itself.
 
 ```tsx
-<Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }} />
+<Grid>
+  <Grid.Cell span="all">{/* the heading */}</Grid.Cell>
+  <Grid.Subgrid gapVertical="x-large" span="all">
+    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} />
+  </Grid.Subgrid>
+</Grid>
 ```
+
+Where two columns run beside one another and one is much taller, give **each column** its own Subgrid instead.
+A Subgrid is a single item in the row of the Grid however many rows it holds, so the columns stack independently rather than a tall block pushing its neighbour down.
+On the narrow grid the second column then lands below the whole of the first rather than interleaving with it.
+
+```tsx
+<Grid>
+  <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }} />
+  <Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 5 }} />
+</Grid>
+```
+
+Blocks placed straight into a Grid rather than a Subgrid still need a `start` on every other Cell to hold the left-hand column, which is worth avoiding where a Subgrid will do.
 
 ### Top tasks
 

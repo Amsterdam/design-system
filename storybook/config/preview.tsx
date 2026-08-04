@@ -255,7 +255,13 @@ export const parameters = {
         [
           'Introduction',
           'Guidelines',
-          ['Choosing a page type', 'Page structure', 'Layout and spacing', 'Reading the anatomy'],
+          [
+            'Choosing a page type',
+            'Page structure',
+            'Layout and spacing',
+            'Reading the anatomy',
+            'Composing your own page',
+          ],
           'Public',
           ['Introduction', 'Home Page'],
           'Internal',
