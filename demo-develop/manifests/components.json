@@ -118,17 +118,17 @@
         {
           "id": "components-buttons-button--primary",
           "name": "Primary",
-          "snippet": "const Primary = () => <Button\n    disabled={false}\n    icon={undefined}\n    iconBefore={false}\n    iconOnly={undefined}\n    variant=\"primary\">Versturen</Button>;"
+          "snippet": "const Primary = () => <Button disabled={false} iconBefore={false}>Versturen</Button>;"
         },
         {
           "id": "components-buttons-button--secondary",
           "name": "Secondary",
-          "snippet": "const Secondary = () => <Button\n    disabled={false}\n    icon={undefined}\n    iconBefore={false}\n    iconOnly={undefined}\n    variant=\"secondary\">Annuleren</Button>;"
+          "snippet": "const Secondary = () => <Button disabled={false} iconBefore={false} variant=\"secondary\">Annuleren</Button>;"
         },
         {
           "id": "components-buttons-button--tertiary",
           "name": "Tertiary",
-          "snippet": "const Tertiary = () => <Button\n    disabled={false}\n    icon={undefined}\n    iconBefore={false}\n    iconOnly={undefined}\n    variant=\"tertiary\">Terug</Button>;"
+          "snippet": "const Tertiary = () => <Button disabled={false} iconBefore={false} variant=\"tertiary\">Terug</Button>;"
         },
         {
           "id": "components-buttons-button--disabled",
@@ -138,22 +138,22 @@
         {
           "id": "components-buttons-button--with-icon",
           "name": "With Icon",
-          "snippet": "const WithIcon = () => <Button\n    disabled={false}\n    icon={<CloseIcon />}\n    iconBefore={false}\n    iconOnly={undefined}\n    variant=\"primary\">Sluiten</Button>;"
+          "snippet": "const WithIcon = () => <Button disabled={false} iconBefore={false} icon={<CloseIcon />}>Sluiten</Button>;"
         },
         {
           "id": "components-buttons-button--with-icon-before",
           "name": "With Icon Before",
-          "snippet": "const WithIconBefore = () => <Button\n    disabled={false}\n    icon={<CloseIcon />}\n    iconBefore\n    iconOnly={undefined}\n    variant=\"primary\">Sluiten</Button>;"
+          "snippet": "const WithIconBefore = () => <Button disabled={false} iconBefore icon={<CloseIcon />}>Sluiten</Button>;"
         },
         {
           "id": "components-buttons-button--with-icon-only",
           "name": "With Icon Only",
-          "snippet": "const WithIconOnly = () => <Button\n    disabled={false}\n    icon={<CloseIcon />}\n    iconBefore={false}\n    iconOnly\n    variant=\"tertiary\">Sluiten</Button>;"
+          "snippet": "const WithIconOnly = () => <Button\n    disabled={false}\n    iconBefore={false}\n    icon={<CloseIcon />}\n    iconOnly\n    variant=\"tertiary\">Sluiten</Button>;"
         },
         {
           "id": "components-buttons-button--text-wrapping",
           "name": "Text Wrapping",
-          "snippet": "const TextWrapping = () => <Button\n    disabled={false}\n    icon={undefined}\n    iconBefore={false}\n    iconOnly={undefined}\n    variant=\"primary\">Vergunningsaanvraag verzenden</Button>;"
+          "snippet": "const TextWrapping = () => <Button disabled={false} iconBefore={false}>Vergunningsaanvraag verzenden</Button>;"
         }
       ],
       "import": "import { ActionGroup } from \"@amsterdam/design-system-react\";\nimport { Button } from \"@amsterdam/design-system-react/src\";\nimport { CloseIcon } from \"@amsterdam/design-system-react-icons\";",
@@ -310,17 +310,17 @@
         {
           "id": "components-buttons-icon-button--default",
           "name": "Default",
-          "snippet": "const Default = () => <IconButton disabled={false} label=\"Sluiten\" size={undefined} />;"
+          "snippet": "const Default = () => <IconButton disabled={false} label=\"Sluiten\" />;"
         },
         {
           "id": "components-buttons-icon-button--contrast-colour",
           "name": "Contrast Colour",
-          "snippet": "const ContrastColour = () => <IconButton disabled={false} label=\"Sluiten\" size={undefined} color=\"contrast\" />;"
+          "snippet": "const ContrastColour = () => <IconButton disabled={false} label=\"Sluiten\" color=\"contrast\" />;"
         },
         {
           "id": "components-buttons-icon-button--inverse-colour",
           "name": "Inverse Colour",
-          "snippet": "const InverseColour = () => <IconButton disabled={false} label=\"Sluiten\" size={undefined} color=\"inverse\" />;"
+          "snippet": "const InverseColour = () => <IconButton disabled={false} label=\"Sluiten\" color=\"inverse\" />;"
         }
       ],
       "import": "import { IconButton } from \"@amsterdam/design-system-react/src\";",
@@ -4246,27 +4246,27 @@
         {
           "id": "components-forms-file-input--default",
           "name": "Default",
-          "snippet": "const Default = () => <FileInput accept={undefined} disabled={false} multiple={false} />;"
+          "snippet": "const Default = () => <FileInput disabled={false} multiple={false} />;"
         },
         {
           "id": "components-forms-file-input--multiple-files",
           "name": "Multiple Files",
-          "snippet": "const MultipleFiles = () => <FileInput accept={undefined} disabled={false} multiple />;"
+          "snippet": "const MultipleFiles = () => <FileInput disabled={false} multiple />;"
         },
         {
           "id": "components-forms-file-input--restrict-file-types",
           "name": "Restrict File Types",
-          "snippet": "const RestrictFileTypes = () => <FileInput accept=\"application/pdf\" disabled={false} multiple={false} />;"
+          "snippet": "const RestrictFileTypes = () => <FileInput disabled={false} multiple={false} accept=\"application/pdf\" />;"
         },
         {
           "id": "components-forms-file-input--disabled",
           "name": "Disabled",
-          "snippet": "const Disabled = () => <FileInput accept={undefined} disabled multiple={false} />;"
+          "snippet": "const Disabled = () => <FileInput disabled multiple={false} />;"
         },
         {
           "id": "components-forms-file-input--in-a-field",
           "name": "In A Field",
-          "snippet": "const InAField = () => <Field>\n    <Label htmlFor=\"input1\">Label</Label>\n    <Paragraph id=\"description1\">Omschrijving.</Paragraph>\n    <FileInput\n        aria-describedby=\"description1\"\n        id=\"input1\"\n        accept={undefined}\n        disabled={false}\n        multiple={false} />\n</Field>;"
+          "snippet": "const InAField = () => <Field>\n    <Label htmlFor=\"input1\">Label</Label>\n    <Paragraph id=\"description1\">Omschrijving.</Paragraph>\n    <FileInput\n        aria-describedby=\"description1\"\n        id=\"input1\"\n        disabled={false}\n        multiple={false} />\n</Field>;"
         }
       ],
       "import": "import { Field, Label, Paragraph } from \"@amsterdam/design-system-react\";\nimport { FileInput } from \"@amsterdam/design-system-react/src\";",
@@ -8511,7 +8511,7 @@
         {
           "id": "components-navigation-card--top-tasks",
           "name": "Top Tasks",
-          "snippet": "const TopTasks = () => <Grid paddingVertical=\"x-large\">\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card style={undefined}>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Gemeentebelastingen</Card.Link>\n            </Card.Heading>\n            <Paragraph>Bekijk welke belastingen en heffingen er zijn, hoe u bezwaar maakt of een betalingsregeling treft.\n                          </Paragraph>\n        </Card>\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Parkeren + Reizen (P+R)</Card.Link>\n            </Card.Heading>\n            <Paragraph>U kunt met uw auto goedkoop parkeren bij een P+R-locatie aan de rand van de stad.</Paragraph>\n        </Card>\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Paspoort, ID-kaart en rijbewijs</Card.Link>\n            </Card.Heading>\n            <Paragraph>Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan.</Paragraph>\n        </Card>\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Onderwijs</Card.Link>\n            </Card.Heading>\n            <Paragraph>Meld een kind aan voor basisschool, middelbare school of kinderopvang. Bekijk het kindtegoed op uw Stadspas.\n                          </Paragraph>\n        </Card>\n    </Grid.Cell>\n</Grid>;"
+          "snippet": "const TopTasks = () => <Grid paddingVertical=\"x-large\">\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Gemeentebelastingen</Card.Link>\n            </Card.Heading>\n            <Paragraph>Bekijk welke belastingen en heffingen er zijn, hoe u bezwaar maakt of een betalingsregeling treft.\n                          </Paragraph>\n        </Card>\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Parkeren + Reizen (P+R)</Card.Link>\n            </Card.Heading>\n            <Paragraph>U kunt met uw auto goedkoop parkeren bij een P+R-locatie aan de rand van de stad.</Paragraph>\n        </Card>\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Paspoort, ID-kaart en rijbewijs</Card.Link>\n            </Card.Heading>\n            <Paragraph>Vraag deze bewijzen aan of verleng ze. Geef een vermissing aan.</Paragraph>\n        </Card>\n    </Grid.Cell>\n    <Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}>\n        <Card>\n            <Card.Heading level={2}>\n                <Card.Link href=\"#\">Onderwijs</Card.Link>\n            </Card.Heading>\n            <Paragraph>Meld een kind aan voor basisschool, middelbare school of kinderopvang. Bekijk het kindtegoed op uw Stadspas.\n                          </Paragraph>\n        </Card>\n    </Grid.Cell>\n</Grid>;"
         }
       ],
       "import": "import { Card } from \"@amsterdam/design-system-react/src\";\nimport { Column, Grid, Paragraph } from \"@amsterdam/design-system-react\";",
@@ -10437,37 +10437,37 @@
         {
           "id": "components-text-ordered-list--default",
           "name": "Default",
-          "snippet": "const Default = () => <OrderedList markers={undefined} reversed={undefined} start={undefined}>{orderedListItems}</OrderedList>;"
+          "snippet": "const Default = () => <OrderedList>{orderedListItems}</OrderedList>;"
         },
         {
           "id": "components-text-ordered-list--two-levels",
           "name": "Two Levels",
-          "snippet": "const TwoLevels = () => <OrderedList markers={undefined} reversed={undefined} start={undefined}>\n    <OrderedList.Item>Stadsdeel West\n                <OrderedList markers={undefined} reversed={undefined} start={undefined}>\n            <OrderedList.Item>Bos en Lommer</OrderedList.Item>\n            <OrderedList.Item>Oud West / De Baarsjes</OrderedList.Item>\n            <OrderedList.Item>Westerpark</OrderedList.Item>\n        </OrderedList>\n    </OrderedList.Item>\n    <OrderedList.Item>Stadsdeel Nieuw-West\n                <OrderedList markers={undefined} reversed={undefined} start={undefined}>\n            <OrderedList.Item>De Aker, Sloten en Nieuw Sloten</OrderedList.Item>\n            <OrderedList.Item>Geuzenveld, Slotermeer en Sloterdijken</OrderedList.Item>\n            <OrderedList.Item>Osdorp</OrderedList.Item>\n            <OrderedList.Item>Slotervaart</OrderedList.Item>\n        </OrderedList>\n    </OrderedList.Item>\n</OrderedList>;"
+          "snippet": "const TwoLevels = () => <OrderedList>\n    <OrderedList.Item>Stadsdeel West\n                <OrderedList>\n            <OrderedList.Item>Bos en Lommer</OrderedList.Item>\n            <OrderedList.Item>Oud West / De Baarsjes</OrderedList.Item>\n            <OrderedList.Item>Westerpark</OrderedList.Item>\n        </OrderedList>\n    </OrderedList.Item>\n    <OrderedList.Item>Stadsdeel Nieuw-West\n                <OrderedList>\n            <OrderedList.Item>De Aker, Sloten en Nieuw Sloten</OrderedList.Item>\n            <OrderedList.Item>Geuzenveld, Slotermeer en Sloterdijken</OrderedList.Item>\n            <OrderedList.Item>Osdorp</OrderedList.Item>\n            <OrderedList.Item>Slotervaart</OrderedList.Item>\n        </OrderedList>\n    </OrderedList.Item>\n</OrderedList>;"
         },
         {
           "id": "components-text-ordered-list--starting-number",
           "name": "Starting Number",
-          "snippet": "const StartingNumber = () => <OrderedList markers={undefined} reversed={undefined} start={6}>{[\n      <OrderedList.Item key={6}>Zes</OrderedList.Item>,\n      <OrderedList.Item key={7}>Zeven</OrderedList.Item>,\n      <OrderedList.Item key={8}>Acht</OrderedList.Item>,\n    ]}</OrderedList>;"
+          "snippet": "const StartingNumber = () => <OrderedList start={6}>{[\n      <OrderedList.Item key={6}>Zes</OrderedList.Item>,\n      <OrderedList.Item key={7}>Zeven</OrderedList.Item>,\n      <OrderedList.Item key={8}>Acht</OrderedList.Item>,\n    ]}</OrderedList>;"
         },
         {
           "id": "components-text-ordered-list--descending-numbers",
           "name": "Descending Numbers",
-          "snippet": "const DescendingNumbers = () => <OrderedList markers={undefined} reversed start={3}>{[\n      <OrderedList.Item key={3}>Drie</OrderedList.Item>,\n      <OrderedList.Item key={2}>Twee</OrderedList.Item>,\n      <OrderedList.Item key={1}>Eén</OrderedList.Item>,\n    ]}</OrderedList>;"
+          "snippet": "const DescendingNumbers = () => <OrderedList reversed start={3}>{[\n      <OrderedList.Item key={3}>Drie</OrderedList.Item>,\n      <OrderedList.Item key={2}>Twee</OrderedList.Item>,\n      <OrderedList.Item key={1}>Eén</OrderedList.Item>,\n    ]}</OrderedList>;"
         },
         {
           "id": "components-text-ordered-list--without-markers",
           "name": "Without Markers",
-          "snippet": "const WithoutMarkers = () => <OrderedList\n    markers={false}\n    reversed={undefined}\n    start={undefined}\n    className=\"ams-gap-xl\">{[\n      <OrderedList.Item key={1}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Weg met steen, hallo extra groen en koelte</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de\n            stad in de zomer. Een paar voorbeelden.\n          </Paragraph>\n          <Paragraph size=\"small\">16 augustus 2023</Paragraph>\n        </Card>\n      </OrderedList.Item>,\n      <OrderedList.Item key={2}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Amsterdam bindt de strijd aan met lawaaierige voertuigen</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals\n            motoren en auto’s tegen te gaan.\n          </Paragraph>\n          <Paragraph size=\"small\">10 augustus 2023</Paragraph>\n        </Card>\n      </OrderedList.Item>,\n      <OrderedList.Item key={3}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Een prachtroute door de wonderlijke Baarsjes</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit\n            en laten zien hoe het was en hoe het nu is.\n          </Paragraph>\n          <Paragraph size=\"small\">8 augustus 2023</Paragraph>\n        </Card>\n      </OrderedList.Item>,\n    ]}</OrderedList>;"
+          "snippet": "const WithoutMarkers = () => <OrderedList className=\"ams-gap-xl\" markers={false}>{[\n      <OrderedList.Item key={1}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Weg met steen, hallo extra groen en koelte</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de\n            stad in de zomer. Een paar voorbeelden.\n          </Paragraph>\n          <Paragraph size=\"small\">16 augustus 2023</Paragraph>\n        </Card>\n      </OrderedList.Item>,\n      <OrderedList.Item key={2}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Amsterdam bindt de strijd aan met lawaaierige voertuigen</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals\n            motoren en auto’s tegen te gaan.\n          </Paragraph>\n          <Paragraph size=\"small\">10 augustus 2023</Paragraph>\n        </Card>\n      </OrderedList.Item>,\n      <OrderedList.Item key={3}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Een prachtroute door de wonderlijke Baarsjes</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit\n            en laten zien hoe het was en hoe het nu is.\n          </Paragraph>\n          <Paragraph size=\"small\">8 augustus 2023</Paragraph>\n        </Card>\n      </OrderedList.Item>,\n    ]}</OrderedList>;"
         },
         {
           "id": "components-text-ordered-list--inverse-color",
           "name": "Inverse Color",
-          "snippet": "const InverseColor = () => <OrderedList\n    markers={undefined}\n    reversed={undefined}\n    start={undefined}\n    color=\"inverse\">\n    <OrderedList.Item>Stadsdeel West\n                <OrderedList\n            markers={undefined}\n            reversed={undefined}\n            start={undefined}\n            color=\"inverse\">\n            <OrderedList.Item>Bos en Lommer</OrderedList.Item>\n            <OrderedList.Item>Oud West / De Baarsjes</OrderedList.Item>\n            <OrderedList.Item>Westerpark</OrderedList.Item>\n        </OrderedList>\n    </OrderedList.Item>\n</OrderedList>;"
+          "snippet": "const InverseColor = () => <OrderedList color=\"inverse\">\n    <OrderedList.Item>Stadsdeel West\n                <OrderedList color=\"inverse\">\n            <OrderedList.Item>Bos en Lommer</OrderedList.Item>\n            <OrderedList.Item>Oud West / De Baarsjes</OrderedList.Item>\n            <OrderedList.Item>Westerpark</OrderedList.Item>\n        </OrderedList>\n    </OrderedList.Item>\n</OrderedList>;"
         },
         {
           "id": "components-text-ordered-list--small-text",
           "name": "Small Text",
-          "snippet": "const SmallText = () => <OrderedList markers={undefined} reversed={undefined} start={undefined} size=\"small\">{orderedListItems}</OrderedList>;"
+          "snippet": "const SmallText = () => <OrderedList size=\"small\">{orderedListItems}</OrderedList>;"
         }
       ],
       "import": "import { Card, Paragraph } from \"@amsterdam/design-system-react\";\nimport { OrderedList } from \"@amsterdam/design-system-react/src\";",
@@ -10703,27 +10703,27 @@
         {
           "id": "components-text-unordered-list--default",
           "name": "Default",
-          "snippet": "const Default = () => <UnorderedList markers={undefined}>{unorderedListItems}</UnorderedList>;"
+          "snippet": "const Default = () => <UnorderedList>{unorderedListItems}</UnorderedList>;"
         },
         {
           "id": "components-text-unordered-list--two-levels",
           "name": "Two Levels",
-          "snippet": "const TwoLevels = () => <UnorderedList markers={undefined}>\n    <UnorderedList.Item>Stadsdeel West\n                <UnorderedList markers={undefined}>\n            <UnorderedList.Item>Bos en Lommer</UnorderedList.Item>\n            <UnorderedList.Item>Oud West / De Baarsjes</UnorderedList.Item>\n            <UnorderedList.Item>Westerpark</UnorderedList.Item>\n        </UnorderedList>\n    </UnorderedList.Item>\n    <UnorderedList.Item>Stadsdeel Nieuw-West\n                <UnorderedList markers={undefined}>\n            <UnorderedList.Item>De Aker, Sloten en Nieuw Sloten</UnorderedList.Item>\n            <UnorderedList.Item>Geuzenveld, Slotermeer en Sloterdijken</UnorderedList.Item>\n            <UnorderedList.Item>Osdorp</UnorderedList.Item>\n            <UnorderedList.Item>Slotervaart</UnorderedList.Item>\n        </UnorderedList>\n    </UnorderedList.Item>\n</UnorderedList>;"
+          "snippet": "const TwoLevels = () => <UnorderedList>\n    <UnorderedList.Item>Stadsdeel West\n                <UnorderedList>\n            <UnorderedList.Item>Bos en Lommer</UnorderedList.Item>\n            <UnorderedList.Item>Oud West / De Baarsjes</UnorderedList.Item>\n            <UnorderedList.Item>Westerpark</UnorderedList.Item>\n        </UnorderedList>\n    </UnorderedList.Item>\n    <UnorderedList.Item>Stadsdeel Nieuw-West\n                <UnorderedList>\n            <UnorderedList.Item>De Aker, Sloten en Nieuw Sloten</UnorderedList.Item>\n            <UnorderedList.Item>Geuzenveld, Slotermeer en Sloterdijken</UnorderedList.Item>\n            <UnorderedList.Item>Osdorp</UnorderedList.Item>\n            <UnorderedList.Item>Slotervaart</UnorderedList.Item>\n        </UnorderedList>\n    </UnorderedList.Item>\n</UnorderedList>;"
         },
         {
           "id": "components-text-unordered-list--without-markers",
           "name": "Without Markers",
-          "snippet": "const WithoutMarkers = () => <UnorderedList markers={false} className=\"ams-gap-xl\">{[\n      <UnorderedList.Item key={1}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Weg met steen, hallo extra groen en koelte</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de\n            stad in de zomer. Een paar voorbeelden.\n          </Paragraph>\n          <Paragraph size=\"small\">16 augustus 2023</Paragraph>\n        </Card>\n      </UnorderedList.Item>,\n      <UnorderedList.Item key={2}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Amsterdam bindt de strijd aan met lawaaierige voertuigen</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals\n            motoren en auto’s tegen te gaan.\n          </Paragraph>\n          <Paragraph size=\"small\">10 augustus 2023</Paragraph>\n        </Card>\n      </UnorderedList.Item>,\n      <UnorderedList.Item key={3}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Een prachtroute door de wonderlijke Baarsjes</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit\n            en laten zien hoe het was en hoe het nu is.\n          </Paragraph>\n          <Paragraph size=\"small\">8 augustus 2023</Paragraph>\n        </Card>\n      </UnorderedList.Item>,\n    ]}</UnorderedList>;"
+          "snippet": "const WithoutMarkers = () => <UnorderedList className=\"ams-gap-xl\" markers={false}>{[\n      <UnorderedList.Item key={1}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Weg met steen, hallo extra groen en koelte</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de\n            stad in de zomer. Een paar voorbeelden.\n          </Paragraph>\n          <Paragraph size=\"small\">16 augustus 2023</Paragraph>\n        </Card>\n      </UnorderedList.Item>,\n      <UnorderedList.Item key={2}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Amsterdam bindt de strijd aan met lawaaierige voertuigen</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals\n            motoren en auto’s tegen te gaan.\n          </Paragraph>\n          <Paragraph size=\"small\">10 augustus 2023</Paragraph>\n        </Card>\n      </UnorderedList.Item>,\n      <UnorderedList.Item key={3}>\n        <Card>\n          <Card.Heading level={2}>\n            <Card.Link href=\"#\">Een prachtroute door de wonderlijke Baarsjes</Card.Link>\n          </Card.Heading>\n          <Paragraph>\n            In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit\n            en laten zien hoe het was en hoe het nu is.\n          </Paragraph>\n          <Paragraph size=\"small\">8 augustus 2023</Paragraph>\n        </Card>\n      </UnorderedList.Item>,\n    ]}</UnorderedList>;"
         },
         {
           "id": "components-text-unordered-list--inverse-color",
           "name": "Inverse Color",
-          "snippet": "const InverseColor = () => <UnorderedList markers={undefined} color=\"inverse\">\n    <UnorderedList.Item>Stadsdeel West\n                <UnorderedList markers={undefined} color=\"inverse\">\n            <UnorderedList.Item>Bos en Lommer</UnorderedList.Item>\n            <UnorderedList.Item>Oud West / De Baarsjes</UnorderedList.Item>\n            <UnorderedList.Item>Westerpark</UnorderedList.Item>\n        </UnorderedList>\n    </UnorderedList.Item>\n</UnorderedList>;"
+          "snippet": "const InverseColor = () => <UnorderedList color=\"inverse\">\n    <UnorderedList.Item>Stadsdeel West\n                <UnorderedList color=\"inverse\">\n            <UnorderedList.Item>Bos en Lommer</UnorderedList.Item>\n            <UnorderedList.Item>Oud West / De Baarsjes</UnorderedList.Item>\n            <UnorderedList.Item>Westerpark</UnorderedList.Item>\n        </UnorderedList>\n    </UnorderedList.Item>\n</UnorderedList>;"
         },
         {
           "id": "components-text-unordered-list--small-text",
           "name": "Small Text",
-          "snippet": "const SmallText = () => <UnorderedList markers={undefined} size=\"small\">{unorderedListItems}</UnorderedList>;"
+          "snippet": "const SmallText = () => <UnorderedList size=\"small\">{unorderedListItems}</UnorderedList>;"
         }
       ],
       "import": "import { Card, Paragraph } from \"@amsterdam/design-system-react\";\nimport { UnorderedList } from \"@amsterdam/design-system-react/src\";",
@@ -11605,6 +11605,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5369
+    "durationMs": 5391
   }
 }

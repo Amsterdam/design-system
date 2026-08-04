@@ -3525,12 +3525,7 @@ import { CloseIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               </div>
               
               
-              <pre><code>const Primary = () =&gt; &lt;Button
-    disabled={false}
-    icon={undefined}
-    iconBefore={false}
-    iconOnly={undefined}
-    variant=&quot;primary&quot;&gt;Versturen&lt;/Button&gt;;</code></pre>
+              <pre><code>const Primary = () =&gt; &lt;Button disabled={false} iconBefore={false}&gt;Versturen&lt;/Button&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -3539,12 +3534,7 @@ import { CloseIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               </div>
               
               
-              <pre><code>const Secondary = () =&gt; &lt;Button
-    disabled={false}
-    icon={undefined}
-    iconBefore={false}
-    iconOnly={undefined}
-    variant=&quot;secondary&quot;&gt;Annuleren&lt;/Button&gt;;</code></pre>
+              <pre><code>const Secondary = () =&gt; &lt;Button disabled={false} iconBefore={false} variant=&quot;secondary&quot;&gt;Annuleren&lt;/Button&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -3553,12 +3543,7 @@ import { CloseIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               </div>
               
               
-              <pre><code>const Tertiary = () =&gt; &lt;Button
-    disabled={false}
-    icon={undefined}
-    iconBefore={false}
-    iconOnly={undefined}
-    variant=&quot;tertiary&quot;&gt;Terug&lt;/Button&gt;;</code></pre>
+              <pre><code>const Tertiary = () =&gt; &lt;Button disabled={false} iconBefore={false} variant=&quot;tertiary&quot;&gt;Terug&lt;/Button&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -3586,12 +3571,7 @@ import { CloseIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               </div>
               
               
-              <pre><code>const WithIcon = () =&gt; &lt;Button
-    disabled={false}
-    icon={&lt;CloseIcon /&gt;}
-    iconBefore={false}
-    iconOnly={undefined}
-    variant=&quot;primary&quot;&gt;Sluiten&lt;/Button&gt;;</code></pre>
+              <pre><code>const WithIcon = () =&gt; &lt;Button disabled={false} iconBefore={false} icon={&lt;CloseIcon /&gt;}&gt;Sluiten&lt;/Button&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -3600,12 +3580,7 @@ import { CloseIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               </div>
               
               
-              <pre><code>const WithIconBefore = () =&gt; &lt;Button
-    disabled={false}
-    icon={&lt;CloseIcon /&gt;}
-    iconBefore
-    iconOnly={undefined}
-    variant=&quot;primary&quot;&gt;Sluiten&lt;/Button&gt;;</code></pre>
+              <pre><code>const WithIconBefore = () =&gt; &lt;Button disabled={false} iconBefore icon={&lt;CloseIcon /&gt;}&gt;Sluiten&lt;/Button&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -3616,8 +3591,8 @@ import { CloseIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               
               <pre><code>const WithIconOnly = () =&gt; &lt;Button
     disabled={false}
-    icon={&lt;CloseIcon /&gt;}
     iconBefore={false}
+    icon={&lt;CloseIcon /&gt;}
     iconOnly
     variant=&quot;tertiary&quot;&gt;Sluiten&lt;/Button&gt;;</code></pre>
             </div>
@@ -3628,12 +3603,7 @@ import { CloseIcon } from "@amsterdam/design-system-react-icons";</code></pre>
               </div>
               
               
-              <pre><code>const TextWrapping = () =&gt; &lt;Button
-    disabled={false}
-    icon={undefined}
-    iconBefore={false}
-    iconOnly={undefined}
-    variant=&quot;primary&quot;&gt;Vergunningsaanvraag verzenden&lt;/Button&gt;;</code></pre>
+              <pre><code>const TextWrapping = () =&gt; &lt;Button disabled={false} iconBefore={false}&gt;Vergunningsaanvraag verzenden&lt;/Button&gt;;</code></pre>
             </div>
         </div>
     
@@ -4406,7 +4376,7 @@ import { Column, Grid, Paragraph } from "@amsterdam/design-system-react";</code>
               
               <pre><code>const TopTasks = () =&gt; &lt;Grid paddingVertical=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
-        &lt;Card style={undefined}&gt;
+        &lt;Card&gt;
             &lt;Card.Heading level={2}&gt;
                 &lt;Card.Link href=&quot;#&quot;&gt;Gemeentebelastingen&lt;/Card.Link&gt;
             &lt;/Card.Heading&gt;
@@ -8173,7 +8143,7 @@ import { FileInput } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;FileInput accept={undefined} disabled={false} multiple={false} /&gt;;</code></pre>
+              <pre><code>const Default = () =&gt; &lt;FileInput disabled={false} multiple={false} /&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -8182,7 +8152,7 @@ import { FileInput } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const MultipleFiles = () =&gt; &lt;FileInput accept={undefined} disabled={false} multiple /&gt;;</code></pre>
+              <pre><code>const MultipleFiles = () =&gt; &lt;FileInput disabled={false} multiple /&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -8191,7 +8161,7 @@ import { FileInput } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const RestrictFileTypes = () =&gt; &lt;FileInput accept=&quot;application/pdf&quot; disabled={false} multiple={false} /&gt;;</code></pre>
+              <pre><code>const RestrictFileTypes = () =&gt; &lt;FileInput disabled={false} multiple={false} accept=&quot;application/pdf&quot; /&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -8200,7 +8170,7 @@ import { FileInput } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const Disabled = () =&gt; &lt;FileInput accept={undefined} disabled multiple={false} /&gt;;</code></pre>
+              <pre><code>const Disabled = () =&gt; &lt;FileInput disabled multiple={false} /&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -8215,7 +8185,6 @@ import { FileInput } from "@amsterdam/design-system-react/src";</code></pre>
     &lt;FileInput
         aria-describedby=&quot;description1&quot;
         id=&quot;input1&quot;
-        accept={undefined}
         disabled={false}
         multiple={false} /&gt;
 &lt;/Field&gt;;</code></pre>
@@ -12723,7 +12692,7 @@ svg?: IconSvg | undefined = CloseIcon</code></pre>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;IconButton disabled={false} label=&quot;Sluiten&quot; size={undefined} /&gt;;</code></pre>
+              <pre><code>const Default = () =&gt; &lt;IconButton disabled={false} label=&quot;Sluiten&quot; /&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -12732,7 +12701,7 @@ svg?: IconSvg | undefined = CloseIcon</code></pre>
               </div>
               
               
-              <pre><code>const ContrastColour = () =&gt; &lt;IconButton disabled={false} label=&quot;Sluiten&quot; size={undefined} color=&quot;contrast&quot; /&gt;;</code></pre>
+              <pre><code>const ContrastColour = () =&gt; &lt;IconButton disabled={false} label=&quot;Sluiten&quot; color=&quot;contrast&quot; /&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -12741,7 +12710,7 @@ svg?: IconSvg | undefined = CloseIcon</code></pre>
               </div>
               
               
-              <pre><code>const InverseColour = () =&gt; &lt;IconButton disabled={false} label=&quot;Sluiten&quot; size={undefined} color=&quot;inverse&quot; /&gt;;</code></pre>
+              <pre><code>const InverseColour = () =&gt; &lt;IconButton disabled={false} label=&quot;Sluiten&quot; color=&quot;inverse&quot; /&gt;;</code></pre>
             </div>
         </div>
     
@@ -20412,7 +20381,7 @@ import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;OrderedList markers={undefined} reversed={undefined} start={undefined}&gt;{orderedListItems}&lt;/OrderedList&gt;;</code></pre>
+              <pre><code>const Default = () =&gt; &lt;OrderedList&gt;{orderedListItems}&lt;/OrderedList&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -20421,16 +20390,16 @@ import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const TwoLevels = () =&gt; &lt;OrderedList markers={undefined} reversed={undefined} start={undefined}&gt;
+              <pre><code>const TwoLevels = () =&gt; &lt;OrderedList&gt;
     &lt;OrderedList.Item&gt;Stadsdeel West
-                &lt;OrderedList markers={undefined} reversed={undefined} start={undefined}&gt;
+                &lt;OrderedList&gt;
             &lt;OrderedList.Item&gt;Bos en Lommer&lt;/OrderedList.Item&gt;
             &lt;OrderedList.Item&gt;Oud West / De Baarsjes&lt;/OrderedList.Item&gt;
             &lt;OrderedList.Item&gt;Westerpark&lt;/OrderedList.Item&gt;
         &lt;/OrderedList&gt;
     &lt;/OrderedList.Item&gt;
     &lt;OrderedList.Item&gt;Stadsdeel Nieuw-West
-                &lt;OrderedList markers={undefined} reversed={undefined} start={undefined}&gt;
+                &lt;OrderedList&gt;
             &lt;OrderedList.Item&gt;De Aker, Sloten en Nieuw Sloten&lt;/OrderedList.Item&gt;
             &lt;OrderedList.Item&gt;Geuzenveld, Slotermeer en Sloterdijken&lt;/OrderedList.Item&gt;
             &lt;OrderedList.Item&gt;Osdorp&lt;/OrderedList.Item&gt;
@@ -20446,7 +20415,7 @@ import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const StartingNumber = () =&gt; &lt;OrderedList markers={undefined} reversed={undefined} start={6}&gt;{[
+              <pre><code>const StartingNumber = () =&gt; &lt;OrderedList start={6}&gt;{[
       &lt;OrderedList.Item key={6}&gt;Zes&lt;/OrderedList.Item&gt;,
       &lt;OrderedList.Item key={7}&gt;Zeven&lt;/OrderedList.Item&gt;,
       &lt;OrderedList.Item key={8}&gt;Acht&lt;/OrderedList.Item&gt;,
@@ -20459,7 +20428,7 @@ import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const DescendingNumbers = () =&gt; &lt;OrderedList markers={undefined} reversed start={3}&gt;{[
+              <pre><code>const DescendingNumbers = () =&gt; &lt;OrderedList reversed start={3}&gt;{[
       &lt;OrderedList.Item key={3}&gt;Drie&lt;/OrderedList.Item&gt;,
       &lt;OrderedList.Item key={2}&gt;Twee&lt;/OrderedList.Item&gt;,
       &lt;OrderedList.Item key={1}&gt;Eén&lt;/OrderedList.Item&gt;,
@@ -20472,11 +20441,7 @@ import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const WithoutMarkers = () =&gt; &lt;OrderedList
-    markers={false}
-    reversed={undefined}
-    start={undefined}
-    className=&quot;ams-gap-xl&quot;&gt;{[
+              <pre><code>const WithoutMarkers = () =&gt; &lt;OrderedList className=&quot;ams-gap-xl&quot; markers={false}&gt;{[
       &lt;OrderedList.Item key={1}&gt;
         &lt;Card&gt;
           &lt;Card.Heading level={2}&gt;
@@ -20522,17 +20487,9 @@ import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const InverseColor = () =&gt; &lt;OrderedList
-    markers={undefined}
-    reversed={undefined}
-    start={undefined}
-    color=&quot;inverse&quot;&gt;
+              <pre><code>const InverseColor = () =&gt; &lt;OrderedList color=&quot;inverse&quot;&gt;
     &lt;OrderedList.Item&gt;Stadsdeel West
-                &lt;OrderedList
-            markers={undefined}
-            reversed={undefined}
-            start={undefined}
-            color=&quot;inverse&quot;&gt;
+                &lt;OrderedList color=&quot;inverse&quot;&gt;
             &lt;OrderedList.Item&gt;Bos en Lommer&lt;/OrderedList.Item&gt;
             &lt;OrderedList.Item&gt;Oud West / De Baarsjes&lt;/OrderedList.Item&gt;
             &lt;OrderedList.Item&gt;Westerpark&lt;/OrderedList.Item&gt;
@@ -20547,7 +20504,7 @@ import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const SmallText = () =&gt; &lt;OrderedList markers={undefined} reversed={undefined} start={undefined} size=&quot;small&quot;&gt;{orderedListItems}&lt;/OrderedList&gt;;</code></pre>
+              <pre><code>const SmallText = () =&gt; &lt;OrderedList size=&quot;small&quot;&gt;{orderedListItems}&lt;/OrderedList&gt;;</code></pre>
             </div>
         </div>
     
@@ -36366,7 +36323,7 @@ import { UnorderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const Default = () =&gt; &lt;UnorderedList markers={undefined}&gt;{unorderedListItems}&lt;/UnorderedList&gt;;</code></pre>
+              <pre><code>const Default = () =&gt; &lt;UnorderedList&gt;{unorderedListItems}&lt;/UnorderedList&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -36375,16 +36332,16 @@ import { UnorderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const TwoLevels = () =&gt; &lt;UnorderedList markers={undefined}&gt;
+              <pre><code>const TwoLevels = () =&gt; &lt;UnorderedList&gt;
     &lt;UnorderedList.Item&gt;Stadsdeel West
-                &lt;UnorderedList markers={undefined}&gt;
+                &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;Bos en Lommer&lt;/UnorderedList.Item&gt;
             &lt;UnorderedList.Item&gt;Oud West / De Baarsjes&lt;/UnorderedList.Item&gt;
             &lt;UnorderedList.Item&gt;Westerpark&lt;/UnorderedList.Item&gt;
         &lt;/UnorderedList&gt;
     &lt;/UnorderedList.Item&gt;
     &lt;UnorderedList.Item&gt;Stadsdeel Nieuw-West
-                &lt;UnorderedList markers={undefined}&gt;
+                &lt;UnorderedList&gt;
             &lt;UnorderedList.Item&gt;De Aker, Sloten en Nieuw Sloten&lt;/UnorderedList.Item&gt;
             &lt;UnorderedList.Item&gt;Geuzenveld, Slotermeer en Sloterdijken&lt;/UnorderedList.Item&gt;
             &lt;UnorderedList.Item&gt;Osdorp&lt;/UnorderedList.Item&gt;
@@ -36400,7 +36357,7 @@ import { UnorderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const WithoutMarkers = () =&gt; &lt;UnorderedList markers={false} className=&quot;ams-gap-xl&quot;&gt;{[
+              <pre><code>const WithoutMarkers = () =&gt; &lt;UnorderedList className=&quot;ams-gap-xl&quot; markers={false}&gt;{[
       &lt;UnorderedList.Item key={1}&gt;
         &lt;Card&gt;
           &lt;Card.Heading level={2}&gt;
@@ -36446,9 +36403,9 @@ import { UnorderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const InverseColor = () =&gt; &lt;UnorderedList markers={undefined} color=&quot;inverse&quot;&gt;
+              <pre><code>const InverseColor = () =&gt; &lt;UnorderedList color=&quot;inverse&quot;&gt;
     &lt;UnorderedList.Item&gt;Stadsdeel West
-                &lt;UnorderedList markers={undefined} color=&quot;inverse&quot;&gt;
+                &lt;UnorderedList color=&quot;inverse&quot;&gt;
             &lt;UnorderedList.Item&gt;Bos en Lommer&lt;/UnorderedList.Item&gt;
             &lt;UnorderedList.Item&gt;Oud West / De Baarsjes&lt;/UnorderedList.Item&gt;
             &lt;UnorderedList.Item&gt;Westerpark&lt;/UnorderedList.Item&gt;
@@ -36463,7 +36420,7 @@ import { UnorderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const SmallText = () =&gt; &lt;UnorderedList markers={undefined} size=&quot;small&quot;&gt;{unorderedListItems}&lt;/UnorderedList&gt;;</code></pre>
+              <pre><code>const SmallText = () =&gt; &lt;UnorderedList size=&quot;small&quot;&gt;{unorderedListItems}&lt;/UnorderedList&gt;;</code></pre>
             </div>
         </div>
     
