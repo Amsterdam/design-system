@@ -33,8 +33,8 @@ const meta = {
   ...commonMeta,
   title: 'Pages/Public/Search Results Page',
   parameters: pageParameters(
-    'Presents what a visitor finds after searching the site, ' +
-      'in the filter-and-results layout it shares with the News Overview Page.',
+    'Presents what a visitor finds after searching the site: a column of filters beside the results, ' +
+      'with the term still in the field so the search can be refined.',
   ),
 } satisfies Meta
 
