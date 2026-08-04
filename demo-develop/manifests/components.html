@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.0s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -2151,6 +2151,16 @@ Use an [Information Page](/docs/pages-public-information-page--docs) for a subje
 - The Grids use the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
 - The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the article body.
   Each of those Cells carries the class; the space between them is a padding of the Grid.
+
+## Accessibility
+
+The Breadcrumb takes a Grid above `main`, so its `nav` element stays outside the article rather than reading as part of it.
+
+Two blocks sit outside `main` as well: the newsletter Spotlight and the related articles below it.
+Each renders with `as=&quot;aside&quot;` and is named by `aria-labelledby` pointing at its own heading, so both reach a screen reader as complementary landmarks that can be skipped to or past.
+The headings they point at carry an `id` that exists only to be referenced.
+
+The hero Image and the Card images take an empty `alt`, because the text beside them already says what they show.
 
 ## See also
 
@@ -11149,6 +11159,15 @@ Use an [Information Page](/docs/pages-public-information-page--docs) where a sin
 - The Grid uses the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
 - The Prose utility class handles vertical spacing within the content area automatically.
 
+## Accessibility
+
+This page has two places worth reaching, so it declares two Skip Links rather than the single one every other template carries: one targets the Table of Contents, the other the `id` on `main`.
+
+The entry for the page on screen carries `aria-current=&quot;page&quot;`, which a screen reader announces along with the link.
+
+The Table of Contents stays mounted as the reader moves from page to page.
+The link they just activated therefore keeps focus, where a navigation rebuilt per page would drop it back to the top of the document.
+
 ## See also
 
 - [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the navigation column, and how to control it.
@@ -11933,6 +11952,15 @@ A home page has no single most prominent subject, so it usually has no visible l
 ## Layout and spacing
 
 - In Grids of Cards, use a large vertical gap.
+
+## Accessibility
+
+The level 1 heading is hidden with the `ams-visually-hidden` class rather than left out, so the heading outline still opens at level 1 for a screen reader while the design keeps no single dominant title.
+
+The highlights band belongs to the page&#39;s own content, so its Spotlight stays a plain band inside `main`.
+On the Article Page the comparable band sits outside `main` as a named aside, because there it accompanies the article rather than being part of it.
+
+Card images take an empty `alt`: the heading and link beside them already name what they point at.
 
 ## See also
 
@@ -14265,6 +14293,17 @@ Note that the whole caption becomes the accessible name of the Figure, so keep i
 - The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
   An Accordion starts with a Heading, which is why Prose gives it the space that heading level calls for.
 
+## Accessibility
+
+The Breadcrumb takes a Grid above `main`, so its `nav` element stays outside the page content.
+
+An [Accordion](/docs/components-containers-accordion--docs) renders a heading for every section it holds, which lands in the heading outline of the page around it.
+Its `headingLevel` of 3 under a level 2 section heading is what keeps that outline continuous.
+
+Images that repeat what the text beside them says take an empty `alt`.
+
+What a Table and a Figure each take their accessible name from is the part of this page easiest to get wrong; the ‘With Table’ variant above covers it.
+
 ## See also
 
 - [Product Page](/docs/pages-public-product-page--docs) – for a subject that ends in an application.
@@ -16110,14 +16149,16 @@ The results in place, under a heading that counts them.
 
 ## Accessibility
 
-- Mark the whole results region busy while it loads, and let it announce once.
-  Marking each Skeleton would repeat the message for every card.
-  The Skeletons are hidden from assistive technologies, so the status message is all a screen reader hears.
-- Be aware that `aria-busy=&quot;true&quot;` also permits assistive technology to hold back updates from the status message and deliver them as one update once it turns false.
-  The ARIA specification allows this rather than requiring it, so not every screen reader does it.
-- Keep one status message in the DOM at all times and only change its text, from a loading message to the result count.
-  A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
-- No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
+The whole results region is marked busy while it loads, and announces once.
+Marking each Skeleton would repeat the message for every card, and the Skeletons are hidden from assistive technologies in any case, so the status message is all a screen reader hears.
+
+`aria-busy=&quot;true&quot;` also permits assistive technology to hold updates back from the status message and deliver them together once it turns false.
+The ARIA specification allows this rather than requiring it, so not every screen reader does it.
+
+One status message stays in the DOM throughout and only its text changes, from a loading message to the result count.
+A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
+
+No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
 
 ## See also
 
@@ -19048,15 +19089,13 @@ It mixes running text with the Link Sections, so its headings take the levels of
 
 ## Accessibility
 
-A page with a side navigation has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
-Name each after the thing it reaches rather than numbering them.
+A page with a side navigation has two places worth reaching, so it declares two [Skip Links](/docs/components-navigation-skip-link--docs) rather than one: one to the navigation and one to the entry, each named after what it reaches rather than numbered.
 
-A map needs a text alternative, whether it is an image or an interactive component.
+A map needs a text alternative whether it is an image or an interactive component.
 Here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
 
-Give a repeated action such as ‘Toon op de kaart’ a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on.
-Without it, every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
-Put the suffix after the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.
+A repeated action such as ‘Toon op de kaart’ carries a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on, because without one every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
+The suffix follows the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.
 
 ## See also
 
@@ -19504,6 +19543,14 @@ Each link has an `href` with a slug-based path, making the pattern suitable for 
 
 On narrow screens both Tab Navigations stack vertically.
 This is a known limitation, and the mobile design is being further explored.
+
+## Accessibility
+
+Each Tab Navigation renders a `nav` element and takes an `accessibleName` of its own, so a screen reader offers two named navigation landmarks rather than two it cannot tell apart.
+The link for the section on screen carries `aria-current=&quot;page&quot;` in both.
+
+Where the two stack on a narrow window, every main section and every sub-item precedes the content in the reading order.
+That is the cost of the layout recorded above, and the part of this template still being explored.
 
 ## See also
 
@@ -20171,7 +20218,7 @@ Two adjacent Grids add their touching paddings together, so the Grid holding the
 The two hidden Heading 2s are worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
 The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
-Announce the number of results in a `role=&quot;status&quot;` paragraph and name the filters that produced it.
+The number of results is announced in a `role=&quot;status&quot;` paragraph that names the filters which produced it.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
 
 ## See also
@@ -26861,6 +26908,15 @@ That gap has no medium step, so a title and a lead in separate cells sit further
 This is a property of the Grid rather than a mistake.
 Put the two in one Cell when the exact value matters, and accept the row gap when the cells have to differ in width, as they do here to leave room for the photo.
 
+## Accessibility
+
+Spotlights and full-bleed images sit between the Grids rather than inside one, so a plain `main` wraps them all.
+A page that is a single section sets `as=&quot;main&quot;` on that Grid instead.
+
+The Spotlight on these pages renders as a `section` with no accessible name.
+A `section` is exposed as a region only when it has one, and as `generic` otherwise, so this band is a visual grouping rather than a landmark.
+The Article Page names its equivalent band after its heading, which is what turns one into a landmark a reader can reach.
+
 ## See also
 
 - [Description List](/docs/components-text-description-list--docs) – the address and contact blocks.
@@ -29899,6 +29955,16 @@ A video may be included to clarify complex issues or planned changes.
 Related information is organized in Link Sections.
 These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
 
+## Accessibility
+
+The sections of this page are several Grids rather than one, so a plain `main` wraps them all.
+
+A [Progress List](/docs/components-containers-progress-list--docs) renders a heading per step, which lands in the heading outline of the page.
+Its `headingLevel` of 3 under the level 2 heading of the timeline section keeps that outline continuous.
+Where the list is collapsible, completed steps start collapsed and the rest expanded, so a screen reader meets the phases still to come in full and the finished ones as headings.
+
+Images that illustrate what the text already describes take an empty `alt`.
+
 ## See also
 
 - [Progress List](/docs/components-containers-progress-list--docs) – the timeline of milestones.
@@ -31804,10 +31870,10 @@ Leave the row gap of the Subgrid at the vertical gap of the Grid.
 
 The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
-Announce the total in a `role=&quot;status&quot;` paragraph, and name the term that was searched for in that sentence, so it is clear what produced the list.
+The total is announced in a `role=&quot;status&quot;` paragraph that names the term searched for, so it is clear what produced the list.
 
-A result title is the title of the page it links to.
-Do not shorten it to fit, and do not mark the matched words inside it: a highlight inside a link makes the link harder to read out.
+A result title is the title of the page it links to, neither shortened to fit nor marked up to highlight the matched words.
+A highlight inside a link makes the link harder to read out.
 
 ## See also
 
@@ -37210,6 +37276,16 @@ Use an [Information Page](/docs/pages-public-information-page--docs) for a subje
 - The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the article body.
   Each of those Cells carries the class; the space between them is a padding of the Grid.
 
+## Accessibility
+
+The Breadcrumb takes a Grid above `main`, so its `nav` element stays outside the article rather than reading as part of it.
+
+Two blocks sit outside `main` as well: the newsletter Spotlight and the related articles below it.
+Each renders with `as=&quot;aside&quot;` and is named by `aria-labelledby` pointing at its own heading, so both reach a screen reader as complementary landmarks that can be skipped to or past.
+The headings they point at carry an `id` that exists only to be referenced.
+
+The hero Image and the Card images take an empty `alt`, because the text beside them already says what they show.
+
 ## See also
 
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – lists articles like this one.
@@ -39213,6 +39289,15 @@ Use an [Information Page](/docs/pages-public-information-page--docs) where a sin
 - The Grid uses the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
 - The Prose utility class handles vertical spacing within the content area automatically.
 
+## Accessibility
+
+This page has two places worth reaching, so it declares two Skip Links rather than the single one every other template carries: one targets the Table of Contents, the other the `id` on `main`.
+
+The entry for the page on screen carries `aria-current=&quot;page&quot;`, which a screen reader announces along with the link.
+
+The Table of Contents stays mounted as the reader moves from page to page.
+The link they just activated therefore keeps focus, where a navigation rebuilt per page would drop it back to the top of the document.
+
 ## See also
 
 - [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the navigation column, and how to control it.
@@ -39668,6 +39753,15 @@ A home page has no single most prominent subject, so it usually has no visible l
 ## Layout and spacing
 
 - In Grids of Cards, use a large vertical gap.
+
+## Accessibility
+
+The level 1 heading is hidden with the `ams-visually-hidden` class rather than left out, so the heading outline still opens at level 1 for a screen reader while the design keeps no single dominant title.
+
+The highlights band belongs to the page&#39;s own content, so its Spotlight stays a plain band inside `main`.
+On the Article Page the comparable band sits outside `main` as a named aside, because there it accompanies the article rather than being part of it.
+
+Card images take an empty `alt`: the heading and link beside them already name what they point at.
 
 ## See also
 
@@ -40964,6 +41058,17 @@ Note that the whole caption becomes the accessible name of the Figure, so keep i
 - The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
   An Accordion starts with a Heading, which is why Prose gives it the space that heading level calls for.
 
+## Accessibility
+
+The Breadcrumb takes a Grid above `main`, so its `nav` element stays outside the page content.
+
+An [Accordion](/docs/components-containers-accordion--docs) renders a heading for every section it holds, which lands in the heading outline of the page around it.
+Its `headingLevel` of 3 under a level 2 section heading is what keeps that outline continuous.
+
+Images that repeat what the text beside them says take an empty `alt`.
+
+What a Table and a Figure each take their accessible name from is the part of this page easiest to get wrong; the ‘With Table’ variant above covers it.
+
 ## See also
 
 - [Product Page](/docs/pages-public-product-page--docs) – for a subject that ends in an application.
@@ -41836,14 +41941,16 @@ The results in place, under a heading that counts them.
 
 ## Accessibility
 
-- Mark the whole results region busy while it loads, and let it announce once.
-  Marking each Skeleton would repeat the message for every card.
-  The Skeletons are hidden from assistive technologies, so the status message is all a screen reader hears.
-- Be aware that `aria-busy=&quot;true&quot;` also permits assistive technology to hold back updates from the status message and deliver them as one update once it turns false.
-  The ARIA specification allows this rather than requiring it, so not every screen reader does it.
-- Keep one status message in the DOM at all times and only change its text, from a loading message to the result count.
-  A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
-- No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
+The whole results region is marked busy while it loads, and announces once.
+Marking each Skeleton would repeat the message for every card, and the Skeletons are hidden from assistive technologies in any case, so the status message is all a screen reader hears.
+
+`aria-busy=&quot;true&quot;` also permits assistive technology to hold updates back from the status message and deliver them together once it turns false.
+The ARIA specification allows this rather than requiring it, so not every screen reader does it.
+
+One status message stays in the DOM throughout and only its text changes, from a loading message to the result count.
+A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
+
+No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
 
 ## See also
 
@@ -44022,15 +44129,13 @@ It mixes running text with the Link Sections, so its headings take the levels of
 
 ## Accessibility
 
-A page with a side navigation has two places worth reaching, so give it a second [Skip Link](/docs/components-navigation-skip-link--docs): one to the navigation and one to the entry.
-Name each after the thing it reaches rather than numbering them.
+A page with a side navigation has two places worth reaching, so it declares two [Skip Links](/docs/components-navigation-skip-link--docs) rather than one: one to the navigation and one to the entry, each named after what it reaches rather than numbered.
 
-A map needs a text alternative, whether it is an image or an interactive component.
+A map needs a text alternative whether it is an image or an interactive component.
 Here the list of addresses carries everything the map shows, which is why the placeholder takes an empty `alt`.
 
-Give a repeated action such as ‘Toon op de kaart’ a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on.
-Without it, every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
-Put the suffix after the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.
+A repeated action such as ‘Toon op de kaart’ carries a [visually hidden](/docs/utilities-css-visually-hidden--docs) suffix naming what it acts on, because without one every [Button](/docs/components-buttons-button--docs) reads the same in a list of buttons.
+The suffix follows the visible label, so that label stays a contiguous part of the accessible name and speech input still reaches the button.
 
 ## See also
 
@@ -44478,6 +44583,14 @@ Each link has an `href` with a slug-based path, making the pattern suitable for 
 
 On narrow screens both Tab Navigations stack vertically.
 This is a known limitation, and the mobile design is being further explored.
+
+## Accessibility
+
+Each Tab Navigation renders a `nav` element and takes an `accessibleName` of its own, so a screen reader offers two named navigation landmarks rather than two it cannot tell apart.
+The link for the section on screen carries `aria-current=&quot;page&quot;` in both.
+
+Where the two stack on a narrow window, every main section and every sub-item precedes the content in the reading order.
+That is the cost of the layout recorded above, and the part of this template still being explored.
 
 ## See also
 
@@ -45145,7 +45258,7 @@ Two adjacent Grids add their touching paddings together, so the Grid holding the
 The two hidden Heading 2s are worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
 The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
-Announce the number of results in a `role=&quot;status&quot;` paragraph and name the filters that produced it.
+The number of results is announced in a `role=&quot;status&quot;` paragraph that names the filters which produced it.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
 
 ## See also
@@ -49240,6 +49353,15 @@ That gap has no medium step, so a title and a lead in separate cells sit further
 This is a property of the Grid rather than a mistake.
 Put the two in one Cell when the exact value matters, and accept the row gap when the cells have to differ in width, as they do here to leave room for the photo.
 
+## Accessibility
+
+Spotlights and full-bleed images sit between the Grids rather than inside one, so a plain `main` wraps them all.
+A page that is a single section sets `as=&quot;main&quot;` on that Grid instead.
+
+The Spotlight on these pages renders as a `section` with no accessible name.
+A `section` is exposed as a region only when it has one, and as `generic` otherwise, so this band is a visual grouping rather than a landmark.
+The Article Page names its equivalent band after its heading, which is what turns one into a landmark a reader can reach.
+
 ## See also
 
 - [Description List](/docs/components-text-description-list--docs) – the address and contact blocks.
@@ -51851,6 +51973,16 @@ A video may be included to clarify complex issues or planned changes.
 Related information is organized in Link Sections.
 These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
 
+## Accessibility
+
+The sections of this page are several Grids rather than one, so a plain `main` wraps them all.
+
+A [Progress List](/docs/components-containers-progress-list--docs) renders a heading per step, which lands in the heading outline of the page.
+Its `headingLevel` of 3 under the level 2 heading of the timeline section keeps that outline continuous.
+Where the list is collapsible, completed steps start collapsed and the rest expanded, so a screen reader meets the phases still to come in full and the finished ones as headings.
+
+Images that illustrate what the text already describes take an empty `alt`.
+
 ## See also
 
 - [Progress List](/docs/components-containers-progress-list--docs) – the timeline of milestones.
@@ -52411,10 +52543,10 @@ Leave the row gap of the Subgrid at the vertical gap of the Grid.
 
 The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
-Announce the total in a `role=&quot;status&quot;` paragraph, and name the term that was searched for in that sentence, so it is clear what produced the list.
+The total is announced in a `role=&quot;status&quot;` paragraph that names the term searched for, so it is clear what produced the list.
 
-A result title is the title of the page it links to.
-Do not shorten it to fit, and do not mark the matched words inside it: a highlight inside a link makes the link harder to read out.
+A result title is the title of the page it links to, neither shortened to fit nor marked up to highlight the matched words.
+A highlight inside a link makes the link harder to read out.
 
 ## See also
 
