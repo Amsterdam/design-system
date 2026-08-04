@@ -19,19 +19,35 @@ This schematic shows the default sections for this page type and how the grids a
 
 <PageAnatomy labels={anatomyLabels} of={ArticleStories} />
 
+## Usage guidelines
+
+### When to use
+
+Use this page for a single dated article: a news item, a press release, or a blog post.
+
+### When not to use
+
+Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) to list several of them.
+Use an [Information Page](/docs/pages-public-information-page--docs) for a subject that stays true rather than one that happened on a date.
+
 ## Structure
 
 - The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the article content.
 - The Content Header contains the title, a Metadata Paragraph with the publication date, and the lead paragraph.
 - A full-width hero [Image](/docs/components-media-image--docs) separates the Content Header from the body.
   It uses a 16:5 aspect ratio.
-- The title uses a level 1 Heading; each section uses a level 2 Heading.
 - The body ends with a [Link List](/docs/components-navigation-link-list--docs) of related articles.
-- A [Spotlight](/docs/components-containers-spotlight--docs) holds a newsletter call-to-action; all text and link components inside use `color="inverse"`.
+- A [Spotlight](/docs/components-containers-spotlight--docs) holds a newsletter call-to-action.
 - The page closes with a Grid of [Cards](/docs/components-navigation-card--docs) referring to other recent news.
 
 ## Layout and spacing
 
-- The Grids use the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
-- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the article body, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+- The Grids use the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the article body.
   Each of those Cells carries the class; the space between them is a padding of the Grid.
+
+## See also
+
+- [News Overview Page](/docs/pages-public-news-overview-page--docs) – lists articles like this one.
+- [Spotlight](/docs/components-containers-spotlight--docs) – the call-to-action band, and what its contents need.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the values behind the section above.

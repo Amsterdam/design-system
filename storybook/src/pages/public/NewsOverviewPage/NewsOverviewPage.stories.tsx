@@ -22,7 +22,7 @@ import {
   Select,
 } from '@amsterdam/design-system-react'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 import { newsArticles, newsCategories, newsDistricts } from './data'
 
 const searchTerm = 'tramspoor'
@@ -50,6 +50,10 @@ const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/News Overview Page',
+  parameters: pageParameters(
+    'Lists content items that a visitor narrows down with filters: ' +
+      'news, blogs, vacancies, activities, or search results.',
+  ),
 } satisfies Meta
 
 export default meta

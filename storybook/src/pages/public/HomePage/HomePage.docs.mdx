@@ -19,52 +19,36 @@ This schematic shows the default sections for this page type and how the grids a
 
 <PageAnatomy labels={anatomyLabels} of={HomeStories} />
 
-## Layout
+## Usage guidelines
 
-A typical layout for a homepage:
+### When to use
 
-```tsx
-<Page>
-  <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
-  <PageHeader />
-  <main id="inhoud">
-    <Overlap>
-      <Search />
-    </Overlap>
-    <Grid>
-      <AppComponent1 />
-      <AppComponent2 />
-      <AppComponent3 />
-    </Grid>
-  </main>
-  <PageFooter>
-    <PageFooter.Spotlight>
-      <Grid />
-    </PageFooter.Spotlight>
-    <PageFooter.Menu />
-  </PageFooter>
-</Page>
-```
+Use this page as the entry point of a website, where a visitor arrives without a subject in mind.
 
-1. The Skip Link prevents users from having to pass all preceding navigation links.
-2. The Page container sets a maximum width for the entire page.
-3. The Grid divides the available width into 4, 8, or 12 columns.
-4. The Page Header shows the logo and menus for the website.
-5. The main element wraps everything between Page Header and Page Footer.
-   It carries an id for the skip link to target.
-6. An Overlap stacks a Search Field on a background Image.
-   It is as wide as the Grid, hence it is a sibling of it.
-7. Other components in the main area are laid out on a Grid again.
-8. The Page Footer contains its own Grid.
-   This allows its background colour to stretch to the Page’s width.
+### When not to use
 
-## Headings
+Use a [Navigation Page](/docs/pages-public-navigation-page--docs) for the entry point of one subject within the site.
 
-- If there is no single, most prominent heading for the home page, add a visually hidden level 1 heading with a text like ‘Homepage van (name of the organisation)’.
+## Structure
+
+The page opens with an [Overlap](/docs/components-layout-overlap--docs) rather than a breadcrumb, stacking a [Search Field](/docs/components-forms-search-field--docs) on a background [Image](/docs/components-media-image--docs).
+An Overlap runs to the full width of the page, so it is a sibling of the Grids rather than a child of a Cell.
+Everything below it sits on a Grid again.
+See [Page structure](/docs/pages-guidelines-page-structure--docs) for the shell around it.
+
+A home page has no single most prominent subject, so it usually has no visible level 1 [Heading](/docs/components-text-heading--docs).
+
+- Add a visually hidden level 1 heading with a text like ‘Homepage van (name of the organisation)’.
   Assign level 2 and a size of ‘level-1’ to the visible headings.
 - Use the default size of ‘level-3’ headings in Cards and set their appropriate levels.
 - Do the same for blocks consisting of Heading, Paragraph, Standalone Link and Link List.
 
-## Spacing
+## Layout and spacing
 
 - In Grids of Cards, use a large vertical gap.
+
+## See also
+
+- [Navigation Page](/docs/pages-public-navigation-page--docs) – the same job for a single subject.
+- [Overlap](/docs/components-layout-overlap--docs) – the full-width opening section.
+- [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every page shares.

@@ -1,0 +1,102 @@
+{/* @license CC0-1.0 */}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Pages/Guidelines/Page structure" />
+
+# Page structure
+
+Every page template is built from the same shell.
+This page gives that shell for both contexts, and the rules that hold for any page inside it.
+
+## A public page
+
+```tsx
+<Page>
+  <SkipLink href="#inhoud">Direct naar inhoud</SkipLink>
+  <PageHeader>
+    <Grid />
+  </PageHeader>
+  <Grid>
+    <Breadcrumb />
+  </Grid>
+  <main id="inhoud">
+    <Grid>{/* the Content Header */}</Grid>
+    <Grid>{/* the body */}</Grid>
+  </main>
+  <PageFooter>
+    <PageFooter.Spotlight>
+      <Grid />
+    </PageFooter.Spotlight>
+    <PageFooter.Menu />
+  </PageFooter>
+</Page>
+```
+
+Public websites cannot use the [Menu](/docs/components-navigation-menu--docs) component.
+They should offer navigation using the Page Header only.
+
+## An internal page
+
+```tsx
+<Page withMenu>
+  <SkipLink className="ams-page__area--skip-link" href="#inhoud">
+    Direct naar inhoud
+  </SkipLink>
+  <PageHeader className="ams-page__area--header" noMenuButtonOnWideWindow>
+    <Menu />
+  </PageHeader>
+  <Menu className="ams-page__area--menu" inWideWindow />
+  <main className="ams-page__area--body" id="inhoud">
+    <Grid />
+  </main>
+  <PageFooter className="ams-page__area--footer" />
+</Page>
+```
+
+All children of `Page` have a class name starting with `ams-page__area--` to lay them out correctly on the underlying grid.
+
+Internal websites may use a [Menu](/docs/components-navigation-menu--docs) to support navigation across major functional areas or modules.
+This pattern helps users move efficiently between different parts of the website while keeping the structure clear and predictable.
+
+The component must be rendered twice.
+
+1. One instance, for narrow and medium windows, sits in the Page Header.
+   The user can access it through the menu button.
+   Hide the menu button on wide windows: this instance hides itself there, so the button would open an empty menu.
+2. A second Menu goes between the Page Header and the main content.
+   This is for wide windows, where the menu is positioned to the side.
+   The `inWideWindow` prop ensures that only one of both components is present at all times.
+
+Make sure that both menus have the same items.
+
+## Landmarks
+
+A landmark is not always a section itself.
+The Content Header is a section of its own, so a content page wraps its sections in a `main` element, or places `main` in a Grid Cell beside a sidebar.
+A page that is a single section — a question page of a Form Flow, for instance — sets `as="main"` on that Grid instead.
+Such a wrapper takes no padding of its own, and the Grids inside and around it keep theirs.
+
+The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) takes a Grid of its own above `main`, so that its `nav` element stays outside the main landmark.
+
+## The skip link
+
+Every page opens with a [Skip Link](/docs/components-navigation-skip-link--docs) targeting `#inhoud`, which is the `id` of the `main` element.
+The shared layout of these templates renders it, so a template itself only has to provide the `main` it points at.
+
+## Headings on a page
+
+The page title is a level 1 [Heading](/docs/components-text-heading--docs#sections-and-blocks), and the sections below it are level 2.
+
+On a public page, a Heading below the title keeps the size of its level where it introduces a content body, and takes a `size` one step smaller where it introduces a block or a group of blocks.
+Most sections are groups of blocks, so on all but the content page types every heading under the title takes the smaller size.
+
+Internal pages leave every heading at the size of its level.
+Compact Mode already sets the type down a step, and a second reduction would leave too little between a section and the block inside it.
+
+## See also
+
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – where the space between these sections comes from.
+- [Page](/docs/components-containers-page--docs) – the outermost wrapper.
+- [Page Header](/docs/components-containers-page-header--docs) – the top of every page.
+- [Page Footer](/docs/components-containers-page-footer--docs) – the bottom of every page.

@@ -22,7 +22,7 @@ import {
   Select,
 } from '@amsterdam/design-system-react'
 
-import { commonMeta } from '../common/commonMeta'
+import { commonMeta, pageParameters } from '../common/commonMeta'
 import { searchResults, searchTopics } from './data'
 
 const searchTerm = 'veiligheid'
@@ -32,6 +32,10 @@ const totalPages = 8
 const meta = {
   ...commonMeta,
   title: 'Pages/Public/Search Results Page',
+  parameters: pageParameters(
+    'Presents what a visitor finds after searching the site: a column of filters beside the results, ' +
+      'with the term still in the field so the search can be refined.',
+  ),
 } satisfies Meta
 
 export default meta

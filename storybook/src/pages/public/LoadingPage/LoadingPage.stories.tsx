@@ -60,7 +60,7 @@ const meta = {
   // The initial phase only picks which state each story opens in; it is not a prop to configure.
   argTypes: { initialPhase: { table: { disable: true } } },
   parameters: pageParameters(
-    'Shows how a search results page behaves while it fetches content, ' +
+    'Shows how a page behaves while it fetches its content, ' +
       'keeping the layout stable as placeholders make way for the real results.',
   ),
   render: ({ initialPhase }: LoadingPageArgs) => {

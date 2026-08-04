@@ -19,29 +19,24 @@ This schematic shows the default sections for this page type and how the grids a
 
 <PageAnatomy labels={anatomyLabels} of={ProjectStories} />
 
-## Structure
+## Usage guidelines
 
-The page has a set structure.
-It includes sections that describe what the project is, its location, the reasons for it, and the timeline for planning or execution.
-This standard format helps users compare projects and find information more easily.
+### When to use
 
-The ‘when’ section usually features a timeline of important milestones, shown in a [Progress List](/docs/components-containers-progress-list--docs).
-This gives a brief overview of the project’s current status and future phases.
+Use this page for a construction or traffic project that runs over time and affects a neighbourhood.
 
-Visual elements enhance the text.
-Large images provide context or show the impact.
-A map indicates the project location and the areas affected.
-A video may be included to clarify complex issues or planned changes.
+### When not to use
 
-Related information is organized in link blocks.
-These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
+Use an [Article Page](/docs/pages-public-article-page--docs) for a single announcement about that project.
 
-## Default
+## Variants
 
-Give the page a single body column and pair the link sections two per row.
+### Default
+
+Give the page a single body column and pair the Link Sections two per row.
 This suits a project with a handful of related sections, where a reader can take in the whole page by scrolling.
 
-## With Breakout
+### With Breakout
 
 Longer projects need more sections, and a reader who wants one of them should not have to scroll past the others to find it.
 Open such a page with a lead paragraph, list its sections in a [Table of Contents](/docs/components-navigation-table-of-contents--docs) beside the body, and give every section heading the `id` its entry points at.
@@ -60,9 +55,32 @@ Choose the text colour for a Spotlight from the highlight colour behind it, not 
 Yellow is a light background, so headings and paragraphs keep their default colour and only links take `color="contrast"`.
 Purple is a dark one, where everything takes `color="inverse"`.
 
-Give every link section a Grid Cell of its own, as the other page templates do.
+Give every Link Section a Grid Cell of its own, as the other page templates do.
 Each one is a block, and the row gap of the Grid is what sets one block apart from the next.
 [Prose](/docs/utilities-css-prose--docs) is then left with the elements within a section: its heading, its list, and the link to the wider set below them.
 
 Contact details are a [Link List](/docs/components-navigation-link-list--docs) whose links carry an icon instead of the chevron the list draws by default.
 Keep the name and the role above it in a Paragraph: they are not links, and a list of two items reads as a set of ways to get in touch.
+
+## Structure
+
+The page has a set structure.
+It includes sections that describe what the project is, its location, the reasons for it, and the timeline for planning or execution.
+This standard format helps users compare projects and find information more easily.
+
+The ‘when’ section usually features a timeline of important milestones, shown in a [Progress List](/docs/components-containers-progress-list--docs).
+This gives a brief overview of the project’s current status and future phases.
+
+Visual elements enhance the text.
+Large images provide context or show the impact.
+A map indicates the project location and the areas affected.
+A video may be included to clarify complex issues or planned changes.
+
+Related information is organized in Link Sections.
+These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
+
+## See also
+
+- [Progress List](/docs/components-containers-progress-list--docs) – the timeline of milestones.
+- [Article Page](/docs/pages-public-article-page--docs) – for a single update about the project.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the Cell sizes each section takes.
