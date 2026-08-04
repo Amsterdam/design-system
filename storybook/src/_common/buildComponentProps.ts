@@ -5,13 +5,33 @@
 
 import { clsx } from 'clsx'
 
-import type { BuildComponentPropsParams, VariantMatrixEntry } from './renderComponentVariantTypes'
+import type { BuildComponentPropsParams, VariantMatrixEntry, VariantValue } from './renderComponentVariantTypes'
 
 /**
  * The props the matrix sets from the cell itself, whatever a story’s args hold.
  * Varying one on the prop axis shows nothing: the value below wins over it.
  */
 export const DERIVED_PROP_NAMES = ['accessibleName', 'accessibleNameId']
+
+/**
+ * Names the value a cell varies, for the key below.
+ *
+ * An icon is a component or a React element, and stringifying either gives something
+ * useless: the component’s whole source, over 300 characters of it for a Design System
+ * icon, or `[object Object]` for an element. Take the name instead, which reads as a name
+ * and keeps two different icons apart.
+ */
+const nameOf = (variant: VariantValue | undefined): string => {
+  if (typeof variant === 'function') return variant.name || 'component'
+
+  if (typeof variant === 'object' && variant !== null) {
+    const { type } = variant as { type?: { name?: string } | string }
+
+    return (typeof type === 'string' ? type : type?.name) || 'element'
+  }
+
+  return String(variant)
+}
 
 /**
  * Names a cell of the variant matrix, uniquely among its siblings. Serves as the
@@ -23,7 +43,7 @@ export const variantKeyFor = ({
   state,
   variant,
 }: Pick<VariantMatrixEntry, 'propName' | 'size' | 'state' | 'variant'>): string =>
-  propName ? `${size ?? 'none'}-${propName}-${String(variant)}-${state}` : `${size ?? 'none'}-baseline-${state}`
+  propName ? `${size ?? 'none'}-${propName}-${nameOf(variant)}-${state}` : `${size ?? 'none'}-baseline-${state}`
 
 /**
  * Assembles the props for a single component instance in the variant matrix.
