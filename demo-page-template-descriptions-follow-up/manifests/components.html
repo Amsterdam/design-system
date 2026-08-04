@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -19034,7 +19034,7 @@ A map belongs on this page as an interactive component, not as an [Image](/docs/
 ### Subnavigation page
 
 The page one level further down, so its breadcrumb carries two links rather than one.
-It mixes running text with the link blocks, so its headings take the levels of a content page: a level 2 opens a section and a level 3 a block within it.
+It mixes running text with the Link Sections, so its headings take the levels of a content page: a level 2 opens a section and a level 3 a block within it.
 
 ## Structure
 
@@ -29853,7 +29853,7 @@ Use an [Article Page](/docs/pages-public-article-page--docs) for a single announ
 
 ### Default
 
-Give the page a single body column and pair the link sections two per row.
+Give the page a single body column and pair the Link Sections two per row.
 This suits a project with a handful of related sections, where a reader can take in the whole page by scrolling.
 
 ### With Breakout
@@ -29875,7 +29875,7 @@ Choose the text colour for a Spotlight from the highlight colour behind it, not 
 Yellow is a light background, so headings and paragraphs keep their default colour and only links take `color=&quot;contrast&quot;`.
 Purple is a dark one, where everything takes `color=&quot;inverse&quot;`.
 
-Give every link section a Grid Cell of its own, as the other page templates do.
+Give every Link Section a Grid Cell of its own, as the other page templates do.
 Each one is a block, and the row gap of the Grid is what sets one block apart from the next.
 [Prose](/docs/utilities-css-prose--docs) is then left with the elements within a section: its heading, its list, and the link to the wider set below them.
 
@@ -29896,7 +29896,7 @@ Large images provide context or show the impact.
 A map indicates the project location and the areas affected.
 A video may be included to clarify complex issues or planned changes.
 
-Related information is organized in link blocks.
+Related information is organized in Link Sections.
 These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
 
 ## See also
@@ -30809,12 +30809,6 @@ import * as RowStories from &quot;./Row.stories.tsx&quot;;
 ### When to use
 
 Wrap a Row around a set of elements that need the same amount of white space between them.
-
-### When not to use
-
-A Row keeps its items at their own width, so an element that carries an intrinsic size of its own will not shrink to fit.
-Several [Images](/docs/components-media-image--docs) in a Row therefore overflow their container rather than sharing it.
-Use an [Image Slider](/docs/components-media-image-slider--docs) for a set of images, and keep the Row for items that size themselves to what they hold.
 
 ## Examples
 
@@ -44014,7 +44008,7 @@ A map belongs on this page as an interactive component, not as an [Image](/docs/
 ### Subnavigation page
 
 The page one level further down, so its breadcrumb carries two links rather than one.
-It mixes running text with the link blocks, so its headings take the levels of a content page: a level 2 opens a section and a level 3 a block within it.
+It mixes running text with the Link Sections, so its headings take the levels of a content page: a level 2 opens a section and a level 3 a block within it.
 
 ## Structure
 
@@ -51811,7 +51805,7 @@ Use an [Article Page](/docs/pages-public-article-page--docs) for a single announ
 
 ### Default
 
-Give the page a single body column and pair the link sections two per row.
+Give the page a single body column and pair the Link Sections two per row.
 This suits a project with a handful of related sections, where a reader can take in the whole page by scrolling.
 
 ### With Breakout
@@ -51833,7 +51827,7 @@ Choose the text colour for a Spotlight from the highlight colour behind it, not 
 Yellow is a light background, so headings and paragraphs keep their default colour and only links take `color=&quot;contrast&quot;`.
 Purple is a dark one, where everything takes `color=&quot;inverse&quot;`.
 
-Give every link section a Grid Cell of its own, as the other page templates do.
+Give every Link Section a Grid Cell of its own, as the other page templates do.
 Each one is a block, and the row gap of the Grid is what sets one block apart from the next.
 [Prose](/docs/utilities-css-prose--docs) is then left with the elements within a section: its heading, its list, and the link to the wider set below them.
 
@@ -51854,7 +51848,7 @@ Large images provide context or show the impact.
 A map indicates the project location and the areas affected.
 A video may be included to clarify complex issues or planned changes.
 
-Related information is organized in link blocks.
+Related information is organized in Link Sections.
 These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
 
 ## See also
@@ -56179,8 +56173,8 @@ The [Table Page](/docs/pages-internal-table-page--docs) helps users work through
 
 ## When none of these fits
 
-Most new page types turn out to be an arrangement of sections these templates already use.
-See [Composing your own page](/docs/pages-guidelines-composing-your-own-page--docs) before starting from scratch.
+Most new page types turn out to be an arrangement of sections these templates already use, so [Composing your own page](/docs/pages-guidelines-composing-your-own-page--docs) is the place to start.
+Where your context needs something else, design it, and tell us about it: templates that prove themselves in a service are candidates to join the design system.
 </code></pre>
           </div>
         </div>
@@ -56301,8 +56295,11 @@ The shared layout of these templates renders it, so a template itself only has t
 
 The page title is a level 1 [Heading](/docs/components-text-heading--docs#sections-and-blocks), and the sections below it are level 2.
 
-Below the page title, a Heading keeps the size of its level where it introduces a content body, and takes a `size` one step smaller where it introduces a block or a group of blocks.
-Most of the sections below are groups of blocks, so on all but the content page types every heading under the title takes the smaller size.
+On a public page, a Heading below the title keeps the size of its level where it introduces a content body, and takes a `size` one step smaller where it introduces a block or a group of blocks.
+Most sections are groups of blocks, so on all but the content page types every heading under the title takes the smaller size.
+
+Internal pages leave every heading at the size of its level.
+Compact Mode already sets the type down a step, and a second reduction would leave too little between a section and the block inside it.
 
 ## See also
 
@@ -56370,7 +56367,7 @@ The first Grid has a `paddingTop` of `large` and no `paddingBottom`.
 On most pages it contains only the Breadcrumb, and on the question pages of a Form Flow only the back link.
 
 Not every page type has a breadcrumb.
-The Loading Page opens with its search field, and the Handbook Page relies on its table of contents.
+A page deep in a handbook relies on its table of contents instead, for one.
 Where the first Grid holds content instead of a breadcrumb, it still takes the `large` top padding.
 
 A page may also open with a section that is not a Grid.
@@ -56419,12 +56416,12 @@ A page that needs only one Grid combines both rules: a `paddingTop` of `large` a
 
 ### Vertical gaps
 
-Leave `gapVertical` at its default of `x-large`.
+Usually, leave `gapVertical` at its default of `x-large`.
 
 ## Space inside a Grid Cell
 
-The [Prose](/docs/utilities-css-prose--docs) utility class sets the space between the elements of a Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
-A Cell that carries it needs no bottom margins of its own.
+The [Prose](/docs/utilities-css-prose--docs) utility class sets the space between most types of elements of a Cell, following the [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommendations.
+A Cell that carries it needs little bottom margins of its own.
 
 Where Prose has no rule for an element, every element but the last sets its own bottom margin with an [`ams-mb-*`](/docs/utilities-css-margin--docs) utility class, in the amount the vertical space guide gives.
 
@@ -56437,7 +56434,7 @@ A section that shares its Grid with the Content Header needs a Grid of its own f
 
 ## How to size the Grid Cells
 
-Everything on the page is wrapped in a [Grid Cell](/docs/components-layout-grid--docs).
+Almost everything on the page is wrapped in a [Grid Cell](/docs/components-layout-grid--docs).
 Its `span` and `start` props let you define where all sections go on the page.
 Do so for all variants of the Grid (narrow, medium, and wide: 4, 8, and 12 columns).
 
@@ -56455,7 +56452,7 @@ It is a bit **wider** than the body section and is positioned slightly further *
 Breadcrumbs use their own Grid placed directly above the Content Header, using the same cell configuration.
 See [the Content Header Grid](#the-content-header-grid) for the space around and inside this section.
 
-### Content page body
+### Content Body
 
 The body section contains the main textual content of the page.
 It spans **7 columns** on the wide grid and **6 columns** on the medium-wide grid to maintain an optimal line length for readability.
@@ -56467,20 +56464,37 @@ This also applies to forms.
 
 ### Side-by-side blocks
 
-Link Sections (a block with a header, paragraph, and standalone link) can be displayed **side by side**, for example within a Spotlight.
-To achieve this, use the following configuration.
-The `start` prop is not needed here.
+Link Sections (a block with a heading, paragraph, and standalone link) can be displayed **side by side**, for example within a Spotlight.
+Two of them take half the wide grid each, and the `start` prop is not needed.
 
 ```tsx
 &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 6 }} /&gt;
 ```
 
-On navigation pages, similar sections use Link Lists and are 1 column **narrower** on wide screens.
-When rendering them in a loop, the `start` position is only necessary for the odd cells:
+Where a set of blocks sits under a heading of its own, put them in a [Grid Subgrid](/docs/components-layout-grid--docs#subgrid) spanning the whole Grid.
+The Subgrid hands its columns to its own Cells, so each block is placed against the columns of the page without repeating a `start`, and the heading above keeps a Cell in the Grid itself.
 
 ```tsx
-&lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 5 }} start={index % 2 ? undefined : { narrow: 1, medium: 1, wide: 2 }} /&gt;
+&lt;Grid&gt;
+  &lt;Grid.Cell span=&quot;all&quot;&gt;{/* the heading */}&lt;/Grid.Cell&gt;
+  &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+    &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 3 }} /&gt;
+  &lt;/Grid.Subgrid&gt;
+&lt;/Grid&gt;
 ```
+
+Where two columns run beside one another and one is much taller, give **each column** its own Subgrid instead.
+A Subgrid is a single item in the row of the Grid however many rows it holds, so the columns stack independently rather than a tall block pushing its neighbour down.
+On the narrow grid the second column then lands below the whole of the first rather than interleaving with it.
+
+```tsx
+&lt;Grid&gt;
+  &lt;Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 5 }} start={{ narrow: 1, medium: 1, wide: 2 }} /&gt;
+  &lt;Grid.Subgrid span={{ narrow: 4, medium: 4, wide: 5 }} /&gt;
+&lt;/Grid&gt;
+```
+
+Blocks placed straight into a Grid rather than a Subgrid still need a `start` on every other Cell to hold the left-hand column, which is worth avoiding where a Subgrid will do.
 
 ### Top tasks
 
@@ -56585,7 +56599,7 @@ It all happens per Grid variant, because a run that fills a phone from top to bo
       </div>
     </div>
     <div class="meta" title="./src/pages/guidelines/composing-your-own-page.docs.mdx">pages-guidelines-composing-your-own-page--docs · ./src/pages/guidelines/composing-your-own-page.docs.mdx</div>
-    <div># Composing your own page A page type is an arrangement of sections these templates alread...</div>
+    <div># Composing your own page Most page types turn out to be an arrangement of sections these ...</div>
   </div>
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
@@ -56605,8 +56619,8 @@ import { Meta } from &quot;@storybook/addon-docs/blocks&quot;;
 
 # Composing your own page
 
-A page type is an arrangement of sections these templates already use, rather than an invention.
-Build a page we do not list by naming its bands and looking up what each one takes.
+Most page types turn out to be an arrangement of sections these templates already use.
+Build a page we do not list by naming its bands and looking up what each one takes, and invent where your context asks for something the set does not cover.
 
 ## The sections a page is made of
 
@@ -56615,7 +56629,7 @@ Walk your design from top to bottom and name each band as one of these:
 - A **breadcrumb**, in a Grid of its own above the main landmark.
 - A **content header**: the page title, an optional metadata line, and the lead paragraph.
 - A **body**: the running text of the page, in a cell narrow enough to read comfortably.
-- **Side-by-side blocks**: two or three short blocks that each end in a link.
+- **Side-by-side blocks**: any number of short blocks that each end in a link.
 - **Top tasks**: a row of Cards with a heading and a paragraph, and no image.
 - **Preview cards**: Cards that do carry the image of the page they point at.
 - A **Spotlight band**: a full-width coloured band, usually holding a call to action.
@@ -56632,12 +56646,17 @@ Everything after it is a lookup in [Layout and spacing](/docs/pages-guidelines-l
 4. **Which sections, top to bottom**, in the vocabulary above.
 5. **Look up** the Cell sizes and the Grid padding. Do not measure the design.
 
-## Prefer a variant to a new page type
+## A variant is often enough
 
-A page that differs from an existing template in its content rather than its structure is a variant of that template.
-The [Profile Page](/docs/pages-public-profile-page--docs) covers a person, a group and three kinds of place in one template, and that is the usual shape of the answer.
+A page that differs from an existing template in its content rather than its structure is usually a variant of that template.
+The [Profile Page](/docs/pages-public-profile-page--docs) covers a person, a group and three kinds of place in one template, which saves reaching for something new each time the subject changes.
 
-Raise a genuinely new page type with the design system team before building it, so it lands here rather than in one service.
+Where your context genuinely calls for a page type we do not have, design it.
+The sections above are there so it comes out consistent with the rest, not to keep the set closed.
+
+We would like to see it either way.
+A page type that works in one service usually works in others, and templates that prove themselves are candidates to join the design system.
+Tell us what you built and what you had to invent for it, and we will look at taking it on.
 
 ## See also
 
