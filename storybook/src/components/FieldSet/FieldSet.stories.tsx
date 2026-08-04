@@ -183,6 +183,28 @@ export const WithValidation: Story = {
   ),
 }
 
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+  render: (args) => (
+    <FieldSet {...args}>
+      <Field>
+        <Label htmlFor="input-d1" inFieldSet>
+          Voornaam
+        </Label>
+        <TextInput id="input-d1" value={givenName} />
+      </Field>
+      <Field>
+        <Label htmlFor="input-d2" inFieldSet>
+          Achternaam
+        </Label>
+        <TextInput id="input-d2" value={familyName} />
+      </Field>
+    </FieldSet>
+  ),
+}
+
 export const WithHeadingInLegend: Story = {
   args: {
     legendIsPageHeading: true,
