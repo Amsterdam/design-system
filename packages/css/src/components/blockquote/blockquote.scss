@@ -31,7 +31,17 @@
   }
 }
 
+// Localised quotation marks for the tested languages whose marks differ from the default, for browsers
+// that can’t derive them from the content language themselves. English, Dutch and Turkish use the default.
 .ams-blockquote:lang(ar) {
+  quotes: "«" "»";
+}
+
+.ams-blockquote:lang(de) {
+  quotes: "„" "“";
+}
+
+.ams-blockquote:lang(fr) {
   quotes: "«" "»";
 }
 
