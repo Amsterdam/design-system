@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { InvalidFormAlert } from '@amsterdam/design-system-react/src'
 
+import { disablePageLevelChecks } from '#storybook/_common/disablePageLevelChecks'
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
 import { default as invalidFormAlertMeta } from './InvalidFormAlert.stories'
@@ -21,10 +22,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  parameters: {
-    // The matrix shows heading levels side by side, not as a document outline.
-    a11y: { config: { rules: [{ enabled: false, id: 'heading-order' }] } },
-  },
+  parameters: disablePageLevelChecks('heading-order'),
   render: (args, context) => renderComponentVariants(InvalidFormAlert, { args }, context),
   tags: ['!dev', '!autodocs', '!manifest'],
 }
