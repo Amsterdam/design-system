@@ -163,7 +163,12 @@ const content = {
         heading: 'تم حفظ البيانات',
         openButtonLabel: 'افتح مربع الحوار',
       },
-      errorMessage: 'أدخل عنوان بريد إلكتروني صالحًا، مثل naam@voorbeeld.nl.',
+      // Wrap the Latin email in a dir="ltr" span so its trailing period stays put in right-to-left text.
+      errorMessage: (
+        <>
+          أدخل عنوان بريد إلكتروني صالحًا، مثل <span dir="ltr">naam@voorbeeld.nl.</span>
+        </>
+      ),
       fieldSet: { firstNameLabel: 'الاسم الأول', lastNameLabel: 'اسم العائلة', legend: 'ما هو اسمك؟' },
       figureCaption: 'صف من الدراجات المتوقفة على طول قناة ضيقة في أمستردام.',
       fileInputLabel: 'أضف مرفقًا',
