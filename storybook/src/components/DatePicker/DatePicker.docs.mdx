@@ -51,27 +51,7 @@ In range mode, also localise `rangeStartAccessibleName` and `rangeEndAccessibleN
 For right-to-left scripts such as Arabic, also add `dir="rtl"`; this mirrors the layout and the navigation chevrons.
 Try the `locale` control above to preview each language; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
 
-If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props:
-
-```tsx
-import type { DatePickerProps } from "@amsterdam/design-system-react";
-
-import { DatePicker } from "@amsterdam/design-system-react";
-
-const ArabicDatePicker = (props: DatePickerProps) => (
-  <DatePicker
-    dir="rtl"
-    locale="ar-MA"
-    nextMonthButtonLabel="الشهر التالي"
-    nextYearButtonLabel="السنة التالية"
-    previousMonthButtonLabel="الشهر السابق"
-    previousYearButtonLabel="السنة السابقة"
-    rangeEndAccessibleName="تاريخ النهاية"
-    rangeStartAccessibleName="تاريخ البداية"
-    {...props}
-  />
-);
-```
+If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props; the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) shows an example.
 
 ## Examples
 

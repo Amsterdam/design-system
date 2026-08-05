@@ -32,10 +32,10 @@ window.IntersectionObserver = vi.fn(function () {
   }
 })
 
-const scrollTo = vi.fn()
+const scrollIntoView = vi.fn()
 
-// Mock scrollTo
-Element.prototype.scrollTo = scrollTo
+// Mock scrollIntoView, which scrollToSlide uses to bring the current slide into view
+Element.prototype.scrollIntoView = scrollIntoView
 
 const images: ImageSliderProps['images'] = [
   { alt: 'One', src: 'https://picsum.photos/id/122/320/180' },
@@ -128,12 +128,12 @@ describe('ImageSlider', () => {
     expect(previousButton).toBeDisabled()
     expect(nextButton).not.toBeDisabled()
 
-    expect(scrollTo).not.toHaveBeenCalled()
+    expect(scrollIntoView).not.toHaveBeenCalled()
 
     await user.click(nextButton)
     await user.click(nextButton)
 
-    expect(scrollTo).toHaveBeenCalledTimes(2)
+    expect(scrollIntoView).toHaveBeenCalledTimes(2)
   })
 
   it('renders custom labels for next and previous buttons', () => {
@@ -161,18 +161,18 @@ describe('ImageSlider', () => {
   })
 
   it('calls scrollToSlide when a thumbnail is clicked', async () => {
-    scrollTo.mockClear()
+    scrollIntoView.mockClear()
     const user = userEvent.setup()
 
     const { getAllByRole } = render(<ImageSlider images={images} />)
 
     const thumbnails = getAllByRole('tab')
 
-    const scrollToCallCountAfterRender = scrollTo.mock.calls.length
+    const scrollIntoViewCallCountAfterRender = scrollIntoView.mock.calls.length
 
     await user.click(thumbnails[1])
 
-    expect(scrollTo).toHaveBeenCalledTimes(scrollToCallCountAfterRender + 1)
+    expect(scrollIntoView).toHaveBeenCalledTimes(scrollIntoViewCallCountAfterRender + 1)
   })
 
   it('fires the IntersectionObserver callback and enables the previous button', async () => {
@@ -193,7 +193,7 @@ describe('ImageSlider', () => {
     }) as unknown as typeof IntersectionObserver
 
     try {
-      scrollTo.mockClear()
+      scrollIntoView.mockClear()
       const user = userEvent.setup()
 
       const { container, getByRole } = render(<ImageSlider controls images={images} />)
@@ -208,7 +208,7 @@ describe('ImageSlider', () => {
       expect(previousButton).not.toBeDisabled()
 
       await user.click(previousButton)
-      expect(scrollTo).toHaveBeenCalled()
+      expect(scrollIntoView).toHaveBeenCalled()
     } finally {
       window.IntersectionObserver = originalIntersectionObserver
     }

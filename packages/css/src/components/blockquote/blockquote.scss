@@ -17,7 +17,7 @@
   font-size: var(--ams-blockquote-font-size);
   font-weight: var(--ams-blockquote-font-weight);
   line-height: var(--ams-blockquote-line-height);
-  quotes: "“" "”";
+  quotes: auto;
 
   /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
   text-wrap: var(--ams-blockquote-text-wrap);
@@ -32,6 +32,16 @@
   &::after {
     content: close-quote;
   }
+}
+
+// `quotes: auto` localises the marks to the content language. Pin the two whose CLDR default isn’t what
+// we want: Arabic (auto gives curly quotes, we use guillemets) and Dutch (auto gives single ‘ ’, we use double).
+.ams-blockquote:lang(ar) {
+  quotes: "«" "»";
+}
+
+.ams-blockquote:lang(nl) {
+  quotes: "“" "”";
 }
 
 .ams-blockquote--inverse {

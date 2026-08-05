@@ -43,6 +43,13 @@
   }
 }
 
+// The chevron sits at the inline end. Its position token resolves to a physical `right`, and
+// `background-position` has no logical keyword, so a dedicated token mirrors it to the left in
+// right-to-left contexts.
+.ams-select:not([multiple]):dir(rtl) {
+  background-position: var(--ams-select-rtl-background-position);
+}
+
 .ams-select:not(:disabled):invalid,
 .ams-select:not(:disabled)[aria-invalid="true"] {
   border-color: var(--ams-select-invalid-border-color);

@@ -44,26 +44,7 @@ It does not translate the rest: set `accessibleName`, `nextMonthButtonLabel`, `n
 For right-to-left scripts such as Arabic, also add `dir="rtl"`; this mirrors the layout and the navigation chevrons.
 Try the `locale` control above to preview each language; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
 
-If your app uses Calendar in multiple places with the same language, a small wrapper component avoids repeating these props:
-
-```tsx
-import type { CalendarProps } from "@amsterdam/design-system-react";
-
-import { Calendar } from "@amsterdam/design-system-react";
-
-const ArabicCalendar = (props: CalendarProps) => (
-  <Calendar
-    accessibleName="التقويم"
-    dir="rtl"
-    locale="ar-MA"
-    nextMonthButtonLabel="الشهر التالي"
-    nextYearButtonLabel="السنة التالية"
-    previousMonthButtonLabel="الشهر السابق"
-    previousYearButtonLabel="السنة السابقة"
-    {...props}
-  />
-);
-```
+If your app uses Calendar in multiple places with the same language, a small wrapper component avoids repeating these props; the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) shows an example.
 
 ## Examples
 

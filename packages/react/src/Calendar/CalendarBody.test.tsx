@@ -49,4 +49,16 @@ describe('CalendarBody', () => {
 
     expect(screen.queryByRole('link', { current: 'date' })).not.toBeInTheDocument()
   })
+
+  it('uses narrow weekday names for Arabic, whose ‘short’ names are the full ones', () => {
+    const { container } = render(
+      <CalendarBody linkTemplate={(date) => `/day/${date.getDate()}`} locale="ar-MA" month={june2026} />,
+    )
+
+    const monday = new Date(2026, 5, 1)
+    const narrow = new Intl.DateTimeFormat('ar-MA', { weekday: 'narrow' }).format(monday)
+
+    expect(narrow).not.toBe(new Intl.DateTimeFormat('ar-MA', { weekday: 'short' }).format(monday))
+    expect(container.querySelector('.ams-calendar__weekday')).toHaveTextContent(narrow)
+  })
 })

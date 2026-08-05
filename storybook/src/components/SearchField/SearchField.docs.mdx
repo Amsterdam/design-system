@@ -98,6 +98,9 @@ These features can be disruptive for a user searching for part of a word, and `a
 
 The input and the button are flush against one another and read as a single control, with the input taking whatever width is left over.
 
+While the field is empty, the placeholder follows the page’s writing direction, so the prompt begins where the reader’s eye does; an explicit `dir` on the field takes precedence.
+See the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the design system’s writing-direction support.
+
 A focused input lifts itself above the button so its focus ring is drawn in full rather than cut off where the two meet.
 That lift is contained within the component, so it can never end up in front of anything else on the page.
 

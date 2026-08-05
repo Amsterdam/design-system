@@ -8,10 +8,10 @@ import * as scrollUtils from './scrollToSlide'
 vi.mock('./scrollToSlide')
 
 describe('scrollToCurrentSlideOnResize', () => {
-  const createRef = (options: { offsetLeft?: number; scrollLeft?: number; withElement?: boolean }) => {
-    const { offsetLeft = 0, scrollLeft = 0, withElement = true } = options
-    const currentSlideElement = withElement ? ({ offsetLeft } as HTMLElement) : null
-    const scrollerElement = withElement ? { children: [currentSlideElement], scrollLeft } : null
+  const createRef = (options: { withElement?: boolean }) => {
+    const { withElement = true } = options
+    const currentSlideElement = withElement ? ({} as HTMLElement) : null
+    const scrollerElement = withElement ? { children: [currentSlideElement] } : null
 
     return {
       currentSlideElement,
@@ -23,12 +23,12 @@ describe('scrollToCurrentSlideOnResize', () => {
     vi.clearAllMocks()
   })
 
-  it('calls scrollToSlide if the current slide is not in view', () => {
+  it('calls scrollToSlide when the current slide exists', () => {
     const scrollToSlide = vi.fn()
 
     vi.mocked(scrollUtils.scrollToSlide).mockImplementation(scrollToSlide)
 
-    const { ref } = createRef({ offsetLeft: 100, scrollLeft: 0, withElement: true })
+    const { ref } = createRef({ withElement: true })
 
     scrollToCurrentSlideOnResize({ currentSlideId: 0, ref })
 
@@ -52,20 +52,8 @@ describe('scrollToCurrentSlideOnResize', () => {
 
     vi.mocked(scrollUtils.scrollToSlide).mockImplementation(scrollToSlide)
 
-    const scrollerElement = { children: [null], scrollLeft: 0 }
+    const scrollerElement = { children: [null] }
     const ref = { current: scrollerElement } as unknown as RefObject<HTMLDivElement>
-
-    scrollToCurrentSlideOnResize({ currentSlideId: 0, ref })
-
-    expect(scrollToSlide).not.toHaveBeenCalled()
-  })
-
-  it('does not call scrollToSlide if the slide is already in view', () => {
-    const scrollToSlide = vi.fn()
-
-    vi.mocked(scrollUtils.scrollToSlide).mockImplementation(scrollToSlide)
-
-    const { ref } = createRef({ offsetLeft: 100, scrollLeft: 100, withElement: true })
 
     scrollToCurrentSlideOnResize({ currentSlideId: 0, ref })
 
