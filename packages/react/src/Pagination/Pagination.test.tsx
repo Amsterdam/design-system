@@ -206,6 +206,34 @@ describe('Pagination', () => {
     expect(nextLink).toBeInTheDocument()
   })
 
+  it('renders accessible names for the page links', () => {
+    render(<Pagination linkTemplate={linkTemplate} page={4} totalPages={10} />)
+
+    const currentPageLink = screen.getByRole('link', { name: 'Pagina 4' })
+    const otherPageLink = screen.getByRole('link', { name: 'Ga naar pagina 5' })
+
+    expect(currentPageLink).toBeInTheDocument()
+    expect(otherPageLink).toBeInTheDocument()
+  })
+
+  it('renders custom accessible names for the page links', () => {
+    render(
+      <Pagination
+        currentPageAccessibleName="Page"
+        linkTemplate={linkTemplate}
+        page={4}
+        pageAccessibleName="Go to page"
+        totalPages={10}
+      />,
+    )
+
+    const currentPageLink = screen.getByRole('link', { name: 'Page 4' })
+    const otherPageLink = screen.getByRole('link', { name: 'Go to page 5' })
+
+    expect(currentPageLink).toBeInTheDocument()
+    expect(otherPageLink).toBeInTheDocument()
+  })
+
   it('renders a custom link component', () => {
     const CustomLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => <a data-test {...props} />
 

@@ -24,6 +24,8 @@ export type PaginationProps = {
    * Note: must be unique for the page.
    */
   readonly accessibleNameId?: string
+  /** The accessible name for the link to the current page. The page number is appended. */
+  readonly currentPageAccessibleName?: string
   /** The React component or intrinsic element to use for the links. */
   readonly linkComponent?: ElementType
   /** The template used to construct the link hrefs. */
@@ -36,6 +38,8 @@ export type PaginationProps = {
   readonly nextLabel?: string
   /** The current page number. */
   readonly page?: number
+  /** The accessible name for the links to the other pages. The page number is appended. */
+  readonly pageAccessibleName?: string
   /** The accessible name for the link to the previous page. */
   readonly previousAccessibleName?: string
   /** The visible label for the link to the previous page. */
@@ -55,12 +59,14 @@ export const Pagination = forwardRef(
       accessibleName,
       accessibleNameId,
       className,
+      currentPageAccessibleName,
       linkComponent = DefaultLink,
       linkTemplate,
       maxVisiblePages = 7,
       nextAccessibleName,
       nextLabel = 'volgende',
       page = 1,
+      pageAccessibleName,
       previousAccessibleName,
       previousLabel = 'vorige',
       totalPages,
@@ -101,9 +107,11 @@ export const Pagination = forwardRef(
             typeof pageNumberOrEllipsis === 'number' ? (
               <LinkItem
                 currentPage={page}
+                currentPageAccessibleName={currentPageAccessibleName}
                 key={pageNumberOrEllipsis}
                 linkComponent={linkComponent}
                 linkTemplate={linkTemplate}
+                pageAccessibleName={pageAccessibleName}
                 pageNumber={pageNumberOrEllipsis}
               />
             ) : (

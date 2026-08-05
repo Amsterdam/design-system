@@ -8,12 +8,24 @@ import type { PaginationProps } from './Pagination'
 type LinkItemProps = {
   readonly currentPage: PaginationProps['page']
   readonly pageNumber: number
-} & Readonly<Pick<PaginationProps, 'linkComponent' | 'linkTemplate'>>
+} & Readonly<
+  Pick<PaginationProps, 'currentPageAccessibleName' | 'linkComponent' | 'linkTemplate' | 'pageAccessibleName'>
+>
 
-export const LinkItem = ({ currentPage, linkComponent, linkTemplate, pageNumber }: LinkItemProps) => {
+export const LinkItem = ({
+  currentPage,
+  currentPageAccessibleName,
+  linkComponent,
+  linkTemplate,
+  pageAccessibleName,
+  pageNumber,
+}: LinkItemProps) => {
   if (!linkComponent) return null
 
   const Link = linkComponent
+
+  const accessibleNamePrefix =
+    pageNumber === currentPage ? currentPageAccessibleName || 'Pagina' : pageAccessibleName || 'Ga naar pagina'
 
   return (
     <li>
@@ -22,7 +34,7 @@ export const LinkItem = ({ currentPage, linkComponent, linkTemplate, pageNumber 
         className="ams-pagination__link"
         href={linkTemplate(pageNumber)}
       >
-        <span className="ams-visually-hidden">{pageNumber === currentPage ? 'Pagina ' : 'Ga naar pagina '}</span>
+        <span className="ams-visually-hidden">{`${accessibleNamePrefix} `}</span>
         {pageNumber}
       </Link>
     </li>
