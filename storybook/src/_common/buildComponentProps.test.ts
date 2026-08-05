@@ -4,7 +4,10 @@
  */
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
+import { createElement } from 'react'
 import { describe, expect, it } from 'vitest'
+
+import type { BuildComponentPropsParams } from './renderComponentVariantTypes'
 
 import { buildComponentProps } from './buildComponentProps'
 
@@ -16,7 +19,7 @@ const baseParams = {
   sizePropName: 'size',
   state: 'default',
   variant: 'primary',
-}
+} satisfies BuildComponentPropsParams
 
 describe('buildComponentProps', () => {
   it('spreads args and sets the variant on the target prop', () => {
@@ -89,5 +92,25 @@ describe('buildComponentProps', () => {
   it('injects a unique accessibleNameId derived from the variant when the flag is set', () => {
     const result = buildComponentProps({ ...baseParams, acceptsAccessibleNameId: true })
     expect(result).toMatchObject({ accessibleNameId: 'variant-none-color-primary-default' })
+  })
+
+  it('names an icon variant by its component rather than stringifying its source', () => {
+    const result = buildComponentProps({
+      ...baseParams,
+      acceptsAccessibleName: true,
+      propName: 'icon',
+      variant: ChevronDownIcon,
+    })
+    expect(result).toMatchObject({ accessibleName: `none-icon-${ChevronDownIcon.name}-default` })
+  })
+
+  it('names an icon variant passed as an element by its element type', () => {
+    const result = buildComponentProps({
+      ...baseParams,
+      acceptsAccessibleName: true,
+      propName: 'icon',
+      variant: createElement('svg'),
+    })
+    expect(result).toMatchObject({ accessibleName: 'none-icon-svg-default' })
   })
 })

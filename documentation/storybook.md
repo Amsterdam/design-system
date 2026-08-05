@@ -163,7 +163,14 @@ It unhides the arg, offers a text control, and sets the description – `childre
 
 Test stories (`*.test.stories.tsx`) render all states of a component in the single story named ‘Test’, which is the only story Chromatic snapshots for a component.
 They inherit the component’s meta and must not define argTypes of their own.
-Note that `renderComponentVariants` reads the meta’s argTypes to build its variant matrix – changing options or hiding args can change what the Test story renders and snapshots.
+Note that `renderComponentVariants` reads both the argTypes and the args of the meta to build its variant matrix – changing options, hiding args, or giving an arg a value can change what the Test story renders and snapshots.
+The matrix holds each configuration once: it opens every state with the component as the meta’s args leave it, and leaves out any prop value that baseline already shows, whether the meta set it or the prop defaults to it.
+
+A `play` function has to allow for that matrix rendering the component more than once, since `args.children` repeat with it: a query for a single element throws where a test id or a role occurs once per configuration.
+Either take the first match, as Tabs and Image Slider do, or give the interaction its own instance outside the matrix, as Accordion does.
+
+The same goes for axe’s `heading-order` rule, which describes a document outline where the matrix shows heading levels side by side and leaves out the level the baseline already shows.
+A test story whose component takes a heading level therefore disables that rule, and only that rule: checks that hold per component, such as colour contrast, stay on.
 
 CSS utilities under `Utilities/` have test stories as well, but cannot use `renderComponentVariants`.
 The component next to each utility is a mock that renders a bare element; the utility class comes from the story’s `render`, so a generated matrix would show elements without the class on them.

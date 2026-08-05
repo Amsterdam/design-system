@@ -26,10 +26,48 @@ describe('extractVariantsFromArgTypes', () => {
     expect(result).toEqual([{ hasIcon: null, name: 'variant', values: ['primary', 'secondary'] }])
   })
 
-  it('expands a boolean prop to [true, false]', () => {
+  it('expands a boolean prop to [true, false], defaulting to false', () => {
     const result = extractVariantsFromArgTypes(argTypes([argType({ name: 'disabled', type: { name: 'boolean' } })]))
 
-    expect(result).toEqual([{ hasIcon: null, name: 'disabled', values: [true, false] }])
+    expect(result).toEqual([{ defaultValue: false, hasIcon: null, name: 'disabled', values: [true, false] }])
+  })
+
+  it('reads the declared default of a boolean prop over the false fallback', () => {
+    const result = extractVariantsFromArgTypes(
+      argTypes([
+        argType({ name: 'expanded', table: { defaultValue: { summary: 'true' } }, type: { name: 'boolean' } }),
+      ]),
+    )
+
+    expect(result[0]?.defaultValue).toBe(true)
+  })
+
+  it('reads the declared default of an enum prop', () => {
+    const result = extractVariantsFromArgTypes(
+      argTypes([
+        argType({
+          name: 'variant',
+          table: { defaultValue: { summary: 'primary' } },
+          type: { name: 'enum', value: ['primary', 'secondary'] },
+        }),
+      ]),
+    )
+
+    expect(result[0]?.defaultValue).toBe('primary')
+  })
+
+  it('strips the quotes docgen may put around a default value', () => {
+    const result = extractVariantsFromArgTypes(
+      argTypes([argType({ name: 'variant', table: { defaultValue: { summary: "'primary'" } } })]),
+    )
+
+    expect(result[0]?.defaultValue).toBe('primary')
+  })
+
+  it('leaves a prop that declares no default and is not a boolean without one', () => {
+    const result = extractVariantsFromArgTypes(argTypes([argType({ name: 'label', type: { name: 'string' } })]))
+
+    expect(result[0]?.defaultValue).toBeUndefined()
   })
 
   it('substitutes the number fixture for a number prop', () => {

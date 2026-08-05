@@ -21,6 +21,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
-  render: (args, context) => renderComponentVariants(FileInput, { args, variants: ['disabled', 'multiple'] }, context),
+  // `multiple` belongs on the prop axis: only `disabled` and `hovered` are states the matrix applies.
+  render: (args, context) => renderComponentVariants(FileInput, { args, variants: ['disabled'] }, context),
   tags: ['!dev', '!autodocs', '!manifest'],
 }

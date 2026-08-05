@@ -63,13 +63,15 @@ export const Test: Story = {
   play: async ({ canvas, userEvent }) => {
     await new Promise((resolve) => setTimeout(resolve, 500)) // This delay is required to finish the first tab opening
 
-    const gegevensParagraph = canvas.getByTestId('gegevens-panel')
-    const aanslagenTab = canvas.getByTestId('aanslagen')
+    // The matrix renders these children once per configuration, so every test id repeats.
+    // Take the first of each, which keeps the interaction within one set of tabs.
+    const [gegevensParagraph] = canvas.getAllByTestId('gegevens-panel')
+    const [aanslagenTab] = canvas.getAllByTestId('aanslagen')
 
     await expect(gegevensParagraph).toBeVisible()
     await userEvent.click(aanslagenTab)
     await new Promise((resolve) => setTimeout(resolve, 500)) // This delay is required to finish the second tab opening
-    await expect(canvas.getByTestId('aanslagen-panel')).toBeVisible()
+    await expect(canvas.getAllByTestId('aanslagen-panel')[0]).toBeVisible()
     await expect(gegevensParagraph).not.toBeVisible()
   },
   render: (args, context) => renderComponentVariants(Tabs, { args }, context),
