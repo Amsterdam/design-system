@@ -168,11 +168,11 @@ describe('ImageSlider', () => {
 
     const thumbnails = getAllByRole('tab')
 
-    const scrollToCallCountAfterRender = scrollIntoView.mock.calls.length
+    const scrollIntoViewCallCountAfterRender = scrollIntoView.mock.calls.length
 
     await user.click(thumbnails[1])
 
-    expect(scrollIntoView).toHaveBeenCalledTimes(scrollToCallCountAfterRender + 1)
+    expect(scrollIntoView).toHaveBeenCalledTimes(scrollIntoViewCallCountAfterRender + 1)
   })
 
   it('fires the IntersectionObserver callback and enables the previous button', async () => {
