@@ -1,6 +1,6 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
 import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
 
@@ -9,10 +9,10 @@ import * as EventsOverviewStories from "./EventsOverviewPage.stories.tsx";
 
 <Meta of={EventsOverviewStories} />
 
-# Events overview page
+<Title />
 
-An index of activities that a visitor narrows down: a city events calendar, a course programme, a schedule of public meetings.
-Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) instead when the items are not dated, or when the date is a publication date rather than something to plan around.
+<Description of={EventsOverviewStories} />
+
 What sets this page apart is that people arrive with a date in mind, so it gives them a calendar and date facets as well as the usual subject filters.
 
 ## Anatomy
@@ -20,6 +20,49 @@ What sets this page apart is that people arrive with a date in mind, so it gives
 This schematic shows the default sections for this page type and how the grids and vertical space work.
 
 <PageAnatomy labels={anatomyLabels} of={EventsOverviewStories} />
+
+## Usage guidelines
+
+### When to use
+
+Use this page for an index of dated activities that a visitor plans around: a city events calendar, a course programme, a schedule of public meetings.
+
+### When not to use
+
+Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) instead when the items are not dated, or when the date is a publication date rather than something to plan around.
+Use a [Search Results Page](/docs/pages-public-search-results-page--docs) where a result can be any kind of content.
+
+## Variants
+
+### Default
+
+A single, scannable column of full-width rows, which suits comparing dates and locations across a set of activities.
+
+A [Card](/docs/components-navigation-card--docs) that pairs an image with a Card Content lays out horizontally once its container is wide enough, which it is at every width where the filter column sits beside the results.
+Its image measures 4 of the 9 columns the Card spans on the wide grid.
+
+The medium grid leaves the results 5 columns, which is not enough for a row.
+Give each Card 4 of those 5 there and leave the last column empty: that is below the width at which a Card with an image goes horizontal, so the Cards turn into a single column of vertical ones and the image spans the full width of each.
+
+### Cards
+
+The same activities as a card grid, which suits browsing by image rather than comparing by date.
+
+Give each Card 3 of the 9 columns the results span, so three tile to a row on the wide grid.
+That is below the horizontal breakpoint, so every Card stays vertical, and because the Cells sit in the Subgrid the cards line up with the page columns even though the taller filter column shares the row.
+
+Both layouts hold the same markup.
+Only the `span` of the Cell around each Card differs, so nothing about the page changes for someone reading it in source order.
+
+### No results
+
+An empty result set is a place people leave, so give them a way on.
+
+Name the filters that produced it twice over: once in the sentence the live region announces, and once as a row of [Badges](/docs/components-feedback-badge--docs) beside a link that clears them all.
+The visitor can then see what narrowed the search without going back up the filter column.
+
+Follow that with a paragraph suggesting what to widen.
+Keep the filter column exactly as it is, with the chosen values still selected, so the visitor can adjust one facet rather than starting again.
 
 ## Structure
 
@@ -54,7 +97,6 @@ A Subgrid hands the columns it spans to its own children, so the Cells inside it
 Without it the results have no columns of their own, and nothing in them can line up with the rest of the page.
 
 Announce the number of results in a `role="status"` paragraph, and name the filters that produced it.
-A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
 
 Compose that sentence with `Intl.ListFormat` rather than joining the values with a hard-coded `en`.
 It applies the punctuation and the conjunction of the language itself, so the sentence survives translation: Dutch writes ‘a, b en c’ where English writes ‘a, b, and c’.
@@ -68,20 +110,14 @@ Until a component exists for it, the Card tagline carries those values comma sep
 Close the Card with when and where it happens, below the description, as one small Paragraph: the date, the time, and then the venue after a middot.
 Those two answer a different question from the facets above — not what kind of activity this is, but whether the visitor can be there — so they read better as a footnote to the description than as a second tagline.
 A middot separates the venue from the date without implying the sentence continues, which a comma would.
-The date keeps its `time` element wherever it sits.
 
 List the categories alphabetically.
 A visitor scanning ten checkboxes for one word finds it faster than in any order the publishing system happens to hold them in.
 A catch-all such as ‘Overig’ is the exception: it goes last whatever its initial, because it is the option someone reaches for after the named ones have failed them.
 
-## Headings
-
 The page title is the only Heading 1.
 The filter column and the list of results each take a Heading 2, and the title of every activity is a Heading 3.
-
 Neither Heading 2 has a place in the design, so both are visually hidden.
-They are still worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
-The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
 ## Layout and spacing
 
@@ -95,35 +131,24 @@ On the medium grid the results stop short of the region themselves, at 4 of the 
 
 Two adjacent Grids add their touching paddings together, so the Grid holding the filter column and the results leaves its `paddingTop` off.
 
+## Accessibility
+
+The two hidden Heading 2s are worth having: they name the two halves of the page in the heading outline, which is how a screen reader user skips the filters and reaches the results.
+The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
+
+The number of results is announced in a `role="status"` paragraph that names the filters which produced it.
+A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
+
+The Calendar is a set of links rather than a date input, so it is reached and operated as navigation.
+Give it an accessible name that says where its days lead: the month alone does not.
+
 The date of an activity carries a `time` element, whose `dateTime` repeats the visible date in the format software parses.
 That is what lets a browser or an extension offer to put the activity in a calendar.
 
-## Default
+## See also
 
-A single, scannable column of full-width rows, which suits comparing dates and locations across a set of activities.
-
-A [Card](/docs/components-navigation-card--docs) that pairs an image with a Card Content lays out horizontally once its container is wide enough, which it is at every width where the filter column sits beside the results.
-Its image measures 4 of the 9 columns the Card spans on the wide grid.
-
-The medium grid leaves the results 5 columns, which is not enough for a row.
-Give each Card 4 of those 5 there and leave the last column empty: that is below the width at which a Card with an image goes horizontal, so the Cards turn into a single column of vertical ones and the image spans the full width of each.
-
-## Cards
-
-The same activities as a card grid, which suits browsing by image rather than comparing by date.
-
-Give each Card 3 of the 9 columns the results span, so three tile to a row on the wide grid.
-That is below the horizontal breakpoint, so every Card stays vertical, and because the Cells sit in the Subgrid the cards line up with the page columns even though the taller filter column shares the row.
-
-Both layouts hold the same markup.
-Only the `span` of the Cell around each Card differs, so nothing about the page changes for someone reading it in source order.
-
-## No results
-
-An empty result set is a place people leave, so give them a way on.
-
-Name the filters that produced it twice over: once in the sentence the live region announces, and once as a row of [Badges](/docs/components-feedback-badge--docs) beside a link that clears them all.
-The visitor can then see what narrowed the search without going back up the filter column.
-
-Follow that with a paragraph suggesting what to widen.
-Keep the filter column exactly as it is, with the chosen values still selected, so the visitor can adjust one facet rather than starting again.
+- [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for items that are not dated.
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same layout for results of any type.
+- [Calendar](/docs/components-navigation-calendar--docs) – the date navigation this page opens its filters with.
+- [Card](/docs/components-navigation-card--docs) – the activity, and when it turns horizontal.
+- [Pagination](/docs/components-navigation-pagination--docs) – closes the list.
