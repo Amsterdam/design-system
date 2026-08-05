@@ -17,7 +17,7 @@
   font-size: var(--ams-blockquote-font-size);
   font-weight: var(--ams-blockquote-font-weight);
   line-height: var(--ams-blockquote-line-height);
-  quotes: "“" "”";
+  quotes: auto;
 
   @include hyphenation;
   @include text-rendering;
@@ -31,18 +31,14 @@
   }
 }
 
-// Localised quotation marks for the tested languages whose marks differ from the default, for browsers
-// that can’t derive them from the content language themselves. English, Dutch and Turkish use the default.
+// `quotes: auto` localises the marks to the content language. Pin the two whose CLDR default isn’t what
+// we want: Arabic (auto gives curly quotes, we use guillemets) and Dutch (auto gives single ‘ ’, we use double).
 .ams-blockquote:lang(ar) {
   quotes: "«" "»";
 }
 
-.ams-blockquote:lang(de) {
-  quotes: "„" "“";
-}
-
-.ams-blockquote:lang(fr) {
-  quotes: "«" "»";
+.ams-blockquote:lang(nl) {
+  quotes: "“" "”";
 }
 
 .ams-blockquote--inverse {
