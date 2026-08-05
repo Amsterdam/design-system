@@ -1,0 +1,1 @@
+import{t as e}from"./iframe-ftp49ejZ.js";e();

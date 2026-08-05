@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/295 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/296 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -2796,7 +2796,8 @@ This ensures the colour of the text provides enough contrast.
 
 ## Features
 
-The component adds the correct quotation marks.
+The component sets the quotation marks that match the content language, so mark it with the `lang` attribute.
+Arabic (`lang=&quot;ar&quot;`) gets guillemets (`«` and `»`) and Dutch gets curly double quotes (`“` and `”`); other languages get their own conventional marks.
 
 ## Design
 
@@ -2804,7 +2805,7 @@ A Blockquote is set in bold text, one size larger than body text, with a tighter
 This gives a quotation enough weight to stand apart from the running text around it, without needing a border, a background, or an indent.
 
 The quotation marks come from CSS rather than from the content.
-Authors cannot forget them or reach for the wrong pair, and the same curly double marks are used for every language.
+Authors cannot forget them or reach for the wrong pair, and the marks follow the language of the quotation.
 
 A Blockquote has no vertical margins of its own.
 This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
@@ -3081,6 +3082,9 @@ A trail that is too long for the line wraps like a sentence instead of overflowi
 
 The separator is drawn by CSS, so it can never be forgotten or typed differently from one page to the next.
 It is sized in `ex` units, the height of a lowercase letter, so the chevron stays in proportion to the text beside it at every font size.
+
+In a right-to-left writing direction the chevron is mirrored, so it keeps pointing from one item to the next.
+See the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the design system’s writing-direction support.
 
 Links are not underlined until the pointer is over them.
 The chevrons already mark where one item ends and the next begins, and underlining every step would turn a single line of text into a row of separate objects.
@@ -3997,26 +4001,7 @@ It does not translate the rest: set `accessibleName`, `nextMonthButtonLabel`, `n
 For right-to-left scripts such as Arabic, also add `dir=&quot;rtl&quot;`; this mirrors the layout and the navigation chevrons.
 Try the `locale` control above to preview each language; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
 
-If your app uses Calendar in multiple places with the same language, a small wrapper component avoids repeating these props:
-
-```tsx
-import type { CalendarProps } from &quot;@amsterdam/design-system-react&quot;;
-
-import { Calendar } from &quot;@amsterdam/design-system-react&quot;;
-
-const ArabicCalendar = (props: CalendarProps) =&gt; (
-  &lt;Calendar
-    accessibleName=&quot;التقويم&quot;
-    dir=&quot;rtl&quot;
-    locale=&quot;ar-MA&quot;
-    nextMonthButtonLabel=&quot;الشهر التالي&quot;
-    nextYearButtonLabel=&quot;السنة التالية&quot;
-    previousMonthButtonLabel=&quot;الشهر السابق&quot;
-    previousYearButtonLabel=&quot;السنة السابقة&quot;
-    {...props}
-  /&gt;
-);
-```
+If your app uses Calendar in multiple places with the same language, a small wrapper component avoids repeating these props; the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) shows an example.
 
 ## Examples
 
@@ -4719,9 +4704,9 @@ linkComponent?: ElementType | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> CharacterCount</h2>
       <div class="badges">
-        <label for="c-15-components-forms-character-count-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-15-components-forms-character-count-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-15-components-forms-character-count-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-15-components-forms-character-count-stories" class="badge ok as-toggle">3 stories</label>
         <label for="c-15-components-forms-character-count-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -4748,11 +4733,18 @@ linkComponent?: ElementType | undefined</code></pre>
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
-              <span class="badge ok">2 prop types</span>
+              <span class="badge ok">3 prop types</span>
             </div>
             <pre><code>Component: ../packages/react/src/index.ts::CharacterCount</code></pre>
             <pre><code>Props:</code></pre>
             <pre><code>/**
+ * Returns the text that displays the count, based on the current and maximum length.
+ * Formatters for all tested locales are available as exports.
+ */
+formatText?: FormatCharacterCountText = (length, maxLength) =&gt;
+  `${length} van ${maxLength} ${maxLength === 1 ? &#39;teken&#39; : &#39;tekens&#39;}`
+
+/**
  * The current length of the field’s value.
  */
 length: number
@@ -4772,7 +4764,8 @@ maxLength: number</code></pre>
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { CharacterCount } from "@amsterdam/design-system-react/src";</code></pre>
+                <pre><code>import { CharacterCount } from "@amsterdam/design-system-react/src";
+import { Column } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
           
@@ -4793,6 +4786,47 @@ maxLength: number</code></pre>
               
               
               <pre><code>const Error = () =&gt; &lt;CharacterCount length={1001} maxLength={1000} /&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Translated</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Translated = () =&gt; &lt;Column&gt;
+    &lt;CharacterCount
+        length={7}
+        maxLength={10}
+        dir=&quot;rtl&quot;
+        formatText={formatCharacterCountTextAr}
+        lang=&quot;ar&quot; /&gt;
+    &lt;CharacterCount
+        length={7}
+        maxLength={10}
+        formatText={formatCharacterCountTextDe}
+        lang=&quot;de&quot; /&gt;
+    &lt;CharacterCount
+        length={7}
+        maxLength={10}
+        formatText={formatCharacterCountTextEn}
+        lang=&quot;en&quot; /&gt;
+    &lt;CharacterCount
+        length={7}
+        maxLength={10}
+        formatText={formatCharacterCountTextFr}
+        lang=&quot;fr&quot; /&gt;
+    &lt;CharacterCount
+        length={7}
+        maxLength={10}
+        formatText={formatCharacterCountTextNl}
+        lang=&quot;nl&quot; /&gt;
+    &lt;CharacterCount
+        length={7}
+        maxLength={10}
+        formatText={formatCharacterCountTextTr}
+        lang=&quot;tr&quot; /&gt;
+&lt;/Column&gt;;</code></pre>
             </div>
         </div>
     
@@ -4844,6 +4878,15 @@ If your users keep hitting the character limit imposed by the backend of your se
 When the length exceeds the maximum length, the colour of the text changes to red.
 
 &lt;Canvas of={CharacterCountStories.Error} /&gt;
+
+### Translated text
+
+The component displays its text in Dutch by default.
+Pass one of the exported formatters – or a custom function – to `formatText` to display the count in another language.
+The Arabic formatter applies Arabic number–noun agreement.
+See the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
+
+&lt;Canvas of={CharacterCountStories.Translated} /&gt;
 
 ## Features
 
@@ -6256,27 +6299,7 @@ In range mode, also localise `rangeStartAccessibleName` and `rangeEndAccessibleN
 For right-to-left scripts such as Arabic, also add `dir=&quot;rtl&quot;`; this mirrors the layout and the navigation chevrons.
 Try the `locale` control above to preview each language; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the tested locales.
 
-If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props:
-
-```tsx
-import type { DatePickerProps } from &quot;@amsterdam/design-system-react&quot;;
-
-import { DatePicker } from &quot;@amsterdam/design-system-react&quot;;
-
-const ArabicDatePicker = (props: DatePickerProps) =&gt; (
-  &lt;DatePicker
-    dir=&quot;rtl&quot;
-    locale=&quot;ar-MA&quot;
-    nextMonthButtonLabel=&quot;الشهر التالي&quot;
-    nextYearButtonLabel=&quot;السنة التالية&quot;
-    previousMonthButtonLabel=&quot;الشهر السابق&quot;
-    previousYearButtonLabel=&quot;السنة السابقة&quot;
-    rangeEndAccessibleName=&quot;تاريخ النهاية&quot;
-    rangeStartAccessibleName=&quot;تاريخ البداية&quot;
-    {...props}
-  /&gt;
-);
-```
+If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props; the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) shows an example.
 
 ## Examples
 
@@ -13294,6 +13317,9 @@ Every image displays a thumbnail at about 20% of its width.
 Users can use buttons, thumbnails, or swiping to navigate between the images.
 The buttons are not displayed on a narrow touch device.
 The images do not slide automatically.
+
+In a right-to-left writing direction the images and the previous and next buttons follow the reading order, so the previous image sits to the right and the next to the left.
+See the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the design system’s writing-direction support.
 
 The thumbnail strip always divides its width into five, whether there are two images or five.
 Thumbnails then keep the same size across every Image Slider on a site instead of stretching to fill the row.
@@ -31336,6 +31362,9 @@ These features can be disruptive for a user searching for part of a word, and `a
 
 The input and the button are flush against one another and read as a single control, with the input taking whatever width is left over.
 
+While the field is empty, the placeholder follows the page’s writing direction, so the prompt begins where the reader’s eye does; an explicit `dir` on the field takes precedence.
+See the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the design system’s writing-direction support.
+
 A focused input lifts itself above the button so its focus ring is drawn in full rather than cut off where the two meet.
 That lift is contained within the component, so it can never end up in front of anything else on the page.
 
@@ -32258,6 +32287,9 @@ A Select shares its border, padding, type and states with a [Text Input](/docs/c
 
 The chevron browsers draw is replaced by one of ours, and the field reserves room for it at the end so a long option never runs underneath.
 It is drawn three times over — in the interactive blue, in the hover blue, and in grey when disabled — because a background image cannot take the colour of the text the way an icon in the markup would.
+
+In a right-to-left writing direction the chevron moves to the other side, staying at the end of the field where the options line up.
+See the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the design system’s writing-direction support.
 
 A Select showing several options at once keeps the native appearance and no chevron, since there is nothing to expand.
 
@@ -33487,6 +33519,9 @@ The track and the thumb are the whole of a Switch: a rounded bar with a circle t
 There is no text inside it, so it needs no room for words in either state and stays the same width whichever way it is set.
 
 The thumb moves by exactly the width of the track minus its borders, so it comes to rest flush against the end rather than at a distance measured separately for each size.
+
+In a right-to-left writing direction the thumb rests at the opposite end and slides the other way, so its two positions follow the reading direction.
+See the [localisation developer guide](/docs/docs-developer-guide-localisation--docs) for the design system’s writing-direction support.
 
 The slide and the colour change behind the thumb are animated only for users who have not asked for reduced motion.
 Everyone else sees the new state at once, with no travel across the track.
@@ -54083,17 +54118,34 @@ These locales have been tested:
 Both components also have accessible names and navigation button labels that stay in their default language until you translate them, so set those in the same language to avoid a mix.
 For right-to-left languages like Arabic, also add `dir=&quot;rtl&quot;` to the component or to a containing element.
 
+If your app uses one of these components in multiple places with the same language, a small wrapper component avoids repeating these props:
+
 ```tsx
-&lt;Calendar
-  accessibleName=&quot;التقويم&quot;
-  dir=&quot;rtl&quot;
-  locale=&quot;ar-MA&quot;
-  nextMonthButtonLabel=&quot;الشهر التالي&quot;
-  nextYearButtonLabel=&quot;السنة التالية&quot;
-  previousMonthButtonLabel=&quot;الشهر السابق&quot;
-  previousYearButtonLabel=&quot;السنة السابقة&quot;
-/&gt;
+import type { CalendarProps } from &quot;@amsterdam/design-system-react&quot;;
+
+import { Calendar } from &quot;@amsterdam/design-system-react&quot;;
+
+const ArabicCalendar = (props: CalendarProps) =&gt; (
+  &lt;Calendar
+    accessibleName=&quot;التقويم&quot;
+    dir=&quot;rtl&quot;
+    locale=&quot;ar-MA&quot;
+    nextMonthButtonLabel=&quot;الشهر التالي&quot;
+    nextYearButtonLabel=&quot;السنة التالية&quot;
+    previousMonthButtonLabel=&quot;الشهر السابق&quot;
+    previousYearButtonLabel=&quot;السنة السابقة&quot;
+    {...props}
+  /&gt;
+);
 ```
+
+The same pattern applies to the Date Picker, which also takes `rangeStartAccessibleName` and `rangeEndAccessibleName` in range mode.
+
+### Native form controls
+
+Native form controls render some of their text themselves.
+For example, `&lt;input type=&quot;time&quot;&gt;` orders and formats its hour and minute fields according to the browser’s own locale, not the page’s `lang` or `dir`.
+This is browser behaviour that pages cannot override.
 
 ### Mirror directional icons
 
