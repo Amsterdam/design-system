@@ -52,7 +52,11 @@ export const DatePickerBody = ({
 
   const firstWeekday = getFirstWeekday(year, monthIndex)
   const daysInMonth = getDaysInMonth(year, monthIndex)
-  const weekdayFormatter = new Intl.DateTimeFormat(locale, { weekday: 'short' })
+  // Arabic has no distinct abbreviated weekday names, so its ‘short’ names are the full ones and
+  // overflow the columns. Use the single-letter ‘narrow’ names there instead.
+  const weekdayFormatter = new Intl.DateTimeFormat(locale, {
+    weekday: locale?.startsWith('ar') ? 'narrow' : 'short',
+  })
 
   const cells: (Date | null)[] = [
     ...Array.from({ length: firstWeekday }, () => null),
