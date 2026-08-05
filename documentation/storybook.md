@@ -169,8 +169,13 @@ The matrix holds each configuration once: it opens every state with the componen
 A `play` function has to allow for that matrix rendering the component more than once, since `args.children` repeat with it: a query for a single element throws where a test id or a role occurs once per configuration.
 Either take the first match, as Tabs and Image Slider do, or give the interaction its own instance outside the matrix, as Accordion does.
 
-The same goes for axe’s `heading-order` rule, which describes a document outline where the matrix shows heading levels side by side and leaves out the level the baseline already shows.
-A test story whose component takes a heading level therefore disables that rule, and only that rule: checks that hold per component, such as colour contrast, stay on.
+Some axe rules check a whole page rather than a single component, and the matrix breaks those on purpose.
+`heading-order` wants headings to form an outline, but the matrix shows all levels side by side.
+`label` and `select-name` want every form control to have a label, but the matrix shows the bare control.
+`landmark-unique` wants a landmark to appear once, but the matrix repeats it for every configuration.
+When a test story fails such a rule, disable that rule alone with `disablePageLevelChecks`.
+Rules that pass stay on, and the helper only accepts these four ids, so a component check such as colour contrast cannot be disabled by mistake.
+Presentation stories and page templates keep all rules, because they show how components should be used.
 
 CSS utilities under `Utilities/` have test stories as well, but cannot use `renderComponentVariants`.
 The component next to each utility is a mock that renders a bare element; the utility class comes from the story’s `render`, so a generated matrix would show elements without the class on them.

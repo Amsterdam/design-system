@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Accordion } from '@amsterdam/design-system-react/src'
 import { expect } from 'storybook/test'
 
+import { disablePageLevelChecks } from '#storybook/_common/disablePageLevelChecks'
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
 import { default as accordionMeta } from './Accordion.stories'
@@ -50,10 +51,7 @@ export const Test: Story = {
       </Accordion.Section>,
     ],
   },
-  parameters: {
-    // The matrix shows heading levels side by side, not as a document outline.
-    a11y: { config: { rules: [{ enabled: false, id: 'heading-order' }] } },
-  },
+  parameters: disablePageLevelChecks('heading-order'),
   play: async ({ canvas, userEvent }) => {
     const accordionLabel = canvas.getByTestId('test-label')
     const accordionParagraph = canvas.getByTestId('test-paragraph')
