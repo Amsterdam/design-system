@@ -54,7 +54,8 @@ A visitor using a screen reader otherwise has no way to tell that ticking a chec
 Compose that sentence with `Intl.ListFormat` rather than joining the values with a hard-coded `en`.
 It applies the punctuation and the conjunction of the language itself, so the sentence survives translation: Dutch writes ‘a, b en c’ where English writes ‘a, b, and c’.
 
-Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell spanning all the columns of the Subgrid.
+Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell as wide as the results above it, rather than as wide as the region.
+The medium grid is where the two part company: the results leave a column spare there, and Pagination spanning the whole region would reach past the Cards it belongs to.
 Leave it out when everything fits on one page.
 
 The page title is the only Heading 1.

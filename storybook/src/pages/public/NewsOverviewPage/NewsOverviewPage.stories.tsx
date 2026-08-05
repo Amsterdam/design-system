@@ -182,7 +182,8 @@ export const Default: StoryObj = {
           </Grid.Cell>
           {/* … one Cell per article … */}
         </Grid.Subgrid>
-        <Grid.Cell span="all">
+        {/* The Pagination takes the width of the results above it rather than that of the region. */}
+        <Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}>
           <Pagination
             accessibleNameId="paginering"
             linkTemplate={(page) => \`?pagina=\${page}\`}
@@ -324,7 +325,8 @@ export const Default: StoryObj = {
                 </Grid.Cell>
               ))}
             </Grid.Subgrid>
-            <Grid.Cell span="all">
+            {/* The Pagination takes the width of the results above it rather than that of the region. */}
+            <Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}>
               <Pagination
                 accessibleNameId="paginering"
                 linkTemplate={(page) => `?pagina=${page}`}
