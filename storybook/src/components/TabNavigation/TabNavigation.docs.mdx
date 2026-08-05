@@ -48,6 +48,9 @@ Use [Tabs](/docs/components-containers-tabs--docs) instead to switch between sma
 
 Add `aria-current="page"` to the link pointing to the current page.
 
+Give each Tab Navigation an `accessibleName`.
+The name defaults to ‘Navigatie’, so a page with two of them would otherwise hold two navigations named the same.
+
 ## Examples
 
 ### Vertical
@@ -85,6 +88,37 @@ The user can navigate the links with their keyboard:
 | Tab         | Go to the next element that can have focus     |
 | Shift + Tab | Go to the previous element that can have focus |
 | Enter       | Follow the link that has focus                 |
+
+## Design
+
+A separator line runs under the whole row.
+The link for the current page marks itself with a thicker stroke of its own on top of it, in the text colour rather than the separator’s grey.
+Every other link is underlined on hover — the ordinary link underline the rest of the system uses.
+The current link is spared it: a stroke and an underline at once would look overdone.
+
+The current link is also set in bold.
+A copy of the label at that weight sits invisibly behind every link, reserving the width the bold text will need, so the row does not shift as you move from one page to the next.
+
+Links do not shrink to fit.
+When the row is too long it scrolls sideways and snaps to the start of a link, which keeps every label readable rather than squeezing them until they wrap.
+
+The vertical orientation takes effect from the medium breakpoint upward.
+It moves the strokes to the side of the links and drops the scrolling, since a stacked list grows downward instead of running out of width.
+
+In forced colours mode the current link is filled with the system’s selection colour.
+The strokes that normally mark it are shadows, and shadows are not rendered in that mode.
+
+## Accessibility
+
+Tab Navigation renders a `nav` around a list of links, so it is a navigation landmark and the destinations are announced as links with their number.
+
+The landmark is named by a heading that is hidden visually and hidden from the outline as well, which is what the `accessibleName` prop sets.
+Two of them on one page therefore need two different names, as ‘How to use’ says.
+
+Each link is a real link with its own address, so it can be opened in a new window, shared, or bookmarked, and it is reached with Tab and followed with Enter like any other.
+This is the difference from [Tabs](/docs/components-containers-tabs--docs), where the arrow keys move between controls that reveal panels on the same page.
+
+The invisible bold copy of each label is hidden from assistive technology, so a link is announced once rather than twice.
 
 ## See also
 

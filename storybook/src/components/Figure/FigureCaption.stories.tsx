@@ -30,6 +30,7 @@ const meta = {
       <Figure.Caption {...args}>{children}</Figure.Caption>
     </Figure>
   ),
+  tags: ['!manifest'],
 } satisfies Meta<typeof Figure.Caption>
 
 export default meta

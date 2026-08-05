@@ -10,7 +10,7 @@ import { MailIcon, PhoneIcon } from '@amsterdam/design-system-react-icons'
 import { PageFooter } from '@amsterdam/design-system-react/src'
 
 import { wrapInPage } from '#storybook/_common/decorators'
-import { isCompactTheme } from '#storybook/_common/isCompactTheme'
+import { useIsCompactTheme } from '#storybook/_common/useIsCompactTheme'
 
 import { PageFooterContent } from './PageFooterContent'
 
@@ -18,6 +18,13 @@ const meta = {
   title: 'Components/Containers/Page Footer',
   component: PageFooter,
   decorators: [wrapInPage],
+  parameters: {
+    layout: 'fullscreen',
+  },
+  subcomponents: {
+    'PageFooter.Menu': PageFooter.Menu,
+    'PageFooter.MenuLink': PageFooter.MenuLink,
+  },
 } satisfies Meta<typeof PageFooter>
 
 export default meta
@@ -25,26 +32,31 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args, context) => (
-    <PageFooter {...args}>
-      <PageFooterContent cellAppearance={isCompactTheme(context) ? 'transparent' : undefined} />
-    </PageFooter>
-  ),
+  render: (args) => {
+    const compact = useIsCompactTheme()
+
+    return (
+      <PageFooter {...args}>
+        <PageFooterContent cellAppearance={compact ? 'transparent' : undefined} />
+      </PageFooter>
+    )
+  },
 }
 
 export const CustomContent: Story = {
-  render: (args, context) => {
-    const cellAppearance = isCompactTheme(context) ? 'transparent' : undefined
+  render: (args) => {
+    const cellAppearance = useIsCompactTheme() ? 'transparent' : undefined
 
     return (
       <PageFooter {...args}>
         <PageFooter.Spotlight>
           <Grid paddingVertical="x-large">
-            <Grid.Cell appearance={cellAppearance} span={4}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+            {/* ams-prose sets the vertical rhythm between the heading and the text and links below it. */}
+            <Grid.Cell appearance={cellAppearance} className="ams-prose" span={4}>
+              <Heading color="inverse" level={2} size="level-3">
                 Contact
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
+              <Paragraph color="inverse">
                 Heeft u een vraag en kunt u het antwoord niet vinden op deze site? Neem dan contact met ons op.
               </Paragraph>
               <LinkList>
@@ -56,11 +68,11 @@ export const CustomContent: Story = {
                 </LinkList.Link>
               </LinkList>
             </Grid.Cell>
-            <Grid.Cell appearance={cellAppearance} span={4}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+            <Grid.Cell appearance={cellAppearance} className="ams-prose" span={4}>
+              <Heading color="inverse" level={2} size="level-3">
                 Panels en enquêtes
               </Heading>
-              <Paragraph className="ams-mb-m" color="inverse">
+              <Paragraph color="inverse">
                 Bent u uitgenodigd om mee te doen aan onderzoek of heeft u vragen over het panel of stadspaspanel?
               </Paragraph>
               <LinkList>
@@ -75,8 +87,8 @@ export const CustomContent: Story = {
                 </LinkList.Link>
               </LinkList>
             </Grid.Cell>
-            <Grid.Cell appearance={cellAppearance} span={4}>
-              <Heading className="ams-mb-s" color="inverse" level={2} size="level-3">
+            <Grid.Cell appearance={cellAppearance} className="ams-prose" span={4}>
+              <Heading color="inverse" level={2} size="level-3">
                 Onderzoek en Statistiek
               </Heading>
               <LinkList>

@@ -23,6 +23,10 @@ const meta = {
       </PageFooter>
     ),
   ],
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['!manifest'],
 } satisfies Meta<typeof PageFooter.Menu>
 
 export default meta

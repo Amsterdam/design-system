@@ -4,9 +4,12 @@
  */
 
 import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
+import { createElement } from 'react'
 import { describe, expect, it } from 'vitest'
 
-import { buildComponentProps } from './buildComponentProps'
+import type { BuildComponentPropsParams } from './renderComponentVariantTypes'
+
+import { buildComponentProps, variantKeyFor } from './buildComponentProps'
 
 const baseParams = {
   args: { label: 'Click' },
@@ -16,7 +19,7 @@ const baseParams = {
   sizePropName: 'size',
   state: 'default',
   variant: 'primary',
-}
+} satisfies BuildComponentPropsParams
 
 describe('buildComponentProps', () => {
   it('spreads args and sets the variant on the target prop', () => {
@@ -75,19 +78,19 @@ describe('buildComponentProps', () => {
     expect(result).toMatchObject({ icon: ChevronDownIcon, iconBefore: true })
   })
 
-  it('omits accessibleName and accessibleNameId when the flags are not set', () => {
-    const result = buildComponentProps(baseParams)
-    expect(result).not.toHaveProperty('accessibleName')
-    expect(result).not.toHaveProperty('accessibleNameId')
+  it('hands the component only the props of the cell', () => {
+    expect(Object.keys(buildComponentProps(baseParams)).sort()).toEqual(['className', 'color', 'label', 'size'])
+  })
+})
+
+describe('variantKeyFor', () => {
+  it('names an icon variant by its component rather than stringifying its source', () => {
+    const key = variantKeyFor({ propName: 'icon', size: undefined, state: 'default', variant: ChevronDownIcon })
+    expect(key).toBe(`none-icon-${ChevronDownIcon.name}-default`)
   })
 
-  it('injects a unique accessibleName derived from the variant when the flag is set', () => {
-    const result = buildComponentProps({ ...baseParams, acceptsAccessibleName: true })
-    expect(result).toMatchObject({ accessibleName: 'none-color-primary-default' })
-  })
-
-  it('injects a unique accessibleNameId derived from the variant when the flag is set', () => {
-    const result = buildComponentProps({ ...baseParams, acceptsAccessibleNameId: true })
-    expect(result).toMatchObject({ accessibleNameId: 'variant-none-color-primary-default' })
+  it('names an icon variant passed as an element by its element type', () => {
+    const key = variantKeyFor({ propName: 'icon', size: undefined, state: 'default', variant: createElement('svg') })
+    expect(key).toBe('none-icon-svg-default')
   })
 })

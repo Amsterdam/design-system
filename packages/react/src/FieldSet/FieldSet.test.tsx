@@ -51,6 +51,19 @@ describe('FieldSet', () => {
     expect(component).toHaveClass('ams-field-set--invalid')
   })
 
+  it('disables itself and the controls it contains', () => {
+    render(
+      <FieldSet disabled legend="Test">
+        <input type="text" />
+      </FieldSet>,
+    )
+
+    const component = screen.getByRole('group', { name: 'Test' })
+
+    expect(component).toHaveAttribute('disabled')
+    expect(screen.getByRole('textbox')).toBeDisabled()
+  })
+
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLFieldSetElement>()
 

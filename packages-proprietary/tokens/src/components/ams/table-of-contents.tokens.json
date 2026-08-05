@@ -29,8 +29,15 @@
       "line-height": {
         "$value": "{ams.typography.body-text.line-height}",
         "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
           "nl.amsterdam.subtype": "lineHeight",
           "nl.amsterdam.type": "number"
+        }
+      },
+      "text-wrap": {
+        "$value": "balance",
+        "$extensions": {
+          "nl.amsterdam.type": "textWrap"
         }
       },
       "list": {
@@ -45,6 +52,7 @@
           "padding-block-start": {
             "$value": "{ams.space.xs}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
             }
@@ -52,6 +60,7 @@
           "padding-inline-start": {
             "$value": "{ams.space.m}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
             }
@@ -62,6 +71,7 @@
         "gap": {
           "$value": "{ams.space.xs}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }

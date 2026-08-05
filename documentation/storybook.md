@@ -61,13 +61,24 @@ Follow these guidelines:
 1. For Boolean props, set their default value to `false`, unless this has side effects e.g. rendering a class name.
    In that case, don’t specify a value.
    Storybook will then display a button ‘Set boolean’ that shows a switch.
-2. Don’t use an empty string as a placeholder value – it can defeat component behaviour such as generating an id or rendering an optional hint.
+2. For other props, don’t set an arg to the value the prop has by default.
+   The `undefined` option labelled with that default already selects it – see [Choosing a control](#choosing-a-control) – so an arg would only add the prop to the code view.
+3. Don’t use an empty string as a placeholder value – it can defeat component behaviour such as generating an id or rendering an optional hint.
    Leave the arg out instead.
-3. Hide args with `table: { disable: true }` in the `argTypes` object if they don’t apply to the story, e.g. if the story composes multiple instances of the component.
+4. Hide args with `table: { disable: true }` in the `argTypes` object if they don’t apply to the story, e.g. if the story composes multiple instances of the component.
    We don’t hide ‘less relevant’ args in other cases, not even in stories that focus on a single prop.
-4. Note that the args and argTypes of the meta feed the Test story, which is the only story Chromatic snapshots for a component or a CSS utility – see [Test stories](#test-stories).
+5. Note that the args and argTypes of the meta feed the Test story, which is the only story Chromatic snapshots for a component or a CSS utility – see [Test stories](#test-stories).
    Changing them can therefore change snapshots; the args of an individual presentation story don’t reach Chromatic.
    This does not hold for page templates, whose stories Chromatic snapshots one by one.
+
+### Args that only serve the controls
+
+The Boolean flags of the first guideline reach the Code Panel too, teaching readers to write a `disabled={false}` that changes nothing.
+So do the event handlers an `action` or a controlled story adds, which print as an empty `() => {}`.
+`storybook/config/filterSourceProps.ts` leaves both out of the generated source.
+
+Add a Boolean prop to the list in that module as soon as a story gives it `false`, so it stays out of the code view.
+Only add a prop that is off by default: where a prop is on by default, such as Ordered List’s `markers`, `false` switches the default off and the code view has to show it.
 
 ### Choosing a control
 
@@ -152,7 +163,19 @@ It unhides the arg, offers a text control, and sets the description – `childre
 
 Test stories (`*.test.stories.tsx`) render all states of a component in the single story named ‘Test’, which is the only story Chromatic snapshots for a component.
 They inherit the component’s meta and must not define argTypes of their own.
-Note that `renderComponentVariants` reads the meta’s argTypes to build its variant matrix – changing options or hiding args can change what the Test story renders and snapshots.
+Note that `renderComponentVariants` reads both the argTypes and the args of the meta to build its variant matrix – changing options, hiding args, or giving an arg a value can change what the Test story renders and snapshots.
+The matrix holds each configuration once: it opens every state with the component as the meta’s args leave it, and leaves out any prop value that baseline already shows, whether the meta set it or the prop defaults to it.
+
+A `play` function has to allow for that matrix rendering the component more than once, since `args.children` repeat with it: a query for a single element throws where a test id or a role occurs once per configuration.
+Either take the first match, as Tabs and Image Slider do, or give the interaction its own instance outside the matrix, as Accordion does.
+
+Some axe rules check a whole page rather than a single component, and the matrix breaks those on purpose.
+`heading-order` wants headings to form an outline, but the matrix shows all levels side by side.
+`label` and `select-name` want every form control to have a label, but the matrix shows the bare control.
+`landmark-unique` wants a landmark to appear once, but the matrix repeats it for every configuration.
+When a test story fails such a rule, disable that rule alone with `disablePageLevelChecks`.
+Rules that pass stay on, and the helper only accepts these four ids, so a component check such as colour contrast cannot be disabled by mistake.
+Presentation stories and page templates keep all rules, because they show how components should be used.
 
 CSS utilities under `Utilities/` have test stories as well, but cannot use `renderComponentVariants`.
 The component next to each utility is a mock that renders a bare element; the utility class comes from the story’s `render`, so a generated matrix would show elements without the class on them.

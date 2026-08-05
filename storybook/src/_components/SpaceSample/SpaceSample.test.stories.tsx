@@ -22,5 +22,5 @@ export const Test: Story = {
       <SpaceSample />
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

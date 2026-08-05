@@ -9,6 +9,7 @@
 .ams-file-input {
   background-color: var(--ams-file-input-background-color);
   border-color: var(--ams-file-input-border-color);
+  border-radius: var(--ams-file-input-border-radius);
   border-style: var(--ams-file-input-border-style);
   border-width: var(--ams-file-input-border-width);
   box-sizing: border-box;
@@ -53,7 +54,8 @@
 }
 
 .ams-file-input:disabled::file-selector-button {
-  color: var(--ams-file-input-disabled-color);
+  background-color: var(--ams-file-input-file-selector-button-disabled-background-color);
+  color: var(--ams-file-input-file-selector-button-disabled-color);
   cursor: var(--ams-file-input-file-selector-button-disabled-cursor);
 }
 

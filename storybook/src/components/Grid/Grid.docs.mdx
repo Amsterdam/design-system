@@ -7,6 +7,7 @@ import tokens from "#tokens/components/ams/grid.tokens.json";
 
 import * as GridStories from "./Grid.stories";
 import * as GridCellStories from "./GridCell.stories.tsx";
+import * as GridSubgridStories from "./GridSubgrid.stories.tsx";
 
 <Meta of={GridStories} />
 
@@ -22,13 +23,38 @@ import * as GridCellStories from "./GridCell.stories.tsx";
 
 ### Cell
 
-Every direct child of a Grid must be a Cell.
+Every direct child of a Grid must be a Cell or a Subgrid.
 Size and position it with the `span` and `start` props, which accept responsive values.
 Its `appearance` controls the background in Compact Mode.
+
+`rowSpan` lets a Cell cover several rows, and `rowStart` puts it in a row of your choosing.
+Reach for `rowStart` only where automatic placement cannot do the job: it never moves back a column without moving down a row, so a Cell that comes first in the source and sits to the right of the one after it pushes that one down.
+A sidebar on the trailing side needs a row of its own for that reason; one on the leading side does not, because placement runs towards it.
+Set it on the sidebar rather than on everything around it, and leave the rest to automatic placement.
 
 <Canvas of={GridCellStories.Cell} />
 
 <Controls of={GridCellStories.Cell} />
+
+### Subgrid
+
+Shares the columns it spans with its own children, so they align to the columns of the page.
+Place and size it with `span` and `start`, exactly like a Cell; those values also decide how many columns its children have to work with.
+Every direct child of a Subgrid must be a Cell.
+
+Use it for a region beside a sidebar, such as the results of an index page next to a filter column.
+Without it, a Cell inside a Cell has no columns to align to.
+
+It takes `rowSpan` and `rowStart` for the same reasons a Cell does.
+A Subgrid is placed as one item, so a region beside a sidebar on the trailing side takes a `rowStart` of its own.
+
+Its rows take the vertical gap of the Grid, so the region keeps the rhythm of the page.
+Give it its own `gapVertical` to space its rows differently.
+It takes `x-large` as well, which the Grid has no need of: that is the gap a Grid gives by default, and only a Subgrid can end up without it, in a Grid that lowered or removed its own.
+
+<Canvas of={GridSubgridStories.Subgrid} />
+
+<Controls of={GridSubgridStories.Subgrid} />
 
 ## Usage guidelines
 
@@ -49,13 +75,25 @@ The Grid manages its own gaps; the utility classes interfere with that.
 
 ### How to use
 
-Follow the [optimal sizes of Grid Cells](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells) for typical page sections.
+Follow the [optimal sizes of Grid Cells](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells) for typical page sections.
 
 Use the `as` prop to give a Grid or a Grid Cell a meaningful HTML element when one applies.
 For example, set a top-level Cell that holds the main content of the page to `as="main"`, or a sidebar Cell to `as="aside"`.
 
+Put `as="main"` on the Grid itself when the main content of a page is a single section: the Grid then is that region.
+Wrap the sections in a plain `main` element instead when the region holds several of them, such as more Grids, a [Spotlight](/docs/components-containers-spotlight--docs), or a full-bleed [Image](/docs/components-media-image--docs).
+Next to a sidebar, the main content goes in its own Grid Cell.
+
 Ensure the `span` and `start` values for a cell never exceed the number of columns available at that breakpoint.
 The browser would add columns to fit, which breaks the layout.
+
+Write the Cells in the order the content should be read, and use `start` only to decide where each one sits.
+Reading order and keyboard order follow the markup rather than the columns, so the two disagree as soon as `start` is used to reorder rather than to place.
+
+A Subgrid groups its Cells in the markup as well as on the grid, so it decides the order everything inside it is read in.
+Two Subgrids beside one another are read one after the other, the whole of the left column before the whole of the right, where the same Cells written straight into the Grid would have been read across each row in turn.
+Keyboard order and screen reader order follow that grouping, and so does the narrow grid: two Subgrids that each span its 4 columns stack there, so the second column lands below the whole of the first rather than interleaving with it.
+Reach for a Subgrid where reading a column at a time suits the content, and leave the Cells in the Grid where reading across the rows does.
 
 ## Examples
 
@@ -150,6 +188,8 @@ Cells flow automatically.
 A cell that doesn’t fit in the current row moves to the next, which keeps simple layouts simple.
 
 A Grid Cell is a [query container](/docs/utilities-css-query-container--docs) for inline size, so elements inside it can adapt their appearance to the width of the cell.
+A Subgrid is not a query container: a grid container that establishes an independent formatting context cannot share its parent’s columns, so it would stop being a subgrid.
+Its Cells are query containers as usual, which is where components that need one belong.
 
 ## Design
 
@@ -158,6 +198,8 @@ That keeps the start of each cell’s content at a consistent baseline – impor
 
 The Grid is full-width and non-nestable on purpose.
 A single, shared rhythm of columns across the page keeps content predictable for users; nesting would break that rhythm.
+
+The Grid has no vertical padding of its own; the `padding…` props add `l`, `xl`, or `2xl` where a design calls for it.
 
 The 4, 8, and 12 column counts halve cleanly into 2, 3, 4, and 6 subdivisions, so the same content can be arranged consistently across breakpoints.
 
@@ -183,11 +225,21 @@ In Compact Mode they use `m`, `l`, and `xl` respectively.
 This makes the margin smaller than the gap between cells on narrow windows: content sits closer to the edges of the device than the cells do to each other.
 That is deliberate, as Compact Mode has no need for the editorial white space beside the spacious grid.
 
-The Grid has no vertical padding of its own; the `padding…` props add `l`, `xl`, or `2xl` where a design calls for it.
 In Compact Mode every cell adds `m` of padding on all sides, inside the margins of the Grid.
 
-In Compact Mode the wide grid includes a vertical menu bar beside the grid, 128 pixels wide.
-On medium and narrow grids, the menu bar moves below the header.
+### Display cutouts
+
+Phones with a display cutout, such as a notch or a camera housing, need clear space along the edge of the screen.
+Where the margin is not already wide enough, the Grid widens it to match.
+It uses the larger of the two, never both added together.
+
+You mostly see this in landscape.
+iOS asks for the same space on both sides, so both margins grow: to around 62 pixels on a recent phone.
+At the widths a phone has in landscape, that is roughly a whole column of the medium grid.
+Compact Mode changes the most, since its margins start out the smallest.
+
+The margins only grow if the page asks for the whole screen with `viewport-fit=cover`.
+[Getting started](/docs/docs-developer-guide-getting-started--docs) explains how.
 
 ### Maximum width
 
@@ -199,6 +251,7 @@ There is no minimum: the grid scales as narrow as the available space.
 
 These tables show the pixel values at each breakpoint; between breakpoints, all values scale continuously.
 ‘Margin’ is the horizontal padding of the Grid itself; ‘Gap’ sits between the columns and, by default, between the rows as well.
+‘Menu bar’ is the vertical bar that Compact Mode places beside the wide grid, 128 pixels wide; on medium and narrow grids it moves below the header instead.
 Dimensions are multiples of 16, not the precise measurements of any specific device.
 We name the breakpoints ‘narrow’, ‘medium’, and ‘wide’ rather than ‘mobile’, ‘tablet’, and ‘desktop’ for this reason.
 
@@ -253,6 +306,18 @@ Many people keep a window at a fraction of a large monitor, and a tablet can sho
 
 The breakpoints also respond to the effective text size.
 When a user zooms in or sets a larger system font, the breakpoints kick in earlier, which may decrease the number of columns.
+
+## Accessibility
+
+A Grid renders a `div` by default and adds nothing to the accessibility tree.
+Cells are announced in the order they appear in the markup, whatever the grid does with them on screen.
+
+That matters because `start` can place a cell in a column that does not match its position in the code.
+A cell written second and started at column 7 is read second and reached second by the keyboard, even where it appears to the right of a cell written after it.
+‘How to use’ covers what that asks of the markup.
+
+The `as` prop can render an `article` or a `section` instead of a `div`.
+A `section` reaches assistive technology as a landmark only once it has a name, so give the heading inside it an `id` and point `aria-labelledby` at that id.
 
 ## See also
 

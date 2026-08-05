@@ -26,5 +26,5 @@ export const Test: Story = {
     src: 'https://picsum.photos/id/122/1280/720',
   },
   render: (args, context) => renderComponentVariants(Image, { args }, context),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

@@ -44,6 +44,9 @@ Too many links on the same page may confuse the user.
 Always include `rel="external"` for an external link.
 Avoid `target="_blank"`, but use `rel="external noopener"` if necessary.
 
+Add `download` to ask the browser to save the linked file instead of navigating to it.
+Browsers honour it for same-origin URLs only.
+
 ## Examples
 
 ### On a coloured background
@@ -69,6 +72,27 @@ It will make the Link white.
 
 We discourage using styles for visited links because they often make the page less clear and navigation more challenging.
 It is not part of navigation elements that are frequently scanned.
+
+A Link inherits the typeface, size and line height of the text it sits in.
+Nothing about an inline link interrupts the line it belongs to: only its colour and its underline set it apart, at whatever size the surrounding text happens to be.
+
+The underline is thicker than the one a browser draws and sits further from the text, so descenders stay legible through it.
+On hover it thickens and moves closer to the text by the same amount, which leaves its lower edge exactly where it was.
+The line of text does not shift as the pointer passes over it.
+
+On a coloured background the hover colour is the same as the resting one.
+Black or white is already the only readable choice there, so hovering changes the underline alone.
+
+## Accessibility
+
+A Link renders an `a` element and is announced as a link, in the reading order of the sentence that holds it.
+
+### External links
+
+`rel="external"` states the relationship for machines that read the markup, and nothing about it is announced.
+A link that leaves the website, opens a new window, or downloads a file has to say so in its own text: a reader who cannot see the address bar gets no other warning.
+
+Opening a new window also takes someone to a context they did not ask for and cannot leave with the back button, which is why ‘How to use’ discourages `target="_blank"` rather than only asking for `noopener` alongside it.
 
 ## See also
 

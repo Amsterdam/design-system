@@ -53,12 +53,6 @@ Try the `locale` control above to preview each language; see the [localisation d
 
 If your app uses Date Picker in multiple places with the same language, a small wrapper component avoids repeating these props; the [Localisation developer guide](/docs/docs-developer-guide-localisation--docs) shows an example.
 
-## Design
-
-The Date Picker is intentionally an inline component.
-Finding the optimal date is a focused task for the user; placing it directly on the page makes it easier to use and gives it the space and attention it deserves.
-If the layout truly has no room, placing the Date Picker inside a modal [Dialog](/docs/components-dialogs-dialog--docs) is an acceptable last resort.
-
 ## Examples
 
 ### Range
@@ -112,11 +106,30 @@ Different navigation icons can be used through the `*ButtonIcon` props, which ea
 Websites for the City of Amsterdam must use the default icons.
 For right-to-left scripts, give a custom icon a `data-directional="true"` attribute so it mirrors like the default chevrons; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
+## Design
+
+The Date Picker is intentionally an inline component: the calendar sits directly in the page, not in a dropdown or popover opened from a field or button.
+Finding the optimal date is a focused task for the user; placing it directly on the page makes it easier to use and gives it the space and attention it deserves.
+If the layout truly has no room, placing the Date Picker inside a modal [Dialog](/docs/components-containers-dialog--docs) is an acceptable last resort.
+
+A date that falls outside the bounds is struck through rather than removed or greyed into the background.
+It keeps its place in the grid, so the shape of the month stays intact and the reason a date cannot be chosen is visible rather than inferred from a gap.
+
+The grid shows only the days of the month on view; the first week is padded with blank cells rather than the previous month’s tail.
+Our palette has no comfortable way to mark another month’s dates as secondary, and without that a second set of the same day numbers — two 1sts, two 30ths — would confuse more than it clarifies.
+Showing them would also raise a question the inline grid is better without: if someone picked a day carried in from a neighbouring month, should the grid jump to that month? Leaving those days out avoids it.
+
 ## Accessibility
 
 The grid takes its accessible name from the visible month caption, so screen readers announce which month is shown.
 Each day button is labelled with its full date, including the weekday, so a day number is never read out of context.
 In range mode, the start and end dates are announced as such; override `rangeStartAccessibleName` and `rangeEndAccessibleName` to localise these.
+
+Dates that cannot be chosen stay reachable with the keyboard and are still announced.
+Someone moving through the month therefore learns which days are unavailable instead of finding the grid silently skip over them.
+
+The month names, weekday names and spoken dates follow `locale`, while the navigation labels do not.
+‘Localisation’ under ‘How to use’ lists the ones you have to set yourself, and leaving them unset is what produces the mix of two languages a screen reader would read out.
 
 ## See also
 

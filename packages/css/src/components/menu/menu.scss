@@ -6,9 +6,17 @@
 @use "../../common/breakpoint" as *;
 @use "../../common/hyphenation" as *;
 @use "../../common/resets" as *;
+@use "../../common/safe-area" as *;
 @use "../../common/text-rendering" as *;
 
 .ams-menu {
+  // The padding of Page Header, which resolves to the same value: its token aliases the Grid one.
+  // Recomputed here rather than inherited, so a Menu outside a Page Header still bleeds correctly.
+  /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+  --_ams-menu-padding-inline-end: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-end));
+  --_ams-menu-padding-inline-start: max(var(--ams-grid-padding-inline), var(--ams-safe-area-inset-inline-start));
+  /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
   background-color: var(--ams-menu-background-color);
 
   // Keeps the horizontal padding within the maximum inline size in wide windows.
@@ -20,17 +28,29 @@
 
   // Menu must overlap the horizontal padding of Page Header to span the entire window.
   // We accept that this approach with a negative margin tightly couples the component to that context.
-  margin-inline: calc(var(--ams-grid-padding-inline) * -1);
+  // Each side is negated on its own: a display cutout makes that padding asymmetric.
+  margin-inline-end: calc(var(--_ams-menu-padding-inline-end) * -1);
+  margin-inline-start: calc(var(--_ams-menu-padding-inline-start) * -1);
   padding-block: var(--ams-menu-padding-block);
 
   // We subtract the menu link padding to align the items with surrounding content.
-  padding-inline: calc(var(--ams-grid-padding-inline) - var(--ams-menu-link-padding-inline));
+  padding-inline-end: calc(var(--_ams-menu-padding-inline-end) - var(--ams-menu-link-padding-inline));
+  padding-inline-start: calc(var(--_ams-menu-padding-inline-start) - var(--ams-menu-link-padding-inline));
 
   @media (min-width: $ams-breakpoint-medium) {
-    margin-inline: calc(
-      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)) * -1
+    /* stylelint-disable csstools/value-no-unknown-custom-properties -- Declared in common/safe-area.scss. */
+    --_ams-menu-padding-inline-end: max(
+      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
+      var(--ams-safe-area-inset-inline-end)
     );
-    padding-inline: var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline));
+    --_ams-menu-padding-inline-start: max(
+      var(--ams-grid-medium-padding-inline /* @deprecated */, var(--ams-grid-vi-medium-padding-inline)),
+      var(--ams-safe-area-inset-inline-start)
+    );
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
+    padding-inline-end: var(--_ams-menu-padding-inline-end);
+    padding-inline-start: var(--_ams-menu-padding-inline-start);
   }
 
   @media (min-width: $ams-breakpoint-wide) {

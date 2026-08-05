@@ -44,6 +44,13 @@ export const Size: Story = {
   },
 }
 
+export const Disabled: Story = {
+  args: {
+    defaultValue: 'Wachtwoord',
+    disabled: true,
+  },
+}
+
 export const InAField: Story = {
   render: (args) => (
     <Field invalid={args.invalid}>

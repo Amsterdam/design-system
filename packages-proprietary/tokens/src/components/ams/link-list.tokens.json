@@ -8,6 +8,12 @@
           "nl.amsterdam.type": "dimension"
         }
       },
+      "text-wrap": {
+        "$value": "balance",
+        "$extensions": {
+          "nl.amsterdam.type": "textWrap"
+        }
+      },
       "link": {
         "color": {
           "$value": "{ams.links.color}",

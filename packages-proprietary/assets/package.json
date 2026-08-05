@@ -17,6 +17,14 @@
     "access": "public",
     "provenance": true
   },
+  "files": [
+    "app-icons/",
+    "favicon/",
+    "font/",
+    "icons/",
+    "logo/",
+    "manifest/"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Amsterdam/design-system.git",
@@ -27,6 +35,6 @@
     "optimize-logos": "svgo -f logo --config svgo.logos.config.js"
   },
   "devDependencies": {
-    "svgo": "4.0.1"
+    "svgo": "4.0.2"
   }
 }

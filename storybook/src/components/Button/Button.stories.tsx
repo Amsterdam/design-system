@@ -5,6 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { ActionGroup } from '@amsterdam/design-system-react'
 import { CloseIcon } from '@amsterdam/design-system-react-icons'
 import { Button } from '@amsterdam/design-system-react/src'
 import { buttonVariants } from '@amsterdam/design-system-react/src/Button/Button'
@@ -19,10 +20,7 @@ const meta = {
   args: {
     children: 'Versturen',
     disabled: false,
-    icon: undefined,
     iconBefore: false,
-    iconOnly: undefined,
-    variant: 'primary',
   },
   argTypes: {
     disabled: disabledArgType,
@@ -71,6 +69,40 @@ export const Tertiary: Story = {
     children: 'Terug',
     variant: 'tertiary',
   },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+  argTypes: {
+    children: {
+      table: { disable: true },
+    },
+    icon: {
+      table: { disable: true },
+    },
+    iconBefore: {
+      table: { disable: true },
+    },
+    iconOnly: {
+      table: { disable: true },
+    },
+    variant: {
+      table: { disable: true },
+    },
+  },
+  render: ({ disabled }) => (
+    <ActionGroup>
+      <Button disabled={disabled}>Versturen</Button>
+      <Button disabled={disabled} variant="secondary">
+        Annuleren
+      </Button>
+      <Button disabled={disabled} variant="tertiary">
+        Terug
+      </Button>
+    </ActionGroup>
+  ),
 }
 
 export const WithIcon: Story = {

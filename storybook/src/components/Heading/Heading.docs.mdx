@@ -30,14 +30,32 @@ Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-pr
 
 Use the `size` prop to make a Heading visually larger or smaller, but sparingly and consistently.
 
+The `level` prop picks the `h1` to `h4` element and gives the Heading the appearance that matches that level.
+The `size` prop overrides that appearance without changing the element.
+
 The `level` prop has no default; determine the correct level for each instance.
 Every page should have one Heading with level 1.
 Do not skip levels: a level 2 Heading must be followed by level 3, not level 4.
 
-- Content pages, e.g. for articles, products, events etc. must not use the size prop on their Headings.
-- Most Headings on overview pages, e.g. Card, Table of Contents, and Link Sections, use a size of 'level-3'.
-- The same applies to large sections – e.g. Accordion, Alert, Dialog and the caption of a Table.
-  Most of them can be given a different size if appropriate.
+#### Sections and blocks
+
+The size follows what the Heading introduces.
+
+A heading keeps the size of its level, and sets no `size`, when it introduces a **content body**: a section of an article, or the entry a navigation page shows beside its navigation.
+
+A heading of a **block** takes a `size` one step smaller, so a level 2 Heading takes `size="level-3"`.
+That is a block holding a short paragraph, a Link List, or a single link, and equally the heading above a group of such blocks or a row of Cards.
+Overview and navigation pages are built from these, and content pages carry them too, in a Spotlight or at the foot of the page.
+At the size of its own level the heading outweighs the few lines it introduces.
+
+The `level` follows the outline of the page either way.
+
+Components that carry a heading of their own — Accordion, Alert, Card, Dialog, Table of Contents, and the caption of a Table — size it themselves.
+
+### How to write
+
+Write a heading that describes the section it introduces.
+Users navigate by heading, so a vague one leaves them guessing what the section holds; [WCAG 2.4.6](https://www.w3.org/TR/WCAG22/#headings-and-labels) asks headings to describe their topic or purpose.
 
 ## Examples
 
@@ -86,10 +104,35 @@ Use a [Row](/docs/components-layout-row--docs) and the `size` prop of [Icon](/do
 
 <Canvas of={HeadingStories.WithIcon} />
 
+## Design
+
+Headings use the same font family as body text and are always bold.
+Their hierarchy comes from size and weight alone, not from a separate display typeface.
+
+Font sizes for levels 1 to 4 grow with the viewport; level 5 keeps a fixed size.
+Line heights tighten as the text grows, from 1.4 at the smallest sizes to 1.2 at level 1, where body text uses 1.6.
+Large text needs proportionally less space between its lines to stay legible.
+Mobile browsers are prevented from inflating heading text, so these sizes are the only ones that apply.
+[Read more in the typography documentation](/docs/brand-design-tokens-typography--docs#headings).
+
+A Heading that spans multiple lines has its line lengths balanced, so it never ends on a single short word.
+The large [Paragraph](/docs/components-text-paragraph--docs) that often follows a level 1 Heading does the same, which keeps the two visually consistent.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+A Heading has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
+
+In print, a Heading stays with the content it introduces: it is never the last item on a page, and it is never split across two pages.
+
 ## Accessibility
 
 Screen reader users navigate by heading to understand page structure.
 An incorrect hierarchy disrupts their mental model of the page.
+
+The `level` prop chooses the `h1` to `h4` element; the `size` prop changes the appearance and nothing else.
+A level 2 Heading shown at the size of a level 4 is still reported as level 2, so the outline assistive technology announces stays the one the content actually has.
 
 ## See also
 

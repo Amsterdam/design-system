@@ -1,0 +1,17 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+/* Borrows the Skeleton's grey: it is the design system's only colour that means ‘content that is not there’. */
+._ams-photo-placeholder {
+  /* `align-content` is what centres the single icon: with `flex-wrap: wrap`, `align-items` only
+     positions items within their line, and the line itself would sit at the top of the box. */
+  align-content: center;
+  align-items: center;
+  background-color: var(--ams-skeleton-background-color);
+  color: var(--ams-color-text-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

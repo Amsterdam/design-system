@@ -34,6 +34,9 @@ Pagination should not be displayed if there is only one page.
 
 Make sure that the visible and accessible labels for the 'previous' and 'next' buttons convey the same meaning at all times – e.g. don't update one and forget the other.
 
+Start a page with an overview list at the top after changing the page.
+Redirect users to the first page if they enter a URL with a page number that doesn’t exist.
+
 ## Examples
 
 ### Specifying a link template
@@ -66,8 +69,33 @@ return <Pagination linkComponent={LinkComponent} />
 
 ## Features
 
-Start a page with an overview list at the top after changing the page.
-Redirect users to the first page if they enter a URL with a page number that doesn’t exist.
+Pagination renders nothing when `totalPages` is 1 or less, so a set that fits on a single page needs no condition around it.
+
+## Design
+
+The whole set is centred and wraps onto as many lines as it needs.
+A long list of page numbers reflows on a narrow screen rather than overflowing or scrolling sideways.
+
+The current page is marked by weight and colour rather than by a box of its own, and it drops its underline on hover.
+It reads as a statement of where you are instead of as another link to follow.
+
+The chevrons on the previous and next links keep a fixed size instead of scaling with the text around them.
+They stay in proportion to the numbers they sit beside, which are the same size on every page.
+
+An ellipsis stands in for the page numbers that are left out, so the distance between what is shown stays visible.
+
+## Accessibility
+
+Pagination renders a `nav` around an ordered list, so it is a navigation landmark and the pages keep their order.
+The landmark is named by text that is in the markup and hidden visually.
+
+The current page is marked as such, so assistive technology reports which link is the page you are on rather than leaving it to be inferred from the styling.
+
+The previous and next links are named by hidden text that says which page they lead to, while their visible label stays short.
+That visible label is hidden from assistive technology, so the link is announced once rather than twice — and it is why ‘How to use’ asks that the two labels keep saying the same thing.
+
+The visible label also carries the `hidden` attribute and is revealed by the stylesheet.
+If that stylesheet never arrives, the fuller accessible text shows in its place rather than a bare chevron.
 
 ## Design tokens
 

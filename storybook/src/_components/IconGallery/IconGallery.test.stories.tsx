@@ -19,5 +19,5 @@ export const Test: Story = {
   render: () => (
     <IconGallery icons={['CloseIcon', 'SearchIcon', 'ArrowDownIcon', 'ArrowUpIcon', 'ErrorFillIcon', 'ErrorIcon']} />
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

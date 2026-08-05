@@ -7,6 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { FieldSet } from '@amsterdam/design-system-react/src'
 
+import { disablePageLevelChecks } from '#storybook/_common/disablePageLevelChecks'
 import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
 
 import { default as fieldSetMeta } from './FieldSet.stories'
@@ -22,14 +23,9 @@ type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
   args: {
-    children: (
-      // We add a label to prevent Chromatic from raising an accessibility error.
-      <div>
-        <label htmlFor="input-a1">Voornaam</label>
-        <input id="input-a1" value="Yassine" />
-      </div>
-    ),
+    children: <input readOnly value="Yassine" />,
   },
-  render: (args, context) => renderComponentVariants(FieldSet, { args }, context),
-  tags: ['!dev', '!autodocs'],
+  parameters: disablePageLevelChecks('label'),
+  render: (args, context) => renderComponentVariants(FieldSet, { args, variants: ['disabled'] }, context),
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

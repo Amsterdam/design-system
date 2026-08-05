@@ -1,0 +1,84 @@
+{/* @license CC0-1.0 */}
+
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
+
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
+import * as LoadingStories from "./LoadingPage.stories.tsx";
+
+<Meta of={LoadingStories} />
+
+<Title />
+
+<Description of={LoadingStories} />
+
+It stands in [Skeletons](/docs/components-feedback-skeleton--docs) for the results while they load, and tells screen reader users what is happening.
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={LoadingStories} />
+
+## Usage guidelines
+
+### When to use
+
+Use this page where the content arrives after the first render, so the reader sees the shell before the results.
+
+### When not to use
+
+Where the server renders the results with the page, use the [Search Results Page](/docs/pages-public-search-results-page--docs), which has no loading state to manage.
+
+## Variants
+
+### Default
+
+The page before a search has run, with an empty field and no results region.
+
+### Loading
+
+The page while the results are on their way.
+
+Compose each Skeleton from the same parts, in the same Grid Cell, as the Card that will replace it: an image of the same aspect ratio, a heading, and two paragraph lines for the description.
+Mirroring the shape keeps the layout shift small, but does not remove it.
+
+### Loaded
+
+The results in place, under a heading that counts them.
+
+## Structure
+
+- The Content Header and the results are each their own section, so a plain `main` wraps them both.
+- This page opens with its title rather than a Breadcrumb, so the first Grid still takes the `large` top padding.
+  The [Search Field](/docs/components-forms-search-field--docs) takes the place of the lead paragraph in the Content Header Cell, so [Prose](/docs/utilities-css-prose--docs) spaces it a medium below the title.
+- That Cell spans half the grid on wide screens, so the search input does not stretch to an unusable length.
+  It takes three quarters of the grid at medium and the full width at narrow.
+  The title follows that width rather than the [Content Header Cell](/docs/pages-guidelines-layout-and-spacing--docs#content-header) other page types use, because search is not a content page.
+- The results are [Cards](/docs/components-navigation-card--docs) of 4 columns, in a second Grid.
+
+## Layout and spacing
+
+- The first Grid takes a `paddingTop` of `large`, as the first Grid of every page does.
+- Both Grids have the default background colour, so the second one takes a `paddingTop` of `2x-large`.
+- The last Grid before the Page Footer takes a `paddingBottom` of `2x-large`.
+
+## Accessibility
+
+The whole results region is marked busy while it loads, and announces once.
+Marking each Skeleton would repeat the message for every card, and the Skeletons are hidden from assistive technologies in any case, so the status message is all a screen reader hears.
+
+`aria-busy="true"` also permits assistive technology to hold updates back from the status message and deliver them together once it turns false.
+The ARIA specification allows this rather than requiring it, so not every screen reader does it.
+
+One status message stays in the DOM throughout and only its text changes, from a loading message to the result count.
+A live region inserted together with its text is announced inconsistently across screen readers and browsers, so an always-present region is the more robust pattern.
+
+No component wraps this pattern yet, so the Grid carries the busy state and the message is a visually hidden paragraph.
+
+## See also
+
+- [Skeleton](/docs/components-feedback-skeleton--docs) – what stands in for a result while it loads.
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same page without a loading state.
+- [News Overview Page](/docs/pages-public-news-overview-page--docs) – the filter-and-results layout these share.

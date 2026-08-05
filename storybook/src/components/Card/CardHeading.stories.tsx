@@ -30,6 +30,7 @@ const meta = {
       </Card>
     ),
   ],
+  tags: ['!manifest'],
 } satisfies Meta<typeof Card.Heading>
 
 export default meta

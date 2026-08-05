@@ -29,5 +29,5 @@ export const Test: Story = {
       </Breadcrumb.Link>
     </Breadcrumb>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

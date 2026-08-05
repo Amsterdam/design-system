@@ -29,10 +29,11 @@ const meta = {
   ],
   parameters: {
     themes: {
-      themeOverride: 'Compact',
+      options: ['Compact', 'Compact Lo-fi'],
     },
   },
   render: ({ children, ...args }) => <Menu.Link {...args}>{children}</Menu.Link>,
+  tags: ['!manifest'],
 } satisfies Meta<typeof Menu.Link>
 
 export default meta

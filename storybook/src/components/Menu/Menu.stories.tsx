@@ -83,8 +83,11 @@ const meta = {
   decorators: [withInWideWindowArg],
   parameters: {
     themes: {
-      themeOverride: 'Compact',
+      options: ['Compact', 'Compact Lo-fi'],
     },
+  },
+  subcomponents: {
+    'Menu.Link': Menu.Link,
   },
 } satisfies Meta<typeof Menu>
 

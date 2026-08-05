@@ -23,10 +23,21 @@ This component has no props to configure.
 
 ## Subcomponents
 
+### Image
+
+The image of the Card.
+It accepts all props of a regular [Image](/docs/components-media-image--docs), such as `aspectRatio` or a set of image sources.
+Only use decorative images with `alt=""` here.
+The heading provides screen reader users with enough context.
+
+<Canvas of={CardImageStories.Image} />
+
+<Controls of={CardImageStories.Image} />
+
 ### Heading
 
 Contains the name and link of the Card.
-Accepts all props of a regular Heading.
+Accepts all props of a regular [Heading](/docs/components-text-heading--docs).
 Set its `level` to fit the document outline.
 
 <Canvas of={CardHeadingStories.Heading} />
@@ -41,14 +52,10 @@ Displays a `tagline` above the heading.
 
 <Controls of={CardHeadingGroupStories.HeadingGroup} />
 
-### Image
+### Content
 
-The image of the Card.
-It accepts all props of a regular Image, such as `aspectRatio`.
-
-<Canvas of={CardImageStories.Image} />
-
-<Controls of={CardImageStories.Image} />
+Groups everything in a Card that is not its image.
+Add it whenever you want to allow switching to a [horizontal layout](#horizontal-layout).
 
 ### Link
 
@@ -77,6 +84,9 @@ In that case, use a Heading, a Paragraph and a [Standalone Link](/docs/component
 Card Heading requires a `level`, because there is no sensible default.
 The guidelines for regular [links](/docs/components-navigation-link--docs) and [headings](/docs/components-text-heading--docs) apply.
 
+Give a Card one link and no more.
+The Card Link covers the whole Card to make it clickable, so a second link inside it would sit underneath and be impossible to click.
+
 ### How to write
 
 Place the text in a regular [Paragraph](/docs/components-text-paragraph--docs).
@@ -92,17 +102,22 @@ This ensures screen readers read out the heading before the metadata.
 
 <Canvas of={CardStories.WithTagline} />
 
-### With image
+### Horizontal layout
 
-A Card often displays the image of the article it links to.
-The Card Image subcomponent renders an [Image](/docs/components-media-image--docs) component and accepts its properties, e.g. to set an aspect ratio or provide a set of image sources.
-Only use decorative images with `alt=""` here. Screen readers will not read the `alt` text of non-decorative images when navigating to a Card.
+A Card can place content beside the image once there is room for it.
+This follows the width of the nearest [query container](/docs/utilities-css-query-container--docs), so the same Card is horizontal in a wide Grid Cell and vertical in a narrow one, without any change to the markup.
+A Card that has an image but no Content subcomponent stays vertical.
 
-<Canvas of={CardStories.WithImage} />
+If the Card spans 9 columns of the Grid, the image covers 4 of them.
+In other contexts, the image scales proportionally.
+
+The example below is vertical in a narrow window.
+
+<Canvas of={CardStories.HorizontalLayout} />
 
 ### Top tasks
 
-A set of cards can be used to present links to frequently accessed interactions.
+A set of cards without images can present links to frequently accessed interactions.
 A short title and description are enough to guide the user to the page they need.
 Position 4 to 8 tasks on a [Grid](/docs/components-layout-grid--docs); left-align them and do not skip cells.
 For a group of links without a description, use a [Link List](/docs/components-navigation-link-list--docs) instead.
@@ -114,15 +129,45 @@ For a group of links without a description, use a [Link List](/docs/components-n
 The mandatory title of a Card is a link within a Heading.
 The link is made active across the entire area of the Card.
 
+A Card that pairs an image with a Content lays out horizontally once its container is wide enough, and vertically below that.
+
+## Design
+
+A Card has no border, no background, and no padding.
+It is a stack of parts with white space between them, so a row of Cards reads as a set of articles rather than as a row of boxes.
+
+The whole Card is made clickable by stretching an invisible layer from the link across it.
+Only the title is the link, and everything else stays plain content, so the target grows without the accessible name growing with it.
+
+The focus ring is drawn around the entire Card instead of around the title alone, and the link’s own ring is switched off.
+Browsers that cannot express that condition get neither rule, so they still show the ordinary ring on the title rather than nothing at all.
+
+In a Heading Group the tagline is written after the heading and displayed above it.
+The reading order and the visual order differ on purpose, which is what lets the metadata sit on top while the heading is still what gets read first.
+
+Whether a Card is horizontal follows the width of its container rather than the width of the window.
+The same Card is one row in a list of results and one card in a row of three, and which of the two it should be depends on the space it is given, not on the size of the screen.
+
+The image of a horizontal Card measures 4 of the 9 columns it spans, which is the width of a vertical Card beside it, and it keeps its aspect ratio rather than stretching to the height of the text beside it.
+Both choices exist so that the image is the same size in either direction: an index page that opens with a row of vertical Cards above a list of horizontal ones then has one left edge and one image width running down it.
+Stretching the image instead would crop each one differently, according to how far its heading happened to wrap.
+
 ## Accessibility
 
 Visually, Card Heading has the size of a level 3 Heading by default.
 Screen reader users can navigate by heading or by link; a Card supports both because its title is a heading that contains a link.
 A screen reader reads the title first, then the rest of the content.
 
+The layer that makes the Card clickable is empty and carries no text, so it adds nothing to the name of the link and is not announced.
+The rest of the Card stays ordinary content: a paragraph inside it is read as a paragraph, not as part of the link.
+
+An image in a Card is decoration, which is why the examples pass an empty `alt`.
+A description there would be read when browsing the page but skipped when moving between links, so it would reach some readers and not others.
+
 ## See also
 
 - [Standalone Link](/docs/components-navigation-standalone-link--docs) – for a single link to a follow-up page when a Card is too much.
+- [Skeleton](/docs/components-feedback-skeleton--docs) – can increase the perceived performance of loading the Card’s content.
 - [Routing libraries](/docs/docs-developer-guide-routing-libraries--docs) – how to integrate links with external routing libraries.
 
 ## Design tokens

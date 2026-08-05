@@ -67,6 +67,28 @@ $ams-grid-row-span-max: 4;
   @include ams-grid--padding-vertical--2x-large;
 }
 
+// Subgrid
+
+.ams-grid__subgrid {
+  @include ams-grid__subgrid;
+}
+
+.ams-grid__subgrid--gap-vertical--none {
+  @include ams-grid__subgrid--gap-vertical--none;
+}
+
+.ams-grid__subgrid--gap-vertical--large {
+  @include ams-grid__subgrid--gap-vertical--large;
+}
+
+.ams-grid__subgrid--gap-vertical--x-large {
+  @include ams-grid__subgrid--gap-vertical--x-large;
+}
+
+.ams-grid__subgrid--gap-vertical--2x-large {
+  @include ams-grid__subgrid--gap-vertical--2x-large;
+}
+
 // Cell
 
 .ams-grid__cell {
@@ -88,30 +110,36 @@ $ams-grid-row-span-max: 4;
   padding-inline: 0;
 }
 
-// Cell span and start
+// Cell and Subgrid span and start
+// A Subgrid is placed in the Grid exactly like a Cell, so the two share these utilities.
 // The order of these declaration blocks ensures the intended specificity.
 
-.ams-grid__cell--span-all {
+.ams-grid__cell--span-all,
+.ams-grid__subgrid--span-all {
   @include ams-grid__cell--span-all;
 }
 
 @for $i from 1 through $ams-grid-column-count {
-  .ams-grid__cell--span-#{$i} {
+  .ams-grid__cell--span-#{$i},
+  .ams-grid__subgrid--span-#{$i} {
     @include ams-grid__cell--span($i);
   }
 
-  .ams-grid__cell--start-#{$i} {
+  .ams-grid__cell--start-#{$i},
+  .ams-grid__subgrid--start-#{$i} {
     @include ams-grid__cell--start($i);
   }
 }
 
 @media (min-width: $ams-breakpoint-medium) {
   @for $i from 1 through $ams-grid-column-count {
-    .ams-grid__cell--span-#{$i}-medium {
+    .ams-grid__cell--span-#{$i}-medium,
+    .ams-grid__subgrid--span-#{$i}-medium {
       @include ams-grid__cell--span-medium($i);
     }
 
-    .ams-grid__cell--start-#{$i}-medium {
+    .ams-grid__cell--start-#{$i}-medium,
+    .ams-grid__subgrid--start-#{$i}-medium {
       @include ams-grid__cell--start-medium($i);
     }
   }
@@ -119,27 +147,31 @@ $ams-grid-row-span-max: 4;
 
 @media (min-width: $ams-breakpoint-wide) {
   @for $i from 1 through $ams-grid-column-count {
-    .ams-grid__cell--span-#{$i}-wide {
+    .ams-grid__cell--span-#{$i}-wide,
+    .ams-grid__subgrid--span-#{$i}-wide {
       @include ams-grid__cell--span-wide($i);
     }
 
-    .ams-grid__cell--start-#{$i}-wide {
+    .ams-grid__cell--start-#{$i}-wide,
+    .ams-grid__subgrid--start-#{$i}-wide {
       @include ams-grid__cell--start-wide($i);
     }
   }
 }
 
-// Cell row span
+// Cell and Subgrid row span
 
 @for $i from 1 through $ams-grid-row-span-max {
-  .ams-grid__cell--row-span-#{$i} {
+  .ams-grid__cell--row-span-#{$i},
+  .ams-grid__subgrid--row-span-#{$i} {
     @include ams-grid__cell--row-span($i);
   }
 }
 
 @media (min-width: $ams-breakpoint-medium) {
   @for $i from 1 through $ams-grid-row-span-max {
-    .ams-grid__cell--row-span-#{$i}-medium {
+    .ams-grid__cell--row-span-#{$i}-medium,
+    .ams-grid__subgrid--row-span-#{$i}-medium {
       @include ams-grid__cell--row-span-medium($i);
     }
   }
@@ -147,8 +179,36 @@ $ams-grid-row-span-max: 4;
 
 @media (min-width: $ams-breakpoint-wide) {
   @for $i from 1 through $ams-grid-row-span-max {
-    .ams-grid__cell--row-span-#{$i}-wide {
+    .ams-grid__cell--row-span-#{$i}-wide,
+    .ams-grid__subgrid--row-span-#{$i}-wide {
       @include ams-grid__cell--row-span-wide($i);
+    }
+  }
+}
+
+// Cell and Subgrid row start
+
+@for $i from 1 through $ams-grid-row-span-max {
+  .ams-grid__cell--row-start-#{$i},
+  .ams-grid__subgrid--row-start-#{$i} {
+    @include ams-grid__cell--row-start($i);
+  }
+}
+
+@media (min-width: $ams-breakpoint-medium) {
+  @for $i from 1 through $ams-grid-row-span-max {
+    .ams-grid__cell--row-start-#{$i}-medium,
+    .ams-grid__subgrid--row-start-#{$i}-medium {
+      @include ams-grid__cell--row-start-medium($i);
+    }
+  }
+}
+
+@media (min-width: $ams-breakpoint-wide) {
+  @for $i from 1 through $ams-grid-row-span-max {
+    .ams-grid__cell--row-start-#{$i}-wide,
+    .ams-grid__subgrid--row-start-#{$i}-wide {
+      @include ams-grid__cell--row-start-wide($i);
     }
   }
 }

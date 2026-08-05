@@ -1,27 +1,96 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as ProjectStories from "./ProjectPage.stories.tsx";
 
 <Meta of={ProjectStories} />
 
-# Project page
+<Title />
 
-This page shares all important public details about a construction or traffic project.
-Its main goal is to clearly inform residents and stakeholders.
+<Description of={ProjectStories} />
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={ProjectStories} />
+
+## Usage guidelines
+
+### When to use
+
+Use this page for a construction or traffic project that runs over time and affects a neighbourhood.
+
+### When not to use
+
+Use an [Article Page](/docs/pages-public-article-page--docs) for a single announcement about that project.
+
+## Variants
+
+### Default
+
+Give the page a single body column and pair the Link Sections two per row.
+This suits a project with a handful of related sections, where a reader can take in the whole page by scrolling.
+
+### With Breakout
+
+Longer projects need more sections, and a reader who wants one of them should not have to scroll past the others to find it.
+Open such a page with a lead paragraph, list its sections in a [Table of Contents](/docs/components-navigation-table-of-contents--docs) beside the body, and give every section heading the `id` its entry points at.
+
+Give that Table of Contents a `rowStart` of 1 in its [Grid](/docs/components-layout-grid--docs) Cell.
+That is what lets it come first in the reading order and still sit to the right of the body on a wide screen.
+Automatic placement never moves back a column without moving down a row, so without a row of its own it would push the body down one.
+No other cell in that Grid needs a row.
+
+Further down, a [Breakout](/docs/components-layout-breakout--docs) lets an image overlap the [Spotlight](/docs/components-containers-spotlight--docs) below it, which sets a band apart from the sections around it.
+The Cell holding the Spotlight needs `has="spotlight"`, and the Cell holding the image `has="figure"`.
+Give every Cell inside that band an explicit row: a Cell without one avoids the rows the Spotlight occupies and lands underneath the band instead of in it.
+Let the image take a single row on the narrow grid, so it sits above the band rather than over it.
+
+Choose the text colour for a Spotlight from the highlight colour behind it, not from the other bands on the page.
+Yellow is a light background, so headings and paragraphs keep their default colour and only links take `color="contrast"`.
+Purple is a dark one, where everything takes `color="inverse"`.
+
+Give every Link Section a Grid Cell of its own, as the other page templates do.
+Each one is a block, and the row gap of the Grid is what sets one block apart from the next.
+[Prose](/docs/utilities-css-prose--docs) is then left with the elements within a section: its heading, its list, and the link to the wider set below them.
+
+Contact details are a [Link List](/docs/components-navigation-link-list--docs) whose links carry an icon instead of the chevron the list draws by default.
+Keep the name and the role above it in a Paragraph: they are not links, and a list of two items reads as a set of ways to get in touch.
+
+## Structure
 
 The page has a set structure.
 It includes sections that describe what the project is, its location, the reasons for it, and the timeline for planning or execution.
 This standard format helps users compare projects and find information more easily.
 
-The ‘when’ section usually features a timeline of important milestones, shown in a Progress List.
-This gives a brief overview of the project's current status and future phases.
+The ‘when’ section usually features a timeline of important milestones, shown in a [Progress List](/docs/components-containers-progress-list--docs).
+This gives a brief overview of the project’s current status and future phases.
 
 Visual elements enhance the text.
 Large images provide context or show the impact.
 A map indicates the project location and the areas affected.
 A video may be included to clarify complex issues or planned changes.
 
-Related information is organized in link blocks.
+Related information is organized in Link Sections.
 These links lead to news updates, related projects, and supporting documents, allowing users to delve deeper without overwhelming the main content.
+
+## Accessibility
+
+The sections of this page are several Grids rather than one, so a plain `main` wraps them all.
+
+A [Progress List](/docs/components-containers-progress-list--docs) renders a heading per step, which lands in the heading outline of the page.
+Its `headingLevel` of 3 under the level 2 heading of the timeline section keeps that outline continuous.
+Where the list is collapsible, completed steps start collapsed and the rest expanded, so a screen reader meets the phases still to come in full and the finished ones as headings.
+
+Images that illustrate what the text already describes take an empty `alt`.
+
+## See also
+
+- [Progress List](/docs/components-containers-progress-list--docs) – the timeline of milestones.
+- [Article Page](/docs/pages-public-article-page--docs) – for a single update about the project.
+- [Layout and spacing](/docs/pages-guidelines-layout-and-spacing--docs) – the Cell sizes each section takes.

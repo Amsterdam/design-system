@@ -29,6 +29,7 @@ Use [Margin](/docs/utilities-css-margin--docs) or [Prose](/docs/utilities-css-pr
 ### How to use
 
 If the citation is in a language other than that of the surrounding content, indicate so through the `lang` attribute.
+Assistive technology then switches pronunciation for that passage, which is what [WCAG 3.1.2](https://www.w3.org/TR/WCAG22/#language-of-parts) requires.
 
 ## Examples
 
@@ -43,6 +44,29 @@ This ensures the colour of the text provides enough contrast.
 
 The component adds the correct quotation marks.
 Content in Arabic (marked with `lang="ar"`) gets guillemets (`«` and `»`), following Arabic convention; other content gets curly double quotes.
+
+## Design
+
+A Blockquote is set in bold text, one size larger than body text, with a tighter line height.
+This gives a quotation enough weight to stand apart from the running text around it, without needing a border, a background, or an indent.
+
+The quotation marks come from CSS rather than from the content.
+Authors cannot forget them or reach for the wrong pair, and the same curly double marks are used for every language.
+
+A Blockquote has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Margin](/docs/utilities-css-margin--docs) and [Prose](/docs/utilities-css-prose--docs) provide it.
+
+A quotation that runs onto more than one line has its line lengths balanced, so it does not end on a single short word.
+
+Words that are too long for the line are hyphenated rather than left to overflow.
+The browser decides where to split them, so the [language of the document](/docs/docs-developer-guide-localisation--docs#specify-the-language-for-the-entire-document) must be set correctly.
+
+In print, a Blockquote is never split across two pages.
+
+## Accessibility
+
+A Blockquote renders a `blockquote` element, which maps to the `blockquote` role.
+The passage is exposed as a quotation rather than as ordinary text, so the meaning does not depend on the quotation marks, which are decoration drawn by CSS.
 
 ## See also
 

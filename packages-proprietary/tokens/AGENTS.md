@@ -42,9 +42,29 @@ Token files use the `.tokens.json` extension and follow the DTCG format:
 - Use the `$extensions` field for Amsterdam-specific metadata (e.g. `nl.amsterdam.type`, `nl.amsterdam.subtype`). Common `$extensions` types include `fontSize`, `lineHeight`, and `space` (via `nl.amsterdam.subtype`). See existing component tokens for examples.
 - Variant tokens are nested under the component (e.g. `ams.badge.azure.background-color`).
 
-## Compact mode
+## Tokens that must hold a single value
 
-Some token categories have `.compact.tokens.json` variants (e.g. `space.compact.tokens.json`, `typography.compact.tokens.json`). These provide denser values for compact layouts.
+A token read through `calc()`, `max()`, `min()` or `clamp()`, or assigned to a CSS longhand, cannot hold two values.
+Given two, the declaration is invalid at computed-value time and the property falls back to its initial value rather than to the token, so the spacing disappears rather than degrading.
+Nothing enforces this yet, so every such token carries a `nl.amsterdam.hint` that says so, in one of two wordings:
+
+- `Must be a single value: it is used in a calculation, which two values would invalidate.`
+- `Must be a single value: it sets a longhand property, which takes only one.`
+
+Use the calculation wording when both reasons apply, and append the sentence to whatever hint the token already carries.
+Deprecated aliases are skipped, since they forward to the token that carries the note.
+
+Decide from the stylesheet, not from the token name, because the two do not always agree.
+`ams.skeleton.list.gap` and `ams.table-of-contents.item.gap` set the `row-gap` and `column-gap` longhands despite being named for the shorthand, so both need the note.
+A token that really does set `gap` does not need the note, since that shorthand takes two values, and the design system ships two-value tokens on purpose — `ams.dialog.header.padding-block` is one.
+
+## Modes
+
+Token files can have mode variants that override a subset of values; the mode names are listed in `build.js`.
+Compact mode (`.compact.tokens.json`, e.g. `space.compact.tokens.json`) provides denser values for compact layouts.
+Lo-fi mode (`.lo-fi.tokens.json`, e.g. `color.lo-fi.tokens.json`) renders components as a greyscale sketch.
+Mode files must only redefine tokens that exist in the base set.
+Each mode builds from its own files alone, so a `{ams.*}` reference in a mode file must resolve to a token defined within that mode's file set.
 
 ## Build
 

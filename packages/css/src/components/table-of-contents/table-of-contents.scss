@@ -15,6 +15,9 @@
   font-weight: var(--ams-table-of-contents-font-weight);
   gap: var(--ams-table-of-contents-gap);
   line-height: var(--ams-table-of-contents-line-height);
+
+  /* stylelint-disable-next-line plugin/use-baseline -- Unbalanced line lengths in non-supporting browsers are acceptable */
+  text-wrap: var(--ams-table-of-contents-text-wrap);
 }
 
 .ams-table-of-contents__list {
@@ -72,8 +75,6 @@
 }
 
 .ams-table-of-contents__button svg {
-  transition: none;
-
   @media (prefers-reduced-motion: no-preference) {
     transition: rotate var(--ams-table-of-contents-button-icon-transition-duration)
       var(--ams-table-of-contents-button-icon-transition-timing-function);

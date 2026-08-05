@@ -55,6 +55,8 @@ Use a [Heading](/docs/components-text-heading--docs) in it, at the level that fi
 To place content between the Heading and the Table, keep the Caption but hide it visually, then position the heading and content above the Table.
 Do not use ARIA relations; they hurt the Table's semantics (see [this article](https://www.scottohara.me/blog/2019/04/19/tabled-tables.html)).
 
+Keep a Table narrow enough to fit where it is used.
+
 ## Examples
 
 ### With footer and row headers
@@ -78,9 +80,30 @@ In this case, use a [Figure](/docs/components-media-figure--docs) and let the Ta
 
 <Canvas of={TableStories.InFigure} />
 
+## Features
+
+A Table wider than the space it sits in scrolls horizontally within its own container, rather than widening the page around it.
+That container takes keyboard focus, so someone can scroll it with the arrow keys, not only with a pointer or touch.
+
+## Design
+
+Rows are separated by a single rule beneath each one.
+There are no vertical lines, no zebra stripes, and no spacing between cells: the columns are held together by their alignment.
+
+Cells align to the top of their row, so the first line of every cell in a row starts level even when one of them wraps over several lines.
+Header cells in the head align to the bottom instead, which puts a column label that runs onto two lines directly above the values it names.
+
+The caption is bold and aligned with the start of the table rather than centred over it.
+It reads as the title of what follows, in the same place a heading would sit.
+
+In print, a Table is never split across two pages.
+
 ## Accessibility
 
 A Table caption creates the accessible name for the Table, announced by screen readers on every encounter.
+That is also why ‘How to use’ warns against ARIA relations as a substitute: they name the table without giving it the caption its semantics expect.
+
+The container that scrolls is a focusable group, which keeps the columns past its right edge reachable without a pointing device, as [WCAG 2.1.1](https://www.w3.org/TR/WCAG22/#keyboard) requires.
 
 ## See also
 

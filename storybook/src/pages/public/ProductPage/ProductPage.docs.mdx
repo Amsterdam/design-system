@@ -1,22 +1,45 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as ProductStories from "./ProductPage.stories.tsx";
 
 <Meta of={ProductStories} />
 
-# Product page
+<Title />
 
-Lists all information about a product or service of the City.
-Often includes a Call to Action Link that directs the user to a form.
+<Description of={ProductStories} />
 
-## Headings
+## Anatomy
 
-- Use a level 1 Heading for the title of the page.
-- Use level 2 Headings for the section titles.
+This schematic shows the default sections for this page type and how the grids and vertical space work.
 
-## Spacing
+<PageAnatomy labels={anatomyLabels} of={ProductStories} />
 
-- Add a small margin bottom to a Heading 2 with following body text.
-- Use an extra large margin between sections and before the Call to Action Link.
+## Usage guidelines
+
+### When to use
+
+Use this page for a product or service a resident can arrange, where the page has to end in a next step.
+
+### When not to use
+
+Use an [Information Page](/docs/pages-public-information-page--docs) for a subject a reader wants to understand rather than arrange.
+
+## Structure
+
+The body ends in a [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) to the next step, such as an application.
+
+## Layout and spacing
+
+- The [Prose](/docs/utilities-css-prose--docs) utility class sets the vertical space within the Content Header and within the body Cell.
+  A section heading, the list or paragraph under it, and the Call to Action Link each get the space the [vertical space](/docs/docs-designer-guide-vertical-space--docs) guide asks for, without a margin of their own.
+
+## See also
+
+- [Information Page](/docs/pages-public-information-page--docs) – for a subject with no action attached.
+- [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) – the next step this page leads to.
+- [Form Flow](/docs/pages-public-form-flow--docs) – where that next step usually goes.

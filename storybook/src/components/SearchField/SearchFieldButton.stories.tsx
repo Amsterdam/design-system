@@ -24,6 +24,7 @@ const meta = {
     ),
   ],
   render: ({ children, ...args }) => <SearchField.Button {...args}>{children}</SearchField.Button>,
+  tags: ['!manifest'],
 } satisfies Meta<typeof SearchField.Button>
 
 export default meta

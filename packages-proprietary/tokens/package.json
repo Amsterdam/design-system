@@ -18,6 +18,9 @@
     "access": "public",
     "provenance": true
   },
+  "files": [
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Amsterdam/design-system.git",
@@ -33,7 +36,7 @@
   "devDependencies": {
     "change-case": "5.4.4",
     "chokidar-cli": "3.0.0",
-    "postcss": "8.5.16",
+    "postcss": "8.5.25",
     "style-dictionary": "5.5.0",
     "vitest": "4.1.10"
   }

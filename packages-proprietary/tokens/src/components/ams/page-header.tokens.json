@@ -16,6 +16,7 @@
       "padding-block": {
         "$value": "{ams.space.l}",
         "$extensions": {
+          "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
         }
@@ -23,7 +24,7 @@
       "padding-inline": {
         "$value": "{ams.grid.padding-inline}",
         "$extensions": {
-          "nl.amsterdam.hint": "Must be the Grid inline padding, to make sure Header and Grid line up.",
+          "nl.amsterdam.hint": "Must be the Grid inline padding, to make sure Header and Grid line up. Must be a single value: it is used in a calculation, which two values would invalidate.",
           "nl.amsterdam.subtype": "space",
           "nl.amsterdam.type": "dimension"
         }
@@ -52,6 +53,7 @@
         "padding-inline": {
           "$value": "{ams.grid.vi-medium.padding-inline}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -61,6 +63,7 @@
         "padding-inline": {
           "$value": "{ams.grid.vi-wide.padding-inline}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it is used in a calculation, which two values would invalidate.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -70,6 +73,7 @@
         "column-gap": {
           "$value": "{ams.space.m}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -130,6 +134,12 @@
               "nl.amsterdam.type": "color"
             }
           },
+          "border-radius": {
+            "$value": "{ams.border.radius}",
+            "$extensions": {
+              "nl.amsterdam.type": "borderRadius"
+            }
+          },
           "color": {
             "$value": "{ams.color.text.inverse}",
             "$extensions": {
@@ -180,6 +190,7 @@
         "column-gap": {
           "$value": "{ams.space.l}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -187,6 +198,7 @@
         "row-gap": {
           "$value": "{ams.space.xs}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -202,6 +214,7 @@
           "column-gap": {
             "$value": "{ams.space.xs}",
             "$extensions": {
+              "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
               "nl.amsterdam.subtype": "space",
               "nl.amsterdam.type": "dimension"
             }
@@ -303,6 +316,7 @@
         "column-gap": {
           "$value": "{ams.space.l}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }
@@ -310,6 +324,7 @@
         "row-gap": {
           "$value": "{ams.space.l}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }

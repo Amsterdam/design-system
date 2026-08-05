@@ -71,6 +71,16 @@ The Standalone Link has a chevron icon at the start to signify that it is a link
 This also makes it visually identical to a single link in a [Link List](/docs/components-navigation-link-list--docs).
 As a result, pages can have sections with either one or several links used interchangeably; they look alike, and their semantics are correct.
 
+It carries no underline until the pointer is over it.
+The chevron is what identifies it in the meantime, which is why the underline can be spared: on its own line there is no running text for a link to be told apart from.
+
+## Accessibility
+
+A Standalone Link renders an `a` element and is announced by its text; the chevron adds nothing to the name.
+
+Because the chevron marks the link, colour is not the only thing distinguishing it from ordinary text, as [WCAG 1.4.1](https://www.w3.org/TR/WCAG22/#use-of-color) requires.
+This is what makes dropping the underline safe here, where an inline [Link](/docs/components-navigation-link--docs) keeps one.
+
 ## See also
 
 - [Link](/docs/components-navigation-link--docs) – for inline links in running text.

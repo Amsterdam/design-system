@@ -37,6 +37,12 @@
             "$value": "transparent",
             "$type": "color"
           },
+          "background-position": {
+            "$value": "center",
+            "$extensions": {
+              "nl.amsterdam.type": "backgroundPosition"
+            }
+          },
           "cursor": {
             "$value": "{ams.cursor.interactive}",
             "$extensions": {
@@ -78,6 +84,7 @@
         "margin-block-end": {
           "$value": "{ams.space.m}",
           "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
             "nl.amsterdam.subtype": "space",
             "nl.amsterdam.type": "dimension"
           }

@@ -58,6 +58,27 @@ The Skip Link sits above the Page Header and is as wide as the Page container.
 It remains hidden until activated with the ‘Tab’ key.
 After appearing, it pushes the rest of the page down.
 
+## Accessibility
+
+Following a Skip Link moves the starting point for sequential focus navigation to the target, so the next ‘Tab’ press continues from there.
+The target itself does not receive focus, and it does not need to: an `id` is enough, so leave `tabindex` off.
+
+A Skip Link is hidden by being clipped to a single pixel rather than by `display: none`, so it stays in the tab order and in the accessibility tree the whole time.
+This is what lets it be the first thing a keyboard user reaches while remaining invisible to everyone else, and it is why a screen reader user encounters it in reading order even though it is never drawn.
+
+### Placement outside the landmarks
+
+A Skip Link comes before the Page Header, which puts it ahead of every landmark on the page.
+Leave it there.
+NL Design System is explicit that this is [no violation of success criterion 2.4.1](https://www.nldesignsystem.nl/wcag/2.4.1/): a skip link at the top of the page, as the first focusable element and outside a landmark, meets it.
+
+Testing tools report the placement all the same.
+axe flags the link under its `region` rule, ‘All page content should be contained by landmarks’, which is one of its best practices rather than a success criterion.
+Treat that result as expected.
+
+Do not wrap the Skip Links in a `nav` to satisfy it.
+The [Utrecht design system](https://github.com/nl-design-system/utrecht/blob/main/components/skip-link/README.md) advises against exactly that, and a navigation landmark holding nothing but links that stay hidden until they are focused lengthens the landmark list without helping anyone find its contents.
+
 ## See also
 
 - [Page](/docs/components-containers-page--docs) – contains the Skip Link as its first element.

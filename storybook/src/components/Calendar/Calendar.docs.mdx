@@ -79,10 +79,32 @@ Different navigation icons can be used through the `*ButtonIcon` props, which ea
 Websites for the City of Amsterdam must use the default icons.
 For right-to-left scripts, give a custom icon a `data-directional="true"` attribute so it mirrors like the default chevrons; see the [localisation developer guide](/docs/docs-developer-guide-localisation--docs).
 
+## Design
+
+The month is laid out as seven equal columns, one per weekday, so the dates line up in vertical columns whatever month is shown and however long the weekday names are.
+
+The grid shows only the days of the month on view, padding the first week with blank cells rather than the previous month’s tail.
+Our palette has no comfortable way to mark another month’s dates as secondary, and without that a second set of the same day numbers would read as noise rather than context.
+
+The Calendar is only as wide as it needs to be, up to a set width, and never wider than the space it is given.
+It can therefore sit in a narrow column beside other content without a layout deciding its size for it.
+
+The month caption is centred between the navigation buttons rather than placed beside them, so moving from one month to the next does not shift it.
+
+Today is marked by weight alone: no box, no background, no colour of its own.
+Dates that are links keep the ordinary link colour, so the marking for today does not compete with the marking for what can be followed.
+
+Navigation chevrons mirror in a right-to-left layout, which is why a custom icon needs to say that it is directional.
+
 ## Accessibility
 
 The Calendar renders as a `nav` landmark.
 Screen readers announce each link with its full date, including the weekday, so a day number is never read out of context.
+
+The name of that landmark comes from `accessibleName`, rendered as a heading that is present in the markup and hidden visually.
+
+A month whose dates are not links is a plain grid of text.
+Nothing in it is focusable, so it is read as content rather than offering a keyboard user a month of stops to pass through.
 
 ## See also
 

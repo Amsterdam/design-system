@@ -29,6 +29,9 @@ const meta = {
       <Figure.Caption>{caption}</Figure.Caption>
     </Figure>
   ),
+  subcomponents: {
+    'Figure.Caption': Figure.Caption,
+  },
 } satisfies Meta<typeof Figure>
 
 export default meta

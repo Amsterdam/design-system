@@ -89,7 +89,7 @@ To highlight the error even more, the parent [Field](/docs/components-forms-fiel
 
 ### Disabled
 
-A field that can not (yet) be used is indicated with a grey border.
+A field that cannot (yet) be used takes a grey background, and its value greys out with it.
 It will not respond to interactions, e.g. with the mouse or keyboard.
 
 <Canvas of={DateInputStories.Disabled} />
@@ -117,6 +117,25 @@ Check [the Field docs](/docs/components-forms-field--docs) for more information 
 This component uses a native date input, which is styled differently in different browsers and operating systems.
 Recreating the native functionality is quite difficult and prone to accessibility errors, which is why we’ve chosen not to do that.
 This does mean that this component does not look identical on all browsers and operating systems.
+
+The styling therefore stops at the box: the border, the padding and the type are ours, and the segments inside it, the format hint and the calendar that opens belong to the browser.
+Chromium lets its calendar button be replaced, so there it carries our icon; other browsers keep their own.
+
+The field is given a minimum width and height.
+A native date field is much smaller when empty than when filled on some devices, and without a floor a form would visibly resize as it was completed.
+
+Everything else — the border, the padding, the type, and the invalid and disabled states — matches a [Text Input](/docs/components-forms-text-input--docs), so a date sits level with the other fields of a form.
+
+## Accessibility
+
+A Date Input renders a native `input` of a date type, so screen readers announce it segment by segment and every browser’s own keyboard handling applies: arrow keys to change a part, typing to fill one, and the browser’s picker for those who prefer it.
+That behaviour is the reason for using the native control rather than rebuilding it.
+
+The format the field shows and expects comes from the browser and the operating system, not from the language of the page.
+A visitor whose browser is set to another locale sees the order of day, month and year they are used to, which is helpful — but it also means the page cannot promise which one they will see.
+
+The invalid styling responds to `aria-invalid="true"` and to the browser’s own `:invalid` state alike.
+The second matches a partially entered date as well, so a field can turn red while someone is still filling in its segments; set `aria-invalid` from your own validation to control when that happens.
 
 ## See also
 

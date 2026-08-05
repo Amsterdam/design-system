@@ -21,7 +21,6 @@ const meta = {
   component: UnorderedList,
   args: {
     children: unorderedListItems,
-    markers: undefined,
   },
   argTypes: {
     color: inverseColorArgType,

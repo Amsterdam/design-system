@@ -5,6 +5,12 @@
         "$value": "#00893c",
         "$type": "color"
       },
+      "border-radius": {
+        "$value": "{ams.border.radius}",
+        "$extensions": {
+          "nl.amsterdam.type": "borderRadius"
+        }
+      },
       "color": {
         "$value": "{ams.color.text.inverse}",
         "$extensions": {

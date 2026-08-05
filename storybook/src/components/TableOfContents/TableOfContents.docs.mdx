@@ -49,6 +49,7 @@ Use a [Link List](/docs/components-navigation-link-list--docs) for a flat group 
 
 Give it a `heading` (such as 'Op deze pagina') and a `headingLevel` that fits the document outline.
 Set `aria-current="page"` on the link for the active section or page to highlight it and announce it to screen readers.
+Pass `undefined` on every other link so the attribute is dropped; `"false"` is valid ARIA but leaves an explicit negative on each of them.
 
 ## Examples
 
@@ -80,6 +81,21 @@ To drive that state yourself, pass `expanded` to a Link and update it from its `
 This example keeps a single branch open at a time by expanding the clicked branch and collapsing the others.
 
 <Canvas of={TableOfContentsStories.Controlled} />
+
+## Design
+
+Nested lists are indented from their parent, so the depth of an entry is legible from its position alone.
+
+In collapsible mode that indent comes from somewhere else: every item gains a leading column exactly one line high, whether or not it has a toggle button to put there.
+Labels then line up down the whole tree, and a branch that gains or loses children does not shift the entries around it.
+
+The toggle sits beside the link rather than inside it, so expanding a branch and following it are separate targets.
+
+A chevron turns half a circle when a branch opens, animated only for users who have not asked for reduced motion.
+
+A link that runs onto more than one line has its line lengths balanced, so a narrow column does not strand a single short word on the last line.
+
+The link for the current page is set in bold and in a colour of its own.
 
 ## Accessibility
 

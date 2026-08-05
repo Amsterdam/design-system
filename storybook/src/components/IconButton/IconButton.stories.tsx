@@ -17,7 +17,6 @@ const meta = {
   args: {
     disabled: false,
     label: 'Sluiten',
-    size: undefined,
   },
   argTypes: {
     color: contrastInverseColorArgType,

@@ -1,14 +1,33 @@
 {/* @license CC0-1.0 */}
 
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Description, Meta, Title } from "@storybook/addon-docs/blocks";
 
+import { PageAnatomy } from "#storybook/_components/PageAnatomy/PageAnatomy";
+
+import { anatomyLabels } from "./anatomyLabels.ts";
 import * as HandbookStories from "./HandbookPage.stories.tsx";
 
 <Meta of={HandbookStories} />
 
-# Handbook page
+<Title />
 
-Use this template for long-form reference content that is split across many short pages, such as a personnel handbook or a policy document.
+<Description of={HandbookStories} />
+
+## Anatomy
+
+This schematic shows the default sections for this page type and how the grids and vertical space work.
+
+<PageAnatomy labels={anatomyLabels} of={HandbookStories} />
+
+## Usage guidelines
+
+### When to use
+
+Use this page for reference material long enough to need splitting: a personnel handbook, a policy document, a set of regulations.
+
+### When not to use
+
+Use an [Information Page](/docs/pages-public-information-page--docs) where a single page carries the whole subject.
 
 ## Structure
 
@@ -19,9 +38,24 @@ Use this template for long-form reference content that is split across many shor
   - Drive each branch with the controlled `expanded` prop and an `onToggle` handler, so the current position stays open as the reader moves through the document.
     Keeping the Table of Contents mounted means the link a keyboard user just activated never loses focus.
 - The right column contains a `main` element using the [Prose](/docs/utilities-css-prose--docs) utility class.
-  - Each page opens with a level 1 [Heading](/docs/components-text-heading--docs), followed by a large lead [Paragraph](/docs/components-text-paragraph--docs) and body text.
+  - Each page opens with a Content Header: a level 1 [Heading](/docs/components-text-heading--docs) followed by a large lead [Paragraph](/docs/components-text-paragraph--docs), then body text.
 
 ## Layout and spacing
 
-- The Grid uses the [recommended Cell sizes](/docs/pages-public-introduction--docs#how-to-size-the-grid-cells).
+- The Grid uses the [recommended Cell sizes](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells).
 - The Prose utility class handles vertical spacing within the content area automatically.
+
+## Accessibility
+
+This page has two places worth reaching, so it declares two Skip Links rather than the single one every other template carries: one targets the Table of Contents, the other the `id` on `main`.
+
+The entry for the page on screen carries `aria-current="page"`, which a screen reader announces along with the link.
+
+The Table of Contents stays mounted as the reader moves from page to page.
+The link they just activated therefore keeps focus, where a navigation rebuilt per page would drop it back to the top of the document.
+
+## See also
+
+- [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the navigation column, and how to control it.
+- [Skip Link](/docs/components-navigation-skip-link--docs) – why this page needs two.
+- [Information Page](/docs/pages-public-information-page--docs) – for a subject that fits on one page.

@@ -21,6 +21,7 @@ const meta = {
   },
   decorators: [(Story) => <PageHeader menuItems={<Story />} />],
   render: ({ children, ...args }) => <PageHeader.MenuLink {...args}>{children}</PageHeader.MenuLink>,
+  tags: ['!manifest'],
 } satisfies Meta<typeof PageHeader.MenuLink>
 
 export default meta

@@ -9,13 +9,16 @@ import { ChevronDownIcon } from '@amsterdam/design-system-react-icons'
 
 import type { PropWithValues, VariantValue } from './renderComponentVariantTypes'
 
+/** A fixture supplies the values to render, never the default: that comes from the arg types. */
+type PropFixture = Omit<PropWithValues, 'defaultValue' | 'name'>
+
 const hasIconFixture = { icon: ChevronDownIcon }
 
 export const HEADING_SAMPLE = 'Gemeente Amsterdam'
 export const STRING_SAMPLE = 'Heldhaftig, vastberaden, barmhartig'
 export const NUMBER_SAMPLE = 20
 
-const byPropName: Record<string, Omit<PropWithValues, 'name'>> = {
+const byPropName: Record<string, PropFixture> = {
   color: {
     hasIcon: null,
     values: ['default'],
@@ -46,12 +49,12 @@ const byPropName: Record<string, Omit<PropWithValues, 'name'>> = {
   },
 }
 
-const mergeEnumWithFixture = (fixture: Omit<PropWithValues, 'name'>, enumValues: VariantValue[]) => ({
+const mergeEnumWithFixture = (fixture: PropFixture, enumValues: VariantValue[]) => ({
   hasIcon: fixture.hasIcon,
   values: [...new Set([...enumValues, ...fixture.values])].sort(),
 })
 
-const primitiveFixture = (scalarName: string): Omit<PropWithValues, 'name'> | undefined => {
+const primitiveFixture = (scalarName: string): PropFixture | undefined => {
   if (scalarName === 'number') return { hasIcon: null, values: [NUMBER_SAMPLE] }
   if (scalarName === 'string') return { hasIcon: null, values: [STRING_SAMPLE] }
   return undefined
@@ -72,7 +75,7 @@ const primitiveFixture = (scalarName: string): Omit<PropWithValues, 'name'> | un
  *     Pattern-match the raw string to recover the same behaviour the old
  *     `__docgenInfo`-based parser had.
  */
-export const fixtureValuesFor = (argType: StrictInputType): Omit<PropWithValues, 'name'> | undefined => {
+export const fixtureValuesFor = (argType: StrictInputType): PropFixture | undefined => {
   const fixture = byPropName[argType.name]
 
   if (fixture) {

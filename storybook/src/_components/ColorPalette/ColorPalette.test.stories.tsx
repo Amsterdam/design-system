@@ -28,5 +28,5 @@ export const Test: Story = {
       </ColorPalette.Swatch>
     </ColorPalette>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

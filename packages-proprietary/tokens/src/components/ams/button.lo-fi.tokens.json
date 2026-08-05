@@ -1,0 +1,12 @@
+{
+  "ams": {
+    "button": {
+      "border-radius": {
+        "$value": "0.5rem 3.5rem 0.5rem 4rem / 3.5rem 0.5rem 4rem 0.5rem",
+        "$extensions": {
+          "nl.amsterdam.type": "borderRadius"
+        }
+      }
+    }
+  }
+}

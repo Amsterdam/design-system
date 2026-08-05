@@ -1,0 +1,11 @@
+{
+  "ams": {
+    "typography": {
+      "font-family": {
+        "$value": ["Redacted Script", "sans-serif"],
+        "$type": "fontFamily",
+        "$description": "Renders all text as handwritten squiggles."
+      }
+    }
+  }
+}

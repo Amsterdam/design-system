@@ -3,29 +3,64 @@
  * Copyright Gemeente Amsterdam
  */
 
+/**
+ * CSS Custom properties cannot be used in container queries.
+ * We resort to Sass variables for our breakpoint values.
+ */
+
+/**
+ * The container width at which a Card with an image switches to a horizontal layout.
+ * Above the widest cell of the narrow Grid, so a Card that spans the full width of that Grid stays vertical.
+ */
+$ams-card-horizontal-breakpoint: 36rem;
+
 .ams-card {
   display: grid;
   outline-offset: var(--ams-card-outline-offset);
   position: relative; // Allows stretching the card link below.
   touch-action: manipulation;
 
-  /*
-   * Set native outline to Card if it has a visible focus inside.
-   * It is okay to use the :has() pseudo-class here, because we have a fallback for browsers that do not support it.
-   */
-  /* stylelint-disable-next-line plugin/use-baseline */
+  /* Set native outline to Card if it has a visible focus inside. */
   &:has(:focus-visible) {
     outline-color: -webkit-focus-ring-color;
     outline-style: auto;
     outline-width: 0.0625rem;
   }
 
+  > .ams-card__image:not(:last-child) {
+    margin-block-end: var(--ams-card-image-margin-block-end);
+  }
+}
+
+// The heading takes the same space whether or not a Content wrapper groups it with the rest.
+.ams-card,
+.ams-card__content {
   > .ams-card__heading:not(:last-child) {
     margin-block-end: var(--ams-card-heading-margin-block-end);
   }
+}
 
-  > .ams-card__image:not(:last-child) {
-    margin-block-end: var(--ams-card-image-margin-block-end);
+@container ams-query-container-inline-size (inline-size > #{$ams-card-horizontal-breakpoint}) {
+  /*
+   * Only a Card with both an image and Content switches to a horizontal layout. Cards that are
+   * not built for this layout stay vertical rather than breaking. Content is what makes the
+   * layout possible by grouping all other content into a single area beside the image.
+   */
+  .ams-card:has(> .ams-card__image):has(> .ams-card__content) {
+    column-gap: var(--ams-card-horizontal-column-gap);
+    grid-template-areas: "image content";
+    grid-template-columns: var(--ams-card-horizontal-grid-template-columns);
+
+    > .ams-card__image {
+      grid-column: image;
+      margin-block-end: 0; // The column gap handles the spacing in this layout.
+    }
+
+    // Anything that is not the image belongs in the second column, so a stray child never lands under it.
+    // Naming the column and not the area leaves its row to auto-placement, so two children never overlap.
+    > :not(.ams-card__image) {
+      grid-column: content;
+    }
   }
 }
 
@@ -61,12 +96,7 @@
     }
   }
 
-  /*
-   * Remove the outline from the link; it’s already on the Card.
-   * Reuses the `.ams-card:has(:focus-visible)` selector above, so that
-   * browsers that support it apply both styles, while those that don’t apply neither.
-   */
-  /* stylelint-disable-next-line plugin/use-baseline */
+  /* Remove the outline from the link; it’s already on the Card. */
   .ams-card:has(:focus-visible) &:focus {
     outline: none;
   }

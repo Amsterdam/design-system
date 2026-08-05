@@ -47,6 +47,29 @@ list of files and use `onDelete` when removing a file from the list.
 
 <Source code={FileInputWithFileList} language="jsx" />
 
+## Design
+
+Every item is one row: a preview of fixed width, then the name and details, then the delete button.
+The preview column is the same width whether it holds a thumbnail or the generic document icon, so the names line up down the list.
+
+A name too long for its row is cut off with an ellipsis on a single line rather than wrapped.
+Rows then stay the same height whatever has been uploaded, which keeps a list of several files scannable.
+
+The file type and size sit below the name in their own colour, so the name stays the thing you read first.
+
+## Accessibility
+
+A File List renders `ul` and `li` elements, so screen readers announce it as a list and report how many files it holds.
+
+Cutting off a long name is visual only.
+The whole name is in the markup and is announced in full, so nothing is lost to someone who cannot see where the row ends.
+
+The preview of an image file repeats the file name as its alternative text, so that name is announced twice: once for the thumbnail and once for the text beside it.
+
+Every delete button is labelled ‘Verwijder’, in Dutch and without the name of the file it removes.
+Someone reviewing the buttons of the page out of context hears the same word for each of them, and the label cannot be configured.
+Until it can, prefer a File List short enough to keep each button next to the file it belongs to.
+
 ## See also
 
 - [File Input](/docs/components-forms-file-input--docs) – lets the user select files to add to the File List.

@@ -60,12 +60,21 @@ The component does apply the correct font and colour for third party websites us
 ### How to use
 
 The width of the Text Input should be appropriate for the information to be entered.
+The `size` attribute sets how many characters are visible; it does not limit how many the user can enter.
 
 Use `spellcheck="false"` for fields that may contain sensitive information, such as personal data.
 Some browser extensions for spell-checking send this information to external servers.
 
+Set `autocorrect="off"` on those fields too.
+Some browsers underline a correctly spelled name, and autocorrection can replace what the user typed.
+Browsers already force autocorrection off for `email`, `url` and `password` inputs, so setting the attribute there only makes it explicit.
+
 Apply automatic assistance where possible.
 For example, in logged-in systems, pre-filling known values can prevent errors and save time.
+
+Set `autocomplete` on every field that collects information about the user.
+Naming the purpose of a field makes it programmatically determinable, which is what [WCAG 1.3.5](https://www.w3.org/TR/WCAG22/#identify-input-purpose) Identify Input Purpose asks for.
+Browsers offering to fill the field in follows from that; it is not the requirement itself.
 
 A Text Input must have a Label, and in most cases, this label should be visible.
 
@@ -174,7 +183,7 @@ To highlight the error even more, the parent [Field](/docs/components-forms-fiel
 
 ### Disabled
 
-A field that can not (yet) be used is indicated with a grey border.
+A field that cannot (yet) be used takes a grey background, and its value greys out with it.
 It will not respond to interactions, e.g. with the mouse or keyboard.
 
 <Canvas of={TextInputStories.Disabled} />
@@ -196,6 +205,32 @@ If the Text Input can become invalid, add an Error Message and its `id` to the `
 Check [the Field docs](/docs/components-forms-field--docs) for more information on configuring it.
 
 <Canvas of={TextInputStories.InAFieldWithValidation} />
+
+## Design
+
+A Text Input fills the width of whatever holds it unless a `size` is given, and never grows past it.
+The default is a field as wide as the layout allows, which asks nothing of the person composing the form until they have a reason to say otherwise.
+
+The border is two pixels and the corners are square.
+Hovering adds a one-pixel ring inside that border rather than widening it, so the field appears to thicken without the layout moving underneath it.
+
+An invalid field turns its border red, and a disabled one greys its background rather than its border.
+The two states are told apart by which part changes, so neither is read as the other at a glance.
+
+The text inside the field is the size of body text with a tighter line height, and its padding is the same as a [Button](/docs/components-buttons-button--docs)’s.
+A field and a button on the same line therefore come out the same height.
+
+## Accessibility
+
+A Text Input renders an `input` element, so it is announced with its type, its label, and anything `aria-describedby` points at.
+
+The invalid styling responds to `aria-invalid="true"` and to the browser’s own `:invalid` state alike.
+The second matches as soon as the page loads for a field that is `required` and empty, so a form that leans on it marks its fields red before anyone has typed; set `aria-invalid` from your own validation to control when that happens.
+
+A disabled field is greyed and removed from the tab order, which is why ‘When not to use’ lists alternatives to it rather than treating it as an ordinary state.
+
+Placeholder text is styled but not recommended, and it is not a label: it disappears on the first keystroke and is not reliably announced.
+‘When not to use’ covers what to do instead.
 
 ## See also
 

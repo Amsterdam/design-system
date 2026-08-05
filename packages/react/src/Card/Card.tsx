@@ -8,6 +8,7 @@ import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
+import { CardContent } from './CardContent'
 import { CardHeading } from './CardHeading'
 import { CardHeadingGroup } from './CardHeadingGroup'
 import { CardImage } from './CardImage'
@@ -29,6 +30,7 @@ CardRoot.displayName = 'Card'
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-navigation-card--docs Card docs at Amsterdam Design System}
  */
 export const Card = Object.assign(CardRoot, {
+  Content: CardContent,
   Heading: CardHeading,
   HeadingGroup: CardHeadingGroup,
   Image: CardImage,

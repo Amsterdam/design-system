@@ -27,6 +27,7 @@ const meta = {
     ),
   ],
   render: ({ ...args }) => <SearchField.Input {...args} />,
+  tags: ['!manifest'],
 } satisfies Meta<typeof SearchField.Input>
 
 export default meta

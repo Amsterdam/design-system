@@ -17,6 +17,7 @@ import {
 } from '@amsterdam/design-system-react'
 import { FieldSet } from '@amsterdam/design-system-react/src'
 
+import { disabledArgType } from '#storybook/_common/argTypes'
 import { exampleFamilyName, exampleGivenName } from '#storybook/_common/exampleContent'
 
 const familyName = exampleFamilyName()
@@ -26,8 +27,12 @@ const meta = {
   title: 'Components/Forms/Field Set',
   component: FieldSet,
   args: {
+    disabled: false,
     invalid: false,
     legend: 'Wat is uw naam?',
+  },
+  argTypes: {
+    disabled: disabledArgType,
   },
   decorators: [
     (Story) => (
@@ -178,6 +183,28 @@ export const WithValidation: Story = {
           invalid={args.invalid}
           value=""
         />
+      </Field>
+    </FieldSet>
+  ),
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+  render: (args) => (
+    <FieldSet {...args}>
+      <Field>
+        <Label htmlFor="input-d1" inFieldSet>
+          Voornaam
+        </Label>
+        <TextInput id="input-d1" value={givenName} />
+      </Field>
+      <Field>
+        <Label htmlFor="input-d2" inFieldSet>
+          Achternaam
+        </Label>
+        <TextInput id="input-d2" value={familyName} />
       </Field>
     </FieldSet>
   ),

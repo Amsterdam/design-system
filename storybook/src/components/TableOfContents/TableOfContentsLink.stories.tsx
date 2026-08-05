@@ -26,6 +26,7 @@ const meta = {
     ),
   ],
   render: ({ ...args }) => <TableOfContents.Link {...args} />,
+  tags: ['!manifest'],
 } satisfies Meta<typeof TableOfContents.Link>
 
 export default meta

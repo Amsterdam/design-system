@@ -24,6 +24,7 @@ const meta = {
       </Breadcrumb>
     ),
   ],
+  tags: ['!manifest'],
 } satisfies Meta<typeof Breadcrumb.Link>
 
 export default meta

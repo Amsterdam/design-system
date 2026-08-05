@@ -68,9 +68,18 @@ Do not use rich text (such as links or lists) in an Error Message. [Find out why
 
 <Canvas of={FieldSetStories.WithValidation} />
 
+### Disabled
+
+A disabled Field Set disables every form control it contains, in a single attribute rather than one per control.
+
+The Field Set itself keeps its appearance: the legend and the labels stay in their usual colour.
+Each control inside shows that it is unavailable in its own way, so a [Text Input](/docs/components-forms-text-input--docs) takes the same grey fill and grey text it has when it is disabled on its own.
+
+<Canvas of={FieldSetStories.Disabled} />
+
 ### With Heading in Legend
 
-If the Field Set is the only content on the page, its Legend serves as the main heading as well.
+If the Field Set holds the only question on the page, its Legend serves as the main heading as well.
 Set `legendIsPageHeading` to include an `h1` element to reflect this.
 
 <Canvas of={FieldSetStories.WithHeadingInLegend} />
@@ -86,6 +95,35 @@ Use the `inFieldSet` prop to show the legend in a lighter style.
 
 There’s no need to add white space between the children of a Field Set.
 The component does this automatically.
+
+## Design
+
+The spacing between the children of a Field Set climbs in four steps.
+Ordinary children sit close together; the element before an Error Message gets more room; the element before a nested Field or Field Set more again; and two of those in a row are furthest apart.
+Depth in a form is expressed by white space rather than by boxes or rules, so the more a Field Set holds, the more clearly its parts separate.
+
+Browsers that cannot express those conditions fall back to the smallest gap everywhere, which is acceptable: the order still reads correctly, only the grouping is flatter.
+
+The legend loses the notch a browser normally cuts for it in the border, because there is no border to cut.
+It is laid out so that a border would pass around it rather than through it, which keeps the option open for a theme that draws one.
+
+An invalid Field Set is marked by a red rule along its leading edge and indented away from it, the same way a [Field](/docs/components-forms-field--docs) is.
+
+A Field Set does not grow to fit an input that asks for a width of its own, such as a Text Input with a `size` attribute.
+Without that, a single wide field would stretch the whole group and the layout around it.
+
+In print, a Field Set is never split across two pages.
+
+## Accessibility
+
+A Field Set has the implicit ARIA role `group`.
+Set `role="radiogroup"` when it groups [Radio](/docs/components-forms-radio--docs) buttons, so that screen readers announce it as a radio group.
+That role also permits `aria-required` on the Field Set, which the `group` role does not allow.
+
+The legend names that group, and screen readers repeat it before each option inside it.
+Someone moving from one Radio to the next therefore hears which question they are answering, not just the answer they are on.
+
+`legendIsPageHeading` wraps the legend in an `h1` rather than replacing it, so the same words serve as the heading of the page and as the name of the group.
 
 ## See also
 

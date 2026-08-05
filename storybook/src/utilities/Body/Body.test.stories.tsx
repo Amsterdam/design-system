@@ -20,5 +20,5 @@ type Story = StoryObj<typeof meta>
 
 /** The utility has no variants: it sets the page background and the base text style, which the meta already shows. */
 export const Test: Story = {
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

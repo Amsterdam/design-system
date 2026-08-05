@@ -8,6 +8,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Card } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
+import { maximiseInlineSize } from '#storybook/_common/decorators'
+
 const meta = {
   title: 'Components/Navigation/Card',
   component: Card.Image,
@@ -27,6 +29,7 @@ const meta = {
       </Card>
     ),
   ],
+  tags: ['!manifest'],
 } satisfies Meta<typeof Card.Image>
 
 export default meta
@@ -39,4 +42,10 @@ export const Image: Story = {
     aspectRatio: '16:9',
     src: 'https://picsum.photos/800/450',
   },
+  argTypes: {
+    alt: {
+      description: 'A textual description of the content of the image. Should be empty for `Card.Image`.',
+    },
+  },
+  decorators: [maximiseInlineSize('24rem')],
 }

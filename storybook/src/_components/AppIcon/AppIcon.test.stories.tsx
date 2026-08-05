@@ -27,5 +27,5 @@ export const Test: Story = {
       <WebAppIcons />
     </>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }

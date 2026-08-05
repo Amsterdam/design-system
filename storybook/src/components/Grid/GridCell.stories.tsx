@@ -44,6 +44,7 @@ const meta = {
     layout: 'fullscreen',
   },
   render: ({ children, ...args }) => <Grid.Cell {...args}>{children}</Grid.Cell>,
+  tags: ['!manifest'],
 } satisfies Meta<typeof Grid.Cell>
 
 export default meta

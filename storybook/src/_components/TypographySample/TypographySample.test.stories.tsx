@@ -25,5 +25,5 @@ export const Test: Story = {
       <TypographySample compact fontSize="1.5rem" />
     </div>
   ),
-  tags: ['!dev', '!autodocs'],
+  tags: ['!dev', '!autodocs', '!manifest'],
 }
