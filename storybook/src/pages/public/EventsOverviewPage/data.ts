@@ -24,6 +24,8 @@ export type EventItem = {
   /** An optional time or time range, e.g. ‘10.00–16.00 uur’. */
   readonly timeLabel?: string
   readonly title: string
+  /** Where the activity takes place, named as a visitor would recognise it on the ground. */
+  readonly venue: string
 }
 
 /** Alphabetical, so a visitor can find one by name; the catch-all sits at the end whatever its initial. */
@@ -64,6 +66,7 @@ export const events: ReadonlyArray<EventItem> = [
     teaser:
       'Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam en doorzoek het archief met hulp van onze medewerkers.',
     timeLabel: '10.00–16.00 uur',
+    venue: 'Stadsarchief Amsterdam',
   },
   {
     title: 'Inloopavond herinrichting Jan Evertsenstraat',
@@ -76,6 +79,7 @@ export const events: ReadonlyArray<EventItem> = [
     isoDate: '2026-06-23',
     teaser: 'Praat mee over de nieuwe inrichting van de straat, met meer ruimte voor groen, fietsers en voetgangers.',
     timeLabel: '19.00–21.00 uur',
+    venue: 'Huis van de Wijk De Klinker',
   },
   {
     title: 'Commissievergadering Ruimtelijke Ordening',
@@ -88,6 +92,7 @@ export const events: ReadonlyArray<EventItem> = [
     isoDate: '2026-06-24',
     teaser: 'Volg het debat van de raadscommissie over ruimtelijke plannen in de stad. De vergadering is openbaar.',
     timeLabel: '13.30 uur',
+    venue: 'Stadhuis, Rooseveltzaal',
   },
   {
     title: 'Gratis zwemles voor kinderen',
@@ -100,6 +105,7 @@ export const events: ReadonlyArray<EventItem> = [
     isoDate: '2026-06-27',
     teaser: 'Kinderen van 5 tot 10 jaar oefenen spelenderwijs met zwemmen onder begeleiding. Aanmelden is niet nodig.',
     timeLabel: '14.00–15.30 uur',
+    venue: 'Sportcentrum Ookmeer',
   },
   {
     title: 'Buurtmoestuin: samen zaaien en oogsten',
@@ -113,6 +119,7 @@ export const events: ReadonlyArray<EventItem> = [
     teaser:
       'Steek de handen uit de mouwen in de buurtmoestuin en neem aan het eind van de ochtend verse groenten mee naar huis.',
     timeLabel: '11.00–13.00 uur',
+    venue: 'Buurtmoestuin Buikslotermeer',
   },
   {
     title: 'Taalcafé voor nieuwe Amsterdammers',
@@ -126,5 +133,6 @@ export const events: ReadonlyArray<EventItem> = [
     teaser:
       'Oefen op een ontspannen manier Nederlands met vrijwilligers en andere bewoners, onder het genot van een kop koffie.',
     timeLabel: '15.00–17.00 uur',
+    venue: 'OBA Javaplein',
   },
 ]

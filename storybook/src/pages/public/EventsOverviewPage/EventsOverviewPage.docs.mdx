@@ -62,9 +62,13 @@ It applies the punctuation and the conjunction of the language itself, so the se
 Close the list with [Pagination](/docs/components-navigation-pagination--docs) in a Cell as wide as the results above it, rather than as wide as the region.
 The medium grid is where the two part company: the results leave a column spare there, and Pagination spanning the whole region would reach past the Cards it belongs to.
 
-Give each activity its metadata at the top rather than at the foot of the Card.
+Give each activity the facets it was filtered by at the top of the Card.
 Until a component exists for it, the Card tagline carries those values comma separated: here the category and the district, which are the two facets the filter column offers.
-The date stays in the body of the Card, where a `time` element can carry it.
+
+Close the Card with when and where it happens, below the description, as one small Paragraph: the date, the time, and then the venue after a middot.
+Those two answer a different question from the facets above — not what kind of activity this is, but whether the visitor can be there — so they read better as a footnote to the description than as a second tagline.
+A middot separates the venue from the date without implying the sentence continues, which a comma would.
+The date keeps its `time` element wherever it sits.
 
 List the categories alphabetically.
 A visitor scanning ten checkboxes for one word finds it faster than in any order the publishing system happens to hold them in.

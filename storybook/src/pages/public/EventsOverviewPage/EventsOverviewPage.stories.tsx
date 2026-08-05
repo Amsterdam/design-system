@@ -222,14 +222,15 @@ export const Default: StoryObj = {
                 </Card.Heading>
               </Card.HeadingGroup>
               <Column gap="small">
-                <Paragraph>
+                <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
+                {/* When and where, below the description, as the smaller of the two sizes a Paragraph offers. */}
+                <Paragraph size="small">
                   {/*
                    * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                    */}
                   <time dateTime="2026-06-20">20 juni 2026</time>
-                  , 10.00–16.00 uur
+                  , 10.00–16.00 uur · Stadsarchief Amsterdam
                 </Paragraph>
-                <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
               </Column>
             </Card.Content>
           </Card>
@@ -395,12 +396,13 @@ export const Default: StoryObj = {
                       </Card.Heading>
                     </Card.HeadingGroup>
                     <Column gap="small">
-                      <Paragraph>
+                      <Paragraph>{event.teaser}</Paragraph>
+                      {/* When and where, below the description, as the smaller of the two sizes a Paragraph offers. */}
+                      <Paragraph size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         <time dateTime={event.isoDate}>{event.dateLabel}</time>
-                        {event.timeLabel ? `, ${event.timeLabel}` : ''}
+                        {event.timeLabel ? `, ${event.timeLabel}` : ''} · {event.venue}
                       </Paragraph>
-                      <Paragraph>{event.teaser}</Paragraph>
                     </Column>
                   </Card.Content>
                 </Card>
@@ -567,14 +569,15 @@ export const Cards: StoryObj = {
                 </Card.Heading>
               </Card.HeadingGroup>
               <Column gap="small">
-                <Paragraph>
+                <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
+                {/* When and where, below the description, as the smaller of the two sizes a Paragraph offers. */}
+                <Paragraph size="small">
                   {/*
                    * The visible date is prose; dateTime repeats it in the machine-readable format software parses.
                    */}
                   <time dateTime="2026-06-20">20 juni 2026</time>
-                  , 10.00–16.00 uur
+                  , 10.00–16.00 uur · Stadsarchief Amsterdam
                 </Paragraph>
-                <Paragraph>Ontdek eeuwenoude kaarten, foto’s en films over Amsterdam.</Paragraph>
               </Column>
             </Card.Content>
           </Card>
@@ -740,12 +743,13 @@ export const Cards: StoryObj = {
                       </Card.Heading>
                     </Card.HeadingGroup>
                     <Column gap="small">
-                      <Paragraph>
+                      <Paragraph>{event.teaser}</Paragraph>
+                      {/* When and where, below the description, as the smaller of the two sizes a Paragraph offers. */}
+                      <Paragraph size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         <time dateTime={event.isoDate}>{event.dateLabel}</time>
-                        {event.timeLabel ? `, ${event.timeLabel}` : ''}
+                        {event.timeLabel ? `, ${event.timeLabel}` : ''} · {event.venue}
                       </Paragraph>
-                      <Paragraph>{event.teaser}</Paragraph>
                     </Column>
                   </Card.Content>
                 </Card>
