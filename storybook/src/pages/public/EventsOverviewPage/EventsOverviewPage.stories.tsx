@@ -29,7 +29,7 @@ import {
 import { CloseIcon } from '@amsterdam/design-system-react-icons'
 
 import { commonMeta, pageParameters } from '../common/commonMeta'
-import { categories, districts, events } from './data'
+import { eventCategories, eventDistricts, eventItems } from './data'
 
 /** Illustrative totals: the page shows the first batch of a much larger result set. */
 const totalResults = 132
@@ -338,7 +338,7 @@ export const Default: StoryObj = {
                   <Label htmlFor="events-district">Stadsdeel</Label>
                   <Select id="events-district" name="stadsdeel">
                     <Select.Option value="">Alle stadsdelen</Select.Option>
-                    {districts.map((district) => (
+                    {eventDistricts.map((district) => (
                       <Select.Option key={district} value={district}>
                         {district}
                       </Select.Option>
@@ -351,7 +351,7 @@ export const Default: StoryObj = {
               <form method="get">
                 {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
                 <FieldSet className="ams-mb-m" legend="Categorie">
-                  {categories.map((category) => (
+                  {eventCategories.map((category) => (
                     <Checkbox key={category} name="categorie" value={category}>
                       {category}
                     </Checkbox>
@@ -379,7 +379,7 @@ export const Default: StoryObj = {
              * On the medium grid a Card takes 4 of the 5 columns of the results region, leaving the last one
              * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
              */}
-            {events.map((event) => (
+            {eventItems.map((event) => (
               <Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 9 }}>
                 <Card>
                   {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
@@ -400,7 +400,7 @@ export const Default: StoryObj = {
                       {/* When and where, below the description, as the smaller of the two sizes a Paragraph offers. */}
                       <Paragraph size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        <time dateTime={event.isoDate}>{event.dateLabel}</time>
+                        <time dateTime={event.isoDate}>{event.date}</time>
                         {event.timeLabel ? `, ${event.timeLabel}` : ''} · {event.venue}
                       </Paragraph>
                     </Column>
@@ -685,7 +685,7 @@ export const Cards: StoryObj = {
                   <Label htmlFor="events-district">Stadsdeel</Label>
                   <Select id="events-district" name="stadsdeel">
                     <Select.Option value="">Alle stadsdelen</Select.Option>
-                    {districts.map((district) => (
+                    {eventDistricts.map((district) => (
                       <Select.Option key={district} value={district}>
                         {district}
                       </Select.Option>
@@ -698,7 +698,7 @@ export const Cards: StoryObj = {
               <form method="get">
                 {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
                 <FieldSet className="ams-mb-m" legend="Categorie">
-                  {categories.map((category) => (
+                  {eventCategories.map((category) => (
                     <Checkbox key={category} name="categorie" value={category}>
                       {category}
                     </Checkbox>
@@ -727,7 +727,7 @@ export const Cards: StoryObj = {
              * That is narrower than the width at which a Card with an image goes horizontal, so each one stays
              * vertical and its image spans the full width of the Card.
              */}
-            {events.map((event) => (
+            {eventItems.map((event) => (
               <Grid.Cell key={event.id} span={{ narrow: 4, medium: 4, wide: 3 }}>
                 <Card>
                   {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
@@ -747,7 +747,7 @@ export const Cards: StoryObj = {
                       {/* When and where, below the description, as the smaller of the two sizes a Paragraph offers. */}
                       <Paragraph size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        <time dateTime={event.isoDate}>{event.dateLabel}</time>
+                        <time dateTime={event.isoDate}>{event.date}</time>
                         {event.timeLabel ? `, ${event.timeLabel}` : ''} · {event.venue}
                       </Paragraph>
                     </Column>
@@ -1011,7 +1011,7 @@ export const NoResults: StoryObj = {
                   <Label htmlFor="events-district">Stadsdeel</Label>
                   <Select defaultValue="Noord" id="events-district" name="stadsdeel">
                     <Select.Option value="">Alle stadsdelen</Select.Option>
-                    {districts.map((district) => (
+                    {eventDistricts.map((district) => (
                       <Select.Option key={district} value={district}>
                         {district}
                       </Select.Option>
@@ -1024,7 +1024,7 @@ export const NoResults: StoryObj = {
               <form method="get">
                 {/* A Field Set spaces its own children, so the Checkboxes inside one need no margin. */}
                 <FieldSet className="ams-mb-m" legend="Categorie">
-                  {categories.map((category) => (
+                  {eventCategories.map((category) => (
                     <Checkbox
                       defaultChecked={selectedCategories.includes(category)}
                       key={category}

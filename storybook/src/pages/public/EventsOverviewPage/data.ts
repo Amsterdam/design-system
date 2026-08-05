@@ -9,7 +9,7 @@ export type EventItem = {
   /** The activity’s category, shown as the Card tagline and used by the category filter. */
   readonly category: string
   /** The human-readable date, e.g. ‘20 juni 2026’. */
-  readonly dateLabel: string
+  readonly date: string
   /** The city district (stadsdeel) the activity takes place in. */
   readonly district: string
   /** The link to the activity’s detail page. */
@@ -29,7 +29,7 @@ export type EventItem = {
 }
 
 /** Alphabetical, so a visitor can find one by name; the catch-all sits at the end whatever its initial. */
-export const categories: ReadonlyArray<string> = [
+export const eventCategories: ReadonlyArray<string> = [
   'Cursussen en trainingen',
   'Diversiteit',
   'Duurzaam en milieu',
@@ -42,7 +42,7 @@ export const categories: ReadonlyArray<string> = [
   'Overig',
 ]
 
-export const districts: ReadonlyArray<string> = [
+export const eventDistricts: ReadonlyArray<string> = [
   'Centrum',
   'Nieuw-West',
   'Noord',
@@ -53,11 +53,11 @@ export const districts: ReadonlyArray<string> = [
   'Zuidoost',
 ]
 
-export const events: ReadonlyArray<EventItem> = [
+export const eventItems: ReadonlyArray<EventItem> = [
   {
     title: 'Open dag Stadsarchief Amsterdam',
     category: 'Kunst en cultuur',
-    dateLabel: '20 juni 2026',
+    date: '20 juni 2026',
     district: 'Centrum',
     href: '#',
     id: 'open-dag-stadsarchief',
@@ -71,7 +71,7 @@ export const events: ReadonlyArray<EventItem> = [
   {
     title: 'Inloopavond herinrichting Jan Evertsenstraat',
     category: 'Informatie- en participatiebijeenkomsten',
-    dateLabel: '23 juni 2026',
+    date: '23 juni 2026',
     district: 'West',
     href: '#',
     id: 'inloopavond-jan-evertsenstraat',
@@ -84,7 +84,7 @@ export const events: ReadonlyArray<EventItem> = [
   {
     title: 'Commissievergadering Ruimtelijke Ordening',
     category: 'Raads- en commissievergaderingen',
-    dateLabel: '24 juni 2026',
+    date: '24 juni 2026',
     district: 'Centrum',
     href: '#',
     id: 'commissie-ruimtelijke-ordening',
@@ -97,7 +97,7 @@ export const events: ReadonlyArray<EventItem> = [
   {
     title: 'Gratis zwemles voor kinderen',
     category: 'Sport en spel',
-    dateLabel: '27 juni 2026',
+    date: '27 juni 2026',
     district: 'Nieuw-West',
     href: '#',
     id: 'gratis-zwemles-ookmeer',
@@ -110,7 +110,7 @@ export const events: ReadonlyArray<EventItem> = [
   {
     title: 'Buurtmoestuin: samen zaaien en oogsten',
     category: 'Duurzaam en milieu',
-    dateLabel: '28 juni 2026',
+    date: '28 juni 2026',
     district: 'Noord',
     href: '#',
     id: 'buurtmoestuin-buikslotermeer',
@@ -124,7 +124,7 @@ export const events: ReadonlyArray<EventItem> = [
   {
     title: 'Taalcafé voor nieuwe Amsterdammers',
     category: 'Diversiteit',
-    dateLabel: '1 juli 2026',
+    date: '1 juli 2026',
     district: 'Oost',
     href: '#',
     id: 'taalcafe-javaplein',
