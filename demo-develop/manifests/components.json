@@ -9038,6 +9038,25 @@
               }
             ]
           },
+          "currentPageAccessibleName": {
+            "name": "currentPageAccessibleName",
+            "required": false,
+            "type": {
+              "name": "string"
+            },
+            "description": "The accessible name for the link to the current page. The page number is appended.",
+            "defaultValue": null,
+            "parent": {
+              "name": "PaginationProps",
+              "fileName": "../packages/react/src/Pagination/Pagination.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/Pagination/Pagination.tsx"
+              }
+            ]
+          },
           "linkComponent": {
             "name": "linkComponent",
             "required": false,
@@ -9160,6 +9179,25 @@
               }
             ]
           },
+          "pageAccessibleName": {
+            "name": "pageAccessibleName",
+            "required": false,
+            "type": {
+              "name": "string"
+            },
+            "description": "The accessible name for the links to the other pages. The page number is appended.",
+            "defaultValue": null,
+            "parent": {
+              "name": "PaginationProps",
+              "fileName": "../packages/react/src/Pagination/Pagination.tsx"
+            },
+            "declarations": [
+              {
+                "name": "TypeLiteral",
+                "fileName": "../packages/react/src/Pagination/Pagination.tsx"
+              }
+            ]
+          },
           "previousAccessibleName": {
             "name": "previousAccessibleName",
             "required": false,
@@ -9235,7 +9273,7 @@
           "name": "Docs",
           "path": "./src/components/Pagination/Pagination.docs.mdx",
           "title": "Components/Navigation/Pagination",
-          "content": "{/* @license CC0-1.0 */}\n\nimport { Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/pagination.tokens.json\";\n\nimport * as PaginationStories from \"./Pagination.stories.tsx\";\n\n<Meta of={PaginationStories} />\n\n<Title />\n\n<Description of={PaginationStories} />\n\n<Primary />\n\n<Controls />\n\n## Usage guidelines\n\n### When to use\n\nUse Pagination only when an overview list is too long to display on a single page.\nPlace Pagination below the overview list.\n\nPagination can be combined with a count at the top of the page indicating “Page # of ##.”\n\n### When not to use\n\nPagination should not be displayed if there is only one page.\n\n### How to use\n\nMake sure that the visible and accessible labels for the 'previous' and 'next' buttons convey the same meaning at all times – e.g. don't update one and forget the other.\n\nStart a page with an overview list at the top after changing the page.\nRedirect users to the first page if they enter a URL with a page number that doesn’t exist.\n\n## Examples\n\n### Specifying a link template\n\nUse the `linkTemplate` prop to set the `href` attribute for the Pagination links.\nRemember to include URL parameters other than the page number,\ne.g. those for a paginated search page.\n\n{/* prettier-ignore */}\n```tsx\nconst linkTemplate = (page) => `/?pagina=${page}&categorie=video&thema=bestuur`\n\nreturn <Pagination linkTemplate={linkTemplate} />\n```\n\n### With a custom link component\n\nPass a custom link component to use Pagination with your routing library.\nHere’s an example with the Link component of Next.js:\n\n{/* prettier-ignore */}\n```tsx\nimport { Pagination } from \"@amsterdam/design-system-react\"\nimport NextLink from \"next/link\"\n\nconst LinkComponent = (props) => <NextLink {...props} />\n\nreturn <Pagination linkComponent={LinkComponent} />\n```\n\n## Features\n\nPagination renders nothing when `totalPages` is 1 or less, so a set that fits on a single page needs no condition around it.\n\n## Design\n\nThe whole set is centred and wraps onto as many lines as it needs.\nA long list of page numbers reflows on a narrow screen rather than overflowing or scrolling sideways.\n\nThe current page is marked by weight and colour rather than by a box of its own, and it drops its underline on hover.\nIt reads as a statement of where you are instead of as another link to follow.\n\nThe chevrons on the previous and next links keep a fixed size instead of scaling with the text around them.\nThey stay in proportion to the numbers they sit beside, which are the same size on every page.\n\nAn ellipsis stands in for the page numbers that are left out, so the distance between what is shown stays visible.\n\n## Accessibility\n\nPagination renders a `nav` around an ordered list, so it is a navigation landmark and the pages keep their order.\nThe landmark is named by text that is in the markup and hidden visually.\n\nThe current page is marked as such, so assistive technology reports which link is the page you are on rather than leaving it to be inferred from the styling.\n\nThe previous and next links are named by hidden text that says which page they lead to, while their visible label stays short.\nThat visible label is hidden from assistive technology, so the link is announced once rather than twice — and it is why ‘How to use’ asks that the two labels keep saying the same thing.\n\nThe visible label also carries the `hidden` attribute and is revealed by the stylesheet.\nIf that stylesheet never arrives, the fuller accessible text shows in its place rather than a bare chevron.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
+          "content": "{/* @license CC0-1.0 */}\n\nimport { Controls, Description, Meta, Primary, Title } from \"@storybook/addon-docs/blocks\";\n\nimport { DesignTokensTable } from \"#storybook/_components/DesignTokensTable/DesignTokensTable\";\nimport tokens from \"#tokens/components/ams/pagination.tokens.json\";\n\nimport * as PaginationStories from \"./Pagination.stories.tsx\";\n\n<Meta of={PaginationStories} />\n\n<Title />\n\n<Description of={PaginationStories} />\n\n<Primary />\n\n<Controls />\n\n## Usage guidelines\n\n### When to use\n\nUse Pagination only when an overview list is too long to display on a single page.\nPlace Pagination below the overview list.\n\nPagination can be combined with a count at the top of the page indicating “Page # of ##.”\n\n### When not to use\n\nPagination should not be displayed if there is only one page.\n\n### How to use\n\nMake sure that the visible and accessible labels for the 'previous' and 'next' buttons convey the same meaning at all times – e.g. don't update one and forget the other.\n\nAll texts in the component default to Dutch: the landmark name, the previous and next links, and the hidden prefixes that name the numbered links.\nOn a page in another language, set each of them through its prop – translating some but not all makes screen readers announce a mix of languages.\n\nStart a page with an overview list at the top after changing the page.\nRedirect users to the first page if they enter a URL with a page number that doesn’t exist.\n\n## Examples\n\n### Specifying a link template\n\nUse the `linkTemplate` prop to set the `href` attribute for the Pagination links.\nRemember to include URL parameters other than the page number,\ne.g. those for a paginated search page.\n\n{/* prettier-ignore */}\n```tsx\nconst linkTemplate = (page) => `/?pagina=${page}&categorie=video&thema=bestuur`\n\nreturn <Pagination linkTemplate={linkTemplate} />\n```\n\n### With a custom link component\n\nPass a custom link component to use Pagination with your routing library.\nHere’s an example with the Link component of Next.js:\n\n{/* prettier-ignore */}\n```tsx\nimport { Pagination } from \"@amsterdam/design-system-react\"\nimport NextLink from \"next/link\"\n\nconst LinkComponent = (props) => <NextLink {...props} />\n\nreturn <Pagination linkComponent={LinkComponent} />\n```\n\n## Features\n\nPagination renders nothing when `totalPages` is 1 or less, so a set that fits on a single page needs no condition around it.\n\n## Design\n\nThe whole set is centred and wraps onto as many lines as it needs.\nA long list of page numbers reflows on a narrow screen rather than overflowing or scrolling sideways.\n\nThe current page is marked by weight and colour rather than by a box of its own, and it drops its underline on hover.\nIt reads as a statement of where you are instead of as another link to follow.\n\nThe chevrons on the previous and next links keep a fixed size instead of scaling with the text around them.\nThey stay in proportion to the numbers they sit beside, which are the same size on every page.\n\nAn ellipsis stands in for the page numbers that are left out, so the distance between what is shown stays visible.\n\n## Accessibility\n\nPagination renders a `nav` around an ordered list, so it is a navigation landmark and the pages keep their order.\nThe landmark is named by text that is in the markup and hidden visually.\n\nThe current page is marked as such, so assistive technology reports which link is the page you are on rather than leaving it to be inferred from the styling.\n\nThe numbered links are also named by hidden text, placed before the visible number: ‘Ga naar pagina 3’ tells a screen reader user what the link does where a bare ‘3’ would not.\nThe current page reads ‘Pagina 4’ instead – naming where you are, not where you can go.\n\nThe previous and next links are named by hidden text that says which page they lead to, while their visible label stays short.\nThat visible label is hidden from assistive technology, so the link is announced once rather than twice — and it is why ‘How to use’ asks that the two labels keep saying the same thing.\n\nThe visible label also carries the `hidden` attribute and is revealed by the stylesheet.\nIf that stylesheet never arrives, the fuller accessible text shows in its place rather than a bare chevron.\n\n## Design tokens\n\n<DesignTokensTable tokens={tokens} />\n",
           "summary": "## Usage guidelines ### When to use Use Pagination only when an overview list is too long ..."
         }
       }
@@ -11631,6 +11669,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5649
+    "durationMs": 4288
   }
 }

@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.6s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -22196,7 +22196,7 @@ linkComponent?: ElementType | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Pagination</h2>
       <div class="badges">
-        <label for="c-57-components-navigation-pagination-props" class="badge ok as-toggle">11 prop types</label>
+        <label for="c-57-components-navigation-pagination-props" class="badge ok as-toggle">13 prop types</label>
         
         <label for="c-57-components-navigation-pagination-stories" class="badge ok as-toggle">1 story</label>
         <label for="c-57-components-navigation-pagination-docs" class="badge ok as-toggle">1 doc</label>
@@ -22225,7 +22225,7 @@ linkComponent?: ElementType | undefined</code></pre>
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
-              <span class="badge ok">11 prop types</span>
+              <span class="badge ok">13 prop types</span>
             </div>
             <pre><code>Component: ../packages/react/src/index.ts::Pagination</code></pre>
             <pre><code>Props:</code></pre>
@@ -22239,6 +22239,11 @@ accessibleName?: string
  * Note: must be unique for the page.
  */
 accessibleNameId?: string
+
+/**
+ * The accessible name for the link to the current page. The page number is appended.
+ */
+currentPageAccessibleName?: string
 
 /**
  * The React component or intrinsic element to use for the links.
@@ -22269,6 +22274,11 @@ nextLabel?: string = &#39;volgende&#39;
  * The current page number.
  */
 page?: number = 1
+
+/**
+ * The accessible name for the links to the other pages. The page number is appended.
+ */
+pageAccessibleName?: string
 
 /**
  * The accessible name for the link to the previous page.
@@ -22360,6 +22370,9 @@ Pagination should not be displayed if there is only one page.
 
 Make sure that the visible and accessible labels for the &#39;previous&#39; and &#39;next&#39; buttons convey the same meaning at all times – e.g. don&#39;t update one and forget the other.
 
+All texts in the component default to Dutch: the landmark name, the previous and next links, and the hidden prefixes that name the numbered links.
+On a page in another language, set each of them through its prop – translating some but not all makes screen readers announce a mix of languages.
+
 Start a page with an overview list at the top after changing the page.
 Redirect users to the first page if they enter a URL with a page number that doesn’t exist.
 
@@ -22416,6 +22429,9 @@ Pagination renders a `nav` around an ordered list, so it is a navigation landmar
 The landmark is named by text that is in the markup and hidden visually.
 
 The current page is marked as such, so assistive technology reports which link is the page you are on rather than leaving it to be inferred from the styling.
+
+The numbered links are also named by hidden text, placed before the visible number: ‘Ga naar pagina 3’ tells a screen reader user what the link does where a bare ‘3’ would not.
+The current page reads ‘Pagina 4’ instead – naming where you are, not where you can go.
 
 The previous and next links are named by hidden text that says which page they lead to, while their visible label stays short.
 That visible label is hidden from assistive technology, so the link is announced once rather than twice — and it is why ‘How to use’ asks that the two labels keep saying the same thing.
