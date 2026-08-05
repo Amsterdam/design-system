@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";var t;function n(){return(n=e((()=>{t=[[{height:`line`,label:`Breadcrumb`}],[{height:`card`,label:`Page title and search`}],[{height:`panel`,label:`Filters`},{height:`line`,label:`Result count`},...Array.from({length:6},()=>({height:`card`,label:`News card`})),{height:`heading`,label:`Pagination`}]]})))()}export{n,t};
