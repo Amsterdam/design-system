@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -22744,13 +22744,13 @@ import * as VisuallyHiddenStories from &quot;./VisuallyHidden.stories.tsx&quot;;
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  423 | }
-  424 |
-&gt; 425 | const meta = {
+  428 | }
+  429 |
+&gt; 430 | const meta = {
       | ^
-  426 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
-  427 |   args: {
-  428 |     dir: &#39;ltr&#39;,
+  431 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
+  432 |   args: {
+  433 |     dir: &#39;ltr&#39;,
 
 ./src/docs/developer-guide/WritingDirection.stories.tsx:
 /**
@@ -22918,7 +22918,12 @@ const content = {
         heading: &#39;تم حفظ البيانات&#39;,
         openButtonLabel: &#39;افتح مربع الحوار&#39;,
       },
-      errorMessage: &#39;أدخل عنوان بريد إلكتروني صالحًا، مثل naam@voorbeeld.nl.&#39;,
+      // Wrap the Latin email in a dir=&quot;ltr&quot; span so its trailing period stays put in right-to-left text.
+      errorMessage: (
+        &lt;&gt;
+          أدخل عنوان بريد إلكتروني صالحًا، مثل &lt;span dir=&quot;ltr&quot;&gt;naam@voorbeeld.nl.&lt;/span&gt;
+        &lt;/&gt;
+      ),
       fieldSet: { firstNameLabel: &#39;الاسم الأول&#39;, lastNameLabel: &#39;اسم العائلة&#39;, legend: &#39;ما هو اسمك؟&#39; },
       figureCaption: &#39;صف من الدراجات المتوقفة على طول قناة ضيقة في أمستردام.&#39;,
       fileInputLabel: &#39;أضف مرفقًا&#39;,
@@ -38359,13 +38364,13 @@ import * as VisuallyHiddenStories from &quot;./VisuallyHidden.stories.tsx&quot;;
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  423 | }
-  424 |
-&gt; 425 | const meta = {
+  428 | }
+  429 |
+&gt; 430 | const meta = {
       | ^
-  426 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
-  427 |   args: {
-  428 |     dir: &#39;ltr&#39;,
+  431 |   title: &#39;Docs/Developer Guide/Writing Direction&#39;,
+  432 |   args: {
+  433 |     dir: &#39;ltr&#39;,
 
 ./src/docs/developer-guide/WritingDirection.stories.tsx:
 /**
@@ -38533,7 +38538,12 @@ const content = {
         heading: &#39;تم حفظ البيانات&#39;,
         openButtonLabel: &#39;افتح مربع الحوار&#39;,
       },
-      errorMessage: &#39;أدخل عنوان بريد إلكتروني صالحًا، مثل naam@voorbeeld.nl.&#39;,
+      // Wrap the Latin email in a dir=&quot;ltr&quot; span so its trailing period stays put in right-to-left text.
+      errorMessage: (
+        &lt;&gt;
+          أدخل عنوان بريد إلكتروني صالحًا، مثل &lt;span dir=&quot;ltr&quot;&gt;naam@voorbeeld.nl.&lt;/span&gt;
+        &lt;/&gt;
+      ),
       fieldSet: { firstNameLabel: &#39;الاسم الأول&#39;, lastNameLabel: &#39;اسم العائلة&#39;, legend: &#39;ما هو اسمك؟&#39; },
       figureCaption: &#39;صف من الدراجات المتوقفة على طول قناة ضيقة في أمستردام.&#39;,
       fileInputLabel: &#39;أضف مرفقًا&#39;,
