@@ -11,7 +11,7 @@ import { DatePickerBody } from './DatePickerBody'
 
 const march2026 = new Date(2026, 2, 1)
 
-const renderBody = () =>
+const renderBody = (locale = 'nl-NL') =>
   render(
     <DatePickerBody
       captionId="caption"
@@ -20,7 +20,7 @@ const renderBody = () =>
       getBoundaryLabel={() => undefined}
       isDayDisabled={() => false}
       isDaySelected={() => false}
-      locale="nl-NL"
+      locale={locale}
       month={march2026}
       onKeyDown={() => {}}
       onSelectDate={() => {}}
@@ -42,6 +42,16 @@ describe('DatePickerBody', () => {
     expect(headers).toHaveLength(7)
     expect(headers[0]).toHaveTextContent('ma')
     expect(headers[6]).toHaveTextContent('zo')
+  })
+
+  it('uses narrow weekday names for Arabic, whose ‘short’ names are the full ones', () => {
+    renderBody('ar-MA')
+
+    const monday = new Date(2026, 5, 1)
+    const narrow = new Intl.DateTimeFormat('ar-MA', { weekday: 'narrow' }).format(monday)
+
+    expect(narrow).not.toBe(new Intl.DateTimeFormat('ar-MA', { weekday: 'short' }).format(monday))
+    expect(screen.getAllByRole('columnheader')[0]).toHaveTextContent(narrow)
   })
 
   it('renders full weeks of seven cells each', () => {
