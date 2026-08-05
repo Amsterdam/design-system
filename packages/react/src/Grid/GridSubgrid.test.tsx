@@ -9,7 +9,7 @@ import { describe, expect, it } from 'vitest'
 
 import { ariaRoleForTag } from '../common/accessibility'
 import { Grid, gridGaps } from './Grid'
-import { gridCellTags } from './GridCell'
+import { gridSubgridTags } from './GridSubgrid'
 
 describe('GridSubgrid', () => {
   it('renders', () => {
@@ -110,11 +110,12 @@ describe('GridSubgrid', () => {
     expect(component).toHaveClass(`ams-grid__subgrid--gap-vertical--${gap}`)
   })
 
-  gridCellTags.forEach((tag) => {
+  gridSubgridTags.forEach((tag) => {
     it(`renders with a custom ${tag} tag`, () => {
-      const { container } = render(
-        <Grid.Subgrid aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />,
-      )
+      const subgrid = <Grid.Subgrid aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />
+
+      // A list item only takes its role inside a list.
+      const { container } = render(tag === 'li' ? <ul>{subgrid}</ul> : subgrid)
 
       const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
 

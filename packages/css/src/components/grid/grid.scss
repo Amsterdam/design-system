@@ -4,6 +4,7 @@
  */
 
 @use "../../common/breakpoint" as *;
+@use "../../common/resets" as *;
 @use "mixins" as *;
 
 $ams-grid-column-count: 12;
@@ -13,6 +14,25 @@ $ams-grid-row-span-max: 4;
   @include ams-grid;
 
   align-items: start;
+
+  /*
+   * A Grid that is a list drops the marker, the indent and the margin a browser gives it. It keeps its own
+   * inline padding, the gutter of the page, which the reset zeroes along with the list indent.
+   * This sits here rather than in the `ams-grid` mixin, because Breakout reuses that and is never a list.
+   */
+  &:is(ol) {
+    @include reset-ol;
+
+    /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties -- Declared in the `ams-grid` mixin. */
+    padding-inline-start: var(--_ams-grid-padding-inline-start);
+  }
+
+  &:is(ul) {
+    @include reset-ul;
+
+    /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties -- Declared in the `ams-grid` mixin. */
+    padding-inline-start: var(--_ams-grid-padding-inline-start);
+  }
 }
 
 // Grid gap
@@ -97,6 +117,15 @@ $ams-grid-row-span-max: 4;
   container-type: var(--ams-grid-cell-container-type);
   padding-block: var(--ams-grid-cell-padding-block);
   padding-inline: var(--ams-grid-cell-padding-inline);
+}
+
+/*
+ * A Cell that is a list item lays out like any other one. Safari gives the marker of a `list-item` a line
+ * box of its own where the content of the Cell starts with an image, which adds a line of space above it.
+ * Nothing set on the marker removes that box; only dropping `list-item` does.
+ */
+.ams-grid__cell:is(li) {
+  display: block;
 }
 
 .ams-grid__cell--flush {

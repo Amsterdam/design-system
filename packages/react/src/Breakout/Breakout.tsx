@@ -8,7 +8,7 @@ import type { ElementType } from 'react'
 import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
-import type { GridProps } from '../Grid'
+import type { GridBaseProps } from '../Grid/Grid'
 
 import { paddingClasses } from '../Grid/paddingClasses'
 import { BreakoutCell } from './BreakoutCell'
@@ -16,7 +16,17 @@ import { BreakoutCell } from './BreakoutCell'
 export type BreakoutRowNumber = 1 | 2 | 3 | 4
 export type BreakoutRowNumbers = { narrow: BreakoutRowNumber; medium: BreakoutRowNumber; wide: BreakoutRowNumber }
 
-export type BreakoutProps = GridProps
+/** The tags of a Grid without the list elements: a Breakout widens a figure, which is never a list. */
+export const breakoutTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
+export type BreakoutTag = (typeof breakoutTags)[number]
+
+export type BreakoutProps = {
+  /**
+   * The HTML tag to use.
+   * @default div
+   */
+  readonly as?: BreakoutTag
+} & GridBaseProps
 
 const BreakoutRoot = forwardRef<HTMLElement, BreakoutProps>(
   ({ as, children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }, ref) => {

@@ -9,7 +9,6 @@ import { clsx } from 'clsx'
 import { forwardRef } from 'react'
 
 import type { GridColumnNumber, GridColumnNumbers, GridRowNumber, GridRowNumbers } from './Grid'
-import type { GridCellTag } from './GridCell'
 
 import { gridSubgridClasses } from './gridSubgridClasses'
 
@@ -19,6 +18,25 @@ import { gridSubgridClasses } from './gridSubgridClasses'
  */
 export const gridSubgridGaps = ['none', 'large', 'x-large', '2x-large'] as const
 export type GridSubgridGap = (typeof gridSubgridGaps)[number]
+
+/**
+ * The tags of a Grid Cell, plus the two list elements. A Subgrid can be the list a set of Cells belongs to;
+ * a Cell cannot, since its children are content rather than list items.
+ */
+export const gridSubgridTags = [
+  'article',
+  'aside',
+  'div',
+  'footer',
+  'header',
+  'li',
+  'main',
+  'nav',
+  'ol',
+  'section',
+  'ul',
+] as const
+export type GridSubgridTag = (typeof gridSubgridTags)[number]
 
 type GridSubgridSpanAllProp = {
   /** Lets the subgrid span the full width of all grid variants. */
@@ -44,7 +62,7 @@ export type GridSubgridProps = {
    * The HTML tag to use.
    * @default div
    */
-  readonly as?: GridCellTag
+  readonly as?: GridSubgridTag
   /**
    * The amount of space between the rows of the subgrid.
    * Defaults to the vertical gap of the Grid.

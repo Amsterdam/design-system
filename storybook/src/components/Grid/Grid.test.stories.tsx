@@ -128,6 +128,59 @@ const SubgridRowStartCase = () => (
   </Grid>
 )
 
+/*
+ * A Subgrid that is a list is indistinguishable from one that is not: markers or an indent in the first row
+ * mean the list reset is gone. The second list sits inside a plain Subgrid, the arrangement of a page where
+ * the set is only part of a wider region, and its rows must still line up with the reference row above.
+ */
+const ListCase = () => (
+  <Grid paddingVertical="large">
+    <Grid.Subgrid as="ul" span="all">
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+    </Grid.Subgrid>
+    <Grid.Subgrid span="all">
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+    </Grid.Subgrid>
+    <Grid.Subgrid span={threeQuarters} start={secondQuarter}>
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Subgrid as="ol" span="all">
+        <Grid.Cell {...item} as="li" span={quarter} />
+        <Grid.Cell {...item} as="li" span={quarter} />
+        <Grid.Cell {...item} as="li" span={quarter} />
+      </Grid.Subgrid>
+      <Grid.Cell {...item} span={quarter} />
+    </Grid.Subgrid>
+  </Grid>
+)
+
+/*
+ * A Grid can be the list itself. Unlike a Subgrid it keeps its inline padding, the gutter of the page, which
+ * the list reset would zero: these Cells must line up with those of every other case rather than sit further
+ * out. The Grid below it is the reference.
+ */
+const GridListCase = () => (
+  <>
+    <Grid as="ul" paddingVertical="large">
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+      <Grid.Cell {...item} as="li" span={quarter} />
+    </Grid>
+    <Grid paddingVertical="large">
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+      <Grid.Cell {...item} span={quarter} />
+    </Grid>
+  </>
+)
+
 export const Test: Story = {
   args: {
     children: [<Grid.Cell key={1} span="all" />, <Grid.Cell key={2} span="all" />],
@@ -144,6 +197,8 @@ export const Test: Story = {
       <SubgridRowSpanCase />
       <RowStartCase />
       <SubgridRowStartCase />
+      <ListCase />
+      <GridListCase />
     </div>
   ),
   tags: ['!dev', '!autodocs', '!manifest'],

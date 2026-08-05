@@ -8,7 +8,8 @@ import { createRef } from 'react'
 import { describe, expect, it } from 'vitest'
 
 import { ariaRoleForTag } from '../common/accessibility'
-import { gridGaps, gridPaddings, gridTags } from '../Grid/Grid'
+import { gridGaps, gridPaddings } from '../Grid/Grid'
+import { breakoutTags } from './Breakout'
 import { Breakout } from './Breakout'
 
 describe('Breakout', () => {
@@ -77,7 +78,7 @@ describe('Breakout', () => {
     })
   })
 
-  gridTags.forEach((tag) => {
+  breakoutTags.forEach((tag) => {
     it(`renders with a custom ${tag} tag`, () => {
       const { container } = render(<Breakout aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />)
 
