@@ -38,24 +38,13 @@ export const renderComponentVariants = (
   context: StoryContext,
 ) => {
   const matrix = buildVariantMatrix(context.argTypes, { args, variants })
-  const acceptsAccessibleName = 'accessibleName' in context.argTypes
-  const acceptsAccessibleNameId = 'accessibleNameId' in context.argTypes
   const hasPropAxis = matrix.some(({ propName }) => propName)
 
   return (
     <div style={hasPropAxis ? propAxisRow : undefined}>
       {matrix.map((entry) => (
         <div key={variantKeyFor(entry)} style={layout === 'flex' ? undefined : gridCell}>
-          {createElement(
-            component,
-            buildComponentProps({
-              ...entry,
-              acceptsAccessibleName,
-              acceptsAccessibleNameId,
-              args,
-              sizePropName: SIZE_PROP_NAME,
-            }),
-          )}
+          {createElement(component, buildComponentProps({ ...entry, args, sizePropName: SIZE_PROP_NAME }))}
         </div>
       ))}
     </div>
