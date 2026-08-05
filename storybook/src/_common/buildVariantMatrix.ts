@@ -13,11 +13,16 @@ import type {
   VariantValue,
 } from './renderComponentVariantTypes'
 
-import { DERIVED_PROP_NAMES } from './buildComponentProps'
 import { extractVariantsFromArgTypes } from './extractVariantsFromArgTypes'
 
 /** The prop that drives the size axis, rather than a row of its own on the prop axis. */
 export const SIZE_PROP_NAME = 'size'
+
+/**
+ * Props that only set an accessible name. Varying one produces a cell that looks
+ * identical to the baseline, so they stay off the prop axis.
+ */
+export const ARIA_ONLY_PROP_NAMES = ['accessibleName', 'accessibleNameId']
 
 const sizesOf = (propsWithValues: PropWithValues[]): (string | undefined)[] => {
   const sizeProp = propsWithValues.find((prop) => prop.name === SIZE_PROP_NAME)
@@ -40,8 +45,8 @@ const sizesOf = (propsWithValues: PropWithValues[]): (string | undefined)[] => {
  *   being `disabled` and `hovered`. A prop that is also a state therefore leaves
  *   the prop axis: `disabled` would otherwise vary against the state that already
  *   sets it, rendering both values twice over.
- * • The prop axis carries every other prop, bar the ones the props builder derives
- *   from the cell, and shows only the values the baseline doesn’t already show.
+ * • The prop axis carries every other prop, bar the aria-only ones, and shows only
+ *   the values the baseline doesn’t already show.
  * • Each state opens with the baseline, so the component as a story’s own args
  *   leave it is snapshotted once per state rather than once per prop.
  *
@@ -57,7 +62,7 @@ export const buildVariantMatrix = (
   const sizes = sizesOf(propsWithValues)
   const matrixProps = propsWithValues.filter(
     ({ name }) =>
-      name !== SIZE_PROP_NAME && !DERIVED_PROP_NAMES.includes(name) && !variants.some((variant) => variant === name),
+      name !== SIZE_PROP_NAME && !ARIA_ONLY_PROP_NAMES.includes(name) && !variants.some((variant) => variant === name),
   )
 
   // What the baseline cell already shows for a prop: the story’s own arg where it holds

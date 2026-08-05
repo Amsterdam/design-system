@@ -9,7 +9,7 @@ import { describe, expect, it } from 'vitest'
 
 import type { BuildComponentPropsParams } from './renderComponentVariantTypes'
 
-import { buildComponentProps } from './buildComponentProps'
+import { buildComponentProps, variantKeyFor } from './buildComponentProps'
 
 const baseParams = {
   args: { label: 'Click' },
@@ -78,39 +78,19 @@ describe('buildComponentProps', () => {
     expect(result).toMatchObject({ icon: ChevronDownIcon, iconBefore: true })
   })
 
-  it('omits accessibleName and accessibleNameId when the flags are not set', () => {
-    const result = buildComponentProps(baseParams)
-    expect(result).not.toHaveProperty('accessibleName')
-    expect(result).not.toHaveProperty('accessibleNameId')
+  it('hands the component only the props of the cell', () => {
+    expect(Object.keys(buildComponentProps(baseParams)).sort()).toEqual(['className', 'color', 'label', 'size'])
   })
+})
 
-  it('injects a unique accessibleName derived from the variant when the flag is set', () => {
-    const result = buildComponentProps({ ...baseParams, acceptsAccessibleName: true })
-    expect(result).toMatchObject({ accessibleName: 'none-color-primary-default' })
-  })
-
-  it('injects a unique accessibleNameId derived from the variant when the flag is set', () => {
-    const result = buildComponentProps({ ...baseParams, acceptsAccessibleNameId: true })
-    expect(result).toMatchObject({ accessibleNameId: 'variant-none-color-primary-default' })
-  })
-
+describe('variantKeyFor', () => {
   it('names an icon variant by its component rather than stringifying its source', () => {
-    const result = buildComponentProps({
-      ...baseParams,
-      acceptsAccessibleName: true,
-      propName: 'icon',
-      variant: ChevronDownIcon,
-    })
-    expect(result).toMatchObject({ accessibleName: `none-icon-${ChevronDownIcon.name}-default` })
+    const key = variantKeyFor({ propName: 'icon', size: undefined, state: 'default', variant: ChevronDownIcon })
+    expect(key).toBe(`none-icon-${ChevronDownIcon.name}-default`)
   })
 
   it('names an icon variant passed as an element by its element type', () => {
-    const result = buildComponentProps({
-      ...baseParams,
-      acceptsAccessibleName: true,
-      propName: 'icon',
-      variant: createElement('svg'),
-    })
-    expect(result).toMatchObject({ accessibleName: 'none-icon-svg-default' })
+    const key = variantKeyFor({ propName: 'icon', size: undefined, state: 'default', variant: createElement('svg') })
+    expect(key).toBe('none-icon-svg-default')
   })
 })

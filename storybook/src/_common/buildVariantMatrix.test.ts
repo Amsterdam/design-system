@@ -11,7 +11,7 @@ import { describe, expect, it } from 'vitest'
 
 import type { VariantState } from './renderComponentVariantTypes'
 
-import { buildComponentProps, DERIVED_PROP_NAMES } from './buildComponentProps'
+import { buildComponentProps } from './buildComponentProps'
 import { buildVariantMatrix, SIZE_PROP_NAME } from './buildVariantMatrix'
 import { HEADING_SAMPLE } from './variantFixtures'
 
@@ -29,17 +29,12 @@ const enumProp = (name: string, values: string[], defaultValue?: string) =>
     type: { name: 'enum', value: values },
   })
 
-/**
- * The props a cell hands the component, as a comparable string. The derived props are
- * left out: buildComponentProps builds those from the cell itself, so with them in,
- * no two cells could ever compare equal.
- */
+/** The props a cell hands the component, as a comparable string. */
 const propsKey = (entry: Parameters<typeof buildComponentProps>[0]): string => {
   const props = buildComponentProps(entry) as Record<string, unknown>
 
   return JSON.stringify(
     Object.keys(props)
-      .filter((name) => !DERIVED_PROP_NAMES.includes(name))
       .sort()
       .map((name) => [name, props[name]]),
     (_key, value) => (typeof value === 'function' ? `function ${value.name}` : value),
@@ -49,13 +44,7 @@ const propsKey = (entry: Parameters<typeof buildComponentProps>[0]): string => {
 // Mirrors how renderComponentVariants turns the matrix into component instances.
 const renderedKeys = (types: StrictArgTypes, variants: VariantState[], args: Meta['args']) =>
   buildVariantMatrix(types, { args, variants }).map((entry) =>
-    propsKey({
-      ...entry,
-      acceptsAccessibleName: 'accessibleName' in types,
-      acceptsAccessibleNameId: 'accessibleNameId' in types,
-      args,
-      sizePropName: SIZE_PROP_NAME,
-    }),
+    propsKey({ ...entry, args, sizePropName: SIZE_PROP_NAME }),
   )
 
 const duplicatesIn = (keys: string[]) => keys.filter((key, index) => keys.indexOf(key) !== index)
@@ -139,7 +128,7 @@ describe('buildVariantMatrix', () => {
     ])
   })
 
-  it('keeps a prop the props builder derives off the prop axis', () => {
+  it('keeps an aria-only prop off the prop axis', () => {
     const matrix = buildVariantMatrix(
       argTypes([argType({ name: 'accessibleName', type: { name: 'string' } }), booleanProp('invalid')]),
     )
