@@ -111,25 +111,21 @@ export const Default: StoryObj = {
             </Select>
           </Field>
           <FieldSet className="ams-mb-l" legend="Soort nieuws">
-            <Column gap="x-small">
-              <Checkbox name="soort" value="algemeen">
-                Algemeen
-              </Checkbox>
-              <Checkbox defaultChecked name="soort" value="achtergrond">
-                Achtergrond
-              </Checkbox>
-              <Checkbox name="soort" value="live blogs">
-                Live blogs
-              </Checkbox>
-            </Column>
+            <Checkbox name="soort" value="algemeen">
+              Algemeen
+            </Checkbox>
+            <Checkbox defaultChecked name="soort" value="achtergrond">
+              Achtergrond
+            </Checkbox>
+            <Checkbox name="soort" value="live blogs">
+              Live blogs
+            </Checkbox>
           </FieldSet>
           <FieldSet className="ams-mb-l" legend="Stadsdelen">
-            <Column gap="x-small">
-              <Checkbox defaultChecked name="stadsdeel" value="centrum">
-                Centrum
-              </Checkbox>
-              {/* … one Checkbox per district … */}
-            </Column>
+            <Checkbox defaultChecked name="stadsdeel" value="centrum">
+              Centrum
+            </Checkbox>
+            {/* … one Checkbox per district … */}
           </FieldSet>
           {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
           <Button type="submit">Resultaten tonen</Button>
@@ -252,32 +248,28 @@ export const Default: StoryObj = {
                 </Select>
               </Field>
               <FieldSet className="ams-mb-l" legend="Soort nieuws">
-                <Column gap="x-small">
-                  {newsCategories.map((category) => (
-                    <Checkbox
-                      defaultChecked={selectedCategories.includes(category)}
-                      key={category}
-                      name="soort"
-                      value={category.toLowerCase()}
-                    >
-                      {category}
-                    </Checkbox>
-                  ))}
-                </Column>
+                {newsCategories.map((category) => (
+                  <Checkbox
+                    defaultChecked={selectedCategories.includes(category)}
+                    key={category}
+                    name="soort"
+                    value={category.toLowerCase()}
+                  >
+                    {category}
+                  </Checkbox>
+                ))}
               </FieldSet>
               <FieldSet className="ams-mb-l" legend="Stadsdelen">
-                <Column gap="x-small">
-                  {newsDistricts.map((district) => (
-                    <Checkbox
-                      defaultChecked={selectedDistricts.includes(district)}
-                      key={district}
-                      name="stadsdeel"
-                      value={district.toLowerCase()}
-                    >
-                      {district}
-                    </Checkbox>
-                  ))}
-                </Column>
+                {newsDistricts.map((district) => (
+                  <Checkbox
+                    defaultChecked={selectedDistricts.includes(district)}
+                    key={district}
+                    name="stadsdeel"
+                    value={district.toLowerCase()}
+                  >
+                    {district}
+                  </Checkbox>
+                ))}
               </FieldSet>
               {/* The design filters as soon as a box is ticked; the button keeps the form usable without that script. */}
               <Button type="submit">Resultaten tonen</Button>
