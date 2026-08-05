@@ -21,6 +21,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  parameters: {
+    // The matrix shows heading levels side by side, not as a document outline.
+    a11y: { config: { rules: [{ enabled: false, id: 'heading-order' }] } },
+  },
   render: (args, context) => renderComponentVariants(Alert, { args }, context),
   tags: ['!dev', '!autodocs', '!manifest'],
 }

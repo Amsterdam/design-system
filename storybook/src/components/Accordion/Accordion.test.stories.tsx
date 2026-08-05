@@ -50,6 +50,10 @@ export const Test: Story = {
       </Accordion.Section>,
     ],
   },
+  parameters: {
+    // The matrix shows heading levels side by side, not as a document outline.
+    a11y: { config: { rules: [{ enabled: false, id: 'heading-order' }] } },
+  },
   play: async ({ canvas, userEvent }) => {
     const accordionLabel = canvas.getByTestId('test-label')
     const accordionParagraph = canvas.getByTestId('test-paragraph')
