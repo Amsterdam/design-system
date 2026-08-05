@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid } from '@amsterdam/design-system-react/src'
-import { gridCellTags } from '@amsterdam/design-system-react/src/Grid/GridCell'
+import { gridSubgridTags } from '@amsterdam/design-system-react/src/Grid/GridSubgrid'
 
 import { asArgType } from '#storybook/_common/argTypes'
 import { GridColumnsGuide } from '#storybook/_components/GridColumnsGuide/GridColumnsGuide'
@@ -15,7 +15,7 @@ const meta = {
   title: 'Components/Layout/Grid',
   component: Grid.Subgrid,
   argTypes: {
-    as: asArgType(gridCellTags),
+    as: asArgType(gridSubgridTags),
     gapVertical: {
       control: {
         labels: { undefined: 'inherit (default)' },
@@ -69,5 +69,21 @@ export const Subgrid: SubgridStory = {
         <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
       </Grid.Subgrid>
     </>
+  ),
+}
+
+/**
+ * A set of Cells that hold the same kind of thing is a list. Render the Subgrid as an `ol` or a `ul` and every
+ * Cell inside it as an `li`. It looks exactly the same, and assistive technology announces the set and its size.
+ */
+export const SemanticList: SubgridStory = {
+  // Taking no argument keeps the Code Panel showing this markup as written.
+  render: () => (
+    <Grid.Subgrid as="ul" span="all">
+      <Grid.Cell as="li" className="_ams-item" span={{ narrow: 4, medium: 4, wide: 3 }} style={{ blockSize: '6rem' }} />
+      <Grid.Cell as="li" className="_ams-item" span={{ narrow: 4, medium: 4, wide: 3 }} style={{ blockSize: '6rem' }} />
+      <Grid.Cell as="li" className="_ams-item" span={{ narrow: 4, medium: 4, wide: 3 }} style={{ blockSize: '6rem' }} />
+      <Grid.Cell as="li" className="_ams-item" span={{ narrow: 4, medium: 4, wide: 3 }} style={{ blockSize: '6rem' }} />
+    </Grid.Subgrid>
   ),
 }

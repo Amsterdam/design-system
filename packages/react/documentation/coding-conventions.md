@@ -50,3 +50,8 @@ Spotlight and Grid Cell are examples.
 We’ve decided to use polymorphism solely for HTML tags that only support global attributes (e.g., `div`, `section`, `footer`, etc.).
 This is because other HTML tags require more complicated typing, and it is often simpler to separate the components.
 We type the refs as `HTMLElement`, the common type of the elements these components can render, so React refs work with all of them.
+
+Grid and Grid Subgrid are exceptions: they render `ol` and `ul` as well, so a set of Grid Cells can be a list.
+Neither types the attributes of an `ol`, and a Subgrid cannot type `start`: it already uses that name for the column it begins at.
+Breakout is never a list, so it allows the tags of a Grid without those two.
+Its props share a base type with `GridProps` rather than aliasing it.

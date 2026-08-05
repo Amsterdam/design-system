@@ -86,7 +86,7 @@ export type GridSubgridProps = {
 
 /**
  * A region of the Grid that shares its columns with its children, so they align to the columns of the page.
- * Every direct child must be a Grid Cell.
+ * Every direct child must be a Grid Cell, or another Subgrid if part of the region is a set of its own.
  *
  * @see {@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}
  */

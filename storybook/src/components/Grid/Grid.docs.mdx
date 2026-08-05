@@ -40,7 +40,7 @@ Set it on the sidebar rather than on everything around it, and leave the rest to
 
 Shares the columns it spans with its own children, so they align to the columns of the page.
 Place and size it with `span` and `start`, exactly like a Cell; those values also decide how many columns its children have to work with.
-Every direct child of a Subgrid must be a Cell.
+Every direct child of a Subgrid must be a Cell, or another Subgrid if part of the region is a set of its own.
 
 Use it for a region beside a sidebar, such as the results of an index page next to a filter column.
 Without it, a Cell inside a Cell has no columns to align to.
@@ -83,6 +83,9 @@ For example, set a top-level Cell that holds the main content of the page to `as
 Put `as="main"` on the Grid itself when the main content of a page is a single section: the Grid then is that region.
 Wrap the sections in a plain `main` element instead when the region holds several of them, such as more Grids, a [Spotlight](/docs/components-containers-spotlight--docs), or a full-bleed [Image](/docs/components-media-image--docs).
 Next to a sidebar, the main content goes in its own Grid Cell.
+
+Give a Grid or a Subgrid `as="ul"` and the Cells inside it `as="li"` where those Cells hold the same kind of thing, such as a set of Cards.
+‘A set of Cells as a list’ below shows how.
 
 Ensure the `span` and `start` values for a cell never exceed the number of columns available at that breakpoint.
 The browser would add columns to fit, which breaks the layout.
@@ -178,6 +181,23 @@ Both Grid and Grid Cell render a `<div>` by default.
 Use the `as` prop on either to make the markup more semantic.
 
 <Canvas of={GridCellStories.ImproveSemantics} />
+
+### A set of Cells as a list
+
+A set of Cells that hold the same kind of thing is a list: news items, search results, a row of Cards.
+Render the Grid or the Subgrid around them as an `ol` or a `ul`, and every Cell inside it as an `li`.
+
+That element then holds those items and nothing else.
+A heading above the set or a [Pagination](/docs/components-navigation-pagination--docs) below it is not one of them, so each goes in a Cell of its own outside the list.
+A Subgrid is usually the one to reach for, since a Grid tends to carry that heading as well.
+
+Where the set is only part of a wider region, give it a Subgrid of its own inside that region’s Subgrid.
+A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
+
+A list looks exactly like a `div`: it drops the marker, the indent and the margin a browser gives a list.
+A Grid keeps its own inline padding, the gutter of the page.
+
+<Canvas of={GridSubgridStories.SemanticList} />
 
 ## Features
 
@@ -318,6 +338,10 @@ A cell written second and started at column 7 is read second and reached second 
 
 The `as` prop can render an `article` or a `section` instead of a `div`.
 A `section` reaches assistive technology as a landmark only once it has a name, so give the heading inside it an `id` and point `aria-labelledby` at that id.
+
+A Grid or a Subgrid that renders an `ol` or a `ul` reaches assistive technology as a list, and the Cells inside it need `as="li"` to be its items.
+A screen reader then announces how many items the set holds and which one it is on.
+It also offers its shortcuts for moving through the set or skipping past it.
 
 ## See also
 

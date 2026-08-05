@@ -144,6 +144,11 @@ The Subgrid hands its columns to its own Cells, so each block is placed against 
 </Grid>
 ```
 
+Where those blocks hold the same kind of thing – Cards, news items, search results – the set is a list.
+Give the Subgrid `as="ul"` and each Cell inside it `as="li"`.
+Keep whatever is not one of the items outside it, such as the heading or a Pagination.
+[A set of Cells as a list](/docs/components-layout-grid--docs#a-set-of-cells-as-a-list) shows how.
+
 Where two columns run beside one another and one is much taller, give **each column** its own Subgrid instead.
 A Subgrid is a single item in the row of the Grid however many rows it holds, so the columns stack independently rather than a tall block pushing its neighbour down.
 On the narrow grid the second column then lands below the whole of the first rather than interleaving with it.
