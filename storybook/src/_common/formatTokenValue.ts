@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { formatCustomPropertyName } from './formatCustomPropertyName'
+
 /**
  * Converts design token references in a string to CSS custom properties.
  * Supports both single references and strings containing multiple references.
@@ -13,12 +15,16 @@
  * @example
  * formatTokenValue("{border.width.sm}")                          // "var(--border-width-sm)"
  * formatTokenValue("{spacing.md}")                               // "var(--spacing-md)"
+ * formatTokenValue("{color.text.default}")                       // "var(--color-text)"
  * formatTokenValue("2px")                                        // "2px"
  * formatTokenValue("inset 0rem {border.width.m} 0rem {color.x}") // "inset 0rem var(--border-width-m) 0rem var(--color-x)"
  */
 export function formatTokenValue<T = string>(value: string): T {
   if (value.includes('{')) {
-    return value.replace(/\{([^}]+)\}/g, (_, ref: string) => `var(--${ref.replace(/\./g, '-')})`) as unknown as T
+    return value.replace(
+      /\{([^}]+)\}/g,
+      (_, ref: string) => `var(${formatCustomPropertyName(ref.split('.'))})`,
+    ) as unknown as T
   }
 
   return value as unknown as T

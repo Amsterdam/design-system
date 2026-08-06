@@ -3,6 +3,8 @@
  * Copyright Gemeente Amsterdam
  */
 
+import { formatCustomPropertyName } from '#storybook/_common/formatCustomPropertyName'
+
 import type { ShadowValue, TokenEntry, Tokens } from './DesignTokensTable.types'
 
 import { formatShadowValue } from './formatShadowValue'
@@ -22,8 +24,7 @@ import { isTokenValue } from './isTokenValue'
 export const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedType?: string): TokenEntry[] => {
   // A group-level $type overrides any inherited type for this group and its descendants.
   const groupType = ('$type' in tokens && typeof tokens['$type'] === 'string' ? tokens['$type'] : inheritedType) as
-    | string
-    | undefined
+    string | undefined
 
   return Object.entries(tokens).flatMap(([key, node]) => {
     if (key.startsWith('$')) return []
@@ -50,14 +51,11 @@ export const flattenTokens = (tokens: Tokens, scope: string[] = [], inheritedTyp
         normalizedValue = formatShadowValue($value as ShadowValue)
       }
 
-      // Drop a trailing 'default' segment to match the CSS custom property names shipped by the build pipeline.
-      const cssPath = currentPath[currentPath.length - 1] === 'default' ? currentPath.slice(0, -1) : currentPath
-
       return [
         {
           deprecated: $deprecated,
           description: $description,
-          path: `--${cssPath.join('-')}`,
+          path: formatCustomPropertyName(currentPath),
           type,
           value: normalizedValue,
         },
