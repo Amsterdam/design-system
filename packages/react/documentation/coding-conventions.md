@@ -37,8 +37,9 @@ Instead of this:
 
 Subcomponents (e.g. `Grid.Cell`) are kept in separate files (e.g. `GridCell.tsx`) and they have their own test files (e.g. `GridCell.test.tsx`). Subcomponents are imported in the main component file. We do not directly expose subcomponents to consumers, so a consumer can only import `Grid`, not `GridCell`.
 
-Their prop types are different: the barrel file does re-export those, so consumers can type a wrapper around a subcomponent.
-Subcomponents that a consumer cannot reach, such as `CalendarHeader`, do not need their prop type in the barrel file.
+Prop types are the exception: the barrel file does export the prop type of a subcomponent, so a consumer can type a wrapper around it.
+This covers every subcomponent a consumer can reach through the main component, such as `Table.Cell`.
+Internal subcomponents that a consumer cannot reach, such as `CalendarHeader`, keep their prop type out of the barrel file.
 
 ## Text for screen readers only
 
