@@ -6,8 +6,7 @@
 import type { CSSProperties, HTMLAttributes } from 'react'
 
 import { clsx } from 'clsx'
-import { useId, useState } from 'react'
-import { flushSync } from 'react-dom'
+import { useState } from 'react'
 
 import type {
   AnatomyBlock,
@@ -324,9 +323,7 @@ const Drawing = ({
  * Grid variants side by side. The geometry comes from the story, so the drawing follows the page it documents.
  *
  * Where there is no width for three drawings beside one another, they would take three pages of scrolling one under
- * the other, so one is drawn at a time and the buttons above choose which. Switching between them at one width is
- * also the closest look at what the Grid does that the drawing gives: the frame stays put while the page inside it
- * lays itself out again.
+ * the other, so one is drawn at a time and the buttons above choose which.
  */
 export const PageAnatomy = ({
   className,
@@ -339,26 +336,10 @@ export const PageAnatomy = ({
   ...restProps
 }: PageAnatomyProps) => {
   const [selected, setSelected] = useState<Breakpoint>('narrow')
-  // A view transition names the elements it carries across, and a documentation page may hold more than one drawing.
-  const transitionName = `ams-page-anatomy-${useId().replace(/[^a-z\d]/gi, '')}`
   const { problems, sections } = readPageAnatomy(readStoryTree(of, story), labels)
   const viewports = anatomyViewports({ menu, mode })
   const widest = viewports[viewports.length - 1]?.width ?? 0
   const drawings = viewports.map((viewport) => ({ drawn: drawnSections(sections, viewport, mode), viewport }))
-
-  /**
-   * Swaps one drawing for another. The two are of different heights, so a view transition carries the page across
-   * rather than cutting to it. React would batch the state change past the transition, which `flushSync` prevents.
-   */
-  const select = (key: Breakpoint) => {
-    if (key === selected) return
-
-    if ('startViewTransition' in document && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.startViewTransition(() => flushSync(() => setSelected(key)))
-    } else {
-      setSelected(key)
-    }
-  }
 
   return (
     <div
@@ -377,7 +358,6 @@ export const PageAnatomy = ({
             )
             .join(' '),
           '--_ams-page-anatomy-single-row': viewports.map((viewport) => `minmax(0, ${viewport.width}fr)`).join(' '),
-          '--_ams-page-anatomy-transition': transitionName,
         } as CSSProperties
       }
     >
@@ -392,7 +372,7 @@ export const PageAnatomy = ({
             aria-pressed={viewport.key === selected}
             className="_ams-page-anatomy__switch"
             key={viewport.key}
-            onClick={() => select(viewport.key)}
+            onClick={() => setSelected(viewport.key)}
             type="button"
           >
             {viewport.label}
