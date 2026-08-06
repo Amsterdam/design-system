@@ -37,6 +37,9 @@ Instead of this:
 
 Subcomponents (e.g. `Grid.Cell`) are kept in separate files (e.g. `GridCell.tsx`) and they have their own test files (e.g. `GridCell.test.tsx`). Subcomponents are imported in the main component file. We do not directly expose subcomponents to consumers, so a consumer can only import `Grid`, not `GridCell`.
 
+Their prop types are different: the barrel file does re-export those, so consumers can type a wrapper around a subcomponent.
+Subcomponents that a consumer cannot reach, such as `CalendarHeader`, do not need their prop type in the barrel file.
+
 ## Text for screen readers only
 
 Use the `ams-visually-hidden` [utility class](https://designsystem.amsterdam/?path=/docs/utilities-css-visually-hidden--docs) to hide content from sighted users but keep it accessible to non-visual user agents, such as screen readers.
