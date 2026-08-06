@@ -15,7 +15,7 @@ const meta = {
   ...commonMeta,
   title: 'Pages/Public/Home Page',
   parameters: pageParameters(
-    'The entry point of a public website, offering a broad overview of its main subjects, ' +
+    'The entry point of a public website, offering a broad overview of its main topics, ' +
       'common tasks, and recent news.',
   ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -36,7 +36,8 @@ const meta = {
       {/*
        * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
        * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
-       * between the Cells.
+       * between the Cells. The Subgrid also sets a large below itself, since the Grid no longer spaces the
+       * link that follows it.
        */}
       <Grid gapVertical="none" paddingVertical="x-large">
         <Grid.Cell span="all">
@@ -45,7 +46,7 @@ const meta = {
             {topTaskSection.title}
           </Heading>
         </Grid.Cell>
-        <Grid.Subgrid gapVertical="x-large" span="all">
+        <Grid.Subgrid className="ams-mb-l" gapVertical="x-large" span="all">
           {/*
            * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
            * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -65,6 +66,9 @@ const meta = {
             </Grid.Cell>
           ))}
         </Grid.Subgrid>
+        <Grid.Cell span="all">
+          <StandaloneLink href="#">{topTaskSection.link}</StandaloneLink>
+        </Grid.Cell>
       </Grid>
       {/*
        * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside <main>.
@@ -135,14 +139,15 @@ export const Default: StoryObj = {
   {/*
    * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
    * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
-   * between the Cells.
+   * between the Cells. The Subgrid also sets a large below itself, since the Grid no longer spaces the
+   * link that follows it.
    */}
   <Grid gapVertical="none" paddingVertical="x-large">
     <Grid.Cell span="all">
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
       <Heading className="ams-mb-m" level={2} size="level-1">{topTaskSection.title}</Heading>
     </Grid.Cell>
-    <Grid.Subgrid gapVertical="x-large" span="all">
+    <Grid.Subgrid className="ams-mb-l" gapVertical="x-large" span="all">
       {/*
        * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
        * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -162,6 +167,9 @@ export const Default: StoryObj = {
         </Grid.Cell>
       ))}
     </Grid.Subgrid>
+    <Grid.Cell span="all">
+      <StandaloneLink href="#">{topTaskSection.link}</StandaloneLink>
+    </Grid.Cell>
   </Grid>
   {/*
    * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside <main>.

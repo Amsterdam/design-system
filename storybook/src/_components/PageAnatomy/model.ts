@@ -325,20 +325,25 @@ const readCellRatio = (children: ReactNode): number | undefined => {
 /** The space tokens of the margin utilities, longest first so that `xs` is not read as an `s`. */
 const spaceAfterPattern = /(?:^|\s)ams-mb-(2xl|xl|xs|s|m|l)(?:\s|$)/
 
+/** The space token of the `ams-mb-*` utility a `className` carries, where it holds one. */
+const spaceOf = (className: unknown): SpaceToken | undefined =>
+  typeof className === 'string' ? (spaceAfterPattern.exec(className)?.[1] as SpaceToken | undefined) : undefined
+
 /**
- * The space the content of a Cell puts below itself with an `ams-mb-*` utility.
+ * The space a Grid Cell or a Grid Subgrid puts below itself with an `ams-mb-*` utility.
  *
  * A Grid that gives up its row gap leaves the spacing to that margin, so a drawing that ignored it would show a
- * heading sitting against the section it introduces. The utility goes on the content rather than on the Cell,
- * which only ever takes the props of the Grid, so this reads the last thing the Cell holds: a grid item opens an
- * independent formatting context, so the margin of that last child adds to the height of the Cell rather than
- * collapsing through it.
+ * heading sitting against the section it introduces. On a Cell the utility goes on the content rather than on the
+ * Cell, which only ever takes the props of the Grid, so this reads the last thing the Cell holds: a grid item opens
+ * an independent formatting context, so the margin of that last child adds to the height of the Cell rather than
+ * collapsing through it. A Subgrid holds Cells rather than content, so there the utility sits on the Subgrid itself.
  */
-const readSpaceAfter = (children: ReactNode): SpaceToken | undefined => {
-  const last = Children.toArray(children).filter(isValidElement).at(-1)
-  const className = last ? propsOf(last)['className'] : undefined
+const readSpaceAfter = (element: ReactElement): SpaceToken | undefined => {
+  const last = Children.toArray(propsOf(element)['children'] as ReactNode)
+    .filter(isValidElement)
+    .at(-1)
 
-  return typeof className === 'string' ? (spaceAfterPattern.exec(className)?.[1] as SpaceToken | undefined) : undefined
+  return spaceOf(propsOf(element)['className']) ?? (last ? spaceOf(propsOf(last)['className']) : undefined)
 }
 
 /**
@@ -359,7 +364,7 @@ const readCell = (element: ReactElement, columns?: Record<Breakpoint, number>): 
     height: perViewport(() => defaultBlockHeight),
     label: '',
     rowSpan: perViewport((viewport) => readColumns(rowSpan, viewport)),
-    spaceAfter: readSpaceAfter(children as ReactNode),
+    spaceAfter: readSpaceAfter(element),
     // A cell without a `span` spans a single column, as `grid-column-end: auto` does.
     span: perViewport((viewport) => readColumns(span, viewport, available(viewport)) ?? 1),
     start: perViewport((viewport) => readColumns(start, viewport, available(viewport))),

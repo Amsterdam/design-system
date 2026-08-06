@@ -15,6 +15,7 @@ export const anatomyLabels: AnatomyLabels = [
   [
     { height: 'heading', label: 'Section heading' },
     ...Array.from({ length: 8 }, (): AnatomyLabel => ({ height: 'tile', label: 'Top task' })),
+    { height: 'line', label: 'Link to all topics' },
   ],
   [
     { height: 'card', label: 'Link section' },

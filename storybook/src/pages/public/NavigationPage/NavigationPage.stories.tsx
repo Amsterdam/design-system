@@ -37,7 +37,7 @@ const meta = {
   title: 'Pages/Public/Navigation Page',
   parameters: pageParameters(
     'A signpost with little content of its own, grouping links to related pages ' +
-      'so visitors can find their way around a subject.',
+      'so visitors can find their way around a topic.',
   ),
 } satisfies Meta
 

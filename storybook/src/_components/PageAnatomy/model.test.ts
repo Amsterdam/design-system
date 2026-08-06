@@ -6,7 +6,7 @@
 import type { ImageProps } from '@amsterdam/design-system-react'
 import type { ReactNode } from 'react'
 
-import { Grid, Image, Overlap, Spotlight } from '@amsterdam/design-system-react'
+import { Grid, Heading, Image, Overlap, Spotlight } from '@amsterdam/design-system-react'
 import { createElement, Fragment } from 'react'
 import { describe, expect, it } from 'vitest'
 
@@ -111,6 +111,30 @@ describe('readPageAnatomy', () => {
 
     expect(block?.span).toEqual({ narrow: 1, medium: 1, wide: 1 })
     expect(block?.start).toEqual({ narrow: undefined, medium: undefined, wide: undefined })
+  })
+
+  it('reads the margin utility on the content of a Cell, which spaces it where the Grid has no row gap', () => {
+    const story = createElement(
+      Grid,
+      { gapVertical: 'none' },
+      cell({ children: createElement(Heading, { className: 'ams-mb-m', level: 2 }), span: 'all' }),
+    )
+
+    const [block] = readPageAnatomy(story, [['Section heading']]).sections[0]?.blocks ?? []
+
+    expect(block?.spaceAfter).toBe('m')
+  })
+
+  it('reads the margin utility on a Subgrid itself, which holds Cells rather than content', () => {
+    const story = createElement(
+      Grid,
+      { gapVertical: 'none' },
+      createElement(Grid.Subgrid, { className: 'ams-mb-l', span: 'all' }, cell({ span: 3 })),
+    )
+
+    const [block] = readPageAnatomy(story, [['Top task']]).sections[0]?.blocks ?? []
+
+    expect(block?.spaceAfter).toBe('l')
   })
 
   it('looks past wrappers such as fragments and landmark elements', () => {
