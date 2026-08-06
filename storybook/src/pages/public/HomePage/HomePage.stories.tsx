@@ -15,7 +15,7 @@ const meta = {
   ...commonMeta,
   title: 'Pages/Public/Home Page',
   parameters: pageParameters(
-    'The entry point of a public website, offering a broad overview of its main subjects, ' +
+    'The entry point of a public website, offering a broad overview of its main topics, ' +
       'common tasks, and recent news.',
   ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

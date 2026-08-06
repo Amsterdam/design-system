@@ -23,7 +23,7 @@ const meta = {
   ...commonMeta,
   title: 'Pages/Public/Information Page',
   parameters: pageParameters(
-    'Explains a subject in full: its background, the rules that apply, ' +
+    'Explains a topic in full: its background, the rules that apply, ' +
       'and what they mean for a reader who wants to understand something rather than arrange it.',
   ),
 } satisfies Meta
