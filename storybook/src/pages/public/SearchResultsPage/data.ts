@@ -31,7 +31,7 @@ export const searchResults: ReadonlyArray<SearchResult> = [
     isoDate: '2023-06-24',
     section: 'Actiecentrum Veiligheid en Zorg',
     teaser:
-      'Bewoners die stelselmatig worden lastiggevallen door buurtgenoten kunnen een melding doen. De gemeente, de politie en de woningcorporatie bekijken samen welke maatregelen nodig zijn.',
+      'Bewoners die stelselmatig worden lastiggevallen door buurtgenoten kunnen een melding doen. De gemeente, de politie en de woningcorporatie bekijken samen welke maatregelen nodig zijn om de veiligheid te herstellen.',
   },
   {
     title: 'Keurmerk Veilig Ondernemen aanvragen',
@@ -49,7 +49,7 @@ export const searchResults: ReadonlyArray<SearchResult> = [
     isoDate: '2023-06-12',
     section: 'Wonen en leefomgeving',
     teaser:
-      'Een buurtpreventieteam bestaat uit bewoners die samen met de wijkagent letten op wat er in de straat gebeurt. De gemeente ondersteunt nieuwe teams met training en materiaal.',
+      'Een buurtpreventieteam bestaat uit bewoners die samen met de wijkagent letten op de veiligheid in hun straat. De gemeente ondersteunt nieuwe teams met training en materiaal.',
   },
   {
     title: 'Cameratoezicht in de openbare ruimte',
@@ -58,7 +58,7 @@ export const searchResults: ReadonlyArray<SearchResult> = [
     isoDate: '2023-06-05',
     section: 'Beleid en regels',
     teaser:
-      'De burgemeester kan cameratoezicht instellen op plekken waar de openbare orde structureel onder druk staat. De beelden worden na 28 dagen verwijderd.',
+      'Veiligheid en openbare orde staan op sommige plekken structureel onder druk. Daar kan de burgemeester cameratoezicht instellen. De beelden worden na 28 dagen verwijderd.',
   },
   {
     title: 'Meldpunt Zorg en Woonoverlast',

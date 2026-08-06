@@ -16,6 +16,7 @@ import {
   Grid,
   Heading,
   Label,
+  Mark,
   Pagination,
   Paragraph,
   SearchField,
@@ -28,6 +29,13 @@ import { searchResults, searchTopics } from './data'
 const searchTerm = 'veiligheid'
 const totalResults = 62
 const totalPages = 8
+
+// Splitting on the term itself keeps the casing of each occurrence, so a sentence still starts with a capital.
+const markSearchTerm = (text: string) => {
+  const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')
+
+  return text.split(regex).map((part, index) => (part.match(regex) ? <Mark key={index}>{part}</Mark> : part))
+}
 
 const meta = {
   ...commonMeta,
@@ -125,10 +133,11 @@ export const Default: StoryObj = {
               </Card.Heading>
             </Card.HeadingGroup>
             <Column gap="small">
+              {/* Only the teaser marks the term: a highlight inside the title would make that link harder to read out. */}
               <Paragraph>
                 Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
-                vanuit het Actiecentrum Veiligheid en Zorg verschillende aanpakken op het snijvlak van veiligheid,
-                zorg en het sociaal domein.
+                vanuit het Actiecentrum <Mark>Veiligheid</Mark> en Zorg verschillende aanpakken op het snijvlak
+                van <Mark>veiligheid</Mark>, zorg en het sociaal domein.
               </Paragraph>
               <Paragraph size="small">
                 {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
@@ -237,7 +246,8 @@ export const Default: StoryObj = {
                     </Card.Heading>
                   </Card.HeadingGroup>
                   <Column gap="small">
-                    <Paragraph>{result.teaser}</Paragraph>
+                    {/* Only the teaser marks the term: a highlight inside the title would make that link harder to read out. */}
+                    <Paragraph>{markSearchTerm(result.teaser)}</Paragraph>
                     <Paragraph size="small">
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                       <time dateTime={result.isoDate}>{result.date}</time>
