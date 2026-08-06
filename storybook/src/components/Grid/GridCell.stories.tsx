@@ -31,10 +31,11 @@ const meta = {
     },
   },
   decorators: [
-    (Story) => (
+    (Story, context) => (
       <>
         <GridColumnsGuide />
-        <Grid paddingVertical="x-large">
+        {/* A list item belongs in a list, so the Grid around it becomes one as soon as the Cell is an `li`. */}
+        <Grid as={context.args.as === 'li' ? 'ul' : undefined} paddingVertical="x-large">
           <Story />
         </Grid>
       </>
