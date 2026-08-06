@@ -7,6 +7,7 @@ import { exampleImageSource } from '#storybook/_common/exampleContent'
 
 export const topTaskSection = {
   title: 'Direct naar',
+  link: 'Naar alle onderwerpen',
   tasks: [
     {
       title: 'Gemeentebelastingen',
