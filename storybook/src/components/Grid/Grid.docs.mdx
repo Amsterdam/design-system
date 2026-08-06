@@ -75,7 +75,14 @@ The Grid manages its own gaps; the utility classes interfere with that.
 
 ### How to use
 
+#### Sizing and placement
+
 Follow the [optimal sizes of Grid Cells](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells) for typical page sections.
+
+Ensure the `span` and `start` values for a cell never exceed the number of columns available at that breakpoint.
+The browser would add columns to fit, which breaks the layout.
+
+#### Meaningful elements
 
 Use the `as` prop to give a Grid or a Grid Cell a meaningful HTML element when one applies.
 For example, set a top-level Cell that holds the main content of the page to `as="main"`, or a sidebar Cell to `as="aside"`.
@@ -87,8 +94,7 @@ Next to a sidebar, the main content goes in its own Grid Cell.
 Give a Grid or a Subgrid `as="ul"` and the Cells inside it `as="li"` where those Cells hold the same kind of thing, such as a set of Cards.
 ‘A set of Cells as a list’ below shows how.
 
-Ensure the `span` and `start` values for a cell never exceed the number of columns available at that breakpoint.
-The browser would add columns to fit, which breaks the layout.
+#### Reading order
 
 Write the Cells in the order the content should be read, and use `start` only to decide where each one sits.
 Reading order and keyboard order follow the markup rather than the columns, so the two disagree as soon as `start` is used to reorder rather than to place.
