@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -2134,7 +2134,7 @@ Use this page for a single dated article: a news item, a press release, or a blo
 ### When not to use
 
 Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) to list several of them.
-Use an [Information Page](/docs/pages-public-information-page--docs) for a subject that stays true rather than one that happened on a date.
+Use an [Information Page](/docs/pages-public-information-page--docs) for a topic that stays true rather than one that happened on a date.
 
 ## Structure
 
@@ -11230,7 +11230,7 @@ Use this page for reference material long enough to need splitting: a personnel 
 
 ### When not to use
 
-Use an [Information Page](/docs/pages-public-information-page--docs) where a single page carries the whole subject.
+Use an [Information Page](/docs/pages-public-information-page--docs) where a single page carries the whole topic.
 
 ## Structure
 
@@ -11261,7 +11261,7 @@ The link they just activated therefore keeps focus, where a navigation rebuilt p
 
 - [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the navigation column, and how to control it.
 - [Skip Link](/docs/components-navigation-skip-link--docs) – why this page needs two.
-- [Information Page](/docs/pages-public-information-page--docs) – for a subject that fits on one page.
+- [Information Page](/docs/pages-public-information-page--docs) – for a topic that fits on one page.
 </code></pre></div>
             </div>
         </div>
@@ -11663,7 +11663,7 @@ const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/Home Page&#39;,
   parameters: pageParameters(
-    &#39;The entry point of a public website, offering a broad overview of its main subjects, &#39; +
+    &#39;The entry point of a public website, offering a broad overview of its main topics, &#39; +
       &#39;common tasks, and recent news.&#39;,
   ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -11684,7 +11684,8 @@ const meta = {
       {/*
        * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
        * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
-       * between the Cells.
+       * between the Cells. The Subgrid also sets a large below itself, since the Grid no longer spaces the
+       * link that follows it.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -11693,7 +11694,7 @@ const meta = {
             {topTaskSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/*
            * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
            * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -11713,6 +11714,9 @@ const meta = {
             &lt;/Grid.Cell&gt;
           ))}
         &lt;/Grid.Subgrid&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;{topTaskSection.link}&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       {/*
        * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -11783,14 +11787,15 @@ export const Default: StoryObj = {
   {/*
    * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
    * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
-   * between the Cells.
+   * between the Cells. The Subgrid also sets a large below itself, since the Grid no longer spaces the
+   * link that follows it.
    */}
   &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span=&quot;all&quot;&gt;
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
       &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+    &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       {/*
        * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
        * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -11810,6 +11815,9 @@ export const Default: StoryObj = {
         &lt;/Grid.Cell&gt;
       ))}
     &lt;/Grid.Subgrid&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;StandaloneLink href=&quot;#&quot;&gt;{topTaskSection.link}&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
   &lt;/Grid&gt;
   {/*
    * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -11904,7 +11912,8 @@ export const Default: StoryObj = {
     {/*
      * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
      * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
-     * between the Cells.
+     * between the Cells. The Subgrid also sets a large below itself, since the Grid no longer spaces the
+     * link that follows it.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -11913,7 +11922,7 @@ export const Default: StoryObj = {
           {topTaskSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/*
          * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
          * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -11933,6 +11942,9 @@ export const Default: StoryObj = {
           &lt;/Grid.Cell&gt;
         ))}
       &lt;/Grid.Subgrid&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;{topTaskSection.link}&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     {/*
      * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -12018,11 +12030,11 @@ This schematic shows the default sections for this page type and how the grids a
 
 ### When to use
 
-Use this page as the entry point of a website, where a visitor arrives without a subject in mind.
+Use this page as the entry point of a website, where a visitor arrives without a topic in mind.
 
 ### When not to use
 
-Use a [Navigation Page](/docs/pages-public-navigation-page--docs) for the entry point of one subject within the site.
+Use a [Navigation Page](/docs/pages-public-navigation-page--docs) for the entry point of one topic within the site.
 
 ## Structure
 
@@ -12031,7 +12043,7 @@ An Overlap runs to the full width of the page, so it is a sibling of the Grids r
 Everything below it sits on a Grid again.
 See [Page structure](/docs/pages-guidelines-page-structure--docs) for the shell around it.
 
-A home page has no single most prominent subject, so it usually has no visible level 1 [Heading](/docs/components-text-heading--docs).
+A home page has no single most prominent topic, so it usually has no visible level 1 [Heading](/docs/components-text-heading--docs).
 
 - Add a visually hidden level 1 heading with a text like ‘Homepage van (name of the organisation)’.
   Assign level 2 and a size of ‘level-1’ to the visible headings.
@@ -12041,6 +12053,8 @@ A home page has no single most prominent subject, so it usually has no visible l
 ## Layout and spacing
 
 - In Grids of Cards, use a large vertical gap.
+- Space a Standalone Link below such a Grid a large from the Cards.
+  That is less than the gap between the rows of Cards, so the link reads as part of the section above it.
 
 ## Accessibility
 
@@ -12053,7 +12067,7 @@ Card images take an empty `alt`: the heading and link beside them already name w
 
 ## See also
 
-- [Navigation Page](/docs/pages-public-navigation-page--docs) – the same job for a single subject.
+- [Navigation Page](/docs/pages-public-navigation-page--docs) – the same job for a single topic.
 - [Overlap](/docs/components-layout-overlap--docs) – the full-width opening section.
 - [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every page shares.
 </code></pre></div>
@@ -13434,7 +13448,7 @@ const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/Information Page&#39;,
   parameters: pageParameters(
-    &#39;Explains a subject in full: its background, the rules that apply, &#39; +
+    &#39;Explains a topic in full: its background, the rules that apply, &#39; +
       &#39;and what they mean for a reader who wants to understand something rather than arrange it.&#39;,
   ),
 } satisfies Meta
@@ -14326,7 +14340,7 @@ This schematic shows the default sections for this page type and how the grids a
 
 ### When to use
 
-Use this page to explain a subject a reader wants to understand: its background, the rules, and what they mean.
+Use this page to explain a topic a reader wants to understand: its background, the rules, and what they mean.
 
 ### When not to use
 
@@ -14398,7 +14412,7 @@ What a Table and a Figure each take their accessible name from is the part of th
 
 ## See also
 
-- [Product Page](/docs/pages-public-product-page--docs) – for a subject that ends in an application.
+- [Product Page](/docs/pages-public-product-page--docs) – for a topic that ends in an application.
 - [Accordion](/docs/components-containers-accordion--docs) – groups the detail questions.
 - [Table](/docs/components-containers-table--docs) – for reference data, and what its Caption is for.
 - [Figure](/docs/components-media-figure--docs) – pairs the table with its sources.
@@ -17103,7 +17117,7 @@ const meta = {
   title: &#39;Pages/Public/Navigation Page&#39;,
   parameters: pageParameters(
     &#39;A signpost with little content of its own, grouping links to related pages &#39; +
-      &#39;so visitors can find their way around a subject.&#39;,
+      &#39;so visitors can find their way around a topic.&#39;,
   ),
 } satisfies Meta
 
@@ -19111,7 +19125,7 @@ This schematic shows the default sections for this page type and how the grids a
 
 ### When to use
 
-Use this page as the entry point of one subject, where the page itself carries little content and mostly points onward.
+Use this page as the entry point of one topic, where the page itself carries little content and mostly points onward.
 
 ### When not to use
 
@@ -19131,12 +19145,12 @@ The Cards carry a heading and a link and no image, so they take 3 columns each o
 
 ### With an interactive element
 
-Adds a [Spotlight](/docs/components-containers-spotlight--docs) holding a [Search Field](/docs/components-forms-search-field--docs) and the links around it, for a subject where a visitor looks something up rather than browses to it.
+Adds a [Spotlight](/docs/components-containers-spotlight--docs) holding a [Search Field](/docs/components-forms-search-field--docs) and the links around it, for a topic where a visitor looks something up rather than browses to it.
 A full-width [Image](/docs/components-media-image--docs) closes the page.
 
 ### With an image gallery
 
-Opens with a full-width Image at a 16:5 ratio and introduces the people behind the subject as Cards that each carry a portrait.
+Opens with a full-width Image at a 16:5 ratio and introduces the people behind the topic as Cards that each carry a portrait.
 Those Card Headings are level 3, because the heading above the set is the level 2.
 A gallery of images closes the page, below the contact details.
 
@@ -23503,7 +23517,7 @@ Use this page for a product or service a resident can arrange, where the page ha
 
 ### When not to use
 
-Use an [Information Page](/docs/pages-public-information-page--docs) for a subject a reader wants to understand rather than arrange.
+Use an [Information Page](/docs/pages-public-information-page--docs) for a topic a reader wants to understand rather than arrange.
 
 ## Structure
 
@@ -23516,7 +23530,7 @@ The body ends in a [Call to Action Link](/docs/components-navigation-call-to-act
 
 ## See also
 
-- [Information Page](/docs/pages-public-information-page--docs) – for a subject with no action attached.
+- [Information Page](/docs/pages-public-information-page--docs) – for a topic with no action attached.
 - [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) – the next step this page leads to.
 - [Form Flow](/docs/pages-public-form-flow--docs) – where that next step usually goes.
 </code></pre></div>
@@ -37427,7 +37441,7 @@ Use this page for a single dated article: a news item, a press release, or a blo
 ### When not to use
 
 Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) to list several of them.
-Use an [Information Page](/docs/pages-public-information-page--docs) for a subject that stays true rather than one that happened on a date.
+Use an [Information Page](/docs/pages-public-information-page--docs) for a topic that stays true rather than one that happened on a date.
 
 ## Structure
 
@@ -39440,7 +39454,7 @@ Use this page for reference material long enough to need splitting: a personnel 
 
 ### When not to use
 
-Use an [Information Page](/docs/pages-public-information-page--docs) where a single page carries the whole subject.
+Use an [Information Page](/docs/pages-public-information-page--docs) where a single page carries the whole topic.
 
 ## Structure
 
@@ -39471,7 +39485,7 @@ The link they just activated therefore keeps focus, where a navigation rebuilt p
 
 - [Table of Contents](/docs/components-navigation-table-of-contents--docs) – the navigation column, and how to control it.
 - [Skip Link](/docs/components-navigation-skip-link--docs) – why this page needs two.
-- [Information Page](/docs/pages-public-information-page--docs) – for a subject that fits on one page.
+- [Information Page](/docs/pages-public-information-page--docs) – for a topic that fits on one page.
 </code></pre></div>
             </div>
         </div>
@@ -39544,7 +39558,7 @@ const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/Home Page&#39;,
   parameters: pageParameters(
-    &#39;The entry point of a public website, offering a broad overview of its main subjects, &#39; +
+    &#39;The entry point of a public website, offering a broad overview of its main topics, &#39; +
       &#39;common tasks, and recent news.&#39;,
   ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -39565,7 +39579,8 @@ const meta = {
       {/*
        * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
        * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
-       * between the Cells.
+       * between the Cells. The Subgrid also sets a large below itself, since the Grid no longer spaces the
+       * link that follows it.
        */}
       &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -39574,7 +39589,7 @@ const meta = {
             {topTaskSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/*
            * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
            * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -39594,6 +39609,9 @@ const meta = {
             &lt;/Grid.Cell&gt;
           ))}
         &lt;/Grid.Subgrid&gt;
+        &lt;Grid.Cell span=&quot;all&quot;&gt;
+          &lt;StandaloneLink href=&quot;#&quot;&gt;{topTaskSection.link}&lt;/StandaloneLink&gt;
+        &lt;/Grid.Cell&gt;
       &lt;/Grid&gt;
       {/*
        * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -39664,14 +39682,15 @@ export const Default: StoryObj = {
   {/*
    * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
    * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
-   * between the Cells.
+   * between the Cells. The Subgrid also sets a large below itself, since the Grid no longer spaces the
+   * link that follows it.
    */}
   &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
     &lt;Grid.Cell span=&quot;all&quot;&gt;
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
       &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+    &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       {/*
        * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
        * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -39691,6 +39710,9 @@ export const Default: StoryObj = {
         &lt;/Grid.Cell&gt;
       ))}
     &lt;/Grid.Subgrid&gt;
+    &lt;Grid.Cell span=&quot;all&quot;&gt;
+      &lt;StandaloneLink href=&quot;#&quot;&gt;{topTaskSection.link}&lt;/StandaloneLink&gt;
+    &lt;/Grid.Cell&gt;
   &lt;/Grid&gt;
   {/*
    * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -39785,7 +39807,8 @@ export const Default: StoryObj = {
     {/*
      * The row gap would put an x-large below the heading, where the guidance asks for a medium at this size.
      * So the Grid gives up its gap, the heading sets the space itself, and the Subgrid puts the gap back
-     * between the Cells.
+     * between the Cells. The Subgrid also sets a large below itself, since the Grid no longer spaces the
+     * link that follows it.
      */}
     &lt;Grid gapVertical=&quot;none&quot; paddingVertical=&quot;x-large&quot;&gt;
       &lt;Grid.Cell span=&quot;all&quot;&gt;
@@ -39794,7 +39817,7 @@ export const Default: StoryObj = {
           {topTaskSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/*
          * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
          * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -39814,6 +39837,9 @@ export const Default: StoryObj = {
           &lt;/Grid.Cell&gt;
         ))}
       &lt;/Grid.Subgrid&gt;
+      &lt;Grid.Cell span=&quot;all&quot;&gt;
+        &lt;StandaloneLink href=&quot;#&quot;&gt;{topTaskSection.link}&lt;/StandaloneLink&gt;
+      &lt;/Grid.Cell&gt;
     &lt;/Grid&gt;
     {/*
      * These highlights are part of the homepage’s own content, so the Spotlight stays a plain band inside &lt;main&gt;.
@@ -39899,11 +39925,11 @@ This schematic shows the default sections for this page type and how the grids a
 
 ### When to use
 
-Use this page as the entry point of a website, where a visitor arrives without a subject in mind.
+Use this page as the entry point of a website, where a visitor arrives without a topic in mind.
 
 ### When not to use
 
-Use a [Navigation Page](/docs/pages-public-navigation-page--docs) for the entry point of one subject within the site.
+Use a [Navigation Page](/docs/pages-public-navigation-page--docs) for the entry point of one topic within the site.
 
 ## Structure
 
@@ -39912,7 +39938,7 @@ An Overlap runs to the full width of the page, so it is a sibling of the Grids r
 Everything below it sits on a Grid again.
 See [Page structure](/docs/pages-guidelines-page-structure--docs) for the shell around it.
 
-A home page has no single most prominent subject, so it usually has no visible level 1 [Heading](/docs/components-text-heading--docs).
+A home page has no single most prominent topic, so it usually has no visible level 1 [Heading](/docs/components-text-heading--docs).
 
 - Add a visually hidden level 1 heading with a text like ‘Homepage van (name of the organisation)’.
   Assign level 2 and a size of ‘level-1’ to the visible headings.
@@ -39922,6 +39948,8 @@ A home page has no single most prominent subject, so it usually has no visible l
 ## Layout and spacing
 
 - In Grids of Cards, use a large vertical gap.
+- Space a Standalone Link below such a Grid a large from the Cards.
+  That is less than the gap between the rows of Cards, so the link reads as part of the section above it.
 
 ## Accessibility
 
@@ -39934,7 +39962,7 @@ Card images take an empty `alt`: the heading and link beside them already name w
 
 ## See also
 
-- [Navigation Page](/docs/pages-public-navigation-page--docs) – the same job for a single subject.
+- [Navigation Page](/docs/pages-public-navigation-page--docs) – the same job for a single topic.
 - [Overlap](/docs/components-layout-overlap--docs) – the full-width opening section.
 - [Page structure](/docs/pages-guidelines-page-structure--docs) – the shell every page shares.
 </code></pre></div>
@@ -40276,7 +40304,7 @@ const meta = {
   ...commonMeta,
   title: &#39;Pages/Public/Information Page&#39;,
   parameters: pageParameters(
-    &#39;Explains a subject in full: its background, the rules that apply, &#39; +
+    &#39;Explains a topic in full: its background, the rules that apply, &#39; +
       &#39;and what they mean for a reader who wants to understand something rather than arrange it.&#39;,
   ),
 } satisfies Meta
@@ -41168,7 +41196,7 @@ This schematic shows the default sections for this page type and how the grids a
 
 ### When to use
 
-Use this page to explain a subject a reader wants to understand: its background, the rules, and what they mean.
+Use this page to explain a topic a reader wants to understand: its background, the rules, and what they mean.
 
 ### When not to use
 
@@ -41240,7 +41268,7 @@ What a Table and a Figure each take their accessible name from is the part of th
 
 ## See also
 
-- [Product Page](/docs/pages-public-product-page--docs) – for a subject that ends in an application.
+- [Product Page](/docs/pages-public-product-page--docs) – for a topic that ends in an application.
 - [Accordion](/docs/components-containers-accordion--docs) – groups the detail questions.
 - [Table](/docs/components-containers-table--docs) – for reference data, and what its Caption is for.
 - [Figure](/docs/components-media-figure--docs) – pairs the table with its sources.
@@ -42220,7 +42248,7 @@ const meta = {
   title: &#39;Pages/Public/Navigation Page&#39;,
   parameters: pageParameters(
     &#39;A signpost with little content of its own, grouping links to related pages &#39; +
-      &#39;so visitors can find their way around a subject.&#39;,
+      &#39;so visitors can find their way around a topic.&#39;,
   ),
 } satisfies Meta
 
@@ -44228,7 +44256,7 @@ This schematic shows the default sections for this page type and how the grids a
 
 ### When to use
 
-Use this page as the entry point of one subject, where the page itself carries little content and mostly points onward.
+Use this page as the entry point of one topic, where the page itself carries little content and mostly points onward.
 
 ### When not to use
 
@@ -44248,12 +44276,12 @@ The Cards carry a heading and a link and no image, so they take 3 columns each o
 
 ### With an interactive element
 
-Adds a [Spotlight](/docs/components-containers-spotlight--docs) holding a [Search Field](/docs/components-forms-search-field--docs) and the links around it, for a subject where a visitor looks something up rather than browses to it.
+Adds a [Spotlight](/docs/components-containers-spotlight--docs) holding a [Search Field](/docs/components-forms-search-field--docs) and the links around it, for a topic where a visitor looks something up rather than browses to it.
 A full-width [Image](/docs/components-media-image--docs) closes the page.
 
 ### With an image gallery
 
-Opens with a full-width Image at a 16:5 ratio and introduces the people behind the subject as Cards that each carry a portrait.
+Opens with a full-width Image at a 16:5 ratio and introduces the people behind the topic as Cards that each carry a portrait.
 Those Card Headings are level 3, because the heading above the set is the level 2.
 A gallery of images closes the page, below the contact details.
 
@@ -46005,7 +46033,7 @@ Use this page for a product or service a resident can arrange, where the page ha
 
 ### When not to use
 
-Use an [Information Page](/docs/pages-public-information-page--docs) for a subject a reader wants to understand rather than arrange.
+Use an [Information Page](/docs/pages-public-information-page--docs) for a topic a reader wants to understand rather than arrange.
 
 ## Structure
 
@@ -46018,7 +46046,7 @@ The body ends in a [Call to Action Link](/docs/components-navigation-call-to-act
 
 ## See also
 
-- [Information Page](/docs/pages-public-information-page--docs) – for a subject with no action attached.
+- [Information Page](/docs/pages-public-information-page--docs) – for a topic with no action attached.
 - [Call to Action Link](/docs/components-navigation-call-to-action-link--docs) – the next step this page leads to.
 - [Form Flow](/docs/pages-public-form-flow--docs) – where that next step usually goes.
 </code></pre></div>
@@ -56469,7 +56497,7 @@ Two questions settle most of it: is the site public or internal, and does the pa
 ## Public pages that carry content
 
 The [Article Page](/docs/pages-public-article-page--docs) presents a single news item, from its headline and lead to the related reading that follows.
-The [Information Page](/docs/pages-public-information-page--docs) explains a subject that is neither a product nor a news article, for a reader who wants to understand something rather than arrange it.
+The [Information Page](/docs/pages-public-information-page--docs) explains a topic that is neither a product nor a news article, for a reader who wants to understand something rather than arrange it.
 The [Product Page](/docs/pages-public-product-page--docs) brings together everything a resident needs to know about a product or service of the City, and guides them toward the next step.
 The [Project Page](/docs/pages-public-project-page--docs) keeps residents and stakeholders informed about a construction or traffic project.
 The [Profile Page](/docs/pages-public-profile-page--docs) presents a single person, group of people, or place.
@@ -56477,7 +56505,7 @@ The [Handbook Page](/docs/pages-public-handbook-page--docs) presents long-form r
 
 ## Public pages that help people find content
 
-The [Home Page](/docs/pages-public-home-page--docs) is the entry point of a website, offering a broad overview of its main subjects, common tasks, and recent news.
+The [Home Page](/docs/pages-public-home-page--docs) is the entry point of a website, offering a broad overview of its main topics, common tasks, and recent news.
 The [Navigation Page](/docs/pages-public-navigation-page--docs) is a signpost with little content of its own, grouping links to related pages.
 The [News Overview Page](/docs/pages-public-news-overview-page--docs) lists content items that a visitor narrows down with filters.
 The [Search Results Page](/docs/pages-public-search-results-page--docs) presents what a visitor finds after searching the site, in that same filter-and-results layout.
