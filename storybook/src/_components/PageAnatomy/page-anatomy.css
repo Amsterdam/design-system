@@ -25,9 +25,6 @@
   --_ams-page-anatomy-row: minmax(0, 320fr) minmax(0, 880fr) minmax(0, 240fr);
   --_ams-page-anatomy-single-row: minmax(0, 320fr) minmax(0, 880fr) minmax(0, 1440fr);
 
-  /* The name a view transition carries the drawing across under. Each set of drawings sets one of its own. */
-  --_ams-page-anatomy-transition: ams-page-anatomy;
-
   /* One colour stands for a Spotlight, whatever colour that Spotlight is: the drawing keeps its own palette.
    * Purple is far more saturated than the azure of the space bands, so it takes a much smaller share to weigh
    * the same. The second value darkens the space inside the band, which the first one already covers. */
@@ -115,15 +112,6 @@
 
   ._ams-page-anatomy__viewport:not(._ams-page-anatomy__viewport--selected) {
     display: none;
-  }
-
-  /* The drawing that is on its way out and the one coming in are the same thing at another width, so a view
-   * transition moves between the two rather than cutting. Each set of drawings names its own. */
-  @media (prefers-reduced-motion: no-preference) {
-    ._ams-page-anatomy__viewport--selected {
-      /* stylelint-disable-next-line plugin/use-baseline -- Progressive enhancement. */
-      view-transition-name: var(--_ams-page-anatomy-transition);
-    }
   }
 
   ._ams-page-anatomy__switcher {
