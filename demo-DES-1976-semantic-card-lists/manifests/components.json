@@ -6589,7 +6589,7 @@
                 "required": false,
                 "type": {
                   "name": "enum",
-                  "raw": "\"article\" | \"main\" | \"div\" | \"section\" | \"footer\" | \"aside\" | \"header\" | \"li\" | \"nav\" | \"ol\" | \"ul\"",
+                  "raw": "\"article\" | \"main\" | \"div\" | \"section\" | \"footer\" | \"aside\" | \"header\" | \"nav\" | \"ol\" | \"ul\"",
                   "value": [
                     {
                       "value": "\"article\""
@@ -6611,9 +6611,6 @@
                     },
                     {
                       "value": "\"header\""
-                    },
-                    {
-                      "value": "\"li\""
                     },
                     {
                       "value": "\"nav\""
@@ -11687,6 +11684,6 @@
   },
   "meta": {
     "docgen": "react-component-meta",
-    "durationMs": 5404
+    "durationMs": 3464
   }
 }
