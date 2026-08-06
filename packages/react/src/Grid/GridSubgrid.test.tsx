@@ -112,10 +112,9 @@ describe('GridSubgrid', () => {
 
   gridSubgridTags.forEach((tag) => {
     it(`renders with a custom ${tag} tag`, () => {
-      const subgrid = <Grid.Subgrid aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />
-
-      // A list item only takes its role inside a list.
-      const { container } = render(tag === 'li' ? <ul>{subgrid}</ul> : subgrid)
+      const { container } = render(
+        <Grid.Subgrid aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />,
+      )
 
       const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
 

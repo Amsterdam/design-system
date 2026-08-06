@@ -20,8 +20,8 @@ export const gridSubgridGaps = ['none', 'large', 'x-large', '2x-large'] as const
 export type GridSubgridGap = (typeof gridSubgridGaps)[number]
 
 /**
- * The tags of a Grid Cell, plus the two list elements. A Subgrid can be the list a set of Cells belongs to;
- * a Cell cannot, since its children are content rather than list items.
+ * The tags of a Grid. A Subgrid can be the list a set of Cells belongs to, but never an item of one:
+ * an `li` holds content, which is what a Cell is for.
  */
 export const gridSubgridTags = [
   'article',
@@ -29,7 +29,6 @@ export const gridSubgridTags = [
   'div',
   'footer',
   'header',
-  'li',
   'main',
   'nav',
   'ol',
