@@ -1,5 +1,0 @@
-import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./jsx-runtime-ATHzeHXA.js";import{n as r,t as i}from"./SearchField-a_cW25VD.js";import{d as a,r as o}from"./argTypes-CTYEle7b.js";var s=t({Button:()=>u,__namedExportsOrder:()=>d,default:()=>l}),c,l,u,d;function f(){return(f=e((()=>{r(),a(),c=n(),l={title:`Components/Forms/Search Field`,component:i.Button,argTypes:{children:o(`The accessible name of the button.`)},decorators:[e=>(0,c.jsxs)(i,{children:[(0,c.jsx)(i.Input,{}),(0,c.jsx)(e,{})]})],render:({children:e,...t})=>(0,c.jsx)(i.Button,{...t,children:e}),tags:[`!manifest`]},u={args:{children:`Zoeken`}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
-  args: {
-    children: 'Zoeken'
-  }
-}`,...u.parameters?.docs?.source}}},d=[`Button`]})))()}export{s as n,f as r,u as t};
