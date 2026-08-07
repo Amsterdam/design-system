@@ -43,7 +43,7 @@ export const searchResults: ReadonlyArray<SearchResult> = [
       'Ondernemers in winkelgebieden kunnen meedoen aan het Keurmerk Veilig Ondernemen. Deelnemers maken samen met de politie en de brandweer afspraken over veiligheid op straat.',
   },
   {
-    title: 'Een buurtpreventieteam beginnen',
+    title: 'Veiligheid in de straat met een buurtpreventieteam',
     date: '12 juni 2023',
     id: 'buurtpreventie',
     isoDate: '2023-06-12',
@@ -52,7 +52,7 @@ export const searchResults: ReadonlyArray<SearchResult> = [
       'Een buurtpreventieteam bestaat uit bewoners die samen met de wijkagent letten op de veiligheid in hun straat. De gemeente ondersteunt nieuwe teams met training en materiaal.',
   },
   {
-    title: 'Cameratoezicht in de openbare ruimte',
+    title: 'Cameratoezicht en veiligheid in de openbare ruimte',
     date: '5 juni 2023',
     id: 'cameratoezicht',
     isoDate: '2023-06-05',

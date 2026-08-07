@@ -128,13 +128,13 @@ export const Default: StoryObj = {
         <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
           {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
           <Card>
+            {/* Every match is marked, in the title of a result as well as in its teaser. This title holds none. */}
             <Card.HeadingGroup tagline="Actiecentrum Veiligheid en Zorg">
               <Card.Heading level={3}>
                 <Card.Link href="#">Top 400/600</Card.Link>
               </Card.Heading>
             </Card.HeadingGroup>
             <Column gap="small">
-              {/* Only the teaser marks the term: a highlight inside the title would make that link harder to read out. */}
               <Paragraph>
                 Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
                 vanuit het Actiecentrum <Mark>Veiligheid</Mark> en Zorg verschillende aanpakken op het snijvlak
@@ -241,13 +241,13 @@ export const Default: StoryObj = {
               <Grid.Cell key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}>
                 {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                 <Card>
+                  {/* Every match is marked, in the title of a result as well as in its teaser. */}
                   <Card.HeadingGroup tagline={result.section}>
                     <Card.Heading level={3}>
-                      <Card.Link href="#">{result.title}</Card.Link>
+                      <Card.Link href="#">{markSearchTerm(result.title)}</Card.Link>
                     </Card.Heading>
                   </Card.HeadingGroup>
                   <Column gap="small">
-                    {/* Only the teaser marks the term: a highlight inside the title would make that link harder to read out. */}
                     <Paragraph>{markSearchTerm(result.teaser)}</Paragraph>
                     <Paragraph size="small">
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
