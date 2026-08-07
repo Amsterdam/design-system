@@ -137,12 +137,13 @@ export const Default: StoryObj = {
             <Card>
               {/*
                * Every match is marked, in the title of a result as well as in its teaser; this title holds none.
-               * The tagline names the category rather than text the search matched, so nothing in it is marked.
+               * The Metadata names the category rather than text the search matched, so nothing in it is marked.
                */}
-              <Card.HeadingGroup tagline="Actiecentrum Veiligheid en Zorg">
+              <Card.HeadingGroup>
                 <Card.Heading level={3}>
                   <Card.Link href="#">Top 400/600</Card.Link>
                 </Card.Heading>
+                <Metadata size="small">Actiecentrum Veiligheid en Zorg</Metadata>
               </Card.HeadingGroup>
               <Column gap="small">
                 <Paragraph>
@@ -261,12 +262,13 @@ export const Default: StoryObj = {
                   <Card>
                     {/*
                      * Every match is marked, in the title of a result as well as in its teaser.
-                     * The tagline names the category rather than text the search matched, so nothing in it is marked.
+                     * The Metadata names the category rather than text the search matched, so nothing in it is marked.
                      */}
-                    <Card.HeadingGroup tagline={result.section}>
+                    <Card.HeadingGroup>
                       <Card.Heading level={3}>
                         <Card.Link href="#">{markSearchTerm(result.title)}</Card.Link>
                       </Card.Heading>
+                      <Metadata size="small">{result.section}</Metadata>
                     </Card.HeadingGroup>
                     <Column gap="small">
                       <Paragraph>{markSearchTerm(result.teaser)}</Paragraph>

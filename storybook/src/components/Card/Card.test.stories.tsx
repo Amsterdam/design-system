@@ -5,6 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
+import { Metadata } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 
 import { default as cardMeta } from './Card.stories'
@@ -22,13 +23,14 @@ const NewsCard = () => (
   <Card>
     <Card.Image alt="" aspectRatio="4:3" src="https://picsum.photos/id/122/1280/720" />
     <Card.Content>
-      <Card.HeadingGroup tagline="Nieuws">
+      <Card.HeadingGroup>
         <Card.Heading level={3}>
           <Card.Link href="/">Nederlands eerste houten woonwijk komt in Zuidoost</Card.Link>
           <Card.Link className="hover" href="/">
             Nederlands eerste houten woonwijk komt in Zuidoost
           </Card.Link>
         </Card.Heading>
+        <Metadata size="small">Nieuws</Metadata>
       </Card.HeadingGroup>
       <div>
         <p>We bouwen een levendige, groene en duurzame woonbuurt tussen de Gooiseweg en het Nelson Mandelapark.</p>
