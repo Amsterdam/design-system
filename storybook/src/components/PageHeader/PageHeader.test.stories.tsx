@@ -67,7 +67,7 @@ export const Test: Story = {
     expect(menuButton).toBeInTheDocument()
   },
   /*
-   * The public stories and every brand by hand rather than a generated matrix. A matrix cannot control the
+   * The public stories render every brand by hand rather than a generated matrix. A matrix cannot control the
    * mega menu, which the interaction test below needs, and it would find no values for the two props whose
    * controls offer a choice: `logoBrand` carries the same LogoBrandConfig as Logo’s `brand`, and
    * `menuButtonIcon` offers every icon in the package. Each public story covers a prop that changes the header.
