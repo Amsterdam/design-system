@@ -136,6 +136,15 @@ describe('buildVariantMatrix', () => {
     expect(matrix.map(({ propName }) => propName)).toEqual([undefined, 'invalid'])
   })
 
+  it('keeps the tag-swapping `as` prop off the prop axis', () => {
+    const matrix = buildVariantMatrix(
+      argTypes([enumProp('as', ['article', 'div', 'section', 'ul'], 'div'), booleanProp('invalid')]),
+    )
+
+    // Alphabetically `as` comes first, so its three non-default tags would have opened the axis.
+    expect(matrix.map(({ propName }) => propName)).toEqual([undefined, 'invalid'])
+  })
+
   it('keeps a prop that is also a state off the prop axis', () => {
     const matrix = buildVariantMatrix(argTypes([booleanProp('checked'), booleanProp('disabled')]), {
       variants: ['disabled'],
