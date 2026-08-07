@@ -5,11 +5,12 @@
 
 import type { Args, Meta, StoryObj } from '@storybook/react-vite'
 
-import { Card, Grid, Heading, Paragraph, SearchField, UnorderedList } from '@amsterdam/design-system-react'
+import { Card, Heading, Paragraph, SearchField, UnorderedList } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
 import { useState } from 'react'
 
 import { childrenArgType } from '#storybook/_common/argTypes'
+import { maximiseInlineSize } from '#storybook/_common/decorators'
 
 const meta = {
   title: 'Components/Text/Mark',
@@ -98,6 +99,7 @@ const mark = (text: string, query: string, args: Args) => {
 }
 
 export const SearchResults = {
+  decorators: [maximiseInlineSize('7-of-12-columns')],
   render: (args: Args) => {
     const [query, setQuery] = useState('horeca vergunning')
 
@@ -111,34 +113,32 @@ export const SearchResults = {
     )
 
     return (
-      <Grid>
-        <Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}>
-          <SearchField className="ams-mb-m">
-            <SearchField.Input label="Zoeken" onChange={(e) => setQuery(e.target.value)} value={query} />
-            <SearchField.Button />
-          </SearchField>
-          <Paragraph className="ams-mb-xl">
-            <strong>{searchResults.length}</strong> artikelen gaan over ‘{query}’.
-          </Paragraph>
-          <UnorderedList className="ams-gap-xl" markers={false}>
-            {searchResults.map(({ category, date, fragment, heading }) => (
-              <UnorderedList.Item key={heading}>
-                <Card>
-                  <Card.HeadingGroup tagline={category}>
-                    <Heading level={2} size="level-4">
-                      <Card.Link href="#">{mark(heading, query, args)}</Card.Link>
-                    </Heading>
-                  </Card.HeadingGroup>
-                  <Paragraph className="ams-mb-xs">{mark(fragment, query, args)}</Paragraph>
-                  <Paragraph size="small">
-                    <time dateTime={date.toISOString()}>{dateFormat.format(date)}</time>
-                  </Paragraph>
-                </Card>
-              </UnorderedList.Item>
-            ))}
-          </UnorderedList>
-        </Grid.Cell>
-      </Grid>
+      <>
+        <SearchField className="ams-mb-m">
+          <SearchField.Input label="Zoeken" onChange={(e) => setQuery(e.target.value)} value={query} />
+          <SearchField.Button />
+        </SearchField>
+        <Paragraph className="ams-mb-xl">
+          <strong>{searchResults.length}</strong> artikelen gaan over ‘{query}’.
+        </Paragraph>
+        <UnorderedList className="ams-gap-xl" markers={false}>
+          {searchResults.map(({ category, date, fragment, heading }) => (
+            <UnorderedList.Item key={heading}>
+              <Card>
+                <Card.HeadingGroup tagline={category}>
+                  <Heading level={2} size="level-4">
+                    <Card.Link href="#">{mark(heading, query, args)}</Card.Link>
+                  </Heading>
+                </Card.HeadingGroup>
+                <Paragraph className="ams-mb-xs">{mark(fragment, query, args)}</Paragraph>
+                <Paragraph size="small">
+                  <time dateTime={date.toISOString()}>{dateFormat.format(date)}</time>
+                </Paragraph>
+              </Card>
+            </UnorderedList.Item>
+          ))}
+        </UnorderedList>
+      </>
     )
   },
 }
