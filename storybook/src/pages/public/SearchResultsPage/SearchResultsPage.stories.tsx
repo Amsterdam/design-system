@@ -150,7 +150,7 @@ export const Default: StoryObj = {
                   vanuit het Actiecentrum <Mark>Veiligheid</Mark> en Zorg verschillende aanpakken op het snijvlak
                   van <Mark>veiligheid</Mark>, zorg en het sociaal domein.
                 </Paragraph>
-                {/* A Card takes the small size, where a content page takes the regular one. */}
+                {/* A Card takes the small size of Metadata. */}
                 <Metadata size="small">
                   {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                   <time dateTime="2023-07-01">1 juli 2023</time>
@@ -270,7 +270,7 @@ export const Default: StoryObj = {
                     </Card.HeadingGroup>
                     <Column gap="small">
                       <Paragraph>{markSearchTerm(result.teaser)}</Paragraph>
-                      {/* A Card takes the small size, where a content page takes the regular one. */}
+                      {/* A Card takes the small size of Metadata. */}
                       <Metadata size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         <time dateTime={result.isoDate}>{result.date}</time>

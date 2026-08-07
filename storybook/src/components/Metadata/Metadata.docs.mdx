@@ -81,7 +81,7 @@ It sits directly under a title, where it has to be legible without competing wit
 The Separator holds an en dash, which CSS hides behind a square.
 Writing the dash into the page rather than drawing it entirely in CSS is what lets the line survive: it reaches a screen reader, it comes along when the line is copied, and it still reads correctly on a page whose stylesheet failed to load.
 
-The square is the shape Amsterdam Sans gives the bullet character that marks an [Unordered List](/docs/components-text-unordered-list--docs), but a much smaller one: set as text at the size the typeface draws it, that character would be far heavier than the words on either side of it.
+The square is a smaller form of the bullet that Amsterdam Sans draws for an [Unordered List](/docs/components-text-unordered-list--docs).
 
 The square takes its colour from the text rather than carrying one of its own, so the inverse colour needs no second value to keep in step.
 
@@ -91,13 +91,11 @@ This makes vertical rhythm a property of the layout rather than of the component
 ## Accessibility
 
 A Metadata renders a `p` element, so a screen reader moves through it as one paragraph.
+That lets it sit in the heading group of a [Card](/docs/components-navigation-card--docs), where HTML allows only a heading and paragraphs.
 
 Each Separator renders a `span` holding an en dash, hidden behind a square by CSS but left in the accessibility tree.
-Someone who does not see the line therefore hears the same division as someone who does, rather than one unbroken run of text.
+Someone who does not see the line therefore hears the same division as someone who does.
 That is what [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks of a grouping that would otherwise exist only in the styling.
-
-A Metadata renders a paragraph rather than a list, because it has to be able to sit in the heading group of a [Card](/docs/components-navigation-card--docs), where HTML allows only a heading and paragraphs.
-The dash carries the grouping in its place.
 
 ## See also
 
