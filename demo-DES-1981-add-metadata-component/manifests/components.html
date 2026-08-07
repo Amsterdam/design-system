@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/87 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/87 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/297 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">124 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/87 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/87 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/298 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">124 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1508,12 +1508,10 @@ const meta = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-            {/* One Item per kind of metadata; this article is dated but not categorised, so there is one. */}
+            {/* A Separator goes between two kinds of metadata; this article is dated but not categorised, so it needs none. */}
             &lt;Metadata&gt;
-              &lt;Metadata.Item&gt;
-                {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-              &lt;/Metadata.Item&gt;
+              {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+              &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
             &lt;/Metadata&gt;
             &lt;Paragraph size=&quot;large&quot;&gt;
               Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
@@ -1713,12 +1711,10 @@ export const Default: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the title, the date, and the lead of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-        {/* One Item per kind of metadata; this article is dated but not categorised, so there is one. */}
+        {/* A Separator goes between two kinds of metadata; this article is dated but not categorised, so it needs none. */}
         &lt;Metadata&gt;
-          &lt;Metadata.Item&gt;
-            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-            &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-          &lt;/Metadata.Item&gt;
+          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+          &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
         &lt;/Metadata&gt;
         &lt;Paragraph size=&quot;large&quot;&gt;
           Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters
@@ -1926,12 +1922,10 @@ export const Default: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-          {/* One Item per kind of metadata; this article is dated but not categorised, so there is one. */}
+          {/* A Separator goes between two kinds of metadata; this article is dated but not categorised, so it needs none. */}
           &lt;Metadata&gt;
-            &lt;Metadata.Item&gt;
-              {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-              &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-            &lt;/Metadata.Item&gt;
+            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+            &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
           &lt;/Metadata&gt;
           &lt;Paragraph size=&quot;large&quot;&gt;
             Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
@@ -4298,13 +4292,13 @@ That is the distinction the underline makes visually and the element makes for e
               
               
               <pre><code>Expected render to be an arrow function or function expression
-  107 |   argTypes: Default.argTypes,
-  108 |   decorators: [wrapInInlineSizeQueryContainer(undefined, { inlineSize: &#39;56rem&#39;, maxInlineSize: &#39;100%&#39; })],
-&gt; 109 |   render: Default.render,
+  105 |   argTypes: Default.argTypes,
+  106 |   decorators: [wrapInInlineSizeQueryContainer(undefined, { inlineSize: &#39;56rem&#39;, maxInlineSize: &#39;100%&#39; })],
+&gt; 107 |   render: Default.render,
       |           ^^^^^^^^^^^^^^
-  110 | }
-  111 |
-  112 | export const TopTasks: Story = {</code></pre>
+  108 | }
+  109 |
+  110 | export const TopTasks: Story = {</code></pre>
             </div>
           
           
@@ -4340,9 +4334,7 @@ import { Column, Grid, Metadata, Paragraph } from "@amsterdam/design-system-reac
         &lt;/Card.HeadingGroup&gt;
         &lt;Column gap=&quot;small&quot;&gt;
             &lt;Paragraph&gt;{text}&lt;/Paragraph&gt;
-            &lt;Metadata size=&quot;small&quot;&gt;
-                &lt;Metadata.Item&gt;{date}&lt;/Metadata.Item&gt;
-            &lt;/Metadata&gt;
+            &lt;Metadata size=&quot;small&quot;&gt;{date}&lt;/Metadata&gt;
         &lt;/Column&gt;
     &lt;/Card.Content&gt;
 &lt;/Card&gt;;</code></pre>
@@ -13539,9 +13531,9 @@ export const Default: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-        {/* Categories are values of one kind, so they share an Item and a comma separates them. */}
+        {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
         &lt;Metadata&gt;
-          &lt;Metadata.Item&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata.Item&gt;
+          Evenementen, Natuur en groen, Vergunningen
         &lt;/Metadata&gt;
       &lt;/Grid.Cell&gt;
       {/*
@@ -13671,10 +13663,8 @@ export const Default: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-            {/* Categories are values of one kind, so they share an Item and a comma separates them. */}
-            &lt;Metadata&gt;
-              &lt;Metadata.Item&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata.Item&gt;
-            &lt;/Metadata&gt;
+            {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+            &lt;Metadata&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata&gt;
           &lt;/Grid.Cell&gt;
           {/*
            * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -13808,13 +13798,12 @@ export const WithTable: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-        {/* Date and categories are two kinds of metadata, so each takes an Item and Metadata separates them. */}
+        {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
         &lt;Metadata&gt;
-          &lt;Metadata.Item&gt;
-            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-            &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
-          &lt;/Metadata.Item&gt;
-          &lt;Metadata.Item&gt;Belastingen, Wonen, WOZ&lt;/Metadata.Item&gt;
+          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+          &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+          &lt;Metadata.Separator /&gt;
+          Belastingen, Wonen, WOZ
         &lt;/Metadata&gt;
         &lt;Paragraph size=&quot;large&quot;&gt;
           De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
@@ -13947,13 +13936,12 @@ export const WithTable: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-            {/* Date and categories are two kinds of metadata, so each takes an Item and Metadata separates them. */}
+            {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
             &lt;Metadata&gt;
-              &lt;Metadata.Item&gt;
-                {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
-              &lt;/Metadata.Item&gt;
-              &lt;Metadata.Item&gt;Belastingen, Wonen, WOZ&lt;/Metadata.Item&gt;
+              {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+              &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+              &lt;Metadata.Separator /&gt;
+              Belastingen, Wonen, WOZ
             &lt;/Metadata&gt;
             &lt;Paragraph size=&quot;large&quot;&gt;
               De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
@@ -14128,10 +14116,8 @@ export const WithTable: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-          {/* Categories are values of one kind, so they share an Item and a comma separates them. */}
-          &lt;Metadata&gt;
-            &lt;Metadata.Item&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata.Item&gt;
-          &lt;/Metadata&gt;
+          {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+          &lt;Metadata&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata&gt;
         &lt;/Grid.Cell&gt;
         {/*
          * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -14269,13 +14255,12 @@ export const WithTable: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-          {/* Date and categories are two kinds of metadata, so each takes an Item and Metadata separates them. */}
+          {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
           &lt;Metadata&gt;
-            &lt;Metadata.Item&gt;
-              {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-              &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
-            &lt;/Metadata.Item&gt;
-            &lt;Metadata.Item&gt;Belastingen, Wonen, WOZ&lt;/Metadata.Item&gt;
+            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+            &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+            &lt;Metadata.Separator /&gt;
+            Belastingen, Wonen, WOZ
           &lt;/Metadata&gt;
           &lt;Paragraph size=&quot;large&quot;&gt;
             De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
@@ -14456,7 +14441,7 @@ Note that the whole caption becomes the accessible name of the Figure, so keep i
 
 - The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
 - The Content Header contains the title and a [Metadata](/docs/components-text-metadata--docs) that classifies the page: taxonomy tags, optionally preceded by a date.
-  The tags are comma-separated terms within a single Item, not links.
+  The tags are comma-separated terms, not links, so no Separator sits between them.
 - The body holds several sections, each opening with a level 2 Heading.
 - The Content Header Grid holds the title and the metadata in one Cell.
   Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
@@ -16748,9 +16733,7 @@ import { Mark } from "@amsterdam/design-system-react/src";</code></pre>
       bij de gemeente. Vooraf moet u een Bibobformulier …
     &lt;/Paragraph&gt;
     &lt;Metadata size=&quot;small&quot;&gt;
-      &lt;Metadata.Item&gt;
-        &lt;time dateTime=&quot;2023-08-03&quot;&gt;3 augustus 2023&lt;/time&gt;
-      &lt;/Metadata.Item&gt;
+      &lt;time dateTime=&quot;2023-08-03&quot;&gt;3 augustus 2023&lt;/time&gt;
     &lt;/Metadata&gt;
   &lt;/Card&gt;
 );</code></pre>
@@ -17112,7 +17095,7 @@ linkComponent?: ElementType | undefined</code></pre>
       <div class="badges">
         <label for="c-49-components-text-metadata-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-49-components-text-metadata-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-49-components-text-metadata-stories" class="badge ok as-toggle">4 stories</label>
         <label for="c-49-components-text-metadata-docs" class="badge ok as-toggle">1 doc</label>
         <label for="c-49-components-text-metadata-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
@@ -17175,11 +17158,21 @@ size?: &quot;small&quot;</code></pre>
               
               
               <pre><code>const Default = () =&gt; &lt;Metadata&gt;{[
-      &lt;Metadata.Item key={1}&gt;
-        &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
-      &lt;/Metadata.Item&gt;,
-      &lt;Metadata.Item key={2}&gt;Belastingen, Wonen, WOZ&lt;/Metadata.Item&gt;,
+      &lt;time dateTime=&quot;2026-01-01&quot; key={1}&gt;
+        1 januari 2026
+      &lt;/time&gt;,
+      &lt;Metadata.Separator key={2} /&gt;,
+      &#39;Belastingen, Wonen, WOZ&#39;,
     ]}&lt;/Metadata&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">One Kind Of Metadata</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const OneKindOfMetadata = () =&gt; &lt;Metadata&gt;&lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;&lt;/Metadata&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -17189,10 +17182,11 @@ size?: &quot;small&quot;</code></pre>
               
               
               <pre><code>const SmallText = () =&gt; &lt;Metadata size=&quot;small&quot;&gt;{[
-      &lt;Metadata.Item key={1}&gt;
-        &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
-      &lt;/Metadata.Item&gt;,
-      &lt;Metadata.Item key={2}&gt;Belastingen, Wonen, WOZ&lt;/Metadata.Item&gt;,
+      &lt;time dateTime=&quot;2026-01-01&quot; key={1}&gt;
+        1 januari 2026
+      &lt;/time&gt;,
+      &lt;Metadata.Separator key={2} /&gt;,
+      &#39;Belastingen, Wonen, WOZ&#39;,
     ]}&lt;/Metadata&gt;;</code></pre>
             </div>
             <div class="note ok">
@@ -17203,10 +17197,11 @@ size?: &quot;small&quot;</code></pre>
               
               
               <pre><code>const InverseColour = () =&gt; &lt;Metadata color=&quot;inverse&quot;&gt;{[
-      &lt;Metadata.Item key={1}&gt;
-        &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
-      &lt;/Metadata.Item&gt;,
-      &lt;Metadata.Item key={2}&gt;Belastingen, Wonen, WOZ&lt;/Metadata.Item&gt;,
+      &lt;time dateTime=&quot;2026-01-01&quot; key={1}&gt;
+        1 januari 2026
+      &lt;/time&gt;,
+      &lt;Metadata.Separator key={2} /&gt;,
+      &#39;Belastingen, Wonen, WOZ&#39;,
     ]}&lt;/Metadata&gt;;</code></pre>
             </div>
         </div>
@@ -17220,7 +17215,7 @@ size?: &quot;small&quot;</code></pre>
                 <span class="badge ok">doc ok</span>
               </div>
               <div class="hint">./src/components/Metadata/Metadata.docs.mdx</div>
-              <div>## Subcomponents Metadata has one subcomponent: Item. Each Item holds one kind of metadata...</div>
+              <div>## Subcomponents Metadata has one subcomponent: Separator. Put one between two kinds of me...</div>
               <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
 
 import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
@@ -17242,8 +17237,8 @@ import * as MetadataStories from &quot;./Metadata.stories.tsx&quot;;
 
 ## Subcomponents
 
-Metadata has one subcomponent: Item.
-Each Item holds one kind of metadata, and the component draws a separator between them.
+Metadata has one subcomponent: Separator.
+Put one between two kinds of metadata; a Metadata that holds a single kind needs none.
 
 ## Usage guidelines
 
@@ -17269,7 +17264,7 @@ The visible date is prose, and `dateTime` repeats it in the machine-readable for
 
 ### How to write
 
-Give each kind of metadata its own Item, and separate the values within one kind with a comma.
+Separate two kinds of metadata with a Separator, and the values within one kind with a comma.
 In ‘1 januari 2026’ and ‘Belastingen, Wonen, WOZ’ there are two kinds, the second of which holds three categories.
 
 Keep every value short enough to read at a glance.
@@ -17279,6 +17274,12 @@ The separator is not read aloud, so say in the words themselves whatever the gro
 Anything a reader can only get from the way the line is divided is unavailable to someone who does not see it, which is what [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks you to avoid.
 
 ## Examples
+
+### One kind of metadata
+
+A Metadata that holds only a date, or only categories, needs no Separator.
+
+&lt;Canvas of={MetadataStories.OneKindOfMetadata} /&gt;
 
 ### Small text
 
@@ -17298,8 +17299,10 @@ This ensures the colour of the text provides enough contrast.
 Metadata is set in the secondary text colour, a grey against the near-black of body text.
 It sits directly under a title, where it has to be legible without competing with the words it supports.
 
-The separator is drawn by CSS, so it can never be forgotten or typed differently from one page to the next.
-It is a square, the shape Amsterdam Sans gives the bullet character that marks an [Unordered List](/docs/components-text-unordered-list--docs), but a much smaller one: set as text at the size the typeface draws it, that character would be far heavier than the words on either side of it.
+The Separator holds an en dash, which CSS hides behind a square.
+Writing the dash into the page rather than drawing it entirely in CSS is what lets the line survive: it reaches a screen reader, it comes along when the line is copied, and it still reads correctly on a page whose stylesheet failed to load.
+
+The square is the shape Amsterdam Sans gives the bullet character that marks an [Unordered List](/docs/components-text-unordered-list--docs), but a much smaller one: set as text at the size the typeface draws it, that character would be far heavier than the words on either side of it.
 
 The square takes its colour from the text rather than carrying one of its own, so the inverse colour needs no second value to keep in step.
 
@@ -17310,12 +17313,11 @@ This makes vertical rhythm a property of the layout rather than of the component
 
 A Metadata renders a `p` element, so a screen reader moves through it as one paragraph.
 
-Each Item renders a `span`, which is generic in the accessibility tree, and the separators are backgrounds on empty pseudo-elements.
-Nothing therefore marks one kind of metadata off from the next for anyone who does not see the line: it is announced as a single run of text.
+Each Separator renders a `span` holding an en dash, hidden behind a square by CSS but left in the accessibility tree.
+Someone who does not see the line therefore hears the same division as someone who does, rather than one unbroken run of text.
 
-A list would carry that grouping, the way an [Unordered List](/docs/components-text-unordered-list--docs) does.
-A Metadata renders a paragraph instead because it has to be able to sit in the heading group of a [Card](/docs/components-navigation-card--docs), where HTML allows only a heading and paragraphs.
-The grouping is therefore visual, and ‘How to write’ covers what that asks of the wording.
+A Metadata renders a paragraph rather than a list, because it has to be able to sit in the heading group of a [Card](/docs/components-navigation-card--docs), where HTML allows only a heading and paragraphs.
+The dash carries the grouping in its place.
 
 ## See also
 
@@ -17333,14 +17335,14 @@ The grouping is therefore visual, and ‘How to write’ covers what that asks o
           
     <div class="note ok">
       <div class="row">
-        <span class="ex-name">Metadata.Item</span>
+        <span class="ex-name">Metadata.Separator</span>
         <span class="badge ok">
           no prop types
         </span>
       </div>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
-      <div class="hint">One kind of metadata, separated from the next by a separator.</div>
+      <div class="hint">Sets one kind of metadata apart from the next.</div>
       <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-text-metadata--docs Metadata docs at Amsterdam Design System}</span></div>
       <pre><code>import { Metadata } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
@@ -20216,10 +20218,8 @@ export const Default: StoryObj = {
                   &lt;/Paragraph&gt;
                   {/* A Card takes the small size, where a content page takes the regular one. */}
                   &lt;Metadata size=&quot;small&quot;&gt;
-                    &lt;Metadata.Item&gt;
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      &lt;time dateTime=&quot;2023-10-20&quot;&gt;20 oktober 2023&lt;/time&gt;
-                    &lt;/Metadata.Item&gt;
+                    {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                    &lt;time dateTime=&quot;2023-10-20&quot;&gt;20 oktober 2023&lt;/time&gt;
                   &lt;/Metadata&gt;
                 &lt;/Column&gt;
               &lt;/Card.Content&gt;
@@ -20363,10 +20363,8 @@ export const Default: StoryObj = {
                         &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
                         {/* A Card takes the small size, where a content page takes the regular one. */}
                         &lt;Metadata size=&quot;small&quot;&gt;
-                          &lt;Metadata.Item&gt;
-                            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                            &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                          &lt;/Metadata.Item&gt;
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
                         &lt;/Metadata&gt;
                       &lt;/Column&gt;
                     &lt;/Card.Content&gt;
@@ -20556,10 +20554,8 @@ export const Default: StoryObj = {
                       &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
                       {/* A Card takes the small size, where a content page takes the regular one. */}
                       &lt;Metadata size=&quot;small&quot;&gt;
-                        &lt;Metadata.Item&gt;
-                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                          &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                        &lt;/Metadata.Item&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
                       &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card.Content&gt;
@@ -31985,10 +31981,8 @@ export const Default: StoryObj = {
                 &lt;/Paragraph&gt;
                 {/* A Card takes the small size, where a content page takes the regular one. */}
                 &lt;Metadata size=&quot;small&quot;&gt;
-                  &lt;Metadata.Item&gt;
-                    {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                    &lt;time dateTime=&quot;2023-07-01&quot;&gt;1 juli 2023&lt;/time&gt;
-                  &lt;/Metadata.Item&gt;
+                  {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                  &lt;time dateTime=&quot;2023-07-01&quot;&gt;1 juli 2023&lt;/time&gt;
                 &lt;/Metadata&gt;
               &lt;/Column&gt;
             &lt;/Card&gt;
@@ -32107,10 +32101,8 @@ export const Default: StoryObj = {
                       &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                       {/* A Card takes the small size, where a content page takes the regular one. */}
                       &lt;Metadata size=&quot;small&quot;&gt;
-                        &lt;Metadata.Item&gt;
-                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                          &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                        &lt;/Metadata.Item&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
                       &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card&gt;
@@ -32281,10 +32273,8 @@ export const Default: StoryObj = {
                     &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                     {/* A Card takes the small size, where a content page takes the regular one. */}
                     &lt;Metadata size=&quot;small&quot;&gt;
-                      &lt;Metadata.Item&gt;
-                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                      &lt;/Metadata.Item&gt;
+                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                      &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
                     &lt;/Metadata&gt;
                   &lt;/Column&gt;
                 &lt;/Card&gt;
@@ -37137,12 +37127,10 @@ const meta = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-            {/* One Item per kind of metadata; this article is dated but not categorised, so there is one. */}
+            {/* A Separator goes between two kinds of metadata; this article is dated but not categorised, so it needs none. */}
             &lt;Metadata&gt;
-              &lt;Metadata.Item&gt;
-                {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-              &lt;/Metadata.Item&gt;
+              {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+              &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
             &lt;/Metadata&gt;
             &lt;Paragraph size=&quot;large&quot;&gt;
               Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
@@ -37342,12 +37330,10 @@ export const Default: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the title, the date, and the lead of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-        {/* One Item per kind of metadata; this article is dated but not categorised, so there is one. */}
+        {/* A Separator goes between two kinds of metadata; this article is dated but not categorised, so it needs none. */}
         &lt;Metadata&gt;
-          &lt;Metadata.Item&gt;
-            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-            &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-          &lt;/Metadata.Item&gt;
+          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+          &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
         &lt;/Metadata&gt;
         &lt;Paragraph size=&quot;large&quot;&gt;
           Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters
@@ -37555,12 +37541,10 @@ export const Default: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-          {/* One Item per kind of metadata; this article is dated but not categorised, so there is one. */}
+          {/* A Separator goes between two kinds of metadata; this article is dated but not categorised, so it needs none. */}
           &lt;Metadata&gt;
-            &lt;Metadata.Item&gt;
-              {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-              &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-            &lt;/Metadata.Item&gt;
+            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+            &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
           &lt;/Metadata&gt;
           &lt;Paragraph size=&quot;large&quot;&gt;
             Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
@@ -40690,9 +40674,9 @@ export const Default: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-        {/* Categories are values of one kind, so they share an Item and a comma separates them. */}
+        {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
         &lt;Metadata&gt;
-          &lt;Metadata.Item&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata.Item&gt;
+          Evenementen, Natuur en groen, Vergunningen
         &lt;/Metadata&gt;
       &lt;/Grid.Cell&gt;
       {/*
@@ -40822,10 +40806,8 @@ export const Default: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-            {/* Categories are values of one kind, so they share an Item and a comma separates them. */}
-            &lt;Metadata&gt;
-              &lt;Metadata.Item&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata.Item&gt;
-            &lt;/Metadata&gt;
+            {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+            &lt;Metadata&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata&gt;
           &lt;/Grid.Cell&gt;
           {/*
            * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -40959,13 +40941,12 @@ export const WithTable: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-        {/* Date and categories are two kinds of metadata, so each takes an Item and Metadata separates them. */}
+        {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
         &lt;Metadata&gt;
-          &lt;Metadata.Item&gt;
-            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-            &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
-          &lt;/Metadata.Item&gt;
-          &lt;Metadata.Item&gt;Belastingen, Wonen, WOZ&lt;/Metadata.Item&gt;
+          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+          &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+          &lt;Metadata.Separator /&gt;
+          Belastingen, Wonen, WOZ
         &lt;/Metadata&gt;
         &lt;Paragraph size=&quot;large&quot;&gt;
           De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
@@ -41098,13 +41079,12 @@ export const WithTable: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-            {/* Date and categories are two kinds of metadata, so each takes an Item and Metadata separates them. */}
+            {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
             &lt;Metadata&gt;
-              &lt;Metadata.Item&gt;
-                {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
-              &lt;/Metadata.Item&gt;
-              &lt;Metadata.Item&gt;Belastingen, Wonen, WOZ&lt;/Metadata.Item&gt;
+              {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+              &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+              &lt;Metadata.Separator /&gt;
+              Belastingen, Wonen, WOZ
             &lt;/Metadata&gt;
             &lt;Paragraph size=&quot;large&quot;&gt;
               De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
@@ -41279,10 +41259,8 @@ export const WithTable: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-          {/* Categories are values of one kind, so they share an Item and a comma separates them. */}
-          &lt;Metadata&gt;
-            &lt;Metadata.Item&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata.Item&gt;
-          &lt;/Metadata&gt;
+          {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+          &lt;Metadata&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata&gt;
         &lt;/Grid.Cell&gt;
         {/*
          * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -41420,13 +41398,12 @@ export const WithTable: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-          {/* Date and categories are two kinds of metadata, so each takes an Item and Metadata separates them. */}
+          {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
           &lt;Metadata&gt;
-            &lt;Metadata.Item&gt;
-              {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-              &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
-            &lt;/Metadata.Item&gt;
-            &lt;Metadata.Item&gt;Belastingen, Wonen, WOZ&lt;/Metadata.Item&gt;
+            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+            &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+            &lt;Metadata.Separator /&gt;
+            Belastingen, Wonen, WOZ
           &lt;/Metadata&gt;
           &lt;Paragraph size=&quot;large&quot;&gt;
             De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
@@ -41607,7 +41584,7 @@ Note that the whole caption becomes the accessible name of the Figure, so keep i
 
 - The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
 - The Content Header contains the title and a [Metadata](/docs/components-text-metadata--docs) that classifies the page: taxonomy tags, optionally preceded by a date.
-  The tags are comma-separated terms within a single Item, not links.
+  The tags are comma-separated terms, not links, so no Separator sits between them.
 - The body holds several sections, each opening with a level 2 Heading.
 - The Content Header Grid holds the title and the metadata in one Cell.
   Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
@@ -45401,10 +45378,8 @@ export const Default: StoryObj = {
                   &lt;/Paragraph&gt;
                   {/* A Card takes the small size, where a content page takes the regular one. */}
                   &lt;Metadata size=&quot;small&quot;&gt;
-                    &lt;Metadata.Item&gt;
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      &lt;time dateTime=&quot;2023-10-20&quot;&gt;20 oktober 2023&lt;/time&gt;
-                    &lt;/Metadata.Item&gt;
+                    {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                    &lt;time dateTime=&quot;2023-10-20&quot;&gt;20 oktober 2023&lt;/time&gt;
                   &lt;/Metadata&gt;
                 &lt;/Column&gt;
               &lt;/Card.Content&gt;
@@ -45548,10 +45523,8 @@ export const Default: StoryObj = {
                         &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
                         {/* A Card takes the small size, where a content page takes the regular one. */}
                         &lt;Metadata size=&quot;small&quot;&gt;
-                          &lt;Metadata.Item&gt;
-                            {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                            &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                          &lt;/Metadata.Item&gt;
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
                         &lt;/Metadata&gt;
                       &lt;/Column&gt;
                     &lt;/Card.Content&gt;
@@ -45741,10 +45714,8 @@ export const Default: StoryObj = {
                       &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
                       {/* A Card takes the small size, where a content page takes the regular one. */}
                       &lt;Metadata size=&quot;small&quot;&gt;
-                        &lt;Metadata.Item&gt;
-                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                          &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                        &lt;/Metadata.Item&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
                       &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card.Content&gt;
@@ -52807,10 +52778,8 @@ export const Default: StoryObj = {
                 &lt;/Paragraph&gt;
                 {/* A Card takes the small size, where a content page takes the regular one. */}
                 &lt;Metadata size=&quot;small&quot;&gt;
-                  &lt;Metadata.Item&gt;
-                    {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                    &lt;time dateTime=&quot;2023-07-01&quot;&gt;1 juli 2023&lt;/time&gt;
-                  &lt;/Metadata.Item&gt;
+                  {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                  &lt;time dateTime=&quot;2023-07-01&quot;&gt;1 juli 2023&lt;/time&gt;
                 &lt;/Metadata&gt;
               &lt;/Column&gt;
             &lt;/Card&gt;
@@ -52929,10 +52898,8 @@ export const Default: StoryObj = {
                       &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                       {/* A Card takes the small size, where a content page takes the regular one. */}
                       &lt;Metadata size=&quot;small&quot;&gt;
-                        &lt;Metadata.Item&gt;
-                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                          &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                        &lt;/Metadata.Item&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
                       &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card&gt;
@@ -53103,10 +53070,8 @@ export const Default: StoryObj = {
                     &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                     {/* A Card takes the small size, where a content page takes the regular one. */}
                     &lt;Metadata size=&quot;small&quot;&gt;
-                      &lt;Metadata.Item&gt;
-                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                      &lt;/Metadata.Item&gt;
+                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                      &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
                     &lt;/Metadata&gt;
                   &lt;/Column&gt;
                 &lt;/Card&gt;
@@ -54092,9 +54057,7 @@ Add one of the [Margin](/docs/utilities-css-margin--docs) utility classes (`ams-
   &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
     Met korting van A naar B op de deelscooter of -bakfiets
   &lt;/Heading&gt;
-  &lt;Metadata className=&quot;ams-mb-m&quot;&gt;
-    &lt;Metadata.Item&gt;29 juli 2025&lt;/Metadata.Item&gt;
-  &lt;/Metadata&gt;
+  &lt;Metadata className=&quot;ams-mb-m&quot;&gt;29 juli 2025&lt;/Metadata&gt;
   &lt;Paragraph size=&quot;large&quot;&gt;
     Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
     Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -54109,9 +54072,7 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
 ```tsx
 &lt;article className=&quot;ams-prose&quot;&gt;
   &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-  &lt;Metadata&gt;
-    &lt;Metadata.Item&gt;29 juli 2025&lt;/Metadata.Item&gt;
-  &lt;/Metadata&gt;
+  &lt;Metadata&gt;29 juli 2025&lt;/Metadata&gt;
   &lt;Paragraph size=&quot;large&quot;&gt;
     Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
     Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
