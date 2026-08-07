@@ -9,8 +9,6 @@ import { Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
 import { gridGaps } from '@amsterdam/design-system-react/src/Grid/Grid'
 
-import { renderComponentVariants } from '#storybook/_common/renderComponentVariants'
-
 import { default as breakoutMeta } from './Breakout.stories'
 
 const meta = {
@@ -50,9 +48,16 @@ export const Test: Story = {
       </Breakout.Cell>,
     ],
   },
-  render: (args, context) => (
+  /*
+   * One composition rather than every variant of every prop. A Breakout takes the gaps, paddings and tags of a
+   * Grid, which snapshots all of them, so only what a Breakout does with them is worth a picture of its own:
+   * a figure that widens past its columns, and a Spotlight that reaches exactly into the gap around it.
+   */
+  render: (args) => (
     <>
-      {renderComponentVariants(Breakout, { args }, context)}
+      <p>A figure and a Spotlight breaking out</p>
+      <Breakout {...args} />
+      <p>Each row gap, cancelled by its own offset</p>
       <div className="_ams-tests-stack">
         {gaps.map((gap) => (
           // The vertical padding is the largest one, so each Spotlight escapes into its own Breakout
