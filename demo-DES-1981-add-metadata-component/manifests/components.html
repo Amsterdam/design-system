@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.7s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -17270,9 +17270,6 @@ In ‘1 januari 2026’ and ‘Belastingen, Wonen, WOZ’ there are two kinds, t
 Keep every value short enough to read at a glance.
 The line is scanned rather than read, and a long value in the middle of it hides the ones on either side.
 
-The separator is not read aloud, so say in the words themselves whatever the grouping is meant to convey.
-Anything a reader can only get from the way the line is divided is unavailable to someone who does not see it, which is what [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks you to avoid.
-
 ## Examples
 
 ### One kind of metadata
@@ -17315,6 +17312,7 @@ A Metadata renders a `p` element, so a screen reader moves through it as one par
 
 Each Separator renders a `span` holding an en dash, hidden behind a square by CSS but left in the accessibility tree.
 Someone who does not see the line therefore hears the same division as someone who does, rather than one unbroken run of text.
+That is what [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks of a grouping that would otherwise exist only in the styling.
 
 A Metadata renders a paragraph rather than a list, because it has to be able to sit in the heading group of a [Card](/docs/components-navigation-card--docs), where HTML allows only a heading and paragraphs.
 The dash carries the grouping in its place.
