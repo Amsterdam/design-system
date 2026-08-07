@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.4s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -16669,7 +16669,7 @@ import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Card, Heading, Paragraph, SearchField, UnorderedList } from "@amsterdam/design-system-react";
+                <pre><code>import { Card, Heading, Paragraph } from "@amsterdam/design-system-react";
 import { Mark } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
@@ -16696,47 +16696,25 @@ import { Mark } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const SearchResults = (args: Args) =&gt; {
-  const [query, setQuery] = useState(&#39;horeca vergunning&#39;)
-
-  const searchResults = articles.filter(({ fragment, heading }) =&gt;
-    [fragment, heading].some((text) =&gt;
-      query
-        .split(/\s+/)
-        .filter(Boolean)
-        .some((word) =&gt; text.toLowerCase().includes(word.toLowerCase())),
-    ),
-  )
-
-  return (
-    &lt;&gt;
-      &lt;SearchField className=&quot;ams-mb-m&quot;&gt;
-        &lt;SearchField.Input label=&quot;Zoeken&quot; onChange={(e) =&gt; setQuery(e.target.value)} value={query} /&gt;
-        &lt;SearchField.Button /&gt;
-      &lt;/SearchField&gt;
-      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
-        &lt;strong&gt;{searchResults.length}&lt;/strong&gt; artikelen gaan over ‘{query}’.
-      &lt;/Paragraph&gt;
-      &lt;UnorderedList className=&quot;ams-gap-xl&quot; markers={false}&gt;
-        {searchResults.map(({ category, date, fragment, heading }) =&gt; (
-          &lt;UnorderedList.Item key={heading}&gt;
-            &lt;Card&gt;
-              &lt;Card.HeadingGroup tagline={category}&gt;
-                &lt;Heading level={2} size=&quot;level-4&quot;&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;{mark(heading, query, args)}&lt;/Card.Link&gt;
-                &lt;/Heading&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Paragraph className=&quot;ams-mb-xs&quot;&gt;{mark(fragment, query, args)}&lt;/Paragraph&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;
-                &lt;time dateTime={date.toISOString()}&gt;{dateFormat.format(date)}&lt;/time&gt;
-              &lt;/Paragraph&gt;
-            &lt;/Card&gt;
-          &lt;/UnorderedList.Item&gt;
-        ))}
-      &lt;/UnorderedList&gt;
-    &lt;/&gt;
-  )
-};</code></pre>
+              <pre><code>const SearchResults = () =&gt; (
+  &lt;Card&gt;
+    {/* The category is a label rather than text the search matched, so the word in it stays unmarked. */}
+    &lt;Card.HeadingGroup tagline=&quot;Vergunningen&quot;&gt;
+      &lt;Heading level={2} size=&quot;level-4&quot;&gt;
+        &lt;Card.Link href=&quot;#&quot;&gt;
+          &lt;Mark&gt;Vergunning&lt;/Mark&gt; vechtsportevenementen
+        &lt;/Card.Link&gt;
+      &lt;/Heading&gt;
+    &lt;/Card.HeadingGroup&gt;
+    &lt;Paragraph className=&quot;ams-mb-xs&quot;&gt;
+      Voor de organisatie van grootschalige vechtsportgala’s in Amsterdam moet u een &lt;Mark&gt;vergunning&lt;/Mark&gt; aanvragen
+      bij de gemeente. Vooraf moet u een Bibobformulier …
+    &lt;/Paragraph&gt;
+    &lt;Paragraph size=&quot;small&quot;&gt;
+      &lt;time dateTime=&quot;2023-08-03&quot;&gt;3 augustus 2023&lt;/time&gt;
+    &lt;/Paragraph&gt;
+  &lt;/Card&gt;
+);</code></pre>
             </div>
         </div>
     
@@ -16811,8 +16789,10 @@ Rewrite a heading that needs emphasis rather than highlighting part of it.
 
 ### Search results
 
-Every match of every keyword is highlighted, in the heading of a result as well as in its summary.
-The category above each heading stays unmarked, so the third result shows an unmarked ‘Vergunningen’ above a heading that marks the same word.
+One result of a search for ‘vergunning’, with every match highlighted in the heading as well as in the summary.
+The category above the heading is a label rather than text the search matched, so the word stays unmarked there.
+
+The [Search Results Page](/docs/pages-public-search-results-page--docs) puts this to work on a whole list of results.
 
 &lt;Canvas of={MarkStories.SearchResults} /&gt;
 
@@ -32104,8 +32084,10 @@ Highlighting the term inside it leaves the name the link is announced with uncha
 ## See also
 
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for one content type.
-- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way.
+- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way, a state the results here do not use yet.
 - [Search Field](/docs/components-forms-search-field--docs) – the field this page repeats.
+- [Mark](/docs/components-text-mark--docs) – the highlight on a matched word, and the rules it follows.
+- [Semantic list of cards](/docs/components-layout-grid--docs#semantic-list-of-cards) – the `ul` Subgrid the results sit in.
 </code></pre></div>
             </div>
         </div>
@@ -52864,8 +52846,10 @@ Highlighting the term inside it leaves the name the link is announced with uncha
 ## See also
 
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for one content type.
-- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way.
+- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way, a state the results here do not use yet.
 - [Search Field](/docs/components-forms-search-field--docs) – the field this page repeats.
+- [Mark](/docs/components-text-mark--docs) – the highlight on a matched word, and the rules it follows.
+- [Semantic list of cards](/docs/components-layout-grid--docs#semantic-list-of-cards) – the `ul` Subgrid the results sit in.
 </code></pre></div>
             </div>
         </div>
