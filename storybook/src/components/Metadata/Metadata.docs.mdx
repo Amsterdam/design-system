@@ -1,0 +1,104 @@
+{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from "@storybook/addon-docs/blocks";
+
+import { DesignTokensTable } from "#storybook/_components/DesignTokensTable/DesignTokensTable";
+import tokens from "#tokens/components/ams/metadata.tokens.json";
+
+import * as MetadataStories from "./Metadata.stories.tsx";
+
+<Meta of={MetadataStories} />
+
+<Title />
+
+<Description of={MetadataStories} />
+
+<Primary />
+
+<Controls />
+
+## Subcomponents
+
+Metadata has one subcomponent: Item.
+Each Item holds one kind of metadata, and the component draws a separator between them.
+
+## Usage guidelines
+
+### When to use
+
+Use Metadata for the supporting facts about a piece of content: the date it was published, the categories it belongs to, or both.
+
+### When not to use
+
+Do not use Metadata for running text, or for a standalone fragment that says something in its own right.
+That is a [Paragraph](/docs/components-text-paragraph--docs).
+
+Do not use it to draw attention to a status or a count, which is what a [Badge](/docs/components-feedback-badge--docs) is for.
+
+### How to use
+
+Place a Metadata directly below the [Heading](/docs/components-text-heading--docs) of a content page, above the lead paragraph.
+
+Use the regular size there, and the small size inside a [Card](/docs/components-navigation-card--docs), where the metadata sits among smaller text.
+
+Wrap a date in a `time` element with a `dateTime` attribute.
+The visible date is prose, and `dateTime` repeats it in the machine-readable format software parses.
+
+### How to write
+
+Give each kind of metadata its own Item, and separate the values within one kind with a comma.
+In ‘1 januari 2026’ and ‘Belastingen, Wonen, WOZ’ there are two kinds, the second of which holds three categories.
+
+Keep every value short enough to read at a glance.
+The line is scanned rather than read, and a long value in the middle of it hides the ones on either side.
+
+The separator is not read aloud, so say in the words themselves whatever the grouping is meant to convey.
+Anything a reader can only get from the way the line is divided is unavailable to someone who does not see it, which is what [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks you to avoid.
+
+## Examples
+
+### Small text
+
+Use the small size in a Card, where the metadata sits beside a teaser rather than under the title of a page.
+
+<Canvas of={MetadataStories.SmallText} />
+
+### Inverse colour
+
+Use the inverse colour if the Metadata sits on a dark background.
+This ensures the colour of the text provides enough contrast.
+
+<Canvas of={MetadataStories.InverseColour} />
+
+## Design
+
+Metadata is set in the secondary text colour, a grey against the near-black of body text.
+It sits directly under a title, where it has to be legible without competing with the words it supports.
+
+The separator is drawn by CSS, so it can never be forgotten or typed differently from one page to the next.
+It is a square, the shape Amsterdam Sans gives the bullet character that marks an [Unordered List](/docs/components-text-unordered-list--docs), but a much smaller one: set as text at the size the typeface draws it, that character would be far heavier than the words on either side of it.
+
+The square takes its colour from the text rather than carrying one of its own, so the inverse colour needs no second value to keep in step.
+
+A Metadata has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Prose](/docs/utilities-css-prose--docs) provides it.
+
+## Accessibility
+
+A Metadata renders a `p` element, so a screen reader moves through it as one paragraph.
+
+Each Item renders a `span`, which is generic in the accessibility tree, and the separators are backgrounds on empty pseudo-elements.
+Nothing therefore marks one kind of metadata off from the next for anyone who does not see the line: it is announced as a single run of text.
+
+A list would carry that grouping, the way an [Unordered List](/docs/components-text-unordered-list--docs) does.
+A Metadata renders a paragraph instead because it has to be able to sit in the heading group of a [Card](/docs/components-navigation-card--docs), where HTML allows only a heading and paragraphs.
+The grouping is therefore visual, and ‘How to write’ covers what that asks of the wording.
+
+## See also
+
+- [Paragraph](/docs/components-text-paragraph--docs) – for running text and other standalone text fragments.
+- [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
+
+## Design tokens
+
+<DesignTokensTable tokens={tokens} />
