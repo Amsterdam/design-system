@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/294 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/87 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/87 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/298 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">124 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.8s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -1443,13 +1443,13 @@ Both are reinforcement for a message the heading and text already carry, as desc
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  23 | import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
-  24 |
-&gt; 25 | const meta = {
+  24 | import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
+  25 |
+&gt; 26 | const meta = {
      | ^
-  26 |   ...commonMeta,
-  27 |   title: &#39;Pages/Public/Article Page&#39;,
-  28 |   parameters: pageParameters(
+  27 |   ...commonMeta,
+  28 |   title: &#39;Pages/Public/Article Page&#39;,
+  29 |   parameters: pageParameters(
 
 ./src/pages/public/ArticlePage/ArticlePage.stories.tsx:
 /**
@@ -1467,6 +1467,7 @@ import {
   Image,
   Link,
   LinkList,
+  Metadata,
   Paragraph,
   Spotlight,
   StandaloneLink,
@@ -1507,10 +1508,10 @@ const meta = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-            &lt;Paragraph&gt;
+            &lt;Metadata&gt;
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
               &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-            &lt;/Paragraph&gt;
+            &lt;/Metadata&gt;
             &lt;Paragraph size=&quot;large&quot;&gt;
               Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
               -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -1709,10 +1710,10 @@ export const Default: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the title, the date, and the lead of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-        &lt;Paragraph&gt;
+        &lt;Metadata&gt;
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
           &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-        &lt;/Paragraph&gt;
+        &lt;/Metadata&gt;
         &lt;Paragraph size=&quot;large&quot;&gt;
           Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters
           en -bakfietsen.
@@ -1881,6 +1882,7 @@ export const Default: StoryObj = {
     Image,
     Link,
     LinkList,
+    Metadata,
     Paragraph,
     Spotlight,
     StandaloneLink,
@@ -1918,10 +1920,10 @@ export const Default: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-          &lt;Paragraph&gt;
+          &lt;Metadata&gt;
             {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
             &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-          &lt;/Paragraph&gt;
+          &lt;/Metadata&gt;
           &lt;Paragraph size=&quot;large&quot;&gt;
             Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
             -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -2139,7 +2141,7 @@ Use an [Information Page](/docs/pages-public-information-page--docs) for a topic
 ## Structure
 
 - The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the article content.
-- The Content Header contains the title, a Metadata Paragraph with the publication date, and the lead paragraph.
+- The Content Header contains the title, a [Metadata](/docs/components-text-metadata--docs) with the publication date, and the lead paragraph.
 - A full-width hero [Image](/docs/components-media-image--docs) separates the Content Header from the body.
   It uses a 16:5 aspect ratio.
 - The body ends with a [Link List](/docs/components-navigation-link-list--docs) of related articles.
@@ -4302,7 +4304,7 @@ That is the distinction the underline makes visually and the element makes for e
                   <span class="ex-name">Imports</span>
                 </div>
                 <pre><code>import { Card } from "@amsterdam/design-system-react/src";
-import { Column, Grid, Paragraph } from "@amsterdam/design-system-react";</code></pre>
+import { Column, Grid, Metadata, Paragraph } from "@amsterdam/design-system-react";</code></pre>
               </div>
           
           
@@ -4329,7 +4331,7 @@ import { Column, Grid, Paragraph } from "@amsterdam/design-system-react";</code>
         &lt;/Card.HeadingGroup&gt;
         &lt;Column gap=&quot;small&quot;&gt;
             &lt;Paragraph&gt;{text}&lt;/Paragraph&gt;
-            &lt;Paragraph size=&quot;small&quot;&gt;{date}&lt;/Paragraph&gt;
+            &lt;Metadata size=&quot;small&quot;&gt;{date}&lt;/Metadata&gt;
         &lt;/Column&gt;
     &lt;/Card.Content&gt;
 &lt;/Card&gt;;</code></pre>
@@ -13457,13 +13459,13 @@ Assistive technology therefore announces the thumbnails as tabs without being ab
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  20 | import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
-  21 |
-&gt; 22 | const meta = {
+  21 | import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
+  22 |
+&gt; 23 | const meta = {
      | ^
-  23 |   ...commonMeta,
-  24 |   title: &#39;Pages/Public/Information Page&#39;,
-  25 |   parameters: pageParameters(
+  24 |   ...commonMeta,
+  25 |   title: &#39;Pages/Public/Information Page&#39;,
+  26 |   parameters: pageParameters(
 
 ./src/pages/public/InformationPage/InformationPage.stories.tsx:
 /**
@@ -13481,6 +13483,7 @@ import {
   Heading,
   Image,
   Link,
+  Metadata,
   Paragraph,
   Table,
 } from &#39;@amsterdam/design-system-react&#39;
@@ -13521,11 +13524,14 @@ export const Default: StoryObj = {
   &lt;main id=&quot;inhoud&quot;&gt;
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
+      {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata. */}
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-        &lt;Paragraph&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Paragraph&gt;
+        {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+        &lt;Metadata&gt;
+          Evenementen, Natuur en groen, Vergunningen
+        &lt;/Metadata&gt;
       &lt;/Grid.Cell&gt;
       {/*
        * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -13646,7 +13652,7 @@ export const Default: StoryObj = {
       &lt;main id=&quot;inhoud&quot;&gt;
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
+          {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata. */}
           {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
           &lt;Grid.Cell
             className=&quot;ams-prose&quot;
@@ -13654,7 +13660,8 @@ export const Default: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-            &lt;Paragraph&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Paragraph&gt;
+            {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+            &lt;Metadata&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata&gt;
           &lt;/Grid.Cell&gt;
           {/*
            * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -13788,10 +13795,13 @@ export const WithTable: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-        &lt;Paragraph&gt;
+        {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
+        &lt;Metadata&gt;
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-          &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt; – Belastingen, Wonen, WOZ
-        &lt;/Paragraph&gt;
+          &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+          &lt;Metadata.Separator /&gt;
+          Belastingen, Wonen, WOZ
+        &lt;/Metadata&gt;
         &lt;Paragraph size=&quot;large&quot;&gt;
           De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
           worden vastgelegd, is landelijk bepaald. Zo betekent een gegeven in Amsterdam hetzelfde als in elke andere
@@ -13923,10 +13933,13 @@ export const WithTable: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-            &lt;Paragraph&gt;
+            {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
+            &lt;Metadata&gt;
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-              &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt; – Belastingen, Wonen, WOZ
-            &lt;/Paragraph&gt;
+              &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+              &lt;Metadata.Separator /&gt;
+              Belastingen, Wonen, WOZ
+            &lt;/Metadata&gt;
             &lt;Paragraph size=&quot;large&quot;&gt;
               De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
               worden vastgelegd, is landelijk bepaald. Zo betekent een gegeven in Amsterdam hetzelfde als in elke andere
@@ -14061,6 +14074,7 @@ export const WithTable: StoryObj = {
     Heading,
     Image,
     Link,
+    Metadata,
     Paragraph,
     Table,
 } from "@amsterdam/design-system-react";</code></pre>
@@ -14091,7 +14105,7 @@ export const WithTable: StoryObj = {
     &lt;main id=&quot;inhoud&quot;&gt;
       {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
       &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
+        {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata. */}
         {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
         &lt;Grid.Cell
           className=&quot;ams-prose&quot;
@@ -14099,7 +14113,8 @@ export const WithTable: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-          &lt;Paragraph&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Paragraph&gt;
+          {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+          &lt;Metadata&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata&gt;
         &lt;/Grid.Cell&gt;
         {/*
          * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -14237,10 +14252,13 @@ export const WithTable: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-          &lt;Paragraph&gt;
+          {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
+          &lt;Metadata&gt;
             {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-            &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt; – Belastingen, Wonen, WOZ
-          &lt;/Paragraph&gt;
+            &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+            &lt;Metadata.Separator /&gt;
+            Belastingen, Wonen, WOZ
+          &lt;/Metadata&gt;
           &lt;Paragraph size=&quot;large&quot;&gt;
             De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
             worden vastgelegd, is landelijk bepaald. Zo betekent een gegeven in Amsterdam hetzelfde als in elke andere
@@ -14419,8 +14437,8 @@ Note that the whole caption becomes the accessible name of the Figure, so keep i
 ## Structure
 
 - The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
-- The Content Header contains the title and a Metadata Paragraph that classifies the page: taxonomy tags, optionally preceded by a date.
-  The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
+- The Content Header contains the title and a [Metadata](/docs/components-text-metadata--docs) that classifies the page: taxonomy tags, optionally preceded by a date.
+  The tags are comma-separated terms of a single kind, so no Separator sits between them.
 - The body holds several sections, each opening with a level 2 Heading.
 - The Content Header Grid holds the title and the metadata in one Cell.
   Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
@@ -16670,7 +16688,7 @@ import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Card, Heading, Paragraph } from "@amsterdam/design-system-react";
+                <pre><code>import { Card, Heading, Metadata, Paragraph } from "@amsterdam/design-system-react";
 import { Mark } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
@@ -16711,9 +16729,9 @@ import { Mark } from "@amsterdam/design-system-react/src";</code></pre>
       Voor de organisatie van grootschalige vechtsportgala’s in Amsterdam moet u een &lt;Mark&gt;vergunning&lt;/Mark&gt; aanvragen
       bij de gemeente. Vooraf moet u een Bibobformulier …
     &lt;/Paragraph&gt;
-    &lt;Paragraph size=&quot;small&quot;&gt;
+    &lt;Metadata size=&quot;small&quot;&gt;
       &lt;time dateTime=&quot;2023-08-03&quot;&gt;3 augustus 2023&lt;/time&gt;
-    &lt;/Paragraph&gt;
+    &lt;/Metadata&gt;
   &lt;/Card&gt;
 );</code></pre>
             </div>
@@ -17062,6 +17080,273 @@ linkComponent?: ElementType | undefined</code></pre>
 </article>
 <article
   class="card 
+  no-error 
+  no-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
+  aria-label="Metadata">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Metadata</h2>
+      <div class="badges">
+        <label for="c-49-components-text-metadata-props" class="badge ok as-toggle">2 prop types</label>
+        
+        <label for="c-49-components-text-metadata-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-49-components-text-metadata-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-49-components-text-metadata-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/components/Metadata/Metadata.stories.tsx">components-text-metadata · ./src/components/Metadata/Metadata.stories.tsx</div>
+    
+    <div class="hint">Supporting information about a piece of content, such as the date it was published or the categories it belongs to.</div>
+    <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-text-metadata--docs Metadata docs at Amsterdam Design System}</span></div>
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  
+  
+  <input id="c-49-components-text-metadata-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-49-components-text-metadata-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-49-components-text-metadata-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-49-components-text-metadata-props" class="tg tg-props" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+    
+        <div class="panel panel-props">
+          <div class="note ok">
+            <div class="row">
+              <span class="ex-name">Prop types <small>(react-component-meta)</small></span>
+              <span class="badge ok">2 prop types</span>
+            </div>
+            <pre><code>Component: ../packages/react/src/index.ts::Metadata</code></pre>
+            <pre><code>Props:</code></pre>
+            <pre><code>/**
+ * Changes the text colour for readability on a dark background.
+ */
+color?: &quot;inverse&quot;
+
+/**
+ * The size of the text.
+ */
+size?: &quot;small&quot;</code></pre>
+          </div>
+        </div>
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { Metadata } from "@amsterdam/design-system-react/src";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; &lt;Metadata&gt;{[
+      &lt;time dateTime=&quot;2026-01-01&quot; key={1}&gt;
+        1 januari 2026
+      &lt;/time&gt;,
+      &lt;Metadata.Separator key={2} /&gt;,
+      &#39;Belastingen, Wonen, WOZ&#39;,
+    ]}&lt;/Metadata&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">One Kind Of Metadata</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const OneKindOfMetadata = () =&gt; &lt;Metadata&gt;&lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;&lt;/Metadata&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Small Text</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const SmallText = () =&gt; &lt;Metadata size=&quot;small&quot;&gt;{[
+      &lt;time dateTime=&quot;2026-01-01&quot; key={1}&gt;
+        1 januari 2026
+      &lt;/time&gt;,
+      &lt;Metadata.Separator key={2} /&gt;,
+      &#39;Belastingen, Wonen, WOZ&#39;,
+    ]}&lt;/Metadata&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Inverse Colour</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const InverseColour = () =&gt; &lt;Metadata color=&quot;inverse&quot;&gt;{[
+      &lt;time dateTime=&quot;2026-01-01&quot; key={1}&gt;
+        1 januari 2026
+      &lt;/time&gt;,
+      &lt;Metadata.Separator key={2} /&gt;,
+      &#39;Belastingen, Wonen, WOZ&#39;,
+    ]}&lt;/Metadata&gt;;</code></pre>
+            </div>
+        </div>
+    
+        <div class="panel panel-docs">
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Docs</span>
+                <span class="badge ok">doc ok</span>
+              </div>
+              <div class="hint">./src/components/Metadata/Metadata.docs.mdx</div>
+              <div>## Subcomponents Metadata has one subcomponent: Separator. Put one between two kinds of me...</div>
+              <div class="mdx-content"><pre><code>{/* @license CC0-1.0 */}
+
+import { Canvas, Controls, Description, Meta, Primary, Title } from &quot;@storybook/addon-docs/blocks&quot;;
+
+import { DesignTokensTable } from &quot;#storybook/_components/DesignTokensTable/DesignTokensTable&quot;;
+import tokens from &quot;#tokens/components/ams/metadata.tokens.json&quot;;
+
+import * as MetadataStories from &quot;./Metadata.stories.tsx&quot;;
+
+&lt;Meta of={MetadataStories} /&gt;
+
+&lt;Title /&gt;
+
+&lt;Description of={MetadataStories} /&gt;
+
+&lt;Primary /&gt;
+
+&lt;Controls /&gt;
+
+## Subcomponents
+
+Metadata has one subcomponent: Separator.
+Put one between two kinds of metadata; a Metadata that holds a single kind needs none.
+
+## Usage guidelines
+
+### When to use
+
+Use Metadata for the supporting facts about a piece of content: the date it was published, the categories it belongs to, or both.
+
+### When not to use
+
+Do not use Metadata for running text, or for a standalone fragment that says something in its own right.
+That is a [Paragraph](/docs/components-text-paragraph--docs).
+
+Do not use it to draw attention to a status or a count, which is what a [Badge](/docs/components-feedback-badge--docs) is for.
+
+### How to use
+
+Place a Metadata directly below the [Heading](/docs/components-text-heading--docs) of a content page, above the lead paragraph.
+
+Use the regular size there, and the small size inside a [Card](/docs/components-navigation-card--docs), where the metadata sits among smaller text.
+
+Wrap a date in a `time` element with a `dateTime` attribute.
+The visible date is prose, and `dateTime` repeats it in the machine-readable format software parses.
+
+### How to write
+
+Separate two kinds of metadata with a Separator, and the values within one kind with a comma.
+In ‘1 januari 2026’ and ‘Belastingen, Wonen, WOZ’ there are two kinds, the second of which holds three categories.
+
+Keep every value short enough to read at a glance.
+The line is scanned rather than read, and a long value in the middle of it hides the ones on either side.
+
+## Examples
+
+### One kind of metadata
+
+A Metadata that holds only a date, or only categories, needs no Separator.
+
+&lt;Canvas of={MetadataStories.OneKindOfMetadata} /&gt;
+
+### Small text
+
+Use the small size in a Card, where the metadata sits beside a teaser rather than under the title of a page.
+
+&lt;Canvas of={MetadataStories.SmallText} /&gt;
+
+### Inverse colour
+
+Use the inverse colour if the Metadata sits on a dark background.
+This ensures the colour of the text provides enough contrast.
+
+&lt;Canvas of={MetadataStories.InverseColour} /&gt;
+
+## Design
+
+Metadata is set in the secondary text colour, a grey against the near-black of body text.
+It sits directly under a title, where it has to be legible without competing with the words it supports.
+
+The Separator holds an en dash, which CSS hides behind a square.
+Writing the dash into the page rather than drawing it entirely in CSS is what lets the line survive: it reaches a screen reader, it comes along when the line is copied, and it still reads correctly on a page whose stylesheet failed to load.
+
+The square is a smaller form of the bullet that Amsterdam Sans draws for an [Unordered List](/docs/components-text-unordered-list--docs).
+
+The square takes its colour from the text rather than carrying one of its own, so the inverse colour needs no second value to keep in step.
+
+A Metadata has no vertical margins of its own.
+This makes vertical rhythm a property of the layout rather than of the component, which is why [Prose](/docs/utilities-css-prose--docs) provides it.
+
+## Accessibility
+
+A Metadata renders a `p` element, so a screen reader moves through it as one paragraph.
+That lets it sit in the heading group of a [Card](/docs/components-navigation-card--docs), where HTML allows only a heading and paragraphs.
+
+Each Separator renders a `span` holding an en dash, hidden behind a square by CSS but left in the accessibility tree.
+Someone who does not see the line therefore hears the same division as someone who does.
+That is what [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) asks of a grouping that would otherwise exist only in the styling.
+
+## See also
+
+- [Paragraph](/docs/components-text-paragraph--docs) – for running text and other standalone text fragments.
+- [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
+
+## Design tokens
+
+&lt;DesignTokensTable tokens={tokens} /&gt;
+</code></pre></div>
+            </div>
+        </div>
+    
+        <div class="panel panel-subcomponents">
+          
+    <div class="note ok">
+      <div class="row">
+        <span class="ex-name">Metadata.Separator</span>
+        <span class="badge ok">
+          no prop types
+        </span>
+      </div>
+      <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
+      
+      <div class="hint">Sets one kind of metadata apart from the next.</div>
+      <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-text-metadata--docs Metadata docs at Amsterdam Design System}</span></div>
+      <pre><code>import { Metadata } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
+      
+      
+    </div>
+  
+        </div>
+  </div>
+</article>
+<article
+  class="card 
   has-error 
   has-info 
   no-story-error
@@ -17072,10 +17357,10 @@ linkComponent?: ElementType | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-49-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-49-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-49-pages-public-navigation-page-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-49-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-50-pages-public-navigation-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-50-pages-public-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-50-pages-public-navigation-page-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-50-pages-public-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -17086,10 +17371,10 @@ linkComponent?: ElementType | undefined</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-49-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-49-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-49-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-49-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-50-pages-public-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-50-pages-public-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-50-pages-public-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-50-pages-public-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -19257,10 +19542,10 @@ The suffix follows the visible label, so that label stays a contiguous part of t
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NavigationPage</h2>
       <div class="badges">
-        <label for="c-50-pages-internal-navigation-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-50-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-50-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-50-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-51-pages-internal-navigation-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-51-pages-internal-navigation-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-51-pages-internal-navigation-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-51-pages-internal-navigation-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -19271,10 +19556,10 @@ The suffix follows the visible label, so that label stays a contiguous part of t
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-50-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-50-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-50-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-50-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-51-pages-internal-navigation-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-51-pages-internal-navigation-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-51-pages-internal-navigation-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-51-pages-internal-navigation-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -19711,10 +19996,10 @@ That is the cost of the layout recorded above, and the part of this template sti
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NewsOverviewPage</h2>
       <div class="badges">
-        <label for="c-51-pages-public-news-overview-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-51-pages-public-news-overview-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-51-pages-public-news-overview-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-51-pages-public-news-overview-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-52-pages-public-news-overview-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-52-pages-public-news-overview-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-52-pages-public-news-overview-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-52-pages-public-news-overview-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -19725,10 +20010,10 @@ That is the cost of the layout recorded above, and the part of this template sti
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-51-pages-public-news-overview-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-51-pages-public-news-overview-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-51-pages-public-news-overview-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-51-pages-public-news-overview-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-52-pages-public-news-overview-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-52-pages-public-news-overview-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-52-pages-public-news-overview-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-52-pages-public-news-overview-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -19739,13 +20024,13 @@ That is the cost of the layout recorded above, and the part of this template sti
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  48 | const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm}’ met soort nieuws ${quotedList(selectedCategories)} en ${districtPhrase}.`
-  49 |
-&gt; 50 | const meta = {
+  49 | const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm}’ met soort nieuws ${quotedList(selectedCategories)} en ${districtPhrase}.`
+  50 |
+&gt; 51 | const meta = {
      | ^
-  51 |   ...commonMeta,
-  52 |   title: &#39;Pages/Public/News Overview Page&#39;,
-  53 |   parameters: pageParameters(
+  52 |   ...commonMeta,
+  53 |   title: &#39;Pages/Public/News Overview Page&#39;,
+  54 |   parameters: pageParameters(
 
 ./src/pages/public/NewsOverviewPage/NewsOverviewPage.stories.tsx:
 /**
@@ -19766,6 +20051,7 @@ import {
   Grid,
   Heading,
   Label,
+  Metadata,
   Pagination,
   Paragraph,
   SearchField,
@@ -19923,10 +20209,11 @@ export const Default: StoryObj = {
                     Tussen 3 juni en 21 juli leggen we het tramspoor op de Berlagebrug aan. De brug is ongeveer 12
                     nachten dicht voor gemotoriseerd verkeer en in 3 nachten voor al het verkeer.
                   &lt;/Paragraph&gt;
-                  &lt;Paragraph size=&quot;small&quot;&gt;
+                  {/* A Card takes the small size of Metadata. */}
+                  &lt;Metadata size=&quot;small&quot;&gt;
                     {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                     &lt;time dateTime=&quot;2023-10-20&quot;&gt;20 oktober 2023&lt;/time&gt;
-                  &lt;/Paragraph&gt;
+                  &lt;/Metadata&gt;
                 &lt;/Column&gt;
               &lt;/Card.Content&gt;
             &lt;/Card&gt;
@@ -20067,10 +20354,11 @@ export const Default: StoryObj = {
                       &lt;/Card.HeadingGroup&gt;
                       &lt;Column gap=&quot;small&quot;&gt;
                         &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
-                        &lt;Paragraph size=&quot;small&quot;&gt;
+                        {/* A Card takes the small size of Metadata. */}
+                        &lt;Metadata size=&quot;small&quot;&gt;
                           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                           &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                        &lt;/Paragraph&gt;
+                        &lt;/Metadata&gt;
                       &lt;/Column&gt;
                     &lt;/Card.Content&gt;
                   &lt;/Card&gt;
@@ -20123,6 +20411,7 @@ export const Default: StoryObj = {
     Grid,
     Heading,
     Label,
+    Metadata,
     Pagination,
     Paragraph,
     SearchField,
@@ -20256,10 +20545,11 @@ export const Default: StoryObj = {
                     &lt;/Card.HeadingGroup&gt;
                     &lt;Column gap=&quot;small&quot;&gt;
                       &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
-                      &lt;Paragraph size=&quot;small&quot;&gt;
+                      {/* A Card takes the small size of Metadata. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                      &lt;/Paragraph&gt;
+                      &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card.Content&gt;
                 &lt;/Card&gt;
@@ -20409,10 +20699,10 @@ A screen reader then announces how many there are and which one it is on, and ca
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> OrderedList</h2>
       <div class="badges">
-        <label for="c-52-components-text-ordered-list-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-53-components-text-ordered-list-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-52-components-text-ordered-list-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-52-components-text-ordered-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-53-components-text-ordered-list-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-53-components-text-ordered-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -20425,10 +20715,10 @@ A screen reader then announces how many there are and which one it is on, and ca
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-52-components-text-ordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-52-components-text-ordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-53-components-text-ordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-53-components-text-ordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-52-components-text-ordered-list-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-53-components-text-ordered-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -20691,8 +20981,8 @@ That is the point of the variant: the sequence still reaches assistive technolog
       <div class="badges">
         
         
-        <label for="c-53-components-layout-overlap-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-53-components-layout-overlap-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-54-components-layout-overlap-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-54-components-layout-overlap-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -20705,8 +20995,8 @@ That is the point of the variant: the sequence still reaches assistive technolog
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-53-components-layout-overlap-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-53-components-layout-overlap-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-54-components-layout-overlap-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-54-components-layout-overlap-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -20844,10 +21134,10 @@ The visual arrangement and the reading order cannot drift apart here, which is t
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Page</h2>
       <div class="badges">
-        <label for="c-54-components-containers-page-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-55-components-containers-page-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-54-components-containers-page-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-54-components-containers-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-55-components-containers-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-55-components-containers-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -20860,10 +21150,10 @@ The visual arrangement and the reading order cannot drift apart here, which is t
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-54-components-containers-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-54-components-containers-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-55-components-containers-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-55-components-containers-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-54-components-containers-page-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-55-components-containers-page-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -21089,9 +21379,9 @@ The children are still announced and reached by keyboard in the order they are w
       <div class="badges">
         
         
-        <label for="c-55-components-containers-page-footer-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-55-components-containers-page-footer-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-55-components-containers-page-footer-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-56-components-containers-page-footer-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-56-components-containers-page-footer-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-56-components-containers-page-footer-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/PageFooter/PageFooter.stories.tsx">components-containers-page-footer · ./src/components/PageFooter/PageFooter.stories.tsx</div>
@@ -21103,9 +21393,9 @@ The children are still announced and reached by keyboard in the order they are w
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-55-components-containers-page-footer-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-55-components-containers-page-footer-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-55-components-containers-page-footer-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-56-components-containers-page-footer-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-56-components-containers-page-footer-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-56-components-containers-page-footer-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -21430,11 +21720,11 @@ linkComponent?: ElementType | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> PageHeader</h2>
       <div class="badges">
-        <label for="c-56-components-containers-page-header-props" class="badge ok as-toggle">17 prop types</label>
+        <label for="c-57-components-containers-page-header-props" class="badge ok as-toggle">17 prop types</label>
         
-        <label for="c-56-components-containers-page-header-stories" class="badge ok as-toggle">8 stories</label>
-        <label for="c-56-components-containers-page-header-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-56-components-containers-page-header-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-57-components-containers-page-header-stories" class="badge ok as-toggle">8 stories</label>
+        <label for="c-57-components-containers-page-header-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-57-components-containers-page-header-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/PageHeader/PageHeader.stories.tsx">components-containers-page-header · ./src/components/PageHeader/PageHeader.stories.tsx</div>
@@ -21446,10 +21736,10 @@ linkComponent?: ElementType | undefined</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-56-components-containers-page-header-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-56-components-containers-page-header-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-56-components-containers-page-header-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-56-components-containers-page-header-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-57-components-containers-page-header-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-57-components-containers-page-header-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-57-components-containers-page-header-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-57-components-containers-page-header-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -22216,10 +22506,10 @@ linkComponent?: ElementType | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Pagination</h2>
       <div class="badges">
-        <label for="c-57-components-navigation-pagination-props" class="badge ok as-toggle">13 prop types</label>
+        <label for="c-58-components-navigation-pagination-props" class="badge ok as-toggle">13 prop types</label>
         
-        <label for="c-57-components-navigation-pagination-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-57-components-navigation-pagination-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-58-components-navigation-pagination-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-58-components-navigation-pagination-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -22232,10 +22522,10 @@ linkComponent?: ElementType | undefined</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-57-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-57-components-navigation-pagination-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-58-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-58-components-navigation-pagination-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-57-components-navigation-pagination-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-58-components-navigation-pagination-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -22480,10 +22770,10 @@ If that stylesheet never arrives, the fuller accessible text shows in its place 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Paragraph</h2>
       <div class="badges">
-        <label for="c-58-components-text-paragraph-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-59-components-text-paragraph-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-58-components-text-paragraph-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-58-components-text-paragraph-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-59-components-text-paragraph-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-59-components-text-paragraph-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -22496,10 +22786,10 @@ If that stylesheet never arrives, the fuller accessible text shows in its place 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-58-components-text-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-58-components-text-paragraph-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-59-components-text-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-59-components-text-paragraph-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-58-components-text-paragraph-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-59-components-text-paragraph-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -22649,7 +22939,8 @@ Its line lengths are automatically balanced to match the visual behaviour of the
 
 ### Small text
 
-We use a smaller font size for text in a Figure Caption and for metadata like dates or categories.
+We use a smaller font size for text in a Figure Caption.
+For a date or a category, reach for [Metadata](/docs/components-text-metadata--docs) instead.
 
 &lt;Canvas of={ParagraphStories.SmallText} /&gt;
 
@@ -22690,6 +22981,7 @@ A lead paragraph and small print are therefore a visual distinction only, and ne
 
 ## See also
 
+- [Metadata](/docs/components-text-metadata--docs) – for the date and the categories of a piece of content.
 - [Prose](/docs/utilities-css-prose--docs) – applies the recommended vertical spacing for editorial content.
 
 ## Design tokens
@@ -22713,10 +23005,10 @@ A lead paragraph and small print are therefore a visual distinction only, and ne
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> PasswordInput</h2>
       <div class="badges">
-        <label for="c-59-components-forms-password-input-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-60-components-forms-password-input-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-59-components-forms-password-input-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-59-components-forms-password-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-60-components-forms-password-input-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-60-components-forms-password-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -22729,10 +23021,10 @@ A lead paragraph and small print are therefore a visual distinction only, and ne
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-59-components-forms-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-59-components-forms-password-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-60-components-forms-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-60-components-forms-password-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-59-components-forms-password-input-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-60-components-forms-password-input-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -22972,10 +23264,10 @@ A password is incomplete for most of the time it is being typed, so a `required`
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProductPage</h2>
       <div class="badges">
-        <label for="c-60-pages-public-product-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-60-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-60-pages-public-product-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-60-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-61-pages-public-product-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-61-pages-public-product-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-61-pages-public-product-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-61-pages-public-product-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -22986,10 +23278,10 @@ A password is incomplete for most of the time it is being typed, so a `required`
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-60-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-60-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-60-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-60-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-61-pages-public-product-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-61-pages-public-product-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-61-pages-public-product-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-61-pages-public-product-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -23557,10 +23849,10 @@ The body ends in a [Call to Action Link](/docs/components-navigation-call-to-act
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProfilePage</h2>
       <div class="badges">
-        <label for="c-61-pages-public-profile-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-61-pages-public-profile-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-61-pages-public-profile-page-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-61-pages-public-profile-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-62-pages-public-profile-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-62-pages-public-profile-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-62-pages-public-profile-page-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-62-pages-public-profile-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -23571,10 +23863,10 @@ The body ends in a [Call to Action Link](/docs/components-navigation-call-to-act
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-61-pages-public-profile-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-61-pages-public-profile-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-61-pages-public-profile-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-61-pages-public-profile-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-62-pages-public-profile-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-62-pages-public-profile-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-62-pages-public-profile-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-62-pages-public-profile-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -27074,11 +27366,11 @@ The Article Page names its equivalent band after its heading, which is what turn
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> ProgressList</h2>
       <div class="badges">
-        <label for="c-62-components-containers-progress-list-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-63-components-containers-progress-list-props" class="badge ok as-toggle">4 prop types</label>
         
-        <label for="c-62-components-containers-progress-list-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-62-components-containers-progress-list-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-62-components-containers-progress-list-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-63-components-containers-progress-list-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-63-components-containers-progress-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-63-components-containers-progress-list-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/ProgressList/ProgressList.stories.tsx">components-containers-progress-list · ./src/components/ProgressList/ProgressList.stories.tsx</div>
@@ -27090,10 +27382,10 @@ The Article Page names its equivalent band after its heading, which is what turn
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-62-components-containers-progress-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-62-components-containers-progress-list-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-62-components-containers-progress-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-62-components-containers-progress-list-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-63-components-containers-progress-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-63-components-containers-progress-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-63-components-containers-progress-list-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-63-components-containers-progress-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -27501,10 +27793,10 @@ status?: &quot;current&quot; | &quot;completed&quot;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> ProjectPage</h2>
       <div class="badges">
-        <label for="c-63-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-63-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-63-pages-public-project-page-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-63-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-64-pages-public-project-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-64-pages-public-project-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-64-pages-public-project-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-64-pages-public-project-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -27515,10 +27807,10 @@ status?: &quot;current&quot; | &quot;completed&quot;</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-63-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-63-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-63-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-63-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-64-pages-public-project-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-64-pages-public-project-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-64-pages-public-project-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-64-pages-public-project-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -30122,8 +30414,8 @@ Images that illustrate what the text already describes take an empty `alt`.
       <div class="badges">
         
         
-        <label for="c-64-utilities-css-prose-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-64-utilities-css-prose-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-65-utilities-css-prose-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-65-utilities-css-prose-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -30136,8 +30428,8 @@ Images that illustrate what the text already describes take an empty `alt`.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-64-utilities-css-prose-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-64-utilities-css-prose-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-65-utilities-css-prose-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-65-utilities-css-prose-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -30381,8 +30673,8 @@ import * as ProseStories from &quot;./Prose.stories.tsx&quot;;
       <div class="badges">
         
         
-        <label for="c-65-utilities-css-query-container-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-65-utilities-css-query-container-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-66-utilities-css-query-container-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-66-utilities-css-query-container-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -30395,8 +30687,8 @@ import * as ProseStories from &quot;./Prose.stories.tsx&quot;;
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-65-utilities-css-query-container-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-65-utilities-css-query-container-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-66-utilities-css-query-container-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-66-utilities-css-query-container-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -30494,10 +30786,10 @@ import * as QueryContainerStories from &quot;./QueryContainer.stories.tsx&quot;;
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Radio</h2>
       <div class="badges">
-        <label for="c-66-components-forms-radio-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-67-components-forms-radio-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-66-components-forms-radio-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-66-components-forms-radio-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-67-components-forms-radio-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-67-components-forms-radio-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -30510,10 +30802,10 @@ import * as QueryContainerStories from &quot;./QueryContainer.stories.tsx&quot;;
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-66-components-forms-radio-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-66-components-forms-radio-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-67-components-forms-radio-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-67-components-forms-radio-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-66-components-forms-radio-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-67-components-forms-radio-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -30849,10 +31141,10 @@ Marking every Radio in a failed group as invalid — as ‘How to use’ asks �
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Row</h2>
       <div class="badges">
-        <label for="c-67-components-layout-row-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-68-components-layout-row-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-67-components-layout-row-stories" class="badge ok as-toggle">7 stories</label>
-        <label for="c-67-components-layout-row-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-68-components-layout-row-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-68-components-layout-row-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -30865,10 +31157,10 @@ Marking every Radio in a failed group as invalid — as ‘How to use’ asks �
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-67-components-layout-row-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-67-components-layout-row-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-68-components-layout-row-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-68-components-layout-row-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-67-components-layout-row-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-68-components-layout-row-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -31146,11 +31438,11 @@ Alignment never changes that order.
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> SearchField</h2>
       <div class="badges">
-        <label for="c-68-components-forms-search-field-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-69-components-forms-search-field-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-68-components-forms-search-field-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-68-components-forms-search-field-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-68-components-forms-search-field-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-69-components-forms-search-field-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-69-components-forms-search-field-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-69-components-forms-search-field-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/SearchField/SearchField.stories.tsx">components-forms-search-field · ./src/components/SearchField/SearchField.stories.tsx</div>
@@ -31162,10 +31454,10 @@ Alignment never changes that order.
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-68-components-forms-search-field-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-68-components-forms-search-field-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-68-components-forms-search-field-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-68-components-forms-search-field-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-69-components-forms-search-field-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-69-components-forms-search-field-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-69-components-forms-search-field-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-69-components-forms-search-field-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -31491,10 +31783,10 @@ label?: string = &#39;Zoeken&#39;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> SearchResultsPage</h2>
       <div class="badges">
-        <label for="c-69-pages-public-search-results-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-69-pages-public-search-results-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-69-pages-public-search-results-page-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-69-pages-public-search-results-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-70-pages-public-search-results-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-70-pages-public-search-results-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-70-pages-public-search-results-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-70-pages-public-search-results-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -31505,10 +31797,10 @@ label?: string = &#39;Zoeken&#39;</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-69-pages-public-search-results-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-69-pages-public-search-results-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-69-pages-public-search-results-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-69-pages-public-search-results-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-70-pages-public-search-results-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-70-pages-public-search-results-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-70-pages-public-search-results-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-70-pages-public-search-results-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -31519,13 +31811,13 @@ label?: string = &#39;Zoeken&#39;</code></pre>
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  39 | }
-  40 |
-&gt; 41 | const meta = {
+  40 | }
+  41 |
+&gt; 42 | const meta = {
      | ^
-  42 |   ...commonMeta,
-  43 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  44 |   parameters: pageParameters(
+  43 |   ...commonMeta,
+  44 |   title: &#39;Pages/Public/Search Results Page&#39;,
+  45 |   parameters: pageParameters(
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -31547,6 +31839,7 @@ import {
   Heading,
   Label,
   Mark,
+  Metadata,
   Pagination,
   Paragraph,
   SearchField,
@@ -31679,10 +31972,11 @@ export const Default: StoryObj = {
                   vanuit het Actiecentrum &lt;Mark&gt;Veiligheid&lt;/Mark&gt; en Zorg verschillende aanpakken op het snijvlak
                   van &lt;Mark&gt;veiligheid&lt;/Mark&gt;, zorg en het sociaal domein.
                 &lt;/Paragraph&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;
+                {/* A Card takes the small size of Metadata. */}
+                &lt;Metadata size=&quot;small&quot;&gt;
                   {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                   &lt;time dateTime=&quot;2023-07-01&quot;&gt;1 juli 2023&lt;/time&gt;
-                &lt;/Paragraph&gt;
+                &lt;/Metadata&gt;
               &lt;/Column&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
@@ -31798,10 +32092,11 @@ export const Default: StoryObj = {
                     &lt;/Card.HeadingGroup&gt;
                     &lt;Column gap=&quot;small&quot;&gt;
                       &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
-                      &lt;Paragraph size=&quot;small&quot;&gt;
+                      {/* A Card takes the small size of Metadata. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                      &lt;/Paragraph&gt;
+                      &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card&gt;
                 &lt;/Grid.Cell&gt;
@@ -31855,6 +32150,7 @@ export const Default: StoryObj = {
     Heading,
     Label,
     Mark,
+    Metadata,
     Pagination,
     Paragraph,
     SearchField,
@@ -31968,10 +32264,11 @@ export const Default: StoryObj = {
                   &lt;/Card.HeadingGroup&gt;
                   &lt;Column gap=&quot;small&quot;&gt;
                     &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
-                    &lt;Paragraph size=&quot;small&quot;&gt;
+                    {/* A Card takes the small size of Metadata. */}
+                    &lt;Metadata size=&quot;small&quot;&gt;
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                       &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                    &lt;/Paragraph&gt;
+                    &lt;/Metadata&gt;
                   &lt;/Column&gt;
                 &lt;/Card&gt;
               &lt;/Grid.Cell&gt;
@@ -32110,10 +32407,10 @@ Highlighting the term inside it leaves the name the link is announced with uncha
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Select</h2>
       <div class="badges">
-        <label for="c-70-components-forms-select-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-71-components-forms-select-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-70-components-forms-select-stories" class="badge ok as-toggle">6 stories</label>
-        <label for="c-70-components-forms-select-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-71-components-forms-select-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-71-components-forms-select-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -32126,10 +32423,10 @@ Highlighting the term inside it leaves the name the link is announced with uncha
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-70-components-forms-select-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-70-components-forms-select-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-71-components-forms-select-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-71-components-forms-select-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-70-components-forms-select-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-71-components-forms-select-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -32422,9 +32719,9 @@ A disabled option is greyed but still announced, so the user hears that a choice
       <div class="badges">
         
         
-        <label for="c-71-components-feedback-skeleton-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-71-components-feedback-skeleton-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-71-components-feedback-skeleton-subcomponents" class="badge ok as-toggle">5 subcomponents</label>
+        <label for="c-72-components-feedback-skeleton-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-72-components-feedback-skeleton-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-72-components-feedback-skeleton-subcomponents" class="badge ok as-toggle">5 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Skeleton/Skeleton.stories.tsx">components-feedback-skeleton · ./src/components/Skeleton/Skeleton.stories.tsx</div>
@@ -32437,9 +32734,9 @@ Compose its parts to mirror the content to come, so the layout barely shifts onc
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-71-components-feedback-skeleton-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-71-components-feedback-skeleton-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-71-components-feedback-skeleton-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-72-components-feedback-skeleton-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-72-components-feedback-skeleton-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-72-components-feedback-skeleton-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -32768,10 +33065,10 @@ rows?: number = 3</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> SkipLink</h2>
       <div class="badges">
-        <label for="c-72-components-navigation-skip-link-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-73-components-navigation-skip-link-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-72-components-navigation-skip-link-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-72-components-navigation-skip-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-73-components-navigation-skip-link-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-73-components-navigation-skip-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -32784,10 +33081,10 @@ rows?: number = 3</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-72-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-72-components-navigation-skip-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-73-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-73-components-navigation-skip-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-72-components-navigation-skip-link-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-73-components-navigation-skip-link-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -32982,10 +33279,10 @@ The [Utrecht design system](https://github.com/nl-design-system/utrecht/blob/mai
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Spotlight</h2>
       <div class="badges">
-        <label for="c-73-components-containers-spotlight-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-74-components-containers-spotlight-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-73-components-containers-spotlight-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-73-components-containers-spotlight-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-74-components-containers-spotlight-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-74-components-containers-spotlight-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -32998,10 +33295,10 @@ The [Utrecht design system](https://github.com/nl-design-system/utrecht/blob/mai
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-73-components-containers-spotlight-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-73-components-containers-spotlight-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-74-components-containers-spotlight-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-74-components-containers-spotlight-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-73-components-containers-spotlight-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-74-components-containers-spotlight-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -33209,10 +33506,10 @@ Which foreground colour to use depends on the highlight colour behind it, since 
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> StandaloneLink</h2>
       <div class="badges">
-        <label for="c-74-components-navigation-standalone-link-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-75-components-navigation-standalone-link-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-74-components-navigation-standalone-link-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-74-components-navigation-standalone-link-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-75-components-navigation-standalone-link-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-75-components-navigation-standalone-link-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -33225,10 +33522,10 @@ Which foreground colour to use depends on the highlight colour behind it, since 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-74-components-navigation-standalone-link-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-74-components-navigation-standalone-link-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-75-components-navigation-standalone-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-75-components-navigation-standalone-link-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-74-components-navigation-standalone-link-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-75-components-navigation-standalone-link-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -33449,8 +33746,8 @@ This is what makes dropping the underline safe here, where an inline [Link](/doc
       <div class="badges">
         
         
-        <label for="c-75-components-forms-switch-stories" class="badge ok as-toggle">3 stories</label>
-        <label for="c-75-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-76-components-forms-switch-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-76-components-forms-switch-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -33463,8 +33760,8 @@ This is what makes dropping the underline safe here, where an inline [Link](/doc
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-75-components-forms-switch-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-75-components-forms-switch-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-76-components-forms-switch-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-76-components-forms-switch-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -33658,9 +33955,9 @@ Its focus ring is moved onto the track so the ring surrounds the switch rather t
       <div class="badges">
         
         
-        <label for="c-76-components-containers-table-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-76-components-containers-table-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-76-components-containers-table-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-77-components-containers-table-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-77-components-containers-table-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-77-components-containers-table-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Table/Table.stories.tsx">components-containers-table · ./src/components/Table/Table.stories.tsx</div>
@@ -33672,9 +33969,9 @@ Its focus ring is moved onto the track so the ring surrounds the switch rather t
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-76-components-containers-table-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-76-components-containers-table-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-76-components-containers-table-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-77-components-containers-table-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-77-components-containers-table-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-77-components-containers-table-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
   
 
   <div class="panels">
@@ -34037,11 +34334,11 @@ align?: &quot;center&quot; | &quot;end&quot;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TableOfContents</h2>
       <div class="badges">
-        <label for="c-77-components-navigation-table-of-contents-props" class="badge ok as-toggle">5 prop types</label>
+        <label for="c-78-components-navigation-table-of-contents-props" class="badge ok as-toggle">5 prop types</label>
         
-        <label for="c-77-components-navigation-table-of-contents-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-77-components-navigation-table-of-contents-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-77-components-navigation-table-of-contents-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-78-components-navigation-table-of-contents-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-78-components-navigation-table-of-contents-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-78-components-navigation-table-of-contents-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/TableOfContents/TableOfContents.stories.tsx">components-navigation-table-of-contents · ./src/components/TableOfContents/TableOfContents.stories.tsx</div>
@@ -34053,10 +34350,10 @@ align?: &quot;center&quot; | &quot;end&quot;</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-77-components-navigation-table-of-contents-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-77-components-navigation-table-of-contents-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-77-components-navigation-table-of-contents-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-77-components-navigation-table-of-contents-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-78-components-navigation-table-of-contents-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-78-components-navigation-table-of-contents-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-78-components-navigation-table-of-contents-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-78-components-navigation-table-of-contents-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -34465,8 +34762,8 @@ onToggle?: (expanded: boolean) =&gt; void</code></pre>
       <div class="badges">
         
         
-        <label for="c-78-pages-internal-table-page-stories" class="badge ok as-toggle">2 stories</label>
-        <label for="c-78-pages-internal-table-page-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-79-pages-internal-table-page-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-79-pages-internal-table-page-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -34479,8 +34776,8 @@ onToggle?: (expanded: boolean) =&gt; void</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-78-pages-internal-table-page-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-78-pages-internal-table-page-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-79-pages-internal-table-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-79-pages-internal-table-page-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -34720,11 +35017,11 @@ The heading text is duplicated for assistive technology; this is the trade-off f
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TabNavigation</h2>
       <div class="badges">
-        <label for="c-79-components-navigation-tab-navigation-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-80-components-navigation-tab-navigation-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-79-components-navigation-tab-navigation-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-79-components-navigation-tab-navigation-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-79-components-navigation-tab-navigation-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
+        <label for="c-80-components-navigation-tab-navigation-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-80-components-navigation-tab-navigation-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-80-components-navigation-tab-navigation-subcomponents" class="badge ok as-toggle">1 subcomponent</label>
       </div>
     </div>
     <div class="meta" title="./src/components/TabNavigation/TabNavigation.stories.tsx">components-navigation-tab-navigation · ./src/components/TabNavigation/TabNavigation.stories.tsx</div>
@@ -34736,10 +35033,10 @@ The heading text is duplicated for assistive technology; this is the trade-off f
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-79-components-navigation-tab-navigation-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-79-components-navigation-tab-navigation-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-79-components-navigation-tab-navigation-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-79-components-navigation-tab-navigation-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-80-components-navigation-tab-navigation-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-80-components-navigation-tab-navigation-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-80-components-navigation-tab-navigation-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-80-components-navigation-tab-navigation-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -35085,11 +35382,11 @@ linkComponent?: ElementType | undefined</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Tabs</h2>
       <div class="badges">
-        <label for="c-80-components-containers-tabs-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-81-components-containers-tabs-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-80-components-containers-tabs-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-80-components-containers-tabs-docs" class="badge ok as-toggle">1 doc</label>
-        <label for="c-80-components-containers-tabs-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
+        <label for="c-81-components-containers-tabs-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-81-components-containers-tabs-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-81-components-containers-tabs-subcomponents" class="badge ok as-toggle">2 subcomponents</label>
       </div>
     </div>
     <div class="meta" title="./src/components/Tabs/Tabs.stories.tsx">components-containers-tabs · ./src/components/Tabs/Tabs.stories.tsx</div>
@@ -35101,10 +35398,10 @@ linkComponent?: ElementType | undefined</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-80-components-containers-tabs-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-80-components-containers-tabs-docs" class="tg tg-docs" type="checkbox" hidden />
-  <input id="c-80-components-containers-tabs-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
-  <input id="c-80-components-containers-tabs-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-81-components-containers-tabs-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-81-components-containers-tabs-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-81-components-containers-tabs-subcomponents" class="tg tg-subcomponents" type="checkbox" hidden />
+  <input id="c-81-components-containers-tabs-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -35367,10 +35664,10 @@ id: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TextArea</h2>
       <div class="badges">
-        <label for="c-81-components-forms-text-area-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-82-components-forms-text-area-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-81-components-forms-text-area-stories" class="badge ok as-toggle">8 stories</label>
-        <label for="c-81-components-forms-text-area-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-82-components-forms-text-area-stories" class="badge ok as-toggle">8 stories</label>
+        <label for="c-82-components-forms-text-area-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -35383,10 +35680,10 @@ id: string</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-81-components-forms-text-area-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-81-components-forms-text-area-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-82-components-forms-text-area-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-82-components-forms-text-area-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-81-components-forms-text-area-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-82-components-forms-text-area-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -35658,10 +35955,10 @@ The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the brows
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TextInput</h2>
       <div class="badges">
-        <label for="c-82-components-forms-text-input-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-83-components-forms-text-input-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-82-components-forms-text-input-stories" class="badge ok as-toggle">11 stories</label>
-        <label for="c-82-components-forms-text-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-83-components-forms-text-input-stories" class="badge ok as-toggle">11 stories</label>
+        <label for="c-83-components-forms-text-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -35674,10 +35971,10 @@ The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the brows
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-82-components-forms-text-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-82-components-forms-text-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-83-components-forms-text-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-83-components-forms-text-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-82-components-forms-text-input-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-83-components-forms-text-input-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36144,10 +36441,10 @@ Placeholder text is styled but not recommended, and it is not a label: it disapp
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TimeInput</h2>
       <div class="badges">
-        <label for="c-83-components-forms-time-input-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-84-components-forms-time-input-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-83-components-forms-time-input-stories" class="badge ok as-toggle">5 stories</label>
-        <label for="c-83-components-forms-time-input-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-84-components-forms-time-input-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-84-components-forms-time-input-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -36160,10 +36457,10 @@ Placeholder text is styled but not recommended, and it is not a label: it disapp
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-83-components-forms-time-input-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-83-components-forms-time-input-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-84-components-forms-time-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-84-components-forms-time-input-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-83-components-forms-time-input-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-84-components-forms-time-input-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36378,10 +36675,10 @@ The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the brows
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> UnorderedList</h2>
       <div class="badges">
-        <label for="c-84-components-text-unordered-list-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-85-components-text-unordered-list-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-84-components-text-unordered-list-stories" class="badge ok as-toggle">4 stories</label>
-        <label for="c-84-components-text-unordered-list-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-85-components-text-unordered-list-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-85-components-text-unordered-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -36394,10 +36691,10 @@ The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the brows
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-84-components-text-unordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-84-components-text-unordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-85-components-text-unordered-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-85-components-text-unordered-list-docs" class="tg tg-docs" type="checkbox" hidden />
   
-  <input id="c-84-components-text-unordered-list-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-85-components-text-unordered-list-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -36622,8 +36919,8 @@ That is the point of the variant: the grouping still reaches assistive technolog
       <div class="badges">
         
         
-        <label for="c-85-utilities-css-visually-hidden-stories" class="badge ok as-toggle">1 story</label>
-        <label for="c-85-utilities-css-visually-hidden-docs" class="badge ok as-toggle">1 doc</label>
+        <label for="c-86-utilities-css-visually-hidden-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-86-utilities-css-visually-hidden-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
     </div>
@@ -36636,8 +36933,8 @@ That is the point of the variant: the grouping still reaches assistive technolog
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-85-utilities-css-visually-hidden-stories" class="tg tg-stories" type="checkbox" hidden />
-  <input id="c-85-utilities-css-visually-hidden-docs" class="tg tg-docs" type="checkbox" hidden />
+  <input id="c-86-utilities-css-visually-hidden-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-86-utilities-css-visually-hidden-docs" class="tg tg-docs" type="checkbox" hidden />
   
   
 
@@ -36758,13 +37055,13 @@ import * as VisuallyHiddenStories from &quot;./VisuallyHidden.stories.tsx&quot;;
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  23 | import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
-  24 |
-&gt; 25 | const meta = {
+  24 | import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
+  25 |
+&gt; 26 | const meta = {
      | ^
-  26 |   ...commonMeta,
-  27 |   title: &#39;Pages/Public/Article Page&#39;,
-  28 |   parameters: pageParameters(
+  27 |   ...commonMeta,
+  28 |   title: &#39;Pages/Public/Article Page&#39;,
+  29 |   parameters: pageParameters(
 
 ./src/pages/public/ArticlePage/ArticlePage.stories.tsx:
 /**
@@ -36782,6 +37079,7 @@ import {
   Image,
   Link,
   LinkList,
+  Metadata,
   Paragraph,
   Spotlight,
   StandaloneLink,
@@ -36822,10 +37120,10 @@ const meta = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-            &lt;Paragraph&gt;
+            &lt;Metadata&gt;
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
               &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-            &lt;/Paragraph&gt;
+            &lt;/Metadata&gt;
             &lt;Paragraph size=&quot;large&quot;&gt;
               Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
               -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -37024,10 +37322,10 @@ export const Default: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the title, the date, and the lead of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-        &lt;Paragraph&gt;
+        &lt;Metadata&gt;
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
           &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-        &lt;/Paragraph&gt;
+        &lt;/Metadata&gt;
         &lt;Paragraph size=&quot;large&quot;&gt;
           Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters
           en -bakfietsen.
@@ -37196,6 +37494,7 @@ export const Default: StoryObj = {
     Image,
     Link,
     LinkList,
+    Metadata,
     Paragraph,
     Spotlight,
     StandaloneLink,
@@ -37233,10 +37532,10 @@ export const Default: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-          &lt;Paragraph&gt;
+          &lt;Metadata&gt;
             {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
             &lt;time dateTime=&quot;2025-07-29&quot;&gt;29 juli 2025&lt;/time&gt;
-          &lt;/Paragraph&gt;
+          &lt;/Metadata&gt;
           &lt;Paragraph size=&quot;large&quot;&gt;
             Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
             -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -37454,7 +37753,7 @@ Use an [Information Page](/docs/pages-public-information-page--docs) for a topic
 ## Structure
 
 - The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the article content.
-- The Content Header contains the title, a Metadata Paragraph with the publication date, and the lead paragraph.
+- The Content Header contains the title, a [Metadata](/docs/components-text-metadata--docs) with the publication date, and the lead paragraph.
 - A full-width hero [Image](/docs/components-media-image--docs) separates the Content Header from the body.
   It uses a 16:5 aspect ratio.
 - The body ends with a [Link List](/docs/components-navigation-link-list--docs) of related articles.
@@ -40296,13 +40595,13 @@ Use this page as the landing page of a backoffice system, where a Menu carries t
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  20 | import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
-  21 |
-&gt; 22 | const meta = {
+  21 | import { commonMeta, pageParameters } from &#39;../common/commonMeta&#39;
+  22 |
+&gt; 23 | const meta = {
      | ^
-  23 |   ...commonMeta,
-  24 |   title: &#39;Pages/Public/Information Page&#39;,
-  25 |   parameters: pageParameters(
+  24 |   ...commonMeta,
+  25 |   title: &#39;Pages/Public/Information Page&#39;,
+  26 |   parameters: pageParameters(
 
 ./src/pages/public/InformationPage/InformationPage.stories.tsx:
 /**
@@ -40320,6 +40619,7 @@ import {
   Heading,
   Image,
   Link,
+  Metadata,
   Paragraph,
   Table,
 } from &#39;@amsterdam/design-system-react&#39;
@@ -40360,11 +40660,14 @@ export const Default: StoryObj = {
   &lt;main id=&quot;inhoud&quot;&gt;
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-      {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
+      {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata. */}
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-        &lt;Paragraph&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Paragraph&gt;
+        {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+        &lt;Metadata&gt;
+          Evenementen, Natuur en groen, Vergunningen
+        &lt;/Metadata&gt;
       &lt;/Grid.Cell&gt;
       {/*
        * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -40485,7 +40788,7 @@ export const Default: StoryObj = {
       &lt;main id=&quot;inhoud&quot;&gt;
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-          {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
+          {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata. */}
           {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
           &lt;Grid.Cell
             className=&quot;ams-prose&quot;
@@ -40493,7 +40796,8 @@ export const Default: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-            &lt;Paragraph&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Paragraph&gt;
+            {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+            &lt;Metadata&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata&gt;
           &lt;/Grid.Cell&gt;
           {/*
            * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -40627,10 +40931,13 @@ export const WithTable: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       &lt;Grid.Cell className=&quot;ams-prose&quot; span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}&gt;
         &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-        &lt;Paragraph&gt;
+        {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
+        &lt;Metadata&gt;
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-          &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt; – Belastingen, Wonen, WOZ
-        &lt;/Paragraph&gt;
+          &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+          &lt;Metadata.Separator /&gt;
+          Belastingen, Wonen, WOZ
+        &lt;/Metadata&gt;
         &lt;Paragraph size=&quot;large&quot;&gt;
           De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
           worden vastgelegd, is landelijk bepaald. Zo betekent een gegeven in Amsterdam hetzelfde als in elke andere
@@ -40762,10 +41069,13 @@ export const WithTable: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           &gt;
             &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-            &lt;Paragraph&gt;
+            {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
+            &lt;Metadata&gt;
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-              &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt; – Belastingen, Wonen, WOZ
-            &lt;/Paragraph&gt;
+              &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+              &lt;Metadata.Separator /&gt;
+              Belastingen, Wonen, WOZ
+            &lt;/Metadata&gt;
             &lt;Paragraph size=&quot;large&quot;&gt;
               De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
               worden vastgelegd, is landelijk bepaald. Zo betekent een gegeven in Amsterdam hetzelfde als in elke andere
@@ -40900,6 +41210,7 @@ export const WithTable: StoryObj = {
     Heading,
     Image,
     Link,
+    Metadata,
     Paragraph,
     Table,
 } from "@amsterdam/design-system-react";</code></pre>
@@ -40930,7 +41241,7 @@ export const WithTable: StoryObj = {
     &lt;main id=&quot;inhoud&quot;&gt;
       {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
       &lt;Grid paddingBottom=&quot;2x-large&quot;&gt;
-        {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
+        {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata. */}
         {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
         &lt;Grid.Cell
           className=&quot;ams-prose&quot;
@@ -40938,7 +41249,8 @@ export const WithTable: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Natuurbescherming bij evenementen in parken en groengebieden&lt;/Heading&gt;
-          &lt;Paragraph&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Paragraph&gt;
+          {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+          &lt;Metadata&gt;Evenementen, Natuur en groen, Vergunningen&lt;/Metadata&gt;
         &lt;/Grid.Cell&gt;
         {/*
          * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -41076,10 +41388,13 @@ export const WithTable: StoryObj = {
           start={{ narrow: 1, medium: 1, wide: 2 }}
         &gt;
           &lt;Heading level={1}&gt;Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning&lt;/Heading&gt;
-          &lt;Paragraph&gt;
+          {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
+          &lt;Metadata&gt;
             {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-            &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt; – Belastingen, Wonen, WOZ
-          &lt;/Paragraph&gt;
+            &lt;time dateTime=&quot;2026-01-01&quot;&gt;1 januari 2026&lt;/time&gt;
+            &lt;Metadata.Separator /&gt;
+            Belastingen, Wonen, WOZ
+          &lt;/Metadata&gt;
           &lt;Paragraph size=&quot;large&quot;&gt;
             De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
             worden vastgelegd, is landelijk bepaald. Zo betekent een gegeven in Amsterdam hetzelfde als in elke andere
@@ -41258,8 +41573,8 @@ Note that the whole caption becomes the accessible name of the Figure, so keep i
 ## Structure
 
 - The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
-- The Content Header contains the title and a Metadata Paragraph that classifies the page: taxonomy tags, optionally preceded by a date.
-  The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
+- The Content Header contains the title and a [Metadata](/docs/components-text-metadata--docs) that classifies the page: taxonomy tags, optionally preceded by a date.
+  The tags are comma-separated terms of a single kind, so no Separator sits between them.
 - The body holds several sections, each opening with a level 2 Heading.
 - The Content Header Grid holds the title and the metadata in one Cell.
   Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
@@ -44866,13 +45181,13 @@ That is the cost of the layout recorded above, and the part of this template sti
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  48 | const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm}’ met soort nieuws ${quotedList(selectedCategories)} en ${districtPhrase}.`
-  49 |
-&gt; 50 | const meta = {
+  49 | const resultsMessage = `${totalResults} resultaten gevonden voor ‘${searchTerm}’ met soort nieuws ${quotedList(selectedCategories)} en ${districtPhrase}.`
+  50 |
+&gt; 51 | const meta = {
      | ^
-  51 |   ...commonMeta,
-  52 |   title: &#39;Pages/Public/News Overview Page&#39;,
-  53 |   parameters: pageParameters(
+  52 |   ...commonMeta,
+  53 |   title: &#39;Pages/Public/News Overview Page&#39;,
+  54 |   parameters: pageParameters(
 
 ./src/pages/public/NewsOverviewPage/NewsOverviewPage.stories.tsx:
 /**
@@ -44893,6 +45208,7 @@ import {
   Grid,
   Heading,
   Label,
+  Metadata,
   Pagination,
   Paragraph,
   SearchField,
@@ -45050,10 +45366,11 @@ export const Default: StoryObj = {
                     Tussen 3 juni en 21 juli leggen we het tramspoor op de Berlagebrug aan. De brug is ongeveer 12
                     nachten dicht voor gemotoriseerd verkeer en in 3 nachten voor al het verkeer.
                   &lt;/Paragraph&gt;
-                  &lt;Paragraph size=&quot;small&quot;&gt;
+                  {/* A Card takes the small size of Metadata. */}
+                  &lt;Metadata size=&quot;small&quot;&gt;
                     {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                     &lt;time dateTime=&quot;2023-10-20&quot;&gt;20 oktober 2023&lt;/time&gt;
-                  &lt;/Paragraph&gt;
+                  &lt;/Metadata&gt;
                 &lt;/Column&gt;
               &lt;/Card.Content&gt;
             &lt;/Card&gt;
@@ -45194,10 +45511,11 @@ export const Default: StoryObj = {
                       &lt;/Card.HeadingGroup&gt;
                       &lt;Column gap=&quot;small&quot;&gt;
                         &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
-                        &lt;Paragraph size=&quot;small&quot;&gt;
+                        {/* A Card takes the small size of Metadata. */}
+                        &lt;Metadata size=&quot;small&quot;&gt;
                           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                           &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                        &lt;/Paragraph&gt;
+                        &lt;/Metadata&gt;
                       &lt;/Column&gt;
                     &lt;/Card.Content&gt;
                   &lt;/Card&gt;
@@ -45250,6 +45568,7 @@ export const Default: StoryObj = {
     Grid,
     Heading,
     Label,
+    Metadata,
     Pagination,
     Paragraph,
     SearchField,
@@ -45383,10 +45702,11 @@ export const Default: StoryObj = {
                     &lt;/Card.HeadingGroup&gt;
                     &lt;Column gap=&quot;small&quot;&gt;
                       &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
-                      &lt;Paragraph size=&quot;small&quot;&gt;
+                      {/* A Card takes the small size of Metadata. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                      &lt;/Paragraph&gt;
+                      &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card.Content&gt;
                 &lt;/Card&gt;
@@ -52285,13 +52605,13 @@ Images that illustrate what the text already describes take an empty `alt`.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  39 | }
-  40 |
-&gt; 41 | const meta = {
+  40 | }
+  41 |
+&gt; 42 | const meta = {
      | ^
-  42 |   ...commonMeta,
-  43 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  44 |   parameters: pageParameters(
+  43 |   ...commonMeta,
+  44 |   title: &#39;Pages/Public/Search Results Page&#39;,
+  45 |   parameters: pageParameters(
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -52313,6 +52633,7 @@ import {
   Heading,
   Label,
   Mark,
+  Metadata,
   Pagination,
   Paragraph,
   SearchField,
@@ -52445,10 +52766,11 @@ export const Default: StoryObj = {
                   vanuit het Actiecentrum &lt;Mark&gt;Veiligheid&lt;/Mark&gt; en Zorg verschillende aanpakken op het snijvlak
                   van &lt;Mark&gt;veiligheid&lt;/Mark&gt;, zorg en het sociaal domein.
                 &lt;/Paragraph&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;
+                {/* A Card takes the small size of Metadata. */}
+                &lt;Metadata size=&quot;small&quot;&gt;
                   {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                   &lt;time dateTime=&quot;2023-07-01&quot;&gt;1 juli 2023&lt;/time&gt;
-                &lt;/Paragraph&gt;
+                &lt;/Metadata&gt;
               &lt;/Column&gt;
             &lt;/Card&gt;
           &lt;/Grid.Cell&gt;
@@ -52564,10 +52886,11 @@ export const Default: StoryObj = {
                     &lt;/Card.HeadingGroup&gt;
                     &lt;Column gap=&quot;small&quot;&gt;
                       &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
-                      &lt;Paragraph size=&quot;small&quot;&gt;
+                      {/* A Card takes the small size of Metadata. */}
+                      &lt;Metadata size=&quot;small&quot;&gt;
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                      &lt;/Paragraph&gt;
+                      &lt;/Metadata&gt;
                     &lt;/Column&gt;
                   &lt;/Card&gt;
                 &lt;/Grid.Cell&gt;
@@ -52621,6 +52944,7 @@ export const Default: StoryObj = {
     Heading,
     Label,
     Mark,
+    Metadata,
     Pagination,
     Paragraph,
     SearchField,
@@ -52734,10 +53058,11 @@ export const Default: StoryObj = {
                   &lt;/Card.HeadingGroup&gt;
                   &lt;Column gap=&quot;small&quot;&gt;
                     &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
-                    &lt;Paragraph size=&quot;small&quot;&gt;
+                    {/* A Card takes the small size of Metadata. */}
+                    &lt;Metadata size=&quot;small&quot;&gt;
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                       &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                    &lt;/Paragraph&gt;
+                    &lt;/Metadata&gt;
                   &lt;/Column&gt;
                 &lt;/Card&gt;
               &lt;/Grid.Cell&gt;
@@ -52912,7 +53237,7 @@ Faster and cheaper to build and iterate with.
 
 &lt;InlineList&gt;
   &lt;InlineList.Item&gt;
-    &lt;strong&gt;65&lt;/strong&gt; components
+    &lt;strong&gt;66&lt;/strong&gt; components
   &lt;/InlineList.Item&gt;
   &lt;InlineList.Item&gt;
     &lt;strong&gt;220+&lt;/strong&gt; icons
@@ -53606,12 +53931,12 @@ They inherit the Grid’s spacing and do not appear in the tables below.
 
 A content page for a public website usually starts with a Breadcrumb and a Content Header.
 That header holds a level 1 Heading and a lead Paragraph.
-A Metadata Paragraph may sit between the two, holding the publication date, the taxonomy tags, or both.
+A [Metadata](/docs/components-text-metadata--docs) may sit between the two, holding the publication date, the taxonomy tags, or both.
 The space between them is as follows:
 
 - Breadcrumb → Heading 1: **zero**
-- Heading 1 → Metadata Paragraph: **medium**
-- Metadata Paragraph → Lead Paragraph: **medium**
+- Heading 1 → Metadata: **medium**
+- Metadata → Lead Paragraph: **medium**
 - Heading 1 → Lead Paragraph: **medium**
 - Lead Paragraph → Heading 2: **x-large**
 
@@ -53722,7 +54047,7 @@ Add one of the [Margin](/docs/utilities-css-margin--docs) utility classes (`ams-
   &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
     Met korting van A naar B op de deelscooter of -bakfiets
   &lt;/Heading&gt;
-  &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;29 juli 2025&lt;/Paragraph&gt;
+  &lt;Metadata className=&quot;ams-mb-m&quot;&gt;29 juli 2025&lt;/Metadata&gt;
   &lt;Paragraph size=&quot;large&quot;&gt;
     Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
     Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -53737,7 +54062,7 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
 ```tsx
 &lt;article className=&quot;ams-prose&quot;&gt;
   &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-  &lt;Paragraph&gt;29 juli 2025&lt;/Paragraph&gt;
+  &lt;Metadata&gt;29 juli 2025&lt;/Metadata&gt;
   &lt;Paragraph size=&quot;large&quot;&gt;
     Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
     Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -56837,7 +57162,7 @@ The back link keeps the regular `x-large` between itself and the section that fo
 
 ### The Content Header Grid
 
-The Grid that follows the Breadcrumb holds the Content Header: the page title, an optional Metadata Paragraph, and the lead paragraph.
+The Grid that follows the Breadcrumb holds the Content Header: the page title, an optional [Metadata](/docs/components-text-metadata--docs), and the lead paragraph.
 It has no `paddingTop`, so that the breadcrumb and the page title read as a single block.
 Its Cell carries the [Prose](/docs/utilities-css-prose--docs) utility class, which spaces those three as [vertical space](/docs/docs-designer-guide-vertical-space--docs) recommends.
 The body Cells of these templates use it too, so a page template sets no bottom margins of its own within a Cell.
@@ -56900,7 +57225,7 @@ Some typical page sections always use the same values:
 
 ### Content Header
 
-The Content Header contains the page title, an optional Metadata Paragraph with the publication date or the taxonomy tags, and the lead paragraph.
+The Content Header contains the page title, an optional Metadata with the publication date or the taxonomy tags, and the lead paragraph.
 It is a bit **wider** than the body section and is positioned slightly further **to the left**.
 
 ```tsx
