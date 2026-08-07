@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>4.2s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -16669,7 +16669,7 @@ import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Card, Grid, Heading, Paragraph, SearchField, UnorderedList } from "@amsterdam/design-system-react";
+                <pre><code>import { Card, Heading, Paragraph, SearchField, UnorderedList } from "@amsterdam/design-system-react";
 import { Mark } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
@@ -16709,34 +16709,32 @@ import { Mark } from "@amsterdam/design-system-react/src";</code></pre>
   )
 
   return (
-    &lt;Grid&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
-        &lt;SearchField className=&quot;ams-mb-m&quot;&gt;
-          &lt;SearchField.Input label=&quot;Zoeken&quot; onChange={(e) =&gt; setQuery(e.target.value)} value={query} /&gt;
-          &lt;SearchField.Button /&gt;
-        &lt;/SearchField&gt;
-        &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
-          &lt;strong&gt;{searchResults.length}&lt;/strong&gt; artikelen gaan over ‘{query}’.
-        &lt;/Paragraph&gt;
-        &lt;UnorderedList className=&quot;ams-gap-xl&quot; markers={false}&gt;
-          {searchResults.map(({ category, date, fragment, heading }) =&gt; (
-            &lt;UnorderedList.Item key={heading}&gt;
-              &lt;Card&gt;
-                &lt;Card.HeadingGroup tagline={category}&gt;
-                  &lt;Heading level={2} size=&quot;level-4&quot;&gt;
-                    &lt;Card.Link href=&quot;#&quot;&gt;{mark(heading, query, args)}&lt;/Card.Link&gt;
-                  &lt;/Heading&gt;
-                &lt;/Card.HeadingGroup&gt;
-                &lt;Paragraph className=&quot;ams-mb-xs&quot;&gt;{mark(fragment, query, args)}&lt;/Paragraph&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;
-                  &lt;time dateTime={date.toISOString()}&gt;{dateFormat.format(date)}&lt;/time&gt;
-                &lt;/Paragraph&gt;
-              &lt;/Card&gt;
-            &lt;/UnorderedList.Item&gt;
-          ))}
-        &lt;/UnorderedList&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
+    &lt;&gt;
+      &lt;SearchField className=&quot;ams-mb-m&quot;&gt;
+        &lt;SearchField.Input label=&quot;Zoeken&quot; onChange={(e) =&gt; setQuery(e.target.value)} value={query} /&gt;
+        &lt;SearchField.Button /&gt;
+      &lt;/SearchField&gt;
+      &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
+        &lt;strong&gt;{searchResults.length}&lt;/strong&gt; artikelen gaan over ‘{query}’.
+      &lt;/Paragraph&gt;
+      &lt;UnorderedList className=&quot;ams-gap-xl&quot; markers={false}&gt;
+        {searchResults.map(({ category, date, fragment, heading }) =&gt; (
+          &lt;UnorderedList.Item key={heading}&gt;
+            &lt;Card&gt;
+              &lt;Card.HeadingGroup tagline={category}&gt;
+                &lt;Heading level={2} size=&quot;level-4&quot;&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;{mark(heading, query, args)}&lt;/Card.Link&gt;
+                &lt;/Heading&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Paragraph className=&quot;ams-mb-xs&quot;&gt;{mark(fragment, query, args)}&lt;/Paragraph&gt;
+              &lt;Paragraph size=&quot;small&quot;&gt;
+                &lt;time dateTime={date.toISOString()}&gt;{dateFormat.format(date)}&lt;/time&gt;
+              &lt;/Paragraph&gt;
+            &lt;/Card&gt;
+          &lt;/UnorderedList.Item&gt;
+        ))}
+      &lt;/UnorderedList&gt;
+    &lt;/&gt;
   )
 };</code></pre>
             </div>
@@ -16791,21 +16789,30 @@ An [Alert](/docs/components-feedback-alert--docs) carries that meaning and annou
 
 Never let the highlight carry information by itself.
 The text around it has to make sense without it, so that what the highlight shows reaches everyone, as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires.
-A list of search results already satisfies this: each result is meaningful on its own, and the highlight only speeds up scanning.
+
+#### Search terms
+
+A list of search results meets that on its own: each result is meaningful without the highlight, which only speeds up scanning.
+
+A highlight here follows the query rather than an editorial choice, so no limit applies to how many appear.
+Mark every match on the page, including matches inside the heading of a result.
+Ignore capitalisation and include partial matches.
+
+Leave the labels around a result alone, such as the category it is filed under.
+A full-text search does not match those, so a word that looks like a match there is not one.
+
+#### Editorial highlights
 
 Keep an editorial highlight to one fragment per page, and to at most one sentence.
 Marking a whole paragraph, or several passages at once, leaves nothing standing out.
 Rewrite a heading that needs emphasis rather than highlighting part of it.
-
-Highlighted search terms follow the search instead of an editorial choice, so those limits do not apply to them.
-Mark every match on the page, including matches inside the heading of a result.
-Ignore capitalisation and include partial matches.
 
 ## Examples
 
 ### Search results
 
 Every match of every keyword is highlighted, in the heading of a result as well as in its summary.
+The category above each heading stays unmarked, so the third result shows an unmarked ‘Vergunningen’ above a heading that marks the same word.
 
 &lt;Canvas of={MarkStories.SearchResults} /&gt;
 
@@ -31676,7 +31683,10 @@ export const Default: StoryObj = {
           &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
             {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
             &lt;Card&gt;
-              {/* Every match is marked, in the title of a result as well as in its teaser. This title holds none. */}
+              {/*
+               * Every match is marked, in the title of a result as well as in its teaser; this title holds none.
+               * The tagline names the category rather than text the search matched, so nothing in it is marked.
+               */}
               &lt;Card.HeadingGroup tagline=&quot;Actiecentrum Veiligheid en Zorg&quot;&gt;
                 &lt;Card.Heading level={3}&gt;
                   &lt;Card.Link href=&quot;#&quot;&gt;Top 400/600&lt;/Card.Link&gt;
@@ -31796,7 +31806,10 @@ export const Default: StoryObj = {
                 &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
                   {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                   &lt;Card&gt;
-                    {/* Every match is marked, in the title of a result as well as in its teaser. */}
+                    {/*
+                     * Every match is marked, in the title of a result as well as in its teaser.
+                     * The tagline names the category rather than text the search matched, so nothing in it is marked.
+                     */}
                     &lt;Card.HeadingGroup tagline={result.section}&gt;
                       &lt;Card.Heading level={3}&gt;
                         &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
@@ -31963,7 +31976,10 @@ export const Default: StoryObj = {
               &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
                 {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                 &lt;Card&gt;
-                  {/* Every match is marked, in the title of a result as well as in its teaser. */}
+                  {/*
+                   * Every match is marked, in the title of a result as well as in its teaser.
+                   * The tagline names the category rather than text the search matched, so nothing in it is marked.
+                   */}
                   &lt;Card.HeadingGroup tagline={result.section}&gt;
                     &lt;Card.Heading level={3}&gt;
                       &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
@@ -52427,7 +52443,10 @@ export const Default: StoryObj = {
           &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
             {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
             &lt;Card&gt;
-              {/* Every match is marked, in the title of a result as well as in its teaser. This title holds none. */}
+              {/*
+               * Every match is marked, in the title of a result as well as in its teaser; this title holds none.
+               * The tagline names the category rather than text the search matched, so nothing in it is marked.
+               */}
               &lt;Card.HeadingGroup tagline=&quot;Actiecentrum Veiligheid en Zorg&quot;&gt;
                 &lt;Card.Heading level={3}&gt;
                   &lt;Card.Link href=&quot;#&quot;&gt;Top 400/600&lt;/Card.Link&gt;
@@ -52547,7 +52566,10 @@ export const Default: StoryObj = {
                 &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
                   {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                   &lt;Card&gt;
-                    {/* Every match is marked, in the title of a result as well as in its teaser. */}
+                    {/*
+                     * Every match is marked, in the title of a result as well as in its teaser.
+                     * The tagline names the category rather than text the search matched, so nothing in it is marked.
+                     */}
                     &lt;Card.HeadingGroup tagline={result.section}&gt;
                       &lt;Card.Heading level={3}&gt;
                         &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
@@ -52714,7 +52736,10 @@ export const Default: StoryObj = {
               &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
                 {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                 &lt;Card&gt;
-                  {/* Every match is marked, in the title of a result as well as in its teaser. */}
+                  {/*
+                   * Every match is marked, in the title of a result as well as in its teaser.
+                   * The tagline names the category rather than text the search matched, so nothing in it is marked.
+                   */}
                   &lt;Card.HeadingGroup tagline={result.section}&gt;
                     &lt;Card.Heading level={3}&gt;
                       &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
