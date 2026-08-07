@@ -6,4 +6,5 @@
 export { DescriptionList } from './DescriptionList'
 export type { DescriptionListProps } from './DescriptionList'
 export type { DescriptionListDescriptionProps } from './DescriptionListDescription'
+export type { DescriptionListSectionProps } from './DescriptionListSection'
 export type { DescriptionListTermProps } from './DescriptionListTerm'
