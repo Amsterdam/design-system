@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.5s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>6.6s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -31513,13 +31513,13 @@ label?: string = &#39;Zoeken&#39;</code></pre>
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  38 | }
-  39 |
-&gt; 40 | const meta = {
+  39 | }
+  40 |
+&gt; 41 | const meta = {
      | ^
-  41 |   ...commonMeta,
-  42 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  43 |   parameters: pageParameters(
+  42 |   ...commonMeta,
+  43 |   title: &#39;Pages/Public/Search Results Page&#39;,
+  44 |   parameters: pageParameters(
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -31555,10 +31555,11 @@ const totalResults = 62
 const totalPages = 8
 
 // Splitting on the term itself keeps the casing of each occurrence, so a sentence still starts with a capital.
+// The capturing group puts every match at an odd position in the split.
 const markSearchTerm = (text: string) =&gt; {
   const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, &#39;\\$&amp;&#39;)})`, &#39;gi&#39;)
 
-  return text.split(regex).map((part, index) =&gt; (part.match(regex) ? &lt;Mark key={index}&gt;{part}&lt;/Mark&gt; : part))
+  return text.split(regex).map((part, index) =&gt; (index % 2 === 1 ? &lt;Mark key={index}&gt;{part}&lt;/Mark&gt; : part))
 }
 
 const meta = {
@@ -52249,13 +52250,13 @@ Images that illustrate what the text already describes take an empty `alt`.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  38 | }
-  39 |
-&gt; 40 | const meta = {
+  39 | }
+  40 |
+&gt; 41 | const meta = {
      | ^
-  41 |   ...commonMeta,
-  42 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  43 |   parameters: pageParameters(
+  42 |   ...commonMeta,
+  43 |   title: &#39;Pages/Public/Search Results Page&#39;,
+  44 |   parameters: pageParameters(
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -52291,10 +52292,11 @@ const totalResults = 62
 const totalPages = 8
 
 // Splitting on the term itself keeps the casing of each occurrence, so a sentence still starts with a capital.
+// The capturing group puts every match at an odd position in the split.
 const markSearchTerm = (text: string) =&gt; {
   const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, &#39;\\$&amp;&#39;)})`, &#39;gi&#39;)
 
-  return text.split(regex).map((part, index) =&gt; (part.match(regex) ? &lt;Mark key={index}&gt;{part}&lt;/Mark&gt; : part))
+  return text.split(regex).map((part, index) =&gt; (index % 2 === 1 ? &lt;Mark key={index}&gt;{part}&lt;/Mark&gt; : part))
 }
 
 const meta = {
