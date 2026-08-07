@@ -10,7 +10,6 @@
 .ams-metadata {
   @include reset-p;
 
-  box-sizing: border-box;
   color: var(--ams-metadata-color);
   font-family: var(--ams-metadata-font-family);
   font-size: var(--ams-metadata-font-size);
