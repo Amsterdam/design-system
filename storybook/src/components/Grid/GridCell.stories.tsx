@@ -31,10 +31,11 @@ const meta = {
     },
   },
   decorators: [
-    (Story) => (
+    (Story, context) => (
       <>
         <GridColumnsGuide />
-        <Grid paddingVertical="x-large">
+        {/* A list item belongs in a list, so the Grid around it becomes one as soon as the Cell is an `li`. */}
+        <Grid as={context.args.as === 'li' ? 'ul' : undefined} paddingVertical="x-large">
           <Story />
         </Grid>
       </>
@@ -99,13 +100,5 @@ export const StartPosition: CellStory = {
     className: '_ams-item',
     span: 3,
     start: { narrow: 2, medium: 4, wide: 6 },
-  },
-}
-
-export const ImproveSemantics: CellStory = {
-  args: {
-    as: 'section',
-    className: '_ams-item',
-    span: 'all',
   },
 }

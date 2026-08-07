@@ -177,9 +177,10 @@ describe('GridCell', () => {
 
   gridCellTags.forEach((tag) => {
     it(`renders with a custom ${tag} tag`, () => {
-      const { container } = render(
-        <Grid.Cell aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />,
-      )
+      const cell = <Grid.Cell aria-label={tag === 'section' ? 'Accessible name' : undefined} as={tag} />
+
+      // A list item only takes its role inside a list.
+      const { container } = render(tag === 'li' ? <ul>{cell}</ul> : cell)
 
       const component = tag === 'div' ? container.querySelector(tag) : screen.getByRole(ariaRoleForTag[tag])
 

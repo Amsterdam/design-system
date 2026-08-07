@@ -125,29 +125,36 @@ export const Default: StoryObj = {
           {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
           <Paragraph role="status">62 resultaten gevonden voor ‘veiligheid’</Paragraph>
         </Grid.Cell>
-        <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
-          {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
-          <Card>
-            {/* Every match is marked, in the title of a result as well as in its teaser. This title holds none. */}
-            <Card.HeadingGroup tagline="Actiecentrum Veiligheid en Zorg">
-              <Card.Heading level={3}>
-                <Card.Link href="#">Top 400/600</Card.Link>
-              </Card.Heading>
-            </Card.HeadingGroup>
-            <Column gap="small">
-              <Paragraph>
-                Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
-                vanuit het Actiecentrum <Mark>Veiligheid</Mark> en Zorg verschillende aanpakken op het snijvlak
-                van <Mark>veiligheid</Mark>, zorg en het sociaal domein.
-              </Paragraph>
-              <Paragraph size="small">
-                {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                <time dateTime="2023-07-01">1 juli 2023</time>
-              </Paragraph>
-            </Column>
-          </Card>
-        </Grid.Cell>
-        {/* … one Cell per result … */}
+        {/*
+         * The results are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the results.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
+         */}
+        <Grid.Subgrid as="ul" span="all">
+          <Grid.Cell as="li" span={{ narrow: 4, medium: 5, wide: 7 }}>
+            {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
+            <Card>
+              {/* Every match is marked, in the title of a result as well as in its teaser. This title holds none. */}
+              <Card.HeadingGroup tagline="Actiecentrum Veiligheid en Zorg">
+                <Card.Heading level={3}>
+                  <Card.Link href="#">Top 400/600</Card.Link>
+                </Card.Heading>
+              </Card.HeadingGroup>
+              <Column gap="small">
+                <Paragraph>
+                  Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
+                  vanuit het Actiecentrum <Mark>Veiligheid</Mark> en Zorg verschillende aanpakken op het snijvlak
+                  van <Mark>veiligheid</Mark>, zorg en het sociaal domein.
+                </Paragraph>
+                <Paragraph size="small">
+                  {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                  <time dateTime="2023-07-01">1 juli 2023</time>
+                </Paragraph>
+              </Column>
+            </Card>
+          </Grid.Cell>
+          {/* … one Cell per result … */}
+        </Grid.Subgrid>
         {/* The Pagination takes the width of the results above it rather than that of the region. */}
         <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
           <Pagination accessibleNameId="paginering" linkTemplate={(page) => \`?pagina=\${page}\`} page={1} totalPages={8} />
@@ -237,26 +244,33 @@ export const Default: StoryObj = {
                 {totalResults} resultaten gevonden voor ‘{searchTerm}’
               </Paragraph>
             </Grid.Cell>
-            {searchResults.map((result) => (
-              <Grid.Cell key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}>
-                {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
-                <Card>
-                  {/* Every match is marked, in the title of a result as well as in its teaser. */}
-                  <Card.HeadingGroup tagline={result.section}>
-                    <Card.Heading level={3}>
-                      <Card.Link href="#">{markSearchTerm(result.title)}</Card.Link>
-                    </Card.Heading>
-                  </Card.HeadingGroup>
-                  <Column gap="small">
-                    <Paragraph>{markSearchTerm(result.teaser)}</Paragraph>
-                    <Paragraph size="small">
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      <time dateTime={result.isoDate}>{result.date}</time>
-                    </Paragraph>
-                  </Column>
-                </Card>
-              </Grid.Cell>
-            ))}
+            {/*
+             * The results are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the results.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
+             */}
+            <Grid.Subgrid as="ul" span="all">
+              {searchResults.map((result) => (
+                <Grid.Cell as="li" key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}>
+                  {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
+                  <Card>
+                    {/* Every match is marked, in the title of a result as well as in its teaser. */}
+                    <Card.HeadingGroup tagline={result.section}>
+                      <Card.Heading level={3}>
+                        <Card.Link href="#">{markSearchTerm(result.title)}</Card.Link>
+                      </Card.Heading>
+                    </Card.HeadingGroup>
+                    <Column gap="small">
+                      <Paragraph>{markSearchTerm(result.teaser)}</Paragraph>
+                      <Paragraph size="small">
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        <time dateTime={result.isoDate}>{result.date}</time>
+                      </Paragraph>
+                    </Column>
+                  </Card>
+                </Grid.Cell>
+              ))}
+            </Grid.Subgrid>
             {/* The Pagination takes the width of the results above it rather than that of the region. */}
             <Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}>
               <Pagination

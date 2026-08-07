@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Grid } from '@amsterdam/design-system-react/src'
-import { gridCellTags } from '@amsterdam/design-system-react/src/Grid/GridCell'
+import { gridSubgridTags } from '@amsterdam/design-system-react/src/Grid/GridSubgrid'
 
 import { asArgType } from '#storybook/_common/argTypes'
 import { GridColumnsGuide } from '#storybook/_components/GridColumnsGuide/GridColumnsGuide'
@@ -15,7 +15,7 @@ const meta = {
   title: 'Components/Layout/Grid',
   component: Grid.Subgrid,
   argTypes: {
-    as: asArgType(gridCellTags),
+    as: asArgType(gridSubgridTags),
     gapVertical: {
       control: {
         labels: { undefined: 'inherit (default)' },
@@ -56,18 +56,40 @@ type SubgridStory = StoryObj<typeof subgridMeta>
  * the Cells inside it line up with the column guide.
  */
 export const Subgrid: SubgridStory = {
-  render: (args) => (
-    <>
-      <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} style={{ blockSize: '16rem' }} />
-      <Grid.Subgrid {...args} span={{ narrow: 4, medium: 6, wide: 9 }} start={{ narrow: 1, medium: 3, wide: 4 }}>
-        <Grid.Cell className="_ams-item" span="all" style={{ blockSize: '6rem' }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-      </Grid.Subgrid>
-    </>
-  ),
+  render: (args) => {
+    // The Cells of a list are its items, so they follow the tag the control sets.
+    const item = args.as === 'ol' || args.as === 'ul' ? ('li' as const) : undefined
+
+    return (
+      <>
+        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} style={{ blockSize: '16rem' }} />
+        <Grid.Subgrid {...args} span={{ narrow: 4, medium: 6, wide: 9 }} start={{ narrow: 1, medium: 3, wide: 4 }}>
+          <Grid.Cell as={item} className="_ams-item" span="all" style={{ blockSize: '6rem' }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+        </Grid.Subgrid>
+      </>
+    )
+  },
+}
+
+/**
+ * A set of Cells that hold the same kind of thing is a list. Render the Subgrid as an `ol` or a `ul` and every
+ * Cell inside it as an `li`. It looks exactly the same, and assistive technology announces the set and its size.
+ */
+export const SemanticListOfCards: SubgridStory = {
+  args: {
+    as: 'ul',
+    children: [
+      <Grid.Cell as="li" className="_ams-item" key={1} span={{ narrow: 4, medium: 4, wide: 3 }} />,
+      <Grid.Cell as="li" className="_ams-item" key={2} span={{ narrow: 4, medium: 4, wide: 3 }} />,
+      <Grid.Cell as="li" className="_ams-item" key={3} span={{ narrow: 4, medium: 4, wide: 3 }} />,
+      <Grid.Cell as="li" className="_ams-item" key={4} span={{ narrow: 4, medium: 4, wide: 3 }} />,
+    ],
+    span: 'all',
+  },
 }

@@ -15,7 +15,7 @@ import { gridCellClasses } from './gridCellClasses'
 export const gridCellAppearances = ['flush', 'transparent'] as const
 export type GridCellAppearance = (typeof gridCellAppearances)[number]
 
-export const gridCellTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
+export const gridCellTags = ['article', 'aside', 'div', 'footer', 'header', 'li', 'main', 'nav', 'section'] as const
 export type GridCellTag = (typeof gridCellTags)[number]
 
 type GridCellSpanAllProp = {

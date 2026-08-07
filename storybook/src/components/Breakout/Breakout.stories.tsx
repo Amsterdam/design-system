@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Image, Paragraph, Spotlight } from '@amsterdam/design-system-react'
 import { Breakout } from '@amsterdam/design-system-react/src'
-import { gridTags } from '@amsterdam/design-system-react/src/Grid/Grid'
+import { breakoutTags } from '@amsterdam/design-system-react/src/Breakout/Breakout'
 
 import { asArgType } from '#storybook/_common/argTypes'
 import { wrapInPage } from '#storybook/_common/decorators'
@@ -19,7 +19,7 @@ const meta = {
   component: Breakout,
   argTypes: {
     ...gridGapAndPaddingArgTypes,
-    as: asArgType(gridTags),
+    as: asArgType(breakoutTags),
   },
   decorators: [wrapInPage],
   parameters: {

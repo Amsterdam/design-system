@@ -28,7 +28,7 @@ export type GridGap = (typeof gridGaps)[number]
 export const gridPaddings = ['large', 'x-large', '2x-large'] as const
 export type GridPadding = (typeof gridPaddings)[number]
 
-export const gridTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'section'] as const
+export const gridTags = ['article', 'aside', 'div', 'footer', 'header', 'main', 'nav', 'ol', 'section', 'ul'] as const
 export type GridTag = (typeof gridTags)[number]
 
 type GridPaddingVerticalProp = {
@@ -46,16 +46,20 @@ type GridPaddingTopAndBottomProps = {
   readonly paddingVertical?: never
 }
 
+/** Every prop a Grid and a Breakout share, which is all but the tag: a Breakout is never a list. */
+export type GridBaseProps = {
+  /** The amount of space between rows. */
+  readonly gapVertical?: GridGap
+} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>> &
+  (GridPaddingVerticalProp | GridPaddingTopAndBottomProps)
+
 export type GridProps = {
   /**
    * The HTML tag to use.
    * @default div
    */
   readonly as?: GridTag
-  /** The amount of space between rows. */
-  readonly gapVertical?: GridGap
-} & Readonly<PropsWithChildren<HTMLAttributes<HTMLElement>>> &
-  (GridPaddingVerticalProp | GridPaddingTopAndBottomProps)
+} & GridBaseProps
 
 const GridRoot = forwardRef<HTMLElement, GridProps>(
   ({ as, children, className, gapVertical, paddingBottom, paddingTop, paddingVertical, ...restProps }, ref) => {

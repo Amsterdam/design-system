@@ -46,7 +46,12 @@ const meta = {
             {topTaskSection.title}
           </Heading>
         </Grid.Cell>
-        <Grid.Subgrid className="ams-mb-l" gapVertical="x-large" span="all">
+        {/*
+         * A set of Cards is a list, so the Subgrid renders a ul and every Cell in it an li. A screen reader
+         * then announces how many there are and which one it is on. This only works where the Subgrid holds
+         * the Cards alone.
+         */}
+        <Grid.Subgrid as="ul" className="ams-mb-l" gapVertical="x-large" span="all">
           {/*
            * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
            * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -55,7 +60,7 @@ const meta = {
            * both the wide and medium grids, and stack on the narrow one.
            */}
           {topTaskSection.tasks.map(({ title, description }) => (
-            <Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}>
+            <Grid.Cell as="li" key={title} span={{ narrow: 4, medium: 4, wide: 3 }}>
               <Card>
                 {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                 <Card.Heading level={3}>
@@ -96,9 +101,9 @@ const meta = {
             {newsSection.title}
           </Heading>
         </Grid.Cell>
-        <Grid.Subgrid gapVertical="x-large" span="all">
+        <Grid.Subgrid as="ul" gapVertical="x-large" span="all">
           {newsSection.items.map(({ title, description, image }) => (
-            <Grid.Cell key={title} span={4}>
+            <Grid.Cell as="li" key={title} span={4}>
               <Card>
                 {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
                 <Card.Image alt="" src={image} />
@@ -147,7 +152,12 @@ export const Default: StoryObj = {
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
       <Heading className="ams-mb-m" level={2} size="level-1">{topTaskSection.title}</Heading>
     </Grid.Cell>
-    <Grid.Subgrid className="ams-mb-l" gapVertical="x-large" span="all">
+    {/*
+     * A set of Cards is a list, so the Subgrid renders a ul and every Cell in it an li. A screen reader then
+     * announces how many there are and which one it is on. This only works where the Subgrid holds the
+     * Cards alone.
+     */}
+    <Grid.Subgrid as="ul" className="ams-mb-l" gapVertical="x-large" span="all">
       {/*
        * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
        * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -156,7 +166,7 @@ export const Default: StoryObj = {
        * both the wide and medium grids, and stack on the narrow one.
        */}
       {topTaskSection.tasks.map(({ title, description }) => (
-        <Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}>
+        <Grid.Cell as="li" key={title} span={{ narrow: 4, medium: 4, wide: 3 }}>
           <Card>
             {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
             <Card.Heading level={3}>
@@ -191,9 +201,9 @@ export const Default: StoryObj = {
     <Grid.Cell span="all">
       <Heading className="ams-mb-m" level={2} size="level-1">{newsSection.title}</Heading>
     </Grid.Cell>
-    <Grid.Subgrid gapVertical="x-large" span="all">
+    <Grid.Subgrid as="ul" gapVertical="x-large" span="all">
       {newsSection.items.map(({ title, description, image }) => (
-        <Grid.Cell key={title} span={4}>
+        <Grid.Cell as="li" key={title} span={4}>
           <Card>
             {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
             <Card.Image alt="" src={image} />
