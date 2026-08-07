@@ -1,0 +1,17 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{h as t,u as n}from"./blocks-zzQRermb.js";import{t as r}from"./jsx-runtime-ATHzeHXA.js";import{i,r as a}from"./react-Dyi61YEg.js";import{n as o,t as s}from"./DesignTokensTable-wacmogqc.js";var c,l;function u(){return(u=e((()=>{c={border:{width:{s:{$value:{value:.0625,unit:`rem`},$extensions:{"nl.amsterdam.type":`borderWidth`}},m:{$value:{value:.0625,unit:`rem`},$extensions:{"nl.amsterdam.type":`borderWidth`}},l:{$value:{value:.125,unit:`rem`},$extensions:{"nl.amsterdam.type":`borderWidth`}},xl:{$value:{value:.1875,unit:`rem`},$extensions:{"nl.amsterdam.type":`borderWidth`}},negative:{m:{$value:{value:-.0625,unit:`rem`},$extensions:{"nl.amsterdam.type":`borderWidth`}},xl:{$value:{value:-.1875,unit:`rem`},$extensions:{"nl.amsterdam.type":`borderWidth`}}}}}},l={ams:c}})))()}var d,f;function p(){return(p=e((()=>{d={border:{radius:{$value:`0`,$extensions:{"nl.amsterdam.type":`borderRadius`}},width:{s:{$value:{value:.0625,unit:`rem`},$description:`1px equivalent. For subtle borders like hover reinforcement.`,$extensions:{"nl.amsterdam.type":`borderWidth`}},m:{$value:{value:.125,unit:`rem`},$description:`2px equivalent. The default border width for inputs and containers.`,$extensions:{"nl.amsterdam.hint":`Must be a single value: it is used in a calculation, which two values would invalidate.`,"nl.amsterdam.type":`borderWidth`}},l:{$value:{value:.1875,unit:`rem`},$description:`3px equivalent.`,$extensions:{"nl.amsterdam.type":`borderWidth`}},xl:{$value:{value:.25,unit:`rem`},$description:`4px equivalent. For strong emphasis like active tab indicators.`,$extensions:{"nl.amsterdam.type":`borderWidth`}},negative:{$description:`Negative values of border widths, used to offset elements inward by the border thickness.`,m:{$value:{value:-.125,unit:`rem`},$extensions:{"nl.amsterdam.type":`borderWidth`}},xl:{$value:{value:-.25,unit:`rem`},$extensions:{"nl.amsterdam.type":`borderWidth`}}}}}},f={ams:d}})))()}function m(e){let t={a:`a`,h1:`h1`,h2:`h2`,h3:`h3`,p:`p`,...i(),...e.components};return(0,g.jsxs)(g.Fragment,{children:[`
+`,`
+`,`
+`,(0,g.jsx)(n,{title:`Brand/Design tokens/Border`}),`
+`,(0,g.jsx)(t.h1,{id:`border`,children:`Border`}),`
+`,(0,g.jsx)(t.p,{children:`Elements that have a border, outline or underline use one of these widths.`}),`
+`,(0,g.jsx)(t.h2,{id:`design`,children:`Design`}),`
+`,(0,g.jsx)(t.p,{children:`We use a limited set of border widths for consistency.`}),`
+`,(0,g.jsx)(t.h2,{id:`design-tokens`,children:`Design tokens`}),`
+`,(0,g.jsx)(t.h3,{id:`spacious-mode`,children:`Spacious Mode`}),`
+`,(0,g.jsx)(t.p,{children:`The default border is 2 pixels thick.
+One thinner and two thicker options are available.`}),`
+`,(0,g.jsx)(t.p,{children:`Some values have a negative equivalent for borders that are drawn inside elements, using a negative offset for a box shadow.`}),`
+`,(0,g.jsx)(s,{tokens:f}),`
+`,(0,g.jsx)(t.h3,{id:`compact-mode`,children:`Compact Mode`}),`
+`,(0,g.jsxs)(t.p,{children:[`All borders are a pixel thinner in `,(0,g.jsx)(t.a,{href:`/docs/docs-developer-guide-modes--docs`,children:`Compact Mode`}),`, except for the small width.`]}),`
+`,(0,g.jsx)(s,{tokens:l})]})}function h(e={}){let{wrapper:t}={...i(),...e.components};return t?(0,g.jsx)(t,{...e,children:(0,g.jsx)(m,{...e})}):m(e)}var g;function _(){return(_=e((()=>{g=r(),a(),t(),o(),u(),p()})))()}_();export{h as default};
