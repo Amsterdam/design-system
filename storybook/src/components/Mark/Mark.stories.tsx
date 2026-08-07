@@ -5,7 +5,7 @@
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Card, Heading, Paragraph } from '@amsterdam/design-system-react'
+import { Card, Heading, Metadata, Paragraph } from '@amsterdam/design-system-react'
 import { Mark } from '@amsterdam/design-system-react/src'
 
 import { childrenArgType } from '#storybook/_common/argTypes'
@@ -53,9 +53,11 @@ export const SearchResults = {
         Voor de organisatie van grootschalige vechtsportgala’s in Amsterdam moet u een <Mark>vergunning</Mark> aanvragen
         bij de gemeente. Vooraf moet u een Bibobformulier …
       </Paragraph>
-      <Paragraph size="small">
-        <time dateTime="2023-08-03">3 augustus 2023</time>
-      </Paragraph>
+      <Metadata size="small">
+        <Metadata.Item>
+          <time dateTime="2023-08-03">3 augustus 2023</time>
+        </Metadata.Item>
+      </Metadata>
     </Card>
   ),
 }

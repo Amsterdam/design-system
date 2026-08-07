@@ -6,7 +6,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ComponentProps } from 'react'
 
-import { Column, Grid, Paragraph } from '@amsterdam/design-system-react'
+import { Column, Grid, Metadata, Paragraph } from '@amsterdam/design-system-react'
 import { Card } from '@amsterdam/design-system-react/src'
 import { aspectRatioOptions } from '@amsterdam/design-system-react/src/common/types'
 
@@ -73,7 +73,9 @@ export const Default: DefaultStory = {
         </Card.HeadingGroup>
         <Column gap="small">
           <Paragraph>{text}</Paragraph>
-          <Paragraph size="small">{date}</Paragraph>
+          <Metadata size="small">
+            <Metadata.Item>{date}</Metadata.Item>
+          </Metadata>
         </Column>
       </Card.Content>
     </Card>
