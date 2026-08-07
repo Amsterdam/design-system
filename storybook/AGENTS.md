@@ -20,12 +20,12 @@ Valid categories (use exactly these):
 
 - `Buttons` — Button, Icon Button
 - `Containers` — Accordion, Dialog, Page, Page Footer, Page Header, Progress List, Spotlight, Table, Tabs
-- `Feedback` — Alert, Avatar, Badge
+- `Feedback` — Alert, Avatar, Badge, Skeleton
 - `Forms` — all form-related components (Checkbox, Field, Label, Select, Text Input, etc.)
 - `Layout` — Action Group, Breakout, Column, Grid, Overlap, Row
 - `Media` — Figure, Icon, Image, Image Slider, Logo
-- `Navigation` — Breadcrumb, Card, Link, Link List, Menu, Pagination, Skip Link, Standalone Link, Table of Contents, Call to Action Link
-- `Text` — Blockquote, Description List, Heading, Mark, Ordered List, Page Heading, Paragraph, Unordered List
+- `Navigation` — Breadcrumb, Calendar, Call to Action Link, Card, Link, Link List, Menu, Pagination, Skip Link, Standalone Link, Tab Navigation, Table of Contents
+- `Text` — Blockquote, Description List, Heading, Mark, Metadata, Ordered List, Paragraph, Unordered List
 
 When adding a new component, choose the most fitting existing category. Agents must not introduce new categories; creation of new categories requires explicit human approval.
 

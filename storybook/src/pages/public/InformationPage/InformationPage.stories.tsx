@@ -13,6 +13,7 @@ import {
   Heading,
   Image,
   Link,
+  Metadata,
   Paragraph,
   Table,
 } from '@amsterdam/design-system-react'
@@ -53,11 +54,14 @@ export const Default: StoryObj = {
   <main id="inhoud">
     {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
     <Grid paddingBottom="2x-large">
-      {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
+      {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata. */}
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
-        <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
+        {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+        <Metadata>
+          Evenementen, Natuur en groen, Vergunningen
+        </Metadata>
       </Grid.Cell>
       {/*
        * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -178,7 +182,7 @@ export const Default: StoryObj = {
       <main id="inhoud">
         {/* Both this Grid and the one below it have the default background colour, so this Grid takes a paddingBottom of 2x-large. */}
         <Grid paddingBottom="2x-large">
-          {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata Paragraph. */}
+          {/* The title spans the wide intro column. The taxonomy tags below it are a Metadata. */}
           {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
           <Grid.Cell
             className="ams-prose"
@@ -186,7 +190,8 @@ export const Default: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
             <Heading level={1}>Natuurbescherming bij evenementen in parken en groengebieden</Heading>
-            <Paragraph>Evenementen, Natuur en groen, Vergunningen</Paragraph>
+            {/* Categories are values of one kind, so a comma separates them and no Separator does. */}
+            <Metadata>Evenementen, Natuur en groen, Vergunningen</Metadata>
           </Grid.Cell>
           {/*
            * The lead paragraph and the lead image take the side-by-side Cell sizes, so the pair reaches a
@@ -320,10 +325,13 @@ export const WithTable: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the elements of this Content Header. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning</Heading>
-        <Paragraph>
+        {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
+        <Metadata>
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-          <time dateTime="2026-01-01">1 januari 2026</time> – Belastingen, Wonen, WOZ
-        </Paragraph>
+          <time dateTime="2026-01-01">1 januari 2026</time>
+          <Metadata.Separator />
+          Belastingen, Wonen, WOZ
+        </Metadata>
         <Paragraph size="large">
           De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
           worden vastgelegd, is landelijk bepaald. Zo betekent een gegeven in Amsterdam hetzelfde als in elke andere
@@ -455,10 +463,13 @@ export const WithTable: StoryObj = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
             <Heading level={1}>Landelijk vastgestelde gegevens voor de WOZ-waarde van uw woning</Heading>
-            <Paragraph>
+            {/* Date and categories are two kinds of metadata, so a Separator sits between them. */}
+            <Metadata>
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-              <time dateTime="2026-01-01">1 januari 2026</time> – Belastingen, Wonen, WOZ
-            </Paragraph>
+              <time dateTime="2026-01-01">1 januari 2026</time>
+              <Metadata.Separator />
+              Belastingen, Wonen, WOZ
+            </Metadata>
             <Paragraph size="large">
               De gemeente stelt elk jaar de WOZ-waarde van uw woning vast. Welke gegevens daarbij horen en hoe zij
               worden vastgelegd, is landelijk bepaald. Zo betekent een gegeven in Amsterdam hetzelfde als in elke andere

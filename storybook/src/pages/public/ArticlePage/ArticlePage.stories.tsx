@@ -13,6 +13,7 @@ import {
   Image,
   Link,
   LinkList,
+  Metadata,
   Paragraph,
   Spotlight,
   StandaloneLink,
@@ -53,10 +54,10 @@ const meta = {
             start={{ narrow: 1, medium: 1, wide: 2 }}
           >
             <Heading level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
-            <Paragraph>
+            <Metadata>
               {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
               <time dateTime="2025-07-29">29 juli 2025</time>
-            </Paragraph>
+            </Metadata>
             <Paragraph size="large">
               Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en
               -bakfietsen. Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -255,10 +256,10 @@ export const Default: StoryObj = {
       {/* ams-prose sets the vertical rhythm between the title, the date, and the lead of this Content Header. */}
       <Grid.Cell className="ams-prose" span={{ narrow: 4, medium: 7, wide: 9 }} start={{ narrow: 1, medium: 1, wide: 2 }}>
         <Heading level={1}>Met korting van A naar B op de deelscooter of -bakfiets</Heading>
-        <Paragraph>
+        <Metadata>
           {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
           <time dateTime="2025-07-29">29 juli 2025</time>
-        </Paragraph>
+        </Metadata>
         <Paragraph size="large">
           Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters
           en -bakfietsen.

@@ -1,0 +1,53 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
+@use "../../common/text-rendering" as *;
+
+.ams-metadata {
+  @include reset-p;
+
+  color: var(--ams-metadata-color);
+  font-family: var(--ams-metadata-font-family);
+  font-size: var(--ams-metadata-font-size);
+  font-weight: var(--ams-metadata-font-weight);
+  line-height: var(--ams-metadata-line-height);
+
+  @include hyphenation;
+  @include text-rendering;
+}
+
+.ams-metadata--small {
+  font-size: var(--ams-metadata-small-font-size);
+  line-height: var(--ams-metadata-small-line-height);
+}
+
+.ams-metadata--inverse {
+  color: var(--ams-metadata-inverse-color);
+}
+
+/*
+ * The separator holds an en dash, which the rules below hide behind a square.
+ * Clipping the dash rather than setting `font-size: 0` keeps the font size, which the em below resolves against.
+ */
+.ams-metadata__separator {
+  background-color: currentColor;
+  block-size: var(--ams-metadata-separator-block-size);
+  display: inline-block;
+  inline-size: var(--ams-metadata-separator-inline-size);
+  margin-inline: var(--ams-metadata-separator-margin-inline);
+  overflow: hidden;
+  text-indent: 100%;
+
+  /* Not `middle`: that reads the x-height Amsterdam Sans reports, which sits below the one it draws. */
+  vertical-align: var(--ams-metadata-separator-vertical-align);
+  white-space: nowrap;
+
+  // A background set to a system colour remains visible in forced-colors mode.
+  @media (forced-colors: active) {
+    background-color: CanvasText;
+  }
+}

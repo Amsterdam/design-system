@@ -17,6 +17,7 @@ import {
   Heading,
   Label,
   Mark,
+  Metadata,
   Pagination,
   Paragraph,
   SearchField,
@@ -149,10 +150,11 @@ export const Default: StoryObj = {
                   vanuit het Actiecentrum <Mark>Veiligheid</Mark> en Zorg verschillende aanpakken op het snijvlak
                   van <Mark>veiligheid</Mark>, zorg en het sociaal domein.
                 </Paragraph>
-                <Paragraph size="small">
+                {/* A Card takes the small size of Metadata. */}
+                <Metadata size="small">
                   {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                   <time dateTime="2023-07-01">1 juli 2023</time>
-                </Paragraph>
+                </Metadata>
               </Column>
             </Card>
           </Grid.Cell>
@@ -268,10 +270,11 @@ export const Default: StoryObj = {
                     </Card.HeadingGroup>
                     <Column gap="small">
                       <Paragraph>{markSearchTerm(result.teaser)}</Paragraph>
-                      <Paragraph size="small">
+                      {/* A Card takes the small size of Metadata. */}
+                      <Metadata size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         <time dateTime={result.isoDate}>{result.date}</time>
-                      </Paragraph>
+                      </Metadata>
                     </Column>
                   </Card>
                 </Grid.Cell>
