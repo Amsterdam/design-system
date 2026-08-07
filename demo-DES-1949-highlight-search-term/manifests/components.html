@@ -16261,7 +16261,8 @@ Use this page where the content arrives after the first render, so the reader se
 
 ### When not to use
 
-Where the server renders the results with the page, use the [Search Results Page](/docs/pages-public-search-results-page--docs), which has no loading state to manage.
+Where the results are in the response that renders the page, there is nothing to wait for, so show them straight away, as the [Search Results Page](/docs/pages-public-search-results-page--docs) does.
+Which of the two a search needs follows from where its results come from, not from the kind of page it is.
 
 ## Variants
 
@@ -16312,7 +16313,7 @@ No component wraps this pattern yet, so the Grid carries the busy state and the 
 ## See also
 
 - [Skeleton](/docs/components-feedback-skeleton--docs) – what stands in for a result while it loads.
-- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same page without a loading state.
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – search results beside a column of filters.
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the filter-and-results layout these share.
 </code></pre></div>
             </div>
@@ -32032,6 +32033,9 @@ This schematic shows the default sections for this page type and how the grids a
 
 Use this page for the results of a site-wide search, where a result can be any kind of content.
 
+The results may come with the page or be fetched after it has rendered.
+Where they arrive later, show [Skeletons](/docs/components-feedback-skeleton--docs) in their place while they load, as the [Loading Page](/docs/pages-public-loading-page--docs) does.
+
 ### When not to use
 
 Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) for an index of one content type, where every item has an image.
@@ -32084,7 +32088,7 @@ Highlighting the term inside it leaves the name the link is announced with uncha
 ## See also
 
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for one content type.
-- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way, a state the results here do not use yet.
+- [Loading Page](/docs/pages-public-loading-page--docs) – the loading state to show while results are on their way.
 - [Search Field](/docs/components-forms-search-field--docs) – the field this page repeats.
 - [Mark](/docs/components-text-mark--docs) – the highlight on a matched word, and the rules it follows.
 - [Semantic list of cards](/docs/components-layout-grid--docs#semantic-list-of-cards) – the `ul` Subgrid the results sit in.
@@ -42123,7 +42127,8 @@ Use this page where the content arrives after the first render, so the reader se
 
 ### When not to use
 
-Where the server renders the results with the page, use the [Search Results Page](/docs/pages-public-search-results-page--docs), which has no loading state to manage.
+Where the results are in the response that renders the page, there is nothing to wait for, so show them straight away, as the [Search Results Page](/docs/pages-public-search-results-page--docs) does.
+Which of the two a search needs follows from where its results come from, not from the kind of page it is.
 
 ## Variants
 
@@ -42174,7 +42179,7 @@ No component wraps this pattern yet, so the Grid carries the busy state and the 
 ## See also
 
 - [Skeleton](/docs/components-feedback-skeleton--docs) – what stands in for a result while it loads.
-- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same page without a loading state.
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – search results beside a column of filters.
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the filter-and-results layout these share.
 </code></pre></div>
             </div>
@@ -52794,6 +52799,9 @@ This schematic shows the default sections for this page type and how the grids a
 
 Use this page for the results of a site-wide search, where a result can be any kind of content.
 
+The results may come with the page or be fetched after it has rendered.
+Where they arrive later, show [Skeletons](/docs/components-feedback-skeleton--docs) in their place while they load, as the [Loading Page](/docs/pages-public-loading-page--docs) does.
+
 ### When not to use
 
 Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) for an index of one content type, where every item has an image.
@@ -52846,7 +52854,7 @@ Highlighting the term inside it leaves the name the link is announced with uncha
 ## See also
 
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for one content type.
-- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way, a state the results here do not use yet.
+- [Loading Page](/docs/pages-public-loading-page--docs) – the loading state to show while results are on their way.
 - [Search Field](/docs/components-forms-search-field--docs) – the field this page repeats.
 - [Mark](/docs/components-text-mark--docs) – the highlight on a matched word, and the rules it follows.
 - [Semantic list of cards](/docs/components-layout-grid--docs#semantic-list-of-cards) – the `ul` Subgrid the results sit in.
