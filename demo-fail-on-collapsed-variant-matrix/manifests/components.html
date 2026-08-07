@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-component-meta</code>. Generation took <strong>5.2s</strong>.
+              Using <code>react-component-meta</code>. Generation took <strong>5.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -16261,7 +16261,8 @@ Use this page where the content arrives after the first render, so the reader se
 
 ### When not to use
 
-Where the server renders the results with the page, use the [Search Results Page](/docs/pages-public-search-results-page--docs), which has no loading state to manage.
+Where the results are in the response that renders the page, there is nothing to wait for, so show them straight away, as the [Search Results Page](/docs/pages-public-search-results-page--docs) does.
+Which of the two a search needs follows from where its results come from, not from the kind of page it is.
 
 ## Variants
 
@@ -16312,7 +16313,7 @@ No component wraps this pattern yet, so the Grid carries the busy state and the 
 ## See also
 
 - [Skeleton](/docs/components-feedback-skeleton--docs) – what stands in for a result while it loads.
-- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same page without a loading state.
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – search results beside a column of filters.
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the filter-and-results layout these share.
 </code></pre></div>
             </div>
@@ -16669,7 +16670,7 @@ import * as MarginStories from &quot;./Margin.stories.tsx&quot;;
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Card, Grid, Heading, Paragraph, SearchField, UnorderedList } from "@amsterdam/design-system-react";
+                <pre><code>import { Card, Heading, Paragraph } from "@amsterdam/design-system-react";
 import { Mark } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
@@ -16696,49 +16697,25 @@ import { Mark } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
               
               
-              <pre><code>const SearchResults = (args: Args) =&gt; {
-  const [query, setQuery] = useState(&#39;horeca vergunning&#39;)
-
-  const searchResults = articles.filter(({ fragment, heading }) =&gt;
-    [fragment, heading].some((text) =&gt;
-      query
-        .split(/\s+/)
-        .filter(Boolean)
-        .some((word) =&gt; text.toLowerCase().includes(word.toLowerCase())),
-    ),
-  )
-
-  return (
-    &lt;Grid&gt;
-      &lt;Grid.Cell span={{ narrow: 4, medium: 6, wide: 7 }} start={{ narrow: 1, medium: 2, wide: 3 }}&gt;
-        &lt;SearchField className=&quot;ams-mb-m&quot;&gt;
-          &lt;SearchField.Input label=&quot;Zoeken&quot; onChange={(e) =&gt; setQuery(e.target.value)} value={query} /&gt;
-          &lt;SearchField.Button /&gt;
-        &lt;/SearchField&gt;
-        &lt;Paragraph className=&quot;ams-mb-xl&quot;&gt;
-          &lt;strong&gt;{searchResults.length}&lt;/strong&gt; artikelen gaan over ‘{query}’.
-        &lt;/Paragraph&gt;
-        &lt;UnorderedList className=&quot;ams-gap-xl&quot; markers={false}&gt;
-          {searchResults.map(({ category, date, fragment, heading }) =&gt; (
-            &lt;UnorderedList.Item key={heading}&gt;
-              &lt;Card&gt;
-                &lt;Card.HeadingGroup tagline={category}&gt;
-                  &lt;Heading level={2} size=&quot;level-4&quot;&gt;
-                    &lt;Card.Link href=&quot;#&quot;&gt;{mark(heading, query, args)}&lt;/Card.Link&gt;
-                  &lt;/Heading&gt;
-                &lt;/Card.HeadingGroup&gt;
-                &lt;Paragraph className=&quot;ams-mb-xs&quot;&gt;{mark(fragment, query, args)}&lt;/Paragraph&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;
-                  &lt;time dateTime={date.toISOString()}&gt;{dateFormat.format(date)}&lt;/time&gt;
-                &lt;/Paragraph&gt;
-              &lt;/Card&gt;
-            &lt;/UnorderedList.Item&gt;
-          ))}
-        &lt;/UnorderedList&gt;
-      &lt;/Grid.Cell&gt;
-    &lt;/Grid&gt;
-  )
-};</code></pre>
+              <pre><code>const SearchResults = () =&gt; (
+  &lt;Card&gt;
+    {/* The category is a label rather than text the search matched, so the word in it stays unmarked. */}
+    &lt;Card.HeadingGroup tagline=&quot;Vergunningen&quot;&gt;
+      &lt;Heading level={2} size=&quot;level-4&quot;&gt;
+        &lt;Card.Link href=&quot;#&quot;&gt;
+          &lt;Mark&gt;Vergunning&lt;/Mark&gt; vechtsportevenementen
+        &lt;/Card.Link&gt;
+      &lt;/Heading&gt;
+    &lt;/Card.HeadingGroup&gt;
+    &lt;Paragraph className=&quot;ams-mb-xs&quot;&gt;
+      Voor de organisatie van grootschalige vechtsportgala’s in Amsterdam moet u een &lt;Mark&gt;vergunning&lt;/Mark&gt; aanvragen
+      bij de gemeente. Vooraf moet u een Bibobformulier …
+    &lt;/Paragraph&gt;
+    &lt;Paragraph size=&quot;small&quot;&gt;
+      &lt;time dateTime=&quot;2023-08-03&quot;&gt;3 augustus 2023&lt;/time&gt;
+    &lt;/Paragraph&gt;
+  &lt;/Card&gt;
+);</code></pre>
             </div>
         </div>
     
@@ -16791,21 +16768,32 @@ An [Alert](/docs/components-feedback-alert--docs) carries that meaning and annou
 
 Never let the highlight carry information by itself.
 The text around it has to make sense without it, so that what the highlight shows reaches everyone, as [WCAG 1.3.1](https://www.w3.org/TR/WCAG22/#info-and-relationships) requires.
-A list of search results already satisfies this: each result is meaningful on its own, and the highlight only speeds up scanning.
+
+#### Search terms
+
+A list of search results meets that on its own: each result is meaningful without the highlight, which only speeds up scanning.
+
+A highlight here follows the query rather than an editorial choice, so no limit applies to how many appear.
+Mark every match on the page, including matches inside the heading of a result.
+Ignore capitalisation and include partial matches.
+
+Leave the labels around a result alone, such as the category it is filed under.
+A full-text search does not match those, so a word that looks like a match there is not one.
+
+#### Editorial highlights
 
 Keep an editorial highlight to one fragment per page, and to at most one sentence.
 Marking a whole paragraph, or several passages at once, leaves nothing standing out.
 Rewrite a heading that needs emphasis rather than highlighting part of it.
 
-Highlighted search terms follow the search instead of an editorial choice, so those limits do not apply to them.
-Mark every match on the page, including matches inside the heading of a result.
-Ignore capitalisation and include partial matches.
-
 ## Examples
 
 ### Search results
 
-Every match of every keyword is highlighted, in the heading of a result as well as in its summary.
+One result of a search for ‘vergunning’, with every match highlighted in the heading as well as in the summary.
+The category above the heading is a label rather than text the search matched, so the word stays unmarked there.
+
+The [Search Results Page](/docs/pages-public-search-results-page--docs) puts this to work on a whole list of results.
 
 &lt;Canvas of={MarkStories.SearchResults} /&gt;
 
@@ -31531,13 +31519,13 @@ label?: string = &#39;Zoeken&#39;</code></pre>
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  30 | const totalPages = 8
-  31 |
-&gt; 32 | const meta = {
+  39 | }
+  40 |
+&gt; 41 | const meta = {
      | ^
-  33 |   ...commonMeta,
-  34 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  35 |   parameters: pageParameters(
+  42 |   ...commonMeta,
+  43 |   title: &#39;Pages/Public/Search Results Page&#39;,
+  44 |   parameters: pageParameters(
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -31558,6 +31546,7 @@ import {
   Grid,
   Heading,
   Label,
+  Mark,
   Pagination,
   Paragraph,
   SearchField,
@@ -31570,6 +31559,14 @@ import { searchResults, searchTopics } from &#39;./data&#39;
 const searchTerm = &#39;veiligheid&#39;
 const totalResults = 62
 const totalPages = 8
+
+// Splitting on the term itself keeps the casing of each occurrence, so a sentence still starts with a capital.
+// The capturing group puts every match at an odd position in the split.
+const markSearchTerm = (text: string) =&gt; {
+  const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, &#39;\\$&amp;&#39;)})`, &#39;gi&#39;)
+
+  return text.split(regex).map((part, index) =&gt; (index % 2 === 1 ? &lt;Mark key={index}&gt;{part}&lt;/Mark&gt; : part))
+}
 
 const meta = {
   ...commonMeta,
@@ -31667,6 +31664,10 @@ export const Default: StoryObj = {
           &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
             {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
             &lt;Card&gt;
+              {/*
+               * Every match is marked, in the title of a result as well as in its teaser; this title holds none.
+               * The tagline names the category rather than text the search matched, so nothing in it is marked.
+               */}
               &lt;Card.HeadingGroup tagline=&quot;Actiecentrum Veiligheid en Zorg&quot;&gt;
                 &lt;Card.Heading level={3}&gt;
                   &lt;Card.Link href=&quot;#&quot;&gt;Top 400/600&lt;/Card.Link&gt;
@@ -31675,8 +31676,8 @@ export const Default: StoryObj = {
               &lt;Column gap=&quot;small&quot;&gt;
                 &lt;Paragraph&gt;
                   Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
-                  vanuit het Actiecentrum Veiligheid en Zorg verschillende aanpakken op het snijvlak van veiligheid,
-                  zorg en het sociaal domein.
+                  vanuit het Actiecentrum &lt;Mark&gt;Veiligheid&lt;/Mark&gt; en Zorg verschillende aanpakken op het snijvlak
+                  van &lt;Mark&gt;veiligheid&lt;/Mark&gt;, zorg en het sociaal domein.
                 &lt;/Paragraph&gt;
                 &lt;Paragraph size=&quot;small&quot;&gt;
                   {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
@@ -31786,13 +31787,17 @@ export const Default: StoryObj = {
                 &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
                   {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                   &lt;Card&gt;
+                    {/*
+                     * Every match is marked, in the title of a result as well as in its teaser.
+                     * The tagline names the category rather than text the search matched, so nothing in it is marked.
+                     */}
                     &lt;Card.HeadingGroup tagline={result.section}&gt;
                       &lt;Card.Heading level={3}&gt;
-                        &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                        &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
                       &lt;/Card.Heading&gt;
                     &lt;/Card.HeadingGroup&gt;
                     &lt;Column gap=&quot;small&quot;&gt;
-                      &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
+                      &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                       &lt;Paragraph size=&quot;small&quot;&gt;
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
@@ -31849,6 +31854,7 @@ export const Default: StoryObj = {
     Grid,
     Heading,
     Label,
+    Mark,
     Pagination,
     Paragraph,
     SearchField,
@@ -31951,13 +31957,17 @@ export const Default: StoryObj = {
               &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
                 {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                 &lt;Card&gt;
+                  {/*
+                   * Every match is marked, in the title of a result as well as in its teaser.
+                   * The tagline names the category rather than text the search matched, so nothing in it is marked.
+                   */}
                   &lt;Card.HeadingGroup tagline={result.section}&gt;
                     &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                      &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
                     &lt;/Card.Heading&gt;
                   &lt;/Card.HeadingGroup&gt;
                   &lt;Column gap=&quot;small&quot;&gt;
-                    &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
+                    &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                     &lt;Paragraph size=&quot;small&quot;&gt;
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                       &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
@@ -32023,6 +32033,9 @@ This schematic shows the default sections for this page type and how the grids a
 
 Use this page for the results of a site-wide search, where a result can be any kind of content.
 
+The results may come with the page or be fetched after it has rendered.
+Where they arrive later, show [Skeletons](/docs/components-feedback-skeleton--docs) in their place while they load, as the [Loading Page](/docs/pages-public-loading-page--docs) does.
+
 ### When not to use
 
 Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) for an index of one content type, where every item has an image.
@@ -32040,6 +32053,10 @@ Keep it out of the filter form as well: nesting one `form` inside another is inv
 Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) and announce the total in a `role=&quot;status&quot;` paragraph, as on any index page.
 Name the term that was searched for in that sentence, so it is clear what produced the list.
 The Cards take a `ul` Subgrid of their own inside that one, as on the [News Overview Page](/docs/pages-public-news-overview-page--docs).
+
+Highlight the term with [Mark](/docs/components-text-mark--docs), in the title of a result as well as in its teaser, so a visitor sees at a glance why a result is in the list.
+Match it whatever its casing, and keep the casing of the text.
+A result can match on text that neither the title nor the teaser shows, so not every result has something to highlight.
 
 The page title is the only Heading 1, and it names the activity rather than the query.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
@@ -32063,15 +32080,18 @@ Leave the row gap of the Subgrid at the vertical gap of the Grid.
 The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
 The total is announced in a `role=&quot;status&quot;` paragraph that names the term searched for, so it is clear what produced the list.
+Leave the term unhighlighted there: a highlight adds nothing to a sentence that is read out in full anyway.
 
-A result title is the title of the page it links to, neither shortened to fit nor marked up to highlight the matched words.
-A highlight inside a link makes the link harder to read out.
+A result title is the title of the page it links to, not shortened to fit.
+Highlighting the term inside it leaves the name the link is announced with unchanged.
 
 ## See also
 
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for one content type.
-- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way.
+- [Loading Page](/docs/pages-public-loading-page--docs) – the loading state to show while results are on their way.
 - [Search Field](/docs/components-forms-search-field--docs) – the field this page repeats.
+- [Mark](/docs/components-text-mark--docs) – the highlight on a matched word, and the rules it follows.
+- [Semantic list of cards](/docs/components-layout-grid--docs#semantic-list-of-cards) – the `ul` Subgrid the results sit in.
 </code></pre></div>
             </div>
         </div>
@@ -42107,7 +42127,8 @@ Use this page where the content arrives after the first render, so the reader se
 
 ### When not to use
 
-Where the server renders the results with the page, use the [Search Results Page](/docs/pages-public-search-results-page--docs), which has no loading state to manage.
+Where the results are in the response that renders the page, there is nothing to wait for, so show them straight away, as the [Search Results Page](/docs/pages-public-search-results-page--docs) does.
+Which of the two a search needs follows from where its results come from, not from the kind of page it is.
 
 ## Variants
 
@@ -42158,7 +42179,7 @@ No component wraps this pattern yet, so the Grid carries the busy state and the 
 ## See also
 
 - [Skeleton](/docs/components-feedback-skeleton--docs) – what stands in for a result while it loads.
-- [Search Results Page](/docs/pages-public-search-results-page--docs) – the same page without a loading state.
+- [Search Results Page](/docs/pages-public-search-results-page--docs) – search results beside a column of filters.
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the filter-and-results layout these share.
 </code></pre></div>
             </div>
@@ -52264,13 +52285,13 @@ Images that illustrate what the text already describes take an empty `alt`.
     <div class="note err">
       <div class="note-title">Prop type error</div>
       <div class="note-body"><pre><code>We could not detect the component from your story file. Specify meta.component.
-  30 | const totalPages = 8
-  31 |
-&gt; 32 | const meta = {
+  39 | }
+  40 |
+&gt; 41 | const meta = {
      | ^
-  33 |   ...commonMeta,
-  34 |   title: &#39;Pages/Public/Search Results Page&#39;,
-  35 |   parameters: pageParameters(
+  42 |   ...commonMeta,
+  43 |   title: &#39;Pages/Public/Search Results Page&#39;,
+  44 |   parameters: pageParameters(
 
 ./src/pages/public/SearchResultsPage/SearchResultsPage.stories.tsx:
 /**
@@ -52291,6 +52312,7 @@ import {
   Grid,
   Heading,
   Label,
+  Mark,
   Pagination,
   Paragraph,
   SearchField,
@@ -52303,6 +52325,14 @@ import { searchResults, searchTopics } from &#39;./data&#39;
 const searchTerm = &#39;veiligheid&#39;
 const totalResults = 62
 const totalPages = 8
+
+// Splitting on the term itself keeps the casing of each occurrence, so a sentence still starts with a capital.
+// The capturing group puts every match at an odd position in the split.
+const markSearchTerm = (text: string) =&gt; {
+  const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, &#39;\\$&amp;&#39;)})`, &#39;gi&#39;)
+
+  return text.split(regex).map((part, index) =&gt; (index % 2 === 1 ? &lt;Mark key={index}&gt;{part}&lt;/Mark&gt; : part))
+}
 
 const meta = {
   ...commonMeta,
@@ -52400,6 +52430,10 @@ export const Default: StoryObj = {
           &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
             {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
             &lt;Card&gt;
+              {/*
+               * Every match is marked, in the title of a result as well as in its teaser; this title holds none.
+               * The tagline names the category rather than text the search matched, so nothing in it is marked.
+               */}
               &lt;Card.HeadingGroup tagline=&quot;Actiecentrum Veiligheid en Zorg&quot;&gt;
                 &lt;Card.Heading level={3}&gt;
                   &lt;Card.Link href=&quot;#&quot;&gt;Top 400/600&lt;/Card.Link&gt;
@@ -52408,8 +52442,8 @@ export const Default: StoryObj = {
               &lt;Column gap=&quot;small&quot;&gt;
                 &lt;Paragraph&gt;
                   Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
-                  vanuit het Actiecentrum Veiligheid en Zorg verschillende aanpakken op het snijvlak van veiligheid,
-                  zorg en het sociaal domein.
+                  vanuit het Actiecentrum &lt;Mark&gt;Veiligheid&lt;/Mark&gt; en Zorg verschillende aanpakken op het snijvlak
+                  van &lt;Mark&gt;veiligheid&lt;/Mark&gt;, zorg en het sociaal domein.
                 &lt;/Paragraph&gt;
                 &lt;Paragraph size=&quot;small&quot;&gt;
                   {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
@@ -52519,13 +52553,17 @@ export const Default: StoryObj = {
                 &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
                   {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                   &lt;Card&gt;
+                    {/*
+                     * Every match is marked, in the title of a result as well as in its teaser.
+                     * The tagline names the category rather than text the search matched, so nothing in it is marked.
+                     */}
                     &lt;Card.HeadingGroup tagline={result.section}&gt;
                       &lt;Card.Heading level={3}&gt;
-                        &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                        &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
                       &lt;/Card.Heading&gt;
                     &lt;/Card.HeadingGroup&gt;
                     &lt;Column gap=&quot;small&quot;&gt;
-                      &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
+                      &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                       &lt;Paragraph size=&quot;small&quot;&gt;
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
@@ -52582,6 +52620,7 @@ export const Default: StoryObj = {
     Grid,
     Heading,
     Label,
+    Mark,
     Pagination,
     Paragraph,
     SearchField,
@@ -52684,13 +52723,17 @@ export const Default: StoryObj = {
               &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
                 {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                 &lt;Card&gt;
+                  {/*
+                   * Every match is marked, in the title of a result as well as in its teaser.
+                   * The tagline names the category rather than text the search matched, so nothing in it is marked.
+                   */}
                   &lt;Card.HeadingGroup tagline={result.section}&gt;
                     &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                      &lt;Card.Link href=&quot;#&quot;&gt;{markSearchTerm(result.title)}&lt;/Card.Link&gt;
                     &lt;/Card.Heading&gt;
                   &lt;/Card.HeadingGroup&gt;
                   &lt;Column gap=&quot;small&quot;&gt;
-                    &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
+                    &lt;Paragraph&gt;{markSearchTerm(result.teaser)}&lt;/Paragraph&gt;
                     &lt;Paragraph size=&quot;small&quot;&gt;
                       {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                       &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
@@ -52756,6 +52799,9 @@ This schematic shows the default sections for this page type and how the grids a
 
 Use this page for the results of a site-wide search, where a result can be any kind of content.
 
+The results may come with the page or be fetched after it has rendered.
+Where they arrive later, show [Skeletons](/docs/components-feedback-skeleton--docs) in their place while they load, as the [Loading Page](/docs/pages-public-loading-page--docs) does.
+
 ### When not to use
 
 Use a [News Overview Page](/docs/pages-public-news-overview-page--docs) for an index of one content type, where every item has an image.
@@ -52773,6 +52819,10 @@ Keep it out of the filter form as well: nesting one `form` inside another is inv
 Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) and announce the total in a `role=&quot;status&quot;` paragraph, as on any index page.
 Name the term that was searched for in that sentence, so it is clear what produced the list.
 The Cards take a `ul` Subgrid of their own inside that one, as on the [News Overview Page](/docs/pages-public-news-overview-page--docs).
+
+Highlight the term with [Mark](/docs/components-text-mark--docs), in the title of a result as well as in its teaser, so a visitor sees at a glance why a result is in the list.
+Match it whatever its casing, and keep the casing of the text.
+A result can match on text that neither the title nor the teaser shows, so not every result has something to highlight.
 
 The page title is the only Heading 1, and it names the activity rather than the query.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
@@ -52796,15 +52846,18 @@ Leave the row gap of the Subgrid at the vertical gap of the Grid.
 The heading of the filter column is hidden visually but not from assistive technology, so it still names the landmark that `aria-labelledby` points at.
 
 The total is announced in a `role=&quot;status&quot;` paragraph that names the term searched for, so it is clear what produced the list.
+Leave the term unhighlighted there: a highlight adds nothing to a sentence that is read out in full anyway.
 
-A result title is the title of the page it links to, neither shortened to fit nor marked up to highlight the matched words.
-A highlight inside a link makes the link harder to read out.
+A result title is the title of the page it links to, not shortened to fit.
+Highlighting the term inside it leaves the name the link is announced with unchanged.
 
 ## See also
 
 - [News Overview Page](/docs/pages-public-news-overview-page--docs) – the same layout for one content type.
-- [Loading Page](/docs/pages-public-loading-page--docs) – this page while its results are on their way.
+- [Loading Page](/docs/pages-public-loading-page--docs) – the loading state to show while results are on their way.
 - [Search Field](/docs/components-forms-search-field--docs) – the field this page repeats.
+- [Mark](/docs/components-text-mark--docs) – the highlight on a matched word, and the rules it follows.
+- [Semantic list of cards](/docs/components-layout-grid--docs#semantic-list-of-cards) – the `ul` Subgrid the results sit in.
 </code></pre></div>
             </div>
         </div>
