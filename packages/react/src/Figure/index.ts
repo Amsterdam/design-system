@@ -5,3 +5,4 @@
 
 export { Figure } from './Figure'
 export type { FigureProps } from './Figure'
+export type { FigureCaptionProps } from './FigureCaption'
