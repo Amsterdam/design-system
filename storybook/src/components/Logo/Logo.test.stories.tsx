@@ -20,6 +20,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  /*
+   * Every brand by hand rather than a generated matrix. `brand` takes a LogoBrandConfig as well as a brand
+   * name, so the docgen analyser resolves it to neither an enum nor a boolean and a matrix would find no
+   * values for it. The list below is the whole set anyway, and it is the only prop worth a picture.
+   */
   render: (args) => (
     <div className="_ams-tests-grid">
       {[undefined, ...logoBrands].map((brand) => (
