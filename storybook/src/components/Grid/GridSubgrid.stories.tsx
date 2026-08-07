@@ -56,20 +56,25 @@ type SubgridStory = StoryObj<typeof subgridMeta>
  * the Cells inside it line up with the column guide.
  */
 export const Subgrid: SubgridStory = {
-  render: (args) => (
-    <>
-      <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} style={{ blockSize: '16rem' }} />
-      <Grid.Subgrid {...args} span={{ narrow: 4, medium: 6, wide: 9 }} start={{ narrow: 1, medium: 3, wide: 4 }}>
-        <Grid.Cell className="_ams-item" span="all" style={{ blockSize: '6rem' }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
-      </Grid.Subgrid>
-    </>
-  ),
+  render: (args) => {
+    // The Cells of a list are its items, so they follow the tag the control sets.
+    const item = args.as === 'ol' || args.as === 'ul' ? ('li' as const) : undefined
+
+    return (
+      <>
+        <Grid.Cell className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} style={{ blockSize: '16rem' }} />
+        <Grid.Subgrid {...args} span={{ narrow: 4, medium: 6, wide: 9 }} start={{ narrow: 1, medium: 3, wide: 4 }}>
+          <Grid.Cell as={item} className="_ams-item" span="all" style={{ blockSize: '6rem' }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+          <Grid.Cell as={item} className="_ams-item" span={{ narrow: 4, medium: 2, wide: 3 }} />
+        </Grid.Subgrid>
+      </>
+    )
+  },
 }
 
 /**
