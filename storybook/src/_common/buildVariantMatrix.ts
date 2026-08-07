@@ -22,13 +22,41 @@ export const SIZE_PROP_NAME = 'size'
  * Props that cannot change how a component looks: `accessibleName` and `accessibleNameId`
  * only name it for assistive technology, and `as` only swaps the element it renders, which
  * the stylesheet makes look the same. Varying one produces a cell that looks identical to
- * the baseline, so they stay off the prop axis.
+ * the baseline, so they stay off the prop axis. `UNVARIED_PROP_NAMES` below is the other
+ * case: those values do look different, and are snapshotted somewhere else instead.
  *
  * `ol` and `ul` are the tags that could differ, a browser indenting a list and drawing
  * markers. The Grid test story checks that reset by putting a list Grid and Subgrid beside
  * plain ones, which a row of the matrix could never do, having nothing to compare against.
  */
 export const NON_VISUAL_PROP_NAMES = ['accessibleName', 'accessibleNameId', 'as']
+
+/**
+ * Props whose controls offer a choice the matrix leaves alone on purpose, so that the check
+ * below reads them as a decision rather than as an axis that fell away. `svg` is the icon
+ * itself, and its options are every icon in the package: Icon snapshots the whole set in a
+ * block of its own, and an Icon Button is the chrome around a glyph rather than the glyph.
+ */
+export const UNVARIED_PROP_NAMES = ['svg']
+
+/**
+ * The props whose control offers a choice of values that the matrix found none of.
+ *
+ * `valuesFromType` reads an `enum` or a `boolean` and nothing else, so a prop the docgen
+ * analyser cannot resolve — it reports `type: none` — leaves the axis it belongs to without
+ * a word. The story still renders, the unit tests and `tsc` still pass, and the only symptom
+ * is a shorter Chromatic snapshot, which reads as an intended change. Breakout rendered 24
+ * instances at 8710px until it silently rendered 5 at 1622px, and nothing failed.
+ */
+const collapsedPropsIn = (axisProps: PropWithValues[], argTypes: StrictArgTypes): string[] => {
+  const offersOptions = new Set(
+    Object.values(argTypes)
+      .filter((argType) => (argType.options?.length ?? 0) > 0)
+      .map(({ name }) => name),
+  )
+
+  return axisProps.filter(({ name, values }) => values.length === 0 && offersOptions.has(name)).map(({ name }) => name)
+}
 
 const sizesOf = (propsWithValues: PropWithValues[]): (string | undefined)[] => {
   const sizeProp = propsWithValues.find((prop) => prop.name === SIZE_PROP_NAME)
@@ -51,25 +79,45 @@ const sizesOf = (propsWithValues: PropWithValues[]): (string | undefined)[] => {
  *   being `disabled` and `hovered`. A prop that is also a state therefore leaves
  *   the prop axis: `disabled` would otherwise vary against the state that already
  *   sets it, rendering both values twice over.
- * • The prop axis carries every other prop, bar the ones no cell can show, and gives
- *   only the values the baseline doesn’t already show.
+ * • The prop axis carries every other prop, bar the ones no cell can show and the ones
+ *   left unvaried on purpose, and gives only the values the baseline doesn’t already show.
  * • Each state opens with the baseline, so the component as a story’s own args
  *   leave it is snapshotted once per state rather than once per prop.
  *
  * The crosses that matter survive: `disabled` still meets `checked` and
  * `indeterminate`, which have disabled fills of their own, and an enum still shows
  * its non-default members in every state.
+ *
+ * Throws when an axis has fallen away rather than laying out the smaller matrix that
+ * remains, for the reason `collapsedPropsIn` gives.
  */
 export const buildVariantMatrix = (
   argTypes: StrictArgTypes,
   { args, variants = [] }: BuildVariantMatrixParams = {},
 ): VariantMatrixEntry[] => {
   const propsWithValues = extractVariantsFromArgTypes(argTypes)
-  const sizes = sizesOf(propsWithValues)
-  const matrixProps = propsWithValues.filter(
+
+  // Everything that feeds an axis: the prop axis below, and the size axis through `sizesOf`.
+  const axisProps = propsWithValues.filter(
     ({ name }) =>
-      name !== SIZE_PROP_NAME && !NON_VISUAL_PROP_NAMES.includes(name) && !variants.some((variant) => variant === name),
+      !NON_VISUAL_PROP_NAMES.includes(name) &&
+      !UNVARIED_PROP_NAMES.includes(name) &&
+      !variants.some((variant) => variant === name),
   )
+
+  const collapsed = collapsedPropsIn(axisProps, argTypes)
+
+  if (collapsed.length > 0) {
+    throw new Error(
+      `The variant matrix found no values for ${collapsed.join(', ')}, though the controls offer a choice, so this ` +
+        `story snapshots its baseline alone. Either resolve the type to an enum or a boolean, give the prop a ` +
+        `fixture in variantFixtures.ts, name it in UNVARIED_PROP_NAMES when leaving it out is the intention, or ` +
+        `drop renderComponentVariants and snapshot one composition on purpose, the way Breakout does.`,
+    )
+  }
+
+  const sizes = sizesOf(propsWithValues)
+  const matrixProps = axisProps.filter(({ name }) => name !== SIZE_PROP_NAME)
 
   // What the baseline cell already shows for a prop: the story’s own arg where it holds
   // a value, and the value the arg types declare where it doesn’t. A meta that spells out

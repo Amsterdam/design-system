@@ -22,6 +22,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Test: Story = {
+  /*
+   * Five compositions by hand rather than a generated matrix. The props worth a picture take Date objects
+   * and a callback that a matrix has no values for, and the Calendar test story already covers the locales.
+   * A matrix would find nothing for `dir` either, which the meta adds a control for without it being a prop
+   * the docgen analyser sees.
+   */
   render: () => (
     <div className="_ams-tests-grid">
       <DatePicker defaultMonth={march2026} onChange={noop} value={null} />

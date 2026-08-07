@@ -30,6 +30,9 @@ const testDate = new Date(2026, 11, 31)
 // One fully localised Calendar per supported locale, so Chromatic captures the translated weekday
 // and month names for every language and the right-to-left layout for Arabic. `calendarLocaleProps`
 // applies the derived direction and labels; `locale` drives the `Intl`-formatted dates.
+// By hand rather than through a generated matrix: a locale sets several props at once, and a matrix
+// varies one at a time. It would also find no values for `dir`, which the meta adds a control for
+// without it being a prop the docgen analyser sees.
 export const Test: Story = {
   args: {
     defaultMonth: new Date(testDate),

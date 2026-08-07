@@ -16,6 +16,7 @@ import {
   Grid,
   Heading,
   Label,
+  Mark,
   Pagination,
   Paragraph,
   SearchField,
@@ -28,6 +29,14 @@ import { searchResults, searchTopics } from './data'
 const searchTerm = 'veiligheid'
 const totalResults = 62
 const totalPages = 8
+
+// Splitting on the term itself keeps the casing of each occurrence, so a sentence still starts with a capital.
+// The capturing group puts every match at an odd position in the split.
+const markSearchTerm = (text: string) => {
+  const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')
+
+  return text.split(regex).map((part, index) => (index % 2 === 1 ? <Mark key={index}>{part}</Mark> : part))
+}
 
 const meta = {
   ...commonMeta,
@@ -125,6 +134,10 @@ export const Default: StoryObj = {
           <Grid.Cell as="li" span={{ narrow: 4, medium: 5, wide: 7 }}>
             {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
             <Card>
+              {/*
+               * Every match is marked, in the title of a result as well as in its teaser; this title holds none.
+               * The tagline names the category rather than text the search matched, so nothing in it is marked.
+               */}
               <Card.HeadingGroup tagline="Actiecentrum Veiligheid en Zorg">
                 <Card.Heading level={3}>
                   <Card.Link href="#">Top 400/600</Card.Link>
@@ -133,8 +146,8 @@ export const Default: StoryObj = {
               <Column gap="small">
                 <Paragraph>
                   Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
-                  vanuit het Actiecentrum Veiligheid en Zorg verschillende aanpakken op het snijvlak van veiligheid,
-                  zorg en het sociaal domein.
+                  vanuit het Actiecentrum <Mark>Veiligheid</Mark> en Zorg verschillende aanpakken op het snijvlak
+                  van <Mark>veiligheid</Mark>, zorg en het sociaal domein.
                 </Paragraph>
                 <Paragraph size="small">
                   {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
@@ -244,13 +257,17 @@ export const Default: StoryObj = {
                 <Grid.Cell as="li" key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}>
                   {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
                   <Card>
+                    {/*
+                     * Every match is marked, in the title of a result as well as in its teaser.
+                     * The tagline names the category rather than text the search matched, so nothing in it is marked.
+                     */}
                     <Card.HeadingGroup tagline={result.section}>
                       <Card.Heading level={3}>
-                        <Card.Link href="#">{result.title}</Card.Link>
+                        <Card.Link href="#">{markSearchTerm(result.title)}</Card.Link>
                       </Card.Heading>
                     </Card.HeadingGroup>
                     <Column gap="small">
-                      <Paragraph>{result.teaser}</Paragraph>
+                      <Paragraph>{markSearchTerm(result.teaser)}</Paragraph>
                       <Paragraph size="small">
                         {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
                         <time dateTime={result.isoDate}>{result.date}</time>

@@ -12,7 +12,7 @@ import { describe, expect, it } from 'vitest'
 import type { VariantState } from './renderComponentVariantTypes'
 
 import { buildComponentProps } from './buildComponentProps'
-import { buildVariantMatrix, SIZE_PROP_NAME } from './buildVariantMatrix'
+import { buildVariantMatrix, NON_VISUAL_PROP_NAMES, SIZE_PROP_NAME, UNVARIED_PROP_NAMES } from './buildVariantMatrix'
 import { HEADING_SAMPLE } from './variantFixtures'
 
 const argType = (overrides: { name: string } & Partial<StrictInputType>): StrictInputType => ({ ...overrides })
@@ -205,5 +205,79 @@ describe('buildVariantMatrix', () => {
       { hasIcon: null, size: undefined, state: 'default' },
       { hasIcon: null, size: undefined, state: 'disabled' },
     ])
+  })
+})
+
+// A prop whose control offers a choice, for a component whose props the docgen analyser
+// could not resolve: it reports no type at all, which is what makes the matrix collapse.
+const untypedPropWithOptions = (name: string, options: unknown[]) => argType({ name, options })
+
+describe('a prop offering options the matrix found no values for', () => {
+  it('stops the story instead of snapshotting the baseline alone', () => {
+    const types = argTypes([untypedPropWithOptions('gapVertical', ['small', 'medium', 'large'])])
+
+    expect(() => buildVariantMatrix(types)).toThrowError(/no values for gapVertical/)
+  })
+
+  it('names every one of them, so a whole component is fixed in one go', () => {
+    const types = argTypes([
+      untypedPropWithOptions('gapVertical', ['small', 'large']),
+      untypedPropWithOptions('paddingVertical', ['small', 'large']),
+    ])
+
+    expect(() => buildVariantMatrix(types)).toThrowError(/no values for gapVertical, paddingVertical/)
+  })
+
+  it('stops the story for the size axis as well, which has no row of its own', () => {
+    const types = argTypes([untypedPropWithOptions(SIZE_PROP_NAME, ['large', 'small'])])
+
+    expect(() => buildVariantMatrix(types)).toThrowError(new RegExp(`no values for ${SIZE_PROP_NAME}`))
+  })
+
+  it('says nothing when the arg types resolve the options to values', () => {
+    const types = argTypes([
+      { ...enumProp('variant', ['primary', 'secondary']), options: ['primary', 'secondary'] },
+      { ...booleanProp('invalid'), options: [true, false] },
+    ])
+
+    expect(() => buildVariantMatrix(types)).not.toThrow()
+  })
+
+  it('says nothing when a fixture supplies the values instead of the type', () => {
+    const types = argTypes([untypedPropWithOptions('icon', ['CheckboxIcon', 'ChevronDownIcon'])])
+
+    expect(() => buildVariantMatrix(types)).not.toThrow()
+  })
+
+  it('says nothing for a prop the matrix leaves unvaried on purpose', () => {
+    const types = argTypes([untypedPropWithOptions(UNVARIED_PROP_NAMES[0]!, ['MailIcon', 'CloseIcon'])])
+
+    expect(() => buildVariantMatrix(types)).not.toThrow()
+  })
+
+  it('says nothing for a non-visual prop, which never reaches an axis', () => {
+    const types = argTypes([untypedPropWithOptions(NON_VISUAL_PROP_NAMES[0]!, ['Sluiten', 'Openen'])])
+
+    expect(() => buildVariantMatrix(types)).not.toThrow()
+  })
+
+  // `as` is the non-visual prop whose control does offer a choice, so it is the one that would
+  // trip this check if it ever reached an axis.
+  it('says nothing for `as`, whose tags it leaves alone', () => {
+    const types = argTypes([untypedPropWithOptions('as', ['article', 'section'])])
+
+    expect(() => buildVariantMatrix(types)).not.toThrow()
+  })
+
+  it('says nothing for a prop the story already varies through its state axis', () => {
+    const types = argTypes([untypedPropWithOptions('disabled', [true, false])])
+
+    expect(() => buildVariantMatrix(types, { variants: ['disabled'] })).not.toThrow()
+  })
+
+  it('says nothing for a prop whose control offers no options at all', () => {
+    const types = argTypes([argType({ name: 'menuItems' })])
+
+    expect(() => buildVariantMatrix(types)).not.toThrow()
   })
 })
