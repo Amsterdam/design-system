@@ -14456,7 +14456,7 @@ Note that the whole caption becomes the accessible name of the Figure, so keep i
 
 - The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
 - The Content Header contains the title and a [Metadata](/docs/components-text-metadata--docs) that classifies the page: taxonomy tags, optionally preceded by a date.
-  The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
+  The tags are comma-separated terms within a single Item, not links.
 - The body holds several sections, each opening with a level 2 Heading.
 - The Content Header Grid holds the title and the metadata in one Cell.
   Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
@@ -41607,7 +41607,7 @@ Note that the whole caption becomes the accessible name of the Figure, so keep i
 
 - The [Breadcrumb](/docs/components-navigation-breadcrumb--docs) has its own [Grid](/docs/components-layout-grid--docs) to separate its `nav` element from the `main` wrapping the page content.
 - The Content Header contains the title and a [Metadata](/docs/components-text-metadata--docs) that classifies the page: taxonomy tags, optionally preceded by a date.
-  The tags are a plain [Paragraph](/docs/components-text-paragraph--docs) of comma-separated terms, not links.
+  The tags are comma-separated terms within a single Item, not links.
 - The body holds several sections, each opening with a level 2 Heading.
 - The Content Header Grid holds the title and the metadata in one Cell.
   Where a lead Image sits beside the lead paragraph, each of the two takes its own Cell in that same Grid; without one, the lead stays in the Content Header Cell.
@@ -54092,7 +54092,9 @@ Add one of the [Margin](/docs/utilities-css-margin--docs) utility classes (`ams-
   &lt;Heading className=&quot;ams-mb-m&quot; level={1}&gt;
     Met korting van A naar B op de deelscooter of -bakfiets
   &lt;/Heading&gt;
-  &lt;Paragraph className=&quot;ams-mb-m&quot;&gt;29 juli 2025&lt;/Paragraph&gt;
+  &lt;Metadata className=&quot;ams-mb-m&quot;&gt;
+    &lt;Metadata.Item&gt;29 juli 2025&lt;/Metadata.Item&gt;
+  &lt;/Metadata&gt;
   &lt;Paragraph size=&quot;large&quot;&gt;
     Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
     Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
@@ -54107,7 +54109,9 @@ Set the [Prose](/docs/utilities-css-prose--docs) utility class (`.ams-prose`) to
 ```tsx
 &lt;article className=&quot;ams-prose&quot;&gt;
   &lt;Heading level={1}&gt;Met korting van A naar B op de deelscooter of -bakfiets&lt;/Heading&gt;
-  &lt;Paragraph&gt;29 juli 2025&lt;/Paragraph&gt;
+  &lt;Metadata&gt;
+    &lt;Metadata.Item&gt;29 juli 2025&lt;/Metadata.Item&gt;
+  &lt;/Metadata&gt;
   &lt;Paragraph size=&quot;large&quot;&gt;
     Woont of werkt u in Amsterdam? Dan maakt u tot en met oktober met korting gebruik van deelscooters en -bakfietsen.
     Zo kunt u de auto laten staan en de werkzaamheden in en rond de stad vermijden.
