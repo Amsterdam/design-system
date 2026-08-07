@@ -24,6 +24,16 @@ describe('formatTokenValue', () => {
     expect(formatTokenValue('{ams.color.highlight.orange}')).toBe('var(--ams-color-highlight-orange)')
   })
 
+  it('drops a trailing "default" segment from the reference', () => {
+    expect(formatTokenValue('{ams.color.interactive.default}')).toBe('var(--ams-color-interactive)')
+  })
+
+  it('drops a trailing "default" segment from every reference in a string', () => {
+    expect(formatTokenValue('inset 0rem {ams.border.width.m} 0rem 0rem {ams.color.interactive.invalid.default}')).toBe(
+      'inset 0rem var(--ams-border-width-m) 0rem 0rem var(--ams-color-interactive-invalid)',
+    )
+  })
+
   it('converts multiple token references in a single string', () => {
     expect(formatTokenValue('inset 0rem {ams.border.width.m} 0rem 0rem {ams.color.separator}')).toBe(
       'inset 0rem var(--ams-border-width-m) 0rem 0rem var(--ams-color-separator)',
