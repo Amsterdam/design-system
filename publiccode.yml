@@ -4,7 +4,9 @@
 # metadata file that makes public software easily discoverable.
 # More info at https://github.com/publiccodeyml/publiccode.yml
 
-publiccodeYmlVersion: "0.7"
+# Version 0.7 is the latest, but the Dutch open source register can’t read it yet:
+# https://github.com/developer-overheid-nl/don-checker/issues/59
+publiccodeYmlVersion: "0.5"
 
 name: Amsterdam Design System
 url: https://github.com/Amsterdam/design-system.git
@@ -93,8 +95,9 @@ localisation:
     - nl
   localisationReady: true
 
-supports:
-  - id: https://www.digitoegankelijk.nl/
+# Version 0.7 adds this key; restore it once we upgrade:
+# supports:
+#   - id: https://www.digitoegankelijk.nl/
 
 maintenance:
   type: internal
