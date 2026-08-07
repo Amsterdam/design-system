@@ -1,0 +1,83 @@
+{
+  "ams": {
+    "metadata": {
+      "color": {
+        "$value": "{ams.color.text.secondary}",
+        "$extensions": {
+          "nl.amsterdam.type": "color"
+        }
+      },
+      "font-family": {
+        "$value": "{ams.typography.font-family}",
+        "$extensions": {
+          "nl.amsterdam.type": "fontFamily"
+        }
+      },
+      "font-size": {
+        "$value": "{ams.typography.body-text.font-size}",
+        "$extensions": {
+          "nl.amsterdam.type": "fontSize"
+        }
+      },
+      "font-weight": {
+        "$value": "{ams.typography.body-text.font-weight}",
+        "$extensions": {
+          "nl.amsterdam.type": "fontWeight"
+        }
+      },
+      "line-height": {
+        "$value": "{ams.typography.body-text.line-height}",
+        "$extensions": {
+          "nl.amsterdam.subtype": "lineHeight",
+          "nl.amsterdam.type": "number"
+        }
+      },
+      "inverse": {
+        "color": {
+          "$value": "{ams.color.text.inverse}",
+          "$extensions": {
+            "nl.amsterdam.type": "color"
+          }
+        }
+      },
+      "separator": {
+        "block-size": {
+          "$value": "0.25rem",
+          "$type": "dimension"
+        },
+        "inline-size": {
+          "$value": "0.25rem",
+          "$type": "dimension"
+        },
+        "margin-inline": {
+          "$value": "{ams.space.s}",
+          "$extensions": {
+            "nl.amsterdam.hint": "Must be a single value: it sets a longhand property, which takes only one.",
+            "nl.amsterdam.subtype": "space",
+            "nl.amsterdam.type": "dimension"
+          }
+        },
+        "vertical-align": {
+          "$value": "0.15em",
+          "$type": "dimension",
+          "$description": "Raises the square to the middle of the lowercase letters beside it."
+        }
+      },
+      "small": {
+        "font-size": {
+          "$value": "{ams.typography.body-text.small.font-size}",
+          "$extensions": {
+            "nl.amsterdam.type": "fontSize"
+          }
+        },
+        "line-height": {
+          "$value": "{ams.typography.body-text.small.line-height}",
+          "$extensions": {
+            "nl.amsterdam.subtype": "lineHeight",
+            "nl.amsterdam.type": "number"
+          }
+        }
+      }
+    }
+  }
+}

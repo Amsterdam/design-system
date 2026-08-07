@@ -1,0 +1,49 @@
+/**
+ * @license EUPL-1.2+
+ * Copyright Gemeente Amsterdam
+ */
+
+@use "../../common/hyphenation" as *;
+@use "../../common/resets" as *;
+@use "../../common/text-rendering" as *;
+
+.ams-metadata {
+  @include reset-p;
+
+  box-sizing: border-box;
+  color: var(--ams-metadata-color);
+  font-family: var(--ams-metadata-font-family);
+  font-size: var(--ams-metadata-font-size);
+  font-weight: var(--ams-metadata-font-weight);
+  line-height: var(--ams-metadata-line-height);
+
+  @include hyphenation;
+  @include text-rendering;
+}
+
+.ams-metadata--small {
+  font-size: var(--ams-metadata-small-font-size);
+  line-height: var(--ams-metadata-small-line-height);
+}
+
+.ams-metadata--inverse {
+  color: var(--ams-metadata-inverse-color);
+}
+
+/* The separator is a background on an empty pseudo-element, so nothing is announced between one item and the next. */
+.ams-metadata__item:not(:last-child)::after {
+  background-color: currentColor;
+  block-size: var(--ams-metadata-separator-block-size);
+  content: "";
+  display: inline-block;
+  inline-size: var(--ams-metadata-separator-inline-size);
+  margin-inline: var(--ams-metadata-separator-margin-inline);
+
+  /* Not `middle`: that reads the x-height Amsterdam Sans reports, which sits below the one it draws. */
+  vertical-align: var(--ams-metadata-separator-vertical-align);
+
+  // A background set to a system colour remains visible in forced-colors mode.
+  @media (forced-colors: active) {
+    background-color: CanvasText;
+  }
+}
