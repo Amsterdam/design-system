@@ -588,7 +588,7 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/296 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">14/86 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">14/86 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">1/294 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">123 docs ok</a></div>
   </div>
 </header>
 <main>
@@ -10268,7 +10268,7 @@ import * as GapStories from &quot;./Gap.stories.tsx&quot;;
             <pre><code>/**
  * The HTML tag to use.
  */
-as?: &quot;article&quot; | &quot;main&quot; | &quot;div&quot; | &quot;section&quot; | &quot;footer&quot; | &quot;aside&quot; | &quot;header&quot; | &quot;nav&quot; = div
+as?: &quot;article&quot; | &quot;main&quot; | &quot;div&quot; | &quot;section&quot; | &quot;footer&quot; | &quot;aside&quot; | &quot;header&quot; | &quot;nav&quot; | &quot;ol&quot; | &quot;ul&quot; = div
 
 /**
  * The amount of space between rows.
@@ -10425,7 +10425,7 @@ Set it on the sidebar rather than on everything around it, and leave the rest to
 
 Shares the columns it spans with its own children, so they align to the columns of the page.
 Place and size it with `span` and `start`, exactly like a Cell; those values also decide how many columns its children have to work with.
-Every direct child of a Subgrid must be a Cell.
+Every direct child of a Subgrid must be a Cell, or another Subgrid if part of the region is a set of its own.
 
 Use it for a region beside a sidebar, such as the results of an index page next to a filter column.
 Without it, a Cell inside a Cell has no columns to align to.
@@ -10454,23 +10454,34 @@ This lets you mix a Grid with a [Spotlight](/docs/components-containers-spotligh
 
 Never nest a Grid inside another Grid.
 The Grid is currently intended for the full width of the page only.
+Use a Subgrid where a region needs to place its own children on the columns of the page.
 
 Do not apply [Gap utility classes](/docs/utilities-css-gap--docs) to the Grid.
 The Grid manages its own gaps; the utility classes interfere with that.
 
 ### How to use
 
+#### Sizing and placement
+
 Follow the [optimal sizes of Grid Cells](/docs/pages-guidelines-layout-and-spacing--docs#how-to-size-the-grid-cells) for typical page sections.
+
+Ensure the `span` and `start` values for a cell never exceed the number of columns available at that breakpoint.
+The browser would add columns to fit, which breaks the layout.
+
+#### Meaningful elements
 
 Use the `as` prop to give a Grid or a Grid Cell a meaningful HTML element when one applies.
 For example, set a top-level Cell that holds the main content of the page to `as=&quot;main&quot;`, or a sidebar Cell to `as=&quot;aside&quot;`.
+A Grid or a Cell can be an `article` or a `section` too, among the other tags `as` offers.
 
 Put `as=&quot;main&quot;` on the Grid itself when the main content of a page is a single section: the Grid then is that region.
 Wrap the sections in a plain `main` element instead when the region holds several of them, such as more Grids, a [Spotlight](/docs/components-containers-spotlight--docs), or a full-bleed [Image](/docs/components-media-image--docs).
 Next to a sidebar, the main content goes in its own Grid Cell.
 
-Ensure the `span` and `start` values for a cell never exceed the number of columns available at that breakpoint.
-The browser would add columns to fit, which breaks the layout.
+Give a Grid or a Subgrid `as=&quot;ul&quot;` and the Cells inside it `as=&quot;li&quot;` where those Cells hold the same kind of thing, such as a set of Cards.
+‘Semantic list of cards’ below shows how.
+
+#### Reading order
 
 Write the Cells in the order the content should be read, and use `start` only to decide where each one sits.
 Reading order and keyboard order follow the markup rather than the columns, so the two disagree as soon as `start` is used to reorder rather than to place.
@@ -10557,12 +10568,22 @@ This example appears best with Compact Mode active in the toolbar above.
 
 &lt;Canvas of={GridStories.BackgroundInCompactMode} /&gt;
 
-### Improve semantics
+### Semantic list of cards
 
-Both Grid and Grid Cell render a `&lt;div&gt;` by default.
-Use the `as` prop on either to make the markup more semantic.
+A set of Cells that hold the same kind of thing is a list: news items, search results, a row of Cards.
+Render the Grid or the Subgrid around them as an `ol` or a `ul`, and every Cell inside it as an `li`.
 
-&lt;Canvas of={GridCellStories.ImproveSemantics} /&gt;
+That element then holds those items and nothing else.
+A heading above the set or a [Pagination](/docs/components-navigation-pagination--docs) below it is not one of them, so each goes in a Cell of its own outside the list.
+A Subgrid is usually the one to reach for, since a Grid tends to carry that heading as well.
+
+Where the set is only part of a wider region, give it a Subgrid of its own inside that region’s Subgrid.
+A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
+
+A list looks exactly like a `div`: it drops the marker, the indent and the margin a browser gives a list.
+A Grid keeps its own inline padding, the gutter of the page.
+
+&lt;Canvas of={GridSubgridStories.SemanticListOfCards} /&gt;
 
 ## Features
 
@@ -10704,6 +10725,10 @@ A cell written second and started at column 7 is read second and reached second 
 The `as` prop can render an `article` or a `section` instead of a `div`.
 A `section` reaches assistive technology as a landmark only once it has a name, so give the heading inside it an `id` and point `aria-labelledby` at that id.
 
+A Grid or a Subgrid that renders an `ol` or a `ul` reaches assistive technology as a list, and the Cells inside it need `as=&quot;li&quot;` to be its items.
+A screen reader then announces how many items the set holds and which one it is on.
+It also offers its shortcuts for moving through the set or skipping past it.
+
 ## See also
 
 - [Page](/docs/components-containers-page--docs) – the container that wraps the Grid.
@@ -10749,7 +10774,7 @@ appearance?: &quot;flush&quot; | &quot;transparent&quot;
 /**
  * The HTML tag to use.
  */
-as?: &quot;article&quot; | &quot;main&quot; | &quot;div&quot; | &quot;section&quot; | &quot;footer&quot; | &quot;aside&quot; | &quot;header&quot; | &quot;nav&quot; = div
+as?: &quot;article&quot; | &quot;main&quot; | &quot;div&quot; | &quot;section&quot; | &quot;footer&quot; | &quot;aside&quot; | &quot;header&quot; | &quot;li&quot; | &quot;nav&quot; = div
 
 /**
  * The amount of grid rows the cell spans.
@@ -10788,7 +10813,7 @@ start?: GridColumnNumber | GridColumnNumbers | undefined</code></pre>
       <div class="hint">/home/runner/work/design-system/design-system/packages/react/src/index.ts</div>
       
       <div class="hint">A region of the Grid that shares its columns with its children, so they align to the columns of the page.
-Every direct child must be a Grid Cell.</div>
+Every direct child must be a Grid Cell, or another Subgrid if part of the region is a set of its own.</div>
       <div class="kv"><span class="chip">see: {@link https://designsystem.amsterdam/?path=/docs/components-layout-grid--docs Grid docs at Amsterdam Design System}</span></div>
       <pre><code>import { Grid } from &quot;@amsterdam/design-system-react/src&quot;;</code></pre>
       
@@ -10797,7 +10822,7 @@ Every direct child must be a Grid Cell.</div>
           <pre><code>/**
  * The HTML tag to use.
  */
-as?: &quot;article&quot; | &quot;main&quot; | &quot;div&quot; | &quot;section&quot; | &quot;footer&quot; | &quot;aside&quot; | &quot;header&quot; | &quot;nav&quot; = div
+as?: &quot;article&quot; | &quot;main&quot; | &quot;div&quot; | &quot;section&quot; | &quot;footer&quot; | &quot;aside&quot; | &quot;header&quot; | &quot;nav&quot; | &quot;ol&quot; | &quot;ul&quot; = div
 
 /**
  * The amount of space between the rows of the subgrid.
@@ -11694,7 +11719,12 @@ const meta = {
             {topTaskSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        {/*
+         * A set of Cards is a list, so the Subgrid renders a ul and every Cell in it an li. A screen reader
+         * then announces how many there are and which one it is on. This only works where the Subgrid holds
+         * the Cards alone.
+         */}
+        &lt;Grid.Subgrid as=&quot;ul&quot; className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/*
            * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
            * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -11703,7 +11733,7 @@ const meta = {
            * both the wide and medium grids, and stack on the narrow one.
            */}
           {topTaskSection.tasks.map(({ title, description }) =&gt; (
-            &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+            &lt;Grid.Cell as=&quot;li&quot; key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
               &lt;Card&gt;
                 {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                 &lt;Card.Heading level={3}&gt;
@@ -11744,9 +11774,9 @@ const meta = {
             {newsSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Subgrid as=&quot;ul&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {newsSection.items.map(({ title, description, image }) =&gt; (
-            &lt;Grid.Cell key={title} span={4}&gt;
+            &lt;Grid.Cell as=&quot;li&quot; key={title} span={4}&gt;
               &lt;Card&gt;
                 {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
                 &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
@@ -11795,7 +11825,12 @@ export const Default: StoryObj = {
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
       &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+    {/*
+     * A set of Cards is a list, so the Subgrid renders a ul and every Cell in it an li. A screen reader then
+     * announces how many there are and which one it is on. This only works where the Subgrid holds the
+     * Cards alone.
+     */}
+    &lt;Grid.Subgrid as=&quot;ul&quot; className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       {/*
        * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
        * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -11804,7 +11839,7 @@ export const Default: StoryObj = {
        * both the wide and medium grids, and stack on the narrow one.
        */}
       {topTaskSection.tasks.map(({ title, description }) =&gt; (
-        &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+        &lt;Grid.Cell as=&quot;li&quot; key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
           &lt;Card&gt;
             {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
             &lt;Card.Heading level={3}&gt;
@@ -11839,9 +11874,9 @@ export const Default: StoryObj = {
     &lt;Grid.Cell span=&quot;all&quot;&gt;
       &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+    &lt;Grid.Subgrid as=&quot;ul&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       {newsSection.items.map(({ title, description, image }) =&gt; (
-        &lt;Grid.Cell key={title} span={4}&gt;
+        &lt;Grid.Cell as=&quot;li&quot; key={title} span={4}&gt;
           &lt;Card&gt;
             {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
             &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
@@ -11922,7 +11957,12 @@ export const Default: StoryObj = {
           {topTaskSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      {/*
+       * A set of Cards is a list, so the Subgrid renders a ul and every Cell in it an li. A screen reader
+       * then announces how many there are and which one it is on. This only works where the Subgrid holds
+       * the Cards alone.
+       */}
+      &lt;Grid.Subgrid as=&quot;ul&quot; className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/*
          * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
          * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -11931,7 +11971,7 @@ export const Default: StoryObj = {
          * both the wide and medium grids, and stack on the narrow one.
          */}
         {topTaskSection.tasks.map(({ title, description }) =&gt; (
-          &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+          &lt;Grid.Cell as=&quot;li&quot; key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
             &lt;Card&gt;
               {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
               &lt;Card.Heading level={3}&gt;
@@ -11972,9 +12012,9 @@ export const Default: StoryObj = {
           {newsSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Subgrid as=&quot;ul&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {newsSection.items.map(({ title, description, image }) =&gt; (
-          &lt;Grid.Cell key={title} span={4}&gt;
+          &lt;Grid.Cell as=&quot;li&quot; key={title} span={4}&gt;
             &lt;Card&gt;
               {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
               &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
@@ -12064,6 +12104,9 @@ The highlights band belongs to the page&#39;s own content, so its Spotlight stay
 On the Article Page the comparable band sits outside `main` as a named aside, because there it accompanies the article rather than being part of it.
 
 Card images take an empty `alt`: the heading and link beside them already name what they point at.
+
+The top tasks and the news previews are each a list in the markup: their Subgrid renders a `ul` and every Cell in it an `li`.
+A screen reader then announces how many Cards the set holds and which one it is on, and can skip past them all at once.
 
 ## See also
 
@@ -19867,34 +19910,41 @@ export const Default: StoryObj = {
           &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         {/*
-         * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-         * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+         * The articles are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the articles.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
          */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-          &lt;Card&gt;
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/122/640/360&quot; /&gt;
-            {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-            &lt;Card.Content&gt;
-              &lt;Card.HeadingGroup tagline=&quot;Algemeen, Centrum, Werkzaamheden&quot;&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Berlagebrug een aantal nachten dicht&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph&gt;
-                  Tussen 3 juni en 21 juli leggen we het tramspoor op de Berlagebrug aan. De brug is ongeveer 12
-                  nachten dicht voor gemotoriseerd verkeer en in 3 nachten voor al het verkeer.
-                &lt;/Paragraph&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;
-                  {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                  &lt;time dateTime=&quot;2023-10-20&quot;&gt;20 oktober 2023&lt;/time&gt;
-                &lt;/Paragraph&gt;
-              &lt;/Column&gt;
-            &lt;/Card.Content&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        {/* … one Cell per article … */}
+        &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+          {/*
+           * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+           * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+           */}
+          &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+            &lt;Card&gt;
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/122/640/360&quot; /&gt;
+              {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+              &lt;Card.Content&gt;
+                &lt;Card.HeadingGroup tagline=&quot;Algemeen, Centrum, Werkzaamheden&quot;&gt;
+                  &lt;Card.Heading level={3}&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;Berlagebrug een aantal nachten dicht&lt;/Card.Link&gt;
+                  &lt;/Card.Heading&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph&gt;
+                    Tussen 3 juni en 21 juli leggen we het tramspoor op de Berlagebrug aan. De brug is ongeveer 12
+                    nachten dicht voor gemotoriseerd verkeer en in 3 nachten voor al het verkeer.
+                  &lt;/Paragraph&gt;
+                  &lt;Paragraph size=&quot;small&quot;&gt;
+                    {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                    &lt;time dateTime=&quot;2023-10-20&quot;&gt;20 oktober 2023&lt;/time&gt;
+                  &lt;/Paragraph&gt;
+                &lt;/Column&gt;
+              &lt;/Card.Content&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          {/* … one Cell per article … */}
+        &lt;/Grid.Subgrid&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
           &lt;Pagination
             accessibleNameId=&quot;paginering&quot;
@@ -20006,32 +20056,39 @@ export const Default: StoryObj = {
               &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             {/*
-             * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-             * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+             * The articles are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the articles.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
              */}
-            {newsArticles.map((article) =&gt; (
-              &lt;Grid.Cell key={article.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-                &lt;Card&gt;
-                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={article.imageSource} /&gt;
-                  {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-                  &lt;Card.Content&gt;
-                    &lt;Card.HeadingGroup tagline={article.category}&gt;
-                      &lt;Card.Heading level={3}&gt;
-                        &lt;Card.Link href=&quot;#&quot;&gt;{article.title}&lt;/Card.Link&gt;
-                      &lt;/Card.Heading&gt;
-                    &lt;/Card.HeadingGroup&gt;
-                    &lt;Column gap=&quot;small&quot;&gt;
-                      &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
-                      &lt;Paragraph size=&quot;small&quot;&gt;
-                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                      &lt;/Paragraph&gt;
-                    &lt;/Column&gt;
-                  &lt;/Card.Content&gt;
-                &lt;/Card&gt;
-              &lt;/Grid.Cell&gt;
-            ))}
+            &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+              {/*
+               * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+               * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+               */}
+              {newsArticles.map((article) =&gt; (
+                &lt;Grid.Cell as=&quot;li&quot; key={article.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+                  &lt;Card&gt;
+                    {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                    &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={article.imageSource} /&gt;
+                    {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+                    &lt;Card.Content&gt;
+                      &lt;Card.HeadingGroup tagline={article.category}&gt;
+                        &lt;Card.Heading level={3}&gt;
+                          &lt;Card.Link href=&quot;#&quot;&gt;{article.title}&lt;/Card.Link&gt;
+                        &lt;/Card.Heading&gt;
+                      &lt;/Card.HeadingGroup&gt;
+                      &lt;Column gap=&quot;small&quot;&gt;
+                        &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
+                        &lt;Paragraph size=&quot;small&quot;&gt;
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
+                        &lt;/Paragraph&gt;
+                      &lt;/Column&gt;
+                    &lt;/Card.Content&gt;
+                  &lt;/Card&gt;
+                &lt;/Grid.Cell&gt;
+              ))}
+            &lt;/Grid.Subgrid&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;Pagination
                 accessibleNameId=&quot;paginering&quot;
@@ -20188,32 +20245,39 @@ export const Default: StoryObj = {
             &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           {/*
-           * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-           * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+           * The articles are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+           * The result count above and the Pagination below stay outside it; neither is one of the articles.
+           * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
            */}
-          {newsArticles.map((article) =&gt; (
-            &lt;Grid.Cell key={article.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-              &lt;Card&gt;
-                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={article.imageSource} /&gt;
-                {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-                &lt;Card.Content&gt;
-                  &lt;Card.HeadingGroup tagline={article.category}&gt;
-                    &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href=&quot;#&quot;&gt;{article.title}&lt;/Card.Link&gt;
-                    &lt;/Card.Heading&gt;
-                  &lt;/Card.HeadingGroup&gt;
-                  &lt;Column gap=&quot;small&quot;&gt;
-                    &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
-                    &lt;Paragraph size=&quot;small&quot;&gt;
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                    &lt;/Paragraph&gt;
-                  &lt;/Column&gt;
-                &lt;/Card.Content&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-          ))}
+          &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+            {/*
+             * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+             * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+             */}
+            {newsArticles.map((article) =&gt; (
+              &lt;Grid.Cell as=&quot;li&quot; key={article.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+                &lt;Card&gt;
+                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={article.imageSource} /&gt;
+                  {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+                  &lt;Card.Content&gt;
+                    &lt;Card.HeadingGroup tagline={article.category}&gt;
+                      &lt;Card.Heading level={3}&gt;
+                        &lt;Card.Link href=&quot;#&quot;&gt;{article.title}&lt;/Card.Link&gt;
+                      &lt;/Card.Heading&gt;
+                    &lt;/Card.HeadingGroup&gt;
+                    &lt;Column gap=&quot;small&quot;&gt;
+                      &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
+                      &lt;Paragraph size=&quot;small&quot;&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
+                      &lt;/Paragraph&gt;
+                    &lt;/Column&gt;
+                  &lt;/Card.Content&gt;
+                &lt;/Card&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+          &lt;/Grid.Subgrid&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
             &lt;Pagination
               accessibleNameId=&quot;paginering&quot;
@@ -20287,6 +20351,9 @@ Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) rather t
 A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
 Without it the results have no columns of their own, and nothing in them can line up with the rest of the page.
 
+The articles are a list, so give them a Subgrid of their own inside that one: a `ul` with every Cell in it an `li`.
+The sentence announcing the total and the Pagination are not part of that list, so they stay outside it.
+
 Announce the number of results in a `role=&quot;status&quot;` paragraph, and name the filters that produced it.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
 
@@ -20327,6 +20394,9 @@ The heading of the filter column is hidden visually but not from assistive techn
 The number of results is announced in a `role=&quot;status&quot;` paragraph that names the filters which produced it.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
 
+The articles are a list in the markup as well as on screen.
+A screen reader then announces how many there are and which one it is on, and can skip past them all at once.
+
 ## See also
 
 - [Search Results Page](/docs/pages-public-search-results-page--docs) – the same layout for results of any type.
@@ -20353,7 +20423,7 @@ A visitor using a screen reader otherwise has no way to tell that ticking a chec
       <div class="badges">
         <label for="c-52-components-text-ordered-list-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-52-components-text-ordered-list-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-52-components-text-ordered-list-stories" class="badge ok as-toggle">6 stories</label>
         <label for="c-52-components-text-ordered-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -20409,8 +20479,7 @@ size?: &quot;small&quot;</code></pre>
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Card, Paragraph } from "@amsterdam/design-system-react";
-import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
+                <pre><code>import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
           
@@ -20472,52 +20541,6 @@ import { OrderedList } from "@amsterdam/design-system-react/src";</code></pre>
       &lt;OrderedList.Item key={3}&gt;Drie&lt;/OrderedList.Item&gt;,
       &lt;OrderedList.Item key={2}&gt;Twee&lt;/OrderedList.Item&gt;,
       &lt;OrderedList.Item key={1}&gt;Eén&lt;/OrderedList.Item&gt;,
-    ]}&lt;/OrderedList&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Without Markers</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithoutMarkers = () =&gt; &lt;OrderedList className=&quot;ams-gap-xl&quot; markers={false}&gt;{[
-      &lt;OrderedList.Item key={1}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Weg met steen, hallo extra groen en koelte&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de
-            stad in de zomer. Een paar voorbeelden.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;16 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/OrderedList.Item&gt;,
-      &lt;OrderedList.Item key={2}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Amsterdam bindt de strijd aan met lawaaierige voertuigen&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
-            motoren en auto’s tegen te gaan.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;10 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/OrderedList.Item&gt;,
-      &lt;OrderedList.Item key={3}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Een prachtroute door de wonderlijke Baarsjes&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit
-            en laten zien hoe het was en hoe het nu is.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;8 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/OrderedList.Item&gt;,
     ]}&lt;/OrderedList&gt;;</code></pre>
             </div>
             <div class="note ok">
@@ -20613,16 +20636,11 @@ Use the HTML attribute `reversed`.
 
 ### Without markers
 
-An overview of search results can be seen as an ordered list.
-In such cases, apply the list semantics while hiding markers.
-This helps screen readers understand and navigate the list.
+Set `markers` to false where a group of items reads as a list but should not show its numbers.
+The list keeps its `ol` and `li` elements, so a screen reader still announces it as a list and reports how many items it holds, while the numbers stay out of the way.
+Its items then hold blocks rather than sentences, so the list defines no typography and the `color` prop has no effect.
 
-Note: each item typically contains a container with headings and other text components in this variant.
-Therefore, it does not define typography for the items and the `color` prop has no effect.
-
-For example, here are three news articles:
-
-&lt;Canvas of={OrderedListStories.WithoutMarkers} /&gt;
+For a set of Cards laid out across the page, make the [Grid](/docs/components-layout-grid--docs) or a Grid Subgrid the list instead.
 
 ### Inverse colour
 
@@ -31640,28 +31658,35 @@ export const Default: StoryObj = {
           {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
           &lt;Paragraph role=&quot;status&quot;&gt;62 resultaten gevonden voor ‘veiligheid’&lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-          {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
-          &lt;Card&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Actiecentrum Veiligheid en Zorg&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Top 400/600&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Column gap=&quot;small&quot;&gt;
-              &lt;Paragraph&gt;
-                Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
-                vanuit het Actiecentrum Veiligheid en Zorg verschillende aanpakken op het snijvlak van veiligheid,
-                zorg en het sociaal domein.
-              &lt;/Paragraph&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;
-                {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                &lt;time dateTime=&quot;2023-07-01&quot;&gt;1 juli 2023&lt;/time&gt;
-              &lt;/Paragraph&gt;
-            &lt;/Column&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        {/* … one Cell per result … */}
+        {/*
+         * The results are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the results.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
+         */}
+        &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
+            {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
+            &lt;Card&gt;
+              &lt;Card.HeadingGroup tagline=&quot;Actiecentrum Veiligheid en Zorg&quot;&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;Top 400/600&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Column gap=&quot;small&quot;&gt;
+                &lt;Paragraph&gt;
+                  Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
+                  vanuit het Actiecentrum Veiligheid en Zorg verschillende aanpakken op het snijvlak van veiligheid,
+                  zorg en het sociaal domein.
+                &lt;/Paragraph&gt;
+                &lt;Paragraph size=&quot;small&quot;&gt;
+                  {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                  &lt;time dateTime=&quot;2023-07-01&quot;&gt;1 juli 2023&lt;/time&gt;
+                &lt;/Paragraph&gt;
+              &lt;/Column&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          {/* … one Cell per result … */}
+        &lt;/Grid.Subgrid&gt;
         {/* The Pagination takes the width of the results above it rather than that of the region. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
           &lt;Pagination accessibleNameId=&quot;paginering&quot; linkTemplate={(page) =&gt; \`?pagina=\${page}\`} page={1} totalPages={8} /&gt;
@@ -31751,25 +31776,32 @@ export const Default: StoryObj = {
                 {totalResults} resultaten gevonden voor ‘{searchTerm}’
               &lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
-            {searchResults.map((result) =&gt; (
-              &lt;Grid.Cell key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-                {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
-                &lt;Card&gt;
-                  &lt;Card.HeadingGroup tagline={result.section}&gt;
-                    &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
-                    &lt;/Card.Heading&gt;
-                  &lt;/Card.HeadingGroup&gt;
-                  &lt;Column gap=&quot;small&quot;&gt;
-                    &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
-                    &lt;Paragraph size=&quot;small&quot;&gt;
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                    &lt;/Paragraph&gt;
-                  &lt;/Column&gt;
-                &lt;/Card&gt;
-              &lt;/Grid.Cell&gt;
-            ))}
+            {/*
+             * The results are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the results.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
+             */}
+            &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+              {searchResults.map((result) =&gt; (
+                &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
+                  {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
+                  &lt;Card&gt;
+                    &lt;Card.HeadingGroup tagline={result.section}&gt;
+                      &lt;Card.Heading level={3}&gt;
+                        &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                      &lt;/Card.Heading&gt;
+                    &lt;/Card.HeadingGroup&gt;
+                    &lt;Column gap=&quot;small&quot;&gt;
+                      &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
+                      &lt;Paragraph size=&quot;small&quot;&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
+                      &lt;/Paragraph&gt;
+                    &lt;/Column&gt;
+                  &lt;/Card&gt;
+                &lt;/Grid.Cell&gt;
+              ))}
+            &lt;/Grid.Subgrid&gt;
             {/* The Pagination takes the width of the results above it rather than that of the region. */}
             &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
               &lt;Pagination
@@ -31909,25 +31941,32 @@ export const Default: StoryObj = {
               {totalResults} resultaten gevonden voor ‘{searchTerm}’
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
-          {searchResults.map((result) =&gt; (
-            &lt;Grid.Cell key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-              {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
-              &lt;Card&gt;
-                &lt;Card.HeadingGroup tagline={result.section}&gt;
-                  &lt;Card.Heading level={3}&gt;
-                    &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
-                  &lt;/Card.Heading&gt;
-                &lt;/Card.HeadingGroup&gt;
-                &lt;Column gap=&quot;small&quot;&gt;
-                  &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
-                  &lt;Paragraph size=&quot;small&quot;&gt;
-                    {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                    &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                  &lt;/Paragraph&gt;
-                &lt;/Column&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-          ))}
+          {/*
+           * The results are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+           * The result count above and the Pagination below stay outside it; neither is one of the results.
+           * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
+           */}
+          &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+            {searchResults.map((result) =&gt; (
+              &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
+                {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
+                &lt;Card&gt;
+                  &lt;Card.HeadingGroup tagline={result.section}&gt;
+                    &lt;Card.Heading level={3}&gt;
+                      &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                    &lt;/Card.Heading&gt;
+                  &lt;/Card.HeadingGroup&gt;
+                  &lt;Column gap=&quot;small&quot;&gt;
+                    &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
+                    &lt;Paragraph size=&quot;small&quot;&gt;
+                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                      &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
+                    &lt;/Paragraph&gt;
+                  &lt;/Column&gt;
+                &lt;/Card&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+          &lt;/Grid.Subgrid&gt;
           {/* The Pagination takes the width of the results above it rather than that of the region. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
             &lt;Pagination
@@ -32000,6 +32039,7 @@ Keep it out of the filter form as well: nesting one `form` inside another is inv
 
 Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) and announce the total in a `role=&quot;status&quot;` paragraph, as on any index page.
 Name the term that was searched for in that sentence, so it is clear what produced the list.
+The Cards take a `ul` Subgrid of their own inside that one, as on the [News Overview Page](/docs/pages-public-news-overview-page--docs).
 
 The page title is the only Heading 1, and it names the activity rather than the query.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
@@ -36320,7 +36360,7 @@ The invalid styling responds to `aria-invalid=&quot;true&quot;` and to the brows
       <div class="badges">
         <label for="c-84-components-text-unordered-list-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-84-components-text-unordered-list-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-84-components-text-unordered-list-stories" class="badge ok as-toggle">4 stories</label>
         <label for="c-84-components-text-unordered-list-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -36376,8 +36416,7 @@ size?: &quot;small&quot;</code></pre>
                 <div class="row">
                   <span class="ex-name">Imports</span>
                 </div>
-                <pre><code>import { Card, Paragraph } from "@amsterdam/design-system-react";
-import { UnorderedList } from "@amsterdam/design-system-react/src";</code></pre>
+                <pre><code>import { UnorderedList } from "@amsterdam/design-system-react/src";</code></pre>
               </div>
           
           
@@ -36414,52 +36453,6 @@ import { UnorderedList } from "@amsterdam/design-system-react/src";</code></pre>
         &lt;/UnorderedList&gt;
     &lt;/UnorderedList.Item&gt;
 &lt;/UnorderedList&gt;;</code></pre>
-            </div>
-            <div class="note ok">
-              <div class="row">
-                <span class="ex-name">Without Markers</span>
-                <span class="badge ok">story ok</span>
-              </div>
-              
-              
-              <pre><code>const WithoutMarkers = () =&gt; &lt;UnorderedList className=&quot;ams-gap-xl&quot; markers={false}&gt;{[
-      &lt;UnorderedList.Item key={1}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Weg met steen, hallo extra groen en koelte&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            Sinds 2021 kwamen er maar liefst 60 nieuwe groene plekken bij in de stad. Groen is fijn en het verkoelt de
-            stad in de zomer. Een paar voorbeelden.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;16 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/UnorderedList.Item&gt;,
-      &lt;UnorderedList.Item key={2}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Amsterdam bindt de strijd aan met lawaaierige voertuigen&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            Deze zomer testen we of digitale borden langs de weg kunnen helpen om geluidsoverlast van voertuigen zoals
-            motoren en auto’s tegen te gaan.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;10 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/UnorderedList.Item&gt;,
-      &lt;UnorderedList.Item key={3}&gt;
-        &lt;Card&gt;
-          &lt;Card.Heading level={2}&gt;
-            &lt;Card.Link href=&quot;#&quot;&gt;Een prachtroute door de wonderlijke Baarsjes&lt;/Card.Link&gt;
-          &lt;/Card.Heading&gt;
-          &lt;Paragraph&gt;
-            In de Baarsjes zijn kunst en cultuur met elkaar vervlochten. We zetten een prachtige wandelroute voor u uit
-            en laten zien hoe het was en hoe het nu is.
-          &lt;/Paragraph&gt;
-          &lt;Paragraph size=&quot;small&quot;&gt;8 augustus 2023&lt;/Paragraph&gt;
-        &lt;/Card&gt;
-      &lt;/UnorderedList.Item&gt;,
-    ]}&lt;/UnorderedList&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -36541,16 +36534,11 @@ It is left-aligned with the text of the higher-level item.
 
 ### Without markers
 
-An overview of articles can be seen as an unordered list.
-In such cases, apply the list semantics while hiding markers.
-This helps screen readers understand and navigate the list.
+Set `markers` to false where a group of items reads as a list but should not look like one.
+The list keeps its `ul` and `li` elements, so a screen reader still announces it as a list and reports how many items it holds, while the markers stay out of the way.
+Its items then hold blocks rather than sentences, so the list defines no typography and the `color` prop has no effect.
 
-Note: each item typically contains a container with headings and other text components in this variant.
-Therefore, it does not define typography for the items and the `color` prop has no effect.
-
-For example, here are three news articles:
-
-&lt;Canvas of={UnorderedListStories.WithoutMarkers} /&gt;
+For a set of Cards laid out across the page, make the [Grid](/docs/components-layout-grid--docs) or a Grid Subgrid the list instead.
 
 ### Inverse colour
 
@@ -39589,7 +39577,12 @@ const meta = {
             {topTaskSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        {/*
+         * A set of Cards is a list, so the Subgrid renders a ul and every Cell in it an li. A screen reader
+         * then announces how many there are and which one it is on. This only works where the Subgrid holds
+         * the Cards alone.
+         */}
+        &lt;Grid.Subgrid as=&quot;ul&quot; className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {/*
            * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
            * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -39598,7 +39591,7 @@ const meta = {
            * both the wide and medium grids, and stack on the narrow one.
            */}
           {topTaskSection.tasks.map(({ title, description }) =&gt; (
-            &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+            &lt;Grid.Cell as=&quot;li&quot; key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
               &lt;Card&gt;
                 {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
                 &lt;Card.Heading level={3}&gt;
@@ -39639,9 +39632,9 @@ const meta = {
             {newsSection.title}
           &lt;/Heading&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+        &lt;Grid.Subgrid as=&quot;ul&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
           {newsSection.items.map(({ title, description, image }) =&gt; (
-            &lt;Grid.Cell key={title} span={4}&gt;
+            &lt;Grid.Cell as=&quot;li&quot; key={title} span={4}&gt;
               &lt;Card&gt;
                 {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
                 &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
@@ -39690,7 +39683,12 @@ export const Default: StoryObj = {
       {/* Second level in the outline (the hidden h1 is first), shown at the largest size. */}
       &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{topTaskSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+    {/*
+     * A set of Cards is a list, so the Subgrid renders a ul and every Cell in it an li. A screen reader then
+     * announces how many there are and which one it is on. This only works where the Subgrid holds the
+     * Cards alone.
+     */}
+    &lt;Grid.Subgrid as=&quot;ul&quot; className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       {/*
        * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
        * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -39699,7 +39697,7 @@ export const Default: StoryObj = {
        * both the wide and medium grids, and stack on the narrow one.
        */}
       {topTaskSection.tasks.map(({ title, description }) =&gt; (
-        &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+        &lt;Grid.Cell as=&quot;li&quot; key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
           &lt;Card&gt;
             {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
             &lt;Card.Heading level={3}&gt;
@@ -39734,9 +39732,9 @@ export const Default: StoryObj = {
     &lt;Grid.Cell span=&quot;all&quot;&gt;
       &lt;Heading className=&quot;ams-mb-m&quot; level={2} size=&quot;level-1&quot;&gt;{newsSection.title}&lt;/Heading&gt;
     &lt;/Grid.Cell&gt;
-    &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+    &lt;Grid.Subgrid as=&quot;ul&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
       {newsSection.items.map(({ title, description, image }) =&gt; (
-        &lt;Grid.Cell key={title} span={4}&gt;
+        &lt;Grid.Cell as=&quot;li&quot; key={title} span={4}&gt;
           &lt;Card&gt;
             {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
             &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
@@ -39817,7 +39815,12 @@ export const Default: StoryObj = {
           {topTaskSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Subgrid className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      {/*
+       * A set of Cards is a list, so the Subgrid renders a ul and every Cell in it an li. A screen reader
+       * then announces how many there are and which one it is on. This only works where the Subgrid holds
+       * the Cards alone.
+       */}
+      &lt;Grid.Subgrid as=&quot;ul&quot; className=&quot;ams-mb-l&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {/*
          * Cells flow from the left in source order, so no section here needs a start. On the wide grid the top
          * tasks fit four to a row at {{ narrow: 4, medium: 4, wide: 3 }} and three preview cards at span={4}
@@ -39826,7 +39829,7 @@ export const Default: StoryObj = {
          * both the wide and medium grids, and stack on the narrow one.
          */}
         {topTaskSection.tasks.map(({ title, description }) =&gt; (
-          &lt;Grid.Cell key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
+          &lt;Grid.Cell as=&quot;li&quot; key={title} span={{ narrow: 4, medium: 4, wide: 3 }}&gt;
             &lt;Card&gt;
               {/* Card.Link stretches over the whole Card, so the entire Card is one clickable link. */}
               &lt;Card.Heading level={3}&gt;
@@ -39867,9 +39870,9 @@ export const Default: StoryObj = {
           {newsSection.title}
         &lt;/Heading&gt;
       &lt;/Grid.Cell&gt;
-      &lt;Grid.Subgrid gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
+      &lt;Grid.Subgrid as=&quot;ul&quot; gapVertical=&quot;x-large&quot; span=&quot;all&quot;&gt;
         {newsSection.items.map(({ title, description, image }) =&gt; (
-          &lt;Grid.Cell key={title} span={4}&gt;
+          &lt;Grid.Cell as=&quot;li&quot; key={title} span={4}&gt;
             &lt;Card&gt;
               {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
               &lt;Card.Image alt=&quot;&quot; src={image} /&gt;
@@ -39959,6 +39962,9 @@ The highlights band belongs to the page&#39;s own content, so its Spotlight stay
 On the Article Page the comparable band sits outside `main` as a named aside, because there it accompanies the article rather than being part of it.
 
 Card images take an empty `alt`: the heading and link beside them already name what they point at.
+
+The top tasks and the news previews are each a list in the markup: their Subgrid renders a `ul` and every Cell in it an `li`.
+A screen reader then announces how many Cards the set holds and which one it is on, and can skip past them all at once.
 
 ## See also
 
@@ -44998,34 +45004,41 @@ export const Default: StoryObj = {
           &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
         {/*
-         * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-         * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+         * The articles are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the articles.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
          */}
-        &lt;Grid.Cell span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-          &lt;Card&gt;
-            {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-            &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/122/640/360&quot; /&gt;
-            {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-            &lt;Card.Content&gt;
-              &lt;Card.HeadingGroup tagline=&quot;Algemeen, Centrum, Werkzaamheden&quot;&gt;
-                &lt;Card.Heading level={3}&gt;
-                  &lt;Card.Link href=&quot;#&quot;&gt;Berlagebrug een aantal nachten dicht&lt;/Card.Link&gt;
-                &lt;/Card.Heading&gt;
-              &lt;/Card.HeadingGroup&gt;
-              &lt;Column gap=&quot;small&quot;&gt;
-                &lt;Paragraph&gt;
-                  Tussen 3 juni en 21 juli leggen we het tramspoor op de Berlagebrug aan. De brug is ongeveer 12
-                  nachten dicht voor gemotoriseerd verkeer en in 3 nachten voor al het verkeer.
-                &lt;/Paragraph&gt;
-                &lt;Paragraph size=&quot;small&quot;&gt;
-                  {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                  &lt;time dateTime=&quot;2023-10-20&quot;&gt;20 oktober 2023&lt;/time&gt;
-                &lt;/Paragraph&gt;
-              &lt;/Column&gt;
-            &lt;/Card.Content&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        {/* … one Cell per article … */}
+        &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+          {/*
+           * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+           * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+           */}
+          &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+            &lt;Card&gt;
+              {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+              &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src=&quot;https://picsum.photos/id/122/640/360&quot; /&gt;
+              {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+              &lt;Card.Content&gt;
+                &lt;Card.HeadingGroup tagline=&quot;Algemeen, Centrum, Werkzaamheden&quot;&gt;
+                  &lt;Card.Heading level={3}&gt;
+                    &lt;Card.Link href=&quot;#&quot;&gt;Berlagebrug een aantal nachten dicht&lt;/Card.Link&gt;
+                  &lt;/Card.Heading&gt;
+                &lt;/Card.HeadingGroup&gt;
+                &lt;Column gap=&quot;small&quot;&gt;
+                  &lt;Paragraph&gt;
+                    Tussen 3 juni en 21 juli leggen we het tramspoor op de Berlagebrug aan. De brug is ongeveer 12
+                    nachten dicht voor gemotoriseerd verkeer en in 3 nachten voor al het verkeer.
+                  &lt;/Paragraph&gt;
+                  &lt;Paragraph size=&quot;small&quot;&gt;
+                    {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                    &lt;time dateTime=&quot;2023-10-20&quot;&gt;20 oktober 2023&lt;/time&gt;
+                  &lt;/Paragraph&gt;
+                &lt;/Column&gt;
+              &lt;/Card.Content&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          {/* … one Cell per article … */}
+        &lt;/Grid.Subgrid&gt;
         &lt;Grid.Cell span=&quot;all&quot;&gt;
           &lt;Pagination
             accessibleNameId=&quot;paginering&quot;
@@ -45137,32 +45150,39 @@ export const Default: StoryObj = {
               &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
             {/*
-             * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-             * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+             * The articles are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the articles.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
              */}
-            {newsArticles.map((article) =&gt; (
-              &lt;Grid.Cell key={article.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-                &lt;Card&gt;
-                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={article.imageSource} /&gt;
-                  {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-                  &lt;Card.Content&gt;
-                    &lt;Card.HeadingGroup tagline={article.category}&gt;
-                      &lt;Card.Heading level={3}&gt;
-                        &lt;Card.Link href=&quot;#&quot;&gt;{article.title}&lt;/Card.Link&gt;
-                      &lt;/Card.Heading&gt;
-                    &lt;/Card.HeadingGroup&gt;
-                    &lt;Column gap=&quot;small&quot;&gt;
-                      &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
-                      &lt;Paragraph size=&quot;small&quot;&gt;
-                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                        &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                      &lt;/Paragraph&gt;
-                    &lt;/Column&gt;
-                  &lt;/Card.Content&gt;
-                &lt;/Card&gt;
-              &lt;/Grid.Cell&gt;
-            ))}
+            &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+              {/*
+               * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+               * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+               */}
+              {newsArticles.map((article) =&gt; (
+                &lt;Grid.Cell as=&quot;li&quot; key={article.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+                  &lt;Card&gt;
+                    {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                    &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={article.imageSource} /&gt;
+                    {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+                    &lt;Card.Content&gt;
+                      &lt;Card.HeadingGroup tagline={article.category}&gt;
+                        &lt;Card.Heading level={3}&gt;
+                          &lt;Card.Link href=&quot;#&quot;&gt;{article.title}&lt;/Card.Link&gt;
+                        &lt;/Card.Heading&gt;
+                      &lt;/Card.HeadingGroup&gt;
+                      &lt;Column gap=&quot;small&quot;&gt;
+                        &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
+                        &lt;Paragraph size=&quot;small&quot;&gt;
+                          {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                          &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
+                        &lt;/Paragraph&gt;
+                      &lt;/Column&gt;
+                    &lt;/Card.Content&gt;
+                  &lt;/Card&gt;
+                &lt;/Grid.Cell&gt;
+              ))}
+            &lt;/Grid.Subgrid&gt;
             &lt;Grid.Cell span=&quot;all&quot;&gt;
               &lt;Pagination
                 accessibleNameId=&quot;paginering&quot;
@@ -45319,32 +45339,39 @@ export const Default: StoryObj = {
             &lt;Paragraph role=&quot;status&quot;&gt;{resultsMessage}&lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
           {/*
-           * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
-           * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+           * The articles are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+           * The result count above and the Pagination below stay outside it; neither is one of the articles.
+           * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
            */}
-          {newsArticles.map((article) =&gt; (
-            &lt;Grid.Cell key={article.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
-              &lt;Card&gt;
-                {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
-                &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={article.imageSource} /&gt;
-                {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
-                &lt;Card.Content&gt;
-                  &lt;Card.HeadingGroup tagline={article.category}&gt;
-                    &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href=&quot;#&quot;&gt;{article.title}&lt;/Card.Link&gt;
-                    &lt;/Card.Heading&gt;
-                  &lt;/Card.HeadingGroup&gt;
-                  &lt;Column gap=&quot;small&quot;&gt;
-                    &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
-                    &lt;Paragraph size=&quot;small&quot;&gt;
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
-                    &lt;/Paragraph&gt;
-                  &lt;/Column&gt;
-                &lt;/Card.Content&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-          ))}
+          &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+            {/*
+             * On the medium Grid a Card takes 4 of the 5 columns of the results region, leaving the last one
+             * empty. That is below the width at which a Card with an image goes horizontal, so it stays vertical.
+             */}
+            {newsArticles.map((article) =&gt; (
+              &lt;Grid.Cell as=&quot;li&quot; key={article.id} span={{ narrow: 4, medium: 4, wide: 9 }}&gt;
+                &lt;Card&gt;
+                  {/* Screen readers skip a Card’s image, so only use a decorative one with an empty alt. */}
+                  &lt;Card.Image alt=&quot;&quot; loading=&quot;lazy&quot; src={article.imageSource} /&gt;
+                  {/* A Card that pairs an image with a Content lays out horizontally in a cell this wide. */}
+                  &lt;Card.Content&gt;
+                    &lt;Card.HeadingGroup tagline={article.category}&gt;
+                      &lt;Card.Heading level={3}&gt;
+                        &lt;Card.Link href=&quot;#&quot;&gt;{article.title}&lt;/Card.Link&gt;
+                      &lt;/Card.Heading&gt;
+                    &lt;/Card.HeadingGroup&gt;
+                    &lt;Column gap=&quot;small&quot;&gt;
+                      &lt;Paragraph&gt;{article.teaser}&lt;/Paragraph&gt;
+                      &lt;Paragraph size=&quot;small&quot;&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={article.isoDate}&gt;{article.date}&lt;/time&gt;
+                      &lt;/Paragraph&gt;
+                    &lt;/Column&gt;
+                  &lt;/Card.Content&gt;
+                &lt;/Card&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+          &lt;/Grid.Subgrid&gt;
           &lt;Grid.Cell span=&quot;all&quot;&gt;
             &lt;Pagination
               accessibleNameId=&quot;paginering&quot;
@@ -45418,6 +45445,9 @@ Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) rather t
 A Subgrid hands the columns it spans to its own children, so the Cells inside it sit on the columns of the page.
 Without it the results have no columns of their own, and nothing in them can line up with the rest of the page.
 
+The articles are a list, so give them a Subgrid of their own inside that one: a `ul` with every Cell in it an `li`.
+The sentence announcing the total and the Pagination are not part of that list, so they stay outside it.
+
 Announce the number of results in a `role=&quot;status&quot;` paragraph, and name the filters that produced it.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
 
@@ -45457,6 +45487,9 @@ The heading of the filter column is hidden visually but not from assistive techn
 
 The number of results is announced in a `role=&quot;status&quot;` paragraph that names the filters which produced it.
 A visitor using a screen reader otherwise has no way to tell that ticking a checkbox changed anything.
+
+The articles are a list in the markup as well as on screen.
+A screen reader then announces how many there are and which one it is on, and can skip past them all at once.
 
 ## See also
 
@@ -52358,28 +52391,35 @@ export const Default: StoryObj = {
           {/* A polite live region, so a screen reader hears the new total when the search or the filters change. */}
           &lt;Paragraph role=&quot;status&quot;&gt;62 resultaten gevonden voor ‘veiligheid’&lt;/Paragraph&gt;
         &lt;/Grid.Cell&gt;
-        &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-          {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
-          &lt;Card&gt;
-            &lt;Card.HeadingGroup tagline=&quot;Actiecentrum Veiligheid en Zorg&quot;&gt;
-              &lt;Card.Heading level={3}&gt;
-                &lt;Card.Link href=&quot;#&quot;&gt;Top 400/600&lt;/Card.Link&gt;
-              &lt;/Card.Heading&gt;
-            &lt;/Card.HeadingGroup&gt;
-            &lt;Column gap=&quot;small&quot;&gt;
-              &lt;Paragraph&gt;
-                Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
-                vanuit het Actiecentrum Veiligheid en Zorg verschillende aanpakken op het snijvlak van veiligheid,
-                zorg en het sociaal domein.
-              &lt;/Paragraph&gt;
-              &lt;Paragraph size=&quot;small&quot;&gt;
-                {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                &lt;time dateTime=&quot;2023-07-01&quot;&gt;1 juli 2023&lt;/time&gt;
-              &lt;/Paragraph&gt;
-            &lt;/Column&gt;
-          &lt;/Card&gt;
-        &lt;/Grid.Cell&gt;
-        {/* … one Cell per result … */}
+        {/*
+         * The results are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+         * The result count above and the Pagination below stay outside it; neither is one of the results.
+         * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
+         */}
+        &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+          &lt;Grid.Cell as=&quot;li&quot; span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
+            {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
+            &lt;Card&gt;
+              &lt;Card.HeadingGroup tagline=&quot;Actiecentrum Veiligheid en Zorg&quot;&gt;
+                &lt;Card.Heading level={3}&gt;
+                  &lt;Card.Link href=&quot;#&quot;&gt;Top 400/600&lt;/Card.Link&gt;
+                &lt;/Card.Heading&gt;
+              &lt;/Card.HeadingGroup&gt;
+              &lt;Column gap=&quot;small&quot;&gt;
+                &lt;Paragraph&gt;
+                  Om de stad veiliger te maken coördineert de gemeente, samen met haar maatschappelijke partners,
+                  vanuit het Actiecentrum Veiligheid en Zorg verschillende aanpakken op het snijvlak van veiligheid,
+                  zorg en het sociaal domein.
+                &lt;/Paragraph&gt;
+                &lt;Paragraph size=&quot;small&quot;&gt;
+                  {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                  &lt;time dateTime=&quot;2023-07-01&quot;&gt;1 juli 2023&lt;/time&gt;
+                &lt;/Paragraph&gt;
+              &lt;/Column&gt;
+            &lt;/Card&gt;
+          &lt;/Grid.Cell&gt;
+          {/* … one Cell per result … */}
+        &lt;/Grid.Subgrid&gt;
         {/* The Pagination takes the width of the results above it rather than that of the region. */}
         &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
           &lt;Pagination accessibleNameId=&quot;paginering&quot; linkTemplate={(page) =&gt; \`?pagina=\${page}\`} page={1} totalPages={8} /&gt;
@@ -52469,25 +52509,32 @@ export const Default: StoryObj = {
                 {totalResults} resultaten gevonden voor ‘{searchTerm}’
               &lt;/Paragraph&gt;
             &lt;/Grid.Cell&gt;
-            {searchResults.map((result) =&gt; (
-              &lt;Grid.Cell key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-                {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
-                &lt;Card&gt;
-                  &lt;Card.HeadingGroup tagline={result.section}&gt;
-                    &lt;Card.Heading level={3}&gt;
-                      &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
-                    &lt;/Card.Heading&gt;
-                  &lt;/Card.HeadingGroup&gt;
-                  &lt;Column gap=&quot;small&quot;&gt;
-                    &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
-                    &lt;Paragraph size=&quot;small&quot;&gt;
-                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                      &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                    &lt;/Paragraph&gt;
-                  &lt;/Column&gt;
-                &lt;/Card&gt;
-              &lt;/Grid.Cell&gt;
-            ))}
+            {/*
+             * The results are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+             * The result count above and the Pagination below stay outside it; neither is one of the results.
+             * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
+             */}
+            &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+              {searchResults.map((result) =&gt; (
+                &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
+                  {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
+                  &lt;Card&gt;
+                    &lt;Card.HeadingGroup tagline={result.section}&gt;
+                      &lt;Card.Heading level={3}&gt;
+                        &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                      &lt;/Card.Heading&gt;
+                    &lt;/Card.HeadingGroup&gt;
+                    &lt;Column gap=&quot;small&quot;&gt;
+                      &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
+                      &lt;Paragraph size=&quot;small&quot;&gt;
+                        {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                        &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
+                      &lt;/Paragraph&gt;
+                    &lt;/Column&gt;
+                  &lt;/Card&gt;
+                &lt;/Grid.Cell&gt;
+              ))}
+            &lt;/Grid.Subgrid&gt;
             {/* The Pagination takes the width of the results above it rather than that of the region. */}
             &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
               &lt;Pagination
@@ -52627,25 +52674,32 @@ export const Default: StoryObj = {
               {totalResults} resultaten gevonden voor ‘{searchTerm}’
             &lt;/Paragraph&gt;
           &lt;/Grid.Cell&gt;
-          {searchResults.map((result) =&gt; (
-            &lt;Grid.Cell key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
-              {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
-              &lt;Card&gt;
-                &lt;Card.HeadingGroup tagline={result.section}&gt;
-                  &lt;Card.Heading level={3}&gt;
-                    &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
-                  &lt;/Card.Heading&gt;
-                &lt;/Card.HeadingGroup&gt;
-                &lt;Column gap=&quot;small&quot;&gt;
-                  &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
-                  &lt;Paragraph size=&quot;small&quot;&gt;
-                    {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
-                    &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
-                  &lt;/Paragraph&gt;
-                &lt;/Column&gt;
-              &lt;/Card&gt;
-            &lt;/Grid.Cell&gt;
-          ))}
+          {/*
+           * The results are a list, so they get a Subgrid of their own: a ul with every Cell in it an li.
+           * The result count above and the Pagination below stay outside it; neither is one of the results.
+           * A Subgrid inside a Subgrid still hands down the columns of the page, and takes the same row gap.
+           */}
+          &lt;Grid.Subgrid as=&quot;ul&quot; span=&quot;all&quot;&gt;
+            {searchResults.map((result) =&gt; (
+              &lt;Grid.Cell as=&quot;li&quot; key={result.id} span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
+                {/* A search result has no image, so this Card needs no Card Content and stays vertical at any width. */}
+                &lt;Card&gt;
+                  &lt;Card.HeadingGroup tagline={result.section}&gt;
+                    &lt;Card.Heading level={3}&gt;
+                      &lt;Card.Link href=&quot;#&quot;&gt;{result.title}&lt;/Card.Link&gt;
+                    &lt;/Card.Heading&gt;
+                  &lt;/Card.HeadingGroup&gt;
+                  &lt;Column gap=&quot;small&quot;&gt;
+                    &lt;Paragraph&gt;{result.teaser}&lt;/Paragraph&gt;
+                    &lt;Paragraph size=&quot;small&quot;&gt;
+                      {/* The visible date is prose; dateTime repeats it in the machine-readable format software parses. */}
+                      &lt;time dateTime={result.isoDate}&gt;{result.date}&lt;/time&gt;
+                    &lt;/Paragraph&gt;
+                  &lt;/Column&gt;
+                &lt;/Card&gt;
+              &lt;/Grid.Cell&gt;
+            ))}
+          &lt;/Grid.Subgrid&gt;
           {/* The Pagination takes the width of the results above it rather than that of the region. */}
           &lt;Grid.Cell span={{ narrow: 4, medium: 5, wide: 7 }}&gt;
             &lt;Pagination
@@ -52718,6 +52772,7 @@ Keep it out of the filter form as well: nesting one `form` inside another is inv
 
 Put the results in a [Grid Subgrid](/docs/components-layout-grid--docs) and announce the total in a `role=&quot;status&quot;` paragraph, as on any index page.
 Name the term that was searched for in that sentence, so it is clear what produced the list.
+The Cards take a `ul` Subgrid of their own inside that one, as on the [News Overview Page](/docs/pages-public-news-overview-page--docs).
 
 The page title is the only Heading 1, and it names the activity rather than the query.
 The filter column and the list of results each take a Heading 2, and the title of every result is a Heading 3.
@@ -56832,6 +56887,11 @@ The Subgrid hands its columns to its own Cells, so each block is placed against 
   &lt;/Grid.Subgrid&gt;
 &lt;/Grid&gt;
 ```
+
+Where those blocks hold the same kind of thing – Cards, news items, search results – the set is a list.
+Give the Subgrid `as=&quot;ul&quot;` and each Cell inside it `as=&quot;li&quot;`.
+Keep whatever is not one of the items outside it, such as the heading or a Pagination.
+[Semantic list of cards](/docs/components-layout-grid--docs#semantic-list-of-cards) shows how.
 
 Where two columns run beside one another and one is much taller, give **each column** its own Subgrid instead.
 A Subgrid is a single item in the row of the Grid however many rows it holds, so the columns stack independently rather than a tall block pushing its neighbour down.
